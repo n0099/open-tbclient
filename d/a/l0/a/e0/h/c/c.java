@@ -22,50 +22,50 @@ import java.util.TimeZone;
 public class c implements a.c {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f41541f = k.f43199a;
+    public static final boolean f45217f = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f41542a;
+    public a.b f45218a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocalServerSocket f41543b;
+    public LocalServerSocket f45219b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.l0.a.e0.h.c.a f41544c;
+    public d.a.l0.a.e0.h.c.a f45220c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41545d;
+    public String f45221d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41546e;
+    public boolean f45222e;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, String> f41547a = new HashMap();
+        public Map<String, String> f45223a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41548b;
+        public String f45224b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f41549c;
+        public String f45225c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f41550d;
+        public String f45226d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f41551e;
+        public boolean f45227e;
     }
 
     /* loaded from: classes2.dex */
     public static abstract class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public a f41552a;
+        public a f45228a;
 
         public b(a aVar) {
-            this.f41552a = aVar;
+            this.f45228a = aVar;
         }
 
         public String a() {
@@ -101,27 +101,27 @@ public class c implements a.c {
     }
 
     public c(String str, a.b bVar) {
-        this.f41545d = str;
-        this.f41542a = bVar;
+        this.f45221d = str;
+        this.f45218a = bVar;
     }
 
     @Override // d.a.l0.a.e0.h.a.c
     public void start() {
-        if (this.f41546e) {
+        if (this.f45222e) {
             return;
         }
         try {
-            this.f41543b = new LocalServerSocket(this.f41545d);
-            this.f41546e = true;
+            this.f45219b = new LocalServerSocket(this.f45221d);
+            this.f45222e = true;
             int i2 = 0;
-            while (this.f41546e) {
-                LocalSocket accept = this.f41543b.accept();
+            while (this.f45222e) {
+                LocalSocket accept = this.f45219b.accept();
                 d.a.l0.a.e0.h.c.a aVar = new d.a.l0.a.e0.h.c.a(accept.getInputStream(), accept.getOutputStream());
-                this.f41544c = aVar;
-                aVar.o(this.f41542a);
-                ExecutorUtilsExt.postOnSerial(this.f41544c, "V8InspectorServer");
+                this.f45220c = aVar;
+                aVar.o(this.f45218a);
+                ExecutorUtilsExt.postOnSerial(this.f45220c, "V8InspectorServer");
                 if (d.a.l0.a.u1.a.a.G() && (i2 = i2 + 1) > 10) {
-                    if (f41541f) {
+                    if (f45217f) {
                         Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
                         return;
                     }
@@ -135,21 +135,21 @@ public class c implements a.c {
 
     @Override // d.a.l0.a.e0.h.a.c
     public void stop() {
-        this.f41546e = false;
-        LocalServerSocket localServerSocket = this.f41543b;
+        this.f45222e = false;
+        LocalServerSocket localServerSocket = this.f45219b;
         if (localServerSocket != null) {
             try {
                 localServerSocket.close();
             } catch (IOException e2) {
                 d.a.l0.a.e0.d.c("V8InspectorServer", "stop local server fail", e2);
             }
-            this.f41543b = null;
+            this.f45219b = null;
         }
-        d.a.l0.a.e0.h.c.a aVar = this.f41544c;
+        d.a.l0.a.e0.h.c.a aVar = this.f45220c;
         if (aVar != null) {
             aVar.l();
-            this.f41544c = null;
+            this.f45220c = null;
         }
-        this.f41542a = null;
+        this.f45218a = null;
     }
 }

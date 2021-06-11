@@ -8,7 +8,7 @@ import d.a.l0.a.c1.c.g;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f47984a = b().isDebug();
+    public static boolean f51658a = b().isDebug();
 
     @Inject
     public static d.a.l0.n.j.i.p.a a() {

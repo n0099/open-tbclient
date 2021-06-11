@@ -6,21 +6,26 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final long serialVersionUID = 1941263519515554943L;
     public ShareUrlInfo data = new ShareUrlInfo();
 
-    /* loaded from: classes6.dex */
-    public static class ShareUrlInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+    /* loaded from: classes7.dex */
+    public static class ShareUrlInfo implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -7887599282226106153L;
-        public String mediaShareItem;
         public String shareUrl;
-    }
 
-    public String getMediaShareItem() {
-        ShareUrlInfo shareUrlInfo = this.data;
-        return shareUrlInfo != null ? shareUrlInfo.mediaShareItem : "";
+        public void parseJson(@Nullable JSONObject jSONObject) {
+            this.shareUrl = jSONObject.optString("shareUrl");
+        }
+
+        @Override // com.kwad.sdk.core.b
+        public JSONObject toJson() {
+            JSONObject jSONObject = new JSONObject();
+            o.a(jSONObject, "shareUrl", this.shareUrl);
+            return jSONObject;
+        }
     }
 
     public String getShareUrl() {

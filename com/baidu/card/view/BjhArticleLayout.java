@@ -27,19 +27,19 @@ import d.a.n0.z.m;
 public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnClickListener, q {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4351e;
+    public TextView f4370e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4352f;
+    public TextView f4371f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f4353g;
+    public TbImageView f4372g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f4354h;
+    public View f4373h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f4355i;
+    public a f4374i;
     public float j;
     public float k;
     public float l;
@@ -55,29 +55,29 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         setId(R.id.bjh_content);
         TextView textView = (TextView) findViewById(R.id.title);
-        this.f4351e = textView;
+        this.f4370e = textView;
         c d2 = c.d(textView);
         d2.x(R.string.F_X01);
         d2.w(R.dimen.T_X06);
-        this.f4351e.setOnClickListener(this);
+        this.f4370e.setOnClickListener(this);
         TextView textView2 = (TextView) findViewById(R.id.icon);
-        this.f4352f = textView2;
+        this.f4371f = textView2;
         textView2.setOnClickListener(this);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.cover_img);
-        this.f4353g = tbImageView;
+        this.f4372g = tbImageView;
         tbImageView.setPlaceHolder(3);
-        this.f4353g.setOnClickListener(this);
+        this.f4372g.setOnClickListener(this);
         View findViewById = findViewById(R.id.bottom_mask);
-        this.f4354h = findViewById;
+        this.f4373h = findViewById;
         findViewById.setOnClickListener(this);
-        if (this.f4353g.getLayoutParams() != null) {
-            this.f4353g.getLayoutParams().height = (int) (((l.k(getContext()) - (this.l * 2.0f)) / 16.0f) * 9.0f);
+        if (this.f4372g.getLayoutParams() != null) {
+            this.f4372g.getLayoutParams().height = (int) (((l.k(getContext()) - (this.l * 2.0f)) / 16.0f) * 9.0f);
         }
-        this.f4352f.setTranslationY(-this.k);
-        this.f4353g.setDrawCorner(true);
-        this.f4353g.setConrers(15);
-        this.f4353g.setRadiusById(R.string.J_X05);
-        b.k(this.f4351e, R.dimen.tbds7, R.dimen.tbds10);
+        this.f4371f.setTranslationY(-this.k);
+        this.f4372g.setDrawCorner(true);
+        this.f4372g.setConrers(15);
+        this.f4372g.setRadiusById(R.string.J_X05);
+        b.k(this.f4370e, R.dimen.tbds7, R.dimen.tbds10);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,46 +85,46 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
     /* renamed from: c */
     public void a(a aVar) {
         OriginalThreadInfo originalThreadInfo;
-        this.f4355i = aVar;
-        a2 m = aVar.m();
-        if (m.t1 && (originalThreadInfo = m.s1) != null) {
+        this.f4374i = aVar;
+        a2 i2 = aVar.i();
+        if (i2.u1 && (originalThreadInfo = i2.t1) != null) {
             if (originalThreadInfo.m) {
                 setVisibility(8);
                 return;
             }
-            m = originalThreadInfo.a();
+            i2 = originalThreadInfo.a();
         }
-        this.f4351e.setText(m.z1());
-        if (StringUtils.isNull(m.R())) {
-            this.f4352f.setVisibility(8);
-            this.f4353g.setVisibility(8);
-            this.f4354h.setVisibility(8);
+        this.f4370e.setText(i2.A1());
+        if (StringUtils.isNull(i2.R())) {
+            this.f4371f.setVisibility(8);
+            this.f4372g.setVisibility(8);
+            this.f4373h.setVisibility(8);
         } else {
-            this.f4352f.setVisibility(0);
-            this.f4353g.setVisibility(0);
-            this.f4354h.setVisibility(0);
-            this.f4353g.V(m.R(), 10, false);
+            this.f4371f.setVisibility(0);
+            this.f4372g.setVisibility(0);
+            this.f4373h.setVisibility(0);
+            this.f4372g.U(i2.R(), 10, false);
         }
-        m.l(this.f4351e, m.o0(), this.f4353g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+        m.l(this.f4370e, i2.o0(), this.f4372g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
     }
 
     public TextView getIcon() {
-        return this.f4352f;
+        return this.f4371f;
     }
 
     public TextView getTitle() {
-        return this.f4351e;
+        return this.f4370e;
     }
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        a aVar = this.f4355i;
-        if (aVar != null && aVar.m() != null) {
-            m.l(this.f4351e, this.f4355i.m().o0(), this.f4353g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+        a aVar = this.f4374i;
+        if (aVar != null && aVar.i() != null) {
+            m.l(this.f4370e, this.f4374i.i().o0(), this.f4372g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
         }
-        SkinManager.setViewTextColor(this.f4352f, R.color.CAM_X0101);
-        TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.j).into(this.f4352f);
-        TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(l.g(getContext(), R.dimen.tbds21)).trRadius(l.g(getContext(), R.dimen.tbds21)).blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.f4354h);
+        SkinManager.setViewTextColor(this.f4371f, R.color.CAM_X0101);
+        TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.j).into(this.f4371f);
+        TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(l.g(getContext(), R.dimen.tbds21)).trRadius(l.g(getContext(), R.dimen.tbds21)).blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.f4373h);
     }
 
     @Override // android.view.View.OnClickListener
@@ -135,7 +135,7 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
         }
         b0<a> b0Var = this.m;
         if (b0Var != null) {
-            b0Var.a(view, this.f4355i);
+            b0Var.a(view, this.f4374i);
         }
     }
 

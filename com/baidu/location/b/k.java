@@ -20,31 +20,31 @@ public class k {
     public static long j = 12000;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f6525a;
+    public e f6568a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f6526b;
+    public Context f6569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f6527c;
+    public WebView f6570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LocationClient f6528d;
+    public LocationClient f6571d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f6529e;
+    public a f6572e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b> f6530f;
+    public List<b> f6573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6531g;
+    public boolean f6574g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f6532h;
+    public long f6575h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BDLocation f6533i;
+    public BDLocation f6576i;
     public f k;
     public boolean l;
 
@@ -87,18 +87,18 @@ public class k {
 
         private void a(String str) {
             if (k.this.l) {
-                k.this.f6529e.removeCallbacks(k.this.k);
+                k.this.f6572e.removeCallbacks(k.this.k);
                 k.this.l = false;
             }
-            if (k.this.f6530f == null || k.this.f6530f.size() <= 0) {
+            if (k.this.f6573f == null || k.this.f6573f.size() <= 0) {
                 return;
             }
-            Iterator it = k.this.f6530f.iterator();
+            Iterator it = k.this.f6573f.iterator();
             while (it.hasNext()) {
                 try {
                     b bVar = (b) it.next();
                     if (bVar.b() != null) {
-                        k.this.f6527c.loadUrl("javascript:" + bVar.b() + "('" + str + "')");
+                        k.this.f6570c.loadUrl("javascript:" + bVar.b() + "('" + str + "')");
                     }
                     it.remove();
                 } catch (Exception unused) {
@@ -119,31 +119,31 @@ public class k {
             switch (message.what) {
                 case 1:
                     b bVar = (b) message.obj;
-                    if (k.this.f6530f != null) {
-                        k.this.f6530f.add(bVar);
+                    if (k.this.f6573f != null) {
+                        k.this.f6573f.add(bVar);
                     }
-                    if (k.this.f6528d == null) {
+                    if (k.this.f6571d == null) {
                         return;
                     }
-                    if (k.this.f6528d.requestLocation() != 0) {
-                        long currentTimeMillis = System.currentTimeMillis() - k.this.f6532h;
-                        if (k.this.f6533i != null && currentTimeMillis <= 10000) {
-                            Message obtainMessage = k.this.f6529e.obtainMessage(2);
-                            obtainMessage.obj = k.this.f6533i;
+                    if (k.this.f6571d.requestLocation() != 0) {
+                        long currentTimeMillis = System.currentTimeMillis() - k.this.f6575h;
+                        if (k.this.f6576i != null && currentTimeMillis <= 10000) {
+                            Message obtainMessage = k.this.f6572e.obtainMessage(2);
+                            obtainMessage.obj = k.this.f6576i;
                             obtainMessage.sendToTarget();
                             z = false;
                             if (z) {
                                 return;
                             }
                             if (k.this.l) {
-                                k.this.f6529e.removeCallbacks(k.this.k);
+                                k.this.f6572e.removeCallbacks(k.this.k);
                                 k.this.l = false;
                             }
                             if (k.this.k == null) {
                                 k kVar = k.this;
                                 kVar.k = new f();
                             }
-                            k.this.f6529e.postDelayed(k.this.k, k.j);
+                            k.this.f6572e.postDelayed(k.this.k, k.j);
                             k.this.l = true;
                             return;
                         }
@@ -156,23 +156,23 @@ public class k {
                     a(a((BDLocation) message.obj));
                     return;
                 case 3:
-                    if (k.this.f6530f == null) {
-                        k.this.f6530f = new ArrayList();
+                    if (k.this.f6573f == null) {
+                        k.this.f6573f = new ArrayList();
                     } else {
-                        k.this.f6530f.clear();
+                        k.this.f6573f.clear();
                     }
-                    k.this.f6528d.registerLocationListener(k.this.f6525a);
+                    k.this.f6571d.registerLocationListener(k.this.f6568a);
                     return;
                 case 4:
-                    if (k.this.f6530f != null) {
-                        k.this.f6530f.clear();
-                        k.this.f6530f = null;
+                    if (k.this.f6573f != null) {
+                        k.this.f6573f.clear();
+                        k.this.f6573f = null;
                     }
-                    k.this.f6528d.unRegisterLocationListener(k.this.f6525a);
-                    k.this.f6532h = 0L;
-                    k.this.f6533i = null;
+                    k.this.f6571d.unRegisterLocationListener(k.this.f6568a);
+                    k.this.f6575h = 0L;
+                    k.this.f6576i = null;
                     if (k.this.k != null && k.this.l) {
-                        k.this.f6529e.removeCallbacks(k.this.k);
+                        k.this.f6572e.removeCallbacks(k.this.k);
                     }
                     k.this.l = false;
                     return;
@@ -209,25 +209,25 @@ public class k {
     public class b {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6536b;
+        public String f6579b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f6537c;
+        public String f6580c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f6538d;
+        public long f6581d;
 
         public b(String str) {
-            this.f6536b = null;
-            this.f6537c = null;
-            this.f6538d = 0L;
+            this.f6579b = null;
+            this.f6580c = null;
+            this.f6581d = 0L;
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("action")) {
-                    this.f6536b = jSONObject.getString("action");
+                    this.f6579b = jSONObject.getString("action");
                 }
                 if (jSONObject.has("callback")) {
-                    this.f6537c = jSONObject.getString("callback");
+                    this.f6580c = jSONObject.getString("callback");
                 }
                 if (jSONObject.has("timeout")) {
                     long j = jSONObject.getLong("timeout");
@@ -235,19 +235,19 @@ public class k {
                         long unused = k.j = j;
                     }
                 }
-                this.f6538d = System.currentTimeMillis();
+                this.f6581d = System.currentTimeMillis();
             } catch (Exception unused2) {
-                this.f6536b = null;
-                this.f6537c = null;
+                this.f6579b = null;
+                this.f6580c = null;
             }
         }
 
         public String a() {
-            return this.f6536b;
+            return this.f6579b;
         }
 
         public String b() {
-            return this.f6537c;
+            return this.f6580c;
         }
     }
 
@@ -255,7 +255,7 @@ public class k {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final k f6539a = new k();
+        public static final k f6582a = new k();
     }
 
     /* loaded from: classes2.dex */
@@ -265,14 +265,14 @@ public class k {
 
         @JavascriptInterface
         public void sendMessage(String str) {
-            if (str == null || !k.this.f6531g) {
+            if (str == null || !k.this.f6574g) {
                 return;
             }
             b bVar = new b(str);
-            if (bVar.a() == null || !bVar.a().equals("requestLoc") || k.this.f6529e == null) {
+            if (bVar.a() == null || !bVar.a().equals("requestLoc") || k.this.f6572e == null) {
                 return;
             }
-            Message obtainMessage = k.this.f6529e.obtainMessage(1);
+            Message obtainMessage = k.this.f6572e.obtainMessage(1);
             obtainMessage.obj = bVar;
             obtainMessage.sendToTarget();
         }
@@ -291,7 +291,7 @@ public class k {
         public void onReceiveLocation(BDLocation bDLocation) {
             Message obtainMessage;
             String str;
-            if (!k.this.f6531g || bDLocation == null) {
+            if (!k.this.f6574g || bDLocation == null) {
                 return;
             }
             BDLocation bDLocation2 = new BDLocation(bDLocation);
@@ -310,12 +310,12 @@ public class k {
                         bDLocation2 = LocationClient.getBDLocationInCoorType(LocationClient.getBDLocationInCoorType(bDLocation2, str), "gcj2wgs");
                     }
                 }
-                k.this.f6532h = System.currentTimeMillis();
-                k.this.f6533i = new BDLocation(bDLocation2);
-                obtainMessage = k.this.f6529e.obtainMessage(2);
+                k.this.f6575h = System.currentTimeMillis();
+                k.this.f6576i = new BDLocation(bDLocation2);
+                obtainMessage = k.this.f6572e.obtainMessage(2);
                 obtainMessage.obj = bDLocation2;
             } else {
-                obtainMessage = k.this.f6529e.obtainMessage(5);
+                obtainMessage = k.this.f6572e.obtainMessage(5);
             }
             obtainMessage.sendToTarget();
         }
@@ -329,25 +329,25 @@ public class k {
         @Override // java.lang.Runnable
         public void run() {
             k.this.l = false;
-            k.this.f6529e.obtainMessage(6).sendToTarget();
+            k.this.f6572e.obtainMessage(6).sendToTarget();
         }
     }
 
     public k() {
-        this.f6526b = null;
-        this.f6528d = null;
-        this.f6525a = new e();
-        this.f6529e = null;
-        this.f6530f = null;
-        this.f6531g = false;
-        this.f6532h = 0L;
-        this.f6533i = null;
+        this.f6569b = null;
+        this.f6571d = null;
+        this.f6568a = new e();
+        this.f6572e = null;
+        this.f6573f = null;
+        this.f6574g = false;
+        this.f6575h = 0L;
+        this.f6576i = null;
         this.k = null;
         this.l = false;
     }
 
     public static k a() {
-        return c.f6539a;
+        return c.f6582a;
     }
 
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
@@ -356,23 +356,23 @@ public class k {
     }
 
     public void a(Context context, WebView webView, LocationClient locationClient) {
-        if (!this.f6531g && Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 17) {
-            this.f6526b = context;
-            this.f6527c = webView;
-            this.f6528d = locationClient;
+        if (!this.f6574g && Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 17) {
+            this.f6569b = context;
+            this.f6570c = webView;
+            this.f6571d = locationClient;
             a aVar = new a(Looper.getMainLooper());
-            this.f6529e = aVar;
+            this.f6572e = aVar;
             aVar.obtainMessage(3).sendToTarget();
             webView.getSettings().setJavaScriptEnabled(true);
-            a(this.f6527c);
-            this.f6531g = true;
+            a(this.f6570c);
+            this.f6574g = true;
         }
     }
 
     public void b() {
-        if (this.f6531g) {
-            this.f6529e.obtainMessage(4).sendToTarget();
-            this.f6531g = false;
+        if (this.f6574g) {
+            this.f6572e.obtainMessage(4).sendToTarget();
+            this.f6574g = false;
         }
     }
 }

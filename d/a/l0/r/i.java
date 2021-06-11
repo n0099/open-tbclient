@@ -7,117 +7,117 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48398a;
+    public String f52072a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48399b;
+    public String f52073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f48400c;
+    public int f52074c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f48401d;
+    public String f52075d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f48402e;
+    public JSONObject f52076e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f48403f;
+    public long f52077f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48404g;
+    public int f52078g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48405h;
+    public String f52079h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48406i;
+    public String f52080i;
     public boolean j;
     public String k;
 
     public i(String str, String str2, int i2) {
-        this.f48401d = "";
+        this.f52075d = "";
         this.j = false;
         this.k = "";
-        this.f48398a = str;
-        this.f48399b = str;
-        this.f48400c = -1;
-        this.f48401d = str2;
-        this.f48404g = i2;
+        this.f52072a = str;
+        this.f52073b = str;
+        this.f52074c = -1;
+        this.f52075d = str2;
+        this.f52078g = i2;
         if ((i2 & 2) == 0) {
-            this.f48403f = System.currentTimeMillis();
+            this.f52077f = System.currentTimeMillis();
         }
         try {
-            this.f48402e = new JSONObject(this.f48401d);
+            this.f52076e = new JSONObject(this.f52075d);
         } catch (JSONException unused) {
         }
     }
 
     public String a() {
-        JSONObject jSONObject = this.f48402e;
+        JSONObject jSONObject = this.f52076e;
         return jSONObject != null ? jSONObject.optString("bizId") : "";
     }
 
     public void b() {
-        String str = this.f48398a;
-        if (str != null && str.equals(this.f48399b) && d.g().a(this.f48398a)) {
-            this.f48405h = e.h().h();
+        String str = this.f52072a;
+        if (str != null && str.equals(this.f52073b) && d.g().a(this.f52072a)) {
+            this.f52079h = e.h().h();
         }
     }
 
     public i(String str, JSONObject jSONObject, int i2) {
-        this.f48401d = "";
+        this.f52075d = "";
         this.j = false;
         this.k = "";
-        this.f48398a = str;
-        this.f48399b = str;
-        this.f48400c = -1;
-        this.f48402e = jSONObject;
-        this.f48404g = i2;
+        this.f52072a = str;
+        this.f52073b = str;
+        this.f52074c = -1;
+        this.f52076e = jSONObject;
+        this.f52078g = i2;
         if ((i2 & 2) == 0) {
-            this.f48403f = System.currentTimeMillis();
+            this.f52077f = System.currentTimeMillis();
         }
     }
 
     public i(String str, String str2, int i2, String str3, int i3) {
-        this.f48401d = "";
+        this.f52075d = "";
         this.j = false;
         this.k = "";
-        this.f48398a = str2;
-        this.f48399b = str;
-        this.f48400c = i2;
-        this.f48401d = str3;
-        this.f48404g = i3;
+        this.f52072a = str2;
+        this.f52073b = str;
+        this.f52074c = i2;
+        this.f52075d = str3;
+        this.f52078g = i3;
         if ((i3 & 2) == 0) {
-            this.f48403f = System.currentTimeMillis();
+            this.f52077f = System.currentTimeMillis();
         }
         try {
-            this.f48402e = new JSONObject(this.f48401d);
+            this.f52076e = new JSONObject(this.f52075d);
         } catch (JSONException unused) {
         }
     }
 
     public i(String str, String str2, int i2, String str3, long j, int i3) {
-        this.f48401d = "";
+        this.f52075d = "";
         this.j = false;
         this.k = "";
-        this.f48398a = str2;
-        this.f48399b = str;
-        this.f48400c = i2;
-        this.f48401d = str3;
-        this.f48404g = i3;
+        this.f52072a = str2;
+        this.f52073b = str;
+        this.f52074c = i2;
+        this.f52075d = str3;
+        this.f52078g = i3;
         if ((i3 & 2) == 0) {
             if (j > 0) {
-                this.f48403f = j;
+                this.f52077f = j;
             } else {
-                this.f48403f = System.currentTimeMillis();
+                this.f52077f = System.currentTimeMillis();
             }
         }
-        if (TextUtils.isEmpty(this.f48401d)) {
+        if (TextUtils.isEmpty(this.f52075d)) {
             return;
         }
         try {
-            this.f48402e = new JSONObject(this.f48401d);
+            this.f52076e = new JSONObject(this.f52075d);
         } catch (JSONException unused) {
         }
     }

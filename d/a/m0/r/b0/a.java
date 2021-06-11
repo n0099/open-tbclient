@@ -34,18 +34,18 @@ public class a {
             return;
         }
         BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-        StatisticItem param = new StatisticItem("c13271").param("obj_type", eVar.f49999g).param("obj_locate", eVar.f50000h).param("obj_id", eVar.f50001i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+        StatisticItem param = new StatisticItem("c13271").param("obj_type", eVar.f53675g).param("obj_locate", eVar.f53676h).param("obj_id", eVar.f53677i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
         if (a2Var != null) {
-            param.param("tid", a2Var.o0()).param("nid", a2Var.M0()).param("fid", a2Var.c0()).param("ab_tag", a2Var.U0).param("recom_source", a2Var.S0).param("weight", a2Var.T0).param("extra", a2Var.V0);
+            param.param("tid", a2Var.o0()).param("nid", a2Var.M0()).param("fid", a2Var.c0()).param("ab_tag", a2Var.V0).param("recom_source", a2Var.T0).param("weight", a2Var.U0).param("extra", a2Var.W0);
             if (a2Var.V() != null) {
                 param.param(TiebaStatic.Params.OBJ_PARAM4, a2Var.V().oriUgcNid);
-                if (a2Var.T1() || a2Var.S1()) {
+                if (a2Var.U1() || a2Var.T1()) {
                     param.param(TiebaStatic.Params.OBJ_PARAM6, a2Var.V().oriUgcVid);
                 }
             }
-            if (a2Var.V1()) {
+            if (a2Var.W1()) {
                 param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
-            } else if (!a2Var.Q1() && !a2Var.T1()) {
+            } else if (!a2Var.R1() && !a2Var.U1()) {
                 int i2 = a2Var.Z;
                 if (i2 == 0 || i2 == 40) {
                     param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
@@ -118,7 +118,7 @@ public class a {
     }
 
     public void d(AgreeData agreeData, d.a.n0.e3.h0.e eVar) {
-        eVar.f53997b = agreeData;
+        eVar.f57686b = agreeData;
         if (agreeData.isInThread) {
             BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
             if (baijiahaoData != null) {

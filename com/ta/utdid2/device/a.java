@@ -3,64 +3,64 @@ package com.ta.utdid2.device;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36153c = "";
+    public String f39832c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36154d = "";
+    public String f39833d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36155e = "";
+    public String f39834e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36156f = "";
+    public String f39835f = "";
 
     /* renamed from: a  reason: collision with root package name */
-    public long f36151a = 0;
+    public long f39830a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36152b = 0;
+    public long f39831b = 0;
 
     public void a(long j) {
-        this.f36152b = j;
+        this.f39831b = j;
     }
 
     public void b(long j) {
-        this.f36151a = j;
+        this.f39830a = j;
     }
 
     public void c(String str) {
-        this.f36156f = str;
+        this.f39835f = str;
     }
 
     public String getDeviceId() {
-        return this.f36155e;
+        return this.f39834e;
     }
 
     public String getImei() {
-        return this.f36153c;
+        return this.f39832c;
     }
 
     public String getImsi() {
-        return this.f36154d;
+        return this.f39833d;
     }
 
     public String getUtdid() {
-        return this.f36156f;
+        return this.f39835f;
     }
 
     public void setImei(String str) {
-        this.f36153c = str;
+        this.f39832c = str;
     }
 
     public void setImsi(String str) {
-        this.f36154d = str;
+        this.f39833d = str;
     }
 
     public long a() {
-        return this.f36151a;
+        return this.f39830a;
     }
 
     public void b(String str) {
-        this.f36155e = str;
+        this.f39834e = str;
     }
 }

@@ -5,10 +5,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f60469a;
+    public String f64160a;
 
     public void a(JSONObject jSONObject) {
-        this.f60469a = jSONObject.optString("error_code");
+        this.f64160a = jSONObject.optString("error_code");
         jSONObject.optString("error_msg");
     }
 }

@@ -9,11 +9,11 @@ import org.json.JSONObject;
 public class b extends d.a.l0.n.i.d<d.a.l0.n.i.l.b> {
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f48076h;
+    public final String f51750h;
 
     public b(String str, g gVar, d.a.l0.n.i.m.g gVar2) {
         super(gVar, gVar2);
-        this.f48076h = str;
+        this.f51750h = str;
     }
 
     @Override // d.a.l0.n.i.d
@@ -29,12 +29,12 @@ public class b extends d.a.l0.n.i.d<d.a.l0.n.i.l.b> {
         if (bVar == null) {
             return false;
         }
-        if (bVar.f48088a == null && (((list = bVar.f48089b) == null || list.isEmpty()) && bVar.f48090c == null && bVar.f48092e == null && bVar.f48091d == null)) {
+        if (bVar.f51762a == null && (((list = bVar.f51763b) == null || list.isEmpty()) && bVar.f51764c == null && bVar.f51766e == null && bVar.f51765d == null)) {
             return false;
         }
-        f fVar = bVar.f48088a;
+        f fVar = bVar.f51762a;
         if (fVar == null || fVar.a()) {
-            List<d.a.l0.n.h.g> list2 = bVar.f48089b;
+            List<d.a.l0.n.h.g> list2 = bVar.f51763b;
             if (list2 != null) {
                 for (d.a.l0.n.h.g gVar : list2) {
                     if (!gVar.a()) {
@@ -42,11 +42,11 @@ public class b extends d.a.l0.n.i.d<d.a.l0.n.i.l.b> {
                     }
                 }
             }
-            d.a.l0.n.h.d dVar = bVar.f48090c;
+            d.a.l0.n.h.d dVar = bVar.f51764c;
             if (dVar == null || dVar.a()) {
-                d.a.l0.n.h.b bVar2 = bVar.f48092e;
+                d.a.l0.n.h.b bVar2 = bVar.f51766e;
                 if (bVar2 == null || bVar2.a()) {
-                    PMSAppInfo pMSAppInfo = bVar.f48091d;
+                    PMSAppInfo pMSAppInfo = bVar.f51765d;
                     return pMSAppInfo == null || pMSAppInfo.a();
                 }
                 return false;
@@ -60,19 +60,19 @@ public class b extends d.a.l0.n.i.d<d.a.l0.n.i.l.b> {
     @Override // d.a.l0.n.i.d
     /* renamed from: p */
     public d.a.l0.n.h.a m(d.a.l0.n.i.l.b bVar) {
-        this.f48028e.D();
+        this.f51702e.D();
         d.a.l0.n.o.f fVar = new d.a.l0.n.o.f();
-        i(bVar.f48088a, fVar);
-        j(bVar.f48089b, fVar);
-        h(bVar.f48090c, fVar);
-        g(bVar.f48092e, fVar);
-        l(bVar.f48091d);
+        i(bVar.f51762a, fVar);
+        j(bVar.f51763b, fVar);
+        h(bVar.f51764c, fVar);
+        g(bVar.f51766e, fVar);
+        l(bVar.f51765d);
         if (fVar.l() == 0) {
-            this.f48028e.E();
+            this.f51702e.E();
             return null;
         }
-        this.f48028e.F(fVar);
-        d.a.l0.n.i.i.a.b(bVar, this.f48028e);
+        this.f51702e.F(fVar);
+        d.a.l0.n.i.i.a.b(bVar, this.f51702e);
         return null;
     }
 
@@ -80,6 +80,6 @@ public class b extends d.a.l0.n.i.d<d.a.l0.n.i.l.b> {
     @Override // d.a.l0.n.i.d
     /* renamed from: q */
     public d.a.l0.n.i.l.b n(JSONObject jSONObject) {
-        return d.a.l0.n.o.e.f(this.f48076h, jSONObject);
+        return d.a.l0.n.o.e.f(this.f51750h, jSONObject);
     }
 }

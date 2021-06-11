@@ -1,37 +1,22 @@
 package d.a.j0.q;
 
-import android.content.Context;
-import android.util.Log;
-import java.lang.reflect.Method;
+import android.database.ContentObserver;
 /* loaded from: classes2.dex */
-public final class a {
+public class a extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f40509a;
+    public c f44180a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Class<?> f40510b;
+    public a(c cVar) {
+        super(null);
+        this.f44180a = cVar;
+    }
 
-    /* renamed from: c  reason: collision with root package name */
-    public Method f40511c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f40512d;
-
-    public final String a(Context context, Method method) {
-        Object obj = this.f40509a;
-        if (obj == null || method == null) {
-            return null;
-        }
-        try {
-            Object invoke = method.invoke(obj, context);
-            if (invoke != null) {
-                return (String) invoke;
-            }
-            return null;
-        } catch (Exception e2) {
-            Log.d("IdentifierManager", "invoke exception!", e2);
-            return null;
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        c cVar = this.f44180a;
+        if (cVar != null) {
+            cVar.f44183b = cVar.f44182a.a(0, null);
         }
     }
 }

@@ -24,43 +24,75 @@ import java.util.Enumeration;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40475a = "";
+    public static String f44154a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40476b = "";
+    public static String f44155b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40477c = "";
+    public static String f44156c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40478d = "";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f40479e = "";
+    public static String f44157d = "";
 
     public static String a(Context context) {
         try {
         } catch (Throwable th) {
             c.d(th);
         }
-        if (!d.a.j0.b.a.g(context).d()) {
-            return f40478d;
+        if (!d.a.j0.b.a.h(context).e()) {
+            return f44156c;
         }
-        if (!TextUtils.isEmpty(f40478d)) {
-            return f40478d;
+        if (!TextUtils.isEmpty(f44156c)) {
+            return f44156c;
         }
         if (c.o(context)) {
             String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
-            f40478d = string;
+            f44156c = string;
             if (TextUtils.isEmpty(string)) {
-                f40478d = "";
+                f44156c = "";
             }
-            return f40478d;
+            return f44156c;
         }
         return "";
     }
 
-    public static String b(Reader reader) {
+    public static String b(Context context, boolean z, boolean z2) {
+        String str;
+        try {
+            if (!d.a.j0.b.a.h(context).e()) {
+                return k.c(String.valueOf(-1000), z2);
+            }
+            if (z && !TextUtils.isEmpty(f44157d)) {
+                return f44157d;
+            }
+            if (context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) == -1) {
+                return k.c(String.valueOf(-1001), z2);
+            }
+            if (!c.o(context)) {
+                return k.c(String.valueOf(-1002), z2);
+            }
+            int i2 = Build.VERSION.SDK_INT;
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            if (i2 <= 25) {
+                str = "";
+            } else if (k(context) > 1) {
+                str = telephonyManager.getMeid(0);
+            } else {
+                str = telephonyManager.getMeid();
+            }
+            if (TextUtils.isEmpty(str)) {
+                return k.c(String.valueOf(-1003), z2);
+            }
+            f44157d = str;
+            return str;
+        } catch (Throwable th) {
+            c.d(th);
+            return k.c(String.valueOf(-1001), z2);
+        }
+    }
+
+    public static String c(Reader reader) {
         try {
             StringBuilder sb = new StringBuilder();
             char[] cArr = new char[4096];
@@ -76,7 +108,7 @@ public final class d {
         }
     }
 
-    public static InetAddress c() {
+    public static InetAddress d() {
         InetAddress inetAddress;
         Throwable th;
         InetAddress inetAddress2 = null;
@@ -122,11 +154,11 @@ public final class d {
         return inetAddress;
     }
 
-    public static String d() {
+    public static String e() {
         try {
-            InetAddress c2 = c();
-            if (c2 != null) {
-                byte[] hardwareAddress = NetworkInterface.getByInetAddress(c2).getHardwareAddress();
+            InetAddress d2 = d();
+            if (d2 != null) {
+                byte[] hardwareAddress = NetworkInterface.getByInetAddress(d2).getHardwareAddress();
                 StringBuffer stringBuffer = new StringBuffer();
                 for (int i2 = 0; i2 < hardwareAddress.length; i2++) {
                     if (i2 != 0) {
@@ -146,30 +178,30 @@ public final class d {
         return null;
     }
 
-    public static String e(Context context) {
+    public static String f(Context context) {
         try {
         } catch (Throwable th) {
             c.d(th);
         }
-        if (!TextUtils.isEmpty(f40475a)) {
-            return f40475a;
+        if (!TextUtils.isEmpty(f44154a)) {
+            return f44154a;
         }
-        f40475a = d.a.j0.b.a.g(context).H();
-        return f40475a;
+        f44154a = d.a.j0.b.a.h(context).J();
+        return f44154a;
     }
 
-    public static String f() {
+    public static String g() {
         FileReader fileReader;
         try {
             fileReader = new FileReader("/sys/class/net/eth0/address");
             try {
-                String b2 = b(fileReader);
+                String c2 = c(fileReader);
                 try {
                     fileReader.close();
-                    return b2;
+                    return c2;
                 } catch (Throwable th) {
                     c.d(th);
-                    return b2;
+                    return c2;
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -192,33 +224,47 @@ public final class d {
         }
     }
 
-    public static synchronized String g(Context context) {
-        synchronized (d.class) {
-            if (d.a.j0.b.a.g(context).d()) {
-                if (!TextUtils.isEmpty(f40476b)) {
-                    return f40476b;
-                } else if (c.o(context)) {
-                    if (context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) == -1) {
-                        return f40476b;
-                    }
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null) {
-                        String deviceId = telephonyManager.getDeviceId();
-                        f40476b = deviceId;
-                        if (TextUtils.isEmpty(deviceId)) {
-                            f40476b = "";
-                        }
-                    }
-                    return f40476b;
-                } else {
-                    return "";
+    public static String h(Context context) {
+        WifiInfo connectionInfo;
+        try {
+        } catch (Throwable th) {
+            c.d(th);
+        }
+        if (d.a.j0.b.a.h(context).e()) {
+            if (!TextUtils.isEmpty(f44155b)) {
+                return f44155b;
+            }
+            if (context.checkPermission("android.permission.ACCESS_WIFI_STATE", Process.myPid(), Process.myUid()) == -1) {
+                return f44155b;
+            }
+            if (c.o(context)) {
+                WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
+                if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
+                    f44155b = connectionInfo.getMacAddress();
                 }
+                if (!TextUtils.isEmpty(f44155b) && !f44155b.equals(Config.DEF_MAC_ID)) {
+                    return f44155b;
+                }
+                if (l()) {
+                    f44155b = e();
+                }
+                if (TextUtils.isEmpty(f44155b)) {
+                    f44155b = i();
+                }
+                if (TextUtils.isEmpty(f44155b)) {
+                    f44155b = g().toUpperCase().substring(0, 17);
+                }
+                if (TextUtils.isEmpty(f44155b)) {
+                    f44155b = e();
+                }
+                return f44155b;
             }
             return "";
         }
+        return "";
     }
 
-    public static String h() {
+    public static String i() {
         InputStreamReader inputStreamReader;
         Throwable th;
         LineNumberReader lineNumberReader;
@@ -280,83 +326,7 @@ public final class d {
         return str;
     }
 
-    public static String i(Context context) {
-        try {
-        } catch (Throwable th) {
-            c.d(th);
-        }
-        if (d.a.j0.b.a.g(context).d()) {
-            if (!TextUtils.isEmpty(f40479e)) {
-                return f40479e;
-            }
-            if (context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) != -1 && c.o(context)) {
-                if (Build.VERSION.SDK_INT > 25) {
-                    if (n(context) > 1) {
-                        f40479e = m(context)[0];
-                    } else {
-                        f40479e = o(context);
-                    }
-                }
-                if (f40479e == null) {
-                    return "";
-                }
-                return f40479e;
-            }
-            return "";
-        }
-        return "";
-    }
-
     public static String j(Context context) {
-        WifiInfo connectionInfo;
-        try {
-        } catch (Throwable th) {
-            c.d(th);
-        }
-        if (d.a.j0.b.a.g(context).d()) {
-            if (!TextUtils.isEmpty(f40477c)) {
-                return f40477c;
-            }
-            if (context.checkPermission("android.permission.ACCESS_WIFI_STATE", Process.myPid(), Process.myUid()) == -1) {
-                return f40477c;
-            }
-            if (c.o(context)) {
-                WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
-                if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
-                    f40477c = connectionInfo.getMacAddress();
-                }
-                if (!TextUtils.isEmpty(f40477c) && !f40477c.equals(Config.DEF_MAC_ID)) {
-                    return f40477c;
-                }
-                if (k()) {
-                    f40477c = d();
-                }
-                if (TextUtils.isEmpty(f40477c)) {
-                    f40477c = h();
-                }
-                if (TextUtils.isEmpty(f40477c)) {
-                    f40477c = f().toUpperCase().substring(0, 17);
-                }
-                if (TextUtils.isEmpty(f40477c)) {
-                    f40477c = d();
-                }
-                return f40477c;
-            }
-            return "";
-        }
-        return "";
-    }
-
-    public static boolean k() {
-        try {
-            return Build.VERSION.SDK_INT >= 26;
-        } catch (Throwable th) {
-            c.d(th);
-            return false;
-        }
-    }
-
-    public static String l(Context context) {
         try {
             d.a.j0.b.d dVar = new d.a.j0.b.d(context);
             String c2 = dVar.c();
@@ -375,23 +345,7 @@ public final class d {
         }
     }
 
-    public static String[] m(Context context) {
-        String[] strArr = new String[2];
-        try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) == -1) {
-                return strArr;
-            }
-            strArr[0] = telephonyManager.getMeid(0);
-            strArr[1] = telephonyManager.getMeid(1);
-            return strArr;
-        } catch (Throwable th) {
-            c.d(th);
-            return strArr;
-        }
-    }
-
-    public static int n(Context context) {
+    public static int k(Context context) {
         int activeSubscriptionInfoCount;
         try {
             if (Build.VERSION.SDK_INT >= 23) {
@@ -409,12 +363,12 @@ public final class d {
         }
     }
 
-    public static String o(Context context) {
+    public static boolean l() {
         try {
-            return ((TelephonyManager) context.getSystemService("phone")).getMeid();
+            return Build.VERSION.SDK_INT >= 26;
         } catch (Throwable th) {
             c.d(th);
-            return "";
+            return false;
         }
     }
 }

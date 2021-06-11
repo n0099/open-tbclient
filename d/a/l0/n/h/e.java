@@ -6,13 +6,13 @@ import java.util.Objects;
 public class e extends c {
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48012g;
+    public String f51686g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48013h;
+    public int f51687h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f48014i;
+    public long f51688i;
     public String j;
     public long k;
     public String l;
@@ -20,7 +20,7 @@ public class e extends c {
     public String n;
 
     public boolean a() {
-        return (TextUtils.isEmpty(this.f48012g) || this.f48014i <= 0 || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.m) || TextUtils.isEmpty(this.n)) ? false : true;
+        return (TextUtils.isEmpty(this.f51686g) || this.f51688i <= 0 || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.m) || TextUtils.isEmpty(this.n)) ? false : true;
     }
 
     public boolean equals(Object obj) {
@@ -29,16 +29,16 @@ public class e extends c {
         }
         if (obj != null && (obj instanceof e)) {
             e eVar = (e) obj;
-            return (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(eVar.j)) ? this.f48012g.equals(eVar.f48012g) && this.f48014i == eVar.f48014i : TextUtils.equals(this.f48012g, eVar.f48012g) && this.f48014i == eVar.f48014i && TextUtils.equals(this.j, eVar.j);
+            return (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(eVar.j)) ? this.f51686g.equals(eVar.f51686g) && this.f51688i == eVar.f51688i : TextUtils.equals(this.f51686g, eVar.f51686g) && this.f51688i == eVar.f51688i && TextUtils.equals(this.j, eVar.j);
         }
         return false;
     }
 
     public int hashCode() {
-        return Objects.hash(this.f48012g, Integer.valueOf(this.f48013h), Long.valueOf(this.f48014i), this.j);
+        return Objects.hash(this.f51686g, Integer.valueOf(this.f51687h), Long.valueOf(this.f51688i), this.j);
     }
 
     public String toString() {
-        return "bundleId=" + this.f48012g + ", category=" + this.f48013h + ", versionCode=" + this.f48014i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
+        return "bundleId=" + this.f51686g + ", category=" + this.f51687h + ", versionCode=" + this.f51688i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
     }
 }

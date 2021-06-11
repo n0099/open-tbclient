@@ -22,19 +22,19 @@ import d.a.m0.r.q.a2;
 public class SmartAppBottomLayout extends LinearLayout implements p<a> {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f4514i = (l.k(TbadkCoreApplication.getInst()) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+    public static final int f4533i = (l.k(TbadkCoreApplication.getInst()) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
 
     /* renamed from: e  reason: collision with root package name */
-    public View f4515e;
+    public View f4534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f4516f;
+    public HeadImageView f4535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f4517g;
+    public TextView f4536g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4518h;
+    public int f4537h;
 
     public SmartAppBottomLayout(Context context) {
         this(context, null);
@@ -42,45 +42,45 @@ public class SmartAppBottomLayout extends LinearLayout implements p<a> {
     }
 
     public final void b(Context context) {
-        this.f4515e = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
+        this.f4534e = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4516f = (HeadImageView) this.f4515e.findViewById(R.id.ai_smart_app_icon);
-        this.f4517g = (TextView) this.f4515e.findViewById(R.id.ai_smart_app_text);
-        this.f4516f.setIsBigV(false);
-        this.f4516f.setIsGod(false);
-        this.f4516f.setShowV(false);
+        this.f4535f = (HeadImageView) this.f4534e.findViewById(R.id.ai_smart_app_icon);
+        this.f4536g = (TextView) this.f4534e.findViewById(R.id.ai_smart_app_text);
+        this.f4535f.setIsBigV(false);
+        this.f4535f.setIsGod(false);
+        this.f4535f.setShowV(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: c */
     public void a(a aVar) {
-        a2 m = aVar.m();
-        if (m == null || m.k1() == null) {
+        a2 i2 = aVar.i();
+        if (i2 == null || i2.l1() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(m.k1().avatar)) {
-            this.f4516f.V(m.k1().avatar, 10, false);
+        if (!TextUtils.isEmpty(i2.l1().avatar)) {
+            this.f4535f.U(i2.l1().avatar, 10, false);
         } else {
-            SkinManager.setImageResource(this.f4516f, R.drawable.icon_avatar_smallapp_tie);
+            SkinManager.setImageResource(this.f4535f, R.drawable.icon_avatar_smallapp_tie);
         }
-        if (m.k1() != null && !TextUtils.isEmpty(m.k1().name)) {
-            ThreadCardUtils.cutAndSetTextByMaxLine(this.f4517g, m.k1().name, R.string.ai_smart_app, R.dimen.tbds0, 1, f4514i, false);
+        if (i2.l1() != null && !TextUtils.isEmpty(i2.l1().name)) {
+            ThreadCardUtils.cutAndSetTextByMaxLine(this.f4536g, i2.l1().name, R.string.ai_smart_app, R.dimen.tbds0, 1, f4533i, false);
         } else {
-            this.f4517g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
+            this.f4536g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
         }
     }
 
     public void d() {
-        if (this.f4518h != TbadkCoreApplication.getInst().getSkinType()) {
-            this.f4518h = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setViewTextColor(this.f4517g, R.color.CAM_X0109);
+        if (this.f4537h != TbadkCoreApplication.getInst().getSkinType()) {
+            this.f4537h = TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setViewTextColor(this.f4536g, R.color.CAM_X0109);
         }
     }
 
     public SmartAppBottomLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4518h = 3;
+        this.f4537h = 3;
         b(context);
     }
 }

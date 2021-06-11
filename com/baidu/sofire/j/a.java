@@ -16,13 +16,13 @@ public interface a extends IInterface {
         public static class C0143a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f10279a;
+            public static a f10341a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f10280b;
+            public IBinder f10342b;
 
             public C0143a(IBinder iBinder) {
-                this.f10280b = iBinder;
+                this.f10342b = iBinder;
             }
 
             @Override // com.baidu.sofire.j.a
@@ -34,7 +34,7 @@ public interface a extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    if (this.f10280b.transact(1, obtain, obtain2, 0) || AbstractBinderC0142a.a() == null) {
+                    if (this.f10342b.transact(1, obtain, obtain2, 0) || AbstractBinderC0142a.a() == null) {
                         obtain2.readException();
                         return obtain2.readString();
                     }
@@ -47,12 +47,12 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f10280b;
+                return this.f10342b;
             }
         }
 
         public static a a() {
-            return C0143a.f10279a;
+            return C0143a.f10341a;
         }
 
         public static a a(IBinder iBinder) {

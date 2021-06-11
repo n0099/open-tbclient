@@ -1,10 +1,10 @@
 package org.webrtc;
 
 import android.media.MediaRecorder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface CameraVideoCapturer extends VideoCapturer {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface CameraEventsHandler {
         void onCameraClosed();
 
@@ -19,7 +19,7 @@ public interface CameraVideoCapturer extends VideoCapturer {
         void onFirstFrameAvailable();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CameraStatistics {
         public static final int CAMERA_FREEZE_REPORT_TIMOUT_MS = 4000;
         public static final int CAMERA_OBSERVER_PERIOD_MS = 2000;
@@ -90,7 +90,7 @@ public interface CameraVideoCapturer extends VideoCapturer {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface CameraSwitchHandler {
         void onCameraSwitchDone(boolean z);
 
@@ -98,7 +98,7 @@ public interface CameraVideoCapturer extends VideoCapturer {
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface MediaRecorderHandler {
         void onMediaRecorderError(String str);
 

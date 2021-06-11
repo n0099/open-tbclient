@@ -67,8 +67,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.a.d.
         b.a aVar = new b.a();
         this.parallelChargeInfo = aVar;
         aVar.a(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.f61058a)) {
-            this.operateData.f61058a = this.userName;
+        if (TextUtils.isEmpty(this.operateData.f64750a)) {
+            this.operateData.f64750a = this.userName;
         }
     }
 
@@ -95,8 +95,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.a.d.
             jSONObject.put(WriteActivityConfig.VIDEO_INFO, jSONObject2);
             jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.d());
             jSONObject.put("operate", this.operateData.b());
-            if (this.adFacadeData != null && this.adFacadeData.l() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.l().f39538b);
+            if (this.adFacadeData != null && this.adFacadeData.g() != null) {
+                jSONObject.put("extraparams", this.adFacadeData.g().f43219b);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -122,8 +122,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.a.d.
 
     public String getButtonScheme() {
         a aVar = this.operateData;
-        if (aVar != null && !TextUtils.isEmpty(aVar.f61060c)) {
-            return this.operateData.f61060c;
+        if (aVar != null && !TextUtils.isEmpty(aVar.f64752c)) {
+            return this.operateData.f64752c;
         }
         return this.scheme;
     }

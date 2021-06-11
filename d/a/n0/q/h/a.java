@@ -9,7 +9,6 @@ import com.baidu.down.utils.Utils;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
 import com.bumptech.glide.load.resource.bitmap.Downsampler;
 import com.sina.weibo.sdk.utils.FileUtils;
@@ -21,19 +20,19 @@ import java.util.regex.Pattern;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, Integer> f58245a = new HashMap<>();
+    public static HashMap<String, Integer> f61936a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Integer> f58246b = new HashMap<>();
+    public static HashMap<String, Integer> f61937b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, String> f58247c = new HashMap<>();
+    public static HashMap<String, String> f61938c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, String> f58248d = new HashMap<>();
+    public static HashMap<String, String> f61939d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f58249e;
+    public static final Pattern f61940e;
 
     static {
         a("application/andrew-inset", "ez", 5);
@@ -188,7 +187,7 @@ public final class a {
         a("application/x-troff", "roff", 5);
         a("application/x-troff-man", "man", 5);
         a("application/x-ustar", "ustar", 5);
-        a("application/x-wais-source", UserAccountActionItem.KEY_SRC, 5);
+        a("application/x-wais-source", "src", 5);
         a("application/x-wingz", "wz", 5);
         a("application/x-webarchive", "webarchive", 5);
         a("application/x-webarchive-xml", "webarchivexml", 5);
@@ -354,17 +353,17 @@ public final class a {
         a("audio/aac", "aac", 1);
         a("application/vnd.rn-realmedia", "rm", 0);
         a("message/rfc822", "mht", 11);
-        f58249e = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        f61940e = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     public static void a(String str, String str2, int i2) {
-        f58245a.put(str2, Integer.valueOf(i2));
-        f58246b.put(str, Integer.valueOf(i2));
-        f58247c.put(str2, str);
-        if (f58248d.containsKey(str)) {
+        f61936a.put(str2, Integer.valueOf(i2));
+        f61937b.put(str, Integer.valueOf(i2));
+        f61938c.put(str2, str);
+        if (f61939d.containsKey(str)) {
             return;
         }
-        f58248d.put(str, str2);
+        f61939d.put(str, str2);
     }
 
     public static int b(String str, String str2) {
@@ -372,8 +371,8 @@ public final class a {
     }
 
     public static int c(String str, String str2, boolean z) {
-        Integer num = f58246b.get(str2);
-        if (num != null ? !(!z || num.intValue() != 8) : !((num = f58245a.get(str)) != null && (!z || num.intValue() != 8))) {
+        Integer num = f61937b.get(str2);
+        if (num != null ? !(!z || num.intValue() != 8) : !((num = f61936a.get(str)) != null && (!z || num.intValue() != 8))) {
             num = 5;
         }
         return num.intValue();
@@ -403,7 +402,7 @@ public final class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f58248d.get(str);
+        return f61939d.get(str);
     }
 
     public static String g(String str, String str2, String str3) {
@@ -502,12 +501,12 @@ public final class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f58247c.get(str);
+        return f61938c.get(str);
     }
 
     public static String i(String str) {
         try {
-            Matcher matcher = f58249e.matcher(str);
+            Matcher matcher = f61940e.matcher(str);
             if (matcher.find()) {
                 return matcher.group(2);
             }

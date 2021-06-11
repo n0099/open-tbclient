@@ -10,13 +10,13 @@ import java.util.TreeSet;
 public final class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f65615a;
+    public final String[] f69346a;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<String> f65616a = new ArrayList(20);
+        public final List<String> f69347a = new ArrayList(20);
 
         public a a(String str) {
             int indexOf = str.indexOf(":", 1);
@@ -44,10 +44,10 @@ public final class v {
 
         public a d(String str) {
             int i2 = 0;
-            while (i2 < this.f65616a.size()) {
-                if (str.equalsIgnoreCase(this.f65616a.get(i2))) {
-                    this.f65616a.remove(i2);
-                    this.f65616a.remove(i2);
+            while (i2 < this.f69347a.size()) {
+                if (str.equalsIgnoreCase(this.f69347a.get(i2))) {
+                    this.f69347a.remove(i2);
+                    this.f69347a.remove(i2);
                     i2 -= 2;
                 }
                 i2 += 2;
@@ -56,8 +56,8 @@ public final class v {
         }
 
         public a e(String str, String str2) {
-            this.f65616a.add(str);
-            this.f65616a.add(str2.trim());
+            this.f69347a.add(str);
+            this.f69347a.add(str2.trim());
             return this;
         }
 
@@ -97,8 +97,8 @@ public final class v {
     }
 
     public v(a aVar) {
-        List<String> list = aVar.f65616a;
-        this.f65615a = (String[]) list.toArray(new String[list.size()]);
+        List<String> list = aVar.f69347a;
+        this.f69346a = (String[]) list.toArray(new String[list.size()]);
     }
 
     public static String d(String[] strArr, String str) {
@@ -111,23 +111,23 @@ public final class v {
     }
 
     public int a() {
-        return this.f65615a.length / 2;
+        return this.f69346a.length / 2;
     }
 
     public String b(int i2) {
-        return this.f65615a[i2 * 2];
+        return this.f69346a[i2 * 2];
     }
 
     public String c(String str) {
-        return d(this.f65615a, str);
+        return d(this.f69346a, str);
     }
 
     public String e(int i2) {
-        return this.f65615a[(i2 * 2) + 1];
+        return this.f69346a[(i2 * 2) + 1];
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof v) && Arrays.equals(((v) obj).f65615a, this.f65615a);
+        return (obj instanceof v) && Arrays.equals(((v) obj).f69346a, this.f69346a);
     }
 
     public List<String> f(String str) {
@@ -158,12 +158,12 @@ public final class v {
 
     public a h() {
         a aVar = new a();
-        Collections.addAll(aVar.f65616a, this.f65615a);
+        Collections.addAll(aVar.f69347a, this.f69346a);
         return aVar;
     }
 
     public int hashCode() {
-        return Arrays.hashCode(this.f65615a);
+        return Arrays.hashCode(this.f69346a);
     }
 
     public String toString() {

@@ -12,32 +12,32 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40612a = "";
+    public String f44288a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40613b;
+    public int f44289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Shader f40614c;
+    public Shader f44290c;
 
     public i(JSONArray jSONArray) {
         e(jSONArray);
     }
 
     public int a() {
-        return this.f40613b;
+        return this.f44289b;
     }
 
     public Shader b() {
-        return this.f40614c;
+        return this.f44290c;
     }
 
     public boolean c() {
-        return TextUtils.equals(this.f40612a, "linearGradient") || TextUtils.equals(this.f40612a, "circularGradient");
+        return TextUtils.equals(this.f44288a, "linearGradient") || TextUtils.equals(this.f44288a, "circularGradient");
     }
 
     public boolean d() {
-        return !TextUtils.isEmpty(this.f40612a);
+        return !TextUtils.isEmpty(this.f44288a);
     }
 
     public void e(JSONArray jSONArray) {
@@ -51,8 +51,8 @@ public class i {
             if (TextUtils.equals(optString, "normal")) {
                 JSONArray optJSONArray = jSONArray.optJSONArray(1);
                 if (optJSONArray.length() == 4) {
-                    this.f40613b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
-                    this.f40612a = "normal";
+                    this.f44289b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
+                    this.f44288a = "normal";
                 }
             } else if (TextUtils.equals(optString, "linearGradient") || TextUtils.equals(optString, "circularGradient")) {
                 JSONArray optJSONArray2 = jSONArray.optJSONArray(1);
@@ -79,16 +79,16 @@ public class i {
                 if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
                     JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
                     if (TextUtils.equals(optString, "linearGradient")) {
-                        this.f40614c = new LinearGradient(d.a.l0.a.v2.n0.g(optJSONObject2.optInt("x0")), d.a.l0.a.v2.n0.g(optJSONObject2.optInt("y0")), d.a.l0.a.v2.n0.g(optJSONObject2.optInt("x1")), d.a.l0.a.v2.n0.g(optJSONObject2.optInt("y1")), iArr, fArr, Shader.TileMode.CLAMP);
-                        this.f40612a = "linearGradient";
+                        this.f44290c = new LinearGradient(d.a.l0.a.v2.n0.g(optJSONObject2.optInt("x0")), d.a.l0.a.v2.n0.g(optJSONObject2.optInt("y0")), d.a.l0.a.v2.n0.g(optJSONObject2.optInt("x1")), d.a.l0.a.v2.n0.g(optJSONObject2.optInt("y1")), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.f44288a = "linearGradient";
                         return;
                     }
-                    this.f40614c = new RadialGradient(d.a.l0.a.v2.n0.g(optJSONObject2.optInt("x")), d.a.l0.a.v2.n0.g(optJSONObject2.optInt("y")), d.a.l0.a.v2.n0.g(optJSONObject2.optInt(com.baidu.mapsdkplatform.comapi.map.r.f7672a)), iArr, fArr, Shader.TileMode.CLAMP);
-                    this.f40612a = "circularGradient";
+                    this.f44290c = new RadialGradient(d.a.l0.a.v2.n0.g(optJSONObject2.optInt("x")), d.a.l0.a.v2.n0.g(optJSONObject2.optInt("y")), d.a.l0.a.v2.n0.g(optJSONObject2.optInt(com.baidu.mapsdkplatform.comapi.map.r.f7715a)), iArr, fArr, Shader.TileMode.CLAMP);
+                    this.f44288a = "circularGradient";
                 }
             }
         } catch (Exception e2) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 e2.printStackTrace();
             }
         }

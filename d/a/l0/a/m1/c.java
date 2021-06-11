@@ -35,34 +35,34 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43454a = k.f43199a;
+    public static final boolean f47130a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f43455b;
+    public static final boolean f47131b;
 
     /* loaded from: classes3.dex */
     public static class a implements g.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f43456a;
+        public final /* synthetic */ String f47132a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f43457b;
+        public final /* synthetic */ String f47133b;
 
         public a(String str, String str2) {
-            this.f43456a = str;
-            this.f43457b = str2;
+            this.f47132a = str;
+            this.f47133b = str2;
         }
 
         @Override // d.a.l0.a.h0.i.g.a
         public void a(@NonNull d.a.l0.a.h0.i.g gVar) {
-            d.a.l0.a.h0.i.f.c(this.f43456a, gVar);
+            d.a.l0.a.h0.i.f.c(this.f47132a, gVar);
             boolean c0 = d.a.l0.a.h0.u.g.N().c0();
             long o = d.a.l0.a.c1.a.Z().o();
             if (o >= 6000 || c0) {
                 i.r(gVar);
             }
-            i.i(d.a.l0.a.h0.i.c.c(this.f43457b, gVar, o, c0));
+            i.i(d.a.l0.a.h0.i.c.c(this.f47133b, gVar, o, c0));
             i.k();
         }
     }
@@ -74,10 +74,10 @@ public class c {
         public class a implements e0.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ File[] f43458a;
+            public final /* synthetic */ File[] f47134a;
 
             public a(b bVar, File[] fileArr) {
-                this.f43458a = fileArr;
+                this.f47134a = fileArr;
             }
 
             @Override // d.a.l0.a.p.d.e0.a
@@ -85,7 +85,7 @@ public class c {
                 if (str == null || !str.contains("success")) {
                     return;
                 }
-                for (File file : this.f43458a) {
+                for (File file : this.f47134a) {
                     d.a.l0.t.d.K(file);
                 }
             }
@@ -114,7 +114,7 @@ public class c {
 
     static {
         d.a.l0.a.c1.a.Z().getSwitch("swan_white_screent_webview_progress_bar_switch", false);
-        f43455b = false;
+        f47131b = false;
     }
 
     public static void a() {
@@ -140,25 +140,25 @@ public class c {
         int[] iArr2 = new int[2];
         H1.getLocationOnScreen(iArr2);
         iArr[1] = Math.max(iArr[1], iArr2[1] + H1.getHeight() + 1);
-        if (f43455b) {
-            if (f43454a) {
+        if (f47131b) {
+            if (f47130a) {
                 Log.d("MonitorUtils", "getCheckRect: hit webview widget process bar calibrate");
             }
             d.a.l0.a.p.e.b b3 = fVar.b3();
             if (b3 != null) {
                 d.a.l0.a.p.e.e m = b3.m();
                 if (m instanceof SwanAppWebViewWidget) {
-                    if (f43454a) {
+                    if (f47130a) {
                         Log.d("MonitorUtils", "getCheckRect: hit webview widget");
                     }
                     int J1 = ((SwanAppWebViewWidget) m).J1();
-                    if (f43454a) {
+                    if (f47130a) {
                         Log.d("MonitorUtils", "getCheckRect: webview widget originY=" + iArr[1] + " , progressBarHeight=" + J1);
                     }
                     if (J1 > 0) {
                         iArr[1] = iArr[1] + J1 + 1;
                     }
-                    if (f43454a) {
+                    if (f47130a) {
                         Log.d("MonitorUtils", "getCheckRect: webview widget newY=" + iArr[1]);
                     }
                 }
@@ -180,7 +180,7 @@ public class c {
         if (fVar != null) {
             d.a.l0.a.a2.n.g D1 = fVar.D1();
             if (D1 != null) {
-                return D1.f40796e;
+                return D1.f44472e;
             }
             FrameLayout k3 = fVar.k3();
             if (k3 != null) {

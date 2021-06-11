@@ -25,32 +25,32 @@ import java.util.Map;
 public class Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f7992a = "filecache-Utils";
+    public static String f8037a = "filecache-Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f7993b = 536870912;
+    public static int f8038b = 536870912;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7994c = ".video_cache";
+    public static String f8039c = ".video_cache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile int f7995d = -1;
+    public static volatile int f8040d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f7996e = -1;
+    public static volatile int f8041e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile int f7997f = -1;
+    public static volatile int f8042f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile String f7998g;
+    public static volatile String f8043g;
 
     public static long a() {
         try {
             if ("mounted".equals(Environment.getExternalStorageState())) {
                 String path = Environment.getExternalStorageDirectory().getPath();
                 if (path == null || path.length() <= 0) {
-                    CyberLog.w(f7992a, "External path is null, so SDCard no free space");
+                    CyberLog.w(f8037a, "External path is null, so SDCard no free space");
                     return -1L;
                 }
                 StatFs statFs = new StatFs(path);
@@ -58,7 +58,7 @@ public class Utils {
             }
             return -1L;
         } catch (Exception unused) {
-            CyberLog.d(f7992a, "SDCard no free space");
+            CyberLog.d(f8037a, "SDCard no free space");
             return -1L;
         }
     }
@@ -66,7 +66,7 @@ public class Utils {
     public static String b(Context context) {
         String str = null;
         try {
-            if (l(context)) {
+            if (p(context)) {
                 str = Environment.getExternalStorageDirectory().getAbsolutePath();
             } else if ("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
                 str = context.getExternalCacheDir().getPath();
@@ -80,30 +80,34 @@ public class Utils {
         nativeSetMaxConcurrentOperationCount(i2);
     }
 
-    public static void d(File file) {
+    public static void d(long j) {
+        nativeCleanFilecacheWithTimeExpired(j);
+    }
+
+    public static void e(File file) {
         try {
             if (file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
-                    d(file2);
+                    e(file2);
                 }
             }
             if (file.exists()) {
                 file.delete();
             }
         } catch (Exception e2) {
-            CyberLog.w(f7992a, e2.toString());
+            CyberLog.w(f8037a, e2.toString());
         }
     }
 
-    public static void e(String str) {
+    public static void f(String str) {
         nativeSetFileacheWorkDirectory(str);
     }
 
-    public static void f(String str, String str2) {
+    public static void g(String str, String str2) {
         nativeVideoSRInit(str, str2);
     }
 
-    public static void g(String str, boolean z) {
+    public static void h(String str, boolean z) {
         try {
             String str2 = Build.DISPLAY;
             if (TextUtils.isEmpty(str2)) {
@@ -114,11 +118,11 @@ public class Utils {
         }
     }
 
-    public static void h(byte[] bArr, int i2, byte[] bArr2) {
+    public static void i(byte[] bArr, int i2, byte[] bArr2) {
         nativeKernelEncrypt(bArr, i2, bArr2);
     }
 
-    public static String i() {
+    public static String j() {
         StringBuilder sb = new StringBuilder();
         String defaultHost = Proxy.getDefaultHost();
         int defaultPort = Proxy.getDefaultPort();
@@ -131,7 +135,7 @@ public class Utils {
         return sb.toString();
     }
 
-    public static String j(Context context) {
+    public static String k(Context context) {
         String str;
         String b2 = b(context);
         if (TextUtils.isEmpty(b2)) {
@@ -140,23 +144,59 @@ public class Utils {
             str = b2 + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
         }
         String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
-        CyberLog.i(f7992a, "Utils.getExternalStorageSpace():" + a());
+        CyberLog.i(f8037a, "Utils.getExternalStorageSpace():" + a());
         if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
             str = str2;
         }
         new File(str).mkdirs();
-        if (!n(context)) {
+        if (!r(context)) {
             str = str + File.separator + "remote";
         }
-        CyberLog.i(f7992a, "getVideoStatisticsPath folder:" + str);
+        CyberLog.i(f8037a, "getVideoStatisticsPath folder:" + str);
         return str;
     }
 
-    public static void k() {
-        nativeCleanFilecache();
+    public static void l(long j) {
+        nativeUpdateStorageQuota(j);
     }
 
-    public static boolean l(Context context) {
+    public static void m(String str) {
+        nativeStrategyOptimizeInit(str);
+    }
+
+    public static long n() {
+        return nativeCaculateFolderSize();
+    }
+
+    public static native long nativeCaculateFolderSize();
+
+    public static native void nativeCleanFilecache();
+
+    public static native void nativeCleanFilecacheWithTimeExpired(long j);
+
+    public static native void nativeDecodeModeOptimizeInit(String str);
+
+    public static native void nativeKernelEncrypt(byte[] bArr, int i2, byte[] bArr2);
+
+    public static native void nativeMonitorInit(String str, String str2, boolean z);
+
+    public static native void nativeSetFileacheWorkDirectory(String str);
+
+    public static native void nativeSetMaxConcurrentOperationCount(int i2);
+
+    public static native void nativeStrategyOptimizeInit(String str);
+
+    public static native void nativeUpdateCfgOpts(String[] strArr, String[] strArr2);
+
+    public static native void nativeUpdateStorageQuota(long j);
+
+    public static native void nativeVideoSRInit(String str, String str2);
+
+    public static void o(String str) {
+        nativeDecodeModeOptimizeInit(str);
+    }
+
+    public static boolean p(Context context) {
         PackageManager packageManager;
         if (context != null && (packageManager = context.getPackageManager()) != null) {
             try {
@@ -171,41 +211,7 @@ public class Utils {
         return false;
     }
 
-    public static long m() {
-        return nativeCaculateFolderSize();
-    }
-
-    public static boolean n(Context context) {
-        if (context == null) {
-            return false;
-        }
-        if (f7995d < 0) {
-            if (context.getPackageName().equals(r(context))) {
-                f7995d = 1;
-            } else {
-                f7995d = 0;
-            }
-        }
-        return f7995d == 1;
-    }
-
-    public static native long nativeCaculateFolderSize();
-
-    public static native void nativeCleanFilecache();
-
-    public static native void nativeKernelEncrypt(byte[] bArr, int i2, byte[] bArr2);
-
-    public static native void nativeMonitorInit(String str, String str2, boolean z);
-
-    public static native void nativeSetFileacheWorkDirectory(String str);
-
-    public static native void nativeSetMaxConcurrentOperationCount(int i2);
-
-    public static native void nativeUpdateCfgOpts(String[] strArr, String[] strArr2);
-
-    public static native void nativeVideoSRInit(String str, String str2);
-
-    public static synchronized void o() {
+    public static synchronized void q() {
         synchronized (Utils.class) {
             Map<String, String> cfgMap = CyberCfgManager.getInstance().getCfgMap();
             if (cfgMap != null && cfgMap.size() > 0) {
@@ -218,43 +224,46 @@ public class Utils {
         }
     }
 
-    public static boolean p(Context context) {
+    public static boolean r(Context context) {
         if (context == null) {
             return false;
         }
-        if (f7996e < 0) {
-            if ((context.getPackageName() + ":media").equals(r(context))) {
-                f7996e = 1;
+        if (f8040d < 0) {
+            if (context.getPackageName().equals(v(context))) {
+                f8040d = 1;
             } else {
-                f7996e = 0;
+                f8040d = 0;
             }
         }
-        return f7996e == 1;
+        return f8040d == 1;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: int */
     /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: int */
     /* JADX DEBUG: Multi-variable search result rejected for r0v13, resolved type: int */
     /* JADX WARN: Multi-variable type inference failed */
-    public static String q() {
-        if (f7997f < 0) {
-            f7997f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
-        }
-        return f7997f == 1 ? "arm64-v8a" : "armeabi-v7a";
-    }
-
-    public static String r(Context context) {
-        if (TextUtils.isEmpty(f7998g)) {
-            f7998g = t(context);
-            if (TextUtils.isEmpty(f7998g)) {
-                f7998g = s();
-            }
-            return f7998g;
-        }
-        return f7998g;
-    }
-
     public static String s() {
+        if (f8042f < 0) {
+            f8042f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
+        }
+        return f8042f == 1 ? "arm64-v8a" : "armeabi-v7a";
+    }
+
+    public static boolean t(Context context) {
+        if (context == null) {
+            return false;
+        }
+        if (f8041e < 0) {
+            if ((context.getPackageName() + ":media").equals(v(context))) {
+                f8041e = 1;
+            } else {
+                f8041e = 0;
+            }
+        }
+        return f8041e == 1;
+    }
+
+    public static String u() {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         try {
@@ -295,7 +304,18 @@ public class Utils {
         }
     }
 
-    public static String t(Context context) {
+    public static String v(Context context) {
+        if (TextUtils.isEmpty(f8043g)) {
+            f8043g = w(context);
+            if (TextUtils.isEmpty(f8043g)) {
+                f8043g = u();
+            }
+            return f8043g;
+        }
+        return f8043g;
+    }
+
+    public static String w(Context context) {
         int myPid = Process.myPid();
         try {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {

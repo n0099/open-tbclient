@@ -20,7 +20,7 @@ public class a extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("Brightness", "handle entity: " + unitedSchemeEntity.toString());
             return false;
         }
@@ -34,11 +34,11 @@ public class a extends a0 {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("Brightness", "handleSubAction: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
         }
         JSONObject jSONObject = null;

@@ -3,11 +3,11 @@ package d.a.m0.c;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49214a;
+    public boolean f52888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49215b = 0;
+    public int f52889b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49216c = null;
+    public String f52890c = null;
 }

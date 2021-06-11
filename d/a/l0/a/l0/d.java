@@ -11,26 +11,26 @@ import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import d.a.l0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends d.a.l0.a.l0.a {
-    public static final boolean s = k.f43199a;
+    public static final boolean s = k.f46875a;
     public static final Object t = new Object();
     public static String u = "";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends EventTargetImpl {
 
         /* renamed from: e  reason: collision with root package name */
-        public c f43303e;
+        public c f46979e;
         @V8JavascriptField
         public b env;
 
         /* renamed from: f  reason: collision with root package name */
-        public d.a.l0.a.r0.e f43304f;
+        public d.a.l0.a.r0.e f46980f;
 
         public a(c cVar, String str) {
             super(cVar);
-            this.f43303e = cVar;
+            this.f46979e = cVar;
             b bVar = new b();
             this.env = bVar;
             bVar.basePath = str;
@@ -70,15 +70,15 @@ public class d extends d.a.l0.a.l0.a {
 
         @JavascriptInterface
         public String getEnvVariables() {
-            return d.a.l0.a.d1.b.b.a(this.f43303e);
+            return d.a.l0.a.d1.b.b.a(this.f46979e);
         }
 
         @JavascriptInterface
         public d.a.l0.a.r0.e getFileSystemManager() {
-            if (this.f43304f == null) {
-                this.f43304f = new d.a.l0.a.r0.e((d.a.l0.a.l0.a) this.f43303e);
+            if (this.f46980f == null) {
+                this.f46980f = new d.a.l0.a.r0.e((d.a.l0.a.l0.a) this.f46979e);
             }
-            return this.f43304f;
+            return this.f46980f;
         }
 
         @JavascriptInterface
@@ -140,7 +140,7 @@ public class d extends d.a.l0.a.l0.a {
     @Override // d.a.l0.a.l0.a
     @NonNull
     public EventTarget w() {
-        a aVar = new a(this, this.f43294f.getInitBasePath());
+        a aVar = new a(this, this.f46970f.getInitBasePath());
         aVar.env.config = d.a.l0.a.m2.c.a.b();
         return aVar;
     }

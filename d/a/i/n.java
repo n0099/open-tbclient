@@ -34,21 +34,21 @@ public class n extends h {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f40059e;
+        public final /* synthetic */ View.OnClickListener f43740e;
 
         public b(View.OnClickListener onClickListener) {
-            this.f40059e = onClickListener;
+            this.f43740e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f40008f);
-            String y1 = n.this.m.m().y1();
-            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(y1, n.this.m.m().B1().E() + "", 1, "other");
-            createNormalCfg.setStartFrom(n.this.f40007e.i());
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f43689f);
+            String z1 = n.this.m.i().z1();
+            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(z1, n.this.m.i().C1().E() + "", 1, "other");
+            createNormalCfg.setStartFrom(n.this.f43688e.i());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-            n.this.f40007e.o(new a.C0544a(1));
-            this.f40059e.onClick(view);
+            n.this.f43688e.o(new a.C0600a(1));
+            this.f43740e.onClick(view);
         }
     }
 
@@ -58,8 +58,8 @@ public class n extends h {
         }
 
         @Override // d.a.i.v0.a.b
-        public boolean a(a.C0544a c0544a) {
-            d.a.n0.z.m.l(n.this.l.getGodReplyContent(), n.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        public boolean a(a.C0600a c0600a) {
+            d.a.n0.z.m.l(n.this.l.getGodReplyContent(), n.this.m.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             return false;
         }
     }
@@ -85,7 +85,7 @@ public class n extends h {
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        this.l.k();
+        this.l.l();
     }
 
     public boolean u() {
@@ -98,12 +98,12 @@ public class n extends h {
     /* renamed from: v */
     public void a(d.a.m0.r.q.a aVar) {
         this.m = aVar;
-        PostData B1 = aVar.m().B1();
-        if (this.n != null && B1 != null && B1.t() != null && B1.t().getUserId() != null) {
-            this.n.param("tid", aVar.m().A).param("post_id", B1.E()).param("uid", B1.t().getUserId());
+        PostData C1 = aVar.i().C1();
+        if (this.n != null && C1 != null && C1.t() != null && C1.t().getUserId() != null) {
+            this.n.param("tid", aVar.i().A).param("post_id", C1.E()).param("uid", C1.t().getUserId());
             d.a.n0.z.t.b().a(this.n);
         }
-        this.l.setData(aVar.m());
+        this.l.setData(aVar.i());
     }
 
     public void w(String str) {

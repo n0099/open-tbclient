@@ -40,17 +40,17 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.f1.g.a f13586a;
+        public final /* synthetic */ d.a.n0.f1.g.a f13651a;
 
         public a(d.a.n0.f1.g.a aVar) {
-            this.f13586a = aVar;
+            this.f13651a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.a.m0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.a.n0.s.e.a.b.f().b(this.f13586a.b()));
+            return Boolean.valueOf(d.a.n0.s.e.a.b.f().b(this.f13651a.b()));
         }
     }
 
@@ -58,10 +58,10 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class b implements d.a.m0.z0.n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.f1.g.a f13588a;
+        public final /* synthetic */ d.a.n0.f1.g.a f13653a;
 
         public b(d.a.n0.f1.g.a aVar) {
-            this.f13588a = aVar;
+            this.f13653a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             if (bool.booleanValue()) {
-                NewFriendsActivity.this.mView.g(this.f13588a);
+                NewFriendsActivity.this.mView.g(this.f13653a);
             }
         }
     }
@@ -248,16 +248,16 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class n implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.n0.f1.g.a f13601a;
+        public d.a.n0.f1.g.a f13666a;
 
         public n(d.a.n0.f1.g.a aVar) {
-            this.f13601a = aVar;
+            this.f13666a = aVar;
         }
 
         @Override // d.a.m0.r.s.b.c
         public void a(d.a.m0.r.s.b bVar, int i2, View view) {
             bVar.e();
-            d.a.n0.f1.g.a aVar = this.f13601a;
+            d.a.n0.f1.g.a aVar = this.f13666a;
             if (aVar != null) {
                 NewFriendsActivity.this.deleteNewFriend(aVar);
             }
@@ -321,7 +321,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         setContentView(R.layout.new_friend_activity);
         d.a.n0.s.e.a.c cVar = new d.a.n0.s.e.a.c(this);
         this.mView = cVar;
-        cVar.j(this.mOnPullRefreshLisner);
+        cVar.i(this.mOnPullRefreshLisner);
         this.mView.k(this.mNewFriendItemListener);
         registerListener(this.mNewFriendAction);
         registerListener(this.mPassListener);
@@ -332,7 +332,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
         this.praiseYModel.setUniqueId(getUniqueId());
         this.praiseYModel.registerListener();
-        this.praiseYModel.t();
+        this.praiseYModel.x();
         this.mView.l();
     }
 

@@ -60,7 +60,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     public void onActivityResult(int i2, int i3, Intent intent) {
         super.onActivityResult(i2, i3, intent);
         if (i3 == -1) {
-            this.albumView.G(intent);
+            this.albumView.H(intent);
         }
     }
 
@@ -102,14 +102,14 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.v();
+            eVar.w();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         if (i2 == 4) {
-            this.albumView.u();
+            this.albumView.v();
             return true;
         }
         return super.onKeyDown(i2, keyEvent);
@@ -119,7 +119,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     public void onPause() {
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.w();
+            eVar.x();
         }
         super.onPause();
     }
@@ -129,7 +129,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         super.onResume();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.y();
+            eVar.z();
         }
     }
 
@@ -138,7 +138,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         super.onSaveInstanceState(bundle);
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.z(bundle);
+            eVar.A(bundle);
         }
     }
 
@@ -147,7 +147,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         super.onStart();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.A();
+            eVar.B();
         }
     }
 
@@ -156,7 +156,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         super.onStop();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.B();
+            eVar.F();
         }
     }
 }

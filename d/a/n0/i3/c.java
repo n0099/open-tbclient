@@ -17,60 +17,60 @@ import java.util.List;
 public class c extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<InterestFrsData.Card> f55776e;
+    public List<InterestFrsData.Card> f59465e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f55777f;
+    public Context f59466f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f55778g;
+    public View.OnClickListener f59467g;
 
     /* loaded from: classes5.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public FrameLayout f55779a;
+        public FrameLayout f59468a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f55780b;
+        public TbImageView f59469b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f55781c;
+        public ImageView f59470c;
 
         /* renamed from: d  reason: collision with root package name */
-        public RelativeLayout f55782d;
+        public RelativeLayout f59471d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f55783e;
+        public TextView f59472e;
 
         public b(c cVar) {
         }
     }
 
     public c(Context context) {
-        this.f55777f = context;
+        this.f59466f = context;
     }
 
     public void a(List<InterestFrsData.Card> list) {
-        this.f55776e = list;
+        this.f59465e = list;
         notifyDataSetChanged();
     }
 
     public void b(ImageView imageView, boolean z) {
         if (!z) {
-            imageView.setBackgroundDrawable(this.f55777f.getResources().getDrawable(R.drawable.icon_startpage2_add_pic_n));
+            imageView.setBackgroundDrawable(this.f59466f.getResources().getDrawable(R.drawable.icon_startpage2_add_pic_n));
         } else {
-            imageView.setBackgroundDrawable(this.f55777f.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
+            imageView.setBackgroundDrawable(this.f59466f.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
         }
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.f55778g = onClickListener;
+        this.f59467g = onClickListener;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<InterestFrsData.Card> list = this.f55776e;
+        List<InterestFrsData.Card> list = this.f59465e;
         if (list != null) {
             return list.size();
         }
@@ -79,11 +79,11 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        List<InterestFrsData.Card> list = this.f55776e;
+        List<InterestFrsData.Card> list = this.f59465e;
         if (list == null || i2 < 0 || i2 >= list.size()) {
             return null;
         }
-        return this.f55776e.get(i2);
+        return this.f59465e.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -95,32 +95,32 @@ public class c extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null) {
-            view = LayoutInflater.from(this.f55777f).inflate(R.layout.new_user_img_item, viewGroup, false);
+            view = LayoutInflater.from(this.f59466f).inflate(R.layout.new_user_img_item, viewGroup, false);
             bVar = new b();
-            bVar.f55780b = (TbImageView) view.findViewById(R.id.pic);
-            bVar.f55781c = (ImageView) view.findViewById(R.id.select_icon);
-            bVar.f55782d = (RelativeLayout) view.findViewById(R.id.lay_select);
-            bVar.f55783e = (TextView) view.findViewById(R.id.tv_fname);
+            bVar.f59469b = (TbImageView) view.findViewById(R.id.pic);
+            bVar.f59470c = (ImageView) view.findViewById(R.id.select_icon);
+            bVar.f59471d = (RelativeLayout) view.findViewById(R.id.lay_select);
+            bVar.f59472e = (TextView) view.findViewById(R.id.tv_fname);
             FrameLayout frameLayout = (FrameLayout) view.findViewById(R.id.pic_layout);
-            bVar.f55779a = frameLayout;
-            frameLayout.setOnClickListener(this.f55778g);
+            bVar.f59468a = frameLayout;
+            frameLayout.setOnClickListener(this.f59467g);
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
-        bVar.f55780b.setTag(null);
-        bVar.f55782d.setTag(null);
-        bVar.f55783e.setText("");
-        bVar.f55779a.setTag(null);
+        bVar.f59469b.setTag(null);
+        bVar.f59471d.setTag(null);
+        bVar.f59472e.setText("");
+        bVar.f59468a.setTag(null);
         Object item = getItem(i2);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
-            b(bVar.f55781c, card.getIs_like() == 1);
-            bVar.f55782d.setTag(card);
-            bVar.f55779a.setTag(card);
-            bVar.f55780b.setTag(card.getIcon_url());
-            bVar.f55780b.V(card.getIcon_url(), 21, false);
-            bVar.f55783e.setText(card.getFname());
+            b(bVar.f59470c, card.getIs_like() == 1);
+            bVar.f59471d.setTag(card);
+            bVar.f59468a.setTag(card);
+            bVar.f59469b.setTag(card.getIcon_url());
+            bVar.f59469b.U(card.getIcon_url(), 21, false);
+            bVar.f59472e.setText(card.getFname());
         }
         return view;
     }

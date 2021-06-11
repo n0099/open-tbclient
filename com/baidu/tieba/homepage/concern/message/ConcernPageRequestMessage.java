@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.AdExtParam;
 import d.a.m0.z0.c;
 import d.a.m0.z0.w;
-import d.a.n0.b1.b.d;
+import d.a.n0.b1.c.d;
 import d.a.n0.t2.i0.b;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
@@ -28,7 +28,7 @@ public class ConcernPageRequestMessage extends NetMessage {
         String d2 = isEmpty ? "" : b.f().d("CONCERN");
         c cVar = this.adInfo;
         if (cVar != null && !isEmpty) {
-            str = cVar.f50981b;
+            str = cVar.f54658b;
         }
         AdExtParam.a b2 = AdExtParam.a.b();
         b2.g(e2);

@@ -7,14 +7,14 @@ import java.util.HashMap;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, Integer> f49879a = new HashMap<>();
+    public static HashMap<String, Integer> f53555a = new HashMap<>();
 
     public static int a(int i2) {
         String str = TbadkCoreApplication.getCurrentAccount() + "@" + i2;
-        if (f49879a.containsKey(str)) {
-            return f49879a.get(str).intValue();
+        if (f53555a.containsKey(str)) {
+            return f53555a.get(str).intValue();
         }
-        f49879a.put(str, 1);
+        f53555a.put(str, 1);
         return 1;
     }
 
@@ -23,14 +23,14 @@ public class f {
             return;
         }
         String str = TbadkCoreApplication.getCurrentAccount() + "@2";
-        int s = personPrivateData.s();
-        if (f49879a.containsKey(str)) {
+        int w = personPrivateData.w();
+        if (f53555a.containsKey(str)) {
             return;
         }
-        f49879a.put(str, Integer.valueOf(s));
+        f53555a.put(str, Integer.valueOf(w));
     }
 
     public static void c(int i2, int i3) {
-        f49879a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i2, Integer.valueOf(i3));
+        f53555a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i2, Integer.valueOf(i3));
     }
 }

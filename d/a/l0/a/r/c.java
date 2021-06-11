@@ -16,25 +16,25 @@ import org.json.JSONObject;
 public abstract class c extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44247c = k.f43199a;
+    public static final boolean f47921c = k.f46875a;
 
     /* loaded from: classes2.dex */
     public class a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44248a;
+        public final /* synthetic */ CallbackHandler f47922a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44249b;
+        public final /* synthetic */ String f47923b;
 
         public a(CallbackHandler callbackHandler, String str) {
-            this.f44248a = callbackHandler;
-            this.f44249b = str;
+            this.f47922a = callbackHandler;
+            this.f47923b = str;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f44248a.handleSchemeDispatchCallback(this.f44249b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
+            this.f47922a.handleSchemeDispatchCallback(this.f47923b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -43,7 +43,7 @@ public abstract class c extends a0 {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i2) throws Exception {
-            c.this.j(response, this.f44248a, this.f44249b);
+            c.this.j(response, this.f47922a, this.f47923b);
             return response;
         }
     }
@@ -69,7 +69,7 @@ public abstract class c extends a0 {
         if (TextUtils.isEmpty(optString)) {
             return l(unitedSchemeEntity, 202, "illegal cb");
         }
-        if (f44247c) {
+        if (f47921c) {
             Log.d("BaseCloudAction", "schema params : " + a2.toString());
             Log.d("BaseCloudAction", "schema cb : " + optString);
         }

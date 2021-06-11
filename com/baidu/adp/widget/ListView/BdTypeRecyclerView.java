@@ -9,17 +9,17 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.a.c.j.e.g;
-import d.a.c.j.e.h;
-import d.a.c.j.e.n;
-import d.a.c.j.e.s;
+import d.a.c.k.e.g;
+import d.a.c.k.e.h;
+import d.a.c.k.e.n;
+import d.a.c.k.e.s;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecyclerView> {
     public RecyclerViewTypeAdapter x;
-    public HashMap<BdUniqueId, d.a.c.j.e.a> y;
+    public HashMap<BdUniqueId, d.a.c.k.e.a> y;
     public HashMap<BdUniqueId, h> z;
 
     /* loaded from: classes.dex */
@@ -31,7 +31,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         public void b(ViewGroup viewGroup, View view, Object obj, int i2, long j) {
             RecyclerViewTypeAdapter recyclerViewTypeAdapter = BdTypeRecyclerView.this.x;
             if (recyclerViewTypeAdapter != null) {
-                recyclerViewTypeAdapter.h(viewGroup, view, i2, j);
+                recyclerViewTypeAdapter.q(viewGroup, view, i2, j);
             }
         }
     }
@@ -45,7 +45,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         public boolean a(ViewGroup viewGroup, View view, Object obj, int i2, long j) {
             RecyclerViewTypeAdapter recyclerViewTypeAdapter = BdTypeRecyclerView.this.x;
             if (recyclerViewTypeAdapter != null) {
-                return recyclerViewTypeAdapter.i(viewGroup, view, i2, j);
+                return recyclerViewTypeAdapter.r(viewGroup, view, i2, j);
             }
             return false;
         }
@@ -76,50 +76,50 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
     }
 
     public void D(int i2) {
-        this.x.j(i2, getHeaderViewsCount());
+        this.x.s(i2, getHeaderViewsCount());
     }
 
     public void E(int i2, int i3) {
-        this.x.k(i2, i3, getHeaderViewsCount());
+        this.x.t(i2, i3, getHeaderViewsCount());
     }
 
-    @Override // d.a.c.j.e.s
-    public void a(List<d.a.c.j.e.a> list) {
-        for (d.a.c.j.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
+    @Override // d.a.c.k.e.s
+    public void a(List<d.a.c.k.e.a> list) {
+        for (d.a.c.k.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
             if (aVar != null) {
                 BdUniqueId bdUniqueId = null;
-                if (aVar.x() != null) {
-                    bdUniqueId = aVar.x();
+                if (aVar.y() != null) {
+                    bdUniqueId = aVar.y();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar = new h(aVar.f39228e, bdUniqueId, aVar.f39232i);
-                        hVar.g0(aVar);
+                        h hVar = new h(aVar.f42909e, bdUniqueId, aVar.f42913i);
+                        hVar.h0(aVar);
                         this.x.c(hVar);
                         this.z.put(bdUniqueId, hVar);
-                    }
-                }
-                if (aVar.v() != null) {
-                    bdUniqueId = aVar.v();
-                    if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar2 = new h(aVar.f39228e, bdUniqueId, aVar.f39232i);
-                        hVar2.g0(aVar);
-                        this.x.c(hVar2);
-                        this.z.put(bdUniqueId, hVar2);
                     }
                 }
                 if (aVar.w() != null) {
                     bdUniqueId = aVar.w();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar3 = new h(aVar.f39228e, bdUniqueId, aVar.f39232i);
-                        hVar3.g0(aVar);
+                        h hVar2 = new h(aVar.f42909e, bdUniqueId, aVar.f42913i);
+                        hVar2.h0(aVar);
+                        this.x.c(hVar2);
+                        this.z.put(bdUniqueId, hVar2);
+                    }
+                }
+                if (aVar.x() != null) {
+                    bdUniqueId = aVar.x();
+                    if (!this.z.containsKey(bdUniqueId)) {
+                        h hVar3 = new h(aVar.f42909e, bdUniqueId, aVar.f42913i);
+                        hVar3.h0(aVar);
                         this.x.c(hVar3);
                         this.z.put(bdUniqueId, hVar3);
                     }
                 }
-                if (aVar.u() != null) {
-                    bdUniqueId = aVar.u();
+                if (aVar.v() != null) {
+                    bdUniqueId = aVar.v();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar4 = new h(aVar.f39228e, bdUniqueId, aVar.f39232i);
-                        hVar4.g0(aVar);
+                        h hVar4 = new h(aVar.f42909e, bdUniqueId, aVar.f42913i);
+                        hVar4.h0(aVar);
                         this.x.c(hVar4);
                         this.z.put(bdUniqueId, hVar4);
                     }
@@ -127,7 +127,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                 if (bdUniqueId == null) {
                     this.x.c(aVar);
                 } else {
-                    this.y.put(aVar.f39231h, aVar);
+                    this.y.put(aVar.f42912h, aVar);
                 }
             }
         }
@@ -138,14 +138,14 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         return this.x.getCount();
     }
 
-    @Override // d.a.c.j.e.s
+    @Override // d.a.c.k.e.s
     public List<n> getData() {
-        return this.x.d();
+        return this.x.m();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeRecyclerView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdRecyclerView, d.a.c.j.e.p
+    @Override // com.baidu.adp.widget.ListView.BdRecyclerView, d.a.c.k.e.p
     /* renamed from: getListView */
     public BdRecyclerView getListView2() {
         return this;
@@ -161,51 +161,51 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         return super.onSaveInstanceState();
     }
 
-    @Override // d.a.c.j.e.s
+    @Override // d.a.c.k.e.s
     public void setData(List<? extends n> list) {
         ArrayList arrayList = new ArrayList();
         for (n nVar : list) {
             if (nVar != null) {
                 if (this.y.containsKey(nVar.getType())) {
-                    d.a.c.j.e.a aVar = this.y.get(nVar.getType());
-                    if (aVar.x() != null) {
+                    d.a.c.k.e.a aVar = this.y.get(nVar.getType());
+                    if (aVar.y() != null) {
                         g gVar = new g();
-                        gVar.m(aVar.x());
+                        gVar.i(aVar.y());
                         if (nVar instanceof BaseCardInfo) {
                             gVar.position = ((BaseCardInfo) nVar).position;
                             gVar.setSupportType(BaseCardInfo.SupportType.TOP);
                         }
-                        gVar.l(nVar);
+                        gVar.g(nVar);
                         arrayList.add(gVar);
                     }
-                    if (aVar.v() != null) {
+                    if (aVar.w() != null) {
                         g gVar2 = new g();
-                        gVar2.m(aVar.v());
+                        gVar2.i(aVar.w());
                         if (nVar instanceof BaseCardInfo) {
                             gVar2.position = ((BaseCardInfo) nVar).position;
                             gVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                         }
-                        gVar2.l(nVar);
+                        gVar2.g(nVar);
                         arrayList.add(gVar2);
                     }
-                    if (aVar.w() != null) {
+                    if (aVar.x() != null) {
                         g gVar3 = new g();
-                        gVar3.m(aVar.w());
+                        gVar3.i(aVar.x());
                         if (nVar instanceof BaseCardInfo) {
                             gVar3.position = ((BaseCardInfo) nVar).position;
                             gVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
                         }
-                        gVar3.l(nVar);
+                        gVar3.g(nVar);
                         arrayList.add(gVar3);
                     }
-                    if (aVar.u() != null) {
+                    if (aVar.v() != null) {
                         g gVar4 = new g();
-                        gVar4.m(aVar.u());
+                        gVar4.i(aVar.v());
                         if (nVar instanceof BaseCardInfo) {
                             gVar4.position = ((BaseCardInfo) nVar).position;
                             gVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                         }
-                        gVar4.l(nVar);
+                        gVar4.g(nVar);
                         arrayList.add(gVar4);
                     }
                 } else {
@@ -217,7 +217,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
     }
 
     public void setDataWithPartChange(List<n> list, int i2, int i3) {
-        this.x.l(list, i2, i3);
+        this.x.u(list, i2, i3);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdRecyclerView

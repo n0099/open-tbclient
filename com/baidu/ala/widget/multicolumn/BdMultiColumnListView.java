@@ -13,13 +13,13 @@ import com.huewu.pla.lib.internal.PLA_AbsListView;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import d.a.c.a.j;
 import d.a.c.f.a.i;
-import d.a.c.j.e.b;
-import d.a.c.j.e.c;
-import d.a.c.j.e.e;
-import d.a.c.j.e.f;
-import d.a.c.j.e.o;
-import d.a.c.j.e.q;
-import d.a.c.j.f.a;
+import d.a.c.k.e.b;
+import d.a.c.k.e.c;
+import d.a.c.k.e.e;
+import d.a.c.k.e.f;
+import d.a.c.k.e.o;
+import d.a.c.k.e.q;
+import d.a.c.k.f.a;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdMultiColumnListView extends MultiColumnListView {
@@ -131,7 +131,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
             }
             f fVar = new f(view.getContext(), 0, -bdIListPullView.q(), this.mAnimDurationTime);
             fVar.d(new a() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.PullRefresh.1
-                @Override // d.a.c.j.f.a
+                @Override // d.a.c.k.f.a
                 public void onOver() {
                     PullRefresh.this.done();
                 }
@@ -340,23 +340,23 @@ public class BdMultiColumnListView extends MultiColumnListView {
             }
         };
         this.mPreLoadListView = new q() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public void cancelRefresh() {
                 BdMultiColumnListView bdMultiColumnListView = BdMultiColumnListView.this;
                 bdMultiColumnListView.removeCallbacks(bdMultiColumnListView.refreshRunnable);
             }
 
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public o getAdapter() {
                 return BdMultiColumnListView.this.mBdListAdpter;
             }
 
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public int getFirstVisiblePosition() {
                 return BdMultiColumnListView.this.getFirstVisiblePosition();
             }
 
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public int getLastVisiblePosition() {
                 return BdMultiColumnListView.this.getLastVisiblePosition();
             }
@@ -419,7 +419,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
         BdSimplePreLoadListAdapter bdSimplePreLoadListAdapter = new BdSimplePreLoadListAdapter(getContext());
         this.mBdListAdpter = bdSimplePreLoadListAdapter;
         bdSimplePreLoadListAdapter.setListPreLoad(new e.b() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.5
-            @Override // d.a.c.j.e.e.b
+            @Override // d.a.c.k.e.e.b
             public void onPreLoad() {
                 BdMultiColumnListView bdMultiColumnListView = BdMultiColumnListView.this;
                 bdMultiColumnListView.removeCallbacks(bdMultiColumnListView.preLoadRunnable);
@@ -840,23 +840,23 @@ public class BdMultiColumnListView extends MultiColumnListView {
             }
         };
         this.mPreLoadListView = new q() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public void cancelRefresh() {
                 BdMultiColumnListView bdMultiColumnListView = BdMultiColumnListView.this;
                 bdMultiColumnListView.removeCallbacks(bdMultiColumnListView.refreshRunnable);
             }
 
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public o getAdapter() {
                 return BdMultiColumnListView.this.mBdListAdpter;
             }
 
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public int getFirstVisiblePosition() {
                 return BdMultiColumnListView.this.getFirstVisiblePosition();
             }
 
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public int getLastVisiblePosition() {
                 return BdMultiColumnListView.this.getLastVisiblePosition();
             }
@@ -948,23 +948,23 @@ public class BdMultiColumnListView extends MultiColumnListView {
             }
         };
         this.mPreLoadListView = new q() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public void cancelRefresh() {
                 BdMultiColumnListView bdMultiColumnListView = BdMultiColumnListView.this;
                 bdMultiColumnListView.removeCallbacks(bdMultiColumnListView.refreshRunnable);
             }
 
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public o getAdapter() {
                 return BdMultiColumnListView.this.mBdListAdpter;
             }
 
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public int getFirstVisiblePosition() {
                 return BdMultiColumnListView.this.getFirstVisiblePosition();
             }
 
-            @Override // d.a.c.j.e.q
+            @Override // d.a.c.k.e.q
             public int getLastVisiblePosition() {
                 return BdMultiColumnListView.this.getLastVisiblePosition();
             }

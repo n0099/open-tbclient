@@ -3,16 +3,16 @@ package org.apache.http.conn.routing;
 import java.net.InetAddress;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface RouteInfo {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum LayerType {
         LAYERED,
         PLAIN
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum TunnelType {
         PLAIN,
         TUNNELLED

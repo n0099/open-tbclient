@@ -26,7 +26,7 @@ public class g extends d.a.l0.g.f.a {
         if (!b2) {
             Toast.makeText(d.a.l0.a.c1.a.b(), d.a.l0.g.b.aiapps_goto_clean_activity_fail, 0).show();
         }
-        bVar.b(null);
+        bVar.a(null);
         return null;
     }
 

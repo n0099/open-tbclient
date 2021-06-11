@@ -14,21 +14,21 @@ public class b extends d.a.l0.a.a0.a.a {
     public class a implements CanvasView.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f40571a;
+        public final /* synthetic */ String f44247a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f40572b;
+        public final /* synthetic */ CallbackHandler f44248b;
 
         public a(b bVar, String str, CallbackHandler callbackHandler) {
-            this.f40571a = str;
-            this.f40572b = callbackHandler;
+            this.f44247a = str;
+            this.f44248b = callbackHandler;
         }
 
         @Override // com.baidu.swan.apps.canvas.view.CanvasView.c
         public void a() {
-            String str = this.f40571a;
+            String str = this.f44247a;
             if (str != null) {
-                this.f40572b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
+                this.f44248b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
             }
         }
     }
@@ -51,16 +51,16 @@ public class b extends d.a.l0.a.a0.a.a {
             return false;
         }
         String optString = optParamsAsJo.optString("cb");
-        if (TextUtils.isEmpty(m.f40845f)) {
+        if (TextUtils.isEmpty(m.f44521f)) {
             d.a.l0.a.c0.g.a.a("SwanAppAction", "canvasId is empty ");
             unitedSchemeEntity.result = l(201);
             return false;
         }
-        if (TextUtils.isEmpty(m.f40846g)) {
+        if (TextUtils.isEmpty(m.f44522g)) {
             d.a.l0.a.c0.g.a.a("SwanAppAction", "drawCanvas slaveId is empty");
             d.a.l0.a.h0.g.f J = d.a.l0.a.g1.f.V().J();
             if (J != null) {
-                m.f40846g = J.g3();
+                m.f44522g = J.g3();
             }
         }
         d.a.l0.a.c0.c.d.a aVar = (d.a.l0.a.c0.c.d.a) d.a.l0.a.c0.d.a.a(m);

@@ -12,14 +12,14 @@ import com.baidu.tieba.payment.message.ResponsePaymentConfirmInfoMessage;
 import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import d.a.c.a.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public f<T> f18798e;
+    public f<T> f18875e;
 
     public PaymentConfirmModel(f<T> fVar) {
-        this.f18798e = fVar;
+        this.f18875e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -32,7 +32,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         return false;
     }
 
-    public void s(PayRequestData payRequestData) {
+    public void w(PayRequestData payRequestData) {
         if (payRequestData == null) {
             return;
         }
@@ -46,24 +46,24 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("password", payRequestData.getPassword());
         httpMessage.addParam("bindid", payRequestData.getBindId());
         httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-        this.f18798e.sendMessage(httpMessage);
+        this.f18875e.sendMessage(httpMessage);
     }
 
-    public void t() {
+    public void x() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO, TbConfig.SERVER_ADDRESS + "c/e/consume/getBuyForm");
         tbHttpMessageTask.setResponsedClass(ResponsePaymentConfirmInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void u() {
+    public void y() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_PAY, TbConfig.SERVER_ADDRESS + "c/c/encourage/consume/payOpenGoods");
         tbHttpMessageTask.setResponsedClass(ResponsePaymentPayMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void v(PaymentConfirmRequestData paymentConfirmRequestData) {
+    public void z(PaymentConfirmRequestData paymentConfirmRequestData) {
         if (paymentConfirmRequestData == null) {
             return;
         }
@@ -81,6 +81,6 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
         httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
         httpMessage.addParam("currency", paymentConfirmRequestData.getCurrency());
-        this.f18798e.sendMessage(httpMessage);
+        this.f18875e.sendMessage(httpMessage);
     }
 }

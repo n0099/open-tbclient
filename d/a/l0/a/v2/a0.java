@@ -27,29 +27,29 @@ import java.util.Map;
 public class a0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45353a = d.a.l0.a.k.f43199a;
+    public static final boolean f49027a = d.a.l0.a.k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, String> f45354b;
+    public static final Map<String, String> f49028b;
 
     static {
         HashMap hashMap = new HashMap(14);
-        f45354b = hashMap;
+        f49028b = hashMap;
         hashMap.put("android.permission.ACCESS_FINE_LOCATION", "定位");
-        f45354b.put("android.permission.ACCESS_COARSE_LOCATION", "定位");
-        f45354b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, "录音");
-        f45354b.put("android.permission.READ_CONTACTS", "读取联系人");
-        f45354b.put(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "访问网络状态");
-        f45354b.put("android.permission.REORDER_TASKS", "开机自启");
-        f45354b.put("android.permission.INTERNET", "网络");
-        f45354b.put("android.permission.REQUEST_INSTALL_PACKAGES", "安装软件包");
-        f45354b.put("android.permission.READ_CALENDAR", "读取日历");
-        f45354b.put("android.permission.WRITE_CALENDAR", "写入日历");
-        f45354b.put(StorageUtils.EXTERNAL_STORAGE_PERMISSION, "存储");
-        f45354b.put("android.permission.READ_EXTERNAL_STORAGE", "存储");
-        f45354b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, "相机");
-        f45354b.put("android.permission.WRITE_SETTINGS", "系统设置");
-        f45354b.put("android.permission.SYSTEM_ALERT_WINDOW", "悬浮窗");
+        f49028b.put("android.permission.ACCESS_COARSE_LOCATION", "定位");
+        f49028b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, "录音");
+        f49028b.put("android.permission.READ_CONTACTS", "读取联系人");
+        f49028b.put(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "访问网络状态");
+        f49028b.put("android.permission.REORDER_TASKS", "开机自启");
+        f49028b.put("android.permission.INTERNET", "网络");
+        f49028b.put("android.permission.REQUEST_INSTALL_PACKAGES", "安装软件包");
+        f49028b.put("android.permission.READ_CALENDAR", "读取日历");
+        f49028b.put("android.permission.WRITE_CALENDAR", "写入日历");
+        f49028b.put(StorageUtils.EXTERNAL_STORAGE_PERMISSION, "存储");
+        f49028b.put("android.permission.READ_EXTERNAL_STORAGE", "存储");
+        f49028b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, "相机");
+        f49028b.put("android.permission.WRITE_SETTINGS", "系统设置");
+        f49028b.put("android.permission.SYSTEM_ALERT_WINDOW", "悬浮窗");
     }
 
     public static Map<String, ComponentName> a() {
@@ -83,7 +83,7 @@ public class a0 {
                     return readLine;
                 } catch (IOException e2) {
                     e = e2;
-                    if (f45353a) {
+                    if (f49027a) {
                         e.printStackTrace();
                     }
                     d.a.l0.t.d.d(bufferedReader);
@@ -109,7 +109,7 @@ public class a0 {
         try {
             return context.getPackageManager().getPackageInfo(str, 0);
         } catch (Exception e2) {
-            if (f45353a) {
+            if (f49027a) {
                 e2.printStackTrace();
             }
             return null;
@@ -124,7 +124,7 @@ public class a0 {
         try {
             list = context.getPackageManager().queryIntentActivities(intent, 0);
         } catch (Exception e2) {
-            if (f45353a) {
+            if (f49027a) {
                 e2.printStackTrace();
             }
             list = null;
@@ -151,7 +151,7 @@ public class a0 {
             return;
         }
         String lowerCase = str.toLowerCase();
-        if (f45353a) {
+        if (f49027a) {
             Log.d("SwanAppPermissionHelper", "goPermissionPage : " + lowerCase);
         }
         if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_XIAOMI)) {
@@ -180,7 +180,7 @@ public class a0 {
             intent.putExtra("packageName", context.getPackageName());
             context.startActivity(intent);
         } catch (Exception e2) {
-            if (f45353a) {
+            if (f49027a) {
                 e2.printStackTrace();
             }
             f(context);
@@ -189,7 +189,7 @@ public class a0 {
 
     public static void i(Context context) {
         String c2 = c();
-        if (f45353a) {
+        if (f49027a) {
             Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + c2);
         }
         Intent intent = new Intent();
@@ -219,12 +219,12 @@ public class a0 {
             try {
                 i2 = ContextCompat.checkSelfPermission(context, str);
             } catch (Exception e2) {
-                if (f45353a) {
+                if (f49027a) {
                     throw e2;
                 }
             }
             return i2 == 0;
-        } else if (f45353a) {
+        } else if (f49027a) {
             throw new IllegalArgumentException("context or permission is null");
         } else {
             return false;
@@ -236,11 +236,11 @@ public class a0 {
             try {
                 context.startActivity(intent);
             } catch (Exception e2) {
-                if (f45353a) {
+                if (f49027a) {
                     e2.printStackTrace();
                 }
             }
-        } else if (f45353a) {
+        } else if (f49027a) {
             Log.e("SwanAppPermissionHelper", "context or intent is null");
         }
     }
@@ -251,7 +251,7 @@ public class a0 {
             intent.setComponent(componentName);
             context.startActivity(intent);
         } catch (Exception e2) {
-            if (f45353a) {
+            if (f49027a) {
                 e2.printStackTrace();
             }
             f(context);
@@ -275,7 +275,7 @@ public class a0 {
             intent.setComponent(new ComponentName(e2.activityInfo.packageName, e2.activityInfo.name));
             context.startActivity(intent);
         } catch (Exception e3) {
-            if (f45353a) {
+            if (f49027a) {
                 e3.printStackTrace();
             }
             f(context);
@@ -283,7 +283,7 @@ public class a0 {
     }
 
     public static String n(String str) {
-        String str2 = f45354b.get(str);
+        String str2 = f49028b.get(str);
         return str2 == null ? "" : str2;
     }
 }

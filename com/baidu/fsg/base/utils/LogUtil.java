@@ -15,31 +15,31 @@ public final class LogUtil {
     public static final boolean DEBUG;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5299a = "apollon_rest";
+    public static final String f5342a = "apollon_rest";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5300b;
+    public static final boolean f5343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f5301c;
+    public static final boolean f5344c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f5302d;
+    public static final boolean f5345d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f5303e;
+    public static final boolean f5346e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f5304f;
+    public static final boolean f5347f;
 
     static {
         boolean z = ApollonConstants.DEBUG;
         DEBUG = z;
-        f5300b = z;
-        f5301c = z;
-        f5302d = z;
-        f5303e = z;
-        f5304f = z;
+        f5343b = z;
+        f5344c = z;
+        f5345d = z;
+        f5346e = z;
+        f5347f = z;
     }
 
     public static StackTraceElement a() {
@@ -60,7 +60,7 @@ public final class LogUtil {
     }
 
     public static void d(String str, String str2) {
-        if (f5301c) {
+        if (f5344c) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -73,7 +73,7 @@ public final class LogUtil {
     }
 
     public static void e(String str) {
-        if (f5304f) {
+        if (f5347f) {
             Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
         }
     }
@@ -99,7 +99,7 @@ public final class LogUtil {
     }
 
     public static void i(String str, String str2) {
-        if (f5302d) {
+        if (f5345d) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -124,7 +124,7 @@ public final class LogUtil {
     }
 
     public static void saveLog(String str) {
-        if (f5301c) {
+        if (f5344c) {
             String str2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS    ", Locale.ENGLISH).format(new Date()) + str + "\n";
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(new File(String.valueOf(Environment.getExternalStorageDirectory()) + "/wallet.log"), true);
@@ -162,7 +162,7 @@ public final class LogUtil {
     }
 
     public static void v(String str, String str2) {
-        if (f5300b) {
+        if (f5343b) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -175,7 +175,7 @@ public final class LogUtil {
     }
 
     public static void w(String str, String str2) {
-        if (f5303e) {
+        if (f5346e) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -206,31 +206,31 @@ public final class LogUtil {
     }
 
     public static void e(String str, String str2) {
-        if (f5304f) {
+        if (f5347f) {
             Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
         }
     }
 
     public static void d(String str) {
-        if (f5302d) {
+        if (f5345d) {
             Log.d("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
         }
     }
 
     public static void i(String str) {
-        if (f5302d) {
+        if (f5345d) {
             Log.i("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
         }
     }
 
     public static void w(String str) {
-        if (f5303e) {
+        if (f5346e) {
             Log.w("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (f5304f) {
+        if (f5347f) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }

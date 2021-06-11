@@ -11,13 +11,13 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data> {
     public static final String BASE64_TAG = ";base64";
     public static final String DATA_SCHEME_IMAGE = "data:image";
     public final DataDecoder<Data> dataDecoder;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface DataDecoder<Data> {
         void close(Data data) throws IOException;
 
@@ -26,7 +26,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
         Class<Data> getDataClass();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class DataUriFetcher<Data> implements DataFetcher<Data> {
         public Data data;
         public final String dataUri;
@@ -74,7 +74,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class StreamFactory<Model> implements ModelLoaderFactory<Model, InputStream> {
         public final DataDecoder<InputStream> opener = new DataDecoder<InputStream>() { // from class: com.bumptech.glide.load.model.DataUrlLoader.StreamFactory.1
             @Override // com.bumptech.glide.load.model.DataUrlLoader.DataDecoder

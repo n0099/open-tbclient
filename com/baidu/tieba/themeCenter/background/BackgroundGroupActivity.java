@@ -29,7 +29,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.mView.d());
             BackgroundGroupActivity.this.mView.i();
             if (i2 == 0) {
-                BackgroundGroupActivity.this.mView.k(eVar, list, BackgroundGroupActivity.this.mModel.B());
+                BackgroundGroupActivity.this.mView.k(eVar, list, BackgroundGroupActivity.this.mModel.F());
                 return;
             }
             BackgroundGroupActivity.this.showToast(str);
@@ -46,7 +46,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public d.a.m0.k0.d getPageStayDurationItem() {
         d.a.m0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
+            pageStayDurationItem.f53110a = true;
         }
         return pageStayDurationItem;
     }
@@ -71,7 +71,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         this.mPageContext = getPageContext();
         BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
         this.mModel = backgroundGroupModel;
-        backgroundGroupModel.E(this.mCallback);
+        backgroundGroupModel.I(this.mCallback);
         d dVar = new d(this.mPageContext, this.mModel.getUniqueId());
         this.mItemController = dVar;
         dVar.c(1);

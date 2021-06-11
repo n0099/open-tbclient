@@ -20,6 +20,7 @@ import com.alibaba.fastjson.serializer.SerializeBeanInfo;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.webkit.internal.ABTestConstants;
+import com.kwai.video.player.KsMediaMeta;
 import com.vivo.push.PushClientConstants;
 import java.io.InputStream;
 import java.io.Reader;
@@ -2158,7 +2159,7 @@ public class TypeUtils {
                 return parserConfig.get(cls) != null ? (T) JSON.parseObject(JSON.toJSONString(jSONObject), cls) : (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, jSONObject);
             }
             if (cls == Locale.class) {
-                Object obj2 = map.get("language");
+                Object obj2 = map.get(KsMediaMeta.KSM_KEY_LANGUAGE);
                 Object obj3 = map.get("country");
                 if (obj2 instanceof String) {
                     String str5 = (String) obj2;

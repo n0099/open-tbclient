@@ -2,7 +2,6 @@ package d.a.l0.a.v0;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import d.a.l0.a.a2.e;
 import d.a.l0.a.f1.e.b;
 import d.a.l0.a.k2.g.h;
@@ -13,29 +12,29 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f45259a;
+    public boolean f48933a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f45260b;
+    public boolean f48934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45261c;
+    public String f48935c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f45262d;
+    public JSONObject f48936d;
 
     public final boolean a() {
         if (d.a.l0.a.a2.d.g().l() == 0) {
-            return c(this.f45262d, "bbasp_guide_");
+            return c(this.f48936d, "bbasp_guide_");
         }
         if (d.a.l0.a.a2.d.g().l() == 1) {
-            return c(this.f45262d, "bbaspg_guide_");
+            return c(this.f48936d, "bbaspg_guide_");
         }
         return false;
     }
 
     public final boolean b() {
-        JSONArray optJSONArray = this.f45262d.optJSONArray("custom_guide_list");
+        JSONArray optJSONArray = this.f48936d.optJSONArray("custom_guide_list");
         if (optJSONArray != null && optJSONArray.length() != 0) {
             int length = optJSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
@@ -63,7 +62,7 @@ public class b {
             long optLong = jSONObject.optLong(str + "last_time", 0L);
             int optInt = jSONObject.optInt(str + "shown_count", 0);
             int optInt2 = jSONObject.optInt(str + "image_index", 0);
-            boolean z2 = System.currentTimeMillis() - optLong > longValue * VideoCloudSetting.HOUR_MILLISECOND;
+            boolean z2 = System.currentTimeMillis() - optLong > longValue * 3600000;
             if (d.a.l0.a.a2.d.g().l() == 1) {
                 i2 = j();
             } else {
@@ -96,17 +95,17 @@ public class b {
     }
 
     public String e() {
-        if (this.f45259a) {
+        if (this.f48933a) {
             return "special";
         }
-        if (this.f45260b) {
+        if (this.f48934b) {
             return "normal";
         }
         return null;
     }
 
     public String f() {
-        return this.f45261c;
+        return this.f48935c;
     }
 
     public final int g(JSONObject jSONObject, int i2, String str) {
@@ -117,23 +116,23 @@ public class b {
         if (i2 >= optJSONArray.length()) {
             i2 = 0;
         }
-        this.f45261c = optJSONArray.optString(i2);
+        this.f48935c = optJSONArray.optString(i2);
         return i2;
     }
 
     public b h() {
-        this.f45259a = false;
-        this.f45260b = false;
-        this.f45261c = null;
+        this.f48933a = false;
+        this.f48934b = false;
+        this.f48935c = null;
         JSONObject d2 = d();
-        this.f45262d = d2;
+        this.f48936d = d2;
         if (d2 != null && d2.length() != 0) {
             boolean b2 = b();
-            this.f45259a = b2;
+            this.f48933a = b2;
             if (b2) {
                 return this;
             }
-            this.f45260b = a();
+            this.f48934b = a();
         }
         return this;
     }
@@ -179,6 +178,6 @@ public class b {
     }
 
     public boolean k() {
-        return this.f45260b || this.f45259a;
+        return this.f48934b || this.f48933a;
     }
 }

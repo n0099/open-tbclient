@@ -8,12 +8,12 @@ import com.xiaomi.push.al;
 public class am extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ al f37304a;
+    public final /* synthetic */ al f40983a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public am(al alVar, Looper looper) {
         super(looper);
-        this.f37304a = alVar;
+        this.f40983a = alVar;
     }
 
     @Override // android.os.Handler
@@ -23,7 +23,7 @@ public class am extends Handler {
         if (i2 == 0) {
             bVar.a();
         } else if (i2 == 1) {
-            bVar.mo229c();
+            bVar.mo228c();
         }
         super.handleMessage(message);
     }

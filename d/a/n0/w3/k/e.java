@@ -48,13 +48,13 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
     public Intent B;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62831e;
+    public int f66546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62832f;
+    public int f66547f;
 
     /* renamed from: i  reason: collision with root package name */
-    public BaseFragmentActivity f62835i;
+    public BaseFragmentActivity f66550i;
     public c j;
     public d.a.n0.w3.k.a k;
     public f l;
@@ -63,10 +63,10 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
     public FrsTabInfoData x;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f62833g = 0;
+    public int f66548g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f62834h = false;
+    public boolean f66549h = false;
     public String n = "";
     public String p = "";
     public String q = "";
@@ -103,7 +103,7 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
                     }
                 }
             }
-            BdToast.i(e.this.f62835i, e.this.f62835i.getString(R.string.uploade_attation), R.drawable.icon_toast_game_error, false).q();
+            BdToast.i(e.this.f66550i, e.this.f66550i.getString(R.string.uploade_attation), R.drawable.icon_toast_game_error, false).q();
             return false;
         }
     }
@@ -129,43 +129,59 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         public void onPostExecute(String str) {
             Intent intent = new Intent();
             intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, str);
-            e.this.f62835i.setResult(-1, intent);
-            e.this.f62835i.finish();
+            e.this.f66550i.setResult(-1, intent);
+            e.this.f66550i.finish();
         }
     }
 
     public e(BaseFragmentActivity baseFragmentActivity, Bundle bundle, int i2, int i3) {
-        p(baseFragmentActivity, i2, i3);
+        q(baseFragmentActivity, i2, i3);
         if (bundle == null) {
-            q(this.f62835i.getIntent());
+            r(this.f66550i.getIntent());
         } else {
-            r(bundle);
+            s(bundle);
         }
-        N(0, this.f62831e);
+        O(0, this.f66546e);
     }
 
-    public void A() {
+    public void A(Bundle bundle) {
+        bundle.putString(AlbumActivityConfig.WRITE_IMAGES_INFO, this.j.m().toJsonString());
+        bundle.putBoolean(AlbumActivityConfig.USE_ORIGINAL_IMG, this.w);
+        bundle.putInt(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.s);
+        bundle.putString("forum_id", this.r);
+        bundle.putString("forum_name", this.q);
+        bundle.putInt(IntentConfig.KEY_ALBUM_THREAD, this.t);
+        bundle.putBoolean(IntentConfig.KEY_CAN_SELECT_VIDEO, this.u);
+        bundle.putBoolean(IntentConfig.KEY_FROM_WRITEACTIVITY, this.y);
+        bundle.putSerializable("tab_list", this.x);
+        bundle.putSerializable("anti_data", this.D);
+        bundle.putSerializable("prefix_data", this.C);
+        bundle.putString(IntentConfig.FORUM_FIRST_DIR, this.E);
+        bundle.putString(IntentConfig.FORUM_SECOND_DIR, this.F);
+    }
+
+    public void B() {
         j jVar = this.m;
         if (jVar != null) {
             jVar.l();
         }
     }
 
-    public void B() {
+    public void F() {
         j jVar = this.m;
         if (jVar != null) {
             jVar.m();
         }
     }
 
-    public final void F() {
+    public final void G() {
         d.a.n0.w3.k.a aVar = this.k;
         if (aVar != null) {
-            aVar.q();
+            aVar.r();
         }
     }
 
-    public void G(Intent intent) {
+    public void H(Intent intent) {
         this.B = intent;
         if (intent != null && this.j != null) {
             String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
@@ -173,97 +189,97 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
                 WriteImagesInfo m = this.j.m();
                 m.parseJson(stringExtra);
                 m.updateQuality();
-                l(intent);
+                m(intent);
                 return;
             }
             return;
         }
-        l(null);
+        m(null);
     }
 
-    public final void H(ImageFileInfo imageFileInfo, boolean z) {
-        Fragment j;
+    public final void I(ImageFileInfo imageFileInfo, boolean z) {
+        Fragment k;
         d.a.n0.w3.k.a aVar = this.k;
-        if (aVar == null || (j = aVar.j(1)) == null || !(j instanceof AlbumImageBrowseFragment)) {
+        if (aVar == null || (k = aVar.k(1)) == null || !(k instanceof AlbumImageBrowseFragment)) {
             return;
         }
-        ((AlbumImageBrowseFragment) j).U0(imageFileInfo, z);
+        ((AlbumImageBrowseFragment) k).X0(imageFileInfo, z);
     }
 
-    public void I(ImageFileInfo imageFileInfo, boolean z) {
-        Fragment j;
+    public void J(ImageFileInfo imageFileInfo, boolean z) {
+        Fragment k;
         d.a.n0.w3.k.a aVar = this.k;
-        if (aVar == null || (j = aVar.j(0)) == null || !(j instanceof ImageListFragment)) {
+        if (aVar == null || (k = aVar.k(0)) == null || !(k instanceof ImageListFragment)) {
             return;
         }
-        ((ImageListFragment) j).c1(imageFileInfo, z);
+        ((ImageListFragment) k).f1(imageFileInfo, z);
     }
 
-    public void J() {
+    public void K() {
         d.a.n0.w3.k.a aVar;
         c cVar = this.j;
         if (cVar == null || (aVar = this.k) == null) {
             return;
         }
-        aVar.s(cVar.s());
+        aVar.t(cVar.s());
     }
 
-    public final boolean K() {
+    public final boolean L() {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.clearRequestPermissionList();
-        permissionJudgePolicy.appendRequestPermission(this.f62835i, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-        permissionJudgePolicy.appendRequestPermission(this.f62835i, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-        permissionJudgePolicy.appendRequestPermission(this.f62835i, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-        return permissionJudgePolicy.startRequestPermission(this.f62835i);
+        permissionJudgePolicy.appendRequestPermission(this.f66550i, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+        permissionJudgePolicy.appendRequestPermission(this.f66550i, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+        permissionJudgePolicy.appendRequestPermission(this.f66550i, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+        return permissionJudgePolicy.startRequestPermission(this.f66550i);
     }
 
-    public void L(NavigationBar navigationBar) {
+    public void M(NavigationBar navigationBar) {
         if (navigationBar != null) {
-            this.k.t(navigationBar);
+            this.k.u(navigationBar);
         }
     }
 
-    public void M(int i2) {
+    public void N(int i2) {
         if (i2 == 1) {
-            N(i2, this.f62832f);
+            O(i2, this.f66547f);
         } else {
-            N(i2, this.f62831e);
+            O(i2, this.f66546e);
         }
     }
 
-    public final void N(int i2, int i3) {
-        if (this.f62834h) {
+    public final void O(int i2, int i3) {
+        if (this.f66549h) {
             return;
         }
-        FragmentTransaction beginTransaction = this.f62835i.getSupportFragmentManager().beginTransaction();
-        Fragment findFragmentByTag = this.f62835i.getSupportFragmentManager().findFragmentByTag(this.k.k(this.f62833g));
+        FragmentTransaction beginTransaction = this.f66550i.getSupportFragmentManager().beginTransaction();
+        Fragment findFragmentByTag = this.f66550i.getSupportFragmentManager().findFragmentByTag(this.k.l(this.f66548g));
         if (findFragmentByTag != null) {
             beginTransaction.hide(findFragmentByTag);
         }
-        this.f62833g = i2;
-        if (this.f62835i.getSupportFragmentManager().findFragmentByTag(this.k.k(i2)) != null) {
-            beginTransaction.show(this.k.j(i2));
+        this.f66548g = i2;
+        if (this.f66550i.getSupportFragmentManager().findFragmentByTag(this.k.l(i2)) != null) {
+            beginTransaction.show(this.k.k(i2));
         } else {
-            beginTransaction.add(i3, this.k.j(i2), this.k.k(i2));
+            beginTransaction.add(i3, this.k.k(i2), this.k.l(i2));
         }
         beginTransaction.commitAllowingStateLoss();
-        this.f62835i.getSupportFragmentManager().executePendingTransactions();
+        this.f66550i.getSupportFragmentManager().executePendingTransactions();
     }
 
-    public final void O() {
+    public final void P() {
         d.a.n0.w3.k.a aVar = this.k;
         if (aVar != null) {
-            aVar.v();
+            aVar.w();
         }
     }
 
-    public final void P(int i2) {
+    public final void Q(int i2) {
         c cVar;
         if (this.k == null || (cVar = this.j) == null) {
             return;
         }
         cVar.B(!cVar.s());
-        J();
+        K();
         d(i2);
     }
 
@@ -273,23 +289,23 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
     /* JADX WARN: Type inference failed for: r12v14, types: [com.baidu.tbadk.core.data.PostPrefixData] */
     /* JADX WARN: Type inference failed for: r12v20 */
     /* JADX WARN: Type inference failed for: r1v14, types: [com.baidu.tbadk.core.data.PostPrefixData] */
-    public void Q(TbPageContext tbPageContext) {
+    public void R(TbPageContext tbPageContext) {
         String str;
         ?? r12;
-        if (!K() && d.a.n0.w3.i.b()) {
+        if (!L() && d.a.n0.w3.i.b()) {
             ForumWriteData forumWriteData = new ForumWriteData(this.r, this.q, null, null);
             forumWriteData.statisticFrom = this.o;
             ?? recordVideoActivityConfig = new RecordVideoActivityConfig(tbPageContext.getPageActivity(), this.y ? 2 : 3, forumWriteData, this.j.m(), "", this.z);
             recordVideoActivityConfig.setShowType(!this.u ? 1 : 0);
             if (this.u) {
                 String str2 = "";
-                if (this.f62835i.getIntent() != null) {
-                    Serializable serializableExtra = this.f62835i.getIntent().getSerializableExtra("anti_data");
+                if (this.f66550i.getIntent() != null) {
+                    Serializable serializableExtra = this.f66550i.getIntent().getSerializableExtra("anti_data");
                     AntiData antiData = serializableExtra instanceof AntiData ? (AntiData) serializableExtra : null;
-                    Serializable serializableExtra2 = this.f62835i.getIntent().getSerializableExtra("prefix_data");
+                    Serializable serializableExtra2 = this.f66550i.getIntent().getSerializableExtra("prefix_data");
                     r8 = serializableExtra2 instanceof PostPrefixData ? (PostPrefixData) serializableExtra2 : null;
-                    str2 = this.f62835i.getIntent().getStringExtra(IntentConfig.FORUM_FIRST_DIR);
-                    str = this.f62835i.getIntent().getStringExtra(IntentConfig.FORUM_SECOND_DIR);
+                    str2 = this.f66550i.getIntent().getStringExtra(IntentConfig.FORUM_FIRST_DIR);
+                    str = this.f66550i.getIntent().getStringExtra(IntentConfig.FORUM_SECOND_DIR);
                     AntiData antiData2 = r8;
                     r8 = antiData;
                     r12 = antiData2;
@@ -299,7 +315,7 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
                 }
                 recordVideoActivityConfig.setExtraData(r8, r12, str2, str);
             }
-            this.f62835i.sendMessage(new CustomMessage(2002001, recordVideoActivityConfig));
+            this.f66550i.sendMessage(new CustomMessage(2002001, recordVideoActivityConfig));
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 5).param("obj_type", 2));
         }
     }
@@ -321,14 +337,14 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
                 imageFileInfo2.setIsLong(imageFileInfo.isLong());
                 this.j.w(null);
                 this.j.a(imageFileInfo2);
-                J();
+                K();
                 return true;
             }
             return false;
-        } else if (i()) {
+        } else if (j()) {
             return c(imageFileInfo);
         } else {
-            this.f62835i.showToast(String.format(this.f62835i.getString(R.string.max_choose_image_count), Integer.valueOf(l)));
+            this.f66550i.showToast(String.format(this.f66550i.getString(R.string.max_choose_image_count), Integer.valueOf(l)));
             return false;
         }
     }
@@ -351,12 +367,17 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         }
     }
 
-    public void g() {
+    @Override // d.a.m0.t0.a
+    public Intent getResultIntent() {
+        return null;
+    }
+
+    public void h() {
         if (this.s == 3) {
             TiebaStatic.log(TbadkCoreStatisticKey.UPGRADE_DIALOG_CHOOSE_IMAGE);
         }
         if (this.s == 5) {
-            this.f62835i.showLoadingDialog("正在上传");
+            this.f66550i.showLoadingDialog("正在上传");
             new b(this, null).execute(new String[0]);
         } else if (this.j == null) {
         } else {
@@ -365,56 +386,35 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
                 if (this.j.p()) {
                     VideoFileInfo f2 = this.j.f();
                     if (this.m == null) {
-                        j jVar2 = new j(this.f62835i, this.q, this.r, "");
+                        j jVar2 = new j(this.f66550i, this.q, this.r, "");
                         this.m = jVar2;
                         jVar2.p(this.x);
                         this.m.o(this.D, this.C, this.E, this.F);
                         d.a.n0.w3.k.a aVar = this.k;
                         if (aVar != null) {
-                            aVar.u(this.m);
+                            aVar.v(this.m);
                         }
                     }
                     this.m.q(this.A);
                     this.m.r(this.o);
                     this.m.g(f2, this.n, this.p);
-                } else if (this.v && t()) {
-                    s();
+                } else if (this.v && u()) {
+                    t();
                 } else {
-                    l(null);
+                    m(null);
                 }
             }
         }
     }
 
-    @Override // d.a.m0.t0.a
-    public Intent getResultIntent() {
-        return null;
-    }
-
-    public boolean h(ImageFileInfo imageFileInfo) {
+    public boolean i(ImageFileInfo imageFileInfo) {
         if (imageFileInfo == null) {
             return false;
         }
         this.j.w(null);
         this.j.c(imageFileInfo);
-        J();
+        K();
         return true;
-    }
-
-    public final boolean i() {
-        int l;
-        if (this.f62835i.getIntent().getBooleanExtra(AlbumActivityConfig.IS_SELECT_DIRECTLY, false) && this.j.D() == (l = this.j.l()) && l == 1) {
-            try {
-                ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.j.g(), 0);
-                if (h(imageFileInfo)) {
-                    I(imageFileInfo, false);
-                    H(imageFileInfo, false);
-                    return true;
-                }
-            } catch (Exception unused) {
-            }
-        }
-        return false;
     }
 
     @Override // d.a.m0.t0.a
@@ -425,13 +425,29 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
     @Override // d.a.m0.t0.a
     public boolean isOnViewTop() {
         d.a.n0.w3.k.a aVar = this.k;
-        if (aVar == null || aVar.l() == null || this.k.l().X0() == null) {
+        if (aVar == null || aVar.m() == null || this.k.m().a1() == null) {
             return true;
         }
-        return this.k.l().X0().getFirstVisiblePosition() == 0 && !this.k.l().X0().canScrollVertically(-1);
+        return this.k.m().a1().getFirstVisiblePosition() == 0 && !this.k.m().a1().canScrollVertically(-1);
     }
 
-    public final void j() {
+    public final boolean j() {
+        int l;
+        if (this.f66550i.getIntent().getBooleanExtra(AlbumActivityConfig.IS_SELECT_DIRECTLY, false) && this.j.D() == (l = this.j.l()) && l == 1) {
+            try {
+                ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.j.g(), 0);
+                if (i(imageFileInfo)) {
+                    J(imageFileInfo, false);
+                    I(imageFileInfo, false);
+                    return true;
+                }
+            } catch (Exception unused) {
+            }
+        }
+        return false;
+    }
+
+    public final void k() {
         Intent intent = new Intent();
         String k = this.j.k();
         if (TextUtils.isEmpty(k)) {
@@ -439,11 +455,11 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         }
         intent.putExtra(AlbumActivityConfig.LAST_ALBUM_ID, k);
         intent.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.s);
-        this.f62835i.setResult(0, intent);
-        this.f62835i.finish();
+        this.f66550i.setResult(0, intent);
+        this.f66550i.finish();
     }
 
-    public void k(ImageFileInfo imageFileInfo) {
+    public void l(ImageFileInfo imageFileInfo) {
         if (imageFileInfo == null) {
             return;
         }
@@ -454,11 +470,11 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.j.m().toJsonString());
         intent.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.s);
         intent.putExtra("from_type", this.z);
-        this.f62835i.setResult(-1, intent);
-        this.f62835i.finish();
+        this.f66550i.setResult(-1, intent);
+        this.f66550i.finish();
     }
 
-    public final void l(Intent intent) {
+    public final void m(Intent intent) {
         Intent intent2 = new Intent();
         intent2.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.j.m().toJsonString());
         intent2.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.s);
@@ -466,14 +482,14 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         if (intent != null && !StringUtils.isNull(intent.getStringExtra("file_name"))) {
             intent2.putExtra("file_name", intent.getStringExtra("file_name"));
         }
-        this.f62835i.setResult(-1, intent2);
-        this.f62835i.finish();
+        this.f66550i.setResult(-1, intent2);
+        this.f66550i.finish();
         if (AlbumActivityConfig.FROM_FLUTTER.equals(this.p)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921464, intent2));
         }
     }
 
-    public final int m() {
+    public final int n() {
         c cVar = this.j;
         if (cVar != null && ListUtils.getCount(cVar.g()) != 0) {
             for (int i2 = 0; i2 < ListUtils.getCount(this.j.g()); i2++) {
@@ -486,32 +502,28 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         return 0;
     }
 
-    public int n() {
+    public int o() {
         return this.t;
-    }
-
-    public c o() {
-        return this.j;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.k.g()) {
-            g();
+        if (view == this.k.h()) {
+            h();
         } else if (view == this.k.f()) {
-            g();
+            h();
         } else if (view == this.k.e()) {
             c cVar = this.j;
             if (cVar != null) {
                 cVar.A(null);
             }
-            j();
+            k();
         } else if (view == this.k.d()) {
-            N(0, this.f62831e);
+            O(0, this.f66546e);
+        } else if (view == this.k.o()) {
+            Q(2);
         } else if (view == this.k.n()) {
-            P(2);
-        } else if (view == this.k.m()) {
-            P(1);
+            Q(1);
         }
     }
 
@@ -523,17 +535,21 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         }
     }
 
-    public final void p(BaseFragmentActivity baseFragmentActivity, int i2, int i3) {
-        this.f62835i = baseFragmentActivity;
-        this.f62831e = i2;
-        this.f62832f = i3;
-        d.a.n0.w3.k.a aVar = new d.a.n0.w3.k.a(baseFragmentActivity.getPageContext(), this);
-        this.k = aVar;
-        aVar.o();
+    public c p() {
+        return this.j;
     }
 
-    public final void q(Intent intent) {
-        this.j = new c(this.f62835i.getPageContext());
+    public final void q(BaseFragmentActivity baseFragmentActivity, int i2, int i3) {
+        this.f66550i = baseFragmentActivity;
+        this.f66546e = i2;
+        this.f66547f = i3;
+        d.a.n0.w3.k.a aVar = new d.a.n0.w3.k.a(baseFragmentActivity.getPageContext(), this);
+        this.k = aVar;
+        aVar.p();
+    }
+
+    public final void r(Intent intent) {
+        this.j = new c(this.f66550i.getPageContext());
         if (intent != null) {
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(intent.getStringExtra(AlbumActivityConfig.WRITE_IMAGES_INFO));
@@ -567,8 +583,8 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         f();
     }
 
-    public final void r(Bundle bundle) {
-        this.j = new c(this.f62835i.getPageContext());
+    public final void s(Bundle bundle) {
+        this.j = new c(this.f66550i.getPageContext());
         if (bundle != null) {
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(bundle.getString(AlbumActivityConfig.WRITE_IMAGES_INFO));
@@ -600,16 +616,16 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         f();
     }
 
-    public final void s() {
+    public final void t() {
         WriteImagesInfo m;
         c cVar = this.j;
         if (cVar == null || (m = cVar.m()) == null) {
             return;
         }
-        this.f62835i.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f62835i, 12012, m, m())));
+        this.f66550i.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f66550i, 12012, m, n())));
     }
 
-    public final boolean t() {
+    public final boolean u() {
         c cVar = this.j;
         if (cVar == null || ListUtils.getCount(cVar.g()) == 0) {
             return false;
@@ -623,12 +639,12 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         return i2 == 1;
     }
 
-    public void u() {
-        this.f62835i.closeLoadingDialog();
-        int i2 = this.f62833g;
+    public void v() {
+        this.f66550i.closeLoadingDialog();
+        int i2 = this.f66548g;
         if (i2 != 0) {
             if (i2 == 1) {
-                M(0);
+                N(0);
                 return;
             }
             return;
@@ -637,18 +653,18 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         if (cVar != null) {
             cVar.A(null);
         }
-        j();
+        k();
     }
 
-    public void v() {
-        this.f62834h = true;
-        O();
-        this.f62835i.closeLoadingDialog();
-        this.f62835i.dismissAllDialog();
+    public void w() {
+        this.f66549h = true;
+        P();
+        this.f66550i.closeLoadingDialog();
+        this.f66550i.dismissAllDialog();
         d.f().e();
         d.a.n0.w3.k.a aVar = this.k;
         if (aVar != null) {
-            aVar.p();
+            aVar.q();
         }
         j jVar = this.m;
         if (jVar != null) {
@@ -666,38 +682,22 @@ public class e implements d.a.m0.t0.a, View.OnClickListener {
         TbadkCoreApplication.getInst().sendBroadcast(intent);
     }
 
-    public void w() {
-        O();
+    public void x() {
+        P();
     }
 
-    public void x(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void y(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         d.a.n0.w3.k.a aVar = this.k;
         if (aVar != null) {
-            aVar.r();
+            aVar.s();
         }
     }
 
-    public void y() {
-        F();
+    public void z() {
+        G();
         j jVar = this.m;
         if (jVar != null) {
             jVar.k();
         }
-    }
-
-    public void z(Bundle bundle) {
-        bundle.putString(AlbumActivityConfig.WRITE_IMAGES_INFO, this.j.m().toJsonString());
-        bundle.putBoolean(AlbumActivityConfig.USE_ORIGINAL_IMG, this.w);
-        bundle.putInt(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.s);
-        bundle.putString("forum_id", this.r);
-        bundle.putString("forum_name", this.q);
-        bundle.putInt(IntentConfig.KEY_ALBUM_THREAD, this.t);
-        bundle.putBoolean(IntentConfig.KEY_CAN_SELECT_VIDEO, this.u);
-        bundle.putBoolean(IntentConfig.KEY_FROM_WRITEACTIVITY, this.y);
-        bundle.putSerializable("tab_list", this.x);
-        bundle.putSerializable("anti_data", this.D);
-        bundle.putSerializable("prefix_data", this.C);
-        bundle.putString(IntentConfig.FORUM_FIRST_DIR, this.E);
-        bundle.putString(IntentConfig.FORUM_SECOND_DIR, this.F);
     }
 }

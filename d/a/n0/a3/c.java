@@ -19,28 +19,28 @@ public class c {
     public BlockPopInfoData J;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51190a;
+    public int f54867a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51192c;
+    public String f54869c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51193d;
+    public String f54870d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51194e;
+    public String f54871e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51195f;
+    public String f54872f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f51196g;
+    public String f54873g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f51197h;
+    public String f54874h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51198i;
+    public int f54875i;
     public String j;
     public int k;
     public boolean l;
@@ -60,7 +60,7 @@ public class c {
     public int z;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51191b = "0";
+    public String f54868b = "0";
     public ArrayList<d> B = new ArrayList<>();
     public ArrayList<d> C = new ArrayList<>();
     public ArrayList<d> D = new ArrayList<>();
@@ -95,7 +95,7 @@ public class c {
         if (fVar == null) {
             return false;
         }
-        return !StringUtils.isNull(fVar.f51207a);
+        return !StringUtils.isNull(fVar.f54884a);
     }
 
     public void D(h hVar) {
@@ -150,15 +150,15 @@ public class c {
             return;
         }
         this.F.c(jSONObject.optJSONObject("error"));
-        this.f51190a = jSONObject.optInt("level", 7);
-        this.f51191b = jSONObject.optString("sign_new");
-        this.f51192c = jSONObject.optString("title");
-        this.f51193d = jSONObject.optString("text_pre");
-        this.f51194e = jSONObject.optString("text_color");
-        this.f51195f = jSONObject.optString("text_mid");
-        this.f51196g = jSONObject.optString("text_suf");
-        this.f51197h = jSONObject.optString("num_notice");
-        this.f51198i = jSONObject.optInt("show_dialog");
+        this.f54867a = jSONObject.optInt("level", 7);
+        this.f54868b = jSONObject.optString("sign_new");
+        this.f54869c = jSONObject.optString("title");
+        this.f54870d = jSONObject.optString("text_pre");
+        this.f54871e = jSONObject.optString("text_color");
+        this.f54872f = jSONObject.optString("text_mid");
+        this.f54873g = jSONObject.optString("text_suf");
+        this.f54874h = jSONObject.optString("num_notice");
+        this.f54875i = jSONObject.optInt("show_dialog");
         this.j = jSONObject.optString("sign_notice");
         this.k = jSONObject.optInt("valid", 0);
         this.G = jSONObject.optInt("sign_max_num", 50);
@@ -181,8 +181,8 @@ public class c {
         } else {
             this.l = false;
         }
-        this.r = this.f51190a + this.f51192c;
-        this.q = "1-" + (this.f51190a - 1) + TbadkApplication.getInst().getContext().getString(R.string.sign_all_forum_tip);
+        this.r = this.f54867a + this.f54869c;
+        this.q = "1-" + (this.f54867a - 1) + TbadkApplication.getInst().getContext().getString(R.string.sign_all_forum_tip);
         j.o = this.G;
         JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
         if (optJSONArray != null) {
@@ -196,11 +196,11 @@ public class c {
                         if (this.k == 0) {
                             if (this.l) {
                                 dVar.s(true);
-                            } else if (dVar.i() > this.f51190a) {
+                            } else if (dVar.i() > this.f54867a) {
                                 dVar.s(true);
                             }
                         }
-                        if (dVar.i() >= this.f51190a) {
+                        if (dVar.i() >= this.f54867a) {
                             this.p++;
                         } else {
                             this.n++;
@@ -208,7 +208,7 @@ public class c {
                         this.D.add(dVar);
                         this.E.put(dVar.c() + "", dVar);
                     } else {
-                        if (dVar.i() >= this.f51190a) {
+                        if (dVar.i() >= this.f54867a) {
                             this.o++;
                         } else {
                             this.m++;
@@ -310,7 +310,7 @@ public class c {
     }
 
     public final void c(d dVar) {
-        if (dVar.i() >= this.f51190a) {
+        if (dVar.i() >= this.f54867a) {
             this.o++;
             this.p--;
         } else {
@@ -322,7 +322,7 @@ public class c {
         if (dVar.h() + dVar.e() >= dVar.g()) {
             dVar.w(dVar.i() + 1);
             dVar.v(true);
-            if (dVar.i() == this.f51190a) {
+            if (dVar.i() == this.f54867a) {
                 this.o++;
                 this.m--;
             }
@@ -332,11 +332,11 @@ public class c {
     }
 
     public String d() {
-        return this.H.f51207a;
+        return this.H.f54884a;
     }
 
     public String e() {
-        return this.H.f51208b;
+        return this.H.f54885b;
     }
 
     public BlockPopInfoData f() {
@@ -364,19 +364,19 @@ public class c {
     }
 
     public int l() {
-        return this.f51190a;
+        return this.f54867a;
     }
 
     public String m() {
-        return this.f51197h;
+        return this.f54874h;
     }
 
     public boolean n() {
-        return !StringUtils.isNull(this.f51191b) && this.f51191b.equals("1");
+        return !StringUtils.isNull(this.f54868b) && this.f54868b.equals("1");
     }
 
     public int o() {
-        return this.f51198i;
+        return this.f54875i;
     }
 
     public String p() {
@@ -396,19 +396,19 @@ public class c {
     }
 
     public String t() {
-        return this.f51194e;
+        return this.f54871e;
     }
 
     public String u() {
-        return this.f51195f;
+        return this.f54872f;
     }
 
     public String v() {
-        return this.f51193d;
+        return this.f54870d;
     }
 
     public String w() {
-        return this.f51196g;
+        return this.f54873g;
     }
 
     public ArrayList<d> x() {
@@ -416,10 +416,10 @@ public class c {
     }
 
     public String y() {
-        return this.I.f51251a;
+        return this.I.f54928a;
     }
 
     public String z() {
-        return this.I.f51252b;
+        return this.I.f54929b;
     }
 }

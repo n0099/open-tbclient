@@ -20,10 +20,10 @@ public class c extends d.a.l0.a.u.c.d {
     public class a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46281e;
+        public final /* synthetic */ String f49955e;
 
         public a(String str) {
-            this.f46281e = str;
+            this.f49955e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -31,15 +31,15 @@ public class c extends d.a.l0.a.u.c.d {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                c.this.w(this.f46281e);
+                c.this.w(this.f49955e);
                 return;
             }
             int b2 = iVar.b();
             String f2 = d.a.l0.a.e2.c.d.f(b2);
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.e("Api-QuickLogin", "quick login failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX);
             }
-            c.this.d(this.f46281e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
+            c.this.d(this.f49955e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
         }
     }
 
@@ -47,7 +47,7 @@ public class c extends d.a.l0.a.u.c.d {
     public class b implements d.a.l0.b.n.g.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46283a;
+        public final /* synthetic */ String f49957a;
 
         /* loaded from: classes3.dex */
         public class a implements e {
@@ -58,22 +58,22 @@ public class c extends d.a.l0.a.u.c.d {
             public void onResult(int i2) {
                 if (i2 == 0) {
                     b bVar = b.this;
-                    c.this.d(bVar.f46283a, new d.a.l0.a.u.h.b(0));
+                    c.this.d(bVar.f49957a, new d.a.l0.a.u.h.b(0));
                     return;
                 }
                 b bVar2 = b.this;
-                c.this.d(bVar2.f46283a, new d.a.l0.a.u.h.b(10004, "user not logged in"));
+                c.this.d(bVar2.f49957a, new d.a.l0.a.u.h.b(10004, "user not logged in"));
             }
         }
 
         public b(String str) {
-            this.f46283a = str;
+            this.f49957a = str;
         }
 
         @Override // d.a.l0.b.n.g.c
         public void a(QuickLoginInfo quickLoginInfo) {
             if (quickLoginInfo == null) {
-                c.this.d(this.f46283a, new d.a.l0.a.u.h.b(1001));
+                c.this.d(this.f49957a, new d.a.l0.a.u.h.b(1001));
                 return;
             }
             boolean z = quickLoginInfo.supportQuickLogin;
@@ -81,20 +81,20 @@ public class c extends d.a.l0.a.u.c.d {
             if (z) {
                 f.e(d.a.l0.a.a2.d.g().x(), i2, new a());
             } else {
-                c.this.d(this.f46283a, new d.a.l0.a.u.h.b(10004, "user not logged in"));
+                c.this.d(this.f49957a, new d.a.l0.a.u.h.b(10004, "user not logged in"));
             }
         }
     }
 
     /* renamed from: d.a.l0.b.l.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0946c implements d.a.l0.a.v2.e1.b<i<b.e>> {
+    public class C1002c implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46286e;
+        public final /* synthetic */ String f49960e;
 
-        public C0946c(String str) {
-            this.f46286e = str;
+        public C1002c(String str) {
+            this.f49960e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,15 +102,15 @@ public class c extends d.a.l0.a.u.c.d {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                c.this.v(this.f46286e);
+                c.this.v(this.f49960e);
                 return;
             }
             int b2 = iVar.b();
             String f2 = d.a.l0.a.e2.c.d.f(b2);
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.e("Api-QuickLogin", "query quick login info failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX);
             }
-            c.this.d(this.f46286e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
+            c.this.d(this.f49960e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
         }
     }
 
@@ -118,18 +118,18 @@ public class c extends d.a.l0.a.u.c.d {
     public class d implements d.a.l0.b.n.g.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46288a;
+        public final /* synthetic */ String f49962a;
 
         public d(String str) {
-            this.f46288a = str;
+            this.f49962a = str;
         }
 
         @Override // d.a.l0.b.n.g.c
         public void a(QuickLoginInfo quickLoginInfo) {
             if (quickLoginInfo == null) {
-                c.this.x(this.f46288a);
+                c.this.x(this.f49962a);
             } else {
-                c.this.y(this.f46288a, quickLoginInfo);
+                c.this.y(this.f49962a, quickLoginInfo);
             }
         }
     }
@@ -140,12 +140,12 @@ public class c extends d.a.l0.a.u.c.d {
 
     public d.a.l0.a.u.h.b A(String str) {
         Object obj;
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-QuickLogin", "exec quickLogin");
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-QuickLogin", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (bVar.a() && (obj = b2.second) != null) {
+        if (bVar.isSuccess() && (obj = b2.second) != null) {
             String optString = ((JSONObject) obj).optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 return new d.a.l0.a.u.h.b(1001, "cb is empty");
@@ -184,12 +184,12 @@ public class c extends d.a.l0.a.u.c.d {
             jSONObject.put("encryptPhoneNum", quickLoginInfo.encryptPhoneNum);
             jSONObject.put("serviceAgreement", quickLoginInfo.serviceAgreement);
             jSONObject.put("hasHistory", quickLoginInfo.hasHistory);
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-QuickLogin", "query login info; data: " + jSONObject.toString());
             }
             d(str, new d.a.l0.a.u.h.b(0, jSONObject));
         } catch (JSONException e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e2.printStackTrace();
             }
             d(str, new d.a.l0.a.u.h.b(1001));
@@ -198,12 +198,12 @@ public class c extends d.a.l0.a.u.c.d {
 
     public d.a.l0.a.u.h.b z(String str) {
         Object obj;
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-QuickLogin", "query quick login info");
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-QuickLogin", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (bVar.a() && (obj = b2.second) != null) {
+        if (bVar.isSuccess() && (obj = b2.second) != null) {
             String optString = ((JSONObject) obj).optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 return new d.a.l0.a.u.h.b(1001, "cb is empty");
@@ -212,7 +212,7 @@ public class c extends d.a.l0.a.u.c.d {
             if (Q == null) {
                 return new d.a.l0.a.u.h.b(1001);
             }
-            Q.T().g(i(), "scope_quick_login", new C0946c(optString));
+            Q.T().g(i(), "scope_quick_login", new C1002c(optString));
             return new d.a.l0.a.u.h.b(0);
         }
         d.a.l0.a.e0.d.b("Api-QuickLogin", "parse fail");

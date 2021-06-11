@@ -10,29 +10,29 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f52785a;
+    public String f56474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52786b = -1;
+    public int f56475b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f52787c = new ArrayList();
+    public List<d> f56476c = new ArrayList();
 
     public String a() {
-        return this.f52785a;
+        return this.f56474a;
     }
 
     public List<d> b() {
-        return this.f52787c;
+        return this.f56476c;
     }
 
     public int c() {
-        return this.f52786b;
+        return this.f56475b;
     }
 
     public void d(TopicListModule topicListModule) {
         if (topicListModule != null) {
-            this.f52785a = topicListModule.module_title;
+            this.f56474a = topicListModule.module_title;
             List<TopicList> list = topicListModule.topic_list;
             if (list == null) {
                 return;
@@ -44,7 +44,7 @@ public class c {
                 if (topicList != null) {
                     dVar.c(topicList);
                     if (!k.isEmptyStringAfterTrim(dVar.b())) {
-                        this.f52787c.add(dVar);
+                        this.f56476c.add(dVar);
                     }
                 }
             }
@@ -52,10 +52,10 @@ public class c {
     }
 
     public void e(String str) {
-        this.f52785a = str;
+        this.f56474a = str;
     }
 
     public void f(int i2) {
-        this.f52786b = i2;
+        this.f56475b = i2;
     }
 }

@@ -1,7 +1,7 @@
 package d.a.n0.r0.q1.c;
 
 import com.baidu.adp.BdUniqueId;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.List;
 import tbclient.ForumRule;
 import tbclient.PbContent;
@@ -9,51 +9,51 @@ import tbclient.PbContent;
 public class c implements n {
 
     /* renamed from: h  reason: collision with root package name */
-    public static BdUniqueId f59418h = BdUniqueId.gen();
+    public static BdUniqueId f63109h = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59419e;
+    public String f63110e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PbContent> f59420f;
+    public List<PbContent> f63111f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f59421g;
+    public boolean f63112g;
 
-    public boolean c() {
-        return this.f59421g;
+    public boolean b() {
+        return this.f63112g;
     }
 
-    public List<PbContent> e() {
-        return this.f59420f;
+    public List<PbContent> c() {
+        return this.f63111f;
     }
 
-    public String f() {
-        return this.f59419e;
+    public String e() {
+        return this.f63110e;
     }
 
-    @Override // d.a.c.j.e.n
-    public BdUniqueId getType() {
-        return f59418h;
-    }
-
-    public void h(ForumRule forumRule) {
+    public void g(ForumRule forumRule) {
         if (forumRule != null) {
-            this.f59419e = forumRule.title;
-            this.f59420f = forumRule.content;
-            this.f59421g = forumRule.status.intValue() == 1;
+            this.f63110e = forumRule.title;
+            this.f63111f = forumRule.content;
+            this.f63112g = forumRule.status.intValue() == 1;
         }
     }
 
-    public void i(boolean z) {
-        this.f59421g = z;
+    @Override // d.a.c.k.e.n
+    public BdUniqueId getType() {
+        return f63109h;
     }
 
-    public void k(List<PbContent> list) {
-        this.f59420f = list;
+    public void h(boolean z) {
+        this.f63112g = z;
     }
 
-    public void l(String str) {
-        this.f59419e = str;
+    public void i(List<PbContent> list) {
+        this.f63111f = list;
+    }
+
+    public void k(String str) {
+        this.f63110e = str;
     }
 }

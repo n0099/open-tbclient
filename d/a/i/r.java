@@ -27,7 +27,7 @@ public class r extends t0 {
     }
 
     public final void A() {
-        View inflate = LayoutInflater.from(this.f40008f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+        View inflate = LayoutInflater.from(this.f43689f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
         this.j = inflate;
         this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
         this.E = (TextView) this.j.findViewById(R.id.video_seg_abstract);
@@ -63,7 +63,7 @@ public class r extends t0 {
 
     @Override // d.a.i.t0
     public d.a.n0.k2.q.a q() {
-        d.a.n0.k2.q.b bVar = new d.a.n0.k2.q.b(this.f40008f, this.m);
+        d.a.n0.k2.q.b bVar = new d.a.n0.k2.q.b(this.f43689f, this.m);
         bVar.setStageType("2003");
         return bVar;
     }
@@ -73,11 +73,11 @@ public class r extends t0 {
     /* renamed from: r */
     public void a(d.a.m0.r.q.a aVar) {
         this.l = aVar;
-        if (aVar == null || aVar.m() == null) {
+        if (aVar == null || aVar.i() == null) {
             return;
         }
-        a2 m = aVar.m();
-        if (m.w1() != null) {
+        a2 i2 = aVar.i();
+        if (i2.x1() != null) {
             this.C.setVisibility(8);
             this.m.setVisibility(0);
             this.E.setVisibility(8);
@@ -88,7 +88,7 @@ public class r extends t0 {
         this.C.setVisibility(0);
         this.E.setVisibility(0);
         this.C.a(aVar);
-        ThreadCardUtils.setTitle(this.k, m);
-        ThreadCardUtils.setAbstract(this.E, this.k, m, F);
+        ThreadCardUtils.setTitle(this.k, i2);
+        ThreadCardUtils.setAbstract(this.E, this.k, i2, F);
     }
 }

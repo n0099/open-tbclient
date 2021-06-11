@@ -48,12 +48,11 @@ import java.util.Locale;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f2057a = new b();
+    public static b f2070a = new b();
 
     public static String B() {
         try {
@@ -189,7 +188,7 @@ public class b {
     }
 
     public static b a() {
-        return f2057a;
+        return f2070a;
     }
 
     public static String a(BluetoothAdapter bluetoothAdapter) {
@@ -256,7 +255,7 @@ public class b {
                     if (subtype != 3 && subtype != 5 && subtype != 6 && subtype != 8 && subtype != 9 && subtype != 10 && subtype != 12 && subtype != 14 && subtype != 15) {
                         return subtype == 13 ? "4G" : "UNKNOW";
                     }
-                    return g.f3966b;
+                    return g.f3985b;
                 }
                 return "2G";
             }
@@ -434,7 +433,7 @@ public class b {
     public String d(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
             int i2 = audioManager.getRingerMode() == 0 ? 1 : 0;
             int streamVolume = audioManager.getStreamVolume(0);
             int streamVolume2 = audioManager.getStreamVolume(1);

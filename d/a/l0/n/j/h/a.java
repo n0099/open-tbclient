@@ -6,21 +6,21 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f48125a;
+    public JSONArray f51799a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f48126b;
+    public JSONObject f51800b;
 
     public a(JSONArray jSONArray, JSONObject jSONObject) {
-        this.f48125a = jSONArray;
-        this.f48126b = jSONObject;
+        this.f51799a = jSONArray;
+        this.f51800b = jSONObject;
     }
 
     public JSONArray a() {
-        return this.f48125a;
+        return this.f51799a;
     }
 
     public JSONObject b() {
-        return this.f48126b;
+        return this.f51800b;
     }
 }

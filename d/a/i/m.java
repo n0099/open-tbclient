@@ -51,6 +51,6 @@ public class m extends d.a.i.a<d.a.m0.r.q.a> {
             return;
         }
         this.k = aVar;
-        cardForumHeadLayout.setData(aVar.m());
+        cardForumHeadLayout.setData(aVar.i());
     }
 }

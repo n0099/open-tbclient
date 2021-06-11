@@ -6,27 +6,27 @@ import d.a.l0.a.v2.q;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43123a = d.a.l0.a.k.f43199a;
+    public static final boolean f46799a = d.a.l0.a.k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.j2.p.e f43124e;
+        public final /* synthetic */ d.a.l0.a.j2.p.e f46800e;
 
         public a(d.a.l0.a.j2.p.e eVar) {
-            this.f43124e = eVar;
+            this.f46800e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.k("1719", this.f43124e.f());
+            b.k("1719", this.f46800e.f());
         }
     }
 
     public static void onEvent(d.a.l0.a.j2.p.e eVar) {
         if (eVar == null) {
-            if (f43123a) {
+            if (f46799a) {
                 Log.w("SwanAppPermissionDialogUbc", "event is null");
                 return;
             }

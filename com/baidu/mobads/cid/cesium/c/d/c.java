@@ -10,28 +10,28 @@ import javax.crypto.NoSuchPaddingException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f8167a = new byte[0];
+    public static final byte[] f8229a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8168b;
+    public int f8230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8169c = "PKCS1Padding";
+    public String f8231c = "PKCS1Padding";
 
     /* renamed from: d  reason: collision with root package name */
-    public f f8170d;
+    public f f8232d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f8171e;
+    public byte[] f8233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f8172f;
+    public int f8234f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f8173g;
+    public int f8235g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f8174h;
+    public d f8236h;
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x002c  */
     /* JADX WARN: Removed duplicated region for block: B:38:0x008a  */
@@ -52,18 +52,18 @@ public final class c {
             if (dVar instanceof d) {
                 throw new InvalidKeyException("only support helios key");
             }
-            this.f8168b = z ? 1 : 4;
-            this.f8174h = dVar;
+            this.f8230b = z ? 1 : 4;
+            this.f8236h = dVar;
             int a2 = b.a(dVar.a());
-            this.f8173g = a2;
-            this.f8172f = 0;
-            String str = this.f8169c;
+            this.f8235g = a2;
+            this.f8234f = 0;
+            String str = this.f8231c;
             if (str == "NoPadding") {
                 if (algorithmParameterSpec != null) {
                     throw new InvalidAlgorithmParameterException("Parameters not supported");
                 }
-                this.f8170d = f.a(3, a2, secureRandom);
-                this.f8171e = new byte[a2];
+                this.f8232d = f.a(3, a2, secureRandom);
+                this.f8233e = new byte[a2];
                 return;
             } else if (str != "PKCS1Padding") {
                 throw new InvalidKeyException("OAEP not supported");
@@ -71,13 +71,13 @@ public final class c {
                 if (algorithmParameterSpec != null) {
                     throw new InvalidAlgorithmParameterException("Parameters not supported");
                 }
-                f a3 = f.a(this.f8168b > 2 ? 1 : 2, a2, secureRandom);
-                this.f8170d = a3;
+                f a3 = f.a(this.f8230b > 2 ? 1 : 2, a2, secureRandom);
+                this.f8232d = a3;
                 if (z) {
-                    this.f8171e = new byte[a3.a()];
+                    this.f8233e = new byte[a3.a()];
                     return;
                 } else {
-                    this.f8171e = new byte[a2];
+                    this.f8233e = new byte[a2];
                     return;
                 }
             }
@@ -88,18 +88,18 @@ public final class c {
     }
 
     private byte[] a() {
-        int i2 = this.f8172f;
-        byte[] bArr = this.f8171e;
+        int i2 = this.f8234f;
+        byte[] bArr = this.f8233e;
         if (i2 > bArr.length) {
-            throw new IllegalBlockSizeException("Data must not be longer than " + this.f8171e.length + " bytes");
+            throw new IllegalBlockSizeException("Data must not be longer than " + this.f8233e.length + " bytes");
         }
         try {
-            int i3 = this.f8168b;
+            int i3 = this.f8230b;
             if (i3 != 1) {
                 if (i3 != 2) {
                     if (i3 != 3) {
                         if (i3 == 4) {
-                            return this.f8170d.b(b.a(b.a(bArr, 0, i2), this.f8174h));
+                            return this.f8232d.b(b.a(b.a(bArr, 0, i2), this.f8236h));
                         }
                         throw new AssertionError("Internal error");
                     }
@@ -107,9 +107,9 @@ public final class c {
                 }
                 throw new UnsupportedOperationException("only verify supported");
             }
-            return b.a(this.f8170d.a(bArr, 0, i2), this.f8174h);
+            return b.a(this.f8232d.a(bArr, 0, i2), this.f8236h);
         } finally {
-            this.f8172f = 0;
+            this.f8234f = 0;
         }
     }
 
@@ -118,16 +118,16 @@ public final class c {
         if (i3 == 0 || bArr == null) {
             return;
         }
-        int i5 = this.f8172f;
+        int i5 = this.f8234f;
         int i6 = i5 + i3;
-        byte[] bArr2 = this.f8171e;
+        byte[] bArr2 = this.f8233e;
         if (i6 > bArr2.length) {
             i4 = bArr2.length + 1;
         } else {
             System.arraycopy(bArr, i2, bArr2, i5, i3);
-            i4 = this.f8172f + i3;
+            i4 = this.f8234f + i3;
         }
-        this.f8172f = i4;
+        this.f8234f = i4;
     }
 
     public void a(int i2, d dVar, SecureRandom secureRandom) {
@@ -148,7 +148,7 @@ public final class c {
                 throw new NoSuchPaddingException("Padding " + str + " not supported");
             }
         }
-        this.f8169c = str2;
+        this.f8231c = str2;
     }
 
     public byte[] a(byte[] bArr, int i2, int i3) {

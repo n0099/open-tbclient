@@ -39,7 +39,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.compatible.menukey.MenuKeyUtils;
 import d.a.c.e.p.l;
-import d.a.c.j.e.q;
+import d.a.c.k.e.q;
 import d.a.m0.d0.g;
 import d.a.m0.d0.h;
 import d.a.m0.r.a;

@@ -22,13 +22,13 @@ public class d extends a {
             unitedSchemeEntity.result = l(1001);
             return false;
         } else {
-            String str = k.f40845f;
+            String str = k.f44521f;
             d.a.l0.a.l1.e.a.a aVar = k.l;
             if (!TextUtils.isEmpty(str) && aVar != null && aVar.i()) {
                 d.a.l0.a.c0.b.c w = new d.a.l0.a.c0.c.d.a(context, k).w();
                 boolean a2 = w.a();
                 if (!a2) {
-                    d.a.l0.a.e0.d.b("SwanAppCanvas", "insert canvas fail: " + w.f40850b);
+                    d.a.l0.a.e0.d.b("SwanAppCanvas", "insert canvas fail: " + w.f44526b);
                 }
                 j(unitedSchemeEntity, callbackHandler, a2);
                 return a2;

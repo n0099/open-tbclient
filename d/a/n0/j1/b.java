@@ -10,20 +10,20 @@ import java.io.IOException;
 public class b extends BdAsyncTask<String, Integer, Download> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ClientUpdateInfo f56254a;
+    public ClientUpdateInfo f59943a;
 
     public b(ClientUpdateInfo clientUpdateInfo) {
-        this.f56254a = clientUpdateInfo;
+        this.f59943a = clientUpdateInfo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public Download doInBackground(String... strArr) throws IOException {
-        if (this.f56254a == null) {
+        if (this.f59943a == null) {
             return null;
         }
-        ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.f56254a, null);
+        ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.f59943a, null);
         return null;
     }
 }

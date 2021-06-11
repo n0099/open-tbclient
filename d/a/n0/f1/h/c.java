@@ -22,15 +22,15 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f54472a;
+    public static c f58161a;
 
     public static synchronized c h() {
         c cVar;
         synchronized (c.class) {
-            if (f54472a == null) {
-                f54472a = new c();
+            if (f58161a == null) {
+                f58161a = new c();
             }
-            cVar = f54472a;
+            cVar = f58161a;
         }
         return cVar;
     }

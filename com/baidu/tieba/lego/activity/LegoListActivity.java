@@ -93,18 +93,18 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17824e;
+        public final /* synthetic */ String f17900e;
 
         public b(String str) {
-            this.f17824e = str;
+            this.f17900e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f17824e)) {
+            if (TextUtils.isEmpty(this.f17900e)) {
                 return;
             }
-            v.c(LegoListActivity.this.getPageContext(), this.f17824e);
+            v.c(LegoListActivity.this.getPageContext(), this.f17900e);
         }
     }
 
@@ -116,7 +116,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             LegoListActivity legoListActivity = LegoListActivity.this;
-            if (view == legoListActivity.navigationBarViewHolder.f56607e) {
+            if (view == legoListActivity.navigationBarViewHolder.f60296e) {
                 legoListActivity.finish();
             }
         }
@@ -136,13 +136,13 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                 this.mBottomView.setVisibility(0);
                 this.mBottomView.setIsShow(true);
                 if (this.legoListFragment != null) {
-                    this.legoListFragment.B1(this.mBottomView);
+                    this.legoListFragment.E1(this.mBottomView);
                 }
             } else {
                 this.mBottomView.setVisibility(8);
                 this.mBottomView.setIsShow(false);
                 if (this.legoListFragment != null) {
-                    this.legoListFragment.B1(null);
+                    this.legoListFragment.E1(null);
                 }
             }
         } catch (CardParseException e2) {
@@ -163,7 +163,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             optString = optString2;
         }
         this.floatBtn.setVisibility(0);
-        this.floatBtn.V(optString, 10, false);
+        this.floatBtn.U(optString, 10, false);
         this.floatBtn.setOnClickListener(new b(optString3));
     }
 
@@ -180,7 +180,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public BaseAdapter getAdapter() {
         LegoListFragment legoListFragment = this.legoListFragment;
         if (legoListFragment != null) {
-            return legoListFragment.j1();
+            return legoListFragment.m1();
         }
         return null;
     }
@@ -199,7 +199,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public n getPlaySwitchController() {
         LegoListFragment legoListFragment = this.legoListFragment;
         if (legoListFragment != null) {
-            return legoListFragment.m1();
+            return legoListFragment.p1();
         }
         return null;
     }
@@ -225,7 +225,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public void onBackPressed() {
         LegoListFragment legoListFragment;
         if (this.hasAnimation && !TextUtils.isEmpty(this.animationInfo) && (legoListFragment = this.legoListFragment) != null) {
-            legoListFragment.h1();
+            legoListFragment.k1();
         } else {
             super.onBackPressed();
         }
@@ -233,7 +233,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
-        this.navigationBarViewHolder.f56603a.onChangeSkinType(getPageContext(), i2);
+        this.navigationBarViewHolder.f60292a.onChangeSkinType(getPageContext(), i2);
         if (this.pageType == 1) {
             LegoTabFragment legoTabFragment = this.legoTabFragment;
             if (legoTabFragment != null) {
@@ -311,10 +311,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         setContentView(R.layout.lego_list_activity);
         registerListener(this.mShowComponentViewListener);
         e eVar = new e();
-        eVar.f56758a = this.pageId;
-        eVar.f56759b = this.itemId;
-        eVar.f56761d = this.rn;
-        eVar.f56762e = this.params;
+        eVar.f60447a = this.pageId;
+        eVar.f60448b = this.itemId;
+        eVar.f60450d = this.rn;
+        eVar.f60451e = this.params;
         eVar.b();
         VoiceManager voiceManager = getVoiceManager();
         this.mVoiceManager = voiceManager;
@@ -331,26 +331,26 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         if (this.pageType == 1) {
             LegoTabFragment legoTabFragment = new LegoTabFragment();
             this.legoTabFragment = legoTabFragment;
-            legoTabFragment.W0(this.navigationBarViewHolder);
-            this.legoTabFragment.X0(this.pageId);
-            this.legoTabFragment.V0(this.itemId);
+            legoTabFragment.Z0(this.navigationBarViewHolder);
+            this.legoTabFragment.a1(this.pageId);
+            this.legoTabFragment.Y0(this.itemId);
             this.legoTabFragment.setPrimary(true);
             beginTransaction.replace(R.id.fl_lego, this.legoTabFragment);
         } else {
-            LegoListFragment.p1();
+            LegoListFragment.s1();
             LegoListFragment legoListFragment = new LegoListFragment();
             this.legoListFragment = legoListFragment;
-            legoListFragment.A1(this.navigationBarViewHolder);
-            this.legoListFragment.y1(this.navi_landingpage);
-            this.legoListFragment.u1(this.mFloatVideoContainer);
-            this.legoListFragment.D1(this.pageId);
-            this.legoListFragment.x1(this.itemId);
-            this.legoListFragment.w1(this.isImmersive);
+            legoListFragment.D1(this.navigationBarViewHolder);
+            this.legoListFragment.B1(this.navi_landingpage);
+            this.legoListFragment.x1(this.mFloatVideoContainer);
+            this.legoListFragment.G1(this.pageId);
+            this.legoListFragment.A1(this.itemId);
+            this.legoListFragment.z1(this.isImmersive);
             this.legoListFragment.setPrimary(true);
-            this.legoListFragment.C1(this.nextPage);
-            this.legoListFragment.t1(this.animationInfo, this.preLoad);
-            this.legoListFragment.v1(this.hasAnimation);
-            this.legoListFragment.z1(this.isLandingPage);
+            this.legoListFragment.F1(this.nextPage);
+            this.legoListFragment.w1(this.animationInfo, this.preLoad);
+            this.legoListFragment.y1(this.hasAnimation);
+            this.legoListFragment.C1(this.isLandingPage);
             this.legoListFragment.setFrom(this.isFrom);
             beginTransaction.replace(R.id.fl_lego, this.legoListFragment);
         }

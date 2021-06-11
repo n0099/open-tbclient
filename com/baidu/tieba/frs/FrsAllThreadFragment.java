@@ -22,39 +22,39 @@ import d.a.n0.r0.u;
 public class FrsAllThreadFragment extends BaseFragment implements q0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15020e;
+    public View f15077e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f15021f;
+    public RecyclerView f15078f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15022g;
+    public String f15079g;
 
     @Override // d.a.n0.r0.q0
-    public void B0() {
-        RecyclerView recyclerView = this.f15021f;
+    public void E0() {
+        RecyclerView recyclerView = this.f15078f;
         if (recyclerView != null) {
             recyclerView.scrollToPosition(0);
         }
     }
 
-    public final void D0(int i2, String str) {
-        TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f15022g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+    public final void G0(int i2, String str) {
+        TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f15079g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
-    public final void E0() {
-        View view = this.f15020e;
+    public final void H0() {
+        View view = this.f15077e;
         if (view == null || !(view.getParent() instanceof ViewGroup)) {
             return;
         }
-        ((ViewGroup) this.f15020e.getParent()).removeView(this.f15020e);
-        this.f15020e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        ((ViewGroup) this.f15077e.getParent()).removeView(this.f15077e);
+        this.f15077e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
     }
 
-    public void F0(View view) {
-        this.f15020e = view;
-        this.f15021f = (RecyclerView) view.findViewById(R.id.frs_lv_thread);
-        E0();
+    public void I0(View view) {
+        this.f15077e = view;
+        this.f15078f = (RecyclerView) view.findViewById(R.id.frs_lv_thread);
+        H0();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -68,27 +68,27 @@ public class FrsAllThreadFragment extends BaseFragment implements q0 {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f15022g = arguments.getString("forum_id", "");
+            this.f15079g = arguments.getString("forum_id", "");
         }
-        E0();
-        return this.f15020e;
+        H0();
+        return this.f15077e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
         if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            D0(2, "4");
+            G0(2, "4");
         } else {
-            D0(2, "5");
+            G0(2, "5");
         }
     }
 
     @Override // d.a.n0.r0.q0
-    public void t() {
-        B0();
+    public void u() {
+        E0();
         u uVar = new u();
-        uVar.f59661a = 1;
-        uVar.f59662b = true;
+        uVar.f63352a = 1;
+        uVar.f63353b = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
     }
 }

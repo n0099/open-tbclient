@@ -16,28 +16,28 @@ public class d extends d.a.n0.z.b<d.a.n0.j2.e.e> {
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        View l = l();
-        this.m = l;
-        this.n = (TbImageView) l.findViewById(R.id.card_person_auth_icon);
+        View m = m();
+        this.m = m;
+        this.n = (TbImageView) m.findViewById(R.id.card_person_auth_icon);
         this.o = (TextView) this.m.findViewById(R.id.card_person_auth_bar_name);
         this.p = (TextView) this.m.findViewById(R.id.card_person_auth_des);
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_person_auth_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e == i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e == i2) {
             return;
         }
-        this.f63440e = i2;
+        this.f67158e = i2;
         SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
-        if (this.q.f56401e == null) {
+        if (this.q.f60090e == null) {
             SkinManager.setImageResource(this.n, R.drawable.icon_shen_mine);
         }
     }
@@ -48,17 +48,17 @@ public class d extends d.a.n0.z.b<d.a.n0.j2.e.e> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(d.a.n0.j2.e.e eVar) {
+    /* renamed from: t */
+    public void n(d.a.n0.j2.e.e eVar) {
         if (eVar == null) {
             return;
         }
         this.q = eVar;
-        String str = eVar.f56401e;
+        String str = eVar.f60090e;
         if (str != null) {
-            this.n.V(str, 10, false);
+            this.n.U(str, 10, false);
         }
-        this.o.setText(eVar.f56402f);
-        this.p.setText(eVar.f56403g);
+        this.o.setText(eVar.f60091f);
+        this.p.setText(eVar.f60092g);
     }
 }

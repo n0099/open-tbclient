@@ -16,7 +16,7 @@ import d.a.n0.m0.y.d.b;
 public class EmotionChangeModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f14816e;
+    public final HttpMessageListener f14873e;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -37,18 +37,18 @@ public class EmotionChangeModel extends BdBaseModel {
                 if (bVar == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                bVar.a0(emotionCenterResponseMessage.data);
+                bVar.d0(emotionCenterResponseMessage.data);
             }
         }
     }
 
     public EmotionChangeModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.f14816e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
+        this.f14873e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
         registerTask();
-        this.f14816e.setTag(getUniqueId());
-        this.f14816e.setSelfListener(true);
-        registerListener(this.f14816e);
+        this.f14873e.setTag(getUniqueId());
+        this.f14873e.setSelfListener(true);
+        registerListener(this.f14873e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -68,7 +68,7 @@ public class EmotionChangeModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void s(b bVar) {
+    public void w(b bVar) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
         httpMessage.setExtra(bVar);
         sendMessage(httpMessage);

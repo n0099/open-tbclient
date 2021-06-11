@@ -20,26 +20,26 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Activity f42884a;
+    public final Activity f46560a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.a.w2.j.a f42885b;
+    public d.a.l0.a.w2.j.a f46561b;
 
     /* renamed from: d.a.l0.a.i1.d.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0713a implements b.a {
+    public class C0769a implements b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f42886a;
+        public final /* synthetic */ String f46562a;
 
-        public C0713a(String str) {
-            this.f42886a = str;
+        public C0769a(String str) {
+            this.f46562a = str;
         }
 
         @Override // d.a.l0.a.z1.b.e.b.a
         public void a(d.a.l0.a.z1.b.e.b bVar) {
-            a.d(bVar.c(), a.this.f42884a, this.f42886a);
-            a.this.f42885b.j();
+            a.d(bVar.c(), a.this.f46560a, this.f46562a);
+            a.this.f46561b.j();
         }
     }
 
@@ -55,7 +55,7 @@ public class a {
     }
 
     public a(@NonNull Activity activity) {
-        this.f42884a = activity;
+        this.f46560a = activity;
     }
 
     public static void d(int i2, Activity activity, String str) {
@@ -86,7 +86,7 @@ public class a {
             jSONObject.put("type", "0");
             jSONObject.put("index", "0");
         } catch (JSONException e2) {
-            if (k.f43199a) {
+            if (k.f46875a) {
                 e2.printStackTrace();
             }
         }
@@ -127,20 +127,20 @@ public class a {
 
     public final void c(String str) {
         if (!e(str)) {
-            this.f42885b.e(6, h.swan_app_img_menu_save_image);
+            this.f46561b.e(6, h.swan_app_img_menu_save_image);
         }
-        this.f42885b.e(5, h.swan_app_img_menu_share_image);
+        this.f46561b.e(5, h.swan_app_img_menu_share_image);
     }
 
     public void j(View view, String str) {
-        d.a.l0.a.w2.j.a aVar = this.f42885b;
+        d.a.l0.a.w2.j.a aVar = this.f46561b;
         if (aVar != null && aVar.n()) {
-            this.f42885b.j();
+            this.f46561b.j();
         }
         d.a.l0.a.w2.j.a aVar2 = new d.a.l0.a.w2.j.a(view);
-        this.f42885b = aVar2;
-        aVar2.r(new C0713a(str));
+        this.f46561b = aVar2;
+        aVar2.r(new C0769a(str));
         c(str);
-        this.f42885b.t();
+        this.f46561b.t();
     }
 }

@@ -9,16 +9,16 @@ import java.util.concurrent.TimeUnit;
 public class d extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45221b = k.f43199a;
+    public static final boolean f48895b = k.f46875a;
 
     @Override // d.a.l0.a.u.f.b.b
     public void a() {
-        for (BasePendingOperation basePendingOperation : this.f45219a) {
-            if (f45221b) {
+        for (BasePendingOperation basePendingOperation : this.f48893a) {
+            if (f48895b) {
                 Log.d("NetworkOperation", "       *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
             }
             q.c(basePendingOperation, "operation_request", 100L, TimeUnit.MILLISECONDS);
         }
-        this.f45219a.clear();
+        this.f48893a.clear();
     }
 }

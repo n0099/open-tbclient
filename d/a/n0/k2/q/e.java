@@ -9,36 +9,36 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class e extends d {
-    public int L0;
+    public int G0;
     public int M0;
 
     public e(Context context, View view) {
         super(context, view);
         p0(false);
-        this.L0 = l.k(this.P) / 10;
+        this.G0 = l.k(this.P) / 10;
     }
 
-    public void A0(String str, String str2) {
+    public void B0(String str, String str2) {
         this.V = str2;
         O();
         P();
-        s0(this.f56923f);
+        s0(this.f60612f);
         this.G.setPlayer(this.u);
         this.C.setVisibility(8);
         this.v.setPlaceHolder(3);
-        this.v.V(str, 10, false);
+        this.v.U(str, 10, false);
         this.I.setShareData(null);
     }
 
     @Override // d.a.n0.k2.q.d
-    public void V(boolean z) {
+    public void U(boolean z) {
         Context context = this.P;
         if (context instanceof BaseFragmentActivity) {
             ((BaseFragmentActivity) context).setSwipeBackEnabled(this.a0);
         } else if (context instanceof BaseActivity) {
             ((BaseActivity) context).setSwipeBackEnabled(this.a0);
         }
-        super.V(z);
+        super.U(z);
         if (this.a0) {
             this.R.getLayoutParams().height = -1;
             return;
@@ -52,8 +52,8 @@ public class e extends d {
     }
 
     @Override // d.a.n0.k2.q.d
-    public boolean f0(MotionEvent motionEvent) {
-        return this.a0 || motionEvent.getX() > ((float) this.L0);
+    public boolean g0(MotionEvent motionEvent) {
+        return this.a0 || motionEvent.getX() > ((float) this.G0);
     }
 
     @Override // d.a.n0.k2.q.d, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener

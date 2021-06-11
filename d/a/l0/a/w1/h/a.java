@@ -14,30 +14,30 @@ public class a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f45574d;
+    public static a f49248d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Context f45575e;
+    public static Context f49249e;
 
     /* renamed from: a  reason: collision with root package name */
-    public EditText f45576a;
+    public EditText f49250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f45577b;
+    public boolean f49251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f45578c = new RunnableC0892a();
+    public Runnable f49252c = new RunnableC0948a();
 
     /* renamed from: d.a.l0.a.w1.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0892a implements Runnable {
-        public RunnableC0892a() {
+    public class RunnableC0948a implements Runnable {
+        public RunnableC0948a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f45576a.dispatchKeyEvent(new KeyEvent(0, 67));
-            a.this.f45576a.postDelayed(a.this.f45578c, 60L);
+            a.this.f49250a.dispatchKeyEvent(new KeyEvent(0, 67));
+            a.this.f49250a.postDelayed(a.this.f49252c, 60L);
         }
     }
 
@@ -51,23 +51,23 @@ public class a {
             Object adapter = adapterView.getAdapter();
             if (adapter instanceof EmojiBagLayout.b) {
                 EmojiBagLayout.b bVar = (EmojiBagLayout.b) adapter;
-                if (a.this.f45576a == null) {
+                if (a.this.f49250a == null) {
                     return;
                 }
                 if (i2 == bVar.getCount() - 1) {
-                    if (a.this.f45577b) {
-                        a.this.f45576a.removeCallbacks(a.this.f45578c);
-                        a.this.f45577b = false;
+                    if (a.this.f49251b) {
+                        a.this.f49250a.removeCallbacks(a.this.f49252c);
+                        a.this.f49251b = false;
                         return;
                     }
-                    a.this.f45576a.dispatchKeyEvent(new KeyEvent(0, 67));
+                    a.this.f49250a.dispatchKeyEvent(new KeyEvent(0, 67));
                     return;
                 }
                 String item = bVar.getItem(i2);
                 if (TextUtils.isEmpty(item)) {
                     return;
                 }
-                a.this.f45576a.getEditableText().insert(a.this.f45576a.getSelectionStart(), d.a.l0.a.w1.h.b.c().g(a.f45575e, item, a.this.f45576a));
+                a.this.f49250a.getEditableText().insert(a.this.f49250a.getSelectionStart(), d.a.l0.a.w1.h.b.c().g(a.f49249e, item, a.this.f49250a));
             }
         }
     }
@@ -81,9 +81,9 @@ public class a {
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Object adapter = adapterView.getAdapter();
             if ((adapter instanceof EmojiBagLayout.b) && i2 == ((EmojiBagLayout.b) adapter).getCount() - 1) {
-                a.this.f45577b = true;
-                if (a.this.f45576a != null) {
-                    a.this.f45576a.post(a.this.f45578c);
+                a.this.f49251b = true;
+                if (a.this.f49250a != null) {
+                    a.this.f49250a.post(a.this.f49252c);
                     return false;
                 }
                 return false;
@@ -108,19 +108,19 @@ public class a {
     }
 
     public static a g(Context context) {
-        f45575e = context.getApplicationContext();
-        if (f45574d == null) {
+        f49249e = context.getApplicationContext();
+        if (f49248d == null) {
             synchronized (a.class) {
-                if (f45574d == null) {
-                    f45574d = new a();
+                if (f49248d == null) {
+                    f49248d = new a();
                 }
             }
         }
-        return f45574d;
+        return f49248d;
     }
 
     public void f(EditText editText) {
-        this.f45576a = editText;
+        this.f49250a = editText;
     }
 
     public AdapterView.OnItemClickListener h() {
@@ -136,9 +136,9 @@ public class a {
     }
 
     public void k() {
-        EditText editText = this.f45576a;
+        EditText editText = this.f49250a;
         if (editText != null) {
-            editText.removeCallbacks(this.f45578c);
+            editText.removeCallbacks(this.f49252c);
         }
     }
 }

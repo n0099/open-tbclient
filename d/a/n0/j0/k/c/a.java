@@ -2,9 +2,8 @@ package d.a.n0.j0.k.c;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.tbadk.core.util.ListUtils;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -18,19 +17,19 @@ import tbclient.Recommforum.TestInfo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<f> f55998a;
+    public List<f> f59687a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Integer> f55999b;
+    public HashMap<String, Integer> f59688b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedHashMap<String, List<b>> f56000c;
+    public LinkedHashMap<String, List<b>> f59689c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<Long, Integer> f56001d;
+    public HashMap<Long, Integer> f59690d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, List<b>> f56002e;
+    public HashMap<String, List<b>> f59691e;
 
     public List<n> a(long j, boolean z) {
         ArrayList arrayList = new ArrayList();
@@ -50,25 +49,25 @@ public class a {
             }
         }
         e eVar = new e();
-        eVar.f56020e = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+        eVar.f59709e = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
         arrayList.add(eVar);
         return arrayList;
     }
 
     public List<n> b(boolean z) {
         ArrayList arrayList = new ArrayList();
-        HashMap<String, Integer> hashMap = this.f55999b;
+        HashMap<String, Integer> hashMap = this.f59688b;
         if (hashMap != null && hashMap.size() > 0) {
-            for (String str : this.f55999b.keySet()) {
+            for (String str : this.f59688b.keySet()) {
                 if (!StringUtils.isNull(str)) {
-                    int intValue = this.f55999b.get(str).intValue();
+                    int intValue = this.f59688b.get(str).intValue();
                     d dVar = new d();
                     dVar.y(str);
                     dVar.needTopMargin = !z;
                     dVar.w(intValue);
-                    dVar.v(e(str));
+                    dVar.t(e(str));
                     arrayList.add(dVar);
-                    arrayList.addAll(dVar.t());
+                    arrayList.addAll(dVar.p());
                 }
             }
         }
@@ -80,9 +79,9 @@ public class a {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        HashMap<String, List<b>> hashMap = this.f56002e;
+        HashMap<String, List<b>> hashMap = this.f59691e;
         if (hashMap != null && hashMap.size() > 0) {
-            Iterator<String> it = this.f56002e.keySet().iterator();
+            Iterator<String> it = this.f59691e.keySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -92,14 +91,14 @@ public class a {
                     String[] split = next.split("[|]");
                     if (String.valueOf(j).equals(split[0]) && split.length == 2 && !StringUtils.isNull(split[1])) {
                         String str = split[1];
-                        int intValue = this.f56001d.get(Long.valueOf(j)).intValue();
+                        int intValue = this.f59690d.get(Long.valueOf(j)).intValue();
                         d dVar = new d();
                         dVar.y(str);
                         dVar.needTopMargin = !z;
                         dVar.w(intValue);
-                        dVar.v(g(next));
+                        dVar.t(g(next));
                         arrayList.add(dVar);
-                        arrayList.addAll(dVar.t());
+                        arrayList.addAll(dVar.p());
                         break;
                     }
                 }
@@ -109,30 +108,30 @@ public class a {
     }
 
     public List<f> d() {
-        return this.f55998a;
+        return this.f59687a;
     }
 
     public final List<b> e(String str) {
         ArrayList arrayList = new ArrayList();
-        LinkedHashMap<String, List<b>> linkedHashMap = this.f56000c;
+        LinkedHashMap<String, List<b>> linkedHashMap = this.f59689c;
         if (linkedHashMap != null && linkedHashMap.size() > 0) {
-            arrayList.addAll(this.f56000c.get(str));
+            arrayList.addAll(this.f59689c.get(str));
         }
         return arrayList;
     }
 
     public List<f> f(long j) {
-        if (ListUtils.isEmpty(this.f55998a)) {
+        if (ListUtils.isEmpty(this.f59687a)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        int size = this.f55998a.size();
+        int size = this.f59687a.size();
         int i2 = 0;
         while (true) {
             if (i2 >= size) {
                 i2 = 0;
                 break;
-            } else if (this.f55998a.get(i2).f56021a == j) {
+            } else if (this.f59687a.get(i2).f59710a == j) {
                 break;
             } else {
                 i2++;
@@ -140,21 +139,21 @@ public class a {
         }
         if (i2 == 0) {
             int i3 = size - 1;
-            arrayList.add(this.f55998a.get(i3));
-            arrayList.addAll(this.f55998a.subList(0, i3));
+            arrayList.add(this.f59687a.get(i3));
+            arrayList.addAll(this.f59687a.subList(0, i3));
         } else {
             int i4 = i2 - 1;
-            arrayList.addAll(this.f55998a.subList(i4, size));
-            arrayList.addAll(this.f55998a.subList(0, i4));
+            arrayList.addAll(this.f59687a.subList(i4, size));
+            arrayList.addAll(this.f59687a.subList(0, i4));
         }
         return arrayList;
     }
 
     public final List<b> g(String str) {
         ArrayList arrayList = new ArrayList();
-        HashMap<String, List<b>> hashMap = this.f56002e;
+        HashMap<String, List<b>> hashMap = this.f59691e;
         if (hashMap != null && hashMap.size() > 0) {
-            arrayList.addAll(this.f56002e.get(str));
+            arrayList.addAll(this.f59691e.get(str));
         }
         return arrayList;
     }
@@ -164,14 +163,14 @@ public class a {
             return;
         }
         if (!ListUtils.isEmpty(dataRes.test_info)) {
-            this.f55998a = new ArrayList();
-            this.f56001d = new HashMap<>();
-            this.f56002e = new HashMap<>();
+            this.f59687a = new ArrayList();
+            this.f59690d = new HashMap<>();
+            this.f59691e = new HashMap<>();
             for (TestInfo testInfo : dataRes.test_info) {
                 if (testInfo != null) {
                     f fVar = new f();
                     fVar.a(testInfo);
-                    this.f55998a.add(fVar);
+                    this.f59687a.add(fVar);
                     RecommForum recommForum = testInfo.recomm_forum;
                     if (recommForum != null && !ListUtils.isEmpty(recommForum.forums)) {
                         ArrayList arrayList = new ArrayList();
@@ -179,13 +178,13 @@ public class a {
                             if (recommendForumInfo != null) {
                                 b bVar = new b();
                                 bVar.a(recommendForumInfo);
-                                bVar.f56010h = 1;
+                                bVar.f59699h = 1;
                                 arrayList.add(bVar);
                             }
                         }
-                        this.f56001d.put(Long.valueOf(fVar.f56021a), testInfo.recomm_forum.page_size);
-                        HashMap<String, List<b>> hashMap = this.f56002e;
-                        hashMap.put(String.valueOf(fVar.f56021a) + FieldBuilder.SE + testInfo.recomm_forum.title, arrayList);
+                        this.f59690d.put(Long.valueOf(fVar.f59710a), testInfo.recomm_forum.page_size);
+                        HashMap<String, List<b>> hashMap = this.f59691e;
+                        hashMap.put(String.valueOf(fVar.f59710a) + "|" + testInfo.recomm_forum.title, arrayList);
                     }
                 }
             }
@@ -193,8 +192,8 @@ public class a {
         if (ListUtils.isEmpty(dataRes.recomm_forum)) {
             return;
         }
-        this.f55999b = new HashMap<>();
-        this.f56000c = new LinkedHashMap<>();
+        this.f59688b = new HashMap<>();
+        this.f59689c = new LinkedHashMap<>();
         for (RecommForum recommForum2 : dataRes.recomm_forum) {
             if (recommForum2 != null && !ListUtils.isEmpty(recommForum2.forums)) {
                 ArrayList arrayList2 = new ArrayList();
@@ -202,12 +201,12 @@ public class a {
                     if (recommendForumInfo2 != null) {
                         b bVar2 = new b();
                         bVar2.a(recommendForumInfo2);
-                        bVar2.f56010h = 2;
+                        bVar2.f59699h = 2;
                         arrayList2.add(bVar2);
                     }
                 }
-                this.f55999b.put(recommForum2.title, recommForum2.page_size);
-                this.f56000c.put(recommForum2.title, arrayList2);
+                this.f59688b.put(recommForum2.title, recommForum2.page_size);
+                this.f59689c.put(recommForum2.title, arrayList2);
             }
         }
     }

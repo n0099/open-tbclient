@@ -30,20 +30,20 @@ import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class k extends m implements d.a.l0.a.n0.l.b {
-    public static final boolean q = d.a.l0.a.k.f43199a;
+    public static final boolean q = d.a.l0.a.k.f46875a;
     public static final int r;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f40756f;
+    public boolean f44432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40757g;
+    public boolean f44433g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f40758h;
+    public boolean f44434h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f40759i;
+    public boolean f44435i;
     public int j;
     public boolean k;
     public final d.a.l0.a.a2.e l;
@@ -56,15 +56,15 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f40760e;
+        public final /* synthetic */ HybridUbcFlow f44436e;
 
         public a(HybridUbcFlow hybridUbcFlow) {
-            this.f40760e = hybridUbcFlow;
+            this.f44436e = hybridUbcFlow;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            HybridUbcFlow hybridUbcFlow = this.f40760e;
+            HybridUbcFlow hybridUbcFlow = this.f44436e;
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("postExec-run");
             ubcFlowEvent.a(true);
             hybridUbcFlow.C(ubcFlowEvent);
@@ -76,16 +76,16 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Bundle f40762e;
+        public final /* synthetic */ Bundle f44438e;
 
         public b(Bundle bundle) {
-            this.f40762e = bundle;
+            this.f44438e = bundle;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Bundle bundle = new Bundle();
-            Bundle bundle2 = this.f40762e;
+            Bundle bundle2 = this.f44438e;
             if (bundle2 != null) {
                 bundle.putAll(bundle2);
             }
@@ -158,10 +158,10 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
     public class d extends d.a.l0.a.v1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f40765c;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f44441c;
 
         public d(d.a.l0.a.f1.e.b bVar) {
-            this.f40765c = bVar;
+            this.f44441c = bVar;
         }
 
         @Override // d.a.l0.a.v1.a.b.c.b, d.a.l0.a.v1.a.b.c.a
@@ -173,7 +173,7 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
         @Override // d.a.l0.a.v1.a.b.c.b, d.a.l0.a.v1.a.b.c.c, d.a.l0.a.v1.a.b.c.a
         public void onEvent(@NonNull d.a.l0.a.v1.a.b.a.b bVar) {
             Bundle a2 = bVar.a();
-            k.d0(this.f40765c, k.this.p, true, a2 != null ? a2.getBoolean("isDownloading", false) : false);
+            k.d0(this.f44441c, k.this.p, true, a2 != null ? a2.getBoolean("isDownloading", false) : false);
         }
     }
 
@@ -181,33 +181,33 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
     public class e implements d.a.l0.a.h0.m.m.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f40767a;
+        public final /* synthetic */ boolean f44443a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.n.i.m.c f40768b;
+        public final /* synthetic */ d.a.l0.n.i.m.c f44444b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f40769c;
+        public final /* synthetic */ HybridUbcFlow f44445c;
 
         public e(boolean z, d.a.l0.n.i.m.c cVar, HybridUbcFlow hybridUbcFlow) {
-            this.f40767a = z;
-            this.f40768b = cVar;
-            this.f40769c = hybridUbcFlow;
+            this.f44443a = z;
+            this.f44444b = cVar;
+            this.f44445c = hybridUbcFlow;
         }
 
         @Override // d.a.l0.a.h0.m.m.a
         public void a(d.a.l0.a.q2.a aVar, boolean z) {
             long a2 = aVar == null ? 0L : aVar.a();
-            d.a.l0.a.e0.d.h("SwanPkgMaintainer", "mFlagDownloading reset onFinalFailed isRetry = " + this.f40767a + ",code =" + a2);
-            if (this.f40767a) {
+            d.a.l0.a.e0.d.h("SwanPkgMaintainer", "mFlagDownloading reset onFinalFailed isRetry = " + this.f44443a + ",code =" + a2);
+            if (this.f44443a) {
                 d.a.l0.a.j2.k.G("pkg_retry_fail", String.valueOf(a2));
             }
-            if (k.this.Q(this.f40768b, aVar)) {
+            if (k.this.Q(this.f44444b, aVar)) {
                 return;
             }
-            k.this.f40757g = false;
+            k.this.f44433g = false;
             d.a.l0.a.a2.d.g().q("event_pkg_download_finish");
-            HybridUbcFlow hybridUbcFlow = this.f40769c;
+            HybridUbcFlow hybridUbcFlow = this.f44445c;
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalFailedStart");
             ubcFlowEvent.a(true);
             hybridUbcFlow.C(ubcFlowEvent);
@@ -224,7 +224,7 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
                 }
                 k.this.h0(false);
             }
-            HybridUbcFlow hybridUbcFlow2 = this.f40769c;
+            HybridUbcFlow hybridUbcFlow2 = this.f44445c;
             UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalFailedEnd");
             ubcFlowEvent2.a(true);
             hybridUbcFlow2.C(ubcFlowEvent2);
@@ -239,24 +239,24 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
 
         @Override // d.a.l0.a.h0.m.m.a
         public void b(PMSAppInfo pMSAppInfo) {
-            d.a.l0.a.e0.d.h("SwanPkgMaintainer", "mFlagDownloading reset onFinalComplete isRetry = " + this.f40767a);
-            if (this.f40767a) {
+            d.a.l0.a.e0.d.h("SwanPkgMaintainer", "mFlagDownloading reset onFinalComplete isRetry = " + this.f44443a);
+            if (this.f44443a) {
                 d.a.l0.a.j2.k.G("pkg_retry_success", "");
             }
-            k.this.f40757g = false;
+            k.this.f44433g = false;
             k kVar = k.this;
-            kVar.j = kVar.f40759i ? 2 : 0;
+            kVar.j = kVar.f44435i ? 2 : 0;
             k kVar2 = k.this;
             kVar2.j = kVar2.k ? 1 : k.this.j;
             k kVar3 = k.this;
             kVar3.R("KEY_PKG_STATE", "event_pms_check_finish", kVar3.j);
-            HybridUbcFlow hybridUbcFlow = this.f40769c;
+            HybridUbcFlow hybridUbcFlow = this.f44445c;
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalCompleteStart");
             ubcFlowEvent.a(true);
             hybridUbcFlow.C(ubcFlowEvent);
             k.this.x0(pMSAppInfo);
             k.this.r0(null);
-            HybridUbcFlow hybridUbcFlow2 = this.f40769c;
+            HybridUbcFlow hybridUbcFlow2 = this.f44445c;
             UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalCompleteEnd");
             ubcFlowEvent2.a(true);
             hybridUbcFlow2.C(ubcFlowEvent2);
@@ -267,17 +267,17 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
     public class f implements d.a.l0.a.v2.e1.b<PMSAppInfo> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f40771e;
+        public final /* synthetic */ HybridUbcFlow f44447e;
 
         public f(HybridUbcFlow hybridUbcFlow) {
-            this.f40771e = hybridUbcFlow;
+            this.f44447e = hybridUbcFlow;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(PMSAppInfo pMSAppInfo) {
-            HybridUbcFlow hybridUbcFlow = this.f40771e;
+            HybridUbcFlow hybridUbcFlow = this.f44447e;
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onAppInfoReceivedStart");
             ubcFlowEvent.a(true);
             hybridUbcFlow.C(ubcFlowEvent);
@@ -286,7 +286,7 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
             }
             k.this.x0(pMSAppInfo);
             k.this.S(pMSAppInfo);
-            HybridUbcFlow hybridUbcFlow2 = this.f40771e;
+            HybridUbcFlow hybridUbcFlow2 = this.f44447e;
             UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onAppInfoReceivedEnd");
             ubcFlowEvent2.a(true);
             hybridUbcFlow2.C(ubcFlowEvent2);
@@ -306,7 +306,7 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
         @Override // d.a.l0.a.h0.m.g, d.a.l0.a.h0.m.f, d.a.l0.n.f.g
         public void F(d.a.l0.n.o.f fVar) {
             d.a.l0.a.e0.d.h("SwanPkgMaintainer", "mFlagDownloading set onPrepareDownload isRetry = " + this.I);
-            k.this.f40757g = true;
+            k.this.f44433g = true;
             d.a.l0.a.a2.d.g().q("event_pkg_download_start");
             super.F(fVar);
         }
@@ -314,7 +314,7 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
         @Override // d.a.l0.n.f.g, d.a.l0.n.f.d
         public void b() {
             d.a.l0.a.e0.d.h("SwanPkgMaintainer", "mFlagDownloading reset onTotalPkgDownloadFinish isRetry = " + this.I);
-            k.this.f40757g = false;
+            k.this.f44433g = false;
             d.a.l0.a.a2.d.g().q("event_pkg_download_finish");
             super.b();
         }
@@ -324,23 +324,23 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
     public static class h implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.j2.p.f f40773e;
+        public final /* synthetic */ d.a.l0.a.j2.p.f f44449e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f40774f;
+        public final /* synthetic */ String f44450f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f40775g;
+        public final /* synthetic */ String f44451g;
 
         public h(d.a.l0.a.j2.p.f fVar, String str, String str2) {
-            this.f40773e = fVar;
-            this.f40774f = str;
-            this.f40775g = str2;
+            this.f44449e = fVar;
+            this.f44450f = str;
+            this.f44451g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            k.c0(this.f40773e, this.f40774f, this.f40775g);
+            k.c0(this.f44449e, this.f44450f, this.f44451g);
         }
     }
 
@@ -348,19 +348,19 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f40776e;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f44452e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f40777f;
+        public final /* synthetic */ int f44453f;
 
         public i(k kVar, d.a.l0.a.f1.e.b bVar, int i2) {
-            this.f40776e = bVar;
-            this.f40777f = i2;
+            this.f44452e = bVar;
+            this.f44453f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f40776e.t0(this.f40777f);
+            this.f44452e.t0(this.f44453f);
         }
     }
 
@@ -371,16 +371,16 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
             String string = bundle.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
             boolean z = false;
             if (TextUtils.isEmpty(string)) {
-                this.f45272d.putBoolean("isDownloading", false);
+                this.f48946d.putBoolean("isDownloading", false);
                 c();
                 return;
             }
             boolean h2 = d.a.l0.n.b.h(string);
             boolean i2 = d.a.l0.n.b.i(string);
-            if (d.a.l0.a.v1.a.a.a.f45268e) {
+            if (d.a.l0.a.v1.a.a.a.f48942e) {
                 Log.d("MDelegate-Delegation", "isDownloading: " + h2 + ", isInQueue: " + i2);
             }
-            this.f45272d.putBoolean("isDownloading", (h2 || i2) ? true : true);
+            this.f48946d.putBoolean("isDownloading", (h2 || i2) ? true : true);
             c();
         }
     }
@@ -392,10 +392,10 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
 
     public k(d.a.l0.a.a2.e eVar) {
         super(eVar);
-        this.f40756f = false;
-        this.f40757g = false;
-        this.f40758h = false;
-        this.f40759i = false;
+        this.f44432f = false;
+        this.f44433g = false;
+        this.f44434h = false;
+        this.f44435i = false;
         this.j = -1;
         this.k = false;
         this.m = "";
@@ -423,9 +423,9 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
         eVar.r0().putString("aiapp_extra_need_download", z ? "1" : "0");
         eVar.r0().putString("aiapp_extra_pkg_downloading", z2 ? "1" : "0");
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43185a = d.a.l0.a.j2.k.m(eVar.G());
+        fVar.f46861a = d.a.l0.a.j2.k.m(eVar.G());
         fVar.h(eVar);
-        fVar.f43186b = "launch";
+        fVar.f46862b = "launch";
         fVar.o = z ? "1" : "0";
         if (pMSAppInfo != null) {
             fVar.l = String.valueOf(pMSAppInfo.versionCode);
@@ -449,9 +449,9 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
             d.a.l0.a.f1.d.a.k(context, z ? SwanAppErrorActivity.TYPE_PATH_FORBIDDEN : SwanAppErrorActivity.TYPE_APP_FORBIDDEN, bVar.C(), forbiddenInfo);
         }
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43185a = d.a.l0.a.j2.k.m(bVar.G());
-        fVar.f43186b = "launch";
-        fVar.f43189e = "success";
+        fVar.f46861a = d.a.l0.a.j2.k.m(bVar.G());
+        fVar.f46862b = "launch";
+        fVar.f46865e = "success";
         fVar.i(bVar);
         fVar.a("status", "2");
         fVar.d(bVar.r0().getString(UBCCloudControlProcessor.UBC_KEY));
@@ -553,7 +553,7 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
             p.C(new UbcFlowEvent("na_query_db"));
             boolean e2 = d.a.l0.a.f1.h.a.e(f0);
             this.n = e2;
-            this.f40759i = (f0 == null || e2) ? false : true;
+            this.f44435i = (f0 == null || e2) ? false : true;
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("has_local_file");
             ubcFlowEvent.a(true);
             p.C(ubcFlowEvent);
@@ -638,17 +638,17 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
     }
 
     public synchronized boolean a0() {
-        return this.f40756f;
+        return this.f44432f;
     }
 
     public synchronized boolean b0() {
-        return this.f40758h;
+        return this.f44434h;
     }
 
     public synchronized void f0() {
-        if (SwanAppProcessInfo.current().isSwanAppProcess() && this.l.f40750g && !a0() && !b0()) {
+        if (SwanAppProcessInfo.current().isSwanAppProcess() && this.l.f44426g && !a0() && !b0()) {
             boolean z = true;
-            this.f40756f = true;
+            this.f44432f = true;
             HybridUbcFlow p = d.a.l0.a.r1.h.p("startup");
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("maintain_start");
             ubcFlowEvent.a(true);
@@ -681,7 +681,7 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
             if (q) {
                 Log.i("SwanPkgMaintainer", "有错误code，走Server同步下载");
             }
-            this.f40759i = true;
+            this.f44435i = true;
             p.A("launch_state", String.valueOf(2));
             R("KEY_PMS_UPDATE_TYPE", "event_pms_check_start", 2);
             return true;
@@ -689,7 +689,7 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
             if (q) {
                 Log.i("SwanPkgMaintainer", "有悬而未决的的errCode要处理，走Server同步下载");
             }
-            this.f40759i = true;
+            this.f44435i = true;
             p.A("launch_state", String.valueOf(2));
             R("KEY_PMS_UPDATE_TYPE", "event_pms_check_start", 2);
             return true;
@@ -717,13 +717,13 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
     }
 
     public final synchronized void h0(boolean z) {
-        this.f40756f = false;
-        this.f40758h = z;
+        this.f44432f = false;
+        this.f44434h = z;
         this.p = null;
         if (q) {
             e0("notifyMaintainFinish: " + z);
         }
-        A((i.a) new i.a("event_on_pkg_maintain_finish").y("mAppId", this.l.f40749f));
+        A((i.a) new i.a("event_on_pkg_maintain_finish").y("mAppId", this.l.f44425f));
         if (q) {
             d.a.l0.a.f1.g.a.d(this.m).h();
         }
@@ -787,7 +787,7 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
     }
 
     public boolean n0() {
-        return this.f40757g;
+        return this.f44433g;
     }
 
     public final void o0() {
@@ -1010,7 +1010,7 @@ public final class k extends m implements d.a.l0.a.n0.l.b {
         d.a.l0.a.h0.r.c c2 = d.a.l0.a.h0.r.f.b().c(getAppId());
         PMSAppInfo pMSAppInfo = this.p;
         long j2 = pMSAppInfo == null ? -1L : pMSAppInfo.versionCode;
-        long j3 = c2 != null ? c2.f48014i : -1L;
+        long j3 = c2 != null ? c2.f51688i : -1L;
         boolean z = j3 > j2;
         if (q) {
             e0(String.format(Locale.getDefault(), "尝试加载预制包，命中预制包=%b  currentVersion/presetVersion = %d/%d", Boolean.valueOf(z), Long.valueOf(j2), Long.valueOf(j3)));

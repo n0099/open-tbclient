@@ -28,55 +28,55 @@ import org.json.JSONObject;
 public class a extends a0 {
 
     /* renamed from: f  reason: collision with root package name */
-    public static Set<String> f41359f;
+    public static Set<String> f45035f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Set<String> f41360g = new HashSet();
+    public static final Set<String> f45036g = new HashSet();
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f41361c;
+    public ExecutorService f45037c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f41362d;
+    public int f45038d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f41363e;
+    public c f45039e;
 
     /* renamed from: d.a.l0.a.e0.f.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0598a implements n.b {
+    public class C0654a implements n.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f41364a;
+        public final /* synthetic */ Context f45040a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f41365b;
+        public final /* synthetic */ UnitedSchemeEntity f45041b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41366c;
+        public final /* synthetic */ CallbackHandler f45042c;
 
-        public C0598a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            this.f41364a = context;
-            this.f41365b = unitedSchemeEntity;
-            this.f41366c = callbackHandler;
+        public C0654a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+            this.f45040a = context;
+            this.f45041b = unitedSchemeEntity;
+            this.f45042c = callbackHandler;
         }
 
         @Override // d.a.l0.a.p.d.n.b
         public void a(boolean z) {
             if (z) {
                 d.a.l0.a.e0.d.b("LocalDebugAction", "Authentication Success");
-                a.f41360g.add(a.this.o(this.f41364a));
-                a.this.p(this.f41364a, this.f41365b, this.f41366c);
+                a.f45036g.add(a.this.o(this.f45040a));
+                a.this.p(this.f45040a, this.f45041b, this.f45042c);
                 return;
             }
             d.a.l0.a.e0.d.b("LocalDebugAction", "Authentication Fail : Not developer");
-            a.this.w(this.f41364a, this.f41365b, 401);
+            a.this.w(this.f45040a, this.f45041b, 401);
         }
 
         @Override // d.a.l0.a.p.d.n.b
         public void b(Exception exc) {
             d.a.l0.a.e0.d.c("LocalDebugAction", "onFail : Authentication exception :", exc);
-            a.this.w(this.f41364a, this.f41365b, 401);
+            a.this.w(this.f45040a, this.f45041b, 401);
         }
     }
 
@@ -84,31 +84,31 @@ public class a extends a0 {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41368e;
+        public final /* synthetic */ Context f45044e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41369f;
+        public final /* synthetic */ String f45045f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ File f41370g;
+        public final /* synthetic */ File f45046g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f41371h;
+        public final /* synthetic */ UnitedSchemeEntity f45047h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41372i;
+        public final /* synthetic */ CallbackHandler f45048i;
 
         public b(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            this.f41368e = context;
-            this.f41369f = str;
-            this.f41370g = file;
-            this.f41371h = unitedSchemeEntity;
-            this.f41372i = callbackHandler;
+            this.f45044e = context;
+            this.f45045f = str;
+            this.f45046g = file;
+            this.f45047h = unitedSchemeEntity;
+            this.f45048i = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.x(this.f41368e, this.f41369f, this.f41370g, this.f41371h, this.f41372i);
+            a.this.x(this.f45044e, this.f45045f, this.f45046g, this.f45047h, this.f45048i);
         }
     }
 
@@ -125,8 +125,8 @@ public class a extends a0 {
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-            this.f41363e = c.c(optParamsAsJo);
-            if (d.a.l0.a.m2.b.e(0).swanCoreVersionCode < this.f41363e.f41384h) {
+            this.f45039e = c.c(optParamsAsJo);
+            if (d.a.l0.a.m2.b.e(0).swanCoreVersionCode < this.f45039e.f45060h) {
                 d.a.l0.a.e0.d.b("LocalDebugAction", "swan js version is low");
                 w(context, unitedSchemeEntity, 1002);
                 return false;
@@ -134,8 +134,8 @@ public class a extends a0 {
                 d.a.l0.a.e0.d.b("LocalDebugAction", "debug model invalid");
                 w(context, unitedSchemeEntity, 202);
                 return false;
-            } else if (!d.a.l0.a.s.a.f.f44582d.f() && !s().contains(d.a.l0.a.c1.a.a0().h(context)) && !f41360g.contains(o(context))) {
-                d.a.l0.a.m.b.b(this.f41363e.f41378b, new C0598a(context, unitedSchemeEntity, callbackHandler));
+            } else if (!d.a.l0.a.s.a.f.f48256d.f() && !s().contains(d.a.l0.a.c1.a.a0().h(context)) && !f45036g.contains(o(context))) {
+                d.a.l0.a.m.b.b(this.f45039e.f45054b, new C0654a(context, unitedSchemeEntity, callbackHandler));
                 return true;
             } else {
                 p(context, unitedSchemeEntity, callbackHandler);
@@ -148,7 +148,7 @@ public class a extends a0 {
     }
 
     public final String o(Context context) {
-        return d.a.l0.a.c1.a.a0().h(context) + this.f41363e.f41378b;
+        return d.a.l0.a.c1.a.a0().h(context) + this.f45039e.f45054b;
     }
 
     public final void p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -157,21 +157,21 @@ public class a extends a0 {
             boolean delete = b2.delete();
             d.a.l0.a.e0.d.g("LocalDebugAction", "debug bundle delete: " + delete);
         }
-        this.f41361c = Executors.newFixedThreadPool(4);
-        this.f41362d = 0;
+        this.f45037c = Executors.newFixedThreadPool(4);
+        this.f45038d = 0;
         d.e().f("downloadstart");
-        for (int i2 = 0; i2 < this.f41363e.f41379c.length(); i2++) {
-            String a2 = this.f41363e.a(i2);
+        for (int i2 = 0; i2 < this.f45039e.f45055c.length(); i2++) {
+            String a2 = this.f45039e.a(i2);
             if (TextUtils.isEmpty(a2)) {
-                int i3 = this.f41362d + 1;
-                this.f41362d = i3;
-                if (i3 >= this.f41363e.f41379c.length()) {
+                int i3 = this.f45038d + 1;
+                this.f45038d = i3;
+                if (i3 >= this.f45039e.f45055c.length()) {
                     d.a.l0.a.e0.d.b("LocalDebugAction", "IPs are invalid");
                     w(context, unitedSchemeEntity, 202);
                     d.e().f("downloadfail");
                 }
             } else {
-                this.f41361c.execute(new b(context, a2, b2, unitedSchemeEntity, callbackHandler));
+                this.f45037c.execute(new b(context, a2, b2, unitedSchemeEntity, callbackHandler));
             }
         }
     }
@@ -189,7 +189,7 @@ public class a extends a0 {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.e("LocalDebugAction", "url encode fail", e2);
                 return str;
             }
@@ -198,25 +198,25 @@ public class a extends a0 {
     }
 
     public final Set<String> s() {
-        if (f41359f == null) {
-            f41359f = new HashSet();
+        if (f45035f == null) {
+            f45035f = new HashSet();
             d.a.l0.n.a b2 = d.a.l0.n.c.b();
             String string = b2 != null ? b2.j().getString("auth_white_list", "") : "";
             JSONArray jSONArray = null;
             try {
                 jSONArray = new JSONArray(string);
             } catch (JSONException unused) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("LocalDebugAction", "JSONException: parse cloud white list");
                 }
             }
             if (jSONArray != null) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    f41359f.add(jSONArray.optString(i2));
+                    f45035f.add(jSONArray.optString(i2));
                 }
             }
         }
-        return f41359f;
+        return f45035f;
     }
 
     public final boolean t() {
@@ -226,13 +226,13 @@ public class a extends a0 {
 
     public final boolean u() {
         JSONArray jSONArray;
-        return (TextUtils.isEmpty(this.f41363e.f41377a) || TextUtils.isEmpty(this.f41363e.f41378b) || (jSONArray = this.f41363e.f41379c) == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.f41363e.f41380d)) ? false : true;
+        return (TextUtils.isEmpty(this.f45039e.f45053a) || TextUtils.isEmpty(this.f45039e.f45054b) || (jSONArray = this.f45039e.f45055c) == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.f45039e.f45056d)) ? false : true;
     }
 
     public final c.a v(UnitedSchemeEntity unitedSchemeEntity) {
         String uri = (unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) ? "" : unitedSchemeEntity.getUri().toString();
         d.a.l0.a.e0.d.g("LocalDebugAction", "local debug scheme = " + uri);
-        return (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().u0(this.f41363e.f41378b)).z0(false)).K0(true)).L0(this.f41363e.f41381e)).M0(this.f41363e.f41382f)).J0(uri)).O0(this.f41363e.f41383g);
+        return (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().u0(this.f45039e.f45054b)).z0(false)).K0(true)).L0(this.f45039e.f45057e)).M0(this.f45039e.f45058f)).J0(uri)).O0(this.f45039e.f45059g);
     }
 
     public final void w(Context context, UnitedSchemeEntity unitedSchemeEntity, int i2) {
@@ -251,27 +251,27 @@ public class a extends a0 {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:34:0x00c1, code lost:
-        if (r6 >= r4.f41363e.f41379c.length()) goto L32;
+        if (r6 >= r4.f45039e.f45055c.length()) goto L32;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void x(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         try {
-            Response executeSync = d.a.l0.m.e.a.g().getRequest().url(this.f41363e.b(str)).connectionTimeout(3000).build().executeSync();
+            Response executeSync = d.a.l0.m.e.a.g().getRequest().url(this.f45039e.b(str)).connectionTimeout(3000).build().executeSync();
             if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                 boolean a2 = d.a.l0.t.g.a(executeSync.body().byteStream(), file);
                 d.a.l0.a.e0.d.g("LocalDebugAction", "save debug bundle: " + a2);
                 d.e().f("downloadsuccess");
-                this.f41363e.f41381e = str;
+                this.f45039e.f45057e = str;
                 context.startActivity(d.a.l0.a.f1.e.c.d1(context, v(unitedSchemeEntity)));
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (this.f41361c != null) {
-                    this.f41361c.shutdownNow();
-                    this.f41361c = null;
+                if (this.f45037c != null) {
+                    this.f45037c.shutdownNow();
+                    this.f45037c = null;
                 }
                 if (!ProcessUtils.isMainProcess()) {
-                    if (a0.f40949b) {
+                    if (a0.f44625b) {
                         Log.d("LocalDebugAction", "Suicide for reload.");
                     }
                     q();
@@ -282,9 +282,9 @@ public class a extends a0 {
             }
         } catch (IOException unused) {
             synchronized (this) {
-                if (this.f41363e.f41379c != null) {
-                    int i2 = this.f41362d + 1;
-                    this.f41362d = i2;
+                if (this.f45039e.f45055c != null) {
+                    int i2 = this.f45038d + 1;
+                    this.f45038d = i2;
                 }
                 d.a.l0.a.e0.d.b("LocalDebugAction", "Host IPs are invalid");
                 w(context, unitedSchemeEntity, 1001);

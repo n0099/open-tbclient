@@ -18,27 +18,27 @@ public class a extends a0 {
 
     /* renamed from: d.a.l0.a.n2.f.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0773a implements a.c {
+    public class C0829a implements a.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43807a;
+        public final /* synthetic */ UnitedSchemeEntity f47483a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43808b;
+        public final /* synthetic */ CallbackHandler f47484b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ l f43809c;
+        public final /* synthetic */ l f47485c;
 
-        public C0773a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l lVar) {
-            this.f43807a = unitedSchemeEntity;
-            this.f43808b = callbackHandler;
-            this.f43809c = lVar;
+        public C0829a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l lVar) {
+            this.f47483a = unitedSchemeEntity;
+            this.f47484b = callbackHandler;
+            this.f47485c = lVar;
         }
 
         @Override // d.a.l0.a.n2.f.a.c
         public void a(float f2, int i2) {
             d.g("compass", "handle compass change, angle:" + f2 + ",accuracy: " + i2);
-            a.this.k(this.f43807a, this.f43808b, this.f43809c, f2, i2);
+            a.this.k(this.f47483a, this.f47484b, this.f47485c, f2, i2);
         }
     }
 
@@ -51,21 +51,21 @@ public class a extends a0 {
         if (eVar == null) {
             d.b("compass", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "startCompass --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             d.b("compass", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "startCompass --- illegal context");
             }
             return false;
         } else {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("SwanAppAction", "startCompass --- params is empty");
                 }
                 d.b("compass", "none params");
@@ -74,7 +74,7 @@ public class a extends a0 {
             }
             String optString = optParamsAsJo.optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("SwanAppAction", "startCompass --- cb is empty");
                 }
                 d.b("compass", "cb is empty");
@@ -85,7 +85,7 @@ public class a extends a0 {
             l lVar = new l("compassChange", optParamsAsJo, optString);
             d.a.l0.a.n2.f.a i2 = d.a.l0.a.n2.f.a.i();
             i2.l(context);
-            i2.o(new C0773a(unitedSchemeEntity, callbackHandler, lVar));
+            i2.o(new C0829a(unitedSchemeEntity, callbackHandler, lVar));
             d.g("compass", "start listen compass");
             i2.p();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -99,7 +99,7 @@ public class a extends a0 {
         try {
             jSONObject.put("direction", f2);
             jSONObject.put("accuracy", d.a.l0.a.n2.f.a.h(i2));
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
             }
             lVar.c(unitedSchemeEntity, callbackHandler, jSONObject);

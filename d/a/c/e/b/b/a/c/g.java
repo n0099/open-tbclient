@@ -10,33 +10,33 @@ import java.util.Set;
 public class g implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Message f38474a;
+    public Message f42127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f38475b;
+    public Set<String> f42128b;
 
     public g(Message message) {
-        this.f38474a = message;
+        this.f42127a = message;
         List<Field> b2 = d.a.c.e.b.a.a.b(message.getClass());
-        this.f38475b = new HashSet();
+        this.f42128b = new HashSet();
         if (b2 == null || b2.size() <= 0) {
             return;
         }
         for (Field field : b2) {
             if (field != null) {
-                this.f38475b.add(field.getName());
+                this.f42128b.add(field.getName());
             }
         }
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public Set<String> a() {
-        return this.f38475b;
+        return this.f42128b;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public void b(String str, Object obj) {
-        d.a.c.e.b.a.a.j(this.f38474a, str, obj);
+        d.a.c.e.b.a.a.j(this.f42127a, str, obj);
     }
 
     @Override // d.a.c.e.b.b.a.c.c
@@ -51,6 +51,6 @@ public class g implements c {
     }
 
     public Object d(String str) {
-        return d.a.c.e.b.a.a.d(this.f38474a, str);
+        return d.a.c.e.b.a.a.d(this.f42127a, str);
     }
 }

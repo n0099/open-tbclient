@@ -40,31 +40,31 @@ public class CircleImageView extends ImageView {
     public static final int z = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public final RectF f9134a;
+    public final RectF f9193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final RectF f9135b;
+    public final RectF f9194b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Matrix f9136c;
+    public final Matrix f9195c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Paint f9137d;
+    public final Paint f9196d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f9138e;
+    public final Paint f9197e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f9139f;
+    public final Paint f9198f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9140g;
+    public int f9199g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f9141h;
+    public int f9200h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f9142i;
+    public int f9201i;
     public int j;
     public Bitmap k;
     public Canvas l;
@@ -90,22 +90,22 @@ public class CircleImageView extends ImageView {
                 return;
             }
             Rect rect = new Rect();
-            CircleImageView.this.f9135b.roundOut(rect);
+            CircleImageView.this.f9194b.roundOut(rect);
             outline.setRoundRect(rect, rect.width() / 2.0f);
         }
     }
 
     public CircleImageView(Context context) {
         super(context);
-        this.f9134a = new RectF();
-        this.f9135b = new RectF();
-        this.f9136c = new Matrix();
-        this.f9137d = new Paint();
-        this.f9138e = new Paint();
-        this.f9139f = new Paint();
-        this.f9140g = -16777216;
-        this.f9141h = 0;
-        this.f9142i = 0;
+        this.f9193a = new RectF();
+        this.f9194b = new RectF();
+        this.f9195c = new Matrix();
+        this.f9196d = new Paint();
+        this.f9197e = new Paint();
+        this.f9198f = new Paint();
+        this.f9199g = -16777216;
+        this.f9200h = 0;
+        this.f9201i = 0;
         this.j = 255;
         d();
     }
@@ -123,18 +123,18 @@ public class CircleImageView extends ImageView {
     private void d() {
         this.p = true;
         super.setScaleType(u);
-        this.f9137d.setAntiAlias(true);
-        this.f9137d.setDither(true);
-        this.f9137d.setFilterBitmap(true);
-        this.f9137d.setAlpha(this.j);
-        this.f9137d.setColorFilter(this.o);
-        this.f9138e.setStyle(Paint.Style.STROKE);
-        this.f9138e.setAntiAlias(true);
-        this.f9138e.setColor(this.f9140g);
-        this.f9138e.setStrokeWidth(this.f9141h);
-        this.f9139f.setStyle(Paint.Style.FILL);
-        this.f9139f.setAntiAlias(true);
-        this.f9139f.setColor(this.f9142i);
+        this.f9196d.setAntiAlias(true);
+        this.f9196d.setDither(true);
+        this.f9196d.setFilterBitmap(true);
+        this.f9196d.setAlpha(this.j);
+        this.f9196d.setColorFilter(this.o);
+        this.f9197e.setStyle(Paint.Style.STROKE);
+        this.f9197e.setAntiAlias(true);
+        this.f9197e.setColor(this.f9199g);
+        this.f9197e.setStrokeWidth(this.f9200h);
+        this.f9198f.setStyle(Paint.Style.FILL);
+        this.f9198f.setAntiAlias(true);
+        this.f9198f.setColor(this.f9201i);
         if (Build.VERSION.SDK_INT >= 21) {
             setOutlineProvider(new b());
         }
@@ -152,21 +152,21 @@ public class CircleImageView extends ImageView {
             if (this.k != null) {
                 g();
             } else {
-                this.f9137d.setShader(null);
+                this.f9196d.setShader(null);
             }
         }
     }
 
     private void f() {
         int i2;
-        this.f9135b.set(c());
-        this.n = Math.min((this.f9135b.height() - this.f9141h) / 2.0f, (this.f9135b.width() - this.f9141h) / 2.0f);
-        this.f9134a.set(this.f9135b);
-        if (!this.s && (i2 = this.f9141h) > 0) {
+        this.f9194b.set(c());
+        this.n = Math.min((this.f9194b.height() - this.f9200h) / 2.0f, (this.f9194b.width() - this.f9200h) / 2.0f);
+        this.f9193a.set(this.f9194b);
+        if (!this.s && (i2 = this.f9200h) > 0) {
             float f2 = i2 - 1.0f;
-            this.f9134a.inset(f2, f2);
+            this.f9193a.inset(f2, f2);
         }
-        this.m = Math.min(this.f9134a.height() / 2.0f, this.f9134a.width() / 2.0f);
+        this.m = Math.min(this.f9193a.height() / 2.0f, this.f9193a.width() / 2.0f);
         g();
     }
 
@@ -176,36 +176,36 @@ public class CircleImageView extends ImageView {
         if (this.k == null) {
             return;
         }
-        this.f9136c.set(null);
+        this.f9195c.set(null);
         int height2 = this.k.getHeight();
         float width2 = this.k.getWidth();
         float f2 = height2;
         float f3 = 0.0f;
-        if (this.f9134a.height() * width2 > this.f9134a.width() * f2) {
-            width = this.f9134a.height() / f2;
-            f3 = (this.f9134a.width() - (width2 * width)) * 0.5f;
+        if (this.f9193a.height() * width2 > this.f9193a.width() * f2) {
+            width = this.f9193a.height() / f2;
+            f3 = (this.f9193a.width() - (width2 * width)) * 0.5f;
             height = 0.0f;
         } else {
-            width = this.f9134a.width() / width2;
-            height = (this.f9134a.height() - (f2 * width)) * 0.5f;
+            width = this.f9193a.width() / width2;
+            height = (this.f9193a.height() - (f2 * width)) * 0.5f;
         }
-        this.f9136c.setScale(width, width);
-        Matrix matrix = this.f9136c;
-        RectF rectF = this.f9134a;
+        this.f9195c.setScale(width, width);
+        Matrix matrix = this.f9195c;
+        RectF rectF = this.f9193a;
         matrix.postTranslate(((int) (f3 + 0.5f)) + rectF.left, ((int) (height + 0.5f)) + rectF.top);
         this.q = true;
     }
 
     public int getBorderColor() {
-        return this.f9140g;
+        return this.f9199g;
     }
 
     public int getBorderWidth() {
-        return this.f9141h;
+        return this.f9200h;
     }
 
     public int getCircleBackgroundColor() {
-        return this.f9142i;
+        return this.f9201i;
     }
 
     @Override // android.widget.ImageView
@@ -231,8 +231,8 @@ public class CircleImageView extends ImageView {
             super.onDraw(canvas);
             return;
         }
-        if (this.f9142i != 0) {
-            canvas.drawCircle(this.f9134a.centerX(), this.f9134a.centerY(), this.m, this.f9139f);
+        if (this.f9201i != 0) {
+            canvas.drawCircle(this.f9193a.centerX(), this.f9193a.centerY(), this.m, this.f9198f);
         }
         if (this.k != null) {
             if (this.r && this.l != null) {
@@ -246,13 +246,13 @@ public class CircleImageView extends ImageView {
                 Bitmap bitmap = this.k;
                 Shader.TileMode tileMode = Shader.TileMode.CLAMP;
                 BitmapShader bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
-                bitmapShader.setLocalMatrix(this.f9136c);
-                this.f9137d.setShader(bitmapShader);
+                bitmapShader.setLocalMatrix(this.f9195c);
+                this.f9196d.setShader(bitmapShader);
             }
-            canvas.drawCircle(this.f9134a.centerX(), this.f9134a.centerY(), this.m, this.f9137d);
+            canvas.drawCircle(this.f9193a.centerX(), this.f9193a.centerY(), this.m, this.f9196d);
         }
-        if (this.f9141h > 0) {
-            canvas.drawCircle(this.f9135b.centerX(), this.f9135b.centerY(), this.n, this.f9138e);
+        if (this.f9200h > 0) {
+            canvas.drawCircle(this.f9194b.centerX(), this.f9194b.centerY(), this.n, this.f9197e);
         }
     }
 
@@ -280,11 +280,11 @@ public class CircleImageView extends ImageView {
     }
 
     public void setBorderColor(@ColorInt int i2) {
-        if (i2 == this.f9140g) {
+        if (i2 == this.f9199g) {
             return;
         }
-        this.f9140g = i2;
-        this.f9138e.setColor(i2);
+        this.f9199g = i2;
+        this.f9197e.setColor(i2);
         invalidate();
     }
 
@@ -298,21 +298,21 @@ public class CircleImageView extends ImageView {
     }
 
     public void setBorderWidth(int i2) {
-        if (i2 == this.f9141h) {
+        if (i2 == this.f9200h) {
             return;
         }
-        this.f9141h = i2;
-        this.f9138e.setStrokeWidth(i2);
+        this.f9200h = i2;
+        this.f9197e.setStrokeWidth(i2);
         f();
         invalidate();
     }
 
     public void setCircleBackgroundColor(@ColorInt int i2) {
-        if (i2 == this.f9142i) {
+        if (i2 == this.f9201i) {
             return;
         }
-        this.f9142i = i2;
-        this.f9139f.setColor(i2);
+        this.f9201i = i2;
+        this.f9198f.setColor(i2);
         invalidate();
     }
 
@@ -328,7 +328,7 @@ public class CircleImageView extends ImageView {
         }
         this.o = colorFilter;
         if (this.p) {
-            this.f9137d.setColorFilter(colorFilter);
+            this.f9196d.setColorFilter(colorFilter);
             invalidate();
         }
     }
@@ -341,7 +341,7 @@ public class CircleImageView extends ImageView {
         if (z2) {
             this.k = null;
             this.l = null;
-            this.f9137d.setShader(null);
+            this.f9196d.setShader(null);
         } else {
             e();
         }
@@ -356,7 +356,7 @@ public class CircleImageView extends ImageView {
         }
         this.j = i3;
         if (this.p) {
-            this.f9137d.setAlpha(i3);
+            this.f9196d.setAlpha(i3);
             invalidate();
         }
     }
@@ -443,7 +443,7 @@ public class CircleImageView extends ImageView {
     }
 
     private boolean a(float f2, float f3) {
-        return this.f9135b.isEmpty() || Math.pow((double) (f2 - this.f9135b.centerX()), 2.0d) + Math.pow((double) (f3 - this.f9135b.centerY()), 2.0d) <= Math.pow((double) this.n, 2.0d);
+        return this.f9194b.isEmpty() || Math.pow((double) (f2 - this.f9194b.centerX()), 2.0d) + Math.pow((double) (f3 - this.f9194b.centerY()), 2.0d) <= Math.pow((double) this.n, 2.0d);
     }
 
     public CircleImageView(Context context, AttributeSet attributeSet) {
@@ -452,15 +452,15 @@ public class CircleImageView extends ImageView {
 
     public CircleImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f9134a = new RectF();
-        this.f9135b = new RectF();
-        this.f9136c = new Matrix();
-        this.f9137d = new Paint();
-        this.f9138e = new Paint();
-        this.f9139f = new Paint();
-        this.f9140g = -16777216;
-        this.f9141h = 0;
-        this.f9142i = 0;
+        this.f9193a = new RectF();
+        this.f9194b = new RectF();
+        this.f9195c = new Matrix();
+        this.f9196d = new Paint();
+        this.f9197e = new Paint();
+        this.f9198f = new Paint();
+        this.f9199g = -16777216;
+        this.f9200h = 0;
+        this.f9201i = 0;
         this.j = 255;
         d();
     }

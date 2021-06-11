@@ -6,39 +6,39 @@ import tbclient.ForumCreateInfo;
 public class ForumCreateInfoData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14382e = 0;
+    public int f14439e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14383f = 0;
+    public int f14440f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14384g = 0;
+    public int f14441g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14385h = null;
+    public String f14442h = null;
 
-    public String s() {
-        return this.f14385h;
-    }
-
-    public int t() {
-        return this.f14384g;
-    }
-
-    public boolean u() {
-        return this.f14383f != 0;
-    }
-
-    public boolean v() {
-        return this.f14382e != 0;
-    }
-
-    public void w(ForumCreateInfo forumCreateInfo) {
+    public void A(ForumCreateInfo forumCreateInfo) {
         if (forumCreateInfo != null) {
-            this.f14382e = forumCreateInfo.is_show_create.intValue();
-            this.f14383f = forumCreateInfo.is_can_create.intValue();
-            this.f14384g = forumCreateInfo.can_create_errno.intValue();
-            this.f14385h = forumCreateInfo.can_create_errdata;
+            this.f14439e = forumCreateInfo.is_show_create.intValue();
+            this.f14440f = forumCreateInfo.is_can_create.intValue();
+            this.f14441g = forumCreateInfo.can_create_errno.intValue();
+            this.f14442h = forumCreateInfo.can_create_errdata;
         }
+    }
+
+    public String w() {
+        return this.f14442h;
+    }
+
+    public int x() {
+        return this.f14441g;
+    }
+
+    public boolean y() {
+        return this.f14440f != 0;
+    }
+
+    public boolean z() {
+        return this.f14439e != 0;
     }
 }

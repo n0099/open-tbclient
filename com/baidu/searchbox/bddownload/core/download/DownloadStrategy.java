@@ -70,7 +70,7 @@ public class DownloadStrategy {
         if (j < 52428800) {
             return 2;
         }
-        return j < FOUR_CONNECTION_UPPER_LIMIT ? 3 : 4;
+        return j < 104857600 ? 3 : 4;
     }
 
     public String determineFilename(@Nullable String str, @NonNull DownloadTask downloadTask) throws IOException {

@@ -28,31 +28,31 @@ public class c {
     public int C = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f52149a;
+    public LinearLayout f55838a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f52150b;
+    public final View f55839b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final View f52151c;
+    public final View f55840c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewPager f52152d;
+    public ViewPager f55841d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f52153e;
+    public LinearLayout f55842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f52154f;
+    public NavigationBar f55843f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52155g;
+    public TextView f55844g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f52156h;
+    public ImageView f55845h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdListView f52157i;
+    public BdListView f55846i;
     public BdListView j;
     public TextView k;
     public TextView l;
@@ -105,8 +105,8 @@ public class c {
 
     /* renamed from: d.a.n0.b3.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1223c implements PopupWindow.OnDismissListener {
-        public C1223c() {
+    public class C1279c implements PopupWindow.OnDismissListener {
+        public C1279c() {
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
@@ -117,18 +117,18 @@ public class c {
 
     public c(ForumListActivity forumListActivity) {
         this.B = false;
-        this.f52149a = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
+        this.f55838a = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
         ViewPager viewPager = (ViewPager) forumListActivity.findViewById(R.id.view_pager);
-        this.f52152d = viewPager;
+        this.f55841d = viewPager;
         viewPager.setOnPageChangeListener(forumListActivity);
-        this.f52153e = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
+        this.f55842e = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
         NavigationBar navigationBar = (NavigationBar) forumListActivity.findViewById(R.id.view_navigation_bar);
-        this.f52154f = navigationBar;
+        this.f55843f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        LinearLayout linearLayout = (LinearLayout) this.f52154f.setTitleView(R.layout.nb_item_forum_list, (View.OnClickListener) null);
+        LinearLayout linearLayout = (LinearLayout) this.f55843f.setTitleView(R.layout.nb_item_forum_list, (View.OnClickListener) null);
         this.z = linearLayout;
-        this.f52155g = (TextView) linearLayout.findViewById(R.id.title_text);
-        this.f52156h = (ImageView) this.z.findViewById(R.id.forum_list_title_arrow);
+        this.f55844g = (TextView) linearLayout.findViewById(R.id.title_text);
+        this.f55845h = (ImageView) this.z.findViewById(R.id.forum_list_title_arrow);
         TextView textView = (TextView) forumListActivity.findViewById(R.id.tab_recommends);
         this.k = textView;
         textView.setOnClickListener(forumListActivity);
@@ -139,12 +139,12 @@ public class c {
         this.t = new g(forumListActivity.getPageContext());
         LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.m = linearLayout2;
-        this.f52150b = linearLayout2.findViewById(R.id.footer_background);
+        this.f55839b = linearLayout2.findViewById(R.id.footer_background);
         this.n = (TextView) this.m.findViewById(R.id.footer_text);
         this.o = (ImageView) this.m.findViewById(R.id.footer_icon);
         LinearLayout linearLayout3 = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.p = linearLayout3;
-        this.f52151c = linearLayout3.findViewById(R.id.footer_background);
+        this.f55840c = linearLayout3.findViewById(R.id.footer_background);
         this.q = (TextView) this.p.findViewById(R.id.footer_text);
         this.r = (ImageView) this.p.findViewById(R.id.footer_icon);
         this.A = (ProgressBar) forumListActivity.findViewById(R.id.loading);
@@ -165,7 +165,7 @@ public class c {
     }
 
     public void c() {
-        this.f52153e.setVisibility(8);
+        this.f55842e.setVisibility(8);
     }
 
     public void d() {
@@ -174,11 +174,11 @@ public class c {
         if (progressBar != null) {
             progressBar.setVisibility(8);
         }
-        ViewPager viewPager = this.f52152d;
+        ViewPager viewPager = this.f55841d;
         if (viewPager == null) {
             return;
         }
-        if (viewPager.getCurrentItem() == 0 && (bdListView = this.f52157i) != null) {
+        if (viewPager.getCurrentItem() == 0 && (bdListView = this.f55846i) != null) {
             bdListView.A(0L);
             return;
         }
@@ -189,7 +189,7 @@ public class c {
     }
 
     public void e() {
-        this.f52156h.setVisibility(4);
+        this.f55845h.setVisibility(4);
         this.z.setClickable(false);
         this.z.setOnClickListener(null);
     }
@@ -216,7 +216,7 @@ public class c {
             d.a.c.e.m.g.l(this.u, this.z, 0 - e2, l.e(this.w.getPageContext().getPageActivity(), 0.0f));
             this.v.setOnKeyListener(new a());
             this.v.setOnTouchListener(new b());
-            this.u.setOnDismissListener(new C1223c());
+            this.u.setOnDismissListener(new C1279c());
             return;
         }
         d.a.c.e.m.g.d(this.u, this.w.getPageContext().getPageActivity());
@@ -224,10 +224,10 @@ public class c {
     }
 
     public void g() {
-        this.f52153e.setVisibility(0);
+        this.f55842e.setVisibility(0);
     }
 
     public void h() {
-        this.f52156h.setVisibility(0);
+        this.f55845h.setVisibility(0);
     }
 }

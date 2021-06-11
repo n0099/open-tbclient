@@ -9,41 +9,41 @@ import java.util.Map;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f45824b;
+    public static volatile e f49498b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, d.a.l0.a.y0.g.h.b> f45825a = new HashMap();
+    public Map<String, d.a.l0.a.y0.g.h.b> f49499a = new HashMap();
 
     public static e a() {
-        if (f45824b == null) {
+        if (f49498b == null) {
             synchronized (e.class) {
-                if (f45824b == null) {
-                    f45824b = new e();
+                if (f49498b == null) {
+                    f49498b = new e();
                 }
             }
         }
-        return f45824b;
+        return f49498b;
     }
 
     public static void d() {
-        if (f45824b != null) {
-            f45824b.b();
+        if (f49498b != null) {
+            f49498b.b();
         }
-        f45824b = null;
+        f49498b = null;
     }
 
     public final synchronized void b() {
         d.a.l0.a.e0.d.g("RtcRoomWidgetManager", "release");
-        Iterator it = new ArrayList(this.f45825a.values()).iterator();
+        Iterator it = new ArrayList(this.f49499a.values()).iterator();
         while (it.hasNext()) {
             ((d.a.l0.a.y0.g.h.b) it.next()).onRelease();
         }
-        this.f45825a.clear();
+        this.f49499a.clear();
     }
 
     public synchronized void c(String str) {
         d.a.l0.a.e0.d.g("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
-        Iterator it = new ArrayList(this.f45825a.values()).iterator();
+        Iterator it = new ArrayList(this.f49499a.values()).iterator();
         while (it.hasNext()) {
             d.a.l0.a.y0.g.h.b bVar = (d.a.l0.a.y0.g.h.b) it.next();
             if (TextUtils.equals(bVar.b(), str)) {

@@ -9,16 +9,16 @@ import java.util.ArrayList;
 public class a implements d.a.n0.k1.o.h.b {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f39565f;
+    public String f43246f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f39566g;
+    public String f43247g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f39567h;
+    public String f43248h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f39568i;
+    public String f43249i;
     public int j;
     public String k;
     public String l;
@@ -33,12 +33,12 @@ public class a implements d.a.n0.k1.o.h.b {
     public b.a w;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39564e = 3;
+    public int f43245e = 3;
     public ArrayList<String> u = new ArrayList<>();
     public ArrayList<String> v = new ArrayList<>();
 
     public int a() {
-        return this.f39564e;
+        return this.f43245e;
     }
 
     public String b() {
@@ -49,7 +49,7 @@ public class a implements d.a.n0.k1.o.h.b {
     }
 
     public boolean c() {
-        return this.f39564e == 2;
+        return this.f43245e == 2;
     }
 
     public boolean d() {
@@ -62,7 +62,7 @@ public class a implements d.a.n0.k1.o.h.b {
     }
 
     public void e(int i2) {
-        this.f39564e = i2;
+        this.f43245e = i2;
     }
 
     @Override // d.a.n0.k1.o.h.b
@@ -70,8 +70,8 @@ public class a implements d.a.n0.k1.o.h.b {
         if (this.w == null) {
             b.a aVar = new b.a();
             this.w = aVar;
-            aVar.f56646c = this.u;
-            aVar.f56647d = this.v;
+            aVar.f60335c = this.u;
+            aVar.f60336d = this.v;
         }
         return this.w;
     }

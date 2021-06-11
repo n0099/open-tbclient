@@ -7,34 +7,34 @@ import java.util.Iterator;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f49343a = new ArrayList<>();
+    public ArrayList<b> f53017a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f49344b;
+    public Context f53018b;
 
     public d(Context context) {
-        this.f49344b = context;
+        this.f53018b = context;
     }
 
     public void a(b bVar) {
         if (bVar == null || bVar.getFragmentTabStructure() == null) {
             return;
         }
-        Iterator<b> it = this.f49343a.iterator();
+        Iterator<b> it = this.f53017a.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f49338e == bVar.getFragmentTabStructure().f49338e) {
+            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f53012e == bVar.getFragmentTabStructure().f53012e) {
                 return;
             }
         }
-        this.f49343a.add(bVar);
+        this.f53017a.add(bVar);
     }
 
     public Context b() {
-        return this.f49344b;
+        return this.f53018b;
     }
 
     public ArrayList<b> c() {
-        return this.f49343a;
+        return this.f53017a;
     }
 }

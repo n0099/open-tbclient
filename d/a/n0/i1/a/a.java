@@ -12,33 +12,33 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55674e;
+    public Context f59363e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d.a.n0.i1.b.a> f55675f = new ArrayList();
+    public List<d.a.n0.i1.b.a> f59364f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f55676g;
+    public View.OnClickListener f59365g;
 
     public a(Context context) {
-        this.f55674e = context;
+        this.f59363e = context;
     }
 
     public void a(List<d.a.n0.i1.b.a> list) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f55675f = list;
+        this.f59364f = list;
         notifyDataSetChanged();
     }
 
     public void b(View.OnClickListener onClickListener) {
-        this.f55676g = onClickListener;
+        this.f59365g = onClickListener;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        int size = this.f55675f.size();
+        int size = this.f59364f.size();
         int i2 = size % 3;
         int i3 = size / 3;
         return i2 == 0 ? i3 : i3 + 1;
@@ -58,13 +58,13 @@ public class a extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         LabelItemView labelItemView;
         if (view == null) {
-            labelItemView = new LabelItemView(this.f55674e);
+            labelItemView = new LabelItemView(this.f59363e);
         } else {
             labelItemView = (LabelItemView) view;
         }
         int i3 = i2 * 3;
-        labelItemView.setData(this.f55675f.subList(i3, Math.min(this.f55675f.size(), i3 + 3)), i2 == getCount() - 1);
-        labelItemView.setOnClickListener(this.f55676g);
+        labelItemView.setData(this.f59364f.subList(i3, Math.min(this.f59364f.size(), i3 + 3)), i2 == getCount() - 1);
+        labelItemView.setOnClickListener(this.f59365g);
         return labelItemView;
     }
 }

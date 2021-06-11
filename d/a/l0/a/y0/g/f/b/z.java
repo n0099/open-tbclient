@@ -24,7 +24,7 @@ public class z extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
                 long optLong = jSONObject.optLong("userId", -1L);
                 boolean optBoolean = jSONObject.optBoolean("status");
                 if (d.a.l0.a.y0.g.g.a.a(optLong)) {
-                    bVar.i0(optLong, optBoolean);
+                    bVar.f0(optLong, optBoolean);
                 }
             }
         }

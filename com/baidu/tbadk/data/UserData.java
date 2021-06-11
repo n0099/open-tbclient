@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.g2;
 import d.a.m0.t.o;
 import java.io.Serializable;
@@ -393,18 +393,18 @@ public class UserData extends MetaData {
         }
         this.mPhotoAlbum.clear();
         o oVar = new o();
-        oVar.h(getPortraitH());
-        oVar.k(getPortrait());
-        oVar.i(true);
+        oVar.g(getPortraitH());
+        oVar.i(getPortrait());
+        oVar.h(true);
         this.mPhotoAlbum.add(oVar);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
                     o oVar2 = new o();
-                    oVar2.h(userPics.big);
-                    oVar2.k(userPics.small);
-                    oVar2.i(false);
+                    oVar2.g(userPics.big);
+                    oVar2.i(userPics.small);
+                    oVar2.h(false);
                     this.mPhotoAlbum.add(oVar2);
                 }
             }
@@ -437,7 +437,7 @@ public class UserData extends MetaData {
         if (vipCloseAd != null) {
             CloseAdData closeAdData = new CloseAdData();
             this.closeAdData = closeAdData;
-            closeAdData.u(vipCloseAd);
+            closeAdData.y(vipCloseAd);
         }
         this.bg_pic = user.bg_pic;
         this.bimg_url = user.bimg_url;
@@ -447,13 +447,13 @@ public class UserData extends MetaData {
         if (privSets != null) {
             PersonPrivateData personPrivateData = new PersonPrivateData();
             this.personPrivate = personPrivateData;
-            personPrivateData.t(privSets);
+            personPrivateData.x(privSets);
         }
         PayMemberInfo payMemberInfo = user.pay_member_info;
         if (payMemberInfo != null) {
             PayMemberInfoData payMemberInfoData = new PayMemberInfoData();
             this.payMemberInfo = payMemberInfoData;
-            payMemberInfoData.v(payMemberInfo);
+            payMemberInfoData.z(payMemberInfo);
         }
         if (user.is_mask.intValue() == 1) {
             this.isMask = true;
@@ -506,7 +506,7 @@ public class UserData extends MetaData {
         if (activitySponsor != null) {
             ActivitySponsorData activitySponsorData = new ActivitySponsorData();
             this.mActivitySponsorData = activitySponsorData;
-            activitySponsorData.s(activitySponsor);
+            activitySponsorData.w(activitySponsor);
         }
         AlaUserInfo alaUserInfo = user.ala_info;
         if (alaUserInfo != null) {
@@ -516,7 +516,7 @@ public class UserData extends MetaData {
             this.liveId = Long.toString(user.ala_info.live_id.longValue());
             AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
             this.alaUserData = alaUserInfoData;
-            alaUserInfoData.s(user.ala_info);
+            alaUserInfoData.w(user.ala_info);
             if (StringUtils.isNull(this.alaUserData.sex)) {
                 this.alaUserData.sex = StringHelper.getUserDescByGender(this.sex);
             }
@@ -749,9 +749,9 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             o oVar = new o();
-            oVar.h(getPortraitH());
-            oVar.k(getPortrait());
-            oVar.i(true);
+            oVar.g(getPortraitH());
+            oVar.i(getPortrait());
+            oVar.h(true);
             this.mPhotoAlbum.add(oVar);
             JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -760,9 +760,9 @@ public class UserData extends MetaData {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     if (jSONObject2 != null) {
                         o oVar2 = new o();
-                        oVar2.h(jSONObject2.optString("big"));
-                        oVar2.k(jSONObject2.optString("small"));
-                        oVar2.i(false);
+                        oVar2.g(jSONObject2.optString("big"));
+                        oVar2.i(jSONObject2.optString("small"));
+                        oVar2.h(false);
                         this.mPhotoAlbum.add(oVar2);
                     }
                 }

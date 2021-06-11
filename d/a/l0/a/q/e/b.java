@@ -11,33 +11,33 @@ import com.baidu.swan.apps.adlanding.customer.WebViewContainer;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public WebViewContainer f44147a;
+    public WebViewContainer f47821a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f44148b;
+    public Context f47822b;
 
     /* renamed from: e  reason: collision with root package name */
-    public ValueAnimator f44151e;
+    public ValueAnimator f47825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f44152f;
+    public float f47826f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.l0.a.i1.g.a f44153g;
+    public d.a.l0.a.i1.g.a f47827g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f44154h;
+    public int f47828h;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44149c = true;
+    public boolean f47823c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f44150d = 0.25d;
+    public double f47824d = 0.25d;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f44155i = true;
+    public boolean f47829i = true;
     public WebViewContainer.b j = new a();
-    public WebViewContainer.c k = new C0801b();
+    public WebViewContainer.c k = new C0857b();
 
     /* loaded from: classes2.dex */
     public class a implements WebViewContainer.b {
@@ -52,16 +52,16 @@ public class b {
 
     /* renamed from: d.a.l0.a.q.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0801b implements WebViewContainer.c {
-        public C0801b() {
+    public class C0857b implements WebViewContainer.c {
+        public C0857b() {
         }
 
         @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.c
         public void a(boolean z) {
-            if (b.this.f44147a == null) {
+            if (b.this.f47821a == null) {
                 return;
             }
-            b.this.j((((double) b.this.f44147a.getTopMargin()) * 1.0d) / (((double) b.this.f44154h) * 1.0d) >= (z ? 1.0d - b.this.f44150d : b.this.f44150d));
+            b.this.j((((double) b.this.f47821a.getTopMargin()) * 1.0d) / (((double) b.this.f47828h) * 1.0d) >= (z ? 1.0d - b.this.f47824d : b.this.f47824d));
         }
     }
 
@@ -72,8 +72,8 @@ public class b {
 
         @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.a
         public boolean a(boolean z) {
-            if (!z || b.this.f44147a.getTopMargin() > b.this.f44154h) {
-                if (z || b.this.f44147a.getTopMargin() < b.this.f44147a.getMinTopMargin()) {
+            if (!z || b.this.f47821a.getTopMargin() > b.this.f47828h) {
+                if (z || b.this.f47821a.getTopMargin() < b.this.f47821a.getMinTopMargin()) {
                     return false;
                 }
                 b.this.j(true);
@@ -88,47 +88,47 @@ public class b {
     public class d implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public float f44159e = 0.0f;
+        public float f47833e = 0.0f;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f44160f;
+        public int f47834f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f44161g;
+        public int f47835g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f44162h;
+        public int f47836h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f44163i;
+        public float f47837i;
         public int j;
         public final /* synthetic */ boolean k;
 
         public d(boolean z) {
             this.k = z;
-            this.f44160f = b.this.f44154h - b.this.f44147a.getTopMargin();
-            int topMargin = b.this.f44147a.getTopMargin() - b.this.f44147a.getMinTopMargin();
-            this.f44161g = topMargin;
-            topMargin = this.k ? this.f44160f : topMargin;
-            this.f44162h = topMargin;
-            this.f44163i = topMargin * b.this.f44152f;
-            this.j = b.this.f44147a.getTopMargin();
+            this.f47834f = b.this.f47828h - b.this.f47821a.getTopMargin();
+            int topMargin = b.this.f47821a.getTopMargin() - b.this.f47821a.getMinTopMargin();
+            this.f47835g = topMargin;
+            topMargin = this.k ? this.f47834f : topMargin;
+            this.f47836h = topMargin;
+            this.f47837i = topMargin * b.this.f47826f;
+            this.j = b.this.f47821a.getTopMargin();
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            if (b.this.f44147a == null || valueAnimator == null) {
+            if (b.this.f47821a == null || valueAnimator == null) {
                 return;
             }
             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-            int i2 = (int) ((b.this.f44149c ? this.f44162h : this.f44163i) * (floatValue - this.f44159e));
+            int i2 = (int) ((b.this.f47823c ? this.f47836h : this.f47837i) * (floatValue - this.f47833e));
             if (this.k) {
                 i2 = 0 - i2;
             }
             this.j -= i2;
-            b.this.f44147a.scrollBy(0, i2);
-            b.this.f44147a.setTopMargin(this.j);
-            this.f44159e = floatValue;
+            b.this.f47821a.scrollBy(0, i2);
+            b.this.f47821a.setTopMargin(this.j);
+            this.f47833e = floatValue;
         }
     }
 
@@ -136,116 +136,116 @@ public class b {
     public class e extends AnimatorListenerAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f44164e;
+        public final /* synthetic */ boolean f47838e;
 
         public e(boolean z) {
-            this.f44164e = z;
+            this.f47838e = z;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (b.this.f44147a == null) {
+            if (b.this.f47821a == null) {
                 return;
             }
-            b.this.i(this.f44164e);
+            b.this.i(this.f47838e);
         }
     }
 
     public b(Context context) {
-        this.f44148b = context;
+        this.f47822b = context;
     }
 
     public final void h() {
-        ValueAnimator valueAnimator = this.f44151e;
+        ValueAnimator valueAnimator = this.f47825e;
         if (valueAnimator != null) {
             valueAnimator.cancel();
         }
     }
 
     public final void i(boolean z) {
-        WebViewContainer webViewContainer = this.f44147a;
-        if (webViewContainer == null || this.f44153g == null) {
+        WebViewContainer webViewContainer = this.f47821a;
+        if (webViewContainer == null || this.f47827g == null) {
             return;
         }
         if (z) {
-            if (this.f44149c) {
-                webViewContainer.scrollBy(0, -(this.f44154h - webViewContainer.getTopMargin()));
-                this.f44147a.setTopMargin(this.f44154h);
+            if (this.f47823c) {
+                webViewContainer.scrollBy(0, -(this.f47828h - webViewContainer.getTopMargin()));
+                this.f47821a.setTopMargin(this.f47828h);
             }
-            if (!this.f44153g.n() && !this.f44153g.m()) {
-                this.f44153g.r();
+            if (!this.f47827g.n() && !this.f47827g.m()) {
+                this.f47827g.r();
             }
-            this.f44155i = true;
+            this.f47829i = true;
             return;
         }
-        if (this.f44149c) {
-            webViewContainer.scrollBy(0, webViewContainer.getTopMargin() - this.f44147a.getMinTopMargin());
-            WebViewContainer webViewContainer2 = this.f44147a;
+        if (this.f47823c) {
+            webViewContainer.scrollBy(0, webViewContainer.getTopMargin() - this.f47821a.getMinTopMargin());
+            WebViewContainer webViewContainer2 = this.f47821a;
             webViewContainer2.setTopMargin(webViewContainer2.getMinTopMargin());
         }
-        if (this.f44153g.n()) {
-            this.f44153g.p();
+        if (this.f47827g.n()) {
+            this.f47827g.p();
         }
-        this.f44155i = false;
+        this.f47829i = false;
     }
 
     public final void j(boolean z) {
-        if (this.f44154h <= 0 || this.f44147a == null || this.f44153g == null) {
+        if (this.f47828h <= 0 || this.f47821a == null || this.f47827g == null) {
             return;
         }
         n(z);
     }
 
     public WebViewContainer k() {
-        WebViewContainer webViewContainer = new WebViewContainer(this.f44148b);
-        this.f44147a = webViewContainer;
+        WebViewContainer webViewContainer = new WebViewContainer(this.f47822b);
+        this.f47821a = webViewContainer;
         webViewContainer.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        this.f44147a.setClipChildren(false);
-        this.f44147a.setLayerType(2, null);
-        this.f44147a.setTopLimit(this.f44154h);
-        this.f44147a.setTopMargin(this.f44154h);
-        this.f44147a.setAutoScroll2TopListener(this.j);
-        this.f44147a.setOnUpListener(this.k);
-        this.f44147a.setMinFlingVelocity(1000);
-        this.f44147a.setUpYVelocityRatio(3.5f);
-        this.f44147a.setInterceptFlingListener(new c());
-        return this.f44147a;
+        this.f47821a.setClipChildren(false);
+        this.f47821a.setLayerType(2, null);
+        this.f47821a.setTopLimit(this.f47828h);
+        this.f47821a.setTopMargin(this.f47828h);
+        this.f47821a.setAutoScroll2TopListener(this.j);
+        this.f47821a.setOnUpListener(this.k);
+        this.f47821a.setMinFlingVelocity(1000);
+        this.f47821a.setUpYVelocityRatio(3.5f);
+        this.f47821a.setInterceptFlingListener(new c());
+        return this.f47821a;
     }
 
     public boolean l() {
-        return this.f44155i;
+        return this.f47829i;
     }
 
     public final boolean m() {
-        ValueAnimator valueAnimator = this.f44151e;
+        ValueAnimator valueAnimator = this.f47825e;
         return valueAnimator != null && valueAnimator.isRunning();
     }
 
     public final void n(boolean z) {
-        if (this.f44147a == null || m()) {
+        if (this.f47821a == null || m()) {
             return;
         }
         h();
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.f44151e = ofFloat;
+        this.f47825e = ofFloat;
         ofFloat.setDuration(100L);
-        this.f44151e.setInterpolator(new AccelerateDecelerateInterpolator());
-        if (this.f44147a.getYVelocity() >= 0.0f) {
-            this.f44152f = this.f44147a.getYVelocity() / 4000.0f;
+        this.f47825e.setInterpolator(new AccelerateDecelerateInterpolator());
+        if (this.f47821a.getYVelocity() >= 0.0f) {
+            this.f47826f = this.f47821a.getYVelocity() / 4000.0f;
         } else {
-            this.f44152f = (-this.f44147a.getYVelocity()) / 4000.0f;
+            this.f47826f = (-this.f47821a.getYVelocity()) / 4000.0f;
         }
-        this.f44152f = Math.min(this.f44152f, 1.0f);
-        this.f44151e.addUpdateListener(new d(z));
-        this.f44151e.addListener(new e(z));
-        this.f44151e.start();
+        this.f47826f = Math.min(this.f47826f, 1.0f);
+        this.f47825e.addUpdateListener(new d(z));
+        this.f47825e.addListener(new e(z));
+        this.f47825e.start();
     }
 
     public void o(int i2) {
-        this.f44154h = i2;
+        this.f47828h = i2;
     }
 
     public void p(d.a.l0.a.i1.g.a aVar) {
-        this.f44153g = aVar;
+        this.f47827g = aVar;
     }
 }

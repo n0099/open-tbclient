@@ -18,21 +18,21 @@ import d.a.c.c.g.c;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f50963d = new a();
+    public static a f54640d = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public GameInfoData f50964a;
+    public GameInfoData f54641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50965b;
+    public String f54642b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f50966c = new b(303009);
+    public final c f54643c = new b(303009);
 
     /* renamed from: d.a.m0.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1172a implements CustomMessageTask.CustomRunnable<String> {
-        public C1172a() {
+    public class C1228a implements CustomMessageTask.CustomRunnable<String> {
+        public C1228a() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -58,26 +58,26 @@ public class a {
             }
             ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
             if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                a.this.f50964a = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+                a.this.f54641a = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
             }
         }
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.f50966c);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001261, new C1172a());
+        MessageManager.getInstance().registerListener(this.f54643c);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001261, new C1228a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static a d() {
-        return f50963d;
+        return f54640d;
     }
 
     public final GameInfoData b() {
         GameInfoData gameInfoData = new GameInfoData();
         gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(R.string.default_share_to_game_title));
-        gameInfoData.setGameLink(this.f50965b);
+        gameInfoData.setGameLink(this.f54642b);
         gameInfoData.setGameId("default");
         gameInfoData.setIconUrl("default");
         gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(R.string.default_share_to_game_content));
@@ -85,7 +85,7 @@ public class a {
     }
 
     public GameInfoData c() {
-        GameInfoData gameInfoData = this.f50964a;
+        GameInfoData gameInfoData = this.f54641a;
         return gameInfoData == null ? b() : gameInfoData;
     }
 

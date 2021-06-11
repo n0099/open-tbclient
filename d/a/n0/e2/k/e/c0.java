@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import d.a.m0.a.f;
+import d.a.m0.a.g;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class c0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f53192a;
+    public int f56881a;
 
     public c0(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
     }
@@ -50,7 +50,7 @@ public class c0 {
         return hashMap;
     }
 
-    public void b(Intent intent, f.b bVar) {
+    public void b(Intent intent, g.b bVar) {
         if (intent == null || intent.getParcelableExtra(IntentConfig.KEY_URI) == null) {
             return;
         }
@@ -81,9 +81,9 @@ public class c0 {
         }
         Map<String, String> paramPair = UrlManager.getParamPair(str);
         if (paramPair != null) {
-            this.f53192a = 5;
+            this.f56881a = 5;
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-            d.a.m0.a.w.b(statisticItem, paramPair);
+            d.a.m0.a.x.b(statisticItem, paramPair);
             statisticItem.param("obj_locate", paramPair.get("obj_locate"));
             statisticItem.param("obj_type", 1);
             statisticItem.param("tid", paramPair.get("tid"));

@@ -7,20 +7,20 @@ import d.a.l0.t.j;
 public final class b extends j {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f48488d;
+    public static volatile b f52162d;
 
     public b() {
         super("aiapp_open_stat");
     }
 
     public static b g() {
-        if (f48488d == null) {
+        if (f52162d == null) {
             synchronized (b.class) {
-                if (f48488d == null) {
-                    f48488d = new b();
+                if (f52162d == null) {
+                    f52162d = new b();
                 }
             }
         }
-        return f48488d;
+        return f52162d;
     }
 }

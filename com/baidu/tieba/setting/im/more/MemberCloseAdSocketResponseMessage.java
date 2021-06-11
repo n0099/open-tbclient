@@ -30,7 +30,7 @@ public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage 
         if (getError() == 0 && closeAdResIdl.data != null) {
             CloseAdData closeAdData = new CloseAdData();
             this.mData = closeAdData;
-            closeAdData.u(closeAdResIdl.data.vip_close_ad);
+            closeAdData.y(closeAdResIdl.data.vip_close_ad);
         }
     }
 }

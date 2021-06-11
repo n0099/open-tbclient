@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import d.a.c.j.e.p;
+import d.a.c.k.e.p;
 import d.a.n0.e.a.a;
 import d.a.n0.e.d;
 import d.a.n0.e.e.b;
@@ -20,27 +20,27 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0166a implements a.InterfaceC1247a {
+        public class C0166a implements a.InterfaceC1303a {
             public C0166a(a aVar) {
             }
 
-            @Override // d.a.n0.e.a.a.InterfaceC1247a
+            @Override // d.a.n0.e.a.a.InterfaceC1303a
             public void a(c cVar, View view) {
                 b a2 = h.a(cVar);
                 if (a2 != null) {
                     d dVar = new d();
-                    dVar.f52743a = 2;
+                    dVar.f56432a = 2;
                     dVar.b(view);
                     a2.dispatchInjectPluginMessage(dVar);
                 }
             }
 
-            @Override // d.a.n0.e.a.a.InterfaceC1247a
+            @Override // d.a.n0.e.a.a.InterfaceC1303a
             public void b(c cVar, View view) {
                 b a2 = h.a(cVar);
                 if (a2 != null) {
                     d dVar = new d();
-                    dVar.f52743a = 3;
+                    dVar.f56432a = 3;
                     dVar.b(view);
                     a2.dispatchInjectPluginMessage(dVar);
                 }

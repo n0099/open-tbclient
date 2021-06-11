@@ -22,31 +22,31 @@ import org.json.JSONObject;
 @Service
 /* loaded from: classes3.dex */
 public class a implements j {
-    public static final boolean s = k.f43199a;
+    public static final boolean s = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public SwanVideoView f48561a;
+    public SwanVideoView f52235a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f48562b;
+    public Context f52236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VideoContainerManager f48563c;
+    public VideoContainerManager f52237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f48564d;
+    public boolean f52238d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48565e;
+    public int f52239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48566f;
+    public boolean f52240f;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f48568h;
+    public boolean f52242h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.l0.a.i1.g.c f48569i;
+    public d.a.l0.a.i1.g.c f52243i;
     public FrameLayout j;
     public j.d k;
     public j.b l;
@@ -57,30 +57,30 @@ public class a implements j {
     public boolean q;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48567g = true;
+    public boolean f52241g = true;
     public int r = 0;
 
     /* renamed from: d.a.l0.v.j.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1092a implements Runnable {
+    public class RunnableC1148a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f48570e;
+        public final /* synthetic */ Activity f52244e;
 
-        public RunnableC1092a(Activity activity) {
-            this.f48570e = activity;
+        public RunnableC1148a(Activity activity) {
+            this.f52244e = activity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f48570e.setRequestedOrientation(0);
-            this.f48570e.getWindow().addFlags(1024);
-            a.this.N(this.f48570e);
+            this.f52244e.setRequestedOrientation(0);
+            this.f52244e.getWindow().addFlags(1024);
+            a.this.N(this.f52244e);
             SwanAppComponentContainerView I = a.this.O().I();
             I.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             g.b(I);
-            g.a(this.f48570e, I);
-            d.a.l0.v.j.b.a.a.c(a.this.f48569i.n, a.this.f48569i.f40846g, true, a.this.O());
+            g.a(this.f52244e, I);
+            d.a.l0.v.j.b.a.a.c(a.this.f52243i.n, a.this.f52243i.f44522g, true, a.this.O());
         }
     }
 
@@ -93,7 +93,7 @@ public class a implements j {
         public void run() {
             g.b(a.this.O().I());
             a.this.O().w();
-            d.a.l0.v.j.b.a.a.c(a.this.f48569i.n, a.this.f48569i.f40846g, false, a.this.O());
+            d.a.l0.v.j.b.a.a.c(a.this.f52243i.n, a.this.f52243i.f44522g, false, a.this.O());
         }
     }
 
@@ -120,7 +120,7 @@ public class a implements j {
             int bufferPercentage = (swanVideoView.getBufferPercentage() * duration) / 100;
             if (currentPosition >= bufferPercentage && currentPosition != 0 && (currentPosition <= 0 || bufferPercentage != 0)) {
                 d.a.l0.a.e0.d.a("SwanAppVideoPlayer", String.format("onInfo wait progress : %s, buffer : %s, duration : %s", Integer.valueOf(currentPosition), Integer.valueOf(bufferPercentage), Integer.valueOf(duration)));
-                d.a.l0.v.j.b.a.a.b(a.this.f48569i.n, a.this.f48569i.f40846g, "waiting", new JSONObject());
+                d.a.l0.v.j.b.a.a.b(a.this.f52243i.n, a.this.f52243i.f44522g, "waiting", new JSONObject());
                 return;
             }
             d.a.l0.a.e0.d.a("SwanAppVideoPlayer", String.format("onInfo update progress : %s, buffer : %s, duration :%s", Integer.valueOf(currentPosition), Integer.valueOf(bufferPercentage), Integer.valueOf(duration)));
@@ -146,31 +146,31 @@ public class a implements j {
                     e2.printStackTrace();
                 }
             }
-            d.a.l0.v.j.b.a.a.b(a.this.f48569i.n, a.this.f48569i.f40846g, "timeupdate", jSONObject);
+            d.a.l0.v.j.b.a.a.b(a.this.f52243i.n, a.this.f52243i.f44522g, "timeupdate", jSONObject);
         }
 
         @Override // d.a.l0.v.h.a
         public void onEnd() {
-            a.this.f48564d = false;
-            d.a.l0.v.j.b.a.a.b(a.this.f48569i.n, a.this.f48569i.f40846g, "ended", new JSONObject());
+            a.this.f52238d = false;
+            d.a.l0.v.j.b.a.a.b(a.this.f52243i.n, a.this.f52243i.f44522g, "ended", new JSONObject());
             if (a.this.m != null) {
                 a.this.m.b(a.this);
             }
-            a.this.f48568h = true;
+            a.this.f52242h = true;
             d.a.l0.a.e0.d.a("video", "onEnded call back");
         }
 
         @Override // d.a.l0.v.h.a
         public void onError(int i2, int i3, String str) {
-            a.this.f48564d = false;
+            a.this.f52238d = false;
             d.a.l0.a.e0.d.b("video", "errorCode :" + i2);
             a.this.O().L();
             a.this.O().M();
-            d.a.l0.v.j.b.a.a.b(a.this.f48569i.n, a.this.f48569i.f40846g, "error", d.a.l0.v.j.a.b.a.c(i3));
+            d.a.l0.v.j.b.a.a.b(a.this.f52243i.n, a.this.f52243i.f44522g, "error", d.a.l0.v.j.a.b.a.c(i3));
             if (a.this.l != null) {
                 a.this.l.f(a.this, i2, i3);
             }
-            a.this.f48568h = false;
+            a.this.f52242h = false;
             int currentPosition = a.this.P().getCurrentPosition();
             a aVar = a.this;
             if (currentPosition <= 0) {
@@ -182,9 +182,9 @@ public class a implements j {
 
         @Override // d.a.l0.v.h.a
         public void onPause() {
-            d.a.l0.v.j.b.a.a.b(a.this.f48569i.n, a.this.f48569i.f40846g, "pause", new JSONObject());
+            d.a.l0.v.j.b.a.a.b(a.this.f52243i.n, a.this.f52243i.f44522g, "pause", new JSONObject());
             d.a.l0.a.e0.d.a("video", "onPaused call back");
-            a.this.f48564d = true;
+            a.this.f52238d = true;
             if (a.this.p != null) {
                 a.this.p.c(a.this);
             }
@@ -203,9 +203,9 @@ public class a implements j {
         @Override // d.a.l0.v.h.b, d.a.l0.v.h.a
         public void onResume() {
             super.onResume();
-            d.a.l0.v.j.b.a.a.b(a.this.f48569i.n, a.this.f48569i.f40846g, "play", new JSONObject());
-            a.this.f48568h = false;
-            a.this.f48564d = false;
+            d.a.l0.v.j.b.a.a.b(a.this.f52243i.n, a.this.f52243i.f44522g, "play", new JSONObject());
+            a.this.f52242h = false;
+            a.this.f52238d = false;
             a.this.O().M();
             if (a.this.n != null) {
                 a.this.n.a(a.this);
@@ -214,38 +214,38 @@ public class a implements j {
 
         @Override // d.a.l0.v.h.a
         public void onStart() {
-            d.a.l0.v.j.b.a.a.b(a.this.f48569i.n, a.this.f48569i.f40846g, "play", new JSONObject());
-            a.this.f48568h = false;
-            a.this.f48564d = false;
+            d.a.l0.v.j.b.a.a.b(a.this.f52243i.n, a.this.f52243i.f44522g, "play", new JSONObject());
+            a.this.f52242h = false;
+            a.this.f52238d = false;
             a.this.O().M();
             if (a.this.o != null) {
                 a.this.o.d(a.this);
             }
         }
 
-        public /* synthetic */ d(a aVar, RunnableC1092a runnableC1092a) {
+        public /* synthetic */ d(a aVar, RunnableC1148a runnableC1148a) {
             this();
         }
     }
 
     public final void K(d.a.l0.a.i1.g.c cVar) {
-        d.a.l0.a.i1.g.c cVar2 = this.f48569i;
-        if (cVar2 != null && cVar != null && !TextUtils.isEmpty(cVar2.C) && !TextUtils.isEmpty(cVar.C) && !TextUtils.equals(this.f48569i.C, cVar.C)) {
-            this.f48566f = true;
+        d.a.l0.a.i1.g.c cVar2 = this.f52243i;
+        if (cVar2 != null && cVar != null && !TextUtils.isEmpty(cVar2.C) && !TextUtils.isEmpty(cVar.C) && !TextUtils.equals(this.f52243i.C, cVar.C)) {
+            this.f52240f = true;
         } else {
-            this.f48566f = false;
+            this.f52240f = false;
         }
     }
 
     public a L(Context context, @NonNull d.a.l0.a.i1.g.c cVar) {
-        this.f48562b = context;
-        this.f48569i = cVar;
+        this.f52236b = context;
+        this.f52243i = cVar;
         O();
         return this;
     }
 
     public final void M() {
-        if (this.f48567g) {
+        if (this.f52241g) {
             return;
         }
         pause();
@@ -256,22 +256,22 @@ public class a implements j {
     }
 
     public final VideoContainerManager O() {
-        if (this.f48569i == null) {
+        if (this.f52243i == null) {
             d.a.l0.a.c0.g.a.a("SwanAppVideoPlayer", "getContainerManager with a null mParams");
         }
-        if (this.f48563c == null) {
-            this.f48563c = new VideoContainerManager(this.f48562b, this.f48569i);
+        if (this.f52237c == null) {
+            this.f52237c = new VideoContainerManager(this.f52236b, this.f52243i);
         }
-        return this.f48563c;
+        return this.f52237c;
     }
 
     public final SwanVideoView P() {
-        if (this.f48561a == null) {
+        if (this.f52235a == null) {
             d.a.l0.a.e0.d.g("video", "create player");
-            this.f48561a = new SwanVideoView(this.f48562b);
+            this.f52235a = new SwanVideoView(this.f52236b);
             Q();
         }
-        return this.f48561a;
+        return this.f52235a;
     }
 
     public final void Q() {
@@ -288,9 +288,9 @@ public class a implements j {
         if (i2 == null || (k = i2.k()) == null || k.isFinishing()) {
             return false;
         }
-        k.runOnUiThread(new RunnableC1092a(k));
+        k.runOnUiThread(new RunnableC1148a(k));
         this.q = true;
-        this.f48561a.setIsLandscape(true);
+        this.f52235a.setIsLandscape(true);
         return true;
     }
 
@@ -304,35 +304,35 @@ public class a implements j {
         k.getWindow().clearFlags(1024);
         k.runOnUiThread(new b());
         this.q = false;
-        this.f48561a.setIsLandscape(false);
+        this.f52235a.setIsLandscape(false);
         return true;
     }
 
     public void U() {
-        SwanVideoView swanVideoView = this.f48561a;
+        SwanVideoView swanVideoView = this.f52235a;
         if (swanVideoView != null) {
             swanVideoView.D();
-            g.b(this.f48561a);
-            this.f48561a = null;
+            g.b(this.f52235a);
+            this.f52235a = null;
         }
     }
 
     public final void V() {
         if (f0()) {
-            if (this.f48565e != 0) {
-                P().B(this.f48565e);
-                this.f48565e = 0;
+            if (this.f52239e != 0) {
+                P().B(this.f52239e);
+                this.f52239e = 0;
                 return;
             }
-            int i2 = this.f48569i.q;
+            int i2 = this.f52243i.q;
             if (i2 != 0) {
-                this.f48561a.B(i2 * 1000);
-                this.f48569i.q = 0;
+                this.f52235a.B(i2 * 1000);
+                this.f52243i.q = 0;
                 return;
             }
             int i3 = this.r;
             if (i3 != 0) {
-                this.f48561a.B(i3);
+                this.f52235a.B(i3);
                 this.r = 0;
             }
         }
@@ -343,7 +343,7 @@ public class a implements j {
             d.a.l0.a.e0.d.b("SwanAppVideoPlayer", "setDataSource params is null!");
             return;
         }
-        P().setVideoPath(this.f48569i.C);
+        P().setVideoPath(this.f52243i.C);
         d.a.l0.a.e0.d.a("video", "setDataSource url " + cVar.C);
     }
 
@@ -361,12 +361,12 @@ public class a implements j {
     }
 
     public final boolean Y(d.a.l0.a.i1.g.c cVar) {
-        d.a.l0.a.i1.g.c cVar2 = this.f48569i;
+        d.a.l0.a.i1.g.c cVar2 = this.f52243i;
         if (cVar2 == null) {
             return false;
         }
         if (cVar2.o == cVar.o && cVar2.B == cVar.B && TextUtils.equals(cVar2.u, cVar.u)) {
-            d.a.l0.a.i1.g.c cVar3 = this.f48569i;
+            d.a.l0.a.i1.g.c cVar3 = this.f52243i;
             return (cVar3.L == cVar.L && cVar3.H == cVar.H && cVar3.I == cVar.I && cVar3.K == cVar.K && cVar3.J == cVar.J && cVar3.t == cVar.t) ? false : true;
         }
         return true;
@@ -386,11 +386,11 @@ public class a implements j {
             O().L();
             U();
             P().w();
-            X(this.f48569i);
-            h(this.f48569i, false);
-            W(this.f48569i);
+            X(this.f52243i);
+            h(this.f52243i, false);
+            W(this.f52243i);
             P().C();
-            this.f48566f = false;
+            this.f52240f = false;
         }
     }
 
@@ -399,7 +399,7 @@ public class a implements j {
     }
 
     public final void b0() {
-        SwanVideoView swanVideoView = this.f48561a;
+        SwanVideoView swanVideoView = this.f52235a;
         if (swanVideoView != null) {
             swanVideoView.D();
         }
@@ -413,10 +413,10 @@ public class a implements j {
         if (s) {
             Log.e("SwanAppVideoPlayer", "updatePlayStateAfterVisibleChanged isVisible=" + z);
         }
-        if (this.f48561a == null || z || !isPlaying()) {
+        if (this.f52235a == null || z || !isPlaying()) {
             return;
         }
-        this.f48561a.x();
+        this.f52235a.x();
     }
 
     @Override // d.a.l0.a.c1.d.j
@@ -435,16 +435,16 @@ public class a implements j {
     }
 
     public final void e0() {
-        SwanVideoView swanVideoView = this.f48561a;
+        SwanVideoView swanVideoView = this.f52235a;
         if (swanVideoView == null) {
             return;
         }
         g.b(swanVideoView);
         FrameLayout frameLayout = this.j;
         if (frameLayout != null) {
-            frameLayout.addView(this.f48561a);
+            frameLayout.addView(this.f52235a);
         } else {
-            O().J().addView(this.f48561a);
+            O().J().addView(this.f52235a);
         }
     }
 
@@ -453,8 +453,8 @@ public class a implements j {
     }
 
     public final boolean f0() {
-        d.a.l0.a.i1.g.c cVar = this.f48569i;
-        return (cVar == null || TextUtils.isEmpty(cVar.C) || TextUtils.isEmpty(this.f48569i.n) || TextUtils.isEmpty(this.f48569i.f40845f)) ? false : true;
+        d.a.l0.a.i1.g.c cVar = this.f52243i;
+        return (cVar == null || TextUtils.isEmpty(cVar.C) || TextUtils.isEmpty(this.f52243i.n) || TextUtils.isEmpty(this.f52243i.f44521f)) ? false : true;
     }
 
     @Override // d.a.l0.a.c1.d.j
@@ -481,7 +481,7 @@ public class a implements j {
         if (Y(cVar)) {
             X(cVar);
         }
-        this.f48569i = cVar;
+        this.f52243i = cVar;
         if (z) {
             c0(cVar.j());
         }
@@ -494,12 +494,12 @@ public class a implements j {
 
     @Override // d.a.l0.a.c1.d.j
     public boolean isEnd() {
-        return this.f48568h;
+        return this.f52242h;
     }
 
     @Override // d.a.l0.a.c1.d.j
     public boolean isPlaying() {
-        SwanVideoView swanVideoView = this.f48561a;
+        SwanVideoView swanVideoView = this.f52235a;
         if (swanVideoView == null) {
             return false;
         }
@@ -543,7 +543,7 @@ public class a implements j {
     public void o(d.a.l0.a.i1.g.c cVar) {
         d.a.l0.a.e0.d.a("video", "Open Player " + cVar.n);
         K(cVar);
-        this.f48569i = cVar;
+        this.f52243i = cVar;
         d0(cVar);
         if (cVar.i() && cVar.j()) {
             a0();
@@ -567,7 +567,7 @@ public class a implements j {
     @Override // d.a.l0.a.c1.d.j
     public void pause() {
         P().x();
-        this.f48564d = true;
+        this.f52238d = true;
     }
 
     @Override // d.a.l0.a.c1.d.j
@@ -577,7 +577,7 @@ public class a implements j {
 
     @Override // d.a.l0.a.c1.d.j
     public void resume() {
-        if (this.f48564d && !this.f48566f) {
+        if (this.f52238d && !this.f52240f) {
             P().C();
         } else {
             a0();
@@ -587,10 +587,10 @@ public class a implements j {
     @Override // d.a.l0.a.c1.d.j
     public void seekTo(int i2) {
         if (f0()) {
-            if (!this.f48566f) {
+            if (!this.f52240f) {
                 P().B(i2);
             } else {
-                this.f48565e = i2;
+                this.f52239e = i2;
             }
         }
     }

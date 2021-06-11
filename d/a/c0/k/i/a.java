@@ -21,47 +21,47 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f39450e;
+    public static volatile a f43131e;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39451a;
+    public long f43132a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.poly.a.l.c f39452b;
+    public com.baidu.poly.a.l.c f43133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.c0.p.c f39453c;
+    public d.a.c0.p.c f43134c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.c0.p.c f39454d;
+    public d.a.c0.p.c f43135d;
 
     /* renamed from: d.a.c0.k.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0508a extends d.a.c0.k.a.a<JSONObject> {
+    public class C0564a extends d.a.c0.k.a.a<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f39455a;
+        public final /* synthetic */ m f43136a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f39456b;
+        public final /* synthetic */ boolean f43137b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Context f39457c;
+        public final /* synthetic */ Context f43138c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Bundle f39458d;
+        public final /* synthetic */ Bundle f43139d;
 
-        public C0508a(m mVar, boolean z, Context context, Bundle bundle) {
-            this.f39455a = mVar;
-            this.f39456b = z;
-            this.f39457c = context;
-            this.f39458d = bundle;
+        public C0564a(m mVar, boolean z, Context context, Bundle bundle) {
+            this.f43136a = mVar;
+            this.f43137b = z;
+            this.f43138c = context;
+            this.f43139d = bundle;
         }
 
         @Override // d.a.c0.k.a.a
         public void b(Throwable th, String str) {
             a.this.j("2", str);
-            m mVar = this.f39455a;
+            m mVar = this.f43136a;
             mVar.m("get trade state failed : " + str, null);
         }
 
@@ -72,11 +72,11 @@ public class a {
             int optInt = jSONObject.optInt("payStatus", 3);
             a.this.j("1", String.valueOf(optInt));
             if (optInt == 2) {
-                this.f39455a.g(0, d.a.c0.n.b.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")));
-            } else if (this.f39456b) {
-                a.this.c(this.f39457c, this.f39458d, this.f39455a);
+                this.f43136a.g(0, d.a.c0.n.b.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")));
+            } else if (this.f43137b) {
+                a.this.c(this.f43138c, this.f43139d, this.f43136a);
             } else {
-                a.this.e(this.f39457c, this.f39455a);
+                a.this.e(this.f43138c, this.f43136a);
             }
         }
     }
@@ -85,19 +85,19 @@ public class a {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f39460e;
+        public final /* synthetic */ m f43141e;
 
         public b(m mVar) {
-            this.f39460e = mVar;
+            this.f43141e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.f39453c.q();
-            d.a.c0.k.h.b bVar = new d.a.c0.k.h.b(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+            a.this.f43134c.q();
+            d.a.c0.k.h.b bVar = new d.a.c0.k.h.b("103");
             bVar.c("1");
             d.a.c0.k.h.d.b(bVar);
-            this.f39460e.g(3, "pay failed , click choose window");
+            this.f43141e.g(3, "pay failed , click choose window");
         }
     }
 
@@ -105,27 +105,27 @@ public class a {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f39462e;
+        public final /* synthetic */ Context f43143e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f39463f;
+        public final /* synthetic */ Bundle f43144f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ m f39464g;
+        public final /* synthetic */ m f43145g;
 
         public c(Context context, Bundle bundle, m mVar) {
-            this.f39462e = context;
-            this.f39463f = bundle;
-            this.f39464g = mVar;
+            this.f43143e = context;
+            this.f43144f = bundle;
+            this.f43145g = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.f39453c.q();
-            d.a.c0.k.h.b bVar = new d.a.c0.k.h.b(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+            a.this.f43134c.q();
+            d.a.c0.k.h.b bVar = new d.a.c0.k.h.b("103");
             bVar.c("2");
             d.a.c0.k.h.d.b(bVar);
-            a.this.d(this.f39462e, this.f39463f, this.f39464g, false);
+            a.this.d(this.f43143e, this.f43144f, this.f43145g, false);
         }
     }
 
@@ -136,10 +136,10 @@ public class a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f39454d == null || !a.this.f39454d.u()) {
+            if (a.this.f43135d == null || !a.this.f43135d.u()) {
                 return;
             }
-            a.this.f39454d.q();
+            a.this.f43135d.q();
         }
     }
 
@@ -147,27 +147,27 @@ public class a {
     public class e implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f39467a;
+        public final /* synthetic */ m f43148a;
 
         public e(a aVar, m mVar) {
-            this.f39467a = mVar;
+            this.f43148a = mVar;
         }
 
         @Override // d.a.c0.p.c.b
         public void onDismiss() {
-            this.f39467a.g(3, "pay failed , click error window");
+            this.f43148a.g(3, "pay failed , click error window");
         }
     }
 
     public static a k() {
-        if (f39450e == null) {
+        if (f43131e == null) {
             synchronized (a.class) {
-                if (f39450e == null) {
-                    f39450e = new a();
+                if (f43131e == null) {
+                    f43131e = new a();
                 }
             }
         }
-        return f39450e;
+        return f43131e;
     }
 
     public final View a(Activity activity) {
@@ -180,13 +180,13 @@ public class a {
     public final void c(Context context, Bundle bundle, m mVar) {
         View inflate = View.inflate(mVar.getContext(), g.pay_confirm, null);
         d.a.c0.p.c cVar = new d.a.c0.p.c(inflate, -1, -1, true);
-        this.f39453c = cVar;
+        this.f43134c = cVar;
         cVar.y(false);
-        this.f39453c.C(false);
+        this.f43134c.C(false);
         ((TextView) inflate.findViewById(f.bt_pay_meet_problems)).setOnClickListener(new b(mVar));
         ((TextView) inflate.findViewById(f.bt_pay_already_finish)).setOnClickListener(new c(context, bundle, mVar));
-        this.f39453c.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
-        d.a.c0.k.h.d.b(new d.a.c0.k.h.b(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY));
+        this.f43134c.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        d.a.c0.k.h.d.b(new d.a.c0.k.h.b("102"));
     }
 
     public void d(Context context, Bundle bundle, m mVar, boolean z) {
@@ -195,9 +195,9 @@ public class a {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        this.f39452b = d.a.c0.k.k.a.a((ViewGroup) a((Activity) context), layoutParams, null, -1L);
-        this.f39451a = System.currentTimeMillis();
-        d.a.c0.k.b.b.j().g(bundle, new C0508a(mVar, z, context, bundle));
+        this.f43133b = d.a.c0.k.k.a.a((ViewGroup) a((Activity) context), layoutParams, null, -1L);
+        this.f43132a = System.currentTimeMillis();
+        d.a.c0.k.b.b.j().g(bundle, new C0564a(mVar, z, context, bundle));
     }
 
     public final void e(Context context, m mVar) {
@@ -205,19 +205,19 @@ public class a {
         ((TextView) inflate.findViewById(f.pop_title)).setText(h.pay_failed);
         ((TextView) inflate.findViewById(f.pop_tips)).setText(h.pay_failed_sub_text);
         d.a.c0.p.c cVar = new d.a.c0.p.c(inflate, -1, -1, true);
-        this.f39454d = cVar;
+        this.f43135d = cVar;
         cVar.y(false);
-        this.f39454d.C(false);
-        this.f39454d.x(new ColorDrawable(0));
+        this.f43135d.C(false);
+        this.f43135d.x(new ColorDrawable(0));
         ((TextView) inflate.findViewById(f.pop_button)).setOnClickListener(new d());
-        this.f39454d.h(new e(this, mVar));
-        this.f39454d.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        this.f43135d.h(new e(this, mVar));
+        this.f43135d.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
     }
 
     public final void j(String str, String str2) {
-        d.a.c0.k.k.a.c(this.f39452b);
+        d.a.c0.k.k.a.c(this.f43133b);
         try {
-            if (this.f39451a == 0) {
+            if (this.f43132a == 0) {
                 return;
             }
             JSONObject jSONObject = new JSONObject();
@@ -227,7 +227,7 @@ public class a {
             if (!TextUtils.isEmpty(str2)) {
                 jSONObject.put("msg", str2);
             }
-            Long valueOf = Long.valueOf(System.currentTimeMillis() - this.f39451a);
+            Long valueOf = Long.valueOf(System.currentTimeMillis() - this.f43132a);
             if (valueOf.longValue() >= 0) {
                 jSONObject.put("du", String.valueOf(valueOf));
             }
@@ -235,11 +235,11 @@ public class a {
             bVar.b(jSONObject);
             d.a.c0.k.h.d.b(bVar);
         } catch (JSONException e2) {
-            if (d.a.c0.n.d.f39496d) {
+            if (d.a.c0.n.d.f43177d) {
                 e2.printStackTrace();
             }
         } finally {
-            this.f39451a = 0L;
+            this.f43132a = 0L;
         }
     }
 }

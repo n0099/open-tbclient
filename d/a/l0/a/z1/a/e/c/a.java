@@ -7,15 +7,15 @@ import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 public final class a extends GestureDetector.SimpleOnGestureListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final WheelView3d f46030e;
+    public final WheelView3d f49704e;
 
     public a(WheelView3d wheelView3d) {
-        this.f46030e = wheelView3d;
+        this.f49704e = wheelView3d;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
     public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-        this.f46030e.q(f3);
+        this.f49704e.q(f3);
         return true;
     }
 }

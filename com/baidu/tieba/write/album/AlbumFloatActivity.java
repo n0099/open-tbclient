@@ -19,7 +19,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (this.albumView == null) {
             e eVar = new e(this, null, linearLayout.getId(), R.id.root_stub);
             this.albumView = eVar;
-            eVar.L(navigationBar);
+            eVar.M(navigationBar);
         }
         return this.albumView;
     }
@@ -28,7 +28,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onActivityResult(int i2, int i3, Intent intent) {
         super.onActivityResult(i2, i3, intent);
         if (i3 == -1) {
-            this.albumView.G(intent);
+            this.albumView.H(intent);
         }
     }
 
@@ -45,14 +45,14 @@ public class AlbumFloatActivity extends SuspendedActivity {
         super.onDestroy();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.v();
+            eVar.w();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         if (i2 == 4) {
-            this.albumView.u();
+            this.albumView.v();
             return true;
         }
         return super.onKeyDown(i2, keyEvent);
@@ -62,7 +62,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onPause() {
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.w();
+            eVar.x();
         }
         super.onPause();
     }
@@ -72,7 +72,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         super.onRequestPermissionsResult(i2, strArr, iArr);
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.x(i2, strArr, iArr);
+            eVar.y(i2, strArr, iArr);
         }
     }
 
@@ -81,7 +81,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         super.onResume();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.y();
+            eVar.z();
         }
     }
 
@@ -90,7 +90,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         super.onStart();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.A();
+            eVar.B();
         }
     }
 
@@ -99,7 +99,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         super.onStop();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.B();
+            eVar.F();
         }
     }
 

@@ -9,7 +9,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -233,7 +232,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         }
         if (str == null) {
             try {
-                str = new JSONArray(chatMessage.getContent()).getJSONObject(0).optString(UserAccountActionItem.KEY_SRC);
+                str = new JSONArray(chatMessage.getContent()).getJSONObject(0).optString("src");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 sendMsgFail(chatMessage);
@@ -334,10 +333,10 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             this.mDatas.getChatMessages().remove(i3);
             if (i3 == size - 1 && (cacheInfo = getCacheInfo()) != null) {
                 MemoryModifyLastMsgMessage.a aVar = new MemoryModifyLastMsgMessage.a();
-                aVar.f17287b = cacheInfo.customGroupType;
-                aVar.f17286a = cacheInfo.id;
-                aVar.f17288c = chatMessage2;
-                aVar.f17289d = 2;
+                aVar.f17363b = cacheInfo.customGroupType;
+                aVar.f17362a = cacheInfo.id;
+                aVar.f17364c = chatMessage2;
+                aVar.f17365d = 2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new MemoryModifyLastMsgMessage(aVar));
             }
         }
@@ -437,7 +436,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         }
         for (ChatMessage chatMessage : list) {
             if (chatMessage.getMsgType() == 4) {
-                h.f54374a = o.e();
+                h.f58063a = o.e();
             }
             long userId = chatMessage.getUserId();
             String portrait = chatMessage.getUserInfo().getPortrait();
@@ -579,7 +578,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             if (loadDraftResponsedMessage.getData() == null) {
                 return;
             }
-            String str = loadDraftResponsedMessage.getData().f17275a;
+            String str = loadDraftResponsedMessage.getData().f17351a;
             this.mLoadDataMode = 8;
             e eVar = this.mLoadDataCallBack;
             if (eVar != null) {
@@ -595,9 +594,9 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 return true;
             }
             long j = this.mId;
-            if (j == 0 || j == d.a.c.e.m.b.f(loadHistoryResponsedMessage.getData().f17280a, 0L)) {
-                List<ChatMessage> list = loadHistoryResponsedMessage.getData().f17281b;
-                boolean z = loadHistoryResponsedMessage.getData().f17282c;
+            if (j == 0 || j == d.a.c.e.m.b.f(loadHistoryResponsedMessage.getData().f17356a, 0L)) {
+                List<ChatMessage> list = loadHistoryResponsedMessage.getData().f17357b;
+                boolean z = loadHistoryResponsedMessage.getData().f17358c;
                 int mergeList = mergeList(this.mDatas.getChatMessages(), list);
                 if (mergeList > 0) {
                     this.mDatas.setIsNewAdd(true);

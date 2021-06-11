@@ -5,24 +5,24 @@ import android.graphics.drawable.Drawable;
 public class ItemizedOverlay extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    public MapView f6880a;
+    public MapView f6923a;
 
     public ItemizedOverlay(Drawable drawable, MapView mapView) {
         this.type = com.baidu.mapsdkplatform.comapi.map.h.marker;
-        this.f6880a = mapView;
+        this.f6923a = mapView;
     }
 
     public void addItem(OverlayOptions overlayOptions) {
         if (overlayOptions == null || overlayOptions == null) {
             return;
         }
-        this.f6880a.getMap().addOverlay(overlayOptions);
+        this.f6923a.getMap().addOverlay(overlayOptions);
     }
 
     public void reAddAll() {
     }
 
     public void removeAll() {
-        this.f6880a.getMap().clear();
+        this.f6923a.getMap().clear();
     }
 }

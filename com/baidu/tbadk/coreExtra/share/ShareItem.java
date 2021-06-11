@@ -59,31 +59,31 @@ public class ShareItem {
     public int y;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f12595a = false;
+    public boolean f12657a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12596b = false;
+    public boolean f12658b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12597c = false;
+    public boolean f12659c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f12598d = false;
+    public boolean f12660d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12599e = false;
+    public boolean f12661e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12600f = false;
+    public boolean f12662f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12601g = false;
+    public boolean f12663g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12602h = false;
+    public boolean f12664h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12603i = false;
+    public boolean f12665i = false;
     public boolean j = false;
     public boolean k = false;
     public boolean l = false;
@@ -287,28 +287,28 @@ public class ShareItem {
             }
             ForwardInfo forwardInfo = new ForwardInfo();
             forwardInfo.isShareType = false;
-            if (a2Var.t1 && a2Var.s1 != null) {
+            if (a2Var.u1 && a2Var.t1 != null) {
                 forwardInfo.isShareType = true;
             }
             if (forwardInfo.isShareType) {
-                BaijiahaoData baijiahaoData = a2Var.s1.p;
+                BaijiahaoData baijiahaoData = a2Var.t1.p;
                 if (baijiahaoData != null && !TextUtils.isEmpty(baijiahaoData.oriUgcNid)) {
                     forwardInfo.isDynamic = true;
                 }
-                forwardInfo.showText = a2Var.s1.c();
-                OriginalThreadInfo originalThreadInfo = a2Var.s1;
-                forwardInfo.showPicUrl = originalThreadInfo.f12035c;
-                forwardInfo.showType = originalThreadInfo.f12033a;
+                forwardInfo.showText = a2Var.t1.c();
+                OriginalThreadInfo originalThreadInfo = a2Var.t1;
+                forwardInfo.showPicUrl = originalThreadInfo.f12097c;
+                forwardInfo.showType = originalThreadInfo.f12095a;
                 forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                forwardInfo.originalTid = originalThreadInfo.f12038f;
+                forwardInfo.originalTid = originalThreadInfo.f12100f;
                 if (i2 == 1) {
                     if (postData != null && postData.K() != null) {
                         str = postData.K().toString();
                     } else if (a2Var.C() != null) {
                         str = a2Var.D().toString();
                     }
-                } else if (a2Var.J2() != null) {
-                    str = a2Var.J2().toString();
+                } else if (a2Var.K2() != null) {
+                    str = a2Var.K2().toString();
                 }
                 if (!TextUtils.isEmpty(str)) {
                     forwardInfo.transmitOriginThreadComment = str;
@@ -329,17 +329,17 @@ public class ShareItem {
                 OriginalThreadInfo i3 = OriginalThreadInfo.i(a2Var);
                 if (i3 != null) {
                     forwardInfo.showText = i3.c();
-                    forwardInfo.showPicUrl = i3.f12035c;
-                    forwardInfo.showType = i3.f12033a;
+                    forwardInfo.showPicUrl = i3.f12097c;
+                    forwardInfo.showType = i3.f12095a;
                 }
-                forwardInfo.originalTid = a2Var.y1();
+                forwardInfo.originalTid = a2Var.z1();
             }
             if (i2 == 1) {
-                OriginalThreadInfo originalThreadInfo2 = a2Var.s1;
+                OriginalThreadInfo originalThreadInfo2 = a2Var.t1;
                 if (originalThreadInfo2 != null && originalThreadInfo2.p != null) {
                     BaijiahaoData baijiahaoData2 = new BaijiahaoData();
                     forwardInfo.baijiahaoData = baijiahaoData2;
-                    BaijiahaoData baijiahaoData3 = a2Var.s1.p;
+                    BaijiahaoData baijiahaoData3 = a2Var.t1.p;
                     baijiahaoData2.oriUgcNid = baijiahaoData3.oriUgcNid;
                     baijiahaoData2.oriUgcTid = baijiahaoData3.oriUgcTid;
                     baijiahaoData2.oriUgcType = baijiahaoData3.oriUgcType;
@@ -365,8 +365,8 @@ public class ShareItem {
             }
             if (a2Var.V() != null) {
                 if (a2Var.V().oriUgcType == 2) {
-                    if (a2Var.w1() != null) {
-                        forwardInfo.video_duration = String.valueOf(a2Var.w1().video_duration);
+                    if (a2Var.x1() != null) {
+                        forwardInfo.video_duration = String.valueOf(a2Var.x1().video_duration);
                     }
                 } else if ((a2Var.V().oriUgcType == 3 || a2Var.V().oriUgcType == 4) && a2Var.T() != null && !TextUtils.isEmpty(a2Var.T().getPortrait())) {
                     if (a2Var.T().getPortrait().startsWith("http")) {

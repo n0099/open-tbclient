@@ -17,25 +17,25 @@ import java.util.List;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f64909b;
+    public static volatile a f68640b;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f64910a;
+    public c f68641a;
 
     /* renamed from: d.a.z.g.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1819a extends d {
+    public class C1878a extends d {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f64911b;
+        public final /* synthetic */ ContentValues f68642b;
 
-        public C1819a(a aVar, ContentValues contentValues) {
-            this.f64911b = contentValues;
+        public C1878a(a aVar, ContentValues contentValues) {
+            this.f68642b = contentValues;
         }
 
         @Override // d.a.z.g.a.d
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            BundleInfo bundleInfo = BundleInfo.toBundleInfo(this.f64911b);
+            BundleInfo bundleInfo = BundleInfo.toBundleInfo(this.f68642b);
             if (bundleInfo == null) {
                 return false;
             }
@@ -46,7 +46,7 @@ public class a {
             } catch (Exception unused) {
             }
             if (bundleInfoList.isEmpty()) {
-                sQLiteDatabase.insert("bundleinfo", null, this.f64911b);
+                sQLiteDatabase.insert("bundleinfo", null, this.f68642b);
                 return true;
             }
             HashMap hashMap = new HashMap();
@@ -102,7 +102,7 @@ public class a {
                     hashMap.put(1, bundleInfo);
                 }
             }
-            sQLiteDatabase.delete("bundleinfo", "pkg_name =? ", new String[]{this.f64911b.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME)});
+            sQLiteDatabase.delete("bundleinfo", "pkg_name =? ", new String[]{this.f68642b.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME)});
             for (BundleInfo bundleInfo6 : hashMap.values()) {
                 sQLiteDatabase.insert("bundleinfo", null, BundleInfo.toContentValues(bundleInfo6));
             }
@@ -111,23 +111,23 @@ public class a {
     }
 
     public a(Context context) {
-        this.f64910a = null;
-        this.f64910a = new c(context);
+        this.f68641a = null;
+        this.f68641a = new c(context);
     }
 
     public static a c(Context context) {
-        if (f64909b == null) {
+        if (f68640b == null) {
             synchronized (a.class) {
-                if (f64909b == null) {
+                if (f68640b == null) {
                     Application applicationContext = ContextHolder.getApplicationContext();
                     if (applicationContext != null) {
                         context = applicationContext;
                     }
-                    f64909b = new a(context);
+                    f68640b = new a(context);
                 }
             }
         }
-        return f64909b;
+        return f68640b;
     }
 
     public int a(Uri uri, String str, String[] strArr) {
@@ -135,12 +135,12 @@ public class a {
     }
 
     public int b() {
-        this.f64910a.getWritableDatabase().delete("bundleinfo", "abi <>? AND abi <> 3", new String[]{String.valueOf(f.a())});
+        this.f68641a.getWritableDatabase().delete("bundleinfo", "abi <>? AND abi <> 3", new String[]{String.valueOf(f.a())});
         return 0;
     }
 
     public Cursor d(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        return this.f64910a.getReadableDatabase().query("bundleinfo", null, str, strArr2, null, null, null);
+        return this.f68641a.getReadableDatabase().query("bundleinfo", null, str, strArr2, null, null, null);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
@@ -156,7 +156,7 @@ public class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public List<BundleInfo> e() {
-        Cursor query = this.f64910a.getReadableDatabase().query("bundleinfo", null, "", null, null, null, null);
+        Cursor query = this.f68641a.getReadableDatabase().query("bundleinfo", null, "", null, null, null, null);
         List<BundleInfo> arrayList = new ArrayList<>();
         try {
             try {
@@ -198,12 +198,12 @@ public class a {
     }
 
     public final boolean h(d dVar) {
-        dVar.c(this.f64910a.getWritableDatabase());
+        dVar.c(this.f68641a.getWritableDatabase());
         return dVar.a();
     }
 
     public int i(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        h(new C1819a(this, contentValues));
+        h(new C1878a(this, contentValues));
         return 1;
     }
 }

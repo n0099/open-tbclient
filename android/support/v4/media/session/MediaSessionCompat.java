@@ -52,7 +52,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class MediaSessionCompat {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -1306,7 +1305,7 @@ public class MediaSessionCompat {
             if (componentName != null) {
                 this.mContext = context;
                 this.mPackageName = context.getPackageName();
-                this.mAudioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                this.mAudioManager = (AudioManager) context.getSystemService("audio");
                 this.mTag = str;
                 this.mMediaButtonReceiverComponentName = componentName;
                 this.mMediaButtonReceiverIntent = pendingIntent;

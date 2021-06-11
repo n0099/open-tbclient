@@ -13,10 +13,10 @@ import d.a.l0.a.v2.q0;
 import d.a.l0.f.g;
 import d.a.l0.h.o0.d.a.a;
 /* loaded from: classes3.dex */
-public class b extends EventTargetImpl implements a.InterfaceC1038a {
+public class b extends EventTargetImpl implements a.InterfaceC1094a {
 
     /* renamed from: e  reason: collision with root package name */
-    public ApiButton f47548e;
+    public ApiButton f51222e;
     @V8JavascriptField
     public String image;
     @V8JavascriptField
@@ -33,23 +33,23 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
 
         @Override // java.lang.Runnable
         public void run() {
-            ApiButton apiButton = b.this.f47548e;
+            ApiButton apiButton = b.this.f51222e;
             if (apiButton != null) {
                 d.a.l0.h.o0.b.d(apiButton);
-                b.this.f47548e = null;
+                b.this.f51222e = null;
             }
         }
     }
 
     /* renamed from: d.a.l0.h.o0.d.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1039b implements Runnable {
-        public RunnableC1039b() {
+    public class RunnableC1095b implements Runnable {
+        public RunnableC1095b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ApiButton apiButton = b.this.f47548e;
+            ApiButton apiButton = b.this.f51222e;
             if (apiButton != null) {
                 apiButton.hide();
             }
@@ -63,7 +63,7 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
 
         @Override // java.lang.Runnable
         public void run() {
-            ApiButton apiButton = b.this.f47548e;
+            ApiButton apiButton = b.this.f51222e;
             if (apiButton != null) {
                 apiButton.show();
             }
@@ -74,21 +74,21 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47552e;
+        public final /* synthetic */ String f51226e;
 
         public d(String str) {
-            this.f47552e = str;
+            this.f51226e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (k.f43199a) {
-                Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + this.f47552e);
+            if (k.f46875a) {
+                Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + this.f51226e);
             }
-            if (b.this.f47548e == null) {
+            if (b.this.f51222e == null) {
                 return;
             }
-            String str = this.f47552e;
+            String str = this.f51226e;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 3556653) {
@@ -100,11 +100,11 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
             }
             if (c2 == 0) {
                 b bVar = b.this;
-                bVar.f47548e.setButtonText(bVar.text);
+                bVar.f51222e.setButtonText(bVar.text);
             } else if (c2 != 1) {
             } else {
                 b bVar2 = b.this;
-                bVar2.f47548e.setImageUrl(bVar2.image);
+                bVar2.f51222e.setImageUrl(bVar2.image);
             }
         }
     }
@@ -117,10 +117,10 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
         @Override // java.lang.Runnable
         public void run() {
             b bVar = b.this;
-            if (bVar.f47548e == null || bVar.D()) {
+            if (bVar.f51222e == null || bVar.D()) {
                 return;
             }
-            b.this.f47548e.h();
+            b.this.f51222e.i();
         }
     }
 
@@ -133,17 +133,17 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
 
     public boolean A() {
         d.a.l0.h.o0.d.a.a aVar;
-        if (this.f47548e == null || (aVar = this.style) == null) {
+        if (this.f51222e == null || (aVar = this.style) == null) {
             return false;
         }
         aVar.b(this);
         d.a.l0.a.l1.e.a.a B = B();
-        return B != null && d.a.l0.h.o0.b.a(this.f47548e, B);
+        return B != null && d.a.l0.h.o0.b.a(this.f51222e, B);
     }
 
     public final d.a.l0.a.l1.e.a.a B() {
         d.a.l0.h.o0.d.a.a aVar = this.style;
-        if (aVar == null || this.f47548e == null) {
+        if (aVar == null || this.f51222e == null) {
             return null;
         }
         int g2 = n0.g(aVar.width);
@@ -157,7 +157,7 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
         if (g3 < g6) {
             g3 = g6;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f47548e.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f51222e.getLayoutParams();
         if (layoutParams != null && layoutParams.width == g2 && layoutParams.height == g3 && layoutParams.leftMargin == g4 && layoutParams.topMargin == g5) {
             return null;
         }
@@ -166,7 +166,7 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
 
     public final void C(JsObject jsObject) {
         d.a.l0.a.y.b.a G = d.a.l0.a.y.b.a.G(jsObject);
-        if (k.f43199a) {
+        if (k.f46875a) {
             StringBuilder sb = new StringBuilder();
             sb.append("parse jsObject = ");
             sb.append(G);
@@ -184,7 +184,7 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
 
     public final boolean D() {
         d.a.l0.a.l1.e.a.a B;
-        return (this.f47548e == null || this.style == null || (B = B()) == null || !d.a.l0.h.o0.b.f(this.f47548e, B)) ? false : true;
+        return (this.f51222e == null || this.style == null || (B = B()) == null || !d.a.l0.h.o0.b.f(this.f51222e, B)) ? false : true;
     }
 
     @JavascriptInterface
@@ -194,7 +194,7 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
 
     @JavascriptInterface
     public void hide() {
-        q0.b0(new RunnableC1039b());
+        q0.b0(new RunnableC1095b());
     }
 
     @JavascriptInterface
@@ -202,7 +202,7 @@ public class b extends EventTargetImpl implements a.InterfaceC1038a {
         q0.b0(new d(str));
     }
 
-    @Override // d.a.l0.h.o0.d.a.a.InterfaceC1038a
+    @Override // d.a.l0.h.o0.d.a.a.InterfaceC1094a
     public void s() {
         q0.b0(new e());
     }

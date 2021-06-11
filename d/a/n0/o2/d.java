@@ -20,33 +20,33 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public PostSearchActivity f57870a;
+    public PostSearchActivity f61559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57871b;
+    public String f61560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57872c;
+    public String f61561c;
     public ArrayList<String> j;
     public CustomMessageListener m;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f57873d = 1;
+    public int f61562d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57874e = 1;
+    public int f61563e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57875f = 1;
+    public int f61564f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f57876g = false;
+    public boolean f61565g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f57877h = false;
+    public boolean f61566h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f57878i = false;
+    public boolean f61567i = false;
     public int k = 0;
     public final HttpMessageListener l = new a(CmdConfigHttp.CMD_POST_SEARCH);
 
@@ -68,7 +68,7 @@ public class d {
                 boolean z = d.this.i(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    d.this.f57870a.refreshResultListByTab(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    d.this.f61559a.refreshResultListByTab(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.f(intValue);
                     d.this.r();
                     d.this.s();
@@ -76,10 +76,10 @@ public class d {
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = d.this.f57870a.getResources().getString(R.string.neterror);
+                    errorString = d.this.f61559a.getResources().getString(R.string.neterror);
                 }
-                d.this.f57870a.showToast(errorString);
-                d.this.f57870a.refreshResultListByTab(intValue, null, z);
+                d.this.f61559a.showToast(errorString);
+                d.this.f61559a.refreshResultListByTab(intValue, null, z);
             }
         }
     }
@@ -99,26 +99,26 @@ public class d {
             }
             d dVar = d.this;
             dVar.j = (ArrayList) data;
-            dVar.f57870a.refreshHistoryList();
+            dVar.f61559a.refreshHistoryList();
         }
     }
 
     public d(PostSearchActivity postSearchActivity) {
         b bVar = new b(2009001);
         this.m = bVar;
-        this.f57870a = postSearchActivity;
+        this.f61559a = postSearchActivity;
         postSearchActivity.registerListener(bVar);
-        this.f57870a.registerListener(this.l);
+        this.f61559a.registerListener(this.l);
     }
 
     public final void f(int i2) {
         if (i2 == 1) {
-            this.f57873d++;
+            this.f61562d++;
         } else if (i2 == 2) {
-            this.f57874e++;
+            this.f61563e++;
         } else if (i2 != 3) {
         } else {
-            this.f57875f++;
+            this.f61564f++;
         }
     }
 
@@ -127,27 +127,27 @@ public class d {
         if (arrayList != null) {
             arrayList.clear();
         }
-        this.f57870a.sendMessage(new CustomMessage(2009004));
+        this.f61559a.sendMessage(new CustomMessage(2009004));
     }
 
     public final HttpMessage h(int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.f57871b);
+        httpMessage.addParam("word", this.f61560b);
         httpMessage.addParam("rn", 30);
-        httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, this.f57870a.mForumName);
+        httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, this.f61559a.mForumName);
         httpMessage.setExtra(Integer.valueOf(this.k));
         if (i2 == 1) {
             httpMessage.addParam("sm", 1);
             httpMessage.addParam("only_thread", 0);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.f57873d);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.f61562d);
         } else if (i2 == 2) {
             httpMessage.addParam("sm", 2);
             httpMessage.addParam("only_thread", 0);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.f57874e);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.f61563e);
         } else if (i2 == 3) {
             httpMessage.addParam("sm", 2);
             httpMessage.addParam("only_thread", 1);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.f57875f);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.f61564f);
         }
         return httpMessage;
     }
@@ -158,15 +158,15 @@ public class d {
                 if (i2 != 3) {
                     return 0;
                 }
-                return this.f57875f;
+                return this.f61564f;
             }
-            return this.f57874e;
+            return this.f61563e;
         }
-        return this.f57873d;
+        return this.f61562d;
     }
 
     public void j() {
-        this.f57870a.sendMessage(new CustomMessage(2009001));
+        this.f61559a.sendMessage(new CustomMessage(2009001));
     }
 
     public final void k(List<String> list) {
@@ -183,7 +183,7 @@ public class d {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.f57871b)) {
+        if (!str.equals(this.f61560b)) {
             q();
         }
         if (i2 != 1) {
@@ -199,69 +199,69 @@ public class d {
     }
 
     public boolean m(String str) {
-        if (this.f57878i) {
+        if (this.f61567i) {
             return false;
         }
-        this.f57871b = str;
+        this.f61560b = str;
         this.k = 3;
-        this.f57870a.sendMessage(h(3));
-        this.f57878i = true;
+        this.f61559a.sendMessage(h(3));
+        this.f61567i = true;
         return true;
     }
 
     public boolean n(String str) {
-        if (this.f57877h) {
+        if (this.f61566h) {
             return false;
         }
-        this.f57871b = str;
+        this.f61560b = str;
         this.k = 2;
-        this.f57870a.sendMessage(h(2));
-        this.f57877h = true;
+        this.f61559a.sendMessage(h(2));
+        this.f61566h = true;
         return true;
     }
 
     public boolean o(String str) {
-        if (this.f57876g) {
+        if (this.f61565g) {
             return false;
         }
-        this.f57871b = str;
+        this.f61560b = str;
         this.k = 1;
-        this.f57870a.sendMessage(h(1));
-        this.f57876g = true;
+        this.f61559a.sendMessage(h(1));
+        this.f61565g = true;
         return true;
     }
 
     public final void p(int i2) {
         if (i2 == 1) {
-            this.f57876g = false;
+            this.f61565g = false;
         } else if (i2 == 2) {
-            this.f57877h = false;
+            this.f61566h = false;
         } else if (i2 != 3) {
         } else {
-            this.f57878i = false;
+            this.f61567i = false;
         }
     }
 
     public void q() {
-        this.f57873d = 1;
-        this.f57874e = 1;
-        this.f57875f = 1;
+        this.f61562d = 1;
+        this.f61563e = 1;
+        this.f61564f = 1;
     }
 
     public void r() {
-        if (StringUtils.isNull(this.f57871b) || this.f57871b.equals(this.f57872c)) {
+        if (StringUtils.isNull(this.f61560b) || this.f61560b.equals(this.f61561c)) {
             return;
         }
-        this.f57870a.sendMessage(new CustomMessage(2009003, this.f57871b));
-        this.f57872c = this.f57871b;
+        this.f61559a.sendMessage(new CustomMessage(2009003, this.f61560b));
+        this.f61561c = this.f61560b;
     }
 
     public final void s() {
         if (this.j == null) {
             this.j = new ArrayList<>();
         }
-        this.j.remove(this.f57871b);
-        this.j.add(0, this.f57871b);
+        this.j.remove(this.f61560b);
+        this.j.add(0, this.f61560b);
         k(this.j);
     }
 }

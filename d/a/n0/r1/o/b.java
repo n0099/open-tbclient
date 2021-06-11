@@ -12,40 +12,44 @@ public class b implements YYPayService {
     public class a implements d.a.m0.l0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayService.YYPayResultCallback f59907a;
+        public final /* synthetic */ YYPayService.YYPayResultCallback f63598a;
 
         public a(b bVar, YYPayService.YYPayResultCallback yYPayResultCallback) {
-            this.f59907a = yYPayResultCallback;
+            this.f63598a = yYPayResultCallback;
         }
 
         @Override // d.a.m0.l0.b
         public void a(g gVar) {
             if (gVar != null) {
                 YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
-                yYPayResultMessage.setStatus(gVar.f49517h);
-                yYPayResultMessage.setAppid(gVar.f49511b);
-                yYPayResultMessage.setUid(gVar.f49518i.longValue());
-                yYPayResultMessage.setUsedChannel(gVar.j);
-                yYPayResultMessage.setCurrencyType(gVar.f49513d);
-                yYPayResultMessage.setAmount(gVar.f49510a.longValue());
-                yYPayResultMessage.setCurrencyAmount(gVar.f49512c.longValue());
-                yYPayResultMessage.setOrderId(gVar.f49515f);
-                yYPayResultMessage.setExpand(gVar.f49514e);
-                yYPayResultMessage.setPollingTimeout(gVar.f49516g.booleanValue());
-                this.f59907a.onSuccess(yYPayResultMessage);
+                yYPayResultMessage.setStatus(gVar.f53191g);
+                yYPayResultMessage.setAppid(gVar.f53186b);
+                yYPayResultMessage.setUid(gVar.f53192h.longValue());
+                yYPayResultMessage.setUsedChannel(gVar.f53193i);
+                yYPayResultMessage.setCurrencyType(gVar.f53188d);
+                yYPayResultMessage.setAmount(gVar.f53185a.longValue());
+                yYPayResultMessage.setCurrencyAmount(gVar.f53187c.longValue());
+                yYPayResultMessage.setOrderId(gVar.f53190f);
+                yYPayResultMessage.setExpand(gVar.f53189e);
+                this.f63598a.onSuccess(yYPayResultMessage);
                 return;
             }
-            this.f59907a.onSuccess(null);
+            this.f63598a.onSuccess(null);
         }
 
         @Override // d.a.m0.l0.b
         public void onFail(int i2, String str) {
-            this.f59907a.onFail(i2, str);
+            this.f63598a.onFail(i2, str);
         }
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
     public void startPayment(Context context, YYPayService.YYPayResultCallback yYPayResultCallback) {
-        MessageManager.getInstance().runTask(2921546, String.class, new f(context, 1, new a(this, yYPayResultCallback)));
+        startPayment(context, null, yYPayResultCallback);
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
+    public void startPayment(Context context, String str, YYPayService.YYPayResultCallback yYPayResultCallback) {
+        MessageManager.getInstance().runTask(2921546, String.class, new f(context, 1, str, new a(this, yYPayResultCallback)));
     }
 }

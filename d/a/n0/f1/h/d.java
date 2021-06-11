@@ -19,13 +19,13 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f54473a;
+    public static d f58162a;
 
     public static d f() {
-        if (f54473a == null) {
-            f54473a = new d();
+        if (f58162a == null) {
+            f58162a = new d();
         }
-        return f54473a;
+        return f58162a;
     }
 
     public boolean a(String str) {

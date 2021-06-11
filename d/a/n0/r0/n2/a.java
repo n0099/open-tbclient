@@ -10,7 +10,7 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    public static void a(d.a.n0.e.e.b bVar, ForumData forumData, List<d.a.c.j.e.n> list, boolean z, int i2) {
+    public static void a(d.a.n0.e.e.b bVar, ForumData forumData, List<d.a.c.k.e.n> list, boolean z, int i2) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
@@ -30,20 +30,20 @@ public class a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
     }
 
-    public static void b(d.a.n0.e.e.b bVar, FrsViewData frsViewData, List<d.a.c.j.e.n> list, int i2) {
+    public static void b(d.a.n0.e.e.b bVar, FrsViewData frsViewData, List<d.a.c.k.e.n> list, int i2) {
         if (frsViewData != null) {
             a(bVar, frsViewData.getForum(), list, false, i2);
         }
     }
 
-    public static void c(d.a.n0.e3.h0.f fVar, List<d.a.c.j.e.n> list, List<d.a.c.j.e.n> list2) {
+    public static void c(d.a.n0.e3.h0.f fVar, List<d.a.c.k.e.n> list, List<d.a.c.k.e.n> list2) {
         int[] iArr;
         int indexOf;
         if (fVar == null || ListUtils.getCount(list) <= 0 || ListUtils.getCount(list2) <= 0) {
             return;
         }
-        for (int i2 : d.a.n0.e3.h0.f.f54001f) {
-            d.a.c.j.e.n nVar = (d.a.c.j.e.n) ListUtils.getItem(list, i2);
+        for (int i2 : d.a.n0.e3.h0.f.f57690f) {
+            d.a.c.k.e.n nVar = (d.a.c.k.e.n) ListUtils.getItem(list, i2);
             if (nVar != null && (indexOf = list2.indexOf(nVar)) >= 0) {
                 fVar.a(i2, indexOf);
             }

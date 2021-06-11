@@ -320,7 +320,7 @@ public class FeedData implements Serializable, a {
             jSONObject.put("is_share_thread", i2);
             if (this.mOriginalThreadInfo != null) {
                 JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("title", this.mOriginalThreadInfo.f12039g);
+                jSONObject5.put("title", this.mOriginalThreadInfo.f12101g);
                 jSONObject.put("origin_thread_info", jSONObject5);
             }
             jSONArray.put(jSONObject);

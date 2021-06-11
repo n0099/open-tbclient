@@ -9,6 +9,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsProfessionIntroActivityConfig;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
@@ -37,15 +38,15 @@ import java.util.ArrayList;
 public class a extends j {
 
     /* renamed from: h  reason: collision with root package name */
-    public d f58451h;
+    public d f62142h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CustomMessageListener f58452i;
+    public final CustomMessageListener f62143i;
 
     /* renamed from: d.a.n0.r0.e2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1491a extends CustomMessageListener {
-        public C1491a(int i2) {
+    public class C1547a extends CustomMessageListener {
+        public C1547a(int i2) {
             super(i2);
         }
 
@@ -54,13 +55,13 @@ public class a extends j {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
                 PostWriteCallBackData postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData();
-                if (a.this.f58451h != null) {
-                    a.this.f58451h.g(postWriteCallBackData);
+                if (a.this.f62142h != null) {
+                    a.this.f62142h.g(postWriteCallBackData);
                 }
                 if (!a.this.k(postWriteCallBackData)) {
                     a.this.d(postWriteCallBackData);
                 } else {
-                    d.a.m0.s.h.b.a(a.this.f58538b.o(), postWriteCallBackData);
+                    d.a.m0.s.h.b.a(a.this.f62229b.p(), postWriteCallBackData);
                 }
             }
         }
@@ -70,35 +71,35 @@ public class a extends j {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f58454e;
+        public final /* synthetic */ Thread2GroupShareView f62145e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f58455f;
+        public final /* synthetic */ long f62146f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f58456g;
+        public final /* synthetic */ String f62147g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f58457h;
+        public final /* synthetic */ String f62148h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f58458i;
+        public final /* synthetic */ String f62149i;
         public final /* synthetic */ ShareFromPBMsgData j;
 
         public b(Thread2GroupShareView thread2GroupShareView, long j, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
-            this.f58454e = thread2GroupShareView;
-            this.f58455f = j;
-            this.f58456g = str;
-            this.f58457h = str2;
-            this.f58458i = str3;
+            this.f62145e = thread2GroupShareView;
+            this.f62146f = j;
+            this.f62147g = str;
+            this.f62148h = str2;
+            this.f62149i = str3;
             this.j = shareFromPBMsgData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            InputMethodManager inputMethodManager = (InputMethodManager) a.this.f58538b.getActivity().getSystemService("input_method");
-            d.a.c.e.p.l.x(a.this.f58538b.getActivity(), this.f58454e.getChatMsgView());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(a.this.f58538b.getActivity(), this.f58455f, this.f58456g, this.f58457h, this.f58458i, 0, this.f58454e.getLeaveMsg(), this.j.toChatMessageContent())));
+            InputMethodManager inputMethodManager = (InputMethodManager) a.this.f62229b.getActivity().getSystemService("input_method");
+            d.a.c.e.p.l.x(a.this.f62229b.getActivity(), this.f62145e.getChatMsgView());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(a.this.f62229b.getActivity(), this.f62146f, this.f62147g, this.f62148h, this.f62149i, 0, this.f62145e.getLeaveMsg(), this.j.toChatMessageContent())));
             aVar.dismiss();
             ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
             if (shareItem == null || shareItem.e() == null) {
@@ -113,26 +114,26 @@ public class a extends j {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f58459e;
+        public final /* synthetic */ Thread2GroupShareView f62150e;
 
         public c(Thread2GroupShareView thread2GroupShareView) {
-            this.f58459e = thread2GroupShareView;
+            this.f62150e = thread2GroupShareView;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            d.a.c.e.p.l.x(a.this.f58538b.getActivity(), this.f58459e.getChatMsgView());
+            d.a.c.e.p.l.x(a.this.f62229b.getActivity(), this.f62150e.getChatMsgView());
             aVar.dismiss();
         }
     }
 
     public a(FrsFragment frsFragment) {
         super(frsFragment);
-        this.f58452i = new C1491a(2001383);
-        this.f58451h = this.f58538b.r2();
-        this.f58452i.setTag(this.f58538b.getPageContext().getUniqueId());
-        this.f58452i.setSelfListener(true);
-        this.f58538b.registerListener(this.f58452i);
+        this.f62143i = new C1547a(2001383);
+        this.f62142h = this.f62229b.u2();
+        this.f62143i.setTag(this.f62229b.getPageContext().getUniqueId());
+        this.f62143i.setSelfListener(true);
+        this.f62229b.registerListener(this.f62143i);
     }
 
     public static void p(String str, String str2) {
@@ -151,15 +152,15 @@ public class a extends j {
             return false;
         }
         if (d.a.m0.r.d0.b.j().g(d.a.m0.r.d0.b.n(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f58538b.getActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f62229b.getActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
             return true;
         }
         return false;
     }
 
     public final void e() {
-        if (this.f58451h == null) {
-            this.f58451h = this.f58538b.r2();
+        if (this.f62142h == null) {
+            this.f62142h = this.f62229b.u2();
         }
     }
 
@@ -180,22 +181,22 @@ public class a extends j {
     }
 
     public final void g(FrsViewData frsViewData, Intent intent, String str) {
-        ArrayList<d.a.c.j.e.n> e2;
-        if (frsViewData == null || intent == null || TextUtils.isEmpty(str) || this.f58541e == null) {
+        ArrayList<d.a.c.k.e.n> e2;
+        if (frsViewData == null || intent == null || TextUtils.isEmpty(str) || this.f62232e == null) {
             return;
         }
         int intExtra = intent.getIntExtra("KEY_SMART_FRS_POSITION", -1);
-        if (this.f58541e.q0()) {
+        if (this.f62232e.u0()) {
             Serializable serializableExtra = intent.getSerializableExtra("guess_like_data");
-            if (!(serializableExtra instanceof CardHListViewData) || (e2 = this.f58543g.e()) == null) {
+            if (!(serializableExtra instanceof CardHListViewData) || (e2 = this.f62234g.e()) == null) {
                 return;
             }
             CardHListViewData cardHListViewData = (CardHListViewData) serializableExtra;
             cardHListViewData.threadId = str;
             if (d.a.n0.r0.h2.b.a(e2, str, cardHListViewData, intExtra)) {
                 frsViewData.setThreadList(e2);
-                this.f58537a.v1(e2, frsViewData);
-                p(str, this.f58538b.h());
+                this.f62228a.v1(e2, frsViewData);
+                p(str, this.f62229b.i());
             }
         }
     }
@@ -212,65 +213,65 @@ public class a extends j {
         ShareItem shareItem;
         d.a.n0.r0.o2.h hVar;
         d.a.n0.r0.o2.d W;
-        FrsViewData g0 = this.f58538b.g0();
+        FrsViewData j0 = this.f62229b.j0();
         switch (i2) {
             case 11001:
-                this.f58538b.P3(0);
+                this.f62229b.S3(0);
                 return;
-            case 11002:
-                this.f58540d.z0(true);
+            case CyberPlayerManager.MEDIA_INFO_KERNEL_NET_TRAFFIC /* 11002 */:
+                this.f62231d.z0(true);
                 return;
             case 11011:
-                FrsFragment frsFragment = this.f58538b;
-                String A2 = frsFragment.A2();
-                FrsFragment frsFragment2 = this.f58538b;
-                d.a.n0.r0.n2.m.f(frsFragment, A2, frsFragment2.B, frsFragment2.J2());
+                FrsFragment frsFragment = this.f62229b;
+                String D2 = frsFragment.D2();
+                FrsFragment frsFragment2 = this.f62229b;
+                d.a.n0.r0.n2.m.f(frsFragment, D2, frsFragment2.B, frsFragment2.M2());
                 return;
             case 11012:
-                FrsFragment frsFragment3 = this.f58538b;
-                String A22 = frsFragment3.A2();
-                FrsFragment frsFragment4 = this.f58538b;
-                d.a.n0.r0.n2.m.g(frsFragment3, A22, frsFragment4.B, frsFragment4.J2());
+                FrsFragment frsFragment3 = this.f62229b;
+                String D22 = frsFragment3.D2();
+                FrsFragment frsFragment4 = this.f62229b;
+                d.a.n0.r0.n2.m.g(frsFragment3, D22, frsFragment4.B, frsFragment4.M2());
                 return;
             case 11014:
-                this.f58540d.A0();
+                this.f62231d.A0();
                 return;
             case 11016:
-                this.f58537a.G1();
+                this.f62228a.G1();
                 return;
             case 11036:
-                this.f58540d.B0();
+                this.f62231d.B0();
                 return;
             case 18003:
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
-                this.f58537a.U().notifyDataSetChanged();
-                d.a.n0.r0.o2.h hVar2 = this.f58540d;
+                this.f62228a.U().notifyDataSetChanged();
+                d.a.n0.r0.o2.h hVar2 = this.f62231d;
                 if (hVar2 != null) {
                     hVar2.Y();
                 }
                 int intExtra = intent.getIntExtra("type", -1);
                 if (intExtra == 4) {
-                    this.f58538b.U2(6);
+                    this.f62229b.X2(6);
                     return;
                 }
                 String stringExtra = intent.getStringExtra("tid");
-                if (stringExtra == null || (threadDataById = g0.getThreadDataById(stringExtra)) == null) {
+                if (stringExtra == null || (threadDataById = j0.getThreadDataById(stringExtra)) == null) {
                     return;
                 }
                 if (intExtra == 2) {
-                    threadDataById.O3(intent.getIntExtra("good_data", 0));
-                    threadDataById.Y2();
+                    threadDataById.P3(intent.getIntExtra("good_data", 0));
+                    threadDataById.Z2();
                 }
-                g(g0, intent, stringExtra);
+                g(j0, intent, stringExtra);
                 return;
             case 18004:
-                d.a.n0.r0.n2.m.d(this.f58538b.getPageContext(), g0);
+                d.a.n0.r0.n2.m.d(this.f62229b.getPageContext(), j0);
                 return;
             case 23003:
-                if (intent == null || g0 == null) {
+                if (intent == null || j0 == null) {
                     return;
                 }
-                d.a.n0.r0.n2.i.b(this.f58538b, g0, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
+                d.a.n0.r0.n2.i.b(this.f62229b, j0, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
                 return;
             case 23007:
                 j(intent);
@@ -283,8 +284,8 @@ public class a extends j {
                 int intExtra3 = intent.getIntExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, 0);
                 int intExtra4 = intent.getIntExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, 0);
                 int intExtra5 = intent.getIntExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, 0);
-                if (intExtra2 == d.a.c.e.m.b.d(this.f58538b.h(), 0)) {
-                    this.f58540d.C0(intExtra3, intExtra4, intExtra5);
+                if (intExtra2 == d.a.c.e.m.b.d(this.f62229b.i(), 0)) {
+                    this.f62231d.C0(intExtra3, intExtra4, intExtra5);
                     return;
                 }
                 return;
@@ -298,28 +299,28 @@ public class a extends j {
                     TiebaStatic.log(statisticItem);
                 }
                 if (intExtra6 == 1) {
-                    this.f58538b.R2(intent.getStringExtra("tid"));
+                    this.f62229b.U2(intent.getStringExtra("tid"));
                     return;
                 }
                 return;
             case 25041:
-                this.f58539c.b(intent.getIntExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1));
+                this.f62230c.b(intent.getIntExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1));
                 return;
             case 25050:
-                this.f58538b.refresh();
+                this.f62229b.refresh();
                 return;
             case 25052:
                 String stringExtra2 = intent.getStringExtra("group_name");
                 boolean booleanExtra = intent.getBooleanExtra("from", true);
-                this.f58538b.J3(stringExtra2);
-                if (booleanExtra || (hVar = this.f58540d) == null) {
+                this.f62229b.M3(stringExtra2);
+                if (booleanExtra || (hVar = this.f62231d) == null) {
                     return;
                 }
                 hVar.P();
                 return;
             case 25054:
-                r y0 = this.f58538b.y0();
-                if (y0 == null || (W = y0.W()) == null) {
+                r B0 = this.f62229b.B0();
+                if (B0 == null || (W = B0.W()) == null) {
                     return;
                 }
                 W.C();
@@ -341,21 +342,21 @@ public class a extends j {
     }
 
     public void l(int i2) {
-        FrsFragment frsFragment = this.f58538b;
-        if (frsFragment == null || frsFragment.y2() == null) {
+        FrsFragment frsFragment = this.f62229b;
+        if (frsFragment == null || frsFragment.B2() == null) {
             return;
         }
         if (i2 > 0) {
-            FrsTabViewController.o F = this.f58538b.y2().F(i2);
-            if (F == null || !(F.f15761b instanceof FrsCommonTabFragment)) {
+            FrsTabViewController.o F = this.f62229b.B2().F(i2);
+            if (F == null || !(F.f15823b instanceof FrsCommonTabFragment)) {
                 return;
             }
-            this.f58539c.b(i2);
+            this.f62230c.b(i2);
             return;
         }
-        int B = this.f58538b.y2().B();
-        if (this.f58538b.y2().F(B) != null) {
-            this.f58539c.b(B);
+        int B = this.f62229b.B2().B();
+        if (this.f62229b.B2().F(B) != null) {
+            this.f62230c.b(B);
         }
     }
 
@@ -369,22 +370,22 @@ public class a extends j {
     }
 
     public void n() {
-        MessageManager.getInstance().unRegisterListener(this.f58452i);
+        MessageManager.getInstance().unRegisterListener(this.f62143i);
     }
 
     public final void o(ShareFromPBMsgData shareFromPBMsgData, long j, String str, String str2, String str3) {
         if (shareFromPBMsgData == null) {
             return;
         }
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f58538b.getActivity());
-        Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.f58538b.getActivity());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f62229b.getActivity());
+        Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.f62229b.getActivity());
         thread2GroupShareView.setData(shareFromPBMsgData);
         aVar.setContentViewSize(1);
         aVar.setContentView(thread2GroupShareView);
         aVar.setPositiveButton(R.string.share, new b(thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
         aVar.setNegativeButton(R.string.cancel, new c(thread2GroupShareView));
         aVar.setCanceledOnTouchOutside(true);
-        aVar.create(this.f58538b.getPageContext()).show();
+        aVar.create(this.f62229b.getPageContext()).show();
         if (d.a.c.e.p.k.isEmpty(shareFromPBMsgData.getImageUrl())) {
             return;
         }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class e {
     public static String a(String str, Context context) {
         Field[] fields;

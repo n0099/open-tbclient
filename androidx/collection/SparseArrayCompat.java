@@ -248,7 +248,7 @@ public class SparseArrayCompat<E> implements Cloneable {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
             sb.append(keyAt(i2));
-            sb.append(a.f1873h);
+            sb.append(a.f1886h);
             E valueAt = valueAt(i2);
             if (valueAt != this) {
                 sb.append(valueAt);

@@ -9,50 +9,50 @@ import org.json.JSONObject;
 public final class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f43361e = k.f43199a;
+    public static final boolean f47037e = k.f46875a;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f43362f = "SwanAppParam";
+    public static String f47038f = "SwanAppParam";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43363a;
+    public String f47039a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43364b;
+    public String f47040b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43365c;
+    public String f47041c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f43366d;
+    public boolean f47042d;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f43367a = new c();
+        public c f47043a = new c();
 
         public c a() {
-            return this.f43367a;
+            return this.f47043a;
         }
 
         public a b(String str) {
-            this.f43367a.f43364b = str;
+            this.f47043a.f47040b = str;
             return this;
         }
 
         public a c(boolean z) {
-            this.f43367a.f43366d = z;
+            this.f47043a.f47042d = z;
             return this;
         }
 
         public a d(String str) {
-            this.f43367a.f43363a = str;
+            this.f47043a.f47039a = str;
             return this;
         }
 
         public a e(String str) {
-            this.f43367a.f43365c = str;
+            this.f47043a.f47041c = str;
             return this;
         }
     }
@@ -64,14 +64,14 @@ public final class c {
         try {
             c cVar = new c();
             JSONObject jSONObject = new JSONObject(str);
-            cVar.f43363a = jSONObject.optString("page");
-            cVar.f43365c = jSONObject.optString("params");
-            cVar.f43364b = jSONObject.optString("baseUrl");
-            cVar.f43366d = jSONObject.optBoolean("isFirstPage");
+            cVar.f47039a = jSONObject.optString("page");
+            cVar.f47041c = jSONObject.optString("params");
+            cVar.f47040b = jSONObject.optString("baseUrl");
+            cVar.f47042d = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e2) {
-            if (f43361e) {
-                String str2 = f43362f;
+            if (f47037e) {
+                String str2 = f47038f;
                 Log.e(str2, "createSwanAppParam() error: " + Log.getStackTraceString(e2));
             }
             return null;
@@ -79,27 +79,27 @@ public final class c {
     }
 
     public String f() {
-        return this.f43364b;
+        return this.f47040b;
     }
 
     public String g() {
-        return this.f43363a;
+        return this.f47039a;
     }
 
     public String h() {
-        return this.f43365c;
+        return this.f47041c;
     }
 
     public String i() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("page", this.f43363a);
-            jSONObject.put("params", this.f43365c);
-            jSONObject.put("baseUrl", this.f43364b);
-            jSONObject.put("isFirstPage", this.f43366d);
+            jSONObject.put("page", this.f47039a);
+            jSONObject.put("params", this.f47041c);
+            jSONObject.put("baseUrl", this.f47040b);
+            jSONObject.put("isFirstPage", this.f47042d);
         } catch (JSONException e2) {
-            if (f43361e) {
-                String str = f43362f;
+            if (f47037e) {
+                String str = f47038f;
                 Log.e(str, "toJSONString error: " + Log.getStackTraceString(e2));
             }
         }
@@ -107,6 +107,6 @@ public final class c {
     }
 
     public void j() {
-        this.f43366d = false;
+        this.f47042d = false;
     }
 }

@@ -1,4 +1,4 @@
 package com.kwai.filedownloader.message;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface b {
 }

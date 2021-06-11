@@ -22,19 +22,19 @@ import org.apache.http.cookie.ClientCookie;
 public final class g extends EventTargetImpl {
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f47428e;
+    public final String f51102e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DatagramSocket f47429f;
+    public DatagramSocket f51103f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47430g;
+    public int f51104g;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f47431h;
+    public k f51105h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f47432i;
+    public a f51106i;
     public ArrayList<JsFunction> j;
     public ArrayList<JsFunction> k;
     public ArrayList<JsFunction> l;
@@ -44,9 +44,9 @@ public final class g extends EventTargetImpl {
     public g(JSRuntime jsRuntime) {
         super(jsRuntime);
         Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
-        this.f47428e = "%s:fail %s";
-        this.f47431h = new k();
-        this.f47432i = new a();
+        this.f51102e = "%s:fail %s";
+        this.f51105h = new k();
+        this.f51106i = new a();
         this.j = new ArrayList<>();
         this.k = new ArrayList<>();
         this.l = new ArrayList<>();
@@ -55,7 +55,7 @@ public final class g extends EventTargetImpl {
 
     public final void A(JsFunction jsFunction, String str, String str2) {
         StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-        String format = String.format(this.f47428e, Arrays.copyOf(new Object[]{str, str2}, 2));
+        String format = String.format(this.f51102e, Arrays.copyOf(new Object[]{str, str2}, 2));
         Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
         if (jsFunction != null) {
             jsFunction.call(new d(format));
@@ -85,13 +85,13 @@ public final class g extends EventTargetImpl {
     }
 
     public final int C() {
-        return this.f47430g;
+        return this.f51104g;
     }
 
     public final int D() {
         for (int i2 = 49152; i2 <= 65535; i2++) {
             try {
-                this.f47429f = new DatagramSocket(i2);
+                this.f51103f = new DatagramSocket(i2);
                 z(i2);
                 return i2;
             } catch (Throwable unused) {
@@ -101,7 +101,7 @@ public final class g extends EventTargetImpl {
     }
 
     public final DatagramSocket E() {
-        return this.f47429f;
+        return this.f51103f;
     }
 
     public final void F(String method, String error) {
@@ -126,34 +126,34 @@ public final class g extends EventTargetImpl {
     }
 
     public final void I(c cVar) {
-        if (j.f47436c.c(this)) {
+        if (j.f51110c.c(this)) {
             return;
         }
         try {
-            if (!this.f47431h.a().offer(new b(new DatagramPacket(cVar.b(), cVar.d(), cVar.c(), InetAddress.getByName(cVar.a()), cVar.e()), this))) {
+            if (!this.f51105h.a().offer(new b(new DatagramPacket(cVar.b(), cVar.d(), cVar.c(), InetAddress.getByName(cVar.a()), cVar.e()), this))) {
                 F("send", "send queue is full");
                 return;
             }
-            if (!this.f47431h.b()) {
-                this.f47431h.c(true);
-                this.f47431h.start();
+            if (!this.f51105h.b()) {
+                this.f51105h.c(true);
+                this.f51105h.start();
             }
-            if (this.f47432i.a()) {
+            if (this.f51106i.a()) {
                 return;
             }
-            this.f47432i.b(true);
-            this.f47432i.c(this);
+            this.f51106i.b(true);
+            this.f51106i.c(this);
             G();
-            this.f47432i.start();
+            this.f51106i.start();
         } catch (Throwable unused) {
         }
     }
 
     @JavascriptInterface
     public final int bind(int i2) {
-        if (i2 != -1 && !j.f47436c.d(i2)) {
+        if (i2 != -1 && !j.f51110c.d(i2)) {
             try {
-                this.f47429f = new DatagramSocket(i2);
+                this.f51103f = new DatagramSocket(i2);
                 z(i2);
                 return i2;
             } catch (Throwable unused) {
@@ -166,15 +166,15 @@ public final class g extends EventTargetImpl {
     @JavascriptInterface
     public final void close() {
         try {
-            DatagramSocket datagramSocket = this.f47429f;
+            DatagramSocket datagramSocket = this.f51103f;
             if (datagramSocket != null) {
                 datagramSocket.close();
             }
-            this.f47431h.c(false);
-            this.f47431h.interrupt();
-            this.f47432i.b(false);
-            this.f47432i.interrupt();
-            j.f47436c.e(this);
+            this.f51105h.c(false);
+            this.f51105h.interrupt();
+            this.f51106i.b(false);
+            this.f51106i.interrupt();
+            j.f51110c.e(this);
             Iterator<JsFunction> it = this.m.iterator();
             while (it.hasNext()) {
                 it.next().call("success");
@@ -187,25 +187,25 @@ public final class g extends EventTargetImpl {
     @JavascriptInterface
     public final void offCloseCallback(JsObject jsObject) {
         Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-        this.m.remove(d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject)).f47275a);
+        this.m.remove(d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject)).f50949a);
     }
 
     @JavascriptInterface
     public final void offErrorCallback(JsObject jsObject) {
         Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-        this.l.remove(d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject)).f47275a);
+        this.l.remove(d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject)).f50949a);
     }
 
     @JavascriptInterface
     public final void offListeningCallback(JsObject jsObject) {
         Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-        this.k.remove(d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject)).f47275a);
+        this.k.remove(d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject)).f50949a);
     }
 
     @JavascriptInterface
     public final void offMessageCallback(JsObject jsObject) {
         Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-        this.j.remove(d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject)).f47275a);
+        this.j.remove(d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject)).f50949a);
     }
 
     @JavascriptInterface
@@ -213,7 +213,7 @@ public final class g extends EventTargetImpl {
         Intrinsics.checkNotNullParameter(jsObject, "jsObject");
         d.a.l0.a.y.b.a H = H(jsObject);
         if (H != null) {
-            this.m.add(d.a.l0.h.d.c.a.e(H).f47275a);
+            this.m.add(d.a.l0.h.d.c.a.e(H).f50949a);
         }
     }
 
@@ -222,24 +222,24 @@ public final class g extends EventTargetImpl {
         Intrinsics.checkNotNullParameter(jsObject, "jsObject");
         d.a.l0.a.y.b.a H = H(jsObject);
         if (H != null) {
-            this.l.add(d.a.l0.h.d.c.a.e(H).f47275a);
+            this.l.add(d.a.l0.h.d.c.a.e(H).f50949a);
         }
     }
 
     @JavascriptInterface
     public final void onListeningCallback(JsObject jsObject) {
         Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-        this.k.add(d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject)).f47275a);
+        this.k.add(d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject)).f50949a);
     }
 
     @JavascriptInterface
     public final void onMessageCallback(JsObject jsObject) {
         d.a.l0.a.y.b.a H;
         Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-        if (j.f47436c.c(this) || (H = H(jsObject)) == null) {
+        if (j.f51110c.c(this) || (H = H(jsObject)) == null) {
             return;
         }
-        this.j.add(d.a.l0.h.d.c.a.e(H).f47275a);
+        this.j.add(d.a.l0.h.d.c.a.e(H).f50949a);
     }
 
     @JavascriptInterface
@@ -288,7 +288,7 @@ public final class g extends EventTargetImpl {
     }
 
     public final void z(int i2) {
-        j.f47436c.a(i2);
-        this.f47430g = i2;
+        j.f51110c.a(i2);
+        this.f51104g = i2;
     }
 }

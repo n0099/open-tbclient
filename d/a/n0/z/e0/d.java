@@ -8,22 +8,22 @@ import d.a.m0.r.q.m0;
 public class d extends BaseCardInfo implements p, m0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public AdvertAppInfo f63464e;
+    public AdvertAppInfo f67182e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63465f;
+    public String f67183f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f63466g;
+    public int f67184g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f63467h;
+    public boolean f67185h;
 
     public d(AdvertAppInfo advertAppInfo) {
-        this.f63465f = "";
-        this.f63466g = 0;
-        this.f63467h = false;
-        this.f63464e = advertAppInfo;
+        this.f67183f = "";
+        this.f67184g = 0;
+        this.f67185h = false;
+        this.f67182e = advertAppInfo;
         this.position = advertAppInfo.position;
     }
 
@@ -31,39 +31,38 @@ public class d extends BaseCardInfo implements p, m0 {
     public void a(boolean z) {
     }
 
-    @Override // d.a.m0.r.q.m0
-    public boolean b() {
-        return this.f63467h;
+    public AdvertAppInfo c() {
+        return this.f67182e;
     }
 
     @Override // d.a.m0.r.q.m0
-    public int d() {
+    public boolean d() {
+        return this.f67185h;
+    }
+
+    @Override // d.a.m0.r.q.m0
+    public int f() {
         return this.position;
     }
 
     @Override // d.a.n0.z.e0.p
-    public boolean g() {
-        return false;
-    }
-
-    @Override // d.a.n0.z.e0.p
     public int getPosition() {
-        AdvertAppInfo advertAppInfo = this.f63464e;
-        return d.a.c.e.m.b.d(advertAppInfo != null ? advertAppInfo.M3 : "-1", -1);
+        AdvertAppInfo advertAppInfo = this.f67182e;
+        return d.a.c.e.m.b.d(advertAppInfo != null ? advertAppInfo.P3 : "-1", -1);
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        AdvertAppInfo advertAppInfo = this.f63464e;
-        if (advertAppInfo != null && advertAppInfo.getType() == AdvertAppInfo.a4) {
-            return AdvertAppInfo.c4;
+        AdvertAppInfo advertAppInfo = this.f67182e;
+        if (advertAppInfo != null && advertAppInfo.getType() == AdvertAppInfo.d4) {
+            return AdvertAppInfo.f4;
         }
-        AdvertAppInfo advertAppInfo2 = this.f63464e;
-        if (advertAppInfo2 == null || (iLegoAdvert = advertAppInfo2.O3) == null) {
+        AdvertAppInfo advertAppInfo2 = this.f67182e;
+        if (advertAppInfo2 == null || (iLegoAdvert = advertAppInfo2.R3) == null) {
             return null;
         }
-        BdUniqueId bdUniqueId = AdvertAppInfo.d4;
+        BdUniqueId bdUniqueId = AdvertAppInfo.g4;
         int goodsStyle = iLegoAdvert.getGoodsStyle();
         if (goodsStyle != 2) {
             if (goodsStyle != 6) {
@@ -71,9 +70,9 @@ public class d extends BaseCardInfo implements p, m0 {
                     if (goodsStyle != 8) {
                         switch (goodsStyle) {
                             case 12:
-                                return AdvertAppInfo.i4;
+                                return AdvertAppInfo.l4;
                             case 13:
-                                return AdvertAppInfo.h4;
+                                return AdvertAppInfo.k4;
                             case 14:
                                 break;
                             default:
@@ -81,38 +80,39 @@ public class d extends BaseCardInfo implements p, m0 {
                         }
                     }
                 }
-                return AdvertAppInfo.g4;
+                return AdvertAppInfo.j4;
             }
-            return AdvertAppInfo.f4;
+            return AdvertAppInfo.i4;
         }
-        return AdvertAppInfo.e4;
-    }
-
-    public AdvertAppInfo h() {
-        return this.f63464e;
-    }
-
-    @Override // d.a.m0.r.q.m0
-    public AdvertAppInfo j() {
-        return this.f63464e;
+        return AdvertAppInfo.h4;
     }
 
     @Override // d.a.n0.z.e0.p
-    public void n(boolean z) {
+    public boolean j() {
+        return false;
+    }
+
+    @Override // d.a.m0.r.q.m0
+    public AdvertAppInfo m() {
+        return this.f67182e;
+    }
+
+    @Override // d.a.n0.z.e0.p
+    public void r(boolean z) {
     }
 
     @Override // d.a.m0.r.q.m0
     public void setPosition(int i2) {
         this.position = i2;
-        this.f63464e.position = i2;
-        this.f63467h = true;
+        this.f67182e.position = i2;
+        this.f67185h = true;
     }
 
     public d() {
-        this.f63465f = "";
-        this.f63466g = 0;
-        this.f63467h = false;
-        this.f63464e = null;
+        this.f67183f = "";
+        this.f67184g = 0;
+        this.f67185h = false;
+        this.f67182e = null;
         this.position = -1;
     }
 }

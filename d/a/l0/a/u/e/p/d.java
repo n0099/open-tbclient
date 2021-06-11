@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class d extends d.a.l0.a.u.c.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f45199d = k.f43199a;
+    public static final boolean f48873d = k.f46875a;
 
     public d(@NonNull d.a.l0.a.u.c.b bVar) {
         super(bVar);
@@ -35,12 +35,12 @@ public class d extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b s(String str) {
-        if (f45199d) {
+        if (f48873d) {
             Log.d("Api-Log", "start logToFile action, params = " + str);
             r(str);
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Log", str);
-        if (!((d.a.l0.a.u.h.b) b2.first).a()) {
+        if (!((d.a.l0.a.u.h.b) b2.first).isSuccess()) {
             d.a.l0.a.e0.d.b("Api-Log", "parse failed, params = " + str);
             return (d.a.l0.a.u.h.b) b2.first;
         }

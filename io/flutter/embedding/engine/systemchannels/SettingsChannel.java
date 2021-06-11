@@ -2,6 +2,7 @@ package io.flutter.embedding.engine.systemchannels;
 
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.yy.hiidostatis.defs.controller.SensorController;
 import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.BasicMessageChannel;
@@ -55,7 +56,7 @@ public class SettingsChannel {
 
     /* loaded from: classes7.dex */
     public enum PlatformBrightness {
-        light("light"),
+        light(SensorController.KEY_LIGHT),
         dark(SkinManager.SKIN_TYPE_STR_DARK);
         
         @NonNull

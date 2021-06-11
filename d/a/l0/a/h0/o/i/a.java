@@ -14,39 +14,39 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public class a {
-    public static final boolean j = k.f43199a;
+    public static final boolean j = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42498a;
+    public String f46174a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42499b;
+    public String f46175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42500c;
+    public String f46176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42501d;
+    public String f46177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42502e;
+    public boolean f46178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42503f;
+    public String f46179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42504g;
+    public String f46180g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42505h;
+    public String f46181h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f42506i;
+    public String f46182i;
 
     /* renamed from: d.a.l0.a.h0.o.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0693a extends PrefetchEvent.c {
-        public C0693a(@Nullable Map<String, String> map, String str) {
+    public static class C0749a extends PrefetchEvent.c {
+        public C0749a(@Nullable Map<String, String> map, String str) {
             super(map, str);
         }
     }
@@ -54,17 +54,17 @@ public class a {
     public static a a(b bVar, PrefetchEvent prefetchEvent, e eVar) {
         long currentTimeMillis = j ? System.currentTimeMillis() : 0L;
         a aVar = new a();
-        aVar.f42505h = bVar.b();
-        aVar.f42498a = prefetchEvent.appPath;
-        aVar.f42499b = prefetchEvent.pageUrl;
-        aVar.f42503f = prefetchEvent.rootPath;
+        aVar.f46181h = bVar.b();
+        aVar.f46174a = prefetchEvent.appPath;
+        aVar.f46175b = prefetchEvent.pageUrl;
+        aVar.f46179f = prefetchEvent.rootPath;
         SwanAppConfigData F = eVar.F();
-        aVar.f42500c = prefetchEvent.pageType;
+        aVar.f46176c = prefetchEvent.pageType;
         String c2 = d.a.l0.a.a2.n.b.c(prefetchEvent.appPath, o0.f(j.b(prefetchEvent.pageUrl)));
-        aVar.f42504g = c2;
-        aVar.f42501d = g.b(c2, F.f11249e).f40798g;
-        aVar.f42502e = prefetchEvent.isT7Available;
-        aVar.f42506i = prefetchEvent.sConsole;
+        aVar.f46180g = c2;
+        aVar.f46177d = g.b(c2, F.f11311e).f44474g;
+        aVar.f46178e = prefetchEvent.isT7Available;
+        aVar.f46182i = prefetchEvent.sConsole;
         if (j) {
             long currentTimeMillis2 = System.currentTimeMillis();
             Log.d("SlavePreloadEvent", "build slave preload event cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
@@ -72,24 +72,24 @@ public class a {
         return aVar;
     }
 
-    public C0693a b() {
+    public C0749a b() {
         long currentTimeMillis = j ? System.currentTimeMillis() : 0L;
         TreeMap treeMap = new TreeMap();
-        treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.f42505h);
-        treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.f42498a);
-        treeMap.put("pagePath", this.f42499b);
-        treeMap.put("pageType", this.f42500c);
-        treeMap.put("onReachBottomDistance", this.f42501d);
-        treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.f42502e));
-        treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.f42506i);
-        treeMap.put(PrefetchEvent.EVENT_DATA_ROOT_PATH, this.f42503f);
+        treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.f46181h);
+        treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.f46174a);
+        treeMap.put("pagePath", this.f46175b);
+        treeMap.put("pageType", this.f46176c);
+        treeMap.put("onReachBottomDistance", this.f46177d);
+        treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.f46178e));
+        treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.f46182i);
+        treeMap.put(PrefetchEvent.EVENT_DATA_ROOT_PATH, this.f46179f);
         d.a.l0.a.t1.g.b.a(treeMap, "slave preload ready event");
-        j.a(this.f42499b, treeMap);
-        treeMap.put("pageConfig", this.f42504g);
+        j.a(this.f46175b, treeMap);
+        treeMap.put("pageConfig", this.f46180g);
         if (j) {
             long currentTimeMillis2 = System.currentTimeMillis();
             Log.d("SlavePreloadEvent", "build slave preload msg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
         }
-        return new C0693a(treeMap, "preload");
+        return new C0749a(treeMap, "preload");
     }
 }

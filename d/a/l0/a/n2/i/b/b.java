@@ -19,14 +19,14 @@ public class b extends a0 {
         if (eVar == null) {
             d.b("StopDeviceMotionAction", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "stopOrientationAction --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             d.b("StopDeviceMotionAction", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "stopOrientationAction --- illegal context");
             }
             return false;

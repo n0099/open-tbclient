@@ -8,40 +8,40 @@ import org.json.JSONObject;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40782a = k.f43199a;
+    public static final boolean f44458a = k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final f<a> f40783e = new C0566a();
+        public static final f<a> f44459e = new C0622a();
 
         /* renamed from: f  reason: collision with root package name */
-        public static final e<a> f40784f = new b();
+        public static final e<a> f44460f = new b();
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40785a;
+        public int f44461a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40786b;
+        public int f44462b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40787c;
+        public int f44463c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f40788d;
+        public int f44464d;
 
         /* renamed from: d.a.l0.a.a2.n.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0566a extends f<a> {
+        public static class C0622a extends f<a> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.l0.a.a2.n.f
             /* renamed from: c */
             public void b(@NonNull a aVar, @NonNull d.a.l0.a.b1.d dVar) throws Exception {
-                dVar.writeInt(aVar.f40785a);
-                dVar.writeInt(aVar.f40786b);
-                dVar.writeInt(aVar.f40787c);
-                dVar.writeInt(aVar.f40788d);
+                dVar.writeInt(aVar.f44461a);
+                dVar.writeInt(aVar.f44462b);
+                dVar.writeInt(aVar.f44463c);
+                dVar.writeInt(aVar.f44464d);
             }
         }
 
@@ -52,10 +52,10 @@ public final class c {
             /* renamed from: c */
             public a b(@NonNull d.a.l0.a.b1.c cVar) throws Exception {
                 a aVar = new a();
-                aVar.f40785a = cVar.readInt();
-                aVar.f40786b = cVar.readInt();
-                aVar.f40787c = cVar.readInt();
-                aVar.f40788d = cVar.readInt();
+                aVar.f44461a = cVar.readInt();
+                aVar.f44462b = cVar.readInt();
+                aVar.f44463c = cVar.readInt();
+                aVar.f44464d = cVar.readInt();
                 return aVar;
             }
         }
@@ -69,21 +69,21 @@ public final class c {
                 return b();
             }
             a aVar = new a();
-            aVar.f40786b = optJSONObject.optInt("connectSocket", 60000);
-            aVar.f40785a = optJSONObject.optInt("request", c());
-            aVar.f40786b = optJSONObject.optInt("connectSocket", 60000);
-            aVar.f40787c = optJSONObject.optInt("uploadFile");
-            aVar.f40788d = optJSONObject.optInt("downloadFile");
+            aVar.f44462b = optJSONObject.optInt("connectSocket", 60000);
+            aVar.f44461a = optJSONObject.optInt("request", c());
+            aVar.f44462b = optJSONObject.optInt("connectSocket", 60000);
+            aVar.f44463c = optJSONObject.optInt("uploadFile");
+            aVar.f44464d = optJSONObject.optInt("downloadFile");
             return aVar;
         }
 
         public static a b() {
-            if (c.f40782a) {
+            if (c.f44458a) {
                 Log.w("SwanAppCommonConfigData", "NetworkConfig createNullObject()");
             }
             a aVar = new a();
-            aVar.f40785a = 60000;
-            aVar.f40786b = 60000;
+            aVar.f44461a = 60000;
+            aVar.f44462b = 60000;
             return aVar;
         }
 
@@ -92,7 +92,7 @@ public final class c {
         }
 
         public static int d(a aVar) {
-            return aVar != null && aVar.f40785a > 0 ? aVar.f40785a : c();
+            return aVar != null && aVar.f44461a > 0 ? aVar.f44461a : c();
         }
     }
 }

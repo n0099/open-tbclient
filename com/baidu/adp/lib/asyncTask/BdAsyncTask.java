@@ -51,7 +51,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 return (Result) BdAsyncTask.this.postResult(null);
             }
             BdAsyncTask bdAsyncTask = BdAsyncTask.this;
-            return (Result) bdAsyncTask.postResult(bdAsyncTask.doInBackground(this.f2151e));
+            return (Result) bdAsyncTask.postResult(bdAsyncTask.doInBackground(this.f2164e));
         }
     }
 
@@ -88,17 +88,17 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     public static /* synthetic */ class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f2148a;
+        public static final /* synthetic */ int[] f2161a;
 
         static {
             int[] iArr = new int[BdAsyncTaskStatus.values().length];
-            f2148a = iArr;
+            f2161a = iArr;
             try {
                 iArr[BdAsyncTaskStatus.RUNNING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f2148a[BdAsyncTaskStatus.FINISHED.ordinal()] = 2;
+                f2161a[BdAsyncTaskStatus.FINISHED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -108,14 +108,14 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     public static class d<Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final BdAsyncTask f2149a;
+        public final BdAsyncTask f2162a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Data[] f2150b;
+        public final Data[] f2163b;
 
         public d(BdAsyncTask bdAsyncTask, Data... dataArr) {
-            this.f2149a = bdAsyncTask;
-            this.f2150b = dataArr;
+            this.f2162a = bdAsyncTask;
+            this.f2163b = dataArr;
         }
     }
 
@@ -130,10 +130,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             d dVar = (d) message.obj;
             int i2 = message.what;
             if (i2 == 1) {
-                dVar.f2149a.finish(dVar.f2150b[0]);
+                dVar.f2162a.finish(dVar.f2163b[0]);
             } else if (i2 != 2) {
             } else {
-                dVar.f2149a.onProgressUpdate(dVar.f2150b);
+                dVar.f2162a.onProgressUpdate(dVar.f2163b);
             }
         }
     }
@@ -142,7 +142,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     public static abstract class f<Params, Result> implements Callable<Result> {
 
         /* renamed from: e  reason: collision with root package name */
-        public Params[] f2151e;
+        public Params[] f2164e;
 
         public f() {
         }
@@ -211,7 +211,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
 
     public final synchronized BdAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
         if (this.mStatus != BdAsyncTaskStatus.PENDING) {
-            int i2 = c.f2148a[this.mStatus.ordinal()];
+            int i2 = c.f2161a[this.mStatus.ordinal()];
             if (i2 == 1) {
                 throw new IllegalStateException("Cannot execute task: the task is already running.");
             }
@@ -221,7 +221,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         }
         this.mStatus = BdAsyncTaskStatus.RUNNING;
         onPreExecute();
-        this.mWorker.f2151e = paramsArr;
+        this.mWorker.f2164e = paramsArr;
         executor.execute(this.mFuture);
         return this;
     }

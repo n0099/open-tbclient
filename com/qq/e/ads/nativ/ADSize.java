@@ -5,21 +5,21 @@ public class ADSize {
     public static final int FULL_WIDTH = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f35251a;
+    public int f38930a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35252b;
+    public int f38931b;
 
     public ADSize(int i2, int i3) {
-        this.f35252b = i3;
-        this.f35251a = i2;
+        this.f38931b = i3;
+        this.f38930a = i2;
     }
 
     public int getHeight() {
-        return this.f35252b;
+        return this.f38931b;
     }
 
     public int getWidth() {
-        return this.f35251a;
+        return this.f38930a;
     }
 }

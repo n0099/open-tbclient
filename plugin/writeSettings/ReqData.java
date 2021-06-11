@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ReqData extends Message {
     public static final String DEFAULT_CONTAINER_VERSION = "";
     public static final String DEFAULT_FORBIDDEN_FEATURE = "";
@@ -16,7 +16,7 @@ public final class ReqData extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<Plugin_setting> plugin_settings_list;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<ReqData> {
         public String container_version;
         public String forbidden_feature;

@@ -68,35 +68,35 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     public class d extends BdAsyncTask<Object, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20424a = null;
+        public NetWork f20501a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f20425b;
+        public String f20502b;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f20427e;
+            public final /* synthetic */ String f20504e;
 
             public a(d dVar, String str) {
-                this.f20427e = str;
+                this.f20504e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                TbadkCoreApplication.getInst().cashNoAccountData(this.f20427e, 7);
+                TbadkCoreApplication.getInst().cashNoAccountData(this.f20504e, 7);
             }
         }
 
         public d(String str) {
-            this.f20425b = null;
-            this.f20425b = str;
+            this.f20502b = null;
+            this.f20502b = str;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f20424a;
+            NetWork netWork = this.f20501a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -115,22 +115,22 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Object... objArr) {
-            String str = this.f20425b;
+            String str = this.f20502b;
             if (str == null) {
                 return null;
             }
             NetWork netWork = new NetWork(str);
-            this.f20424a = netWork;
+            this.f20501a = netWork;
             netWork.getNetContext().getRequest().getNetWorkParam().mIsJson = false;
-            this.f20424a.addPostData("client", "android");
-            return this.f20424a.postNetData();
+            this.f20501a.addPostData("client", "android");
+            return this.f20501a.postNetData();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             AppsActivity.this.mProcess.setVisibility(8);
-            NetWork netWork = this.f20424a;
+            NetWork netWork = this.f20501a;
             if (netWork == null || !netWork.isNetSuccess() || str == null || str.length() <= 0) {
                 if (!AppsActivity.this.loadCacheData() && str == null) {
                     AppsActivity.this.mWebView.setVisibility(8);

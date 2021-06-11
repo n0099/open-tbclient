@@ -26,10 +26,10 @@ import org.json.JSONObject;
 public class r0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f53422a = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
+    public static final int[] f57111a = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
 
     /* renamed from: b  reason: collision with root package name */
-    public static TextView f53423b;
+    public static TextView f57112b;
 
     public static boolean a(d.a.m0.t.a aVar, int i2) {
         if (aVar == null) {
@@ -71,7 +71,7 @@ public class r0 {
     }
 
     public static int b() {
-        return f53422a[new Random().nextInt(f53422a.length)];
+        return f57111a[new Random().nextInt(f57111a.length)];
     }
 
     public static SpannableString c(a2 a2Var) {
@@ -120,8 +120,8 @@ public class r0 {
         if (eVar == null || eVar.L() == null) {
             return 0;
         }
-        if (eVar.L().n2()) {
-            return (ListUtils.isEmpty(eVar.p()) && (eVar.h() == null || StringUtils.isNull(eVar.h().g()))) ? 0 : 2;
+        if (eVar.L().o2()) {
+            return (ListUtils.isEmpty(eVar.p()) && (eVar.h() == null || StringUtils.isNull(eVar.h().h()))) ? 0 : 2;
         }
         return 1;
     }
@@ -131,10 +131,10 @@ public class r0 {
         int k = d.a.c.e.p.l.k(context) - (d.a.c.e.p.l.g(context, R.dimen.tbds44) * 2);
         int contentSize = TbConfig.getContentSize();
         try {
-            if (f53423b == null) {
-                f53423b = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (f57112b == null) {
+                f57112b = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = f53423b;
+            TextView textView = f57112b;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }

@@ -13,31 +13,31 @@ public class c implements i {
     public static final ArrayList<String> j;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f67461a;
+    public final String f71247a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<com.ss.android.socialbase.downloader.model.c> f67462b;
+    public List<com.ss.android.socialbase.downloader.model.c> f71248b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67464d;
+    public int f71250d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f67465e;
+    public long f71251e;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f67467g;
+    public boolean f71253g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f67468h;
+    public boolean f71254h;
 
     /* renamed from: i  reason: collision with root package name */
-    public i f67469i;
+    public i f71255i;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f67463c = null;
+    public Map<String, String> f71249c = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f67466f = new Object();
+    public final Object f71252f = new Object();
 
     static {
         ArrayList<String> arrayList = new ArrayList<>(6);
@@ -51,17 +51,17 @@ public class c implements i {
     }
 
     public c(String str, List<com.ss.android.socialbase.downloader.model.c> list, long j2) {
-        this.f67461a = str;
-        this.f67462b = list;
+        this.f71247a = str;
+        this.f71248b = list;
     }
 
     @Override // d.o.a.e.b.o.i
     public String a(String str) {
-        Map<String, String> map = this.f67463c;
+        Map<String, String> map = this.f71249c;
         if (map != null) {
             return map.get(str);
         }
-        i iVar = this.f67469i;
+        i iVar = this.f71255i;
         if (iVar != null) {
             return iVar.a(str);
         }
@@ -70,57 +70,57 @@ public class c implements i {
 
     @Override // d.o.a.e.b.o.i
     public int b() throws IOException {
-        return this.f67464d;
+        return this.f71250d;
     }
 
     @Override // d.o.a.e.b.o.i
     public void c() {
-        i iVar = this.f67469i;
+        i iVar = this.f71255i;
         if (iVar != null) {
             iVar.c();
         }
     }
 
     public void d() throws InterruptedException {
-        synchronized (this.f67466f) {
-            if (this.f67468h && this.f67463c == null) {
-                this.f67466f.wait();
+        synchronized (this.f71252f) {
+            if (this.f71254h && this.f71249c == null) {
+                this.f71252f.wait();
             }
         }
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public void e() throws Exception {
-        if (this.f67463c != null) {
+        if (this.f71249c != null) {
             return;
         }
         try {
-            this.f67468h = true;
-            this.f67469i = d.o.a.e.b.g.d.t(this.f67461a, this.f67462b);
-            synchronized (this.f67466f) {
-                if (this.f67469i != null) {
+            this.f71254h = true;
+            this.f71255i = d.o.a.e.b.g.d.t(this.f71247a, this.f71248b);
+            synchronized (this.f71252f) {
+                if (this.f71255i != null) {
                     HashMap hashMap = new HashMap();
-                    this.f67463c = hashMap;
-                    f(this.f67469i, hashMap);
-                    this.f67464d = this.f67469i.b();
-                    this.f67465e = System.currentTimeMillis();
-                    this.f67467g = g(this.f67464d);
+                    this.f71249c = hashMap;
+                    f(this.f71255i, hashMap);
+                    this.f71250d = this.f71255i.b();
+                    this.f71251e = System.currentTimeMillis();
+                    this.f71253g = g(this.f71250d);
                 }
-                this.f67468h = false;
-                this.f67466f.notifyAll();
+                this.f71254h = false;
+                this.f71252f.notifyAll();
             }
         } catch (Throwable th) {
-            synchronized (this.f67466f) {
-                if (this.f67469i != null) {
+            synchronized (this.f71252f) {
+                if (this.f71255i != null) {
                     HashMap hashMap2 = new HashMap();
-                    this.f67463c = hashMap2;
-                    f(this.f67469i, hashMap2);
-                    this.f67464d = this.f67469i.b();
-                    this.f67465e = System.currentTimeMillis();
-                    this.f67467g = g(this.f67464d);
+                    this.f71249c = hashMap2;
+                    f(this.f71255i, hashMap2);
+                    this.f71250d = this.f71255i.b();
+                    this.f71251e = System.currentTimeMillis();
+                    this.f71253g = g(this.f71250d);
                 }
-                this.f67468h = false;
-                this.f67466f.notifyAll();
+                this.f71254h = false;
+                this.f71252f.notifyAll();
                 throw th;
             }
         }
@@ -142,22 +142,22 @@ public class c implements i {
     }
 
     public boolean h() {
-        return this.f67467g;
+        return this.f71253g;
     }
 
     public boolean i() {
-        return System.currentTimeMillis() - this.f67465e < b.f67458d;
+        return System.currentTimeMillis() - this.f71251e < b.f71244d;
     }
 
     public boolean j() {
-        return this.f67468h;
+        return this.f71254h;
     }
 
     public List<com.ss.android.socialbase.downloader.model.c> k() {
-        return this.f67462b;
+        return this.f71248b;
     }
 
     public Map<String, String> l() {
-        return this.f67463c;
+        return this.f71249c;
     }
 }

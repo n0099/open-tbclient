@@ -1,5 +1,5 @@
 package com.kwai.filedownloader.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static boolean a(int i2) {
         return i2 < 0;

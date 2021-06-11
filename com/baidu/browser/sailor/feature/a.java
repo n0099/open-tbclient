@@ -8,11 +8,11 @@ public class a {
     public static final String TAG = "BdSailorFeature";
     public Map<String, d.a.h.b.a.a> mClientsMap = new HashMap();
     public Context mContext;
-    public Enum<EnumC0064a> mStatus;
+    public Enum<EnumC0065a> mStatus;
 
     /* renamed from: com.baidu.browser.sailor.feature.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public enum EnumC0064a {
+    public enum EnumC0065a {
         ENABLE,
         DISABLE
     }
@@ -30,11 +30,11 @@ public class a {
     }
 
     public void disable() {
-        this.mStatus = EnumC0064a.DISABLE;
+        this.mStatus = EnumC0065a.DISABLE;
     }
 
     public void enable() {
-        this.mStatus = EnumC0064a.ENABLE;
+        this.mStatus = EnumC0065a.ENABLE;
     }
 
     public d.a.h.b.a.a getListenerFromActivity(String str) {
@@ -46,7 +46,7 @@ public class a {
     }
 
     public boolean isEnable() {
-        return this.mStatus == EnumC0064a.ENABLE;
+        return this.mStatus == EnumC0065a.ENABLE;
     }
 
     public void regActivityResultCallback(String str, d.a.h.b.a.a aVar) {

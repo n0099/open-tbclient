@@ -11,51 +11,51 @@ import java.util.concurrent.TimeUnit;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final a0 f65207a;
+    public final a0 f68938a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.c.a.b.c f65208b;
+    public final d.b.c.a.b.c f68939b;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f65209a;
+        public final long f68940a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final a0 f65210b;
+        public final a0 f68941b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final d.b.c.a.b.c f65211c;
+        public final d.b.c.a.b.c f68942c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Date f65212d;
+        public Date f68943d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f65213e;
+        public String f68944e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Date f65214f;
+        public Date f68945f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f65215g;
+        public String f68946g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Date f65216h;
+        public Date f68947h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f65217i;
+        public long f68948i;
         public long j;
         public String k;
         public int l;
 
         public a(long j, a0 a0Var, d.b.c.a.b.c cVar) {
             this.l = -1;
-            this.f65209a = j;
-            this.f65210b = a0Var;
-            this.f65211c = cVar;
+            this.f68940a = j;
+            this.f68941b = a0Var;
+            this.f68942c = cVar;
             if (cVar != null) {
-                this.f65217i = cVar.B();
+                this.f68948i = cVar.B();
                 this.j = cVar.m();
                 v w = cVar.w();
                 int a2 = w.a();
@@ -63,13 +63,13 @@ public final class c {
                     String b2 = w.b(i2);
                     String e2 = w.e(i2);
                     if ("Date".equalsIgnoreCase(b2)) {
-                        this.f65212d = e.f.b(e2);
-                        this.f65213e = e2;
+                        this.f68943d = e.f.b(e2);
+                        this.f68944e = e2;
                     } else if ("Expires".equalsIgnoreCase(b2)) {
-                        this.f65216h = e.f.b(e2);
+                        this.f68947h = e.f.b(e2);
                     } else if ("Last-Modified".equalsIgnoreCase(b2)) {
-                        this.f65214f = e.f.b(e2);
-                        this.f65215g = e2;
+                        this.f68945f = e.f.b(e2);
+                        this.f68946g = e2;
                     } else if ("ETag".equalsIgnoreCase(b2)) {
                         this.k = e2;
                     } else if ("Age".equalsIgnoreCase(b2)) {
@@ -85,24 +85,24 @@ public final class c {
 
         public c a() {
             c c2 = c();
-            return (c2.f65207a == null || !this.f65210b.g().j()) ? c2 : new c(null, null);
+            return (c2.f68938a == null || !this.f68941b.g().j()) ? c2 : new c(null, null);
         }
 
         public final c c() {
-            if (this.f65211c == null) {
-                return new c(this.f65210b, null);
+            if (this.f68942c == null) {
+                return new c(this.f68941b, null);
             }
-            if (this.f65210b.h() && this.f65211c.v() == null) {
-                return new c(this.f65210b, null);
+            if (this.f68941b.h() && this.f68942c.v() == null) {
+                return new c(this.f68941b, null);
             }
-            if (!c.a(this.f65211c, this.f65210b)) {
-                return new c(this.f65210b, null);
+            if (!c.a(this.f68942c, this.f68941b)) {
+                return new c(this.f68941b, null);
             }
-            h g2 = this.f65210b.g();
-            if (!g2.b() && !b(this.f65210b)) {
-                h A = this.f65211c.A();
+            h g2 = this.f68941b.g();
+            if (!g2.b() && !b(this.f68941b)) {
+                h A = this.f68942c.A();
                 if (A.k()) {
-                    return new c(null, this.f65211c);
+                    return new c(null, this.f68942c);
                 }
                 long e2 = e();
                 long d2 = d();
@@ -117,7 +117,7 @@ public final class c {
                 if (!A.b()) {
                     long j2 = millis + e2;
                     if (j2 < j + d2) {
-                        c.a y = this.f65211c.y();
+                        c.a y = this.f68942c.y();
                         if (j2 >= d2) {
                             y.j("Warning", "110 HttpURLConnection \"Response is stale\"");
                         }
@@ -131,39 +131,39 @@ public final class c {
                 String str2 = "If-Modified-Since";
                 if (str != null) {
                     str2 = "If-None-Match";
-                } else if (this.f65214f != null) {
-                    str = this.f65215g;
-                } else if (this.f65212d != null) {
-                    str = this.f65213e;
+                } else if (this.f68945f != null) {
+                    str = this.f68946g;
+                } else if (this.f68943d != null) {
+                    str = this.f68944e;
                 } else {
-                    return new c(this.f65210b, null);
+                    return new c(this.f68941b, null);
                 }
-                v.a h2 = this.f65210b.d().h();
-                d.b.c.a.b.a.b.f65218a.g(h2, str2, str);
-                a0.a f2 = this.f65210b.f();
+                v.a h2 = this.f68941b.d().h();
+                d.b.c.a.b.a.b.f68949a.g(h2, str2, str);
+                a0.a f2 = this.f68941b.f();
                 f2.b(h2.c());
-                return new c(f2.p(), this.f65211c);
+                return new c(f2.p(), this.f68942c);
             }
-            return new c(this.f65210b, null);
+            return new c(this.f68941b, null);
         }
 
         public final long d() {
-            h A = this.f65211c.A();
+            h A = this.f68942c.A();
             if (A.d() != -1) {
                 return TimeUnit.SECONDS.toMillis(A.d());
             }
-            if (this.f65216h != null) {
-                Date date = this.f65212d;
-                long time = this.f65216h.getTime() - (date != null ? date.getTime() : this.j);
+            if (this.f68947h != null) {
+                Date date = this.f68943d;
+                long time = this.f68947h.getTime() - (date != null ? date.getTime() : this.j);
                 if (time > 0) {
                     return time;
                 }
                 return 0L;
-            } else if (this.f65214f == null || this.f65211c.n().a().A() != null) {
+            } else if (this.f68945f == null || this.f68942c.n().a().A() != null) {
                 return 0L;
             } else {
-                Date date2 = this.f65212d;
-                long time2 = (date2 != null ? date2.getTime() : this.f65217i) - this.f65214f.getTime();
+                Date date2 = this.f68943d;
+                long time2 = (date2 != null ? date2.getTime() : this.f68948i) - this.f68945f.getTime();
                 if (time2 > 0) {
                     return time2 / 10;
                 }
@@ -172,24 +172,24 @@ public final class c {
         }
 
         public final long e() {
-            Date date = this.f65212d;
+            Date date = this.f68943d;
             long max = date != null ? Math.max(0L, this.j - date.getTime()) : 0L;
             int i2 = this.l;
             if (i2 != -1) {
                 max = Math.max(max, TimeUnit.SECONDS.toMillis(i2));
             }
             long j = this.j;
-            return max + (j - this.f65217i) + (this.f65209a - j);
+            return max + (j - this.f68948i) + (this.f68940a - j);
         }
 
         public final boolean f() {
-            return this.f65211c.A().d() == -1 && this.f65216h == null;
+            return this.f68942c.A().d() == -1 && this.f68947h == null;
         }
     }
 
     public c(a0 a0Var, d.b.c.a.b.c cVar) {
-        this.f65207a = a0Var;
-        this.f65208b = cVar;
+        this.f68938a = a0Var;
+        this.f68939b = cVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:31:0x0056, code lost:

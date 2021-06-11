@@ -58,23 +58,23 @@ public class SpecialColumnListData extends d.a.m0.r.q.a implements Parcelable {
         parserProtobuf(specialColumnList.item_list);
     }
 
+    @Override // d.a.m0.r.q.a
+    public v0 c() {
+        return null;
+    }
+
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         return TYPE;
     }
 
     @Override // d.a.m0.r.q.a
-    public v0 h() {
-        return null;
-    }
-
-    @Override // d.a.m0.r.q.a
-    public a2 m() {
+    public a2 i() {
         return null;
     }
 
@@ -83,7 +83,7 @@ public class SpecialColumnListData extends d.a.m0.r.q.a implements Parcelable {
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < list.size(); i2++) {
                 SpecialColumnItemData specialColumnItemData = new SpecialColumnItemData();
-                specialColumnItemData.c(list.get(i2));
+                specialColumnItemData.b(list.get(i2));
                 arrayList.add(specialColumnItemData);
             }
             this.mResultListData.addAll(arrayList);

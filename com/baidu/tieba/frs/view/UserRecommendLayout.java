@@ -19,19 +19,19 @@ import java.util.Locale;
 public class UserRecommendLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15925e;
+    public TbPageContext f15987e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15926f;
+    public int f15988f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15927g;
+    public int f15989g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f15928h;
+    public View.OnClickListener f15990h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f15929i;
+    public View.OnClickListener f15991i;
     public d.a.c.e.k.b<UserRecommendItemView> j;
     public final ViewGroup.OnHierarchyChangeListener k;
 
@@ -51,7 +51,7 @@ public class UserRecommendLayout extends LinearLayout {
             }
             UserRecommendItemView userRecommendItemView = (UserRecommendItemView) view2;
             if (userRecommendItemView.getTag() instanceof c) {
-                ((c) userRecommendItemView.getTag()).s(UserRecommendLayout.this.f15925e.getUniqueId());
+                ((c) userRecommendItemView.getTag()).s(UserRecommendLayout.this.f15987e.getUniqueId());
             }
             UserRecommendLayout.this.j.e(userRecommendItemView);
         }
@@ -61,23 +61,23 @@ public class UserRecommendLayout extends LinearLayout {
     public class b implements CommonUserLikeButton.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserRecommendItemView f15931a;
+        public final /* synthetic */ UserRecommendItemView f15993a;
 
         public b(UserRecommendItemView userRecommendItemView) {
-            this.f15931a = userRecommendItemView;
+            this.f15993a = userRecommendItemView;
         }
 
         @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
         public void a(int i2) {
-            this.f15931a.getFansNum().setText(String.format(Locale.CHINA, "%s粉丝", StringHelper.numFormatOverWanNa(i2)));
+            this.f15993a.getFansNum().setText(String.format(Locale.CHINA, "%s粉丝", StringHelper.numFormatOverWanNa(i2)));
         }
     }
 
     public UserRecommendLayout(Context context) {
         super(context);
-        this.f15927g = 0;
-        this.f15928h = null;
-        this.f15929i = null;
+        this.f15989g = 0;
+        this.f15990h = null;
+        this.f15991i = null;
         this.j = null;
         this.k = new a();
         c();
@@ -97,7 +97,7 @@ public class UserRecommendLayout extends LinearLayout {
         if (i2 == 0) {
             layoutParams.leftMargin = 0;
         } else {
-            layoutParams.leftMargin = this.f15927g;
+            layoutParams.leftMargin = this.f15989g;
         }
         userRecommendItemView.setLayoutParams(layoutParams);
     }
@@ -111,20 +111,20 @@ public class UserRecommendLayout extends LinearLayout {
         if (userRecommendItemView.getLikeBtn().getTag() instanceof c) {
             cVar = (c) userRecommendItemView.getLikeBtn().getTag();
         } else {
-            cVar = new c(this.f15925e, userRecommendItemView.getLikeBtn());
+            cVar = new c(this.f15987e, userRecommendItemView.getLikeBtn());
         }
         cVar.m("7");
         userRecommendItemView.getLikeBtn().setTag(cVar);
         cVar.n(metaData);
-        userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.f15928h);
+        userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.f15990h);
         userRecommendItemView.getHeaderView().setData(metaData);
-        userRecommendItemView.getHeaderView().setAfterClickListener(this.f15929i);
+        userRecommendItemView.getHeaderView().setAfterClickListener(this.f15991i);
         userRecommendItemView.setIsGod(metaData.isGod());
         userRecommendItemView.c(skinType);
     }
 
     public int getChildItemWidth() {
-        return this.f15926f;
+        return this.f15988f;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -140,11 +140,11 @@ public class UserRecommendLayout extends LinearLayout {
     }
 
     public void setAfterHeaderLickListener(View.OnClickListener onClickListener) {
-        this.f15929i = onClickListener;
+        this.f15991i = onClickListener;
     }
 
     public void setAfterLikeBtnClickListener(View.OnClickListener onClickListener) {
-        this.f15928h = onClickListener;
+        this.f15990h = onClickListener;
     }
 
     public void setData(List<MetaData> list) {
@@ -152,9 +152,9 @@ public class UserRecommendLayout extends LinearLayout {
             return;
         }
         int a2 = e.a(getContext()) - (getPaddingLeft() * 2);
-        int i2 = this.f15927g;
+        int i2 = this.f15989g;
         int i3 = (a2 - (i2 * 2)) / 3;
-        this.f15926f = i2 + i3;
+        this.f15988f = i2 + i3;
         int i4 = 0;
         int childCount = getChildCount();
         while (i4 < childCount && i4 < list.size()) {
@@ -182,11 +182,11 @@ public class UserRecommendLayout extends LinearLayout {
     }
 
     public void setItemSpace(int i2) {
-        this.f15927g = i2;
+        this.f15989g = i2;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.f15925e = tbPageContext;
+        this.f15987e = tbPageContext;
     }
 
     public void setViewPool(d.a.c.e.k.b<UserRecommendItemView> bVar) {
@@ -195,9 +195,9 @@ public class UserRecommendLayout extends LinearLayout {
 
     public UserRecommendLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15927g = 0;
-        this.f15928h = null;
-        this.f15929i = null;
+        this.f15989g = 0;
+        this.f15990h = null;
+        this.f15991i = null;
         this.j = null;
         this.k = new a();
         c();

@@ -9,7 +9,7 @@ import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanHttpResponse;
 import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanSocketResponse;
 import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
 import d.a.m0.v0.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public a() {
         a();

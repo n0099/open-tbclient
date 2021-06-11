@@ -44,18 +44,18 @@ public class k extends h {
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        this.m.m(tbPageContext, i2);
+        this.m.n(tbPageContext, i2);
     }
 
     public void t() {
         if (d.a.m0.b.d.V()) {
-            int g2 = d.a.c.e.p.l.g(this.f40008f, R.dimen.M_H_X003);
-            int g3 = d.a.c.e.p.l.g(this.f40008f, d.a.m0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+            int g2 = d.a.c.e.p.l.g(this.f43689f, R.dimen.M_H_X003);
+            int g3 = d.a.c.e.p.l.g(this.f43689f, d.a.m0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
             r(g2);
             q(g3);
             return;
         }
-        int g4 = d.a.c.e.p.l.g(this.f40008f, R.dimen.tbds10);
+        int g4 = d.a.c.e.p.l.g(this.f43689f, R.dimen.tbds10);
         r(g4);
         q(0);
         v(this.m, g4, 0);
@@ -66,7 +66,7 @@ public class k extends h {
     /* renamed from: u */
     public void a(d.a.m0.r.q.a aVar) {
         this.l = aVar;
-        this.m.setSourceForPb(this.f40007e.i());
+        this.m.setSourceForPb(this.f43688e.i());
         this.m.setData(aVar);
     }
 

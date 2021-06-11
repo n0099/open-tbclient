@@ -16,33 +16,33 @@ public class a extends a0 {
 
     /* renamed from: d.a.l0.a.e2.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0614a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
+    public class C0670a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41590e;
+        public final /* synthetic */ CallbackHandler f45266e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41591f;
+        public final /* synthetic */ String f45267f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41592g;
+        public final /* synthetic */ String f45268g;
 
-        public C0614a(CallbackHandler callbackHandler, String str, String str2) {
-            this.f41590e = callbackHandler;
-            this.f41591f = str;
-            this.f41592g = str2;
+        public C0670a(CallbackHandler callbackHandler, String str, String str2) {
+            this.f45266e = callbackHandler;
+            this.f45267f = str;
+            this.f45268g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
-            a.this.k(this.f41590e, this.f41591f, this.f41592g, iVar);
+            a.this.k(this.f45266e, this.f45267f, this.f45268g, iVar);
         }
     }
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public a(d.a.l0.a.c2.e eVar) {
@@ -74,7 +74,7 @@ public class a extends a0 {
             d.a.l0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope").toString());
             return false;
         }
-        eVar.T().c(context, optString2, false, new C0614a(callbackHandler, optString2, optString));
+        eVar.T().c(context, optString2, false, new C0670a(callbackHandler, optString2, optString));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
@@ -89,7 +89,7 @@ public class a extends a0 {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("scope", str);
-            if (iVar != null && iVar.f41736a != null) {
+            if (iVar != null && iVar.f45412a != null) {
                 if (!iVar.c()) {
                     OAuthException a2 = iVar.a();
                     jSONObject.put("errMsg", a2 == null ? "" : a2.getMessage());
@@ -97,10 +97,10 @@ public class a extends a0 {
                     d.a.l0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
                     return;
                 }
-                jSONObject.put("code", iVar.f41736a.f41750a);
-                jSONObject.put("errMsg", iVar.f41736a.f41751b ? "authorize:ok" : "user deny");
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.f41736a.f41751b ? 0 : 10003).toString());
-                if (iVar.f41736a.f41751b) {
+                jSONObject.put("code", iVar.f45412a.f45426a);
+                jSONObject.put("errMsg", iVar.f45412a.f45427b ? "authorize:ok" : "user deny");
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.f45412a.f45427b ? 0 : 10003).toString());
+                if (iVar.f45412a.f45427b) {
                     return;
                 }
                 d.a.l0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());

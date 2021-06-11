@@ -12,19 +12,19 @@ import android.widget.ProgressBar;
 public class TextProgressBar extends ProgressBar {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2398e;
+    public String f2417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f2399f;
+    public TextPaint f2418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint.FontMetrics f2400g;
+    public Paint.FontMetrics f2419g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2401h;
+    public int f2420h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2402i;
+    public int f2421i;
     public int j;
     public int k;
 
@@ -34,34 +34,34 @@ public class TextProgressBar extends ProgressBar {
     }
 
     public final void a() {
-        this.f2398e = "0%";
+        this.f2417e = "0%";
         TextPaint textPaint = new TextPaint();
-        this.f2399f = textPaint;
+        this.f2418f = textPaint;
         textPaint.setTextSize(20.0f);
-        this.f2399f.setColor(-1);
-        this.f2400g = new Paint.FontMetrics();
+        this.f2418f.setColor(-1);
+        this.f2419g = new Paint.FontMetrics();
     }
 
     @Override // android.widget.ProgressBar, android.view.View
     public synchronized void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.save();
-        this.f2402i = (int) Layout.getDesiredWidth(this.f2398e, this.f2399f);
-        this.f2399f.getFontMetrics(this.f2400g);
-        this.f2401h = (int) (this.f2400g.descent - this.f2400g.top);
-        canvas.drawText(this.f2398e, (getMeasuredWidth() - this.f2402i) / 2, getMeasuredHeight(), this.f2399f);
+        this.f2421i = (int) Layout.getDesiredWidth(this.f2417e, this.f2418f);
+        this.f2418f.getFontMetrics(this.f2419g);
+        this.f2420h = (int) (this.f2419g.descent - this.f2419g.top);
+        canvas.drawText(this.f2417e, (getMeasuredWidth() - this.f2421i) / 2, getMeasuredHeight(), this.f2418f);
         canvas.restore();
     }
 
     @Override // android.widget.ProgressBar, android.view.View
     public synchronized void onMeasure(int i2, int i3) {
-        this.f2402i = (int) Layout.getDesiredWidth("100%", this.f2399f);
-        this.f2399f.getFontMetrics(this.f2400g);
-        this.f2401h = (int) (this.f2400g.descent - this.f2400g.top);
+        this.f2421i = (int) Layout.getDesiredWidth("100%", this.f2418f);
+        this.f2418f.getFontMetrics(this.f2419g);
+        this.f2420h = (int) (this.f2419g.descent - this.f2419g.top);
         super.onMeasure(i2, i3);
         this.j = getMeasuredWidth();
         this.k = getMeasuredHeight();
-        setMeasuredDimension(Math.max(this.f2402i, getMeasuredWidth()), getMeasuredHeight() + this.f2401h + 0);
+        setMeasuredDimension(Math.max(this.f2421i, getMeasuredWidth()), getMeasuredHeight() + this.f2420h + 0);
     }
 
     @Override // android.widget.ProgressBar, android.view.View
@@ -81,12 +81,12 @@ public class TextProgressBar extends ProgressBar {
     }
 
     public synchronized void setText(String str) {
-        this.f2398e = str;
+        this.f2417e = str;
         drawableStateChanged();
     }
 
     public void setTextColor(int i2) {
-        this.f2399f.setColor(i2);
+        this.f2418f.setColor(i2);
         drawableStateChanged();
     }
 

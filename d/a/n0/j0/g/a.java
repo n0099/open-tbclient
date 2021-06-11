@@ -28,40 +28,40 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public RecentlyVisitedForumData f55862a;
+    public RecentlyVisitedForumData f59551a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f55863b;
+    public boolean f59552b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f55864c;
+    public boolean f59553c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f55865d;
+    public boolean f59554d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f55866e;
+    public f f59555e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f55867f;
+    public CustomMessageListener f59556f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f55868g;
+    public CustomMessageListener f59557g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.c.c.g.a f55869h;
+    public d.a.c.c.g.a f59558h;
 
     /* renamed from: d.a.n0.j0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1373a extends f0<Object> {
-        public C1373a() {
+    public class C1429a extends f0<Object> {
+        public C1429a() {
         }
 
         @Override // d.a.m0.z0.f0
         public Object doInBackground() {
             l<String> h2 = d.a.m0.r.r.a.f().h("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount() == null ? "local" : TbadkCoreApplication.getCurrentAccount());
-            if (h2 != null && a.this.f55862a != null) {
-                h2.g("recently_visited_forum", OrmObject.jsonStrWithObject(a.this.f55862a));
+            if (h2 != null && a.this.f59551a != null) {
+                h2.g("recently_visited_forum", OrmObject.jsonStrWithObject(a.this.f59551a));
             }
             return null;
         }
@@ -93,7 +93,7 @@ public class a {
                     e2.printStackTrace();
                 }
                 if (recentlyVisitedForumData2 != null) {
-                    recentlyVisitedForumData2.w(recentlyVisitedForumData);
+                    recentlyVisitedForumData2.A(recentlyVisitedForumData);
                     h3.g("recently_visited_forum", OrmObject.jsonStrWithObject(recentlyVisitedForumData2));
                     return recentlyVisitedForumData2;
                 }
@@ -106,9 +106,9 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(RecentlyVisitedForumData recentlyVisitedForumData) {
-            a.this.f55863b = false;
+            a.this.f59552b = false;
             if (recentlyVisitedForumData != null) {
-                a.this.x(recentlyVisitedForumData.u(), true);
+                a.this.x(recentlyVisitedForumData.y(), true);
             }
         }
     }
@@ -153,7 +153,7 @@ public class a {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            a.this.f55864c = false;
+            a.this.f59553c = false;
             if (responsedMessage == null) {
                 return;
             }
@@ -178,15 +178,15 @@ public class a {
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f55875a = new a(null);
+        public static a f59564a = new a(null);
     }
 
-    public /* synthetic */ a(C1373a c1373a) {
+    public /* synthetic */ a(C1429a c1429a) {
         this();
     }
 
     public static a l() {
-        return g.f55875a;
+        return g.f59564a;
     }
 
     public void i(VisitedForumData visitedForumData) {
@@ -194,21 +194,21 @@ public class a {
     }
 
     public RecentlyVisitedForumData j() {
-        return this.f55862a;
+        return this.f59551a;
     }
 
     public String k() {
-        RecentlyVisitedForumData recentlyVisitedForumData = this.f55862a;
-        if (recentlyVisitedForumData == null || recentlyVisitedForumData.u() == null || this.f55862a.u().size() < 1) {
+        RecentlyVisitedForumData recentlyVisitedForumData = this.f59551a;
+        if (recentlyVisitedForumData == null || recentlyVisitedForumData.y() == null || this.f59551a.y().size() < 1) {
             return "";
         }
-        ArrayList<VisitedForumData> arrayList = new ArrayList(this.f55862a.u());
+        ArrayList<VisitedForumData> arrayList = new ArrayList(this.f59551a.y());
         JSONArray jSONArray = new JSONArray();
         for (VisitedForumData visitedForumData : arrayList) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("forum_id", d.a.c.e.m.b.f(visitedForumData.getForumId(), 0L));
-                jSONObject.put("visit_time", visitedForumData.A());
+                jSONObject.put("visit_time", visitedForumData.E());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -218,34 +218,34 @@ public class a {
     }
 
     public final void m() {
-        this.f55863b = true;
+        this.f59552b = true;
         b bVar = new b();
         bVar.setPriority(3);
         bVar.execute(new Void[0]);
     }
 
     public void n() {
-        if (this.f55864c) {
+        if (this.f59553c) {
             return;
         }
         RecentlyVisitedForumRequestMessage recentlyVisitedForumRequestMessage = new RecentlyVisitedForumRequestMessage();
-        recentlyVisitedForumRequestMessage.setForumData(this.f55862a.u());
-        this.f55864c = MessageManager.getInstance().sendMessage(recentlyVisitedForumRequestMessage);
+        recentlyVisitedForumRequestMessage.setForumData(this.f59551a.y());
+        this.f59553c = MessageManager.getInstance().sendMessage(recentlyVisitedForumRequestMessage);
     }
 
     public void o() {
-        f fVar = this.f55866e;
+        f fVar = this.f59555e;
         if (fVar != null) {
-            fVar.a(this.f55862a.u(), this.f55865d);
+            fVar.a(this.f59551a.y(), this.f59554d);
         }
     }
 
     public final void p(VisitedForumData visitedForumData) {
-        int t;
-        if (visitedForumData != null && (t = this.f55862a.t(visitedForumData)) >= 0) {
-            f fVar = this.f55866e;
+        int x;
+        if (visitedForumData != null && (x = this.f59551a.x(visitedForumData)) >= 0) {
+            f fVar = this.f59555e;
             if (fVar != null) {
-                fVar.b(t);
+                fVar.b(x);
             }
             v(visitedForumData);
             y();
@@ -256,15 +256,15 @@ public class a {
         if (visitedForumData == null) {
             return;
         }
-        this.f55862a.s(visitedForumData);
-        this.f55862a.y(20);
+        this.f59551a.w(visitedForumData);
+        this.f59551a.C(20);
         o();
         y();
         l().n();
     }
 
     public void r() {
-        f fVar = this.f55866e;
+        f fVar = this.f59555e;
         if (fVar != null) {
             fVar.onNotify();
         }
@@ -285,9 +285,9 @@ public class a {
     }
 
     public final void u() {
-        MessageManager.getInstance().registerListener(this.f55869h);
-        MessageManager.getInstance().registerListener(this.f55867f);
-        MessageManager.getInstance().registerListener(this.f55868g);
+        MessageManager.getInstance().registerListener(this.f59558h);
+        MessageManager.getInstance().registerListener(this.f59556f);
+        MessageManager.getInstance().registerListener(this.f59557g);
     }
 
     public final void v(VisitedForumData visitedForumData) {
@@ -299,33 +299,33 @@ public class a {
     }
 
     public void w(f fVar) {
-        this.f55866e = fVar;
+        this.f59555e = fVar;
     }
 
     public final void x(LinkedList<VisitedForumData> linkedList, boolean z) {
         if (linkedList == null) {
             return;
         }
-        this.f55862a.x(linkedList);
-        this.f55862a.y(20);
-        this.f55865d = z;
+        this.f59551a.B(linkedList);
+        this.f59551a.C(20);
+        this.f59554d = z;
         o();
     }
 
     public void y() {
-        if (this.f55863b) {
+        if (this.f59552b) {
             return;
         }
-        h0.b(new C1373a(), null);
+        h0.b(new C1429a(), null);
     }
 
     public a() {
-        this.f55863b = false;
-        this.f55864c = false;
-        this.f55867f = new c(2016564);
-        this.f55868g = new d(2005016);
-        this.f55869h = new e(CmdConfigHttp.CMD_GET_HISTORY_FORUM, 309601);
-        this.f55862a = new RecentlyVisitedForumData();
+        this.f59552b = false;
+        this.f59553c = false;
+        this.f59556f = new c(2016564);
+        this.f59557g = new d(2005016);
+        this.f59558h = new e(CmdConfigHttp.CMD_GET_HISTORY_FORUM, 309601);
+        this.f59551a = new RecentlyVisitedForumData();
         u();
         m();
     }

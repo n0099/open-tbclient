@@ -13,18 +13,18 @@ import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public PushDialogActivity f58141a;
+    public PushDialogActivity f61832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58142b;
+    public String f61833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f58143c;
+    public long f61834c;
 
     /* renamed from: d.a.n0.p2.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1470a extends d.a.c.c.g.a {
-        public C1470a(int i2, int i3) {
+    public class C1526a extends d.a.c.c.g.a {
+        public C1526a(int i2, int i3) {
             super(i2, i3);
         }
 
@@ -39,30 +39,30 @@ public class a {
     }
 
     public a(PushDialogActivity pushDialogActivity) {
-        this.f58141a = pushDialogActivity;
-        pushDialogActivity.registerListener(new C1470a(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
-        Intent intent = this.f58141a.getIntent();
+        this.f61832a = pushDialogActivity;
+        pushDialogActivity.registerListener(new C1526a(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
+        Intent intent = this.f61832a.getIntent();
         if (intent != null) {
-            this.f58142b = intent.getStringExtra("thread_id");
-            this.f58143c = intent.getLongExtra("task_id", 0L);
-            if (StringUtils.isNull(this.f58142b)) {
-                this.f58141a.finish();
+            this.f61833b = intent.getStringExtra("thread_id");
+            this.f61834c = intent.getLongExtra("task_id", 0L);
+            if (StringUtils.isNull(this.f61833b)) {
+                this.f61832a.finish();
             }
         }
     }
 
     public long c() {
-        return this.f58143c;
+        return this.f61834c;
     }
 
     public String d() {
-        return this.f58142b;
+        return this.f61833b;
     }
 
     public void e() {
-        long f2 = d.a.c.e.m.b.f(this.f58142b, 0L);
+        long f2 = d.a.c.e.m.b.f(this.f61833b, 0L);
         if (f2 == 0) {
-            PushDialogActivity pushDialogActivity = this.f58141a;
+            PushDialogActivity pushDialogActivity = this.f61832a;
             if (pushDialogActivity != null) {
                 pushDialogActivity.onNetCallback(false, null);
                 return;
@@ -70,20 +70,20 @@ public class a {
             return;
         }
         PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
-        pushDialogReqNetMsg.setTask_id(this.f58143c);
+        pushDialogReqNetMsg.setTask_id(this.f61834c);
         pushDialogReqNetMsg.setTid(f2);
         MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
     }
 
     public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        PushDialogActivity pushDialogActivity = this.f58141a;
+        PushDialogActivity pushDialogActivity = this.f61832a;
         if (pushDialogActivity != null) {
             pushDialogActivity.onNetCallback(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
         }
     }
 
     public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        PushDialogActivity pushDialogActivity = this.f58141a;
+        PushDialogActivity pushDialogActivity = this.f61832a;
         if (pushDialogActivity != null) {
             pushDialogActivity.onNetCallback(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
         }

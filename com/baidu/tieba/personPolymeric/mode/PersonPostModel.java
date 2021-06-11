@@ -27,7 +27,7 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.squareup.wire.Wire;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.j2.e.i;
 import d.a.n0.j2.e.j;
 import java.io.Serializable;
@@ -244,7 +244,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return arrayList;
         }
 
-        @Override // d.a.c.j.e.n
+        @Override // d.a.c.k.e.n
         public BdUniqueId getType() {
             return POST_INFO;
         }
@@ -438,7 +438,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
                 UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
                 if (userPostPageSocketResponsedMessage.getOrginalMessage() == null || userPostPageSocketResponsedMessage.hasError()) {
-                    PersonPostModel.this.mOnResult.R(null, PersonPostModel.this.mIsReset);
+                    PersonPostModel.this.mOnResult.T(null, PersonPostModel.this.mIsReset);
                     return;
                 }
                 if (userPostPageSocketResponsedMessage.getPersonPostModel() != null) {
@@ -447,7 +447,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.L(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.M(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                 }
             }
         }
@@ -465,7 +465,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
                 UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
                 if (userPostPageHttpResponseMessage.getOrginalMessage() == null || userPostPageHttpResponseMessage.hasError()) {
-                    PersonPostModel.this.mOnResult.R(null, PersonPostModel.this.mIsReset);
+                    PersonPostModel.this.mOnResult.T(null, PersonPostModel.this.mIsReset);
                     return;
                 }
                 if (userPostPageHttpResponseMessage.getPersonPostModel() != null) {
@@ -474,7 +474,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.L(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.M(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                 }
             }
         }
@@ -482,12 +482,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
     /* loaded from: classes5.dex */
     public interface c {
-        void L(PersonPostModel personPostModel, boolean z);
+        void M(PersonPostModel personPostModel, boolean z);
     }
 
     /* loaded from: classes5.dex */
     public interface d {
-        void R(PersonPostModel personPostModel, boolean z);
+        void T(PersonPostModel personPostModel, boolean z);
     }
 
     public PersonPostModel(TbPageContext<BaseFragmentActivity> tbPageContext, d dVar, boolean z, int i2) {
@@ -531,7 +531,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                 cardPersonDynamicThreadData.F = true;
                 cardPersonDynamicThreadData.E = true;
-                long j = cardPersonDynamicThreadData.f14279i * 1000;
+                long j = cardPersonDynamicThreadData.f14336i * 1000;
                 String yearBytime2 = StringHelper.getYearBytime(j);
                 String chineseMonthBytime = StringHelper.getChineseMonthBytime(j);
                 String dateBytime = StringHelper.getDateBytime(j);

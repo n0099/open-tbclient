@@ -16,16 +16,16 @@ import org.json.JSONObject;
 public class b extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45510c;
+    public String f49184c;
 
     /* loaded from: classes2.dex */
     public class a implements d.a.l0.a.w.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45511a;
+        public final /* synthetic */ CallbackHandler f49185a;
 
         public a(CallbackHandler callbackHandler) {
-            this.f45511a = callbackHandler;
+            this.f49185a = callbackHandler;
         }
 
         @Override // d.a.l0.a.w.a
@@ -43,13 +43,13 @@ public class b extends a0 {
                 jSONObject.put("charSet", str3);
                 jSONObject.put("result", str);
                 d.g("scanCode", jSONObject.toString());
-                this.f45511a.handleSchemeDispatchCallback(b.this.f45510c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                this.f49185a.handleSchemeDispatchCallback(b.this.f49184c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             } catch (JSONException e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e2.printStackTrace();
                 }
                 d.g("scanCode", "scanCode exec fail");
-                this.f45511a.handleSchemeDispatchCallback(b.this.f45510c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f49185a.handleSchemeDispatchCallback(b.this.f49184c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }
@@ -65,14 +65,14 @@ public class b extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         } else if (eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
         } else {
             String optString = w.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            this.f45510c = optString;
+            this.f49184c = optString;
             if (TextUtils.isEmpty(optString)) {
                 d.g("scanCode", "cb is empty");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);

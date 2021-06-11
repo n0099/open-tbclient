@@ -23,24 +23,24 @@ import d.a.l0.k.o;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f43061e = k.f43199a;
+    public static final boolean f46737e = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public n f43062a;
+    public n f46738a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAppMenuHeaderView f43063b;
+    public SwanAppMenuHeaderView f46739b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.l0.a.h0.g.d f43064c;
+    public d.a.l0.a.h0.g.d f46740c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f43065d;
+    public Context f46741d;
 
     /* renamed from: d.a.l0.a.j1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0722a implements d.a.l0.k.e {
-        public C0722a() {
+    public class C0778a implements d.a.l0.k.e {
+        public C0778a() {
         }
 
         @Override // d.a.l0.k.e
@@ -56,7 +56,7 @@ public class a {
 
         @Override // com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.e
         public void onClick(View view) {
-            a.this.f43062a.d();
+            a.this.f46738a.d();
             a.this.A();
         }
     }
@@ -68,7 +68,7 @@ public class a {
 
         @Override // com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.e
         public void onClick(View view) {
-            a.this.f43062a.d();
+            a.this.f46738a.d();
             a.this.u();
         }
     }
@@ -80,7 +80,7 @@ public class a {
 
         @Override // com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.f
         public boolean onLongClick(View view) {
-            a.this.f43062a.d();
+            a.this.f46738a.d();
             return a.this.w();
         }
     }
@@ -92,21 +92,21 @@ public class a {
 
         @Override // d.a.l0.a.q0.b.b
         public void a() {
-            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(a.this.f43065d, d.a.l0.a.h.swanapp_tip_net_unavailable);
+            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(a.this.f46741d, d.a.l0.a.h.swanapp_tip_net_unavailable);
             f2.l(2);
             f2.F();
         }
 
         @Override // d.a.l0.a.q0.b.b
         public void b() {
-            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(a.this.f43065d.getApplicationContext(), d.a.l0.a.h.aiapps_cancel_fav_fail);
+            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(a.this.f46741d.getApplicationContext(), d.a.l0.a.h.aiapps_cancel_fav_fail);
             f2.l(2);
             f2.F();
         }
 
         @Override // d.a.l0.a.q0.b.b
         public void c() {
-            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(a.this.f43065d.getApplicationContext(), d.a.l0.a.h.aiapps_cancel_fav_success);
+            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(a.this.f46741d.getApplicationContext(), d.a.l0.a.h.aiapps_cancel_fav_success);
             f2.l(2);
             f2.F();
             a.this.C();
@@ -117,22 +117,22 @@ public class a {
     public class f implements d.a.l0.a.q0.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f43071a;
+        public final /* synthetic */ String f46747a;
 
         public f(String str) {
-            this.f43071a = str;
+            this.f46747a = str;
         }
 
         @Override // d.a.l0.a.q0.b.a
         public void a() {
-            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(a.this.f43065d, d.a.l0.a.h.swanapp_tip_net_unavailable);
+            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(a.this.f46741d, d.a.l0.a.h.swanapp_tip_net_unavailable);
             f2.l(2);
             f2.F();
         }
 
         @Override // d.a.l0.a.q0.b.a
         public void b() {
-            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(a.this.f43065d.getApplicationContext(), d.a.l0.a.h.aiapps_fav_fail);
+            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(a.this.f46741d.getApplicationContext(), d.a.l0.a.h.aiapps_fav_fail);
             f2.l(2);
             f2.F();
         }
@@ -140,15 +140,15 @@ public class a {
         @Override // d.a.l0.a.q0.b.a
         public void c() {
             d.a.l0.a.j0.b.a.t();
-            if (!a.k(a.this.f43064c.h())) {
-                d.a.l0.a.z1.b.f.e g2 = d.a.l0.a.z1.b.f.e.g(a.this.f43065d, d.a.l0.a.c1.a.e0().f(a.this.f43065d));
+            if (!a.k(a.this.f46740c.h())) {
+                d.a.l0.a.z1.b.f.e g2 = d.a.l0.a.z1.b.f.e.g(a.this.f46741d, d.a.l0.a.c1.a.e0().f(a.this.f46741d));
                 g2.l(2);
                 g2.p(2);
                 g2.F();
                 a.this.C();
                 return;
             }
-            a.p("addmyswan", this.f43071a);
+            a.p("addmyswan", this.f46747a);
         }
     }
 
@@ -156,22 +156,22 @@ public class a {
     public static class g implements d.a.l0.a.q0.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f43073a;
+        public final /* synthetic */ Activity f46749a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f43074b;
+        public final /* synthetic */ h f46750b;
 
         public g(Activity activity, h hVar) {
-            this.f43073a = activity;
-            this.f43074b = hVar;
+            this.f46749a = activity;
+            this.f46750b = hVar;
         }
 
         @Override // d.a.l0.a.q0.b.a
         public void a() {
-            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(this.f43073a.getApplicationContext(), d.a.l0.a.h.swanapp_tip_net_unavailable);
+            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(this.f46749a.getApplicationContext(), d.a.l0.a.h.swanapp_tip_net_unavailable);
             f2.l(2);
             f2.F();
-            h hVar = this.f43074b;
+            h hVar = this.f46750b;
             if (hVar != null) {
                 hVar.onFail();
             }
@@ -179,10 +179,10 @@ public class a {
 
         @Override // d.a.l0.a.q0.b.a
         public void b() {
-            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(this.f43073a.getApplicationContext(), d.a.l0.a.h.aiapps_fav_fail);
+            d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(this.f46749a.getApplicationContext(), d.a.l0.a.h.aiapps_fav_fail);
             f2.l(2);
             f2.F();
-            h hVar = this.f43074b;
+            h hVar = this.f46750b;
             if (hVar != null) {
                 hVar.onFail();
             }
@@ -191,20 +191,20 @@ public class a {
         @Override // d.a.l0.a.q0.b.a
         public void c() {
             d.a.l0.a.j0.b.a.t();
-            if (a.k(this.f43073a)) {
-                h hVar = this.f43074b;
+            if (a.k(this.f46749a)) {
+                h hVar = this.f46750b;
                 if (hVar != null) {
                     hVar.onSuccess();
                     return;
                 }
                 return;
             }
-            Context applicationContext = this.f43073a.getApplicationContext();
+            Context applicationContext = this.f46749a.getApplicationContext();
             d.a.l0.a.z1.b.f.e g2 = d.a.l0.a.z1.b.f.e.g(applicationContext, d.a.l0.a.c1.a.e0().f(applicationContext));
             g2.l(2);
             g2.p(2);
             g2.F();
-            h hVar2 = this.f43074b;
+            h hVar2 = this.f46750b;
             if (hVar2 != null) {
                 hVar2.onSuccess();
             }
@@ -238,7 +238,7 @@ public class a {
         if (activity == null) {
             return;
         }
-        if (f43061e) {
+        if (f46737e) {
             Log.d("SwanAppMenuHelper", "change night mode");
         }
         boolean a2 = d.a.l0.a.c1.a.H().a();
@@ -283,13 +283,13 @@ public class a {
             return;
         }
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43189e = str;
+        fVar.f46865e = str;
         if (!TextUtils.isEmpty(str2)) {
             fVar.a("page", str2);
-            fVar.f43191g = str2;
+            fVar.f46867g = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            fVar.f43186b = str3;
+            fVar.f46862b = str3;
         }
         if (!TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str5)) {
             fVar.a(str4, str5);
@@ -310,71 +310,71 @@ public class a {
     }
 
     public final void A() {
-        if (f43061e) {
+        if (f46737e) {
             Log.d("SwanAppMenuHelper", "startAboutFragment");
         }
         d.a.l0.a.h0.g.g W = d.a.l0.a.g1.f.V().W();
         if (W == null) {
-            d.a.l0.a.z1.b.f.e.f(this.f43065d, d.a.l0.a.h.aiapps_open_fragment_failed_toast).F();
+            d.a.l0.a.z1.b.f.e.f(this.f46741d, d.a.l0.a.h.aiapps_open_fragment_failed_toast).F();
             return;
         }
         g.b i2 = W.i("navigateTo");
-        i2.n(d.a.l0.a.h0.g.g.f42076g, d.a.l0.a.h0.g.g.f42078i);
+        i2.n(d.a.l0.a.h0.g.g.f45752g, d.a.l0.a.h0.g.g.f45754i);
         i2.k("about", null).a();
         o("about");
     }
 
     public final void B() {
-        if (f43061e) {
+        if (f46737e) {
             Log.d("SwanAppMenuHelper", "startSettingFragment");
         }
-        d.a.l0.a.h0.g.g J1 = this.f43064c.J1();
+        d.a.l0.a.h0.g.g J1 = this.f46740c.J1();
         if (J1 == null) {
-            d.a.l0.a.z1.b.f.e.f(this.f43065d, d.a.l0.a.h.aiapps_open_fragment_failed_toast).F();
+            d.a.l0.a.z1.b.f.e.f(this.f46741d, d.a.l0.a.h.aiapps_open_fragment_failed_toast).F();
             return;
         }
         g.b i2 = J1.i("navigateTo");
-        i2.n(d.a.l0.a.h0.g.g.f42076g, d.a.l0.a.h0.g.g.f42078i);
+        i2.n(d.a.l0.a.h0.g.g.f45752g, d.a.l0.a.h0.g.g.f45754i);
         i2.k("authority", null).a();
         o("permission");
     }
 
     public final void C() {
-        this.f43063b.setAttentionBtnStates(d.a.l0.a.j0.b.a.n(d.a.l0.a.a2.d.g().getAppId()));
+        this.f46739b.setAttentionBtnStates(d.a.l0.a.j0.b.a.n(d.a.l0.a.a2.d.g().getAppId()));
     }
 
     public final boolean D() {
-        r0.b(this.f43065d).c(d.a.l0.a.l1.b.c(q0.n()));
+        r0.b(this.f46741d).c(d.a.l0.a.l1.b.c(q0.n()));
         return true;
     }
 
     public final void i() {
         b.a launchInfo;
         if (d.a.l0.a.u1.a.a.G()) {
-            if (f43061e) {
+            if (f46737e) {
                 Log.d("SwanAppMenuHelper", "in debug mode cannot add shortcut");
             }
-            d.a.l0.a.z1.b.f.e.f(this.f43065d.getApplicationContext(), d.a.l0.a.h.aiapps_debug_forbid_shortcut).F();
+            d.a.l0.a.z1.b.f.e.f(this.f46741d.getApplicationContext(), d.a.l0.a.h.aiapps_debug_forbid_shortcut).F();
             return;
         }
-        if (f43061e) {
+        if (f46737e) {
             Log.d("SwanAppMenuHelper", "add shortcut");
         }
         if (d.a.l0.a.a2.e.Q() != null) {
             launchInfo = d.a.l0.a.a2.e.Q().L();
         } else {
-            launchInfo = ((SwanAppActivity) this.f43064c.h()).getLaunchInfo();
+            launchInfo = ((SwanAppActivity) this.f46740c.h()).getLaunchInfo();
         }
-        d.a.l0.a.f2.a.i(this.f43064c.q(), launchInfo);
+        d.a.l0.a.f2.a.i(this.f46740c.q(), launchInfo);
         o("addshortcut");
     }
 
     public final void l(String str) {
         if (d.a.l0.a.u1.a.a.G()) {
-            if (f43061e) {
+            if (f46737e) {
                 Log.d("SwanAppMenuHelper", "in debug mode cannot add favor");
             }
-            d.a.l0.a.z1.b.f.e.f(this.f43065d.getApplicationContext(), d.a.l0.a.h.aiapps_debug_forbid_favor).F();
+            d.a.l0.a.z1.b.f.e.f(this.f46741d.getApplicationContext(), d.a.l0.a.h.aiapps_debug_forbid_favor).F();
             return;
         }
         String f2 = q0.n().f();
@@ -392,18 +392,18 @@ public class a {
     }
 
     public final void n() {
-        this.f43064c.C2();
+        this.f46740c.C2();
         o("share");
     }
 
     public final void s() {
-        d.a.l0.a.h0.g.g J1 = this.f43064c.J1();
+        d.a.l0.a.h0.g.g J1 = this.f46740c.J1();
         if (J1 == null) {
-            d.a.l0.a.z1.b.f.e.f(this.f43065d, d.a.l0.a.h.aiapps_open_fragment_failed_toast).F();
+            d.a.l0.a.z1.b.f.e.f(this.f46741d, d.a.l0.a.h.aiapps_open_fragment_failed_toast).F();
             return;
         }
         g.b i2 = J1.i("navigateTo");
-        i2.n(d.a.l0.a.h0.g.g.f42076g, d.a.l0.a.h0.g.g.f42078i);
+        i2.n(d.a.l0.a.h0.g.g.f45752g, d.a.l0.a.h0.g.g.f45754i);
         i2.k("settings", null).a();
         o("set");
     }
@@ -421,7 +421,7 @@ public class a {
     }
 
     public boolean v(o oVar) {
-        if (this.f43064c == null || this.f43065d == null) {
+        if (this.f46740c == null || this.f46741d == null) {
             return false;
         }
         int c2 = oVar.c();
@@ -429,7 +429,7 @@ public class a {
             n();
             return true;
         } else if (c2 == 5) {
-            j(this.f43064c.h());
+            j(this.f46740c.h());
             return true;
         } else if (c2 == 35) {
             i();
@@ -462,15 +462,15 @@ public class a {
 
     public final boolean w() {
         String string;
-        if (this.f43064c == null || this.f43065d == null) {
+        if (this.f46740c == null || this.f46741d == null) {
             return false;
         }
         if (D()) {
-            string = this.f43065d.getString(d.a.l0.a.h.swanapp_write_to_clipborad_succ);
+            string = this.f46741d.getString(d.a.l0.a.h.swanapp_write_to_clipborad_succ);
         } else {
-            string = this.f43065d.getString(d.a.l0.a.h.swanapp_write_to_clipborad_fail);
+            string = this.f46741d.getString(d.a.l0.a.h.swanapp_write_to_clipborad_fail);
         }
-        d.a.l0.a.z1.b.f.e g2 = d.a.l0.a.z1.b.f.e.g(this.f43065d, string);
+        d.a.l0.a.z1.b.f.e g2 = d.a.l0.a.z1.b.f.e.g(this.f46741d, string);
         g2.l(2);
         g2.F();
         return true;
@@ -483,10 +483,10 @@ public class a {
     }
 
     public final void y() {
-        if (f43061e) {
+        if (f46737e) {
             Log.d("SwanAppMenuHelper", "restart");
         }
-        Context context = this.f43065d;
+        Context context = this.f46741d;
         if (context == null) {
             return;
         }
@@ -495,29 +495,29 @@ public class a {
 
     public void z() {
         d.a.l0.a.a2.e r;
-        if (this.f43062a == null || this.f43064c == null || this.f43065d == null || (r = d.a.l0.a.a2.d.g().r()) == null) {
+        if (this.f46738a == null || this.f46740c == null || this.f46741d == null || (r = d.a.l0.a.a2.d.g().r()) == null) {
             return;
         }
         r.x();
-        this.f43062a.l(new C0722a());
-        SwanAppMenuHeaderView swanAppMenuHeaderView = this.f43063b;
+        this.f46738a.l(new C0778a());
+        SwanAppMenuHeaderView swanAppMenuHeaderView = this.f46739b;
         if (swanAppMenuHeaderView != null) {
             swanAppMenuHeaderView.setOnMenuHeaderClickListener(new b());
-            this.f43063b.setAttentionBtnShow(true);
-            this.f43063b.setOnAttentionBtnClickListener(new c());
+            this.f46739b.setAttentionBtnShow(true);
+            this.f46739b.setOnAttentionBtnClickListener(new c());
             if (r.m0()) {
                 return;
             }
-            this.f43063b.setOnMenuHeaderLongClickListener(new d());
+            this.f46739b.setOnMenuHeaderLongClickListener(new d());
         }
     }
 
     public a(n nVar, d.a.l0.a.h0.g.d dVar, SwanAppMenuHeaderView swanAppMenuHeaderView) {
-        this.f43062a = nVar;
-        this.f43063b = swanAppMenuHeaderView;
-        this.f43064c = dVar;
+        this.f46738a = nVar;
+        this.f46739b = swanAppMenuHeaderView;
+        this.f46740c = dVar;
         if (dVar != null) {
-            this.f43065d = dVar.q();
+            this.f46741d = dVar.q();
         }
     }
 }

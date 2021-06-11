@@ -9,36 +9,36 @@ import d.a.l0.a.k;
 public abstract class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f45268e = k.f43199a;
+    public static final boolean f48942e = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45270b;
+    public int f48944b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f45269a = new Bundle();
+    public Bundle f48943a = new Bundle();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45271c = "";
+    public String f48945c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public Bundle f45272d = new Bundle();
+    public Bundle f48946d = new Bundle();
 
     public abstract void b(@NonNull Bundle bundle);
 
     public void c() {
-        d(this.f45272d);
+        d(this.f48946d);
     }
 
     public void d(@Nullable Bundle bundle) {
-        if (f45268e) {
+        if (f48942e) {
             Log.d("MDelegate-Delegation", "messenger delegation finish");
         }
-        if (d.a.l0.a.v1.a.b.d.a.a(this.f45271c)) {
+        if (d.a.l0.a.v1.a.b.d.a.a(this.f48945c)) {
             return;
         }
-        if (f45268e) {
-            Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.f45270b + " observer: " + this.f45271c);
+        if (f48942e) {
+            Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.f48944b + " observer: " + this.f48945c);
         }
-        b.c(this.f45270b, this.f45271c, bundle);
+        b.c(this.f48944b, this.f48945c, bundle);
     }
 }

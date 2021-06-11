@@ -42,19 +42,19 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
     public Intent E;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<WriteVoteActivity> f63112e;
+    public TbPageContext<WriteVoteActivity> f66827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f63113f;
+    public LinearLayout f66828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NavigationBar f63114g;
+    public NavigationBar f66829g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdRecyclerView f63115h;
+    public BdRecyclerView f66830h;
 
     /* renamed from: i  reason: collision with root package name */
-    public WriteVoteViewAdapter f63116i;
+    public WriteVoteViewAdapter f66831i;
     public LinearLayout j;
     public LinearLayout k;
     public TextView l;
@@ -80,14 +80,14 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
 
         @Override // java.lang.Runnable
         public void run() {
-            l.K(b.this.f63112e.getPageActivity(), b.this.m);
+            l.K(b.this.f66827e.getPageActivity(), b.this.m);
         }
     }
 
     /* renamed from: d.a.n0.w3.u.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1729b implements TextWatcher {
-        public C1729b() {
+    public class C1786b implements TextWatcher {
+        public C1786b() {
         }
 
         @Override // android.text.TextWatcher
@@ -104,7 +104,7 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
             }
             String replace = obj.replace(" ", "");
             if (i0.d(replace) > 40) {
-                b.this.f63112e.showToast(String.format(b.this.f63112e.getString(R.string.write_vote_toast), 20));
+                b.this.f66827e.showToast(String.format(b.this.f66827e.getString(R.string.write_vote_toast), 20));
             }
             String m = i0.m(replace, 40);
             if (!m.equals(editable.toString())) {
@@ -136,19 +136,19 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f63116i.setData(b.this.n);
+                b.this.f66831i.setData(b.this.n);
             }
         }
 
         /* renamed from: d.a.n0.w3.u.p.b$c$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC1730b implements Runnable {
-            public RunnableC1730b() {
+        public class RunnableC1787b implements Runnable {
+            public RunnableC1787b() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f63116i.setData(b.this.n);
+                b.this.f66831i.setData(b.this.n);
             }
         }
 
@@ -158,7 +158,7 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
         @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.f
         public void a(int i2) {
             b.this.n.remove(i2);
-            b.this.f63115h.post(new RunnableC1730b());
+            b.this.f66830h.post(new RunnableC1787b());
             b bVar = b.this;
             bVar.D = bVar.v();
             b bVar2 = b.this;
@@ -168,7 +168,7 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
         @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.f
         public void b() {
             b.this.n.add(new WriteVoteItemData());
-            b.this.f63115h.post(new a());
+            b.this.f66830h.post(new a());
             b bVar = b.this;
             bVar.D = bVar.v();
             b bVar2 = b.this;
@@ -194,7 +194,7 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
         public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
             super.onScrollStateChanged(recyclerView, i2);
             if (i2 == 1 || i2 == 2) {
-                l.x(b.this.f63112e.getPageActivity(), recyclerView);
+                l.x(b.this.f66827e.getPageActivity(), recyclerView);
             }
         }
     }
@@ -212,7 +212,7 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
             for (int i2 = 0; i2 < size; i2++) {
                 WriteVoteItemData writeVoteItemData = u.get(i2);
                 if (hashMap.containsKey(writeVoteItemData.getText())) {
-                    b.this.f63112e.showToast(String.format(b.this.f63112e.getString(R.string.write_vote_repeat_toast), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i2 + 1)));
+                    b.this.f66827e.showToast(String.format(b.this.f66827e.getString(R.string.write_vote_repeat_toast), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i2 + 1)));
                     return;
                 }
                 hashMap.put(writeVoteItemData.getText(), Integer.valueOf(i2));
@@ -224,16 +224,16 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
             b.this.o.setOptions(u);
             b.this.E = new Intent();
             b.this.E.putExtra(IntentConfig.WRITE_VOTE_DATA, b.this.o);
-            b.this.f63112e.getPageActivity().finish();
+            b.this.f66827e.getPageActivity().finish();
             b bVar = b.this;
             bVar.F(bVar.q);
         }
     }
 
     public b(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
-        this.f63112e = tbPageContext;
-        this.f63113f = linearLayout;
-        this.f63114g = navigationBar;
+        this.f66827e = tbPageContext;
+        this.f66828f = linearLayout;
+        this.f66829g = navigationBar;
         Intent intent = tbPageContext.getPageActivity().getIntent();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("extra_data");
@@ -257,10 +257,10 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
     }
 
     public final void A() {
-        this.f63114g.setCenterTextTitle(this.f63112e.getResources().getString(R.string.write_add_vote));
-        TextView addTextButton = this.f63114g.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f63112e.getResources().getString(R.string.done));
+        this.f66829g.setCenterTextTitle(this.f66827e.getResources().getString(R.string.write_add_vote));
+        TextView addTextButton = this.f66829g.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f66827e.getResources().getString(R.string.done));
         this.z = addTextButton;
-        addTextButton.setTextSize(0, l.g(this.f63112e.getPageActivity(), R.dimen.tbds44));
+        addTextButton.setTextSize(0, l.g(this.f66827e.getPageActivity(), R.dimen.tbds44));
         this.z.setEnabled(false);
     }
 
@@ -283,12 +283,12 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
         if (this.p == null || WriteActivityConfig.isAsyncWriting()) {
             return;
         }
-        WriteActivityConfig.newInstance(this.f63112e.getPageActivity()).setType(9).setForumWriteData(this.p).setShowVoteData(this.o).setTitle(str).send();
+        WriteActivityConfig.newInstance(this.f66827e.getPageActivity()).setType(9).setForumWriteData(this.p).setShowVoteData(this.o).setTitle(str).send();
     }
 
     public final void G(TextView textView, boolean z) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(this.f63112e.getResources().getDimension(R.dimen.tbds10));
+        gradientDrawable.setCornerRadius(this.f66827e.getResources().getDimension(R.dimen.tbds10));
         if (z) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0302);
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0905));
@@ -334,7 +334,7 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
     @Override // d.a.m0.t0.a
     public boolean isOnViewTop() {
         LinearLayout linearLayout = this.j;
-        return linearLayout != null && this.f63115h != null && linearLayout.getTop() == 0 && this.f63115h.getFirstVisiblePosition() == 0;
+        return linearLayout != null && this.f66830h != null && linearLayout.getTop() == 0 && this.f66830h.getFirstVisiblePosition() == 0;
     }
 
     @Override // android.view.View.OnClickListener
@@ -374,7 +374,7 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
         }
         I();
         H();
-        WriteVoteViewAdapter writeVoteViewAdapter = this.f63116i;
+        WriteVoteViewAdapter writeVoteViewAdapter = this.f66831i;
         if (writeVoteViewAdapter != null) {
             writeVoteViewAdapter.notifyDataSetChanged();
         }
@@ -410,29 +410,29 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
     }
 
     public final void w() {
-        BdRecyclerView bdRecyclerView = new BdRecyclerView(this.f63112e.getPageActivity());
-        this.f63115h = bdRecyclerView;
-        bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.f63112e.getPageActivity()));
+        BdRecyclerView bdRecyclerView = new BdRecyclerView(this.f66827e.getPageActivity());
+        this.f66830h = bdRecyclerView;
+        bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.f66827e.getPageActivity()));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        layoutParams.topMargin = l.g(this.f63112e.getPageActivity(), R.dimen.tbds27);
-        this.f63113f.addView(this.f63115h, layoutParams);
-        WriteVoteViewAdapter writeVoteViewAdapter = new WriteVoteViewAdapter(this.f63112e);
-        this.f63116i = writeVoteViewAdapter;
-        this.f63115h.setAdapter(writeVoteViewAdapter);
+        layoutParams.topMargin = l.g(this.f66827e.getPageActivity(), R.dimen.tbds27);
+        this.f66828f.addView(this.f66830h, layoutParams);
+        WriteVoteViewAdapter writeVoteViewAdapter = new WriteVoteViewAdapter(this.f66827e);
+        this.f66831i = writeVoteViewAdapter;
+        this.f66830h.setAdapter(writeVoteViewAdapter);
         A();
         y();
         x();
         z();
-        this.f63115h.s(this.j);
-        this.f63115h.r(this.k);
-        this.f63116i.setData(this.n);
+        this.f66830h.s(this.j);
+        this.f66830h.r(this.k);
+        this.f66831i.setData(this.n);
         B();
         this.m.requestFocus();
         this.m.postDelayed(new a(), 150L);
     }
 
     public final void x() {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f63112e.getPageActivity()).inflate(R.layout.view_vote_footer, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f66827e.getPageActivity()).inflate(R.layout.view_vote_footer, (ViewGroup) null);
         this.k = linearLayout;
         this.r = (TextView) linearLayout.findViewById(R.id.write_vote_type);
         this.s = (TextView) this.k.findViewById(R.id.vote_type_single);
@@ -445,7 +445,7 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
     }
 
     public final void y() {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f63112e.getPageActivity()).inflate(R.layout.view_vote_header, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f66827e.getPageActivity()).inflate(R.layout.view_vote_header, (ViewGroup) null);
         this.j = linearLayout;
         this.l = (TextView) linearLayout.findViewById(R.id.vote_item_tip);
         this.m = (EditText) this.j.findViewById(R.id.vote_title);
@@ -458,9 +458,9 @@ public class b implements d.a.m0.t0.a, View.OnClickListener {
         this.w.setOnClickListener(this);
         this.x.setOnClickListener(this);
         this.y.setOnClickListener(this);
-        this.m.addTextChangedListener(new C1729b());
-        this.f63116i.g(new c());
-        this.f63115h.addOnScrollListener(new d());
+        this.m.addTextChangedListener(new C1786b());
+        this.f66831i.g(new c());
+        this.f66830h.addOnScrollListener(new d());
         this.z.setOnClickListener(new e());
     }
 }

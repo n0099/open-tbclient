@@ -9,34 +9,34 @@ import org.json.JSONObject;
 public class r extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65089e;
+    public final Context f68820e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i f65090f;
+    public final i f68821f;
 
     public r(Context context, i iVar) {
         super(false, false);
-        this.f65089e = context;
-        this.f65090f = iVar;
+        this.f68820e = context;
+        this.f68821f = iVar;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
         int i2;
         int i3;
-        String packageName = this.f65089e.getPackageName();
+        String packageName = this.f68820e.getPackageName();
         PackageInfo packageInfo = null;
-        if (TextUtils.isEmpty(this.f65090f.p())) {
+        if (TextUtils.isEmpty(this.f68821f.p())) {
             jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
         } else {
-            if (r0.f65092b) {
+            if (r0.f68823b) {
                 r0.a("has zijie pkg", null);
             }
-            jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.f65090f.p());
+            jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.f68821f.p());
             jSONObject.put("real_package_name", packageName);
         }
         try {
-            packageInfo = this.f65089e.getPackageManager().getPackageInfo(packageName, 0);
+            packageInfo = this.f68820e.getPackageManager().getPackageInfo(packageName, 0);
         } catch (Throwable unused) {
         }
         if (packageInfo != null) {
@@ -49,41 +49,41 @@ public class r extends h2 {
         } else {
             i2 = 0;
         }
-        if (!TextUtils.isEmpty(this.f65090f.g())) {
-            jSONObject.put("app_version", this.f65090f.g());
+        if (!TextUtils.isEmpty(this.f68821f.g())) {
+            jSONObject.put("app_version", this.f68821f.g());
         } else {
             jSONObject.put("app_version", packageInfo != null ? packageInfo.versionName : "");
         }
-        if (!TextUtils.isEmpty(this.f65090f.l())) {
-            jSONObject.put("app_version_minor", this.f65090f.l());
+        if (!TextUtils.isEmpty(this.f68821f.l())) {
+            jSONObject.put("app_version_minor", this.f68821f.l());
         } else {
             jSONObject.put("app_version_minor", "");
         }
-        if (this.f65090f.d() != 0) {
-            jSONObject.put("version_code", this.f65090f.d());
+        if (this.f68821f.d() != 0) {
+            jSONObject.put("version_code", this.f68821f.d());
         } else {
             jSONObject.put("version_code", i2);
         }
-        if (this.f65090f.e() != 0) {
-            jSONObject.put("update_version_code", this.f65090f.e());
+        if (this.f68821f.e() != 0) {
+            jSONObject.put("update_version_code", this.f68821f.e());
         } else {
             jSONObject.put("update_version_code", i2);
         }
-        if (this.f65090f.f() != 0) {
-            jSONObject.put("manifest_version_code", this.f65090f.f());
+        if (this.f68821f.f() != 0) {
+            jSONObject.put("manifest_version_code", this.f68821f.f());
         } else {
             jSONObject.put("manifest_version_code", i2);
         }
-        if (!TextUtils.isEmpty(this.f65090f.c())) {
-            jSONObject.put("app_name", this.f65090f.c());
+        if (!TextUtils.isEmpty(this.f68821f.c())) {
+            jSONObject.put("app_name", this.f68821f.c());
         }
-        if (!TextUtils.isEmpty(this.f65090f.h())) {
-            jSONObject.put("tweaked_channel", this.f65090f.h());
+        if (!TextUtils.isEmpty(this.f68821f.h())) {
+            jSONObject.put("tweaked_channel", this.f68821f.h());
         }
         if (packageInfo == null || packageInfo.applicationInfo == null || (i3 = packageInfo.applicationInfo.labelRes) <= 0) {
             return true;
         }
-        jSONObject.put("display_name", this.f65089e.getString(i3));
+        jSONObject.put("display_name", this.f68820e.getString(i3));
         return true;
     }
 }

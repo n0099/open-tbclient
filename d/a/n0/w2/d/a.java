@@ -16,48 +16,48 @@ import java.util.ArrayList;
 public class a extends BaseAdapter implements BdSwitchView.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f62640e;
+    public TbPageContext f66355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<OfficialAccountPushInfo> f62641f;
+    public ArrayList<OfficialAccountPushInfo> f66356f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdSwitchView.b f62642g;
+    public BdSwitchView.b f66357g;
 
     /* renamed from: d.a.n0.w2.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1702a {
+    public class C1759a {
 
         /* renamed from: a  reason: collision with root package name */
-        public MsgSettingItemView f62643a;
+        public MsgSettingItemView f66358a;
 
-        public C1702a(a aVar) {
+        public C1759a(a aVar) {
         }
     }
 
     public a(TbPageContext tbPageContext) {
-        this.f62640e = tbPageContext;
+        this.f66355e = tbPageContext;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
-        BdSwitchView.b bVar = this.f62642g;
+        BdSwitchView.b bVar = this.f66357g;
         if (bVar != null) {
             bVar.OnSwitchStateChange(view, switchState);
         }
     }
 
     public void a(ArrayList<OfficialAccountPushInfo> arrayList) {
-        this.f62641f = arrayList;
+        this.f66356f = arrayList;
     }
 
     public void b(BdSwitchView.b bVar) {
-        this.f62642g = bVar;
+        this.f66357g = bVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<OfficialAccountPushInfo> arrayList = this.f62641f;
+        ArrayList<OfficialAccountPushInfo> arrayList = this.f66356f;
         if (arrayList != null) {
             return arrayList.size();
         }
@@ -66,11 +66,11 @@ public class a extends BaseAdapter implements BdSwitchView.b {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        ArrayList<OfficialAccountPushInfo> arrayList = this.f62641f;
+        ArrayList<OfficialAccountPushInfo> arrayList = this.f66356f;
         if (arrayList == null || i2 < 0 || i2 >= arrayList.size()) {
             return null;
         }
-        return this.f62641f.get(i2);
+        return this.f66356f.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -83,30 +83,30 @@ public class a extends BaseAdapter implements BdSwitchView.b {
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
-        C1702a c1702a;
+        C1759a c1759a;
         if (view == null) {
-            view = LayoutInflater.from(this.f62640e.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
-            c1702a = new C1702a(this);
-            c1702a.f62643a = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
-            view.setTag(c1702a);
+            view = LayoutInflater.from(this.f66355e.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
+            c1759a = new C1759a(this);
+            c1759a.f66358a = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+            view.setTag(c1759a);
         } else {
-            c1702a = (C1702a) view.getTag();
+            c1759a = (C1759a) view.getTag();
         }
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i2);
         if (k.isEmpty(officialAccountPushInfo.name)) {
-            c1702a.f62643a.setVisibility(8);
+            c1759a.f66358a.setVisibility(8);
         } else {
-            c1702a.f62643a.setVisibility(0);
-            c1702a.f62643a.setText(officialAccountPushInfo.name);
+            c1759a.f66358a.setVisibility(0);
+            c1759a.f66358a.setText(officialAccountPushInfo.name);
             if (officialAccountPushInfo.is_on == 1) {
-                c1702a.f62643a.getSwitchView().k();
+                c1759a.f66358a.getSwitchView().k();
             } else {
-                c1702a.f62643a.getSwitchView().h();
+                c1759a.f66358a.getSwitchView().h();
             }
-            c1702a.f62643a.setLineVisibility(true);
-            c1702a.f62643a.c(this.f62640e, TbadkCoreApplication.getInst().getSkinType());
-            c1702a.f62643a.getSwitchView().setOnSwitchStateChangeListener(this);
-            c1702a.f62643a.getSwitchView().setTag(officialAccountPushInfo);
+            c1759a.f66358a.setLineVisibility(true);
+            c1759a.f66358a.c(this.f66355e, TbadkCoreApplication.getInst().getSkinType());
+            c1759a.f66358a.getSwitchView().setOnSwitchStateChangeListener(this);
+            c1759a.f66358a.getSwitchView().setTag(officialAccountPushInfo);
         }
         return view;
     }

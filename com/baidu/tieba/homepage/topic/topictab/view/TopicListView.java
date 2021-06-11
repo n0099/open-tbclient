@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.d0.h;
 import d.a.m0.r.f0.f;
 import d.a.m0.r.f0.g;
@@ -23,20 +23,20 @@ import java.util.List;
 public class TopicListView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16626e;
+    public int f16702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f16627f;
+    public TbPageContext<?> f16703f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.b1.j.b.a f16628g;
+    public d.a.n0.b1.k.b.a f16704g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdSwipeRefreshLayout f16629h;
+    public BdSwipeRefreshLayout f16705h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdTypeRecyclerView f16630i;
-    public d.a.n0.b1.j.b.b.a j;
+    public BdTypeRecyclerView f16706i;
+    public d.a.n0.b1.k.b.b.a j;
     public g k;
     public d.a.m0.d0.g l;
     public h m;
@@ -52,11 +52,11 @@ public class TopicListView extends FrameLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!j.A() || TopicListView.this.f16628g == null) {
+            if (!j.A() || TopicListView.this.f16704g == null) {
                 return;
             }
-            TopicListView.this.f16630i.setVisibility(0);
-            TopicListView.this.f16628g.loadData();
+            TopicListView.this.f16706i.setVisibility(0);
+            TopicListView.this.f16704g.loadData();
         }
     }
 
@@ -65,7 +65,7 @@ public class TopicListView extends FrameLayout {
         if (scrollFragmentTabHost != null) {
             scrollFragmentTabHost.R(this.q);
         }
-        this.f16630i.removeOnScrollListener(this.p);
+        this.f16706i.removeOnScrollListener(this.p);
         p();
         d();
         e();
@@ -88,8 +88,8 @@ public class TopicListView extends FrameLayout {
     }
 
     public void f() {
-        this.f16630i.removeOnScrollListener(this.p);
-        this.f16630i.addOnScrollListener(this.p);
+        this.f16706i.removeOnScrollListener(this.p);
+        this.f16706i.addOnScrollListener(this.p);
     }
 
     public boolean g() {
@@ -110,10 +110,10 @@ public class TopicListView extends FrameLayout {
 
     public void i() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f16626e) {
+        if (skinType == this.f16702e) {
             return;
         }
-        this.f16626e = skinType;
+        this.f16702e = skinType;
         g gVar = this.k;
         if (gVar != null) {
             gVar.I(skinType);
@@ -126,7 +126,7 @@ public class TopicListView extends FrameLayout {
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
-        d.a.n0.b1.j.b.b.a aVar = this.j;
+        d.a.n0.b1.k.b.b.a aVar = this.j;
         if (aVar != null) {
             aVar.a();
         }
@@ -138,7 +138,7 @@ public class TopicListView extends FrameLayout {
     }
 
     public void j() {
-        this.f16630i.setSelection(0);
+        this.f16706i.setSelection(0);
         o();
         ScrollFragmentTabHost.s sVar = this.q;
         if (sVar != null) {
@@ -147,7 +147,7 @@ public class TopicListView extends FrameLayout {
     }
 
     public void k() {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f16630i;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f16706i;
         if (bdTypeRecyclerView != null) {
             bdTypeRecyclerView.setVisibility(0);
         }
@@ -176,19 +176,19 @@ public class TopicListView extends FrameLayout {
         }
         this.m.attachView(this, z);
         this.m.o();
-        this.f16630i.setVisibility(8);
+        this.f16706i.setVisibility(8);
     }
 
     public void n() {
-        this.f16630i.setNextPage(this.o);
+        this.f16706i.setNextPage(this.o);
         this.o.f();
         this.o.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.o.r(l.g(this.f16627f.getPageActivity(), R.dimen.tbds150));
+        this.o.r(l.g(this.f16703f.getPageActivity(), R.dimen.tbds150));
         this.o.A(getResources().getString(R.string.really_great));
     }
 
     public void o() {
-        this.f16629h.setRefreshing(true);
+        this.f16705h.setRefreshing(true);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -198,7 +198,7 @@ public class TopicListView extends FrameLayout {
     }
 
     public void p() {
-        this.f16629h.setRefreshing(false);
+        this.f16705h.setRefreshing(false);
     }
 
     public void setData(List<n> list) {
@@ -216,7 +216,7 @@ public class TopicListView extends FrameLayout {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        d.a.n0.b1.j.b.b.a aVar = this.j;
+        d.a.n0.b1.k.b.b.a aVar = this.j;
         if (aVar != null) {
             aVar.c(bdUniqueId);
         }
@@ -226,8 +226,8 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public void setPresenter(d.a.n0.b1.j.b.a aVar) {
-        this.f16628g = aVar;
+    public void setPresenter(d.a.n0.b1.k.b.a aVar) {
+        this.f16704g = aVar;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {

@@ -67,8 +67,8 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
-            pageStayDurationItem.f49444i = String.valueOf(this.mPropId);
+            pageStayDurationItem.f53110a = true;
+            pageStayDurationItem.f53118i = String.valueOf(this.mPropId);
         }
         return pageStayDurationItem;
     }
@@ -94,7 +94,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         }
         BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.mPropId, this.mInUse);
         this.mModel = backgroundPreviewModel;
-        backgroundPreviewModel.x(this.mCallback);
+        backgroundPreviewModel.B(this.mCallback);
         j jVar = new j(this);
         this.mView = jVar;
         showLoadingView(jVar.f());

@@ -10,10 +10,10 @@ import d.a.n0.w3.g;
 public class e extends g {
 
     /* renamed from: h  reason: collision with root package name */
-    public a.b f62736h;
+    public a.b f66451h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f62737i;
+    public Animation f66452i;
     public Animation j;
 
     /* loaded from: classes5.dex */
@@ -56,10 +56,10 @@ public class e extends g {
 
     public e(Context context, a.b bVar) {
         super(context, bVar);
-        this.f62736h = bVar;
-        this.f62737i = AnimationUtils.loadAnimation(this.f62756a, R.anim.ubs_test_in_anim);
-        this.j = AnimationUtils.loadAnimation(this.f62756a, R.anim.ubs_test_out_anim);
-        this.f62737i.setAnimationListener(new a());
+        this.f66451h = bVar;
+        this.f66452i = AnimationUtils.loadAnimation(this.f66471a, R.anim.ubs_test_in_anim);
+        this.j = AnimationUtils.loadAnimation(this.f66471a, R.anim.ubs_test_out_anim);
+        this.f66452i.setAnimationListener(new a());
         this.j.setAnimationListener(new b());
     }
 
@@ -75,51 +75,51 @@ public class e extends g {
 
     @Override // d.a.n0.w3.g
     public void g() {
-        if (this.f62760e != 4) {
+        if (this.f66475e != 4) {
             return;
         }
-        this.f62760e = 1;
-        g.a aVar = this.f62759d;
+        this.f66475e = 1;
+        g.a aVar = this.f66474d;
         if (aVar != null) {
             aVar.a(1);
         }
         k();
-        this.f62736h.f62682f.startAnimation(this.f62737i);
+        this.f66451h.f66397f.startAnimation(this.f66452i);
     }
 
     @Override // d.a.n0.w3.g
     public void h() {
-        if (this.f62760e != 2) {
+        if (this.f66475e != 2) {
             return;
         }
-        this.f62760e = 3;
-        g.a aVar = this.f62759d;
+        this.f66475e = 3;
+        g.a aVar = this.f66474d;
         if (aVar != null) {
             aVar.a(3);
         }
         k();
-        this.f62736h.f62682f.startAnimation(this.j);
+        this.f66451h.f66397f.startAnimation(this.j);
     }
 
     public final void k() {
-        this.f62737i.cancel();
+        this.f66452i.cancel();
         this.j.cancel();
-        this.f62736h.f62682f.clearAnimation();
+        this.f66451h.f66397f.clearAnimation();
     }
 
     public final void l() {
-        this.f62736h.f62681e.setClickable(false);
-        this.f62760e = 4;
-        g.a aVar = this.f62759d;
+        this.f66451h.f66396e.setClickable(false);
+        this.f66475e = 4;
+        g.a aVar = this.f66474d;
         if (aVar != null) {
             aVar.a(4);
         }
     }
 
     public final void m() {
-        this.f62736h.f62681e.setClickable(true);
-        this.f62760e = 2;
-        g.a aVar = this.f62759d;
+        this.f66451h.f66396e.setClickable(true);
+        this.f66475e = 2;
+        g.a aVar = this.f66474d;
         if (aVar != null) {
             aVar.a(2);
         }

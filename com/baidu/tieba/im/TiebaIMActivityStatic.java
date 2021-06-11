@@ -180,12 +180,12 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f16982b == null || (tbPageContext = aVar.f16981a) == null) {
+            if (aVar.f17058b == null || (tbPageContext = aVar.f17057a) == null) {
                 return;
             }
             MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
-            msgMultiImageTextViewItemAdapter.j0(true);
-            aVar.f16982b.add(msgMultiImageTextViewItemAdapter);
+            msgMultiImageTextViewItemAdapter.k0(true);
+            aVar.f17058b.add(msgMultiImageTextViewItemAdapter);
         }
     }
 
@@ -196,17 +196,17 @@ public class TiebaIMActivityStatic {
         public class a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LinkedList f16947a;
+            public final /* synthetic */ LinkedList f17023a;
 
             public a(h hVar, LinkedList linkedList) {
-                this.f16947a = linkedList;
+                this.f17023a = linkedList;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.m0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                return d.a.n0.f1.h.l.t().a(this.f16947a);
+                return d.a.n0.f1.h.l.t().a(this.f17023a);
             }
         }
 
@@ -214,20 +214,20 @@ public class TiebaIMActivityStatic {
         public class b implements d.a.m0.z0.n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomMessage f16948a;
+            public final /* synthetic */ CustomMessage f17024a;
 
             public b(h hVar, CustomMessage customMessage) {
-                this.f16948a = customMessage;
+                this.f17024a = customMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.m0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
-                if (((OfficalBarChatActivityConfig) this.f16948a.getData()).getUserData().getUserIdLong() == 0) {
+                if (((OfficalBarChatActivityConfig) this.f17024a.getData()).getUserData().getUserIdLong() == 0) {
                     return;
                 }
-                ((OfficalBarChatActivityConfig) this.f16948a.getData()).startActivity(OfficialBarChatActivity.class);
+                ((OfficalBarChatActivityConfig) this.f17024a.getData()).startActivity(OfficialBarChatActivity.class);
             }
         }
 
@@ -330,16 +330,16 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f16982b == null || (tbPageContext = aVar.f16981a) == null) {
+            if (aVar.f17058b == null || (tbPageContext = aVar.f17057a) == null) {
                 return;
             }
             MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter = new MsgPhotoLiveItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_PHOTOLIVE);
-            msgPhotoLiveItemAdapter.i0(true);
-            aVar.f16982b.add(msgPhotoLiveItemAdapter);
-            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f16981a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
-            msgActivityViewItemAdapter.i0(true);
+            msgPhotoLiveItemAdapter.j0(true);
+            aVar.f17058b.add(msgPhotoLiveItemAdapter);
+            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f17057a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
             msgActivityViewItemAdapter.j0(true);
-            aVar.f16982b.add(msgActivityViewItemAdapter);
+            msgActivityViewItemAdapter.k0(true);
+            aVar.f17058b.add(msgActivityViewItemAdapter);
         }
     }
 

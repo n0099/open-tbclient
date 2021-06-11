@@ -5,31 +5,31 @@ import tbclient.HotForum.HotTopicList;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f58059a;
+    public long f61750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58060b;
+    public String f61751b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58061c;
+    public int f61752c;
 
     public long a() {
-        return this.f58059a;
+        return this.f61750a;
     }
 
     public String b() {
-        return this.f58060b;
+        return this.f61751b;
     }
 
     public int c() {
-        return this.f58061c;
+        return this.f61752c;
     }
 
     public void d(HotTopicList hotTopicList) {
         if (hotTopicList != null) {
-            this.f58059a = hotTopicList.topic_id.longValue();
-            this.f58060b = hotTopicList.topic_name;
-            this.f58061c = hotTopicList.tag.intValue();
+            this.f61750a = hotTopicList.topic_id.longValue();
+            this.f61751b = hotTopicList.topic_name;
+            this.f61752c = hotTopicList.tag.intValue();
         }
     }
 }

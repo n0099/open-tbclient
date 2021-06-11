@@ -14,31 +14,31 @@ public class a {
     public String E;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41789a;
+    public String f45465a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41790b;
+    public String f45466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41791c;
+    public String f45467c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41792d;
+    public String f45468d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41793e;
+    public String f45469e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41794f;
+    public String f45470f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f41795g;
+    public String f45471g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f41796h;
+    public String f45472h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f41797i;
+    public String f45473i;
     public String j;
     public String k;
     public String l;
@@ -61,15 +61,15 @@ public class a {
         a aVar = new a();
         if (jSONObject != null) {
             jSONObject.optString("photoFilePath");
-            aVar.f41789a = jSONObject.optString("nickName");
-            aVar.f41790b = jSONObject.optString("lastName");
-            aVar.f41791c = jSONObject.optString("middleName");
-            aVar.f41792d = jSONObject.optString("firstName");
-            aVar.f41793e = jSONObject.optString("remark");
-            aVar.f41794f = jSONObject.optString("mobilePhoneNumber");
-            aVar.f41795g = jSONObject.optString("weChatNumber");
-            aVar.f41796h = jSONObject.optString("addressCountry");
-            aVar.f41797i = jSONObject.optString("addressState");
+            aVar.f45465a = jSONObject.optString("nickName");
+            aVar.f45466b = jSONObject.optString("lastName");
+            aVar.f45467c = jSONObject.optString("middleName");
+            aVar.f45468d = jSONObject.optString("firstName");
+            aVar.f45469e = jSONObject.optString("remark");
+            aVar.f45470f = jSONObject.optString("mobilePhoneNumber");
+            aVar.f45471g = jSONObject.optString("weChatNumber");
+            aVar.f45472h = jSONObject.optString("addressCountry");
+            aVar.f45473i = jSONObject.optString("addressState");
             aVar.j = jSONObject.optString("addressCity");
             aVar.k = jSONObject.optString("addressStreet");
             aVar.l = jSONObject.optString("addressPostalCode");
@@ -107,11 +107,11 @@ public class a {
 
     public String c() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.f41796h)) {
-            sb.append(this.f41796h);
+        if (!TextUtils.isEmpty(this.f45472h)) {
+            sb.append(this.f45472h);
         }
-        if (!TextUtils.isEmpty(this.f41797i)) {
-            sb.append(this.f41797i);
+        if (!TextUtils.isEmpty(this.f45473i)) {
+            sb.append(this.f45473i);
         }
         if (!TextUtils.isEmpty(this.j)) {
             sb.append(this.j);
@@ -128,14 +128,14 @@ public class a {
 
     public String d() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.f41790b)) {
-            sb.append(this.f41790b);
+        if (!TextUtils.isEmpty(this.f45466b)) {
+            sb.append(this.f45466b);
         }
-        if (!TextUtils.isEmpty(this.f41791c)) {
-            sb.append(this.f41791c);
+        if (!TextUtils.isEmpty(this.f45467c)) {
+            sb.append(this.f45467c);
         }
-        if (!TextUtils.isEmpty(this.f41792d)) {
-            sb.append(this.f41792d);
+        if (!TextUtils.isEmpty(this.f45468d)) {
+            sb.append(this.f45468d);
         }
         return sb.toString();
     }
@@ -198,7 +198,7 @@ public class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 2);
-        contentValues.put("data1", this.f41794f);
+        contentValues.put("data1", this.f45470f);
         return contentValues;
     }
 
@@ -206,7 +206,7 @@ public class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put("mimetype", "vnd.android.cursor.item/nickname");
         contentValues.put("data2", (Integer) 1);
-        contentValues.put("data1", this.f41789a);
+        contentValues.put("data1", this.f45465a);
         return contentValues;
     }
 
@@ -222,7 +222,7 @@ public class a {
     public ContentValues m() {
         ContentValues contentValues = new ContentValues();
         contentValues.put("mimetype", "vnd.android.cursor.item/note");
-        contentValues.put("data1", this.f41793e);
+        contentValues.put("data1", this.f45469e);
         return contentValues;
     }
 
@@ -239,7 +239,7 @@ public class a {
         contentValues.put("mimetype", "vnd.android.cursor.item/im");
         contentValues.put("data5", (Integer) (-1));
         contentValues.put("data6", AppRuntime.getAppContext().getString(h.aiapps_cantact_wechat_lable));
-        contentValues.put("data1", this.f41795g);
+        contentValues.put("data1", this.f45471g);
         return contentValues;
     }
 
@@ -290,6 +290,6 @@ public class a {
     }
 
     public boolean t() {
-        return !TextUtils.isEmpty(this.f41792d);
+        return !TextUtils.isEmpty(this.f45468d);
     }
 }

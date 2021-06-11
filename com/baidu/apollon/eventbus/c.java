@@ -9,30 +9,30 @@ import com.baidu.apollon.eventbus.EventBus;
 public final class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f3695a;
+    public final e f3714a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f3696b;
+    public final int f3715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f3697c;
+    public final b f3716c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3698d;
+    public boolean f3717d;
 
     public c(b bVar, Looper looper, int i2) {
         super(looper);
-        this.f3697c = bVar;
-        this.f3696b = i2;
-        this.f3695a = new e();
+        this.f3716c = bVar;
+        this.f3715b = i2;
+        this.f3714a = new e();
     }
 
     public void a(g gVar, EventBus.Event event) {
         d a2 = d.a(gVar, event);
         synchronized (this) {
-            this.f3695a.a(a2);
-            if (!this.f3698d) {
-                this.f3698d = true;
+            this.f3714a.a(a2);
+            if (!this.f3717d) {
+                this.f3717d = true;
                 if (!sendMessage(obtainMessage())) {
                     throw new EventBusException("Could not send handler message");
                 }
@@ -45,25 +45,25 @@ public final class c extends Handler {
         try {
             long uptimeMillis = SystemClock.uptimeMillis();
             do {
-                d a2 = this.f3695a.a();
+                d a2 = this.f3714a.a();
                 if (a2 == null) {
                     synchronized (this) {
-                        a2 = this.f3695a.a();
+                        a2 = this.f3714a.a();
                         if (a2 == null) {
-                            this.f3698d = false;
+                            this.f3717d = false;
                             return;
                         }
                     }
                 }
-                this.f3697c.a(a2);
-            } while (SystemClock.uptimeMillis() - uptimeMillis < this.f3696b);
+                this.f3716c.a(a2);
+            } while (SystemClock.uptimeMillis() - uptimeMillis < this.f3715b);
             if (sendMessage(obtainMessage())) {
-                this.f3698d = true;
+                this.f3717d = true;
                 return;
             }
             throw new EventBusException("Could not send handler message");
         } finally {
-            this.f3698d = false;
+            this.f3717d = false;
         }
     }
 }

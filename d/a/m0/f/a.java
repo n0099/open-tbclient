@@ -21,21 +21,21 @@ import d.a.c.e.p.l;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f49359d;
+    public static a f53033d;
 
     /* renamed from: a  reason: collision with root package name */
-    public CustomMessageListener f49360a = new C1122a(2000994);
+    public CustomMessageListener f53034a = new C1178a(2000994);
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49361b = false;
+    public boolean f53035b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f49362c = new b(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+    public HttpMessageListener f53036c = new b(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
 
     /* renamed from: d.a.m0.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1122a extends CustomMessageListener {
-        public C1122a(int i2) {
+    public class C1178a extends CustomMessageListener {
+        public C1178a(int i2) {
             super(i2);
         }
 
@@ -58,7 +58,7 @@ public class a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003392 && (httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
-                a.this.f49361b = false;
+                a.this.f53035b = false;
                 CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
                 if (checkBaiduSimResponseMessage.isSuc) {
                     d.a.m0.r.d0.b.j().x("key_baidu_sim_card_writting_tip", checkBaiduSimResponseMessage.isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free) : "");
@@ -69,30 +69,30 @@ public class a {
     }
 
     public static a d() {
-        if (f49359d == null) {
-            f49359d = new a();
+        if (f53033d == null) {
+            f53033d = new a();
         }
-        return f49359d;
+        return f53033d;
     }
 
     public final void c() {
-        if (!TbadkCoreApplication.getInst().isMainProcess(false) || this.f49361b) {
+        if (!TbadkCoreApplication.getInst().isMainProcess(false) || this.f53035b) {
             return;
         }
-        this.f49361b = true;
+        this.f53035b = true;
         if (System.currentTimeMillis() >= d.a.m0.r.d0.b.j().l("key_next_check_baidu_sim_time", 0L)) {
             d.a.m0.r.d0.b.j().w("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
             tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            MessageManager.getInstance().registerListener(this.f49362c);
+            MessageManager.getInstance().registerListener(this.f53036c);
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
             httpMessage.addParam("localip", UtilHelper.getGprsIpv4Address());
             httpMessage.addParam("network", e());
             MessageManager.getInstance().sendMessage(httpMessage);
             return;
         }
-        this.f49361b = false;
+        this.f53035b = false;
     }
 
     public final String e() {
@@ -101,6 +101,6 @@ public class a {
     }
 
     public void f() {
-        MessageManager.getInstance().registerListener(this.f49360a);
+        MessageManager.getInstance().registerListener(this.f53034a);
     }
 }

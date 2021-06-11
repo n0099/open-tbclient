@@ -8,39 +8,39 @@ import d.a.t0.e.e;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64651b = "UnionIDHelper";
+    public static String f68369b = "UnionIDHelper";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f64652c = false;
+    public static boolean f68370c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f64653d;
+    public static c f68371d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64654a;
+    public Context f68372a;
 
     /* loaded from: classes5.dex */
     public class a implements d.a.t0.e.f.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f64655a;
+        public final /* synthetic */ b f68373a;
 
         public a(c cVar, b bVar) {
-            this.f64655a = bVar;
+            this.f68373a = bVar;
         }
 
         @Override // d.a.t0.e.f.b
         public void a(d.a.t0.e.f.c cVar) {
-            if (c.f64652c) {
-                String str = c.f64651b;
+            if (c.f68370c) {
+                String str = c.f68369b;
                 Log.d(str, "异步回调 结果:" + cVar);
-                String str2 = c.f64651b;
+                String str2 = c.f68369b;
                 StringBuilder sb = new StringBuilder();
                 sb.append("异步回调 (listener != null):");
-                sb.append(this.f64655a != null);
+                sb.append(this.f68373a != null);
                 Log.d(str2, sb.toString());
             }
-            b bVar = this.f64655a;
+            b bVar = this.f68373a;
             if (bVar != null) {
                 bVar.a(0, cVar == null ? null : new d.a.t0.a(cVar.c(), cVar.h(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
             }
@@ -48,23 +48,23 @@ public class c {
     }
 
     public c(Context context) {
-        this.f64654a = context.getApplicationContext();
+        this.f68372a = context.getApplicationContext();
     }
 
     public static c c(Context context) {
-        if (f64653d == null) {
+        if (f68371d == null) {
             synchronized (c.class) {
-                if (f64653d == null) {
-                    f64653d = new c(context);
+                if (f68371d == null) {
+                    f68371d = new c(context);
                     d.a.t0.e.a.c(context);
                 }
             }
         }
-        return f64653d;
+        return f68371d;
     }
 
     public void d(d dVar, b bVar, Looper looper) {
-        e.o().i(this.f64654a, looper, new a(this, bVar));
+        e.o().i(this.f68372a, looper, new a(this, bVar));
     }
 
     public void e(b bVar) {

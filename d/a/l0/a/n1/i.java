@@ -29,33 +29,33 @@ public class i extends d.a.l0.a.n1.a {
     public class a implements StatResponseCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43700e;
+        public final /* synthetic */ String f47376e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HttpUrl f43701f;
+        public final /* synthetic */ HttpUrl f47377f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f43702g;
+        public final /* synthetic */ String f47378g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f43703h;
+        public final /* synthetic */ int f47379h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ long f43704i;
+        public final /* synthetic */ long f47380i;
         public final /* synthetic */ c j;
 
         public a(i iVar, String str, HttpUrl httpUrl, String str2, int i2, long j, c cVar) {
-            this.f43700e = str;
-            this.f43701f = httpUrl;
-            this.f43702g = str2;
-            this.f43703h = i2;
-            this.f43704i = j;
+            this.f47376e = str;
+            this.f47377f = httpUrl;
+            this.f47378g = str2;
+            this.f47379h = i2;
+            this.f47380i = j;
             this.j = cVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public void onFail(Exception exc) {
-            d.a.l0.a.j2.k.z(this.f43702g, this.f43703h, null, this.f43704i, System.currentTimeMillis());
+            d.a.l0.a.j2.k.z(this.f47378g, this.f47379h, null, this.f47380i, System.currentTimeMillis());
             if (exc instanceof IOException) {
                 this.j.onFailure(null, (IOException) exc);
             } else {
@@ -69,8 +69,8 @@ public class i extends d.a.l0.a.n1.a {
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public Object parseResponse(Response response, int i2, NetworkStatRecord networkStatRecord) throws Exception {
-            d.a.l0.a.h0.q.b.g().u(this.f43700e, this.f43701f, networkStatRecord);
-            d.a.l0.a.j2.k.z(this.f43702g, this.f43703h, networkStatRecord, this.f43704i, System.currentTimeMillis());
+            d.a.l0.a.h0.q.b.g().u(this.f47376e, this.f47377f, networkStatRecord);
+            d.a.l0.a.j2.k.z(this.f47378g, this.f47379h, networkStatRecord, this.f47380i, System.currentTimeMillis());
             this.j.onResponse(null, response);
             return response;
         }
@@ -80,21 +80,21 @@ public class i extends d.a.l0.a.n1.a {
     public class b implements d.a.l0.a.v2.e1.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43705e;
+        public final /* synthetic */ CallbackHandler f47381e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43706f;
+        public final /* synthetic */ String f47382f;
 
         public b(i iVar, CallbackHandler callbackHandler, String str) {
-            this.f43705e = callbackHandler;
-            this.f43706f = str;
+            this.f47381e = callbackHandler;
+            this.f47382f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(String str) {
-            this.f43705e.handleSchemeDispatchCallback(this.f43706f, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
+            this.f47381e.handleSchemeDispatchCallback(this.f47382f, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
         }
     }
 
@@ -102,60 +102,60 @@ public class i extends d.a.l0.a.n1.a {
     public class c implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.l0.a.a2.e f43707a;
+        public d.a.l0.a.a2.e f47383a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f43708b;
+        public JSONObject f47384b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f43709c;
+        public String f47385c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f43710d;
+        public String f47386d;
 
         /* renamed from: e  reason: collision with root package name */
-        public CallbackHandler f43711e;
+        public CallbackHandler f47387e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f43712f;
+        public String f47388f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f43713g = System.currentTimeMillis();
+        public long f47389g = System.currentTimeMillis();
 
         public c(@NonNull d.a.l0.a.a2.e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, CallbackHandler callbackHandler, @NonNull String str3) {
-            this.f43707a = eVar;
-            this.f43708b = jSONObject;
-            this.f43709c = str;
-            this.f43710d = str2;
-            this.f43711e = callbackHandler;
-            this.f43712f = str3;
+            this.f47383a = eVar;
+            this.f47384b = jSONObject;
+            this.f47385c = str;
+            this.f47386d = str2;
+            this.f47387e = callbackHandler;
+            this.f47388f = str3;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("RequestAction", "onFailure: " + iOException.getMessage());
             }
-            int G = this.f43707a.N().G();
+            int G = this.f47383a.N().G();
             String l = d.a.l0.a.j2.k.l();
             String f2 = q0.n().f();
-            SwanAppNetworkUtils.a(d.a.l0.m.e.a.g().getOkHttpClient(), this.f43710d);
-            this.f43711e.handleSchemeDispatchCallback(this.f43712f, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
-            d.a.l0.a.j2.k.K(0, this.f43709c, G, iOException.getMessage(), l, f2, this.f43713g, System.currentTimeMillis());
+            SwanAppNetworkUtils.a(d.a.l0.m.e.a.g().getOkHttpClient(), this.f47386d);
+            this.f47387e.handleSchemeDispatchCallback(this.f47388f, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
+            d.a.l0.a.j2.k.K(0, this.f47385c, G, iOException.getMessage(), l, f2, this.f47389g, System.currentTimeMillis());
         }
 
         @Override // okhttp3.Callback
         public void onResponse(Call call, Response response) {
-            if (!d.a.l0.a.j2.k.n(this.f43709c)) {
-                d.a.l0.a.l2.b.l().x(this.f43709c, response.headers("Set-cookie"));
+            if (!d.a.l0.a.j2.k.n(this.f47385c)) {
+                d.a.l0.a.l2.b.l().x(this.f47385c, response.headers("Set-cookie"));
             }
-            String B = d.a.l0.a.u.e.j.g.B(this.f43708b);
-            String D = d.a.l0.a.u.e.j.g.D(this.f43708b);
-            int G = this.f43707a.N().G();
+            String B = d.a.l0.a.u.e.j.g.B(this.f47384b);
+            String D = d.a.l0.a.u.e.j.g.D(this.f47384b);
+            int G = this.f47383a.N().G();
             long currentTimeMillis = System.currentTimeMillis();
             String l = d.a.l0.a.j2.k.l();
             String f2 = q0.n().f();
-            String optString = this.f43708b.optString("cb");
+            String optString = this.f47384b.optString("cb");
             try {
                 long C = d.a.l0.a.u.e.j.g.C(response);
                 if (C <= Config.FULL_TRACE_LOG_LIMIT) {
@@ -164,23 +164,23 @@ public class i extends d.a.l0.a.n1.a {
                     jSONObject.put("header", d.a.l0.a.n1.a.s(response.headers()));
                     d.a.l0.a.u.e.j.g.J(jSONObject, response.body(), B, D);
                     i.this.y(jSONObject);
-                    this.f43711e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+                    this.f47387e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                 } else {
-                    d.a.l0.a.u.e.j.g.K(this.f43707a, this.f43709c, C, currentTimeMillis);
-                    this.f43711e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, "response json length over limits").toString());
+                    d.a.l0.a.u.e.j.g.K(this.f47383a, this.f47385c, C, currentTimeMillis);
+                    this.f47387e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, "response json length over limits").toString());
                 }
             } catch (IOException | JSONException e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("RequestAction", Log.getStackTraceString(e2));
                 }
-                this.f43711e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
+                this.f47387e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
             }
             int code = response.code();
             String message = response.message();
-            if (a0.f40949b) {
-                Log.d("RequestAction", "onResponse: respCode: " + code + ", url=" + this.f43709c + ", msg=" + message);
+            if (a0.f44625b) {
+                Log.d("RequestAction", "onResponse: respCode: " + code + ", url=" + this.f47385c + ", msg=" + message);
             }
-            d.a.l0.a.j2.k.K(code, this.f43709c, G, message, l, f2, this.f43713g, System.currentTimeMillis());
+            d.a.l0.a.j2.k.K(code, this.f47385c, G, message, l, f2, this.f47389g, System.currentTimeMillis());
         }
     }
 
@@ -205,11 +205,11 @@ public class i extends d.a.l0.a.n1.a {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("Api-Request", "request with scheme : " + unitedSchemeEntity.getParam("params"));
         }
         if (k(eVar, unitedSchemeEntity)) {
-            String a2 = d.a.l0.a.u.e.j.h.a(eVar.f40749f);
+            String a2 = d.a.l0.a.u.e.j.h.a(eVar.f44425f);
             if (A(eVar, unitedSchemeEntity, callbackHandler, a2)) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n(a2), 0));
                 return true;

@@ -14,59 +14,59 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f64342e;
+    public static volatile a f68060e;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64343a;
+    public int f68061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64344b = "";
+    public String f68062b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f64345c;
+    public Context f68063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64346d;
+    public boolean f68064d;
 
     public static a d() {
-        if (f64342e == null) {
+        if (f68060e == null) {
             synchronized (a.class) {
-                if (f64342e == null) {
-                    f64342e = new a();
+                if (f68060e == null) {
+                    f68060e = new a();
                 }
             }
         }
-        return f64342e;
+        return f68060e;
     }
 
     public String a() {
-        return this.f64344b;
+        return this.f68062b;
     }
 
     public boolean b() {
-        return this.f64346d;
+        return this.f68064d;
     }
 
     public int c() {
-        return this.f64343a;
+        return this.f68061a;
     }
 
     public void e(Context context, String str, int i2, boolean z) {
-        this.f64344b = str;
+        this.f68062b = str;
         if (context != null) {
-            this.f64345c = context.getApplicationContext();
+            this.f68063c = context.getApplicationContext();
         }
-        this.f64343a = i2;
-        this.f64346d = z;
+        this.f68061a = i2;
+        this.f68064d = z;
     }
 
     public void f(JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
         byte[] a2;
-        if (TextUtils.isEmpty(this.f64344b) || this.f64345c == null || jSONArray == null || jSONArray.length() == 0) {
+        if (TextUtils.isEmpty(this.f68062b) || this.f68063c == null || jSONArray == null || jSONArray.length() == 0) {
             c.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
             return;
         }
-        Context context = this.f64345c;
+        Context context = this.f68063c;
         if (jSONArray == null || jSONArray.length() == 0) {
             c.a("UBCUploader", "upload json is null");
             return;
@@ -101,9 +101,9 @@ public class a {
         d dVar = new d(context);
         d.a.r.a.b.a a4 = d.a.r.a.b.a.a(context);
         if (context == null || TextUtils.isEmpty(dVar.a())) {
-            dVar.b(d.a.r.a.b.a.f64348d, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes());
+            dVar.b(d.a.r.a.b.a.f68066d, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes());
         } else if (z3) {
-            d.a.r.a.c.a.a().b(new a.RunnableC1799a(dVar, bArr, dVar));
+            d.a.r.a.c.a.a().b(new a.RunnableC1857a(dVar, bArr, dVar));
         } else {
             a4.e(dVar.b(), dVar.a(), bArr, dVar.d(), dVar.c(), dVar);
         }

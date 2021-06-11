@@ -25,7 +25,6 @@ import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.mobads.container.util.SendLogUtil;
 import com.baidu.mobads.sdk.api.IOAdEvent;
 import com.baidu.mobads.sdk.api.IOAdEventListener;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -168,7 +167,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                 adsApkDownloader.cancel();
                 return getDownloadStatus(str);
             }
-            return getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "no available downloader");
+            return getCallbackParams("202", "no available downloader");
         } catch (Throwable unused) {
             return null;
         }
@@ -420,7 +419,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                 adsApkDownloader.pause();
                 return getDownloadStatus(str);
             }
-            return getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "no available downloader");
+            return getCallbackParams("202", "no available downloader");
         } catch (Throwable unused) {
             return null;
         }
@@ -476,7 +475,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                         if (BaiduAppJsBridgeHandler.this.mIsAppBackground && AppUtils.isForeground(BaiduAppJsBridgeHandler.this.mContext, BaiduAppJsBridgeHandler.this.mContext.getPackageName())) {
                             JSONObject startDownloader = BaiduAppJsBridgeHandler.this.startDownloader(str2, str);
                             if (startDownloader == null) {
-                                startDownloader = BaiduAppJsBridgeHandler.this.getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "download_failed");
+                                startDownloader = BaiduAppJsBridgeHandler.this.getCallbackParams("202", "download_failed");
                             }
                             BaiduAppJsBridgeHandler.this.sendSDKTypeLog(SDKLogTypeConstants.TYPE_JMY_DIRECT_LAUNCH, "download_app", str, "", startDownloader);
                             oAdTimer.stop();
@@ -538,7 +537,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
             if (downloadInfo != null && new XAdRemoteDownloadAPKCommand(this.mContext, downloadInfo, this).resumeDownload()) {
                 return getDownloadStatus(str2);
             }
-            return getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "no available downloader");
+            return getCallbackParams("202", "no available downloader");
         } catch (Throwable unused) {
             return null;
         }
@@ -691,7 +690,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                             jSONObject = getCallbackParams("0", "success");
                         }
                     } else {
-                        jSONObject = getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "register wrong action");
+                        jSONObject = getCallbackParams("202", "register wrong action");
                     }
                     str3 = optString2;
                     queryParameter = optString3;
@@ -773,7 +772,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                 }
                 if (TextUtils.isEmpty(str3) && TextUtils.isEmpty(str5)) {
                     jSONObject2.put("result", "-1");
-                    str8 = HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202;
+                    str8 = "202";
                     str7 = "";
                 } else if (isAvailableScheme(str5)) {
                     jSONObject2.put("result", "0");
@@ -796,7 +795,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
             }
             str6 = str3;
         }
-        JSONObject callbackParams2 = jSONObject == null ? getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "") : jSONObject;
+        JSONObject callbackParams2 = jSONObject == null ? getCallbackParams("202", "") : jSONObject;
         runJsCallback(queryParameter, callbackParams2);
         sendSDKTypeLog(SDKLogTypeConstants.TYPE_JMY_ACTION, str2, str3, str6, callbackParams2);
     }
@@ -830,7 +829,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                                 DownloadAppInfo downloadAppInfo2 = downloadAppInfo;
                                 JSONObject openApp = baiduAppJsBridgeHandler.openApp(downloadAppInfo2.mPk, downloadAppInfo2.mDeepLinkUrl);
                                 if (openApp == null) {
-                                    openApp = BaiduAppJsBridgeHandler.this.getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "");
+                                    openApp = BaiduAppJsBridgeHandler.this.getCallbackParams("202", "");
                                 }
                                 JSONObject jSONObject = openApp;
                                 BaiduAppJsBridgeHandler.this.runJsCallback(downloadAppInfo.mDeepLinkCallBack, jSONObject);
@@ -843,7 +842,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
 
                         @Override // com.baidu.mobads.container.util.OAdTimer.EventHandler
                         public void onTimerComplete() {
-                            JSONObject callbackParams = BaiduAppJsBridgeHandler.this.getCallbackParams(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202, "over 5 seconds");
+                            JSONObject callbackParams = BaiduAppJsBridgeHandler.this.getCallbackParams("202", "over 5 seconds");
                             BaiduAppJsBridgeHandler.this.runJsCallback(downloadAppInfo.mDeepLinkCallBack, callbackParams);
                             BaiduAppJsBridgeHandler baiduAppJsBridgeHandler = BaiduAppJsBridgeHandler.this;
                             DownloadAppInfo downloadAppInfo2 = downloadAppInfo;

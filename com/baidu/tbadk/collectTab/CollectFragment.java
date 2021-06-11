@@ -11,10 +11,10 @@ import d.a.c.e.p.j;
 public abstract class CollectFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11979e = false;
+    public boolean f12041e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public final CustomMessageListener f11980f = new a(2000994);
+    public final CustomMessageListener f12042f = new a(2000994);
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -27,34 +27,34 @@ public abstract class CollectFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
                 CollectFragment collectFragment = CollectFragment.this;
-                collectFragment.G0(collectFragment.D0());
+                collectFragment.J0(collectFragment.G0());
                 CollectFragment collectFragment2 = CollectFragment.this;
-                if (collectFragment2.f11979e) {
+                if (collectFragment2.f12041e) {
                     return;
                 }
-                collectFragment2.H0(false, collectFragment2.D0());
+                collectFragment2.K0(false, collectFragment2.G0());
             }
         }
     }
 
-    public abstract int D0();
+    public abstract int G0();
 
-    public abstract boolean E0();
+    public abstract boolean H0();
 
-    public boolean F0() {
-        return this.f11979e;
+    public boolean I0() {
+        return this.f12041e;
     }
 
-    public void G0(int i2) {
+    public void J0(int i2) {
         Bundle bundle = new Bundle();
-        boolean z = !E0() && j.z();
-        this.f11979e = z;
+        boolean z = !H0() && j.z();
+        this.f12041e = z;
         bundle.putBoolean("is_enable_edit", z);
         bundle.putInt("fragment_type", i2);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022209, bundle));
     }
 
-    public void H0(boolean z, int i2) {
+    public void K0(boolean z, int i2) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("is_edit_state", z);
         bundle.putInt("fragment_type", i2);
@@ -64,12 +64,12 @@ public abstract class CollectFragment extends BaseFragment {
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
-        registerListener(this.f11980f);
+        registerListener(this.f12042f);
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.f11980f);
+        MessageManager.getInstance().unRegisterListener(this.f12042f);
     }
 }

@@ -13,10 +13,10 @@ public class AutoTrack {
     public static class MyActivityLifeCallback implements ActivityLifeObserver.IActivityLifeCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f8222a;
+        public int f8284a;
 
         public MyActivityLifeCallback(int i2) {
-            this.f8222a = i2;
+            this.f8284a = i2;
         }
 
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
@@ -30,7 +30,7 @@ public class AutoTrack {
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
         public void onActivityPaused(Activity activity) {
             Context applicationContext = activity.getApplicationContext();
-            int i2 = this.f8222a;
+            int i2 = this.f8284a;
             if (i2 == 1) {
                 BDStatCore.instance().autoTrackSessionEndTime(applicationContext);
             } else if (i2 == 2) {
@@ -41,7 +41,7 @@ public class AutoTrack {
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
         public void onActivityResumed(Activity activity) {
             Context applicationContext = activity.getApplicationContext();
-            int i2 = this.f8222a;
+            int i2 = this.f8284a;
             if (i2 == 1) {
                 BDStatCore.instance().autoTrackSessionStartTime(applicationContext);
             } else if (i2 == 2) {

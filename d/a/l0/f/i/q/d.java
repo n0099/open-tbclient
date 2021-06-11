@@ -16,10 +16,10 @@ public class d {
     public static class a extends ResponseCallback<d.a.l0.f.i.k.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.f.i.l.d f46826a;
+        public final /* synthetic */ d.a.l0.f.i.l.d f50500a;
 
         public a(d.a.l0.f.i.l.d dVar) {
-            this.f46826a = dVar;
+            this.f50500a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -27,10 +27,10 @@ public class d {
         /* renamed from: a */
         public void onSuccess(d.a.l0.f.i.k.a aVar, int i2) {
             d.a.l0.f.i.l.d dVar;
-            if (aVar == null || (dVar = this.f46826a) == null) {
+            if (aVar == null || (dVar = this.f50500a) == null) {
                 return;
             }
-            dVar.d(aVar.f46706a, aVar.f46707b);
+            dVar.d(aVar.f50380a, aVar.f50381b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,8 +48,8 @@ public class d {
                         JSONObject jSONObject = new JSONObject(string);
                         if (TextUtils.equals(jSONObject.optString(Constants.KEYS.RET, ""), "0") && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
                             d.a.l0.f.i.k.a aVar = new d.a.l0.f.i.k.a();
-                            aVar.f46706a = optJSONObject.optString("clickid");
-                            aVar.f46707b = optJSONObject.optString("dstlink");
+                            aVar.f50380a = optJSONObject.optString("clickid");
+                            aVar.f50381b = optJSONObject.optString("dstlink");
                             return aVar;
                         }
                         return null;
@@ -84,7 +84,7 @@ public class d {
     }
 
     public static String c(String str, d.a.l0.f.i.q.a aVar) {
-        return aVar == null ? str : str.replaceAll("\\{REQ_WIDTH\\}", aVar.f46815a).replaceAll("\\{REQ_HEIGHT\\}", aVar.f46816b).replaceAll("\\{WIDTH\\}", aVar.f46817c).replaceAll("\\{HEIGHT\\}", aVar.f46818d).replaceAll("\\{DOWN_X\\}", aVar.f46819e).replaceAll("\\{DOWN_Y\\}", aVar.f46820f).replaceAll("\\{UP_X\\}", aVar.f46821g).replaceAll("\\{UP_Y\\}", aVar.f46822h).replaceAll("\\{VIDEO_TIME\\}", aVar.f46823i).replaceAll("\\{BEGIN_TIME\\}", aVar.j).replaceAll("\\{END_TIME\\}", aVar.k).replaceAll("\\{PLAY_FIRST_FRAME\\}", aVar.l).replaceAll("\\{PLAY_LAST_FRAME\\}", aVar.m).replaceAll("\\{SCENE\\}", aVar.n).replaceAll("\\{TYPE\\}", aVar.o).replaceAll("\\{BEHAVIOR\\}", aVar.p).replaceAll("\\{STATUS\\}", aVar.q).replaceAll("\\{CONVERSION_ACTION\\}", aVar.r).replaceAll("\\{CLICK_ID\\}", aVar.s);
+        return aVar == null ? str : str.replaceAll("\\{REQ_WIDTH\\}", aVar.f50489a).replaceAll("\\{REQ_HEIGHT\\}", aVar.f50490b).replaceAll("\\{WIDTH\\}", aVar.f50491c).replaceAll("\\{HEIGHT\\}", aVar.f50492d).replaceAll("\\{DOWN_X\\}", aVar.f50493e).replaceAll("\\{DOWN_Y\\}", aVar.f50494f).replaceAll("\\{UP_X\\}", aVar.f50495g).replaceAll("\\{UP_Y\\}", aVar.f50496h).replaceAll("\\{VIDEO_TIME\\}", aVar.f50497i).replaceAll("\\{BEGIN_TIME\\}", aVar.j).replaceAll("\\{END_TIME\\}", aVar.k).replaceAll("\\{PLAY_FIRST_FRAME\\}", aVar.l).replaceAll("\\{PLAY_LAST_FRAME\\}", aVar.m).replaceAll("\\{SCENE\\}", aVar.n).replaceAll("\\{TYPE\\}", aVar.o).replaceAll("\\{BEHAVIOR\\}", aVar.p).replaceAll("\\{STATUS\\}", aVar.q).replaceAll("\\{CONVERSION_ACTION\\}", aVar.r).replaceAll("\\{CLICK_ID\\}", aVar.s);
     }
 
     public static void d(AdElementInfo adElementInfo, g gVar) {

@@ -7,7 +7,7 @@ import h.o.a.a;
 import h.u.d;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.subscriptions.CancellableSubscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, f, k {
     public static final long serialVersionUID = 7326289992464377023L;
     public final j<? super T> actual;

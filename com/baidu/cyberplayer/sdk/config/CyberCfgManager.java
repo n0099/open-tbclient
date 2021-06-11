@@ -12,11 +12,11 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.SDKVersion;
-import com.baidu.cyberplayer.sdk.a.b;
 import com.baidu.cyberplayer.sdk.c;
 import com.baidu.cyberplayer.sdk.d;
-import com.baidu.cyberplayer.sdk.n;
+import com.baidu.cyberplayer.sdk.o;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.VideoCloudSetting;
@@ -24,10 +24,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CyberCfgManager {
     @Keep
@@ -39,11 +41,15 @@ public class CyberCfgManager {
     @Keep
     public static final String KEY_INT_ENABLE_CRASHPAD = "enable_crashpad";
     @Keep
+    public static final String KEY_INT_ENABLE_DLNA = "enable_dlna";
+    @Keep
+    public static final String KEY_INT_ENABLE_DMO = "enable_dmo";
+    @Keep
+    public static final String KEY_INT_ENABLE_DMR = "enable_decode_mode_random";
+    @Keep
     public static final String KEY_INT_ENABLE_FILE_CACHE = "enable_file_cache";
     @Keep
     public static final String KEY_INT_ENABLE_HW_DECODE = "enable_hw_decode";
-    @Keep
-    public static final String KEY_INT_ENABLE_MEDIACODEC_OMX_GOOGLE_HEVC = "mediacodec_enable_omx_google_hevc";
     @Keep
     public static final String KEY_INT_ENABLE_MEDIACODEC_REUSE = "enable_mediacodec_reuse";
     @Keep
@@ -51,7 +57,13 @@ public class CyberCfgManager {
     @Keep
     public static final String KEY_INT_ENABLE_MULTI_INSTANCE = "enable_multi_instance";
     @Keep
+    public static final String KEY_INT_ENABLE_PLAYER_SERVER = "enable_player_policy";
+    @Keep
+    public static final String KEY_INT_ENABLE_PLAY_SCORE_MONITOR = "enable_play_score_monitor";
+    @Keep
     public static final String KEY_INT_ENABLE_PREFETCH = "enable_prefetch";
+    @Keep
+    public static final String KEY_INT_ENABLE_RTC = "enable_rtc";
     @Keep
     public static final String KEY_INT_ENABLE_SR = "enable_sr";
     @Keep
@@ -63,41 +75,43 @@ public class CyberCfgManager {
     @Keep
     public static final String KEY_INT_REMOTE_RESUME_FORBIDDEN = "remote_resume_forbidden";
     @Keep
-    public static final String KEY_STR_UPDATE_EXT_RTC = "updata_ext_rtc_ver";
-    @Keep
     public static final String LAST_CHECK_UNUSED_LIBS_TIME = "last_check_unused_libs_time";
+    @Keep
+    public static final String SP_KEY_UPDATE_TYPE = "update_type";
+    @Keep
+    public static final String SP_KEY_UPDATE_VERSION = "update_version";
     @Keep
     public static final String SR_REMAINING_INFO = "sr_remaining_info";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f4813b;
+    public static Context f4791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f4817c = new ConcurrentHashMap();
+    public Map<String, String> f4795c = new ConcurrentHashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f4818d = new ConcurrentHashMap();
+    public Map<String, String> f4796d = new ConcurrentHashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4819e = null;
+    public String f4797e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f4820f = null;
+    public String f4798f = null;
     public String k;
     public String l;
 
     /* renamed from: g  reason: collision with root package name */
-    public static CyberCfgManager f4814g = new CyberCfgManager();
+    public static CyberCfgManager f4792g = new CyberCfgManager();
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile boolean f4815h = false;
+    public static volatile boolean f4793h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile boolean f4816i = false;
+    public static volatile boolean f4794i = false;
     public static int j = 86400000;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<String> f4812a = new ArrayList<>();
+    public static ArrayList<String> f4790a = new ArrayList<>();
     public static ArrayList<String> m = new ArrayList<>();
     public static ArrayList<String> n = new ArrayList<>();
     public static ArrayList<String> o = new ArrayList<>();
@@ -106,10 +120,10 @@ public class CyberCfgManager {
     public static ArrayList<String> r = new ArrayList<>();
 
     static {
-        f4812a.add("hwH60");
-        f4812a.add("hwp7");
-        f4812a.add("sp8830ec");
-        f4812a.add("Hisense M30T");
+        f4790a.add("hwH60");
+        f4790a.add("hwp7");
+        f4790a.add("sp8830ec");
+        f4790a.add("Hisense M30T");
         m.add("GT-I9500");
         m.add("GT-I9268");
         m.add("GT-I8268");
@@ -201,7 +215,7 @@ public class CyberCfgManager {
 
     private boolean a(Map<String, String> map) {
         String a2 = a(map, "release_key", "");
-        return !TextUtils.isEmpty(a2) && a2.equalsIgnoreCase(this.f4819e);
+        return !TextUtils.isEmpty(a2) && a2.equalsIgnoreCase(this.f4797e);
     }
 
     public static boolean a(Map<String, String> map, String str, boolean z) {
@@ -210,24 +224,21 @@ public class CyberCfgManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        this.f4818d.clear();
+        this.f4796d.clear();
         d();
         c();
         e();
         f();
         synchronized (this) {
-            this.f4817c.clear();
-            this.f4817c.putAll(this.f4818d);
+            this.f4795c.clear();
+            this.f4795c.putAll(this.f4796d);
         }
     }
 
     private void b(String str, String str2) {
-        if (a(this.f4818d, str, -1) == -1) {
-            String a2 = a(this.f4818d, str2, "");
-            if (TextUtils.isEmpty(a2)) {
-                return;
-            }
-            this.f4818d.put(str, Integer.toString(CfgItemParser.versionMatchCheck(a2, SDKVersion.VERSION).booleanValue() ? 1 : 0));
+        if (o.m()) {
+            setPrefStr("update_type_black", str);
+            setPrefStr("update_version_black", str2);
         }
     }
 
@@ -238,12 +249,77 @@ public class CyberCfgManager {
         }
     }
 
-    private void c() {
-        this.k = n.b() + File.separator + "config";
-        Map<String, String> a2 = a.a(this.k + File.separator + "cybermedia.pro");
-        if (a2 != null) {
-            this.f4818d.putAll(a2);
+    private boolean b(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
+        try {
+            return "7.26.2".equals(str.substring(0, str.lastIndexOf(".")));
+        } catch (Exception unused) {
+            return false;
+        }
+    }
+
+    private void c() {
+        this.k = o.b() + File.separator + "config";
+        Map<String, String> a2 = b.a(this.k + File.separator + "cybermedia.pro");
+        if (a2 != null) {
+            this.f4796d.putAll(a2);
+        }
+    }
+
+    private void c(String str, String str2) {
+        if (a(this.f4796d, str, -1) == -1) {
+            String a2 = a(this.f4796d, str2, "");
+            if (TextUtils.isEmpty(a2)) {
+                return;
+            }
+            this.f4796d.put(str, Integer.toString(a.a(a2, SDKVersion.VERSION).booleanValue() ? 1 : 0));
+        }
+    }
+
+    @Keep
+    public static int compareVersion(String str, String str2) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            if (str.equals(str2)) {
+                return 0;
+            }
+            try {
+                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                if (split != null && split2 != null) {
+                    int min = Math.min(split.length, split2.length);
+                    int i2 = 0;
+                    int i3 = 0;
+                    while (i2 < min) {
+                        i3 = Integer.parseInt(split[i2]) - Integer.parseInt(split2[i2]);
+                        if (i3 != 0) {
+                            break;
+                        }
+                        i2++;
+                    }
+                    if (i3 != 0) {
+                        return i3 > 0 ? 1 : -1;
+                    }
+                    for (int i4 = i2; i4 < split.length; i4++) {
+                        if (Integer.parseInt(split[i4]) > 0) {
+                            return 1;
+                        }
+                    }
+                    while (i2 < split2.length) {
+                        if (Integer.parseInt(split2[i2]) > 0) {
+                            return -1;
+                        }
+                        i2++;
+                    }
+                    return 0;
+                }
+                return -2;
+            } catch (Exception unused) {
+                CyberLog.e("CyberCfgManager", "compareVersion exception, version1=" + str + " version2=" + str2);
+            }
+        }
+        return -2;
     }
 
     private void d() {
@@ -253,9 +329,9 @@ public class CyberCfgManager {
                 String value = entry.getValue();
                 if (key.startsWith(CyberPlayerManager.INSTALL_OPT_ABTEST_SWITCH_START_CODE)) {
                     CyberLog.d("CyberCfgManager", "ABTest key:" + key + " value:" + value);
-                    Map<String, String> c2 = n.c(value);
+                    Map<String, String> c2 = o.c(value);
                     if (c2 != null) {
-                        this.f4818d.putAll(c2);
+                        this.f4796d.putAll(c2);
                     }
                 }
             }
@@ -265,17 +341,17 @@ public class CyberCfgManager {
 
     private void e() {
         try {
-            if (f4813b != null) {
-                this.l = n.a(f4813b);
+            if (f4791b != null) {
+                this.l = o.a(f4791b);
             }
             if (TextUtils.isEmpty(this.l)) {
                 return;
             }
-            Map<String, String> a2 = a.a(this.l + File.separator + "cybermedia.pro");
+            Map<String, String> a2 = b.a(this.l + File.separator + "cybermedia.pro");
             if (a2 != null) {
                 b(a2);
                 if (a(a2)) {
-                    this.f4818d.putAll(a2);
+                    this.f4796d.putAll(a2);
                 }
             }
         } catch (Exception unused) {
@@ -283,27 +359,46 @@ public class CyberCfgManager {
     }
 
     private void f() {
-        b(KEY_INT_ENABLE_PREFETCH, "pre_download_ver");
-        b(KEY_INT_ENABLE_FILE_CACHE, "file_cache_ver");
-        b("enable_update_core", "update_core_sdk_ver");
-        h();
+        c(KEY_INT_ENABLE_PREFETCH, "pre_download_ver");
+        c(KEY_INT_ENABLE_FILE_CACHE, "file_cache_ver");
+        c("enable_update_core", "update_core_sdk_ver");
         i();
         j();
-        k();
         l();
-        this.f4818d.put(KEY_INT_ENABLE_HW_DECODE, Integer.toString(!n()));
+        m();
+        n();
+        k();
+        this.f4796d.put(KEY_INT_ENABLE_HW_DECODE, Integer.toString(!p()));
     }
 
     private void g() {
-        if (c.a().e() && n.m()) {
+        if (o.m()) {
+            removePref("install_error_count");
+            removePref(SP_KEY_UPDATE_TYPE);
+            removePref("update_version");
+            removePref("update_type_black");
+            removePref("update_version_black");
+        }
+    }
+
+    @Keep
+    public static CyberCfgManager getInstance() {
+        if (f4791b == null) {
+            f4791b = CyberPlayerManager.getApplicationContext();
+        }
+        return f4792g;
+    }
+
+    private void h() {
+        if (c.a().g() && o.m()) {
             setPrefLong("last_update_cloud_cfg_time", System.currentTimeMillis());
             CyberTaskExcutor.getInstance().execute(new Runnable() { // from class: com.baidu.cyberplayer.sdk.config.CyberCfgManager.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        String d2 = c.a().d();
+                        String f2 = c.a().f();
                         Properties properties = new Properties();
-                        n.b(CyberCfgManager.this.k);
+                        o.b(CyberCfgManager.this.k);
                         File file = new File(CyberCfgManager.this.k, "cybermedia.pro");
                         if (!file.exists() || !file.isFile()) {
                             file.createNewFile();
@@ -313,12 +408,12 @@ public class CyberCfgManager {
                             file2.createNewFile();
                         }
                         HashMap hashMap = new HashMap();
-                        hashMap.put("url", d2);
-                        byte[] a2 = b.a(hashMap);
-                        String a3 = n.a(a2);
-                        String a4 = n.a(a2, new String(Base64.decode(WebSettingsGlobalBlink.DEFAULT_SECRECT_KEY.getBytes(), 0)));
+                        hashMap.put("url", f2);
+                        byte[] a2 = com.baidu.cyberplayer.sdk.downloader.b.a(hashMap);
+                        String a3 = o.a(a2);
+                        String a4 = o.a(a2, new String(Base64.decode(WebSettingsGlobalBlink.DEFAULT_SECRECT_KEY.getBytes(), 0)));
                         if (a4 != null) {
-                            Map<String, String> c2 = n.c(a4);
+                            Map<String, String> c2 = o.c(a4);
                             if (c2 != null) {
                                 FileWriter fileWriter = new FileWriter(file2.getAbsolutePath());
                                 for (Map.Entry<String, String> entry : c2.entrySet()) {
@@ -328,13 +423,15 @@ public class CyberCfgManager {
                                 properties.store(fileWriter, IMTrack.DbBuilder.ACTION_UPDATE);
                                 fileWriter.close();
                             }
-                            if (!file2.renameTo(file) || TextUtils.isEmpty(a3) || a3.equals(CyberCfgManager.this.getPrefStr("cloud_cfg_data_md5", ""))) {
-                                return;
+                            if (file2.renameTo(file) && !TextUtils.isEmpty(a3) && !a3.equals(CyberCfgManager.this.getPrefStr("cloud_cfg_data_md5", ""))) {
+                                CyberCfgManager.this.setPrefStr("cloud_cfg_data_md5", a3);
+                                CyberCfgManager.this.b();
+                                d.h();
+                                CyberLog.d("CyberCfgManager", "updateCloudCfgProFile success!");
                             }
-                            CyberCfgManager.this.setPrefStr("cloud_cfg_data_md5", a3);
-                            CyberCfgManager.this.b();
-                            d.h();
-                            CyberLog.d("CyberCfgManager", "updateCloudCfgProFile success!");
+                        }
+                        if (CyberCfgManager.this.getCfgBoolValue("delete_unuse_files", true)) {
+                            o.a(o.b() + File.separator + "cyberplayer");
                         }
                     } catch (Exception unused) {
                     }
@@ -343,43 +440,70 @@ public class CyberCfgManager {
         }
     }
 
-    @Keep
-    public static CyberCfgManager getInstance() {
-        if (f4813b == null) {
-            f4813b = CyberPlayerManager.getApplicationContext();
-        }
-        return f4814g;
-    }
-
-    private void h() {
+    private void i() {
         Map<String, String> map;
         String num;
-        if (a(this.f4818d, "enable_upload_session_log", -1) == -1) {
-            String a2 = a(this.f4818d, "upload_session_log_ver", "");
-            if (TextUtils.isEmpty(a2) || CfgItemParser.versionMatchCheck(a2, SDKVersion.VERSION).booleanValue()) {
-                if (new Random().nextInt(10000) + 1 <= a(this.f4818d, VideoCloudSetting.PREF_KEY_SESSION_LOG_COLLECT_PERCENT, 10000)) {
-                    map = this.f4818d;
+        if (a(this.f4796d, "enable_upload_session_log", -1) == -1) {
+            String a2 = a(this.f4796d, "upload_session_log_ver", "");
+            if (TextUtils.isEmpty(a2) || a.a(a2, SDKVersion.VERSION).booleanValue()) {
+                if (new Random().nextInt(10000) + 1 <= a(this.f4796d, VideoCloudSetting.PREF_KEY_SESSION_LOG_COLLECT_PERCENT, 10000)) {
+                    map = this.f4796d;
                     num = Integer.toString(1);
                     map.put("enable_upload_session_log", num);
                 }
             }
-            map = this.f4818d;
+            map = this.f4796d;
             num = Integer.toString(0);
             map.put("enable_upload_session_log", num);
         }
     }
 
-    private void i() {
+    private void j() {
         String[] split;
-        String a2 = a(this.f4818d, "update_core_info", "");
-        if (TextUtils.isEmpty(a2) || (split = a2.split(";")) == null || split.length != 2 || !CfgItemParser.versionMatchCheck(split[0], SDKVersion.VERSION).booleanValue()) {
-            return;
+        String a2 = a(this.f4796d, "update_core_info", "");
+        if (!TextUtils.isEmpty(a2) && (split = a2.split(";")) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue() && b(split[1]) && isAllowUpdate("cyber-media-dex", split[1], SDKVersion.VERSION)) {
+            this.f4796d.put("update_core_ver", keepMainProcessVersion("cyber-media-dex", split[1]));
+            this.f4796d.put("update_core_enable_downgrade", split[2]);
         }
-        this.f4818d.put("update_core_ver", split[1]);
     }
 
-    private void j() {
-        String a2 = a(this.f4818d, "decode_mode_for_rom", "");
+    private void k() {
+        String[] split;
+        String a2 = a(this.f4796d, "update_lib_info", "");
+        if (TextUtils.isEmpty(a2)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(a2);
+            if (jSONObject.length() == 1) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    String string = jSONObject.getString(next);
+                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(string) && (split = string.split(";")) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue()) {
+                        this.f4796d.put(next, string);
+                    }
+                }
+            }
+        } catch (Exception unused) {
+        }
+    }
+
+    @Keep
+    public static String keepMainProcessVersion(String str, String str2) {
+        Map<String, String> installOpts;
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return "";
+        }
+        if (o.m() || (installOpts = CyberPlayerManager.getInstallOpts()) == null) {
+            return str2;
+        }
+        String str3 = installOpts.get(str);
+        return (TextUtils.isEmpty(str3) || str3.equals("0.0.0.0") || str3.equals(str2)) ? str2 : str3;
+    }
+
+    private void l() {
+        String a2 = a(this.f4796d, "decode_mode_for_rom", "");
         if (TextUtils.isEmpty(a2)) {
             return;
         }
@@ -390,7 +514,7 @@ public class CyberCfgManager {
             }
             for (String str : split[0].split(",")) {
                 if (Integer.parseInt(str) == Build.VERSION.SDK_INT) {
-                    this.f4818d.put("decode_mode", split[1]);
+                    this.f4796d.put("decode_mode", split[1]);
                     return;
                 }
             }
@@ -399,13 +523,13 @@ public class CyberCfgManager {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0036, code lost:
-        r8.f4818d.put("remote_forbidden", r0[1]);
+        r8.f4796d.put("remote_forbidden", r0[1]);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void k() {
-        String a2 = a(this.f4818d, "remote_forbidden_by_rom", "16,17,18,19,20;1");
+    private void m() {
+        String a2 = a(this.f4796d, "remote_forbidden_by_rom", "16,17,18,19,20;1");
         if (!TextUtils.isEmpty(a2)) {
             try {
                 String[] split = a2.split(";");
@@ -425,34 +549,34 @@ public class CyberCfgManager {
             } catch (Exception unused) {
             }
         }
-        if (a(this.f4818d, "remote_forbidden", false) || !o()) {
+        if (a(this.f4796d, "remote_forbidden", false) || !q()) {
             return;
         }
-        this.f4818d.put("remote_forbidden", Integer.toString(1));
+        this.f4796d.put("remote_forbidden", Integer.toString(1));
     }
 
-    private void l() {
+    private void n() {
         String prefStr = getPrefStr(SR_REMAINING_INFO, null);
         if (!TextUtils.isEmpty(prefStr)) {
             String[] split = prefStr.split(";");
             if (split.length == 2) {
-                this.f4818d.put("sr_last_run_time", split[0]);
-                this.f4818d.put("sr_remaining_nb", split[1]);
+                this.f4796d.put("sr_last_run_time", split[0]);
+                this.f4796d.put("sr_remaining_nb", split[1]);
             }
         }
-        if (a(this.f4818d, KEY_INT_ENABLE_SR, true)) {
-            this.f4818d.put(KEY_INT_ENABLE_SR, Integer.toString(m() ? 1 : 0));
+        if (a(this.f4796d, KEY_INT_ENABLE_SR, true)) {
+            this.f4796d.put(KEY_INT_ENABLE_SR, Integer.toString(o() ? 1 : 0));
         }
     }
 
-    private boolean m() {
+    private boolean o() {
         if (Build.VERSION.SDK_INT < 23) {
             return false;
         }
-        if (CfgItemParser.a(q, r)) {
+        if (a.a(q, r)) {
             return true;
         }
-        String a2 = a(this.f4818d, "white_devices_for_sr", "");
+        String a2 = a(this.f4796d, "white_devices_for_sr", "");
         CyberLog.i("CyberCfgManager", "value : " + a2);
         if (TextUtils.isEmpty(a2)) {
             return false;
@@ -462,12 +586,12 @@ public class CyberCfgManager {
         for (String str : split) {
             arrayList.add(str);
         }
-        return CfgItemParser.a(arrayList, arrayList);
+        return a.a(arrayList, arrayList);
     }
 
-    private boolean n() {
-        if (Build.VERSION.SDK_INT >= 16 && !CfgItemParser.a(f4812a, m)) {
-            String a2 = a(this.f4818d, "black_devices_for_hw", "");
+    private boolean p() {
+        if (Build.VERSION.SDK_INT >= 16 && !a.a(f4790a, m)) {
+            String a2 = a(this.f4796d, "black_devices_for_hw", "");
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
@@ -476,16 +600,16 @@ public class CyberCfgManager {
             for (String str : split) {
                 arrayList.add(str);
             }
-            return CfgItemParser.a(arrayList, arrayList);
+            return a.a(arrayList, arrayList);
         }
         return true;
     }
 
-    private boolean o() {
-        if (CfgItemParser.a(o, p)) {
+    private boolean q() {
+        if (a.a(o, p)) {
             return true;
         }
-        String a2 = a(this.f4818d, "remote_blacklist", "");
+        String a2 = a(this.f4796d, "remote_blacklist", "");
         if (TextUtils.isEmpty(a2)) {
             return false;
         }
@@ -494,29 +618,29 @@ public class CyberCfgManager {
         for (String str : split) {
             arrayList.add(str);
         }
-        return CfgItemParser.a(arrayList, arrayList);
+        return a.a(arrayList, arrayList);
     }
 
     public String a(String str) {
-        String packageName = f4813b.getPackageName();
+        String packageName = f4791b.getPackageName();
         String str2 = (str + File.separator + "videoconfig") + "?cmd=1&";
         StringBuilder sb = new StringBuilder();
-        n.a(sb, "package_name", packageName);
-        n.a(sb, "sdk_ver", SDKVersion.VERSION);
-        if (!TextUtils.isEmpty(this.f4820f)) {
-            n.a(sb, "appid", this.f4820f);
+        o.a(sb, "package_name", packageName);
+        o.a(sb, "sdk_ver", SDKVersion.VERSION);
+        if (!TextUtils.isEmpty(this.f4798f)) {
+            o.a(sb, "appid", this.f4798f);
         }
         try {
-            PackageManager packageManager = f4813b.getPackageManager();
+            PackageManager packageManager = f4791b.getPackageManager();
             if (packageManager != null) {
-                n.a(sb, "appversion", packageManager.getPackageInfo(packageName, 0).versionName);
+                o.a(sb, "appversion", packageManager.getPackageInfo(packageName, 0).versionName);
             }
         } catch (PackageManager.NameNotFoundException unused) {
         }
-        n.a(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
-        n.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(f4813b));
+        o.a(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
+        o.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(f4791b));
         try {
-            n.a(sb, "model", new String(Base64.encode(Build.MODEL.getBytes(), 0)));
+            o.a(sb, "model", new String(Base64.encode(Build.MODEL.getBytes(), 0)));
         } catch (Throwable th) {
             CyberLog.e("CyberCfgManager", "model exception ", th);
         }
@@ -524,39 +648,39 @@ public class CyberCfgManager {
     }
 
     public String a(String str, String str2) {
-        return a(this.f4817c, str, str2);
+        return a(this.f4795c, str, str2);
     }
 
     public synchronized void a() {
-        if (f4815h) {
-            if (f4816i) {
+        if (f4793h) {
+            if (f4794i) {
                 if (System.currentTimeMillis() - getPrefLong("last_update_cloud_cfg_time", -1L) > j) {
-                    g();
+                    h();
                 }
             } else {
-                g();
-                f4816i = true;
+                h();
+                f4794i = true;
             }
         }
     }
 
     public boolean a(String str, boolean z) {
-        return a(this.f4817c, str, z ? 1 : 0) == 1;
+        return a(this.f4795c, str, z ? 1 : 0) == 1;
     }
 
     @Keep
     public synchronized boolean getCfgBoolValue(String str, boolean z) {
-        return a(this.f4817c, str, z ? 1 : 0) == 1;
+        return a(this.f4795c, str, z ? 1 : 0) == 1;
     }
 
     @Keep
     public synchronized int getCfgIntValue(String str, int i2) {
-        return a(this.f4817c, str, i2);
+        return a(this.f4795c, str, i2);
     }
 
     @Keep
     public synchronized long getCfgLongValue(String str, long j2) {
-        return a(this.f4817c, str, j2);
+        return a(this.f4795c, str, j2);
     }
 
     @Keep
@@ -566,7 +690,7 @@ public class CyberCfgManager {
         try {
             hashMap = new HashMap();
             try {
-                hashMap.putAll(this.f4817c);
+                hashMap.putAll(this.f4795c);
             } catch (Exception unused) {
                 hashMap2 = hashMap;
                 hashMap = hashMap2;
@@ -579,32 +703,69 @@ public class CyberCfgManager {
 
     @Keep
     public synchronized String getCfgValue(String str, String str2) {
-        return a(this.f4817c, str, str2);
+        return a(this.f4795c, str, str2);
+    }
+
+    @Keep
+    public synchronized int getPrefInt(String str, int i2) {
+        if (f4791b != null) {
+            i2 = f4791b.getSharedPreferences("video_cfg", 0).getInt(str, i2);
+        }
+        return i2;
     }
 
     @Keep
     public synchronized long getPrefLong(String str, long j2) {
-        if (f4813b != null) {
-            j2 = f4813b.getSharedPreferences("video_cfg", 0).getLong(str, j2);
+        if (f4791b != null) {
+            j2 = f4791b.getSharedPreferences("video_cfg", 0).getLong(str, j2);
         }
         return j2;
     }
 
     @Keep
     public synchronized String getPrefStr(String str, String str2) {
-        if (f4813b != null) {
-            str2 = f4813b.getSharedPreferences("video_cfg", 0).getString(str, str2);
+        if (f4791b != null) {
+            str2 = f4791b.getSharedPreferences("video_cfg", 0).getString(str, str2);
         }
         return str2;
     }
 
     @Keep
     public synchronized void init() {
-        if (!f4815h) {
-            this.f4819e = CyberPlayerManager.getClientID();
-            this.f4820f = CyberPlayerManager.getAppID();
+        if (!f4793h) {
+            this.f4797e = CyberPlayerManager.getClientID();
+            this.f4798f = CyberPlayerManager.getAppID();
             b();
-            f4815h = true;
+            f4793h = true;
+        }
+    }
+
+    @Keep
+    public boolean isAllowUpdate(String str, String str2, String str3) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+            return false;
+        }
+        if ((str.equals(getPrefStr("update_type_black", "")) && str2.equals(getPrefStr("update_version_black", ""))) || compareVersion(str2, str3) == -1) {
+            return false;
+        }
+        int prefInt = getPrefInt("install_error_count", 1);
+        String prefStr = getPrefStr("update_version", "");
+        String prefStr2 = getPrefStr(SP_KEY_UPDATE_TYPE, "");
+        CyberLog.i("CyberCfgManager", "installErrorCount=" + prefInt + " prefUpdateVersion=" + prefStr + " prefUpdateType=" + prefStr2);
+        if (!str.equals(prefStr2)) {
+            g();
+            return true;
+        } else if (str2.equals(prefStr)) {
+            if (prefInt < 3) {
+                return prefInt < 3;
+            }
+            b(str, str2);
+            return false;
+        } else if (compareVersion(prefStr, str2) == -1 || compareVersion(prefStr, str3) == -1) {
+            g();
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -613,10 +774,10 @@ public class CyberCfgManager {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
-        if (CfgItemParser.a(str, n)) {
+        if (a.a(str, n)) {
             return true;
         }
-        String a2 = a(this.f4817c, "black_url_list_for_file_cache", "");
+        String a2 = a(this.f4795c, "black_url_list_for_file_cache", "");
         if (TextUtils.isEmpty(a2)) {
             return false;
         }
@@ -625,13 +786,31 @@ public class CyberCfgManager {
         for (String str2 : split) {
             arrayList.add(str2);
         }
-        return CfgItemParser.a(str, arrayList);
+        return a.a(str, arrayList);
+    }
+
+    @Keep
+    public synchronized void removePref(String str) {
+        if (f4791b != null) {
+            SharedPreferences.Editor edit = f4791b.getSharedPreferences("video_cfg", 0).edit();
+            edit.remove(str);
+            edit.commit();
+        }
+    }
+
+    @Keep
+    public synchronized void setPrefInt(String str, int i2) {
+        if (f4791b != null) {
+            SharedPreferences.Editor edit = f4791b.getSharedPreferences("video_cfg", 0).edit();
+            edit.putInt(str, i2);
+            edit.commit();
+        }
     }
 
     @Keep
     public synchronized void setPrefLong(String str, long j2) {
-        if (f4813b != null) {
-            SharedPreferences.Editor edit = f4813b.getSharedPreferences("video_cfg", 0).edit();
+        if (f4791b != null) {
+            SharedPreferences.Editor edit = f4791b.getSharedPreferences("video_cfg", 0).edit();
             edit.putLong(str, j2);
             edit.commit();
         }
@@ -639,8 +818,8 @@ public class CyberCfgManager {
 
     @Keep
     public synchronized void setPrefStr(String str, String str2) {
-        if (f4813b != null) {
-            SharedPreferences.Editor edit = f4813b.getSharedPreferences("video_cfg", 0).edit();
+        if (f4791b != null) {
+            SharedPreferences.Editor edit = f4791b.getSharedPreferences("video_cfg", 0).edit();
             edit.putString(str, str2);
             edit.commit();
         }

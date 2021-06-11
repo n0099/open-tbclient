@@ -11,25 +11,25 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42510a = k.f43199a;
+    public static final boolean f46186a = k.f46875a;
 
     public static a a(PMSAppInfo pMSAppInfo, String str) {
         if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.appCategory != 0) {
             return null;
         }
-        File i2 = e.C0561e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
+        File i2 = e.C0617e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
         if (!i2.exists()) {
-            if (f42510a) {
+            if (f46186a) {
                 Log.w("PrefetchUtils", "aiapp dir not exist ");
             }
             return null;
         }
         a aVar = new a();
         if (new File(i2, "app.json").exists()) {
-            if (f42510a) {
+            if (f46186a) {
                 Log.d("PrefetchUtils", "find main pkg's app config file");
             }
-            aVar.f42507a = i2;
+            aVar.f46183a = i2;
             return aVar;
         } else if (TextUtils.isEmpty(str)) {
             return null;
@@ -44,12 +44,12 @@ public class b {
                 while (lastIndexOf2 >= 0) {
                     g2 = g2.substring(0, lastIndexOf2);
                     if (new File(i2, g2 + File.separator + "app.json").exists()) {
-                        if (f42510a) {
+                        if (f46186a) {
                             Log.d("PrefetchUtils", "isInDependentPkg=true, pagePath=" + g2);
                         }
-                        aVar.f42508b = true;
-                        aVar.f42509c = g2;
-                        aVar.f42507a = new File(i2, g2);
+                        aVar.f46184b = true;
+                        aVar.f46185c = g2;
+                        aVar.f46183a = new File(i2, g2);
                         return aVar;
                     }
                     lastIndexOf2 = g2.lastIndexOf(File.separator);

@@ -9,7 +9,7 @@ import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
 import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
 import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     public b() {
         b();

@@ -3,7 +3,7 @@ package org.webrtc;
 import com.baidu.rtc.PeerConnectionClient;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class H264Utils {
     public static VideoCodecInfo DEFAULT_H264_BASELINE_PROFILE_CODEC = new VideoCodecInfo(PeerConnectionClient.VIDEO_CODEC_H264, getDefaultH264Params(false));
     public static VideoCodecInfo DEFAULT_H264_HIGH_PROFILE_CODEC = new VideoCodecInfo(PeerConnectionClient.VIDEO_CODEC_H264, getDefaultH264Params(true));

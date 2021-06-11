@@ -18,7 +18,7 @@ public class c extends d.a.l0.a.z1.b.b.b {
     public View o;
     public TextView p;
     public SelectorTextView q;
-    public C0665c r;
+    public C0721c r;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -48,20 +48,20 @@ public class c extends d.a.l0.a.z1.b.b.b {
 
     /* renamed from: d.a.l0.a.h0.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0665c extends b.C0931b {
+    public static class C0721c extends b.C0987b {
 
         /* renamed from: g  reason: collision with root package name */
-        public int f42145g;
+        public int f45821g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f42146h;
+        public int f45822h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f42147i;
+        public int f45823i;
         public b.c j;
         public b.c k;
 
-        public C0665c(Context context) {
+        public C0721c(Context context) {
             super(context);
         }
 
@@ -71,25 +71,25 @@ public class c extends d.a.l0.a.z1.b.b.b {
             return this;
         }
 
-        @Override // d.a.l0.a.z1.b.b.b.C0931b, d.a.l0.a.z1.b.b.h.a
+        @Override // d.a.l0.a.z1.b.b.b.C0987b, d.a.l0.a.z1.b.b.h.a
         public h c() {
             c cVar = (c) super.c();
             cVar.r(this);
             return cVar;
         }
 
-        public C0665c e0(int i2) {
-            this.f42145g = i2;
+        public C0721c e0(int i2) {
+            this.f45821g = i2;
             return this;
         }
 
-        public C0665c f0(int i2, b.c cVar) {
-            this.f42145g = i2;
+        public C0721c f0(int i2, b.c cVar) {
+            this.f45821g = i2;
             this.k = cVar;
             return this;
         }
 
-        public C0665c g0(int i2) {
+        public C0721c g0(int i2) {
             super.U(i2);
             return this;
         }
@@ -125,28 +125,28 @@ public class c extends d.a.l0.a.z1.b.b.b {
     }
 
     public final void q() {
-        C0665c c0665c = this.r;
-        if (c0665c == null) {
+        C0721c c0721c = this.r;
+        if (c0721c == null) {
             return;
         }
-        this.p.setText(this.k.getText(c0665c.f42145g));
+        this.p.setText(this.k.getText(c0721c.f45821g));
         this.p.setOnClickListener(new a());
-        if (this.r.f42146h > 0) {
+        if (this.r.f45822h > 0) {
             this.q.setVisibility(0);
-            this.q.setText(this.k.getText(this.r.f42146h));
+            this.q.setText(this.k.getText(this.r.f45822h));
             this.q.setOnClickListener(new b());
         } else {
             this.q.setVisibility(8);
         }
-        if (this.r.f42147i > 0) {
-            Drawable drawable = this.k.getResources().getDrawable(this.r.f42147i);
+        if (this.r.f45823i > 0) {
+            Drawable drawable = this.k.getResources().getDrawable(this.r.f45823i);
             b0.b(getContext(), drawable);
             drawable.setBounds(0, 0, n0.f(this.k, 12.0f), n0.f(this.k, 12.0f));
             this.q.setCompoundDrawables(drawable, null, null, null);
         }
     }
 
-    public void r(C0665c c0665c) {
-        this.r = c0665c;
+    public void r(C0721c c0721c) {
+        this.r = c0721c;
     }
 }

@@ -23,7 +23,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
+public class f extends d.a.c.k.e.a<o, PbAppLegoViewHolder> implements t, p {
     public BaseFragmentActivity m;
     public boolean n;
     public boolean o;
@@ -64,7 +64,7 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            f.this.y0();
+            f.this.z0();
         }
     }
 
@@ -87,18 +87,18 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
     public class d implements d.a.n0.k1.o.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdvertAppInfo f60917a;
+        public final /* synthetic */ AdvertAppInfo f64609a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f60918b;
+        public final /* synthetic */ int f64610b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f60919c;
+        public final /* synthetic */ String f64611c;
 
         public d(f fVar, AdvertAppInfo advertAppInfo, int i2, String str) {
-            this.f60917a = advertAppInfo;
-            this.f60918b = i2;
-            this.f60919c = str;
+            this.f64609a = advertAppInfo;
+            this.f64610b = i2;
+            this.f64611c = str;
         }
 
         @Override // d.a.n0.k1.o.a
@@ -107,12 +107,12 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
                 return;
             }
             if (y.p(i2)) {
-                d.a.n0.t2.i0.d.f(this.f60917a, this.f60918b, hashMap, i2);
+                d.a.n0.t2.i0.d.f(this.f64609a, this.f64610b, hashMap, i2);
             } else {
-                d.a.n0.t2.i0.d.n(this.f60917a, this.f60918b, this.f60919c, null, hashMap);
+                d.a.n0.t2.i0.d.n(this.f64609a, this.f64610b, this.f64611c, null, hashMap);
             }
-            AdvertAppInfo advertAppInfo = this.f60917a;
-            if (advertAppInfo.L3) {
+            AdvertAppInfo advertAppInfo = this.f64609a;
+            if (advertAppInfo.O3) {
                 return;
             }
             d.a.n0.k1.o.h.c.h(d.a.n0.k1.o.h.c.e(advertAppInfo));
@@ -123,15 +123,15 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
     public class e implements d.a.n0.k1.o.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f60920a;
+        public final /* synthetic */ String f64612a;
 
         public e(String str) {
-            this.f60920a = str;
+            this.f64612a = str;
         }
 
         @Override // d.a.n0.k1.o.c
         public void a(AdvertAppInfo advertAppInfo, int i2) {
-            h.b(f.this.m.getPageContext().getPageActivity(), advertAppInfo, i2, f.this.q0(advertAppInfo, this.f60920a));
+            h.b(f.this.m.getPageContext().getPageActivity(), advertAppInfo, i2, f.this.q0(advertAppInfo, this.f64612a));
         }
     }
 
@@ -149,14 +149,14 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
     }
 
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder' to match base method */
-    @Override // d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ PbAppLegoViewHolder P(ViewGroup viewGroup) {
-        v0(viewGroup);
+    @Override // d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ PbAppLegoViewHolder Q(ViewGroup viewGroup) {
+        w0(viewGroup);
         throw null;
     }
 
     @Override // d.a.n0.t2.t
-    public void j(boolean z) {
+    public void k(boolean z) {
         this.n = z;
     }
 
@@ -193,33 +193,33 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
         DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
         downloadStaticsData.setDa_page(s0(advertAppInfo));
         downloadStaticsData.setFid(str);
-        downloadStaticsData.setApk_name(advertAppInfo.Y3);
-        downloadStaticsData.setAdPosition(advertAppInfo.M3);
-        downloadStaticsData.setExtensionInfo(advertAppInfo.N3);
+        downloadStaticsData.setApk_name(advertAppInfo.b4);
+        downloadStaticsData.setAdPosition(advertAppInfo.P3);
+        downloadStaticsData.setExtensionInfo(advertAppInfo.Q3);
         return downloadStaticsData;
     }
 
     public final String s0(AdvertAppInfo advertAppInfo) {
-        return TextUtils.isEmpty(advertAppInfo.Q3) ? "PB" : advertAppInfo.Q3;
+        return TextUtils.isEmpty(advertAppInfo.T3) ? "PB" : advertAppInfo.T3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: t0 */
-    public View H(int i2, View view, ViewGroup viewGroup, o oVar) {
+    public View I(int i2, View view, ViewGroup viewGroup, o oVar) {
         if (oVar == null || oVar.F0() == null) {
             return null;
         }
-        if (u0(view, oVar)) {
-            PbAppLegoViewHolder Q = Q(viewGroup, oVar);
-            this.k = Q;
-            if (Q != null) {
-                view = Q.a();
+        if (v0(view, oVar)) {
+            PbAppLegoViewHolder R = R(viewGroup, oVar);
+            this.k = R;
+            if (R != null) {
+                view = R.a();
             }
         }
         View view2 = view;
         if (view2 != null) {
-            view2 = W(i2, view2, viewGroup, oVar, (PbAppLegoViewHolder) view2.getTag());
+            view2 = X(i2, view2, viewGroup, oVar, (PbAppLegoViewHolder) view2.getTag());
             if (r.class.isAssignableFrom(view2.getClass())) {
                 ((PbAppLegoViewHolder) this.k).f(((r) view2).getVideoOrVrView());
             }
@@ -227,7 +227,7 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
         return view2;
     }
 
-    public final boolean u0(View view, o oVar) {
+    public final boolean v0(View view, o oVar) {
         V v;
         if (view == null || view.getTag() == null || (v = this.k) == 0 || !((PbAppLegoViewHolder) v).getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(((PbAppLegoViewHolder) this.k).getClass())) {
             return true;
@@ -240,14 +240,14 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
         return true;
     }
 
-    public PbAppLegoViewHolder v0(ViewGroup viewGroup) {
+    public PbAppLegoViewHolder w0(ViewGroup viewGroup) {
         throw new IllegalStateException("onCreateViewHolder(ViewGroup parent) unavailable.");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: w0 */
-    public PbAppLegoViewHolder Q(ViewGroup viewGroup, o oVar) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: x0 */
+    public PbAppLegoViewHolder R(ViewGroup viewGroup, o oVar) {
         View view = (View) d.a.n0.k1.o.b.h().a(this.m.getPageContext(), oVar.F0(), 4);
         if (view != null) {
             PbAppLegoViewHolder pbAppLegoViewHolder = new PbAppLegoViewHolder((d.a.n0.k1.o.l.e) view);
@@ -258,9 +258,9 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: x0 */
-    public View W(int i2, View view, ViewGroup viewGroup, o oVar, PbAppLegoViewHolder pbAppLegoViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: y0 */
+    public View X(int i2, View view, ViewGroup viewGroup, o oVar, PbAppLegoViewHolder pbAppLegoViewHolder) {
         if (this.m == null) {
             return null;
         }
@@ -273,22 +273,22 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
         this.m.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
         this.m.getLayoutMode().j(view);
         d.a.m0.r.q.d.f(oVar);
-        if (oVar.L0) {
+        if (oVar.G0) {
             d.a.n0.q.e.a.i().k(d.a.n0.q.e.a.g(oVar.getAdvertAppInfo()));
         }
         AdvertAppInfo advertAppInfo = oVar.getAdvertAppInfo();
-        if (advertAppInfo.P3 == null) {
-            advertAppInfo.P3 = new d.a.m0.r.q.d();
+        if (advertAppInfo.S3 == null) {
+            advertAppInfo.S3 = new d.a.m0.r.q.d();
         }
-        d.a.m0.r.q.d dVar = advertAppInfo.P3;
-        dVar.f49980b = oVar.D0;
-        dVar.f49979a = oVar.E0();
-        advertAppInfo.position = oVar.K0;
-        advertAppInfo.L3 = oVar.L0;
+        d.a.m0.r.q.d dVar = advertAppInfo.S3;
+        dVar.f53656b = oVar.D0;
+        dVar.f53655a = oVar.E0();
+        advertAppInfo.position = oVar.F0;
+        advertAppInfo.O3 = oVar.G0;
         d.a.n0.k1.o.l.e eVar = (d.a.n0.k1.o.l.e) view;
         F0.setAdvertAppInfo(advertAppInfo);
         eVar.setFromCDN(this.n);
-        eVar.g(F0);
+        eVar.i(F0);
         int i3 = oVar.D0;
         String str = oVar.z0;
         eVar.setAfterClickSchemeListener(new d(this, advertAppInfo, i3, str));
@@ -297,15 +297,15 @@ public class f extends d.a.c.j.e.a<o, PbAppLegoViewHolder> implements t, p {
         if (weakReference == null || weakReference.get() != pbAppLegoViewHolder) {
             this.s = new WeakReference<>(pbAppLegoViewHolder);
         }
-        y0();
+        z0();
         return view;
     }
 
-    public void y0() {
+    public void z0() {
         WeakReference<PbAppLegoViewHolder> weakReference = this.s;
         PbAppLegoViewHolder pbAppLegoViewHolder = weakReference != null ? weakReference.get() : null;
         if (pbAppLegoViewHolder != null) {
-            pbAppLegoViewHolder.g();
+            pbAppLegoViewHolder.h();
         }
     }
 }

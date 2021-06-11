@@ -20,35 +20,35 @@ import org.json.JSONObject;
 public class b implements d.a.l0.f.i.l.b, d.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f46632a;
+    public Context f50306a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f46633b;
+    public String f50307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46634c;
+    public String f50308c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.l0.f.i.i.f f46635d;
+    public d.a.l0.f.i.i.f f50309d;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.l0.f.i.o.b f46637f;
+    public d.a.l0.f.i.o.b f50311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdElementInfo f46638g;
+    public AdElementInfo f50312g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.l0.f.i.i.d f46639h;
+    public d.a.l0.f.i.i.d f50313h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f46640i;
+    public boolean f50314i;
     public String j;
     public boolean k;
     public d.a.l0.f.i.k.b l;
     public d.a.l0.f.i.l.f n;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.f.i.i.c f46636e = null;
+    public d.a.l0.f.i.i.c f50310e = null;
     public Map<String, String> m = new TreeMap();
 
     /* loaded from: classes3.dex */
@@ -58,17 +58,17 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f46639h == null || b.this.f46639h.f() == null || !b.this.n.c(b.this.f46639h.f())) {
+            if (b.this.f50313h == null || b.this.f50313h.f() == null || !b.this.n.c(b.this.f50313h.f())) {
                 return;
             }
-            b.this.n.removeView(b.this.f46639h.f());
+            b.this.n.removeView(b.this.f50313h.f());
         }
     }
 
     /* renamed from: d.a.l0.f.i.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0974b implements d.a.l0.f.i.l.d {
-        public C0974b() {
+    public class C1030b implements d.a.l0.f.i.l.d {
+        public C1030b() {
         }
 
         @Override // d.a.l0.f.i.l.d
@@ -79,8 +79,8 @@ public class b implements d.a.l0.f.i.l.b, d.e {
         public void f(View view) {
             if (b.this.k) {
                 b.this.A(view);
-                if (b.this.f46635d != null) {
-                    b.this.f46635d.onClick();
+                if (b.this.f50309d != null) {
+                    b.this.f50309d.onClick();
                 }
             }
         }
@@ -93,17 +93,17 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
         @Override // d.a.l0.f.i.l.a
         public void b(CommandType commandType, Uri uri) {
-            if (b.this.f46638g != null) {
-                String l = b.this.f46638g.l();
+            if (b.this.f50312g != null) {
+                String l = b.this.f50312g.l();
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("monitorUrl", d.a.l0.f.i.q.b.b("landingPageLoad", b.this.m));
                 } catch (JSONException unused) {
                 }
                 b.this.n.a(l, jSONObject);
-                d.a.l0.f.i.q.b.g(b.this.f46638g, b.this.f46637f);
-                d.a.l0.f.i.q.b.n("lpClick", b.this.m, b.this.f46637f);
-                d.a.l0.f.i.q.b.n(PrefetchEvent.STATE_CLICK, b.this.m, b.this.f46637f);
+                d.a.l0.f.i.q.b.g(b.this.f50312g, b.this.f50311f);
+                d.a.l0.f.i.q.b.n("lpClick", b.this.m, b.this.f50311f);
+                d.a.l0.f.i.q.b.n(PrefetchEvent.STATE_CLICK, b.this.m, b.this.f50311f);
             }
         }
     }
@@ -112,25 +112,25 @@ public class b implements d.a.l0.f.i.l.b, d.e {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46644e;
+        public final /* synthetic */ String f50318e;
 
         public d(String str) {
-            this.f46644e = str;
+            this.f50318e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.f.i.i.c cVar = b.this.f46636e;
-            boolean z = cVar.f46652c != cVar.f46654e;
+            d.a.l0.f.i.i.c cVar = b.this.f50310e;
+            boolean z = cVar.f50326c != cVar.f50328e;
             b.this.x();
-            if (b.this.f46639h != null) {
-                b.this.f46639h.e(b.this.f46636e.f46652c);
-                b.this.n.f(b.this.f46639h.f(), new d.a.l0.f.i.i.a(d.a.l0.f.i.r.h.a(b.this.f46636e.f46650a), d.a.l0.f.i.r.h.a(b.this.f46636e.f46651b), d.a.l0.f.i.r.h.a(b.this.f46636e.f46654e), d.a.l0.f.i.r.h.a(b.this.f46636e.f46655f)));
+            if (b.this.f50313h != null) {
+                b.this.f50313h.e(b.this.f50310e.f50326c);
+                b.this.n.f(b.this.f50313h.f(), new d.a.l0.f.i.i.a(d.a.l0.f.i.r.h.a(b.this.f50310e.f50324a), d.a.l0.f.i.r.h.a(b.this.f50310e.f50325b), d.a.l0.f.i.r.h.a(b.this.f50310e.f50328e), d.a.l0.f.i.r.h.a(b.this.f50310e.f50329f)));
             }
-            if (this.f46644e.equals("width") && z && b.this.f46635d != null) {
-                d.a.l0.f.i.i.f fVar = b.this.f46635d;
-                d.a.l0.f.i.i.c cVar2 = b.this.f46636e;
-                fVar.b(cVar2.f46654e, cVar2.f46655f);
+            if (this.f50318e.equals("width") && z && b.this.f50309d != null) {
+                d.a.l0.f.i.i.f fVar = b.this.f50309d;
+                d.a.l0.f.i.i.c cVar2 = b.this.f50310e;
+                fVar.b(cVar2.f50328e, cVar2.f50329f);
             }
         }
     }
@@ -142,32 +142,32 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f46639h == null || !b.this.n.c(b.this.f46639h.f())) {
-                if (b.this.f46635d != null) {
-                    b.this.f46635d.onShow(false);
-                    b.this.f46635d.onError("3010010");
+            if (b.this.f50313h == null || !b.this.n.c(b.this.f50313h.f())) {
+                if (b.this.f50309d != null) {
+                    b.this.f50309d.onShow(false);
+                    b.this.f50309d.onError("3010010");
                     return;
                 }
                 return;
             }
-            b.this.f46639h.l();
-            if (b.this.f46635d != null) {
-                b.this.f46635d.onShow(true);
+            b.this.f50313h.l();
+            if (b.this.f50309d != null) {
+                b.this.f50309d.onShow(true);
             }
-            d.a.l0.f.i.q.b.n("showSuccess", b.this.m, b.this.f46637f);
-            if (b.this.f46640i) {
+            d.a.l0.f.i.q.b.n("showSuccess", b.this.m, b.this.f50311f);
+            if (b.this.f50314i) {
                 return;
             }
-            b.this.f46640i = true;
+            b.this.f50314i = true;
             if (b.this.k) {
-                d.a.l0.f.i.q.d.f(b.this.f46638g, b.this.f46637f);
+                d.a.l0.f.i.q.d.f(b.this.f50312g, b.this.f50311f);
                 return;
             }
-            d.a.l0.f.i.q.b.j(b.this.f46638g, b.this.f46637f);
-            String str = b.this.f46634c;
+            d.a.l0.f.i.q.b.j(b.this.f50312g, b.this.f50311f);
+            String str = b.this.f50308c;
             b bVar = b.this;
-            d.a.l0.f.i.q.b.f(str, bVar.f46633b, bVar.j, b.this.f46637f);
-            d.a.l0.f.i.q.b.n("show", b.this.m, b.this.f46637f);
+            d.a.l0.f.i.q.b.f(str, bVar.f50307b, bVar.j, b.this.f50311f);
+            d.a.l0.f.i.q.b.n("show", b.this.m, b.this.f50311f);
         }
     }
 
@@ -185,10 +185,10 @@ public class b implements d.a.l0.f.i.l.b, d.e {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str2);
                 if (b.this.l == null) {
-                    b.this.l = new d.a.l0.f.i.k.b(b.this.f46632a, b.this.f46638g, b.this.f46637f);
+                    b.this.l = new d.a.l0.f.i.k.b(b.this.f50306a, b.this.f50312g, b.this.f50311f);
                 }
                 b.this.l.k(str);
-                d.a.l0.f.i.m.a.b().b(b.this.f46632a, jSONObject, DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.l);
+                d.a.l0.f.i.m.a.b().b(b.this.f50306a, jSONObject, DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.l);
             } catch (JSONException unused) {
             }
         }
@@ -205,8 +205,8 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f46639h != null) {
-                b.this.f46639h.g();
+            if (b.this.f50313h != null) {
+                b.this.f50313h.g();
             }
         }
     }
@@ -218,12 +218,12 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f46639h != null) {
-                b.this.n.removeView(b.this.f46639h.f());
+            if (b.this.f50313h != null) {
+                b.this.n.removeView(b.this.f50313h.f());
             }
-            b.this.f46639h = null;
-            b.this.f46635d = null;
-            b.this.f46638g = null;
+            b.this.f50313h = null;
+            b.this.f50309d = null;
+            b.this.f50312g = null;
             if (b.this.l != null) {
                 b.this.l.i();
                 b.this.l = null;
@@ -233,12 +233,12 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
     public b(String str, String str2, d.a.l0.f.i.i.f fVar, d.a.l0.f.i.l.f fVar2) {
         Context appContext = AppRuntime.getAppContext();
-        this.f46632a = appContext;
-        this.f46634c = str;
-        this.f46633b = str2;
-        this.f46635d = fVar;
+        this.f50306a = appContext;
+        this.f50308c = str;
+        this.f50307b = str2;
+        this.f50309d = fVar;
         this.n = fVar2;
-        this.f46637f = new d.a.l0.f.i.o.b(appContext);
+        this.f50311f = new d.a.l0.f.i.o.b(appContext);
         this.k = false;
         E(10, 10, 350, 50);
         D();
@@ -246,24 +246,24 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
     public final void A(View view) {
         AdElementInfo adElementInfo;
-        if (!this.k || (adElementInfo = this.f46638g) == null || this.f46636e == null || view == null) {
+        if (!this.k || (adElementInfo = this.f50312g) == null || this.f50310e == null || view == null) {
             return;
         }
-        d.a.l0.f.i.q.d.d(adElementInfo, this.f46637f);
+        d.a.l0.f.i.q.d.d(adElementInfo, this.f50311f);
         d.a.l0.f.i.q.a aVar = new d.a.l0.f.i.q.a();
-        aVar.f46815a = String.valueOf(this.f46636e.f46652c);
-        aVar.f46816b = String.valueOf(this.f46636e.f46653d);
-        aVar.f46817c = String.valueOf(this.f46636e.f46652c);
-        aVar.f46818d = String.valueOf(this.f46636e.f46653d);
-        aVar.f46819e = String.valueOf((int) view.getX());
-        aVar.f46820f = String.valueOf((int) view.getY());
-        aVar.f46821g = String.valueOf((int) view.getX());
-        aVar.f46822h = String.valueOf((int) view.getY());
-        if (this.f46638g.h() == 2) {
-            d.a.l0.f.i.q.d.a(aVar, this.f46638g, this.f46637f, new f());
+        aVar.f50489a = String.valueOf(this.f50310e.f50326c);
+        aVar.f50490b = String.valueOf(this.f50310e.f50327d);
+        aVar.f50491c = String.valueOf(this.f50310e.f50326c);
+        aVar.f50492d = String.valueOf(this.f50310e.f50327d);
+        aVar.f50493e = String.valueOf((int) view.getX());
+        aVar.f50494f = String.valueOf((int) view.getY());
+        aVar.f50495g = String.valueOf((int) view.getX());
+        aVar.f50496h = String.valueOf((int) view.getY());
+        if (this.f50312g.h() == 2) {
+            d.a.l0.f.i.q.d.a(aVar, this.f50312g, this.f50311f, new f());
             return;
         }
-        AdElementInfo adElementInfo2 = this.f46638g;
+        AdElementInfo adElementInfo2 = this.f50312g;
         if (adElementInfo2 != null) {
             this.n.a(d.a.l0.f.i.q.d.c(adElementInfo2.l(), aVar), new JSONObject());
         }
@@ -274,27 +274,27 @@ public class b implements d.a.l0.f.i.l.b, d.e {
     }
 
     public final void C() {
-        d.a.l0.f.i.i.d dVar = new d.a.l0.f.i.i.d(this.f46632a, this.f46638g, this.f46633b, this.k);
-        this.f46639h = dVar;
+        d.a.l0.f.i.i.d dVar = new d.a.l0.f.i.i.d(this.f50306a, this.f50312g, this.f50307b, this.k);
+        this.f50313h = dVar;
         dVar.i(this);
         if (this.k) {
-            this.f46639h.k(new C0974b());
+            this.f50313h.k(new C1030b());
         } else {
-            this.f46639h.j(new c());
+            this.f50313h.j(new c());
         }
-        this.f46639h.e(this.f46636e.f46652c);
-        if (this.n.c(this.f46639h.f())) {
-            this.n.removeView(this.f46639h.f());
+        this.f50313h.e(this.f50310e.f50326c);
+        if (this.n.c(this.f50313h.f())) {
+            this.n.removeView(this.f50313h.f());
         }
-        if (this.n.d(this.f46639h.f(), new d.a.l0.f.i.i.a(d.a.l0.f.i.r.h.a(this.f46636e.f46650a), d.a.l0.f.i.r.h.a(this.f46636e.f46651b), d.a.l0.f.i.r.h.a(this.f46636e.f46654e), d.a.l0.f.i.r.h.a(this.f46636e.f46655f)))) {
-            d.a.l0.f.i.i.f fVar = this.f46635d;
+        if (this.n.d(this.f50313h.f(), new d.a.l0.f.i.i.a(d.a.l0.f.i.r.h.a(this.f50310e.f50324a), d.a.l0.f.i.r.h.a(this.f50310e.f50325b), d.a.l0.f.i.r.h.a(this.f50310e.f50328e), d.a.l0.f.i.r.h.a(this.f50310e.f50329f)))) {
+            d.a.l0.f.i.i.f fVar = this.f50309d;
             if (fVar != null) {
                 fVar.a(true, "");
                 return;
             }
             return;
         }
-        d.a.l0.f.i.i.f fVar2 = this.f46635d;
+        d.a.l0.f.i.i.f fVar2 = this.f50309d;
         if (fVar2 != null) {
             fVar2.onError("3010000");
         }
@@ -302,30 +302,30 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
     public final void D() {
         d.a.l0.f.i.o.e dVar;
-        d.a.l0.f.i.q.b.n("loadApi", this.m, this.f46637f);
-        String v = d.a.l0.f.i.m.a.b().v();
+        d.a.l0.f.i.q.b.n("loadApi", this.m, this.f50311f);
+        String appKey = d.a.l0.f.i.m.a.b().getAppKey();
         c.b bVar = new c.b();
-        bVar.m(this.f46634c);
-        bVar.j(this.f46633b);
-        bVar.o(v);
+        bVar.m(this.f50308c);
+        bVar.j(this.f50307b);
+        bVar.o(appKey);
         bVar.n("game");
         bVar.k("banner");
-        bVar.l(this.f46636e.f46652c);
-        bVar.i(this.f46636e.f46653d);
+        bVar.l(this.f50310e.f50326c);
+        bVar.i(this.f50310e.f50327d);
         d.a.l0.f.i.o.c h2 = bVar.h();
         if (this.k) {
-            dVar = new d.a.l0.f.i.o.f(this.f46632a, h2, 1, z());
+            dVar = new d.a.l0.f.i.o.f(this.f50306a, h2, 1, z());
         } else {
-            dVar = new d.a.l0.f.i.o.d(this.f46632a, h2);
+            dVar = new d.a.l0.f.i.o.d(this.f50306a, h2);
             this.j = dVar.c();
         }
-        d.a.l0.f.i.o.a aVar = new d.a.l0.f.i.o.a(this.f46632a, false);
+        d.a.l0.f.i.o.a aVar = new d.a.l0.f.i.o.a(this.f50306a, false);
         aVar.k(this);
-        aVar.i(dVar, this.f46637f);
+        aVar.i(dVar, this.f50311f);
     }
 
     public void E(int i2, int i3, int i4, int i5) {
-        this.f46636e = new d.a.l0.f.i.i.c(i2, i3, i4, i5);
+        this.f50310e = new d.a.l0.f.i.i.c(i2, i3, i4, i5);
         x();
     }
 
@@ -343,7 +343,7 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
     @Override // d.a.l0.f.i.l.b
     public void a(String str) {
-        d.a.l0.f.i.i.f fVar = this.f46635d;
+        d.a.l0.f.i.i.f fVar = this.f50309d;
         if (fVar != null) {
             fVar.onError(str);
         }
@@ -351,7 +351,7 @@ public class b implements d.a.l0.f.i.l.b, d.e {
         if (appId.lastIndexOf("_dev") >= 0 && appId.lastIndexOf("_dev") < appId.length() && str.equals("201000")) {
             w();
         }
-        d.a.l0.f.i.i.f fVar2 = this.f46635d;
+        d.a.l0.f.i.i.f fVar2 = this.f50309d;
         if (fVar2 != null) {
             fVar2.a(false, "");
         }
@@ -359,7 +359,7 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
     @Override // d.a.l0.f.i.i.d.e
     public void b() {
-        d.a.l0.f.i.i.f fVar = this.f46635d;
+        d.a.l0.f.i.i.f fVar = this.f50309d;
         if (fVar != null) {
             fVar.onClose();
         }
@@ -367,61 +367,61 @@ public class b implements d.a.l0.f.i.l.b, d.e {
 
     @Override // d.a.l0.f.i.l.b
     public void c(AdElementInfo adElementInfo) {
-        this.f46638g = adElementInfo;
+        this.f50312g = adElementInfo;
         C();
     }
 
     public final void w() {
-        d.a.l0.f.i.i.d dVar = new d.a.l0.f.i.i.d(this.f46632a);
-        this.f46639h = dVar;
-        dVar.e(this.f46636e.f46652c);
-        if (this.f46639h.f() == null) {
+        d.a.l0.f.i.i.d dVar = new d.a.l0.f.i.i.d(this.f50306a);
+        this.f50313h = dVar;
+        dVar.e(this.f50310e.f50326c);
+        if (this.f50313h.f() == null) {
             return;
         }
-        if (this.n.c(this.f46639h.f())) {
-            this.n.removeView(this.f46639h.f());
+        if (this.n.c(this.f50313h.f())) {
+            this.n.removeView(this.f50313h.f());
         }
-        this.n.d(this.f46639h.f(), new d.a.l0.f.i.i.a(d.a.l0.f.i.r.h.a(this.f46636e.f46650a), d.a.l0.f.i.r.h.a(this.f46636e.f46651b), d.a.l0.f.i.r.h.a(this.f46636e.f46654e), d.a.l0.f.i.r.h.a(this.f46636e.f46655f)));
-        this.f46639h.f().postDelayed(new a(), 20000L);
+        this.n.d(this.f50313h.f(), new d.a.l0.f.i.i.a(d.a.l0.f.i.r.h.a(this.f50310e.f50324a), d.a.l0.f.i.r.h.a(this.f50310e.f50325b), d.a.l0.f.i.r.h.a(this.f50310e.f50328e), d.a.l0.f.i.r.h.a(this.f50310e.f50329f)));
+        this.f50313h.f().postDelayed(new a(), 20000L);
     }
 
     public final void x() {
-        d.a.l0.f.i.i.c cVar = this.f46636e;
+        d.a.l0.f.i.i.c cVar = this.f50310e;
         if (cVar == null) {
             return;
         }
-        if (d.a.l0.f.i.r.h.a(cVar.f46652c) < 300) {
-            this.f46636e.f46652c = d.a.l0.f.i.r.h.p(300.0f);
+        if (d.a.l0.f.i.r.h.a(cVar.f50326c) < 300) {
+            this.f50310e.f50326c = d.a.l0.f.i.r.h.p(300.0f);
         }
         int q = d.a.l0.f.i.m.a.b().q();
         int p = d.a.l0.f.i.m.a.b().p();
-        if (d.a.l0.f.i.r.h.a(this.f46636e.f46652c) > q) {
-            this.f46636e.f46652c = d.a.l0.f.i.r.h.p(q);
+        if (d.a.l0.f.i.r.h.a(this.f50310e.f50326c) > q) {
+            this.f50310e.f50326c = d.a.l0.f.i.r.h.p(q);
         }
-        d.a.l0.f.i.i.c cVar2 = this.f46636e;
-        cVar2.f46653d = (int) (cVar2.f46652c / d.a.l0.f.i.i.e.f46669a);
-        if (cVar2.f46650a < 0) {
-            cVar2.f46650a = 0;
+        d.a.l0.f.i.i.c cVar2 = this.f50310e;
+        cVar2.f50327d = (int) (cVar2.f50326c / d.a.l0.f.i.i.e.f50343a);
+        if (cVar2.f50324a < 0) {
+            cVar2.f50324a = 0;
         }
         int p2 = d.a.l0.f.i.r.h.p(q);
-        d.a.l0.f.i.i.c cVar3 = this.f46636e;
-        int i2 = p2 - cVar3.f46652c;
-        if (cVar3.f46650a > i2) {
-            cVar3.f46650a = i2;
+        d.a.l0.f.i.i.c cVar3 = this.f50310e;
+        int i2 = p2 - cVar3.f50326c;
+        if (cVar3.f50324a > i2) {
+            cVar3.f50324a = i2;
         }
-        d.a.l0.f.i.i.c cVar4 = this.f46636e;
-        if (cVar4.f46651b < 0) {
-            cVar4.f46651b = 0;
+        d.a.l0.f.i.i.c cVar4 = this.f50310e;
+        if (cVar4.f50325b < 0) {
+            cVar4.f50325b = 0;
         }
         int p3 = d.a.l0.f.i.r.h.p(p);
-        d.a.l0.f.i.i.c cVar5 = this.f46636e;
-        int i3 = p3 - cVar5.f46653d;
-        if (cVar5.f46651b > i3) {
-            cVar5.f46651b = i3;
+        d.a.l0.f.i.i.c cVar5 = this.f50310e;
+        int i3 = p3 - cVar5.f50327d;
+        if (cVar5.f50325b > i3) {
+            cVar5.f50325b = i3;
         }
-        d.a.l0.f.i.i.c cVar6 = this.f46636e;
-        cVar6.f46654e = cVar6.f46652c;
-        cVar6.f46655f = cVar6.f46653d;
+        d.a.l0.f.i.i.c cVar6 = this.f50310e;
+        cVar6.f50328e = cVar6.f50326c;
+        cVar6.f50329f = cVar6.f50327d;
     }
 
     public void y() {
@@ -429,11 +429,11 @@ public class b implements d.a.l0.f.i.l.b, d.e {
     }
 
     public final int z() {
-        if (this.f46636e == null) {
+        if (this.f50310e == null) {
             return 2;
         }
         int p = d.a.l0.f.i.r.h.p(d.a.l0.f.i.m.a.b().p());
-        int i2 = this.f46636e.f46651b;
+        int i2 = this.f50310e.f50325b;
         int i3 = p / 3;
         if (i2 < i3) {
             return 1;

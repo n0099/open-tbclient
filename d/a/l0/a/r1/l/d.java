@@ -3,13 +3,13 @@ package d.a.l0.a.r1.l;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f44528a;
+    public static String f48202a;
 
     public static String a() {
-        return f44528a;
+        return f48202a;
     }
 
     public static void b(String str) {
-        f44528a = str;
+        f48202a = str;
     }
 }

@@ -37,7 +37,7 @@ import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import d.a.m0.r.s.a;
 import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity> {
     public int currency;
     public String mClickZone;
@@ -57,7 +57,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public CustomMessageListener mBindPhoneListener = new j(2001359);
     public CustomMessageListener mBuyTbeanListener = new k(2001227);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -69,28 +69,28 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f18780e;
+        public final /* synthetic */ int f18857e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f18781f;
+        public final /* synthetic */ String f18858f;
 
         public b(int i2, String str) {
-            this.f18780e = i2;
-            this.f18781f = str;
+            this.f18857e = i2;
+            this.f18858f = str;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            PaymentConfirmActivity.this.goToUEGValidate(this.f18780e, this.f18781f);
+            PaymentConfirmActivity.this.goToUEGValidate(this.f18857e, this.f18858f);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.e {
         public c() {
         }
@@ -101,24 +101,24 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18784e;
+        public final /* synthetic */ String f18861e;
 
         public d(String str) {
-            this.f18784e = str;
+            this.f18861e = str;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(PaymentConfirmActivity.this.getPageContext().getPageActivity(), PaymentConfirmActivity.this.getResources().getString(R.string.payment_dilaog_error_button), this.f18784e, true, true, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(PaymentConfirmActivity.this.getPageContext().getPageActivity(), PaymentConfirmActivity.this.getResources().getString(R.string.payment_dilaog_error_button), this.f18861e, true, true, true)));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements a.e {
         public e() {
         }
@@ -130,7 +130,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements CompoundButton.OnCheckedChangeListener {
         public f() {
         }
@@ -145,7 +145,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements View.OnClickListener {
         public g() {
         }
@@ -164,7 +164,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h extends HttpMessageListener {
         public h(int i2) {
             super(i2);
@@ -205,7 +205,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class i extends HttpMessageListener {
         public i(int i2) {
             super(i2);
@@ -295,7 +295,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class j extends CustomMessageListener {
         public j(int i2) {
             super(i2);
@@ -316,7 +316,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class k extends CustomMessageListener {
         public k(int i2) {
             super(i2);
@@ -339,7 +339,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class l implements a.e {
         public l() {
         }
@@ -350,14 +350,14 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class m implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18794e;
+        public final /* synthetic */ String f18871e;
 
         public m(String str) {
-            this.f18794e = str;
+            this.f18871e = str;
         }
 
         @Override // d.a.m0.r.s.a.e
@@ -367,23 +367,23 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (StringUtils.isNull(l)) {
                 return;
             }
-            PaymentConfirmActivity.this.goToPayment(this.f18794e, l, null, null, null, false);
+            PaymentConfirmActivity.this.goToPayment(this.f18871e, l, null, null, null, false);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class n implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f18796e;
+        public final /* synthetic */ d.a.m0.r.s.a f18873e;
 
         public n(d.a.m0.r.s.a aVar) {
-            this.f18796e = aVar;
+            this.f18873e = aVar;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            this.f18796e.setYesBtnClickable(!StringUtils.isNull(editable.toString()));
+            this.f18873e.setYesBtnClickable(!StringUtils.isNull(editable.toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -450,7 +450,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         if (z) {
             payRequestData.setMobileCheck("1");
         }
-        this.mPaymentConfirmModel.s(payRequestData);
+        this.mPaymentConfirmModel.w(payRequestData);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -521,15 +521,15 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     private void loadPaymentConfirmData() {
         if (d.a.c.e.p.l.D()) {
             showLoadingView(this.mPaymentConfirmView.k(), false);
-            this.mPaymentConfirmModel.v(this.mRequestData);
+            this.mPaymentConfirmModel.z(this.mRequestData);
             return;
         }
         showNetRefreshViewNoClick(this.mPaymentConfirmView.k(), getResources().getString(R.string.neterror));
     }
 
     private void register() {
-        this.mPaymentConfirmModel.t();
-        this.mPaymentConfirmModel.u();
+        this.mPaymentConfirmModel.x();
+        this.mPaymentConfirmModel.y();
         registerListener(this.mRequestPaymentConfirmInfoListener);
         this.mPayListener.setSelfListener(true);
         registerListener(this.mPayListener);

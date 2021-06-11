@@ -15,7 +15,7 @@ public class f extends g<JSONObject> {
     @Override // d.b.c.b.b.g, com.bytedance.sdk.adnet.core.Request
     public o<JSONObject> a(k kVar) {
         try {
-            return o.c(new JSONObject(new String(kVar.f65793b, d.b.c.b.e.c.e(kVar.f65794c, "utf-8"))), d.b.c.b.e.c.b(kVar));
+            return o.c(new JSONObject(new String(kVar.f69524b, d.b.c.b.e.c.e(kVar.f69525c, "utf-8"))), d.b.c.b.e.c.b(kVar));
         } catch (UnsupportedEncodingException e2) {
             return o.b(new com.bytedance.sdk.adnet.err.e(e2, 604));
         } catch (JSONException e3) {

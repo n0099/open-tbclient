@@ -19,45 +19,45 @@ public class a extends b {
 
     /* renamed from: d.a.l0.a.c2.f.f0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0579a implements d.a.l0.a.q0.b.a {
+    public class C0635a implements d.a.l0.a.q0.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f40984a;
+        public final /* synthetic */ d.a.l0.a.a2.e f44660a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f40985b;
+        public final /* synthetic */ CallbackHandler f44661b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f40986c;
+        public final /* synthetic */ UnitedSchemeEntity f44662c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f40987d;
+        public final /* synthetic */ String f44663d;
 
-        public C0579a(d.a.l0.a.a2.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            this.f40984a = eVar;
-            this.f40985b = callbackHandler;
-            this.f40986c = unitedSchemeEntity;
-            this.f40987d = str;
+        public C0635a(d.a.l0.a.a2.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+            this.f44660a = eVar;
+            this.f44661b = callbackHandler;
+            this.f44662c = unitedSchemeEntity;
+            this.f44663d = str;
         }
 
         @Override // d.a.l0.a.q0.b.a
         public void a() {
-            if (a.this.f40990d) {
-                d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(this.f40984a.getApplicationContext(), h.swanapp_tip_net_unavailable);
+            if (a.this.f44666d) {
+                d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(this.f44660a.getApplicationContext(), h.swanapp_tip_net_unavailable);
                 f2.l(2);
                 f2.F();
             }
-            a.this.n(this.f40986c, this.f40985b, this.f40987d);
+            a.this.n(this.f44662c, this.f44661b, this.f44663d);
         }
 
         @Override // d.a.l0.a.q0.b.a
         public void b() {
-            if (a.this.f40990d) {
-                d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(this.f40984a.getApplicationContext(), h.aiapps_fav_fail);
+            if (a.this.f44666d) {
+                d.a.l0.a.z1.b.f.e f2 = d.a.l0.a.z1.b.f.e.f(this.f44660a.getApplicationContext(), h.aiapps_fav_fail);
                 f2.l(2);
                 f2.F();
             }
-            a.this.n(this.f40986c, this.f40985b, this.f40987d);
+            a.this.n(this.f44662c, this.f44661b, this.f44663d);
         }
 
         @Override // d.a.l0.a.q0.b.a
@@ -66,24 +66,24 @@ public class a extends b {
             try {
                 jSONObject.put("success", "1");
             } catch (JSONException e2) {
-                if (k.f43199a) {
+                if (k.f46875a) {
                     e2.printStackTrace();
                 }
             }
-            if (a.this.f40990d) {
+            if (a.this.f44666d) {
                 b.m("1", "btn", "success");
                 d.a.l0.a.j0.b.a.t();
-                if (d.a.l0.a.j1.a.k(this.f40984a.x())) {
+                if (d.a.l0.a.j1.a.k(this.f44660a.x())) {
                     d.a.l0.a.j1.a.p("addmyswan", q0.n().f());
                 } else {
-                    Context applicationContext = this.f40984a.getApplicationContext();
+                    Context applicationContext = this.f44660a.getApplicationContext();
                     d.a.l0.a.z1.b.f.e g2 = d.a.l0.a.z1.b.f.e.g(applicationContext, d.a.l0.a.c1.a.e0().f(applicationContext));
                     g2.l(2);
                     g2.p(2);
                     g2.F();
                 }
             }
-            UnitedSchemeUtility.safeCallback(this.f40985b, this.f40986c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f40987d);
+            UnitedSchemeUtility.safeCallback(this.f44661b, this.f44662c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f44663d);
         }
     }
 
@@ -98,8 +98,8 @@ public class a extends b {
             return false;
         }
         try {
-            String D = this.f40990d ? eVar.D() : new JSONObject(param).optString("appid");
-            this.f40989c = D;
+            String D = this.f44666d ? eVar.D() : new JSONObject(param).optString("appid");
+            this.f44665c = D;
             return !TextUtils.isEmpty(D);
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -109,14 +109,14 @@ public class a extends b {
 
     @Override // d.a.l0.a.c2.f.f0.b
     public void k(d.a.l0.a.a2.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        PMSAppInfo s = d.a.l0.n.g.a.h().s(this.f40989c);
+        PMSAppInfo s = d.a.l0.n.g.a.h().s(this.f44665c);
         if (s != null && !TextUtils.isEmpty(s.appId)) {
-            if (this.f40990d) {
+            if (this.f44666d) {
                 b.m("1", "btn", "invoke");
             } else {
                 b.m("1", RetrieveTaskManager.KEY, "invoke");
             }
-            SwanFavorDataManager.h().b(this.f40989c, new C0579a(eVar, callbackHandler, unitedSchemeEntity, str));
+            SwanFavorDataManager.h().b(this.f44665c, new C0635a(eVar, callbackHandler, unitedSchemeEntity, str));
             return;
         }
         n(unitedSchemeEntity, callbackHandler, str);
@@ -125,7 +125,7 @@ public class a extends b {
     @Override // d.a.l0.a.c2.f.f0.b
     public void l(d.a.l0.a.a2.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         f0 e0;
-        if (!this.f40990d || (e0 = d.a.l0.a.c1.a.e0()) == null) {
+        if (!this.f44666d || (e0 = d.a.l0.a.c1.a.e0()) == null) {
             return;
         }
         e0.g(eVar);

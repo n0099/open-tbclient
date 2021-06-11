@@ -5,14 +5,14 @@ import d.a.l0.a.k;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42863a = k.f43199a;
+    public static final boolean f46539a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f42864b = 2.5f;
+    public static float f46540b = 2.5f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f42865c = 100.0f;
+    public static float f46541c = 100.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f42866d = true;
+    public static boolean f46542d = true;
 }

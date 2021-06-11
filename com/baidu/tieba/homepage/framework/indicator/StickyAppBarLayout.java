@@ -16,13 +16,13 @@ import com.google.android.material.appbar.AppBarLayout;
 public class StickyAppBarLayout extends AppBarLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public StickyAppBarLayoutBehavior f16301e;
+    public StickyAppBarLayoutBehavior f16369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f16302f;
+    public b f16370f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f16303g;
+    public CustomMessageListener f16371g;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -53,14 +53,14 @@ public class StickyAppBarLayout extends AppBarLayout {
 
     public StickyAppBarLayout(Context context) {
         super(context);
-        this.f16303g = new a(2921441);
+        this.f16371g = new a(2921441);
     }
 
     public final boolean b() {
-        if (this.f16301e == null) {
+        if (this.f16369e == null) {
             c();
         }
-        StickyAppBarLayoutBehavior stickyAppBarLayoutBehavior = this.f16301e;
+        StickyAppBarLayoutBehavior stickyAppBarLayoutBehavior = this.f16369e;
         if (stickyAppBarLayoutBehavior != null) {
             stickyAppBarLayoutBehavior.i();
             return true;
@@ -72,16 +72,16 @@ public class StickyAppBarLayout extends AppBarLayout {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof StickyAppBarLayoutBehavior) {
-                this.f16301e = (StickyAppBarLayoutBehavior) behavior;
+                this.f16369e = (StickyAppBarLayoutBehavior) behavior;
             }
         }
     }
 
     public boolean d() {
-        if (this.f16301e == null) {
+        if (this.f16369e == null) {
             c();
         }
-        StickyAppBarLayoutBehavior stickyAppBarLayoutBehavior = this.f16301e;
+        StickyAppBarLayoutBehavior stickyAppBarLayoutBehavior = this.f16369e;
         if (stickyAppBarLayoutBehavior != null) {
             return stickyAppBarLayoutBehavior.isSticky();
         }
@@ -98,33 +98,33 @@ public class StickyAppBarLayout extends AppBarLayout {
     }
 
     public boolean f() {
-        if (this.f16301e == null) {
+        if (this.f16369e == null) {
             c();
         }
-        if (this.f16301e != null) {
-            if (d() && this.f16301e.h() != null && this.f16301e.h().getVisibility() == 0) {
+        if (this.f16369e != null) {
+            if (d() && this.f16369e.h() != null && this.f16369e.h().getVisibility() == 0) {
                 e();
             }
-            this.f16301e.l();
+            this.f16369e.l();
             return true;
         }
         return false;
     }
 
     public b getOnHeaderStickyListener() {
-        return this.f16302f;
+        return this.f16370f;
     }
 
     @Override // com.google.android.material.appbar.AppBarLayout, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.f16303g);
+        MessageManager.getInstance().registerListener(this.f16371g);
     }
 
     @Override // com.google.android.material.appbar.AppBarLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.f16303g);
+        MessageManager.getInstance().unRegisterListener(this.f16371g);
     }
 
     @Override // android.view.View
@@ -134,11 +134,11 @@ public class StickyAppBarLayout extends AppBarLayout {
     }
 
     public void setOnHeaderStickyListener(b bVar) {
-        this.f16302f = bVar;
+        this.f16370f = bVar;
     }
 
     public StickyAppBarLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16303g = new a(2921441);
+        this.f16371g = new a(2921441);
     }
 }

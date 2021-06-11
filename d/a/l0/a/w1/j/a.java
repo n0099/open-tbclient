@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45614a = k.f43199a;
+    public static final boolean f49288a = k.f46875a;
 
     public static JSONObject a(List<String> list, float f2) {
-        if (f45614a) {
+        if (f49288a) {
             Log.d("PublisherCompress", "start compress");
         }
         ArrayList arrayList = new ArrayList();
@@ -53,9 +53,9 @@ public class a {
                     if (m0) {
                         J = n.V(next.getAbsolutePath());
                     } else {
-                        J = d.a.l0.a.k2.b.J(next.getAbsolutePath(), eVar.f40749f);
+                        J = d.a.l0.a.k2.b.J(next.getAbsolutePath(), eVar.f44425f);
                     }
-                    if (f45614a) {
+                    if (f49288a) {
                         Log.d("PublisherCompress", "isSwanGame: " + m0 + "; path: " + J);
                     }
                     jSONArray.put(J);
@@ -68,12 +68,12 @@ public class a {
             jSONObject.put("tempFilePaths", jSONArray);
             jSONObject.put("tempFiles", jSONArray2);
         } catch (JSONException e2) {
-            if (f45614a) {
+            if (f49288a) {
                 Log.e("PublisherCompress", "wrapParams failed");
                 e2.printStackTrace();
             }
         }
-        if (f45614a) {
+        if (f49288a) {
             Log.e("PublisherCompress", jSONObject.toString());
         }
         return jSONObject;

@@ -8,7 +8,7 @@ import d.a.l0.a.a2.i;
 public class m extends a {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h f40778e;
+    public final h f44454e;
 
     public m() {
         this(null);
@@ -28,7 +28,7 @@ public class m extends a {
     }
 
     public h d() {
-        return this.f40778e;
+        return this.f44454e;
     }
 
     public String getAppId() {
@@ -105,6 +105,6 @@ public class m extends a {
     }
 
     public m(h hVar) {
-        this.f40778e = hVar == null ? d.g() : hVar;
+        this.f44454e = hVar == null ? d.g() : hVar;
     }
 }

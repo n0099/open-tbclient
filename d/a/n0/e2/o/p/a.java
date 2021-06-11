@@ -13,19 +13,19 @@ public class a extends BaseCardInfo {
     public static final BdUniqueId r = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53871e;
+    public String f57560e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53872f;
+    public String f57561f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53873g;
+    public String f57562g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53874h;
+    public String f57563h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f53875i;
+    public String f57564i;
     public Long j;
     public long l;
     public boolean m;
@@ -35,47 +35,47 @@ public class a extends BaseCardInfo {
     public boolean k = false;
     public boolean q = false;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    public long c() {
+        return this.l;
+    }
+
+    public Long g() {
+        return this.j;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         return r;
     }
 
-    public long h() {
-        return this.l;
+    public String i() {
+        return this.f57562g;
     }
 
-    public Long l() {
-        return this.j;
+    public String k() {
+        return this.f57563h;
     }
 
-    public String m() {
-        return this.f53873g;
+    public String o() {
+        return this.f57564i;
     }
 
     public String p() {
-        return this.f53874h;
+        return this.f57561f;
     }
 
-    public String s() {
-        return this.f53875i;
+    public String q() {
+        return this.f57560e;
     }
 
-    public String t() {
-        return this.f53872f;
-    }
-
-    public String u() {
-        return this.f53871e;
-    }
-
-    public boolean v() {
+    public boolean t() {
         return this.k;
     }
 
     public void w(@NonNull AlaLiveInfo alaLiveInfo) {
-        this.f53871e = alaLiveInfo.first_headline;
-        this.f53872f = alaLiveInfo.second_headline;
-        this.f53873g = alaLiveInfo.cover;
+        this.f57560e = alaLiveInfo.first_headline;
+        this.f57561f = alaLiveInfo.second_headline;
+        this.f57562g = alaLiveInfo.cover;
         this.l = alaLiveInfo.live_id.longValue();
         AlaUserInfo alaUserInfo = alaLiveInfo.user_info;
         this.p = alaUserInfo != null ? alaUserInfo.user_id.longValue() : 0L;
@@ -83,19 +83,19 @@ public class a extends BaseCardInfo {
         this.n = alaLiveInfo.third_live_type;
         this.o = alaLiveInfo.third_room_id;
         String str = alaLiveInfo.router_type;
-        this.f53874h = "";
-        this.f53875i = TbadkCoreApplication.getInst().getString(R.string.pb_ala_enter);
+        this.f57563h = "";
+        this.f57564i = TbadkCoreApplication.getInst().getString(R.string.pb_ala_enter);
         this.j = 1L;
         this.k = true;
         this.q = false;
     }
 
     public void x(Promotion promotion) {
-        this.f53871e = promotion.title;
-        this.f53872f = promotion.sub_title;
-        this.f53873g = promotion.image;
-        this.f53874h = promotion.link;
-        this.f53875i = promotion.link_text;
+        this.f57560e = promotion.title;
+        this.f57561f = promotion.sub_title;
+        this.f57562g = promotion.image;
+        this.f57563h = promotion.link;
+        this.f57564i = promotion.link_text;
         this.j = promotion.appear_time;
         this.k = false;
         this.q = false;

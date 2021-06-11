@@ -15,22 +15,22 @@ import java.util.Locale;
 public final class a extends v<Date> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<? extends Date> f29674a;
+    public final Class<? extends Date> f29777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<DateFormat> f29675b = new ArrayList();
+    public final List<DateFormat> f29778b = new ArrayList();
 
     public a(Class<? extends Date> cls, String str) {
-        this.f29674a = a(cls);
-        this.f29675b.add(new SimpleDateFormat(str, Locale.US));
+        this.f29777a = a(cls);
+        this.f29778b.add(new SimpleDateFormat(str, Locale.US));
         if (Locale.getDefault().equals(Locale.US)) {
             return;
         }
-        this.f29675b.add(new SimpleDateFormat(str));
+        this.f29778b.add(new SimpleDateFormat(str));
     }
 
     public String toString() {
-        DateFormat dateFormat = this.f29675b.get(0);
+        DateFormat dateFormat = this.f29778b.get(0);
         if (dateFormat instanceof SimpleDateFormat) {
             return "DefaultDateTypeAdapter(" + ((SimpleDateFormat) dateFormat).toPattern() + ')';
         }
@@ -51,19 +51,19 @@ public final class a extends v<Date> {
             cVar.f();
             return;
         }
-        synchronized (this.f29675b) {
-            cVar.b(this.f29675b.get(0).format(date));
+        synchronized (this.f29778b) {
+            cVar.b(this.f29778b.get(0).format(date));
         }
     }
 
     public a(Class<? extends Date> cls, int i2, int i3) {
-        this.f29674a = a(cls);
-        this.f29675b.add(DateFormat.getDateTimeInstance(i2, i3, Locale.US));
+        this.f29777a = a(cls);
+        this.f29778b.add(DateFormat.getDateTimeInstance(i2, i3, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.f29675b.add(DateFormat.getDateTimeInstance(i2, i3));
+            this.f29778b.add(DateFormat.getDateTimeInstance(i2, i3));
         }
         if (com.bytedance.sdk.openadsdk.preload.a.b.e.b()) {
-            this.f29675b.add(com.bytedance.sdk.openadsdk.preload.a.b.j.a(i2, i3));
+            this.f29778b.add(com.bytedance.sdk.openadsdk.preload.a.b.j.a(i2, i3));
         }
     }
 
@@ -76,7 +76,7 @@ public final class a extends v<Date> {
             return null;
         }
         Date a2 = a(aVar.h());
-        Class<? extends Date> cls = this.f29674a;
+        Class<? extends Date> cls = this.f29777a;
         if (cls == Date.class) {
             return a2;
         }
@@ -90,8 +90,8 @@ public final class a extends v<Date> {
     }
 
     private Date a(String str) {
-        synchronized (this.f29675b) {
-            for (DateFormat dateFormat : this.f29675b) {
+        synchronized (this.f29778b) {
+            for (DateFormat dateFormat : this.f29778b) {
                 try {
                     return dateFormat.parse(str);
                 } catch (ParseException unused) {

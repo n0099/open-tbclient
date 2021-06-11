@@ -23,17 +23,17 @@ import org.json.JSONObject;
 public class g extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9277b = "g";
+    public static final String f9334b = "g";
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9278c;
+    public int f9335c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9279d;
+    public int f9336d;
 
     public g(int i2, int i3) {
-        this.f9278c = i2;
-        this.f9279d = i3;
+        this.f9335c = i2;
+        this.f9336d = i3;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -56,7 +56,7 @@ public class g extends com.baidu.platform.base.d {
                 poiResult.error = optInt != 1 ? optInt != 2 ? SearchResult.ERRORNO.RESULT_NOT_FOUND : SearchResult.ERRORNO.SEARCH_OPTION_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
                 return false;
             } catch (JSONException e2) {
-                Log.e(f9277b, "Parse poi search failed", e2);
+                Log.e(f9334b, "Parse poi search failed", e2);
                 poiResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             }
         }
@@ -72,9 +72,9 @@ public class g extends com.baidu.platform.base.d {
                 poiResult.setTotalPoiNum(optInt);
                 int length = optJSONArray.length();
                 poiResult.setCurrentPageCapacity(length);
-                poiResult.setCurrentPageNum(this.f9278c);
+                poiResult.setCurrentPageNum(this.f9335c);
                 if (length != 0) {
-                    int i2 = this.f9279d;
+                    int i2 = this.f9336d;
                     poiResult.setTotalPageNum((optInt / i2) + (optInt % i2 > 0 ? 1 : 0));
                 }
                 ArrayList arrayList = new ArrayList();
@@ -140,7 +140,7 @@ public class g extends com.baidu.platform.base.d {
             }
             return poiDetailInfo;
         } catch (JSONException e2) {
-            Log.e(f9277b, "Parse poi search detail info failed", e2);
+            Log.e(f9334b, "Parse poi search detail info failed", e2);
             return null;
         }
     }
@@ -184,7 +184,7 @@ public class g extends com.baidu.platform.base.d {
                 jSONObject = new JSONObject(str);
                 c2 = 0;
             } catch (JSONException e2) {
-                Log.e(f9277b, "Parse poi search error", e2);
+                Log.e(f9334b, "Parse poi search error", e2);
             }
             if (jSONObject.has("SDK_InnerError")) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
@@ -221,7 +221,7 @@ public class g extends com.baidu.platform.base.d {
         if (obj == null || !(obj instanceof OnGetPoiSearchResultListener)) {
             return;
         }
-        int i2 = h.f9280a[a().ordinal()];
+        int i2 = h.f9337a[a().ordinal()];
         if (i2 == 1 || i2 == 2 || i2 == 3) {
             ((OnGetPoiSearchResultListener) obj).onGetPoiResult((PoiResult) searchResult);
         }

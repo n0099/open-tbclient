@@ -27,9 +27,9 @@ public class o extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o oVar = o.this;
-            a.InterfaceC0542a interfaceC0542a = oVar.f40011i;
-            if (interfaceC0542a != null) {
-                interfaceC0542a.a(oVar.m);
+            a.InterfaceC0598a interfaceC0598a = oVar.f43692i;
+            if (interfaceC0598a != null) {
+                interfaceC0598a.a(oVar.m);
             }
         }
     }
@@ -40,11 +40,11 @@ public class o extends h {
         }
 
         @Override // d.a.i.v0.a.b
-        public boolean a(a.C0544a c0544a) {
-            if (o.this.m != null && o.this.m.m() != null && !o.this.f().booleanValue()) {
-                d.a.n0.z.m.a(o.this.m.m().o0());
-                d.a.n0.z.m.l(o.this.l.f4480f, o.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.a.n0.z.m.l(o.this.l.f4481g, o.this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        public boolean a(a.C0600a c0600a) {
+            if (o.this.m != null && o.this.m.i() != null && !o.this.f().booleanValue()) {
+                d.a.n0.z.m.a(o.this.m.i().o0());
+                d.a.n0.z.m.l(o.this.l.f4499f, o.this.m.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.n0.z.m.l(o.this.l.f4500g, o.this.m.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -56,8 +56,8 @@ public class o extends h {
         this.l = new NewGridImageLayout(context);
     }
 
-    public void A(a.InterfaceC0542a interfaceC0542a) {
-        this.f40011i = interfaceC0542a;
+    public void A(a.InterfaceC0598a interfaceC0598a) {
+        this.f43692i = interfaceC0598a;
     }
 
     public void B(boolean z) {

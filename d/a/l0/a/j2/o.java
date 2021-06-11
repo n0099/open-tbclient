@@ -15,23 +15,23 @@ public class o extends d.a.l0.a.u.c.d {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43181e;
+        public final /* synthetic */ String f46857e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43182f;
+        public final /* synthetic */ String f46858f;
 
         public a(o oVar, String str, String str2) {
-            this.f43181e = str;
-            this.f43182f = str2;
+            this.f46857e = str;
+            this.f46858f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (TextUtils.equals(this.f43181e, "671")) {
-                d.a.l0.a.e0.d.h("ubcAndCeresStatisticEvent", "671 event=" + this.f43182f);
+            if (TextUtils.equals(this.f46857e, "671")) {
+                d.a.l0.a.e0.d.h("ubcAndCeresStatisticEvent", "671 event=" + this.f46858f);
             }
             try {
-                d.a.l0.a.j2.b.m(this.f43181e, new JSONObject(this.f43182f));
+                d.a.l0.a.j2.b.m(this.f46857e, new JSONObject(this.f46858f));
             } catch (JSONException e2) {
                 d.a.l0.a.e0.d.h("ubcAndCeresStatisticEvent", e2.toString());
             }
@@ -42,19 +42,19 @@ public class o extends d.a.l0.a.u.c.d {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43183e;
+        public final /* synthetic */ String f46859e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f43184f;
+        public final /* synthetic */ JSONObject f46860f;
 
         public b(o oVar, String str, JSONObject jSONObject) {
-            this.f43183e = str;
-            this.f43184f = jSONObject;
+            this.f46859e = str;
+            this.f46860f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.e.m(this.f43183e, this.f43184f);
+            d.a.l0.r.e.m(this.f46859e, this.f46860f);
         }
     }
 
@@ -76,13 +76,13 @@ public class o extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b s(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-ubcAndCeresStatisticEvent", "start handle ubcStatisticEvent.");
             Log.d("Api-ubcAndCeresStatisticEvent", "data - " + str);
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-ubcAndCeresStatisticEvent", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (bVar.a()) {
+        if (bVar.isSuccess()) {
             JSONObject jSONObject = (JSONObject) b2.second;
             String optString = jSONObject.optString("ubcId");
             String optString2 = jSONObject.optString("bizId");
@@ -109,7 +109,7 @@ public class o extends d.a.l0.a.u.c.d {
                     jSONObject.putOpt("propagation", w.f(jSONObject.optJSONObject("propagation"), "source", d.a.l0.a.a2.d.g().r().L().T()));
                     jSONObject.put("eventName", str2);
                 } catch (JSONException e2) {
-                    if (d.a.l0.a.u.c.d.f44812c) {
+                    if (d.a.l0.a.u.c.d.f48486c) {
                         e2.printStackTrace();
                     }
                 }

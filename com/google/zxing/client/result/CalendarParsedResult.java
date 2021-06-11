@@ -1,6 +1,5 @@
 package com.google.zxing.client.result;
 
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,7 +23,7 @@ public final class CalendarParsedResult extends ParsedResult {
     public final boolean startAllDay;
     public final String summary;
     public static final Pattern RFC2445_DURATION = Pattern.compile("P(?:(\\d+)W)?(?:(\\d+)D)?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)S)?)?");
-    public static final long[] RFC2445_DURATION_FIELD_UNITS = {604800000, 86400000, VideoCloudSetting.HOUR_MILLISECOND, 60000, 1000};
+    public static final long[] RFC2445_DURATION_FIELD_UNITS = {604800000, 86400000, 3600000, 60000, 1000};
     public static final Pattern DATE_TIME = Pattern.compile("[0-9]{8}(T[0-9]{6}Z?)?");
 
     public CalendarParsedResult(String str, String str2, String str3, String str4, String str5, String str6, String[] strArr, String str7, double d2, double d3) {

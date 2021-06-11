@@ -3,7 +3,7 @@ package org.webrtc;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaStream {
     public static final String TAG = "MediaStream";
     public long nativeStream;

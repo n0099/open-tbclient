@@ -13,16 +13,16 @@ import tbclient.BlockPopInfo;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static BlockPopInfo f57473c;
+    public static BlockPopInfo f61162c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BlockPopInfo f57474d;
+    public static BlockPopInfo f61163d;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f57475a;
+    public TbPageContext f61164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f57476b;
+    public CustomMessageListener f61165b;
 
     /* loaded from: classes5.dex */
     public class a implements a.e {
@@ -39,15 +39,15 @@ public class d {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfo f57477e;
+        public final /* synthetic */ BlockPopInfo f61166e;
 
         public b(BlockPopInfo blockPopInfo) {
-            this.f57477e = blockPopInfo;
+            this.f61166e = blockPopInfo;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            d.this.e(this.f57477e);
+            d.this.e(this.f61166e);
         }
     }
 
@@ -70,23 +70,23 @@ public class d {
 
     public d(TbPageContext tbPageContext) {
         c cVar = new c(this, 2005016);
-        this.f57476b = cVar;
-        this.f57475a = tbPageContext;
+        this.f61165b = cVar;
+        this.f61164a = tbPageContext;
         tbPageContext.registerListener(cVar);
     }
 
     public static void f(BlockPopInfo blockPopInfo) {
-        f57474d = blockPopInfo;
+        f61163d = blockPopInfo;
     }
 
     public static void g(BlockPopInfo blockPopInfo) {
-        f57473c = blockPopInfo;
+        f61162c = blockPopInfo;
     }
 
     public final boolean b(BlockPopInfo blockPopInfo) {
         Integer num;
         if (blockPopInfo != null && (num = blockPopInfo.appeal_status) != null && num.intValue() == 1) {
-            BdToast.h(this.f57475a.getPageActivity(), blockPopInfo.appeal_msg, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).q();
+            BdToast.h(this.f61164a.getPageActivity(), blockPopInfo.appeal_msg, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).q();
             return true;
         } else if (blockPopInfo == null || blockPopInfo.can_post.intValue() != 0 || (!(blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) || blockPopInfo.appeal_status.intValue() == 1)) {
             return false;
@@ -97,7 +97,7 @@ public class d {
                 if (!k.isEmpty(str) && !k.isEmpty(str2)) {
                     h(blockPopInfo);
                 } else {
-                    BdToast.h(this.f57475a.getPageActivity(), this.f57475a.getString(R.string.hanpen_error), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).q();
+                    BdToast.h(this.f61164a.getPageActivity(), this.f61164a.getString(R.string.hanpen_error), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).q();
                 }
             } else if (blockPopInfo.ahead_type.intValue() == 2) {
                 e(blockPopInfo);
@@ -107,28 +107,28 @@ public class d {
     }
 
     public boolean c() {
-        return b(f57474d);
+        return b(f61163d);
     }
 
     public boolean d() {
-        return b(f57473c);
+        return b(f61162c);
     }
 
     public final void e(BlockPopInfo blockPopInfo) {
         if (blockPopInfo == null) {
             return;
         }
-        AntiHelper.p(this.f57475a.getPageActivity(), blockPopInfo.ahead_url);
+        AntiHelper.p(this.f61164a.getPageActivity(), blockPopInfo.ahead_url);
     }
 
     public final void h(BlockPopInfo blockPopInfo) {
         if (blockPopInfo == null) {
             return;
         }
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f57475a.getPageActivity());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f61164a.getPageActivity());
         aVar.setMessage(blockPopInfo.block_info);
         aVar.setNegativeButton(blockPopInfo.ok_info, new a(this));
         aVar.setPositiveButton(blockPopInfo.ahead_info, new b(blockPopInfo));
-        aVar.create(this.f57475a).show();
+        aVar.create(this.f61164a).show();
     }
 }

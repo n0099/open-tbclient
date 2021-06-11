@@ -43,7 +43,7 @@ public class hc {
             a(context, heVar, a2);
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m57a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+        com.xiaomi.channel.commonutils.logger.b.m56a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
     }
 
     public static void a(Context context, hj hjVar) {

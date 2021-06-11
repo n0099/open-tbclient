@@ -14,54 +14,54 @@ import kotlin.text.Typography;
 public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final RestHttpNetwork f3873a;
+    public final RestHttpNetwork f3892a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3875c;
+    public String f3894c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpDefines.HttpMethod f3876d;
+    public HttpDefines.HttpMethod f3895d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3877e;
+    public String f3896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3878f;
+    public String f3897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<RestNameValuePair> f3879g;
+    public List<RestNameValuePair> f3898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RestMultipartEntity f3880h;
+    public RestMultipartEntity f3899h;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.baidu.apollon.restnet.http.a f3874b = new com.baidu.apollon.restnet.http.a();
+    public final com.baidu.apollon.restnet.http.a f3893b = new com.baidu.apollon.restnet.http.a();
 
     /* renamed from: i  reason: collision with root package name */
-    public int f3881i = -1;
+    public int f3900i = -1;
 
     public RestUrlConnectionRequest(RestHttpNetwork restHttpNetwork, String str, HttpDefines.HttpMethod httpMethod, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str2) {
-        this.f3873a = restHttpNetwork;
-        this.f3875c = str2;
-        this.f3876d = httpMethod;
-        this.f3877e = str;
-        this.f3879g = list;
-        this.f3880h = restMultipartEntity;
+        this.f3892a = restHttpNetwork;
+        this.f3894c = str2;
+        this.f3895d = httpMethod;
+        this.f3896e = str;
+        this.f3898g = list;
+        this.f3899h = restMultipartEntity;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
     public com.baidu.apollon.restnet.http.a a() {
-        return this.f3874b;
+        return this.f3893b;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
     public HttpDefines.HttpMethod b() {
-        return this.f3876d;
+        return this.f3895d;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
     public String c() {
-        return this.f3877e;
+        return this.f3896e;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
@@ -69,31 +69,31 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
         if (Thread.currentThread().isInterrupted()) {
             return null;
         }
-        return this.f3873a.a(this);
+        return this.f3892a.a(this);
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
     public String e() {
-        return this.f3875c;
+        return this.f3894c;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
     public void f() {
-        this.f3873a.a();
+        this.f3892a.a();
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
     public int g() {
-        return this.f3881i;
+        return this.f3900i;
     }
 
     public String getProcessedParams() {
-        List<RestNameValuePair> list = this.f3879g;
+        List<RestNameValuePair> list = this.f3898g;
         if (list == null || list.size() == 0) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (RestNameValuePair restNameValuePair : this.f3879g) {
+        for (RestNameValuePair restNameValuePair : this.f3898g) {
             String name = restNameValuePair.getName();
             String value = restNameValuePair.getValue();
             if (!TextUtils.isEmpty(name)) {
@@ -101,9 +101,9 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
                     value = "";
                 }
                 try {
-                    sb.append(URLEncoder.encode(name, this.f3875c));
-                    sb.append(com.alipay.sdk.encrypt.a.f1873h);
-                    sb.append(URLEncoder.encode(value, this.f3875c));
+                    sb.append(URLEncoder.encode(name, this.f3894c));
+                    sb.append(com.alipay.sdk.encrypt.a.f1886h);
+                    sb.append(URLEncoder.encode(value, this.f3894c));
                     sb.append(Typography.amp);
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
@@ -118,11 +118,11 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
 
     @Override // com.baidu.apollon.restnet.rest.d
     public String h() {
-        return this.f3878f;
+        return this.f3897f;
     }
 
     public RestMultipartEntity i() {
-        return this.f3880h;
+        return this.f3899h;
     }
 
     public boolean j() {
@@ -135,15 +135,15 @@ public class RestUrlConnectionRequest implements com.baidu.apollon.restnet.rest.
 
     @Override // com.baidu.apollon.restnet.rest.d
     public void a(int i2) {
-        this.f3881i = i2;
+        this.f3900i = i2;
     }
 
     public void b(String str) {
-        this.f3877e = str;
+        this.f3896e = str;
     }
 
     @Override // com.baidu.apollon.restnet.rest.d
     public void a(String str) {
-        this.f3878f = str;
+        this.f3897f = str;
     }
 }

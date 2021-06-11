@@ -23,21 +23,21 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f13499a;
+        public final String f13564a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13500b;
+        public String f13565b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13501c;
+        public String f13566c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f13502d;
+        public String f13567d;
 
         public b(@NonNull DownloadCacheKey downloadCacheKey) {
-            this.f13499a = downloadCacheKey.mAdId;
-            this.f13500b = downloadCacheKey.mDownloadUrl;
-            this.f13501c = downloadCacheKey.mPackageName;
+            this.f13564a = downloadCacheKey.mAdId;
+            this.f13565b = downloadCacheKey.mDownloadUrl;
+            this.f13566c = downloadCacheKey.mPackageName;
         }
 
         @NonNull
@@ -176,10 +176,10 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
     }
 
     public AdDownloadData(b bVar) {
-        this.mAdId = bVar.f13499a;
-        this.mPackageName = bVar.f13501c;
-        this.mDownloadUrl = bVar.f13500b;
-        this.mDeeplinkUrl = bVar.f13502d;
+        this.mAdId = bVar.f13564a;
+        this.mPackageName = bVar.f13566c;
+        this.mDownloadUrl = bVar.f13565b;
+        this.mDeeplinkUrl = bVar.f13567d;
         this.mExtra = new AdDownloadExtra(this);
     }
 }

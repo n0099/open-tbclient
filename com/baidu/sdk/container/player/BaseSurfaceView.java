@@ -10,21 +10,21 @@ import d.a.f0.a.i.c;
 public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, c {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f9968e;
+    public int f10030e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9969f;
+    public int f10031f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9970g;
+    public int f10032g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f9971h;
+    public b f10033h;
 
     public BaseSurfaceView(Context context, b bVar) {
         super(context);
-        this.f9968e = 1;
-        this.f9971h = bVar;
+        this.f10030e = 1;
+        this.f10033h = bVar;
         getHolder().addCallback(this);
     }
 
@@ -34,17 +34,17 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     public int getDisplayMode() {
-        return this.f9968e;
+        return this.f10030e;
     }
 
     @Override // android.view.SurfaceView, android.view.View
     public void onMeasure(int i2, int i3) {
         int i4;
-        int defaultSize = SurfaceView.getDefaultSize(this.f9969f, i2);
-        int defaultSize2 = SurfaceView.getDefaultSize(this.f9970g, i3);
-        int i5 = this.f9969f;
-        if (i5 > 0 && (i4 = this.f9970g) > 0) {
-            int i6 = this.f9968e;
+        int defaultSize = SurfaceView.getDefaultSize(this.f10031f, i2);
+        int defaultSize2 = SurfaceView.getDefaultSize(this.f10032g, i3);
+        int i5 = this.f10031f;
+        if (i5 > 0 && (i4 = this.f10032g) > 0) {
+            int i6 = this.f10030e;
             if (i6 != 0) {
                 if (i6 != 1) {
                     if (i6 == 3) {
@@ -84,14 +84,14 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                 defaultSize2 = (i4 * defaultSize) / i5;
             }
         }
-        Log.d("BaseSurfaceView", String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f9969f), Integer.valueOf(this.f9970g)));
+        Log.d("BaseSurfaceView", String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f10031f), Integer.valueOf(this.f10032g)));
         setMeasuredDimension(defaultSize, defaultSize2);
     }
 
     @Override // d.a.f0.a.i.c
     public void onVideoSizeChanged(int i2, int i3) {
-        this.f9969f = i2;
-        this.f9970g = i3;
+        this.f10031f = i2;
+        this.f10032g = i3;
         if (i2 == 0 || i3 == 0) {
             return;
         }
@@ -100,7 +100,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     @Override // d.a.f0.a.i.c
     public void setDisplayMode(int i2) {
-        this.f9968e = i2;
+        this.f10030e = i2;
     }
 
     public void setEndSurface() {
@@ -112,7 +112,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        b bVar = this.f9971h;
+        b bVar = this.f10033h;
         if (bVar != null) {
             bVar.surfaceCreated(surfaceHolder);
         }
@@ -120,7 +120,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        b bVar = this.f9971h;
+        b bVar = this.f10033h;
         if (bVar != null) {
             bVar.surfaceDestroy();
         }

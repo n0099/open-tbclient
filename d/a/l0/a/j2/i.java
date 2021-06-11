@@ -6,27 +6,27 @@ import d.a.l0.a.v2.q;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43130a = d.a.l0.a.k.f43199a;
+    public static final boolean f46806a = d.a.l0.a.k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.j2.p.d f43131e;
+        public final /* synthetic */ d.a.l0.a.j2.p.d f46807e;
 
         public a(d.a.l0.a.j2.p.d dVar) {
-            this.f43131e = dVar;
+            this.f46807e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.k("671", this.f43131e.f());
+            b.k("671", this.f46807e.f());
         }
     }
 
     public static void a(d.a.l0.n.f.d dVar, int i2, boolean z) {
         if (dVar == null) {
-            if (f43130a) {
+            if (f46806a) {
                 Log.d("SwanStabilityUbc", "pms callback is null");
                 return;
             }
@@ -43,14 +43,14 @@ public final class i {
             dVar2.r(((d.a.l0.a.h0.m.g) dVar).G0());
         }
         b(dVar2);
-        if (f43130a) {
+        if (f46806a) {
             Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + dVar.getClass().getSimpleName());
         }
     }
 
     public static void b(d.a.l0.a.j2.p.d dVar) {
         if (dVar == null) {
-            if (f43130a) {
+            if (f46806a) {
                 Log.d("SwanStabilityUbc", "event is null");
                 return;
             }

@@ -2,13 +2,13 @@ package com.baidu.tbadk.BdToken;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.m0.a.d;
+import d.a.m0.a.e;
 import d.a.m0.z0.w;
 import tbclient.GetUserByTiebaUid.DataReq;
 import tbclient.GetUserByTiebaUid.GetUserByTiebaUidReqIdl;
 /* loaded from: classes3.dex */
 public class TiebaUidCheckReqMsg extends NetMessage {
-    public d.l mTiebaUidData;
+    public e.l mTiebaUidData;
 
     public TiebaUidCheckReqMsg() {
         super(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, 309702);
@@ -31,7 +31,7 @@ public class TiebaUidCheckReqMsg extends NetMessage {
         }
     }
 
-    public void setTiebaUid(d.l lVar) {
+    public void setTiebaUid(e.l lVar) {
         this.mTiebaUidData = lVar;
     }
 }

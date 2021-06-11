@@ -1,22 +1,22 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class ae extends s {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f33386h;
+    public String f36846h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f33387i;
+    public String f36847i;
 
     public ae(String str, com.kwad.sdk.pngencrypt.k kVar) {
         super(str, kVar);
     }
 
     public String c() {
-        return this.f33386h;
+        return this.f36846h;
     }
 
     public String d() {
-        return this.f33387i;
+        return this.f36847i;
     }
 }

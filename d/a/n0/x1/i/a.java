@@ -15,7 +15,7 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import d.a.m0.g0.d.b;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends d.a.m0.g0.f.a<d.a.n0.x1.h.a, b> {
     public View k;
     public TextView l;
@@ -46,40 +46,40 @@ public class a extends d.a.m0.g0.f.a<d.a.n0.x1.h.a, b> {
             return;
         }
         if (this.l != null) {
-            if (aVar.m() == 49) {
-                if (StringUtils.isNull(aVar.d())) {
-                    if (StringUtils.isNull(aVar.p())) {
+            if (aVar.k() == 49) {
+                if (StringUtils.isNull(aVar.c())) {
+                    if (StringUtils.isNull(aVar.o())) {
                         this.l.setText(i(R.string.pb_history_default_user_name));
                     } else {
-                        this.l.setText(aVar.p());
+                        this.l.setText(aVar.o());
                     }
                 } else {
-                    this.l.setText(aVar.d());
+                    this.l.setText(aVar.c());
                 }
-            } else if (aVar.l() != null) {
-                if (aVar.v()) {
-                    this.l.setText(String.format("%s%s", i(R.string.pb_history_share_prefix), aVar.l()));
+            } else if (aVar.j() != null) {
+                if (aVar.t()) {
+                    this.l.setText(String.format("%s%s", i(R.string.pb_history_share_prefix), aVar.j()));
                 } else {
-                    this.l.setText(aVar.l());
+                    this.l.setText(aVar.j());
                 }
             }
         }
         if (this.m != null) {
-            if (aVar.m() == 49 && !TextUtils.isEmpty(aVar.p())) {
-                this.m.setText(String.format(i(R.string.pb_history_user_name), aVar.p()));
-            } else if (aVar.m() == 49) {
+            if (aVar.k() == 49 && !TextUtils.isEmpty(aVar.o())) {
+                this.m.setText(String.format(i(R.string.pb_history_user_name), aVar.o()));
+            } else if (aVar.k() == 49) {
                 this.m.setText(String.format(i(R.string.pb_history_user_name), i(R.string.pb_history_default_user_name)));
-            } else if (aVar.e() != null) {
-                this.m.setText(aVar.e());
+            } else if (aVar.d() != null) {
+                this.m.setText(aVar.d());
             }
         }
-        if (aVar.m() == 49) {
-            this.o.setVisibility(aVar.t() ? 0 : 8);
+        if (aVar.k() == 49) {
+            this.o.setVisibility(aVar.q() ? 0 : 8);
         } else {
             this.o.setVisibility(8);
         }
         if (this.n != null) {
-            String GetPostTimeString = StringHelper.GetPostTimeString(new Date(aVar.n()));
+            String GetPostTimeString = StringHelper.GetPostTimeString(new Date(aVar.m()));
             if (GetPostTimeString == null) {
                 GetPostTimeString = "";
             }

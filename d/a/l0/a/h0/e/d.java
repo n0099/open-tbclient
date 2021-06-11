@@ -20,7 +20,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class d extends SwanAppWebViewManager implements d.a.l0.a.p.e.a<NgWebView> {
-    public static final boolean C = k.f43199a;
+    public static final boolean C = k.f46875a;
     public Context A;
     public boolean B;
 
@@ -62,7 +62,7 @@ public class d extends SwanAppWebViewManager implements d.a.l0.a.p.e.a<NgWebView
         u().setVisibility(z ? 0 : 8);
     }
 
-    public final void V() {
+    public final void U() {
         Context context = this.A;
         if (context == null || !(context instanceof Activity)) {
             return;
@@ -82,7 +82,7 @@ public class d extends SwanAppWebViewManager implements d.a.l0.a.p.e.a<NgWebView
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, d.a.l0.a.p.e.d
     public void destroy() {
-        V();
+        U();
         super.destroy();
     }
 

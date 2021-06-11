@@ -17,35 +17,35 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<r> f60476e = new ArrayList();
+    public List<r> f64167e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public MemberTaskCenterActivity f60477f;
+    public MemberTaskCenterActivity f64168f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f60478g;
+    public View.OnClickListener f64169g;
 
     /* loaded from: classes3.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f60479a;
+        public TextView f64170a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f60480b;
+        public TextView f64171b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f60481c;
+        public TextView f64172c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f60482d;
+        public View f64173d;
 
         public a(b bVar) {
         }
     }
 
     public b(MemberTaskCenterActivity memberTaskCenterActivity) {
-        this.f60477f = memberTaskCenterActivity;
+        this.f64168f = memberTaskCenterActivity;
     }
 
     public final SpannableString a(String str, String str2) {
@@ -59,27 +59,27 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: b */
     public r getItem(int i2) {
-        List<r> list = this.f60476e;
+        List<r> list = this.f64167e;
         if (list == null || list.size() <= i2) {
             return null;
         }
-        return this.f60476e.get(i2);
+        return this.f64167e.get(i2);
     }
 
     public void c(List<r> list) {
-        this.f60476e.clear();
+        this.f64167e.clear();
         if (list != null) {
-            this.f60476e.addAll(list);
+            this.f64167e.addAll(list);
         }
     }
 
     public void d(View.OnClickListener onClickListener) {
-        this.f60478g = onClickListener;
+        this.f64169g = onClickListener;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<r> list = this.f60476e;
+        List<r> list = this.f64167e;
         if (list != null) {
             return list.size();
         }
@@ -97,32 +97,32 @@ public class b extends BaseAdapter {
         if (view != null && (view.getTag() instanceof a)) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.f60477f.getActivity()).inflate(R.layout.member_task_center_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f64168f.getActivity()).inflate(R.layout.member_task_center_item, (ViewGroup) null);
             aVar = new a(this);
-            aVar.f60480b = (TextView) view.findViewById(R.id.task_intro);
-            aVar.f60479a = (TextView) view.findViewById(R.id.task_name);
-            aVar.f60481c = (TextView) view.findViewById(R.id.task_status);
-            aVar.f60482d = view.findViewById(R.id.divider_line);
+            aVar.f64171b = (TextView) view.findViewById(R.id.task_intro);
+            aVar.f64170a = (TextView) view.findViewById(R.id.task_name);
+            aVar.f64172c = (TextView) view.findViewById(R.id.task_status);
+            aVar.f64173d = view.findViewById(R.id.divider_line);
         }
         r item = getItem(i2);
         if (item != null) {
-            aVar.f60479a.setText(item.f());
-            aVar.f60480b.setText(a(String.valueOf(item.a()), item.b()));
+            aVar.f64170a.setText(item.f());
+            aVar.f64171b.setText(a(String.valueOf(item.a()), item.b()));
             if (item.d()) {
-                aVar.f60481c.setText(this.f60477f.getPageContext().getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
-                aVar.f60481c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                aVar.f60481c.setBackgroundDrawable(null);
-                aVar.f60481c.setOnClickListener(null);
+                aVar.f64172c.setText(this.f64168f.getPageContext().getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
+                aVar.f64172c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
+                aVar.f64172c.setBackgroundDrawable(null);
+                aVar.f64172c.setOnClickListener(null);
             } else {
-                aVar.f60481c.setText(this.f60477f.getPageContext().getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
-                SkinManager.setViewTextColor(aVar.f60481c, R.color.member_center_task_btn_textcolor);
-                aVar.f60481c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
-                aVar.f60481c.setTag(item);
-                aVar.f60481c.setOnClickListener(this.f60478g);
+                aVar.f64172c.setText(this.f64168f.getPageContext().getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
+                SkinManager.setViewTextColor(aVar.f64172c, R.color.member_center_task_btn_textcolor);
+                aVar.f64172c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
+                aVar.f64172c.setTag(item);
+                aVar.f64172c.setOnClickListener(this.f64169g);
             }
-            SkinManager.setViewTextColor(aVar.f60480b, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(aVar.f60479a, R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(aVar.f60482d, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(aVar.f64171b, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(aVar.f64170a, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(aVar.f64173d, R.color.CAM_X0204);
         }
         view.setTag(aVar);
         return view;

@@ -1,11 +1,11 @@
 package com.kwad.sdk.crash.utils;
 
 import java.text.SimpleDateFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f33037a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static SimpleDateFormat f35161a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public static String a(long j) {
         String valueOf;

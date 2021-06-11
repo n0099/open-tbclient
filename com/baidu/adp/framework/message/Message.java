@@ -10,6 +10,7 @@ public abstract class Message<T> extends OrmObject {
     public final int mCmd;
     public BdUniqueId mTag;
     public Object mExtra = null;
+    public Object mSelf = null;
     public long mStartTime = 0;
     public long encodedBinarySize = 0;
     public int squencedId = 0;
@@ -46,6 +47,10 @@ public abstract class Message<T> extends OrmObject {
         return this.mExtra;
     }
 
+    public Object getSelf() {
+        return this.mSelf;
+    }
+
     public int getSquencedId() {
         return this.squencedId;
     }
@@ -68,6 +73,10 @@ public abstract class Message<T> extends OrmObject {
 
     public void setExtra(Object obj) {
         this.mExtra = obj;
+    }
+
+    public void setSelf(Object obj) {
+        this.mSelf = obj;
     }
 
     public void setSquencedId(int i2) {

@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.clientConfig.ClientConfigModel;
@@ -20,25 +21,25 @@ import tbclient.GetClientConfig.DataRes;
 public class b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static b f55644g;
+    public static b f59333g;
 
     /* renamed from: a  reason: collision with root package name */
-    public ClientConfigModel f55645a;
+    public ClientConfigModel f59334a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f55646b;
+    public d f59335b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f55647c = false;
+    public boolean f59336c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.a.m0.p.a f55648d = new a();
+    public final d.a.m0.p.a f59337d = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f55649e = new C1368b(2000994);
+    public CustomMessageListener f59338e = new C1424b(2000994);
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f55650f = new c(2005016);
+    public CustomMessageListener f59339f = new c(2005016);
 
     /* loaded from: classes5.dex */
     public class a implements d.a.m0.p.a {
@@ -47,7 +48,7 @@ public class b {
 
         @Override // d.a.m0.p.a
         public void a(Object obj) {
-            b.this.f55647c = false;
+            b.this.f59336c = false;
             if (obj == null || !(obj instanceof DataRes)) {
                 return;
             }
@@ -67,14 +68,14 @@ public class b {
 
         @Override // d.a.m0.p.a
         public void onError(String str) {
-            b.this.f55647c = false;
+            b.this.f59336c = false;
         }
     }
 
     /* renamed from: d.a.n0.h3.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1368b extends CustomMessageListener {
-        public C1368b(int i2) {
+    public class C1424b extends CustomMessageListener {
+        public C1424b(int i2) {
             super(i2);
         }
 
@@ -125,23 +126,23 @@ public class b {
     }
 
     public static b i() {
-        if (f55644g == null) {
+        if (f59333g == null) {
             synchronized (b.class) {
-                if (f55644g == null) {
-                    f55644g = new b();
+                if (f59333g == null) {
+                    f59333g = new b();
                 }
             }
         }
-        return f55644g;
+        return f59333g;
     }
 
     public void e(BaseFragmentActivity baseFragmentActivity) {
         d dVar = new d();
-        this.f55646b = dVar;
+        this.f59335b = dVar;
         baseFragmentActivity.registerListener(dVar);
-        baseFragmentActivity.registerListener(this.f55649e);
-        baseFragmentActivity.registerListener(this.f55650f);
-        this.f55645a = new ClientConfigModel(baseFragmentActivity, this.f55648d);
+        baseFragmentActivity.registerListener(this.f59338e);
+        baseFragmentActivity.registerListener(this.f59339f);
+        this.f59334a = new ClientConfigModel(baseFragmentActivity, this.f59337d);
         d.a.m0.r.d0.b.j().w("tieba_last_active_time", System.currentTimeMillis());
         if (f()) {
             k(true);
@@ -176,21 +177,25 @@ public class b {
     }
 
     public final void j() {
-        ClientConfigModel clientConfigModel = this.f55645a;
-        if (clientConfigModel == null || this.f55647c) {
+        ClientConfigModel clientConfigModel = this.f59334a;
+        if (clientConfigModel == null || this.f59336c) {
             return;
         }
-        this.f55647c = true;
-        clientConfigModel.x("local_dialog");
+        this.f59336c = true;
+        clientConfigModel.B("local_dialog");
     }
 
     public final void k(boolean z) {
         AlarmManager alarmManager = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
         PendingIntent broadcast = PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 0, new Intent(TbadkCoreApplication.getInst().getApp(), AlarmReceiver.class), 134217728);
-        if (z) {
-            alarmManager.setRepeating(0, d.a.n0.h3.f.a.b() + 86400000, 86400000L, broadcast);
-        } else {
-            alarmManager.cancel(broadcast);
+        try {
+            if (z) {
+                alarmManager.setRepeating(0, d.a.n0.h3.f.a.b() + 86400000, 86400000L, broadcast);
+            } else {
+                alarmManager.cancel(broadcast);
+            }
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
         }
     }
 }

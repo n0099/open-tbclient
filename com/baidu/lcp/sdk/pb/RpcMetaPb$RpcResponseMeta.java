@@ -47,19 +47,19 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcResponseMeta, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6366e;
+        public int f6409e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6367f;
+        public long f6410f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f6368g;
+        public long f6411g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f6369h;
+        public long f6412h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f6370i;
+        public int f6413i;
         public Object j = "";
 
         public b() {
@@ -106,21 +106,21 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         /* renamed from: n */
         public RpcMetaPb$RpcResponseMeta buildPartial() {
             RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this);
-            int i2 = this.f6366e;
+            int i2 = this.f6409e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            rpcMetaPb$RpcResponseMeta.serviceId_ = this.f6367f;
+            rpcMetaPb$RpcResponseMeta.serviceId_ = this.f6410f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            rpcMetaPb$RpcResponseMeta.methodId_ = this.f6368g;
+            rpcMetaPb$RpcResponseMeta.methodId_ = this.f6411g;
             if ((i2 & 4) == 4) {
                 i3 |= 4;
             }
-            rpcMetaPb$RpcResponseMeta.logId_ = this.f6369h;
+            rpcMetaPb$RpcResponseMeta.logId_ = this.f6412h;
             if ((i2 & 8) == 8) {
                 i3 |= 8;
             }
-            rpcMetaPb$RpcResponseMeta.errorCode_ = this.f6370i;
+            rpcMetaPb$RpcResponseMeta.errorCode_ = this.f6413i;
             if ((i2 & 16) == 16) {
                 i3 |= 16;
             }
@@ -131,20 +131,20 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
 
         public b o() {
             super.clear();
-            this.f6367f = 0L;
-            int i2 = this.f6366e & (-2);
-            this.f6366e = i2;
-            this.f6368g = 0L;
+            this.f6410f = 0L;
+            int i2 = this.f6409e & (-2);
+            this.f6409e = i2;
+            this.f6411g = 0L;
             int i3 = i2 & (-3);
-            this.f6366e = i3;
-            this.f6369h = 0L;
+            this.f6409e = i3;
+            this.f6412h = 0L;
             int i4 = i3 & (-5);
-            this.f6366e = i4;
-            this.f6370i = 0;
+            this.f6409e = i4;
+            this.f6413i = 0;
             int i5 = i4 & (-9);
-            this.f6366e = i5;
+            this.f6409e = i5;
             this.j = "";
-            this.f6366e = i5 & (-17);
+            this.f6409e = i5 & (-17);
             return this;
         }
 
@@ -181,7 +181,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                 u(rpcMetaPb$RpcResponseMeta.getErrorCode());
             }
             if (rpcMetaPb$RpcResponseMeta.hasErrorText()) {
-                this.f6366e |= 16;
+                this.f6409e |= 16;
                 this.j = rpcMetaPb$RpcResponseMeta.errorText_;
             }
             return this;
@@ -222,26 +222,26 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
 
         public b u(int i2) {
-            this.f6366e |= 8;
-            this.f6370i = i2;
+            this.f6409e |= 8;
+            this.f6413i = i2;
             return this;
         }
 
         public b v(long j) {
-            this.f6366e |= 4;
-            this.f6369h = j;
+            this.f6409e |= 4;
+            this.f6412h = j;
             return this;
         }
 
         public b w(long j) {
-            this.f6366e |= 2;
-            this.f6368g = j;
+            this.f6409e |= 2;
+            this.f6411g = j;
             return this;
         }
 
         public b x(long j) {
-            this.f6366e |= 1;
-            this.f6367f = j;
+            this.f6409e |= 1;
+            this.f6410f = j;
             return this;
         }
 

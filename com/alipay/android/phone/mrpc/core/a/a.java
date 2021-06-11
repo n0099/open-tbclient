@@ -5,13 +5,13 @@ import java.lang.reflect.Type;
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Type f1600a;
+    public Type f1613a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f1601b;
+    public byte[] f1614b;
 
     public a(Type type, byte[] bArr) {
-        this.f1600a = type;
-        this.f1601b = bArr;
+        this.f1613a = type;
+        this.f1614b = bArr;
     }
 }

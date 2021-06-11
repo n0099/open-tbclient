@@ -4,7 +4,6 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.loader.Loader;
 import java.io.Serializable;
-import java.util.Map;
 import org.json.JSONObject;
 @KsAdSdkApi
 @Keep
@@ -68,20 +67,6 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder rewardCallbackExtraData(Map<String, String> map) {
-            this.scene.setRewardCallbackExtraData(map);
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
-        public Builder screenOrientation(int i2) {
-            this.scene.setScreenOrientation(i2);
-            return this;
-        }
-
-        @KsAdSdkApi
-        @Keep
         public Builder width(int i2) {
             this.scene.setWidth(i2);
             return this;
@@ -110,14 +95,6 @@ public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    Map<String, String> getRewardCallbackExtraData();
-
-    @KsAdSdkApi
-    @Keep
-    int getScreenOrientation();
-
-    @KsAdSdkApi
-    @Keep
     int getWidth();
 
     @KsAdSdkApi
@@ -139,14 +116,6 @@ public interface KsScene extends Serializable {
     @KsAdSdkApi
     @Keep
     void setPosId(long j);
-
-    @KsAdSdkApi
-    @Keep
-    void setRewardCallbackExtraData(Map<String, String> map);
-
-    @KsAdSdkApi
-    @Keep
-    void setScreenOrientation(int i2);
 
     @KsAdSdkApi
     @Keep

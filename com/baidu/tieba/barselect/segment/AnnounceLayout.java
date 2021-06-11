@@ -20,10 +20,10 @@ import d.a.m0.b1.m.f;
 public class AnnounceLayout extends CardBasicLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public float f14172h;
+    public float f14229h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f14173i;
+    public Context f14230i;
     public TextView j;
 
     /* loaded from: classes4.dex */
@@ -42,7 +42,7 @@ public class AnnounceLayout extends CardBasicLayout {
     }
 
     public void b() {
-        this.f14173i = getContext();
+        this.f14230i = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(1);
@@ -55,7 +55,7 @@ public class AnnounceLayout extends CardBasicLayout {
     public final void c(SpannableStringBuilder spannableStringBuilder) {
         if (spannableStringBuilder != null && !TextUtils.isEmpty(spannableStringBuilder.toString())) {
             int i2 = 2;
-            if (!t.b(this.f14172h, this.j.getPaint(), spannableStringBuilder.toString(), 2)) {
+            if (!t.b(this.f14229h, this.j.getPaint(), spannableStringBuilder.toString(), 2)) {
                 this.j.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
                 return;
             }
@@ -63,11 +63,11 @@ public class AnnounceLayout extends CardBasicLayout {
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.detail));
             spannableStringBuilder3.setSpan(new a(2, null), 0, spannableStringBuilder3.length(), 17);
             spannableStringBuilder2.append((CharSequence) spannableStringBuilder3);
-            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.j.getPaint(), (int) this.f14172h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-            float f2 = this.f14172h;
+            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.j.getPaint(), (int) this.f14229h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            float f2 = this.f14229h;
             if (staticLayout.getLineCount() >= 2) {
                 spannableStringBuilder.delete(staticLayout.getLineEnd(1), spannableStringBuilder.length());
-                f2 = this.f14172h - staticLayout.getLineWidth(1);
+                f2 = this.f14229h - staticLayout.getLineWidth(1);
             }
             CharSequence subSequence = spannableStringBuilder.subSequence(spannableStringBuilder.length() - 2, spannableStringBuilder.length());
             float measureText = this.j.getPaint().measureText(spannableStringBuilder3.toString());
@@ -91,15 +91,15 @@ public class AnnounceLayout extends CardBasicLayout {
     public void setData(int i2, d.a.n0.x.b.f fVar) {
         int i3;
         super.setData(i2, fVar);
-        if (this.f14178f != null && this.f14179g != null && (i3 = this.f14177e) >= 0) {
-            if (i3 == d.a.n0.x.e.a.f63202b) {
-                this.f14172h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds120) * 2);
+        if (this.f14235f != null && this.f14236g != null && (i3 = this.f14234e) >= 0) {
+            if (i3 == d.a.n0.x.e.a.f66917b) {
+                this.f14229h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds120) * 2);
             }
-            int i4 = this.f14177e;
-            if (i4 == d.a.n0.x.e.a.f63203c || i4 == d.a.n0.x.e.a.f63204d) {
-                this.f14172h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
+            int i4 = this.f14234e;
+            if (i4 == d.a.n0.x.e.a.f66918c || i4 == d.a.n0.x.e.a.f66919d) {
+                this.f14229h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
             }
-            c(new SpannableStringBuilder(this.f14179g.b()));
+            c(new SpannableStringBuilder(this.f14236g.b()));
             return;
         }
         setVisibility(8);
@@ -107,7 +107,7 @@ public class AnnounceLayout extends CardBasicLayout {
 
     public AnnounceLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14172h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds90) * 2);
+        this.f14229h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds90) * 2);
         b();
     }
 }

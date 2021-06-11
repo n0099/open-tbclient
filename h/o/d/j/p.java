@@ -1,5 +1,5 @@
 package h.o.d.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class p<E> extends l<E> {
     public static final long j = f0.a(p.class, "producerIndex");
     public volatile long producerIndex;
@@ -13,6 +13,6 @@ public abstract class p<E> extends l<E> {
     }
 
     public final void i(long j2) {
-        f0.f68715a.i(this, j, j2);
+        f0.f71971a.i(this, j, j2);
     }
 }

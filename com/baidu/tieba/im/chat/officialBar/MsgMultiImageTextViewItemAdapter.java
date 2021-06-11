@@ -23,21 +23,21 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        h0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        i0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View h0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> msgViewHolder) {
-        super.W(i2, view, viewGroup, chatMessage, msgViewHolder);
+    public View i0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> msgViewHolder) {
+        super.X(i2, view, viewGroup, chatMessage, msgViewHolder);
         MsgMultiImageTextView b2 = msgViewHolder.b();
-        b2.q(this.o);
-        b2.r(i2);
-        b2.j(this.p);
-        b2.n(chatMessage.getCacheData().getLastMsgTime());
-        b2.F(this.m, chatMessage, viewGroup);
+        b2.r(this.o);
+        b2.s(i2);
+        b2.k(this.p);
+        b2.o(chatMessage.getCacheData().getLastMsgTime());
+        b2.G(this.m, chatMessage, viewGroup);
         this.m.getLayoutMode().k(false);
         this.m.getLayoutMode().j(view);
         d.a.n0.f1.u.a.c().d(chatMessage, this.m.getPageActivity());
@@ -46,9 +46,9 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: q0 */
-    public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> P(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> Q(ViewGroup viewGroup) {
         MsgMultiImageTextView msgMultiImageTextView = new MsgMultiImageTextView(this.m);
         return new a(this, msgMultiImageTextView.e(), msgMultiImageTextView);
     }

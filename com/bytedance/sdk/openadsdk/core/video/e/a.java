@@ -2,12 +2,11 @@ package com.bytedance.sdk.openadsdk.core.video.e;
 
 import android.os.Build;
 import android.view.View;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 /* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f28438a = Build.VERSION.SDK_INT;
+    public static final int f28541a = Build.VERSION.SDK_INT;
 
     public static int a(long j, long j2) {
         return Math.min(Math.max(0, j2 > 0 ? (int) (((j * 1.0d) / j2) * 100.0d) : 0), 100);
@@ -16,7 +15,7 @@ public class a {
     public static String a(long j) {
         StringBuilder sb = new StringBuilder();
         long j2 = j / 60000;
-        long j3 = ((j % VideoCloudSetting.HOUR_MILLISECOND) % 60000) / 1000;
+        long j3 = ((j % 3600000) % 60000) / 1000;
         if (j2 >= 10) {
             sb.append(j2);
         } else if (j2 > 0) {
@@ -47,7 +46,7 @@ public class a {
             view.setSystemUiVisibility(0);
             return;
         }
-        int i2 = f28438a;
+        int i2 = f28541a;
         if (i2 >= 19) {
             view.setSystemUiVisibility(3846);
         } else if (i2 >= 16) {

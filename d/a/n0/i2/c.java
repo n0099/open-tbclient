@@ -23,19 +23,19 @@ import java.util.ArrayList;
 public class c extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonBarActivity f55715e;
+    public PersonBarActivity f59404e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.i2.b f55716f;
+    public d.a.n0.i2.b f59405f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<ForumData> f55717g = null;
+    public ArrayList<ForumData> f59406g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f55718h = false;
+    public boolean f59407h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f55719i = null;
+    public View.OnClickListener f59408i = null;
     public boolean j = false;
     public boolean k;
     public boolean l;
@@ -47,31 +47,31 @@ public class c extends BaseAdapter {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public BarImageView f55720a;
+        public BarImageView f59409a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f55721b;
+        public TextView f59410b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StringBuffer f55722c;
+        public StringBuffer f59411c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f55723d;
+        public TextView f59412d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f55724e;
+        public TextView f59413e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f55725f;
+        public ImageView f59414f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f55726g;
+        public TextView f59415g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f55727h;
+        public TextView f59416h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f55728i;
+        public TextView f59417i;
         public Button j;
         public ImageView k;
         public ImageView l;
@@ -82,32 +82,32 @@ public class c extends BaseAdapter {
     }
 
     public c(PersonBarActivity personBarActivity, d.a.n0.i2.b bVar, boolean z, boolean z2) {
-        this.f55716f = null;
+        this.f59405f = null;
         this.k = true;
         this.l = false;
         this.m = true;
-        this.f55715e = personBarActivity;
-        this.f55716f = bVar;
+        this.f59404e = personBarActivity;
+        this.f59405f = bVar;
         this.k = z;
         this.l = z2;
         this.m = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
     }
 
     public final void a(View view) {
-        this.f55715e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.f55715e.getLayoutMode().j(view);
+        this.f59404e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.f59404e.getLayoutMode().j(view);
     }
 
     public void b() {
         this.j = false;
-        ArrayList<ForumData> arrayList = this.f55717g;
+        ArrayList<ForumData> arrayList = this.f59406g;
         if (arrayList == null || arrayList.size() == 0) {
             this.j = true;
         }
     }
 
     public boolean c() {
-        return this.f55718h;
+        return this.f59407h;
     }
 
     public boolean d() {
@@ -115,16 +115,16 @@ public class c extends BaseAdapter {
     }
 
     public void e(View.OnClickListener onClickListener) {
-        this.f55719i = onClickListener;
+        this.f59408i = onClickListener;
     }
 
     public void f(boolean z) {
-        this.f55718h = z;
+        this.f59407h = z;
         notifyDataSetChanged();
     }
 
     public void g(ArrayList<ForumData> arrayList) {
-        this.f55717g = arrayList;
+        this.f59406g = arrayList;
     }
 
     @Override // android.widget.Adapter
@@ -132,7 +132,7 @@ public class c extends BaseAdapter {
         if (this.j) {
             return 1;
         }
-        ArrayList<ForumData> arrayList = this.f55717g;
+        ArrayList<ForumData> arrayList = this.f59406g;
         if (arrayList != null) {
             return arrayList.size();
         }
@@ -141,11 +141,11 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        ArrayList<ForumData> arrayList = this.f55717g;
+        ArrayList<ForumData> arrayList = this.f59406g;
         if (arrayList == null || i2 < 0 || i2 >= arrayList.size()) {
             return null;
         }
-        return this.f55717g.get(i2);
+        return this.f59406g.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -159,23 +159,23 @@ public class c extends BaseAdapter {
         ForumData forumData;
         try {
             if (view == null) {
-                view = LayoutInflater.from(this.f55715e.getPageContext().getContext()).inflate(R.layout.edit_bar_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f59404e.getPageContext().getContext()).inflate(R.layout.edit_bar_item, (ViewGroup) null);
                 bVar = new b();
                 BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-                bVar.f55720a = barImageView;
+                bVar.f59409a = barImageView;
                 barImageView.setGifIconSupport(false);
-                bVar.f55720a.setRadius(l.g(this.f55715e, R.dimen.tbds10));
-                bVar.f55720a.setConrers(15);
-                bVar.f55720a.setPlaceHolder(2);
-                bVar.f55721b = (TextView) view.findViewById(R.id.name);
-                bVar.f55722c = new StringBuffer(10);
-                bVar.f55723d = (TextView) view.findViewById(R.id.degree);
-                bVar.f55724e = (TextView) view.findViewById(R.id.degree_text);
-                bVar.f55728i = (TextView) view.findViewById(R.id.experience);
-                bVar.f55726g = (TextView) view.findViewById(R.id.experience_title);
+                bVar.f59409a.setRadius(l.g(this.f59404e, R.dimen.tbds10));
+                bVar.f59409a.setConrers(15);
+                bVar.f59409a.setPlaceHolder(2);
+                bVar.f59410b = (TextView) view.findViewById(R.id.name);
+                bVar.f59411c = new StringBuffer(10);
+                bVar.f59412d = (TextView) view.findViewById(R.id.degree);
+                bVar.f59413e = (TextView) view.findViewById(R.id.degree_text);
+                bVar.f59417i = (TextView) view.findViewById(R.id.experience);
+                bVar.f59415g = (TextView) view.findViewById(R.id.experience_title);
                 bVar.j = (Button) view.findViewById(R.id.item_delete);
-                bVar.f55725f = (ImageView) view.findViewById(R.id.degree_text_ta);
-                bVar.f55727h = (TextView) view.findViewById(R.id.intro_ta);
+                bVar.f59414f = (ImageView) view.findViewById(R.id.degree_text_ta);
+                bVar.f59416h = (TextView) view.findViewById(R.id.intro_ta);
                 bVar.k = (ImageView) view.findViewById(R.id.item_talk);
                 ImageView imageView = (ImageView) view.findViewById(R.id.diver_buttom_px);
                 bVar.l = imageView;
@@ -186,86 +186,86 @@ public class c extends BaseAdapter {
                 bVar = (b) view.getTag();
             }
             if (this.j) {
-                bVar.f55723d.setVisibility(8);
+                bVar.f59412d.setVisibility(8);
                 bVar.j.setVisibility(8);
-                bVar.f55721b.setVisibility(8);
-                bVar.f55720a.setVisibility(8);
-                bVar.f55724e.setVisibility(8);
-                bVar.f55728i.setVisibility(8);
-                bVar.f55726g.setVisibility(8);
-                bVar.f55725f.setVisibility(8);
-                bVar.f55727h.setVisibility(8);
+                bVar.f59410b.setVisibility(8);
+                bVar.f59409a.setVisibility(8);
+                bVar.f59413e.setVisibility(8);
+                bVar.f59417i.setVisibility(8);
+                bVar.f59415g.setVisibility(8);
+                bVar.f59414f.setVisibility(8);
+                bVar.f59416h.setVisibility(8);
                 bVar.k.setVisibility(8);
                 bVar.l.setVisibility(8);
             } else {
-                bVar.f55721b.setVisibility(0);
-                bVar.f55720a.setVisibility(0);
+                bVar.f59410b.setVisibility(0);
+                bVar.f59409a.setVisibility(0);
                 if (this.k) {
-                    bVar.f55723d.setVisibility(8);
-                    bVar.f55724e.setVisibility(8);
-                    bVar.f55728i.setVisibility(0);
-                    bVar.f55726g.setVisibility(0);
-                    bVar.f55725f.setVisibility(0);
-                    bVar.f55727h.setVisibility(8);
+                    bVar.f59412d.setVisibility(8);
+                    bVar.f59413e.setVisibility(8);
+                    bVar.f59417i.setVisibility(0);
+                    bVar.f59415g.setVisibility(0);
+                    bVar.f59414f.setVisibility(0);
+                    bVar.f59416h.setVisibility(8);
                     bVar.l.setVisibility(0);
                 } else {
-                    bVar.f55723d.setVisibility(8);
-                    bVar.f55724e.setVisibility(8);
-                    bVar.f55728i.setVisibility(8);
-                    bVar.f55726g.setVisibility(8);
-                    bVar.f55725f.setVisibility(0);
-                    bVar.f55727h.setVisibility(0);
+                    bVar.f59412d.setVisibility(8);
+                    bVar.f59413e.setVisibility(8);
+                    bVar.f59417i.setVisibility(8);
+                    bVar.f59415g.setVisibility(8);
+                    bVar.f59414f.setVisibility(0);
+                    bVar.f59416h.setVisibility(0);
                     bVar.l.setVisibility(0);
                 }
             }
-            if (this.f55717g != null && i2 >= 0 && i2 < this.f55717g.size() && (forumData = this.f55717g.get(i2)) != null) {
+            if (this.f59406g != null && i2 >= 0 && i2 < this.f59406g.size() && (forumData = this.f59406g.get(i2)) != null) {
                 String image_url = forumData.getImage_url();
-                bVar.f55720a.setTag(image_url);
-                bVar.f55720a.setImageDrawable(null);
-                bVar.f55720a.V(image_url, 10, false);
-                bVar.f55722c.delete(0, bVar.f55722c.length());
-                bVar.f55722c.append(forumData.getName());
-                bVar.f55722c.append(this.f55715e.getPageContext().getString(R.string.forum));
-                bVar.f55721b.setText(bVar.f55722c);
+                bVar.f59409a.setTag(image_url);
+                bVar.f59409a.setImageDrawable(null);
+                bVar.f59409a.U(image_url, 10, false);
+                bVar.f59411c.delete(0, bVar.f59411c.length());
+                bVar.f59411c.append(forumData.getName());
+                bVar.f59411c.append(this.f59404e.getPageContext().getString(R.string.forum));
+                bVar.f59410b.setText(bVar.f59411c);
                 if (this.k) {
-                    SkinManager.setImageResource(bVar.f55725f, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
-                    bVar.f55728i.setText(String.format(this.f55715e.getPageContext().getString(R.string.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
-                    bVar.j.setOnClickListener(this.f55719i);
+                    SkinManager.setImageResource(bVar.f59414f, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
+                    bVar.f59417i.setText(String.format(this.f59404e.getPageContext().getString(R.string.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
+                    bVar.j.setOnClickListener(this.f59408i);
                     bVar.j.setTag(Integer.valueOf(i2));
-                    if (i2 < this.f55716f.k()) {
-                        bVar.f55721b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_v), (Drawable) null);
+                    if (i2 < this.f59405f.k()) {
+                        bVar.f59410b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_v), (Drawable) null);
                         if (!this.l && this.m) {
                             bVar.k.setVisibility(0);
                             bVar.k.setTag(Integer.valueOf(i2));
                         }
                     } else {
-                        bVar.f55721b.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                        bVar.f59410b.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                         bVar.k.setVisibility(8);
                     }
                     bVar.k.setOnClickListener(this.n);
                     bVar.m.setVisibility(8);
-                    if (this.l && this.f55715e.getRequestCode() == 23011 && !TextUtils.isEmpty(forumData.getId()) && forumData.getId().equals(this.o)) {
+                    if (this.l && this.f59404e.getRequestCode() == 23011 && !TextUtils.isEmpty(forumData.getId()) && forumData.getId().equals(this.o)) {
                         bVar.m.setVisibility(0);
                     }
                 } else {
-                    if ((this.f55715e.getCurrentPageType() == 0 && i2 < this.f55716f.k()) || (this.f55715e.getCurrentPageType() == 1 && i2 < this.f55716f.g())) {
-                        bVar.f55721b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_v), (Drawable) null);
+                    if ((this.f59404e.getCurrentPageType() == 0 && i2 < this.f59405f.k()) || (this.f59404e.getCurrentPageType() == 1 && i2 < this.f59405f.g())) {
+                        bVar.f59410b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_v), (Drawable) null);
                     } else {
-                        bVar.f55721b.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                        bVar.f59410b.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                     }
-                    if (this.f55715e.getCurrentPageType() == 1) {
-                        bVar.f55725f.setVisibility(8);
+                    if (this.f59404e.getCurrentPageType() == 1) {
+                        bVar.f59414f.setVisibility(8);
                     }
                     bVar.k.setVisibility(8);
-                    SkinManager.setImageResource(bVar.f55725f, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
-                    bVar.f55727h.setText(forumData.getSlogan());
+                    SkinManager.setImageResource(bVar.f59414f, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
+                    bVar.f59416h.setText(forumData.getSlogan());
                 }
-                if (this.f55718h) {
+                if (this.f59407h) {
                     bVar.j.setVisibility(0);
                     bVar.k.setVisibility(8);
                 } else {
                     bVar.j.setVisibility(8);
-                    if (i2 < this.f55716f.k() && this.k && !this.l && this.m) {
+                    if (i2 < this.f59405f.k() && this.k && !this.l && this.m) {
                         bVar.k.setVisibility(0);
                     } else {
                         bVar.k.setVisibility(8);

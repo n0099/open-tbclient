@@ -7,7 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ZwCrashpad {
     public static final String TAG = "ZwCrashpad CRASHPAD";
     public static String mAppPackageName = "0";

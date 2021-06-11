@@ -2,41 +2,41 @@ package g.a.b.b;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import g.a.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c implements g.a.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f68286a;
+    public Object f71542a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f68287b;
+    public Object f71543b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object[] f68288c;
+    public Object[] f71544c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.InterfaceC1913a f68289d;
+    public a.InterfaceC1962a f71545d;
 
-    /* loaded from: classes7.dex */
-    public static class a implements a.InterfaceC1913a {
+    /* loaded from: classes8.dex */
+    public static class a implements a.InterfaceC1962a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f68290a;
+        public String f71546a;
 
         /* renamed from: b  reason: collision with root package name */
-        public g.a.a.b f68291b;
+        public g.a.a.b f71547b;
 
         public a(int i2, String str, g.a.a.b bVar, g.a.a.c.b bVar2) {
-            this.f68290a = str;
-            this.f68291b = bVar;
+            this.f71546a = str;
+            this.f71547b = bVar;
         }
 
         public String a() {
-            return this.f68290a;
+            return this.f71546a;
         }
 
         public g.a.a.b b() {
-            return this.f68291b;
+            return this.f71547b;
         }
 
         public String c(h hVar) {
@@ -49,23 +49,23 @@ public class c implements g.a.a.a {
         }
 
         public final String toString() {
-            return c(h.f68304h);
+            return c(h.f71560h);
         }
     }
 
-    public c(a.InterfaceC1913a interfaceC1913a, Object obj, Object obj2, Object[] objArr) {
-        this.f68289d = interfaceC1913a;
-        this.f68286a = obj;
-        this.f68287b = obj2;
-        this.f68288c = objArr;
+    public c(a.InterfaceC1962a interfaceC1962a, Object obj, Object obj2, Object[] objArr) {
+        this.f71545d = interfaceC1962a;
+        this.f71542a = obj;
+        this.f71543b = obj2;
+        this.f71544c = objArr;
     }
 
     @Override // g.a.a.a
     public Object getTarget() {
-        return this.f68287b;
+        return this.f71543b;
     }
 
     public final String toString() {
-        return this.f68289d.toString();
+        return this.f71545d.toString();
     }
 }

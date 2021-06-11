@@ -18,25 +18,25 @@ import java.io.Serializable;
 public class ComfirmOrderActivity extends BeanActivity implements View.OnClickListener {
 
     /* renamed from: g  reason: collision with root package name */
-    public static a f26347g;
+    public static a f26450g;
 
     /* renamed from: a  reason: collision with root package name */
-    public QRCodeShortUrlResponse.OrderParam f26348a;
+    public QRCodeShortUrlResponse.OrderParam f26451a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Button f26349b;
+    public Button f26452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26350c;
+    public TextView f26453c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f26351d;
+    public TextView f26454d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26352e;
+    public String f26455e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f26353f;
+    public TextView f26456f;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -47,7 +47,7 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
 
     public static void ComfirmScanOrderInfo(Context context, QRCodeShortUrlResponse.OrderParam orderParam, String str, a aVar) {
         Intent intent = new Intent();
-        f26347g = aVar;
+        f26450g = aVar;
         intent.setClass(context, ComfirmOrderActivity.class);
         intent.putExtra("orderinfo", orderParam);
         intent.putExtra(IMConstants.SERVICE_TYPE_ORDER, str);
@@ -55,23 +55,23 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
     }
 
     private void a() {
-        if (this.f26348a != null) {
-            TextView textView = this.f26350c;
-            textView.setText(ResUtils.getString(getActivity(), "wallet_base_unit") + StringUtils.fen2Yuan(this.f26348a.total_amount));
-            this.f26351d.setText(this.f26348a.goods_name);
-            this.f26353f.setText(this.f26348a.sp_name);
+        if (this.f26451a != null) {
+            TextView textView = this.f26453c;
+            textView.setText(ResUtils.getString(getActivity(), "wallet_base_unit") + StringUtils.fen2Yuan(this.f26451a.total_amount));
+            this.f26454d.setText(this.f26451a.goods_name);
+            this.f26456f.setText(this.f26451a.sp_name);
         }
     }
 
     public static void onOrderComfirm(boolean z) {
-        a aVar = f26347g;
+        a aVar = f26450g;
         if (aVar != null) {
             if (!z) {
                 aVar.b();
             } else {
                 aVar.a();
             }
-            f26347g = null;
+            f26450g = null;
         }
     }
 
@@ -87,8 +87,8 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f26349b) {
-            BaiduPayDelegate.getInstance().doPay(getActivity(), this.f26352e, new PayCallBack() { // from class: com.baidu.wallet.qrcodescanner.ComfirmOrderActivity.1
+        if (view == this.f26452b) {
+            BaiduPayDelegate.getInstance().doPay(getActivity(), this.f26455e, new PayCallBack() { // from class: com.baidu.wallet.qrcodescanner.ComfirmOrderActivity.1
                 @Override // com.baidu.android.pay.PayCallBack
                 public boolean isHideLoadingDialog() {
                     return false;
@@ -116,29 +116,29 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
         if (bundle != null) {
             Serializable serializable = bundle.getSerializable("orderinfo");
             if (serializable != null && (serializable instanceof QRCodeShortUrlResponse.OrderParam)) {
-                this.f26348a = (QRCodeShortUrlResponse.OrderParam) serializable;
+                this.f26451a = (QRCodeShortUrlResponse.OrderParam) serializable;
             }
-            this.f26352e = bundle.getString(IMConstants.SERVICE_TYPE_ORDER);
+            this.f26455e = bundle.getString(IMConstants.SERVICE_TYPE_ORDER);
         } else if (getIntent() != null) {
             Serializable serializableExtra = getIntent().getSerializableExtra("orderinfo");
             if (serializableExtra != null && (serializableExtra instanceof QRCodeShortUrlResponse.OrderParam)) {
-                this.f26348a = (QRCodeShortUrlResponse.OrderParam) serializableExtra;
+                this.f26451a = (QRCodeShortUrlResponse.OrderParam) serializableExtra;
             }
-            this.f26352e = getIntent().getStringExtra(IMConstants.SERVICE_TYPE_ORDER);
+            this.f26455e = getIntent().getStringExtra(IMConstants.SERVICE_TYPE_ORDER);
         }
-        this.f26350c = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_price"));
-        this.f26351d = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_sp"));
-        this.f26353f = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_pay"));
+        this.f26453c = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_price"));
+        this.f26454d = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_sp"));
+        this.f26456f = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_pay"));
         Button button = (Button) findViewById(ResUtils.id(getActivity(), "ebpay_to_pay"));
-        this.f26349b = button;
+        this.f26452b = button;
         button.setOnClickListener(this);
         a();
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("orderinfo", this.f26348a);
-        bundle.putString(IMConstants.SERVICE_TYPE_ORDER, this.f26352e);
+        bundle.putSerializable("orderinfo", this.f26451a);
+        bundle.putString(IMConstants.SERVICE_TYPE_ORDER, this.f26455e);
         super.onSaveInstanceState(bundle);
     }
 }

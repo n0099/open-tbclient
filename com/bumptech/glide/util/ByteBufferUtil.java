@@ -13,12 +13,12 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ByteBufferUtil {
     public static final AtomicReference<byte[]> BUFFER_REF = new AtomicReference<>();
     public static final int BUFFER_SIZE = 16384;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class SafeArray {
         public final byte[] data;
         public final int limit;
@@ -39,7 +39,7 @@ public final class ByteBufferUtil {
             long length = file.length();
             if (length <= 2147483647L) {
                 if (length != 0) {
-                    randomAccessFile = new RandomAccessFile(file, r.f7672a);
+                    randomAccessFile = new RandomAccessFile(file, r.f7715a);
                     try {
                         fileChannel = randomAccessFile.getChannel();
                         MappedByteBuffer load = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();
@@ -184,7 +184,7 @@ public final class ByteBufferUtil {
         BUFFER_REF.set(andSet);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class ByteBufferStream extends InputStream {
         public static final int UNSET = -1;
         @NonNull

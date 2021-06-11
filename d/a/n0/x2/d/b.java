@@ -24,14 +24,14 @@ import java.util.Iterator;
 public class b extends d.a.n0.x2.d.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public Tencent f63306h;
+    public Tencent f67021h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f63307i;
+    public int f67022i;
     public IUiListener j;
     public ShareEntity k;
     public final d.a.c.e.l.c<EmotionShareLoaderProc.EmotionShare> l;
-    public d.a.c.e.l.c<d.a.c.j.d.a> m;
+    public d.a.c.e.l.c<d.a.c.k.d.a> m;
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.e.l.c<EmotionShareLoaderProc.EmotionShare> {
@@ -49,31 +49,31 @@ public class b extends d.a.n0.x2.d.a {
                 return;
             }
             b bVar2 = b.this;
-            bVar2.w(2, bVar2.f63307i);
+            bVar2.w(2, bVar2.f67022i);
         }
 
         @Override // d.a.c.e.l.c
         public void onCancelled(String str) {
             super.onCancelled(str);
             b bVar = b.this;
-            bVar.w(3, bVar.f63307i);
+            bVar.w(3, bVar.f67022i);
         }
     }
 
     /* renamed from: d.a.n0.x2.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1741b extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class C1798b extends d.a.c.e.l.c<d.a.c.k.d.a> {
 
         /* renamed from: d.a.n0.x2.d.b$b$a */
         /* loaded from: classes5.dex */
-        public class a extends BdAsyncTask<d.a.c.j.d.a, Void, Bitmap> {
+        public class a extends BdAsyncTask<d.a.c.k.d.a, Void, Bitmap> {
             public a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: b */
-            public Bitmap doInBackground(d.a.c.j.d.a... aVarArr) {
+            public Bitmap doInBackground(d.a.c.k.d.a... aVarArr) {
                 if (aVarArr.length <= 0 || aVarArr[0] == null) {
                     return null;
                 }
@@ -91,13 +91,13 @@ public class b extends d.a.n0.x2.d.a {
             }
         }
 
-        public C1741b() {
+        public C1798b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
-            super.onLoaded((C1741b) aVar, str, i2);
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
+            super.onLoaded((C1798b) aVar, str, i2);
             if (aVar != null) {
                 a aVar2 = new a();
                 aVar2.setPriority(3);
@@ -110,56 +110,56 @@ public class b extends d.a.n0.x2.d.a {
     public class c implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.n0.x2.e.b f63311a;
+        public d.a.n0.x2.e.b f67026a;
 
         public c(d.a.n0.x2.e.b bVar) {
-            this.f63311a = bVar;
+            this.f67026a = bVar;
         }
 
         public final void a() {
-            FileHelper.deleteFile(new File(d.a.n0.x2.d.a.f63299e + d.a.n0.x2.d.a.f63300f));
+            FileHelper.deleteFile(new File(d.a.n0.x2.d.a.f67014e + d.a.n0.x2.d.a.f67015f));
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            d.a.n0.x2.e.b bVar = this.f63311a;
+            d.a.n0.x2.e.b bVar = this.f67026a;
             if (bVar != null) {
-                bVar.onShare(b.this.f63307i, 3);
+                bVar.onShare(b.this.f67022i, 3);
             }
-            int i2 = b.this.f63307i;
+            int i2 = b.this.f67022i;
             a();
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
-            d.a.n0.x2.e.b bVar = this.f63311a;
+            d.a.n0.x2.e.b bVar = this.f67026a;
             if (bVar != null) {
-                bVar.onShare(b.this.f63307i, 1);
+                bVar.onShare(b.this.f67022i, 1);
             }
             b bVar2 = b.this;
-            bVar2.w(1, bVar2.f63307i);
+            bVar2.w(1, bVar2.f67022i);
             a();
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            d.a.n0.x2.e.b bVar = this.f63311a;
+            d.a.n0.x2.e.b bVar = this.f67026a;
             if (bVar != null) {
-                bVar.onShare(b.this.f63307i, 2);
+                bVar.onShare(b.this.f67022i, 2);
             }
             String str = uiError != null ? uiError.errorMessage : null;
             b bVar2 = b.this;
-            bVar2.x(2, str, bVar2.f63307i);
+            bVar2.x(2, str, bVar2.f67022i);
             a();
         }
     }
 
     public b(Context context) {
         super(context);
-        this.f63307i = 8;
+        this.f67022i = 8;
         this.l = new a();
-        this.m = new C1741b();
-        this.f63306h = Tencent.createInstance("101462192", context.getApplicationContext());
+        this.m = new C1798b();
+        this.f67021h = Tencent.createInstance("101462192", context.getApplicationContext());
     }
 
     public final void B(ShareEntity shareEntity, d.a.n0.x2.e.b bVar) {
@@ -169,7 +169,7 @@ public class b extends d.a.n0.x2.d.a {
         }
         Intent intent = new Intent("android.intent.action.SEND");
         intent.setType("text/plain");
-        Iterator<ResolveInfo> it = this.f63303b.getPackageManager().queryIntentActivities(intent, 0).iterator();
+        Iterator<ResolveInfo> it = this.f67018b.getPackageManager().queryIntentActivities(intent, 0).iterator();
         while (true) {
             if (!it.hasNext()) {
                 str = "";
@@ -187,17 +187,17 @@ public class b extends d.a.n0.x2.d.a {
         intent2.putExtra("android.intent.extra.TEXT", shareEntity.b());
         intent2.setClassName("com.tencent.mobileqq", str);
         intent2.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        if (d.a.n0.x2.f.a.a(this.f63303b, intent2)) {
+        if (d.a.n0.x2.f.a.a(this.f67018b, intent2)) {
             if (bVar != null) {
-                bVar.onShare(this.f63307i, 1);
+                bVar.onShare(this.f67022i, 1);
                 return;
             }
             return;
         }
         if (bVar != null) {
-            bVar.onShare(this.f63307i, 2);
+            bVar.onShare(this.f67022i, 2);
         }
-        w(2, this.f63307i);
+        w(2, this.f67022i);
     }
 
     public final void C(ShareEntity shareEntity, IUiListener iUiListener) {
@@ -208,9 +208,9 @@ public class b extends d.a.n0.x2.d.a {
         bundle.putString("title", shareEntity.n());
         if (shareEntity.i() >= 0) {
             if (shareEntity.i() < 10000) {
-                bundle.putString("summary", this.f63303b.getString(R.string.share_qq_default_content));
+                bundle.putString("summary", this.f67018b.getString(R.string.share_qq_default_content));
             } else {
-                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.i()) + this.f63303b.getString(R.string.share_qq_content));
+                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.i()) + this.f67018b.getString(R.string.share_qq_content));
             }
         } else {
             bundle.putString("summary", shareEntity.b());
@@ -222,7 +222,7 @@ public class b extends d.a.n0.x2.d.a {
         } else {
             bundle.putString("imageUrl", shareEntity.e());
         }
-        this.f63306h.shareToQQ((Activity) this.f63303b, bundle, iUiListener);
+        this.f67021h.shareToQQ((Activity) this.f67018b, bundle, iUiListener);
     }
 
     public final void D(String str, IUiListener iUiListener) {
@@ -233,13 +233,13 @@ public class b extends d.a.n0.x2.d.a {
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 2);
-        this.f63306h.shareToQQ((Activity) this.f63303b, bundle, iUiListener);
+        this.f67021h.shareToQQ((Activity) this.f67018b, bundle, iUiListener);
     }
 
     @Override // d.a.n0.x2.e.a
     public void a(ShareEntity shareEntity, d.a.n0.x2.e.b bVar) {
-        if (shareEntity != null && this.f63306h != null) {
-            Context context = this.f63303b;
+        if (shareEntity != null && this.f67021h != null) {
+            Context context = this.f67018b;
             if (context != null && (context instanceof Activity)) {
                 this.j = new c(bVar);
                 String e2 = shareEntity.e();
@@ -266,14 +266,14 @@ public class b extends d.a.n0.x2.d.a {
                     return;
                 }
             }
-            w(2, this.f63307i);
+            w(2, this.f67022i);
             if (bVar != null) {
                 bVar.onShare(0, 2);
                 return;
             }
             return;
         }
-        w(2, this.f63307i);
+        w(2, this.f67022i);
         if (bVar != null) {
             bVar.onShare(0, 2);
         }

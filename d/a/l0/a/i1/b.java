@@ -8,22 +8,22 @@ import java.util.ArrayList;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<a> f42709a = new ArrayList<>();
+    public static ArrayList<a> f46385a = new ArrayList<>();
 
     public static void a(a aVar) {
-        if (aVar == null || f42709a.contains(aVar)) {
+        if (aVar == null || f46385a.contains(aVar)) {
             return;
         }
-        f42709a.add(aVar);
+        f46385a.add(aVar);
     }
 
     public static void b() {
-        f42709a.clear();
+        f46385a.clear();
     }
 
     public static void c() {
-        for (int size = f42709a.size() - 1; size >= 0; size--) {
-            a aVar = f42709a.get(size);
+        for (int size = f46385a.size() - 1; size >= 0; size--) {
+            a aVar = f46385a.get(size);
             if (aVar != null) {
                 aVar.onDestroy();
             }
@@ -34,8 +34,8 @@ public final class b {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        for (int size = f42709a.size() - 1; size >= 0; size--) {
-            a aVar = f42709a.get(size);
+        for (int size = f46385a.size() - 1; size >= 0; size--) {
+            a aVar = f46385a.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.b())) {
                 aVar.onDestroy();
             }
@@ -46,8 +46,8 @@ public final class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (int size = f42709a.size() - 1; size >= 0; size--) {
-            a aVar = f42709a.get(size);
+        for (int size = f46385a.size() - 1; size >= 0; size--) {
+            a aVar = f46385a.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.c())) {
                 return aVar;
             }
@@ -59,8 +59,8 @@ public final class b {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        for (int size = f42709a.size() - 1; size >= 0; size--) {
-            a aVar = f42709a.get(size);
+        for (int size = f46385a.size() - 1; size >= 0; size--) {
+            a aVar = f46385a.get(size);
             if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.f())) || TextUtils.equals(str3, aVar.c())))) {
                 return aVar;
             }
@@ -72,8 +72,8 @@ public final class b {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int size = f42709a.size() - 1; size >= 0; size--) {
-            a aVar = f42709a.get(size);
+        for (int size = f46385a.size() - 1; size >= 0; size--) {
+            a aVar = f46385a.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.b()) && aVar.onBackPressed()) {
                 return true;
             }
@@ -82,8 +82,8 @@ public final class b {
     }
 
     public static void h(boolean z) {
-        for (int size = f42709a.size() - 1; size >= 0; size--) {
-            a aVar = f42709a.get(size);
+        for (int size = f46385a.size() - 1; size >= 0; size--) {
+            a aVar = f46385a.get(size);
             if (aVar != null) {
                 aVar.j(z);
             }
@@ -91,8 +91,8 @@ public final class b {
     }
 
     public static void i(boolean z) {
-        for (int size = f42709a.size() - 1; size >= 0; size--) {
-            a aVar = f42709a.get(size);
+        for (int size = f46385a.size() - 1; size >= 0; size--) {
+            a aVar = f46385a.get(size);
             if (aVar != null) {
                 aVar.k(z);
             }
@@ -103,6 +103,6 @@ public final class b {
         if (aVar == null) {
             return;
         }
-        f42709a.remove(aVar);
+        f46385a.remove(aVar);
     }
 }

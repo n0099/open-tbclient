@@ -9,13 +9,13 @@ import com.baidu.ubc.UBCManager;
 public class b implements PerfSampleManager.IPerfSampleCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f63828a = "1";
+    public static String f67546a = "1";
 
     @Override // com.baidu.searchbox.PerfSampleManager.IPerfSampleCallback
     public String getSampleFlag() {
         UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
         if (uBCManager != null) {
-            return f63828a.equals(uBCManager.getUploadType("2301")) ? "2301" : "";
+            return f67546a.equals(uBCManager.getUploadType("2301")) ? "2301" : "";
         }
         return "";
     }

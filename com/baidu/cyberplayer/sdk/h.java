@@ -14,28 +14,33 @@ import com.baidu.cyberplayer.sdk.i;
 public class h extends TextureView implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f4860a;
+    public a f4869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SurfaceTexture f4861b;
+    public SurfaceTexture f4870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Surface f4862c;
+    public Surface f4871c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i.a f4863d;
+    public i.a f4872d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f4864e;
+    public f f4873e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f4865f;
+    public boolean f4874f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f4866g;
+    public boolean f4875g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f4867h;
+    public boolean f4876h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f4877i;
+    public boolean j;
+    public boolean k;
 
     /* loaded from: classes2.dex */
     public class a implements TextureView.SurfaceTextureListener {
@@ -45,60 +50,76 @@ public class h extends TextureView implements i {
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
             CyberLog.d("CyberTextureView", "onSurfaceTextureAvailable surface:" + surfaceTexture + " width:" + i2 + " height:" + i3);
-            if (h.this.f4861b == null) {
-                h.this.f4861b = surfaceTexture;
-                if (h.this.f4863d == null) {
+            h.this.f4876h = false;
+            if (h.this.f4877i && !h.this.f4875g) {
+                h.this.a(surfaceTexture);
+            }
+            if (h.this.f4870b == null) {
+                h.this.f4870b = surfaceTexture;
+                if (h.this.f4872d == null) {
                     return;
                 }
             } else if (Build.VERSION.SDK_INT >= 21) {
                 h hVar = h.this;
-                hVar.setSurfaceTexture(hVar.f4861b);
+                hVar.setSurfaceTexture(hVar.f4870b);
                 return;
             } else {
-                h.this.f4861b = surfaceTexture;
-                if (h.this.f4863d == null) {
+                h.this.f4870b = surfaceTexture;
+                if (h.this.f4872d == null) {
                     return;
                 }
             }
-            h.this.f4863d.a(1);
+            h.this.f4872d.a(1);
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
             CyberLog.d("CyberTextureView", "onSurfaceTextureDestroyed surface:" + surfaceTexture);
+            h.this.f4876h = true;
+            if (!h.this.f4877i || h.this.f4875g) {
+                return false;
+            }
+            if (surfaceTexture != h.this.f4870b && surfaceTexture != null) {
+                surfaceTexture.release();
+            }
+            h.this.g();
             return false;
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
             CyberLog.d("CyberTextureView", "onSurfaceTextureSizeChanged surface:" + surfaceTexture + " width:" + i2 + " height:" + i3);
+            h.this.f4876h = false;
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-            if (h.this.f4865f) {
+            if (h.this.f4874f) {
                 return;
             }
-            h.this.f4865f = true;
-            if (h.this.f4863d != null) {
-                h.this.f4863d.a(System.currentTimeMillis());
+            h.this.f4874f = true;
+            if (h.this.f4872d != null) {
+                h.this.f4872d.a(System.currentTimeMillis());
             }
         }
     }
 
     public h(Context context) {
         super(context);
-        this.f4867h = false;
+        this.k = false;
         a aVar = new a();
-        this.f4860a = aVar;
+        this.f4869a = aVar;
         setSurfaceTextureListener(aVar);
-        this.f4864e = new f();
-        this.f4865f = false;
-        this.f4866g = CyberCfgManager.getInstance().a("textureview_enable_translate", true);
+        this.f4873e = new f();
+        this.f4874f = false;
+        this.f4875g = false;
+        this.f4876h = false;
+        this.f4877i = CyberCfgManager.getInstance().a("textureview_texture_auto_release", true);
+        this.j = CyberCfgManager.getInstance().a("textureview_enable_translate", true);
     }
 
     private void a(int i2) {
-        int g2 = this.f4864e.g();
+        int g2 = this.f4873e.g();
         if (g2 > 0) {
             g2 = 360 - g2;
         }
@@ -107,10 +128,20 @@ public class h extends TextureView implements i {
         requestLayout();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(SurfaceTexture surfaceTexture) {
+        SurfaceTexture surfaceTexture2 = this.f4870b;
+        if (surfaceTexture2 == null || surfaceTexture2 == surfaceTexture) {
+            return;
+        }
+        CyberLog.i("CyberTextureView", "releaseLastSurfaceTexture mSurfaceTexture:" + this.f4870b);
+        g();
+    }
+
     private void b(int i2, int i3, int i4, int i5) {
         boolean z;
-        if (this.f4866g) {
-            if (this.f4864e.f()) {
+        if (this.j) {
+            if (this.f4873e.f()) {
                 Matrix matrix = new Matrix();
                 getTransform(matrix);
                 CyberLog.i("CyberTextureView", "doTranslate old_width:" + i2 + " old_height:" + i3 + " width:" + i4 + " height:" + i5);
@@ -122,7 +153,7 @@ public class h extends TextureView implements i {
                 sb.append(" y:");
                 sb.append(f3);
                 CyberLog.i("CyberTextureView", sb.toString());
-                int d2 = this.f4864e.d();
+                int d2 = this.f4873e.d();
                 if (d2 == 7) {
                     f2 = -f2;
                 } else if (d2 != 8) {
@@ -137,7 +168,7 @@ public class h extends TextureView implements i {
                 matrix.setTranslate(f2, 0.0f);
                 setTransform(matrix);
                 z = true;
-            } else if (!this.f4867h) {
+            } else if (!this.k) {
                 return;
             } else {
                 Matrix matrix2 = new Matrix();
@@ -146,12 +177,22 @@ public class h extends TextureView implements i {
                 setTransform(matrix2);
                 z = false;
             }
-            this.f4867h = z;
+            this.k = z;
         }
     }
 
     private void f() {
         requestLayout();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g() {
+        SurfaceTexture surfaceTexture = this.f4870b;
+        if (surfaceTexture != null) {
+            surfaceTexture.release();
+            CyberLog.i("CyberTextureView", "releaseSurfaceTexture mSurfaceTexture:" + this.f4870b);
+            this.f4870b = null;
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -161,54 +202,60 @@ public class h extends TextureView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void a() {
-        CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f4861b);
-        Surface surface = this.f4862c;
+        CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f4870b);
+        Surface surface = this.f4871c;
         if (surface != null) {
             surface.release();
-            this.f4862c = null;
+            this.f4871c = null;
         }
-        this.f4861b = null;
+        this.f4875g = false;
+        if (!this.f4877i) {
+            this.f4870b = null;
+        } else if (this.f4876h) {
+            CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f4870b + " mIsDestoryed:" + this.f4876h);
+            g();
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void a(int i2, int i3, int i4, int i5) {
-        if (this.f4864e.a(i2, i3, i4, i5)) {
+        if (this.f4873e.a(i2, i3, i4, i5)) {
             f();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void b() {
-        SurfaceTexture surfaceTexture = this.f4861b;
-        if (surfaceTexture != null) {
-            surfaceTexture.release();
-            this.f4861b = null;
-        }
+        g();
         a();
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void c() {
         setRotation(0.0f);
-        this.f4864e.a();
+        this.f4873e.a();
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public Surface d() {
-        CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.f4862c);
-        Surface surface = this.f4862c;
+        CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.f4871c);
+        Surface surface = this.f4871c;
         if (surface != null) {
             surface.release();
-            this.f4862c = null;
+            this.f4871c = null;
         }
         CyberLog.d("CyberTextureView", "createNewSurface getSurfaceTexture:" + getSurfaceTexture());
         if (getSurfaceTexture() != null) {
-            this.f4862c = new Surface(getSurfaceTexture());
-            this.f4861b = getSurfaceTexture();
-            this.f4865f = false;
+            this.f4875g = true;
+            this.f4871c = new Surface(getSurfaceTexture());
+            if (this.f4877i) {
+                a(getSurfaceTexture());
+            }
+            this.f4870b = getSurfaceTexture();
+            this.f4874f = false;
         }
-        CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.f4862c);
-        return this.f4862c;
+        CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.f4871c);
+        return this.f4871c;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -225,16 +272,22 @@ public class h extends TextureView implements i {
     public void onMeasure(int i2, int i3) {
         int i4;
         float f2;
-        this.f4864e.a(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
-        this.f4864e.b();
-        boolean z = this.f4864e.g() == 90 || this.f4864e.g() == 270;
+        int size = View.MeasureSpec.getSize(i2);
+        int size2 = View.MeasureSpec.getSize(i3);
+        this.f4873e.a(size, size2);
+        this.f4873e.b();
+        i.a aVar = this.f4872d;
+        if (aVar != null) {
+            aVar.a(size, size2);
+        }
+        boolean z = this.f4873e.g() == 90 || this.f4873e.g() == 270;
         if (z) {
             i3 = i2;
             i2 = i3;
         }
-        int defaultSize = View.getDefaultSize(this.f4864e.h(), i2);
-        int defaultSize2 = View.getDefaultSize(this.f4864e.i(), i3);
-        float[] c2 = this.f4864e.c();
+        int defaultSize = View.getDefaultSize(this.f4873e.h(), i2);
+        int defaultSize2 = View.getDefaultSize(this.f4873e.i(), i3);
+        float[] c2 = this.f4873e.c();
         if (z) {
             i4 = (int) (c2[1] * defaultSize);
             f2 = c2[0];
@@ -249,26 +302,26 @@ public class h extends TextureView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setClientRotation(int i2) {
-        if (this.f4864e.b(i2)) {
+        if (this.f4873e.b(i2)) {
             a(i2);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setCyberSurfaceListener(i.a aVar) {
-        this.f4863d = aVar;
+        this.f4872d = aVar;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setDisplayMode(int i2) {
-        if (this.f4864e.c(i2)) {
+        if (this.f4873e.c(i2)) {
             f();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setRawFrameRotation(int i2) {
-        if (this.f4864e.a(i2)) {
+        if (this.f4873e.a(i2)) {
             a(i2);
         }
     }

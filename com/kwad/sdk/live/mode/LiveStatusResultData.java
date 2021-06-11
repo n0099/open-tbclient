@@ -9,12 +9,12 @@ import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LiveStatusResultData extends BaseResultData {
     public static final long serialVersionUID = 4029640509861990549L;
     public LiveStatus liveStatus = new LiveStatus();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class LiveStatus implements b, Serializable {
         public static final long serialVersionUID = -5609658944971506312L;
         public String liveStreamId;

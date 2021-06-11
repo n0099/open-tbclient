@@ -18,25 +18,25 @@ import java.util.HashMap;
 public class b implements PayChannelService {
 
     /* renamed from: a  reason: collision with root package name */
-    public ITiebaPay f59892a = null;
+    public ITiebaPay f63583a = null;
 
     /* loaded from: classes3.dex */
     public class a implements IPayChannel {
 
         /* renamed from: d.a.n0.r1.f.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1563a implements ITiebaPayCallback {
+        public class C1619a implements ITiebaPayCallback {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ IPayCallback f59894a;
+            public final /* synthetic */ IPayCallback f63585a;
 
-            public C1563a(a aVar, IPayCallback iPayCallback) {
-                this.f59894a = iPayCallback;
+            public C1619a(a aVar, IPayCallback iPayCallback) {
+                this.f63585a = iPayCallback;
             }
 
             @Override // com.baidu.tieba.wallet.ITiebaPayCallback
             public void onPayResult(int i2, String str) {
-                IPayCallback iPayCallback = this.f59894a;
+                IPayCallback iPayCallback = this.f63585a;
                 if (iPayCallback != null) {
                     iPayCallback.onPayResult(i2, str);
                 }
@@ -66,8 +66,8 @@ public class b implements PayChannelService {
                 return;
             }
             b.this.c();
-            if (b.this.f59892a != null) {
-                b.this.f59892a.pay(hashMap.remove("channel"), hashMap, new C1563a(this, iPayCallback));
+            if (b.this.f63583a != null) {
+                b.this.f63583a.pay(hashMap.remove("channel"), hashMap, new C1619a(this, iPayCallback));
             } else if (iPayCallback != null) {
                 iPayCallback.onPayResult(2, null);
             }
@@ -88,8 +88,8 @@ public class b implements PayChannelService {
 
     public final void c() {
         CustomResponsedMessage runTask;
-        if (this.f59892a == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
-            this.f59892a = (ITiebaPay) runTask.getData();
+        if (this.f63583a == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
+            this.f63583a = (ITiebaPay) runTask.getData();
         }
     }
 }

@@ -24,22 +24,22 @@ public class c extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43075e;
+        public final /* synthetic */ CallbackHandler f46751e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43076f;
+        public final /* synthetic */ String f46752f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f43077g;
+        public final /* synthetic */ SwanAppActionBar f46753g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ float f43078h;
+        public final /* synthetic */ float f46754h;
 
         public a(c cVar, CallbackHandler callbackHandler, String str, SwanAppActionBar swanAppActionBar, float f2) {
-            this.f43075e = callbackHandler;
-            this.f43076f = str;
-            this.f43077g = swanAppActionBar;
-            this.f43078h = f2;
+            this.f46751e = callbackHandler;
+            this.f46752f = str;
+            this.f46753g = swanAppActionBar;
+            this.f46754h = f2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,12 +47,12 @@ public class c extends a0 {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (!d.h(iVar)) {
-                d.p(iVar, this.f43075e, this.f43076f);
-            } else if (this.f43077g.getRightMenu() == null) {
-                this.f43075e.handleSchemeDispatchCallback(this.f43076f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                d.p(iVar, this.f46751e, this.f46752f);
+            } else if (this.f46753g.getRightMenu() == null) {
+                this.f46751e.handleSchemeDispatchCallback(this.f46752f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             } else {
-                this.f43077g.setRightMenuAlpha(this.f43078h);
-                this.f43075e.handleSchemeDispatchCallback(this.f43076f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                this.f46753g.setRightMenuAlpha(this.f46754h);
+                this.f46751e.handleSchemeDispatchCallback(this.f46752f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
             }
         }
     }
@@ -61,22 +61,22 @@ public class c extends a0 {
     public class b implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43079e;
+        public final /* synthetic */ CallbackHandler f46755e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43080f;
+        public final /* synthetic */ String f46756f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f43081g;
+        public final /* synthetic */ boolean f46757g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f43082h;
+        public final /* synthetic */ SwanAppActionBar f46758h;
 
         public b(CallbackHandler callbackHandler, String str, boolean z, SwanAppActionBar swanAppActionBar) {
-            this.f43079e = callbackHandler;
-            this.f43080f = str;
-            this.f43081g = z;
-            this.f43082h = swanAppActionBar;
+            this.f46755e = callbackHandler;
+            this.f46756f = str;
+            this.f46757g = z;
+            this.f46758h = swanAppActionBar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,15 +84,15 @@ public class c extends a0 {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (!d.h(iVar)) {
-                d.p(iVar, this.f43079e, this.f43080f);
+                d.p(iVar, this.f46755e, this.f46756f);
                 return;
             }
-            if (this.f43081g) {
-                c.this.p(this.f43082h);
+            if (this.f46757g) {
+                c.this.p(this.f46758h);
             } else {
-                c.this.m(this.f43082h);
+                c.this.m(this.f46758h);
             }
-            this.f43079e.handleSchemeDispatchCallback(this.f43080f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            this.f46755e.handleSchemeDispatchCallback(this.f46756f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
     }
 

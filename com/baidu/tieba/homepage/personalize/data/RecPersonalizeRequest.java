@@ -59,10 +59,10 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.app_pos = a.e().c();
         if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
             e1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-            builder.from_tid = Long.valueOf(d.a.c.e.m.b.f(pbToHomeUpdateData.f50003a, 0L));
-            builder.query_eqid = pbToHomeUpdateData.f50004b;
-            builder.first_dir = pbToHomeUpdateData.f50005c;
-            builder.second_dir = pbToHomeUpdateData.f50006d;
+            builder.from_tid = Long.valueOf(d.a.c.e.m.b.f(pbToHomeUpdateData.f53679a, 0L));
+            builder.query_eqid = pbToHomeUpdateData.f53680b;
+            builder.first_dir = pbToHomeUpdateData.f53681c;
+            builder.second_dir = pbToHomeUpdateData.f53682d;
             TbSingleton.getInstance().setPbToHomeUpdateData(null);
         }
         AdExtParam.a b2 = AdExtParam.a.b();

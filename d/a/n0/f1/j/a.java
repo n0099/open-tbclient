@@ -11,34 +11,34 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public UpdatesActivity f54558e;
+    public UpdatesActivity f58247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<UpdatesItemData> f54559f = new ArrayList();
+    public List<UpdatesItemData> f58248f = new ArrayList();
 
     public a(UpdatesActivity updatesActivity) {
-        this.f54558e = updatesActivity;
+        this.f58247e = updatesActivity;
     }
 
     public void a() {
-        this.f54558e = null;
+        this.f58247e = null;
     }
 
     public List<UpdatesItemData> b() {
-        return this.f54559f;
+        return this.f58248f;
     }
 
     public void c(List<UpdatesItemData> list) {
         if (list == null) {
             return;
         }
-        this.f54559f = list;
+        this.f58248f = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<UpdatesItemData> list = this.f54559f;
+        List<UpdatesItemData> list = this.f58248f;
         if (list == null) {
             return 0;
         }
@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        return this.f54559f.get(i2);
+        return this.f58248f.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -59,9 +59,9 @@ public class a extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         b bVar = view != null ? (b) view.getTag() : null;
         if (bVar == null) {
-            bVar = new b(this.f54558e);
+            bVar = new b(this.f58247e);
         }
-        bVar.l(this.f54559f.get(i2));
+        bVar.l(this.f58248f.get(i2));
         return bVar.e();
     }
 }

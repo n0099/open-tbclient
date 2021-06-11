@@ -48,6 +48,7 @@ import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.sapi2.share.ShareUtils;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -302,13 +303,16 @@ public class SapiUtils implements NoProguard {
 
     public static String getClientId(Context context) {
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-        if (confignation == null || !confignation.isAgreeDangerousProtocol()) {
+        if (confignation == null) {
             return null;
         }
-        if (TextUtils.isEmpty(confignation.clientId)) {
-            confignation.clientId = getDeviceID(context);
+        if (confignation.isAgreeDangerousProtocol() || confignation.isSupportBrowseMode()) {
+            if (TextUtils.isEmpty(confignation.clientId)) {
+                confignation.clientId = getDeviceID(context);
+            }
+            return confignation.clientId;
         }
-        return confignation.clientId;
+        return null;
     }
 
     public static String getCookie(String str, String str2) {
@@ -398,6 +402,15 @@ public class SapiUtils implements NoProguard {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
             return "123456789" + SecurityUtil.md5(String.valueOf(random.nextInt(100)).getBytes(), false);
+        }
+    }
+
+    public static String getDeviceName() {
+        try {
+            return ServiceManager.getInstance().getIsAccountManager().getConfignation().deviceName;
+        } catch (Exception e2) {
+            Log.e(e2);
+            return "";
         }
     }
 
@@ -549,7 +562,7 @@ public class SapiUtils implements NoProguard {
                     case 12:
                     case 14:
                     case 15:
-                        return g.f3966b;
+                        return g.f3985b;
                     case 13:
                         return "4G";
                     default:
@@ -576,16 +589,21 @@ public class SapiUtils implements NoProguard {
     }
 
     public static String getPackageSign(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return "";
+        String str2 = "";
+        if (context != null && !TextUtils.isEmpty(str)) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+                if (packageInfo.signatures.length > 0) {
+                    str2 = SecurityUtil.md5(packageInfo.signatures[0].toByteArray(), false);
+                }
+            } catch (Throwable th) {
+                Log.e(th);
+            }
+            if (TextUtils.isEmpty(str2)) {
+                Log.d("get pgkSign error, for pkgName=" + str, new Object[0]);
+            }
         }
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            return packageInfo.signatures.length > 0 ? SecurityUtil.md5(packageInfo.signatures[0].toByteArray(), false) : "";
-        } catch (Throwable th) {
-            Log.e(th);
-            return "";
-        }
+        return str2;
     }
 
     public static String[] getPkgIconAndName(Context context, String str) {
@@ -771,30 +789,23 @@ public class SapiUtils implements NoProguard {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x005c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x007e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0085 */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.String */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v4, resolved type: java.lang.Process */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v5, resolved type: java.lang.Process */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v6, resolved type: java.lang.Process */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v8, resolved type: java.lang.Process */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r5v11, types: [java.lang.Process] */
-    /* JADX WARN: Type inference failed for: r5v2 */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x00a9  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x009f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static boolean isExecutable(String str) {
-        BufferedReader bufferedReader;
-        Throwable th;
-        BufferedReader bufferedReader2;
-        IOException e2;
+        Process process;
+        Process exec;
+        BufferedReader bufferedReader = null;
         try {
-            try {
-                str = Runtime.getRuntime().exec("ls -l " + str);
-            } catch (Throwable th2) {
-                th = th2;
+            if ("/system/bin/su".equals(str)) {
+                exec = Runtime.getRuntime().exec("ls -l /system/bin/su");
+            } else {
+                exec = "/system/xbin/su".equals(str) ? Runtime.getRuntime().exec("ls -l /system/xbin/su") : null;
             }
             try {
-                bufferedReader2 = new BufferedReader(new InputStreamReader(str.getInputStream()));
+                BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(exec.getInputStream()));
                 try {
                     String readLine = bufferedReader2.readLine();
                     if (readLine != null && readLine.length() >= 4) {
@@ -802,68 +813,81 @@ public class SapiUtils implements NoProguard {
                         if (charAt == 's' || charAt == 'x') {
                             try {
                                 bufferedReader2.close();
-                            } catch (Exception e3) {
-                                Log.e(e3);
+                            } catch (Exception e2) {
+                                Log.e(e2);
                             }
-                            if (str != 0) {
-                                str.destroy();
+                            if (exec != null) {
+                                exec.destroy();
                             }
                             return true;
                         }
                     }
                     try {
                         bufferedReader2.close();
-                    } catch (Exception e4) {
-                        Log.e(e4);
+                    } catch (Exception e3) {
+                        Log.e(e3);
                     }
-                    if (str == 0) {
+                    if (exec != null) {
+                        exec.destroy();
                         return false;
                     }
-                } catch (IOException e5) {
-                    e2 = e5;
-                    Log.e(e2);
-                    if (bufferedReader2 != null) {
-                        try {
-                            bufferedReader2.close();
-                        } catch (Exception e6) {
-                            Log.e(e6);
-                        }
-                    }
-                    if (str == 0) {
-                        return false;
-                    }
-                    str.destroy();
                     return false;
+                } catch (IOException e4) {
+                    process = exec;
+                    e = e4;
+                    bufferedReader = bufferedReader2;
+                    try {
+                        Log.e(e);
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (Exception e5) {
+                                Log.e(e5);
+                            }
+                        }
+                        if (process != null) {
+                            process.destroy();
+                            return false;
+                        }
+                        return false;
+                    } catch (Throwable th) {
+                        th = th;
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (Exception e6) {
+                                Log.e(e6);
+                            }
+                        }
+                        if (process != null) {
+                            process.destroy();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    process = exec;
+                    th = th2;
+                    bufferedReader = bufferedReader2;
+                    if (bufferedReader != null) {
+                    }
+                    if (process != null) {
+                    }
+                    throw th;
                 }
             } catch (IOException e7) {
-                bufferedReader2 = null;
-                e2 = e7;
+                process = exec;
+                e = e7;
             } catch (Throwable th3) {
-                bufferedReader = null;
+                process = exec;
                 th = th3;
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (Exception e8) {
-                        Log.e(e8);
-                    }
-                }
-                if (str != 0) {
-                    str.destroy();
-                }
-                throw th;
             }
-        } catch (IOException e9) {
-            bufferedReader2 = null;
-            e2 = e9;
-            str = 0;
+        } catch (IOException e8) {
+            e = e8;
+            process = null;
         } catch (Throwable th4) {
-            bufferedReader = null;
             th = th4;
-            str = 0;
+            process = null;
         }
-        str.destroy();
-        return false;
     }
 
     public static boolean isMethodOverWrited(Object obj, String str, Class cls, Class... clsArr) {
@@ -888,6 +912,7 @@ public class SapiUtils implements NoProguard {
             return true;
         }
         if (isDebug(context)) {
+            Log.e(ShareUtils.TAG, "isDebug=true");
             return false;
         }
         Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
@@ -897,6 +922,7 @@ public class SapiUtils implements NoProguard {
                 return true;
             }
         }
+        Log.e(ShareUtils.TAG, "share: don't have match pkg");
         return false;
     }
 

@@ -7,21 +7,21 @@ import java.io.File;
 public class c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f39773a;
+    public T f43454a;
 
     public c(T t) {
-        this.f39773a = t;
+        this.f43454a = t;
     }
 
     public T a() {
-        return this.f39773a;
+        return this.f43454a;
     }
 
     public byte[] b() {
-        T t = this.f39773a;
+        T t = this.f43454a;
         if (t instanceof Bitmap) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ((Bitmap) this.f39773a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            ((Bitmap) this.f43454a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } else if (t instanceof File) {
             return d.a.f0.a.k.d.a((File) t);
@@ -34,32 +34,32 @@ public class c<T> {
     }
 
     public Class<?> c() {
-        return this.f39773a.getClass();
+        return this.f43454a.getClass();
     }
 
     public boolean d(long j) {
-        return (this.f39773a instanceof File) && System.currentTimeMillis() - ((File) this.f39773a).lastModified() > j;
+        return (this.f43454a instanceof File) && System.currentTimeMillis() - ((File) this.f43454a).lastModified() > j;
     }
 
     public boolean e() {
         boolean delete;
-        T t = this.f39773a;
+        T t = this.f43454a;
         if (t instanceof Bitmap) {
             if (!((Bitmap) t).isRecycled()) {
-                ((Bitmap) this.f39773a).recycle();
+                ((Bitmap) this.f43454a).recycle();
             }
         } else if (t instanceof File) {
             delete = ((File) t).delete();
-            this.f39773a = null;
+            this.f43454a = null;
             return delete;
         }
         delete = true;
-        this.f39773a = null;
+        this.f43454a = null;
         return delete;
     }
 
     public int f() {
-        T t = this.f39773a;
+        T t = this.f43454a;
         if (t instanceof Bitmap) {
             return ((Bitmap) t).getByteCount();
         }

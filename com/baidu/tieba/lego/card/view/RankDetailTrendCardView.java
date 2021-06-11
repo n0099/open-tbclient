@@ -33,17 +33,17 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f17946e;
+        public final /* synthetic */ RankDetailTrendCard f18022e;
 
         public a(RankDetailTrendCard rankDetailTrendCard) {
-            this.f17946e = rankDetailTrendCard;
+            this.f18022e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ViewHelper.checkUpIsLogin(RankDetailTrendCardView.this.getContext())) {
                 d.a.n0.k1.m.b a2 = d.a.n0.k1.m.b.a();
-                RankDetailTrendCard rankDetailTrendCard = this.f17946e;
+                RankDetailTrendCard rankDetailTrendCard = this.f18022e;
                 a2.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }
         }
@@ -53,15 +53,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f17948e;
+        public final /* synthetic */ RankDetailTrendCard f18024e;
 
         public b(RankDetailTrendCard rankDetailTrendCard) {
-            this.f17948e = rankDetailTrendCard;
+            this.f18024e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            RankDetailTrendCardView.this.p(this.f17948e);
+            RankDetailTrendCardView.this.p(this.f18024e);
         }
     }
 
@@ -105,7 +105,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         if (!TextUtils.isEmpty(rankDetailTrendCard.getIconUrl())) {
             this.s.setVisibility(0);
             this.s.setImageDrawable(null);
-            this.s.V(rankDetailTrendCard.getIconUrl(), 10, false);
+            this.s.U(rankDetailTrendCard.getIconUrl(), 10, false);
             this.t.setVisibility(8);
         } else if (rankDetailTrendCard.getRank() <= 0) {
             this.s.setVisibility(8);
@@ -151,7 +151,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                 this.v.setVisibility(0);
                 this.w.setVisibility(8);
                 this.v.setImageDrawable(null);
-                this.v.V(rankDetailTrendCard.getPicTrendUrl(), 10, false);
+                this.v.U(rankDetailTrendCard.getPicTrendUrl(), 10, false);
             } else if (!TextUtils.isEmpty(rankDetailTrendCard.getTrendText())) {
                 this.w.setVisibility(0);
                 this.v.setVisibility(8);
@@ -182,7 +182,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         } else {
             this.y.setVisibility(0);
             this.y.setTag(rankDetailTrendCard.getPicUrl());
-            this.y.V(rankDetailTrendCard.getPicUrl(), 10, false);
+            this.y.U(rankDetailTrendCard.getPicUrl(), 10, false);
         }
         setCardOnClickListener(new b(rankDetailTrendCard));
     }

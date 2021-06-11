@@ -18,31 +18,31 @@ import d.a.l0.a.k;
 import d.a.l0.a.v2.n0;
 /* loaded from: classes3.dex */
 public class e {
-    public static final boolean u = k.f43199a;
+    public static final boolean u = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f46202a;
+    public Context f49876a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f46203b;
+    public CharSequence f49877b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CharSequence f46204c;
+    public CharSequence f49878c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CharSequence f46205d;
+    public CharSequence f49879d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f46206e;
+    public Drawable f49880e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f46207f;
+    public Drawable f49881f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Uri f46208g;
+    public Uri f49882g;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46210i;
+    public int f49884i;
     public c j;
     public b l;
     public boolean m;
@@ -56,31 +56,31 @@ public class e {
     public boolean t = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46209h = 2;
+    public int f49883h = 2;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f46211a;
+        public static final /* synthetic */ int[] f49885a;
 
         static {
             int[] iArr = new int[ToastTemplate.values().length];
-            f46211a = iArr;
+            f49885a = iArr;
             try {
                 iArr[ToastTemplate.T1.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f46211a[ToastTemplate.T2.ordinal()] = 2;
+                f49885a[ToastTemplate.T2.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f46211a[ToastTemplate.T3.ordinal()] = 3;
+                f49885a[ToastTemplate.T3.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f46211a[ToastTemplate.T4.ordinal()] = 4;
+                f49885a[ToastTemplate.T4.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -97,7 +97,7 @@ public class e {
     }
 
     public e(Context context) {
-        this.f46202a = context;
+        this.f49876a = context;
     }
 
     public static void a() {
@@ -119,13 +119,13 @@ public class e {
 
     public static e f(@NonNull Context context, @StringRes int i2) {
         e eVar = new e(context);
-        eVar.f46203b = context.getText(i2);
+        eVar.f49877b = context.getText(i2);
         return eVar;
     }
 
     public static e g(@NonNull Context context, @NonNull CharSequence charSequence) {
         e eVar = new e(context);
-        eVar.f46203b = charSequence;
+        eVar.f49877b = charSequence;
         return eVar;
     }
 
@@ -137,13 +137,13 @@ public class e {
         if (b()) {
             a();
             if (!z) {
-                Context context = this.f46202a;
+                Context context = this.f49876a;
                 if (context instanceof Activity) {
-                    f.n((Activity) context, this.f46203b, this.f46206e, this.n, this.f46209h, this.m);
+                    f.n((Activity) context, this.f49877b, this.f49880e, this.n, this.f49883h, this.m);
                     return;
                 }
             }
-            d.a.l0.a.z1.b.f.a.j(this.f46202a, this.f46203b, this.f46206e, this.n, this.f46209h, this.m);
+            d.a.l0.a.z1.b.f.a.j(this.f49876a, this.f49877b, this.f49880e, this.n, this.f49883h, this.m);
         }
     }
 
@@ -157,8 +157,8 @@ public class e {
         if (b()) {
             a();
             if (z) {
-                x(this.f46202a, this.f46204c);
-            } else if (this.f46202a instanceof Activity) {
+                x(this.f49876a, this.f49878c);
+            } else if (this.f49876a instanceof Activity) {
                 b bVar = this.l;
                 if (bVar != null) {
                     f.l(bVar);
@@ -169,24 +169,24 @@ public class e {
                 } else {
                     this.o = ToastRightAreaStyle.BUTTON;
                 }
-                if (TextUtils.isEmpty(this.f46205d)) {
-                    f.o((Activity) this.f46202a, null, null, null, this.f46203b, null, this.f46209h, this.r, this.j, this.m);
+                if (TextUtils.isEmpty(this.f49879d)) {
+                    f.o((Activity) this.f49876a, null, null, null, this.f49877b, null, this.f49883h, this.r, this.j, this.m);
                     return;
                 }
-                CharSequence charSequence = this.f46204c;
-                CharSequence charSequence2 = this.f46203b;
-                if (TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(this.f46203b)) {
-                    charSequence = this.f46203b;
+                CharSequence charSequence = this.f49878c;
+                CharSequence charSequence2 = this.f49877b;
+                if (TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(this.f49877b)) {
+                    charSequence = this.f49877b;
                     charSequence2 = "";
                 }
-                f.p((Activity) this.f46202a, this.f46208g, null, null, charSequence, charSequence2, this.f46205d, this.o, this.f46209h, false, this.j);
+                f.p((Activity) this.f49876a, this.f49882g, null, null, charSequence, charSequence2, this.f49879d, this.o, this.f49883h, false, this.j);
             } else {
                 b bVar2 = this.l;
                 if (bVar2 != null) {
                     d.a.l0.a.z1.b.f.a.f(bVar2);
                     this.l = null;
                 }
-                x(this.f46202a, this.f46204c);
+                x(this.f49876a, this.f49878c);
             }
         }
     }
@@ -194,7 +194,7 @@ public class e {
     public void E() {
         if (b()) {
             a();
-            d.a.l0.a.z1.b.f.a.h(this.f46202a, this.f46203b, this.f46209h, false, this.f46210i, this.m);
+            d.a.l0.a.z1.b.f.a.h(this.f49876a, this.f49877b, this.f49883h, false, this.f49884i, this.m);
         }
     }
 
@@ -205,7 +205,7 @@ public class e {
     public void G(boolean z) {
         if (b()) {
             a();
-            if (!z && (this.f46202a instanceof Activity)) {
+            if (!z && (this.f49876a instanceof Activity)) {
                 if (u) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("给View set 的mOnDismissListener是不是空?");
@@ -217,7 +217,7 @@ public class e {
                     f.l(bVar);
                     this.l = null;
                 }
-                f.o((Activity) this.f46202a, null, null, null, this.f46203b, null, this.f46209h, this.r, this.j, this.m);
+                f.o((Activity) this.f49876a, null, null, null, this.f49877b, null, this.f49883h, this.r, this.j, this.m);
                 return;
             }
             b bVar2 = this.l;
@@ -225,7 +225,7 @@ public class e {
                 d.a.l0.a.z1.b.f.a.f(bVar2);
                 this.l = null;
             }
-            x(this.f46202a, this.f46203b);
+            x(this.f49876a, this.f49877b);
         }
     }
 
@@ -237,23 +237,23 @@ public class e {
         if (b()) {
             a();
             if (!z) {
-                Context context = this.f46202a;
+                Context context = this.f49876a;
                 if (context instanceof Activity) {
-                    f.o((Activity) context, null, null, null, this.f46203b, null, this.f46209h, ToastLocation.BOTTOM, this.j, this.m);
+                    f.o((Activity) context, null, null, null, this.f49877b, null, this.f49883h, ToastLocation.BOTTOM, this.j, this.m);
                     return;
                 }
             }
-            x(this.f46202a, this.f46203b);
+            x(this.f49876a, this.f49877b);
         }
     }
 
     public final boolean b() {
-        if (this.f46202a == null) {
+        if (this.f49876a == null) {
             if (u) {
                 throw new IllegalArgumentException("UniversalToast mContext is null!!!");
             }
             return false;
-        } else if (this.f46203b == null) {
+        } else if (this.f49877b == null) {
             if (u) {
                 throw new IllegalArgumentException("UniversalToast toast text is null!!!");
             }
@@ -279,40 +279,40 @@ public class e {
     }
 
     public e k(@NonNull CharSequence charSequence) {
-        this.f46205d = charSequence;
+        this.f49879d = charSequence;
         return this;
     }
 
     public e l(int i2) {
-        this.f46209h = Math.max(i2, 1);
+        this.f49883h = Math.max(i2, 1);
         return this;
     }
 
     public e m(@DrawableRes int i2) {
-        Context context = this.f46202a;
+        Context context = this.f49876a;
         if (context != null && context.getResources() != null) {
-            this.f46206e = this.f46202a.getResources().getDrawable(i2);
+            this.f49880e = this.f49876a.getResources().getDrawable(i2);
         }
         return this;
     }
 
     public e n(@NonNull Drawable drawable) {
-        this.f46206e = drawable;
+        this.f49880e = drawable;
         return this;
     }
 
     public e o(@NonNull Uri uri) {
-        this.f46208g = uri;
+        this.f49882g = uri;
         return this;
     }
 
     public e p(@NonNull int i2) {
-        this.f46210i = i2;
+        this.f49884i = i2;
         return this;
     }
 
     public e q(@NonNull CharSequence charSequence) {
-        this.f46203b = charSequence;
+        this.f49877b = charSequence;
         return this;
     }
 
@@ -322,7 +322,7 @@ public class e {
     }
 
     public e s(@NonNull CharSequence charSequence) {
-        this.f46204c = charSequence;
+        this.f49878c = charSequence;
         return this;
     }
 
@@ -332,45 +332,45 @@ public class e {
     }
 
     public void u() {
-        if (this.f46202a != null && (!TextUtils.isEmpty(this.f46203b) || !TextUtils.isEmpty(this.f46204c))) {
+        if (this.f49876a != null && (!TextUtils.isEmpty(this.f49877b) || !TextUtils.isEmpty(this.f49878c))) {
             a();
-            if (this.f46202a instanceof Activity) {
-                int i2 = a.f46211a[this.s.ordinal()];
+            if (this.f49876a instanceof Activity) {
+                int i2 = a.f49885a[this.s.ordinal()];
                 if (i2 == 2) {
-                    if (TextUtils.isEmpty(this.f46203b)) {
+                    if (TextUtils.isEmpty(this.f49877b)) {
                         return;
                     }
-                    f.o((Activity) this.f46202a, this.f46208g, this.f46207f, this.n, this.f46203b, this.q, this.f46209h, this.r, this.j, this.m);
+                    f.o((Activity) this.f49876a, this.f49882g, this.f49881f, this.n, this.f49877b, this.q, this.f49883h, this.r, this.j, this.m);
                     return;
                 } else if (i2 == 3) {
-                    if (TextUtils.isEmpty(this.q) && !TextUtils.isEmpty(this.f46203b)) {
-                        f.o((Activity) this.f46202a, this.f46208g, this.f46207f, this.n, this.f46203b, this.q, this.f46209h, this.r, this.j, this.m);
+                    if (TextUtils.isEmpty(this.q) && !TextUtils.isEmpty(this.f49877b)) {
+                        f.o((Activity) this.f49876a, this.f49882g, this.f49881f, this.n, this.f49877b, this.q, this.f49883h, this.r, this.j, this.m);
                         return;
-                    } else if (TextUtils.isEmpty(this.f46204c)) {
+                    } else if (TextUtils.isEmpty(this.f49878c)) {
                         return;
                     } else {
-                        f.p((Activity) this.f46202a, this.f46208g, this.f46207f, this.n, this.f46204c, this.p, this.q, this.o, this.f46209h, this.t, this.j);
+                        f.p((Activity) this.f49876a, this.f49882g, this.f49881f, this.n, this.f49878c, this.p, this.q, this.o, this.f49883h, this.t, this.j);
                         return;
                     }
                 } else if (i2 != 4) {
-                    if (TextUtils.isEmpty(this.f46203b)) {
+                    if (TextUtils.isEmpty(this.f49877b)) {
                         return;
                     }
-                    f.o((Activity) this.f46202a, null, null, null, this.f46203b, null, this.f46209h, this.r, null, this.m);
+                    f.o((Activity) this.f49876a, null, null, null, this.f49877b, null, this.f49883h, this.r, null, this.m);
                     return;
-                } else if (TextUtils.isEmpty(this.f46203b)) {
+                } else if (TextUtils.isEmpty(this.f49877b)) {
                     return;
                 } else {
-                    f.n((Activity) this.f46202a, this.f46203b, this.f46206e, this.n, this.f46209h, this.m);
+                    f.n((Activity) this.f49876a, this.f49877b, this.f49880e, this.n, this.f49883h, this.m);
                     return;
                 }
-            } else if (a.f46211a[this.s.ordinal()] != 4) {
-                x(this.f46202a, TextUtils.isEmpty(this.f46203b) ? this.f46204c : this.f46203b);
+            } else if (a.f49885a[this.s.ordinal()] != 4) {
+                x(this.f49876a, TextUtils.isEmpty(this.f49877b) ? this.f49878c : this.f49877b);
                 return;
-            } else if (TextUtils.isEmpty(this.f46203b)) {
+            } else if (TextUtils.isEmpty(this.f49877b)) {
                 return;
             } else {
-                d.a.l0.a.z1.b.f.a.j(this.f46202a, this.f46203b, this.f46206e, this.n, this.f46209h, this.m);
+                d.a.l0.a.z1.b.f.a.j(this.f49876a, this.f49877b, this.f49880e, this.n, this.f49883h, this.m);
                 return;
             }
         }
@@ -386,16 +386,16 @@ public class e {
     public void w(boolean z, boolean z2) {
         if (b()) {
             a();
-            if (!z && (this.f46202a instanceof Activity)) {
+            if (!z && (this.f49876a instanceof Activity)) {
                 b bVar = this.l;
                 if (bVar != null) {
                     f.l(bVar);
                     this.l = null;
                 }
-                if (TextUtils.isEmpty(this.f46205d)) {
-                    this.f46205d = d.a.l0.a.c1.a.b().getResources().getText(h.aiapps_check_action_text);
+                if (TextUtils.isEmpty(this.f49879d)) {
+                    this.f49879d = d.a.l0.a.c1.a.b().getResources().getText(h.aiapps_check_action_text);
                 }
-                f.o((Activity) this.f46202a, null, null, null, this.f46203b, this.f46205d, this.f46209h, ToastLocation.BOTTOM, this.j, this.m);
+                f.o((Activity) this.f49876a, null, null, null, this.f49877b, this.f49879d, this.f49883h, ToastLocation.BOTTOM, this.j, this.m);
                 return;
             }
             b bVar2 = this.l;
@@ -403,7 +403,7 @@ public class e {
                 d.a.l0.a.z1.b.f.a.f(bVar2);
                 this.l = null;
             }
-            x(this.f46202a, this.f46203b);
+            x(this.f49876a, this.f49877b);
         }
     }
 
@@ -411,7 +411,7 @@ public class e {
         if (TextUtils.isEmpty(charSequence)) {
             return;
         }
-        d.a.l0.a.z1.b.f.a.k(context, null, null, null, charSequence, null, this.f46209h, this.r, null, this.m);
+        d.a.l0.a.z1.b.f.a.k(context, null, null, null, charSequence, null, this.f49883h, this.r, null, this.m);
     }
 
     public void y() {
@@ -422,13 +422,13 @@ public class e {
         if (b()) {
             a();
             if (!z) {
-                Context context = this.f46202a;
+                Context context = this.f49876a;
                 if (context instanceof Activity) {
-                    f.m((Activity) context, this.f46203b, this.f46209h, this.m);
+                    f.m((Activity) context, this.f49877b, this.f49883h, this.m);
                     return;
                 }
             }
-            d.a.l0.a.z1.b.f.a.i(this.f46202a, this.f46203b, this.f46209h, this.m);
+            d.a.l0.a.z1.b.f.a.i(this.f49876a, this.f49877b, this.f49883h, this.m);
         }
     }
 }

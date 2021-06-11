@@ -7,15 +7,15 @@ import d.a.k.b.c.c;
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f1410a;
+    public c f1423a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f1411b;
+    public b f1424b;
 
     public ac(c cVar, a aVar) {
-        this.f1410a = cVar;
+        this.f1423a = cVar;
         b bVar = new b();
-        this.f1411b = bVar;
+        this.f1424b = bVar;
         bVar.k(aVar);
     }
 }

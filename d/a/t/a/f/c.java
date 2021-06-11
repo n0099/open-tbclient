@@ -28,16 +28,16 @@ import okhttp3.Response;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static C1810c f64626a;
+    public static C1868c f68344a;
 
     /* loaded from: classes2.dex */
     public static class a implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f64627a;
+        public final /* synthetic */ d f68345a;
 
         public a(d dVar) {
-            this.f64627a = dVar;
+            this.f68345a = dVar;
         }
 
         @Override // okhttp3.Callback
@@ -46,23 +46,23 @@ public class c {
             if (iOException instanceof SocketException) {
                 str = "HttpRequest SocketException :" + iOException.toString();
             }
-            c.c(this.f64627a, 10003, str);
+            c.c(this.f68345a, 10003, str);
         }
 
         @Override // okhttp3.Callback
         public void onResponse(@NonNull Call call, @NonNull Response response) {
             try {
                 if (response.code() != 200) {
-                    c.c(this.f64627a, response.code(), response.message());
+                    c.c(this.f68345a, response.code(), response.message());
                 } else if (response.body() == null) {
-                    c.c(this.f64627a, 10004, "response body empty");
+                    c.c(this.f68345a, 10004, "response body empty");
                 } else {
                     byte[] bytes = response.body().bytes();
                     d.a.t.a.h.e.b("HttpExecutor", "onSuccess errorCode ：" + response.code() + ", errorMsg :" + new String(bytes));
-                    this.f64627a.onSuccess(bytes);
+                    this.f68345a.onSuccess(bytes);
                 }
             } catch (IOException e2) {
-                d dVar = this.f64627a;
+                d dVar = this.f68345a;
                 c.c(dVar, 10001, "parse response exception ：" + e2);
             }
         }
@@ -83,8 +83,8 @@ public class c {
 
     /* renamed from: d.a.t.a.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1810c implements X509TrustManager {
-        public C1810c() {
+    public static class C1868c implements X509TrustManager {
+        public C1868c() {
         }
 
         @Override // javax.net.ssl.X509TrustManager
@@ -100,7 +100,7 @@ public class c {
             return new X509Certificate[0];
         }
 
-        public /* synthetic */ C1810c(a aVar) {
+        public /* synthetic */ C1868c(a aVar) {
             this();
         }
     }
@@ -129,9 +129,9 @@ public class c {
 
     public static SSLSocketFactory b() {
         try {
-            f64626a = new C1810c(null);
+            f68344a = new C1868c(null);
             SSLContext sSLContext = SSLContext.getInstance("TLS");
-            sSLContext.init(null, new TrustManager[]{f64626a}, new SecureRandom());
+            sSLContext.init(null, new TrustManager[]{f68344a}, new SecureRandom());
             return sSLContext.getSocketFactory();
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -181,7 +181,7 @@ public class c {
                     build = build.newBuilder().headers(d2).build();
                     String str = headers.get("Host");
                     if (!TextUtils.isEmpty(str) && str.contains(IMHttpDnsUrlRequest.HTTP_DNS_HOST)) {
-                        build2 = build2.newBuilder().sslSocketFactory(b(), f64626a).hostnameVerifier(new e(null)).build();
+                        build2 = build2.newBuilder().sslSocketFactory(b(), f68344a).hostnameVerifier(new e(null)).build();
                     }
                 }
                 d.a.t.a.h.e.a("HttpExecutor", "request url :" + host + " , method :" + bVar.getMethod() + " , body :" + new String(bVar.getRequestParameter()));

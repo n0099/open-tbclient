@@ -19,16 +19,16 @@ import java.util.ArrayList;
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f54671d;
+    public static b f58360d;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f54672a;
+    public String f58361a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f54673b;
+    public c f58362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f54674c;
+    public CustomMessageListener f58363c;
 
     /* loaded from: classes4.dex */
     public class a extends c {
@@ -47,8 +47,8 @@ public class b {
 
     /* renamed from: d.a.n0.f1.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1323b extends CustomMessageListener {
-        public C1323b(b bVar, int i2) {
+    public class C1379b extends CustomMessageListener {
+        public C1379b(b bVar, int i2) {
             super(i2);
         }
 
@@ -68,23 +68,23 @@ public class b {
 
     public b() {
         new ArrayList();
-        this.f54673b = new a(202006);
-        this.f54674c = new C1323b(this, 0);
+        this.f58362b = new a(202006);
+        this.f58363c = new C1379b(this, 0);
     }
 
     public static synchronized b b() {
         b bVar;
         synchronized (b.class) {
-            if (f54671d == null) {
-                f54671d = new b();
+            if (f58360d == null) {
+                f58360d = new b();
             }
-            bVar = f54671d;
+            bVar = f58360d;
         }
         return bVar;
     }
 
     public String c() {
-        return this.f54672a;
+        return this.f58361a;
     }
 
     public void d() {
@@ -121,12 +121,12 @@ public class b {
     }
 
     public final void f() {
-        MessageManager.getInstance().registerListener(this.f54673b);
-        MessageManager.getInstance().registerListener(2016014, this.f54674c);
+        MessageManager.getInstance().registerListener(this.f58362b);
+        MessageManager.getInstance().registerListener(2016014, this.f58363c);
     }
 
     public void g(String str) {
-        this.f54672a = str;
+        this.f58361a = str;
     }
 
     public final void h(long j, long j2, int i2) {

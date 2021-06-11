@@ -12,66 +12,66 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61077a;
+    public String f64769a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61078b;
+    public String f64770b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61079c;
+    public String f64771c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61080d;
+    public String f64772d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61081e;
+    public String f64773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61082f;
+    public String f64774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61083g;
+    public String f64775g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61084h;
+    public int f64776h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f61085i = false;
+    public boolean f64777i = false;
 
     public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
         if (advertAppInfo == null) {
             return;
         }
-        int i2 = advertAppInfo.V3;
+        int i2 = advertAppInfo.Y3;
         if (i2 == 3) {
-            this.f61077a = "apk_download";
-            this.f61082f = advertAppInfo.Y3;
-            this.f61083g = advertAppInfo.X3;
+            this.f64769a = "apk_download";
+            this.f64774f = advertAppInfo.b4;
+            this.f64775g = advertAppInfo.a4;
         } else if (i2 == 1) {
-            this.f61077a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
+            this.f64769a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
         }
-        this.f61081e = adCard.getButtonText();
-        this.f61078b = adCard.userName;
-        this.f61079c = adCard.userImage;
-        this.f61080d = adCard.scheme;
+        this.f64773e = adCard.getButtonText();
+        this.f64770b = adCard.userName;
+        this.f64771c = adCard.userImage;
+        this.f64772d = adCard.scheme;
     }
 
     public void b(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f61077a = jSONObject.optString("style");
-        this.f61078b = jSONObject.optString("user_name");
-        this.f61079c = jSONObject.optString("user_portrait");
-        this.f61080d = jSONObject.optString("scheme");
-        this.f61081e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        this.f61084h = jSONObject.optInt("close_time");
+        this.f64769a = jSONObject.optString("style");
+        this.f64770b = jSONObject.optString("user_name");
+        this.f64771c = jSONObject.optString("user_portrait");
+        this.f64772d = jSONObject.optString("scheme");
+        this.f64773e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+        this.f64776h = jSONObject.optInt("close_time");
         JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
         if (optJSONObject != null) {
-            this.f61082f = optJSONObject.optString("pkgname");
-            this.f61083g = optJSONObject.optString("download_url");
+            this.f64774f = optJSONObject.optString("pkgname");
+            this.f64775g = optJSONObject.optString("download_url");
         }
-        this.f61085i = true;
+        this.f64777i = true;
     }
 
     public void c(String str) {
@@ -88,14 +88,14 @@ public class f {
     public JSONObject d() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("style", this.f61077a);
-            jSONObject.put("user_name", this.f61078b);
-            jSONObject.put("user_portrait", this.f61079c);
-            jSONObject.put("scheme", this.f61080d);
-            jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f61081e);
+            jSONObject.put("style", this.f64769a);
+            jSONObject.put("user_name", this.f64770b);
+            jSONObject.put("user_portrait", this.f64771c);
+            jSONObject.put("scheme", this.f64772d);
+            jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f64773e);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("pkgname", this.f61082f);
-            jSONObject2.put("download_url", this.f61083g);
+            jSONObject2.put("pkgname", this.f64774f);
+            jSONObject2.put("download_url", this.f64775g);
             jSONObject.put("ext_data", jSONObject2);
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -106,14 +106,14 @@ public class f {
     public String e() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("style", this.f61077a);
-            jSONObject.put("user_name", this.f61078b);
-            jSONObject.put("user_portrait", this.f61079c);
-            jSONObject.put("scheme", this.f61080d);
-            jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f61081e);
+            jSONObject.put("style", this.f64769a);
+            jSONObject.put("user_name", this.f64770b);
+            jSONObject.put("user_portrait", this.f64771c);
+            jSONObject.put("scheme", this.f64772d);
+            jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f64773e);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("pkgname", this.f61082f);
-            jSONObject2.put("download_url", this.f61083g);
+            jSONObject2.put("pkgname", this.f64774f);
+            jSONObject2.put("download_url", this.f64775g);
             jSONObject.put("ext_data", jSONObject2);
         } catch (JSONException e2) {
             e2.printStackTrace();

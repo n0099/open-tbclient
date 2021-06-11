@@ -7,7 +7,7 @@ import org.apache.http.RequestLine;
 import org.apache.http.StatusLine;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface LineParser {
     boolean hasProtocolVersion(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor);
 

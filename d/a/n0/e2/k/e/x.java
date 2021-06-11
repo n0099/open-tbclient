@@ -17,21 +17,21 @@ public class x extends o<y, PbImageAlaRecommendVH> {
         this.s = bdUniqueId;
     }
 
-    @Override // d.a.n0.e2.k.e.o, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        h0(i2, view, viewGroup, (y) obj, (PbImageAlaRecommendVH) viewHolder);
+    @Override // d.a.n0.e2.k.e.o, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        i0(i2, view, viewGroup, (y) obj, (PbImageAlaRecommendVH) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public PbImageAlaRecommendVH P(ViewGroup viewGroup) {
-        return new PbImageAlaRecommendVH(LayoutInflater.from(this.f39228e).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.m.getPageContext(), this.s);
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public PbImageAlaRecommendVH Q(ViewGroup viewGroup) {
+        return new PbImageAlaRecommendVH(LayoutInflater.from(this.f42909e).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.m.getPageContext(), this.s);
     }
 
-    public View h0(int i2, View view, ViewGroup viewGroup, y yVar, PbImageAlaRecommendVH pbImageAlaRecommendVH) {
-        super.W(i2, view, viewGroup, yVar, pbImageAlaRecommendVH);
+    public View i0(int i2, View view, ViewGroup viewGroup, y yVar, PbImageAlaRecommendVH pbImageAlaRecommendVH) {
+        super.X(i2, view, viewGroup, yVar, pbImageAlaRecommendVH);
         if (pbImageAlaRecommendVH != null) {
             pbImageAlaRecommendVH.d(yVar);
             pbImageAlaRecommendVH.i(this.t);
@@ -39,7 +39,7 @@ public class x extends o<y, PbImageAlaRecommendVH> {
         return view;
     }
 
-    public void i0(d.a.n0.e2.h.e eVar) {
+    public void j0(d.a.n0.e2.h.e eVar) {
         this.t = eVar;
     }
 }

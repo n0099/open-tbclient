@@ -9,8 +9,8 @@ import d.a.m0.w.m;
 public class d extends m {
     public d(TbPageContext<?> tbPageContext, int i2, String str) {
         super(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title), 17, i2);
-        this.f50850d = R.drawable.tail_edit_tool_color_selector;
-        this.f50852f = R.drawable.icon_pure_post_more_bubble64;
+        this.f54527d = R.drawable.tail_edit_tool_color_selector;
+        this.f54529f = R.drawable.icon_pure_post_more_bubble64;
         this.k = new TailEditColorToolHost(tbPageContext, str);
         this.m = true;
         this.l = 6;

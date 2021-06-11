@@ -8,10 +8,10 @@ public class b implements FollowStatusService {
     @Override // com.baidu.searchbox.live.interfaces.service.FollowStatusService
     public void saveFollowStatus(boolean z, String str, String str2) {
         UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-        aVar.f12574a = true;
-        aVar.f12576c = str;
-        aVar.f12577d = z;
-        aVar.f12578e = true;
+        aVar.f12636a = true;
+        aVar.f12638c = str;
+        aVar.f12639d = z;
+        aVar.f12640e = true;
         MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
     }
 }

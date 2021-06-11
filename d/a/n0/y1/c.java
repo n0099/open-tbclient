@@ -16,7 +16,7 @@ public class c {
             StatisticItem statisticItem2 = new StatisticItem(str);
             a2 a2Var = ((d.a.n0.y1.e.b) obj).k;
             if (a2Var != null) {
-                statisticItem2.param("tid", a2Var.y1());
+                statisticItem2.param("tid", a2Var.z1());
             }
             statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem2.eventStat();
@@ -24,25 +24,25 @@ public class c {
     }
 
     public static void b(d.a.n0.y1.d.c.a aVar, d.a.m0.r.q.a aVar2) {
-        if (aVar2 == null || aVar2.m() == null) {
+        if (aVar2 == null || aVar2.i() == null) {
             return;
         }
-        a2 m = aVar2.m();
+        a2 i2 = aVar2.i();
         StatisticItem statisticItem = new StatisticItem(aVar.e0() ? "c13823" : "c13822");
-        statisticItem.param("tid", m.y1());
-        statisticItem.param("fid", m.c0());
+        statisticItem.param("tid", i2.z1());
+        statisticItem.param("fid", i2.c0());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
         statisticItem.eventStat();
     }
 
     public static void c(d.a.n0.y1.d.c.a aVar, d.a.m0.r.q.a aVar2) {
-        if (aVar2 == null || aVar2.m() == null) {
+        if (aVar2 == null || aVar2.i() == null) {
             return;
         }
-        a2 m = aVar2.m();
+        a2 i2 = aVar2.i();
         StatisticItem statisticItem = new StatisticItem(aVar.e0() ? "c13824" : "c13821");
-        statisticItem.param("tid", m.y1());
-        statisticItem.param("fid", m.c0());
+        statisticItem.param("tid", i2.z1());
+        statisticItem.param("fid", i2.c0());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
         statisticItem.eventStat();
     }

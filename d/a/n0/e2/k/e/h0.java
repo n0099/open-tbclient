@@ -10,53 +10,53 @@ import com.baidu.tieba.view.NavigationBarCoverTip;
 public class h0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c.a.f f53346a;
+    public d.a.c.a.f f57035a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBarCoverTip f53347b;
+    public NavigationBarCoverTip f57036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f53348c;
+    public TextView f57037c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f53349d;
+    public int f57038d;
 
     public h0(d.a.c.a.f fVar, NavigationBarCoverTip navigationBarCoverTip) {
-        this.f53346a = fVar;
-        this.f53347b = navigationBarCoverTip;
+        this.f57035a = fVar;
+        this.f57036b = navigationBarCoverTip;
         b();
     }
 
     public void a(String str) {
-        if (this.f53347b == null) {
+        if (this.f57036b == null) {
             return;
         }
-        if (!d.a.c.e.p.k.isEmpty(str) && this.f53349d <= 0) {
-            this.f53347b.setVisibility(0);
-            this.f53349d++;
-            this.f53348c.setText(str);
-            SkinManager.setViewTextColor(this.f53348c, R.color.CAM_X0101);
-            this.f53347b.removeAllViews();
-            this.f53347b.addView(this.f53348c);
-            this.f53347b.k(this.f53346a.getPageActivity(), 5000);
+        if (!d.a.c.e.p.k.isEmpty(str) && this.f57038d <= 0) {
+            this.f57036b.setVisibility(0);
+            this.f57038d++;
+            this.f57037c.setText(str);
+            SkinManager.setViewTextColor(this.f57037c, R.color.CAM_X0101);
+            this.f57036b.removeAllViews();
+            this.f57036b.addView(this.f57037c);
+            this.f57036b.k(this.f57035a.getPageActivity(), 5000);
             return;
         }
         c();
-        this.f53347b.setVisibility(8);
+        this.f57036b.setVisibility(8);
     }
 
     public final void b() {
-        this.f53348c = new TextView(this.f53346a.getPageActivity());
-        this.f53348c.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.f53348c.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
-        this.f53348c.setPadding(this.f53346a.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.f53346a.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
-        this.f53348c.setGravity(19);
-        this.f53348c.setTextSize(0, this.f53346a.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
-        this.f53348c.setLineSpacing(this.f53346a.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
+        this.f57037c = new TextView(this.f57035a.getPageActivity());
+        this.f57037c.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.f57037c.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
+        this.f57037c.setPadding(this.f57035a.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.f57035a.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+        this.f57037c.setGravity(19);
+        this.f57037c.setTextSize(0, this.f57035a.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
+        this.f57037c.setLineSpacing(this.f57035a.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
     }
 
     public void c() {
-        NavigationBarCoverTip navigationBarCoverTip = this.f53347b;
+        NavigationBarCoverTip navigationBarCoverTip = this.f57036b;
         if (navigationBarCoverTip != null) {
             navigationBarCoverTip.i();
         }

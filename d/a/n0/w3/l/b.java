@@ -11,13 +11,13 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<MetaData> f62875a = new ArrayList<>();
+    public final ArrayList<MetaData> f66590a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f62876b = null;
+    public HashMap<String, String> f66591b = null;
 
     public ArrayList<MetaData> a() {
-        return this.f62875a;
+        return this.f66590a;
     }
 
     public void b(String str) {
@@ -34,8 +34,8 @@ public class b {
         }
         if (z) {
             try {
-                if (this.f62876b == null) {
-                    this.f62876b = new HashMap<>();
+                if (this.f66591b == null) {
+                    this.f66591b = new HashMap<>();
                 }
             } catch (Exception e2) {
                 BdLog.detailException(e2);
@@ -48,9 +48,9 @@ public class b {
                 MetaData metaData = new MetaData();
                 metaData.parserJson(optJSONArray.getJSONObject(i2));
                 if (!TextUtils.isEmpty(metaData.getName_show())) {
-                    this.f62875a.add(metaData);
+                    this.f66590a.add(metaData);
                     if (z) {
-                        this.f62876b.put(metaData.getName_show(), metaData.getPortrait());
+                        this.f66591b.put(metaData.getName_show(), metaData.getPortrait());
                     }
                 }
             }

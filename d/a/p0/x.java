@@ -14,85 +14,85 @@ public class x {
     public static final boolean j = AppConfig.isDebug();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64015a;
+    public int f67733a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64016b;
+    public int f67734b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f64017c;
+    public JSONObject f67735c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f64018d;
+    public JSONObject f67736d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f64019e;
+    public JSONObject f67737e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f64020f;
+    public String f67738f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64021g;
+    public int f67739g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f64022h;
+    public int f67740h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<k> f64023i = new ArrayList();
+    public List<k> f67741i = new ArrayList();
 
     public x(String str, JSONObject jSONObject) {
-        this.f64017c = jSONObject;
+        this.f67735c = jSONObject;
     }
 
     public JSONObject a() {
-        return this.f64019e;
+        return this.f67737e;
     }
 
     public List<k> b() {
-        return this.f64023i;
+        return this.f67741i;
     }
 
     public int c() {
-        return this.f64021g;
+        return this.f67739g;
     }
 
     public int d() {
-        return this.f64022h;
+        return this.f67740h;
     }
 
     public String e() {
-        return this.f64020f;
+        return this.f67738f;
     }
 
     public int f() {
-        return this.f64015a;
+        return this.f67733a;
     }
 
     public int g() {
-        return this.f64016b;
+        return this.f67734b;
     }
 
     public boolean h() {
         JSONObject optJSONObject;
         try {
-            if (this.f64017c != null && this.f64017c.length() != 0) {
-                JSONObject jSONObject = this.f64017c;
-                this.f64018d = jSONObject.optJSONObject("set");
-                this.f64015a = jSONObject.optInt("threshold", 10000);
-                this.f64016b = jSONObject.optInt("timeup", 604800000);
-                this.f64020f = jSONObject.optString("step");
+            if (this.f67735c != null && this.f67735c.length() != 0) {
+                JSONObject jSONObject = this.f67735c;
+                this.f67736d = jSONObject.optJSONObject("set");
+                this.f67733a = jSONObject.optInt("threshold", 10000);
+                this.f67734b = jSONObject.optInt("timeup", 604800000);
+                this.f67738f = jSONObject.optString("step");
                 jSONObject.optString("replace");
-                this.f64019e = jSONObject.optJSONObject("del");
-                this.f64021g = jSONObject.optInt("all_size", 614400);
-                this.f64022h = jSONObject.optInt("single_size", 153600);
+                this.f67737e = jSONObject.optJSONObject("del");
+                this.f67739g = jSONObject.optInt("all_size", 614400);
+                this.f67740h = jSONObject.optInt("single_size", 153600);
                 jSONObject.optInt("real_size", 614400);
                 jSONObject.optInt("non_real_size", 614400);
                 int i2 = 1;
-                if (this.f64018d != null) {
-                    Iterator<String> keys = this.f64018d.keys();
+                if (this.f67736d != null) {
+                    Iterator<String> keys = this.f67736d.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        if (!TextUtils.isEmpty(next) && (optJSONObject = this.f64018d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
+                        if (!TextUtils.isEmpty(next) && (optJSONObject = this.f67736d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
                             JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
                             String optString = optJSONObject.optString("version");
                             if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {
@@ -134,7 +134,7 @@ public class x {
                                     kVar.p(optInt);
                                 }
                                 kVar.u(optString);
-                                this.f64023i.add(kVar);
+                                this.f67741i.add(kVar);
                                 keys = it;
                                 i2 = 1;
                             }
@@ -154,6 +154,6 @@ public class x {
     }
 
     public void i(List<k> list) {
-        this.f64023i = list;
+        this.f67741i = list;
     }
 }

@@ -8,16 +8,16 @@ import com.xiaomi.push.service.aq;
 public final class q extends aq.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f37278a;
+    public final /* synthetic */ Context f40957a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(int i2, String str, Context context) {
         super(i2, str);
-        this.f37278a = context;
+        this.f40957a = context;
     }
 
     @Override // com.xiaomi.push.service.aq.a
     public void onCallback() {
-        ea.a(this.f37278a).a(com.xiaomi.push.service.aq.a(this.f37278a).a(hk.AwakeInfoUploadWaySwitch.a(), 0));
+        ea.a(this.f40957a).a(com.xiaomi.push.service.aq.a(this.f40957a).a(hk.AwakeInfoUploadWaySwitch.a(), 0));
     }
 }

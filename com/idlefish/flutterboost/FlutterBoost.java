@@ -157,7 +157,7 @@ public class FlutterBoost {
             a.getInstance().setFlutterPath("createEngine1");
         }
         if (this.mEngine == null) {
-            synchronized (d.a.c.h.k.a.f39178a) {
+            synchronized (d.a.c.h.k.a.f42831a) {
                 PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
                 try {
                     if (FlutterCrashRepairEnableSwitch.isOn() && h2 != null && h2.apkPath != null) {

@@ -25,62 +25,62 @@ import java.util.Set;
 public class a extends d.a.l0.a.a2.f {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f41562g = k.f43199a;
+    public static final boolean f45238g = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.k2.g.g f41563a;
+    public d.a.l0.a.k2.g.g f45239a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41564b;
+    public final String f45240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f41565c;
+    public final String f45241c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<j> f41566d;
+    public final Set<j> f45242d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, d.a.l0.a.e2.c.j.b> f41567e;
+    public final Map<String, d.a.l0.a.e2.c.j.b> f45243e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.l0.a.v2.d1.c f41568f;
+    public final d.a.l0.a.v2.d1.c f45244f;
 
     /* renamed from: d.a.l0.a.e2.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0610a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.f> {
+    public class C0666a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.f> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f41569e;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f45245e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41570f;
+        public final /* synthetic */ String f45246f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f41571g;
+        public final /* synthetic */ boolean f45247g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f41572h;
+        public final /* synthetic */ Context f45248h;
 
         /* renamed from: d.a.l0.a.e2.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0611a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
-            public C0611a() {
+        public class C0667a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
+            public C0667a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.l0.a.v2.e1.b
             /* renamed from: a */
             public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
-                C0610a c0610a = C0610a.this;
-                a.this.u(c0610a.f41569e, iVar);
+                C0666a c0666a = C0666a.this;
+                a.this.u(c0666a.f45245e, iVar);
             }
         }
 
-        public C0610a(d.a.l0.a.v2.e1.b bVar, String str, boolean z, Context context) {
-            this.f41569e = bVar;
-            this.f41570f = str;
-            this.f41571g = z;
-            this.f41572h = context;
+        public C0666a(d.a.l0.a.v2.e1.b bVar, String str, boolean z, Context context) {
+            this.f45245e = bVar;
+            this.f45246f = str;
+            this.f45247g = z;
+            this.f45248h = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,34 +90,34 @@ public class a extends d.a.l0.a.a2.f {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.f fVar) {
             d.a.l0.a.e2.c.i iVar = new d.a.l0.a.e2.c.i();
-            if (a.f41562g && d.a.l0.a.u1.a.a.m()) {
+            if (a.f45238g && d.a.l0.a.u1.a.a.m()) {
                 iVar.e();
-                iVar.f41736a = new b.e(true, null);
-                a.this.u(this.f41569e, iVar);
+                iVar.f45412a = new b.e(true, null);
+                a.this.u(this.f45245e, iVar);
                 return;
             }
             boolean z = false;
             boolean z2 = fVar == null;
-            d.a.l0.a.e0.d.h("SwanAppSetting", "isResultNull = " + z2 + "; scope = " + this.f41570f);
-            if (!z2 && !fVar.f41697d) {
-                if (!this.f41571g ? fVar.j == 0 : fVar.j <= 0) {
+            d.a.l0.a.e0.d.h("SwanAppSetting", "isResultNull = " + z2 + "; scope = " + this.f45246f);
+            if (!z2 && !fVar.f45373d) {
+                if (!this.f45247g ? fVar.j == 0 : fVar.j <= 0) {
                     z = true;
                 }
                 if (z) {
-                    a.this.c(this.f41572h, this.f41570f, this.f41571g, new C0611a());
+                    a.this.c(this.f45248h, this.f45246f, this.f45247g, new C0667a());
                     return;
                 }
                 if (fVar.j > 0) {
                     iVar.e();
-                    iVar.f41736a = new b.e(true, null);
+                    iVar.f45412a = new b.e(true, null);
                 } else {
                     iVar.d(new OAuthException(10003));
                 }
-                a.this.u(this.f41569e, iVar);
+                a.this.u(this.f45245e, iVar);
                 return;
             }
             iVar.d(new OAuthException(10005));
-            a.this.u(this.f41569e, iVar);
+            a.this.u(this.f45245e, iVar);
             d.a.l0.a.e0.d.i("SwanAppSetting", "checkOrAuthorize", new Exception("authorize fail"));
             d.a.l0.a.j2.k.p(10005, fVar);
         }
@@ -127,17 +127,17 @@ public class a extends d.a.l0.a.a2.f {
     public class b implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.f> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f41575e;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f45251e;
 
         public b(d.a.l0.a.v2.e1.b bVar) {
-            this.f41575e = bVar;
+            this.f45251e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.f fVar) {
-            a.this.u(this.f41575e, fVar);
+            a.this.u(this.f45251e, fVar);
         }
     }
 
@@ -145,17 +145,17 @@ public class a extends d.a.l0.a.a2.f {
     public class c implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41577e;
+        public final /* synthetic */ String f45253e;
 
         public c(String str) {
-            this.f41577e = str;
+            this.f45253e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
-            a.this.f41567e.remove(this.f41577e);
+            a.this.f45243e.remove(this.f45253e);
         }
     }
 
@@ -163,15 +163,15 @@ public class a extends d.a.l0.a.a2.f {
     public class d extends d.a.l0.a.v2.d1.a {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.e2.c.j.b f41579f;
+        public final /* synthetic */ d.a.l0.a.e2.c.j.b f45255f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41580g;
+        public final /* synthetic */ String f45256g;
 
         /* renamed from: d.a.l0.a.e2.a$d$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0612a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
-            public C0612a() {
+        public class C0668a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
+            public C0668a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -183,16 +183,16 @@ public class a extends d.a.l0.a.a2.f {
         }
 
         public d(a aVar, d.a.l0.a.e2.c.j.b bVar, String str) {
-            this.f41579f = bVar;
-            this.f41580g = str;
+            this.f45255f = bVar;
+            this.f45256g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.a.e2.c.j.b bVar = this.f41579f;
-            bVar.r(d.a.l0.a.j2.f.a(this.f41580g));
-            bVar.p(new C0612a());
-            this.f41579f.a();
+            d.a.l0.a.e2.c.j.b bVar = this.f45255f;
+            bVar.r(d.a.l0.a.j2.f.a(this.f45256g));
+            bVar.p(new C0668a());
+            this.f45255f.a();
         }
     }
 
@@ -200,19 +200,19 @@ public class a extends d.a.l0.a.a2.f {
     public class e extends i<d.a.l0.a.v2.e1.b<ResulT>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Object f41582a;
+        public final /* synthetic */ Object f45258a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(a aVar, Object obj) {
             super(aVar, null);
-            this.f41582a = obj;
+            this.f45258a = obj;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.e2.a.i
         /* renamed from: b */
         public void a(d.a.l0.a.v2.e1.b<ResulT> bVar) {
-            bVar.onCallback(this.f41582a);
+            bVar.onCallback(this.f45258a);
         }
     }
 
@@ -220,19 +220,19 @@ public class a extends d.a.l0.a.a2.f {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f41583e;
+        public final /* synthetic */ i f45259e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f41584f;
+        public final /* synthetic */ Object f45260f;
 
         public f(a aVar, i iVar, Object obj) {
-            this.f41583e = iVar;
-            this.f41584f = obj;
+            this.f45259e = iVar;
+            this.f45260f = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f41583e.a(this.f41584f);
+            this.f45259e.a(this.f45260f);
         }
     }
 
@@ -254,22 +254,22 @@ public class a extends d.a.l0.a.a2.f {
     public class h extends d.a.l0.a.v2.d1.a {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f41585f;
+        public final /* synthetic */ Activity f45261f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.C0832c f41586g;
+        public final /* synthetic */ c.C0888c f45262g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Bundle f41587h;
+        public final /* synthetic */ Bundle f45263h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f41588i;
+        public final /* synthetic */ String f45264i;
         public final /* synthetic */ d.a.l0.a.v2.e1.b j;
 
         /* renamed from: d.a.l0.a.e2.a$h$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0613a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<f.d>> {
-            public C0613a() {
+        public class C0669a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<f.d>> {
+            public C0669a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -280,20 +280,20 @@ public class a extends d.a.l0.a.a2.f {
             }
         }
 
-        public h(a aVar, Activity activity, c.C0832c c0832c, Bundle bundle, String str, d.a.l0.a.v2.e1.b bVar) {
-            this.f41585f = activity;
-            this.f41586g = c0832c;
-            this.f41587h = bundle;
-            this.f41588i = str;
+        public h(a aVar, Activity activity, c.C0888c c0888c, Bundle bundle, String str, d.a.l0.a.v2.e1.b bVar) {
+            this.f45261f = activity;
+            this.f45262g = c0888c;
+            this.f45263h = bundle;
+            this.f45264i = str;
             this.j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.a.e2.c.j.f b2 = d.a.l0.a.a2.d.g().y().a().b().b(this.f41585f, this.f41586g, this.f41587h);
-            b2.r(this.f41588i);
+            d.a.l0.a.e2.c.j.f b2 = d.a.l0.a.a2.d.g().y().a().b().b(this.f45261f, this.f45262g, this.f45263h);
+            b2.r(this.f45264i);
             b2.p(this.j);
-            b2.p(new C0613a());
+            b2.p(new C0669a());
             b2.a();
         }
     }
@@ -305,7 +305,7 @@ public class a extends d.a.l0.a.a2.f {
 
         public abstract void a(CallBackT callbackt);
 
-        public /* synthetic */ i(a aVar, C0610a c0610a) {
+        public /* synthetic */ i(a aVar, C0666a c0666a) {
             this(aVar);
         }
     }
@@ -317,11 +317,11 @@ public class a extends d.a.l0.a.a2.f {
 
     public a(d.a.l0.a.a2.e eVar) {
         super(eVar);
-        this.f41566d = new HashSet();
-        this.f41567e = new HashMap();
-        this.f41568f = new d.a.l0.a.v2.d1.c();
-        this.f41564b = d.a.l0.a.k2.b.t(eVar);
-        this.f41565c = "aiapp_setting_" + this.f41564b;
+        this.f45242d = new HashSet();
+        this.f45243e = new HashMap();
+        this.f45244f = new d.a.l0.a.v2.d1.c();
+        this.f45240b = d.a.l0.a.k2.b.t(eVar);
+        this.f45241c = "aiapp_setting_" + this.f45240b;
     }
 
     public static void x(Runnable runnable) {
@@ -341,11 +341,11 @@ public class a extends d.a.l0.a.a2.f {
     }
 
     public synchronized void C(j jVar) {
-        this.f41566d.add(jVar);
+        this.f45242d.add(jVar);
     }
 
     public void D(String str) {
-        this.f41563a.remove(str);
+        this.f45239a.remove(str);
     }
 
     public boolean E() {
@@ -355,13 +355,13 @@ public class a extends d.a.l0.a.a2.f {
             return false;
         }
         g.b i2 = W.i("navigateTo");
-        i2.n(d.a.l0.a.h0.g.g.f42076g, d.a.l0.a.h0.g.g.f42078i);
+        i2.n(d.a.l0.a.h0.g.g.f45752g, d.a.l0.a.h0.g.g.f45754i);
         i2.k("authority", null).a();
         return true;
     }
 
     public synchronized void F(j jVar) {
-        this.f41566d.remove(jVar);
+        this.f45242d.remove(jVar);
     }
 
     public void c(Context context, String str, boolean z, d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> bVar) {
@@ -381,11 +381,11 @@ public class a extends d.a.l0.a.a2.f {
     }
 
     public boolean f(String str) {
-        if (f41562g && d.a.l0.a.u1.a.a.m()) {
+        if (f45238g && d.a.l0.a.u1.a.a.m()) {
             return true;
         }
         d.a.l0.a.e2.c.f k = d.a.l0.a.n1.q.c.a.k(str);
-        return (k == null || k.f41697d || !k.a()) ? false : true;
+        return (k == null || k.f45373d || !k.a()) ? false : true;
     }
 
     public void g(Context context, String str, d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> bVar) {
@@ -393,7 +393,7 @@ public class a extends d.a.l0.a.a2.f {
     }
 
     public void h(Context context, String str, boolean z, d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> bVar) {
-        e(str, new C0610a(bVar, str, z, context));
+        e(str, new C0666a(bVar, str, z, context));
     }
 
     public void i() {
@@ -401,13 +401,13 @@ public class a extends d.a.l0.a.a2.f {
     }
 
     public synchronized void j() {
-        this.f41567e.clear();
-        this.f41568f.c();
+        this.f45243e.clear();
+        this.f45244f.c();
         k();
     }
 
     public synchronized void k() {
-        this.f41566d.clear();
+        this.f45242d.clear();
     }
 
     @SuppressLint({"ApplySharedPref"})
@@ -424,22 +424,22 @@ public class a extends d.a.l0.a.a2.f {
     }
 
     public final d.a.l0.a.k2.g.g o() {
-        if (this.f41563a == null) {
-            this.f41563a = new d.a.l0.a.k2.g.g(this.f41565c, false);
+        if (this.f45239a == null) {
+            this.f45239a = new d.a.l0.a.k2.g.g(this.f45241c, false);
         }
-        return this.f41563a;
+        return this.f45239a;
     }
 
     public String p() {
-        return this.f41565c;
+        return this.f45241c;
     }
 
     public String q(String str, String str2) {
         return o().getString(str, str2);
     }
 
-    public void r(Activity activity, c.C0832c c0832c, Bundle bundle, d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<f.d>> bVar, String str) {
-        this.f41568f.d(new h(this, activity, c0832c, bundle, str, bVar));
+    public void r(Activity activity, c.C0888c c0888c, Bundle bundle, d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<f.d>> bVar, String str) {
+        this.f45244f.d(new h(this, activity, c0888c, bundle, str, bVar));
     }
 
     public synchronized <CallBackT> void s(CallBackT callbackt, i<CallBackT> iVar) {
@@ -457,7 +457,7 @@ public class a extends d.a.l0.a.a2.f {
     }
 
     public void v() {
-        t(this.f41566d, new g(this));
+        t(this.f45242d, new g(this));
     }
 
     public void w(Activity activity) {
@@ -465,17 +465,17 @@ public class a extends d.a.l0.a.a2.f {
 
     public final void y(Context context, String str, boolean z, boolean z2, boolean z3, d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> bVar) {
         String str2 = TextUtils.isEmpty(str) ? "" : str;
-        d.a.l0.a.e2.c.j.b bVar2 = this.f41567e.get(str2);
+        d.a.l0.a.e2.c.j.b bVar2 = this.f45243e.get(str2);
         if (bVar2 != null && TaskState.FINISHED != bVar2.f()) {
             bVar2.p(bVar);
             return;
         }
         d.a.l0.a.e2.c.j.b d2 = d.a.l0.a.a2.d.g().y().a().b().d(context, z, z2, new String[]{str2}, null, z3);
-        this.f41567e.put(str2, d2);
+        this.f45243e.put(str2, d2);
         d2.p(bVar);
         d2.p(new c(str2));
         d.a.l0.a.j2.k.N(d.a.l0.a.j2.f.a(str), "requestModifyScope");
-        this.f41568f.d(new d(this, d2, str));
+        this.f45244f.d(new d(this, d2, str));
     }
 
     public void z(String str, boolean z) {

@@ -17,25 +17,25 @@ import d.a.c.a.f;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f55134a;
+    public f f58823a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f55135b;
+    public View f58824b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f55136c;
+    public ImageView f58825c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f55137d;
+    public TextView f58826d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f55138e;
+    public TBSpecificationBtn f58827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f55139f;
+    public b f58828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f55140g = new a();
+    public View.OnClickListener f58829g = new a();
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -44,13 +44,13 @@ public class e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() == e.this.f55138e.getId()) {
-                d.a.m0.s.h.a.c(e.this.f55134a);
+            if (view.getId() == e.this.f58827e.getId()) {
+                d.a.m0.s.h.a.c(e.this.f58823a);
                 TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
-            } else if (view.getId() == e.this.f55136c.getId()) {
+            } else if (view.getId() == e.this.f58825c.getId()) {
                 d.a.m0.r.d0.b.j().w("key_im_open_notification_close_time", System.currentTimeMillis());
-                if (e.this.f55139f != null) {
-                    e.this.f55139f.onClose();
+                if (e.this.f58828f != null) {
+                    e.this.f58828f.onClose();
                 }
                 TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 2));
             }
@@ -63,32 +63,32 @@ public class e {
     }
 
     public e(f fVar) {
-        this.f55134a = fVar;
+        this.f58823a = fVar;
         View inflate = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.open_notification_view, (ViewGroup) null);
-        this.f55135b = inflate;
+        this.f58824b = inflate;
         ImageView imageView = (ImageView) inflate.findViewById(R.id.img_close);
-        this.f55136c = imageView;
-        imageView.setOnClickListener(this.f55140g);
-        this.f55137d = (TextView) this.f55135b.findViewById(R.id.open_desc);
-        this.f55138e = (TBSpecificationBtn) this.f55135b.findViewById(R.id.btn_open);
-        this.f55138e.setConfig(new d.a.m0.r.f0.m.b());
-        this.f55138e.setText(fVar.getString(R.string.go_to_open));
-        this.f55138e.setOnClickListener(this.f55140g);
+        this.f58825c = imageView;
+        imageView.setOnClickListener(this.f58829g);
+        this.f58826d = (TextView) this.f58824b.findViewById(R.id.open_desc);
+        this.f58827e = (TBSpecificationBtn) this.f58824b.findViewById(R.id.btn_open);
+        this.f58827e.setConfig(new d.a.m0.r.f0.m.b());
+        this.f58827e.setText(fVar.getString(R.string.go_to_open));
+        this.f58827e.setOnClickListener(this.f58829g);
         TiebaStatic.log("c13704");
         f(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public View e() {
-        return this.f55135b;
+        return this.f58824b;
     }
 
     public void f(int i2) {
-        SkinManager.setBackgroundColor(this.f55135b, R.color.CAM_X0206);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f55136c, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SkinManager.setViewTextColor(this.f55137d, R.color.CAM_X0107);
+        SkinManager.setBackgroundColor(this.f58824b, R.color.CAM_X0206);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f58825c, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SkinManager.setViewTextColor(this.f58826d, R.color.CAM_X0107);
     }
 
     public void g(b bVar) {
-        this.f55139f = bVar;
+        this.f58828f = bVar;
     }
 }

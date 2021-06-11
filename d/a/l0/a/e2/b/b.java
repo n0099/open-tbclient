@@ -15,14 +15,14 @@ public class b extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<JSONObject>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41594e;
+        public final /* synthetic */ CallbackHandler f45270e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41595f;
+        public final /* synthetic */ String f45271f;
 
         public a(b bVar, CallbackHandler callbackHandler, String str) {
-            this.f41594e = callbackHandler;
-            this.f41595f = str;
+            this.f45270e = callbackHandler;
+            this.f45271f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -30,8 +30,8 @@ public class b extends a0 {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<JSONObject> iVar) {
             JSONObject wrapCallbackParams;
-            if (iVar.c() && d.a.l0.a.u.e.a.b.s(iVar.f41736a)) {
-                JSONObject optJSONObject = iVar.f41736a.optJSONObject("data");
+            if (iVar.c() && d.a.l0.a.u.e.a.b.s(iVar.f45412a)) {
+                JSONObject optJSONObject = iVar.f45412a.optJSONObject("data");
                 if (optJSONObject.optBoolean("result")) {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
                 } else {
@@ -39,9 +39,9 @@ public class b extends a0 {
                 }
             } else {
                 wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(iVar.b());
-                d.a.l0.a.c1.b.j().g(this.f41594e, wrapCallbackParams.toString());
+                d.a.l0.a.c1.b.j().g(this.f45270e, wrapCallbackParams.toString());
             }
-            this.f41594e.handleSchemeDispatchCallback(this.f41595f, wrapCallbackParams.toString());
+            this.f45270e.handleSchemeDispatchCallback(this.f45271f, wrapCallbackParams.toString());
         }
     }
 

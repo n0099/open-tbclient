@@ -16,10 +16,10 @@ import java.util.LinkedList;
 public class HotTopicListModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18714e;
+    public b f18790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f18715f;
+    public boolean f18791f;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -36,7 +36,7 @@ public class HotTopicListModel extends BdBaseModel {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             j jVar;
             int i2 = 0;
-            HotTopicListModel.this.f18715f = false;
+            HotTopicListModel.this.f18791f = false;
             if (responsedMessage == null) {
                 return;
             }
@@ -53,21 +53,21 @@ public class HotTopicListModel extends BdBaseModel {
                             }
                         }
                         if (jVar != null) {
-                            if (!ListUtils.isEmpty(jVar.f52593h)) {
+                            if (!ListUtils.isEmpty(jVar.f56282h)) {
                                 LinkedList linkedList = new LinkedList();
-                                int size = jVar.f52593h.size();
+                                int size = jVar.f56282h.size();
                                 while (i2 < size) {
-                                    linkedList.add(new d.a.n0.b2.d.b(jVar.f52593h.get(i2), i2));
+                                    linkedList.add(new d.a.n0.b2.d.b(jVar.f56282h.get(i2), i2));
                                     i2++;
                                 }
-                                HotTopicListModel.this.f18714e.netCallback(responsedMessage.getError(), linkedList);
+                                HotTopicListModel.this.f18790e.netCallback(responsedMessage.getError(), linkedList);
                                 i2 = 1;
                             }
                             if (i2 != 0) {
                                 return;
                             }
                         }
-                        HotTopicListModel.this.f18714e.netCallback(-1, null);
+                        HotTopicListModel.this.f18790e.netCallback(-1, null);
                     }
                 }
                 jVar = null;
@@ -75,20 +75,20 @@ public class HotTopicListModel extends BdBaseModel {
                 }
                 if (jVar != null) {
                 }
-                HotTopicListModel.this.f18714e.netCallback(-1, null);
+                HotTopicListModel.this.f18790e.netCallback(-1, null);
             }
         }
     }
 
     public HotTopicListModel(TbPageContext<?> tbPageContext, b bVar) {
         super(tbPageContext);
-        u();
-        this.f18714e = bVar;
+        y();
+        this.f18790e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (!d.a.c.e.p.j.A() || this.f18715f) {
+        if (!d.a.c.e.p.j.A() || this.f18791f) {
             return false;
         }
         cancelLoadData();
@@ -99,7 +99,7 @@ public class HotTopicListModel extends BdBaseModel {
         requestHotRanklistMessage.setNeedTabList("0");
         requestHotRanklistMessage.setFid(0L);
         boolean sendMessage = MessageManager.getInstance().sendMessage(requestHotRanklistMessage);
-        this.f18715f = sendMessage;
+        this.f18791f = sendMessage;
         return sendMessage;
     }
 
@@ -109,7 +109,7 @@ public class HotTopicListModel extends BdBaseModel {
         return false;
     }
 
-    public final void u() {
+    public final void y() {
         registerListener(new a(CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289));
     }
 }

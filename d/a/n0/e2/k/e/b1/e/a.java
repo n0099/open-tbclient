@@ -7,35 +7,35 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<EmotionImageData> f53158a;
+    public List<EmotionImageData> f56847a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f53159b;
+    public List<String> f56848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SingleBarEmotionRecommendData f53160c;
+    public SingleBarEmotionRecommendData f56849c;
 
     public List<EmotionImageData> a() {
-        return this.f53158a;
+        return this.f56847a;
     }
 
     public List<String> b() {
-        return this.f53159b;
+        return this.f56848b;
     }
 
     public SingleBarEmotionRecommendData c() {
-        return this.f53160c;
+        return this.f56849c;
     }
 
     public void d(List<EmotionImageData> list) {
-        this.f53158a = list;
+        this.f56847a = list;
     }
 
     public void e(List<String> list) {
-        this.f53159b = list;
+        this.f56848b = list;
     }
 
     public void f(SingleBarEmotionRecommendData singleBarEmotionRecommendData) {
-        this.f53160c = singleBarEmotionRecommendData;
+        this.f56849c = singleBarEmotionRecommendData;
     }
 }

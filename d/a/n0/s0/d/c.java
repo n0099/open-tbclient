@@ -19,16 +19,16 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f60388b;
+    public static volatile c f64079b;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f60389a;
+    public List<String> f64080a;
 
     public c() {
         ArrayList arrayList = new ArrayList();
-        this.f60389a = arrayList;
+        this.f64080a = arrayList;
         arrayList.add("pb_banner");
-        this.f60389a.add("frs_feed");
+        this.f64080a.add("frs_feed");
     }
 
     public static boolean b() {
@@ -38,14 +38,14 @@ public class c {
     }
 
     public static c e() {
-        if (f60388b == null) {
+        if (f64079b == null) {
             synchronized (b.class) {
-                if (f60388b == null) {
-                    f60388b = new c();
+                if (f64079b == null) {
+                    f64079b = new c();
                 }
             }
         }
-        return f60388b;
+        return f64079b;
     }
 
     public static SharedPreferences g() {
@@ -66,7 +66,7 @@ public class c {
     }
 
     public List<String> c() {
-        return this.f60389a;
+        return this.f64080a;
     }
 
     public String d(String str) {
@@ -150,7 +150,7 @@ public class c {
 
     public void k(JSONObject jSONObject) {
         if (jSONObject != null && d.i()) {
-            for (String str : this.f60389a) {
+            for (String str : this.f64080a) {
                 if (!TextUtils.isEmpty(str)) {
                     FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
                     JSONObject jSONObject2 = null;

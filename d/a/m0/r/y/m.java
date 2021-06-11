@@ -11,31 +11,31 @@ import org.json.JSONObject;
 public class m {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final AtomicLong f50378i = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    public static final AtomicLong f54054i = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f50379a;
+    public final String f54055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f50380b;
+    public final String f54056b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, Object> f50381c;
+    public final Map<String, Object> f54057c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, Object> f50382d;
+    public final Map<String, Object> f54058d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f50383e;
+    public final int f54059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f50384f;
+    public final String f54060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f50385g;
+    public final long f54061g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final long f50386h;
+    public final long f54062h;
 
     /* loaded from: classes3.dex */
     public static final class b extends m {
@@ -62,7 +62,7 @@ public class m {
     }
 
     public static String d() {
-        long andIncrement = f50378i.getAndIncrement();
+        long andIncrement = f54054i.getAndIncrement();
         return "TBCWebViewJsBridge_callback_ID_" + andIncrement;
     }
 
@@ -80,27 +80,27 @@ public class m {
 
     public String b() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (!TextUtils.isEmpty(this.f50379a)) {
-            jSONObject.put("cmd", this.f50379a);
+        if (!TextUtils.isEmpty(this.f54055a)) {
+            jSONObject.put("cmd", this.f54055a);
         }
-        if (!TextUtils.isEmpty(this.f50380b)) {
-            jSONObject.put("method", this.f50380b);
+        if (!TextUtils.isEmpty(this.f54056b)) {
+            jSONObject.put("method", this.f54056b);
         }
-        Map<String, Object> map = this.f50381c;
+        Map<String, Object> map = this.f54057c;
         if (map != null && !map.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            e(this.f50381c, jSONObject2);
+            e(this.f54057c, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        Map<String, Object> map2 = this.f50382d;
+        Map<String, Object> map2 = this.f54058d;
         if (map2 != null && !map2.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            e(this.f50382d, jSONObject3);
+            e(this.f54058d, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
         jSONObject.put("messageType", f());
-        if (!TextUtils.isEmpty(this.f50384f)) {
-            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.f50384f);
+        if (!TextUtils.isEmpty(this.f54060f)) {
+            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.f54060f);
         }
         return c(jSONObject.toString());
     }
@@ -117,7 +117,7 @@ public class m {
     }
 
     public final String f() {
-        int i2 = this.f50383e;
+        int i2 = this.f54059e;
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 == 3) {
@@ -137,13 +137,13 @@ public class m {
     }
 
     public m(int i2, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
-        this.f50379a = str;
-        this.f50380b = str2;
-        this.f50381c = map;
-        this.f50382d = map2;
-        this.f50383e = i2;
-        this.f50384f = str3;
-        this.f50385g = j;
-        this.f50386h = System.currentTimeMillis();
+        this.f54055a = str;
+        this.f54056b = str2;
+        this.f54057c = map;
+        this.f54058d = map2;
+        this.f54059e = i2;
+        this.f54060f = str3;
+        this.f54061g = j;
+        this.f54062h = System.currentTimeMillis();
     }
 }

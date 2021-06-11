@@ -9,7 +9,7 @@ import rx.exceptions.OnCompletedFailedException;
 import rx.exceptions.OnErrorFailedException;
 import rx.exceptions.OnErrorNotImplementedException;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static void a(Throwable th, Throwable th2) {
         HashSet hashSet = new HashSet();

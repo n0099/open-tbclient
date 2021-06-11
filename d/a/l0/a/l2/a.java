@@ -7,55 +7,55 @@ import java.util.Comparator;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43379a;
+    public String f47055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43380b;
+    public String f47056b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43381c;
+    public String f47057c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43382d;
+    public String f47058d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f43383e;
+    public long f47059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f43384f;
+    public boolean f47060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f43385g;
+    public long f47061g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f43386h;
+    public long f47062h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f43387i;
+    public int f47063i;
 
     /* renamed from: d.a.l0.a.l2.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C0733a implements Comparator<a> {
+    public static final class C0789a implements Comparator<a> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(a aVar, a aVar2) {
-            int length = aVar2.f43380b.length() - aVar.f43380b.length();
+            int length = aVar2.f47056b.length() - aVar.f47056b.length();
             if (length != 0) {
                 return length;
             }
-            int length2 = aVar2.f43379a.length() - aVar.f43379a.length();
+            int length2 = aVar2.f47055a.length() - aVar.f47055a.length();
             if (length2 != 0) {
                 return length2;
             }
-            int hashCode = aVar2.f43381c.hashCode() - aVar.f43381c.hashCode();
+            int hashCode = aVar2.f47057c.hashCode() - aVar.f47057c.hashCode();
             if (hashCode != 0) {
                 return hashCode;
             }
-            if (aVar2.f43382d == null) {
+            if (aVar2.f47058d == null) {
                 return -1;
             }
-            return aVar.f43382d == null ? 1 : 0;
+            return aVar.f47058d == null ? 1 : 0;
         }
     }
 
@@ -63,12 +63,12 @@ public class a {
     }
 
     public boolean a(String str) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f43379a)) {
-            if (!this.f43379a.startsWith(".")) {
-                return str.equals(this.f43379a);
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f47055a)) {
+            if (!this.f47055a.startsWith(".")) {
+                return str.equals(this.f47055a);
             }
-            if (str.endsWith(this.f43379a.substring(1))) {
-                int length = this.f43379a.length();
+            if (str.endsWith(this.f47055a.substring(1))) {
+                int length = this.f47055a.length();
                 int length2 = str.length();
                 return length2 <= length + (-1) || str.charAt(length2 - length) == '.';
             }
@@ -77,25 +77,25 @@ public class a {
     }
 
     public boolean b(a aVar) {
-        return (aVar == null || TextUtils.isEmpty(this.f43379a) || TextUtils.isEmpty(this.f43380b) || TextUtils.isEmpty(this.f43381c) || !TextUtils.equals(this.f43379a, aVar.f43379a) || !TextUtils.equals(this.f43380b, aVar.f43380b) || !TextUtils.equals(this.f43381c, aVar.f43381c)) ? false : true;
+        return (aVar == null || TextUtils.isEmpty(this.f47055a) || TextUtils.isEmpty(this.f47056b) || TextUtils.isEmpty(this.f47057c) || !TextUtils.equals(this.f47055a, aVar.f47055a) || !TextUtils.equals(this.f47056b, aVar.f47056b) || !TextUtils.equals(this.f47057c, aVar.f47057c)) ? false : true;
     }
 
     public boolean c(String str) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f43380b) || !str.startsWith(this.f43380b)) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f47056b) || !str.startsWith(this.f47056b)) {
             return false;
         }
-        int length = this.f43380b.length();
-        return this.f43380b.charAt(length + (-1)) == '/' || str.length() <= length || str.charAt(length) == '/';
+        int length = this.f47056b.length();
+        return this.f47056b.charAt(length + (-1)) == '/' || str.length() <= length || str.charAt(length) == '/';
     }
 
     @NonNull
     public String toString() {
-        return "domain: " + this.f43379a + "; path: " + this.f43380b + "; name: " + this.f43381c + "; value: " + this.f43382d + "; expires: " + this.f43383e + "; secure: " + this.f43384f;
+        return "domain: " + this.f47055a + "; path: " + this.f47056b + "; name: " + this.f47057c + "; value: " + this.f47058d + "; expires: " + this.f47059e + "; secure: " + this.f47060f;
     }
 
     public a(String str, String str2) {
-        this.f43379a = str;
-        this.f43380b = str2;
-        this.f43383e = -1L;
+        this.f47055a = str;
+        this.f47056b = str2;
+        this.f47059e = -1L;
     }
 }

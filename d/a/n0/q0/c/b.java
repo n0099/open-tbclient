@@ -10,19 +10,19 @@ public class b extends BaseCardInfo {
     public static final BdUniqueId l = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public long f58283e;
+    public long f61974e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58284f;
+    public String f61975f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58285g;
+    public String f61976g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f58286h;
+    public String f61977h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f58287i;
+    public String f61978i;
     public String j;
     public List<FrsTabInfo> k;
 
@@ -30,48 +30,48 @@ public class b extends BaseCardInfo {
         this.j = str;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    public String c() {
+        return this.f61976g;
+    }
+
+    public String g() {
+        return this.f61978i;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         return l;
     }
 
-    public String h() {
-        return this.f58285g;
+    public long i() {
+        return this.f61974e;
     }
 
-    public String l() {
-        return this.f58287i;
+    public String k() {
+        return this.f61975f;
     }
 
-    public long m() {
-        return this.f58283e;
-    }
-
-    public String p() {
-        return this.f58284f;
-    }
-
-    public List<FrsTabInfo> s() {
+    public List<FrsTabInfo> o() {
         return this.k;
     }
 
-    public String t() {
-        return this.f58286h;
+    public String p() {
+        return this.f61977h;
     }
 
-    public String u() {
+    public String q() {
         return this.j;
     }
 
-    public void v(SearchForum searchForum) {
+    public void t(SearchForum searchForum) {
         if (searchForum == null) {
             return;
         }
-        this.f58283e = searchForum.forum_id.longValue();
-        this.f58284f = searchForum.forum_name;
-        this.f58285g = searchForum.avatar;
-        this.f58286h = searchForum.post_num;
-        this.f58287i = searchForum.concern_num;
+        this.f61974e = searchForum.forum_id.longValue();
+        this.f61975f = searchForum.forum_name;
+        this.f61976g = searchForum.avatar;
+        this.f61977h = searchForum.post_num;
+        this.f61978i = searchForum.concern_num;
         String str = searchForum.slogan;
         String str2 = searchForum.intro;
         searchForum.has_concerned.intValue();

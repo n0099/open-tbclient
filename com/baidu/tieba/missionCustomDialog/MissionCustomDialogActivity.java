@@ -22,9 +22,10 @@ import com.baidu.tbadk.widget.mission.SignItemView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import d.a.c.e.p.l;
-import d.a.m0.a.r;
+import d.a.m0.a.d;
+import d.a.m0.a.s;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MissionCustomDialogActivity extends BaseActivity {
     public ActiveCenterData mActiveCenterData;
     public TBSpecificationBtn mBottomActionBtn;
@@ -41,7 +42,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
     public View.OnClickListener onClickProcessTaskListener = new a();
     public SignItemView.b mItemClickListener = new c();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -52,19 +53,19 @@ public class MissionCustomDialogActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.m0.a.c.y().D() ? 2 : 1).param("obj_type", 3));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.y().D() ? 2 : 1).param("obj_type", 3));
             MissionCustomDialogActivity.this.finish();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements SignItemView.b {
         public c() {
         }
@@ -119,7 +120,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
                 }
             } else {
                 if (i3 == 6) {
-                    if (r.g().i().f()) {
+                    if (s.g().i().f()) {
                         activeCenterStatusData.is_completed = true;
                     } else {
                         activeCenterStatusData.is_completed = false;
@@ -149,7 +150,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleTask() {
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.m0.a.c.y().D() ? 2 : 1).param("obj_type", 2));
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.y().D() ? 2 : 1).param("obj_type", 2));
         ActiveCenterData activeCenterData = this.mActiveCenterData;
         if (activeCenterData == null) {
             return;
@@ -194,7 +195,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processBrowseThreadTask() {
         if (TbadkCoreApplication.isLogin()) {
-            r.g().d().e(getPageContext());
+            s.g().d().e(getPageContext());
             finish();
             return;
         }
@@ -203,7 +204,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processFinalAwardTask() {
         if (TbadkCoreApplication.isLogin()) {
-            r.g().e().e(getPageContext());
+            s.g().e().e(getPageContext());
             finish();
             return;
         }
@@ -212,7 +213,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processFollowForumTask() {
         if (TbadkCoreApplication.isLogin()) {
-            r.g().f().e(getPageContext());
+            s.g().f().e(getPageContext());
             finish();
             return;
         }
@@ -221,8 +222,8 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processNewUserRedPkgTask() {
         if (TbadkCoreApplication.isLogin()) {
-            r.g().h().e(getPageContext());
-            r.g().h().b();
+            s.g().h().e(getPageContext());
+            s.g().h().b();
             finish();
             return;
         }
@@ -231,7 +232,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processPushTask() {
         if (TbadkCoreApplication.isLogin()) {
-            r.g().i().e(getPageContext());
+            s.g().i().e(getPageContext());
             finish();
             return;
         }
@@ -240,7 +241,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processShareThreadTask() {
         if (TbadkCoreApplication.isLogin()) {
-            r.g().j().e(getPageContext());
+            s.g().j().e(getPageContext());
             finish();
             return;
         }
@@ -249,7 +250,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void processSignRedPkgTask() {
         if (TbadkCoreApplication.isLogin()) {
-            r.g().k().e(getPageContext());
+            s.g().k().e(getPageContext());
             finish();
             return;
         }
@@ -258,9 +259,9 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void setData() {
         ArrayList<ActiveCenterData.ActiveCenterStatusData> arrayList;
-        ActiveCenterData c2 = r.g().c();
+        ActiveCenterData c2 = s.g().c();
         if (c2 != null && c2.mission != null && (arrayList = c2.mission_status_list) != null && arrayList.size() > 0) {
-            r.g().u(true);
+            s.g().u(true);
             this.mActiveCenterData = c2;
             this.mDialogTitle.setText(StringHelper.cutChineseAndEnglishWithSuffix(c2.win_title, 14, StringHelper.STRING_MORE));
             this.mDialogDetail.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.mActiveCenterData.win_desc, 30, StringHelper.STRING_MORE));
@@ -322,6 +323,6 @@ public class MissionCustomDialogActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        r.g().i().b();
+        s.g().i().b();
     }
 }

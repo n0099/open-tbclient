@@ -9,23 +9,23 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.a.c.j.e.n;
-import d.a.c.j.e.s;
-import d.a.c.j.e.w;
+import d.a.c.k.e.n;
+import d.a.c.k.e.s;
+import d.a.c.k.e.w;
 import d.a.i.l0;
 import d.a.i.v0.a;
 import d.a.i.z;
 import d.a.n0.z.b0;
 import d.a.n0.z.e0.k;
-/* loaded from: classes3.dex */
-public class e extends d.a.c.j.e.a<k, ThreadCardViewHolder<k>> {
+/* loaded from: classes5.dex */
+public class e extends d.a.c.k.e.a<k, ThreadCardViewHolder<k>> {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public boolean o;
     public s p;
     public b0<k> q;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a extends b0<k> {
         public a() {
         }
@@ -34,19 +34,19 @@ public class e extends d.a.c.j.e.a<k, ThreadCardViewHolder<k>> {
         @Override // d.a.n0.z.b0
         /* renamed from: d */
         public void a(View view, k kVar) {
-            if (view == null || kVar == null || kVar.m() == null || StringUtils.isNull(kVar.m().y1())) {
+            if (view == null || kVar == null || kVar.i() == null || StringUtils.isNull(kVar.i().z1())) {
                 return;
             }
-            e.this.i0(view, kVar);
+            e.this.j0(view, kVar);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b implements w {
         public b() {
         }
 
-        @Override // d.a.c.j.e.w
+        @Override // d.a.c.k.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             if ((nVar instanceof k) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
@@ -56,7 +56,7 @@ public class e extends d.a.c.j.e.a<k, ThreadCardViewHolder<k>> {
                     e.this.q.a(threadCardViewHolder.a(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((d.a.m0.r.q.a) kVar, view.getContext(), 0, false);
-                threadCardViewHolder.b().o(new a.C0544a(1));
+                threadCardViewHolder.b().o(new a.C0600a(1));
             }
         }
     }
@@ -69,9 +69,9 @@ public class e extends d.a.c.j.e.a<k, ThreadCardViewHolder<k>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public ThreadCardViewHolder<k> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public ThreadCardViewHolder<k> Q(ViewGroup viewGroup) {
         l0.b bVar = new l0.b(this.n.getPageActivity(), false);
         z zVar = new z(this.n.getPageActivity());
         zVar.r("pb");
@@ -80,16 +80,16 @@ public class e extends d.a.c.j.e.a<k, ThreadCardViewHolder<k>> {
         l0 k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.p);
         k.r(0);
         ThreadCardViewHolder<k> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-        threadCardViewHolder.j(this.m);
-        Z(new b());
+        threadCardViewHolder.k(this.m);
+        a0(new b());
         return threadCardViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public View W(int i2, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f63459e == null) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public View X(int i2, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || kVar.f67177e == null) {
             return null;
         }
         kVar.U(kVar.position + 1);
@@ -100,11 +100,11 @@ public class e extends d.a.c.j.e.a<k, ThreadCardViewHolder<k>> {
         return threadCardViewHolder.a();
     }
 
-    public final void i0(View view, k kVar) {
+    public final void j0(View view, k kVar) {
         d.a.n0.e2.m.a.i(kVar, 1);
     }
 
-    public void j0(s sVar) {
+    public void k0(s sVar) {
         this.p = sVar;
     }
 }

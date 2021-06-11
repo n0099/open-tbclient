@@ -5,8 +5,8 @@ import okhttp3.MediaType;
 public interface f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final MediaType f43693a = MediaType.parse("application/json");
+    public static final MediaType f47369a = MediaType.parse("application/json");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final MediaType f43694b = MediaType.parse("application/x-www-form-urlencoded");
+    public static final MediaType f47370b = MediaType.parse("application/x-www-form-urlencoded");
 }

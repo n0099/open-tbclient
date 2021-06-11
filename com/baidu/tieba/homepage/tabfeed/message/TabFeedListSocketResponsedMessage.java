@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.tabfeed.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.n0.b1.i.e.a;
+import d.a.n0.b1.j.h.a;
 import tbclient.ActivityPage.ActivityPageResIdl;
 import tbclient.Error;
 /* loaded from: classes4.dex */

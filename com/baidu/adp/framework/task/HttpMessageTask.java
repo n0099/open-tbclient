@@ -4,6 +4,7 @@ import android.net.Uri;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.kwai.video.player.KsMediaMeta;
 import d.a.c.c.j.e;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends MessageTask {
@@ -48,10 +49,10 @@ public class HttpMessageTask extends MessageTask {
             return;
         }
         Uri parse = Uri.parse(this.mUrl);
-        if (StringUtils.isNull(parse.getQueryParameter("cmd")) || !StringUtils.isNull(parse.getQueryParameter("format"))) {
+        if (StringUtils.isNull(parse.getQueryParameter("cmd")) || !StringUtils.isNull(parse.getQueryParameter(KsMediaMeta.KSM_KEY_FORMAT))) {
             return;
         }
-        this.mUrl = parse.buildUpon().appendQueryParameter("format", "protobuf").toString();
+        this.mUrl = parse.buildUpon().appendQueryParameter(KsMediaMeta.KSM_KEY_FORMAT, "protobuf").toString();
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask

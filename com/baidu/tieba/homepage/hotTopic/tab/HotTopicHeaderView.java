@@ -16,8 +16,8 @@ import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout;
 import com.google.android.material.tabs.TabLayout;
 import d.a.m0.m.f;
 import d.a.m0.r.u.c;
-import d.a.n0.b1.e.a.e.d;
-import d.a.n0.b1.e.a.g.a;
+import d.a.n0.b1.f.a.e.d;
+import d.a.n0.b1.f.a.g.a;
 import d.a.n0.z.p;
 import tbclient.HotThreadList.DataRes;
 import tbclient.HotThreadList.HotThreadListResIdl;
@@ -25,19 +25,19 @@ import tbclient.HotThreadList.HotThreadListResIdl;
 public class HotTopicHeaderView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16319e;
+    public int f16387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f16320f;
+    public RelativeLayout f16388f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HotTopicTabRankListLayout f16321g;
+    public HotTopicTabRankListLayout f16389g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f16322h;
+    public EMTextView f16390h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f16323i;
+    public EMTextView f16391i;
     public EMTextView j;
     public a k;
     public p l;
@@ -46,7 +46,7 @@ public class HotTopicHeaderView extends LinearLayout {
 
     public HotTopicHeaderView(Context context) {
         super(context);
-        this.f16319e = 3;
+        this.f16387e = 3;
         b();
     }
 
@@ -56,7 +56,7 @@ public class HotTopicHeaderView extends LinearLayout {
 
     public final void b() {
         setOrientation(1);
-        this.f16320f = new RelativeLayout(getContext());
+        this.f16388f = new RelativeLayout(getContext());
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
         int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
@@ -64,28 +64,28 @@ public class HotTopicHeaderView extends LinearLayout {
         int dimenPixelSize5 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
         int dimenPixelSize6 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
         EMTextView eMTextView = new EMTextView(getContext());
-        this.f16322h = eMTextView;
+        this.f16390h = eMTextView;
         eMTextView.setId(R.id.title_id);
-        c d2 = c.d(this.f16322h);
+        c d2 = c.d(this.f16390h);
         d2.s(R.color.CAM_X0105);
         d2.w(R.dimen.T_X07);
         d2.x(R.string.F_X02);
-        this.f16322h.setText(a(R.string.hot_topic_tab_rank_list_title));
-        this.f16322h.setMaxLines(1);
-        this.f16322h.setEllipsize(TextUtils.TruncateAt.END);
-        this.f16322h.setPadding(dimenPixelSize4, dimenPixelSize5, dimenPixelSize4, dimenPixelSize6);
-        this.f16320f.addView(this.f16322h, new RelativeLayout.LayoutParams(-1, -2));
-        this.f16321g = new HotTopicTabRankListLayout(getContext());
+        this.f16390h.setText(a(R.string.hot_topic_tab_rank_list_title));
+        this.f16390h.setMaxLines(1);
+        this.f16390h.setEllipsize(TextUtils.TruncateAt.END);
+        this.f16390h.setPadding(dimenPixelSize4, dimenPixelSize5, dimenPixelSize4, dimenPixelSize6);
+        this.f16388f.addView(this.f16390h, new RelativeLayout.LayoutParams(-1, -2));
+        this.f16389g = new HotTopicTabRankListLayout(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(3, R.id.title_id);
-        this.f16320f.addView(this.f16321g, layoutParams);
-        c d3 = c.d(this.f16320f);
+        this.f16388f.addView(this.f16389g, layoutParams);
+        c d3 = c.d(this.f16388f);
         d3.m(R.string.J_X06);
         d3.f(R.color.CAM_X0205);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        this.f16320f.setPadding(0, 0, 0, dimenPixelSize6);
-        addView(this.f16320f, layoutParams2);
+        this.f16388f.setPadding(0, 0, 0, dimenPixelSize6);
+        addView(this.f16388f, layoutParams2);
         p pVar = new p(getContext());
         this.l = pVar;
         pVar.setFrom("from_hottop");
@@ -106,7 +106,7 @@ public class HotTopicHeaderView extends LinearLayout {
         eMTextView2.setEllipsize(TextUtils.TruncateAt.END);
         eMTextView2.setPadding(dimenPixelSize3 - dimenPixelSize2, 0, dimenPixelSize, 0);
         this.n.addView(eMTextView2);
-        this.f16323i = eMTextView2;
+        this.f16391i = eMTextView2;
         EMTextView eMTextView3 = new EMTextView(getContext());
         c d5 = c.d(eMTextView3);
         d5.w(R.dimen.T_X09);
@@ -132,17 +132,17 @@ public class HotTopicHeaderView extends LinearLayout {
     }
 
     public void c(int i2) {
-        if (this.f16319e == i2) {
+        if (this.f16387e == i2) {
             return;
         }
-        this.f16319e = i2;
-        SkinManager.setViewTextColor(this.f16322h, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f16323i, R.color.CAM_X0105);
+        this.f16387e = i2;
+        SkinManager.setViewTextColor(this.f16390h, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f16391i, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0109);
-        c d2 = c.d(this.f16320f);
+        c d2 = c.d(this.f16388f);
         d2.m(R.string.J_X06);
         d2.f(R.color.CAM_X0205);
-        HotTopicTabRankListLayout hotTopicTabRankListLayout = this.f16321g;
+        HotTopicTabRankListLayout hotTopicTabRankListLayout = this.f16389g;
         if (hotTopicTabRankListLayout != null) {
             hotTopicTabRankListLayout.d(i2);
         }
@@ -160,21 +160,21 @@ public class HotTopicHeaderView extends LinearLayout {
         DataRes dataRes;
         DataRes dataRes2;
         if (hotThreadListResIdl != null && (dataRes2 = hotThreadListResIdl.data) != null && !ListUtils.isEmpty(dataRes2.topic_list)) {
-            this.f16322h.setVisibility(0);
-            this.f16321g.setVisibility(0);
-            this.f16321g.setOnItemCoverListener(this.m);
-            this.f16321g.b(new d(hotThreadListResIdl.data.topic_list));
+            this.f16390h.setVisibility(0);
+            this.f16389g.setVisibility(0);
+            this.f16389g.setOnItemCoverListener(this.m);
+            this.f16389g.b(new d(hotThreadListResIdl.data.topic_list));
         } else {
-            this.f16322h.setVisibility(8);
-            this.f16321g.setVisibility(8);
+            this.f16390h.setVisibility(8);
+            this.f16389g.setVisibility(8);
         }
         p pVar = this.l;
         if (pVar != null) {
             pVar.b().setVisibility(0);
         }
-        this.f16323i.setVisibility(0);
+        this.f16391i.setVisibility(0);
         this.j.setVisibility(0);
-        this.k.f(d.a.n0.b1.e.a.c.e((hotThreadListResIdl == null || (dataRes = hotThreadListResIdl.data) == null) ? null : dataRes.hot_thread_tab_info).c());
+        this.k.f(d.a.n0.b1.f.a.c.e((hotThreadListResIdl == null || (dataRes = hotThreadListResIdl.data) == null) ? null : dataRes.hot_thread_tab_info).b());
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -188,13 +188,13 @@ public class HotTopicHeaderView extends LinearLayout {
 
     public HotTopicHeaderView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16319e = 3;
+        this.f16387e = 3;
         b();
     }
 
     public HotTopicHeaderView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f16319e = 3;
+        this.f16387e = 3;
         b();
     }
 }

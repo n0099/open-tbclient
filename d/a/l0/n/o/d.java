@@ -21,7 +21,7 @@ public class d {
                     }
                 }
             } catch (Exception e2) {
-                if (d.a.l0.n.c.f47984a) {
+                if (d.a.l0.n.c.f51658a) {
                     e2.printStackTrace();
                 }
             }
@@ -49,7 +49,7 @@ public class d {
                 }
             } catch (IOException e2) {
                 d.a.l0.n.c.b().x("PMSFileUtil", "generateFilePath fail : " + e2.getMessage());
-                if (d.a.l0.n.c.f47984a) {
+                if (d.a.l0.n.c.f51658a) {
                     e2.printStackTrace();
                 }
             }

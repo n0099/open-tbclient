@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends a {
     public c(@NonNull d.a.l0.a.n0.j.f.a aVar) {
         super(aVar);

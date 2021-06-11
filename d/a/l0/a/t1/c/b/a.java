@@ -3,20 +3,20 @@ package d.a.l0.a.t1.c.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44746a;
+    public String f48420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44747b;
+    public String f48421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44748c;
+    public String f48422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f44749d = -1;
+    public int f48423d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f44750e = false;
+    public boolean f48424e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f44751f = false;
+    public boolean f48425f = false;
 }

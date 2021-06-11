@@ -13,7 +13,7 @@ import java.util.Observer;
 public class BankcardDetectionController extends Observable implements NoProguard, Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    public IDetectionListener f23094a;
+    public IDetectionListener f23197a;
 
     /* loaded from: classes5.dex */
     public interface IDetectionListener extends NoProguard {
@@ -26,15 +26,15 @@ public class BankcardDetectionController extends Observable implements NoProguar
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BankcardDetectionController f23095a = new BankcardDetectionController();
+        public static BankcardDetectionController f23198a = new BankcardDetectionController();
     }
 
     public static BankcardDetectionController getInstance() {
-        return a.f23095a;
+        return a.f23198a;
     }
 
     public void clearCardDetectionCallback() {
-        this.f23094a = null;
+        this.f23197a = null;
     }
 
     public void gotoDetctionCard(Context context, IDetectionListener iDetectionListener) {
@@ -42,7 +42,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
         if (iDetectionListener == null) {
             return;
         }
-        this.f23094a = iDetectionListener;
+        this.f23197a = iDetectionListener;
         Intent intent = new Intent(context, BankCardDetectionActivity.class);
         if (!(context instanceof Activity)) {
             intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
@@ -52,20 +52,20 @@ public class BankcardDetectionController extends Observable implements NoProguar
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
-        if (this.f23094a != null) {
-            this.f23094a.onResult(obj == null ? "" : (String) obj);
-            this.f23094a = null;
+        if (this.f23197a != null) {
+            this.f23197a.onResult(obj == null ? "" : (String) obj);
+            this.f23197a = null;
         }
-        this.f23094a = null;
+        this.f23197a = null;
     }
 
     public void updateFail(int i2, String str) {
-        IDetectionListener iDetectionListener = this.f23094a;
+        IDetectionListener iDetectionListener = this.f23197a;
         if (iDetectionListener != null) {
             iDetectionListener.onFail(i2, str);
-            this.f23094a = null;
+            this.f23197a = null;
         }
-        this.f23094a = null;
+        this.f23197a = null;
     }
 
     public BankcardDetectionController() {

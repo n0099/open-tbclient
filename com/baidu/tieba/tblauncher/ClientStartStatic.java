@@ -5,7 +5,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,7 +22,7 @@ public class ClientStartStatic {
     public static class a extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f20936a;
+        public long f21013a;
 
         public a(int i2) {
             super(i2);
@@ -35,10 +34,10 @@ public class ClientStartStatic {
             Boolean data;
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    this.f20936a = SystemClock.elapsedRealtime();
+                    this.f21013a = SystemClock.elapsedRealtime();
                     return;
                 }
-                if (SystemClock.elapsedRealtime() - this.f20936a > StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+                if (SystemClock.elapsedRealtime() - this.f21013a > 30000) {
                     new b(null).execute(new Void[0]);
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));

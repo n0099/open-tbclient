@@ -6,10 +6,10 @@ import d.a.n0.v.d.c.h.c;
 public class StageLiveViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f13770a;
+    public c f13835a;
 
     public StageLiveViewHolder(c cVar) {
-        super(cVar.l());
-        this.f13770a = cVar;
+        super(cVar.m());
+        this.f13835a = cVar;
     }
 }

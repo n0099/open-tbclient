@@ -7,24 +7,24 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f50777d;
+    public static f f54454d;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f50778a = new HashMap<>();
+    public HashMap<String, String> f54455a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f50779b = new HashMap<>();
+    public HashMap<String, String> f54456b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f50780c = new HashMap<>();
+    public HashMap<String, String> f54457c = new HashMap<>();
 
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f50777d == null) {
-                f50777d = new f();
+            if (f54454d == null) {
+                f54454d = new f();
             }
-            fVar = f50777d;
+            fVar = f54454d;
         }
         return fVar;
     }
@@ -41,16 +41,16 @@ public class f {
                 String optString3 = optJSONObject.optString("4g");
                 String optString4 = optJSONObject.optString("wifi");
                 if (optString != null) {
-                    this.f50778a.put("2g", optString);
+                    this.f54455a.put("2g", optString);
                 }
                 if (optString2 != null) {
-                    this.f50778a.put("3g", optString2);
+                    this.f54455a.put("3g", optString2);
                 }
                 if (optString3 != null) {
-                    this.f50778a.put("4g", optString3);
+                    this.f54455a.put("4g", optString3);
                 }
                 if (optString4 != null) {
-                    this.f50778a.put("wifi", optString4);
+                    this.f54455a.put("wifi", optString4);
                 }
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
@@ -60,16 +60,16 @@ public class f {
                 String optString7 = optJSONObject2.optString("4g");
                 String optString8 = optJSONObject2.optString("wifi");
                 if (optString5 != null) {
-                    this.f50779b.put("2g", optString5);
+                    this.f54456b.put("2g", optString5);
                 }
                 if (optString6 != null) {
-                    this.f50779b.put("3g", optString6);
+                    this.f54456b.put("3g", optString6);
                 }
                 if (optString7 != null) {
-                    this.f50779b.put("4g", optString7);
+                    this.f54456b.put("4g", optString7);
                 }
                 if (optString8 != null) {
-                    this.f50779b.put("wifi", optString8);
+                    this.f54456b.put("wifi", optString8);
                 }
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
@@ -79,16 +79,16 @@ public class f {
                 String optString11 = optJSONObject3.optString("4g");
                 String optString12 = optJSONObject3.optString("wifi");
                 if (optString9 != null) {
-                    this.f50780c.put("2g", optString9);
+                    this.f54457c.put("2g", optString9);
                 }
                 if (optString10 != null) {
-                    this.f50780c.put("3g", optString10);
+                    this.f54457c.put("3g", optString10);
                 }
                 if (optString11 != null) {
-                    this.f50780c.put("4g", optString11);
+                    this.f54457c.put("4g", optString11);
                 }
                 if (optString12 != null) {
-                    this.f50780c.put("wifi", optString12);
+                    this.f54457c.put("wifi", optString12);
                 }
             }
             jSONObject.optString("is_on");

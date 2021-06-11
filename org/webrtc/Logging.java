@@ -6,7 +6,7 @@ import java.util.EnumSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Logging {
     public static final Logger fallbackLogger = createFallbackLogger();
     @Nullable
@@ -15,7 +15,7 @@ public class Logging {
     public static volatile boolean loggingEnabled;
 
     /* renamed from: org.webrtc.Logging$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$Logging$Severity;
 
@@ -37,7 +37,7 @@ public class Logging {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum Severity {
         LS_SENSITIVE,
         LS_VERBOSE,
@@ -48,7 +48,7 @@ public class Logging {
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum TraceLevel {
         TRACE_NONE(0),
         TRACE_STATEINFO(1),

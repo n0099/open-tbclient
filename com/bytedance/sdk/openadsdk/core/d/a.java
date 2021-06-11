@@ -9,61 +9,61 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27810a;
+    public String f27913a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27811b;
+    public int f27914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27812c;
+    public String f27915c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<l> f27813d = new ArrayList();
+    public List<l> f27916d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27814e;
+    public String f27917e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f27815f;
+    public long f27918f;
 
     public String a() {
-        return this.f27810a;
+        return this.f27913a;
     }
 
     public int b() {
-        return this.f27811b;
+        return this.f27914b;
     }
 
     public List<l> c() {
-        return this.f27813d;
+        return this.f27916d;
     }
 
     public String d() {
-        return this.f27814e;
+        return this.f27917e;
     }
 
     public void a(String str) {
-        this.f27810a = str;
+        this.f27913a = str;
     }
 
     public void b(String str) {
-        this.f27812c = str;
+        this.f27915c = str;
     }
 
     public void c(String str) {
-        this.f27814e = str;
+        this.f27917e = str;
     }
 
     public void a(int i2) {
-        this.f27811b = i2;
+        this.f27914b = i2;
     }
 
     public void a(l lVar) {
-        this.f27813d.add(lVar);
+        this.f27916d.add(lVar);
     }
 
     public void a(long j) {
-        this.f27815f = j;
+        this.f27918f = j;
     }
 
     public static Map<String, l> a(a aVar) {

@@ -36,7 +36,7 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 import d.a.c.a.i;
-import d.a.c.j.e.q;
+import d.a.c.k.e.q;
 import d.a.m0.d0.g;
 import d.a.m0.d0.h;
 import d.a.m0.i0.c;

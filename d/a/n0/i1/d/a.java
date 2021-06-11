@@ -14,19 +14,19 @@ import java.util.List;
 public class a implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f55690e;
+    public ViewGroup f59379e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55691f;
+    public TextView f59380f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55692g;
+    public TextView f59381g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f55693h;
+    public ImageView f59382h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f55694i;
+    public TextView f59383i;
     public ImageView j;
     public TextView k;
     public int l;
@@ -35,20 +35,20 @@ public class a implements View.OnClickListener {
 
     public a(Context context) {
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
-        this.f55690e = viewGroup;
-        this.f55691f = (TextView) viewGroup.findViewById(R.id.choose_like_label);
-        this.f55692g = (TextView) this.f55690e.findViewById(R.id.recommend_interest_thread);
-        this.f55693h = (ImageView) this.f55690e.findViewById(R.id.male_icon);
-        this.f55694i = (TextView) this.f55690e.findViewById(R.id.male_text);
-        this.j = (ImageView) this.f55690e.findViewById(R.id.female_icon);
-        this.k = (TextView) this.f55690e.findViewById(R.id.female_text);
-        this.f55693h.setOnClickListener(this);
+        this.f59379e = viewGroup;
+        this.f59380f = (TextView) viewGroup.findViewById(R.id.choose_like_label);
+        this.f59381g = (TextView) this.f59379e.findViewById(R.id.recommend_interest_thread);
+        this.f59382h = (ImageView) this.f59379e.findViewById(R.id.male_icon);
+        this.f59383i = (TextView) this.f59379e.findViewById(R.id.male_text);
+        this.j = (ImageView) this.f59379e.findViewById(R.id.female_icon);
+        this.k = (TextView) this.f59379e.findViewById(R.id.female_text);
+        this.f59382h.setOnClickListener(this);
         this.j.setOnClickListener(this);
         c();
     }
 
     public ViewGroup a() {
-        return this.f55690e;
+        return this.f59379e;
     }
 
     public int b() {
@@ -56,32 +56,32 @@ public class a implements View.OnClickListener {
     }
 
     public final void c() {
-        SkinManager.setViewTextColor(this.f55691f, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f55692g, R.color.CAM_X0109);
-        SkinManager.setImageResource(this.f55693h, R.drawable.img_lable_boy_n);
-        SkinManager.setViewTextColor(this.f55694i, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f59380f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f59381g, R.color.CAM_X0109);
+        SkinManager.setImageResource(this.f59382h, R.drawable.img_lable_boy_n);
+        SkinManager.setViewTextColor(this.f59383i, R.color.CAM_X0109);
         SkinManager.setImageResource(this.j, R.drawable.img_lable_girl_n);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0109);
     }
 
     public void d(List<d.a.n0.i1.b.a> list) {
         if (ListUtils.getCount(list) == 2) {
-            this.l = list.get(0).f55684a;
-            this.m = list.get(1).f55684a;
+            this.l = list.get(0).f59373a;
+            this.m = list.get(1).f59373a;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z = false;
-        if (view == this.f55693h) {
+        if (view == this.f59382h) {
             z = true;
         } else {
             ImageView imageView = this.j;
         }
         this.n = z ? this.l : this.m;
-        SkinManager.setImageResource(this.f55693h, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
-        SkinManager.setViewTextColor(this.f55694i, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
+        SkinManager.setImageResource(this.f59382h, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
+        SkinManager.setViewTextColor(this.f59383i, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
         SkinManager.setImageResource(this.j, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
         SkinManager.setViewTextColor(this.k, z ? R.color.CAM_X0109 : R.color.CAM_X0301);
     }

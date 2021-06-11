@@ -36,9 +36,9 @@ public class a {
             while (it.hasNext()) {
                 d.a.c.e.n.h.d next = it.next();
                 if (next != null) {
-                    long j = next.f38780c;
+                    long j = next.f42433c;
                     if (j != 0 && j + 604800000 < currentTimeMillis) {
-                        arrayList3.add(next.f38779b);
+                        arrayList3.add(next.f42432b);
                     } else {
                         arrayList2.add(next);
                     }
@@ -64,7 +64,7 @@ public class a {
             long j = 0;
             for (int i2 = 0; i2 < size; i2++) {
                 d.a.c.e.n.h.d dVar = a2.get(i2);
-                j += dVar.f38778a;
+                j += dVar.f42431a;
                 arrayList.add(dVar);
                 if (j >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
                     bdUploadingLogInfo.add(arrayList);

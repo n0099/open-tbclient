@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DynamicBitrateAdjuster extends BaseBitrateAdjuster {
     public static final double BITRATE_ADJUSTMENT_MAX_SCALE = 4.0d;
     public static final double BITRATE_ADJUSTMENT_SEC = 3.0d;

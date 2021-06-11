@@ -47,25 +47,25 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
     public Activity D;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f46800a;
+    public Context f50474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.f.i.s.a f46801b;
+    public d.a.l0.f.i.s.a f50475b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.l0.f.i.m.b.c f46802c;
+    public d.a.l0.f.i.m.b.c f50476c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdElementInfo f46803d;
+    public AdElementInfo f50477d;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.l0.f.i.j.a f46806g;
+    public d.a.l0.f.i.j.a f50480g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f46807h;
+    public String f50481h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f46808i;
+    public String f50482i;
     public d.a.l0.f.i.p.a j;
     public d.a.l0.f.i.o.b k;
     public String l;
@@ -81,10 +81,10 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
     public boolean z;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46804e = 256;
+    public int f50478e = 256;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46805f = 0;
+    public int f50479f = 0;
     public String n = F;
     public String o = K;
     public Map<String, String> p = new HashMap();
@@ -100,23 +100,23 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
         @Override // java.lang.Runnable
         public void run() {
             b.this.c0();
-            if (b.this.y.c(b.this.f46801b.r())) {
-                b.this.y.removeView(b.this.f46801b.r());
+            if (b.this.y.c(b.this.f50475b.r())) {
+                b.this.y.removeView(b.this.f50475b.r());
             }
-            if (!b.this.y.d(b.this.f46801b.r(), d.a.l0.f.i.i.a.b())) {
+            if (!b.this.y.d(b.this.f50475b.r(), d.a.l0.f.i.i.a.b())) {
                 b.this.Z("3010000");
                 return;
             }
-            b.this.f46804e = 260;
-            b.this.f46801b.G(b.this.f46803d.I());
+            b.this.f50478e = 260;
+            b.this.f50475b.G(b.this.f50477d.I());
             d.a.l0.f.i.q.b.n("showSuccess", b.this.B, b.this.k);
         }
     }
 
     /* renamed from: d.a.l0.f.i.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class DialogInterface$OnDismissListenerC0986b implements DialogInterface.OnDismissListener {
-        public DialogInterface$OnDismissListenerC0986b(b bVar) {
+    public class DialogInterface$OnDismissListenerC1042b implements DialogInterface.OnDismissListener {
+        public DialogInterface$OnDismissListenerC1042b(b bVar) {
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
@@ -142,15 +142,15 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            if (!b.this.x || b.this.f46801b == null) {
+            if (!b.this.x || b.this.f50475b == null) {
                 b.this.U();
                 return;
             }
-            if (b.this.f46802c != null) {
-                b.this.f46802c.pause();
+            if (b.this.f50476c != null) {
+                b.this.f50476c.pause();
             }
-            b.this.f46804e = PlayerEvent.PLAY_LOADING_END;
-            b.this.f46801b.B();
+            b.this.f50478e = PlayerEvent.PLAY_LOADING_END;
+            b.this.f50475b.B();
         }
     }
 
@@ -258,25 +258,25 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
 
         @Override // d.a.l0.f.i.l.e
         public void onPrepared() {
-            if (b.this.f46801b != null) {
-                b.this.f46801b.y();
+            if (b.this.f50475b != null) {
+                b.this.f50475b.y();
             }
-            b.this.f46804e = PlayerEvent.PLAY_LOADING_START;
-            b.this.f46805f = 0;
-            if (b.this.f46801b != null) {
-                b.this.f46801b.p();
+            b.this.f50478e = PlayerEvent.PLAY_LOADING_START;
+            b.this.f50479f = 0;
+            if (b.this.f50475b != null) {
+                b.this.f50475b.p();
             }
             if (b.this.j != null) {
                 b.this.j.b(true, "");
             }
             if (b.this.v) {
-                d.a.l0.f.i.q.d.f(b.this.f46803d, b.this.k);
+                d.a.l0.f.i.q.d.f(b.this.f50477d, b.this.k);
             } else {
-                d.a.l0.f.i.q.b.j(b.this.f46803d, b.this.k);
-                d.a.l0.f.i.q.b.q(b.this.f46803d, b.this.k);
-                String str = b.this.f46808i;
+                d.a.l0.f.i.q.b.j(b.this.f50477d, b.this.k);
+                d.a.l0.f.i.q.b.q(b.this.f50477d, b.this.k);
+                String str = b.this.f50482i;
                 b bVar = b.this;
-                d.a.l0.f.i.q.b.f(str, bVar.f46807h, bVar.l, b.this.k);
+                d.a.l0.f.i.q.b.f(str, bVar.f50481h, bVar.l, b.this.k);
             }
             d.a.l0.f.i.q.b.n("show", b.this.B, b.this.k);
         }
@@ -297,32 +297,32 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
     public static /* synthetic */ class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f46814a;
+        public static final /* synthetic */ int[] f50488a;
 
         static {
             int[] iArr = new int[CommandType.values().length];
-            f46814a = iArr;
+            f50488a = iArr;
             try {
                 iArr[CommandType.ACTION_URL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f46814a[CommandType.GET_DOWNLOAD_STATUS.ordinal()] = 2;
+                f50488a[CommandType.GET_DOWNLOAD_STATUS.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f46814a[CommandType.PAUSE_DOWNLOAD.ordinal()] = 3;
+                f50488a[CommandType.PAUSE_DOWNLOAD.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
     public b(Activity activity, String str, String str2, boolean z, d.a.l0.f.i.p.a aVar, d.a.l0.f.i.l.f fVar) {
-        this.f46807h = "";
+        this.f50481h = "";
         Context appContext = AppRuntime.getAppContext();
-        this.f46800a = appContext;
-        this.f46808i = str;
-        this.f46807h = str2;
+        this.f50474a = appContext;
+        this.f50482i = str;
+        this.f50481h = str2;
         this.v = z;
         this.w = z;
         this.k = new d.a.l0.f.i.o.b(appContext);
@@ -334,13 +334,13 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
     }
 
     public synchronized void P() {
-        if (this.f46802c != null && this.f46801b != null) {
-            if (this.f46806g == null || !this.f46806g.isShowing()) {
-                if (!this.A && !this.f46801b.t()) {
-                    this.f46802c.resume();
-                    this.f46801b.D();
+        if (this.f50476c != null && this.f50475b != null) {
+            if (this.f50480g == null || !this.f50480g.isShowing()) {
+                if (!this.A && !this.f50475b.t()) {
+                    this.f50476c.resume();
+                    this.f50475b.D();
                 } else {
-                    d.a.l0.f.i.q.b.q(this.f46803d, this.k);
+                    d.a.l0.f.i.q.b.q(this.f50477d, this.k);
                 }
             }
         }
@@ -348,34 +348,34 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
 
     public final d.a.l0.f.i.q.a Q(int i2) {
         d.a.l0.f.i.q.a aVar = new d.a.l0.f.i.q.a();
-        aVar.f46823i = String.valueOf(this.f46803d.r());
-        aVar.j = String.valueOf(this.f46805f);
+        aVar.f50497i = String.valueOf(this.f50477d.r());
+        aVar.j = String.valueOf(this.f50479f);
         aVar.k = String.valueOf(i2);
         String str = "1";
-        aVar.l = this.f46805f == 0 ? "1" : "0";
-        aVar.m = i2 == this.f46803d.r() ? "1" : "0";
+        aVar.l = this.f50479f == 0 ? "1" : "0";
+        aVar.m = i2 == this.f50477d.r() ? "1" : "0";
         int i3 = 1;
-        aVar.n = this.f46800a.getResources().getConfiguration().orientation == 1 ? "2" : "4";
-        int i4 = this.f46805f;
+        aVar.n = this.f50474a.getResources().getConfiguration().orientation == 1 ? "2" : "4";
+        int i4 = this.f50479f;
         if (i4 != 0) {
-            i3 = i4 == this.f46803d.r() ? 3 : 2;
+            i3 = i4 == this.f50477d.r() ? 3 : 2;
         }
         aVar.o = String.valueOf(i3);
-        aVar.p = (this.f46805f == 0 && NetworkUtils.g(this.f46800a)) ? "2" : "2";
+        aVar.p = (this.f50479f == 0 && NetworkUtils.g(this.f50474a)) ? "2" : "2";
         aVar.q = String.valueOf(0);
         return aVar;
     }
 
     public final int R() {
-        d.a.l0.f.i.m.b.c cVar = this.f46802c;
+        d.a.l0.f.i.m.b.c cVar = this.f50476c;
         if (cVar != null && cVar.isEnd()) {
-            return this.f46802c.getDuration() / 1000;
+            return this.f50476c.getDuration() / 1000;
         }
         return S();
     }
 
     public final int S() {
-        d.a.l0.f.i.m.b.c cVar = this.f46802c;
+        d.a.l0.f.i.m.b.c cVar = this.f50476c;
         if (cVar != null) {
             return cVar.getCurrentPosition() / 1000;
         }
@@ -383,65 +383,65 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
     }
 
     public final void T() {
-        if (this.f46802c == null || this.f46801b == null) {
+        if (this.f50476c == null || this.f50475b == null) {
             return;
         }
         i0();
-        this.f46804e = PlayerEvent.PLAY_LOADING_END;
-        if (this.f46801b != null) {
-            if (this.f46802c.isEnd()) {
-                this.f46801b.A();
+        this.f50478e = PlayerEvent.PLAY_LOADING_END;
+        if (this.f50475b != null) {
+            if (this.f50476c.isEnd()) {
+                this.f50475b.A();
             } else {
-                this.f46801b.B();
+                this.f50475b.B();
             }
         }
     }
 
     public final void U() {
         d.a.l0.f.i.m.b.c cVar;
-        if (this.j != null && (cVar = this.f46802c) != null) {
+        if (this.j != null && (cVar = this.f50476c) != null) {
             int duration = cVar.getDuration() / 1000;
-            this.j.c(this.f46802c.isEnd() || this.f46802c.getCurrentPosition() / 1000 >= Math.min(this.f46803d.A(), duration), duration);
+            this.j.c(this.f50476c.isEnd() || this.f50476c.getCurrentPosition() / 1000 >= Math.min(this.f50477d.A(), duration), duration);
         }
         j0();
-        if (this.f46803d.h() == 2 && DownloadState.DOWNLOADING == this.r) {
+        if (this.f50477d.h() == 2 && DownloadState.DOWNLOADING == this.r) {
             this.t = null;
-            d.a.l0.f.i.m.a.b().b(this.f46800a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.t);
+            d.a.l0.f.i.m.a.b().b(this.f50474a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.t);
         }
-        d.a.l0.f.i.q.b.p(this.f46803d, this.k);
-        this.f46804e = PayBeanFactory.BEAN_ID_CREDIT_PAY;
+        d.a.l0.f.i.q.b.p(this.f50477d, this.k);
+        this.f50478e = PayBeanFactory.BEAN_ID_CREDIT_PAY;
         e0();
     }
 
     public final void V() {
-        if (d.a.l0.f.i.r.g.a(this.f46800a, this.s.f11535b)) {
+        if (d.a.l0.f.i.r.g.a(this.f50474a, this.s.f11597b)) {
             this.n = H;
-            h0(this.f46800a, this.s.f11535b);
+            h0(this.f50474a, this.s.f11597b);
             this.q.c("appinstallopen");
             return;
         }
         DownloadState downloadState = this.r;
         if (downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) {
             this.n = E;
-            d.a.l0.f.i.m.a.b().b(this.f46800a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.t);
+            d.a.l0.f.i.m.a.b().b(this.f50474a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.t);
         }
         if (this.r == DownloadState.DOWNLOADING) {
-            d.a.l0.f.i.m.a.b().b(this.f46800a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.t);
+            d.a.l0.f.i.m.a.b().b(this.f50474a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.t);
         }
         if (this.r == DownloadState.DOWNLOAD_PAUSED) {
             this.o = K;
-            d.a.l0.f.i.m.a.b().b(this.f46800a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.t);
+            d.a.l0.f.i.m.a.b().b(this.f50474a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.t);
         }
         if (this.r == DownloadState.DOWNLOAD_FAILED) {
-            d.a.l0.f.i.m.a.b().b(this.f46800a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.t);
+            d.a.l0.f.i.m.a.b().b(this.f50474a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.t);
         }
         if (this.r == DownloadState.DOWNLOADED) {
             this.n = G;
             this.t.b();
-            d.a.l0.f.i.m.a.b().b(this.f46800a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP, this.t);
+            d.a.l0.f.i.m.a.b().b(this.f50474a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP, this.t);
         }
         if (this.r == DownloadState.INSTALLED) {
-            h0(this.f46800a, this.s.f11535b);
+            h0(this.f50474a, this.s.f11597b);
         }
     }
 
@@ -451,31 +451,31 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
 
     public final void X(View view) {
         AdElementInfo adElementInfo;
-        if (!this.v || (adElementInfo = this.f46803d) == null) {
+        if (!this.v || (adElementInfo = this.f50477d) == null) {
             return;
         }
         d.a.l0.f.i.q.d.d(adElementInfo, this.k);
         d.a.l0.f.i.q.a aVar = new d.a.l0.f.i.q.a();
-        aVar.f46815a = String.valueOf(h.i(this.f46800a));
-        aVar.f46816b = String.valueOf(h.h(this.f46800a));
-        aVar.f46817c = String.valueOf(h.i(this.f46800a));
-        aVar.f46818d = String.valueOf(h.h(this.f46800a));
-        aVar.f46819e = String.valueOf((int) view.getX());
-        aVar.f46820f = String.valueOf((int) view.getY());
-        aVar.f46821g = String.valueOf((int) view.getX());
-        aVar.f46822h = String.valueOf((int) view.getY());
-        if (this.f46803d.h() == 2) {
-            d.a.l0.f.i.q.d.a(aVar, this.f46803d, this.k, this);
+        aVar.f50489a = String.valueOf(h.i(this.f50474a));
+        aVar.f50490b = String.valueOf(h.h(this.f50474a));
+        aVar.f50491c = String.valueOf(h.i(this.f50474a));
+        aVar.f50492d = String.valueOf(h.h(this.f50474a));
+        aVar.f50493e = String.valueOf((int) view.getX());
+        aVar.f50494f = String.valueOf((int) view.getY());
+        aVar.f50495g = String.valueOf((int) view.getX());
+        aVar.f50496h = String.valueOf((int) view.getY());
+        if (this.f50477d.h() == 2) {
+            d.a.l0.f.i.q.d.a(aVar, this.f50477d, this.k, this);
             return;
         }
-        AdElementInfo adElementInfo2 = this.f46803d;
+        AdElementInfo adElementInfo2 = this.f50477d;
         if (adElementInfo2 != null) {
             this.y.a(d.a.l0.f.i.q.d.c(adElementInfo2.l(), aVar), new JSONObject());
         }
     }
 
     public final void Y() {
-        String l = this.f46803d.l();
+        String l = this.f50477d.l();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("monitorUrl", d.a.l0.f.i.q.b.b("landingPageLoad", this.B));
@@ -490,12 +490,12 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
             aVar.onError(str);
             this.j.b(false, "");
         }
-        this.f46804e = PayBeanFactory.BEAN_ID_SEND_SMS_FOR_VERIFY_BY_BANK;
+        this.f50478e = PayBeanFactory.BEAN_ID_SEND_SMS_FOR_VERIFY_BY_BANK;
     }
 
     @Override // d.a.l0.f.i.l.b
     public synchronized void a(String str) {
-        this.f46804e = 259;
+        this.f50478e = 259;
         f0(str);
     }
 
@@ -516,17 +516,17 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
 
     @Override // d.a.l0.f.i.l.a
     public synchronized void b(CommandType commandType, Uri uri) {
-        this.f46803d.l();
-        String y = this.f46803d.y();
-        int i2 = g.f46814a[commandType.ordinal()];
+        this.f50477d.l();
+        String y = this.f50477d.y();
+        int i2 = g.f50488a[commandType.ordinal()];
         if (i2 == 1) {
-            if (this.f46803d.h() == 2) {
+            if (this.f50477d.h() == 2) {
                 V();
             } else {
                 Y();
                 d.a.l0.f.i.q.b.n("lpClick", this.B, this.k);
             }
-            d.a.l0.f.i.q.b.g(this.f46803d, this.k);
+            d.a.l0.f.i.q.b.g(this.f50477d, this.k);
             d.a.l0.f.i.q.b.n(PrefetchEvent.STATE_CLICK, this.B, this.k);
         } else if (i2 != 2) {
             if (i2 == 3) {
@@ -535,7 +535,7 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
             }
         } else if (this.m == null) {
         } else {
-            if (a0(this.f46800a, y)) {
+            if (a0(this.f50474a, y)) {
                 this.n = H;
             }
             String queryParameter = uri.getQueryParameter(N);
@@ -550,30 +550,30 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
     }
 
     public final void b0() {
-        this.q = new d.a.l0.f.i.q.c(this.f46800a, this.f46803d.i());
+        this.q = new d.a.l0.f.i.q.c(this.f50474a, this.f50477d.i());
         this.t = new e();
-        String l = this.f46803d.l();
-        String y = this.f46803d.y();
+        String l = this.f50477d.l();
+        String y = this.f50477d.y();
         String str = this.p.get(y);
         if (str != null) {
             l = str;
         } else {
             this.p.put(y, l);
         }
-        this.s = new DownloadParams(l, y, this.f46803d.G());
+        this.s = new DownloadParams(l, y, this.f50477d.G());
         this.u = false;
         if (h.o()) {
-            d.a.l0.f.i.m.a.b().b(this.f46800a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_QUERY_STATUS, this.t);
+            d.a.l0.f.i.m.a.b().b(this.f50474a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_QUERY_STATUS, this.t);
         }
     }
 
     @Override // d.a.l0.f.i.l.b
     public synchronized void c(AdElementInfo adElementInfo) {
-        this.f46803d = adElementInfo;
+        this.f50477d = adElementInfo;
         this.v = adElementInfo.K();
-        this.f46804e = 258;
+        this.f50478e = 258;
         g0();
-        if (!this.v && this.f46803d.h() == 2) {
+        if (!this.v && this.f50477d.h() == 2) {
             b0();
         }
     }
@@ -581,18 +581,18 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
     public final void c0() {
         this.m.i(this);
         if (this.y.b()) {
-            this.f46801b = new d.a.l0.f.i.s.b(this.f46800a, this.f46803d, this.m);
+            this.f50475b = new d.a.l0.f.i.s.b(this.f50474a, this.f50477d, this.m);
         } else {
-            this.f46801b = new d.a.l0.f.i.s.c(this.f46800a, this.f46803d, this.m);
+            this.f50475b = new d.a.l0.f.i.s.c(this.f50474a, this.f50477d, this.m);
         }
         if (this.v) {
-            this.f46801b.F(this);
+            this.f50475b.F(this);
         }
-        this.f46801b.E(this);
-        d.a.l0.f.i.m.b.c s = this.f46801b.s();
-        this.f46802c = s;
+        this.f50475b.E(this);
+        d.a.l0.f.i.m.b.c s = this.f50475b.s();
+        this.f50476c = s;
         s.g(new f());
-        this.f46801b.r().setAnimation(AnimationUtils.loadAnimation(this.f46800a, d.a.l0.f.i.a.ng_game_ad_open));
+        this.f50475b.r().setAnimation(AnimationUtils.loadAnimation(this.f50474a, d.a.l0.f.i.a.ng_game_ad_open));
     }
 
     @Override // d.a.l0.f.i.l.d
@@ -601,21 +601,21 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str2);
-                jSONObject.put("title", this.f46803d.G());
-                jSONObject.put("description", this.f46803d.q());
+                jSONObject.put("title", this.f50477d.G());
+                jSONObject.put("description", this.f50477d.q());
                 jSONObject.put("autoinstall", true);
                 if (this.C == null) {
-                    this.C = new d.a.l0.f.i.k.b(this.f46800a, this.f46803d, this.k);
+                    this.C = new d.a.l0.f.i.k.b(this.f50474a, this.f50477d, this.k);
                 }
                 this.C.k(str);
-                d.a.l0.f.i.m.a.b().b(this.f46800a, jSONObject, DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.C);
+                d.a.l0.f.i.m.a.b().b(this.f50474a, jSONObject, DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.C);
             } catch (JSONException unused) {
             }
         }
     }
 
     public final boolean d0() {
-        AdElementInfo adElementInfo = this.f46803d;
+        AdElementInfo adElementInfo = this.f50477d;
         if (adElementInfo == null) {
             return true;
         }
@@ -623,7 +623,7 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
         if (u == 0) {
             u = 1740000;
         }
-        return System.currentTimeMillis() - this.f46803d.p() >= u;
+        return System.currentTimeMillis() - this.f50477d.p() >= u;
     }
 
     @Override // d.a.l0.f.i.l.c
@@ -632,14 +632,14 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
         int i2;
         int i3;
         String format;
-        if (this.f46802c != null && this.f46803d != null) {
-            if (this.f46806g == null || !this.f46806g.isShowing()) {
+        if (this.f50476c != null && this.f50477d != null) {
+            if (this.f50480g == null || !this.f50480g.isShowing()) {
                 if (view != null && d.a.l0.f.i.e.close_ad != view.getId()) {
                     W();
                     return;
                 }
-                int currentPosition = this.f46802c.getCurrentPosition() / 1000;
-                int min2 = Math.min(this.f46803d.A(), this.f46802c.getDuration() / 1000);
+                int currentPosition = this.f50476c.getCurrentPosition() / 1000;
+                int min2 = Math.min(this.f50477d.A(), this.f50476c.getDuration() / 1000);
                 if (currentPosition >= min2) {
                     T();
                     return;
@@ -656,25 +656,25 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
                     i3 = 0;
                 }
                 i0();
-                this.f46800a.getResources().getString(d.a.l0.f.i.g.swangame_game_ad_dialog_msg_more);
+                this.f50474a.getResources().getString(d.a.l0.f.i.g.swangame_game_ad_dialog_msg_more);
                 if (this.x) {
-                    format = String.format(this.f46800a.getResources().getString(d.a.l0.f.i.g.swangame_game_ad_reward_msg_time_tip), Integer.valueOf(15 - (this.f46802c.getCurrentPosition() / 1000)));
+                    format = String.format(this.f50474a.getResources().getString(d.a.l0.f.i.g.swangame_game_ad_reward_msg_time_tip), Integer.valueOf(15 - (this.f50476c.getCurrentPosition() / 1000)));
                 } else {
-                    format = String.format(this.f46800a.getResources().getString(d.a.l0.f.i.g.swangame_game_ad_video_close_alert), Integer.valueOf(min2 - currentPosition));
+                    format = String.format(this.f50474a.getResources().getString(d.a.l0.f.i.g.swangame_game_ad_video_close_alert), Integer.valueOf(min2 - currentPosition));
                 }
-                if (this.f46806g != null) {
-                    this.f46806g.d(format);
-                    this.f46806g.show();
+                if (this.f50480g != null) {
+                    this.f50480g.d(format);
+                    this.f50480g.show();
                 } else {
-                    a.C0976a c0976a = new a.C0976a(this.D);
-                    c0976a.c(true);
-                    c0976a.i(d.a.l0.f.i.g.ad_close, new d());
-                    c0976a.g(format);
-                    c0976a.l(d.a.l0.f.i.g.ad_continue_watch, new c());
-                    c0976a.n(d.a.l0.f.i.b.swan_ad_game_continue_watch);
-                    c0976a.k(new DialogInterface$OnDismissListenerC0986b(this));
-                    c0976a.f(min, 0, i2, i3);
-                    this.f46806g = c0976a.p();
+                    a.C1032a c1032a = new a.C1032a(this.D);
+                    c1032a.c(true);
+                    c1032a.i(d.a.l0.f.i.g.ad_close, new d());
+                    c1032a.g(format);
+                    c1032a.l(d.a.l0.f.i.g.ad_continue_watch, new c());
+                    c1032a.n(d.a.l0.f.i.b.swan_ad_game_continue_watch);
+                    c1032a.k(new DialogInterface$OnDismissListenerC1042b(this));
+                    c1032a.f(min, 0, i2, i3);
+                    this.f50480g = c1032a.p();
                 }
             }
         }
@@ -682,17 +682,17 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
 
     public synchronized void e0() {
         d.a.l0.f.i.o.e gVar;
-        if (this.f46804e == 257) {
+        if (this.f50478e == 257) {
             return;
         }
         d.a.l0.f.i.q.b.n("loadApi", this.B, this.k);
         d.a.l0.f.i.m.a.a().b(this.v);
-        int i2 = this.f46804e;
+        int i2 = this.f50478e;
         if (i2 != 256 && i2 != 272) {
             switch (i2) {
                 case 258:
                     if (d0()) {
-                        this.f46804e = AuthorityState.STATE_INIT_ING;
+                        this.f50478e = AuthorityState.STATE_INIT_ING;
                         return;
                     } else {
                         g0();
@@ -712,27 +712,27 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
                     return;
             }
         }
-        String v = d.a.l0.f.i.m.a.b().v();
-        if (!TextUtils.isEmpty(v) && !TextUtils.isEmpty(this.f46808i) && !TextUtils.isEmpty(this.f46807h)) {
-            this.f46804e = 257;
+        String appKey = d.a.l0.f.i.m.a.b().getAppKey();
+        if (!TextUtils.isEmpty(appKey) && !TextUtils.isEmpty(this.f50482i) && !TextUtils.isEmpty(this.f50481h)) {
+            this.f50478e = 257;
             c.b bVar = new c.b();
-            bVar.m(this.f46808i);
-            bVar.j(this.f46807h);
-            bVar.o(v);
-            bVar.l(h.i(this.f46800a));
-            bVar.i(h.h(this.f46800a));
+            bVar.m(this.f50482i);
+            bVar.j(this.f50481h);
+            bVar.o(appKey);
+            bVar.l(h.i(this.f50474a));
+            bVar.i(h.h(this.f50474a));
             bVar.n(this.z ? "game" : "app");
             bVar.k("video");
             d.a.l0.f.i.o.c h2 = bVar.h();
             if (this.w) {
                 this.v = true;
-                gVar = new d.a.l0.f.i.o.f(this.f46800a, h2, 5, 5);
+                gVar = new d.a.l0.f.i.o.f(this.f50474a, h2, 5, 5);
             } else {
                 this.v = false;
-                gVar = new d.a.l0.f.i.o.g(this.f46800a, h2);
+                gVar = new d.a.l0.f.i.o.g(this.f50474a, h2);
                 this.l = gVar.c();
             }
-            d.a.l0.f.i.o.a aVar = new d.a.l0.f.i.o.a(this.f46800a, false);
+            d.a.l0.f.i.o.a aVar = new d.a.l0.f.i.o.a(this.f50474a, false);
             aVar.k(this);
             aVar.i(gVar, this.k);
             return;
@@ -789,34 +789,34 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
     }
 
     public synchronized void i0() {
-        if (this.f46802c != null && this.f46801b != null) {
-            if (this.f46802c.isPlaying()) {
-                this.f46802c.pause();
-                this.f46801b.z();
+        if (this.f50476c != null && this.f50475b != null) {
+            if (this.f50476c.isPlaying()) {
+                this.f50476c.pause();
+                this.f50475b.z();
                 if (this.v) {
-                    d.a.l0.f.i.q.d.g(Q(S()), this.f46803d, this.k);
+                    d.a.l0.f.i.q.d.g(Q(S()), this.f50477d, this.k);
                 } else {
-                    d.a.l0.f.i.q.b.o(S(), this.f46805f, this.f46803d, this.k);
+                    d.a.l0.f.i.q.b.o(S(), this.f50479f, this.f50477d, this.k);
                 }
             } else {
-                d.a.l0.f.i.q.b.o(S(), this.f46805f, this.f46803d, this.k);
-                this.f46805f = S();
+                d.a.l0.f.i.q.b.o(S(), this.f50479f, this.f50477d, this.k);
+                this.f50479f = S();
             }
         }
     }
 
     public final void j0() {
-        d.a.l0.f.i.m.b.c cVar = this.f46802c;
+        d.a.l0.f.i.m.b.c cVar = this.f50476c;
         if (cVar != null) {
             cVar.pause();
-            this.f46802c.stop();
+            this.f50476c.stop();
         }
-        d.a.l0.f.i.s.a aVar = this.f46801b;
+        d.a.l0.f.i.s.a aVar = this.f50475b;
         if (aVar != null) {
             aVar.n();
-            this.f46801b.r().setAnimation(AnimationUtils.loadAnimation(this.f46800a, d.a.l0.f.i.a.ng_game_ad_close));
-            this.y.removeView(this.f46801b.r());
-            this.f46801b = null;
+            this.f50475b.r().setAnimation(AnimationUtils.loadAnimation(this.f50474a, d.a.l0.f.i.a.ng_game_ad_close));
+            this.y.removeView(this.f50475b.r());
+            this.f50475b = null;
         }
         d.a.l0.f.i.k.b bVar = this.C;
         if (bVar != null) {
@@ -832,14 +832,14 @@ public class b implements d.a.l0.f.i.l.b, d.a.l0.f.i.l.c, d.a.l0.f.i.l.a, d.a.l0
 
     public synchronized void l0() {
         d.a.l0.f.i.q.b.n("showApi", this.B, this.k);
-        if (this.f46804e != 261 && this.f46804e != 260 && this.f46804e != 265) {
-            if (this.f46804e == 258 && !d0()) {
-                if (this.f46803d != null && TextUtils.isEmpty(this.f46803d.I())) {
+        if (this.f50478e != 261 && this.f50478e != 260 && this.f50478e != 265) {
+            if (this.f50478e == 258 && !d0()) {
+                if (this.f50477d != null && TextUtils.isEmpty(this.f50477d.I())) {
                     Z("3010008");
                     return;
                 }
-                if (this.f46804e == 258) {
-                    this.f46804e = 265;
+                if (this.f50478e == 258) {
+                    this.f50478e = 265;
                     this.y.e();
                     d.a.l0.f.i.r.d.c(new a());
                 }

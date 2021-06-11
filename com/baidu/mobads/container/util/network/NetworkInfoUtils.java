@@ -160,7 +160,7 @@ public class NetworkInfoUtils {
     }
 
     public static String getNetwork(int i2) {
-        return i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 100 ? i2 != 101 ? RomUtils.UNKNOWN : "ETHERNET" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "5G" : "4G" : g.f3966b : "2G" : RomUtils.UNKNOWN : "NO";
+        return i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 100 ? i2 != 101 ? RomUtils.UNKNOWN : "ETHERNET" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "5G" : "4G" : g.f3985b : "2G" : RomUtils.UNKNOWN : "NO";
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0050, code lost:

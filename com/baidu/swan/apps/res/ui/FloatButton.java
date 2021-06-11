@@ -19,25 +19,25 @@ import d.a.l0.a.v2.n0;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FloatButton extends FullScreenFloatView {
-    public static final boolean s = k.f43199a;
+    public static final boolean s = k.f46875a;
 
     public FloatButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
     private void d(float f2, float f3) {
-        if (this.f11100e == null) {
+        if (this.f11162e == null) {
             return;
         }
         if (s) {
             Log.e("FloatButton", "move--> x = " + f2 + ", y = " + f3);
         }
-        int i2 = this.f11101f;
+        int i2 = this.f11163f;
         int i3 = (int) (f2 - (i2 / 2));
-        int i4 = this.f11102g;
+        int i4 = this.f11164g;
         int i5 = (int) (f3 - (i4 / 2));
-        int i6 = this.f11103h - i2;
-        int i7 = (this.f11104i - i4) - 168;
+        int i6 = this.f11165h - i2;
+        int i7 = (this.f11166i - i4) - 168;
         if (i3 <= 0) {
             i3 = 0;
         }
@@ -53,8 +53,8 @@ public class FloatButton extends FullScreenFloatView {
         if (s) {
             Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.j);
         }
-        this.f11100e.setX(i6);
-        this.f11100e.setY(i7);
+        this.f11162e.setX(i6);
+        this.f11162e.setY(i7);
         requestLayout();
     }
 
@@ -66,7 +66,7 @@ public class FloatButton extends FullScreenFloatView {
         Rect rect = new Rect();
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f11100e.getHitRect(rect);
+            this.f11162e.getHitRect(rect);
             if (rect.contains((int) x, (int) y)) {
                 this.n = x;
                 this.o = y;
@@ -88,9 +88,9 @@ public class FloatButton extends FullScreenFloatView {
                 Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.k);
             }
             if (this.m && !this.k && x >= 0.0f) {
-                int i2 = this.f11103h;
-                if (x <= i2 && y >= 0.0f && y <= this.f11104i + this.f11102g) {
-                    this.f11100e.animate().x(i2 - this.f11101f).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                int i2 = this.f11165h;
+                if (x <= i2 && y >= 0.0f && y <= this.f11166i + this.f11164g) {
+                    this.f11162e.animate().x(i2 - this.f11163f).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                 }
             }
             this.k = false;

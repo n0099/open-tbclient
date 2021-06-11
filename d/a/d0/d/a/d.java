@@ -5,19 +5,19 @@ import android.util.Log;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f39691a;
+    public static final int f43372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39692b;
+    public static final int f43373b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39693c;
+    public static final int f43374c;
 
     static {
-        int max = Math.max(200, d.a.d0.a.b.a.f39590a.get().t());
-        f39691a = max;
-        f39692b = max;
-        f39693c = max;
-        Log.e("HttpRequestConstan", "static initializer: " + f39691a + " " + f39692b);
+        int max = Math.max(200, d.a.d0.a.b.a.f43271a.get().t());
+        f43372a = max;
+        f43373b = max;
+        f43374c = max;
+        Log.e("HttpRequestConstan", "static initializer: " + f43372a + " " + f43373b);
     }
 }

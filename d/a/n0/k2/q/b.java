@@ -11,7 +11,6 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.VideoItemData;
-import com.tencent.connect.common.Constants;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.m0.r.q.a2;
@@ -19,16 +18,16 @@ import d.a.n0.z.m;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class b extends d {
-    public VideoItemData L0;
+    public VideoItemData G0;
     public VideoSerializeVideoThreadInfo M0;
     public a2 N0;
 
     public b(Context context, View view) {
         super(context, view);
-        this.f56922e = 5000;
+        this.f60611e = 5000;
     }
 
-    public final void A0() {
+    public final void B0() {
         View.OnClickListener onClickListener = this.u0;
         if (onClickListener != null) {
             onClickListener.onClick(E());
@@ -46,16 +45,16 @@ public class b extends d {
         }
     }
 
-    public final void B0() {
+    public final void C0() {
         if (this.N0 == null) {
             return;
         }
-        if (this.L0 == null) {
-            this.L0 = new VideoItemData();
+        if (this.G0 == null) {
+            this.G0 = new VideoItemData();
         }
         ArrayList arrayList = new ArrayList();
-        this.L0.buildWithThreadData(this.N0);
-        arrayList.add(this.L0);
+        this.G0.buildWithThreadData(this.N0);
+        arrayList.add(this.G0);
         Context context = this.P;
         String str = this.d0;
         VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "personalize_page", "", str, str);
@@ -67,7 +66,12 @@ public class b extends d {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
     }
 
-    public final void C0() {
+    @Override // d.a.n0.k2.q.d, d.a.n0.k2.q.a
+    public boolean D() {
+        return false;
+    }
+
+    public final void D0() {
         if (this.N0 != null) {
             if (this.M0 == null) {
                 this.M0 = new VideoSerializeVideoThreadInfo();
@@ -82,12 +86,7 @@ public class b extends d {
         }
     }
 
-    @Override // d.a.n0.k2.q.d, d.a.n0.k2.q.a
-    public boolean D() {
-        return false;
-    }
-
-    public final void D0() {
+    public final void E0() {
         VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.M0;
         if (videoSerializeVideoThreadInfo != null) {
             a2 a2Var = this.N0;
@@ -103,20 +102,20 @@ public class b extends d {
         }
     }
 
-    public void E0() {
-        s0(this.f56926i);
+    public void F0() {
+        s0(this.f60615i);
     }
 
     @Override // d.a.n0.k2.q.d
     public void N() {
-        if (this.q == this.f56925h) {
-            E0();
+        if (this.q == this.f60614h) {
+            F0();
         }
     }
 
     @Override // d.a.n0.k2.q.d
     public void O() {
-        this.f56926i = 32;
+        this.f60615i = 32;
     }
 
     @Override // d.a.n0.k2.q.d
@@ -136,23 +135,23 @@ public class b extends d {
             return;
         }
         if (view.getId() == R.id.video_mute) {
-            W();
+            V();
             return;
         }
         if (!j.z()) {
             l.L(this.P, R.string.no_network_guide);
         } else if (d.a.m0.b.d.L()) {
-            C0();
+            D0();
         } else if (d.a.m0.b.d.N()) {
-            B0();
+            C0();
         } else if (d.a.m0.b.d.Q()) {
-            A0();
-        } else if (this.U) {
             B0();
-        } else if (!"index".equals(this.d0) && !"frs".equals(this.d0) && !"concern_tab".equals(this.d0) && !"video_tab".equals(this.d0) && !Constants.VIA_REPORT_TYPE_MAKE_FRIEND.equals(this.d0)) {
-            D0();
+        } else if (this.U) {
+            C0();
+        } else if (!"index".equals(this.d0) && !"frs".equals(this.d0) && !"concern_tab".equals(this.d0) && !"video_tab".equals(this.d0) && !"14".equals(this.d0)) {
+            E0();
         } else {
-            D0();
+            E0();
         }
         View.OnClickListener onClickListener = this.t0;
         if (onClickListener != null) {
@@ -171,7 +170,7 @@ public class b extends d {
         this.N0 = a2Var;
         if (this.U) {
             VideoItemData videoItemData = new VideoItemData();
-            this.L0 = videoItemData;
+            this.G0 = videoItemData;
             videoItemData.buildWithThreadData(a2Var);
             return;
         }
@@ -179,10 +178,10 @@ public class b extends d {
         this.M0 = videoSerializeVideoThreadInfo;
         videoSerializeVideoThreadInfo.copyFromThreadInfo(a2Var);
         VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.M0;
-        videoSerializeVideoThreadInfo2.source = a2Var.S0;
-        videoSerializeVideoThreadInfo2.extra = a2Var.V0;
-        videoSerializeVideoThreadInfo2.ab_tag = a2Var.U0;
-        videoSerializeVideoThreadInfo2.weight = a2Var.T0;
+        videoSerializeVideoThreadInfo2.source = a2Var.T0;
+        videoSerializeVideoThreadInfo2.extra = a2Var.W0;
+        videoSerializeVideoThreadInfo2.ab_tag = a2Var.V0;
+        videoSerializeVideoThreadInfo2.weight = a2Var.U0;
     }
 
     public b(Context context, View view, boolean z) {

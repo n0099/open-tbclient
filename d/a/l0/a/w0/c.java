@@ -20,22 +20,22 @@ import org.json.JSONObject;
 public class c implements d.a.l0.a.m.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f45522e = k.f43199a;
+    public static final boolean f49196e = k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a implements d.a.l0.a.w0.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45523a;
+        public final /* synthetic */ String f49197a;
 
         public a(String str) {
-            this.f45523a = str;
+            this.f49197a = str;
         }
 
         @Override // d.a.l0.a.w0.a
         public void onResult(boolean z) {
             if (z) {
-                d.a.l0.a.j0.c.b.s(AppRuntime.getAppContext().getContentResolver(), this.f45523a, 1);
+                d.a.l0.a.j0.c.b.s(AppRuntime.getAppContext().getContentResolver(), this.f49197a, 1);
             }
         }
     }
@@ -44,29 +44,29 @@ public class c implements d.a.l0.a.m.c {
     public static class b extends ResponseCallback<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.w0.a f45524a;
+        public final /* synthetic */ d.a.l0.a.w0.a f49198a;
 
         public b(d.a.l0.a.w0.a aVar) {
-            this.f45524a = aVar;
+            this.f49198a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
-            d.a.l0.a.w0.a aVar = this.f45524a;
+            d.a.l0.a.w0.a aVar = this.f49198a;
             if (aVar == null) {
                 return;
             }
             if (jSONObject != null) {
-                if (c.f45522e) {
+                if (c.f49196e) {
                     Log.d("SwanHistoryManager", "上报数据 onSuccess: response=" + jSONObject);
                 }
                 if (jSONObject.optInt("errno", -1) == 0) {
-                    this.f45524a.onResult(true);
+                    this.f49198a.onResult(true);
                     return;
                 } else {
-                    this.f45524a.onResult(false);
+                    this.f49198a.onResult(false);
                     return;
                 }
             }
@@ -85,7 +85,7 @@ public class c implements d.a.l0.a.m.c {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            d.a.l0.a.w0.a aVar = this.f45524a;
+            d.a.l0.a.w0.a aVar = this.f49198a;
             if (aVar == null) {
                 return;
             }
@@ -94,7 +94,7 @@ public class c implements d.a.l0.a.m.c {
     }
 
     @WorkerThread
-    public static void c(e eVar, b.C0763b c0763b) {
+    public static void c(e eVar, b.C0819b c0819b) {
         b.a L;
         if (eVar == null || (L = eVar.L()) == null || TextUtils.equals("1", L.c0())) {
             return;
@@ -103,16 +103,16 @@ public class c implements d.a.l0.a.m.c {
         if (TextUtils.equals("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u", H) || TextUtils.equals("g4X7FfGEDt7G1ksLibU22o0wB2p49W0D", H) || TextUtils.equals("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk", H)) {
             return;
         }
-        if (f45522e) {
+        if (f49196e) {
             Log.d("SwanHistoryManager", "addHistory: " + L.K() + " / " + H);
         }
         d.a.l0.a.w0.b a2 = d.a.l0.a.w0.b.a(L);
-        boolean c2 = d.a.l0.a.j0.c.b.c(AppRuntime.getAppContext().getContentResolver(), a2, c0763b);
+        boolean c2 = d.a.l0.a.j0.c.b.c(AppRuntime.getAppContext().getContentResolver(), a2, c0819b);
         a aVar = new a(H);
         if (c2) {
-            e("ADD", a2.f45513a, a2.f45517e, a2.f45514b, a2.f45519g, a2.j, aVar);
+            e("ADD", a2.f49187a, a2.f49191e, a2.f49188b, a2.f49193g, a2.j, aVar);
         }
-        if (!f45522e || c2) {
+        if (!f49196e || c2) {
             return;
         }
         Log.e("SwanHistoryManager", "addHistoryAsync Failed!");
@@ -142,7 +142,7 @@ public class c implements d.a.l0.a.m.c {
             jSONArray.put(jSONObject2);
             jSONObject.put("items", jSONArray);
         } catch (JSONException e2) {
-            if (f45522e) {
+            if (f49196e) {
                 e2.printStackTrace();
             }
         }
@@ -155,17 +155,17 @@ public class c implements d.a.l0.a.m.c {
         if (TextUtils.isEmpty(d2)) {
             return;
         }
-        if (f45522e) {
+        if (f49196e) {
             Log.d("SwanHistoryManager", "reportHistoryDataToServer: 上行参数" + d2);
         }
         b bVar = new b(aVar);
         d.a.l0.m.d.a aVar2 = new d.a.l0.m.d.a();
-        aVar2.f47970b = "POST";
-        aVar2.f47969a = c2;
-        aVar2.f47974f = true;
-        aVar2.f47975g = true;
-        aVar2.f47972d = RequestBody.create(f.f43693a, d2);
-        aVar2.f47973e = bVar;
+        aVar2.f51644b = "POST";
+        aVar2.f51643a = c2;
+        aVar2.f51648f = true;
+        aVar2.f51649g = true;
+        aVar2.f51646d = RequestBody.create(f.f47369a, d2);
+        aVar2.f51647e = bVar;
         d.a.l0.m.e.a.g().e(aVar2);
     }
 }

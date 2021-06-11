@@ -20,10 +20,10 @@ public class SwanApiNetworkV8Module {
 
     @JavascriptInterface
     public String request(JsObject jsObject) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Request", "request: jsObject");
         }
         d.a.l0.a.u.h.b L = this.requestApi.L(jsObject);
-        return L == null ? "" : L.b();
+        return L == null ? "" : L.a();
     }
 }

@@ -9,29 +9,29 @@ import com.win.opensdk.core.Info;
 public class m0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f37080a;
+    public View f40759a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37081b;
+    public boolean f40760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public l0 f37082c;
+    public l0 f40761c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Info f37083d;
+    public Info f40762d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f37084e = new j0(this, Looper.getMainLooper());
+    public Handler f40763e = new j0(this, Looper.getMainLooper());
 
     public void a(View view, Info info, l0 l0Var) {
-        this.f37080a = view;
-        this.f37082c = l0Var;
-        this.f37083d = info;
+        this.f40759a = view;
+        this.f40761c = l0Var;
+        this.f40762d = info;
         try {
-            if (!this.f37081b) {
-                this.f37084e.sendEmptyMessage(1101);
+            if (!this.f40760b) {
+                this.f40763e.sendEmptyMessage(1101);
             }
-            this.f37080a.getViewTreeObserver().addOnScrollChangedListener(new k0(this, l0Var));
+            this.f40759a.getViewTreeObserver().addOnScrollChangedListener(new k0(this, l0Var));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -48,9 +48,9 @@ public class m0 {
             return false;
         }
         Rect rect = new Rect();
-        if (view.getGlobalVisibleRect(rect) && this.f37083d != null) {
-            if (rect.width() >= this.f37083d.getSper() * view.getMeasuredWidth()) {
-                if (rect.height() >= this.f37083d.getSper() * view.getMeasuredHeight()) {
+        if (view.getGlobalVisibleRect(rect) && this.f40762d != null) {
+            if (rect.width() >= this.f40762d.getSper() * view.getMeasuredWidth()) {
+                if (rect.height() >= this.f40762d.getSper() * view.getMeasuredHeight()) {
                     z = false;
                     return z;
                 }

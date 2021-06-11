@@ -10,7 +10,7 @@ import com.xiaomi.mipush.sdk.Constants;
 public class b implements a<PMSAppInfo> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f47989a = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+    public static final int f51663a = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
 
     @Override // d.a.l0.n.g.d.a
     public void a(SQLiteDatabase sQLiteDatabase) {
@@ -75,7 +75,7 @@ public class b implements a<PMSAppInfo> {
 
     public final void i(SQLiteDatabase sQLiteDatabase) {
         try {
-            sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD pay_protected INTEGER default " + f47989a + ";");
+            sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD pay_protected INTEGER default " + f51663a + ";");
         } catch (SQLException unused) {
         }
     }

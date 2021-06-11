@@ -26,31 +26,31 @@ import tbclient.UserBfbInfo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public CreateBarGuideActivity f63589a;
+    public CreateBarGuideActivity f67307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f63590b;
+    public View f67308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f63591c;
+    public View f67309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f63592d;
+    public NoNetworkView f67310d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoDataView f63593e;
+    public NoDataView f67311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f63594f;
+    public NavigationBar f67312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f63595g;
+    public TextView f67313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f63596h;
+    public TextView f67314h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f63597i;
+    public TextView f67315i;
     public LinearLayout j;
     public TbImageView k;
     public UserBfbInfo l;
@@ -58,23 +58,23 @@ public class a {
 
     /* renamed from: d.a.n0.z0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1754a implements View.OnClickListener {
-        public View$OnClickListenerC1754a() {
+    public class View$OnClickListenerC1812a implements View.OnClickListener {
+        public View$OnClickListenerC1812a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.l != null) {
                 if (a.this.l.res_no.intValue() == 9528) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(a.this.f63589a.getActivity(), a.this.m, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(a.this.f67307a.getActivity(), a.this.m, true)));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(a.this.f63589a.getActivity(), a.this.m, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(a.this.f67307a.getActivity(), a.this.m, true)));
                 }
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(a.this.f63589a.getActivity(), a.this.m, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(a.this.f67307a.getActivity(), a.this.m, true)));
             }
             TiebaStatic.log("c11223");
-            a.this.f63589a.finish();
+            a.this.f67307a.finish();
         }
     }
 
@@ -89,73 +89,73 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (a.this.l != null) {
                 if (a.this.l.res_no.intValue() == 9528) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(a.this.f63589a.getActivity(), a.this.m, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(a.this.f67307a.getActivity(), a.this.m, true)));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(a.this.f63589a.getActivity(), a.this.m, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(a.this.f67307a.getActivity(), a.this.m, true)));
                 }
             }
         }
     }
 
     public a(CreateBarGuideActivity createBarGuideActivity) {
-        this.f63589a = createBarGuideActivity;
+        this.f67307a = createBarGuideActivity;
         View inflate = LayoutInflater.from(createBarGuideActivity.getPageContext().getPageActivity()).inflate(R.layout.create_bar_guide_activity, (ViewGroup) null);
-        this.f63590b = inflate;
-        this.f63589a.setContentView(inflate);
-        this.f63591c = this.f63590b.findViewById(R.id.body_view);
-        NavigationBar navigationBar = (NavigationBar) this.f63590b.findViewById(R.id.view_navigation_bar);
-        this.f63594f = navigationBar;
+        this.f67308b = inflate;
+        this.f67307a.setContentView(inflate);
+        this.f67309c = this.f67308b.findViewById(R.id.body_view);
+        NavigationBar navigationBar = (NavigationBar) this.f67308b.findViewById(R.id.view_navigation_bar);
+        this.f67312f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f63594f.setTitleText(R.string.create_bar);
-        this.f63592d = (NoNetworkView) this.f63590b.findViewById(R.id.view_no_network);
-        this.f63596h = (TextView) this.f63590b.findViewById(R.id.text_forum_name);
-        this.f63595g = (TextView) this.f63590b.findViewById(R.id.text_forum_create);
-        this.k = (TbImageView) this.f63590b.findViewById(R.id.status_icon);
-        this.f63595g.setOnClickListener(new View$OnClickListenerC1754a());
-        this.f63597i = (TextView) this.f63590b.findViewById(R.id.text_create_need);
-        this.j = (LinearLayout) this.f63590b.findViewById(R.id.need_desc_layout);
+        this.f67312f.setTitleText(R.string.create_bar);
+        this.f67310d = (NoNetworkView) this.f67308b.findViewById(R.id.view_no_network);
+        this.f67314h = (TextView) this.f67308b.findViewById(R.id.text_forum_name);
+        this.f67313g = (TextView) this.f67308b.findViewById(R.id.text_forum_create);
+        this.k = (TbImageView) this.f67308b.findViewById(R.id.status_icon);
+        this.f67313g.setOnClickListener(new View$OnClickListenerC1812a());
+        this.f67315i = (TextView) this.f67308b.findViewById(R.id.text_create_need);
+        this.j = (LinearLayout) this.f67308b.findViewById(R.id.need_desc_layout);
         MessageManager.getInstance().registerListener(new b(2016458));
     }
 
     public View d() {
-        return this.f63590b;
+        return this.f67308b;
     }
 
     public void e() {
-        this.f63591c.setVisibility(8);
+        this.f67309c.setVisibility(8);
     }
 
     public void f() {
-        d.a.m0.s0.a.a(this.f63589a.getPageContext(), this.f63590b);
-        NavigationBar navigationBar = this.f63594f;
+        d.a.m0.s0.a.a(this.f67307a.getPageContext(), this.f67308b);
+        NavigationBar navigationBar = this.f67312f;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.f63589a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            navigationBar.onChangeSkinType(this.f67307a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
-        NoNetworkView noNetworkView = this.f63592d;
+        NoNetworkView noNetworkView = this.f67310d;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f63589a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            noNetworkView.c(this.f67307a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
-        NoDataView noDataView = this.f63593e;
+        NoDataView noDataView = this.f67311e;
         if (noDataView != null) {
-            noDataView.f(this.f63589a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            noDataView.f(this.f67307a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void g() {
-        this.f63591c.setVisibility(0);
+        this.f67309c.setVisibility(0);
     }
 
     public void h(String str, UserBfbInfo userBfbInfo) {
         this.m = str;
         this.l = userBfbInfo;
-        if (this.f63593e == null) {
-            int g2 = l.g(this.f63589a.getActivity(), R.dimen.ds100);
-            NoDataView a2 = NoDataViewFactory.a(this.f63589a.getPageContext().getPageActivity(), (LinearLayout) this.f63590b.findViewById(R.id.emotion_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, g2), null, null);
-            this.f63593e = a2;
+        if (this.f67311e == null) {
+            int g2 = l.g(this.f67307a.getActivity(), R.dimen.ds100);
+            NoDataView a2 = NoDataViewFactory.a(this.f67307a.getPageContext().getPageActivity(), (LinearLayout) this.f67308b.findViewById(R.id.emotion_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, g2), null, null);
+            this.f67311e = a2;
             a2.setVisibility(0);
             f();
         }
-        TextView textView = this.f63596h;
+        TextView textView = this.f67314h;
         textView.setText(this.m + "吧");
         UserBfbInfo userBfbInfo2 = this.l;
         if (userBfbInfo2 != null && userBfbInfo2.res_no.intValue() == 9528) {
@@ -165,10 +165,10 @@ public class a {
                 this.k.setImageResource(R.drawable.icon_create_complete_n);
             }
         } else {
-            this.f63597i.setVisibility(4);
+            this.f67315i.setVisibility(4);
             this.j.setVisibility(4);
         }
-        this.f63597i.setVisibility(8);
+        this.f67315i.setVisibility(8);
         this.j.setVisibility(8);
     }
 }

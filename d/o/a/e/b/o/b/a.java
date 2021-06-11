@@ -9,26 +9,26 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, c> f67452a;
+    public final Map<String, c> f71238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, d> f67453b;
+    public final Map<String, d> f71239b;
 
     /* loaded from: classes7.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f67454a = new a();
+        public static final a f71240a = new a();
     }
 
     public static a a() {
-        return b.f67454a;
+        return b.f71240a;
     }
 
     public c b(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
         c remove;
-        synchronized (this.f67452a) {
-            remove = this.f67452a.remove(str);
+        synchronized (this.f71238a) {
+            remove = this.f71238a.remove(str);
         }
         if (remove != null) {
             if (e.Q(remove.k(), list)) {
@@ -55,13 +55,13 @@ public class a {
     }
 
     public void d(String str, c cVar) {
-        synchronized (this.f67452a) {
-            this.f67452a.put(str, cVar);
+        synchronized (this.f71238a) {
+            this.f71238a.put(str, cVar);
         }
     }
 
     public boolean e(String str) {
-        c cVar = this.f67452a.get(str);
+        c cVar = this.f71238a.get(str);
         if (cVar != null) {
             if (cVar.j()) {
                 return true;
@@ -73,8 +73,8 @@ public class a {
 
     public d f(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
         d remove;
-        synchronized (this.f67453b) {
-            remove = this.f67453b.remove(str);
+        synchronized (this.f71239b) {
+            remove = this.f71239b.remove(str);
         }
         if (remove != null) {
             if (e.Q(remove.f(), list)) {
@@ -98,7 +98,7 @@ public class a {
     }
 
     public a() {
-        this.f67452a = new HashMap();
-        this.f67453b = new LinkedHashMap(3);
+        this.f71238a = new HashMap();
+        this.f71239b = new LinkedHashMap(3);
     }
 }

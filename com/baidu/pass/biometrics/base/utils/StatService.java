@@ -10,6 +10,7 @@ import com.baidu.pass.http.HttpResponseHandler;
 import com.baidu.pass.http.PassHttpClient;
 import com.baidu.pass.http.PassHttpParamDTO;
 import com.baidu.pass.http.ReqPriority;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,14 +20,14 @@ public final class StatService {
     public static final String TAG = "StatService";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f9005a;
+    public static final Map<String, String> f9067a;
 
     static {
         HashMap hashMap = new HashMap();
-        f9005a = hashMap;
+        f9067a = hashMap;
         hashMap.put("pid", "111");
-        f9005a.put("type", "1023");
-        f9005a.put("device", "android");
+        f9067a.put("type", "1023");
+        f9067a.put("device", "android");
     }
 
     public static void onEvent(Context context, String str, Map<String, String> map) {
@@ -36,7 +37,7 @@ public final class StatService {
         try {
             if (NetworkUtils.isNetworkAvailable(context)) {
                 HashMap hashMap = new HashMap();
-                hashMap.putAll(f9005a);
+                hashMap.putAll(f9067a);
                 map.put("v", String.valueOf(System.currentTimeMillis()));
                 hashMap.put("name", str);
                 hashMap.put("model", Build.MODEL);
@@ -44,7 +45,7 @@ public final class StatService {
                 hashMap.put("clientfrom", "mobilesdk_enhanced");
                 hashMap.put("app_version", PassBioBaseUtil.getVersionName(context));
                 hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, PassBiometricDefaultFactory.VERSION_NAME);
-                hashMap.put("cuid", PassBioBaseUtil.getClientId(context));
+                hashMap.put("cuid", SapiUtils.getClientId(context));
                 hashMap.put("v", String.valueOf(System.currentTimeMillis()));
                 if (map != null) {
                     for (Map.Entry<String, String> entry : map.entrySet()) {

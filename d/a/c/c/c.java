@@ -3,5 +3,5 @@ package d.a.c.c;
 public interface c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f38315a = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
+    public static final int[] f41968a = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
 }

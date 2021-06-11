@@ -35,62 +35,62 @@ import org.json.JSONObject;
 public class b implements QRCodeView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.a.n0.q2.a.a f58320a;
+    public final d.a.n0.q2.a.a f62011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final TbPageContext f58321b;
+    public final TbPageContext f62012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f58322c;
+    public f f62013c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.n0.m3.c f58323d;
+    public d.a.n0.m3.c f62014d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f58324e;
+    public e f62015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f58325f;
+    public boolean f62016f;
 
     /* loaded from: classes5.dex */
     public class a implements c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f58326a;
+        public final /* synthetic */ String f62017a;
 
         public a(String str) {
-            this.f58326a = str;
+            this.f62017a = str;
         }
 
         @Override // d.a.n0.m3.c.a
         public void a() {
-            b.this.f58320a.viewHideLoading();
-            b.this.f58320a.showRiskForbidDialog();
+            b.this.f62011a.viewHideLoading();
+            b.this.f62011a.showRiskForbidDialog();
         }
 
         @Override // d.a.n0.m3.c.a
         public void b() {
-            b.this.f58320a.viewHideLoading();
-            b.this.f58320a.showJumpExternalDialog(this.f58326a);
+            b.this.f62011a.viewHideLoading();
+            b.this.f62011a.showJumpExternalDialog(this.f62017a);
         }
 
         @Override // d.a.n0.m3.c.a
         public void c() {
-            b.this.f58320a.viewHideLoading();
-            b.this.j(this.f58326a);
+            b.this.f62011a.viewHideLoading();
+            b.this.j(this.f62017a);
         }
 
         @Override // d.a.n0.m3.c.a
         public void onError(String str) {
-            b.this.f58320a.viewHideLoading();
-            b.this.f58320a.setErrorView();
+            b.this.f62011a.viewHideLoading();
+            b.this.f62011a.setErrorView();
         }
     }
 
     /* renamed from: d.a.n0.q2.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1484b implements e.a {
-        public C1484b() {
+    public class C1540b implements e.a {
+        public C1540b() {
         }
 
         @Override // d.a.n0.q2.a.b.e.a
@@ -102,7 +102,7 @@ public class b implements QRCodeView.c {
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            b.this.f58320a.showGalleryLastImageTip(str, str2);
+            b.this.f62011a.showGalleryLastImageTip(str, str2);
         }
     }
 
@@ -110,17 +110,17 @@ public class b implements QRCodeView.c {
     public class c implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f58329a;
+        public final /* synthetic */ String f62020a;
 
         public c(String str) {
-            this.f58329a = str;
+            this.f62020a = str;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, URLDecoder.decode(this.f58329a, "UTF-8")));
-                b.this.f58321b.getPageActivity().finish();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, URLDecoder.decode(this.f62020a, "UTF-8")));
+                b.this.f62012b.getPageActivity().finish();
             } catch (UnsupportedEncodingException unused) {
             }
         }
@@ -165,10 +165,10 @@ public class b implements QRCodeView.c {
     public static class e extends BdAsyncTask<String, Void, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f58332a;
+        public String f62023a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f58333b;
+        public a f62024b;
 
         /* loaded from: classes5.dex */
         public interface a {
@@ -176,7 +176,7 @@ public class b implements QRCodeView.c {
         }
 
         public e(a aVar) {
-            this.f58333b = aVar;
+            this.f62024b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -186,7 +186,7 @@ public class b implements QRCodeView.c {
                 return null;
             }
             String str = strArr[0];
-            this.f58332a = str;
+            this.f62023a = str;
             return d.a.n0.q2.b.b.a.c(str);
         }
 
@@ -194,9 +194,9 @@ public class b implements QRCodeView.c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((e) str);
-            a aVar = this.f58333b;
+            a aVar = this.f62024b;
             if (aVar != null) {
-                aVar.a(this.f58332a, str);
+                aVar.a(this.f62023a, str);
             }
         }
     }
@@ -209,7 +209,7 @@ public class b implements QRCodeView.c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            b.this.f58320a.viewShowLoading();
+            b.this.f62011a.viewShowLoading();
         }
 
         public /* synthetic */ f(b bVar, a aVar) {
@@ -229,43 +229,43 @@ public class b implements QRCodeView.c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((f) str);
-            b.this.f58320a.viewHideLoading();
+            b.this.f62011a.viewHideLoading();
             b.this.b(str);
         }
     }
 
     public b(d.a.n0.q2.a.a aVar, TbPageContext tbPageContext) {
-        this.f58320a = aVar;
-        this.f58321b = tbPageContext;
+        this.f62011a = aVar;
+        this.f62012b = tbPageContext;
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.c
     public void a() {
-        l.L(this.f58321b.getPageActivity(), R.string.disallow_camera_permission);
-        this.f58321b.getPageActivity().finish();
+        l.L(this.f62012b.getPageActivity(), R.string.disallow_camera_permission);
+        this.f62012b.getPageActivity().finish();
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.c
     public void b(String str) {
         if (StringUtils.isNull(str)) {
-            this.f58320a.viewHideLoading();
-            this.f58320a.setErrorView();
-        } else if (this.f58325f) {
+            this.f62011a.viewHideLoading();
+            this.f62011a.setErrorView();
+        } else if (this.f62016f) {
             Intent intent = new Intent();
             intent.putExtra(QRCodeScanActivityConfig.RESULT_SCAN_CODE, str);
-            this.f58321b.getPageActivity().setResult(-1, intent);
-            this.f58321b.getPageActivity().finish();
+            this.f62012b.getPageActivity().setResult(-1, intent);
+            this.f62012b.getPageActivity().finish();
         } else if (k(str)) {
-            this.f58320a.viewHideLoading();
+            this.f62011a.viewHideLoading();
         } else if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
-            this.f58320a.viewHideLoading();
+            this.f62011a.viewHideLoading();
             i(str);
         } else if (l(str)) {
-            this.f58320a.viewHideLoading();
-            this.f58321b.getPageActivity().finish();
+            this.f62011a.viewHideLoading();
+            this.f62012b.getPageActivity().finish();
         } else if (!StringHelper.isNetworkUrl(str)) {
-            this.f58320a.viewHideLoading();
-            this.f58320a.setErrorView();
+            this.f62011a.viewHideLoading();
+            this.f62011a.setErrorView();
         } else {
             m(str);
         }
@@ -335,55 +335,55 @@ public class b implements QRCodeView.c {
     }
 
     public void g() {
-        TbPageContext tbPageContext = this.f58321b;
+        TbPageContext tbPageContext = this.f62012b;
         if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
             return;
         }
-        if (Build.VERSION.SDK_INT < 23 || (this.f58321b.getPageActivity().checkSelfPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION) == 0 && this.f58321b.getPageActivity().checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0)) {
-            String f2 = f(this.f58321b.getPageActivity().getContentResolver());
+        if (Build.VERSION.SDK_INT < 23 || (this.f62012b.getPageActivity().checkSelfPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION) == 0 && this.f62012b.getPageActivity().checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0)) {
+            String f2 = f(this.f62012b.getPageActivity().getContentResolver());
             if (TextUtils.isEmpty(f2) || f2.endsWith(".gif") || f2.endsWith(".GIF") || f2.equals(d.a.m0.r.d0.b.j().p("key_gallery_last_image_path", null))) {
                 return;
             }
-            e eVar = this.f58324e;
+            e eVar = this.f62015e;
             if (eVar != null) {
                 eVar.cancel();
             }
-            e eVar2 = new e(new C1484b());
-            this.f58324e = eVar2;
+            e eVar2 = new e(new C1540b());
+            this.f62015e = eVar2;
             eVar2.execute(f2);
         }
     }
 
     public void h() {
-        d.a.n0.m3.c cVar = this.f58323d;
+        d.a.n0.m3.c cVar = this.f62014d;
         if (cVar != null && !cVar.isCancelled()) {
-            this.f58323d.cancel();
+            this.f62014d.cancel();
         }
-        f fVar = this.f58322c;
+        f fVar = this.f62013c;
         if (fVar != null) {
             fVar.cancel();
-            this.f58322c = null;
+            this.f62013c = null;
         }
-        e eVar = this.f58324e;
+        e eVar = this.f62015e;
         if (eVar != null) {
             eVar.cancel();
-            this.f58324e = null;
+            this.f62015e = null;
         }
     }
 
     public final void i(String str) {
-        CookieSyncManager.createInstance(this.f58321b.getPageActivity());
+        CookieSyncManager.createInstance(this.f62012b.getPageActivity());
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
         cookieManager.setCookie("feedavatar.baidu.com", "cuid=" + TbadkCoreApplication.getInst().getCuid() + ";");
         cookieManager.setCookie("feedavatar.baidu.com", "tiebaapp=1;");
         CookieSyncManager.getInstance().sync();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f58321b.getPageActivity(), null, str, false)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f62012b.getPageActivity(), null, str, false)));
     }
 
     public void j(String str) {
-        UrlManager.getInstance().dealOneLink(this.f58321b, new String[]{str});
-        this.f58321b.getPageActivity().finish();
+        UrlManager.getInstance().dealOneLink(this.f62012b, new String[]{str});
+        this.f62012b.getPageActivity().finish();
     }
 
     public final boolean k(String str) {
@@ -408,49 +408,49 @@ public class b implements QRCodeView.c {
 
     public final void m(String str) {
         if (!l.D()) {
-            this.f58320a.viewHideLoading();
-            l.M(this.f58321b.getPageActivity(), this.f58321b.getResources().getString(R.string.network_not_available));
+            this.f62011a.viewHideLoading();
+            l.M(this.f62012b.getPageActivity(), this.f62012b.getResources().getString(R.string.network_not_available));
             return;
         }
-        d.a.n0.m3.c cVar = this.f58323d;
+        d.a.n0.m3.c cVar = this.f62014d;
         if (cVar != null && !cVar.isCancelled()) {
-            this.f58323d.cancel();
+            this.f62014d.cancel();
         }
         d.a.n0.m3.c cVar2 = new d.a.n0.m3.c(str, new a(str));
-        this.f58323d = cVar2;
+        this.f62014d = cVar2;
         cVar2.setPriority(3);
-        this.f58323d.execute(new String[0]);
+        this.f62014d.execute(new String[0]);
     }
 
     public void n(String str) {
         if (StringUtils.isNull(str)) {
             return;
         }
-        this.f58320a.viewShowLoading();
-        f fVar = this.f58322c;
+        this.f62011a.viewShowLoading();
+        f fVar = this.f62013c;
         if (fVar != null) {
             fVar.cancel();
         }
         f fVar2 = new f(this, null);
-        this.f58322c = fVar2;
+        this.f62013c = fVar2;
         fVar2.execute(str);
     }
 
     public void o(boolean z) {
-        this.f58325f = z;
+        this.f62016f = z;
     }
 
     public final void p(String str) {
         if (!StringUtils.isNull(str) && str.startsWith("tiebaclient:")) {
             if (Build.VERSION.SDK_INT <= 21) {
-                l.L(this.f58321b.getPageActivity(), R.string.ai_apps_not_support);
+                l.L(this.f62012b.getPageActivity(), R.string.ai_apps_not_support);
                 return;
             }
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(this.f58321b.getPageActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            permissionJudgePolicy.appendRequestPermission(this.f62012b.getPageActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
             permissionJudgePolicy.setOnPermissionsGrantedListener(new c(str));
-            permissionJudgePolicy.startRequestPermission(this.f58321b.getPageActivity());
+            permissionJudgePolicy.startRequestPermission(this.f62012b.getPageActivity());
         }
     }
 }

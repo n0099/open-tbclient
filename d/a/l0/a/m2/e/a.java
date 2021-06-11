@@ -19,23 +19,23 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43503a = k.f43199a;
+    public static final boolean f47179a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static C0746a f43504b;
+    public static C0802a f47180b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static C0746a f43505c;
+    public static C0802a f47181c;
 
     /* renamed from: d.a.l0.a.m2.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0746a {
+    public static class C0802a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f43506a;
+        public String f47182a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f43507b;
+        public long f47183b;
 
         public static String b(int i2) {
             return i2 == 1 ? "game-core-version-code" : "swan-core-version-code";
@@ -45,21 +45,21 @@ public final class a {
             return i2 == 1 ? "game-core-version-name" : "swan-core-version-name";
         }
 
-        public static C0746a f(JSONObject jSONObject, int i2) {
-            C0746a c0746a = new C0746a();
+        public static C0802a f(JSONObject jSONObject, int i2) {
+            C0802a c0802a = new C0802a();
             if (jSONObject != null) {
-                c0746a.f43506a = jSONObject.optString(c(i2));
-                c0746a.f43507b = jSONObject.optLong(b(i2));
+                c0802a.f47182a = jSONObject.optString(c(i2));
+                c0802a.f47183b = jSONObject.optLong(b(i2));
             }
-            return c0746a;
+            return c0802a;
         }
 
         public long d() {
-            return this.f43507b;
+            return this.f47183b;
         }
 
         public String e() {
-            return TextUtils.isEmpty(this.f43506a) ? "0" : this.f43506a;
+            return TextUtils.isEmpty(this.f47182a) ? "0" : this.f47182a;
         }
     }
 
@@ -80,33 +80,33 @@ public final class a {
         h.a().putLong(o(i2), 0L);
     }
 
-    public static Exception c(C0746a c0746a, int i2) {
+    public static Exception c(C0802a c0802a, int i2) {
         d.h("PresetSwanCoreControl", "doPresetUpdate.");
-        if (c0746a == null) {
+        if (c0802a == null) {
             return new Exception("preset swan config is null");
         }
         String h2 = h(i2);
-        String path = l(c0746a.d(), i2).getPath();
+        String path = l(c0802a.d(), i2).getPath();
         if (!d.a.l0.t.d.U(h2, path)) {
             Exception exc = new Exception("PresetSwanCoreControl doPresetUpdate: failed by unzip file path = " + h2);
             d.h("PresetSwanCoreControl", "doPresetUpdate unzip failed assetExists: " + d.a.l0.a.v2.h.a(AppRuntime.getAppContext(), h2) + ";" + exc);
             boolean a2 = a(path);
             if (i2 == 0 && Looper.myLooper() != Looper.getMainLooper() && !e.w() && !a2) {
                 d.h("PresetSwanCoreControl", "doSwanFolderFallback:start.");
-                e.e("swan_core" + File.separator + "preset" + File.separator + c0746a.d());
+                e.e("swan_core" + File.separator + "preset" + File.separator + c0802a.d());
             }
             return exc;
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.add(Long.valueOf(c0746a.d()));
+        arrayList.add(Long.valueOf(c0802a.d()));
         d.a.l0.a.m2.b.b(j(i2), arrayList);
-        h.a().putLong(o(i2), c0746a.d());
-        h.a().putString(p(i2), c0746a.e());
+        h.a().putLong(o(i2), c0802a.d());
+        h.a().putString(p(i2), c0802a.e());
         if (i2 == 0) {
-            SwanJSVersionUpdateEvent.sendEvent(c0746a.d());
+            SwanJSVersionUpdateEvent.sendEvent(c0802a.d());
         }
         v(false, i2);
-        if (f43503a) {
+        if (f47179a) {
             String b2 = f.b(new File(h(i2)), false);
             if (TextUtils.isEmpty(b2)) {
                 return null;
@@ -117,11 +117,11 @@ public final class a {
         return null;
     }
 
-    public static C0746a d() {
-        if (f43504b == null) {
-            f43504b = C0746a.f(u(0), 0);
+    public static C0802a d() {
+        if (f47180b == null) {
+            f47180b = C0802a.f(u(0), 0);
         }
-        return f43504b;
+        return f47180b;
     }
 
     public static String e(int i2) {
@@ -140,18 +140,18 @@ public final class a {
         return i2 == 1 ? "aigames/game-core.zip" : "aiapps/swan-core.zip";
     }
 
-    public static C0746a i() {
-        if (f43505c == null) {
-            f43505c = C0746a.f(u(1), 1);
+    public static C0802a i() {
+        if (f47181c == null) {
+            f47181c = C0802a.f(u(1), 1);
         }
-        return f43505c;
+        return f47181c;
     }
 
     public static File j(int i2) {
         return new File(d.a.l0.a.m2.b.d(i2), "preset");
     }
 
-    public static C0746a k(int i2) {
+    public static C0802a k(int i2) {
         if (i2 == 1) {
             return i();
         }
@@ -184,7 +184,7 @@ public final class a {
     }
 
     public static boolean q(int i2) {
-        if (k(i2).f43507b > 0) {
+        if (k(i2).f47183b > 0) {
             return h.a().getBoolean(n(i2), false) || !m(i2).a();
         }
         return false;
@@ -196,11 +196,11 @@ public final class a {
 
     public static synchronized void s(int i2) {
         synchronized (a.class) {
-            C0746a k = k(i2);
+            C0802a k = k(i2);
             String h2 = h(i2);
             String path = l(k.d(), i2).getPath();
             boolean y = d.a.l0.t.d.y(h2, path);
-            if (f43503a) {
+            if (f47179a) {
                 Log.d("PresetSwanCoreControl", "isZipAssetMatchUnzipResult:" + y + ",path:" + path);
             }
             if (!y) {
@@ -213,13 +213,13 @@ public final class a {
 
     public static synchronized Exception t(int i2) {
         synchronized (a.class) {
-            if (f43503a) {
+            if (f47179a) {
                 Log.d("PresetSwanCoreControl", "onPresetUpdate start.");
             }
             if (q(i2)) {
-                C0746a k = k(i2);
+                C0802a k = k(i2);
                 long j = h.a().getLong(h(i2), 0L);
-                if (f43503a) {
+                if (f47179a) {
                     Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + k.e());
                 }
                 return c(k, i2);
@@ -229,7 +229,7 @@ public final class a {
     }
 
     public static JSONObject u(int i2) {
-        if (f43503a) {
+        if (f47179a) {
             Log.d("PresetSwanCoreControl", "readPresetConfig start.");
         }
         String C = d.a.l0.t.d.C(AppRuntime.getAppContext(), e(i2));
@@ -238,12 +238,12 @@ public final class a {
         }
         try {
             JSONObject jSONObject = new JSONObject(C);
-            if (f43503a) {
+            if (f47179a) {
                 Log.d("PresetSwanCoreControl", "readPresetConfig end. config: " + jSONObject.toString());
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (f43503a) {
+            if (f47179a) {
                 throw new RuntimeException(e2);
             }
             return null;

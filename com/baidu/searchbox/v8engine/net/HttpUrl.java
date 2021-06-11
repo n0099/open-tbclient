@@ -14,33 +14,33 @@ import kotlin.text.Typography;
 public final class HttpUrl {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f10019d = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final char[] f10081d = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f10020a;
+    public final String f10082a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f10021b;
+    public final String f10083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f10022c;
+    public final int f10084c;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f10023e;
+    public final String f10085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f10024f;
+    public final String f10086f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<String> f10025g;
+    public final List<String> f10087g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f10026h;
+    public final String f10088h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f10027i;
+    public final String f10089i;
 
     /* loaded from: classes2.dex */
     public static final class Builder {
@@ -309,18 +309,18 @@ public final class HttpUrl {
                     throw new IllegalArgumentException("Expected URL scheme 'http' or 'https' but was '" + str.substring(0, schemeDelimiterOffset) + "'");
                 }
             } else if (httpUrl != null) {
-                this.scheme = httpUrl.f10020a;
+                this.scheme = httpUrl.f10082a;
             } else {
                 throw new IllegalArgumentException("Expected URL scheme 'http' or 'https' but no colon was found");
             }
             int slashCount = slashCount(str, a3, b2);
             char c2 = '?';
             char c3 = '#';
-            if (slashCount < 2 && httpUrl != null && httpUrl.f10020a.equals(this.scheme)) {
+            if (slashCount < 2 && httpUrl != null && httpUrl.f10082a.equals(this.scheme)) {
                 this.encodedUsername = httpUrl.a();
                 this.encodedPassword = httpUrl.b();
-                this.host = httpUrl.f10021b;
-                this.port = httpUrl.f10022c;
+                this.host = httpUrl.f10083b;
+                this.port = httpUrl.f10084c;
                 this.encodedPathSegments.clear();
                 this.encodedPathSegments.addAll(httpUrl.c());
                 if (a3 == b2 || str.charAt(a3) == '#') {
@@ -447,44 +447,44 @@ public final class HttpUrl {
     }
 
     public HttpUrl(Builder builder) {
-        this.f10020a = builder.scheme;
-        this.f10023e = a(builder.encodedUsername, false);
-        this.f10024f = a(builder.encodedPassword, false);
-        this.f10021b = builder.host;
-        this.f10022c = builder.effectivePort();
+        this.f10082a = builder.scheme;
+        this.f10085e = a(builder.encodedUsername, false);
+        this.f10086f = a(builder.encodedPassword, false);
+        this.f10083b = builder.host;
+        this.f10084c = builder.effectivePort();
         List<String> list = builder.encodedQueryNamesAndValues;
-        this.f10025g = list != null ? a(list, true) : null;
+        this.f10087g = list != null ? a(list, true) : null;
         String str = builder.encodedFragment;
-        this.f10026h = str != null ? a(str, false) : null;
-        this.f10027i = builder.toString();
+        this.f10088h = str != null ? a(str, false) : null;
+        this.f10089i = builder.toString();
     }
 
     public String a() {
-        if (this.f10023e.isEmpty()) {
+        if (this.f10085e.isEmpty()) {
             return "";
         }
-        int length = this.f10020a.length() + 3;
-        String str = this.f10027i;
-        return this.f10027i.substring(length, b.a(str, length, str.length(), ":@"));
+        int length = this.f10082a.length() + 3;
+        String str = this.f10089i;
+        return this.f10089i.substring(length, b.a(str, length, str.length(), ":@"));
     }
 
     public String b() {
-        if (this.f10024f.isEmpty()) {
+        if (this.f10086f.isEmpty()) {
             return "";
         }
-        int indexOf = this.f10027i.indexOf(64);
-        return this.f10027i.substring(this.f10027i.indexOf(58, this.f10020a.length() + 3) + 1, indexOf);
+        int indexOf = this.f10089i.indexOf(64);
+        return this.f10089i.substring(this.f10089i.indexOf(58, this.f10082a.length() + 3) + 1, indexOf);
     }
 
     public List<String> c() {
-        int indexOf = this.f10027i.indexOf(47, this.f10020a.length() + 3);
-        String str = this.f10027i;
+        int indexOf = this.f10089i.indexOf(47, this.f10082a.length() + 3);
+        String str = this.f10089i;
         int a2 = b.a(str, indexOf, str.length(), "?#");
         ArrayList arrayList = new ArrayList();
         while (indexOf < a2) {
             int i2 = indexOf + 1;
-            int a3 = b.a(this.f10027i, i2, a2, '/');
-            arrayList.add(this.f10027i.substring(i2, a3));
+            int a3 = b.a(this.f10089i, i2, a2, '/');
+            arrayList.add(this.f10089i.substring(i2, a3));
             indexOf = a3;
         }
         return arrayList;
@@ -492,33 +492,33 @@ public final class HttpUrl {
 
     @Nullable
     public String d() {
-        if (this.f10025g == null) {
+        if (this.f10087g == null) {
             return null;
         }
-        int indexOf = this.f10027i.indexOf(63) + 1;
-        String str = this.f10027i;
-        return this.f10027i.substring(indexOf, b.a(str, indexOf, str.length(), '#'));
+        int indexOf = this.f10089i.indexOf(63) + 1;
+        String str = this.f10089i;
+        return this.f10089i.substring(indexOf, b.a(str, indexOf, str.length(), '#'));
     }
 
     @Nullable
     public String e() {
-        if (this.f10026h == null) {
+        if (this.f10088h == null) {
             return null;
         }
-        return this.f10027i.substring(this.f10027i.indexOf(35) + 1);
+        return this.f10089i.substring(this.f10089i.indexOf(35) + 1);
     }
 
     public boolean equals(@Nullable Object obj) {
-        return (obj instanceof HttpUrl) && ((HttpUrl) obj).f10027i.equals(this.f10027i);
+        return (obj instanceof HttpUrl) && ((HttpUrl) obj).f10089i.equals(this.f10089i);
     }
 
     public Builder f() {
         Builder builder = new Builder();
-        builder.scheme = this.f10020a;
+        builder.scheme = this.f10082a;
         builder.encodedUsername = a();
         builder.encodedPassword = b();
-        builder.host = this.f10021b;
-        builder.port = this.f10022c != a(this.f10020a) ? this.f10022c : -1;
+        builder.host = this.f10083b;
+        builder.port = this.f10084c != a(this.f10082a) ? this.f10084c : -1;
         builder.encodedPathSegments.clear();
         builder.encodedPathSegments.addAll(c());
         builder.encodedQuery(d());
@@ -527,11 +527,11 @@ public final class HttpUrl {
     }
 
     public int hashCode() {
-        return this.f10027i.hashCode();
+        return this.f10089i.hashCode();
     }
 
     public String toString() {
-        return this.f10027i;
+        return this.f10089i;
     }
 
     public static int a(String str) {
@@ -554,7 +554,7 @@ public final class HttpUrl {
             }
             sb.append(str);
             if (str2 != null) {
-                sb.append(com.alipay.sdk.encrypt.a.f1873h);
+                sb.append(com.alipay.sdk.encrypt.a.f1886h);
                 sb.append(str2);
             }
         }
@@ -686,7 +686,7 @@ public final class HttpUrl {
                     if (aVar2 == null) {
                         aVar2 = new com.baidu.searchbox.v8engine.net.io.a();
                     }
-                    if (charset != null && !charset.equals(b.f10028a)) {
+                    if (charset != null && !charset.equals(b.f10090a)) {
                         aVar2.a(str, i2, Character.charCount(codePointAt) + i2, charset);
                     } else {
                         aVar2.a(codePointAt);
@@ -694,8 +694,8 @@ public final class HttpUrl {
                     while (!aVar2.a()) {
                         int b2 = aVar2.b() & 255;
                         aVar.b(37);
-                        aVar.b((int) f10019d[(b2 >> 4) & 15]);
-                        aVar.b((int) f10019d[b2 & 15]);
+                        aVar.b((int) f10081d[(b2 >> 4) & 15]);
+                        aVar.b((int) f10081d[b2 & 15]);
                     }
                 }
             }

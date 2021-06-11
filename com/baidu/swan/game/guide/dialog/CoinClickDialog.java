@@ -48,15 +48,15 @@ public class CoinClickDialog extends Activity {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CheckBox f11578e;
+        public final /* synthetic */ CheckBox f11640e;
 
         public a(CheckBox checkBox) {
-            this.f11578e = checkBox;
+            this.f11640e = checkBox;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f11578e.isChecked()) {
+            if (this.f11640e.isChecked()) {
                 CoinClickDialog.this.showNotShowEnsureDialog();
                 return;
             }
@@ -97,7 +97,7 @@ public class CoinClickDialog extends Activity {
                 return;
             }
             String H = d.a.l0.f.j.b.o.H();
-            if (TextUtils.equals(d.a.l0.f.j.b.o.I(), d.a.l0.f.j.m.c.f46874a)) {
+            if (TextUtils.equals(d.a.l0.f.j.b.o.I(), d.a.l0.f.j.m.c.f50548a)) {
                 H = d.a.l0.f.j.n.c.n().o();
             }
             String str = H;
@@ -137,13 +137,13 @@ public class CoinClickDialog extends Activity {
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             if (i2 == -1) {
-                if (TextUtils.equals(d.a.l0.f.j.b.o.I(), d.a.l0.f.j.m.c.f46874a)) {
+                if (TextUtils.equals(d.a.l0.f.j.b.o.I(), d.a.l0.f.j.m.c.f50548a)) {
                     d.a.l0.f.j.b.o.V(true);
                 }
                 d.a.l0.f.j.r.b.n().j("2", CoinClickDialog.this.coinsThisTime, CoinClickDialog.this.coinsTotal);
                 CoinClickDialog.this.finish();
             }
-            if (i2 == -2 && TextUtils.equals(d.a.l0.f.j.b.o.I(), d.a.l0.f.j.m.c.f46874a)) {
+            if (i2 == -2 && TextUtils.equals(d.a.l0.f.j.b.o.I(), d.a.l0.f.j.m.c.f50548a)) {
                 ((CheckBox) CoinClickDialog.this.findViewById(h.cb)).setChecked(false);
             }
         }
@@ -195,7 +195,7 @@ public class CoinClickDialog extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public void showNotShowEnsureDialog() {
         f fVar = new f(this);
-        fVar.f46877e = new d();
+        fVar.f50551e = new d();
         fVar.show();
     }
 
@@ -220,7 +220,7 @@ public class CoinClickDialog extends Activity {
             init(z);
             return;
         }
-        if (k.f43199a) {
+        if (k.f46875a) {
             Log.d(TAG, "获取到的配置信息为null");
         }
         finish();

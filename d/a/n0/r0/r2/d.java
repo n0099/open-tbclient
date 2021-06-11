@@ -31,8 +31,8 @@ public class d extends d.a.n0.z.c<y> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.h() != null) {
-                d.this.h().a(view, null);
+            if (d.this.i() != null) {
+                d.this.i().a(view, null);
             }
         }
     }
@@ -56,8 +56,8 @@ public class d extends d.a.n0.z.c<y> {
     }
 
     @Override // d.a.n0.z.c, d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        super.n(tbPageContext, i2);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        super.o(tbPageContext, i2);
         if (this.x == null || this.y == null) {
             return;
         }
@@ -65,7 +65,7 @@ public class d extends d.a.n0.z.c<y> {
         this.y.b(i2);
     }
 
-    public final boolean x(List<d.a.n0.c1.b.c> list) {
+    public final boolean y(List<d.a.n0.c1.b.c> list) {
         if (ListUtils.isEmpty(list)) {
             return false;
         }
@@ -73,7 +73,7 @@ public class d extends d.a.n0.z.c<y> {
             for (int i2 = 0; i2 < ListUtils.getCount(this.A); i2++) {
                 d.a.n0.c1.b.c cVar = (d.a.n0.c1.b.c) ListUtils.getItem(this.A, i2);
                 d.a.n0.c1.b.c cVar2 = (d.a.n0.c1.b.c) ListUtils.getItem(list, i2);
-                if ((cVar instanceof a1) && (cVar2 instanceof a1) && !((a1) cVar).f58366a.getUserId().equals(((a1) cVar2).f58366a.getUserId())) {
+                if ((cVar instanceof a1) && (cVar2 instanceof a1) && !((a1) cVar).f62057a.getUserId().equals(((a1) cVar2).f62057a.getUserId())) {
                     return true;
                 }
             }
@@ -84,9 +84,9 @@ public class d extends d.a.n0.z.c<y> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: y */
-    public void m(y yVar) {
-        super.u(yVar);
+    /* renamed from: z */
+    public void n(y yVar) {
+        super.v(yVar);
         if (yVar == null || ListUtils.isEmpty(yVar.getDataList())) {
             return;
         }
@@ -95,7 +95,7 @@ public class d extends d.a.n0.z.c<y> {
         } else {
             this.n.setText(yVar.mGroupTitle);
         }
-        if (x(yVar.getDataList())) {
+        if (y(yVar.getDataList())) {
             List<d.a.n0.c1.b.c> dataList = yVar.getDataList();
             this.A = dataList;
             this.y.c(dataList);

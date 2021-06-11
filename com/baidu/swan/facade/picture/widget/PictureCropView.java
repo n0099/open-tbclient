@@ -18,7 +18,7 @@ import com.baidu.swan.facade.picture.widget.ZoomImageView;
 import d.a.l0.a.k;
 /* loaded from: classes3.dex */
 public class PictureCropView extends PictureView {
-    public static final boolean s = k.f43199a;
+    public static final boolean s = k.f46875a;
     public Drawable n;
     public final Rect o;
     public int p;
@@ -29,17 +29,17 @@ public class PictureCropView extends PictureView {
     public class a implements ZoomImageView.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ZoomImageView f11497a;
+        public final /* synthetic */ ZoomImageView f11559a;
 
         public a(ZoomImageView zoomImageView) {
-            this.f11497a = zoomImageView;
+            this.f11559a = zoomImageView;
         }
 
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.a
         public void a(Drawable drawable) {
             PictureCropView.this.r = drawable != null;
             if (drawable != null) {
-                PictureCropView.this.q(this.f11497a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                PictureCropView.this.q(this.f11559a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             }
         }
 
@@ -47,7 +47,7 @@ public class PictureCropView extends PictureView {
         public void b(Bitmap bitmap) {
             PictureCropView.this.r = bitmap != null;
             if (bitmap != null) {
-                PictureCropView.this.q(this.f11497a, bitmap.getWidth(), bitmap.getHeight());
+                PictureCropView.this.q(this.f11559a, bitmap.getWidth(), bitmap.getHeight());
             }
         }
     }
@@ -56,15 +56,15 @@ public class PictureCropView extends PictureView {
     public class b implements BdImageViewTouchBase.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ZoomImageView f11499a;
+        public final /* synthetic */ ZoomImageView f11561a;
 
         public b(ZoomImageView zoomImageView) {
-            this.f11499a = zoomImageView;
+            this.f11561a = zoomImageView;
         }
 
         @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase.f
         public void a(Drawable drawable) {
-            PictureCropView.this.o(this.f11499a, drawable);
+            PictureCropView.this.o(this.f11561a, drawable);
         }
     }
 
@@ -72,7 +72,7 @@ public class PictureCropView extends PictureView {
     public class c implements ZoomImageView.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public RectF f11501a = new RectF();
+        public RectF f11563a = new RectF();
 
         public c() {
         }
@@ -80,9 +80,9 @@ public class PictureCropView extends PictureView {
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.b
         public boolean a(ZoomImageView zoomImageView, double d2, double d3) {
             RectF bitmapRect = zoomImageView.getBitmapRect();
-            this.f11501a.set((float) d2, (float) d3, 0.0f, 0.0f);
-            PictureCropView.this.t(bitmapRect, this.f11501a);
-            RectF rectF = this.f11501a;
+            this.f11563a.set((float) d2, (float) d3, 0.0f, 0.0f);
+            PictureCropView.this.t(bitmapRect, this.f11563a);
+            RectF rectF = this.f11563a;
             zoomImageView.v(rectF.left, rectF.top);
             return true;
         }

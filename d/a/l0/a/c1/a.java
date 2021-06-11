@@ -6,6 +6,7 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.adaptation.implementation.DefaultSwanAppBgMusicPlayer;
 import d.a.l0.a.c1.d.d;
+import d.a.l0.a.c1.d.g;
 import d.a.l0.a.p.c.a0;
 import d.a.l0.a.p.c.b0;
 import d.a.l0.a.p.c.c0;
@@ -13,16 +14,13 @@ import d.a.l0.a.p.c.d0;
 import d.a.l0.a.p.c.e;
 import d.a.l0.a.p.c.e0;
 import d.a.l0.a.p.c.f;
-import d.a.l0.a.p.c.g;
 import d.a.l0.a.p.c.g0;
 import d.a.l0.a.p.c.h0;
 import d.a.l0.a.p.c.i0;
-import d.a.l0.a.p.c.l0;
 import d.a.l0.a.p.c.q;
 import d.a.l0.a.p.c.u;
-import d.a.l0.a.p.c.v;
+import d.a.l0.a.p.c.x;
 import d.a.l0.a.p.c.y;
-import d.a.l0.a.p.c.z;
 import d.a.l0.a.p.d.a1;
 import d.a.l0.a.p.d.b1;
 import d.a.l0.a.p.d.c1;
@@ -40,6 +38,7 @@ import d.a.l0.a.p.d.k;
 import d.a.l0.a.p.d.k0;
 import d.a.l0.a.p.d.k1;
 import d.a.l0.a.p.d.l;
+import d.a.l0.a.p.d.l0;
 import d.a.l0.a.p.d.m;
 import d.a.l0.a.p.d.m0;
 import d.a.l0.a.p.d.n;
@@ -56,12 +55,13 @@ import d.a.l0.a.p.d.s0;
 import d.a.l0.a.p.d.t;
 import d.a.l0.a.p.d.t0;
 import d.a.l0.a.p.d.u0;
+import d.a.l0.a.p.d.v;
 import d.a.l0.a.p.d.v0;
 import d.a.l0.a.p.d.w;
 import d.a.l0.a.p.d.w0;
 import d.a.l0.a.p.d.x0;
 import d.a.l0.a.p.d.y0;
-import d.a.l0.b.j.x;
+import d.a.l0.a.p.d.z;
 import d.a.l0.j.j;
 import d.a.n0.u.b.k.c;
 @Autowired
@@ -74,7 +74,7 @@ public final class a {
 
     @Inject(force = false)
     public static i B() {
-        return new f();
+        return d.a.n0.u.b.i.b.a();
     }
 
     @Inject(force = false)
@@ -119,17 +119,17 @@ public final class a {
 
     @Inject(force = false)
     public static k K() {
-        return new g();
+        return new f();
     }
 
     @Inject(force = false)
     public static q0 L() {
-        return new y();
+        return new x();
     }
 
     @Inject(force = false)
     public static r0 M() {
-        return new z();
+        return new y();
     }
 
     @Inject
@@ -138,38 +138,38 @@ public final class a {
     }
 
     @Inject(force = false)
-    public static d.a.l0.a.c1.d.g O() {
+    public static g O() {
         return d.a.n0.u.b.m.b.a();
     }
 
     @Inject(force = false)
     public static s0 P() {
-        return new b0();
+        return new a0();
     }
 
     @Inject(force = false)
     public static t0 Q() {
-        return new c0();
+        return new b0();
     }
 
     @Inject(force = false)
     public static u0 R() {
-        return new d0();
+        return new c0();
     }
 
     @Inject(force = false)
     public static p S() {
-        return new d.a.l0.a.p.c.k();
+        return new d.a.l0.a.p.c.j();
     }
 
     @Inject(force = false)
     public static h1 T() {
-        return new l0();
+        return new d.a.l0.a.p.c.k0();
     }
 
     @Inject(force = false)
     public static w0 U() {
-        return new e0();
+        return new d0();
     }
 
     @Inject
@@ -179,12 +179,12 @@ public final class a {
 
     @Inject(force = false)
     public static l W() {
-        return new d.a.l0.a.p.c.h();
+        return new d.a.l0.a.p.c.g();
     }
 
     @Inject(force = false)
     public static a1 X() {
-        return new h0();
+        return new g0();
     }
 
     @Inject
@@ -204,7 +204,7 @@ public final class a {
 
     @Inject(force = false)
     public static n a0() {
-        return x.a();
+        return d.a.l0.b.j.x.a();
     }
 
     public static Application b() {
@@ -243,7 +243,7 @@ public final class a {
 
     @Inject(force = false)
     public static f0 e0() {
-        return new d.a.l0.a.p.c.s();
+        return new d.a.l0.a.p.c.r();
     }
 
     @Inject(force = false)
@@ -252,8 +252,8 @@ public final class a {
     }
 
     @Inject(force = false)
-    public static d.a.l0.a.p.d.l0 f0() {
-        return new u();
+    public static l0 f0() {
+        return new d.a.l0.a.p.c.t();
     }
 
     @Inject
@@ -263,7 +263,7 @@ public final class a {
 
     @Inject(force = false)
     public static m0 g0() {
-        return new v();
+        return new u();
     }
 
     @Inject(force = false)
@@ -273,12 +273,12 @@ public final class a {
 
     @Inject(force = false)
     public static n0 h0() {
-        return new d.a.l0.a.p.c.x();
+        return new d.a.l0.a.p.c.w();
     }
 
     @Inject(force = false)
-    public static d.a.l0.a.p.d.v i() {
-        return new d.a.l0.a.p.c.l();
+    public static v i() {
+        return new d.a.l0.a.p.c.k();
     }
 
     @Inject(force = false)
@@ -288,7 +288,7 @@ public final class a {
 
     @Inject(force = false)
     public static d.a.l0.a.p.d.x j() {
-        return new d.a.l0.a.p.c.m();
+        return new d.a.l0.a.p.c.l();
     }
 
     @Inject(force = false)
@@ -298,27 +298,27 @@ public final class a {
 
     @Inject(force = false)
     public static d.a.l0.a.p.d.y k() {
-        return new d.a.l0.a.p.c.n();
+        return new d.a.l0.a.p.c.m();
     }
 
     @Inject(force = false)
     public static y0 k0() {
-        return new g0();
+        return new d.a.l0.a.p.c.f0();
     }
 
     @Inject(force = false)
-    public static d.a.l0.a.p.d.z l() {
-        return new d.a.l0.a.p.c.o();
+    public static z l() {
+        return new d.a.l0.a.p.c.n();
     }
 
     @Inject(force = false)
     public static e1 l0() {
-        return new a0();
+        return new d.a.l0.a.p.c.z();
     }
 
     @Inject(force = false)
     public static x0 m() {
-        return new d.a.l0.a.p.c.f0();
+        return new e0();
     }
 
     @Inject(force = false)
@@ -343,7 +343,7 @@ public final class a {
 
     @Inject(force = false)
     public static j1 o0() {
-        return new d.a.l0.a.p.c.m0();
+        return new d.a.l0.a.p.c.l0();
     }
 
     @Inject(force = false)
@@ -354,7 +354,7 @@ public final class a {
     @Inject(force = false)
     @Deprecated
     public static b1 p0() {
-        return new i0();
+        return new h0();
     }
 
     @Inject(force = false)
@@ -364,12 +364,12 @@ public final class a {
 
     @Inject(force = false)
     public static k1 q0() {
-        return new d.a.l0.a.p.c.n0();
+        return new d.a.l0.a.p.c.m0();
     }
 
     @Inject(force = false)
     public static d.a.l0.a.p.d.d0 r() {
-        return new q();
+        return new d.a.l0.a.p.c.p();
     }
 
     @Inject
@@ -384,12 +384,12 @@ public final class a {
 
     @Inject(force = false)
     public static c1 s0() {
-        return new d.a.l0.a.p.c.j0();
+        return new i0();
     }
 
     @Inject(force = false)
     public static d.a.l0.a.p.d.e0 t() {
-        return new d.a.l0.a.p.c.r();
+        return new q();
     }
 
     @Inject(force = false)
@@ -409,7 +409,7 @@ public final class a {
 
     @Inject(force = false)
     public static d.a.l0.a.p.d.g0 v() {
-        return new d.a.l0.a.p.c.t();
+        return new d.a.l0.a.p.c.s();
     }
 
     @Inject(force = false)

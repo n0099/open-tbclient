@@ -8,16 +8,16 @@ import tbclient.SmartApp;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<SmartApp> f55705a;
+    public List<SmartApp> f59394a;
 
     public List<SmartApp> a() {
-        return this.f55705a;
+        return this.f59394a;
     }
 
     public void b(DataRes dataRes) {
         if (dataRes == null) {
             return;
         }
-        this.f55705a = new ArrayList(dataRes.swan_list);
+        this.f59394a = new ArrayList(dataRes.swan_list);
     }
 }

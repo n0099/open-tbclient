@@ -7,18 +7,18 @@ import org.json.JSONObject;
 public class c extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47379b;
+    public String f51053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f47380c;
+    public int f51054c;
 
     @Override // d.a.l0.h.f0.i.d
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("packageName", this.f47379b);
-            jSONObject.put(RouterCallback.KEY_ERROR_CODE, this.f47380c);
-            jSONObject.put("errMsg", this.f47381a);
+            jSONObject.put("packageName", this.f51053b);
+            jSONObject.put(RouterCallback.KEY_ERROR_CODE, this.f51054c);
+            jSONObject.put("errMsg", this.f51055a);
         } catch (JSONException unused) {
         }
         return jSONObject;

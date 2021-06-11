@@ -1,74 +1,131 @@
 package d.a.n0.b1.e.a;
 
-import android.view.View;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.R;
-import d.a.m0.r.q.a2;
-import d.a.n0.b1.e.a.e.e;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import d.a.c.k.e.n;
+import d.a.n0.z.e0.k;
+import d.a.n0.z.e0.l;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    public static void a(View view, Object obj, int i2, String str) {
-        if (obj instanceof d.a.n0.b1.e.a.e.c) {
-            d.a.n0.b1.e.a.e.c cVar = (d.a.n0.b1.e.a.e.c) obj;
-            if (cVar.f51577e) {
-                StatisticItem statisticItem = new StatisticItem("c13736");
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.eventStat();
-                return;
-            }
-            StatisticItem statisticItem2 = new StatisticItem("c13735");
-            statisticItem2.param("obj_locate", i2);
-            statisticItem2.param("topic_id", cVar.f51573a);
-            statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem2.eventStat();
-        } else if (obj instanceof e) {
-            a2 a2Var = ((e) obj).j;
-            StatisticItem statisticItem3 = new StatisticItem("c13738");
-            statisticItem3.param("obj_type", str);
-            statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (a2Var != null) {
-                statisticItem3.param("tid", a2Var.y1());
-                statisticItem3.param("fid", a2Var.c0());
-            }
-            statisticItem3.eventStat();
-        } else if ((obj instanceof d.a.m0.r.q.a) && c(view)) {
-            a2 m = ((d.a.m0.r.q.a) obj).m();
-            StatisticItem statisticItem4 = new StatisticItem("c13738");
-            statisticItem4.param("obj_type", str);
-            statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (m != null) {
-                statisticItem4.param("tid", m.y1());
-                statisticItem4.param("fid", m.c0());
-            }
-            statisticItem4.eventStat();
+
+    /* renamed from: a  reason: collision with root package name */
+    public TbPageContext f55113a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BdTypeRecyclerView f55114b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinkedList<d.a.c.k.e.a> f55115c = new LinkedList<>();
+
+    /* renamed from: d  reason: collision with root package name */
+    public f f55116d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c f55117e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d f55118f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public e f55119g;
+
+    public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        this.f55113a = tbPageContext;
+        this.f55114b = bdTypeRecyclerView;
+        b();
+    }
+
+    public List<n> a() {
+        BdTypeRecyclerView bdTypeRecyclerView = this.f55114b;
+        if (bdTypeRecyclerView != null) {
+            return bdTypeRecyclerView.getData();
+        }
+        return null;
+    }
+
+    public final void b() {
+        this.f55116d = new f(this.f55113a, k.w0);
+        this.f55117e = new c(this.f55113a, l.W);
+        this.f55118f = new d(this.f55113a, k.E0);
+        this.f55119g = new e(this.f55113a, k.C0);
+        this.f55116d.l0(this.f55114b);
+        this.f55117e.p0(this.f55114b);
+        this.f55118f.k0(this.f55114b);
+        this.f55119g.m0(this.f55114b);
+        this.f55115c.add(this.f55116d);
+        this.f55115c.add(this.f55117e);
+        this.f55115c.add(this.f55118f);
+        this.f55115c.add(this.f55119g);
+        this.f55114b.a(this.f55115c);
+    }
+
+    public void c() {
+        BdTypeRecyclerView bdTypeRecyclerView = this.f55114b;
+        if (bdTypeRecyclerView != null) {
+            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    public static void b(View view, Object obj, String str) {
-        if (obj instanceof e) {
-            a2 a2Var = ((e) obj).j;
-            StatisticItem statisticItem = new StatisticItem("c13825");
-            statisticItem.param("obj_type", str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (a2Var != null) {
-                statisticItem.param("tid", a2Var.y1());
-            }
-            statisticItem.eventStat();
-        } else if (obj instanceof d.a.m0.r.q.a) {
-            a2 m = ((d.a.m0.r.q.a) obj).m();
-            StatisticItem statisticItem2 = new StatisticItem("c13825");
-            statisticItem2.param("obj_type", str);
-            statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (m != null) {
-                statisticItem2.param("tid", m.y1());
-            }
-            statisticItem2.eventStat();
+    public void d() {
+    }
+
+    public void e() {
+        c cVar = this.f55117e;
+        if (cVar != null) {
+            cVar.onPause();
         }
     }
 
-    public static boolean c(View view) {
-        int id = view.getId();
-        return id == R.id.thread_card_root || id == R.id.thread_info_commont_container;
+    public void f(List<n> list) {
+        this.f55114b.setData(list);
+    }
+
+    public void g(int i2) {
+        f fVar = this.f55116d;
+        if (fVar != null) {
+            fVar.j0(i2);
+        }
+        c cVar = this.f55117e;
+        if (cVar != null) {
+            cVar.l0(i2);
+        }
+        d dVar = this.f55118f;
+        if (dVar != null) {
+            dVar.i0(i2);
+        }
+        e eVar = this.f55119g;
+        if (eVar != null) {
+            eVar.k0(i2);
+        }
+    }
+
+    public void h(NEGFeedBackView.b bVar) {
+        e eVar = this.f55119g;
+        if (eVar != null) {
+            eVar.j0(bVar);
+        }
+    }
+
+    public void i(BdUniqueId bdUniqueId) {
+        f fVar = this.f55116d;
+        if (fVar != null) {
+            fVar.k0(bdUniqueId);
+        }
+        c cVar = this.f55117e;
+        if (cVar != null) {
+            cVar.m0(bdUniqueId);
+        }
+        d dVar = this.f55118f;
+        if (dVar != null) {
+            dVar.j0(bdUniqueId);
+        }
+        e eVar = this.f55119g;
+        if (eVar != null) {
+            eVar.l0(bdUniqueId);
+        }
     }
 }

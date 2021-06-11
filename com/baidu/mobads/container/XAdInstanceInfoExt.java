@@ -9,8 +9,6 @@ import com.baidu.mobads.container.adrequest.IXAdInstanceInfo;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.mobads.container.util.CommonUtils;
 import com.baidu.mobads.container.util.RemoteXAdLogger;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -1188,7 +1186,7 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
             this.actionType = jSONObject.optInt("act");
             this.htmlSnippet = jSONObject.optString("html", null);
             this.adId = jSONObject.optString("id", "-1");
-            this.adSource = jSONObject.optString(UserAccountActionItem.KEY_SRC, "");
+            this.adSource = jSONObject.optString("src", "");
             this.title = jSONObject.optString("tit", "");
             this.description = jSONObject.optString("desc", "");
             this.sponsorUrl = jSONObject.optString("surl", "");
@@ -1342,7 +1340,7 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
             this.actionOnlyWifi = true;
             this.confirmBorderPercent = jSONObject.optString("cf", "");
             this.queryKey = jSONObject.optString(XAdRemoteAPKDownloadExtraInfo.QK, "");
-            this.uniqueId = this.queryKey + "_" + new Random().nextLong() + System.currentTimeMillis() + FieldBuilder.SE;
+            this.uniqueId = this.queryKey + "_" + new Random().nextLong() + System.currentTimeMillis() + "|";
             this.appName = jSONObject.optString("appname", "");
             this.appPackageName = jSONObject.optString("pk", "");
             this.appSize = jSONObject.optLong("sz", 0L);

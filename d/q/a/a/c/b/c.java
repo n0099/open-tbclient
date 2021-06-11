@@ -1,7 +1,6 @@
 package d.q.a.a.c.b;
 
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -234,7 +233,7 @@ public class c implements d.q.a.a.a.b.b {
                             break;
                         }
                         sb.append(readLine);
-                        sb.append(FieldBuilder.SE);
+                        sb.append("|");
                     } catch (Throwable th5) {
                         th = th5;
                         dataOutputStream2 = dataOutputStream;
@@ -315,7 +314,7 @@ public class c implements d.q.a.a.a.b.b {
                         break;
                     }
                     sb2.append(readLine2);
-                    sb2.append(FieldBuilder.SE);
+                    sb2.append("|");
                 }
                 String sb3 = sb2.toString();
                 int length = sb3.length();

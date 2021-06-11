@@ -5,6 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
 import d.a.m0.r.q.a2;
 import d.a.m0.z0.m0;
@@ -13,17 +14,18 @@ import d.a.n0.v.d.b.d.b;
 public class d extends d.a.n0.v.d.f.f.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.v.d.b.d.b f61766f;
+    public d.a.n0.v.d.b.d.b f65481f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61767g;
+    public boolean f65482g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.v.d.b.b.c f61768h;
+    public d.a.n0.v.d.b.b.c f65483h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f61769i;
-    public Runnable j;
+    public AlaInfoData f65484i;
+    public CustomMessageListener j;
+    public Runnable k;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -48,7 +50,7 @@ public class d extends d.a.n0.v.d.f.f.a {
             if (a2Var == null) {
                 return;
             }
-            d.a.n0.v.d.d.a.c().f("c12909", d.this.f61759d.f61715e, 1, a2Var.o0());
+            d.a.n0.v.d.d.a.c().f("c12909", d.this.f65474d.f65429e, 1, a2Var.o0(), d.this.f65484i);
         }
 
         @Override // d.a.n0.v.d.b.d.b.f
@@ -56,7 +58,7 @@ public class d extends d.a.n0.v.d.f.f.a {
             if (a2Var == null) {
                 return;
             }
-            d.a.n0.v.d.d.a.c().f("c12910", d.this.f61759d.f61715e, 1, a2Var.o0());
+            d.a.n0.v.d.d.a.c().f("c12910", d.this.f65474d.f65429e, 1, a2Var.o0(), d.this.f65484i);
         }
     }
 
@@ -67,58 +69,60 @@ public class d extends d.a.n0.v.d.f.f.a {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.q();
+            d.this.r();
         }
     }
 
     public d(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f61767g = false;
-        this.f61769i = new a(2000994);
-        this.j = new c();
+        this.f65482g = false;
+        this.j = new a(2000994);
+        this.k = new c();
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public void b(d.a.n0.v.d.f.c.a aVar) {
+        a2 a2Var;
         super.b(aVar);
-        p();
-        d.a.n0.v.d.b.d.b bVar = this.f61766f;
+        q();
+        d.a.n0.v.d.b.d.b bVar = this.f65481f;
         if (bVar != null) {
-            bVar.n(this.f61768h);
+            bVar.n(this.f65483h);
         }
-        d.a.n0.v.d.b.b.c cVar = this.f61768h;
-        if (cVar == null || cVar.f61439a == null) {
+        d.a.n0.v.d.b.b.c cVar = this.f65483h;
+        if (cVar == null || (a2Var = cVar.f65152a) == null) {
             return;
         }
-        d.a.n0.v.d.d.a.c().f("c12908", this.f61759d.f61715e, 1, this.f61768h.f61439a.o0());
+        this.f65484i = a2Var.s1();
+        d.a.n0.v.d.d.a.c().f("c12908", this.f65474d.f65429e, 1, this.f65483h.f65152a.o0(), this.f65484i);
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public View c() {
-        return this.f61766f.j();
+        return this.f65481f.j();
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public void d() {
-        this.f61766f = new d.a.n0.v.d.b.d.b(this.f61758c, true);
-        MessageManager.getInstance().registerListener(this.f61769i);
-        this.f61766f.w(new b());
+        this.f65481f = new d.a.n0.v.d.b.d.b(this.f65473c, true);
+        MessageManager.getInstance().registerListener(this.j);
+        this.f65481f.w(new b());
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public boolean f(d.a.n0.v.d.f.c.a aVar) {
-        return (aVar == null || 1 != aVar.f61714d || ListUtils.isEmpty(aVar.f61713c) || aVar.f61713c.get(0) == null || aVar.f61713c.get(0).r1() == null) ? false : true;
+        return (aVar == null || 1 != aVar.f65428d || ListUtils.isEmpty(aVar.f65427c) || aVar.f65427c.get(0) == null || aVar.f65427c.get(0).s1() == null) ? false : true;
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public void g(boolean z) {
-        this.f61767g = z;
+        this.f65482g = z;
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public void h() {
         super.h();
-        d.a.n0.v.d.b.d.b bVar = this.f61766f;
+        d.a.n0.v.d.b.d.b bVar = this.f65481f;
         if (bVar != null) {
             bVar.m();
         }
@@ -126,14 +130,14 @@ public class d extends d.a.n0.v.d.f.f.a {
 
     @Override // d.a.n0.v.d.f.f.a
     public void i(int i2) {
-        this.f61766f.o();
+        this.f65481f.o();
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public void j() {
-        MessageManager.getInstance().unRegisterListener(this.f61769i);
-        d.a.c.e.m.e.a().removeCallbacks(this.j);
-        d.a.n0.v.d.b.d.b bVar = this.f61766f;
+        MessageManager.getInstance().unRegisterListener(this.j);
+        d.a.c.e.m.e.a().removeCallbacks(this.k);
+        d.a.n0.v.d.b.d.b bVar = this.f65481f;
         if (bVar != null) {
             bVar.p();
         }
@@ -151,15 +155,15 @@ public class d extends d.a.n0.v.d.f.f.a {
 
     @Override // d.a.n0.v.d.f.f.a
     public void m() {
-        if (this.f61767g) {
+        if (this.f65482g) {
             return;
         }
         if (m0.a(1)) {
-            d.a.c.e.m.e.a().removeCallbacks(this.j);
-            d.a.c.e.m.e.a().postDelayed(this.j, 1000L);
+            d.a.c.e.m.e.a().removeCallbacks(this.k);
+            d.a.c.e.m.e.a().postDelayed(this.k, 1000L);
             return;
         }
-        d.a.n0.v.d.b.d.b bVar = this.f61766f;
+        d.a.n0.v.d.b.d.b bVar = this.f65481f;
         if (bVar != null) {
             bVar.r();
         }
@@ -167,26 +171,26 @@ public class d extends d.a.n0.v.d.f.f.a {
 
     @Override // d.a.n0.v.d.f.f.a
     public void n() {
-        d.a.n0.v.d.b.d.b bVar = this.f61766f;
+        d.a.n0.v.d.b.d.b bVar = this.f65481f;
         if (bVar != null) {
             bVar.r();
         }
-        d.a.c.e.m.e.a().removeCallbacks(this.j);
-    }
-
-    public final void p() {
-        d.a.n0.v.d.b.b.c cVar = new d.a.n0.v.d.b.b.c();
-        this.f61768h = cVar;
-        cVar.f61439a = this.f61759d.f61713c.get(0);
+        d.a.c.e.m.e.a().removeCallbacks(this.k);
     }
 
     public final void q() {
+        d.a.n0.v.d.b.b.c cVar = new d.a.n0.v.d.b.b.c();
+        this.f65483h = cVar;
+        cVar.f65152a = this.f65474d.f65427c.get(0);
+    }
+
+    public final void r() {
         a2 a2Var;
         d.a.n0.v.d.b.d.b bVar;
-        d.a.n0.v.d.b.b.c cVar = this.f61768h;
-        if (cVar == null || (a2Var = cVar.f61439a) == null || a2Var.r1() == null || (bVar = this.f61766f) == null) {
+        d.a.n0.v.d.b.b.c cVar = this.f65483h;
+        if (cVar == null || (a2Var = cVar.f65152a) == null || a2Var.s1() == null || (bVar = this.f65481f) == null) {
             return;
         }
-        bVar.x(this.f61768h.f61439a.r1().hls_url);
+        bVar.x(this.f65483h.f65152a.s1().hls_url);
     }
 }

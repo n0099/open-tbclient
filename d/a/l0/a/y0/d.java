@@ -10,11 +10,11 @@ public interface d {
         void a(boolean z);
     }
 
-    void B(@NonNull a aVar);
+    void A(@NonNull a aVar);
 
     @Nullable
     String b();
 
     @Nullable
-    String n0();
+    String k0();
 }

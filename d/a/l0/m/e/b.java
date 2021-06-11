@@ -15,7 +15,7 @@ public class b {
     public static HttpRequestBuilder a(@NonNull d.a.l0.m.d.a aVar) {
         char c2;
         HttpCommonRequestBuilder n;
-        String str = aVar.f47970b;
+        String str = aVar.f51644b;
         switch (str.hashCode()) {
             case -531492226:
                 if (str.equals(HttpOptions.METHOD_NAME)) {
@@ -103,7 +103,7 @@ public class b {
             default:
                 return a.g().getRequest();
         }
-        RequestBody requestBody = aVar.f47972d;
+        RequestBody requestBody = aVar.f51646d;
         if (requestBody != null) {
             n.requestBody(requestBody);
         }

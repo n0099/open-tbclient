@@ -65,7 +65,7 @@ public class d extends d.a.n0.r0.o1.a {
             if (motionEvent == null || motionEvent.getAction() != 2) {
                 return false;
             }
-            l.x(d.this.f59170e, view);
+            l.x(d.this.f62861e, view);
             return false;
         }
     }
@@ -79,9 +79,9 @@ public class d extends d.a.n0.r0.o1.a {
         public void a(InputMethodManager inputMethodManager) {
             if (inputMethodManager != null) {
                 d dVar = d.this;
-                dVar.f59170e.HidenSoftKeyPad(inputMethodManager, dVar.z);
+                dVar.f62861e.HidenSoftKeyPad(inputMethodManager, dVar.z);
                 d dVar2 = d.this;
-                dVar2.f59170e.HidenSoftKeyPad(inputMethodManager, dVar2.A);
+                dVar2.f62861e.HidenSoftKeyPad(inputMethodManager, dVar2.A);
             }
         }
     }
@@ -100,7 +100,7 @@ public class d extends d.a.n0.r0.o1.a {
                 d.this.I.setText((500 - d.this.G.length()) + "/500");
                 d.this.I.setVisibility(0);
             }
-            d.this.A();
+            d.this.B();
         }
 
         @Override // android.text.TextWatcher
@@ -114,8 +114,8 @@ public class d extends d.a.n0.r0.o1.a {
 
     /* renamed from: d.a.n0.r0.o1.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1525d implements TextWatcher {
-        public C1525d() {
+    public class C1581d implements TextWatcher {
+        public C1581d() {
         }
 
         @Override // android.text.TextWatcher
@@ -127,7 +127,7 @@ public class d extends d.a.n0.r0.o1.a {
                 d.this.J.setText((500 - d.this.H.length()) + "/500");
                 d.this.J.setVisibility(0);
             }
-            d.this.A();
+            d.this.B();
         }
 
         @Override // android.text.TextWatcher
@@ -148,7 +148,7 @@ public class d extends d.a.n0.r0.o1.a {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (view.getId() == R.id.university_comment) {
                 d dVar = d.this;
-                if (dVar.z(dVar.z)) {
+                if (dVar.A(dVar.z)) {
                     view.getParent().requestDisallowInterceptTouchEvent(true);
                     if (motionEvent.getAction() == 1) {
                         view.getParent().requestDisallowInterceptTouchEvent(false);
@@ -168,7 +168,7 @@ public class d extends d.a.n0.r0.o1.a {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (view.getId() == R.id.university_subject_comment) {
                 d dVar = d.this;
-                if (dVar.z(dVar.A)) {
+                if (dVar.A(dVar.A)) {
                     view.getParent().requestDisallowInterceptTouchEvent(true);
                     if (motionEvent.getAction() == 1) {
                         view.getParent().requestDisallowInterceptTouchEvent(false);
@@ -209,15 +209,24 @@ public class d extends d.a.n0.r0.o1.a {
         super(baseFragmentActivity, forumWriteData, serializableItemInfo);
     }
 
-    public final void A() {
-        if (!TextUtils.isEmpty(this.G) && this.G.length() >= 20 && !TextUtils.isEmpty(this.H) && this.H.length() >= 20 && !this.f59170e.getString(R.string.select_subject).equals(this.v.getText()) && this.G.length() <= 500 && this.H.length() <= 500) {
+    public final boolean A(EditText editText) {
+        int scrollY = editText.getScrollY();
+        int height = editText.getLayout().getHeight() - ((editText.getHeight() - editText.getCompoundPaddingTop()) - editText.getCompoundPaddingBottom());
+        if (height == 0) {
+            return false;
+        }
+        return scrollY > 0 || scrollY < height - 1;
+    }
+
+    public final void B() {
+        if (!TextUtils.isEmpty(this.G) && this.G.length() >= 20 && !TextUtils.isEmpty(this.H) && this.H.length() >= 20 && !this.f62861e.getString(R.string.select_subject).equals(this.v.getText()) && this.G.length() <= 500 && this.H.length() <= 500) {
             this.k.setAlpha(1.0f);
         } else {
             this.k.setAlpha(0.5f);
         }
     }
 
-    public final String B() {
+    public final String F() {
         ArrayList arrayList = new ArrayList();
         int starCount = this.F.getStarCount();
         int starCount2 = this.E.getStarCount();
@@ -231,7 +240,7 @@ public class d extends d.a.n0.r0.o1.a {
         return this.n.toJson(arrayList);
     }
 
-    public final String F(List<String> list) {
+    public final String G(List<String> list) {
         if (list != null) {
             StringBuilder sb = new StringBuilder();
             for (String str : list) {
@@ -245,7 +254,7 @@ public class d extends d.a.n0.r0.o1.a {
 
     @Override // d.a.n0.r0.o1.a
     public void c() {
-        ForumWriteData forumWriteData = this.f59171f;
+        ForumWriteData forumWriteData = this.f62862f;
         if (forumWriteData == null) {
             return;
         }
@@ -254,64 +263,64 @@ public class d extends d.a.n0.r0.o1.a {
 
     @Override // d.a.n0.r0.o1.a
     public void f() {
-        View inflate = LayoutInflater.from(this.f59170e).inflate(R.layout.activity_university_evaluation, (ViewGroup) null);
-        this.f59172g = inflate;
-        this.f59173h = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
-        this.q = (TbImageView) this.f59172g.findViewById(R.id.university_icon);
-        this.r = (TextView) this.f59172g.findViewById(R.id.university_name);
-        this.s = (TextView) this.f59172g.findViewById(R.id.university_desc);
-        this.t = (TextView) this.f59172g.findViewById(R.id.university_grade);
-        this.u = (TextView) this.f59172g.findViewById(R.id.university_subject);
-        this.v = (TextView) this.f59172g.findViewById(R.id.university_subject_content);
-        this.B = (ImageView) this.f59172g.findViewById(R.id.subject_right_arrow);
-        this.w = (TextView) this.f59172g.findViewById(R.id.university_subject_grade);
-        this.x = (TextView) this.f59172g.findViewById(R.id.university_comment_title);
-        this.y = (TextView) this.f59172g.findViewById(R.id.subject_comment_title);
-        EditText editText = (EditText) this.f59172g.findViewById(R.id.university_comment);
+        View inflate = LayoutInflater.from(this.f62861e).inflate(R.layout.activity_university_evaluation, (ViewGroup) null);
+        this.f62863g = inflate;
+        this.f62864h = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
+        this.q = (TbImageView) this.f62863g.findViewById(R.id.university_icon);
+        this.r = (TextView) this.f62863g.findViewById(R.id.university_name);
+        this.s = (TextView) this.f62863g.findViewById(R.id.university_desc);
+        this.t = (TextView) this.f62863g.findViewById(R.id.university_grade);
+        this.u = (TextView) this.f62863g.findViewById(R.id.university_subject);
+        this.v = (TextView) this.f62863g.findViewById(R.id.university_subject_content);
+        this.B = (ImageView) this.f62863g.findViewById(R.id.subject_right_arrow);
+        this.w = (TextView) this.f62863g.findViewById(R.id.university_subject_grade);
+        this.x = (TextView) this.f62863g.findViewById(R.id.university_comment_title);
+        this.y = (TextView) this.f62863g.findViewById(R.id.subject_comment_title);
+        EditText editText = (EditText) this.f62863g.findViewById(R.id.university_comment);
         this.z = editText;
-        editText.setLineSpacing(l.g(this.f59170e, R.dimen.tbds16), 1.0f);
-        EditText editText2 = (EditText) this.f59172g.findViewById(R.id.university_subject_comment);
+        editText.setLineSpacing(l.g(this.f62861e, R.dimen.tbds16), 1.0f);
+        EditText editText2 = (EditText) this.f62863g.findViewById(R.id.university_subject_comment);
         this.A = editText2;
-        editText2.setLineSpacing(l.g(this.f59170e, R.dimen.tbds16), 1.0f);
-        this.I = (TextView) this.f59172g.findViewById(R.id.university_comment_counter);
-        this.J = (TextView) this.f59172g.findViewById(R.id.university_subject_comment_counter);
-        this.D = this.f59172g.findViewById(R.id.select_subject_layout);
-        RankStarView rankStarView = (RankStarView) this.f59172g.findViewById(R.id.university_grade_star);
+        editText2.setLineSpacing(l.g(this.f62861e, R.dimen.tbds16), 1.0f);
+        this.I = (TextView) this.f62863g.findViewById(R.id.university_comment_counter);
+        this.J = (TextView) this.f62863g.findViewById(R.id.university_subject_comment_counter);
+        this.D = this.f62863g.findViewById(R.id.select_subject_layout);
+        RankStarView rankStarView = (RankStarView) this.f62863g.findViewById(R.id.university_grade_star);
         this.E = rankStarView;
         rankStarView.setClickable(true);
-        this.E.setStarSpacing(l.g(this.f59170e, R.dimen.tbds24));
-        RankStarView rankStarView2 = (RankStarView) this.f59172g.findViewById(R.id.university_subject_grade_star);
+        this.E.setStarSpacing(l.g(this.f62861e, R.dimen.tbds24));
+        RankStarView rankStarView2 = (RankStarView) this.f62863g.findViewById(R.id.university_subject_grade_star);
         this.F = rankStarView2;
         rankStarView2.setClickable(true);
-        this.F.setStarSpacing(l.g(this.f59170e, R.dimen.tbds24));
-        this.C = this.f59172g.findViewById(R.id.divider);
+        this.F.setStarSpacing(l.g(this.f62861e, R.dimen.tbds24));
+        this.C = this.f62863g.findViewById(R.id.divider);
         SerializableItemInfo serializableItemInfo = this.l;
         if (serializableItemInfo != null) {
-            this.s.setText(F(serializableItemInfo.getTags()));
+            this.s.setText(G(serializableItemInfo.getTags()));
             this.r.setText(this.l.getName());
-            this.q.V(this.l.icon_url, 10, false);
+            this.q.U(this.l.icon_url, 10, false);
         }
         this.q.setPlaceHolder(2);
-        this.q.setPageId(this.f59170e.getUniqueId());
+        this.q.setPageId(this.f62861e.getUniqueId());
         this.q.setConrers(15);
-        this.q.setRadius(l.g(this.f59170e, R.dimen.tbds10));
-        this.f59172g.findViewById(R.id.scroll_view).setOnTouchListener(new a());
+        this.q.setRadius(l.g(this.f62861e, R.dimen.tbds10));
+        this.f62863g.findViewById(R.id.scroll_view).setOnTouchListener(new a());
         this.m.h(new b());
     }
 
     @Override // d.a.n0.r0.o1.a
-    public void g() {
+    public void h() {
         this.j.setOnClickListener(this);
         this.k.setOnClickListener(this);
         this.D.setOnClickListener(this);
         this.z.addTextChangedListener(new c());
-        this.A.addTextChangedListener(new C1525d());
+        this.A.addTextChangedListener(new C1581d());
         this.z.setOnTouchListener(new e());
         this.A.setOnTouchListener(new f());
     }
 
     @Override // d.a.n0.r0.o1.a
-    public void h(int i2, int i3, Intent intent) {
+    public void i(int i2, int i3, Intent intent) {
         if (i3 == -1 && intent != null && i2 == 25047) {
             String stringExtra = intent.getStringExtra(IntentConfig.SEARCH_MAJOR_NAME);
             if (TextUtils.isEmpty(stringExtra)) {
@@ -320,19 +329,19 @@ public class d extends d.a.n0.r0.o1.a {
             this.v.setText(stringExtra);
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0105);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.B, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            A();
+            B();
         }
     }
 
     @Override // d.a.n0.r0.o1.a
-    public void i() {
-        super.i();
+    public void j() {
+        super.j();
         SkinManager.setBackgroundColor(this.C, R.color.CAM_X0204);
         SkinManager.setViewTextColor(this.r, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.t, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0105);
-        if (this.f59170e.getString(R.string.select_subject).equals(this.v.getText())) {
+        if (this.f62861e.getString(R.string.select_subject).equals(this.v.getText())) {
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0109);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.B, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
@@ -356,8 +365,8 @@ public class d extends d.a.n0.r0.o1.a {
     }
 
     @Override // d.a.n0.r0.o1.a
-    public void k() {
-        if (this.f59171f == null) {
+    public void l() {
+        if (this.f62862f == null) {
             return;
         }
         WriteData writeData = new WriteData();
@@ -367,44 +376,35 @@ public class d extends d.a.n0.r0.o1.a {
         writeData.setmUniversitySubjectContent(this.v.getText().toString());
         writeData.setmUniversityComment(this.z.getText().toString());
         writeData.setmUniversitySubjectComment(this.A.getText().toString());
-        y.s(String.valueOf(this.f59171f.forumId), writeData);
+        y.s(String.valueOf(this.f62862f.forumId), writeData);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.j) {
-            l();
+            m();
         } else if (view == this.D) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchMajorActivityConfig(this.f59170e, 25047)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchMajorActivityConfig(this.f62861e, 25047)));
         } else if (view == this.k) {
-            if (!TextUtils.isEmpty(this.G) && !TextUtils.isEmpty(this.H) && !this.f59170e.getString(R.string.select_subject).equals(this.v.getText())) {
+            if (!TextUtils.isEmpty(this.G) && !TextUtils.isEmpty(this.H) && !this.f62861e.getString(R.string.select_subject).equals(this.v.getText())) {
                 if (this.G.length() < 20) {
-                    l.L(this.f59170e, R.string.university_comment_size_error_tip);
+                    l.L(this.f62861e, R.string.university_comment_size_error_tip);
                     return;
                 } else if (this.H.length() < 20) {
-                    l.L(this.f59170e, R.string.subject_comment_size_error_tip);
+                    l.L(this.f62861e, R.string.subject_comment_size_error_tip);
                     return;
                 } else if (this.G.length() > 500) {
-                    l.L(this.f59170e, R.string.university_comment_lenght_error_tip);
+                    l.L(this.f62861e, R.string.university_comment_lenght_error_tip);
                     return;
                 } else if (this.H.length() > 500) {
-                    l.L(this.f59170e, R.string.subject_comment_lenght_error_tip);
+                    l.L(this.f62861e, R.string.subject_comment_lenght_error_tip);
                     return;
                 } else {
-                    this.m.g("学校评价：" + ((Object) this.G) + "\n专业评价：" + ((Object) this.H), B(), this.f59171f);
+                    this.m.g("学校评价：" + ((Object) this.G) + "\n专业评价：" + ((Object) this.H), F(), this.f62862f);
                     return;
                 }
             }
-            l.L(this.f59170e, R.string.university_comment_must_write_tip);
+            l.L(this.f62861e, R.string.university_comment_must_write_tip);
         }
-    }
-
-    public final boolean z(EditText editText) {
-        int scrollY = editText.getScrollY();
-        int height = editText.getLayout().getHeight() - ((editText.getHeight() - editText.getCompoundPaddingTop()) - editText.getCompoundPaddingBottom());
-        if (height == 0) {
-            return false;
-        }
-        return scrollY > 0 || scrollY < height - 1;
     }
 }

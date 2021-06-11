@@ -5,7 +5,7 @@ import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MzPushMessage implements Serializable {
     public static final String TAG = "MzPushMessage";
     public String content;

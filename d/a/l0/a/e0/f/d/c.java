@@ -13,46 +13,46 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f41376i = k.f43199a;
+    public static final boolean f45052i = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41377a;
+    public String f45053a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41378b;
+    public String f45054b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONArray f41379c;
+    public JSONArray f45055c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41380d;
+    public String f45056d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41381e;
+    public String f45057e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41382f;
+    public String f45058f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f41383g;
+    public String f45059g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f41384h;
+    public long f45060h;
 
     @NonNull
     public static c c(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.f41379c = jSONObject.getJSONArray("host");
-            cVar.f41378b = jSONObject.getString("appKey");
-            cVar.f41377a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-            cVar.f41380d = jSONObject.getString("serverPort");
-            cVar.f41382f = jSONObject.getString("wsServerPort");
+            cVar.f45055c = jSONObject.getJSONArray("host");
+            cVar.f45054b = jSONObject.getString("appKey");
+            cVar.f45053a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            cVar.f45056d = jSONObject.getString("serverPort");
+            cVar.f45058f = jSONObject.getString("wsServerPort");
             Uri.decode(jSONObject.optString("url"));
-            cVar.f41383g = jSONObject.optString("notInHistory", "1");
-            cVar.f41384h = jSONObject.optLong("coreVersion");
+            cVar.f45059g = jSONObject.optString("notInHistory", "1");
+            cVar.f45060h = jSONObject.optLong("coreVersion");
         } catch (JSONException unused) {
-            if (f41376i) {
+            if (f45052i) {
                 Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
             }
         }
@@ -60,7 +60,7 @@ public class c {
     }
 
     public String a(int i2) {
-        JSONArray jSONArray = this.f41379c;
+        JSONArray jSONArray = this.f45055c;
         return jSONArray == null ? "" : jSONArray.optString(i2);
     }
 
@@ -68,6 +68,6 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
-        return "http://" + str + ":" + this.f41380d + "/app.zip";
+        return "http://" + str + ":" + this.f45056d + "/app.zip";
     }
 }

@@ -9,17 +9,17 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f48137a;
+    public static volatile e f51811a;
 
     public static e a() {
-        if (f48137a == null) {
+        if (f51811a == null) {
             synchronized (e.class) {
-                if (f48137a == null) {
-                    f48137a = new e();
+                if (f51811a == null) {
+                    f51811a = new e();
                 }
             }
         }
-        return f48137a;
+        return f51811a;
     }
 
     public String b() {
@@ -31,7 +31,7 @@ public class e {
         if (jSONObject == null) {
             return;
         }
-        if (d.a.l0.n.c.f47984a) {
+        if (d.a.l0.n.c.f51658a) {
             Log.d("GetPkgRetryManager", WebGLImageLoader.DATA_URL + jSONObject);
         }
         String optString = jSONObject.optString("version");
@@ -39,7 +39,7 @@ public class e {
             return;
         }
         int optInt = optJSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0);
-        if (d.a.l0.n.c.f47984a) {
+        if (d.a.l0.n.c.f51658a) {
             Log.d("GetPkgRetryManager", "retrySwitch:" + optInt);
         }
         d.a.l0.n.c.b().j().putString("get_pkg_retry_version", optString);

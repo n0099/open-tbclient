@@ -6,10 +6,10 @@ import d.a.n0.v.i.e.d;
 public class FrsPageAlaStageViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f14003a;
+    public d f14060a;
 
     public FrsPageAlaStageViewHolder(d dVar) {
-        super(dVar.l());
-        this.f14003a = dVar;
+        super(dVar.m());
+        this.f14060a = dVar;
     }
 }

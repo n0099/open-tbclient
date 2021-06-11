@@ -75,18 +75,18 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof d)) {
                 d dVar = (d) mvcHttpMessage.getRequestData();
                 String cacheKey = dVar.getCacheKey();
-                String r = dVar.r();
+                String v = dVar.v();
                 String currentAccount = dVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey == null || TextUtils.isEmpty(r) || bArr == null) {
+                if (cacheKey == null || TextUtils.isEmpty(v) || bArr == null) {
                     return;
                 }
-                if (dVar.i()) {
-                    l<byte[]> e2 = a.f().e(r, currentAccount);
+                if (dVar.l()) {
+                    l<byte[]> e2 = a.f().e(v, currentAccount);
                     if (e2 == null) {
                         return;
                     }
                     e2.g(cacheKey, bArr);
-                } else if (!(mvcHttpMessage.getRequestData() instanceof d.a.m0.g0.b.e) || (h2 = a.f().h(r, currentAccount)) == null) {
+                } else if (!(mvcHttpMessage.getRequestData() instanceof d.a.m0.g0.b.e) || (h2 = a.f().h(v, currentAccount)) == null) {
                 } else {
                     try {
                         h2.g(cacheKey, new String(bArr, "UTF-8"));

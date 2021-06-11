@@ -23,25 +23,25 @@ import org.json.JSONObject;
 public class b implements a.c {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f41530g = k.f43199a;
+    public static final boolean f45206g = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a.b f41531a;
+    public final a.b f45207a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g.c.e.a f41532b;
+    public g.c.e.a f45208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InspectorNativeClient f41533c;
+    public InspectorNativeClient f45209c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.l0.a.l0.a f41534d;
+    public d.a.l0.a.l0.a f45210d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedBlockingQueue<String> f41535e = new LinkedBlockingQueue<>();
+    public LinkedBlockingQueue<String> f45211e = new LinkedBlockingQueue<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41536f;
+    public String f45212f;
 
     /* loaded from: classes2.dex */
     public class a extends InspectorNativeChannel {
@@ -50,13 +50,13 @@ public class b implements a.c {
 
         @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
         public String awaitMessage() {
-            if (b.f41530g) {
+            if (b.f45206g) {
                 Log.d("V8InspectorClient", "getInspectorMessage");
             }
             try {
-                return (String) b.this.f41535e.take();
+                return (String) b.this.f45211e.take();
             } catch (InterruptedException e2) {
-                if (b.f41530g) {
+                if (b.f45206g) {
                     Log.e("V8InspectorClient", "awaitMessage on Debugger", e2);
                     return "";
                 }
@@ -67,11 +67,11 @@ public class b implements a.c {
         @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
         public void sendMessage(String str) {
             try {
-                if (b.this.f41532b != null) {
-                    b.this.f41532b.send(str);
+                if (b.this.f45208b != null) {
+                    b.this.f45208b.send(str);
                 }
             } catch (Exception unused) {
-                if (b.f41530g) {
+                if (b.f45206g) {
                     Log.d("V8InspectorClient", "V8 send message fail, try to check if websocket has opened");
                 }
             }
@@ -80,7 +80,7 @@ public class b implements a.c {
 
     /* renamed from: d.a.l0.a.e0.h.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0607b extends g.c.e.a {
+    public class C0663b extends g.c.e.a {
 
         /* renamed from: d.a.l0.a.e0.h.c.b$b$a */
         /* loaded from: classes2.dex */
@@ -90,34 +90,34 @@ public class b implements a.c {
 
             @Override // java.lang.Runnable
             public void run() {
-                String str = (String) b.this.f41535e.poll();
+                String str = (String) b.this.f45211e.poll();
                 while (str != null) {
-                    b.this.f41533c.dispatchProtocolMessage(str);
-                    C0607b.this.c(str);
-                    C0607b.this.d(str);
-                    str = (String) b.this.f41535e.poll();
+                    b.this.f45209c.dispatchProtocolMessage(str);
+                    C0663b.this.c(str);
+                    C0663b.this.d(str);
+                    str = (String) b.this.f45211e.poll();
                 }
             }
         }
 
         /* renamed from: d.a.l0.a.e0.h.c.b$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0608b implements Runnable {
-            public RunnableC0608b() {
+        public class RunnableC0664b implements Runnable {
+            public RunnableC0664b() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f41531a.onConnected();
+                b.this.f45207a.onConnected();
             }
         }
 
-        public C0607b(URI uri) {
+        public C0663b(URI uri) {
             super(uri);
         }
 
         public final void c(String str) {
-            if (TextUtils.isEmpty(str) || b.this.f41531a == null) {
+            if (TextUtils.isEmpty(str) || b.this.f45207a == null) {
                 return;
             }
             try {
@@ -125,11 +125,11 @@ public class b implements a.c {
                     d.a.l0.a.a2.d g2 = d.a.l0.a.a2.d.g();
                     SwanAppActivity x = g2.x();
                     if (g2.C() && x != null) {
-                        x.runOnUiThread(new RunnableC0608b());
+                        x.runOnUiThread(new RunnableC0664b());
                     }
                 }
             } catch (JSONException e2) {
-                if (b.f41530g) {
+                if (b.f45206g) {
                     Log.e("V8InspectorClient", "message is not a Json object", e2);
                 }
             }
@@ -179,7 +179,7 @@ public class b implements a.c {
                     SchemeRouter.invoke(AppRuntime.getAppContext(), optString2);
                 }
             } catch (JSONException e2) {
-                if (b.f41530g) {
+                if (b.f45206g) {
                     Log.e("V8InspectorClient", "message is not a json object", e2);
                 }
             }
@@ -197,8 +197,8 @@ public class b implements a.c {
 
         @Override // g.c.e.a
         public void onMessage(String str) {
-            b.this.f41535e.offer(str);
-            b.this.f41534d.postOnJSThread(new a());
+            b.this.f45211e.offer(str);
+            b.this.f45210d.postOnJSThread(new a());
         }
 
         @Override // g.c.e.a
@@ -206,29 +206,29 @@ public class b implements a.c {
             d.a.l0.a.e0.d.g("V8InspectorClient", "V8 inspector opened");
             d.a.l0.a.h0.l.a P = g.N().P();
             if (P instanceof e) {
-                b.this.f41534d = (d.a.l0.a.l0.a) P.g();
+                b.this.f45210d = (d.a.l0.a.l0.a) P.g();
             }
-            if (b.this.f41534d == null) {
+            if (b.this.f45210d == null) {
                 d.a.l0.a.e0.d.g("V8InspectorClient", "inner error, V8 mEngine is null");
                 close();
                 return;
             }
             b bVar = b.this;
-            bVar.f41533c = bVar.f41534d.r0(new a());
+            bVar.f45209c = bVar.f45210d.r0(new a());
         }
     }
 
     public b(String str, a.b bVar) {
-        this.f41536f = str;
-        this.f41531a = bVar;
+        this.f45212f = str;
+        this.f45207a = bVar;
     }
 
     @Override // d.a.l0.a.e0.h.a.c
     public void start() {
         try {
-            C0607b c0607b = new C0607b(new URI(this.f41536f));
-            this.f41532b = c0607b;
-            c0607b.connect();
+            C0663b c0663b = new C0663b(new URI(this.f45212f));
+            this.f45208b = c0663b;
+            c0663b.connect();
         } catch (URISyntaxException e2) {
             e2.printStackTrace();
         }
@@ -236,10 +236,10 @@ public class b implements a.c {
 
     @Override // d.a.l0.a.e0.h.a.c
     public void stop() {
-        g.c.e.a aVar = this.f41532b;
+        g.c.e.a aVar = this.f45208b;
         if (aVar != null) {
             aVar.close();
-            this.f41532b = null;
+            this.f45208b = null;
         }
     }
 }

@@ -6,7 +6,6 @@ import android.content.ContextWrapper;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import androidx.annotation.Keep;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.ResContext;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -33,16 +32,9 @@ public class Wrapper {
         return resContext != null ? resContext.getDelegatedContext() : context;
     }
 
-    @Nullable
     @Keep
-    public static Context wrapContextIfNeed(@Nullable Context context) {
-        if (Loader.get().isExternalLoaded()) {
-            if (context == null) {
-                return null;
-            }
-            if (context instanceof ResContext) {
-                return context;
-            }
+    public static Context wrapContextIfNeed(Context context) {
+        if (Loader.get().isExternalLoaded() && !(context instanceof ResContext)) {
             if (context instanceof ContextThemeWrapper) {
                 Context context2 = sResContextCache.get(context);
                 if (context2 == null) {

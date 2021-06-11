@@ -10,11 +10,11 @@ public class d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f47020a = new d();
+        public static final d f50694a = new d();
     }
 
     public static d b() {
-        return a.f47020a;
+        return a.f50694a;
     }
 
     public void a(@NonNull JSONObject jSONObject, @NonNull d.a.l0.g.c.f.b bVar) {

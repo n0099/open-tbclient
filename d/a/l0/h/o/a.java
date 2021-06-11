@@ -75,7 +75,7 @@ public class a implements g {
         if (TextUtils.isEmpty(str) || (a2 = d.a.l0.h.c0.a.a.a(d.a.l0.t.d.D(new File(a.d.h(str, String.valueOf(j)), "game.json")))) == null) {
             return 0;
         }
-        return a2.f47257b;
+        return a2.f50931b;
     }
 
     @Override // d.a.l0.a.p.b.a.g

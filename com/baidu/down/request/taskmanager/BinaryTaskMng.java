@@ -34,7 +34,6 @@ import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.PatternConfig;
 import com.baidu.down.utils.URLRegUtils;
 import com.baidu.down.utils.network.NetWorkDetector;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -548,7 +547,7 @@ public class BinaryTaskMng {
                 this.mAllTaskMap.remove(str);
             }
             this.mHandler.removeMessages(1);
-            this.mHandler.sendEmptyMessageDelayed(1, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+            this.mHandler.sendEmptyMessageDelayed(1, 30000L);
         }
         this.mHandler.removeMessages(0);
         this.mHandler.sendEmptyMessage(0);

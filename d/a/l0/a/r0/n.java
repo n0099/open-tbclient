@@ -12,7 +12,6 @@ import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.WebGLImageLoader;
 import com.baidu.swan.apps.storage.PathType;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -24,33 +23,33 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f44408a = "/aigames/sandbox/";
+    public static String f48082a = "/aigames/sandbox/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f44409b;
+    public static String f48083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f44410c;
+    public static String f48084c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f44411a;
+        public static final /* synthetic */ int[] f48085a;
 
         static {
             int[] iArr = new int[PathType.values().length];
-            f44411a = iArr;
+            f48085a = iArr;
             try {
                 iArr[PathType.BD_FILE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f44411a[PathType.RELATIVE.ordinal()] = 2;
+                f48085a[PathType.RELATIVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -85,7 +84,7 @@ public class n {
 
     public static String D(String str, String str2, String str3, String str4, boolean z) {
         if (TextUtils.isEmpty(str)) {
-            return "fail";
+            return com.baidu.pass.biometrics.face.liveness.b.b.g0;
         }
         if (str.endsWith(" ")) {
             str = str.substring(0, str.length() - 1);
@@ -130,7 +129,7 @@ public class n {
             if (j == null) {
                 X(jsObject);
                 bVar.errMsg = str;
-                k(B.get("fail"), B.get(XAdRemoteEvent.COMPLETE), bVar, B.get("success"));
+                k(B.get(com.baidu.pass.biometrics.face.liveness.b.b.g0), B.get(XAdRemoteEvent.COMPLETE), bVar, B.get("success"));
                 return null;
             }
             HashMap hashMap = new HashMap();
@@ -204,7 +203,7 @@ public class n {
 
     public static String J(String str, String str2) {
         String w = w(AppRuntime.getAppContext());
-        return w + File.separator + str + f44408a + str2;
+        return w + File.separator + str + f48082a + str2;
     }
 
     public static String K(String str) {
@@ -357,7 +356,7 @@ public class n {
 
     public static String U(String str) {
         String y;
-        int i2 = a.f44411a[d.a.l0.a.k2.b.s(str).ordinal()];
+        int i2 = a.f48085a[d.a.l0.a.k2.b.s(str).ordinal()];
         if (i2 == 1) {
             y = y(str);
         } else if (i2 != 2) {
@@ -414,10 +413,10 @@ public class n {
             aVar.throwJSException(jSExceptionType, str2 + str);
             return;
         }
-        int i2 = cVar.f44268a;
+        int i2 = cVar.f47942a;
         if (i2 != 0) {
             JSExceptionType z = z(i2);
-            aVar.throwJSException(z, str2 + cVar.f44269b);
+            aVar.throwJSException(z, str2 + cVar.f47943b);
         }
     }
 
@@ -433,26 +432,26 @@ public class n {
             }
         }
         str = null;
-        if (bVar2 == null || bVar == null || (map2 = bVar.f44267c) == null) {
+        if (bVar2 == null || bVar == null || (map2 = bVar.f47941c) == null) {
             return false;
         }
-        c cVar = bVar.f44265a;
-        JsFunction A = A("fail", map2);
+        c cVar = bVar.f47939a;
+        JsFunction A = A(com.baidu.pass.biometrics.face.liveness.b.b.g0, map2);
         JsFunction A2 = A(XAdRemoteEvent.COMPLETE, map2);
         JsFunction A3 = A("success", map2);
         if (!TextUtils.isEmpty(str)) {
-            String str2 = bVar.f44266b + str;
+            String str2 = bVar.f47940b + str;
             bVar2.errMsg = str2;
             d(aVar, str2);
             k(A, A2, bVar2, A3);
             return false;
         } else if (cVar == null) {
-            bVar2.errMsg = bVar.f44266b + "unknown error";
+            bVar2.errMsg = bVar.f47940b + "unknown error";
             k(A, A2, bVar2, A3);
             return false;
         } else {
-            bVar2.errMsg = bVar.f44266b + cVar.f44269b;
-            if (cVar.f44268a != 0) {
+            bVar2.errMsg = bVar.f47940b + cVar.f47943b;
+            if (cVar.f47942a != 0) {
                 k(A, A2, bVar2, A3);
                 return false;
             }
@@ -461,7 +460,7 @@ public class n {
     }
 
     public static void b(Object obj, Map<String, Object> map) {
-        Y(A("success", map), A(XAdRemoteEvent.COMPLETE, map), obj, A("fail", map));
+        Y(A("success", map), A(XAdRemoteEvent.COMPLETE, map), obj, A(com.baidu.pass.biometrics.face.liveness.b.b.g0, map));
     }
 
     public static void c() {
@@ -474,7 +473,7 @@ public class n {
         if (!TextUtils.isEmpty(str)) {
             d.a.l0.t.d.L(str);
         }
-        String str2 = w + File.separator + f44410c + f44408a;
+        String str2 = w + File.separator + f48084c + f48082a;
         if (TextUtils.isEmpty(str2)) {
             return;
         }
@@ -581,7 +580,7 @@ public class n {
         String i2 = d.a.l0.a.c1.a.a0().i(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(i2)) {
             d.a.l0.t.d.L(J(i2, str));
-            d.a.l0.t.d.L(J(d.a.l0.t.f.d(i2.replace(FieldBuilder.SE, "").getBytes(), false), str));
+            d.a.l0.t.d.L(J(d.a.l0.t.f.d(i2.replace("|", "").getBytes(), false), str));
         }
         Context appContext = AppRuntime.getAppContext();
         if (appContext == null) {
@@ -664,7 +663,7 @@ public class n {
         } catch (Exception e3) {
             e = e3;
             fileInputStream2 = fileInputStream;
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 e.printStackTrace();
             }
             d.a.l0.t.d.d(fileInputStream2);
@@ -849,9 +848,9 @@ public class n {
 
     public static b t(c cVar, String str, Map<String, Object> map) {
         b bVar = new b();
-        bVar.f44265a = cVar;
-        bVar.f44266b = str;
-        bVar.f44267c = map;
+        bVar.f47939a = cVar;
+        bVar.f47940b = str;
+        bVar.f47941c = map;
         return bVar;
     }
 
@@ -876,12 +875,12 @@ public class n {
     public static c v(String str, String str2, String str3) {
         c cVar = new c();
         if (str == null) {
-            cVar.f44269b = str3;
-            cVar.f44268a = -2;
+            cVar.f47943b = str3;
+            cVar.f47942a = -2;
             return cVar;
         } else if ("".equals(str)) {
-            cVar.f44269b = str2;
-            cVar.f44268a = -1;
+            cVar.f47943b = str2;
+            cVar.f47942a = -1;
             return cVar;
         } else {
             return null;
@@ -893,10 +892,10 @@ public class n {
         if (context == null) {
             return "";
         }
-        if (TextUtils.isEmpty(f44409b) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-            f44409b = externalFilesDir.getAbsolutePath();
+        if (TextUtils.isEmpty(f48083b) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
+            f48083b = externalFilesDir.getAbsolutePath();
         }
-        return f44409b;
+        return f48083b;
     }
 
     public static long x(String str) {

@@ -17,16 +17,16 @@ import okhttp3.CertificatePinner;
 public final class a implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f3854a = new a();
+    public static final a f3873a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f3855b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f3874b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3856c = 2;
+    public static final int f3875c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3857d = 7;
+    public static final int f3876d = 7;
 
     private boolean b(String str, X509Certificate x509Certificate) {
         List<String> a2 = a(x509Certificate, 7);
@@ -68,7 +68,7 @@ public final class a implements HostnameVerifier {
     }
 
     public static boolean a(String str) {
-        return f3855b.matcher(str).matches();
+        return f3874b.matcher(str).matches();
     }
 
     public static List<String> a(X509Certificate x509Certificate) {

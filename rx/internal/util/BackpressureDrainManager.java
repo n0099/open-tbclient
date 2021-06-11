@@ -2,7 +2,7 @@ package rx.internal.util;
 
 import h.f;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BackpressureDrainManager extends AtomicLong implements f {
     public static final long serialVersionUID = 2826241102729529449L;
     public final a actual;
@@ -10,7 +10,7 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
     public Throwable exception;
     public volatile boolean terminated;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(Throwable th);
 

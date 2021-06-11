@@ -19,42 +19,42 @@ import d.a.l0.a.v2.q;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45041a = k.f43199a;
+    public static final boolean f48715a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f45042b = -1;
+    public static int f48716b = -1;
 
     /* loaded from: classes2.dex */
     public static class a implements ValueCallback<Long> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ V8Engine f45043a;
+        public final /* synthetic */ V8Engine f48717a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NetRequest f45044b;
+        public final /* synthetic */ NetRequest f48718b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f45045c;
+        public final /* synthetic */ boolean f48719c;
 
         public a(V8Engine v8Engine, NetRequest netRequest, boolean z) {
-            this.f45043a = v8Engine;
-            this.f45044b = netRequest;
-            this.f45045c = z;
+            this.f48717a = v8Engine;
+            this.f48718b = netRequest;
+            this.f48719c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.webkit.ValueCallback
         /* renamed from: a */
         public void onReceiveValue(Long l) {
-            boolean netRequest = this.f45043a.setNetRequest(this.f45044b);
+            boolean netRequest = this.f48717a.setNetRequest(this.f48718b);
             if (netRequest) {
-                int unused = d.f45042b = 1;
+                int unused = d.f48716b = 1;
             } else {
-                if (this.f45045c) {
+                if (this.f48719c) {
                     d.d();
                     d.a.l0.a.e0.d.h("ChromeNetManager", "[ERROR] swan chromeNet config fail!!!");
                 }
-                int unused2 = d.f45042b = 0;
+                int unused2 = d.f48716b = 0;
             }
             d.f(netRequest);
         }
@@ -72,10 +72,10 @@ public class d {
     }
 
     public static boolean b() {
-        if (f45042b == -1) {
-            f45042b = j.a() ? 1 : 0;
+        if (f48716b == -1) {
+            f48716b = j.a() ? 1 : 0;
         }
-        return f45042b == 1;
+        return f48716b == 1;
     }
 
     public static void c(@NonNull V8Engine v8Engine) {
@@ -93,7 +93,7 @@ public class d {
         netRequest.addObserver(new e());
         netRequest.setNetRequestSettings(netRequestSettings);
         boolean e2 = e();
-        f45042b = e2 ? 1 : 0;
+        f48716b = e2 ? 1 : 0;
         V8NetFunctionTable.addOnCronetThreadInitializedListener(new a(v8Engine, netRequest, e2));
     }
 
@@ -115,11 +115,11 @@ public class d {
         d.a.l0.a.h0.l.a P;
         NetRequest n0;
         NetRequestSettings netRequestSettings;
-        if (!b() || swanAppConfigData == null || (aVar = swanAppConfigData.f11252h) == null || (i2 = aVar.f40786b) <= 0 || (P = d.a.l0.a.h0.u.g.N().P()) == null || !(P.g() instanceof d.a.l0.a.l0.a) || (n0 = ((d.a.l0.a.l0.a) P.g()).n0()) == null || (netRequestSettings = n0.getNetRequestSettings()) == null) {
+        if (!b() || swanAppConfigData == null || (aVar = swanAppConfigData.f11314h) == null || (i2 = aVar.f44462b) <= 0 || (P = d.a.l0.a.h0.u.g.N().P()) == null || !(P.g() instanceof d.a.l0.a.l0.a) || (n0 = ((d.a.l0.a.l0.a) P.g()).n0()) == null || (netRequestSettings = n0.getNetRequestSettings()) == null) {
             return;
         }
         netRequestSettings.mTimeout = i2;
-        if (f45041a) {
+        if (f48715a) {
             Log.d("ChromeNetManager", "settings.mTimeout=" + i2);
         }
     }

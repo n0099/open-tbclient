@@ -17,51 +17,51 @@ import java.util.concurrent.Executors;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f47215e = k.f43199a;
+    public static final boolean f50889e = k.f46875a;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f47216f;
+    public static volatile a f50890f;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, ArrayList<b>> f47217a = new HashMap<>();
+    public HashMap<String, ArrayList<b>> f50891a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final ExecutorService f47218b = Executors.newCachedThreadPool();
+    public final ExecutorService f50892b = Executors.newCachedThreadPool();
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f47220d = new Object();
+    public Object f50894d = new Object();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47219c = f.g() + f.f();
+    public String f50893c = f.g() + f.f();
 
     /* renamed from: d.a.l0.h.c.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1013a implements Runnable {
+    public class RunnableC1069a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JsArrayBuffer f47221e;
+        public final /* synthetic */ JsArrayBuffer f50895e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f47222f;
+        public final /* synthetic */ b f50896f;
 
-        public RunnableC1013a(JsArrayBuffer jsArrayBuffer, b bVar) {
-            this.f47221e = jsArrayBuffer;
-            this.f47222f = bVar;
+        public RunnableC1069a(JsArrayBuffer jsArrayBuffer, b bVar) {
+            this.f50895e = jsArrayBuffer;
+            this.f50896f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String g2 = a.this.g(this.f47221e.buffer());
+            String g2 = a.this.g(this.f50895e.buffer());
             File file = new File(g2);
             if (!file.exists()) {
-                if (a.this.e(g2, this.f47222f)) {
+                if (a.this.e(g2, this.f50896f)) {
                     return;
                 }
-                a.this.i(g2, this.f47221e.buffer());
+                a.this.i(g2, this.f50895e.buffer());
             } else if (!file.isDirectory()) {
-                this.f47222f.a(g2);
+                this.f50896f.a(g2);
             } else {
-                this.f47222f.b();
+                this.f50896f.b();
             }
         }
     }
@@ -74,19 +74,19 @@ public class a {
     }
 
     public static a f() {
-        if (f47216f == null) {
+        if (f50890f == null) {
             synchronized (a.class) {
-                if (f47216f == null) {
-                    f47216f = new a();
+                if (f50890f == null) {
+                    f50890f = new a();
                 }
             }
         }
-        return f47216f;
+        return f50890f;
     }
 
     public final void d(String str) {
-        synchronized (this.f47220d) {
-            ArrayList<b> arrayList = this.f47217a.get(str);
+        synchronized (this.f50894d) {
+            ArrayList<b> arrayList = this.f50891a.get(str);
             if (arrayList == null) {
                 return;
             }
@@ -95,7 +95,7 @@ public class a {
             while (it.hasNext()) {
                 b next = it.next();
                 if (!isEmpty) {
-                    if (f47215e) {
+                    if (f50889e) {
                         Log.e("AudioBufferManager", "save success path: " + str);
                     }
                     next.a(str);
@@ -103,18 +103,18 @@ public class a {
                     next.b();
                 }
             }
-            this.f47217a.remove(str);
+            this.f50891a.remove(str);
         }
     }
 
     public final boolean e(String str, b bVar) {
         boolean z;
-        synchronized (this.f47220d) {
-            ArrayList<b> arrayList = this.f47217a.get(str);
+        synchronized (this.f50894d) {
+            ArrayList<b> arrayList = this.f50891a.get(str);
             z = true;
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.f47217a.put(str, arrayList);
+                this.f50891a.put(str, arrayList);
                 z = false;
             }
             arrayList.add(bVar);
@@ -125,7 +125,7 @@ public class a {
     public final String g(byte[] bArr) {
         String h2 = f.h(bArr);
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f47219c);
+        sb.append(this.f50893c);
         sb.append(bArr.length);
         if (TextUtils.isEmpty(h2)) {
             h2 = "";
@@ -135,12 +135,12 @@ public class a {
     }
 
     public void h(JsArrayBuffer jsArrayBuffer, b bVar) {
-        this.f47218b.execute(new RunnableC1013a(jsArrayBuffer, bVar));
+        this.f50892b.execute(new RunnableC1069a(jsArrayBuffer, bVar));
     }
 
     public final void i(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
-        File file = new File(this.f47219c);
+        File file = new File(this.f50893c);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -157,12 +157,12 @@ public class a {
                         file3.delete();
                     }
                     if (file2.renameTo(file3)) {
-                        if (f47215e) {
+                        if (f50889e) {
                             Log.e("AudioBufferManager", "buffer load rename success path = " + str);
                         }
                         d(str);
                     } else {
-                        if (f47215e) {
+                        if (f50889e) {
                             Log.e("AudioBufferManager", "buffer load rename error path = " + str);
                         }
                         file2.delete();
@@ -170,7 +170,7 @@ public class a {
                     }
                 } catch (Exception e2) {
                     e = e2;
-                    if (f47215e) {
+                    if (f50889e) {
                         e.printStackTrace();
                     }
                     if (file2.exists()) {

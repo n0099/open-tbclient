@@ -6,19 +6,19 @@ import d.a.c.e.d.l;
 public abstract class d<T> implements k<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f38518a;
+    public final boolean f42171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f38519b;
+    public final e f42172b;
 
     public d(e eVar, boolean z) {
-        this.f38519b = eVar;
-        this.f38518a = z;
+        this.f42172b = eVar;
+        this.f42171a = z;
     }
 
     @Override // d.a.c.e.d.k
     public e b() {
-        return this.f38519b;
+        return this.f42172b;
     }
 
     @Override // d.a.c.e.d.k
@@ -33,10 +33,10 @@ public abstract class d<T> implements k<T> {
             return null;
         }
         l.b<T> bVar = new l.b<>();
-        bVar.f38541a = str2;
-        bVar.f38542b = k.f38525b;
-        long j = k.f38529f;
-        bVar.f38543c = k.f38527d;
+        bVar.f42194a = str2;
+        bVar.f42195b = k.f42178b;
+        long j = k.f42182f;
+        bVar.f42196c = k.f42180d;
         return bVar;
     }
 
@@ -46,23 +46,23 @@ public abstract class d<T> implements k<T> {
         if (k == null) {
             return null;
         }
-        return k.f38525b;
+        return k.f42178b;
     }
 
     @Override // d.a.c.e.d.k
     public void f(String str, String str2, T t, long j) {
         g<T> gVar = new g<>();
-        gVar.f38524a = h(str, str2);
-        gVar.f38526c = str;
-        gVar.f38529f = j;
-        gVar.f38525b = t;
-        gVar.f38528e = System.currentTimeMillis();
-        gVar.f38527d = System.currentTimeMillis();
+        gVar.f42177a = h(str, str2);
+        gVar.f42179c = str;
+        gVar.f42182f = j;
+        gVar.f42178b = t;
+        gVar.f42181e = System.currentTimeMillis();
+        gVar.f42180d = System.currentTimeMillis();
         j(gVar);
     }
 
     public String h(String str, String str2) {
-        if (this.f38518a) {
+        if (this.f42171a) {
             return str + "@" + str2;
         }
         return str2;
@@ -78,13 +78,13 @@ public abstract class d<T> implements k<T> {
         if (i2 == null) {
             BdLog.isDebugMode();
             return null;
-        } else if (i2.f38529f < System.currentTimeMillis()) {
+        } else if (i2.f42182f < System.currentTimeMillis()) {
             m(h2);
             BdLog.isDebugMode();
             return null;
         } else {
-            if (this.f38519b.a()) {
-                i2.f38528e = System.currentTimeMillis();
+            if (this.f42172b.a()) {
+                i2.f42181e = System.currentTimeMillis();
                 j(i2);
             }
             BdLog.isDebugMode();

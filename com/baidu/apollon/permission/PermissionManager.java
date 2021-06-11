@@ -15,10 +15,10 @@ public class PermissionManager implements NoProguard {
     public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 4;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3787a = 0;
+    public static final int f3806a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3788b;
+    public static int f3807b;
 
     @TargetApi(23)
     public static boolean checkCallingOrSelfPermission(Activity activity, String[] strArr, int i2) {
@@ -61,13 +61,13 @@ public class PermissionManager implements NoProguard {
     }
 
     public static int getTargetSdkVersion(Context context) {
-        if (f3788b == 0) {
+        if (f3807b == 0) {
             try {
-                f3788b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                f3807b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
             }
         }
-        return f3788b;
+        return f3807b;
     }
 }

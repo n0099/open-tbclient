@@ -14,25 +14,26 @@ import com.alibaba.fastjson.asm.Label;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.core.ResContext;
+import com.kwad.sdk.api.proxy.IFragmentActivityProxy;
 import com.kwad.sdk.api.proxy.app.AdWebViewActivity;
 import com.kwad.sdk.api.proxy.app.BaseFragmentActivity;
-import com.kwad.sdk.b.b;
+import com.kwad.sdk.core.download.b.b;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.d;
-import com.kwad.sdk.utils.v;
+import com.kwad.sdk.utils.x;
 import com.kwad.sdk.widget.DownloadProgressBar;
 import java.io.Serializable;
 import java.util.List;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes6.dex */
-public class AdWebViewVideoActivityProxy extends b {
+/* loaded from: classes4.dex */
+public class AdWebViewVideoActivityProxy extends IFragmentActivityProxy {
     public static final String KEY_REPORTED = "key_reported";
     public static final String KEY_TEMPLATE = "key_template";
     public AdTemplate mAdTemplate;
-    public com.kwad.sdk.core.download.b.b mApkDownloadHelper;
+    public b mApkDownloadHelper;
     public a mFragment;
     public DownloadProgressBar mProgressbar;
     public ViewGroup mWebDownloadContainer;
@@ -40,20 +41,20 @@ public class AdWebViewVideoActivityProxy extends b {
     private void initView() {
         this.mProgressbar = (DownloadProgressBar) findViewById(R.id.ksad_web_download_progress);
         this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.ksad_web_download_container);
-        final AdInfo g2 = c.g(this.mAdTemplate);
-        if (com.kwad.sdk.core.response.b.a.v(g2)) {
+        final AdInfo j = c.j(this.mAdTemplate);
+        if (com.kwad.sdk.core.response.b.a.y(j)) {
             this.mWebDownloadContainer.setVisibility(0);
-            this.mApkDownloadHelper = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, new com.kwad.sdk.core.download.b.c() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.1
+            this.mApkDownloadHelper = new b(this.mAdTemplate, new com.kwad.sdk.core.download.b.c() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.1
                 @Override // com.kwad.sdk.core.download.b.c
                 public void a(int i2) {
                     AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(i2);
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.b.a.b(i2));
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.b.a.c(i2));
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onDownloadFailed() {
                     AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(100.0f);
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.b.a.u(g2));
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.b.a.w(j));
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -65,13 +66,13 @@ public class AdWebViewVideoActivityProxy extends b {
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onIdle() {
                     AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(100.0f);
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.b.a.u(g2));
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.b.a.w(j));
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onInstalled() {
                     AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(100.0f);
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.b.a.j(g2));
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.b.a.b());
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -83,10 +84,11 @@ public class AdWebViewVideoActivityProxy extends b {
             this.mProgressbar.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AdWebViewVideoActivityProxy.this.mApkDownloadHelper.a((Context) AdWebViewVideoActivityProxy.this.getActivity(), true);
+                    b.a(AdWebViewVideoActivityProxy.this.mApkDownloadHelper, true);
+                    AdWebViewVideoActivityProxy.this.mApkDownloadHelper.a(AdWebViewVideoActivityProxy.this.getActivity());
                 }
             });
-            this.mApkDownloadHelper.a((Context) getActivity(), false);
+            this.mApkDownloadHelper.a(getActivity());
         } else {
             this.mWebDownloadContainer.setVisibility(8);
         }
@@ -110,7 +112,7 @@ public class AdWebViewVideoActivityProxy extends b {
                         AdWebViewVideoActivityProxy.this.onBackPressed();
                     }
                 });
-                v.b(getActivity());
+                x.b(getActivity());
                 d.a(getActivity(), 0, true);
                 int i2 = R.id.ksad_recycler_container;
                 a a2 = a.a(this.mAdTemplate);
@@ -132,7 +134,7 @@ public class AdWebViewVideoActivityProxy extends b {
                 AdWebViewVideoActivityProxy.this.onBackPressed();
             }
         });
-        v.b(getActivity());
+        x.b(getActivity());
         d.a(getActivity(), 0, true);
         int i22 = R.id.ksad_recycler_container;
         a a22 = a.a(this.mAdTemplate);
@@ -147,7 +149,7 @@ public class AdWebViewVideoActivityProxy extends b {
         }
         Intent intent = new Intent(context, BaseFragmentActivity.FragmentActivity3.class);
         intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        intent.putExtra(KEY_TEMPLATE, adTemplate);
+        intent.putExtra("key_template", adTemplate);
         intent.putExtra(KEY_REPORTED, adTemplate.mPvReported);
         context.startActivity(intent);
         if (context instanceof ResContext) {
@@ -169,7 +171,7 @@ public class AdWebViewVideoActivityProxy extends b {
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
         setContentView(R.layout.ksad_activity_ad_video_webview);
-        Serializable serializableExtra = getIntent().getSerializableExtra(KEY_TEMPLATE);
+        Serializable serializableExtra = getIntent().getSerializableExtra("key_template");
         if (!(serializableExtra instanceof AdTemplate)) {
             finish();
             return;
@@ -180,12 +182,12 @@ public class AdWebViewVideoActivityProxy extends b {
         initView();
     }
 
-    @Override // com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onDestroy() {
         super.onDestroy();
-        com.kwad.sdk.core.download.b.b bVar = this.mApkDownloadHelper;
+        b bVar = this.mApkDownloadHelper;
         if (bVar != null) {
-            bVar.g();
+            bVar.f();
         }
     }
 

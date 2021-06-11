@@ -16,56 +16,56 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f47990b = null;
+    public static volatile a f51664b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f47991c = 10;
+    public static final int f51665c = 10;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<Class<?>, d.a.l0.n.g.d.a> f47992a;
+    public ConcurrentHashMap<Class<?>, d.a.l0.n.g.d.a> f51666a;
 
     public a() {
-        this("ai_apps_pms.db", f47991c);
+        this("ai_apps_pms.db", f51665c);
         b();
     }
 
     public static a a() {
-        if (f47990b == null) {
+        if (f51664b == null) {
             synchronized (a.class) {
-                if (f47990b == null) {
-                    f47990b = new a();
+                if (f51664b == null) {
+                    f51664b = new a();
                 }
             }
         }
-        return f47990b;
+        return f51664b;
     }
 
     public final void b() {
         ConcurrentHashMap<Class<?>, d.a.l0.n.g.d.a> concurrentHashMap = new ConcurrentHashMap<>();
-        this.f47992a = concurrentHashMap;
+        this.f51666a = concurrentHashMap;
         concurrentHashMap.put(f.class, new e());
-        this.f47992a.put(g.class, new d.a.l0.n.g.d.f());
-        this.f47992a.put(PMSAppInfo.class, new d.a.l0.n.g.d.b());
-        this.f47992a.put(d.class, new d.a.l0.n.g.d.d());
-        this.f47992a.put(d.a.l0.n.h.b.class, new c());
-        this.f47992a.put(h.class, new d.a.l0.n.g.d.g());
-        this.f47992a.put(i.class, new d.a.l0.n.g.d.h());
+        this.f51666a.put(g.class, new d.a.l0.n.g.d.f());
+        this.f51666a.put(PMSAppInfo.class, new d.a.l0.n.g.d.b());
+        this.f51666a.put(d.class, new d.a.l0.n.g.d.d());
+        this.f51666a.put(d.a.l0.n.h.b.class, new c());
+        this.f51666a.put(h.class, new d.a.l0.n.g.d.g());
+        this.f51666a.put(i.class, new d.a.l0.n.g.d.h());
     }
 
     public void c() {
-        f47990b = null;
+        f51664b = null;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        for (d.a.l0.n.g.d.a aVar : this.f47992a.values()) {
+        for (d.a.l0.n.g.d.a aVar : this.f51666a.values()) {
             aVar.a(sQLiteDatabase);
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
-        for (d.a.l0.n.g.d.a aVar : this.f47992a.values()) {
+        for (d.a.l0.n.g.d.a aVar : this.f51666a.values()) {
             aVar.onUpgrade(sQLiteDatabase, i2, i3);
         }
     }

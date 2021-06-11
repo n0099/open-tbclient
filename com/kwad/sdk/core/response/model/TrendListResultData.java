@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TrendListResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static final String TAG = "FeedResultData";
     public static final long serialVersionUID = -2356227162833699895L;
@@ -21,7 +21,7 @@ public class TrendListResultData extends BaseResultData implements com.kwad.sdk.
     @Override // com.kwad.sdk.core.network.BaseResultData
     public boolean isDataEmpty() {
         if (this.trends.isEmpty()) {
-            com.kwad.sdk.core.d.a.e(TAG, "trends list is empty");
+            com.kwad.sdk.core.d.a.d(TAG, "trends list is empty");
             return true;
         }
         com.kwad.sdk.core.d.a.a(TAG, "trends size = " + this.trends.size());

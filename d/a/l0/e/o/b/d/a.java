@@ -18,23 +18,23 @@ import d.a.l0.a.v2.f;
 import d.a.l0.e.e;
 import d.a.l0.e.o.b.b;
 /* loaded from: classes3.dex */
-public class a implements b.InterfaceC0969b {
+public class a implements b.InterfaceC1025b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f46568b = k.f43199a;
+    public static final boolean f50242b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f46569a = false;
+    public boolean f50243a = false;
 
     /* renamed from: d.a.l0.e.o.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class DialogInterface$OnClickListenerC0970a implements DialogInterface.OnClickListener {
+    public class DialogInterface$OnClickListenerC1026a implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.h0.s.c f46570e;
+        public final /* synthetic */ d.a.l0.a.h0.s.c f50244e;
 
-        public DialogInterface$OnClickListenerC0970a(d.a.l0.a.h0.s.c cVar) {
-            this.f46570e = cVar;
+        public DialogInterface$OnClickListenerC1026a(d.a.l0.a.h0.s.c cVar) {
+            this.f50244e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -43,7 +43,7 @@ public class a implements b.InterfaceC0969b {
                 return;
             }
             a.this.j();
-            a.this.l(this.f46570e);
+            a.this.l(this.f50244e);
         }
     }
 
@@ -51,41 +51,41 @@ public class a implements b.InterfaceC0969b {
     public class b implements d.a.l0.a.v2.e1.b<Boolean> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.h0.s.c f46572e;
+        public final /* synthetic */ d.a.l0.a.h0.s.c f50246e;
 
         /* renamed from: d.a.l0.e.o.b.d.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0971a implements b.c {
+        public class C1027a implements b.c {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Boolean f46574a;
+            public final /* synthetic */ Boolean f50248a;
 
-            public C0971a(Boolean bool) {
-                this.f46574a = bool;
+            public C1027a(Boolean bool) {
+                this.f50248a = bool;
             }
 
             @Override // d.a.l0.a.h0.s.b.c
             public void a() {
                 b bVar = b.this;
-                a.this.i(this.f46574a, bVar.f46572e);
+                a.this.i(this.f50248a, bVar.f50246e);
             }
         }
 
         public b(d.a.l0.a.h0.s.c cVar) {
-            this.f46572e = cVar;
+            this.f50246e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(Boolean bool) {
-            if (a.f46568b) {
+            if (a.f50242b) {
                 Log.i("SailorSoDownloadAdapter", "startDownload onCallback: " + bool);
             }
             if (!bool.booleanValue()) {
-                a.this.i(bool, this.f46572e);
+                a.this.i(bool, this.f50246e);
             } else {
-                SwanAppInitHelper.doWebViewInit(d.a.l0.a.a2.d.g(), new C0971a(bool));
+                SwanAppInitHelper.doWebViewInit(d.a.l0.a.a2.d.g(), new C1027a(bool));
             }
         }
     }
@@ -116,14 +116,14 @@ public class a implements b.InterfaceC0969b {
         }
     }
 
-    @Override // d.a.l0.e.o.b.b.InterfaceC0969b
+    @Override // d.a.l0.e.o.b.b.InterfaceC1025b
     public d.a.l0.n.l.b a() {
         return new d.a.l0.w.c();
     }
 
-    @Override // d.a.l0.e.o.b.b.InterfaceC0969b
+    @Override // d.a.l0.e.o.b.b.InterfaceC1025b
     public void b(boolean z, d.a.l0.a.h0.s.c cVar) {
-        if (this.f46569a) {
+        if (this.f50243a) {
             if (!z) {
                 j();
             }
@@ -131,11 +131,11 @@ public class a implements b.InterfaceC0969b {
         } else if (z) {
             l(cVar);
         } else {
-            k(new DialogInterface$OnClickListenerC0970a(cVar));
+            k(new DialogInterface$OnClickListenerC1026a(cVar));
         }
     }
 
-    @Override // d.a.l0.e.o.b.b.InterfaceC0969b
+    @Override // d.a.l0.e.o.b.b.InterfaceC1025b
     public Bitmap d() {
         return null;
     }
@@ -145,7 +145,7 @@ public class a implements b.InterfaceC0969b {
     }
 
     public final void i(Boolean bool, d.a.l0.a.h0.s.c cVar) {
-        this.f46569a = false;
+        this.f50243a = false;
         h();
         if (cVar != null) {
             if (bool.booleanValue()) {
@@ -170,11 +170,11 @@ public class a implements b.InterfaceC0969b {
     }
 
     public final void l(d.a.l0.a.h0.s.c cVar) {
-        this.f46569a = true;
-        if (f46568b) {
+        this.f50243a = true;
+        if (f50242b) {
             Log.i("SailorSoDownloadAdapter", "startDownload: ");
         }
-        d.a.l0.a.n0.k.c cVar2 = d.a.l0.a.n0.k.c.f43645d;
+        d.a.l0.a.n0.k.c cVar2 = d.a.l0.a.n0.k.c.f47321d;
         d.a.l0.a.n0.k.d dVar = new d.a.l0.a.n0.k.d();
         dVar.h(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, new b(cVar));
         cVar2.C(dVar);

@@ -23,43 +23,43 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function4;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b extends d.l.a.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public final C1858b f66431c;
+    public final C1918b f70217c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<String, Bitmap> f66432d;
+    public final HashMap<String, Bitmap> f70218d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f66433e;
+    public final a f70219e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float[] f66434f;
+    public final float[] f70220f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c f66435g;
+    public final c f70221g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66436a;
+        public int f70222a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f66437b;
+        public int f70223b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final HashMap<SVGAVideoShapeEntity, Path> f66438c = new HashMap<>();
+        public final HashMap<SVGAVideoShapeEntity, Path> f70224c = new HashMap<>();
 
         public final Path a(SVGAVideoShapeEntity sVGAVideoShapeEntity) {
-            if (!this.f66438c.containsKey(sVGAVideoShapeEntity)) {
+            if (!this.f70224c.containsKey(sVGAVideoShapeEntity)) {
                 Path path = new Path();
                 path.set(sVGAVideoShapeEntity.b());
-                this.f66438c.put(sVGAVideoShapeEntity, path);
+                this.f70224c.put(sVGAVideoShapeEntity, path);
             }
-            Path path2 = this.f66438c.get(sVGAVideoShapeEntity);
+            Path path2 = this.f70224c.get(sVGAVideoShapeEntity);
             if (path2 == null) {
                 Intrinsics.throwNpe();
             }
@@ -67,156 +67,156 @@ public final class b extends d.l.a.f.a {
         }
 
         public final void b(Canvas canvas) {
-            if (this.f66436a != canvas.getWidth() || this.f66437b != canvas.getHeight()) {
-                this.f66438c.clear();
+            if (this.f70222a != canvas.getWidth() || this.f70223b != canvas.getHeight()) {
+                this.f70224c.clear();
             }
-            this.f66436a = canvas.getWidth();
-            this.f66437b = canvas.getHeight();
+            this.f70222a = canvas.getWidth();
+            this.f70223b = canvas.getHeight();
         }
     }
 
     /* renamed from: d.l.a.f.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class C1858b {
+    /* loaded from: classes7.dex */
+    public static final class C1918b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Paint f66439a = new Paint();
+        public final Paint f70225a = new Paint();
 
         /* renamed from: b  reason: collision with root package name */
-        public final Path f66440b = new Path();
+        public final Path f70226b = new Path();
 
         /* renamed from: c  reason: collision with root package name */
-        public final Path f66441c = new Path();
+        public final Path f70227c = new Path();
 
         /* renamed from: d  reason: collision with root package name */
-        public final Matrix f66442d = new Matrix();
+        public final Matrix f70228d = new Matrix();
 
         /* renamed from: e  reason: collision with root package name */
-        public final Matrix f66443e = new Matrix();
+        public final Matrix f70229e = new Matrix();
 
         public final Matrix a() {
-            this.f66442d.reset();
-            return this.f66442d;
+            this.f70228d.reset();
+            return this.f70228d;
         }
 
         public final Matrix b() {
-            this.f66443e.reset();
-            return this.f66443e;
+            this.f70229e.reset();
+            return this.f70229e;
         }
 
         public final Paint c() {
-            this.f66439a.reset();
-            return this.f66439a;
+            this.f70225a.reset();
+            return this.f70225a;
         }
 
         public final Path d() {
-            this.f66440b.reset();
-            return this.f66440b;
+            this.f70226b.reset();
+            return this.f70226b;
         }
 
         public final Path e() {
-            this.f66441c.reset();
-            return this.f66441c;
+            this.f70227c.reset();
+            return this.f70227c;
         }
     }
 
     public b(SVGAVideoEntity sVGAVideoEntity, c cVar) {
         super(sVGAVideoEntity);
-        this.f66435g = cVar;
-        this.f66431c = new C1858b();
-        this.f66432d = new HashMap<>();
-        this.f66433e = new a();
-        this.f66434f = new float[16];
+        this.f70221g = cVar;
+        this.f70217c = new C1918b();
+        this.f70218d = new HashMap<>();
+        this.f70219e = new a();
+        this.f70220f = new float[16];
     }
 
     @Override // d.l.a.f.a
     public void a(Canvas canvas, int i2, ImageView.ScaleType scaleType) {
         super.a(canvas, i2, scaleType);
-        this.f66433e.b(canvas);
-        for (a.C1857a c1857a : d(i2)) {
-            h(c1857a, canvas, i2);
+        this.f70219e.b(canvas);
+        for (a.C1917a c1917a : d(i2)) {
+            h(c1917a, canvas, i2);
         }
         k(i2);
     }
 
-    public final void e(a.C1857a c1857a, Canvas canvas, int i2) {
-        String b2 = c1857a.b();
+    public final void e(a.C1917a c1917a, Canvas canvas, int i2) {
+        String b2 = c1917a.b();
         if (b2 != null) {
-            Function2<Canvas, Integer, Boolean> function2 = this.f66435g.a().get(b2);
+            Function2<Canvas, Integer, Boolean> function2 = this.f70221g.a().get(b2);
             if (function2 != null) {
-                Matrix l = l(c1857a.a().e());
+                Matrix l = l(c1917a.a().e());
                 canvas.save();
                 canvas.concat(l);
                 function2.invoke(canvas, Integer.valueOf(i2));
                 canvas.restore();
             }
-            Function4<Canvas, Integer, Integer, Integer, Boolean> function4 = this.f66435g.b().get(b2);
+            Function4<Canvas, Integer, Integer, Integer, Boolean> function4 = this.f70221g.b().get(b2);
             if (function4 != null) {
-                Matrix l2 = l(c1857a.a().e());
+                Matrix l2 = l(c1917a.a().e());
                 canvas.save();
                 canvas.concat(l2);
-                function4.invoke(canvas, Integer.valueOf(i2), Integer.valueOf((int) c1857a.a().b().b()), Integer.valueOf((int) c1857a.a().b().a()));
+                function4.invoke(canvas, Integer.valueOf(i2), Integer.valueOf((int) c1917a.a().b().b()), Integer.valueOf((int) c1917a.a().b().a()));
                 canvas.restore();
             }
         }
     }
 
-    public final void f(a.C1857a c1857a, Canvas canvas) {
-        String b2 = c1857a.b();
-        if (b2 == null || Intrinsics.areEqual(this.f66435g.c().get(b2), Boolean.TRUE)) {
+    public final void f(a.C1917a c1917a, Canvas canvas) {
+        String b2 = c1917a.b();
+        if (b2 == null || Intrinsics.areEqual(this.f70221g.c().get(b2), Boolean.TRUE)) {
             return;
         }
-        Bitmap bitmap = this.f66435g.d().get(b2);
+        Bitmap bitmap = this.f70221g.d().get(b2);
         if (bitmap == null) {
             bitmap = c().e().get(b2);
         }
         if (bitmap != null) {
-            Matrix l = l(c1857a.a().e());
-            Paint c2 = this.f66431c.c();
+            Matrix l = l(c1917a.a().e());
+            Paint c2 = this.f70217c.c();
             c2.setAntiAlias(c().a());
             c2.setFilterBitmap(c().a());
-            c2.setAlpha((int) (c1857a.a().a() * 255));
-            if (c1857a.a().c() != null) {
-                d.l.a.g.b c3 = c1857a.a().c();
+            c2.setAlpha((int) (c1917a.a().a() * 255));
+            if (c1917a.a().c() != null) {
+                d.l.a.g.b c3 = c1917a.a().c();
                 if (c3 == null) {
                     return;
                 }
                 canvas.save();
                 c2.reset();
-                Path d2 = this.f66431c.d();
+                Path d2 = this.f70217c.d();
                 c3.a(d2);
                 d2.transform(l);
                 canvas.clipPath(d2);
-                l.preScale((float) (c1857a.a().b().b() / bitmap.getWidth()), (float) (c1857a.a().b().b() / bitmap.getWidth()));
+                l.preScale((float) (c1917a.a().b().b() / bitmap.getWidth()), (float) (c1917a.a().b().b() / bitmap.getWidth()));
                 canvas.drawBitmap(bitmap, l, c2);
                 canvas.restore();
             } else {
-                l.preScale((float) (c1857a.a().b().b() / bitmap.getWidth()), (float) (c1857a.a().b().b() / bitmap.getWidth()));
+                l.preScale((float) (c1917a.a().b().b() / bitmap.getWidth()), (float) (c1917a.a().b().b() / bitmap.getWidth()));
                 canvas.drawBitmap(bitmap, l, c2);
             }
-            i(canvas, bitmap, c1857a, l);
+            i(canvas, bitmap, c1917a, l);
         }
     }
 
-    public final void g(a.C1857a c1857a, Canvas canvas) {
+    public final void g(a.C1917a c1917a, Canvas canvas) {
         SVGAVideoShapeEntity.a c2;
         float[] c3;
         String d2;
         String b2;
         int a2;
-        Matrix l = l(c1857a.a().e());
-        for (SVGAVideoShapeEntity sVGAVideoShapeEntity : c1857a.a().d()) {
+        Matrix l = l(c1917a.a().e());
+        for (SVGAVideoShapeEntity sVGAVideoShapeEntity : c1917a.a().d()) {
             sVGAVideoShapeEntity.a();
             if (sVGAVideoShapeEntity.b() != null) {
-                Paint c4 = this.f66431c.c();
+                Paint c4 = this.f70217c.c();
                 c4.reset();
                 c4.setAntiAlias(c().a());
                 double d3 = 255;
-                c4.setAlpha((int) (c1857a.a().a() * d3));
-                Path d4 = this.f66431c.d();
+                c4.setAlpha((int) (c1917a.a().a() * d3));
+                Path d4 = this.f70217c.d();
                 d4.reset();
-                d4.addPath(this.f66433e.a(sVGAVideoShapeEntity));
-                Matrix b3 = this.f66431c.b();
+                d4.addPath(this.f70219e.a(sVGAVideoShapeEntity));
+                Matrix b3 = this.f70217c.b();
                 b3.reset();
                 Matrix d5 = sVGAVideoShapeEntity.d();
                 if (d5 != null) {
@@ -228,19 +228,19 @@ public final class b extends d.l.a.f.a {
                 if (c5 != null && (a2 = c5.a()) != 0) {
                     c4.setStyle(Paint.Style.FILL);
                     c4.setColor(a2);
-                    c4.setAlpha(Math.min(255, Math.max(0, (int) (c1857a.a().a() * d3))));
-                    if (c1857a.a().c() != null) {
+                    c4.setAlpha(Math.min(255, Math.max(0, (int) (c1917a.a().a() * d3))));
+                    if (c1917a.a().c() != null) {
                         canvas.save();
                     }
-                    d.l.a.g.b c6 = c1857a.a().c();
+                    d.l.a.g.b c6 = c1917a.a().c();
                     if (c6 != null) {
-                        Path e2 = this.f66431c.e();
+                        Path e2 = this.f70217c.e();
                         c6.a(e2);
                         e2.transform(l);
                         canvas.clipPath(e2);
                     }
                     canvas.drawPath(d4, c4);
-                    if (c1857a.a().c() != null) {
+                    if (c1917a.a().c() != null) {
                         canvas.restore();
                     }
                 }
@@ -252,7 +252,7 @@ public final class b extends d.l.a.f.a {
                         SVGAVideoShapeEntity.a c8 = sVGAVideoShapeEntity.c();
                         if (c8 != null) {
                             c4.setColor(c8.f());
-                            c4.setAlpha(Math.min(255, Math.max(0, (int) (c1857a.a().a() * d3))));
+                            c4.setAlpha(Math.min(255, Math.max(0, (int) (c1917a.a().a() * d3))));
                         }
                         float j = j(l);
                         SVGAVideoShapeEntity.a c9 = sVGAVideoShapeEntity.c();
@@ -289,18 +289,18 @@ public final class b extends d.l.a.f.a {
                             fArr[1] = (c3[1] >= 0.1f ? c3[1] : 0.1f) * j;
                             c4.setPathEffect(new DashPathEffect(fArr, c3[2] * j));
                         }
-                        if (c1857a.a().c() != null) {
+                        if (c1917a.a().c() != null) {
                             canvas.save();
                         }
-                        d.l.a.g.b c13 = c1857a.a().c();
+                        d.l.a.g.b c13 = c1917a.a().c();
                         if (c13 != null) {
-                            Path e3 = this.f66431c.e();
+                            Path e3 = this.f70217c.e();
                             c13.a(e3);
                             e3.transform(l);
                             canvas.clipPath(e3);
                         }
                         canvas.drawPath(d4, c4);
-                        if (c1857a.a().c() != null) {
+                        if (c1917a.a().c() != null) {
                             canvas.restore();
                         }
                     }
@@ -309,23 +309,23 @@ public final class b extends d.l.a.f.a {
         }
     }
 
-    public final void h(a.C1857a c1857a, Canvas canvas, int i2) {
-        f(c1857a, canvas);
-        g(c1857a, canvas);
-        e(c1857a, canvas, i2);
+    public final void h(a.C1917a c1917a, Canvas canvas, int i2) {
+        f(c1917a, canvas);
+        g(c1917a, canvas);
+        e(c1917a, canvas, i2);
     }
 
-    public final void i(Canvas canvas, Bitmap bitmap, a.C1857a c1857a, Matrix matrix) {
+    public final void i(Canvas canvas, Bitmap bitmap, a.C1917a c1917a, Matrix matrix) {
         TextPaint drawingTextPaint;
-        if (this.f66435g.h()) {
-            this.f66432d.clear();
-            this.f66435g.i(false);
+        if (this.f70221g.h()) {
+            this.f70218d.clear();
+            this.f70221g.i(false);
         }
-        String b2 = c1857a.b();
+        String b2 = c1917a.b();
         if (b2 != null) {
             Bitmap bitmap2 = null;
-            String str = this.f66435g.f().get(b2);
-            if (str != null && (drawingTextPaint = this.f66435g.g().get(b2)) != null && (bitmap2 = this.f66432d.get(b2)) == null) {
+            String str = this.f70221g.f().get(b2);
+            if (str != null && (drawingTextPaint = this.f70221g.g().get(b2)) != null && (bitmap2 = this.f70218d.get(b2)) == null) {
                 bitmap2 = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
                 Canvas canvas2 = new Canvas(bitmap2);
                 Intrinsics.checkExpressionValueIsNotNull(drawingTextPaint, "drawingTextPaint");
@@ -333,14 +333,14 @@ public final class b extends d.l.a.f.a {
                 Rect rect = new Rect();
                 drawingTextPaint.getTextBounds(str, 0, str.length(), rect);
                 canvas2.drawText(str, (float) ((bitmap.getWidth() - rect.width()) / 2.0d), (((bitmap.getHeight() + 0) - drawingTextPaint.getFontMetrics().bottom) - drawingTextPaint.getFontMetrics().top) / 2, drawingTextPaint);
-                HashMap<String, Bitmap> hashMap = this.f66432d;
+                HashMap<String, Bitmap> hashMap = this.f70218d;
                 if (bitmap2 == null) {
                     throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                 }
                 hashMap.put(b2, bitmap2);
             }
-            StaticLayout it = this.f66435g.e().get(b2);
-            if (it != null && (bitmap2 = this.f66432d.get(b2)) == null) {
+            StaticLayout it = this.f70221g.e().get(b2);
+            if (it != null && (bitmap2 = this.f70218d.get(b2)) == null) {
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 TextPaint paint = it.getPaint();
                 Intrinsics.checkExpressionValueIsNotNull(paint, "it.paint");
@@ -350,7 +350,7 @@ public final class b extends d.l.a.f.a {
                 Canvas canvas3 = new Canvas(createBitmap);
                 canvas3.translate(0.0f, (bitmap.getHeight() - staticLayout.getHeight()) / 2);
                 staticLayout.draw(canvas3);
-                HashMap<String, Bitmap> hashMap2 = this.f66432d;
+                HashMap<String, Bitmap> hashMap2 = this.f70218d;
                 if (createBitmap == null) {
                     throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                 }
@@ -358,17 +358,17 @@ public final class b extends d.l.a.f.a {
                 bitmap2 = createBitmap;
             }
             if (bitmap2 != null) {
-                Paint c2 = this.f66431c.c();
+                Paint c2 = this.f70217c.c();
                 c2.setAntiAlias(c().a());
-                if (c1857a.a().c() != null) {
-                    d.l.a.g.b c3 = c1857a.a().c();
+                if (c1917a.a().c() != null) {
+                    d.l.a.g.b c3 = c1917a.a().c();
                     if (c3 != null) {
                         canvas.save();
                         canvas.concat(matrix);
                         canvas.clipRect(0, 0, bitmap.getWidth(), bitmap.getHeight());
                         Shader.TileMode tileMode = Shader.TileMode.REPEAT;
                         c2.setShader(new BitmapShader(bitmap2, tileMode, tileMode));
-                        Path d2 = this.f66431c.d();
+                        Path d2 = this.f70217c.d();
                         c3.a(d2);
                         canvas.drawPath(d2, c2);
                         canvas.restore();
@@ -383,8 +383,8 @@ public final class b extends d.l.a.f.a {
     }
 
     public final float j(Matrix matrix) {
-        matrix.getValues(this.f66434f);
-        float[] fArr = this.f66434f;
+        matrix.getValues(this.f70220f);
+        float[] fArr = this.f70220f;
         if (fArr[0] == 0.0f) {
             return 0.0f;
         }
@@ -430,7 +430,7 @@ public final class b extends d.l.a.f.a {
     }
 
     public final Matrix l(Matrix matrix) {
-        Matrix a2 = this.f66431c.a();
+        Matrix a2 = this.f70217c.a();
         a2.postScale(b().b(), b().c());
         a2.postTranslate(b().d(), b().e());
         a2.preConcat(matrix);

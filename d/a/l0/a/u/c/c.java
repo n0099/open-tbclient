@@ -9,30 +9,30 @@ import org.json.JSONObject;
 public abstract class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44807c = k.f43199a;
+    public static final boolean f48481c = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44808a;
+    public String f48482a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f44809b;
+    public d f48483b;
 
     /* loaded from: classes2.dex */
     public class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f44810a;
+        public final /* synthetic */ String f48484a;
 
         public a(String str) {
-            this.f44810a = str;
+            this.f48484a = str;
         }
 
         @Override // d.a.l0.a.u.c.c.b
         public void a(d.a.l0.a.u.h.b bVar) {
-            if (c.f44807c) {
-                Log.d("SwanAutoSyncApiHandler", c.this.f44808a + " async callback: " + bVar.toString());
+            if (c.f48481c) {
+                Log.d("SwanAutoSyncApiHandler", c.this.f48482a + " async callback: " + bVar.toString());
             }
-            c.this.f44809b.d(this.f44810a, bVar);
+            c.this.f48483b.d(this.f48484a, bVar);
         }
     }
 
@@ -42,7 +42,7 @@ public abstract class c {
     }
 
     public c(@NonNull String str) {
-        this.f44808a = str;
+        this.f48482a = str;
     }
 
     @NonNull
@@ -52,43 +52,43 @@ public abstract class c {
     public abstract d.a.l0.a.u.h.b e(@NonNull JSONObject jSONObject);
 
     public d.a.l0.a.u.h.b f(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull d dVar) {
-        this.f44809b = dVar;
-        if (f44807c) {
-            Log.d("SwanAutoSyncApiHandler", this.f44808a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str);
+        this.f48483b = dVar;
+        if (f48481c) {
+            Log.d("SwanAutoSyncApiHandler", this.f48482a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str);
         }
         return i() ? h(jSONObject) : g(jSONObject, str);
     }
 
     public final d.a.l0.a.u.h.b g(@NonNull JSONObject jSONObject, @Nullable String str) {
-        if (f44807c) {
-            Log.d("SwanAutoSyncApiHandler", this.f44808a + " start handle async");
+        if (f48481c) {
+            Log.d("SwanAutoSyncApiHandler", this.f48482a + " start handle async");
         }
         d.a.l0.a.u.h.b d2 = d(jSONObject, new a(str));
-        if (!d2.e("isSync", Boolean.FALSE)) {
-            if (f44807c) {
-                Log.e("SwanAutoSyncApiHandler", this.f44808a + " handleAsync encounter error, json exception");
+        if (!d2.d("isSync", Boolean.FALSE)) {
+            if (f48481c) {
+                Log.e("SwanAutoSyncApiHandler", this.f48482a + " handleAsync encounter error, json exception");
             }
             return new d.a.l0.a.u.h.b(1001, "make result json error");
         }
-        if (f44807c) {
-            Log.d("SwanAutoSyncApiHandler", this.f44808a + " end handle async, processing in other thread, sync result: " + d2.toString());
+        if (f48481c) {
+            Log.d("SwanAutoSyncApiHandler", this.f48482a + " end handle async, processing in other thread, sync result: " + d2.toString());
         }
         return d2;
     }
 
     public final d.a.l0.a.u.h.b h(@NonNull JSONObject jSONObject) {
-        if (f44807c) {
-            Log.d("SwanAutoSyncApiHandler", this.f44808a + " start handle sync");
+        if (f48481c) {
+            Log.d("SwanAutoSyncApiHandler", this.f48482a + " start handle sync");
         }
         d.a.l0.a.u.h.b e2 = e(jSONObject);
-        if (!e2.e("isSync", Boolean.TRUE)) {
-            if (f44807c) {
-                Log.e("SwanAutoSyncApiHandler", this.f44808a + " handleSync encounter error, json exception");
+        if (!e2.d("isSync", Boolean.TRUE)) {
+            if (f48481c) {
+                Log.e("SwanAutoSyncApiHandler", this.f48482a + " handleSync encounter error, json exception");
             }
             return new d.a.l0.a.u.h.b(1001, "make result json error");
         }
-        if (f44807c) {
-            Log.d("SwanAutoSyncApiHandler", this.f44808a + " end handle sync, result: " + e2.toString());
+        if (f48481c) {
+            Log.d("SwanAutoSyncApiHandler", this.f48482a + " end handle sync, result: " + e2.toString());
         }
         return e2;
     }

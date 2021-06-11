@@ -8,33 +8,33 @@ import tbclient.ThreadInfo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61427a;
+    public int f65140a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61428b;
+    public String f65141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61429c;
+    public String f65142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61430d;
+    public String f65143d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<ThreadInfo> f61431e;
+    public List<ThreadInfo> f65144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61432f;
+    public int f65145f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<String> f61433g;
+    public List<String> f65146g;
 
     public a(HotLiveWithCategory hotLiveWithCategory) {
-        this.f61427a = hotLiveWithCategory.tab_id.intValue();
-        this.f61428b = hotLiveWithCategory.entry_name;
-        this.f61429c = hotLiveWithCategory.label_name;
-        this.f61430d = hotLiveWithCategory.bitmap_wh_ratio;
-        this.f61431e = new ArrayList(hotLiveWithCategory.live);
-        this.f61432f = hotLiveWithCategory.live_tab_type.intValue();
-        this.f61433g = hotLiveWithCategory.sub_type_list;
+        this.f65140a = hotLiveWithCategory.tab_id.intValue();
+        this.f65141b = hotLiveWithCategory.entry_name;
+        this.f65142c = hotLiveWithCategory.label_name;
+        this.f65143d = hotLiveWithCategory.bitmap_wh_ratio;
+        this.f65144e = new ArrayList(hotLiveWithCategory.live);
+        this.f65145f = hotLiveWithCategory.live_tab_type.intValue();
+        this.f65146g = hotLiveWithCategory.sub_type_list;
     }
 }

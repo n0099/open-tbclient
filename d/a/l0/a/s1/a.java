@@ -6,28 +6,28 @@ import d.a.l0.a.s1.g;
 public final class a implements g.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f44666a;
+    public final int f48340a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f f44667b;
+    public final f f48341b;
 
     public a(int i2, @NonNull f fVar) {
-        this.f44666a = i2;
-        this.f44667b = fVar;
+        this.f48340a = i2;
+        this.f48341b = fVar;
     }
 
     @Override // d.a.l0.a.s1.g.a
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (i2 != this.f44666a) {
-            this.f44667b.b(2, "request permission fail");
+        if (i2 != this.f48340a) {
+            this.f48341b.b(2, "request permission fail");
             return;
         }
         for (int i3 : iArr) {
             if (i3 == -1) {
-                this.f44667b.b(1, "user denied");
+                this.f48341b.b(1, "user denied");
                 return;
             }
         }
-        this.f44667b.a("permission granted successful");
+        this.f48341b.a("permission granted successful");
     }
 }

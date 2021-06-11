@@ -11,17 +11,17 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f65924a;
+    public Context f69655a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.d.b.g f65925b;
+    public d.b.d.b.g f69656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f65926c;
+    public Map<String, Object> f69657c;
 
     public b(@NonNull Context context, @NonNull d.b.d.b.g gVar) {
-        this.f65924a = context;
-        this.f65925b = gVar;
+        this.f69655a = context;
+        this.f69656b = gVar;
     }
 
     public static boolean b(Map<String, Object> map) {
@@ -30,13 +30,13 @@ public class b {
 
     @Nullable
     public Map<String, Object> a() {
-        Map<String, Object> a2 = this.f65925b.a();
+        Map<String, Object> a2 = this.f69656b.a();
         if (a2 == null) {
             a2 = new HashMap<>(4);
         }
         if (b(a2)) {
             try {
-                PackageInfo packageInfo = this.f65924a.getPackageManager().getPackageInfo(this.f65924a.getPackageName(), 128);
+                PackageInfo packageInfo = this.f69655a.getPackageManager().getPackageInfo(this.f69655a.getPackageName(), 128);
                 a2.put("version_name", packageInfo.versionName);
                 a2.put("version_code", Integer.valueOf(packageInfo.versionCode));
                 if (a2.get("update_version_code") == null) {
@@ -47,8 +47,8 @@ public class b {
                     a2.put("update_version_code", obj);
                 }
             } catch (Throwable unused) {
-                a2.put("version_name", l.b.l(this.f65924a));
-                a2.put("version_code", Integer.valueOf(l.b.m(this.f65924a)));
+                a2.put("version_name", l.b.l(this.f69655a));
+                a2.put("version_code", Integer.valueOf(l.b.m(this.f69655a)));
                 if (a2.get("update_version_code") == null) {
                     a2.put("update_version_code", a2.get("version_code"));
                 }
@@ -59,22 +59,22 @@ public class b {
 
     @Nullable
     public Map<String, Object> c() {
-        if (this.f65926c == null) {
-            this.f65926c = this.f65925b.g();
+        if (this.f69657c == null) {
+            this.f69657c = this.f69656b.g();
         }
-        return this.f65926c;
+        return this.f69657c;
     }
 
     @NonNull
     public d.b.d.b.g d() {
-        return this.f65925b;
+        return this.f69656b;
     }
 
     public String e() {
-        return l.b.k(this.f65924a);
+        return l.b.k(this.f69655a);
     }
 
     public String f() {
-        return this.f65925b.b();
+        return this.f69656b.b();
     }
 }

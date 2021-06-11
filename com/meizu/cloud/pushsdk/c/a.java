@@ -11,34 +11,34 @@ import com.meizu.cloud.pushsdk.c.e.c;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f34783a;
+    public static c f38462a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f34784b;
+    public static BroadcastReceiver f38463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static AtomicBoolean f34785c = new AtomicBoolean(false);
+    public static AtomicBoolean f38464c = new AtomicBoolean(false);
 
     public static b a(Context context) {
         return new b.a().a(context).a();
     }
 
     public static c a(Context context, com.meizu.cloud.pushsdk.b.c.a aVar, f fVar) {
-        if (f34783a == null) {
+        if (f38462a == null) {
             synchronized (a.class) {
-                if (f34783a == null) {
-                    f34783a = a(b(context, aVar, fVar), (b) null, context);
+                if (f38462a == null) {
+                    f38462a = a(b(context, aVar, fVar), (b) null, context);
                 }
-                if (f34785c.compareAndSet(false, true)) {
-                    a(context, f34783a);
+                if (f38464c.compareAndSet(false, true)) {
+                    a(context, f38462a);
                 }
             }
         }
-        return f34783a;
+        return f38462a;
     }
 
     public static c a(Context context, f fVar) {
@@ -46,18 +46,18 @@ public class a {
     }
 
     public static c a(Context context, boolean z) {
-        if (f34783a == null) {
+        if (f38462a == null) {
             synchronized (a.class) {
-                if (f34783a == null) {
-                    f34783a = a(b(context, null, null), (b) null, context);
+                if (f38462a == null) {
+                    f38462a = a(b(context, null, null), (b) null, context);
                 }
             }
         }
         d.j.a.a.a.d("PushAndroidTracker", "can upload subject " + z);
         if (z) {
-            f34783a.a(a(context));
+            f38462a.a(a(context));
         }
-        return f34783a;
+        return f38462a;
     }
 
     public static c a(com.meizu.cloud.pushsdk.c.b.c cVar, b bVar, Context context) {
@@ -83,7 +83,7 @@ public class a {
                 }
             }
         };
-        f34784b = broadcastReceiver;
+        f38463b = broadcastReceiver;
         context.registerReceiver(broadcastReceiver, intentFilter);
     }
 

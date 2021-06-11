@@ -10,49 +10,49 @@ import java.util.ArrayList;
 public class c extends d.a.m0.w.p.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57220e;
+    public String f60909e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57221f;
+    public String f60910f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57222g;
+    public int f60911g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57223h;
+    public int f60912h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<String> f57224i = new ArrayList<>();
+    public ArrayList<String> f60913i = new ArrayList<>();
 
     public c(EmotionGroupData emotionGroupData) {
-        this.f57220e = emotionGroupData.getGroupId();
-        this.f57221f = emotionGroupData.getGroupName();
-        this.f57222g = emotionGroupData.getWidth();
-        this.f57223h = emotionGroupData.getHeight();
+        this.f60909e = emotionGroupData.getGroupId();
+        this.f60910f = emotionGroupData.getGroupName();
+        this.f60911g = emotionGroupData.getWidth();
+        this.f60912h = emotionGroupData.getHeight();
         t();
     }
 
     @Override // d.a.m0.w.p.c
     public String b(int i2) {
-        if (i2 >= this.f57224i.size()) {
+        if (i2 >= this.f60913i.size()) {
             return null;
         }
-        return this.f57224i.get(i2);
+        return this.f60913i.get(i2);
     }
 
     @Override // d.a.m0.w.p.c
     public int c() {
-        return this.f57224i.size();
+        return this.f60913i.size();
     }
 
     @Override // d.a.m0.w.p.c
     public String f() {
-        return this.f57220e;
+        return this.f60909e;
     }
 
     @Override // d.a.m0.w.p.c
     public String g() {
-        return this.f57221f;
+        return this.f60910f;
     }
 
     @Override // d.a.m0.w.p.c
@@ -62,7 +62,7 @@ public class c extends d.a.m0.w.p.c {
 
     @Override // d.a.m0.w.p.c
     public int i() {
-        return this.f57223h;
+        return this.f60912h;
     }
 
     @Override // d.a.m0.w.p.c
@@ -72,48 +72,48 @@ public class c extends d.a.m0.w.p.c {
 
     @Override // d.a.m0.w.p.c
     public int l() {
-        return this.f57222g;
+        return this.f60911g;
     }
 
     @Override // d.a.m0.w.p.c
     public boolean m(String str) {
-        return this.f57224i.contains(str);
+        return this.f60913i.contains(str);
     }
 
     @Override // d.a.m0.w.p.c
-    public d.a.c.j.d.a n(String str) {
+    public d.a.c.k.d.a n(String str) {
         return null;
     }
 
     @Override // d.a.m0.w.p.c
-    public d.a.c.j.d.a o(String str) {
+    public d.a.c.k.d.a o(String str) {
         String b2;
         if (u(str)) {
             b2 = b.c(str, true, false);
         } else {
             b2 = b.b(str, false);
         }
-        Bitmap f2 = b.f(this.f57220e, b2);
+        Bitmap f2 = b.f(this.f60909e, b2);
         if (f2 == null) {
             return null;
         }
-        return new d.a.c.j.d.a(f2, false, str);
+        return new d.a.c.k.d.a(f2, false, str);
     }
 
     public final void t() {
         s(2);
         p(4);
-        Bitmap f2 = b.f(this.f57220e, "panel.png");
-        Bitmap f3 = b.f(this.f57220e, "panel_momo.png");
+        Bitmap f2 = b.f(this.f60909e, "panel.png");
+        Bitmap f3 = b.f(this.f60909e, "panel_momo.png");
         if (f2 != null) {
-            q(new d.a.c.j.d.a(f2, false));
+            q(new d.a.c.k.d.a(f2, false));
         }
         if (f3 != null) {
-            r(new d.a.c.j.d.a(f3, false));
+            r(new d.a.c.k.d.a(f3, false));
         }
-        this.f57224i.clear();
-        for (EmotionData emotionData : g.k().m(this.f57220e)) {
-            this.f57224i.add(emotionData.getSharpText());
+        this.f60913i.clear();
+        for (EmotionData emotionData : g.k().m(this.f60909e)) {
+            this.f60913i.add(emotionData.getSharpText());
         }
     }
 

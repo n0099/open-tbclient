@@ -40,16 +40,16 @@ public class TiebaActiveService extends BdBaseService {
     public class b extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20343a;
+        public NetWork f20420a;
 
         public b() {
-            this.f20343a = null;
+            this.f20420a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            NetWork netWork = this.f20343a;
+            NetWork netWork = this.f20420a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -61,15 +61,15 @@ public class TiebaActiveService extends BdBaseService {
         public String doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork("http://114.113.149.3:8086/partnersService");
-                this.f20343a = netWork;
+                this.f20420a = netWork;
                 netWork.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.f20343a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                this.f20343a.addPostData("model", Build.MODEL);
-                this.f20343a.addPostData("edition", TbConfig.getVersion());
-                this.f20343a.addPostData("system", Build.VERSION.SDK);
-                this.f20343a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
-                String postNetData = this.f20343a.postNetData();
-                if (this.f20343a.isNetSuccess()) {
+                this.f20420a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
+                this.f20420a.addPostData("model", Build.MODEL);
+                this.f20420a.addPostData("edition", TbConfig.getVersion());
+                this.f20420a.addPostData("system", Build.VERSION.SDK);
+                this.f20420a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
+                String postNetData = this.f20420a.postNetData();
+                if (this.f20420a.isNetSuccess()) {
                     return postNetData;
                 }
                 return null;

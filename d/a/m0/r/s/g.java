@@ -16,19 +16,19 @@ import d.a.m0.z0.i0;
 public class g implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f50245e;
+    public Activity f53921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50246f;
+    public View f53922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f50247g;
+    public ViewGroup f53923g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f50248h;
+    public View f53924h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50249i;
+    public TextView f53925i;
     public WindowManager j;
     public WindowManager.LayoutParams k;
     public int l;
@@ -57,29 +57,29 @@ public class g implements View.OnClickListener {
         if (activity == null) {
             return;
         }
-        this.f50245e = activity;
+        this.f53921e = activity;
         this.r = d.a.c.e.p.l.g(activity, R.dimen.tbds114);
         this.p = d.a.c.e.p.l.g(activity, R.dimen.tbds84);
         this.q = d.a.c.e.p.l.g(activity, R.dimen.tbds44);
         this.m = d.a.c.e.p.l.g(activity, R.dimen.tbds222);
         this.l = d.a.c.e.p.l.g(activity, R.dimen.tbds29);
         View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
-        this.f50247g = (ViewGroup) inflate.findViewById(R.id.layout_container);
-        this.f50248h = inflate.findViewById(R.id.background);
-        this.f50249i = (TextView) inflate.findViewById(R.id.toast_tv);
-        this.f50246f = inflate;
-        this.f50248h.setBackgroundDrawable(b());
-        this.f50249i.setMaxLines(1);
-        this.f50249i.setGravity(17);
-        this.f50249i.setTextSize(0, d.a.c.e.p.l.g(activity, R.dimen.tbfontsize40));
-        this.f50249i.setTextColor(this.f50245e.getResources().getColor(R.color.CAM_X0101));
-        TextView textView = this.f50249i;
+        this.f53923g = (ViewGroup) inflate.findViewById(R.id.layout_container);
+        this.f53924h = inflate.findViewById(R.id.background);
+        this.f53925i = (TextView) inflate.findViewById(R.id.toast_tv);
+        this.f53922f = inflate;
+        this.f53924h.setBackgroundDrawable(b());
+        this.f53925i.setMaxLines(1);
+        this.f53925i.setGravity(17);
+        this.f53925i.setTextSize(0, d.a.c.e.p.l.g(activity, R.dimen.tbfontsize40));
+        this.f53925i.setTextColor(this.f53921e.getResources().getColor(R.color.CAM_X0101));
+        TextView textView = this.f53925i;
         int i2 = this.q;
         textView.setPadding(i2, 0, i2, 0);
-        this.j = (WindowManager) this.f50245e.getSystemService("window");
+        this.j = (WindowManager) this.f53921e.getSystemService("window");
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         this.k = layoutParams;
-        layoutParams.width = d.a.c.e.p.l.k(this.f50245e) - (this.l * 2);
+        layoutParams.width = d.a.c.e.p.l.k(this.f53921e) - (this.l * 2);
         WindowManager.LayoutParams layoutParams2 = this.k;
         layoutParams2.height = this.r;
         layoutParams2.type = 1000;
@@ -98,13 +98,13 @@ public class g implements View.OnClickListener {
     }
 
     public final g a(String str) {
-        if (this.f50245e != null && !TextUtils.isEmpty(str)) {
+        if (this.f53921e != null && !TextUtils.isEmpty(str)) {
             String e2 = i0.e(str, 34);
-            int t = d.a.c.e.p.l.t(this.f50249i.getPaint(), e2);
-            ViewGroup.LayoutParams layoutParams = this.f50247g.getLayoutParams();
+            int t = d.a.c.e.p.l.t(this.f53925i.getPaint(), e2);
+            ViewGroup.LayoutParams layoutParams = this.f53923g.getLayoutParams();
             layoutParams.width = t + (this.q * 2);
-            this.f50247g.setLayoutParams(layoutParams);
-            this.f50249i.setText(e2);
+            this.f53923g.setLayoutParams(layoutParams);
+            this.f53925i.setText(e2);
         }
         return this;
     }
@@ -123,13 +123,13 @@ public class g implements View.OnClickListener {
     }
 
     public final int d() {
-        return this.m + UtilHelper.getNavigationBarHeight(this.f50245e);
+        return this.m + UtilHelper.getNavigationBarHeight(this.f53921e);
     }
 
     public void e() {
         d.a.c.e.m.e.a().removeCallbacks(this.u);
-        if (this.f50246f.getWindowToken() != null) {
-            this.j.removeView(this.f50246f);
+        if (this.f53922f.getWindowToken() != null) {
+            this.j.removeView(this.f53922f);
         }
     }
 
@@ -145,17 +145,17 @@ public class g implements View.OnClickListener {
     }
 
     public void i(Object obj) {
-        this.f50247g.setTag(obj);
-        this.f50247g.setOnClickListener(this);
+        this.f53923g.setTag(obj);
+        this.f53923g.setOnClickListener(this);
     }
 
     public g j() {
         d.a.c.e.m.e.a().removeCallbacks(this.u);
-        View view = this.f50246f;
+        View view = this.f53922f;
         if (view != null && view.getWindowToken() != null) {
-            this.j.removeView(this.f50246f);
+            this.j.removeView(this.f53922f);
         }
-        this.j.addView(this.f50246f, this.k);
+        this.j.addView(this.f53922f, this.k);
         d.a.c.e.m.e.a().postDelayed(this.u, this.o);
         return this;
     }

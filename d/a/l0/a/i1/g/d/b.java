@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class b extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f42996b = d.a.l0.a.k.f43199a;
+    public static final boolean f46672b = d.a.l0.a.k.f46875a;
 
     public b(String str) {
         super(str);
@@ -20,7 +20,7 @@ public class b extends g {
 
     @Override // d.a.l0.a.i1.g.d.g
     public boolean a(d.a.l0.a.i1.g.a aVar, d.a.l0.a.i1.g.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        d.a.l0.a.e0.d.g("video", "fullscreen, video id:" + cVar.n + " slave id: " + cVar.f40846g);
+        d.a.l0.a.e0.d.g("video", "fullscreen, video id:" + cVar.n + " slave id: " + cVar.f44522g);
         e(aVar, cVar.w, unitedSchemeEntity, callbackHandler);
         return true;
     }
@@ -33,7 +33,7 @@ public class b extends g {
         try {
             return new JSONObject(str).optInt("direction", -1);
         } catch (JSONException e2) {
-            if (f42996b) {
+            if (f46672b) {
                 e2.printStackTrace();
                 return -1;
             }

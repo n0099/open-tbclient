@@ -16,7 +16,7 @@ import com.baidu.tieba.newfaceshop.message.BazhuInfoResponseMessage;
 public class BarInformationModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f18513e;
+    public final HttpMessageListener f18589e;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -49,11 +49,11 @@ public class BarInformationModel extends BdBaseModel {
 
     public BarInformationModel(TbPageContext<BaseActivity> tbPageContext) {
         super(tbPageContext);
-        this.f18513e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
+        this.f18589e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
         registerTask();
-        this.f18513e.setTag(getUniqueId());
-        this.f18513e.setSelfListener(true);
-        registerListener(this.f18513e);
+        this.f18589e.setTag(getUniqueId());
+        this.f18589e.setSelfListener(true);
+        registerListener(this.f18589e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -73,7 +73,7 @@ public class BarInformationModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void s(b bVar) {
+    public void w(b bVar) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
         httpMessage.setExtra(bVar);
         sendMessage(httpMessage);

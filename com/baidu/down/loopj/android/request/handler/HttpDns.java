@@ -2,6 +2,7 @@ package com.baidu.down.loopj.android.request.handler;
 
 import android.util.Log;
 import com.baidu.down.utils.NamingThreadFactory;
+import com.yy.gslbsdk.db.ResultTB;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -126,7 +127,7 @@ public final class HttpDns {
                                 sb.append(readLine);
                             }
                             JSONObject jSONObject = new JSONObject(sb.toString());
-                            long j = jSONObject.getLong("ttl");
+                            long j = jSONObject.getLong(ResultTB.TTL);
                             JSONObject optJSONObject = jSONObject.optJSONObject("data");
                             if (optJSONObject != null) {
                                 if (j == 0) {

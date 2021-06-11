@@ -9,32 +9,32 @@ import com.baidu.sofire.g.e;
 public class Report {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Report f10321a;
+    public static Report f10383a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f10322b;
+    public Context f10384b;
 
     public Report(Context context) {
-        this.f10322b = context.getApplicationContext();
+        this.f10384b = context.getApplicationContext();
     }
 
     public static synchronized Report getInstance(Context context) {
         Report report;
         synchronized (Report.class) {
-            if (f10321a == null) {
-                f10321a = new Report(context);
+            if (f10383a == null) {
+                f10383a = new Report(context);
             }
-            report = f10321a;
+            report = f10383a;
         }
         return report;
     }
 
     public void fr() {
         try {
-            e a2 = e.a(this.f10322b);
+            e a2 = e.a(this.f10384b);
             Message message = new Message();
             message.what = 9;
-            a2.f10219b.a(message);
+            a2.f10281b.a(message);
         } catch (Throwable unused) {
             d.a();
         }
@@ -42,7 +42,7 @@ public class Report {
 
     public void i(String str, String str2, String str3, String str4, String str5) {
         try {
-            d.a(this.f10322b, str, str2, str3, str4, str5);
+            d.a(this.f10384b, str, str2, str3, str4, str5);
         } catch (Throwable unused) {
             d.a();
         }
@@ -50,10 +50,10 @@ public class Report {
 
     public void n() {
         try {
-            e a2 = e.a(this.f10322b);
+            e a2 = e.a(this.f10384b);
             Message message = new Message();
             message.what = 6;
-            a2.f10219b.a(message);
+            a2.f10281b.a(message);
         } catch (Throwable unused) {
             d.a();
         }
@@ -61,7 +61,7 @@ public class Report {
 
     public void r(boolean z) {
         try {
-            e.a(this.f10322b).a();
+            e.a(this.f10384b).a();
         } catch (Throwable unused) {
             d.a();
         }
@@ -75,11 +75,11 @@ public class Report {
         try {
             new StringBuilder().append(str);
             b.a();
-            e a2 = e.a(this.f10322b);
+            e a2 = e.a(this.f10384b);
             Message message = new Message();
             message.what = 11;
             message.obj = str;
-            a2.f10219b.a(message);
+            a2.f10281b.a(message);
         } catch (Throwable unused) {
             d.a();
         }
@@ -87,7 +87,7 @@ public class Report {
 
     public void w(String str) {
         try {
-            d.a(this.f10322b, str);
+            d.a(this.f10384b, str);
         } catch (Throwable unused) {
             d.a();
         }
@@ -97,7 +97,7 @@ public class Report {
         try {
             new StringBuilder().append(str);
             b.a();
-            d.a(this.f10322b, str, z);
+            d.a(this.f10384b, str, z);
         } catch (Throwable unused) {
             d.a();
         }

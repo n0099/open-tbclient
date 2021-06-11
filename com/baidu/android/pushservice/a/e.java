@@ -3,16 +3,16 @@ package com.baidu.android.pushservice.a;
 public class e extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2728d = "";
+    public String f2747d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f2729e = false;
+    public boolean f2748e = false;
 
     public void a(boolean z) {
-        this.f2729e = z;
+        this.f2748e = z;
     }
 
     public String toString() {
-        return "mPackageName: " + this.f2717b + ", mAppId: " + this.f2716a + ", mUserId: " + this.f2728d + ", mPushSDKVersion: " + this.f2718c;
+        return "mPackageName: " + this.f2736b + ", mAppId: " + this.f2735a + ", mUserId: " + this.f2747d + ", mPushSDKVersion: " + this.f2737c;
     }
 }

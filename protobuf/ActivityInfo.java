@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ActivityInfo extends Message {
     public static final String DEFAULT_ACTIVITYTITLE = "";
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
@@ -14,7 +14,7 @@ public final class ActivityInfo extends Message {
     public static final Integer DEFAULT_ACTIVITYID = 0;
     public static final Integer DEFAULT_ISEND = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<ActivityInfo> {
         public Integer activityId;
         public String activityTitle;

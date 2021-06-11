@@ -8,13 +8,13 @@ public enum Carrier {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public int f35469a;
+    public int f39148a;
 
     Carrier(int i2) {
-        this.f35469a = i2;
+        this.f39148a = i2;
     }
 
     public final int getValue() {
-        return this.f35469a;
+        return this.f39148a;
     }
 }

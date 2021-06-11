@@ -69,9 +69,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         if (writeData != null && this.mAccessState != null) {
             NewWriteModel newWriteModel = new NewWriteModel(this);
             this.mWriteModel = newWriteModel;
-            newWriteModel.f0(this.mWriteData);
+            newWriteModel.j0(this.mWriteData);
             if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.mWriteModel.Z(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.mWriteModel.d0(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
             a aVar = new a(this.mView, this.mWriteModel);
             this.mPresenter = aVar;

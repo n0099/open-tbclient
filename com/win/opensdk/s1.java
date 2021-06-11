@@ -13,6 +13,10 @@ import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
 /* loaded from: classes7.dex */
 public class s1 {
+    public static float a(Context context, String str, float f2) {
+        return context.getSharedPreferences("_prefs", 0).getFloat(str, f2);
+    }
+
     public static long a(Context context) {
         return context.getSharedPreferences("_prefs", 0).getLong("bdts", 0L);
     }
@@ -236,6 +240,12 @@ public class s1 {
         edit.apply();
     }
 
+    public static void b(Context context, float f2) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
+        edit.putFloat("splash_width", f2);
+        edit.apply();
+    }
+
     public static void c(Context context, long j) {
         SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
         edit.putLong("spl_timeout", j);
@@ -249,6 +259,12 @@ public class s1 {
         }
         SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
         edit.putString("key_show_institial_adid", str);
+        edit.apply();
+    }
+
+    public static void a(Context context, float f2) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
+        edit.putFloat("splash_height", f2);
         edit.apply();
     }
 }

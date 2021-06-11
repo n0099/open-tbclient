@@ -19,15 +19,15 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        h0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        i0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View h0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<a> msgViewHolder) {
-        super.W(i2, view, viewGroup, chatMessage, msgViewHolder);
+    public View i0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<a> msgViewHolder) {
+        super.X(i2, view, viewGroup, chatMessage, msgViewHolder);
         a b2 = msgViewHolder.b();
         b2.b();
         if (b2 != null) {
@@ -37,9 +37,9 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: q0 */
-    public MsgCommonItemAdapter.MsgViewHolder<a> P(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<a> Q(ViewGroup viewGroup) {
         a aVar = new a(this.t, viewGroup, this.u);
         return new MsgCommonItemAdapter.MsgViewHolder<>(aVar.a(), aVar);
     }

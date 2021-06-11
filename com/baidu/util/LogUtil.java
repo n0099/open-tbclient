@@ -6,66 +6,66 @@ import android.util.Log;
 public class LogUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static LogUtil f22888a;
+    public static LogUtil f22991a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Boolean f22889c = Boolean.FALSE;
+    public static Boolean f22992c = Boolean.FALSE;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f22890b;
+    public Context f22993b;
 
     public LogUtil(Context context) {
-        this.f22890b = context;
+        this.f22993b = context;
     }
 
     public static synchronized LogUtil getInstance(Context context) {
         LogUtil logUtil;
         synchronized (LogUtil.class) {
-            if (f22888a == null) {
-                f22888a = new LogUtil(context);
+            if (f22991a == null) {
+                f22991a = new LogUtil(context);
             }
-            logUtil = f22888a;
+            logUtil = f22991a;
         }
         return logUtil;
     }
 
     public static void logD(String str, String str2) {
-        if (f22889c.booleanValue()) {
+        if (f22992c.booleanValue()) {
             Log.d(str, str2);
         }
     }
 
     public static void logE(String str, String str2) {
-        if (f22889c.booleanValue()) {
+        if (f22992c.booleanValue()) {
             Log.e(str, str2);
         }
     }
 
     public static void logI(String str, String str2) {
-        if (f22889c.booleanValue()) {
+        if (f22992c.booleanValue()) {
             Log.i(str, str2);
         }
     }
 
     public static void syso(Boolean bool) {
-        if (f22889c.booleanValue()) {
+        if (f22992c.booleanValue()) {
             System.out.println(String.valueOf(bool));
         }
     }
 
     public static void syso(Object obj) {
-        if (f22889c.booleanValue()) {
+        if (f22992c.booleanValue()) {
             System.out.println(String.valueOf(obj));
         }
     }
 
     public static void syso(String str) {
-        if (f22889c.booleanValue()) {
+        if (f22992c.booleanValue()) {
             System.out.println(str);
         }
     }
 
     public void setSysoLog(boolean z) {
-        f22889c = Boolean.valueOf(z);
+        f22992c = Boolean.valueOf(z);
     }
 }

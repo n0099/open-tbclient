@@ -11,20 +11,20 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42420a;
+    public static int f46096a;
 
     static {
-        boolean z = k.f43199a;
-        f42420a = -1;
+        boolean z = k.f46875a;
+        f46096a = -1;
     }
 
     public static int a() {
-        if (f42420a < 0) {
+        if (f46096a < 0) {
             d.a.l0.a.c1.a.Z().getSwitch("swan_app_precreate_video_switch", 0);
-            f42420a = 0;
+            f46096a = 0;
         }
-        d.g("PreCreateVideoHelper", "getCacheVideoSwitch:" + f42420a);
-        return f42420a;
+        d.g("PreCreateVideoHelper", "getCacheVideoSwitch:" + f46096a);
+        return f46096a;
     }
 
     public static boolean b(String str) {
@@ -32,7 +32,7 @@ public class a {
             str = f.V().f();
         }
         String f2 = o0.f(str);
-        boolean z = f.V().d(f2, f.V().s(), e.C0561e.i(d.a.l0.a.a2.d.g().getAppId(), d.a.l0.a.a2.d.g().r().L().u1()).getPath() + File.separator).o;
+        boolean z = f.V().d(f2, f.V().s(), e.C0617e.i(d.a.l0.a.a2.d.g().getAppId(), d.a.l0.a.a2.d.g().r().L().u1()).getPath() + File.separator).o;
         d.g("PreCreateVideoHelper", "hasVideoInPage path : " + f2 + " has video :" + z);
         return z;
     }

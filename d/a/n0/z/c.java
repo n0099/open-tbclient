@@ -38,20 +38,20 @@ public abstract class c<T extends d.a.n0.z.e0.a> extends b<T> {
         this.r = null;
         this.s = null;
         this.u = null;
-        t(l());
+        u(m());
     }
 
     @Override // d.a.n0.z.b
-    public final int g() {
+    public final int h() {
         return R.layout.card_group;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
-            s();
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
+            t();
         }
-        this.f63440e = i2;
+        this.f67158e = i2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -66,7 +66,7 @@ public abstract class c<T extends d.a.n0.z.e0.a> extends b<T> {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public final void s() {
+    public final void t() {
         if (f() != null && f().equals(BaiduWalletServiceProviderMap.PLUGIN_WALLETHOME)) {
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1);
             this.t.setVisibility(8);
@@ -76,7 +76,7 @@ public abstract class c<T extends d.a.n0.z.e0.a> extends b<T> {
         }
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0304, 1);
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
-        SkinManager.setBackgroundColor(l(), R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(m(), R.color.CAM_X0201);
         SkinManager.setBackgroundColor(this.q, R.color.CAM_X0204);
         SkinManager.setBackgroundColor(this.r, R.color.CAM_X0204);
         SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
@@ -84,7 +84,7 @@ public abstract class c<T extends d.a.n0.z.e0.a> extends b<T> {
         SkinManager.setBackgroundColor(this.w, R.color.CAM_X0204);
     }
 
-    public final void t(View view) {
+    public final void u(View view) {
         this.m = (RelativeLayout) view.findViewById(R.id.item_layout_group_title);
         this.n = (TextView) view.findViewById(R.id.item_group_title);
         this.o = (TextView) view.findViewById(R.id.item_right_tv);
@@ -98,9 +98,9 @@ public abstract class c<T extends d.a.n0.z.e0.a> extends b<T> {
         this.t = (ImageView) view.findViewById(R.id.item_right_arrow);
     }
 
-    public void u(T t) {
+    public void v(T t) {
         if (t == null) {
-            l().setVisibility(8);
+            m().setVisibility(8);
             return;
         }
         this.n.setText(t.mGroupTitle);
@@ -136,14 +136,14 @@ public abstract class c<T extends d.a.n0.z.e0.a> extends b<T> {
         this.r.setVisibility(8);
     }
 
-    public void v(boolean z) {
+    public void w(boolean z) {
         View view = this.v;
         if (view != null) {
             view.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void w(int i2) {
+    public void x(int i2) {
         View view = this.q;
         if (view != null && view.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.q.getLayoutParams();

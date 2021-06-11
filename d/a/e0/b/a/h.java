@@ -9,32 +9,32 @@ import java.util.concurrent.ConcurrentHashMap;
 public abstract class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, h> f39715a = new HashMap<>();
+    public static final HashMap<String, h> f43396a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, b> f39716b = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<String, b> f43397b = new ConcurrentHashMap<>();
 
     /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f39717a;
+        public IBinder f43398a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f39718b;
+        public boolean f43399b;
 
         public b() {
-            this.f39718b = false;
+            this.f43399b = false;
         }
     }
 
     public static void a(String str, IBinder iBinder, boolean z) {
         if (Binder.getCallingUid() == Process.myUid()) {
-            if (f39715a.get(str) == null) {
+            if (f43396a.get(str) == null) {
                 b bVar = new b();
-                bVar.f39717a = iBinder;
-                bVar.f39718b = z;
-                f39716b.put(str, bVar);
+                bVar.f43398a = iBinder;
+                bVar.f43399b = z;
+                f43397b.put(str, bVar);
                 return;
             }
             throw new IllegalArgumentException();
@@ -43,24 +43,24 @@ public abstract class h {
     }
 
     public static IBinder d(String str) {
-        h hVar = f39715a.get(str);
+        h hVar = f43396a.get(str);
         if (hVar != null) {
             hVar.b();
             return hVar.c();
         }
-        b bVar = f39716b.get(str);
+        b bVar = f43397b.get(str);
         if (bVar != null) {
-            if (!bVar.f39718b && Binder.getCallingUid() != Process.myUid()) {
+            if (!bVar.f43399b && Binder.getCallingUid() != Process.myUid()) {
                 throw new SecurityException();
             }
-            return bVar.f39717a;
+            return bVar.f43398a;
         }
         return null;
     }
 
     public static boolean e(String str) {
         if (Binder.getCallingUid() == Process.myUid()) {
-            return f39716b.remove(str) != null;
+            return f43397b.remove(str) != null;
         }
         throw new SecurityException();
     }

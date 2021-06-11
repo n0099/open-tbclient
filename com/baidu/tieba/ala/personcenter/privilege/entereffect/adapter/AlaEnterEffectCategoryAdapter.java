@@ -9,7 +9,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.c.j.e.a;
+import d.a.c.k.e.a;
 /* loaded from: classes4.dex */
 public class AlaEnterEffectCategoryAdapter extends a<d.a.n0.v.j.g.d.d.a, ViewHolder> {
 
@@ -17,20 +17,20 @@ public class AlaEnterEffectCategoryAdapter extends a<d.a.n0.v.j.g.d.d.a, ViewHol
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f14066a;
+        public TextView f14123a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f14067b;
+        public View f14124b;
 
         public ViewHolder(View view) {
             super(view);
-            this.f14066a = (TextView) a().findViewById(R.id.enter_effect_txt);
-            this.f14067b = a().findViewById(R.id.ala_enter_effect_devide);
+            this.f14123a = (TextView) a().findViewById(R.id.enter_effect_txt);
+            this.f14124b = a().findViewById(R.id.ala_enter_effect_devide);
         }
     }
 
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, d.a.n0.v.j.g.d.d.a.f62169f);
+        super(context, d.a.n0.v.j.g.d.d.a.f65884f);
     }
 
     public final void e0(ViewHolder viewHolder) {
@@ -38,28 +38,28 @@ public class AlaEnterEffectCategoryAdapter extends a<d.a.n0.v.j.g.d.d.a, ViewHol
             return;
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        SkinManager.setViewTextColor(viewHolder.f14066a, R.color.CAM_X0105, 1, skinType);
-        SkinManager.setBackgroundResource(viewHolder.f14067b, R.color.CAM_X0204, skinType);
+        SkinManager.setViewTextColor(viewHolder.f14123a, R.color.CAM_X0105, 1, skinType);
+        SkinManager.setBackgroundResource(viewHolder.f14124b, R.color.CAM_X0204, skinType);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public ViewHolder P(ViewGroup viewGroup) {
-        return new ViewHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: g0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.v.j.g.d.d.a aVar, ViewHolder viewHolder) {
+    public ViewHolder Q(ViewGroup viewGroup) {
+        return new ViewHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.v.j.g.d.d.a aVar, ViewHolder viewHolder) {
         if (aVar != null) {
-            viewHolder.f14066a.setText(aVar.f62170e);
+            viewHolder.f14123a.setText(aVar.f65885e);
         }
         if (i2 == 0) {
-            viewHolder.f14067b.setVisibility(8);
+            viewHolder.f14124b.setVisibility(8);
         } else {
-            viewHolder.f14067b.setVisibility(0);
+            viewHolder.f14124b.setVisibility(0);
         }
         e0(viewHolder);
         return viewHolder.a();

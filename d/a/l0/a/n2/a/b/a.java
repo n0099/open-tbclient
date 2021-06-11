@@ -19,28 +19,28 @@ public class a extends a0 {
 
     /* renamed from: d.a.l0.a.n2.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0769a implements a.InterfaceC0768a {
+    public class C0825a implements a.InterfaceC0824a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43779a;
+        public final /* synthetic */ UnitedSchemeEntity f47455a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43780b;
+        public final /* synthetic */ CallbackHandler f47456b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ l f43781c;
+        public final /* synthetic */ l f47457c;
 
-        public C0769a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l lVar) {
-            this.f43779a = unitedSchemeEntity;
-            this.f43780b = callbackHandler;
-            this.f43781c = lVar;
+        public C0825a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l lVar) {
+            this.f47455a = unitedSchemeEntity;
+            this.f47456b = callbackHandler;
+            this.f47457c = lVar;
         }
 
-        @Override // d.a.l0.a.n2.a.a.InterfaceC0768a
+        @Override // d.a.l0.a.n2.a.a.InterfaceC0824a
         public void a(double[] dArr) {
             if (dArr != null && dArr.length == 3) {
                 d.g("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
-                a.this.k(this.f43779a, this.f43780b, this.f43781c, dArr);
+                a.this.k(this.f47455a, this.f47456b, this.f47457c, dArr);
                 return;
             }
             d.b("accelerometer", "illegal accelerometers");
@@ -56,21 +56,21 @@ public class a extends a0 {
         if (eVar == null) {
             d.b("accelerometer", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "startAccelerometer --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             d.b("accelerometer", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "startAccelerometer --- illegal context");
             }
             return false;
         } else {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("SwanAppAction", "startAccelerometer --- params is empty");
                 }
                 d.b("accelerometer", "none params");
@@ -79,7 +79,7 @@ public class a extends a0 {
             }
             String optString = optParamsAsJo.optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("SwanAppAction", "startAccelerometer --- cb is empty");
                 }
                 d.b("accelerometer", "cb is empty");
@@ -90,7 +90,7 @@ public class a extends a0 {
             l lVar = new l("accelerometerChange", optParamsAsJo, optString);
             d.a.l0.a.n2.a.a a2 = d.a.l0.a.n2.a.a.a();
             a2.b(context, a.b.a(optParamsAsJo.optString("interval")));
-            a2.e(new C0769a(unitedSchemeEntity, callbackHandler, lVar));
+            a2.e(new C0825a(unitedSchemeEntity, callbackHandler, lVar));
             a2.f();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             lVar.a(unitedSchemeEntity, callbackHandler);

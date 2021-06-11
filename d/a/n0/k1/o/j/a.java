@@ -7,44 +7,44 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f56650a;
+    public final String f60339a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f56651b;
+    public final String f60340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f56652c;
+    public final int f60341c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f56653d;
+    public final String f60342d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f56654e;
+    public final String f60343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f56655f;
+    public final int f60344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f56656g;
+    public final String f60345g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f56657h;
+    public final String f60346h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f56658i;
+    public final String f60347i;
     public boolean j = false;
     public boolean k = false;
 
     public a(JSONObject jSONObject) {
-        this.f56650a = jSONObject.optString("bIcon");
-        this.f56651b = jSONObject.optString("bIconN");
-        this.f56652c = jSONObject.optInt("bIconType");
-        this.f56653d = jSONObject.optString("bSelIcon");
-        this.f56654e = jSONObject.optString("bSelIconN");
-        this.f56655f = jSONObject.optInt("bSelIconType");
-        this.f56656g = jSONObject.optString("clickAction");
-        this.f56657h = jSONObject.optString("preAction");
-        this.f56658i = jSONObject.optString("statKey");
+        this.f60339a = jSONObject.optString("bIcon");
+        this.f60340b = jSONObject.optString("bIconN");
+        this.f60341c = jSONObject.optInt("bIconType");
+        this.f60342d = jSONObject.optString("bSelIcon");
+        this.f60343e = jSONObject.optString("bSelIconN");
+        this.f60344f = jSONObject.optInt("bSelIconType");
+        this.f60345g = jSONObject.optString("clickAction");
+        this.f60346h = jSONObject.optString("preAction");
+        this.f60347i = jSONObject.optString("statKey");
     }
 
     public static int g(int i2) {
@@ -56,7 +56,7 @@ public class a {
     }
 
     public String b() {
-        return this.f56656g;
+        return this.f60345g;
     }
 
     public boolean c() {
@@ -64,23 +64,23 @@ public class a {
     }
 
     public String d() {
-        return this.j ? this.f56653d : this.f56650a;
+        return this.j ? this.f60342d : this.f60339a;
     }
 
     public String e() {
-        return this.j ? this.f56654e : this.f56651b;
+        return this.j ? this.f60343e : this.f60340b;
     }
 
     public int f() {
-        return g(this.j ? this.f56655f : this.f56652c);
+        return g(this.j ? this.f60344f : this.f60341c);
     }
 
     public String h() {
-        return this.f56657h;
+        return this.f60346h;
     }
 
     public String i() {
-        return this.f56658i;
+        return this.f60347i;
     }
 
     public boolean j() {
@@ -88,7 +88,7 @@ public class a {
     }
 
     public boolean k() {
-        return (TextUtils.isEmpty(this.f56650a) && TextUtils.isEmpty(this.f56651b) && TextUtils.isEmpty(this.f56653d) && TextUtils.isEmpty(this.f56654e) && TextUtils.isEmpty(this.f56656g) && TextUtils.isEmpty(this.f56657h) && TextUtils.isEmpty(this.f56658i) && this.f56652c == 0 && this.f56655f == 0) ? false : true;
+        return (TextUtils.isEmpty(this.f60339a) && TextUtils.isEmpty(this.f60340b) && TextUtils.isEmpty(this.f60342d) && TextUtils.isEmpty(this.f60343e) && TextUtils.isEmpty(this.f60345g) && TextUtils.isEmpty(this.f60346h) && TextUtils.isEmpty(this.f60347i) && this.f60341c == 0 && this.f60344f == 0) ? false : true;
     }
 
     public void l(boolean z) {

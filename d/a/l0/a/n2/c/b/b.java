@@ -22,14 +22,14 @@ public abstract class b extends a0 {
         if (eVar == null) {
             d.b("battery", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             d.b("battery", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
             }
             return false;
@@ -39,15 +39,15 @@ public abstract class b extends a0 {
     }
 
     @Nullable
-    public JSONObject k(@NonNull a.C0770a c0770a) {
+    public JSONObject k(@NonNull a.C0826a c0826a) {
         JSONObject jSONObject = new JSONObject();
         try {
             int i2 = 100;
-            if (c0770a.f43792a <= 100) {
-                i2 = c0770a.f43792a;
+            if (c0826a.f47468a <= 100) {
+                i2 = c0826a.f47468a;
             }
             jSONObject.put("level", String.valueOf(i2));
-            jSONObject.put("isCharging", c0770a.f43793b);
+            jSONObject.put("isCharging", c0826a.f47469b);
             return jSONObject;
         } catch (JSONException unused) {
             return null;

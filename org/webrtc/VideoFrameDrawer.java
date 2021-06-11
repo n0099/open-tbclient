@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.RendererCommon;
 import org.webrtc.VideoFrame;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoFrameDrawer {
     public static final float[] srcPoints = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f};
     @Nullable
@@ -20,7 +20,7 @@ public class VideoFrameDrawer {
     public final Matrix renderMatrix = new Matrix();
 
     /* renamed from: org.webrtc.VideoFrameDrawer$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoFrame$TextureBuffer$Type;
 
@@ -38,7 +38,7 @@ public class VideoFrameDrawer {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class YuvUploader {
         @Nullable
         public ByteBuffer copyBuffer;

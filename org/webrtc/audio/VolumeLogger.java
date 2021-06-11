@@ -1,14 +1,13 @@
 package org.webrtc.audio;
 
 import android.media.AudioManager;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VolumeLogger {
     public static final String TAG = "VolumeLogger";
     public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
@@ -17,7 +16,7 @@ public class VolumeLogger {
     @Nullable
     public Timer timer;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class LogVolumeTask extends TimerTask {
         public final int maxRingVolume;
         public final int maxVoiceCallVolume;
@@ -65,7 +64,7 @@ public class VolumeLogger {
         Logging.d(TAG, "audio mode is: " + WebRtcAudioUtils.modeToString(this.audioManager.getMode()));
         Timer timer = new Timer("WebRtcVolumeLevelLoggerThread");
         this.timer = timer;
-        timer.schedule(new LogVolumeTask(this.audioManager.getStreamMaxVolume(2), this.audioManager.getStreamMaxVolume(0)), 0L, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+        timer.schedule(new LogVolumeTask(this.audioManager.getStreamMaxVolume(2), this.audioManager.getStreamMaxVolume(0)), 0L, 30000L);
     }
 
     public void stop() {

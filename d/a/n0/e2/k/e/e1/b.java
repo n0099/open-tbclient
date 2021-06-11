@@ -46,58 +46,58 @@ public class b {
     public static class a implements DialogInterface.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbModel f53279e;
+        public final /* synthetic */ PbModel f56968e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f53280f;
+        public final /* synthetic */ PbFragment f56969f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ t0 f53281g;
+        public final /* synthetic */ t0 f56970g;
 
         public a(PbModel pbModel, PbFragment pbFragment, t0 t0Var) {
-            this.f53279e = pbModel;
-            this.f53280f = pbFragment;
-            this.f53281g = t0Var;
+            this.f56968e = pbModel;
+            this.f56969f = pbFragment;
+            this.f56970g = t0Var;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
-            PbModel pbModel = this.f53279e;
-            if (pbModel == null || pbModel.y0() == null || !this.f53279e.y0().f0() || TbSingleton.getInstance().isNotchScreen(this.f53280f.getBaseFragmentActivity()) || TbSingleton.getInstance().isCutoutScreen(this.f53280f.getBaseFragmentActivity())) {
+            PbModel pbModel = this.f56968e;
+            if (pbModel == null || pbModel.C0() == null || !this.f56968e.C0().f0() || TbSingleton.getInstance().isNotchScreen(this.f56969f.getBaseFragmentActivity()) || TbSingleton.getInstance().isCutoutScreen(this.f56969f.getBaseFragmentActivity())) {
                 return;
             }
-            this.f53281g.U0().setSystemUiVisibility(4);
+            this.f56970g.U0().setSystemUiVisibility(4);
         }
     }
 
     /* renamed from: d.a.n0.e2.k.e.e1.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1267b implements a.e {
+    public static class C1323b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbModel f53282e;
+        public final /* synthetic */ PbModel f56971e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f53283f;
+        public final /* synthetic */ PbFragment f56972f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f53284g;
+        public final /* synthetic */ Thread2GroupShareView f56973g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f53285h;
+        public final /* synthetic */ long f56974h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f53286i;
+        public final /* synthetic */ String f56975i;
         public final /* synthetic */ String j;
         public final /* synthetic */ String k;
         public final /* synthetic */ ShareFromPBMsgData l;
 
-        public C1267b(PbModel pbModel, PbFragment pbFragment, Thread2GroupShareView thread2GroupShareView, long j, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
-            this.f53282e = pbModel;
-            this.f53283f = pbFragment;
-            this.f53284g = thread2GroupShareView;
-            this.f53285h = j;
-            this.f53286i = str;
+        public C1323b(PbModel pbModel, PbFragment pbFragment, Thread2GroupShareView thread2GroupShareView, long j, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
+            this.f56971e = pbModel;
+            this.f56972f = pbFragment;
+            this.f56973g = thread2GroupShareView;
+            this.f56974h = j;
+            this.f56975i = str;
             this.j = str2;
             this.k = str3;
             this.l = shareFromPBMsgData;
@@ -105,16 +105,16 @@ public class b {
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            PbModel pbModel = this.f53282e;
-            if (pbModel != null && pbModel.y0() != null) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 1).param("obj_param1", 3).param("fid", this.f53282e.getForumId()).param("tid", this.f53282e.O0()).param("obj_locate", 1);
-                if (b.h(this.f53282e.y0()) != 0) {
-                    param.param("obj_type", b.h(this.f53282e.y0()));
+            PbModel pbModel = this.f56971e;
+            if (pbModel != null && pbModel.C0() != null) {
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 1).param("obj_param1", 3).param("fid", this.f56971e.getForumId()).param("tid", this.f56971e.S0()).param("obj_locate", 1);
+                if (b.h(this.f56971e.C0()) != 0) {
+                    param.param("obj_type", b.h(this.f56971e.C0()));
                 }
                 TiebaStatic.log(param);
             }
-            this.f53283f.HidenSoftKeyPad((InputMethodManager) this.f53283f.getBaseFragmentActivity().getSystemService("input_method"), this.f53284g.getChatMsgView());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.f53283f.getBaseFragmentActivity(), this.f53285h, this.f53286i, this.j, this.k, 0, this.f53284g.getLeaveMsg(), this.l.toChatMessageContent())));
+            this.f56972f.HidenSoftKeyPad((InputMethodManager) this.f56972f.getBaseFragmentActivity().getSystemService("input_method"), this.f56973g.getChatMsgView());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.f56972f.getBaseFragmentActivity(), this.f56974h, this.f56975i, this.j, this.k, 0, this.f56973g.getLeaveMsg(), this.l.toChatMessageContent())));
             aVar.dismiss();
         }
     }
@@ -123,19 +123,19 @@ public class b {
     public static class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f53287e;
+        public final /* synthetic */ PbFragment f56976e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f53288f;
+        public final /* synthetic */ Thread2GroupShareView f56977f;
 
         public c(PbFragment pbFragment, Thread2GroupShareView thread2GroupShareView) {
-            this.f53287e = pbFragment;
-            this.f53288f = thread2GroupShareView;
+            this.f56976e = pbFragment;
+            this.f56977f = thread2GroupShareView;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f53287e.HidenSoftKeyPad((InputMethodManager) this.f53287e.getBaseFragmentActivity().getSystemService("input_method"), this.f53288f.getChatMsgView());
+            this.f56976e.HidenSoftKeyPad((InputMethodManager) this.f56976e.getBaseFragmentActivity().getSystemService("input_method"), this.f56977f.getChatMsgView());
             aVar.dismiss();
         }
     }
@@ -144,34 +144,34 @@ public class b {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f53289e;
+        public final /* synthetic */ PbFragment f56978e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f53290f;
+        public final /* synthetic */ Thread2GroupShareView f56979f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f53291g;
+        public final /* synthetic */ long f56980g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f53292h;
+        public final /* synthetic */ String f56981h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ long f53293i;
+        public final /* synthetic */ long f56982i;
         public final /* synthetic */ ShareFromPBMsgData j;
 
         public d(PbFragment pbFragment, Thread2GroupShareView thread2GroupShareView, long j, String str, long j2, ShareFromPBMsgData shareFromPBMsgData) {
-            this.f53289e = pbFragment;
-            this.f53290f = thread2GroupShareView;
-            this.f53291g = j;
-            this.f53292h = str;
-            this.f53293i = j2;
+            this.f56978e = pbFragment;
+            this.f56979f = thread2GroupShareView;
+            this.f56980g = j;
+            this.f56981h = str;
+            this.f56982i = j2;
             this.j = shareFromPBMsgData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f53289e.HidenSoftKeyPad((InputMethodManager) this.f53289e.getBaseFragmentActivity().getSystemService("input_method"), this.f53290f.getChatMsgView());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.f53289e.getBaseFragmentActivity(), this.f53291g, this.f53292h, this.f53293i, "from_share", this.f53290f.getLeaveMsg(), this.j.toChatMessageContent())));
+            this.f56978e.HidenSoftKeyPad((InputMethodManager) this.f56978e.getBaseFragmentActivity().getSystemService("input_method"), this.f56979f.getChatMsgView());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.f56978e.getBaseFragmentActivity(), this.f56980g, this.f56981h, this.f56982i, "from_share", this.f56979f.getLeaveMsg(), this.j.toChatMessageContent())));
             aVar.dismiss();
         }
     }
@@ -180,19 +180,19 @@ public class b {
     public static class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f53294e;
+        public final /* synthetic */ PbFragment f56983e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f53295f;
+        public final /* synthetic */ Thread2GroupShareView f56984f;
 
         public e(PbFragment pbFragment, Thread2GroupShareView thread2GroupShareView) {
-            this.f53294e = pbFragment;
-            this.f53295f = thread2GroupShareView;
+            this.f56983e = pbFragment;
+            this.f56984f = thread2GroupShareView;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f53294e.HidenSoftKeyPad((InputMethodManager) this.f53294e.getBaseFragmentActivity().getSystemService("input_method"), this.f53295f.getChatMsgView());
+            this.f56983e.HidenSoftKeyPad((InputMethodManager) this.f56983e.getBaseFragmentActivity().getSystemService("input_method"), this.f56984f.getChatMsgView());
             aVar.dismiss();
         }
     }
@@ -203,34 +203,34 @@ public class b {
         }
         String valueOf = String.valueOf(a2Var.c0());
         String i0 = a2Var.i0();
-        OriginalForumInfo originalForumInfo = a2Var.D1;
+        OriginalForumInfo originalForumInfo = a2Var.E1;
         if (originalForumInfo != null) {
             valueOf = originalForumInfo.id;
             i0 = originalForumInfo.ori_fname;
         }
-        String z1 = a2Var.z1();
-        if (TextUtils.isEmpty(z1)) {
-            z1 = a2Var.C();
+        String A1 = a2Var.A1();
+        if (TextUtils.isEmpty(A1)) {
+            A1 = a2Var.C();
         }
-        String y1 = a2Var.y1();
-        String str = "http://tieba.baidu.com/p/" + y1 + "?share=9105&fr=share";
+        String z1 = a2Var.z1();
+        String str = "http://tieba.baidu.com/p/" + z1 + "?share=9105&fr=share";
         String e2 = e(a2Var);
         Uri parse = e2 == null ? null : Uri.parse(e2);
         String C = a2Var.C();
-        String format = MessageFormat.format(context.getResources().getString(R.string.share_content_tpl), z1, C);
+        String format = MessageFormat.format(context.getResources().getString(R.string.share_content_tpl), A1, C);
         ShareItem shareItem = new ShareItem();
-        shareItem.r = z1;
+        shareItem.r = A1;
         shareItem.s = format;
-        shareItem.R = a2Var.I1();
+        shareItem.R = a2Var.J1();
         shareItem.D = C;
         shareItem.t = str;
         shareItem.o = 2;
-        shareItem.q = y1;
+        shareItem.q = z1;
         shareItem.F = 3;
         shareItem.J = valueOf;
         shareItem.p = i0;
-        shareItem.K = y1;
-        shareItem.f12600f = true;
+        shareItem.K = z1;
+        shareItem.f12662f = true;
         shareItem.E = 6;
         shareItem.M = g(a2Var);
         if (parse != null) {
@@ -238,7 +238,7 @@ public class b {
         }
         shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(a2Var);
         shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(a2Var, 1, null);
-        shareItem.e0 = a2Var.f1();
+        shareItem.e0 = a2Var.g1();
         TbadkCoreApplication.getInst().setShareItem(shareItem);
         Bundle bundle = new Bundle();
         bundle.putInt("obj_param1", shareItem.F);
@@ -251,27 +251,27 @@ public class b {
     }
 
     public static ShareItem c(Context context, int i2, int i3, PbModel pbModel) {
-        String O0;
+        String S0;
         String str;
         String str2;
-        d.a.n0.e2.h.e y0 = pbModel.y0();
-        String z1 = y0.L().z1();
-        boolean d0 = pbModel.d0();
-        if (y0.l() != null) {
-            if (y0.l().isLike() == 1) {
-                AddExperiencedModel.x(y0.m());
+        d.a.n0.e2.h.e C0 = pbModel.C0();
+        String A1 = C0.L().A1();
+        boolean h0 = pbModel.h0();
+        if (C0.l() != null) {
+            if (C0.l().isLike() == 1) {
+                AddExperiencedModel.B(C0.m());
             }
         }
-        a2 L = pbModel.y0().L();
-        if (L.B2()) {
-            O0 = L.V().oriUgcTid;
-            str = "?share=9105&fr=dshare&see_lz=" + (d0 ? 1 : 0) + "&dtype=" + L.V().oriUgcType + "&dvid=" + L.V().oriUgcVid + "&nid=" + L.V().oriUgcNid;
+        a2 L = pbModel.C0().L();
+        if (L.C2()) {
+            S0 = L.V().oriUgcTid;
+            str = "?share=9105&fr=dshare&see_lz=" + (h0 ? 1 : 0) + "&dtype=" + L.V().oriUgcType + "&dvid=" + L.V().oriUgcVid + "&nid=" + L.V().oriUgcNid;
         } else {
-            O0 = pbModel.O0();
-            str = "?share=9105&fr=share&see_lz=" + (d0 ? 1 : 0);
+            S0 = pbModel.S0();
+            str = "?share=9105&fr=share&see_lz=" + (h0 ? 1 : 0);
         }
-        String str3 = "http://tieba.baidu.com/p/" + O0 + (str + "&share_from=post");
-        String[] J = y0.J(context);
+        String str3 = "http://tieba.baidu.com/p/" + S0 + (str + "&share_from=post");
+        String[] J = C0.J(context);
         String str4 = J[0];
         if (!StringUtils.isNull(str4) && str4.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
             str4 = str4.substring(37);
@@ -280,58 +280,58 @@ public class b {
         String str5 = J[1];
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (i2 == 1) {
-            TiebaStatic.log(new StatisticItem("c10399").param("fid", y0.m()).param("tid", y0.N()).param("uid", currentAccount));
+            TiebaStatic.log(new StatisticItem("c10399").param("fid", C0.m()).param("tid", C0.N()).param("uid", currentAccount));
         }
         String string = TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
-        if (y0.a0() && L.T() != null) {
-            if (TextUtils.isEmpty(z1) || TextUtils.isEmpty(str5)) {
-                if (TextUtils.isEmpty(z1) || L.S1() || L.T1()) {
-                    z1 = J[1];
+        if (C0.a0() && L.T() != null) {
+            if (TextUtils.isEmpty(A1) || TextUtils.isEmpty(str5)) {
+                if (TextUtils.isEmpty(A1) || L.T1() || L.U1()) {
+                    A1 = J[1];
                 }
                 str2 = MessageFormat.format(string, L.T().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix));
             }
             str2 = str5;
         } else {
             if (k.isEmpty(str5)) {
-                str2 = z1;
+                str2 = A1;
             }
             str2 = str5;
         }
-        String cutString = k.cutString(z1, 100);
+        String cutString = k.cutString(A1, 100);
         String cutString2 = k.cutString(str2, 100);
         ShareItem shareItem = new ShareItem();
         shareItem.r = cutString;
         shareItem.s = cutString2;
-        if (y0.a0()) {
+        if (C0.a0()) {
             shareItem.D = cutString2;
             shareItem.R = -1L;
         } else {
-            shareItem.R = y0.M();
+            shareItem.R = C0.M();
         }
         shareItem.t = str3;
-        shareItem.f12597c = true;
-        shareItem.q = pbModel.O0();
+        shareItem.f12659c = true;
+        shareItem.q = pbModel.S0();
         shareItem.F = 3;
         shareItem.E = i3;
         shareItem.G = f(L);
         shareItem.J = pbModel.getForumId();
-        shareItem.K = pbModel.O0();
-        shareItem.M = h(y0);
+        shareItem.K = pbModel.S0();
+        shareItem.M = h(C0);
         shareItem.N = TbadkCoreApplication.getCurrentAccount();
         if (parse != null) {
             shareItem.v = parse;
         }
-        if (y0.a0()) {
+        if (C0.a0()) {
             shareItem.f0 = false;
         }
         shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(L);
-        if (y0 != null && y0.D() != null && y0.D().size() > 0) {
-            shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(L, 1, y0.D().get(0));
+        if (C0 != null && C0.D() != null && C0.D().size() > 0) {
+            shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(L, 1, C0.D().get(0));
         } else {
             shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(L, 1, null);
         }
         if (L != null) {
-            shareItem.e0 = L.f1();
+            shareItem.e0 = L.g1();
         }
         Bundle bundle = new Bundle();
         bundle.putInt("obj_param1", shareItem.F);
@@ -345,34 +345,34 @@ public class b {
 
     public static ShareFromPBMsgData d(PbFragment pbFragment) {
         String str;
-        if (pbFragment == null || pbFragment.z() == null || pbFragment.K4() == null) {
+        if (pbFragment == null || pbFragment.A() == null || pbFragment.N4() == null) {
             return null;
         }
-        PbModel z = pbFragment.z();
-        t0 K4 = pbFragment.K4();
+        PbModel A = pbFragment.A();
+        t0 N4 = pbFragment.N4();
         ShareFromPBMsgData shareFromPBMsgData = new ShareFromPBMsgData();
-        String[] J = z.y0().J(pbFragment.getContext());
-        PostData q0 = K4.q0();
+        String[] J = A.C0().J(pbFragment.getContext());
+        PostData q0 = N4.q0();
         String str2 = "";
         if (q0 != null) {
             str = q0.E();
-            String p = q0.p(pbFragment.getContext());
-            if (!k.isEmpty(p)) {
-                J[1] = p;
+            String o = q0.o(pbFragment.getContext());
+            if (!k.isEmpty(o)) {
+                J[1] = o;
             }
         } else {
             str = "";
         }
-        String f0 = z.y0().L().f0();
+        String f0 = A.C0().L().f0();
         if (f0 == null || !f0.equals(str)) {
             str2 = str;
         }
         shareFromPBMsgData.setContent(J[1]);
         shareFromPBMsgData.setImageUrl(J[0]);
-        shareFromPBMsgData.setForumName(z.y0().l().getName());
+        shareFromPBMsgData.setForumName(A.C0().l().getName());
         shareFromPBMsgData.setPostId(str2);
-        shareFromPBMsgData.setThreadId(z.y0().L().o0());
-        shareFromPBMsgData.setTitle(z.y0().L().z1());
+        shareFromPBMsgData.setThreadId(A.C0().L().o0());
+        shareFromPBMsgData.setTitle(A.C0().L().A1());
         return shareFromPBMsgData;
     }
 
@@ -400,26 +400,26 @@ public class b {
             }
             i2++;
         }
-        return (str != null || a2Var.w1() == null || TextUtils.isEmpty(a2Var.w1().thumbnail_url)) ? str : a2Var.w1().thumbnail_url;
+        return (str != null || a2Var.x1() == null || TextUtils.isEmpty(a2Var.x1().thumbnail_url)) ? str : a2Var.x1().thumbnail_url;
     }
 
     public static int f(a2 a2Var) {
         if (a2Var == null) {
             return 0;
         }
-        if (a2Var.Q1()) {
+        if (a2Var.R1()) {
             return 10;
         }
-        if (a2Var.T1()) {
+        if (a2Var.U1()) {
             return 9;
         }
-        if (a2Var.S1()) {
+        if (a2Var.T1()) {
             return 8;
         }
-        if (a2Var.R1()) {
+        if (a2Var.S1()) {
             return 7;
         }
-        if (a2Var.t1) {
+        if (a2Var.u1) {
             return 6;
         }
         int i2 = a2Var.Z;
@@ -437,13 +437,13 @@ public class b {
 
     public static int g(a2 a2Var) {
         if (a2Var != null) {
-            if (a2Var.q2()) {
+            if (a2Var.r2()) {
                 return 4;
             }
             if (a2Var.s0() == 1) {
                 return 3;
             }
-            return a2Var.r2() ? 2 : 1;
+            return a2Var.s2() ? 2 : 1;
         }
         return 0;
     }
@@ -453,25 +453,25 @@ public class b {
         if (eVar == null || (L = eVar.L()) == null) {
             return 0;
         }
-        if (L.q2()) {
+        if (L.r2()) {
             return 4;
         }
         if (L.s0() == 1) {
             return 3;
         }
-        if (L.r2()) {
+        if (L.s2()) {
             return 2;
         }
-        if (L.Q1()) {
+        if (L.R1()) {
             return 5;
         }
-        if (L.T1()) {
+        if (L.U1()) {
             return 6;
         }
-        if (L.R1()) {
+        if (L.S1()) {
             return 7;
         }
-        return L.S1() ? 8 : 1;
+        return L.T1() ? 8 : 1;
     }
 
     public static void i(PbFragment pbFragment, Intent intent) {
@@ -482,9 +482,9 @@ public class b {
         if (pbFragment == null) {
             return;
         }
-        PbModel z = pbFragment.z();
+        PbModel A = pbFragment.A();
         ShareFromPBMsgData d2 = d(pbFragment);
-        if (z == null || z.y0() == null || z.y0().L() == null) {
+        if (A == null || A.C0() == null || A.C0().L() == null) {
             return;
         }
         d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(pbFragment.getBaseFragmentActivity());
@@ -499,16 +499,16 @@ public class b {
         if (k.isEmpty(d2.getImageUrl())) {
             return;
         }
-        thread2GroupShareView.c(d2.getImageUrl(), z.y0().s() == 1);
+        thread2GroupShareView.c(d2.getImageUrl(), A.C0().s() == 1);
     }
 
     public static void k(PbFragment pbFragment, long j, String str, String str2, String str3) {
         if (pbFragment == null) {
             return;
         }
-        PbModel z = pbFragment.z();
+        PbModel A = pbFragment.A();
         ShareFromPBMsgData d2 = d(pbFragment);
-        if (z == null || z.y0() == null || z.y0().L() == null) {
+        if (A == null || A.C0() == null || A.C0().L() == null) {
             return;
         }
         d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(pbFragment.getBaseFragmentActivity());
@@ -516,14 +516,14 @@ public class b {
         thread2GroupShareView.setData(d2);
         aVar.setContentViewSize(1);
         aVar.setContentView(thread2GroupShareView);
-        aVar.setPositiveButton(R.string.share, new C1267b(z, pbFragment, thread2GroupShareView, j, str, str2, str3, d2));
+        aVar.setPositiveButton(R.string.share, new C1323b(A, pbFragment, thread2GroupShareView, j, str, str2, str3, d2));
         aVar.setNegativeButton(R.string.cancel, new c(pbFragment, thread2GroupShareView));
         aVar.setCanceledOnTouchOutside(true);
         aVar.create(pbFragment.getPageContext()).show();
         if (k.isEmpty(d2.getImageUrl())) {
             return;
         }
-        thread2GroupShareView.c(d2.getImageUrl(), z.y0().s() == 1);
+        thread2GroupShareView.c(d2.getImageUrl(), A.C0().s() == 1);
     }
 
     public static void l(Context context, a2 a2Var, int i2) {
@@ -534,17 +534,17 @@ public class b {
     }
 
     public static void m(PbFragment pbFragment, int i2, int i3) {
-        if (pbFragment == null || pbFragment.z() == null || pbFragment.K4() == null) {
+        if (pbFragment == null || pbFragment.A() == null || pbFragment.N4() == null) {
             return;
         }
-        PbModel z = pbFragment.z();
-        t0 K4 = pbFragment.K4();
-        if (z.T0()) {
+        PbModel A = pbFragment.A();
+        t0 N4 = pbFragment.N4();
+        if (A.b()) {
             TiebaStatic.eventStat(pbFragment.getContext(), CheckRealNameModel.TYPE_PB_SHARE, "pbclick", 1, new Object[0]);
-            ShareItem c2 = c(pbFragment.getContext(), i2, i3, z);
+            ShareItem c2 = c(pbFragment.getContext(), i2, i3, A);
             TbadkCoreApplication.getInst().setShareItem(c2);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(pbFragment.getContext(), c2, true, true);
-            shareDialogConfig.setOnDismissListener(new a(z, pbFragment, K4));
+            shareDialogConfig.setOnDismissListener(new a(A, pbFragment, N4));
             Bundle bundle = new Bundle();
             bundle.putInt("source", 3);
             shareDialogConfig.shareItem.k(bundle);

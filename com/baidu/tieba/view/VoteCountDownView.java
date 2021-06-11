@@ -10,24 +10,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 /* loaded from: classes5.dex */
 public class VoteCountDownView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21747e;
+    public Context f21850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21748f;
+    public View f21851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21749g;
+    public View f21852g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21750h;
+    public TextView f21853h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f21751i;
+    public TextView f21854i;
     public CountDownTimer j;
     public b k;
 
@@ -46,7 +45,7 @@ public class VoteCountDownView extends LinearLayout {
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
             long j2 = j + 60000;
-            VoteCountDownView.this.setContent(j2 / VideoCloudSetting.HOUR_MILLISECOND, (j2 % VideoCloudSetting.HOUR_MILLISECOND) / 60000);
+            VoteCountDownView.this.setContent(j2 / 3600000, (j2 % 3600000) / 60000);
         }
     }
 
@@ -67,14 +66,14 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     public final void c() {
-        this.f21748f = findViewById(R.id.hour_num_container);
-        this.f21749g = findViewById(R.id.minute_num_container);
-        this.f21750h = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.f21751i = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.f21851f = findViewById(R.id.hour_num_container);
+        this.f21852g = findViewById(R.id.minute_num_container);
+        this.f21853h = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.f21854i = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public final void d() {
-        this.f21747e = getContext();
+        this.f21850e = getContext();
         setOrientation(0);
         setClipToPadding(false);
         setClipChildren(false);
@@ -84,10 +83,10 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     public void e(int i2) {
-        SkinManager.setBackgroundResource(this.f21748f, R.drawable.bg_gradient_round, i2);
-        SkinManager.setBackgroundResource(this.f21749g, R.drawable.bg_gradient_round, i2);
-        SkinManager.setViewTextColor(this.f21750h, R.color.CAM_X0101, 1, i2);
-        SkinManager.setViewTextColor(this.f21750h, R.color.CAM_X0101, 1, i2);
+        SkinManager.setBackgroundResource(this.f21851f, R.drawable.bg_gradient_round, i2);
+        SkinManager.setBackgroundResource(this.f21852g, R.drawable.bg_gradient_round, i2);
+        SkinManager.setViewTextColor(this.f21853h, R.color.CAM_X0101, 1, i2);
+        SkinManager.setViewTextColor(this.f21853h, R.color.CAM_X0101, 1, i2);
     }
 
     public final void f(long j) {
@@ -99,13 +98,13 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     public void setContent(long j, long j2) {
-        this.f21751i.setText(String.valueOf(j2));
-        this.f21750h.setText(String.valueOf(j));
+        this.f21854i.setText(String.valueOf(j2));
+        this.f21853h.setText(String.valueOf(j));
     }
 
     public void setData(long j) {
         long j2 = j + 60000;
-        setContent(j2 / VideoCloudSetting.HOUR_MILLISECOND, (j2 % VideoCloudSetting.HOUR_MILLISECOND) / 60000);
+        setContent(j2 / 3600000, (j2 % 3600000) / 60000);
         f(j);
     }
 

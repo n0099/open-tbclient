@@ -15,7 +15,7 @@ public class t extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (!d.a.l0.a.g1.f.V().O() && !a0.f40949b) {
+        if (!d.a.l0.a.g1.f.V().O() && !a0.f44625b) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not debug app model");
             return false;
         } else if (eVar == null) {
@@ -35,7 +35,7 @@ public class t extends a0 {
                         String optString = optJSONObject.optString("slaveId");
                         String optString2 = optJSONObject.optString("actionName");
                         long optLong = optJSONObject.optLong("timestamp", -1L);
-                        if (a0.f40949b) {
+                        if (a0.f44625b) {
                             Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
                         }
                         d.a.l0.a.r1.p.d.b().d(optString, optString2, optLong);

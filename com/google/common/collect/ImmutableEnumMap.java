@@ -12,7 +12,7 @@ import java.util.Map;
 public final class ImmutableEnumMap<K extends Enum<K>, V> extends ImmutableMap.IteratorBasedImmutableMap<K, V> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient EnumMap<K, V> f31015e;
+    public final transient EnumMap<K, V> f31106e;
 
     /* loaded from: classes6.dex */
     public static class EnumSerializedForm<K extends Enum<K>, V> implements Serializable {
@@ -42,12 +42,12 @@ public final class ImmutableEnumMap<K extends Enum<K>, V> extends ImmutableMap.I
 
     @Override // com.google.common.collect.ImmutableMap, java.util.Map
     public boolean containsKey(Object obj) {
-        return this.f31015e.containsKey(obj);
+        return this.f31106e.containsKey(obj);
     }
 
     @Override // com.google.common.collect.ImmutableMap.IteratorBasedImmutableMap
     public c1<Map.Entry<K, V>> entryIterator() {
-        return Maps.G(this.f31015e.entrySet().iterator());
+        return Maps.G(this.f31106e.entrySet().iterator());
     }
 
     @Override // com.google.common.collect.ImmutableMap, java.util.Map
@@ -56,14 +56,14 @@ public final class ImmutableEnumMap<K extends Enum<K>, V> extends ImmutableMap.I
             return true;
         }
         if (obj instanceof ImmutableEnumMap) {
-            obj = ((ImmutableEnumMap) obj).f31015e;
+            obj = ((ImmutableEnumMap) obj).f31106e;
         }
-        return this.f31015e.equals(obj);
+        return this.f31106e.equals(obj);
     }
 
     @Override // com.google.common.collect.ImmutableMap, java.util.Map
     public V get(Object obj) {
-        return this.f31015e.get(obj);
+        return this.f31106e.get(obj);
     }
 
     @Override // com.google.common.collect.ImmutableMap
@@ -73,21 +73,21 @@ public final class ImmutableEnumMap<K extends Enum<K>, V> extends ImmutableMap.I
 
     @Override // com.google.common.collect.ImmutableMap
     public c1<K> keyIterator() {
-        return Iterators.x(this.f31015e.keySet().iterator());
+        return Iterators.x(this.f31106e.keySet().iterator());
     }
 
     @Override // java.util.Map
     public int size() {
-        return this.f31015e.size();
+        return this.f31106e.size();
     }
 
     @Override // com.google.common.collect.ImmutableMap
     public Object writeReplace() {
-        return new EnumSerializedForm(this.f31015e);
+        return new EnumSerializedForm(this.f31106e);
     }
 
     public ImmutableEnumMap(EnumMap<K, V> enumMap) {
-        this.f31015e = enumMap;
+        this.f31106e = enumMap;
         n.d(!enumMap.isEmpty());
     }
 }

@@ -20,7 +20,7 @@ import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioTrack {
     public static final long AUDIO_TRACK_THREAD_JOIN_TIMEOUT_MS = 2000;
     public static final int BITS_PER_SAMPLE = 16;
@@ -47,7 +47,7 @@ public class WebRtcAudioTrack {
     public final ThreadUtils.ThreadChecker threadChecker;
     public final VolumeLogger volumeLogger;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AudioTrackThread extends Thread {
         public volatile boolean keepAlive;
 

@@ -9,7 +9,6 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.db.pojo.OldUserData;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
@@ -98,7 +97,7 @@ public class k {
                     imMessageCenterPojo3 = next;
                 } else if (next.getCustomGroupType() == 0 && next.getGroup_name() != null && next.getGroup_name().equals("系统消息群")) {
                     imMessageCenterPojo4 = next;
-                } else if (next.getGid().equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9) && next.getCustomGroupType() == 5) {
+                } else if (next.getGid().equals("9") && next.getCustomGroupType() == 5) {
                     imMessageCenterPojo5 = next;
                 } else if (next.getGid().equals("10") && next.getCustomGroupType() == 6) {
                     imMessageCenterPojo6 = next;

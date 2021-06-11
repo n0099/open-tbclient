@@ -23,16 +23,16 @@ import d.a.m0.r.s.a;
 public class v extends d.a.m0.w.e {
 
     /* renamed from: f  reason: collision with root package name */
-    public VoiceData$VoiceModel f53518f;
+    public VoiceData$VoiceModel f57207f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LocationModel f53519g;
+    public LocationModel f57208g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PbEditorData.ThreadData f53520h;
+    public PbEditorData.ThreadData f57209h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BaseActivity<?> f53521i;
+    public BaseActivity<?> f57210i;
     public int j;
     public LocationModel.e k;
     public LocationModel.f l;
@@ -43,28 +43,28 @@ public class v extends d.a.m0.w.e {
         }
 
         @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void a(String str) {
-            BaseActivity baseActivity = v.this.f53521i;
+        public void a() {
+            v.this.f57210i.showToast(R.string.no_network_guide);
+            v.this.o(0, false, null);
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void b(LocationData locationData) {
+            if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
+                v.this.o(2, true, locationData.getFormatted_address());
+            } else {
+                onFail(null);
+            }
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void onFail(String str) {
+            BaseActivity baseActivity = v.this.f57210i;
             if (StringUtils.isNull(str)) {
                 str = v.this.a().getContext().getString(R.string.location_fail);
             }
             baseActivity.showToast(str);
             v.this.o(0, false, null);
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void b() {
-            v.this.f53521i.showToast(R.string.no_network_guide);
-            v.this.o(0, false, null);
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void c(LocationData locationData) {
-            if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
-                v.this.o(2, true, locationData.getFormatted_address());
-            } else {
-                a(null);
-            }
         }
     }
 
@@ -105,9 +105,9 @@ public class v extends d.a.m0.w.e {
         public void onClick(d.a.m0.r.s.a aVar) {
             if (d.a.c.e.p.j.z()) {
                 v.this.o(1, true, null);
-                v.this.f53519g.F();
+                v.this.f57208g.J();
             } else {
-                v.this.k.b();
+                v.this.k.a();
             }
             aVar.dismiss();
         }
@@ -121,7 +121,7 @@ public class v extends d.a.m0.w.e {
     }
 
     public BaseActivity<?> f() {
-        return this.f53521i;
+        return this.f57210i;
     }
 
     public int g() {
@@ -129,22 +129,22 @@ public class v extends d.a.m0.w.e {
     }
 
     public VoiceData$VoiceModel h() {
-        return this.f53518f;
+        return this.f57207f;
     }
 
     public void i() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectLocationActivityConfig(this.f53521i.getActivity())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectLocationActivityConfig(this.f57210i.getActivity())));
     }
 
     public void j(BaseActivity baseActivity) {
         LocationModel locationModel = new LocationModel(baseActivity.getPageContext());
-        this.f53519g = locationModel;
-        locationModel.I(this.k);
-        this.f53519g.J(this.l);
+        this.f57208g = locationModel;
+        locationModel.M(this.k);
+        this.f57208g.N(this.l);
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && a() != null) {
             a().A(new d.a.m0.w.a(2, 12, " "));
         }
-        if (this.f53519g.v() || a() == null) {
+        if (this.f57208g.z() || a() == null) {
             return;
         }
         a().A(new d.a.m0.w.a(20, 8, null));
@@ -153,7 +153,7 @@ public class v extends d.a.m0.w.e {
     public void k(int i2, int i3, Intent intent) {
         if (i3 == -1) {
             if (i2 == 11025) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.f53521i.getActivity(), 12004, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.f57210i.getActivity(), 12004, true)));
             } else if (i2 != 23004) {
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010040));
@@ -162,21 +162,21 @@ public class v extends d.a.m0.w.e {
     }
 
     public void l() {
-        if (!PermissionUtil.checkLocationForGoogle(this.f53521i.getActivity())) {
-            PermissionUtil.reuqestLocation(this.f53521i.getActivity(), 0);
+        if (!PermissionUtil.checkLocationForGoogle(this.f57210i.getActivity())) {
+            PermissionUtil.reuqestLocation(this.f57210i.getActivity(), 0);
         } else {
             t();
         }
     }
 
     public void m() {
-        if (this.f53519g.v()) {
-            if (this.f53519g.z()) {
-                this.k.c(d.a.n0.e3.m0.b.a().b());
+        if (this.f57208g.z()) {
+            if (this.f57208g.D()) {
+                this.k.b(d.a.n0.e3.m0.b.a().b());
                 return;
             }
             if (d.a.c.e.p.l.D()) {
-                this.f53519g.D();
+                this.f57208g.H();
             }
             o(0, true, null);
             return;
@@ -185,16 +185,16 @@ public class v extends d.a.m0.w.e {
     }
 
     public void n() {
-        PbEditorData.ThreadData threadData = this.f53520h;
-        if (threadData == null || StringUtils.isNull(threadData.getAuthorName()) || this.f53520h.getAuthorId() <= 0) {
+        PbEditorData.ThreadData threadData = this.f57209h;
+        if (threadData == null || StringUtils.isNull(threadData.getAuthorName()) || this.f57209h.getAuthorId() <= 0) {
             return;
         }
-        String valueOf = String.valueOf(this.f53520h.getAuthorId());
+        String valueOf = String.valueOf(this.f57209h.getAuthorId());
         if (valueOf != null && !valueOf.equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.f53521i.getActivity(), this.f53520h.getAuthorId(), this.f53520h.getAuthorName(), this.f53520h.getAuthorNameShow(), GiftTabActivityConfig.FROM_PB, d.a.c.e.m.b.f(this.f53520h.getThreadId(), 0L), d.a.c.e.m.b.f(this.f53520h.getPostId(), 0L))));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.f57210i.getActivity(), this.f57209h.getAuthorId(), this.f57209h.getAuthorName(), this.f57209h.getAuthorNameShow(), GiftTabActivityConfig.FROM_PB, d.a.c.e.m.b.f(this.f57209h.getThreadId(), 0L), d.a.c.e.m.b.f(this.f57209h.getPostId(), 0L))));
             return;
         }
-        d.a.c.e.p.l.L(this.f53521i.getActivity(), R.string.can_not_send_gift_to_yourself);
+        d.a.c.e.p.l.L(this.f57210i.getActivity(), R.string.can_not_send_gift_to_yourself);
     }
 
     public final void o(int i2, boolean z, String str) {
@@ -205,39 +205,39 @@ public class v extends d.a.m0.w.e {
     }
 
     public void p(BaseActivity<?> baseActivity) {
-        this.f53521i = baseActivity;
+        this.f57210i = baseActivity;
     }
 
     public void q(PbEditorData.ThreadData threadData) {
-        this.f53520h = threadData;
-        if (a() == null || this.f53520h == null) {
+        this.f57209h = threadData;
+        if (a() == null || this.f57209h == null) {
             return;
         }
-        a().setFid(d.a.c.e.m.b.f(this.f53520h.getForumId(), 0L));
-        a().setTid(this.f53520h.getThreadId());
+        a().setFid(d.a.c.e.m.b.f(this.f57209h.getForumId(), 0L));
+        a().setTid(this.f57209h.getThreadId());
     }
 
     public void r(VoiceData$VoiceModel voiceData$VoiceModel) {
-        this.f53518f = voiceData$VoiceModel;
+        this.f57207f = voiceData$VoiceModel;
     }
 
     public final void s() {
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f53521i.getActivity());
-        aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new d()).setNegativeButton(R.string.cancel, new c()).create(this.f53521i.getPageContext());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f57210i.getActivity());
+        aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new d()).setNegativeButton(R.string.cancel, new c()).create(this.f57210i.getPageContext());
         aVar.show();
     }
 
     public void t() {
-        if (!UtilHelper.isSystemLocationProviderEnabled(this.f53521i.getActivity())) {
-            this.f53521i.showToast(R.string.location_system_permission_prompt);
+        if (!UtilHelper.isSystemLocationProviderEnabled(this.f57210i.getActivity())) {
+            this.f57210i.showToast(R.string.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             s();
-        } else if (this.f53519g.z()) {
+        } else if (this.f57208g.D()) {
             i();
         } else {
-            this.f53519g.H(false);
+            this.f57208g.L(false);
             o(1, true, null);
-            this.f53519g.D();
+            this.f57208g.H();
         }
     }
 }

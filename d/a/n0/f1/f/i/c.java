@@ -27,43 +27,43 @@ import org.apache.http.message.BasicNameValuePair;
 public abstract class c extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54375e;
+    public Context f58064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<ImMessageCenterShowItemData> f54376f = null;
+    public List<ImMessageCenterShowItemData> f58065f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54377g = false;
+    public boolean f58066g = false;
 
     /* loaded from: classes4.dex */
     public class a {
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f54380c;
+        public ImageView f58069c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BarImageView f54381d;
+        public BarImageView f58070d;
 
         /* renamed from: a  reason: collision with root package name */
-        public ViewGroup f54378a = null;
+        public ViewGroup f58067a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f54379b = null;
+        public HeadImageView f58068b = null;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f54382e = null;
+        public TextView f58071e = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f54383f = null;
+        public TextView f58072f = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f54384g = null;
+        public TextView f58073g = null;
 
         /* renamed from: h  reason: collision with root package name */
-        public MessageRedDotView f54385h = null;
+        public MessageRedDotView f58074h = null;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f54386i = null;
+        public View f58075i = null;
         public ImageView j = null;
         public ImageView k = null;
         public ImageView l = null;
@@ -73,43 +73,43 @@ public abstract class c extends BaseAdapter {
     }
 
     public c(Context context) {
-        this.f54375e = null;
-        this.f54375e = context;
+        this.f58064e = null;
+        this.f58064e = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public ImMessageCenterShowItemData getItem(int i2) {
-        List<ImMessageCenterShowItemData> list = this.f54376f;
+        List<ImMessageCenterShowItemData> list = this.f58065f;
         if (list == null || list.size() == 0 || i2 < 0 || i2 >= getCount()) {
             return null;
         }
-        return this.f54376f.get(i2);
+        return this.f58065f.get(i2);
     }
 
     public a b(View view) {
         a aVar = new a(this);
-        aVar.f54378a = (ViewGroup) view.findViewById(R.id.chat_item);
-        aVar.f54380c = (ImageView) view.findViewById(R.id.svg_head);
-        aVar.f54379b = (HeadImageView) view.findViewById(R.id.chat_head);
-        aVar.f54381d = (BarImageView) view.findViewById(R.id.forum_head);
-        aVar.f54382e = (TextView) view.findViewById(R.id.chat_name);
-        aVar.f54383f = (TextView) view.findViewById(R.id.last_chat_content);
-        aVar.f54384g = (TextView) view.findViewById(R.id.chat_time);
-        aVar.f54386i = view.findViewById(R.id.line);
+        aVar.f58067a = (ViewGroup) view.findViewById(R.id.chat_item);
+        aVar.f58069c = (ImageView) view.findViewById(R.id.svg_head);
+        aVar.f58068b = (HeadImageView) view.findViewById(R.id.chat_head);
+        aVar.f58070d = (BarImageView) view.findViewById(R.id.forum_head);
+        aVar.f58071e = (TextView) view.findViewById(R.id.chat_name);
+        aVar.f58072f = (TextView) view.findViewById(R.id.last_chat_content);
+        aVar.f58073g = (TextView) view.findViewById(R.id.chat_time);
+        aVar.f58075i = view.findViewById(R.id.line);
         MessageRedDotView messageRedDotView = (MessageRedDotView) view.findViewById(R.id.new_message);
-        aVar.f54385h = messageRedDotView;
+        aVar.f58074h = messageRedDotView;
         messageRedDotView.setShadowEnabled(false);
         aVar.j = (ImageView) view.findViewById(R.id.iv_bell);
         aVar.k = (ImageView) view.findViewById(R.id.send_status);
         aVar.l = (ImageView) view.findViewById(R.id.select_status);
-        aVar.f54379b.setPlaceHolder(1);
+        aVar.f58068b.setPlaceHolder(1);
         return aVar;
     }
 
     public boolean c() {
-        return this.f54377g;
+        return this.f58066g;
     }
 
     public abstract boolean d(ImMessageCenterShowItemData imMessageCenterShowItemData);
@@ -141,7 +141,7 @@ public abstract class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<ImMessageCenterShowItemData> list = this.f54376f;
+        List<ImMessageCenterShowItemData> list = this.f58065f;
         if (list != null) {
             return list.size();
         }
@@ -157,13 +157,13 @@ public abstract class c extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         a aVar = view != null ? (a) view.getTag() : null;
         if (aVar == null) {
-            view = LayoutInflater.from(this.f54375e).inflate(R.layout.chat_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.f58064e).inflate(R.layout.chat_list_item, viewGroup, false);
             aVar = b(view);
             view.setTag(aVar);
         }
         SkinManager.setBackgroundResource(view, R.drawable.list_item_selector);
-        SkinManager.setBackgroundResource(aVar.f54386i, R.color.CAM_X0205);
-        aVar.f54378a.setVisibility(0);
+        SkinManager.setBackgroundResource(aVar.f58075i, R.color.CAM_X0205);
+        aVar.f58067a.setVisibility(0);
         ImMessageCenterShowItemData item = getItem(i2);
         if (item != null) {
             i(aVar, item);
@@ -180,9 +180,9 @@ public abstract class c extends BaseAdapter {
 
     public void h(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (TextUtils.isEmpty(imMessageCenterShowItemData.getMsgContent())) {
-            aVar.f54383f.setText("");
+            aVar.f58072f.setText("");
         } else {
-            aVar.f54383f.setText(imMessageCenterShowItemData.getMsgContent());
+            aVar.f58072f.setText(imMessageCenterShowItemData.getMsgContent());
         }
     }
 
@@ -190,23 +190,23 @@ public abstract class c extends BaseAdapter {
         if (imMessageCenterShowItemData == null) {
             return;
         }
-        aVar.f54382e.setText(imMessageCenterShowItemData.getFriendNameShow());
+        aVar.f58071e.setText(imMessageCenterShowItemData.getFriendNameShow());
     }
 
     public void j(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        if (this.f54377g) {
+        if (this.f58066g) {
             aVar.l.setVisibility(0);
             if (imMessageCenterShowItemData.isSelected()) {
                 SkinManager.setBackgroundResource(aVar.l, R.drawable.btn_bgb_choice_s);
-                SkinManager.setBackgroundColor(aVar.f54378a, R.color.CAM_X0205);
+                SkinManager.setBackgroundColor(aVar.f58067a, R.color.CAM_X0205);
                 return;
             }
             SkinManager.setBackgroundResource(aVar.l, R.drawable.btn_bgb_choice_n);
-            SkinManager.setBackgroundColor(aVar.f54378a, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(aVar.f58067a, R.color.CAM_X0205);
             return;
         }
         aVar.l.setVisibility(8);
-        TBSelector.setViewBackgroundColorWithPressedState(aVar.f54378a, R.color.CAM_X0205, R.color.CAM_X0204);
+        TBSelector.setViewBackgroundColorWithPressedState(aVar.f58067a, R.color.CAM_X0205, R.color.CAM_X0204);
     }
 
     public void k(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
@@ -235,7 +235,7 @@ public abstract class c extends BaseAdapter {
         }
         Date date = new Date();
         date.setTime(imMessageCenterShowItemData.getServerTime());
-        aVar.f54384g.setText(imMessageCenterShowItemData.getServerTime() != 0 ? StringHelper.getChatTimeString(date) : "");
+        aVar.f58073g.setText(imMessageCenterShowItemData.getServerTime() != 0 ? StringHelper.getChatTimeString(date) : "");
     }
 
     public void m(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
@@ -249,27 +249,27 @@ public abstract class c extends BaseAdapter {
                     unReadCount = d.a.c.e.m.b.d(p.getName(), 0);
                 }
             }
-            aVar.f54385h.setThreeDotMode(2);
-            aVar.f54385h.f(unReadCount);
-            aVar.f54385h.setVisibility(0);
+            aVar.f58074h.setThreeDotMode(2);
+            aVar.f58074h.f(unReadCount);
+            aVar.f58074h.setVisibility(0);
         } else {
-            aVar.f54385h.setVisibility(8);
+            aVar.f58074h.setVisibility(8);
         }
-        SkinManager.setViewTextColor(aVar.f54382e, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(aVar.f54383f, R.color.CAM_X0109, 1);
-        SkinManager.setViewTextColor(aVar.f54384g, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(aVar.f58071e, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(aVar.f58072f, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(aVar.f58073g, R.color.CAM_X0109, 1);
     }
 
     public void n(List<ImMessageCenterShowItemData> list) {
-        if (this.f54376f == null) {
-            this.f54376f = new LinkedList();
+        if (this.f58065f == null) {
+            this.f58065f = new LinkedList();
         }
-        this.f54376f = list;
+        this.f58065f = list;
         notifyDataSetChanged();
     }
 
     public void o(boolean z) {
-        this.f54377g = z;
+        this.f58066g = z;
     }
 
     public abstract BasicNameValuePair p(ImMessageCenterShowItemData imMessageCenterShowItemData, int i2, String str);

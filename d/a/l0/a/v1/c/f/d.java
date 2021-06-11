@@ -18,11 +18,11 @@ import java.util.Set;
 public class d implements a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Deque<Message>> f45336a = new HashMap();
+    public final Map<String, Deque<Message>> f49010a = new HashMap();
 
     @Override // d.a.l0.a.v1.c.a.c
     public void a() {
-        for (String str : this.f45336a.keySet()) {
+        for (String str : this.f49010a.keySet()) {
             c(str);
         }
     }
@@ -40,7 +40,7 @@ public class d implements a.c {
             while (it.hasNext()) {
                 c next = it.next();
                 boolean g2 = g(next, k);
-                if (l.contains(next.f45331f) || g2) {
+                if (l.contains(next.f49005f) || g2) {
                     next.U(h2);
                     if (g2) {
                         k.remove(next.getAppId());
@@ -53,7 +53,7 @@ public class d implements a.c {
         Iterator<c> it2 = e.k().q().iterator();
         while (it2.hasNext()) {
             c next2 = it2.next();
-            if (next2 != null && next2.H() && (l.contains(next2.f45331f) || g(next2, k))) {
+            if (next2 != null && next2.H() && (l.contains(next2.f49005f) || g(next2, k))) {
                 next2.U(h2);
             }
         }
@@ -61,7 +61,7 @@ public class d implements a.c {
 
     @Override // d.a.l0.a.v1.c.a.c
     public void c(String str) {
-        Deque<Message> deque = this.f45336a.get(str);
+        Deque<Message> deque = this.f49010a.get(str);
         d.a.l0.a.v1.c.a.f("flushMsg:: appid=" + str + " msgQueue=" + deque);
         if (deque == null || deque.isEmpty()) {
             return;
@@ -79,17 +79,17 @@ public class d implements a.c {
 
     @Override // d.a.l0.a.v1.c.a.c
     public void d(String str) {
-        this.f45336a.remove(str);
+        this.f49010a.remove(str);
     }
 
     public final void e(String str, @NonNull Message message) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        Deque<Message> deque = this.f45336a.get(str);
+        Deque<Message> deque = this.f49010a.get(str);
         if (deque == null) {
             deque = new ArrayDeque<>();
-            this.f45336a.put(str, deque);
+            this.f49010a.put(str, deque);
         }
         deque.offer(message);
     }
@@ -106,7 +106,7 @@ public class d implements a.c {
 
     public final void h(Message message) {
         try {
-            e.k().f45343e.send(message);
+            e.k().f49017e.send(message);
         } catch (RemoteException e2) {
             d.a.l0.a.v1.c.a.f(Log.getStackTraceString(e2));
         }

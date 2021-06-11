@@ -3,26 +3,26 @@ package d.a.m0.s.c;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f50535a;
+    public long f54211a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50536b;
+    public String f54212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50537c;
+    public String f54213c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50538d;
+    public int f54214d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50539e;
+    public int f54215e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50540f;
+    public int f54216f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50541g;
+    public int f54217g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50542h;
+    public int f54218h;
 }

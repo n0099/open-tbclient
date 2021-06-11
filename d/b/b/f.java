@@ -7,16 +7,16 @@ import org.json.JSONObject;
 public final class f extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f65009e;
+    public final i f68740e;
 
     public f(Context context, i iVar) {
         super(true, false);
-        this.f65009e = iVar;
+        this.f68740e = iVar;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
-        String a2 = x0.a(this.f65009e.A());
+        String a2 = x0.a(this.f68740e.A());
         if (TextUtils.isEmpty(a2)) {
             return false;
         }

@@ -7,22 +7,22 @@ public class RegularImmutableList<E> extends ImmutableList<E> {
     public final transient Object[] array;
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient int f31223e;
+    public final transient int f31314e;
 
     public RegularImmutableList(Object[] objArr, int i2) {
         this.array = objArr;
-        this.f31223e = i2;
+        this.f31314e = i2;
     }
 
     @Override // com.google.common.collect.ImmutableList, com.google.common.collect.ImmutableCollection
     public int copyIntoArray(Object[] objArr, int i2) {
-        System.arraycopy(this.array, 0, objArr, i2, this.f31223e);
-        return i2 + this.f31223e;
+        System.arraycopy(this.array, 0, objArr, i2, this.f31314e);
+        return i2 + this.f31314e;
     }
 
     @Override // java.util.List
     public E get(int i2) {
-        n.n(i2, this.f31223e);
+        n.n(i2, this.f31314e);
         return (E) this.array[i2];
     }
 
@@ -33,7 +33,7 @@ public class RegularImmutableList<E> extends ImmutableList<E> {
 
     @Override // com.google.common.collect.ImmutableCollection
     public int internalArrayEnd() {
-        return this.f31223e;
+        return this.f31314e;
     }
 
     @Override // com.google.common.collect.ImmutableCollection
@@ -48,6 +48,6 @@ public class RegularImmutableList<E> extends ImmutableList<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public int size() {
-        return this.f31223e;
+        return this.f31314e;
     }
 }

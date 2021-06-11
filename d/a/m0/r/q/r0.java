@@ -6,44 +6,44 @@ import com.baidu.tbadk.ala.ILoginListener;
 public class r0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f50110a;
+    public Context f53786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50111b = null;
+    public String f53787b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50112c;
+    public String f53788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ILoginListener f50113d;
+    public ILoginListener f53789d;
 
     public r0(Context context, String str) {
-        this.f50112c = null;
-        this.f50110a = context;
-        this.f50112c = str;
+        this.f53788c = null;
+        this.f53786a = context;
+        this.f53788c = str;
     }
 
     public Context a() {
-        return this.f50110a;
+        return this.f53786a;
     }
 
     public String b() {
-        return this.f50112c;
+        return this.f53788c;
     }
 
     public ILoginListener c() {
-        return this.f50113d;
+        return this.f53789d;
     }
 
     public String d() {
-        return this.f50111b;
+        return this.f53787b;
     }
 
     public void e(ILoginListener iLoginListener) {
-        this.f50113d = iLoginListener;
+        this.f53789d = iLoginListener;
     }
 
     public void f(String str) {
-        this.f50111b = str;
+        this.f53787b = str;
     }
 }

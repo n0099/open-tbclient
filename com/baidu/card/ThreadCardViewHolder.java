@@ -25,19 +25,19 @@ import d.a.m0.r.q.a2;
 public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f4320e;
+    public BdUniqueId f4339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l0<T> f4321f;
+    public l0<T> f4340f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b0 f4322g;
+    public b0 f4341g;
 
     /* renamed from: h  reason: collision with root package name */
-    public r0 f4323h;
+    public r0 f4342h;
 
     /* renamed from: i  reason: collision with root package name */
-    public u f4324i;
+    public u f4343i;
     public k0 j;
     public d0 k;
     public j l;
@@ -45,126 +45,126 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
 
     public ThreadCardViewHolder(l0<T> l0Var) {
         super(l0Var.j());
-        this.f4321f = l0Var;
+        this.f4340f = l0Var;
     }
 
     @Override // com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder
     public View a() {
-        return this.f4321f.j();
+        return this.f4340f.j();
     }
 
     public l0<T> b() {
-        return this.f4321f;
+        return this.f4340f;
     }
 
     public final TbPageContext c() {
-        return ((TbPageContextSupport) this.f4321f.j().getContext()).getPageContext();
+        return ((TbPageContextSupport) this.f4340f.j().getContext()).getPageContext();
     }
 
     public final void d(c cVar) {
         if (cVar == null || cVar.b() == null) {
             return;
         }
-        this.f4321f.n(cVar);
+        this.f4340f.n(cVar);
     }
 
     public final boolean e(a2 a2Var) {
-        return (a2Var == null || a2Var.T() == null || !a2Var.V1 || !d.h() || a2Var.T().hadConcerned() || ThreadCardUtils.isSelf(a2Var)) ? false : true;
+        return (a2Var == null || a2Var.T() == null || !a2Var.W1 || !d.h() || a2Var.T().hadConcerned() || ThreadCardUtils.isSelf(a2Var)) ? false : true;
     }
 
     public void f(T t) {
         NEGFeedBackView nEGFeedBackView;
         if (t == null) {
-            this.f4321f.j().setVisibility(8);
+            this.f4340f.j().setVisibility(8);
             return;
         }
-        if (t.m() != null) {
-            t.m().y1();
+        if (t.i() != null) {
+            t.i().z1();
         }
-        if (t.m() != null && t.m().T() != null) {
-            t.m().T().getName_show();
+        if (t.i() != null && t.i().T() != null) {
+            t.i().T().getName_show();
         }
         boolean z = false;
-        this.f4321f.j().setVisibility(0);
-        b0 b0Var = this.f4322g;
-        if (b0Var != null && b0Var.f40014i != null) {
-            if (!t.s() && t.h() != null) {
-                this.f4322g.m(t);
-                this.f4322g.a(t.h());
-                this.f4322g.f40014i.setVisibility(0);
+        this.f4340f.j().setVisibility(0);
+        b0 b0Var = this.f4341g;
+        if (b0Var != null && b0Var.f43695i != null) {
+            if (!t.o() && t.c() != null) {
+                this.f4341g.m(t);
+                this.f4341g.a(t.c());
+                this.f4341g.f43695i.setVisibility(0);
                 z = true;
             } else {
-                b0 b0Var2 = this.f4322g;
-                if (b0Var2 != null && (nEGFeedBackView = b0Var2.f40014i) != null) {
+                b0 b0Var2 = this.f4341g;
+                if (b0Var2 != null && (nEGFeedBackView = b0Var2.f43695i) != null) {
                     nEGFeedBackView.setVisibility(8);
                 }
             }
         }
-        if (this.f4323h != null) {
-            if (e(t.m())) {
-                d(this.f4323h);
+        if (this.f4342h != null) {
+            if (e(t.i())) {
+                d(this.f4342h);
             } else {
-                this.f4323h.l(t);
-                this.f4323h.a(t.m());
+                this.f4342h.l(t);
+                this.f4342h.a(t.i());
             }
         }
         k0 k0Var = this.j;
         if (k0Var != null) {
             k0Var.n(z);
-            this.j.a(t.m());
+            this.j.a(t.i());
         }
-        u uVar = this.f4324i;
+        u uVar = this.f4343i;
         if (uVar != null) {
-            uVar.a(t.m());
+            uVar.a(t.i());
         }
         d0 d0Var = this.k;
         if (d0Var != null) {
             d0Var.n(t);
-            this.k.a(t.m());
+            this.k.a(t.i());
         }
         j jVar = this.l;
         if (jVar != null) {
             jVar.k(t, z);
-            this.l.a(t.m());
+            this.l.a(t.i());
         }
         if (this.m != null) {
-            if (e(t.m())) {
-                this.m.a(t.m());
+            if (e(t.i())) {
+                this.m.a(t.i());
             } else {
                 d(this.m);
             }
         }
-        this.f4321f.l(t);
+        this.f4340f.l(t);
     }
 
-    public void g() {
-        this.f4321f.n(this.j);
+    public void h() {
+        this.f4340f.n(this.j);
     }
 
-    public void h(int i2, m0 m0Var) {
-        u uVar = this.f4324i;
+    public void i(int i2, m0 m0Var) {
+        u uVar = this.f4343i;
         if (uVar != null) {
             uVar.t(i2, m0Var);
         }
     }
 
-    public void i(d.a.n0.z.b0<T> b0Var) {
-        this.f4321f.p(b0Var);
+    public void j(d.a.n0.z.b0<T> b0Var) {
+        this.f4340f.p(b0Var);
     }
 
-    public void j(BdUniqueId bdUniqueId) {
-        this.f4320e = bdUniqueId;
+    public void k(BdUniqueId bdUniqueId) {
+        this.f4339e = bdUniqueId;
     }
 
-    public f k() {
+    public f l() {
         if (this.m == null) {
             this.m = new f(c());
         }
-        this.f4321f.b(this.m);
+        this.f4340f.b(this.m);
         return this.m;
     }
 
-    public void l(boolean z, FollowUserButton.a aVar) {
+    public void m(boolean z, FollowUserButton.a aVar) {
         if (!z) {
             d(this.l);
             return;
@@ -174,78 +174,78 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
             this.l = jVar;
             jVar.q(aVar);
         }
-        this.l.r(this.f4320e);
-        this.f4321f.b(this.l);
+        this.l.r(this.f4339e);
+        this.f4340f.b(this.l);
     }
 
-    public u m() {
-        return n(true);
+    public u n() {
+        return o(true);
     }
 
-    public u n(boolean z) {
-        if (this.f4324i == null) {
-            this.f4324i = new u(this.f4321f.g());
+    public u o(boolean z) {
+        if (this.f4343i == null) {
+            this.f4343i = new u(this.f4340f.g());
         }
-        this.f4324i.s(this.f4320e);
-        this.f4324i.q(z);
-        this.f4321f.b(this.f4324i);
-        return this.f4324i;
+        this.f4343i.s(this.f4339e);
+        this.f4343i.q(z);
+        this.f4340f.b(this.f4343i);
+        return this.f4343i;
     }
 
-    public b0 o(boolean z) {
-        if (this.f4322g == null) {
+    public b0 p(boolean z) {
+        if (this.f4341g == null) {
             b0 b0Var = new b0(c(), z);
-            this.f4322g = b0Var;
-            b0Var.f40014i.setUniqueId(this.f4320e);
+            this.f4341g = b0Var;
+            b0Var.f43695i.setUniqueId(this.f4339e);
         }
-        this.f4321f.b(this.f4322g);
-        return this.f4322g;
+        this.f4340f.b(this.f4341g);
+        return this.f4341g;
     }
 
-    public void p(boolean z, Align align, NEGFeedBackView.b bVar) {
+    public void q(boolean z, Align align, NEGFeedBackView.b bVar) {
         if (!z) {
-            d(this.f4322g);
+            d(this.f4341g);
             return;
         }
-        if (this.f4322g == null) {
+        if (this.f4341g == null) {
             b0 b0Var = new b0(c(), align);
-            this.f4322g = b0Var;
-            b0Var.f40014i.setUniqueId(this.f4320e);
-            this.f4322g.u(bVar);
+            this.f4341g = b0Var;
+            b0Var.f43695i.setUniqueId(this.f4339e);
+            this.f4341g.u(bVar);
         }
-        this.f4322g.l(align);
-        this.f4321f.b(this.f4322g);
+        this.f4341g.l(align);
+        this.f4340f.b(this.f4341g);
     }
 
-    public d0 q(int i2) {
+    public d0 r(int i2) {
         if (this.k == null) {
-            d0 d0Var = new d0(this.f4321f.j().getContext(), i2);
+            d0 d0Var = new d0(this.f4340f.j().getContext(), i2);
             this.k = d0Var;
-            d0Var.q(this.f4320e);
+            d0Var.q(this.f4339e);
         }
-        this.f4321f.b(this.k);
+        this.f4340f.b(this.k);
         return this.k;
     }
 
-    public k0 r() {
+    public k0 s() {
         if (this.j == null) {
             k0 k0Var = new k0(c());
             this.j = k0Var;
-            k0Var.o(this.f4320e);
+            k0Var.o(this.f4339e);
         }
-        this.f4321f.b(this.j);
+        this.f4340f.b(this.j);
         return this.j;
     }
 
-    public void s(boolean z, Align align) {
+    public void t(boolean z, Align align) {
         if (!z) {
-            d(this.f4323h);
+            d(this.f4342h);
             return;
         }
-        if (this.f4323h == null) {
-            this.f4323h = new r0(c(), align);
+        if (this.f4342h == null) {
+            this.f4342h = new r0(c(), align);
         }
-        this.f4323h.k(align);
-        this.f4321f.b(this.f4323h);
+        this.f4342h.k(align);
+        this.f4340f.b(this.f4342h);
     }
 }

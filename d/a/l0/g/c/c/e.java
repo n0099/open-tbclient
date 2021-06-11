@@ -17,7 +17,7 @@ public class e extends d.a.l0.g.f.a {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        bVar.b(jSONObject2);
+        bVar.a(jSONObject2);
         return null;
     }
 }

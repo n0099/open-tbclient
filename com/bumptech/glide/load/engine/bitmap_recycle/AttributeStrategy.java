@@ -3,13 +3,13 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 import android.graphics.Bitmap;
 import androidx.annotation.VisibleForTesting;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AttributeStrategy implements LruPoolStrategy {
     public final KeyPool keyPool = new KeyPool();
     public final GroupedLinkedMap<Key, Bitmap> groupedMap = new GroupedLinkedMap<>();
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Key implements Poolable {
         public Bitmap.Config config;
         public int height;
@@ -51,7 +51,7 @@ public class AttributeStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         public Key get(int i2, int i3, Bitmap.Config config) {
             Key key = get();

@@ -7,7 +7,7 @@ import org.apache.http.conn.ClientConnectionManagerFactory;
 import org.apache.http.params.HttpAbstractParamBean;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ClientParamBean extends HttpAbstractParamBean {
     public ClientParamBean(HttpParams httpParams) {
         super(null);

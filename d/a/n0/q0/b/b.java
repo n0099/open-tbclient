@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.q0.b.d;
 import java.util.ArrayList;
 import tbclient.FrsTabInfo;
@@ -34,19 +34,19 @@ import tbclient.FrsTabInfo;
 public class b implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f58251e;
+    public TbPageContext f61942e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.n0.q0.b.c f58252f;
+    public final d.a.n0.q0.b.c f61943f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.n0.q0.b.d f58253g;
+    public final d.a.n0.q0.b.d f61944g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.a.n0.q0.b.a f58254h;
+    public final d.a.n0.q0.b.a f61945h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<n> f58255i;
+    public ArrayList<n> f61946i;
     public String j;
     public int k;
     public long l;
@@ -56,7 +56,7 @@ public class b implements View.OnClickListener {
     public String p;
     public String q;
     public View.OnClickListener r = new a();
-    public Runnable s = new RunnableC1478b();
+    public Runnable s = new RunnableC1534b();
     public CustomMessageListener t = new c(2921021);
     public CustomMessageListener u = new d(2921020);
     public d.b v = new e();
@@ -70,21 +70,21 @@ public class b implements View.OnClickListener {
         public void onClick(View view) {
             if (view.getTag() instanceof d.a.n0.q0.c.b) {
                 Intent intent = new Intent();
-                b.this.f58251e.getPageActivity().setResult(-1, intent);
+                b.this.f61942e.getPageActivity().setResult(-1, intent);
                 d.a.n0.q0.c.b bVar = (d.a.n0.q0.c.b) view.getTag();
                 if (b.this.k == 1) {
-                    b.this.q(bVar.m(), bVar.p());
+                    b.this.q(bVar.i(), bVar.k());
                 } else if (b.this.k == 2) {
                     b.this.s(bVar);
-                    TiebaStatic.log(new StatisticItem("c12609").param("fid", bVar.m()));
+                    TiebaStatic.log(new StatisticItem("c12609").param("fid", bVar.i()));
                 } else if (b.this.k != 3) {
                     if (b.this.k == 4) {
-                        b.this.r(String.valueOf(bVar.m()), bVar.p());
+                        b.this.r(String.valueOf(bVar.i()), bVar.k());
                     }
                 } else {
-                    intent.putExtra(SelectForumActivityConfig.SELECT_FORUM_ID, String.valueOf(bVar.m()));
-                    intent.putExtra(SelectForumActivityConfig.SELECT_FORUM_NAME, bVar.p());
-                    b.this.f58251e.getPageActivity().finish();
+                    intent.putExtra(SelectForumActivityConfig.SELECT_FORUM_ID, String.valueOf(bVar.i()));
+                    intent.putExtra(SelectForumActivityConfig.SELECT_FORUM_NAME, bVar.k());
+                    b.this.f61942e.getPageActivity().finish();
                 }
             }
         }
@@ -92,13 +92,13 @@ public class b implements View.OnClickListener {
 
     /* renamed from: d.a.n0.q0.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1478b implements Runnable {
-        public RunnableC1478b() {
+    public class RunnableC1534b implements Runnable {
+        public RunnableC1534b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            l.K(b.this.f58251e.getPageActivity(), b.this.f58252f.f58267d);
+            l.K(b.this.f61942e.getPageActivity(), b.this.f61943f.f61958d);
         }
     }
 
@@ -115,8 +115,8 @@ public class b implements View.OnClickListener {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
-            b.this.f58252f.f58267d.setText(str);
-            b.this.f58252f.f58267d.setSelection(str.length());
+            b.this.f61943f.f61958d.setText(str);
+            b.this.f61943f.f61958d.setSelection(str.length());
             b.this.n();
         }
     }
@@ -153,9 +153,9 @@ public class b implements View.OnClickListener {
                     return;
                 }
             }
-            b.this.f58255i = cVar.a();
+            b.this.f61946i = cVar.a();
             b bVar = b.this;
-            bVar.v(bVar.f58255i);
+            bVar.v(bVar.f61946i);
         }
     }
 
@@ -201,7 +201,7 @@ public class b implements View.OnClickListener {
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             if (!z) {
-                l.x(b.this.f58251e.getPageActivity(), view);
+                l.x(b.this.f61942e.getPageActivity(), view);
             } else {
                 b.this.n();
             }
@@ -209,15 +209,15 @@ public class b implements View.OnClickListener {
     }
 
     public b(TbPageContext tbPageContext) {
-        this.f58251e = tbPageContext;
-        this.f58252f = new d.a.n0.q0.b.c(tbPageContext);
+        this.f61942e = tbPageContext;
+        this.f61943f = new d.a.n0.q0.b.c(tbPageContext);
         m();
         d.a.n0.q0.b.d dVar = new d.a.n0.q0.b.d(tbPageContext, tbPageContext.getUniqueId());
-        this.f58253g = dVar;
+        this.f61944g = dVar;
         dVar.e(this.v);
-        this.f58255i = new ArrayList<>();
-        d.a.n0.q0.b.a aVar = new d.a.n0.q0.b.a(tbPageContext, this.f58252f.f58270g);
-        this.f58254h = aVar;
+        this.f61946i = new ArrayList<>();
+        d.a.n0.q0.b.a aVar = new d.a.n0.q0.b.a(tbPageContext, this.f61943f.f61961g);
+        this.f61945h = aVar;
         aVar.a(this.r);
         I();
         tbPageContext.registerListener(this.u);
@@ -245,83 +245,83 @@ public class b implements View.OnClickListener {
     }
 
     public final void I() {
-        this.f58253g.c();
-        this.f58255i.clear();
+        this.f61944g.c();
+        this.f61946i.clear();
         ArrayList<String> c2 = d.a.n0.q0.b.e.c();
         if (!ListUtils.isEmpty(c2)) {
             d.a.n0.q0.c.a aVar = new d.a.n0.q0.c.a();
-            aVar.l(d.a.n0.q0.c.a.f58279h);
-            this.f58255i.add(aVar);
-            this.f58255i.add(new d.a.n0.q0.c.a(c2));
-            v(this.f58255i);
+            aVar.g(d.a.n0.q0.c.a.f61970h);
+            this.f61946i.add(aVar);
+            this.f61946i.add(new d.a.n0.q0.c.a(c2));
+            v(this.f61946i);
             return;
         }
-        this.f58255i.clear();
-        v(this.f58255i);
+        this.f61946i.clear();
+        v(this.f61946i);
     }
 
     public final void J() {
-        this.f58255i.clear();
+        this.f61946i.clear();
         d.a.n0.q0.c.a aVar = new d.a.n0.q0.c.a();
-        aVar.l(d.a.n0.q0.c.a.f58280i);
-        this.f58255i.add(aVar);
-        v(this.f58255i);
+        aVar.g(d.a.n0.q0.c.a.f61971i);
+        this.f61946i.add(aVar);
+        v(this.f61946i);
     }
 
     public final void m() {
-        this.f58252f.f58265b.setOnClickListener(this);
-        this.f58252f.f58267d.setOnEditorActionListener(new f());
-        this.f58252f.f58267d.addTextChangedListener(new g());
-        this.f58252f.f58267d.setOnFocusChangeListener(new h());
-        this.f58252f.f58267d.setOnClickListener(this);
-        this.f58252f.f58268e.setOnClickListener(this);
-        this.f58252f.f58269f.setOnClickListener(this);
+        this.f61943f.f61956b.setOnClickListener(this);
+        this.f61943f.f61958d.setOnEditorActionListener(new f());
+        this.f61943f.f61958d.addTextChangedListener(new g());
+        this.f61943f.f61958d.setOnFocusChangeListener(new h());
+        this.f61943f.f61958d.setOnClickListener(this);
+        this.f61943f.f61959e.setOnClickListener(this);
+        this.f61943f.f61960f.setOnClickListener(this);
     }
 
     public final void n() {
-        if (this.f58252f.f58267d.getText() != null && !StringUtils.isNull(this.f58252f.f58267d.getText().toString())) {
-            n nVar = (n) ListUtils.getItem(this.f58255i, 0);
-            if (nVar != null && nVar.getType() == d.a.n0.q0.c.a.f58279h) {
-                this.f58255i.clear();
-                v(this.f58255i);
+        if (this.f61943f.f61958d.getText() != null && !StringUtils.isNull(this.f61943f.f61958d.getText().toString())) {
+            n nVar = (n) ListUtils.getItem(this.f61946i, 0);
+            if (nVar != null && nVar.getType() == d.a.n0.q0.c.a.f61970h) {
+                this.f61946i.clear();
+                v(this.f61946i);
             }
-            this.f58252f.f58268e.setVisibility(0);
-            String obj = this.f58252f.f58267d.getText().toString();
+            this.f61943f.f61959e.setVisibility(0);
+            String obj = this.f61943f.f61958d.getText().toString();
             this.j = obj;
-            this.f58253g.d(obj);
+            this.f61944g.d(obj);
             return;
         }
-        this.f58252f.f58268e.setVisibility(8);
+        this.f61943f.f61959e.setVisibility(8);
         this.j = null;
         I();
     }
 
     public d.a.n0.q0.b.c o() {
-        return this.f58252f;
+        return this.f61943f;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        d.a.n0.q0.b.c cVar = this.f58252f;
-        EditText editText = cVar.f58267d;
+        d.a.n0.q0.b.c cVar = this.f61943f;
+        EditText editText = cVar.f61958d;
         if (view == editText) {
             n();
-        } else if (view == cVar.f58269f) {
-            l.x(this.f58251e.getPageActivity(), this.f58252f.f58267d);
-            this.f58251e.getPageActivity().finish();
-        } else if (view == cVar.f58268e) {
+        } else if (view == cVar.f61960f) {
+            l.x(this.f61942e.getPageActivity(), this.f61943f.f61958d);
+            this.f61942e.getPageActivity().finish();
+        } else if (view == cVar.f61959e) {
             editText.setText("");
-        } else if (view == cVar.f58265b) {
-            v(this.f58255i);
+        } else if (view == cVar.f61956b) {
+            v(this.f61946i);
         }
     }
 
     public final FrsTabInfoData p(d.a.n0.q0.c.b bVar) {
-        if (bVar == null || ListUtils.isEmpty(bVar.s())) {
+        if (bVar == null || ListUtils.isEmpty(bVar.o())) {
             return null;
         }
-        ArrayList arrayList = new ArrayList(bVar.s().size());
-        for (FrsTabInfo frsTabInfo : bVar.s()) {
+        ArrayList arrayList = new ArrayList(bVar.o().size());
+        for (FrsTabInfo frsTabInfo : bVar.o()) {
             if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
                 arrayList.add(new FrsTabItemData(frsTabInfo));
             }
@@ -340,30 +340,30 @@ public class b implements View.OnClickListener {
         transmitForumData.tabItemDatas = new ArrayList<>();
         ArrayList arrayList = new ArrayList();
         arrayList.add(transmitForumData);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaWriteShareInBarActivityConfig(this.f58251e.getPageActivity(), arrayList, String.valueOf(this.l), this.m)));
-        this.f58251e.getPageActivity().finish();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaWriteShareInBarActivityConfig(this.f61942e.getPageActivity(), arrayList, String.valueOf(this.l), this.m)));
+        this.f61942e.getPageActivity().finish();
     }
 
     public final void r(String str, String str2) {
         if (WriteActivityConfig.isAsyncWriting()) {
             return;
         }
-        WriteActivityConfig.newInstance(this.f58251e.getPageActivity()).setType(9).setForumId(str).setForumName(str2).setFrom(WriteActivityConfig.FROM_FORUM_SHARE).send();
-        this.f58251e.getPageActivity().finish();
+        WriteActivityConfig.newInstance(this.f61942e.getPageActivity()).setType(9).setForumId(str).setForumName(str2).setFrom(WriteActivityConfig.FROM_FORUM_SHARE).send();
+        this.f61942e.getPageActivity().finish();
     }
 
     public final void s(d.a.n0.q0.c.b bVar) {
         if (bVar == null) {
             return;
         }
-        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.f58251e.getPageActivity(), 9, String.valueOf(bVar.m()), bVar.p(), null, null, 13011, null, null, null, this.o);
+        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.f61942e.getPageActivity(), 9, String.valueOf(bVar.i()), bVar.k(), null, null, 13011, null, null, null, this.o);
         transmitPostEditActivityConfig.setCallFrom("2");
         transmitPostEditActivityConfig.setBaijiahaoData(this.n);
         transmitPostEditActivityConfig.setTransmitOriginThreadComment(this.p);
         transmitPostEditActivityConfig.setTransmitThreadAuthorNameShow(this.q);
         transmitPostEditActivityConfig.setFrsTabInfo(p(bVar));
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, transmitPostEditActivityConfig));
-        this.f58251e.getPageActivity().finish();
+        this.f61942e.getPageActivity().finish();
     }
 
     public void t() {
@@ -377,8 +377,8 @@ public class b implements View.OnClickListener {
     }
 
     public void v(ArrayList<n> arrayList) {
-        this.f58255i = arrayList;
-        this.f58252f.f58270g.setData(arrayList);
+        this.f61946i = arrayList;
+        this.f61943f.f61961g.setData(arrayList);
     }
 
     public void w(int i2) {

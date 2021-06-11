@@ -154,7 +154,7 @@ public final class CodedOutputStream {
     }
 
     public static int computeRawVarint32Size(int i2) {
-        if ((i2 & a.f1872g) == 0) {
+        if ((i2 & a.f1885g) == 0) {
             return 1;
         }
         if ((i2 & (-16384)) == 0) {
@@ -463,7 +463,7 @@ public final class CodedOutputStream {
     }
 
     public void writeRawVarint32(int i2) throws IOException {
-        while ((i2 & a.f1872g) != 0) {
+        while ((i2 & a.f1885g) != 0) {
             writeRawByte((i2 & 127) | 128);
             i2 >>>= 7;
         }

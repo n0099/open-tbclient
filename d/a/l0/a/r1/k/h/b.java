@@ -12,19 +12,19 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class b implements d.a.l0.a.f1.f.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f44485f = e.d();
+    public static final int f48159f = e.d();
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f44486b;
+    public List<String> f48160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CopyOnWriteArrayList<d.a.l0.a.r1.k.h.a> f44487c;
+    public CopyOnWriteArrayList<d.a.l0.a.r1.k.h.a> f48161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f44488d;
+    public boolean f48162d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.a.r1.r.c.a f44489e;
+    public d.a.l0.a.r1.r.c.a f48163e;
 
     /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.r1.r.c.a {
@@ -37,29 +37,29 @@ public class b implements d.a.l0.a.f1.f.a {
 
         @Override // d.a.l0.a.r1.r.c.a
         public void b() {
-            b.this.f44488d = false;
+            b.this.f48162d = false;
         }
 
         @Override // d.a.l0.a.r1.r.c.a
         public void c(boolean z) {
-            b.this.f44488d = false;
-            if (b.this.f44487c.isEmpty()) {
+            b.this.f48162d = false;
+            if (b.this.f48161c.isEmpty()) {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            Iterator<d.a.l0.a.r1.k.h.a> it = b.this.f44487c.iterator();
+            Iterator<d.a.l0.a.r1.k.h.a> it = b.this.f48161c.iterator();
             while (it.hasNext()) {
                 it.next().a();
             }
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
-                Log.d("SwanPerformance", "pending api dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms, listener count = " + b.this.f44487c.size());
+                Log.d("SwanPerformance", "pending api dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms, listener count = " + b.this.f48161c.size());
             }
         }
 
         @Override // d.a.l0.a.r1.r.c.a
         public void d(String str) {
-            b.this.f44488d = true;
+            b.this.f48162d = true;
         }
 
         @Override // d.a.l0.a.r1.r.c.a
@@ -70,10 +70,10 @@ public class b implements d.a.l0.a.f1.f.a {
 
     /* renamed from: d.a.l0.a.r1.k.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0807b {
+    public static class C0863b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f44491a = new b(null);
+        public static final b f48165a = new b(null);
     }
 
     public /* synthetic */ b(a aVar) {
@@ -81,12 +81,12 @@ public class b implements d.a.l0.a.f1.f.a {
     }
 
     public static b c() {
-        return C0807b.f44491a;
+        return C0863b.f48165a;
     }
 
     public boolean b(String str) {
-        if (!TextUtils.isEmpty(str) && f44485f > 0 && this.f44488d) {
-            for (String str2 : this.f44486b) {
+        if (!TextUtils.isEmpty(str) && f48159f > 0 && this.f48162d) {
+            for (String str2 : this.f48160b) {
                 if (str.startsWith(str2)) {
                     return true;
                 }
@@ -100,24 +100,24 @@ public class b implements d.a.l0.a.f1.f.a {
         if (aVar == null) {
             return;
         }
-        if (f44485f <= 0) {
-            if (d.a.l0.a.f1.f.a.f41852a) {
-                Log.d("SwanPerformance", "pending api close, can't register. duration = " + f44485f);
+        if (f48159f <= 0) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
+                Log.d("SwanPerformance", "pending api close, can't register. duration = " + f48159f);
                 return;
             }
             return;
         }
-        this.f44487c.add(aVar);
-        d.a.l0.a.r1.r.a.f().h(this.f44489e, f44485f);
+        this.f48161c.add(aVar);
+        d.a.l0.a.r1.r.a.f().h(this.f48163e, f48159f);
     }
 
     public b() {
-        this.f44486b = new ArrayList();
-        this.f44487c = new CopyOnWriteArrayList<>();
-        this.f44488d = false;
-        this.f44489e = new a();
-        this.f44486b.clear();
-        List<String> list = this.f44486b;
+        this.f48160b = new ArrayList();
+        this.f48161c = new CopyOnWriteArrayList<>();
+        this.f48162d = false;
+        this.f48163e = new a();
+        this.f48160b.clear();
+        List<String> list = this.f48160b;
         list.add(UnitedSchemeEntity.UNITED_SCHEME + "swanAPI/openStatisticEvent?");
     }
 }

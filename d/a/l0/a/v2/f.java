@@ -15,7 +15,7 @@ import com.baidu.android.util.android.ActivityUtils;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45405a = d.a.l0.a.k.f43199a;
+    public static final boolean f49079a = d.a.l0.a.k.f46875a;
 
     public static void a(Activity activity) {
         if (activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
@@ -24,7 +24,7 @@ public final class f {
         Window window = activity.getWindow();
         window.clearFlags(1024);
         int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
-        if (d.a.l0.a.z1.b.a.f46040b) {
+        if (d.a.l0.a.z1.b.a.f49714b) {
             systemUiVisibility |= 5120;
         }
         window.getDecorView().setSystemUiVisibility(systemUiVisibility);
@@ -83,7 +83,7 @@ public final class f {
             if (z2) {
                 Toast.makeText(context, d.a.l0.a.h.swan_app_activity_not_found, 0).show();
             }
-            if (f45405a) {
+            if (f49079a) {
                 Log.e(ActivityUtils.TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
                 return false;
             }
@@ -92,7 +92,7 @@ public final class f {
     }
 
     public static void j(Activity activity) {
-        if (f45405a) {
+        if (f49079a) {
             Log.i(ActivityUtils.TAG, "tryFinishAndRemoveTask: " + activity);
         }
         if (activity == null || activity.isDestroyed()) {

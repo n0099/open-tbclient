@@ -1,8 +1,8 @@
 package d.a.k.d;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface b {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a implements b {
         @Override // d.a.k.d.b
         public void onDownloadProgress(float f2) {

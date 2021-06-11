@@ -10,7 +10,7 @@ import d.a.l0.a.k;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f47106a;
+    public a f50780a;
     @V8JavascriptField
     public int height;
     @V8JavascriptField
@@ -41,15 +41,15 @@ public class c {
     }
 
     public void b(a aVar) {
-        this.f47106a = aVar;
+        this.f50780a = aVar;
     }
 
     @JavascriptInterface
     public void onFieldChangedCallback(String str) {
-        if (k.f43199a) {
+        if (k.f46875a) {
             Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        a aVar = this.f47106a;
+        a aVar = this.f50780a;
         if (aVar != null) {
             aVar.i(str);
         }

@@ -1,5 +1,5 @@
 package d.a.l0.a.p0.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static int a(boolean z) {
         return z ? 1 : 0;

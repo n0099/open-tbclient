@@ -3,12 +3,12 @@ package protobuf.QueryUserPermission;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.GroupPermission;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataRes extends Message {
     @ProtoField(tag = 1)
     public final GroupPermission groupPerm;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public GroupPermission groupPerm;
 

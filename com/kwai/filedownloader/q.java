@@ -6,34 +6,34 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f34372a = new Object();
+    public static final Object f37856a = new Object();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f34373c = new Object();
+    public static final Object f37857c = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public v f34374b;
+    public v f37858b;
 
     /* renamed from: d  reason: collision with root package name */
-    public u f34375d;
+    public u f37859d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final q f34376a = new q();
+        public static final q f37860a = new q();
     }
 
     public static q a() {
-        return a.f34376a;
+        return a.f37860a;
     }
 
     public static void a(Context context, c.a aVar) {
-        if (com.kwai.filedownloader.f.d.f34292a) {
+        if (com.kwai.filedownloader.f.d.f37776a) {
             com.kwai.filedownloader.f.d.c(q.class, "init Downloader with params: %s %s", context, aVar);
         }
         if (context == null) {
@@ -94,26 +94,26 @@ public class q {
     }
 
     public v d() {
-        if (this.f34374b == null) {
-            synchronized (f34372a) {
-                if (this.f34374b == null) {
-                    this.f34374b = new aa();
+        if (this.f37858b == null) {
+            synchronized (f37856a) {
+                if (this.f37858b == null) {
+                    this.f37858b = new aa();
                 }
             }
         }
-        return this.f34374b;
+        return this.f37858b;
     }
 
     public u e() {
-        if (this.f34375d == null) {
-            synchronized (f34373c) {
-                if (this.f34375d == null) {
+        if (this.f37859d == null) {
+            synchronized (f37857c) {
+                if (this.f37859d == null) {
                     y yVar = new y();
-                    this.f34375d = yVar;
+                    this.f37859d = yVar;
                     a(yVar);
                 }
             }
         }
-        return this.f34375d;
+        return this.f37859d;
     }
 }

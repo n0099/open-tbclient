@@ -16,16 +16,16 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50711a;
+    public String f54388a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f50712b;
+    public List<String> f54389b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f50713c;
+    public c f54390c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f50714d;
+    public boolean f54391d;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -36,15 +36,15 @@ public class a {
     public class c extends BdAsyncTask<Object, Integer, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f50715a;
+        public b f54392a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile NetWork f50716b = null;
+        public volatile NetWork f54393b = null;
 
         /* renamed from: d.a.m0.s.j.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1161a implements Comparator<Map.Entry<String, Integer>> {
-            public C1161a(c cVar) {
+        public class C1217a implements Comparator<Map.Entry<String, Integer>> {
+            public C1217a(c cVar) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -56,8 +56,8 @@ public class a {
         }
 
         public c(b bVar) {
-            this.f50715a = null;
-            this.f50715a = bVar;
+            this.f54392a = null;
+            this.f54392a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,22 +65,22 @@ public class a {
         /* renamed from: b */
         public Void doInBackground(Object... objArr) {
             try {
-                this.f50716b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
-                String postNetData = this.f50716b.postNetData();
-                if (!this.f50716b.getNetContext().getResponse().isRequestSuccess() || postNetData == null) {
+                this.f54393b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
+                String postNetData = this.f54393b.postNetData();
+                if (!this.f54393b.getNetContext().getResponse().isRequestSuccess() || postNetData == null) {
                     return null;
                 }
                 JSONObject jSONObject = new JSONObject(postNetData);
                 if (jSONObject.optInt("error_code") == 0) {
                     String optString = jSONObject.optString("urls");
-                    a.this.f50712b = a.this.j(optString);
-                    if (a.this.f50712b == null || a.this.f50712b.size() <= 0) {
+                    a.this.f54389b = a.this.j(optString);
+                    if (a.this.f54389b == null || a.this.f54389b.size() <= 0) {
                         return null;
                     }
                     HashMap hashMap = new HashMap();
                     int i2 = 0;
-                    for (int i3 = 0; i3 < a.this.f50712b.size(); i3++) {
-                        String str = (String) a.this.f50712b.get(i3);
+                    for (int i3 = 0; i3 < a.this.f54389b.size(); i3++) {
+                        String str = (String) a.this.f54389b.get(i3);
                         f fVar = new f();
                         fVar.a(str);
                         if (fVar.d()) {
@@ -88,12 +88,12 @@ public class a {
                         }
                     }
                     if (hashMap.size() > 0) {
-                        a.this.f50712b = new ArrayList();
+                        a.this.f54389b = new ArrayList();
                         ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-                        Collections.sort(arrayList, new C1161a(this));
+                        Collections.sort(arrayList, new C1217a(this));
                         StringBuilder sb = new StringBuilder(50);
                         for (Map.Entry entry : arrayList) {
-                            a.this.f50712b.add(entry.getKey());
+                            a.this.f54389b.add(entry.getKey());
                             if (i2 != 0) {
                                 sb.append(",");
                             }
@@ -117,8 +117,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onCancelled(Void r2) {
-            a.this.f50713c = null;
-            b bVar = this.f50715a;
+            a.this.f54390c = null;
+            b bVar = this.f54392a;
             if (bVar != null) {
                 bVar.a();
             }
@@ -126,11 +126,11 @@ public class a {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.f50716b != null) {
-                this.f50716b.cancelNetConnect();
-                this.f50716b = null;
+            if (this.f54393b != null) {
+                this.f54393b.cancelNetConnect();
+                this.f54393b = null;
             }
-            a.this.f50713c = null;
+            a.this.f54390c = null;
             super.cancel(true);
         }
 
@@ -138,8 +138,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(Void r2) {
-            a.this.f50713c = null;
-            b bVar = this.f50715a;
+            a.this.f54390c = null;
+            b bVar = this.f54392a;
             if (bVar != null) {
                 bVar.a();
             }
@@ -147,8 +147,8 @@ public class a {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
-            a.this.f50713c = null;
-            b bVar = this.f50715a;
+            a.this.f54390c = null;
+            b bVar = this.f54392a;
             if (bVar != null) {
                 bVar.a();
             }
@@ -159,11 +159,11 @@ public class a {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f50718a = new a();
+        public static a f54395a = new a();
     }
 
     public static a f() {
-        return d.f50718a;
+        return d.f54395a;
     }
 
     public int e() {
@@ -171,14 +171,14 @@ public class a {
     }
 
     public List<String> g() {
-        if (this.f50712b == null) {
+        if (this.f54389b == null) {
             if (System.currentTimeMillis() - d.a.m0.r.d0.b.j().l("KeyOfSharedPrefListGetTime", 0L) > 86400000) {
                 d.a.m0.r.d0.b.j().x("KeyOfSharedPrefIpList", "");
                 return null;
             }
-            this.f50712b = j(d.a.m0.r.d0.b.j().p("KeyOfSharedPrefIpList", null));
+            this.f54389b = j(d.a.m0.r.d0.b.j().p("KeyOfSharedPrefIpList", null));
         }
-        return this.f50712b;
+        return this.f54389b;
     }
 
     public String h() {
@@ -186,22 +186,22 @@ public class a {
         if (e2 >= 10) {
             d.a.m0.r.d0.b.j().v("KeyOfSharedPrefImCount", 0);
             d.a.m0.r.d0.b.j().x("KeyOfSharedPrefValidIp", "");
-            this.f50711a = null;
+            this.f54388a = null;
             return null;
         }
-        if (this.f50711a == null) {
-            this.f50711a = d.a.m0.r.d0.b.j().p("KeyOfSharedPrefValidIp", null);
+        if (this.f54388a == null) {
+            this.f54388a = d.a.m0.r.d0.b.j().p("KeyOfSharedPrefValidIp", null);
         }
-        if (!k.isEmpty(this.f50711a)) {
+        if (!k.isEmpty(this.f54388a)) {
             d.a.m0.r.d0.b.j().v("KeyOfSharedPrefImCount", e2 + 1);
         } else {
-            this.f50711a = null;
+            this.f54388a = null;
         }
-        return this.f50711a;
+        return this.f54388a;
     }
 
     public boolean i() {
-        return this.f50714d;
+        return this.f54391d;
     }
 
     public final List<String> j(String str) {
@@ -217,33 +217,33 @@ public class a {
     }
 
     public void k() {
-        this.f50714d = false;
+        this.f54391d = false;
     }
 
     public void l(String str) {
         if (TiebaIMConfig.defaultUrl.equals(str)) {
             return;
         }
-        this.f50711a = str;
+        this.f54388a = str;
         d.a.m0.r.d0.b.j().x("KeyOfSharedPrefValidIp", str);
     }
 
     public void m(b bVar) {
-        if (this.f50713c == null) {
-            this.f50714d = true;
+        if (this.f54390c == null) {
+            this.f54391d = true;
             c cVar = new c(bVar);
-            this.f50713c = cVar;
+            this.f54390c = cVar;
             cVar.setSelfExecute(true);
-            this.f50713c.execute(new Object[0]);
+            this.f54390c.execute(new Object[0]);
         }
     }
 
     public a() {
-        this.f50711a = null;
-        this.f50712b = null;
-        this.f50713c = null;
-        this.f50714d = false;
-        this.f50714d = false;
-        this.f50712b = null;
+        this.f54388a = null;
+        this.f54389b = null;
+        this.f54390c = null;
+        this.f54391d = false;
+        this.f54391d = false;
+        this.f54389b = null;
     }
 }

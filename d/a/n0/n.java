@@ -18,7 +18,6 @@ import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.tencent.connect.common.Constants;
 import d.a.m0.s.e.e;
 import d.a.n0.e3.z;
 import java.util.Date;
@@ -56,7 +55,7 @@ public class n {
             intent.setFlags(268435488);
             intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
             intent.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
-            intent.putExtra(WebChromeClient.KEY_FUNCTION_NAME, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+            intent.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
             Bundle bundle = new Bundle();
             bundle.putInt("versioncode", versionData.getNewVersionCode());
             bundle.putLong("patch_size", d.a.c.e.m.b.f(versionData.getPatchSize(), 0L));
@@ -79,7 +78,7 @@ public class n {
             intent2.setFlags(268435488);
             intent2.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
             intent2.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
-            intent2.putExtra(WebChromeClient.KEY_FUNCTION_NAME, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+            intent2.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
             Bundle bundle2 = new Bundle();
             bundle2.putInt("versioncode", versionData.getNewVersionCode());
             bundle2.putLong("patch_size", d.a.c.e.m.b.f(versionData.getPatchSize(), 0L));
@@ -100,7 +99,7 @@ public class n {
         intent22.setFlags(268435488);
         intent22.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
         intent22.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
-        intent22.putExtra(WebChromeClient.KEY_FUNCTION_NAME, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+        intent22.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
         Bundle bundle22 = new Bundle();
         bundle22.putInt("versioncode", versionData.getNewVersionCode());
         bundle22.putLong("patch_size", d.a.c.e.m.b.f(versionData.getPatchSize(), 0L));

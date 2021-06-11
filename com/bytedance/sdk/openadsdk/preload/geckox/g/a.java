@@ -9,25 +9,25 @@ import java.util.concurrent.locks.ReentrantLock;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Lock> f30069a = new HashMap();
+    public static final Map<String, Lock> f30172a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public FileLock f30070b;
+    public FileLock f30173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30071c;
+    public String f30174c;
 
     public a(String str, FileLock fileLock) {
-        this.f30071c = str;
-        this.f30070b = fileLock;
+        this.f30174c = str;
+        this.f30173b = fileLock;
     }
 
     public static a a(String str) throws Exception {
-        synchronized (f30069a) {
-            Lock lock = f30069a.get(str);
+        synchronized (f30172a) {
+            Lock lock = f30172a.get(str);
             if (lock == null) {
                 lock = new ReentrantLock();
-                f30069a.put(str, lock);
+                f30172a.put(str, lock);
             }
             if (lock.tryLock()) {
                 try {
@@ -48,10 +48,10 @@ public class a {
     }
 
     public void a() {
-        synchronized (f30069a) {
-            this.f30070b.a();
-            this.f30070b.b();
-            f30069a.get(this.f30071c).unlock();
+        synchronized (f30172a) {
+            this.f30173b.a();
+            this.f30173b.b();
+            f30172a.get(this.f30174c).unlock();
         }
     }
 }

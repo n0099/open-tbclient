@@ -14,17 +14,17 @@ import java.util.TreeMap;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f45766c = k.f43199a;
+    public static final boolean f49440c = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f45767a;
+    public Map<String, Object> f49441a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Integer> f45768b;
+    public Map<String, Integer> f49442b;
 
     /* renamed from: d.a.l0.a.y.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0906a {
+    public static class C0962a {
         public static Boolean a(Object obj) {
             if (obj instanceof Boolean) {
                 return (Boolean) obj;
@@ -105,7 +105,7 @@ public class a {
 
     public static a G(JsObject jsObject) {
         if (jsObject == null) {
-            if (f45766c) {
+            if (f49440c) {
                 Log.e("JSObjectMap", "parseFromJSObject object is null.");
                 return null;
             }
@@ -159,8 +159,8 @@ public class a {
     }
 
     public JsObject[] B(String str, JsObject[] jsObjectArr) {
-        b d2 = C0906a.d(f().get(str));
-        return d2 != null ? d2.f45770b.toObjectArray(d2.f45769a) : jsObjectArr;
+        b d2 = C0962a.d(f().get(str));
+        return d2 != null ? d2.f49444b.toObjectArray(d2.f49443a) : jsObjectArr;
     }
 
     public String C(String str) {
@@ -168,7 +168,7 @@ public class a {
     }
 
     public String D(String str, String str2) {
-        String i2 = C0906a.i(f().get(str));
+        String i2 = C0962a.i(f().get(str));
         return i2 != null ? i2 : str2;
     }
 
@@ -177,8 +177,8 @@ public class a {
     }
 
     public String[] F(String str, String[] strArr) {
-        b d2 = C0906a.d(f().get(str));
-        return d2 != null ? d2.f45770b.toStringArray(d2.f45769a) : strArr;
+        b d2 = C0962a.d(f().get(str));
+        return d2 != null ? d2.f49444b.toStringArray(d2.f49443a) : strArr;
     }
 
     public void H(String str, Object obj) {
@@ -197,50 +197,50 @@ public class a {
     }
 
     public double c(String str) throws JSTypeMismatchException {
-        Double b2 = C0906a.b(f().get(str));
+        Double b2 = C0962a.b(f().get(str));
         if (b2 != null) {
             return b2.doubleValue();
         }
-        throw C0906a.j(this, str, 5);
+        throw C0962a.j(this, str, 5);
     }
 
     public int d(String str) throws JSTypeMismatchException {
-        Integer c2 = C0906a.c(f().get(str));
+        Integer c2 = C0962a.c(f().get(str));
         if (c2 != null) {
             return c2.intValue();
         }
-        throw C0906a.j(this, str, 2);
+        throw C0962a.j(this, str, 2);
     }
 
     public JsObject[] e(String str) throws JSTypeMismatchException {
-        b d2 = C0906a.d(f().get(str));
+        b d2 = C0962a.d(f().get(str));
         if (d2 != null) {
-            return d2.f45770b.toObjectArray(d2.f45769a);
+            return d2.f49444b.toObjectArray(d2.f49443a);
         }
-        throw C0906a.j(this, str, 6);
+        throw C0962a.j(this, str, 6);
     }
 
     public final Map<String, Object> f() {
-        if (this.f45767a == null) {
-            this.f45767a = new TreeMap();
+        if (this.f49441a == null) {
+            this.f49441a = new TreeMap();
         }
-        return this.f45767a;
+        return this.f49441a;
     }
 
     public String g(String str) throws JSTypeMismatchException {
-        String i2 = C0906a.i(f().get(str));
+        String i2 = C0962a.i(f().get(str));
         if (i2 != null) {
             return i2;
         }
-        throw C0906a.j(this, str, 7);
+        throw C0962a.j(this, str, 7);
     }
 
     public String[] h(String str) throws JSTypeMismatchException {
-        b d2 = C0906a.d(f().get(str));
+        b d2 = C0962a.d(f().get(str));
         if (d2 != null) {
-            return d2.f45770b.toStringArray(d2.f45769a);
+            return d2.f49444b.toStringArray(d2.f49443a);
         }
-        throw C0906a.j(this, str, 6);
+        throw C0962a.j(this, str, 6);
     }
 
     public int i(String str) {
@@ -252,10 +252,10 @@ public class a {
     }
 
     public final Map<String, Integer> j() {
-        if (this.f45768b == null) {
-            this.f45768b = new TreeMap();
+        if (this.f49442b == null) {
+            this.f49442b = new TreeMap();
         }
-        return this.f45768b;
+        return this.f49442b;
     }
 
     public Set<String> k() {
@@ -271,12 +271,12 @@ public class a {
     }
 
     public boolean n(String str, boolean z) {
-        Boolean a2 = C0906a.a(f().get(str));
+        Boolean a2 = C0962a.a(f().get(str));
         return a2 != null ? a2.booleanValue() : z;
     }
 
     public double o(String str, double d2) {
-        Double b2 = C0906a.b(f().get(str));
+        Double b2 = C0962a.b(f().get(str));
         return b2 != null ? b2.doubleValue() : d2;
     }
 
@@ -285,8 +285,8 @@ public class a {
     }
 
     public double[] q(String str, double[] dArr) {
-        b d2 = C0906a.d(f().get(str));
-        return d2 != null ? d2.f45770b.toDoubleArray(d2.f45769a) : dArr;
+        b d2 = C0962a.d(f().get(str));
+        return d2 != null ? d2.f49444b.toDoubleArray(d2.f49443a) : dArr;
     }
 
     public int r(String str) {
@@ -294,7 +294,7 @@ public class a {
     }
 
     public int s(String str, int i2) {
-        Integer c2 = C0906a.c(f().get(str));
+        Integer c2 = C0962a.c(f().get(str));
         return c2 != null ? c2.intValue() : i2;
     }
 
@@ -307,7 +307,7 @@ public class a {
     }
 
     public JsArrayBuffer u(String str, JsArrayBuffer jsArrayBuffer) {
-        JsArrayBuffer e2 = C0906a.e(f().get(str));
+        JsArrayBuffer e2 = C0962a.e(f().get(str));
         return e2 != null ? e2 : jsArrayBuffer;
     }
 
@@ -316,7 +316,7 @@ public class a {
     }
 
     public JsFunction w(String str, JsFunction jsFunction) {
-        JsFunction f2 = C0906a.f(f().get(str));
+        JsFunction f2 = C0962a.f(f().get(str));
         return f2 != null ? f2 : jsFunction;
     }
 
@@ -325,12 +325,12 @@ public class a {
     }
 
     public a y(String str, a aVar) {
-        a g2 = C0906a.g(f().get(str));
+        a g2 = C0962a.g(f().get(str));
         return g2 != null ? g2 : aVar;
     }
 
     public long z(String str, long j) {
-        Long h2 = C0906a.h(f().get(str));
+        Long h2 = C0962a.h(f().get(str));
         return h2 != null ? h2.longValue() : j;
     }
 }

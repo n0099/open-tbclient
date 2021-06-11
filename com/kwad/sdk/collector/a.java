@@ -1,58 +1,66 @@
 package com.kwad.sdk.collector;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.collector.AppStatusRules;
-import com.kwad.sdk.utils.InstalledAppInfoManager;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.kwad.sdk.core.network.i;
+import com.kwad.sdk.core.network.j;
+import com.kwad.sdk.utils.AppStatusHelper;
 /* loaded from: classes6.dex */
 public class a {
 
-    /* renamed from: a  reason: collision with root package name */
-    public AppRunningInfo f31851a;
+    /* renamed from: com.kwad.sdk.collector.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0359a {
+        void a(int i2, String str);
 
-    /* renamed from: b  reason: collision with root package name */
-    public Set<String> f31852b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public AppStatusRules.Strategy f31853c;
-
-    public a(AppRunningInfo appRunningInfo, Set<String> set, AppStatusRules.Strategy strategy) {
-        this.f31851a = appRunningInfo;
-        this.f31852b = set;
-        this.f31853c = strategy;
+        void a(AppStatusRules appStatusRules);
     }
 
-    public static List<a> a(@NonNull AppStatusRules.Strategy strategy, @NonNull Map<String, InstalledAppInfoManager.AppPackageInfo> map) {
-        InstalledAppInfoManager.AppPackageInfo appPackageInfo;
-        ArrayList arrayList = new ArrayList();
-        ArrayList<AppStatusRules.Target> target = strategy.getTarget();
-        if (target != null && target.size() != 0) {
-            for (AppStatusRules.Target target2 : target) {
-                if (target2.getPaths() != null && target2.getPaths().size() != 0 && (appPackageInfo = map.get(target2.getPackageName())) != null) {
-                    arrayList.add(new a(AppRunningInfo.createInstance(appPackageInfo, strategy), new HashSet(target2.getPaths()), strategy));
+    public static void a(final Context context, final InterfaceC0359a interfaceC0359a) {
+        if (context == null) {
+            return;
+        }
+        new i<com.kwad.sdk.collector.a.a, AppStatusRules>() { // from class: com.kwad.sdk.collector.a.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.kwad.sdk.core.network.i
+            @NonNull
+            /* renamed from: a */
+            public AppStatusRules b(String str) {
+                return AppStatusRules.createFromJson(str);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.kwad.sdk.core.network.a
+            @NonNull
+            /* renamed from: a */
+            public com.kwad.sdk.collector.a.a b() {
+                return new com.kwad.sdk.collector.a.a(AppStatusHelper.b(context));
+            }
+        }.a(new j<com.kwad.sdk.collector.a.a, AppStatusRules>() { // from class: com.kwad.sdk.collector.a.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
+            public void a(@NonNull com.kwad.sdk.collector.a.a aVar) {
+                super.a((AnonymousClass2) aVar);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
+            public void a(@NonNull com.kwad.sdk.collector.a.a aVar, int i2, String str) {
+                super.a((AnonymousClass2) aVar, i2, str);
+                InterfaceC0359a interfaceC0359a2 = InterfaceC0359a.this;
+                if (interfaceC0359a2 != null) {
+                    interfaceC0359a2.a(i2, str);
                 }
             }
-        }
-        return arrayList;
-    }
 
-    public AppRunningInfo a() {
-        return this.f31851a;
-    }
-
-    public Set<String> b() {
-        return this.f31852b;
-    }
-
-    public String c() {
-        AppRunningInfo appRunningInfo = this.f31851a;
-        if (appRunningInfo == null) {
-            return null;
-        }
-        return appRunningInfo.getPackageName();
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
+            public void a(@NonNull com.kwad.sdk.collector.a.a aVar, @NonNull AppStatusRules appStatusRules) {
+                InterfaceC0359a interfaceC0359a2 = InterfaceC0359a.this;
+                if (interfaceC0359a2 != null) {
+                    interfaceC0359a2.a(appStatusRules);
+                }
+            }
+        });
     }
 }

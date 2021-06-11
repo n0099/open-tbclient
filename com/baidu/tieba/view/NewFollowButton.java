@@ -48,15 +48,15 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public class a implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f21662a;
+        public final /* synthetic */ boolean f21765a;
 
         public a(boolean z) {
-            this.f21662a = z;
+            this.f21765a = z;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            NewFollowButton.this.B(this.f21662a);
+            NewFollowButton.this.B(this.f21765a);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -222,8 +222,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             }
             if (k.isForumName(this.s)) {
                 this.M = true;
-                this.J.E();
-                this.J.H(this.s, String.valueOf(this.t));
+                this.J.I();
+                this.J.L(this.s, String.valueOf(this.t));
             }
         }
     }

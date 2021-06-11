@@ -19,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g extends f {
-    public static final boolean H = d.a.l0.a.k.f43199a;
+    public static final boolean H = d.a.l0.a.k.f46875a;
     public Timer F;
     public final d.a.l0.a.a2.e G;
 
@@ -59,7 +59,7 @@ public class g extends f {
     }
 
     public g(d.a.l0.a.a2.e eVar) {
-        super(eVar.f40749f);
+        super(eVar.f44425f);
         this.G = eVar;
     }
 
@@ -68,11 +68,11 @@ public class g extends f {
             return;
         }
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43185a = d.a.l0.a.j2.k.m(bVar.G());
-        fVar.f43190f = bVar.H();
-        fVar.f43187c = bVar.T();
-        fVar.f43186b = "launch";
-        fVar.f43189e = "success";
+        fVar.f46861a = d.a.l0.a.j2.k.m(bVar.G());
+        fVar.f46866f = bVar.H();
+        fVar.f46863c = bVar.T();
+        fVar.f46862b = "launch";
+        fVar.f46865e = "success";
         fVar.a("status", "1");
         if (aVar != null) {
             fVar.a("errcode", String.valueOf(aVar.a()));
@@ -99,13 +99,13 @@ public class g extends f {
         }
         d.a.l0.a.q2.a aVar2 = new d.a.l0.a.q2.a();
         aVar2.j(10L);
-        aVar2.h(aVar.f48002a);
-        aVar2.c(aVar.f48003b);
-        aVar2.p(aVar.f48004c);
-        if (aVar.f48002a == 1013 && d.a.l0.a.c1.a.O().a(d.a.l0.a.c1.a.b(), this.r, aVar2)) {
+        aVar2.h(aVar.f51676a);
+        aVar2.c(aVar.f51677b);
+        aVar2.p(aVar.f51678c);
+        if (aVar.f51676a == 1013 && d.a.l0.a.c1.a.O().a(d.a.l0.a.c1.a.b(), this.r, aVar2)) {
             q0(aVar2, false);
             F0(this.G.L(), aVar2);
-        } else if (aVar.f48002a == 1020) {
+        } else if (aVar.f51676a == 1020) {
             q0(aVar2, false);
             F0(this.G.L(), aVar2);
         } else {
@@ -329,22 +329,22 @@ public class g extends f {
             }
             d.a.l0.a.f1.e.b G0 = G0();
             d.a.l0.n.h.d dVar = this.o;
-            if (dVar != null && dVar.f48013h == 0) {
+            if (dVar != null && dVar.f51687h == 0) {
                 G0.X0(d.a.l0.a.m2.b.e(0));
                 G0.E(1);
             }
             d.a.l0.n.h.d dVar2 = this.o;
-            if (dVar2 != null && dVar2.f48013h == 1) {
+            if (dVar2 != null && dVar2.f51687h == 1) {
                 G0.X0(d.a.l0.a.m2.b.e(1));
                 G0.E(1);
             }
             d.a.l0.n.h.b bVar = this.p;
-            if (bVar != null && bVar.f48013h == 0) {
+            if (bVar != null && bVar.f51687h == 0) {
                 G0.B0(d.a.l0.a.p0.b.c(0));
                 G0.E(2);
             }
             d.a.l0.n.h.b bVar2 = this.p;
-            if (bVar2 != null && bVar2.f48013h == 1) {
+            if (bVar2 != null && bVar2.f51687h == 1) {
                 G0.B0(d.a.l0.a.p0.b.c(1));
                 G0.E(2);
             }

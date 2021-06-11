@@ -6,20 +6,20 @@ import com.baidu.mapsdkplatform.comapi.map.ab;
 public class z implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f7116a;
+    public final /* synthetic */ WearMapView f7159a;
 
     public z(WearMapView wearMapView) {
-        this.f7116a = wearMapView;
+        this.f7159a = wearMapView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.mapsdkplatform.comapi.map.j jVar;
         com.baidu.mapsdkplatform.comapi.map.j jVar2;
-        jVar = this.f7116a.f7060f;
+        jVar = this.f7159a.f7103f;
         ab E = jVar.a().E();
-        E.f7571a += 1.0f;
-        jVar2 = this.f7116a.f7060f;
+        E.f7614a += 1.0f;
+        jVar2 = this.f7159a.f7103f;
         jVar2.a().a(E, 300);
     }
 }

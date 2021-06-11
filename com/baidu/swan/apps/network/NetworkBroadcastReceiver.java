@@ -10,7 +10,7 @@ import d.a.l0.a.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public String mCallback;
     public WeakReference<CallbackHandler> mCallbackHandlerWeakRef;
 

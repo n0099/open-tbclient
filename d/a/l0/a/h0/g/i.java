@@ -15,7 +15,7 @@ import d.a.l0.a.v2.q0;
 import d.a.l0.a.z1.b.c.a;
 import java.io.File;
 /* loaded from: classes2.dex */
-public class i extends d implements a.InterfaceC0935a {
+public class i extends d implements a.InterfaceC0991a {
     public d.a.l0.a.z1.b.c.a x0;
     public View y0;
     public String z0;
@@ -48,10 +48,10 @@ public class i extends d implements a.InterfaceC0935a {
     public class c implements d.a.l0.a.v2.e1.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f42094e;
+        public final /* synthetic */ StringBuilder f45770e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f42095f;
+        public final /* synthetic */ TextView f45771f;
 
         /* loaded from: classes2.dex */
         public class a implements Runnable {
@@ -61,13 +61,13 @@ public class i extends d implements a.InterfaceC0935a {
             @Override // java.lang.Runnable
             public void run() {
                 c cVar = c.this;
-                cVar.f42095f.setText(cVar.f42094e.toString());
+                cVar.f45771f.setText(cVar.f45770e.toString());
             }
         }
 
         public c(StringBuilder sb, TextView textView) {
-            this.f42094e = sb;
-            this.f42095f = textView;
+            this.f45770e = sb;
+            this.f45771f = textView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,13 +75,13 @@ public class i extends d implements a.InterfaceC0935a {
         /* renamed from: a */
         public void onCallback(String str) {
             i.this.z0 = str;
-            this.f42094e.append(str);
+            this.f45770e.append(str);
             q0.X(new a());
         }
     }
 
     static {
-        boolean z = d.a.l0.a.k.f43199a;
+        boolean z = d.a.l0.a.k.f46875a;
     }
 
     @Nullable
@@ -192,7 +192,7 @@ public class i extends d implements a.InterfaceC0935a {
     public void e2() {
     }
 
-    @Override // d.a.l0.a.z1.b.c.a.InterfaceC0935a
+    @Override // d.a.l0.a.z1.b.c.a.InterfaceC0991a
     public d.a.l0.a.z1.b.c.a getFloatLayer() {
         if (this.x0 == null) {
             View view = this.y0;

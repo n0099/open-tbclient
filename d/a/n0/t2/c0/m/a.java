@@ -3,10 +3,10 @@ package d.a.n0.t2.c0.m;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f60980a;
+    public static a f64672a;
 
     public static final a b() {
-        return f60980a;
+        return f64672a;
     }
 
     public abstract String a(String str);

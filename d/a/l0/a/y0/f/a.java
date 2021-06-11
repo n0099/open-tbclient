@@ -8,15 +8,15 @@ public interface a extends d {
 
     /* renamed from: d.a.l0.a.y0.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0911a {
+    public interface InterfaceC0967a {
         void a(Bundle bundle);
 
         void onRelease();
     }
 
-    void k(String str, Map<String, String> map);
+    void j(String str, Map<String, String> map);
 
     void release();
 
-    void x(InterfaceC0911a interfaceC0911a);
+    void w(InterfaceC0967a interfaceC0967a);
 }

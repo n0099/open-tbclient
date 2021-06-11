@@ -10,8 +10,8 @@ public class a {
 
     /* renamed from: d.a.n0.e3.m0.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1298a extends CustomMessageListener {
-        public C1298a(int i2) {
+    public static class C1354a extends CustomMessageListener {
+        public C1354a(int i2) {
             super(i2);
         }
 
@@ -26,6 +26,6 @@ public class a {
     }
 
     public static void a() {
-        MessageManager.getInstance().registerListener(new C1298a(2016301));
+        MessageManager.getInstance().registerListener(new C1354a(2016301));
     }
 }

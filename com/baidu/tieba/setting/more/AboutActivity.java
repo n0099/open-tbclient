@@ -117,7 +117,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         } else {
             aboutModel.cancelLoadData();
         }
-        this.mModel.w();
+        this.mModel.A();
         d.a.n0.w2.c.a aVar = this.mView;
         if (aVar != null) {
             aVar.o();

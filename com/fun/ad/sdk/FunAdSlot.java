@@ -3,6 +3,7 @@ package com.fun.ad.sdk;
 import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public class FunAdSlot {
+    public int adCount;
     public int expressHeight;
     public int expressWidth;
     public String sid;
@@ -10,6 +11,7 @@ public class FunAdSlot {
 
     /* loaded from: classes6.dex */
     public static class Builder {
+        public int adCount;
         public int expressHeight;
         public int expressWidth;
         public String sid;
@@ -21,7 +23,13 @@ public class FunAdSlot {
             funAdSlot.expressWidth = this.expressWidth;
             funAdSlot.expressHeight = this.expressHeight;
             funAdSlot.smallImgStyle = this.smallImgStyle;
+            funAdSlot.adCount = this.adCount;
             return funAdSlot;
+        }
+
+        public Builder setAdCount(int i2) {
+            this.adCount = i2;
+            return this;
         }
 
         public Builder setExpressHeight(int i2) {
@@ -46,6 +54,10 @@ public class FunAdSlot {
     }
 
     public FunAdSlot() {
+    }
+
+    public int getAdCount() {
+        return this.adCount;
     }
 
     public int getExpressHeight() {

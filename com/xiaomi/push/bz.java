@@ -7,13 +7,13 @@ import java.lang.ref.WeakReference;
 public class bz implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37376a;
+    public String f41055a;
 
     /* renamed from: a  reason: collision with other field name */
     public WeakReference<Context> f166a;
 
     public bz(String str, WeakReference<Context> weakReference) {
-        this.f37376a = str;
+        this.f41055a = str;
         this.f166a = weakReference;
     }
 
@@ -24,14 +24,14 @@ public class bz implements Runnable {
         if (weakReference == null || (context = weakReference.get()) == null) {
             return;
         }
-        if (cm.a(this.f37376a) <= by.f164a) {
+        if (cm.a(this.f41055a) <= by.f164a) {
             com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
             return;
         }
-        cc a2 = cc.a(this.f37376a);
-        cb a3 = cb.a(this.f37376a);
+        cc a2 = cc.a(this.f41055a);
+        cb a3 = cb.a(this.f41055a);
         a2.a(a3);
-        a3.a(ca.a(context, this.f37376a, 1000));
+        a3.a(ca.a(context, this.f41055a, 1000));
         cg.a(context).a((cg.a) a2);
     }
 }

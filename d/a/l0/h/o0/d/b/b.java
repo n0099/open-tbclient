@@ -18,11 +18,11 @@ public class b extends d.a.l0.h.o0.d.a.b {
             if (d.a.l0.h.o0.b.b() == null) {
                 return;
             }
-            b.this.f47548e = new UserInfoButton(d.a.l0.h.o0.b.b(), b.this);
-            b.this.f47548e.setType(b.this.type);
-            b.this.f47548e.setButtonText(b.this.text);
-            b.this.f47548e.setImageUrl(b.this.image);
-            b.this.f47548e.setApiButtonStyle(b.this.style);
+            b.this.f51222e = new UserInfoButton(d.a.l0.h.o0.b.b(), b.this);
+            b.this.f51222e.setType(b.this.type);
+            b.this.f51222e.setButtonText(b.this.text);
+            b.this.f51222e.setImageUrl(b.this.image);
+            b.this.f51222e.setApiButtonStyle(b.this.style);
             b.this.A();
             b.this.L();
         }

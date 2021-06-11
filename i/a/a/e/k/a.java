@@ -1,35 +1,14 @@
 package i.a.a.e.k;
 
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import d.r.b.a.a.f.d.d;
-import d.r.b.a.a.f.f.b;
-import tv.athena.revenue.RevenueManager;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
 /* loaded from: classes8.dex */
-public class a {
-    public static b a(int i2, int i3) {
-        IRevenue revenue = RevenueManager.instance().getRevenue(i2, i3);
-        if (revenue == null) {
-            d.e("UIStatisticReporter", "getSDKReporter error revenue null", new Object[0]);
-            return null;
-        }
-        return revenue.getSDKReporter();
-    }
+public interface a {
+    GetBannerConfigReqParams a();
 
-    public static void b(int i2, int i3, String str) {
-        b a2 = a(i2, i3);
-        if (a2 == null) {
-            d.e("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-        } else {
-            a2.c(str);
-        }
-    }
+    QueryCurrencyReqParams b();
 
-    public static void c(int i2, int i3, String str, String str2) {
-        b a2 = a(i2, i3);
-        if (a2 == null) {
-            d.e("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-        } else {
-            a2.a(str, str2);
-        }
-    }
+    QueryCurrencyReqParams c();
+
+    i.a.a.b.b.a.a d();
 }

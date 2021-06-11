@@ -30,38 +30,38 @@ import org.json.JSONObject;
 public class b implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static BroadcastReceiver f61270a;
+    public static BroadcastReceiver f64979a;
 
     /* loaded from: classes4.dex */
     public class a implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.b0.e.a f61271a;
+        public final /* synthetic */ d.a.b0.e.a f64980a;
 
         public a(b bVar, d.a.b0.e.a aVar) {
-            this.f61271a = aVar;
+            this.f64980a = aVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(DelegateResult delegateResult) {
-            this.f61271a.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
+            this.f64980a.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
         }
     }
 
     /* renamed from: d.a.n0.u.b.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1630b implements d.a.n0.u.b.f.d.a {
+    public class C1687b implements d.a.n0.u.b.f.d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.b0.e.a f61272a;
+        public final /* synthetic */ d.a.b0.e.a f64981a;
 
-        public C1630b(b bVar, d.a.b0.e.a aVar) {
-            this.f61272a = aVar;
+        public C1687b(b bVar, d.a.b0.e.a aVar) {
+            this.f64981a = aVar;
         }
 
         @Override // d.a.n0.u.b.f.d.a
         public void a(Bundle bundle) {
-            d.a.b0.e.a aVar = this.f61272a;
+            d.a.b0.e.a aVar = this.f64981a;
             if (aVar == null) {
                 return;
             }
@@ -107,7 +107,7 @@ public class b implements f {
         aVar2.mParams.putInt("type", 2);
         aVar2.mParams.putString("orderInfo", str);
         aVar2.b(i2.k());
-        aVar2.c(new C1630b(this, aVar));
+        aVar2.c(new C1687b(this, aVar));
         aVar2.onExec();
     }
 
@@ -124,13 +124,13 @@ public class b implements f {
             if (!createWXAPI.sendReq(e2)) {
                 aVar.onPayResult(6, "wx_start_failed");
             }
-            if (f61270a != null) {
-                TbadkCoreApplication.getInst().unregisterReceiver(f61270a);
+            if (f64979a != null) {
+                TbadkCoreApplication.getInst().unregisterReceiver(f64979a);
             }
-            f61270a = new c(aVar);
+            f64979a = new c(aVar);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("WXPayResult");
-            TbadkCoreApplication.getInst().registerReceiver(f61270a, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(f64979a, intentFilter);
         }
     }
 

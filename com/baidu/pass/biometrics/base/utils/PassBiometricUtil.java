@@ -9,15 +9,9 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.common.util.DeviceId;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.common.SecurityUtil;
-import com.baidu.sapi2.SapiConfiguration;
-import com.baidu.sapi2.ServiceManager;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.UUID;
 /* loaded from: classes2.dex */
 public class PassBiometricUtil {
@@ -27,31 +21,31 @@ public class PassBiometricUtil {
     public static final String CPU_TYPE_X86 = "x86";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8976a = "PassBiometricUtil";
+    public static final String f9038a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f8977b = 480;
+    public static final int f9039b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f8978c = 480;
+    public static final int f9040c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f8979d = 192;
+    public static final int f9041d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f8980e = 480;
+    public static final int f9042e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f8981f = 620;
+    public static final int f9043f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f8982g = 250;
+    public static final int f9044g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f8983h = 250;
+    public static final int f9045h = 250;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f8984i = 728;
+    public static final int f9046i = 728;
     public static final int j = 194;
     public static final int k = 750;
     public static final int l = 1335;
@@ -107,133 +101,6 @@ public class PassBiometricUtil {
             return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
         } catch (Throwable unused) {
             return null;
-        }
-    }
-
-    public static String getClientId(Context context) {
-        SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-        if (confignation == null || !confignation.isAgreeDangerousProtocol()) {
-            return null;
-        }
-        try {
-            return DeviceId.getDeviceID(context);
-        } catch (Throwable unused) {
-            return "123456789";
-        }
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0124  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x01a6 A[Catch: IOException -> 0x01a2, TRY_LEAVE, TryCatch #8 {IOException -> 0x01a2, blocks: (B:81:0x019e, B:85:0x01a6), top: B:96:0x019e }] */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x00c9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:96:0x019e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v2, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String getCpuType() {
-        ?? r1;
-        BufferedReader bufferedReader;
-        FileReader fileReader;
-        String str;
-        String str2;
-        String[] strArr = {"", ""};
-        FileReader fileReader2 = null;
-        try {
-            try {
-                fileReader = new FileReader("/proc/cpuinfo");
-            } catch (Throwable th) {
-                th = th;
-                fileReader2 = "/proc/cpuinfo";
-            }
-            try {
-                bufferedReader = new BufferedReader(fileReader, 8192);
-                try {
-                    String readLine = bufferedReader.readLine();
-                    String[] split = readLine.split("\\s+");
-                    Log.d(f8976a, "getCpuType()str2:" + readLine);
-                    for (int i2 = 2; i2 < split.length; i2++) {
-                        strArr[0] = strArr[0] + split[i2] + " ";
-                    }
-                    String readLine2 = bufferedReader.readLine();
-                    Log.d(f8976a, "getCpuType()str2" + readLine2);
-                    String[] split2 = readLine2.split("\\s+");
-                    strArr[1] = strArr[1] + split2[2];
-                    try {
-                        fileReader.close();
-                        bufferedReader.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                } catch (IOException e3) {
-                    e = e3;
-                    e.printStackTrace();
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    if (bufferedReader != null) {
-                        bufferedReader.close();
-                    }
-                    str = Build.CPU_ABI;
-                    if (Build.VERSION.SDK_INT >= 8) {
-                    }
-                    str2 = "none";
-                    Log.i(f8976a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
-                    if (str.equals("armeabi")) {
-                    }
-                }
-            } catch (IOException e5) {
-                e = e5;
-                bufferedReader = null;
-            } catch (Throwable th2) {
-                th = th2;
-                r1 = fileReader2;
-                fileReader2 = fileReader;
-                if (fileReader2 != null) {
-                    try {
-                        fileReader2.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
-                        throw th;
-                    }
-                }
-                if (r1 != 0) {
-                    r1.close();
-                }
-                throw th;
-            }
-        } catch (IOException e7) {
-            e = e7;
-            bufferedReader = null;
-            fileReader = null;
-        } catch (Throwable th3) {
-            th = th3;
-            r1 = 0;
-            if (fileReader2 != null) {
-            }
-            if (r1 != 0) {
-            }
-            throw th;
-        }
-        str = Build.CPU_ABI;
-        if (Build.VERSION.SDK_INT >= 8) {
-            try {
-                str2 = (String) Build.class.getDeclaredField("cpuAbi2").get(null);
-            } catch (Exception e8) {
-                Log.w(f8976a, "getCpuType() abi2" + e8.toString());
-            }
-            Log.i(f8976a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
-            return (!str.equals("armeabi") || str2.equals("armeabi")) ? "armeabi" : (str.equals("armeabi-v7a") || str2.equals("armeabi-v7a")) ? "armeabi-v7a" : (str.equals("arm64-v8a") || str2.equals("arm64-v8a")) ? "arm64-v8a" : (str.equals("x86") || str2.equals("x86")) ? "x86" : strArr[0].toLowerCase().contains("armv7") ? "armeabi-v7a" : strArr[0].toLowerCase().contains("arm") ? "armeabi" : strArr[0].toLowerCase().contains("arm64") ? "arm64-v8a" : strArr[0].toLowerCase().contains("x86") ? "x86" : "armeabi";
-        }
-        str2 = "none";
-        Log.i(f8976a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
-        if (str.equals("armeabi")) {
         }
     }
 

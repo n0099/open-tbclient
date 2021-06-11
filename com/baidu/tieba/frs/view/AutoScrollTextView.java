@@ -16,19 +16,19 @@ import com.baidu.tieba.R;
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f15829e;
+    public float f15891e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f15830f;
+    public float f15892f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f15831g;
+    public float f15893g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f15832h;
+    public float f15894h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f15833i;
+    public float f15895i;
     public boolean j;
     public Paint k;
     public String l;
@@ -82,11 +82,11 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context) {
         super(context);
-        this.f15829e = 0.0f;
-        this.f15830f = 0.0f;
-        this.f15831g = 0.0f;
-        this.f15832h = 0.0f;
-        this.f15833i = 0.0f;
+        this.f15891e = 0.0f;
+        this.f15892f = 0.0f;
+        this.f15893g = 0.0f;
+        this.f15894h = 0.0f;
+        this.f15895i = 0.0f;
         this.j = false;
         this.k = null;
         this.l = "";
@@ -99,16 +99,16 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         paint.setColor(-1);
         String charSequence = getText().toString();
         this.l = charSequence;
-        this.f15829e = this.k.measureText(charSequence);
+        this.f15891e = this.k.measureText(charSequence);
         float width = getWidth();
-        this.f15830f = width;
+        this.f15892f = width;
         if (width == 0.0f && windowManager != null) {
-            this.f15830f = windowManager.getDefaultDisplay().getWidth();
+            this.f15892f = windowManager.getDefaultDisplay().getWidth();
         }
-        float f2 = this.f15829e;
-        this.f15831g = f2;
-        this.f15832h = f2;
-        this.f15833i = f2 * 2.0f;
+        float f2 = this.f15891e;
+        this.f15893g = f2;
+        this.f15894h = f2;
+        this.f15895i = f2 * 2.0f;
         getTextSize();
     }
 
@@ -140,16 +140,16 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
             float f2 = this.n;
             if (f2 > 0.5f) {
                 setWidth((int) ((f2 - 0.5f) * 3000.0f));
-                canvas.drawText(this.l, this.f15832h - this.f15831g, getTextSize() + 2.7f, this.k);
+                canvas.drawText(this.l, this.f15894h - this.f15893g, getTextSize() + 2.7f, this.k);
                 return;
             }
             return;
         }
-        canvas.drawText(this.l, this.f15832h - this.f15831g, getTextSize() + 2.7f, this.k);
-        float dimensionPixelOffset = this.f15831g + TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3);
-        this.f15831g = dimensionPixelOffset;
-        if (dimensionPixelOffset > this.f15833i) {
-            this.f15831g = this.f15829e;
+        canvas.drawText(this.l, this.f15894h - this.f15893g, getTextSize() + 2.7f, this.k);
+        float dimensionPixelOffset = this.f15893g + TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3);
+        this.f15893g = dimensionPixelOffset;
+        if (dimensionPixelOffset > this.f15895i) {
+            this.f15893g = this.f15891e;
         }
         invalidate();
     }
@@ -162,14 +162,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        this.f15831g = savedState.step;
+        this.f15893g = savedState.step;
         this.j = savedState.isStarting;
     }
 
     @Override // android.widget.TextView, android.view.View
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.step = this.f15831g;
+        savedState.step = this.f15893g;
         savedState.isStarting = this.j;
         return savedState;
     }
@@ -180,11 +180,11 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15829e = 0.0f;
-        this.f15830f = 0.0f;
-        this.f15831g = 0.0f;
-        this.f15832h = 0.0f;
-        this.f15833i = 0.0f;
+        this.f15891e = 0.0f;
+        this.f15892f = 0.0f;
+        this.f15893g = 0.0f;
+        this.f15894h = 0.0f;
+        this.f15895i = 0.0f;
         this.j = false;
         this.k = null;
         this.l = "";

@@ -1,5 +1,5 @@
 package rx.exceptions;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OnErrorNotImplementedException extends RuntimeException {
     public static final long serialVersionUID = -6298857009889503852L;
 

@@ -9,16 +9,16 @@ public class e extends d.a.l0.n.i.d<d.a.l0.n.i.l.e> {
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public g f48078h;
+    public g f51752h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public g f48079i;
+    public g f51753i;
 
     public e(g gVar, d.a.l0.n.i.m.g gVar2, @Nullable g gVar3, @Nullable g gVar4) {
         super(gVar, gVar2);
-        this.f48078h = gVar3;
-        this.f48079i = gVar4;
+        this.f51752h = gVar3;
+        this.f51753i = gVar4;
     }
 
     @Override // d.a.l0.n.i.d
@@ -37,13 +37,13 @@ public class e extends d.a.l0.n.i.d<d.a.l0.n.i.l.e> {
     @Override // d.a.l0.n.i.d
     /* renamed from: p */
     public d.a.l0.n.h.a m(d.a.l0.n.i.l.e eVar) {
-        this.f48028e.D();
-        d.a.l0.n.n.a.e(this.f48029f.a(), eVar.f48095a);
-        g gVar = this.f48028e;
-        if (gVar == this.f48078h || gVar == this.f48079i) {
+        this.f51702e.D();
+        d.a.l0.n.n.a.e(this.f51703f.a(), eVar.f51769a);
+        g gVar = this.f51702e;
+        if (gVar == this.f51752h || gVar == this.f51753i) {
             gVar = null;
         }
-        f.c(eVar.f48096b, gVar, this.f48078h, this.f48079i);
+        f.c(eVar.f51770b, gVar, this.f51752h, this.f51753i);
         return null;
     }
 

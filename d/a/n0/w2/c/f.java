@@ -22,31 +22,31 @@ import java.util.ArrayList;
 public class f extends d.a.c.a.d<MsgReceiveActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f62593a;
+    public ViewGroup f66308a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f62594b;
+    public NavigationBar f66309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f62595c;
+    public View f66310c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MsgSettingItemView f62596d;
+    public MsgSettingItemView f66311d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MsgSettingItemView f62597e;
+    public MsgSettingItemView f66312e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MsgSettingItemView f62598f;
+    public MsgSettingItemView f66313f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbSettingTextTipView f62599g;
+    public TbSettingTextTipView f66314g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<OfficialAccountPushInfo> f62600h;
+    public ArrayList<OfficialAccountPushInfo> f66315h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MsgReceiveActivity f62601i;
+    public MsgReceiveActivity f66316i;
     public View.OnClickListener j;
 
     /* loaded from: classes5.dex */
@@ -56,9 +56,9 @@ public class f extends d.a.c.a.d<MsgReceiveActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != null && view == f.this.f62599g) {
+            if (view != null && view == f.this.f66314g) {
                 TiebaStatic.log(new StatisticItem("c13287").param("uid", TbadkCoreApplication.getCurrentAccount()));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialAccountPushActivityConfig(f.this.f62601i, f.this.k())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialAccountPushActivityConfig(f.this.f66316i, f.this.l())));
             }
         }
     }
@@ -66,118 +66,118 @@ public class f extends d.a.c.a.d<MsgReceiveActivity> {
     public f(MsgReceiveActivity msgReceiveActivity) {
         super(msgReceiveActivity.getPageContext());
         this.j = new a();
-        this.f62601i = msgReceiveActivity;
+        this.f66316i = msgReceiveActivity;
     }
 
-    public View g() {
-        return this.f62595c;
+    public View h() {
+        return this.f66310c;
     }
 
-    public BdSwitchView h() {
-        return this.f62598f.getSwitchView();
+    public BdSwitchView i() {
+        return this.f66313f.getSwitchView();
     }
 
     public final void initUI() {
-        MsgReceiveActivity msgReceiveActivity = this.f62601i;
+        MsgReceiveActivity msgReceiveActivity = this.f66316i;
         if (msgReceiveActivity == null) {
             return;
         }
         msgReceiveActivity.setContentView(R.layout.msg_receive_activity);
-        this.f62593a = (ViewGroup) this.f62601i.findViewById(R.id.msg_receive_root_view);
-        NavigationBar navigationBar = (NavigationBar) this.f62601i.findViewById(R.id.navigation_bar_msg_receive);
-        this.f62594b = navigationBar;
-        navigationBar.setCenterTextTitle(this.f62601i.getPageContext().getString(R.string.receive_message));
-        this.f62594b.showBottomLine();
-        this.f62595c = this.f62594b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.f62601i.findViewById(R.id.item_view_friend_msg);
-        this.f62596d = msgSettingItemView;
+        this.f66308a = (ViewGroup) this.f66316i.findViewById(R.id.msg_receive_root_view);
+        NavigationBar navigationBar = (NavigationBar) this.f66316i.findViewById(R.id.navigation_bar_msg_receive);
+        this.f66309b = navigationBar;
+        navigationBar.setCenterTextTitle(this.f66316i.getPageContext().getString(R.string.receive_message));
+        this.f66309b.showBottomLine();
+        this.f66310c = this.f66309b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.f66316i.findViewById(R.id.item_view_friend_msg);
+        this.f66311d = msgSettingItemView;
         msgSettingItemView.setText(R.string.friend_msg_switch);
-        this.f62596d.setOnSwitchStateChangeListener(this.f62601i);
-        MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) this.f62601i.findViewById(R.id.item_view_stranger_msg);
-        this.f62597e = msgSettingItemView2;
+        this.f66311d.setOnSwitchStateChangeListener(this.f66316i);
+        MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) this.f66316i.findViewById(R.id.item_view_stranger_msg);
+        this.f66312e = msgSettingItemView2;
         msgSettingItemView2.setText(R.string.stranger_msg_switch);
-        this.f62597e.setOnSwitchStateChangeListener(this.f62601i);
-        this.f62597e.setLineVisibility(false);
-        o();
-        MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) this.f62601i.findViewById(R.id.item_view_forum_broadcast_msg);
-        this.f62598f = msgSettingItemView3;
+        this.f66312e.setOnSwitchStateChangeListener(this.f66316i);
+        this.f66312e.setLineVisibility(false);
+        p();
+        MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) this.f66316i.findViewById(R.id.item_view_forum_broadcast_msg);
+        this.f66313f = msgSettingItemView3;
         msgSettingItemView3.setText(R.string.receive_forum_broadcast_message);
-        this.f62598f.setOnSwitchStateChangeListener(this.f62601i);
-        this.f62598f.setLineVisibility(false);
-        n();
-        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.f62601i.findViewById(R.id.item_view_offical_account_push_msg);
-        this.f62599g = tbSettingTextTipView;
+        this.f66313f.setOnSwitchStateChangeListener(this.f66316i);
+        this.f66313f.setLineVisibility(false);
+        o();
+        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.f66316i.findViewById(R.id.item_view_offical_account_push_msg);
+        this.f66314g = tbSettingTextTipView;
         tbSettingTextTipView.setOnClickListener(this.j);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public BdSwitchView j() {
-        return this.f62596d.getSwitchView();
+    public BdSwitchView k() {
+        return this.f66311d.getSwitchView();
     }
 
-    public final ArrayList<OfficialAccountPushInfo> k() {
-        return this.f62600h;
+    public final ArrayList<OfficialAccountPushInfo> l() {
+        return this.f66315h;
     }
 
-    public BdSwitchView l() {
-        return this.f62597e.getSwitchView();
+    public BdSwitchView m() {
+        return this.f66312e.getSwitchView();
     }
 
-    public void m() {
-        if (this.f62601i == null) {
+    public void n() {
+        if (this.f66316i == null) {
             return;
         }
         initUI();
     }
 
-    public final void n() {
-        MsgSettingItemView msgSettingItemView = this.f62598f;
+    public final void o() {
+        MsgSettingItemView msgSettingItemView = this.f66313f;
         if (msgSettingItemView == null) {
             return;
         }
         msgSettingItemView.setSwitchStateNoCallback(d.a.m0.s.d.d.d().l());
     }
 
-    public final void o() {
+    public void onChangeSkinType(int i2) {
+        SkinManager.setBackgroundColor(this.f66308a, R.color.CAM_X0204, i2);
+        this.f66309b.onChangeSkinType(this.f66316i.getPageContext(), i2);
+        this.f66311d.c(this.f66316i.getPageContext(), i2);
+        this.f66312e.c(this.f66316i.getPageContext(), i2);
+        this.f66313f.c(this.f66316i.getPageContext(), i2);
+        this.f66314g.f(i2);
+    }
+
+    public final void p() {
         int i2;
-        MsgSettingItemView msgSettingItemView = this.f62596d;
-        if (msgSettingItemView == null || this.f62597e == null || (i2 = GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE) == 0) {
+        MsgSettingItemView msgSettingItemView = this.f66311d;
+        if (msgSettingItemView == null || this.f66312e == null || (i2 = GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE) == 0) {
             return;
         }
         if (i2 != 1) {
             msgSettingItemView.getSwitchView().h();
-            this.f62596d.setLineVisibility(false);
-            this.f62597e.setVisibility(8);
-            this.f62597e.getSwitchView().h();
+            this.f66311d.setLineVisibility(false);
+            this.f66312e.setVisibility(8);
+            this.f66312e.getSwitchView().h();
             return;
         }
         msgSettingItemView.getSwitchView().k();
-        this.f62596d.setLineVisibility(true);
-        this.f62597e.getSwitchView().h();
+        this.f66311d.setLineVisibility(true);
+        this.f66312e.getSwitchView().h();
     }
 
-    public void onChangeSkinType(int i2) {
-        SkinManager.setBackgroundColor(this.f62593a, R.color.CAM_X0204, i2);
-        this.f62594b.onChangeSkinType(this.f62601i.getPageContext(), i2);
-        this.f62596d.c(this.f62601i.getPageContext(), i2);
-        this.f62597e.c(this.f62601i.getPageContext(), i2);
-        this.f62598f.c(this.f62601i.getPageContext(), i2);
-        this.f62599g.f(i2);
+    public void q(boolean z) {
+        this.f66311d.setLineVisibility(z);
     }
 
-    public void p(boolean z) {
-        this.f62596d.setLineVisibility(z);
+    public void r(ArrayList<OfficialAccountPushInfo> arrayList) {
+        this.f66315h = arrayList;
     }
 
-    public void q(ArrayList<OfficialAccountPushInfo> arrayList) {
-        this.f62600h = arrayList;
-    }
-
-    public void r(boolean z) {
+    public void s(boolean z) {
         if (z) {
-            this.f62597e.setVisibility(0);
+            this.f66312e.setVisibility(0);
         } else {
-            this.f62597e.setVisibility(8);
+            this.f66312e.setVisibility(8);
         }
     }
 }

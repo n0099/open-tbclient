@@ -9,54 +9,54 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.pb.account.forbid.ForbidResultData;
 import d.a.c.e.p.k;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f52813a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    public static final String f56502a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* renamed from: d.a.n0.e2.f.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1249a extends BdAsyncTask<String, Object, ForbidResultData> {
+    /* loaded from: classes5.dex */
+    public static class C1305a extends BdAsyncTask<String, Object, ForbidResultData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f52814a;
+        public String f56503a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f52815b;
+        public String f56504b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f52816c;
+        public String f56505c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f52817d;
+        public String f56506d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f52818e;
+        public String f56507e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f52819f;
+        public String f56508f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f52820g;
+        public String f56509g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f52821h;
+        public String f56510h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f52822i;
+        public String f56511i;
         public WeakReference<b> j;
 
-        public C1249a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-            this.f52814a = str;
-            this.f52815b = str2;
-            this.f52816c = str3;
-            this.f52817d = str4;
-            this.f52820g = str6;
-            this.f52818e = str8;
-            this.f52819f = str9;
-            this.f52821h = str7;
-            this.f52822i = str5;
+        public C1305a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+            this.f56503a = str;
+            this.f56504b = str2;
+            this.f56505c = str3;
+            this.f56506d = str4;
+            this.f56509g = str6;
+            this.f56507e = str8;
+            this.f56508f = str9;
+            this.f56510h = str7;
+            this.f56511i = str5;
             this.j = new WeakReference<>(bVar);
             setPriority(3);
         }
@@ -65,17 +65,17 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public ForbidResultData doInBackground(String... strArr) {
-            NetWork netWork = new NetWork(a.f52813a);
-            netWork.addPostData(Config.TRACE_VISIT_RECENT_DAY, this.f52820g);
-            netWork.addPostData("un", this.f52817d);
-            netWork.addPostData("fid", this.f52814a);
-            netWork.addPostData("word", this.f52815b);
-            netWork.addPostData("z", this.f52816c);
-            netWork.addPostData("reason", this.f52821h);
+            NetWork netWork = new NetWork(a.f56502a);
+            netWork.addPostData(Config.TRACE_VISIT_RECENT_DAY, this.f56509g);
+            netWork.addPostData("un", this.f56506d);
+            netWork.addPostData("fid", this.f56503a);
+            netWork.addPostData("word", this.f56504b);
+            netWork.addPostData("z", this.f56505c);
+            netWork.addPostData("reason", this.f56510h);
             netWork.addPostData("ntn", "banid");
-            netWork.addPostData("post_id", this.f52822i);
-            netWork.addPostData("nick_name", this.f52818e);
-            netWork.addPostData("portrait", this.f52819f);
+            netWork.addPostData("post_id", this.f56511i);
+            netWork.addPostData("nick_name", this.f56507e);
+            netWork.addPostData("portrait", this.f56508f);
             netWork.getNetContext().getRequest().mIsNeedTbs = true;
             String postNetData = netWork.postNetData();
             if (netWork.getNetContext().getResponse().isRequestSuccess()) {
@@ -110,7 +110,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(ForbidResultData forbidResultData);
 
@@ -118,6 +118,6 @@ public class a {
     }
 
     public static void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-        new C1249a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        new C1305a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
     }
 }

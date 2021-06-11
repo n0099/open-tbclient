@@ -44,13 +44,13 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
     public long enterTimeMills;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageCropCallback.ImageCropResult f9579i;
+    public ImageCropCallback.ImageCropResult f9638i;
 
     private ImageCropCallback b() {
         return new ImageCropCallback() { // from class: com.baidu.sapi2.activity.BaseOptionActivity.5
             @Override // com.baidu.sapi2.callback.ImageCropCallback
             public void onImageCrop(Context context, Uri uri, int i2, int i3, ImageCropCallback.ImageCropResult imageCropResult) {
-                BaseOptionActivity.this.f9579i = imageCropResult;
+                BaseOptionActivity.this.f9638i = imageCropResult;
                 Intent intent = new Intent(context, ImageClipActivity.class);
                 if (i2 == ClipBoxView.H) {
                     intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 0);
@@ -203,12 +203,12 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                 if (i2 == 1003) {
                     if (i3 == -1) {
                         byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
-                        if (byteArrayExtra == null || BaseOptionActivity.this.f9579i == null) {
+                        if (byteArrayExtra == null || BaseOptionActivity.this.f9638i == null) {
                             return;
                         }
-                        BaseOptionActivity.this.f9579i.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
-                    } else if (BaseOptionActivity.this.f9579i != null) {
-                        BaseOptionActivity.this.f9579i.onImageResult(null);
+                        BaseOptionActivity.this.f9638i.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
+                    } else if (BaseOptionActivity.this.f9638i != null) {
+                        BaseOptionActivity.this.f9638i.onImageResult(null);
                     }
                 }
             }

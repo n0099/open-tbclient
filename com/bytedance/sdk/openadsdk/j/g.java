@@ -8,7 +8,7 @@ import android.os.Vibrator;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SensorManager f29318a;
+    public static SensorManager f29421a;
 
     public static int a(int i2) {
         if (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) {
@@ -30,14 +30,14 @@ public class g {
     }
 
     public static SensorManager b(Context context) {
-        if (f29318a == null) {
+        if (f29421a == null) {
             synchronized (g.class) {
-                if (f29318a == null) {
-                    f29318a = (SensorManager) context.getSystemService("sensor");
+                if (f29421a == null) {
+                    f29421a = (SensorManager) context.getSystemService("sensor");
                 }
             }
         }
-        return f29318a;
+        return f29421a;
     }
 
     public static void a(Context context, SensorEventListener sensorEventListener) {

@@ -9,68 +9,68 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f32874a = new Handler(Looper.getMainLooper());
+    public Handler f35000a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public final WebView f32875b;
+    public final WebView f35001b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f32876c;
+    public com.kwad.sdk.core.webview.a.c f35002c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public b f32877d;
+    public b f35003d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f32881a;
+        public int f35007a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f32882b;
+        public int f35008b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f32883c;
+        public int f35009c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f32884d;
+        public int f35010d;
 
         public void a(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f32881a = jSONObject.optInt("height");
-            this.f32882b = jSONObject.optInt("leftMargin");
-            this.f32883c = jSONObject.optInt("rightMargin");
-            this.f32884d = jSONObject.optInt("bottomMargin");
+            this.f35007a = jSONObject.optInt("height");
+            this.f35008b = jSONObject.optInt("leftMargin");
+            this.f35009c = jSONObject.optInt("rightMargin");
+            this.f35010d = jSONObject.optInt("bottomMargin");
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "height", this.f32881a);
-            com.kwad.sdk.utils.o.a(jSONObject, "leftMargin", this.f32882b);
-            com.kwad.sdk.utils.o.a(jSONObject, "rightMargin", this.f32883c);
-            com.kwad.sdk.utils.o.a(jSONObject, "bottomMargin", this.f32884d);
+            com.kwad.sdk.utils.o.a(jSONObject, "height", this.f35007a);
+            com.kwad.sdk.utils.o.a(jSONObject, "leftMargin", this.f35008b);
+            com.kwad.sdk.utils.o.a(jSONObject, "rightMargin", this.f35009c);
+            com.kwad.sdk.utils.o.a(jSONObject, "bottomMargin", this.f35010d);
             return jSONObject;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         @MainThread
         void a(a aVar);
     }
 
     public i(com.kwad.sdk.core.webview.a aVar, @Nullable b bVar) {
-        this.f32875b = aVar.f32800f;
-        this.f32877d = bVar;
+        this.f35001b = aVar.f34933f;
+        this.f35003d = bVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -81,32 +81,32 @@ public class i implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.f32876c = cVar;
+        this.f35002c = cVar;
         try {
             JSONObject jSONObject = new JSONObject(str);
             final a aVar = new a();
             aVar.a(jSONObject);
-            this.f32874a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.i.1
+            this.f35000a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.i.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) i.this.f32875b.getLayoutParams();
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) i.this.f35001b.getLayoutParams();
                     marginLayoutParams.width = -1;
                     a aVar2 = aVar;
-                    marginLayoutParams.height = aVar2.f32881a;
-                    marginLayoutParams.leftMargin = aVar2.f32882b;
-                    marginLayoutParams.rightMargin = aVar2.f32883c;
-                    marginLayoutParams.bottomMargin = aVar2.f32884d;
-                    i.this.f32875b.setLayoutParams(marginLayoutParams);
-                    if (i.this.f32877d != null) {
-                        i.this.f32877d.a(aVar);
+                    marginLayoutParams.height = aVar2.f35007a;
+                    marginLayoutParams.leftMargin = aVar2.f35008b;
+                    marginLayoutParams.rightMargin = aVar2.f35009c;
+                    marginLayoutParams.bottomMargin = aVar2.f35010d;
+                    i.this.f35001b.setLayoutParams(marginLayoutParams);
+                    if (i.this.f35003d != null) {
+                        i.this.f35003d.a(aVar);
                     }
                 }
             });
-            this.f32874a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.i.2
+            this.f35000a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.i.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (i.this.f32876c != null) {
-                        i.this.f32876c.a(null);
+                    if (i.this.f35002c != null) {
+                        i.this.f35002c.a(null);
                     }
                 }
             });
@@ -118,8 +118,8 @@ public class i implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f32876c = null;
-        this.f32877d = null;
-        this.f32874a.removeCallbacksAndMessages(null);
+        this.f35002c = null;
+        this.f35003d = null;
+        this.f35000a.removeCallbacksAndMessages(null);
     }
 }

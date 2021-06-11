@@ -61,6 +61,7 @@ public class SapiJsCallBacks {
         public SapiWebView.LocalConfigCallback localConfigCallback;
         public LoginStatusChangeCallback loginStatusChangeCallback;
         public SwitchStyleForCloseBtnAndStatusBarCallBack mSwitchStyleForCloseBtnAndStatusBarCallBack;
+        public MakeVibrateCallBack makeVibrateCallBack;
         public NormalizeGuestAccountCallback normalizeGuestAccountCallback;
         public String normalizeGuestAccountDesc;
         public SapiWebView.OnSlidePageFinishCallback onSlidePageFinishCallback;
@@ -154,6 +155,13 @@ public class SapiJsCallBacks {
     /* loaded from: classes2.dex */
     public interface LoginStatusChangeCallback {
         void onChange();
+    }
+
+    /* loaded from: classes2.dex */
+    public interface MakeVibrateCallBack {
+        void presetVibrate();
+
+        void vibrate(long[] jArr, int i2);
     }
 
     /* loaded from: classes2.dex */

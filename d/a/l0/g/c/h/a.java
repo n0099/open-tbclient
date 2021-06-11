@@ -24,23 +24,23 @@ import java.util.Collection;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f47058c;
+    public static volatile a f50732c;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47060b = "com.baidu.gamenow";
+    public String f50734b = "com.baidu.gamenow";
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f47059a = KVStorageFactory.getSharedPreferences("gamecenter_install_notification", 0);
+    public SharedPreferences f50733a = KVStorageFactory.getSharedPreferences("gamecenter_install_notification", 0);
 
     public static a f() {
-        if (f47058c == null) {
+        if (f50732c == null) {
             synchronized (a.class) {
-                if (f47058c == null) {
-                    f47058c = new a();
+                if (f50732c == null) {
+                    f50732c = new a();
                 }
             }
         }
-        return f47058c;
+        return f50732c;
     }
 
     public void a(Download download) {
@@ -73,7 +73,7 @@ public class a {
     }
 
     public final long g() {
-        return this.f47059a.getLong("key_notification_time", 0L);
+        return this.f50733a.getLong("key_notification_time", 0L);
     }
 
     public final long h() {
@@ -96,7 +96,7 @@ public class a {
     }
 
     public final void k() {
-        SharedPreferences.Editor edit = this.f47059a.edit();
+        SharedPreferences.Editor edit = this.f50733a.edit();
         edit.putLong("key_notification_time", System.currentTimeMillis());
         edit.apply();
     }
@@ -131,10 +131,10 @@ public class a {
                 string = appContext.getString(d.a.l0.g.b.aiapps_content_notification1);
             }
             try {
-                b.c(appContext, Long.valueOf(download.getId().longValue()).intValue(), format, TextUtils.equals(download.getKeyByUser(), this.f47060b) ? appContext.getString(d.a.l0.g.b.aiapps_gamenow_notification) : string, b.b(applicationIcon), System.currentTimeMillis(), broadcast, str, download.getKeyByUser());
+                b.c(appContext, Long.valueOf(download.getId().longValue()).intValue(), format, TextUtils.equals(download.getKeyByUser(), this.f50734b) ? appContext.getString(d.a.l0.g.b.aiapps_gamenow_notification) : string, b.b(applicationIcon), System.currentTimeMillis(), broadcast, str, download.getKeyByUser());
             } catch (Exception e2) {
                 e = e2;
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     e.printStackTrace();
                 }
             }
@@ -174,7 +174,7 @@ public class a {
                 b.c(appContext, 0, String.format(appContext.getString(d.a.l0.g.b.aiapps_title_notification2), Integer.valueOf(t.size())), appContext.getString(d.a.l0.g.b.aiapps_content_notification1), b.b(packageManager.getApplicationIcon(applicationInfo)), System.currentTimeMillis(), PendingIntent.getBroadcast(appContext, Integer.MAX_VALUE, InstallNotifyReceiver.createToDownloadPageIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_MULTIPLE).putExtra(InstallNotifyReceiver.OPPORTUNITY, str), 134217728), str, download.getKeyByUser());
             }
         } catch (Exception e2) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 e2.printStackTrace();
             }
         }

@@ -21,33 +21,33 @@ import org.json.JSONObject;
 import rx.schedulers.Schedulers;
 /* loaded from: classes3.dex */
 public class a {
-    public static final boolean q = k.f43199a;
+    public static final boolean q = k.f46875a;
     @SuppressLint({"StaticFieldLeak"})
     public static volatile a r;
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioRecord f42941a;
+    public AudioRecord f46617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42942b;
+    public String f46618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42943c;
+    public int f46619c;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42945e;
+    public Context f46621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42946f;
+    public String f46622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Timer f42947g;
+    public Timer f46623g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.l0.a.i1.f.d.b f42948h;
+    public d.a.l0.a.i1.f.d.b f46624h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f42949i;
+    public long f46625i;
     public long j;
     public d.a.l0.a.i1.f.b l;
     public boolean m;
@@ -55,14 +55,14 @@ public class a {
     public d.a.l0.a.i1.f.d.a o;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42944d = -1;
+    public int f46620d = -1;
     public d.a.l0.a.i1.f.a k = new d.a.l0.a.i1.f.a();
     public boolean p = false;
 
     /* renamed from: d.a.l0.a.i1.f.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0715a implements d.a.l0.a.i1.f.d.b {
-        public C0715a() {
+    public class C0771a implements d.a.l0.a.i1.f.d.b {
+        public C0771a() {
         }
 
         @Override // d.a.l0.a.i1.f.d.b
@@ -111,15 +111,15 @@ public class a {
     public class d extends TimerTask {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.f.d.b f42953e;
+        public final /* synthetic */ d.a.l0.a.i1.f.d.b f46629e;
 
         public d(d.a.l0.a.i1.f.d.b bVar) {
-            this.f42953e = bVar;
+            this.f46629e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            d.a.l0.a.i1.f.d.b bVar = this.f42953e;
+            d.a.l0.a.i1.f.d.b bVar = this.f46629e;
             if (bVar != null) {
                 bVar.a();
             }
@@ -134,8 +134,8 @@ public class a {
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            if (a.this.f42948h != null) {
-                a.this.f42948h.a();
+            if (a.this.f46624h != null) {
+                a.this.f46624h.a();
             }
             a.this.G();
         }
@@ -186,38 +186,38 @@ public class a {
             Log.d("AudioRecorderManager", "resume timer");
         }
         d.a.l0.a.e0.d.g("recorder", "resume timer");
-        d.a.l0.a.i1.f.d.b bVar = this.f42948h;
+        d.a.l0.a.i1.f.d.b bVar = this.f46624h;
         if (bVar != null) {
             if (this.j <= 0) {
                 bVar.a();
                 return;
             }
             Timer timer = new Timer();
-            this.f42947g = timer;
+            this.f46623g = timer;
             timer.schedule(new e(), this.j);
-            this.f42949i = System.currentTimeMillis();
+            this.f46625i = System.currentTimeMillis();
         }
     }
 
     public boolean C() {
-        byte[] bArr = new byte[this.f42943c];
+        byte[] bArr = new byte[this.f46619c];
         d.a.l0.a.i1.f.a aVar = this.k;
-        d.a.l0.a.i1.f.f.a aVar2 = new d.a.l0.a.i1.f.f.a(aVar.f42911b, aVar.f42912c, aVar.f42913d, aVar.f42914e);
-        if (this.f42941a == null) {
+        d.a.l0.a.i1.f.f.a aVar2 = new d.a.l0.a.i1.f.f.a(aVar.f46587b, aVar.f46588c, aVar.f46589d, aVar.f46590e);
+        if (this.f46617a == null) {
             return false;
         }
         return v(bArr, aVar2);
     }
 
     public void D(boolean z) {
-        if (this.f42945e == null) {
+        if (this.f46621e == null) {
             f();
             d.a.l0.a.e0.d.b("recorder", "start error, context is null");
             z();
-        } else if (this.f42944d != -1 && !TextUtils.isEmpty(this.f42942b)) {
+        } else if (this.f46620d != -1 && !TextUtils.isEmpty(this.f46618b)) {
             if (z) {
                 String str = null;
-                int i2 = this.f42944d;
+                int i2 = this.f46620d;
                 if (i2 == 1) {
                     str = "start fail: recorder is recording";
                 } else if (i2 != 0 && i2 != 3) {
@@ -233,18 +233,18 @@ public class a {
                 Log.d("AudioRecorderManager", "start record");
             }
             try {
-                this.f42941a.startRecording();
-                if (this.f42941a.getRecordingState() != 3) {
+                this.f46617a.startRecording();
+                if (this.f46617a.getRecordingState() != 3) {
                     f();
                     d.a.l0.a.e0.d.b("recorder", "start error, no real permission");
                     z();
                     return;
                 }
                 if (z) {
-                    E(new C0715a());
-                    e(d.a.l0.a.i1.f.b.f42918d, "recorderStart");
+                    E(new C0771a());
+                    e(d.a.l0.a.i1.f.b.f46594d, "recorderStart");
                 } else {
-                    e(d.a.l0.a.i1.f.b.f42920f, "recorderResume");
+                    e(d.a.l0.a.i1.f.b.f46596f, "recorderResume");
                 }
                 h.d.i("").D(Schedulers.io()).k(new c()).o(h.l.b.a.b()).B(new b());
             } catch (IllegalStateException e2) {
@@ -261,21 +261,21 @@ public class a {
 
     public void E(d.a.l0.a.i1.f.d.b bVar) {
         if (q) {
-            Log.d("AudioRecorderManager", "start timer:" + this.k.f42910a);
+            Log.d("AudioRecorderManager", "start timer:" + this.k.f46586a);
         }
-        d.a.l0.a.e0.d.g("recorder", "start timer, totalTime:" + this.k.f42910a);
-        this.f42948h = bVar;
+        d.a.l0.a.e0.d.g("recorder", "start timer, totalTime:" + this.k.f46586a);
+        this.f46624h = bVar;
         Timer timer = new Timer();
-        this.f42947g = timer;
-        timer.schedule(new d(bVar), this.k.f42910a);
-        this.f42949i = System.currentTimeMillis();
+        this.f46623g = timer;
+        timer.schedule(new d(bVar), this.k.f46586a);
+        this.f46625i = System.currentTimeMillis();
     }
 
     public void F() {
         if (q) {
             Log.d("AudioRecorderManager", "stop record");
         }
-        AudioRecord audioRecord = this.f42941a;
+        AudioRecord audioRecord = this.f46617a;
         if (audioRecord == null) {
             f();
             d.a.l0.a.e0.d.b("recorder", "none audioRecord");
@@ -285,7 +285,7 @@ public class a {
         try {
             audioRecord.stop();
             G();
-            this.f42944d = 3;
+            this.f46620d = 3;
             h();
             H();
         } catch (IllegalStateException e2) {
@@ -300,11 +300,11 @@ public class a {
             Log.d("AudioRecorderManager", "stop timer");
         }
         d.a.l0.a.e0.d.g("recorder", "stop timer");
-        this.f42948h = null;
-        Timer timer = this.f42947g;
+        this.f46624h = null;
+        Timer timer = this.f46623g;
         if (timer != null) {
             timer.cancel();
-            this.f42947g = null;
+            this.f46623g = null;
         }
     }
 
@@ -335,7 +335,7 @@ public class a {
     }
 
     public final void g(int i2, String str) {
-        if (this.l != null && !TextUtils.isEmpty(d.a.l0.a.i1.f.b.f42922h)) {
+        if (this.l != null && !TextUtils.isEmpty(d.a.l0.a.i1.f.b.f46598h)) {
             this.l.d(i2, str);
             return;
         }
@@ -354,13 +354,13 @@ public class a {
 
     public final void h() {
         long j;
-        String J = d.a.l0.a.k2.b.J(this.f42942b, this.f42946f);
+        String J = d.a.l0.a.k2.b.J(this.f46618b, this.f46622f);
         long j2 = -1;
-        if (TextUtils.isEmpty(this.f42942b)) {
+        if (TextUtils.isEmpty(this.f46618b)) {
             j = -1;
         } else {
-            j2 = d.a.l0.t.d.t(this.f42942b);
-            j = new File(this.f42942b).length();
+            j2 = d.a.l0.t.d.t(this.f46618b);
+            j = new File(this.f46618b).length();
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -373,8 +373,8 @@ public class a {
             if (j >= 0) {
                 jSONObject.put("fileSize", j);
             }
-            if (this.l != null && !TextUtils.isEmpty(d.a.l0.a.i1.f.b.f42921g)) {
-                this.l.c(d.a.l0.a.i1.f.b.f42921g, jSONObject);
+            if (this.l != null && !TextUtils.isEmpty(d.a.l0.a.i1.f.b.f46597g)) {
+                this.l.c(d.a.l0.a.i1.f.b.f46597g, jSONObject);
                 return;
             }
             HashMap hashMap = new HashMap();
@@ -396,7 +396,7 @@ public class a {
     }
 
     public void l(String str, d.a.l0.a.i1.f.a aVar, Context context, d.a.l0.a.i1.f.b bVar, String str2) {
-        int i2 = this.f42944d;
+        int i2 = this.f46620d;
         if (i2 != -1 && i2 != 3) {
             d.a.l0.a.e0.d.b("recorder", "wrong state, can't init");
             return;
@@ -404,37 +404,37 @@ public class a {
         this.k = aVar;
         m(str);
         this.l = bVar;
-        int minBufferSize = AudioRecord.getMinBufferSize(aVar.f42913d, aVar.f42912c, 2);
-        this.f42943c = minBufferSize;
+        int minBufferSize = AudioRecord.getMinBufferSize(aVar.f46589d, aVar.f46588c, 2);
+        this.f46619c = minBufferSize;
         if (minBufferSize <= 0) {
             f();
             d.a.l0.a.e0.d.b("recorder", "wrong buffer size");
             z();
             return;
         }
-        this.f42941a = new AudioRecord(aVar.f42915f, aVar.f42913d, aVar.f42912c == 1 ? 16 : 12, 2, this.f42943c);
-        this.f42944d = 0;
-        this.f42945e = context;
-        this.f42946f = str2;
+        this.f46617a = new AudioRecord(aVar.f46591f, aVar.f46589d, aVar.f46588c == 1 ? 16 : 12, 2, this.f46619c);
+        this.f46620d = 0;
+        this.f46621e = context;
+        this.f46622f = str2;
         w();
     }
 
     public final void m(String str) {
         String str2;
-        if (TextUtils.equals(this.k.f42911b, "mp3")) {
+        if (TextUtils.equals(this.k.f46587b, "mp3")) {
             str2 = EmotionResourceProvider.EMOTION_SOUND_SUFFIX;
         } else {
-            str2 = TextUtils.equals(this.k.f42911b, "pcm") ? ".pcm" : ".aac";
+            str2 = TextUtils.equals(this.k.f46587b, "pcm") ? ".pcm" : ".aac";
         }
-        this.f42942b = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
+        this.f46618b = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
     }
 
     public void n() {
-        int i2 = this.f42944d;
+        int i2 = this.f46620d;
         if (i2 == 0 || i2 == 1) {
             if (!this.p) {
                 this.p = true;
-                e(d.a.l0.a.i1.f.b.f42923i, "recorderInterruptionBegin");
+                e(d.a.l0.a.i1.f.b.f46599i, "recorderInterruptionBegin");
             }
             t();
         }
@@ -451,17 +451,17 @@ public class a {
         int i2;
         String str2;
         if (TextUtils.equals(str, "/swanAPI/recorder/pause")) {
-            if (this.f42944d != 1) {
+            if (this.f46620d != 1) {
                 str2 = "pause fail: recorder is not recording";
             }
             str2 = null;
         } else if (TextUtils.equals(str, "/swanAPI/recorder/resume")) {
-            if (this.f42944d != 2) {
+            if (this.f46620d != 2) {
                 str2 = "resume fail: recorder is not paused";
             }
             str2 = null;
         } else {
-            if (TextUtils.equals(str, "/swanAPI/recorder/stop") && (i2 = this.f42944d) != 2 && i2 != 1) {
+            if (TextUtils.equals(str, "/swanAPI/recorder/stop") && (i2 = this.f46620d) != 2 && i2 != 1) {
                 str2 = "stop fail: recorder is not started";
             }
             str2 = null;
@@ -482,7 +482,7 @@ public class a {
     }
 
     public void s(boolean z) {
-        if (z && this.f42944d == 1) {
+        if (z && this.f46620d == 1) {
             t();
         }
         this.m = z;
@@ -492,7 +492,7 @@ public class a {
         if (q) {
             Log.d("AudioRecorderManager", "pause record");
         }
-        AudioRecord audioRecord = this.f42941a;
+        AudioRecord audioRecord = this.f46617a;
         if (audioRecord == null) {
             f();
             d.a.l0.a.e0.d.b("recorder", "none audio record");
@@ -501,9 +501,9 @@ public class a {
         }
         try {
             audioRecord.stop();
-            this.f42944d = 2;
+            this.f46620d = 2;
             u();
-            e(d.a.l0.a.i1.f.b.f42919e, "recorderPause");
+            e(d.a.l0.a.i1.f.b.f46595e, "recorderPause");
         } catch (IllegalStateException e2) {
             f();
             d.a.l0.a.e0.d.c("recorder", "pause error", e2);
@@ -516,12 +516,12 @@ public class a {
             Log.d("AudioRecorderManager", "pause timer, lastTime:" + this.j);
         }
         d.a.l0.a.e0.d.g("recorder", "pause timer, lastTime:" + this.j);
-        Timer timer = this.f42947g;
+        Timer timer = this.f46623g;
         if (timer != null) {
             timer.cancel();
-            this.f42947g = null;
+            this.f46623g = null;
         }
-        this.j = this.k.f42910a - (System.currentTimeMillis() - this.f42949i);
+        this.j = this.k.f46586a - (System.currentTimeMillis() - this.f46625i);
     }
 
     public final boolean v(byte[] bArr, d.a.l0.a.i1.f.f.a aVar) {
@@ -529,8 +529,8 @@ public class a {
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                File file = new File(this.f42942b);
-                if (this.f42944d == 0) {
+                File file = new File(this.f46618b);
+                if (this.f46620d == 0) {
                     if (file.exists()) {
                         file.delete();
                     }
@@ -544,10 +544,10 @@ public class a {
             e = e2;
         }
         try {
-            this.f42944d = 1;
-            while (this.f42944d == 1) {
-                if (this.f42941a.read(bArr, 0, this.f42943c) >= 0) {
-                    byte[] f2 = TextUtils.equals(this.k.f42911b, "pcm") ? bArr : aVar.f(bArr);
+            this.f46620d = 1;
+            while (this.f46620d == 1) {
+                if (this.f46617a.read(bArr, 0, this.f46619c) >= 0) {
+                    byte[] f2 = TextUtils.equals(this.k.f46587b, "pcm") ? bArr : aVar.f(bArr);
                     if (f2 != null && f2.length > 0) {
                         fileOutputStream.write(f2);
                     }
@@ -559,8 +559,8 @@ public class a {
             e = e3;
             fileOutputStream2 = fileOutputStream;
             d.a.l0.a.e0.d.c("recorder", "save record error", e);
-            if (this.f42944d == 1) {
-                this.f42944d = 3;
+            if (this.f46620d == 1) {
+                this.f46620d = 3;
             }
             d.a.l0.t.d.d(fileOutputStream2);
             return false;
@@ -573,7 +573,7 @@ public class a {
     }
 
     public final void w() {
-        Context context = this.f42945e;
+        Context context = this.f46621e;
         if (context == null) {
             return;
         }
@@ -585,12 +585,12 @@ public class a {
 
     public final void z() {
         G();
-        this.f42945e = null;
-        this.f42944d = -1;
-        AudioRecord audioRecord = this.f42941a;
+        this.f46621e = null;
+        this.f46620d = -1;
+        AudioRecord audioRecord = this.f46617a;
         if (audioRecord != null) {
             audioRecord.release();
-            this.f42941a = null;
+            this.f46617a = null;
         }
     }
 }

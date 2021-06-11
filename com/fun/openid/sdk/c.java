@@ -16,19 +16,19 @@ import java.security.NoSuchAlgorithmException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.fun.openid.sdk.a f30708a = null;
+    public com.fun.openid.sdk.a f30799a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30709b = null;
+    public String f30800b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30710c = null;
+    public String f30801c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f30711d = new Object();
+    public final Object f30802d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f30712e = new a();
+    public ServiceConnection f30803e = new a();
 
     /* loaded from: classes6.dex */
     public class a implements ServiceConnection {
@@ -37,24 +37,24 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            com.fun.openid.sdk.a c0331a;
+            com.fun.openid.sdk.a c0332a;
             c cVar = c.this;
-            int i2 = a.AbstractBinderC0330a.f30704a;
+            int i2 = a.AbstractBinderC0331a.f30795a;
             if (iBinder == null) {
-                c0331a = null;
+                c0332a = null;
             } else {
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-                c0331a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC0330a.C0331a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
+                c0332a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC0331a.C0332a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
             }
-            cVar.f30708a = c0331a;
-            synchronized (c.this.f30711d) {
-                c.this.f30711d.notify();
+            cVar.f30799a = c0332a;
+            synchronized (c.this.f30802d) {
+                c.this.f30802d.notify();
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            c.this.f30708a = null;
+            c.this.f30799a = null;
         }
     }
 
@@ -62,18 +62,18 @@ public class c {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f30714a = new c();
+        public static final c f30805a = new c();
     }
 
     public final String a(Context context, String str) {
         Signature[] signatureArr;
-        if (TextUtils.isEmpty(this.f30709b)) {
-            this.f30709b = context.getPackageName();
+        if (TextUtils.isEmpty(this.f30800b)) {
+            this.f30800b = context.getPackageName();
         }
-        if (TextUtils.isEmpty(this.f30710c)) {
+        if (TextUtils.isEmpty(this.f30801c)) {
             String str2 = null;
             try {
-                signatureArr = context.getPackageManager().getPackageInfo(this.f30709b, 64).signatures;
+                signatureArr = context.getPackageManager().getPackageInfo(this.f30800b, 64).signatures;
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
                 signatureArr = null;
@@ -94,13 +94,13 @@ public class c {
                     e3.printStackTrace();
                 }
             }
-            this.f30710c = str2;
+            this.f30801c = str2;
         }
-        com.fun.openid.sdk.a aVar = this.f30708a;
-        String str3 = this.f30709b;
-        String str4 = this.f30710c;
-        a.AbstractBinderC0330a.C0331a c0331a = (a.AbstractBinderC0330a.C0331a) aVar;
-        c0331a.getClass();
+        com.fun.openid.sdk.a aVar = this.f30799a;
+        String str3 = this.f30800b;
+        String str4 = this.f30801c;
+        a.AbstractBinderC0331a.C0332a c0332a = (a.AbstractBinderC0331a.C0332a) aVar;
+        c0332a.getClass();
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -108,7 +108,7 @@ public class c {
             obtain.writeString(str3);
             obtain.writeString(str4);
             obtain.writeString(str);
-            c0331a.f30705a.transact(1, obtain, obtain2, 0);
+            c0332a.f30796a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             String readString = obtain2.readString();
             obtain2.recycle();

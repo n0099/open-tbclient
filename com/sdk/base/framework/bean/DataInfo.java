@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class DataInfo extends JSONObject {
     public DataInfo() {
         try {
-            put(r.f7672a, System.currentTimeMillis());
+            put(r.f7715a, System.currentTimeMillis());
         } catch (JSONException unused) {
         }
     }

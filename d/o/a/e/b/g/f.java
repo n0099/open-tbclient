@@ -5,6 +5,7 @@ import com.baidu.clientupdate.download.DownloadManager;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,31 +18,31 @@ public class f {
     public long C;
 
     /* renamed from: a  reason: collision with root package name */
-    public final DownloadInfo f67219a;
+    public final DownloadInfo f71005a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f67220b;
+    public final String f71006b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.model.b f67221c;
+    public final com.ss.android.socialbase.downloader.model.b f71007c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.o.a.e.b.o.k f67222d;
+    public final d.o.a.e.b.o.k f71008d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f67223e;
+    public j f71009e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.o.a.e.b.m.k f67224f;
+    public d.o.a.e.b.m.k f71010f;
 
     /* renamed from: g  reason: collision with root package name */
-    public s f67225g;
+    public s f71011g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o.a.e.b.n.c f67226h;
+    public d.o.a.e.b.n.c f71012h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BaseException f67227i;
+    public BaseException f71013i;
     public volatile boolean j;
     public volatile boolean k;
     public final d.o.a.e.b.k.f l;
@@ -70,24 +71,24 @@ public class f {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                f.this.f67222d.d();
+                f.this.f71008d.d();
             } catch (Throwable unused) {
             }
         }
     }
 
     public f(DownloadInfo downloadInfo, String str, d.o.a.e.b.o.k kVar, com.ss.android.socialbase.downloader.model.b bVar, d.o.a.e.b.k.f fVar) {
-        this.f67219a = downloadInfo;
-        this.f67220b = str;
+        this.f71005a = downloadInfo;
+        this.f71006b = str;
         j I0 = d.I0();
-        this.f67223e = I0;
+        this.f71009e = I0;
         if (I0 instanceof d.o.a.e.b.m.d) {
             d.o.a.e.b.m.d dVar = (d.o.a.e.b.m.d) I0;
-            this.f67224f = dVar.e();
-            this.f67225g = dVar.i();
+            this.f71010f = dVar.e();
+            this.f71011g = dVar.i();
         }
-        this.f67222d = kVar;
-        this.f67221c = bVar;
+        this.f71008d = kVar;
+        this.f71007c = bVar;
         this.l = fVar;
         long A = bVar.A();
         this.m = A;
@@ -120,7 +121,7 @@ public class f {
 
     public final d.o.a.e.b.h.b b(InputStream inputStream) {
         int g2 = d.g();
-        if (this.r.b("rw_concurrent", 0) == 1 && this.f67219a.B() == 1 && this.f67219a.Q0() > DownloadManager.MIN_LEFT_SIZE) {
+        if (this.r.b("rw_concurrent", 0) == 1 && this.f71005a.B() == 1 && this.f71005a.Q0() > DownloadManager.MIN_LEFT_SIZE) {
             try {
                 d.o.a.e.b.h.a aVar = new d.o.a.e.b.h.a(inputStream, g2, this.r.b("rw_concurrent_max_buffer_count", 4));
                 this.x = true;
@@ -158,10 +159,10 @@ public class f {
             return;
         }
         m mVar2 = mVar;
-        if (this.f67221c.q()) {
-            bVar = this.f67221c.r();
+        if (this.f71007c.q()) {
+            bVar = this.f71007c.r();
         } else {
-            bVar = this.f67221c;
+            bVar = this.f71007c;
         }
         com.ss.android.socialbase.downloader.model.b bVar3 = bVar;
         if (bVar3 != null) {
@@ -195,11 +196,11 @@ public class f {
                     jVar.a(bVar2.x(), bVar2.j(), this.m);
                 }
             }
-        } else if (this.f67221c.q()) {
+        } else if (this.f71007c.q()) {
             if (z && mVar2 != null) {
-                mVar2.a(this.f67221c.x(), this.f67221c.F(), this.m);
+                mVar2.a(this.f71007c.x(), this.f71007c.F(), this.m);
             } else {
-                jVar.a(this.f67221c.x(), this.f67221c.F(), this.m);
+                jVar.a(this.f71007c.x(), this.f71007c.F(), this.m);
             }
         }
     }
@@ -295,23 +296,23 @@ public class f {
         InputStream a2;
         boolean z4;
         long j2;
-        if (m() || this.f67221c == null) {
+        if (m() || this.f71007c == null) {
             return;
         }
-        long d2 = d.o.a.e.b.l.e.d(this.f67222d);
+        long d2 = d.o.a.e.b.l.e.d(this.f71008d);
         if (d2 != 0) {
-            ?? y = this.f67221c.y();
+            ?? y = this.f71007c.y();
             long nanoTime = System.nanoTime();
             boolean z5 = this.w;
-            boolean z6 = this.f67222d instanceof d.o.a.e.b.o.c;
+            boolean z6 = this.f71008d instanceof d.o.a.e.b.o.c;
             int i4 = 1;
             int i5 = 0;
             try {
                 try {
                     try {
                         i3 = -1;
-                        f2 = d.o.a.e.b.l.e.f(this.f67219a.N0(), this.f67219a.M0(), this.r.b("flush_buffer_size_byte", -1));
-                        this.f67226h = f2;
+                        f2 = d.o.a.e.b.l.e.f(this.f71005a.N0(), this.f71005a.M0(), this.r.b("flush_buffer_size_byte", -1));
+                        this.f71012h = f2;
                     } catch (BaseException e2) {
                         e = e2;
                         j = nanoTime;
@@ -338,9 +339,9 @@ public class f {
             try {
                 try {
                     f2.a(this.m);
-                    a2 = this.f67222d.a();
+                    a2 = this.f71008d.a();
                 } catch (IOException e4) {
-                    throw new BaseException(1054, e4);
+                    throw new BaseException((int) RevenueServerConst.ChargeCurrencyHistoryRequest, e4);
                 }
             } catch (BaseException e5) {
                 e = e5;
@@ -352,12 +353,12 @@ public class f {
                     }
                     if (d.o.a.e.b.c.a.e()) {
                     }
-                    this.f67227i = e;
+                    this.f71013i = e;
                     throw e;
                 } catch (Throwable th2) {
                     th = th2;
                     bVar2 = bVar;
-                    kVar = this.f67222d;
+                    kVar = this.f71008d;
                     if (kVar != null) {
                     }
                     if (bVar2 != null) {
@@ -366,14 +367,14 @@ public class f {
                         if (!this.q) {
                         }
                         Closeable[] closeableArr = new Closeable[i2];
-                        closeableArr[y] = this.f67226h;
+                        closeableArr[y] = this.f71012h;
                         d.o.a.e.b.l.e.C(closeableArr);
                         this.C = System.nanoTime() - j;
-                        d.o.a.e.b.e.a.f(this.r, this.f67219a, this.f67220b, this.f67222d, this.j, this.k, this.f67227i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
+                        d.o.a.e.b.e.a.f(this.r, this.f71005a, this.f71006b, this.f71008d, this.j, this.k, this.f71013i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
                         throw th;
                     } catch (Throwable th3) {
                         Closeable[] closeableArr2 = new Closeable[i2];
-                        closeableArr2[y] = this.f67226h;
+                        closeableArr2[y] = this.f71012h;
                         d.o.a.e.b.l.e.C(closeableArr2);
                         throw th3;
                     }
@@ -388,13 +389,13 @@ public class f {
                 }
             }
             if (a2 != null) {
-                this.f67219a.r3();
+                this.f71005a.r3();
                 bVar2 = b(a2);
                 try {
-                    this.f67219a.E2(this.x);
-                    this.y = this.f67219a.t0();
-                    long j3 = d.o.a.e.b.d.c.f67181d;
-                    long j4 = d.o.a.e.b.d.c.f67182e;
+                    this.f71005a.E2(this.x);
+                    this.y = this.f71005a.t0();
+                    long j3 = d.o.a.e.b.d.c.f70967d;
+                    long j4 = d.o.a.e.b.d.c.f70968e;
                     long j5 = j3 / (1000 / j4);
                     long currentTimeMillis = System.currentTimeMillis();
                     long j6 = 0;
@@ -429,7 +430,7 @@ public class f {
                                 }
                                 if (d.o.a.e.b.c.a.e()) {
                                 }
-                                this.f67227i = e;
+                                this.f71013i = e;
                                 throw e;
                             }
                         }
@@ -438,12 +439,12 @@ public class f {
                             if (z) {
                                 this.z += System.nanoTime() - j6;
                             }
-                            int i6 = a3.f67255c;
+                            int i6 = a3.f71041c;
                             if (i6 == i3) {
                                 j2 = j8;
                                 j = nanoTime;
                             } else {
-                                if (this.f67219a.y1()) {
+                                if (this.f71005a.y1()) {
                                     j2 = j8;
                                     j = nanoTime;
                                     z5 = z6;
@@ -464,10 +465,10 @@ public class f {
                                                     i2 = 1;
                                                     if (z5) {
                                                         try {
-                                                            ((d.o.a.e.b.o.c) this.f67222d).b(th);
+                                                            ((d.o.a.e.b.o.c) this.f71008d).b(th);
                                                         } catch (Throwable th7) {
                                                             th = th7;
-                                                            kVar = this.f67222d;
+                                                            kVar = this.f71008d;
                                                             if (kVar != null) {
                                                                 kVar.d();
                                                             }
@@ -477,29 +478,29 @@ public class f {
                                                             if (!this.q) {
                                                                 synchronized (this.l) {
                                                                     if (!this.k) {
-                                                                        f(this.f67224f);
-                                                                        if (this.f67226h != null) {
+                                                                        f(this.f71010f);
+                                                                        if (this.f71012h != null) {
                                                                             o();
                                                                         }
                                                                     }
                                                                 }
                                                             } else {
-                                                                f(this.f67224f);
-                                                                if (this.f67226h != null) {
+                                                                f(this.f71010f);
+                                                                if (this.f71012h != null) {
                                                                     o();
                                                                 }
                                                             }
                                                             Closeable[] closeableArr3 = new Closeable[i2];
-                                                            closeableArr3[y] = this.f67226h;
+                                                            closeableArr3[y] = this.f71012h;
                                                             d.o.a.e.b.l.e.C(closeableArr3);
                                                             this.C = System.nanoTime() - j;
-                                                            d.o.a.e.b.e.a.f(this.r, this.f67219a, this.f67220b, this.f67222d, this.j, this.k, this.f67227i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
+                                                            d.o.a.e.b.e.a.f(this.r, this.f71005a, this.f71006b, this.f71008d, this.j, this.k, this.f71013i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
                                                             throw th;
                                                         }
                                                     }
                                                     d.o.a.e.b.c.a.i(F, "handleResponse: e = " + th);
                                                     if (m()) {
-                                                        d.o.a.e.b.o.k kVar3 = this.f67222d;
+                                                        d.o.a.e.b.o.k kVar3 = this.f71008d;
                                                         if (kVar3 != null) {
                                                             kVar3.d();
                                                         }
@@ -510,33 +511,33 @@ public class f {
                                                             if (this.q) {
                                                                 synchronized (this.l) {
                                                                     if (!this.k) {
-                                                                        f(this.f67224f);
-                                                                        if (this.f67226h != null) {
+                                                                        f(this.f71010f);
+                                                                        if (this.f71012h != null) {
                                                                             o();
                                                                         }
                                                                     }
                                                                 }
                                                             } else {
-                                                                f(this.f67224f);
-                                                                if (this.f67226h != null) {
+                                                                f(this.f71010f);
+                                                                if (this.f71012h != null) {
                                                                     o();
                                                                 }
                                                             }
                                                             Closeable[] closeableArr4 = new Closeable[i2];
-                                                            closeableArr4[y] = this.f67226h;
+                                                            closeableArr4[y] = this.f71012h;
                                                             d.o.a.e.b.l.e.C(closeableArr4);
                                                             this.C = System.nanoTime() - j;
                                                             aVar = this.r;
-                                                            downloadInfo = this.f67219a;
-                                                            str = this.f67220b;
-                                                            kVar2 = this.f67222d;
+                                                            downloadInfo = this.f71005a;
+                                                            str = this.f71006b;
+                                                            kVar2 = this.f71008d;
                                                             z3 = this.j;
                                                             z2 = this.k;
-                                                            d.o.a.e.b.e.a.f(aVar, downloadInfo, str, kVar2, z3, z2, this.f67227i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
+                                                            d.o.a.e.b.e.a.f(aVar, downloadInfo, str, kVar2, z3, z2, this.f71013i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
                                                             return;
                                                         } catch (Throwable th8) {
                                                             Closeable[] closeableArr5 = new Closeable[i2];
-                                                            closeableArr5[y] = this.f67226h;
+                                                            closeableArr5[y] = this.f71012h;
                                                             d.o.a.e.b.l.e.C(closeableArr5);
                                                             throw th8;
                                                         }
@@ -548,7 +549,7 @@ public class f {
                                                         d.o.a.e.b.l.e.A(th, "ResponseHandler");
                                                         throw null;
                                                     } catch (BaseException e7) {
-                                                        this.f67227i = e7;
+                                                        this.f71013i = e7;
                                                         throw e7;
                                                     }
                                                 }
@@ -559,7 +560,7 @@ public class f {
                                                 i2 = 1;
                                                 d.o.a.e.b.c.a.i(F, "handleResponse: BaseException e = " + e);
                                                 if (!this.r.l("ignore_base_ex_on_stop_status") && m()) {
-                                                    d.o.a.e.b.o.k kVar4 = this.f67222d;
+                                                    d.o.a.e.b.o.k kVar4 = this.f71008d;
                                                     if (kVar4 != null) {
                                                         kVar4.d();
                                                     }
@@ -570,33 +571,33 @@ public class f {
                                                         if (this.q) {
                                                             synchronized (this.l) {
                                                                 if (!this.k) {
-                                                                    f(this.f67224f);
-                                                                    if (this.f67226h != null) {
+                                                                    f(this.f71010f);
+                                                                    if (this.f71012h != null) {
                                                                         o();
                                                                     }
                                                                 }
                                                             }
                                                         } else {
-                                                            f(this.f67224f);
-                                                            if (this.f67226h != null) {
+                                                            f(this.f71010f);
+                                                            if (this.f71012h != null) {
                                                                 o();
                                                             }
                                                         }
                                                         Closeable[] closeableArr6 = new Closeable[i2];
-                                                        closeableArr6[y] = this.f67226h;
+                                                        closeableArr6[y] = this.f71012h;
                                                         d.o.a.e.b.l.e.C(closeableArr6);
                                                         this.C = System.nanoTime() - j;
                                                         aVar = this.r;
-                                                        downloadInfo = this.f67219a;
-                                                        str = this.f67220b;
-                                                        kVar2 = this.f67222d;
+                                                        downloadInfo = this.f71005a;
+                                                        str = this.f71006b;
+                                                        kVar2 = this.f71008d;
                                                         z3 = this.j;
                                                         z2 = this.k;
-                                                        d.o.a.e.b.e.a.f(aVar, downloadInfo, str, kVar2, z3, z2, this.f67227i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
+                                                        d.o.a.e.b.e.a.f(aVar, downloadInfo, str, kVar2, z3, z2, this.f71013i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
                                                         return;
                                                     } catch (Throwable th9) {
                                                         Closeable[] closeableArr7 = new Closeable[i2];
-                                                        closeableArr7[y] = this.f67226h;
+                                                        closeableArr7[y] = this.f71012h;
                                                         d.o.a.e.b.l.e.C(closeableArr7);
                                                         throw th9;
                                                     }
@@ -604,7 +605,7 @@ public class f {
                                                 if (d.o.a.e.b.c.a.e()) {
                                                     e.printStackTrace();
                                                 }
-                                                this.f67227i = e;
+                                                this.f71013i = e;
                                                 throw e;
                                             }
                                         } catch (Throwable th10) {
@@ -627,7 +628,7 @@ public class f {
                                     j6 = System.nanoTime();
                                 }
                                 try {
-                                    this.f67226h.a(a3.f67253a, i5, i6);
+                                    this.f71012h.a(a3.f71039a, i5, i6);
                                     if (z) {
                                         this.A += System.nanoTime() - j6;
                                     }
@@ -639,18 +640,18 @@ public class f {
                                         if (this.q) {
                                             if (!this.k) {
                                                 boolean b2 = this.l.b(j9);
-                                                f(this.f67224f);
+                                                f(this.f71010f);
                                                 g(b2);
                                             }
                                         } else {
                                             boolean b3 = this.l.b(j9);
-                                            f(this.f67224f);
+                                            f(this.f71010f);
                                             g(b3);
                                         }
                                     }
-                                    if (this.f67219a.n1()) {
-                                        if (this.f67219a.M1()) {
-                                            if (this.f67219a.y1() || this.p < 0 || this.p > this.m - this.n) {
+                                    if (this.f71005a.n1()) {
+                                        if (this.f71005a.M1()) {
+                                            if (this.f71005a.y1() || this.p < 0 || this.p > this.m - this.n) {
                                                 y = 0;
                                                 z4 = false;
                                                 i2 = 1;
@@ -683,7 +684,7 @@ public class f {
                                                     }
                                                     if (d.o.a.e.b.c.a.e()) {
                                                     }
-                                                    this.f67227i = e;
+                                                    this.f71013i = e;
                                                     throw e;
                                                 } catch (Throwable th11) {
                                                     th = th11;
@@ -711,11 +712,11 @@ public class f {
                                     }
                                     if (d.o.a.e.b.c.a.e()) {
                                     }
-                                    this.f67227i = e;
+                                    this.f71013i = e;
                                     throw e;
                                 }
                             }
-                            d.o.a.e.b.o.k kVar5 = this.f67222d;
+                            d.o.a.e.b.o.k kVar5 = this.f71008d;
                             if (kVar5 != null) {
                                 kVar5.d();
                             }
@@ -726,24 +727,24 @@ public class f {
                                 if (this.q) {
                                     synchronized (this.l) {
                                         if (!this.k) {
-                                            f(this.f67224f);
-                                            if (this.f67226h != null) {
+                                            f(this.f71010f);
+                                            if (this.f71012h != null) {
                                                 o();
                                             }
                                         }
                                     }
                                 } else {
-                                    f(this.f67224f);
-                                    if (this.f67226h != null) {
+                                    f(this.f71010f);
+                                    if (this.f71012h != null) {
                                         o();
                                     }
                                 }
                                 Closeable[] closeableArr8 = new Closeable[1];
-                                closeableArr8[i5] = this.f67226h;
+                                closeableArr8[i5] = this.f71012h;
                                 d.o.a.e.b.l.e.C(closeableArr8);
                                 this.C = System.nanoTime() - j;
-                                d.o.a.e.b.e.a.f(this.r, this.f67219a, this.f67220b, this.f67222d, this.j, this.k, this.f67227i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
-                                if (this.f67219a.y1()) {
+                                d.o.a.e.b.e.a.f(this.r, this.f71005a, this.f71006b, this.f71008d, this.j, this.k, this.f71013i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
+                                if (this.f71005a.y1()) {
                                     return;
                                 }
                                 long j10 = this.m - this.n;
@@ -752,7 +753,7 @@ public class f {
                                 }
                                 return;
                             } catch (Throwable th12) {
-                                d.o.a.e.b.l.e.C(this.f67226h);
+                                d.o.a.e.b.l.e.C(this.f71012h);
                                 throw th12;
                             }
                         } catch (BaseException e13) {
@@ -760,7 +761,7 @@ public class f {
                             j = nanoTime;
                         }
                     }
-                    d.o.a.e.b.o.k kVar6 = this.f67222d;
+                    d.o.a.e.b.o.k kVar6 = this.f71008d;
                     if (kVar6 != null) {
                         kVar6.d();
                     }
@@ -771,32 +772,32 @@ public class f {
                         if (this.q) {
                             synchronized (this.l) {
                                 if (!this.k) {
-                                    f(this.f67224f);
-                                    if (this.f67226h != null) {
+                                    f(this.f71010f);
+                                    if (this.f71012h != null) {
                                         o();
                                     }
                                 }
                             }
                         } else {
-                            f(this.f67224f);
-                            if (this.f67226h != null) {
+                            f(this.f71010f);
+                            if (this.f71012h != null) {
                                 o();
                             }
                         }
                         Closeable[] closeableArr9 = new Closeable[i4];
-                        closeableArr9[i5] = this.f67226h;
+                        closeableArr9[i5] = this.f71012h;
                         d.o.a.e.b.l.e.C(closeableArr9);
                         this.C = System.nanoTime() - nanoTime;
                         aVar = this.r;
-                        downloadInfo = this.f67219a;
-                        str = this.f67220b;
-                        kVar2 = this.f67222d;
+                        downloadInfo = this.f71005a;
+                        str = this.f71006b;
+                        kVar2 = this.f71008d;
                         z3 = this.j;
                         z = z5;
                         z2 = this.k;
                     } catch (Throwable th13) {
                         Closeable[] closeableArr10 = new Closeable[i4];
-                        closeableArr10[i5] = this.f67226h;
+                        closeableArr10[i5] = this.f71012h;
                         d.o.a.e.b.l.e.C(closeableArr10);
                         throw th13;
                     }
@@ -812,7 +813,7 @@ public class f {
                     i2 = 1;
                     z5 = z6;
                 }
-                d.o.a.e.b.e.a.f(aVar, downloadInfo, str, kVar2, z3, z2, this.f67227i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
+                d.o.a.e.b.e.a.f(aVar, downloadInfo, str, kVar2, z3, z2, this.f71013i, this.m - this.n, this.C, z, this.z, this.A, this.B, null);
                 return;
             }
             throw new BaseException((int) SDKLogTypeConstants.LOCAL_THIRD_IMPRESSION_MONITOR, new IOException("inputStream is null"));
@@ -830,7 +831,7 @@ public class f {
 
     public final void n() {
         ExecutorService w0;
-        if (this.f67222d == null || (w0 = d.w0()) == null) {
+        if (this.f71008d == null || (w0 = d.w0()) == null) {
             return;
         }
         w0.execute(new a());
@@ -840,26 +841,26 @@ public class f {
         boolean z;
         long nanoTime = this.w ? System.nanoTime() : 0L;
         try {
-            this.f67226h.n();
+            this.f71012h.n();
             z = true;
         } catch (Exception unused) {
             z = false;
         }
         if (z) {
-            this.f67219a.q3(true);
-            boolean z2 = this.f67219a.B() > 1;
+            this.f71005a.q3(true);
+            boolean z2 = this.f71005a.B() > 1;
             m a2 = d.o.a.e.b.m.l.a(d.o.a.e.b.l.e.b0());
             if (z2) {
-                f(this.f67225g);
+                f(this.f71011g);
                 if (a2 != null) {
-                    a2.c(this.f67219a);
+                    a2.c(this.f71005a);
                 } else {
-                    this.f67225g.a(this.f67219a.c0(), this.f67219a.E());
+                    this.f71011g.a(this.f71005a.c0(), this.f71005a.E());
                 }
             } else if (a2 != null) {
-                a2.c(this.f67219a);
+                a2.c(this.f71005a);
             } else {
-                this.f67225g.a(this.f67221c.x(), this.m);
+                this.f71011g.a(this.f71007c.x(), this.m);
             }
             this.D = this.m;
         }

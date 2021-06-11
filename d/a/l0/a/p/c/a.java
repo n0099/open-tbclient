@@ -9,7 +9,7 @@ public class a implements d.a.l0.a.p.d.b {
 
     /* renamed from: d.a.l0.a.p.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0785a extends ProviderDelegation {
+    public static class C0841a extends ProviderDelegation {
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();

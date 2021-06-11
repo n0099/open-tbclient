@@ -2,7 +2,7 @@ package com.baidu.tieba.message;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
     public int errorCode;
     public String errorMsg;

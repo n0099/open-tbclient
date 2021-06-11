@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class SendVideoSuccessShareModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f21179e = new a(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
+    public HttpMessageListener f21257e = new a(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
 
     /* loaded from: classes5.dex */
     public static class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
@@ -40,9 +40,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
             String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
             String optString3 = jSONObject.optString("video_id");
             OriginalThreadInfo originalThreadInfo = this.threadInfo;
-            originalThreadInfo.f12035c = optString2;
-            originalThreadInfo.f12033a = 3;
-            originalThreadInfo.f12034b = optString;
+            originalThreadInfo.f12097c = optString2;
+            originalThreadInfo.f12095a = 3;
+            originalThreadInfo.f12096b = optString;
             originalThreadInfo.l = optString3;
         }
 
@@ -73,9 +73,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
     public SendVideoSuccessShareModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f21179e.setTag(getUniqueId());
-        this.f21179e.setSelfListener(true);
-        registerListener(this.f21179e);
+        this.f21257e.setTag(getUniqueId());
+        this.f21257e.setSelfListener(true);
+        registerListener(this.f21257e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -85,7 +85,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f21179e);
+        MessageManager.getInstance().unRegisterListener(this.f21257e);
         return false;
     }
 
@@ -95,7 +95,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void u(String str) {
+    public void y(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
         httpMessage.addParam("video_id", str);
         sendMessage(httpMessage);

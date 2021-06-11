@@ -3,7 +3,7 @@ package d.a.m.a.a;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {

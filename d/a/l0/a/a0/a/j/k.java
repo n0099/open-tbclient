@@ -24,44 +24,44 @@ import org.json.JSONArray;
 public class k extends d.a.l0.a.a0.a.j.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40626a;
+    public String f44302a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40627b;
+    public int f44303b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40628c;
+    public int f44304c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f40629d;
+    public Rect f44305d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Rect f40630e;
+    public Rect f44306e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f40631f;
+    public Bitmap f44307f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40632g = 0;
+    public int f44308g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public Uri f40633h;
+    public Uri f44309h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f40634i;
+    public String f44310i;
 
     /* loaded from: classes2.dex */
     public class a extends BaseBitmapDataSubscriber {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DataSource f40635a;
+        public final /* synthetic */ DataSource f44311a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f40636b;
+        public final /* synthetic */ b f44312b;
 
         public a(DataSource dataSource, b bVar) {
-            this.f40635a = dataSource;
-            this.f40636b = bVar;
+            this.f44311a = dataSource;
+            this.f44312b = bVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.DataSource] */
@@ -70,41 +70,41 @@ public class k extends d.a.l0.a.a0.a.j.a {
             if (dataSource != null) {
                 dataSource.close();
             }
-            k.this.f40632g = 3;
+            k.this.f44308g = 3;
         }
 
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
         public void onNewResultImpl(@Nullable Bitmap bitmap) {
-            if (this.f40635a.isFinished() && bitmap != null) {
-                k.this.f40631f = Bitmap.createBitmap(bitmap);
-                this.f40635a.close();
-                CanvasView canvasView = this.f40636b.l;
+            if (this.f44311a.isFinished() && bitmap != null) {
+                k.this.f44307f = Bitmap.createBitmap(bitmap);
+                this.f44311a.close();
+                CanvasView canvasView = this.f44312b.l;
                 if (canvasView != null) {
                     canvasView.postInvalidate();
                 }
             }
-            k.this.f40632g = 2;
+            k.this.f44308g = 2;
         }
     }
 
     @Override // d.a.l0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         if (h(bVar)) {
-            int alpha = bVar.f40589h.getAlpha();
-            bVar.d(bVar.f40589h);
-            Rect rect = this.f40630e;
+            int alpha = bVar.f44265h.getAlpha();
+            bVar.d(bVar.f44265h);
+            Rect rect = this.f44306e;
             if (rect != null) {
-                canvas.drawBitmap(this.f40631f, this.f40629d, rect, bVar.f40589h);
+                canvas.drawBitmap(this.f44307f, this.f44305d, rect, bVar.f44265h);
             } else {
-                canvas.drawBitmap(this.f40631f, this.f40627b, this.f40628c, bVar.f40589h);
+                canvas.drawBitmap(this.f44307f, this.f44303b, this.f44304c, bVar.f44265h);
             }
-            bVar.f40589h.setAlpha(alpha);
+            bVar.f44265h.setAlpha(alpha);
             return;
         }
         try {
             j(bVar);
         } catch (Exception e2) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 e2.printStackTrace();
             }
         }
@@ -116,22 +116,22 @@ public class k extends d.a.l0.a.a0.a.j.a {
         try {
             int length = jSONArray.length();
             if (length > 0) {
-                this.f40634i = this.f40626a;
+                this.f44310i = this.f44302a;
                 String optString = jSONArray.optString(0);
-                this.f40626a = optString;
-                this.f40626a = f(Q, optString);
+                this.f44302a = optString;
+                this.f44302a = f(Q, optString);
             }
             if (length > 2) {
-                this.f40627b = i(jSONArray, 1);
-                this.f40628c = i(jSONArray, 2);
+                this.f44303b = i(jSONArray, 1);
+                this.f44304c = i(jSONArray, 2);
             }
             if (length > 4) {
-                int i2 = this.f40627b;
-                int i3 = this.f40628c;
+                int i2 = this.f44303b;
+                int i3 = this.f44304c;
                 int i4 = i(jSONArray, 3);
                 int i5 = i(jSONArray, 4);
                 if (i4 > 0 && i5 > 0) {
-                    this.f40630e = new Rect(i2, i3, i4 + i2, i5 + i3);
+                    this.f44306e = new Rect(i2, i3, i4 + i2, i5 + i3);
                 }
             }
             if (length > 8) {
@@ -140,32 +140,32 @@ public class k extends d.a.l0.a.a0.a.j.a {
                 int optInt3 = jSONArray.optInt(7);
                 int optInt4 = jSONArray.optInt(8);
                 if (optInt3 > 0 && optInt4 > 0) {
-                    this.f40629d = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
+                    this.f44305d = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
                 }
             }
             if (Q != null) {
-                String g2 = g(this.f40626a, Q);
+                String g2 = g(this.f44302a, Q);
                 if (!TextUtils.isEmpty(g2)) {
-                    this.f40631f = BitmapFactory.decodeFile(g2);
-                } else if (TextUtils.isEmpty(this.f40626a)) {
+                    this.f44307f = BitmapFactory.decodeFile(g2);
+                } else if (TextUtils.isEmpty(this.f44302a)) {
                 } else {
-                    if (this.f40633h == null || !TextUtils.equals(this.f40626a, this.f40634i)) {
-                        this.f40633h = Uri.parse(this.f40626a);
+                    if (this.f44309h == null || !TextUtils.equals(this.f44302a, this.f44310i)) {
+                        this.f44309h = Uri.parse(this.f44302a);
                     }
                 }
             }
         } catch (Exception e2) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 e2.printStackTrace();
             }
         }
     }
 
     public void e(HashMap<String, Bitmap> hashMap) {
-        if (hashMap == null || TextUtils.isEmpty(this.f40626a) || this.f40631f == null || hashMap.containsKey(this.f40626a)) {
+        if (hashMap == null || TextUtils.isEmpty(this.f44302a) || this.f44307f == null || hashMap.containsKey(this.f44302a)) {
             return;
         }
-        hashMap.put(this.f40626a, this.f40631f);
+        hashMap.put(this.f44302a, this.f44307f);
     }
 
     public final String f(d.a.l0.a.a2.e eVar, String str) {
@@ -182,7 +182,7 @@ public class k extends d.a.l0.a.a0.a.j.a {
         if (!TextUtils.isEmpty(str) && eVar != null) {
             try {
                 if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
-                    str = d.a.l0.a.k2.b.M(str, eVar.f40749f);
+                    str = d.a.l0.a.k2.b.M(str, eVar.f44425f);
                 }
                 if (TextUtils.isEmpty(str)) {
                     return null;
@@ -199,19 +199,19 @@ public class k extends d.a.l0.a.a0.a.j.a {
 
     public final boolean h(b bVar) {
         CanvasView canvasView;
-        if (this.f40631f != null) {
+        if (this.f44307f != null) {
             return true;
         }
-        if (this.f40633h == null || bVar == null || (canvasView = bVar.l) == null) {
+        if (this.f44309h == null || bVar == null || (canvasView = bVar.l) == null) {
             return false;
         }
-        Bitmap e2 = canvasView.e(this.f40626a);
-        this.f40631f = e2;
+        Bitmap e2 = canvasView.e(this.f44302a);
+        this.f44307f = e2;
         if (e2 != null) {
             return true;
         }
-        Bitmap c2 = d.a.l0.a.v2.t.c(this.f40633h, bVar.l.getContext());
-        this.f40631f = c2;
+        Bitmap c2 = d.a.l0.a.v2.t.c(this.f44309h, bVar.l.getContext());
+        this.f44307f = c2;
         return c2 != null;
     }
 
@@ -222,11 +222,11 @@ public class k extends d.a.l0.a.a0.a.j.a {
     @UiThread
     public final void j(b bVar) {
         CanvasView canvasView;
-        if (this.f40632g != 0 || (canvasView = bVar.l) == null || canvasView.getContext() == null || TextUtils.isEmpty(this.f40626a)) {
+        if (this.f44308g != 0 || (canvasView = bVar.l) == null || canvasView.getContext() == null || TextUtils.isEmpty(this.f44302a)) {
             return;
         }
-        this.f40632g = 1;
-        DataSource<CloseableReference<CloseableImage>> fetchDecodedImage = Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.f40626a)).build(), bVar.l.getContext());
+        this.f44308g = 1;
+        DataSource<CloseableReference<CloseableImage>> fetchDecodedImage = Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.f44302a)).build(), bVar.l.getContext());
         fetchDecodedImage.subscribe(new a(fetchDecodedImage, bVar), UiThreadImmediateExecutorService.getInstance());
     }
 }

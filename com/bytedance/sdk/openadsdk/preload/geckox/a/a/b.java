@@ -8,28 +8,28 @@ import java.util.List;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f29983a = new d();
+    public static final b f30086a = new d();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f29984b = new f();
+    public static final b f30087b = new f();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f29985c = new e();
+    public static final b f30088c = new e();
 
     /* renamed from: d  reason: collision with root package name */
-    public a f29986d;
+    public a f30089d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f29987e;
+    public File f30090e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f29988f;
+    public List<String> f30091f;
 
     public abstract void a();
 
     public void a(a aVar, File file, List<String> list) {
-        this.f29986d = aVar;
-        this.f29987e = file;
-        this.f29988f = list;
+        this.f30089d = aVar;
+        this.f30090e = file;
+        this.f30091f = list;
     }
 }

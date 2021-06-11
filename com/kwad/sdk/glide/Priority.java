@@ -1,0 +1,8 @@
+package com.kwad.sdk.glide;
+/* loaded from: classes7.dex */
+public enum Priority {
+    IMMEDIATE,
+    HIGH,
+    NORMAL,
+    LOW
+}

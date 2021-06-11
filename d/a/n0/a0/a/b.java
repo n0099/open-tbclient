@@ -27,31 +27,31 @@ import tbclient.HotThread.tinfo;
 public class b extends d.a.c.a.d<ChosenPostActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ChosenPostActivity f51109a;
+    public ChosenPostActivity f54786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f51110b;
+    public View f54787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f51111c;
+    public NavigationBar f54788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdListView f51112d;
+    public BdListView f54789d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.a0.a.a f51113e;
+    public d.a.n0.a0.a.a f54790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.m0.g0.g.a f51114f;
+    public d.a.m0.g0.g.a f54791f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51115g;
+    public boolean f54792g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f51116h;
+    public g f54793h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoNetworkView f51117i;
+    public NoNetworkView f54794i;
     public h j;
     public int k;
     public int l;
@@ -64,19 +64,19 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
 
         @Override // d.a.m0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
-            b.this.f51109a.getModelController().B(z);
+            b.this.f54786a.getModelController().F(z);
         }
     }
 
     /* renamed from: d.a.n0.a0.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1174b implements AdapterView.OnItemClickListener {
-        public C1174b() {
+    public class C1230b implements AdapterView.OnItemClickListener {
+        public C1230b() {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            tinfo item = b.this.f51113e.getItem(i2);
+            tinfo item = b.this.f54790e.getItem(i2);
             if (item == null) {
                 return;
             }
@@ -92,40 +92,40 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
         public class a implements a.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.a.m0.r.s.a f51121e;
+            public final /* synthetic */ d.a.m0.r.s.a f54798e;
 
             public a(c cVar, d.a.m0.r.s.a aVar) {
-                this.f51121e = aVar;
+                this.f54798e = aVar;
             }
 
             @Override // d.a.m0.r.s.a.e
             public void onClick(d.a.m0.r.s.a aVar) {
-                this.f51121e.dismiss();
+                this.f54798e.dismiss();
             }
         }
 
         /* renamed from: d.a.n0.a0.a.b$c$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1175b implements a.e {
+        public class C1231b implements a.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.a.m0.r.s.a f51122e;
+            public final /* synthetic */ d.a.m0.r.s.a f54799e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f51123f;
+            public final /* synthetic */ int f54800f;
 
-            public C1175b(d.a.m0.r.s.a aVar, int i2) {
-                this.f51122e = aVar;
-                this.f51123f = i2;
+            public C1231b(d.a.m0.r.s.a aVar, int i2) {
+                this.f54799e = aVar;
+                this.f54800f = i2;
             }
 
             @Override // d.a.m0.r.s.a.e
             public void onClick(d.a.m0.r.s.a aVar) {
-                this.f51122e.dismiss();
+                this.f54799e.dismiss();
                 d.a.m0.g0.c.b bVar = new d.a.m0.g0.c.b(4101, null, null, null);
-                bVar.g(b.this.f51113e.getItem(this.f51123f));
-                bVar.i(b.this.f51109a.getUniqueId());
-                b.this.f51109a.getEventCenter().dispatchMvcEvent(bVar);
+                bVar.g(b.this.f54790e.getItem(this.f54800f));
+                bVar.i(b.this.f54786a.getUniqueId());
+                b.this.f54786a.getEventCenter().dispatchMvcEvent(bVar);
             }
         }
 
@@ -137,8 +137,8 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
             d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(b.this.getActivity());
             aVar.setMessage(b.this.getActivity().getString(R.string.chosen_post_dialog_text));
             aVar.setNegativeButton(R.string.cancel, new a(this, aVar));
-            aVar.setPositiveButton(R.string.confirm, new C1175b(aVar, i2));
-            aVar.create(b.this.f51109a.getPageContext());
+            aVar.setPositiveButton(R.string.confirm, new C1231b(aVar, i2));
+            aVar.create(b.this.f54786a.getPageContext());
             aVar.show();
             return true;
         }
@@ -150,12 +150,12 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.q
-        public void q(BdListView bdListView) {
+        public void g(BdListView bdListView) {
             if (l.D()) {
-                b.this.f51109a.getModelController().y();
-            } else if (b.this.f51114f != null) {
-                b.this.f51114f.d();
-                b.this.f51114f.g(R.string.no_more_msg);
+                b.this.f54786a.getModelController().C();
+            } else if (b.this.f54791f != null) {
+                b.this.f54791f.d();
+                b.this.f54791f.g(R.string.no_more_msg);
             }
         }
     }
@@ -169,7 +169,7 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
         public void onClick(View view) {
             b bVar = b.this;
             bVar.o(bVar.m());
-            b.this.f51116h.attachView(b.this.m(), true);
+            b.this.f54793h.attachView(b.this.m(), true);
             b.this.v();
         }
 
@@ -180,34 +180,34 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
 
     public b(ChosenPostActivity chosenPostActivity) {
         super(chosenPostActivity.getPageContext());
-        this.f51115g = false;
-        this.f51109a = chosenPostActivity;
+        this.f54792g = false;
+        this.f54786a = chosenPostActivity;
     }
 
     public Activity getActivity() {
-        return this.f51109a.getPageContext().getPageActivity();
+        return this.f54786a.getPageContext().getPageActivity();
     }
 
     public BdListView k() {
-        return this.f51112d;
+        return this.f54789d;
     }
 
     public d.a.m0.r.f0.g l() {
         if (this.m == null) {
-            this.m = new d.a.m0.r.f0.g(this.f51109a.getPageContext());
+            this.m = new d.a.m0.r.f0.g(this.f54786a.getPageContext());
         }
         return this.m;
     }
 
     public View m() {
-        return this.f51110b;
+        return this.f54787b;
     }
 
     public final void n(d.a.m0.g0.c.b bVar) {
         Object c2 = bVar.c();
         if (c2 instanceof Long) {
-            this.f51113e.p(((Long) c2).longValue());
-            if (this.f51113e.getCount() <= 5) {
+            this.f54790e.p(((Long) c2).longValue());
+            if (this.f54790e.getCount() <= 5) {
                 v();
             }
         }
@@ -221,34 +221,34 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
     }
 
     public void onServerError(ErrorData errorData) {
-        g gVar = this.f51116h;
+        g gVar = this.f54793h;
         if (gVar != null) {
             gVar.dettachView(m());
         }
-        if (errorData != null && this.f51113e.c() <= 0) {
+        if (errorData != null && this.f54790e.c() <= 0) {
             w(m(), getPageContext().getResources().getString(R.string.net_error_text, errorData.getError_msg(), Integer.valueOf(errorData.getError_code())), true);
         }
-        this.f51112d.A(0L);
-        d.a.m0.g0.g.a aVar = this.f51114f;
+        this.f54789d.A(0L);
+        d.a.m0.g0.g.a aVar = this.f54791f;
         if (aVar != null) {
             aVar.g(R.string.no_more_msg);
         }
     }
 
     public void p(TbPageContext<?> tbPageContext, int i2) {
-        NavigationBar navigationBar = this.f51111c;
+        NavigationBar navigationBar = this.f54788c;
         if (navigationBar != null) {
             navigationBar.onChangeSkinType(tbPageContext, i2);
         }
-        d.a.n0.a0.a.a aVar = this.f51113e;
+        d.a.n0.a0.a.a aVar = this.f54790e;
         if (aVar != null) {
             aVar.onChangeSkinType(tbPageContext, i2);
         }
-        d.a.m0.g0.g.a aVar2 = this.f51114f;
+        d.a.m0.g0.g.a aVar2 = this.f54791f;
         if (aVar2 != null) {
             aVar2.onChangeSkinType(tbPageContext, i2);
         }
-        NoNetworkView noNetworkView = this.f51117i;
+        NoNetworkView noNetworkView = this.f54794i;
         if (noNetworkView != null) {
             noNetworkView.c(tbPageContext, i2);
         }
@@ -259,8 +259,8 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
     }
 
     public View q() {
-        View inflate = this.f51109a.getLayoutInflater().inflate(R.layout.chosen_post_activity, (ViewGroup) null);
-        this.f51110b = inflate;
+        View inflate = this.f54786a.getLayoutInflater().inflate(R.layout.chosen_post_activity, (ViewGroup) null);
+        this.f54787b = inflate;
         return inflate;
     }
 
@@ -269,10 +269,10 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
         if (b2 != 4102) {
             switch (b2) {
                 case 4097:
-                    this.f51115g = false;
+                    this.f54792g = false;
                     break;
                 case 4098:
-                    this.f51115g = true;
+                    this.f54792g = true;
                     break;
                 case 4099:
                     t(bVar.a());
@@ -285,50 +285,50 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
     }
 
     public void s() {
-        this.k = this.f51109a.getResources().getDimensionPixelSize(R.dimen.ds108);
-        this.l = this.f51109a.getResources().getDimensionPixelSize(R.dimen.ds150);
+        this.k = this.f54786a.getResources().getDimensionPixelSize(R.dimen.ds108);
+        this.l = this.f54786a.getResources().getDimensionPixelSize(R.dimen.ds150);
         NavigationBar navigationBar = (NavigationBar) m().findViewById(R.id.chosen_post_navigation_bar);
-        this.f51111c = navigationBar;
+        this.f54788c = navigationBar;
         navigationBar.setTitleText(R.string.recommend_frs_hot_thread_title);
-        this.f51111c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f51112d = (BdListView) m().findViewById(R.id.chosen_post_list);
-        this.f51117i = (NoNetworkView) m().findViewById(R.id.view_no_network);
-        d.a.n0.a0.a.a aVar = new d.a.n0.a0.a.a(this.f51109a.getPageContext(), new Class[]{d.a.n0.a0.a.c.c.class, d.a.n0.a0.a.c.b.class, d.a.n0.a0.a.c.a.class}, new int[]{R.layout.chosen_picture_layout, R.layout.chosen_no_picture_layout, R.layout.chosen_image_text_layout}, this.f51109a.getEventCenter());
-        this.f51113e = aVar;
-        this.f51112d.setAdapter((ListAdapter) aVar);
+        this.f54788c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f54789d = (BdListView) m().findViewById(R.id.chosen_post_list);
+        this.f54794i = (NoNetworkView) m().findViewById(R.id.view_no_network);
+        d.a.n0.a0.a.a aVar = new d.a.n0.a0.a.a(this.f54786a.getPageContext(), new Class[]{d.a.n0.a0.a.c.c.class, d.a.n0.a0.a.c.b.class, d.a.n0.a0.a.c.a.class}, new int[]{R.layout.chosen_picture_layout, R.layout.chosen_no_picture_layout, R.layout.chosen_image_text_layout}, this.f54786a.getEventCenter());
+        this.f54790e = aVar;
+        this.f54789d.setAdapter((ListAdapter) aVar);
         d.a.m0.r.f0.g l = l();
         this.m = l;
-        this.f51112d.setPullRefresh(l);
+        this.f54789d.setPullRefresh(l);
         this.m.a(new a());
-        this.f51112d.setOnItemClickListener(new C1174b());
-        this.f51112d.setOnItemLongClickListener(new c());
-        this.f51112d.setExOnSrollToBottomListener(new d());
-        d.a.m0.g0.g.a aVar2 = new d.a.m0.g0.g.a(this.f51109a);
-        this.f51114f = aVar2;
+        this.f54789d.setOnItemClickListener(new C1230b());
+        this.f54789d.setOnItemLongClickListener(new c());
+        this.f54789d.setExOnSrollToBottomListener(new d());
+        d.a.m0.g0.g.a aVar2 = new d.a.m0.g0.g.a(this.f54786a);
+        this.f54791f = aVar2;
         aVar2.a();
-        k().setNextPage(this.f51114f);
+        k().setNextPage(this.f54791f);
         g gVar = new g(getActivity());
-        this.f51116h = gVar;
+        this.f54793h = gVar;
         gVar.onChangeSkinType();
-        this.f51116h.attachView(m(), true);
-        this.f51109a.getModelController().w();
+        this.f54793h.attachView(m(), true);
+        this.f54786a.getModelController().A();
     }
 
     public void t(d.a.m0.g0.b.a aVar) {
         if (aVar instanceof d.a.n0.a0.a.d.b) {
             List<tinfo> a2 = ((d.a.n0.a0.a.d.b) aVar).a();
             if (a2 != null && a2.size() > 0) {
-                this.f51112d.setVisibility(0);
+                this.f54789d.setVisibility(0);
             }
-            g gVar = this.f51116h;
+            g gVar = this.f54793h;
             if (gVar != null) {
                 gVar.dettachView(m());
             }
-            if (this.f51115g) {
-                this.f51113e.i(a2);
+            if (this.f54792g) {
+                this.f54790e.i(a2);
                 return;
             }
-            this.f51113e.k(a2);
+            this.f54790e.k(a2);
             if (a2 == null) {
                 return;
             }
@@ -345,26 +345,26 @@ public class b extends d.a.c.a.d<ChosenPostActivity> {
         if (bVar instanceof d.a.m0.g0.d.a) {
             d.a.m0.g0.d.a aVar = (d.a.m0.g0.d.a) bVar;
             if (aVar.d()) {
-                this.f51114f.d();
+                this.f54791f.d();
                 if (aVar.b()) {
-                    this.f51114f.f(R.string.loading);
+                    this.f54791f.f(R.string.loading);
                 } else if (!aVar.a()) {
-                    this.f51114f.g(R.string.no_more_msg);
+                    this.f54791f.g(R.string.no_more_msg);
                 }
             } else {
-                this.f51114f.e();
+                this.f54791f.e();
             }
             if (aVar.c()) {
                 return;
             }
-            this.f51112d.A(0L);
+            this.f54789d.A(0L);
         }
     }
 
     public final void v() {
         d.a.m0.g0.c.b bVar = new d.a.m0.g0.c.b(4100, null, null, null);
-        bVar.i(this.f51109a.getUniqueId());
-        this.f51109a.getEventCenter().dispatchMvcEvent(bVar);
+        bVar.i(this.f54786a.getUniqueId());
+        this.f54786a.getEventCenter().dispatchMvcEvent(bVar);
     }
 
     public final void w(View view, String str, boolean z) {

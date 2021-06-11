@@ -24,37 +24,37 @@ import com.baidu.wallet.paysdk.ui.WalletSmsActivity;
 public class c implements ISmsController {
 
     /* renamed from: a  reason: collision with root package name */
-    public PayBaseActivity f25428a;
+    public PayBaseActivity f25531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f25429b = false;
+    public boolean f25532b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public ai f25430c;
+    public ai f25533c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SmsVerifyHandler f25431d;
+    public SmsVerifyHandler f25534d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SmsUpdateUiInterface f25432e;
+    public SmsUpdateUiInterface f25535e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f25433f;
+    public boolean f25536f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f25434g;
+    public String f25537g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f25435h;
+    public String f25538h;
 
     private void a(boolean z, String str, String str2, String str3) {
-        ac acVar = (ac) PayBeanFactory.getInstance().getBean((Context) this.f25428a, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE, ISmsController.BEAN_TAG);
+        ac acVar = (ac) PayBeanFactory.getInstance().getBean((Context) this.f25531a, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE, ISmsController.BEAN_TAG);
         String seed = PasswordController.getSeed();
         acVar.a(PasswordController.handlePwd(str, seed), SafePay.getInstance().encryptProxy(seed), z ? "1" : "2", "20000");
-        acVar.setResponseCallback((WalletSmsActivity) this.f25428a);
+        acVar.setResponseCallback((WalletSmsActivity) this.f25531a);
         acVar.a(str2, str3);
         acVar.execBean();
-        WalletGlobalUtils.safeShowDialog(this.f25428a, 0, "");
+        WalletGlobalUtils.safeShowDialog(this.f25531a, 0, "");
     }
 
     private boolean a(int i2) {
@@ -73,7 +73,7 @@ public class c implements ISmsController {
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void doOnDestroy() {
-        this.f25428a = null;
+        this.f25531a = null;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
@@ -93,39 +93,39 @@ public class c implements ISmsController {
     public boolean handleFailure(int i2, int i3, String str) {
         if (i2 != 10) {
             if (i2 == 576) {
-                WalletGlobalUtils.safeDismissDialog(this.f25428a, 0);
+                WalletGlobalUtils.safeDismissDialog(this.f25531a, 0);
                 if (a(i3)) {
-                    GlobalUtils.toast(this.f25428a, str);
+                    GlobalUtils.toast(this.f25531a, str);
                     return true;
                 }
                 Intent intent = new Intent();
                 intent.putExtra(PaySettingActivity.APPLY_SUCCESS, false);
-                this.f25428a.setResult(-1, intent);
-                this.f25428a.finish();
+                this.f25531a.setResult(-1, intent);
+                this.f25531a.finish();
                 return true;
             }
             return false;
         }
-        WalletGlobalUtils.safeDismissDialog(this.f25428a, 0);
+        WalletGlobalUtils.safeDismissDialog(this.f25531a, 0);
         if (i3 == 5003) {
-            AccountManager.getInstance(this.f25428a.getActivity()).logout();
+            AccountManager.getInstance(this.f25531a.getActivity()).logout();
             WalletLoginHelper.getInstance().logout(false);
         }
-        if (this.f25429b) {
-            this.f25429b = false;
+        if (this.f25532b) {
+            this.f25532b = false;
         }
         if (TextUtils.isEmpty(str)) {
-            PayBaseActivity payBaseActivity = this.f25428a;
+            PayBaseActivity payBaseActivity = this.f25531a;
             str = payBaseActivity.getString(ResUtils.string(payBaseActivity, "ebpay_send_fail"));
         }
-        SmsVerifyHandler smsVerifyHandler = this.f25431d;
+        SmsVerifyHandler smsVerifyHandler = this.f25534d;
         if (smsVerifyHandler != null) {
             smsVerifyHandler.onSmsSendFailure(i3, str);
         }
-        SmsUpdateUiInterface smsUpdateUiInterface = this.f25432e;
+        SmsUpdateUiInterface smsUpdateUiInterface = this.f25535e;
         if (smsUpdateUiInterface != null) {
             smsUpdateUiInterface.clearSmsEditText();
-            this.f25432e.doStopCountDown();
+            this.f25535e.doStopCountDown();
             return true;
         }
         return true;
@@ -135,27 +135,27 @@ public class c implements ISmsController {
     public boolean handleResponse(int i2, Object obj, String str) {
         if (i2 != 10) {
             if (i2 == 576) {
-                WalletGlobalUtils.safeDismissDialog(this.f25428a, 0);
+                WalletGlobalUtils.safeDismissDialog(this.f25531a, 0);
                 Intent intent = new Intent();
                 intent.putExtra(PaySettingActivity.APPLY_SUCCESS, true);
-                this.f25428a.setResult(-1, intent);
-                this.f25428a.finish();
+                this.f25531a.setResult(-1, intent);
+                this.f25531a.finish();
                 return true;
             }
             return false;
         }
-        WalletGlobalUtils.safeDismissDialog(this.f25428a, 0);
+        WalletGlobalUtils.safeDismissDialog(this.f25531a, 0);
         if (obj instanceof VerifyCodeResponseForNoPwd) {
             VerifyCodeResponseForNoPwd verifyCodeResponseForNoPwd = (VerifyCodeResponseForNoPwd) obj;
-            SmsUpdateUiInterface smsUpdateUiInterface = this.f25432e;
+            SmsUpdateUiInterface smsUpdateUiInterface = this.f25535e;
             if (smsUpdateUiInterface != null) {
                 smsUpdateUiInterface.upDateSafeKeyBoradView(verifyCodeResponseForNoPwd.sms_length, verifyCodeResponseForNoPwd.sms_type);
             }
         }
-        if (this.f25429b) {
-            this.f25429b = false;
+        if (this.f25532b) {
+            this.f25532b = false;
         }
-        SmsVerifyHandler smsVerifyHandler = this.f25431d;
+        SmsVerifyHandler smsVerifyHandler = this.f25534d;
         if (smsVerifyHandler != null) {
             smsVerifyHandler.onSmsVerifySuccess();
             return true;
@@ -165,11 +165,11 @@ public class c implements ISmsController {
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void initSmsActivityView() {
-        PayBaseActivity payBaseActivity = this.f25428a;
+        PayBaseActivity payBaseActivity = this.f25531a;
         if (payBaseActivity == null) {
             return;
         }
-        this.f25432e.initSMSActivityView("wallet_base_verify_phone_no", "", payBaseActivity.getString(ResUtils.string(payBaseActivity, "wallet_base_next_step")), this.f25435h, false);
+        this.f25535e.initSMSActivityView("wallet_base_verify_phone_no", "", payBaseActivity.getString(ResUtils.string(payBaseActivity, "wallet_base_next_step")), this.f25538h, false);
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
@@ -184,7 +184,7 @@ public class c implements ISmsController {
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public boolean onCreateCheckInvalide(Bundle bundle) {
-        this.f25429b = isSendSmsOnCreate();
+        this.f25532b = isSendSmsOnCreate();
         com.baidu.wallet.paysdk.datamodel.e eVar = new com.baidu.wallet.paysdk.datamodel.e();
         if (eVar.checkRequestValidity()) {
             PayRequestCache.getInstance().addBeanRequestToCache(eVar.getRequestId(), eVar);
@@ -194,37 +194,37 @@ public class c implements ISmsController {
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void onNextBtnClick(String str) {
-        a(this.f25433f, this.f25434g, this.f25435h, str);
+        a(this.f25536f, this.f25537g, this.f25538h, str);
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void sendSms() {
         PayBaseActivity payBaseActivity;
-        if (this.f25429b && (payBaseActivity = this.f25428a) != null) {
+        if (this.f25532b && (payBaseActivity = this.f25531a) != null) {
             WalletGlobalUtils.safeShowDialog(payBaseActivity, 0, "");
         }
-        if (this.f25430c == null) {
-            this.f25430c = (ai) PayBeanFactory.getInstance().getBean((Context) this.f25428a, 10, ISmsController.BEAN_TAG);
+        if (this.f25533c == null) {
+            this.f25533c = (ai) PayBeanFactory.getInstance().getBean((Context) this.f25531a, 10, ISmsController.BEAN_TAG);
         }
-        this.f25430c.setResponseCallback(this.f25428a);
-        this.f25430c.execBean();
+        this.f25533c.setResponseCallback(this.f25531a);
+        this.f25533c.execBean();
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void setActivity(PayBaseActivity payBaseActivity) {
-        this.f25428a = payBaseActivity;
-        this.f25433f = payBaseActivity.getIntent().getBooleanExtra(PaySettingActivity.OPENED, true);
-        this.f25434g = this.f25428a.getIntent().getStringExtra(PaySettingActivity.PWD);
-        this.f25435h = this.f25428a.getIntent().getStringExtra("phone");
+        this.f25531a = payBaseActivity;
+        this.f25536f = payBaseActivity.getIntent().getBooleanExtra(PaySettingActivity.OPENED, true);
+        this.f25537g = this.f25531a.getIntent().getStringExtra(PaySettingActivity.PWD);
+        this.f25538h = this.f25531a.getIntent().getStringExtra("phone");
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void setSmsUpdateUIInterface(SmsUpdateUiInterface smsUpdateUiInterface) {
-        this.f25432e = smsUpdateUiInterface;
+        this.f25535e = smsUpdateUiInterface;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
     public void setSmsVerifyHandler(SmsVerifyHandler smsVerifyHandler) {
-        this.f25431d = smsVerifyHandler;
+        this.f25534d = smsVerifyHandler;
     }
 }

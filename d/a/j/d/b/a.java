@@ -1,7 +1,7 @@
 package d.a.j.d.b;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static void a(ByteBuffer byteBuffer, ByteBuffer byteBuffer2, ByteBuffer byteBuffer3, int i2) {
         if (i2 < 0 || byteBuffer2.remaining() < i2 || byteBuffer3.remaining() < i2 || byteBuffer.remaining() < i2) {

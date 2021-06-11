@@ -33,13 +33,13 @@ import d.a.m0.e0.d;
 public class PersonInfoDelegateStatic extends d.a.m0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f19663a;
+    public MessageRedDotView f19740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f19664b = Boolean.FALSE;
+    public Boolean f19741b = Boolean.FALSE;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f19665c;
+    public CustomMessageListener f19742c;
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
@@ -59,7 +59,7 @@ public class PersonInfoDelegateStatic extends d.a.m0.e0.b {
             if (((d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = personInfoDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
-            fragmentTabStructure.f49334a.setArguments(new Bundle());
+            fragmentTabStructure.f53008a.setArguments(new Bundle());
         }
     }
 
@@ -75,15 +75,15 @@ public class PersonInfoDelegateStatic extends d.a.m0.e0.b {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2007014 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof d.a.m0.e0.a)) {
                 return;
             }
-            PersonInfoDelegateStatic.this.f19664b = Boolean.valueOf(((d.a.m0.e0.a) customResponsedMessage.getData()).f49333a);
-            if (PersonInfoDelegateStatic.this.f19664b.booleanValue()) {
-                PersonInfoDelegateStatic.this.f19663a.f(0);
-                PersonInfoDelegateStatic.this.f19663a.setVisibility(0);
+            PersonInfoDelegateStatic.this.f19741b = Boolean.valueOf(((d.a.m0.e0.a) customResponsedMessage.getData()).f53007a);
+            if (PersonInfoDelegateStatic.this.f19741b.booleanValue()) {
+                PersonInfoDelegateStatic.this.f19740a.f(0);
+                PersonInfoDelegateStatic.this.f19740a.setVisibility(0);
             } else {
-                PersonInfoDelegateStatic.this.f19663a.setVisibility(8);
+                PersonInfoDelegateStatic.this.f19740a.setVisibility(8);
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (!PersonInfoDelegateStatic.this.f19664b.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
+            if (!PersonInfoDelegateStatic.this.f19741b.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
                 d.a.m0.r.d0.b.j().t("member_close_ad_mine_clicked", true);
             }
         }
@@ -132,30 +132,30 @@ public class PersonInfoDelegateStatic extends d.a.m0.e0.b {
     @Override // d.a.m0.e0.b
     public d.a.m0.e0.c createFragmentTabStructure() {
         d.a.m0.e0.c cVar = new d.a.m0.e0.c();
-        cVar.f49334a = new PersonCenterFragment();
-        cVar.f49338e = 8;
-        cVar.f49335b = R.string.mine;
-        cVar.f49339f = R.raw.lottie_tab_my;
-        cVar.f49342i = d.a.m0.e0.c.m;
-        cVar.f49341h = d.a.m0.e0.e.c.d().c("person");
+        cVar.f53008a = new PersonCenterFragment();
+        cVar.f53012e = 8;
+        cVar.f53009b = R.string.mine;
+        cVar.f53013f = R.raw.lottie_tab_my;
+        cVar.f53016i = d.a.m0.e0.c.m;
+        cVar.f53015h = d.a.m0.e0.e.c.d().c("person");
         return cVar;
     }
 
     @Override // d.a.m0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.f19663a = new MessageRedDotView(context);
+        this.f19740a = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f12872f = this.mIndicator;
-        aVar.f12869c = l.e(context, 10.0f);
-        aVar.f12867a = this.f19663a;
+        aVar.f12937f = this.mIndicator;
+        aVar.f12934c = l.e(context, 10.0f);
+        aVar.f12932a = this.f19740a;
         this.mIndicator.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
         boolean g2 = d.a.m0.r.d0.b.j().g("key_feedback_tip_tab_show", false);
-        if (!this.f19664b.booleanValue() && !g2) {
-            this.f19663a.setVisibility(8);
+        if (!this.f19741b.booleanValue() && !g2) {
+            this.f19740a.setVisibility(8);
         } else {
-            this.f19663a.f(0);
-            this.f19663a.setVisibility(0);
+            this.f19740a.f(0);
+            this.f19740a.setVisibility(0);
         }
         return this.mIndicator;
     }
@@ -168,14 +168,14 @@ public class PersonInfoDelegateStatic extends d.a.m0.e0.b {
     @Override // d.a.m0.e0.b
     public void onAdd() {
         b bVar = new b(2007014);
-        this.f19665c = bVar;
+        this.f19742c = bVar;
         bVar.setPriority(9);
-        MessageManager.getInstance().registerListener(this.f19665c);
+        MessageManager.getInstance().registerListener(this.f19742c);
     }
 
     @Override // d.a.m0.e0.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.f19665c);
+        MessageManager.getInstance().unRegisterListener(this.f19742c);
     }
 }

@@ -20,34 +20,34 @@ public class h extends d.a.l0.a.a0.a.a {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a0.b.f f40580e;
+        public final /* synthetic */ d.a.l0.a.a0.b.f f44256e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CanvasView f40581f;
+        public final /* synthetic */ CanvasView f44257f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f40582g;
+        public final /* synthetic */ String f44258g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f40583h;
+        public final /* synthetic */ UnitedSchemeEntity f44259h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f40584i;
+        public final /* synthetic */ d.a.l0.a.a2.e f44260i;
         public final /* synthetic */ CallbackHandler j;
 
         public a(h hVar, d.a.l0.a.a0.b.f fVar, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, d.a.l0.a.a2.e eVar, CallbackHandler callbackHandler) {
-            this.f40580e = fVar;
-            this.f40581f = canvasView;
-            this.f40582g = str;
-            this.f40583h = unitedSchemeEntity;
-            this.f40584i = eVar;
+            this.f44256e = fVar;
+            this.f44257f = canvasView;
+            this.f44258g = str;
+            this.f44259h = unitedSchemeEntity;
+            this.f44260i = eVar;
             this.j = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            boolean i2 = this.f40580e.i(this.f40581f, this.f40582g);
-            HashMap<String, String> params = this.f40583h.getParams();
+            boolean i2 = this.f44256e.i(this.f44257f, this.f44258g);
+            HashMap<String, String> params = this.f44259h.getParams();
             if (params == null || params.isEmpty()) {
                 return;
             }
@@ -57,7 +57,7 @@ public class h extends d.a.l0.a.a0.a.a {
             if (str != null) {
                 try {
                     str2 = new JSONObject(str).optString("cb");
-                    jSONObject.putOpt("tempFilePath", d.a.l0.a.k2.b.J(this.f40582g, this.f40584i.f40749f));
+                    jSONObject.putOpt("tempFilePath", d.a.l0.a.k2.b.J(this.f44258g, this.f44260i.f44425f));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -83,7 +83,7 @@ public class h extends d.a.l0.a.a0.a.a {
             unitedSchemeEntity.result = l(201);
             return false;
         }
-        String x = d.a.l0.a.k2.b.x(eVar.f40749f);
+        String x = d.a.l0.a.k2.b.x(eVar.f44425f);
         if (TextUtils.isEmpty(x)) {
             d.a.l0.a.e0.d.b("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
             unitedSchemeEntity.result = l(201);
@@ -96,10 +96,10 @@ public class h extends d.a.l0.a.a0.a.a {
             str = str2 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
         }
         String str3 = str;
-        if (TextUtils.isEmpty(m.f40846g) && (J = d.a.l0.a.g1.f.V().J()) != null) {
-            m.f40846g = J.g3();
+        if (TextUtils.isEmpty(m.f44522g) && (J = d.a.l0.a.g1.f.V().J()) != null) {
+            m.f44522g = J.g3();
         }
-        if (!TextUtils.isEmpty(m.f40846g) && !TextUtils.isEmpty(m.f40845f)) {
+        if (!TextUtils.isEmpty(m.f44522g) && !TextUtils.isEmpty(m.f44521f)) {
             CanvasView a2 = d.a.l0.a.c0.c.d.b.a.a(m);
             if (a2 == null) {
                 d.a.l0.a.e0.d.b("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
@@ -110,7 +110,7 @@ public class h extends d.a.l0.a.a0.a.a {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
-        d.a.l0.a.e0.d.b("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.f40846g + " ; canvas id = " + m.f40845f);
+        d.a.l0.a.e0.d.b("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.f44522g + " ; canvas id = " + m.f44521f);
         unitedSchemeEntity.result = l(201);
         return false;
     }

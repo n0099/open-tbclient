@@ -14,10 +14,10 @@ public class f {
     public static class a implements d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.j.b f47857a;
+        public final /* synthetic */ d.a.l0.j.b f51531a;
 
         public a(d.a.l0.j.b bVar) {
-            this.f47857a = bVar;
+            this.f51531a = bVar;
         }
 
         @Override // d.a.l0.j.k.f.d.c
@@ -27,7 +27,7 @@ public class f {
 
         @Override // d.a.l0.j.k.f.d.c
         public void onSuccess() {
-            this.f47857a.q(true);
+            this.f51531a.q(true);
             d.a.l0.a.e0.d.g("map", "location permission success");
         }
     }
@@ -58,7 +58,7 @@ public class f {
             if (cVar3 != null && cVar3.isValid()) {
                 d.a.l0.a.e0.d.g("map", "initMapView coordinate is " + cVar2.n);
                 d.a.l0.a.h1.c.h.c cVar4 = cVar2.n;
-                map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar4.f42673e, cVar4.f42674f)));
+                map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar4.f46349e, cVar4.f46350f)));
             }
             map.animateMapStatus(MapStatusUpdateFactory.zoomTo((float) cVar2.o));
             d.a.l0.a.e0.d.g("map", "initMapView scale is " + cVar2.o);

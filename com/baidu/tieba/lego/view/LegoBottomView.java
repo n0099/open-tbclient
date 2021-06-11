@@ -14,16 +14,16 @@ import d.a.n0.k1.k;
 public class LegoBottomView extends RelativeLayout implements k {
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f18023e;
+    public ObjectAnimator f18099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f18024f;
+    public Runnable f18100f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18025g;
+    public boolean f18101g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18026h;
+    public boolean f18102h;
 
     /* loaded from: classes4.dex */
     public class a implements Animator.AnimatorListener {
@@ -55,21 +55,21 @@ public class LegoBottomView extends RelativeLayout implements k {
 
         @Override // java.lang.Runnable
         public void run() {
-            LegoBottomView.this.f18023e.start();
+            LegoBottomView.this.f18099e.start();
         }
     }
 
     public LegoBottomView(Context context) {
         super(context);
-        this.f18023e = null;
-        this.f18024f = null;
-        this.f18025g = false;
-        this.f18026h = false;
+        this.f18099e = null;
+        this.f18100f = null;
+        this.f18101g = false;
+        this.f18102h = false;
         d();
     }
 
     public void b(BaseCardView baseCardView, ICardInfo iCardInfo) {
-        baseCardView.g(iCardInfo);
+        baseCardView.i(iCardInfo);
         if (baseCardView instanceof ButtonCardView) {
             ((ButtonCardView) baseCardView).setBackgroundAlpha(0.3f);
         }
@@ -77,21 +77,21 @@ public class LegoBottomView extends RelativeLayout implements k {
     }
 
     public void c() {
-        this.f18025g = false;
-        this.f18026h = false;
-        removeCallbacks(this.f18024f);
+        this.f18101g = false;
+        this.f18102h = false;
+        removeCallbacks(this.f18100f);
     }
 
     public final void d() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 0.5f, 1.0f);
-        this.f18023e = ofFloat;
+        this.f18099e = ofFloat;
         ofFloat.setDuration(1000L);
-        this.f18023e.addListener(new a());
-        this.f18024f = new b();
+        this.f18099e.addListener(new a());
+        this.f18100f = new b();
     }
 
     public boolean e() {
-        return this.f18025g;
+        return this.f18101g;
     }
 
     @Override // d.a.n0.k1.k
@@ -100,37 +100,37 @@ public class LegoBottomView extends RelativeLayout implements k {
             if (i2 == 1 || i2 == 2) {
                 setVisibility(8);
             }
-        } else if (getVisibility() == 0 || this.f18026h) {
+        } else if (getVisibility() == 0 || this.f18102h) {
         } else {
-            removeCallbacks(this.f18024f);
-            postDelayed(this.f18024f, 1000L);
+            removeCallbacks(this.f18100f);
+            postDelayed(this.f18100f, 1000L);
         }
     }
 
     public void setIsShow(boolean z) {
-        this.f18025g = z;
+        this.f18101g = z;
     }
 
     public void setIsVideoLandscape(boolean z) {
-        removeCallbacks(this.f18024f);
-        this.f18026h = z;
+        removeCallbacks(this.f18100f);
+        this.f18102h = z;
     }
 
     public LegoBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18023e = null;
-        this.f18024f = null;
-        this.f18025g = false;
-        this.f18026h = false;
+        this.f18099e = null;
+        this.f18100f = null;
+        this.f18101g = false;
+        this.f18102h = false;
         d();
     }
 
     public LegoBottomView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f18023e = null;
-        this.f18024f = null;
-        this.f18025g = false;
-        this.f18026h = false;
+        this.f18099e = null;
+        this.f18100f = null;
+        this.f18101g = false;
+        this.f18102h = false;
         d();
     }
 }

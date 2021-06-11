@@ -10,26 +10,26 @@ import java.nio.ByteBuffer;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final MediaMuxer f66086a;
+    public final MediaMuxer f69817a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66087b = 2;
+    public int f69818b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66088c = 0;
+    public int f69819c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f66089d = false;
+    public boolean f69820d = false;
 
     public c(String str) throws IOException {
-        this.f66086a = new MediaMuxer(str, 0);
+        this.f69817a = new MediaMuxer(str, 0);
     }
 
     public synchronized int a(MediaFormat mediaFormat) {
         int addTrack;
-        if (!this.f66089d) {
-            addTrack = this.f66086a.addTrack(mediaFormat);
-            Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.f66087b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+        if (!this.f69820d) {
+            addTrack = this.f69817a.addTrack(mediaFormat);
+            Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.f69818b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
         } else {
             throw new IllegalStateException("muxer already started");
         }
@@ -37,37 +37,37 @@ public class c {
     }
 
     public synchronized boolean b() {
-        return this.f66089d;
+        return this.f69820d;
     }
 
     public synchronized boolean c() {
         Log.v("MediaMuxerWrapper", "start:");
-        int i2 = this.f66088c + 1;
-        this.f66088c = i2;
-        if (this.f66087b > 0 && i2 == this.f66087b) {
-            this.f66086a.start();
-            this.f66089d = true;
+        int i2 = this.f69819c + 1;
+        this.f69819c = i2;
+        if (this.f69818b > 0 && i2 == this.f69818b) {
+            this.f69817a.start();
+            this.f69820d = true;
             notifyAll();
             Log.v("MediaMuxerWrapper", "MediaMuxer started:");
         }
-        return this.f66089d;
+        return this.f69820d;
     }
 
     public synchronized void d() {
-        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.f66088c);
-        int i2 = this.f66088c + (-1);
-        this.f66088c = i2;
-        if (this.f66087b > 0 && i2 <= 0) {
-            this.f66086a.stop();
-            this.f66086a.release();
-            this.f66089d = false;
+        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.f69819c);
+        int i2 = this.f69819c + (-1);
+        this.f69819c = i2;
+        if (this.f69818b > 0 && i2 <= 0) {
+            this.f69817a.stop();
+            this.f69817a.release();
+            this.f69820d = false;
             Log.v("MediaMuxerWrapper", "MediaMuxer stopped:");
         }
     }
 
     public synchronized void e(int i2, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        if (this.f66088c > 0) {
-            this.f66086a.writeSampleData(i2, byteBuffer, bufferInfo);
+        if (this.f69819c > 0) {
+            this.f69817a.writeSampleData(i2, byteBuffer, bufferInfo);
         }
     }
 }

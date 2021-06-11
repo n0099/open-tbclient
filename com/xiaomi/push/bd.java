@@ -3,26 +3,26 @@ package com.xiaomi.push;
 public class bd implements bf {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f37349a;
+    public final String f41028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f37350b;
+    public final String f41029b;
 
     public bd(String str, String str2) {
         if (str == null) {
             throw new IllegalArgumentException("Name may not be null");
         }
-        this.f37349a = str;
-        this.f37350b = str2;
+        this.f41028a = str;
+        this.f41029b = str2;
     }
 
     @Override // com.xiaomi.push.bf
     public String a() {
-        return this.f37349a;
+        return this.f41028a;
     }
 
     @Override // com.xiaomi.push.bf
     public String b() {
-        return this.f37350b;
+        return this.f41029b;
     }
 }

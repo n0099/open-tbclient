@@ -7,11 +7,11 @@ import kotlin.jvm.internal.Intrinsics;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f44577a;
+    public static final d f48251a;
 
     static {
         d dVar = new d();
-        f44577a = dVar;
+        f48251a = dVar;
         Intrinsics.checkNotNullExpressionValue(dVar.getClass().getSimpleName(), "SwanAppAllianceLoginBdus…ager.javaClass.simpleName");
     }
 

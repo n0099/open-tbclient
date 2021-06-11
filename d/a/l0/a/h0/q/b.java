@@ -38,63 +38,63 @@ import okhttp3.Response;
 public class b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f42522g = k.f43199a;
+    public static final boolean f46198g = k.f46875a;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f42523h = null;
+    public static volatile b f46199h = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f42525b;
+    public List<String> f46201b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f42526c;
+    public Map<String, String> f46202c;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f42524a = Collections.synchronizedList(new ArrayList());
+    public final List<String> f46200a = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f42527d = new LinkedHashMap();
+    public Map<String, String> f46203d = new LinkedHashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42528e = false;
+    public boolean f46204e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f42529f = new AtomicInteger(0);
+    public AtomicInteger f46205f = new AtomicInteger(0);
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f42530e;
+        public final /* synthetic */ String f46206e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f42531f;
+        public final /* synthetic */ boolean f46207f;
 
         public a(String str, boolean z) {
-            this.f42530e = str;
-            this.f42531f = z;
+            this.f46206e = str;
+            this.f46207f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Set<String> g2 = d.a.l0.a.b2.a.c.g(this.f42530e);
+            Set<String> g2 = d.a.l0.a.b2.a.c.g(this.f46206e);
             int i2 = 0;
-            if (b.f42522g) {
+            if (b.f46198g) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("startPreLink appId=");
-                sb.append(this.f42530e);
+                sb.append(this.f46206e);
                 sb.append(" preLinkSet=");
                 sb.append(g2 == null ? 0 : g2.size());
                 sb.append(", hotLaunch=");
-                sb.append(this.f42531f);
+                sb.append(this.f46207f);
                 Log.d("SwanPrelink", sb.toString());
             }
             if (g2 != null && !g2.isEmpty()) {
-                b.this.f42524a.clear();
-                b.this.f42529f.set(0);
-                b.this.f42525b = new ArrayList(g2);
+                b.this.f46200a.clear();
+                b.this.f46205f.set(0);
+                b.this.f46201b = new ArrayList(g2);
                 for (String str : g2) {
                     if (!TextUtils.isEmpty(str)) {
                         if (i2 >= 5) {
@@ -102,7 +102,7 @@ public class b {
                         }
                         String e2 = h.e(str);
                         if (!TextUtils.isEmpty(e2)) {
-                            b.this.f42524a.add(e2);
+                            b.this.f46200a.add(e2);
                             b.this.f(i2, str, e2, true);
                             i2++;
                         }
@@ -116,43 +116,43 @@ public class b {
 
     /* renamed from: d.a.l0.a.h0.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0697b implements StatResponseCallback {
+    public class C0753b implements StatResponseCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f42533e;
+        public final /* synthetic */ String f46209e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f42534f;
+        public final /* synthetic */ boolean f46210f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f42535g;
+        public final /* synthetic */ int f46211g;
 
-        public C0697b(String str, boolean z, int i2) {
-            this.f42533e = str;
-            this.f42534f = z;
-            this.f42535g = i2;
+        public C0753b(String str, boolean z, int i2) {
+            this.f46209e = str;
+            this.f46210f = z;
+            this.f46211g = i2;
         }
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public void onFail(Exception exc) {
-            if (b.f42522g) {
+            if (b.f46198g) {
                 Log.w("SwanPrelink", "doPrelink: onFail: " + exc.getMessage());
             }
         }
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public void onSuccess(Object obj, int i2) {
-            if (b.f42522g) {
+            if (b.f46198g) {
                 Log.i("SwanPrelink", "doPrelink: onSuccess: " + i2);
             }
         }
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public Object parseResponse(Response response, int i2, NetworkStatRecord networkStatRecord) throws Exception {
-            if (b.f42522g) {
+            if (b.f46198g) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("doPrelink: parseResponse: url: ");
-                sb.append(this.f42533e);
+                sb.append(this.f46209e);
                 sb.append(" response: ");
                 sb.append(response == null ? StringUtil.NULL_STRING : Integer.valueOf(response.code()));
                 Log.i("SwanPrelink", sb.toString());
@@ -160,16 +160,16 @@ public class b {
             if (networkStatRecord != null) {
                 long j = networkStatRecord.dnsEndTs - networkStatRecord.dnsStartTs;
                 long j2 = networkStatRecord.connTs - networkStatRecord.startTs;
-                if (b.f42522g) {
-                    Log.d("SwanPrelink", "doPrelink: hit: url: " + this.f42533e);
+                if (b.f46198g) {
+                    Log.d("SwanPrelink", "doPrelink: hit: url: " + this.f46209e);
                     Log.d("SwanPrelink", "doPrelink: isConnReused: " + networkStatRecord.isConnReused);
                     Log.d("SwanPrelink", "doPrelink: dnsTime: " + j + " connTime: " + j2);
                 }
                 int code = response != null ? response.code() : 0;
-                if (this.f42534f) {
+                if (this.f46210f) {
                     b bVar = b.this;
-                    int i3 = this.f42535g;
-                    bVar.q(i3, "预连接请求返回", "code=" + code + " dns解析时长=" + j + "ms 网络连接时长=" + j2 + "ms url=" + this.f42533e);
+                    int i3 = this.f46211g;
+                    bVar.q(i3, "预连接请求返回", "code=" + code + " dns解析时长=" + j + "ms 网络连接时长=" + j2 + "ms url=" + this.f46209e);
                 }
             }
             return response;
@@ -180,53 +180,53 @@ public class b {
     public class c implements NetRequestCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f42537a;
+        public final /* synthetic */ boolean f46213a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f42538b;
+        public final /* synthetic */ int f46214b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f42539c;
+        public final /* synthetic */ String f46215c;
 
         public c(boolean z, int i2, String str) {
-            this.f42537a = z;
-            this.f42538b = i2;
-            this.f42539c = str;
+            this.f46213a = z;
+            this.f46214b = i2;
+            this.f46215c = str;
         }
 
         @Override // com.baidu.searchbox.v8engine.net.NetRequestCallback
         public void onFailed(int i2, String str) {
-            if (this.f42537a) {
+            if (this.f46213a) {
                 b bVar = b.this;
-                int i3 = this.f42538b;
+                int i3 = this.f46214b;
                 bVar.q(i3, "预连接请求返回", "code=" + i2 + " msg=" + str);
             }
         }
 
         @Override // com.baidu.searchbox.v8engine.net.NetRequestCallback
         public void onSucceeded(String str, int i2, Map<String, String> map) {
-            if (this.f42537a) {
+            if (this.f46213a) {
                 b bVar = b.this;
-                int i3 = this.f42538b;
-                bVar.q(i3, "预连接请求返回", "code=" + i2 + " url=" + this.f42539c);
+                int i3 = this.f46214b;
+                bVar.q(i3, "预连接请求返回", "code=" + i2 + " url=" + this.f46215c);
             }
         }
     }
 
     public static b g() {
-        if (f42523h == null) {
+        if (f46199h == null) {
             synchronized (b.class) {
-                if (f42523h == null) {
-                    f42523h = new b();
+                if (f46199h == null) {
+                    f46199h = new b();
                 }
             }
         }
-        return f42523h;
+        return f46199h;
     }
 
     @WorkerThread
     public final void f(int i2, @NonNull String str, @NonNull String str2, boolean z) {
-        if (f42522g) {
+        if (f46198g) {
             Log.d("SwanPrelink", "doPrelink: " + str);
         }
         if (d.b()) {
@@ -234,19 +234,19 @@ public class b {
             return;
         }
         d.a.l0.m.d.a aVar = new d.a.l0.m.d.a();
-        aVar.f47970b = "HEAD";
+        aVar.f51644b = "HEAD";
         HttpRequestBuilder a2 = d.a.l0.m.e.b.a(aVar);
         a2.setHeader("Referer", h.d());
-        aVar.f47969a = str;
-        aVar.f47974f = true;
-        aVar.f47975g = false;
-        aVar.f47976h = true;
+        aVar.f51643a = str;
+        aVar.f51648f = true;
+        aVar.f51649g = false;
+        aVar.f51650h = true;
         d.a.l0.m.e.a.g().t(a2, aVar);
         HttpRequest build = a2.enableStat(true).build();
         if (z) {
             q(i2, "校验通过", "开始向 url=" + str + " 发送预连接 HEAD 请求");
         }
-        build.executeStat(new C0697b(str, z, i2));
+        build.executeStat(new C0753b(str, z, i2));
     }
 
     public Set<String> h(String str, boolean z) {
@@ -276,7 +276,7 @@ public class b {
     }
 
     public final boolean i() {
-        return !this.f42524a.isEmpty();
+        return !this.f46200a.isEmpty();
     }
 
     public final void j(int i2, @NonNull String str, @NonNull String str2, boolean z) {
@@ -300,26 +300,26 @@ public class b {
 
     public synchronized void k(@NonNull String str, @NonNull String str2) {
         if (i()) {
-            if (this.f42529f.get() == this.f42524a.size()) {
-                if (f42522g) {
+            if (this.f46205f.get() == this.f46200a.size()) {
+                if (f46198g) {
                     Log.d("SwanPrelink", "onBusinessRequest doRequest: " + str2);
                 }
-            } else if (this.f42525b == null || !this.f42525b.contains(str2)) {
+            } else if (this.f46201b == null || !this.f46201b.contains(str2)) {
                 String e2 = h.e(str2);
-                if (e2 != null && this.f42524a.contains(e2)) {
-                    if (this.f42526c == null) {
-                        this.f42526c = new ArrayMap();
-                    } else if (this.f42526c.containsKey(e2)) {
+                if (e2 != null && this.f46200a.contains(e2)) {
+                    if (this.f46202c == null) {
+                        this.f46202c = new ArrayMap();
+                    } else if (this.f46202c.containsKey(e2)) {
                         return;
                     }
-                    this.f42526c.put(e2, str);
-                    if (f42522g) {
+                    this.f46202c.put(e2, str);
+                    if (f46198g) {
                         Log.i("SwanPrelink", "onBusinessRequest hit: " + str2);
                     }
-                    q(this.f42526c.size() - 1, "业务方触发第一个同域名请求", "url=" + str2);
+                    q(this.f46202c.size() - 1, "业务方触发第一个同域名请求", "url=" + str2);
                     return;
                 }
-                if (f42522g) {
+                if (f46198g) {
                     Log.d("SwanPrelink", "onBusinessRequest: miss tag " + str2);
                 }
             }
@@ -328,27 +328,27 @@ public class b {
 
     public synchronized void l(@NonNull String str, @NonNull HttpUrl httpUrl) {
         if (i()) {
-            if (this.f42529f.get() == this.f42524a.size()) {
-                if (f42522g) {
+            if (this.f46205f.get() == this.f46200a.size()) {
+                if (f46198g) {
                     Log.d("SwanPrelink", "onBusinessRequest doRequest: " + httpUrl);
                 }
                 return;
             }
             String host = httpUrl.host();
-            if (host != null && this.f42524a.contains(host)) {
-                if (this.f42526c == null) {
-                    this.f42526c = new ArrayMap();
-                } else if (this.f42526c.containsKey(host)) {
+            if (host != null && this.f46200a.contains(host)) {
+                if (this.f46202c == null) {
+                    this.f46202c = new ArrayMap();
+                } else if (this.f46202c.containsKey(host)) {
                     return;
                 }
-                this.f42526c.put(host, str);
-                if (f42522g) {
+                this.f46202c.put(host, str);
+                if (f46198g) {
                     Log.i("SwanPrelink", "onBusinessRequest hit: " + httpUrl);
                 }
-                q(this.f42526c.size() - 1, "业务方触发第一个同域名请求", "url=" + httpUrl);
+                q(this.f46202c.size() - 1, "业务方触发第一个同域名请求", "url=" + httpUrl);
                 return;
             }
-            if (f42522g) {
+            if (f46198g) {
                 Log.d("SwanPrelink", "onBusinessRequest: miss tag " + httpUrl.toString());
             }
         }
@@ -357,7 +357,7 @@ public class b {
     @WorkerThread
     public void m(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
-            if (f42522g) {
+            if (f46198g) {
                 Log.w("SwanPrelink", "prelink url is empty");
                 return;
             }
@@ -371,34 +371,34 @@ public class b {
     }
 
     public synchronized void n() {
-        if (f42522g) {
+        if (f46198g) {
             Log.d("SwanPrelink", "release");
         }
-        if (f42523h == null) {
+        if (f46199h == null) {
             return;
         }
-        f42523h = null;
+        f46199h = null;
     }
 
     public void o() {
-        if (f42522g) {
-            this.f42524a.clear();
-            this.f42526c = null;
+        if (f46198g) {
+            this.f46200a.clear();
+            this.f46202c = null;
         }
     }
 
     @AnyThread
     public synchronized void p(@Nullable String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
-            if (f42522g) {
+            if (f46198g) {
                 Log.w("SwanPrelink", "startPreLink appId empty");
             }
-        } else if (!z && this.f42528e) {
-            if (f42522g) {
+        } else if (!z && this.f46204e) {
+            if (f46198g) {
                 Log.d("SwanPrelink", "startPreLink already");
             }
         } else {
-            this.f42528e = true;
+            this.f46204e = true;
             ExecutorUtilsExt.postOnElastic(new a(str, z), "SwanPrelink", 0);
         }
     }
@@ -407,10 +407,10 @@ public class b {
         if (i2 >= 0) {
             str = "[" + i2 + "]" + str;
         }
-        if (this.f42527d.containsKey(str)) {
+        if (this.f46203d.containsKey(str)) {
             return;
         }
-        this.f42527d.put(str, str2);
+        this.f46203d.put(str, str2);
         d.a.l0.a.q2.d.k.d(s());
     }
 
@@ -424,7 +424,7 @@ public class b {
         sb = new StringBuilder();
         sb.append("========== prelink start ==========");
         sb.append(Part.CRLF);
-        for (Map.Entry<String, String> entry : this.f42527d.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f46203d.entrySet()) {
             if (entry != null) {
                 sb.append("----- ");
                 sb.append(entry.getKey());
@@ -440,7 +440,7 @@ public class b {
 
     public void t(@NonNull String str, @NonNull String str2, @NonNull NetInfo netInfo) {
         HybridUbcFlow d2;
-        if (i() && this.f42526c != null && this.f42529f.get() != this.f42524a.size() && this.f42526c.containsValue(str)) {
+        if (i() && this.f46202c != null && this.f46205f.get() != this.f46200a.size() && this.f46202c.containsValue(str)) {
             StringBuilder sb = new StringBuilder();
             sb.append("url=");
             sb.append(str2);
@@ -459,8 +459,8 @@ public class b {
                 sb.append(timing.mConnect / 1000);
                 sb.append("ms; ");
             }
-            q(this.f42529f.incrementAndGet() - 1, "业务方第一个同域名请求返回", sb.toString());
-            if (this.f42529f.get() != 1 || (d2 = d.a.l0.a.r1.h.d("startup")) == null || timing == null) {
+            q(this.f46205f.incrementAndGet() - 1, "业务方第一个同域名请求返回", sb.toString());
+            if (this.f46205f.get() != 1 || (d2 = d.a.l0.a.r1.h.d("startup")) == null || timing == null) {
                 return;
             }
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("request_network_start");
@@ -480,19 +480,19 @@ public class b {
 
     public void u(@NonNull String str, @NonNull HttpUrl httpUrl, NetworkStatRecord networkStatRecord) {
         long j;
-        if (!i() || networkStatRecord == null || this.f42526c == null || this.f42529f.get() == this.f42524a.size()) {
+        if (!i() || networkStatRecord == null || this.f46202c == null || this.f46205f.get() == this.f46200a.size()) {
             return;
         }
         synchronized (b.class) {
-            if (this.f42526c.containsValue(str)) {
-                this.f42529f.incrementAndGet();
+            if (this.f46202c.containsValue(str)) {
+                this.f46205f.incrementAndGet();
                 long j2 = networkStatRecord.dnsEndTs;
                 long j3 = networkStatRecord.dnsStartTs;
                 long j4 = networkStatRecord.connTs;
                 long j5 = networkStatRecord.startTs;
                 long j6 = j2 - j3;
                 long j7 = (j4 - j5) - j6;
-                if (f42522g) {
+                if (f46198g) {
                     j = j2;
                     Log.i("SwanPrelink", "tryRecordNetworkStat: " + httpUrl);
                     Log.i("SwanPrelink", "tryRecordNetworkStat: isConnReused: " + networkStatRecord.isConnReused);
@@ -500,8 +500,8 @@ public class b {
                 } else {
                     j = j2;
                 }
-                q(this.f42529f.get() - 1, "业务方第一个同域名请求返回", " 连接是否复用=" + networkStatRecord.isConnReused + " dns解析时长=" + j6 + "ms 网络连接时长=" + j7 + "ms url=" + httpUrl);
-                if (this.f42529f.get() <= 1) {
+                q(this.f46205f.get() - 1, "业务方第一个同域名请求返回", " 连接是否复用=" + networkStatRecord.isConnReused + " dns解析时长=" + j6 + "ms 网络连接时长=" + j7 + "ms url=" + httpUrl);
+                if (this.f46205f.get() <= 1) {
                     HybridUbcFlow p = d.a.l0.a.r1.h.p("startup");
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("request_network_start");
                     ubcFlowEvent.h(j5);

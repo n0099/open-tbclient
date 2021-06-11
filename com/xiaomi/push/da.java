@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 public class da {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37420a = "/MiPushLog";
+    public static String f41099a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
     public int f209a;
@@ -35,14 +35,14 @@ public class da {
     public String f213b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37422c;
+    public String f41101c;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
     public final SimpleDateFormat f210a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37421b = 2097152;
+    public int f41100b = 2097152;
 
     /* renamed from: a  reason: collision with other field name */
     public ArrayList<File> f211a = new ArrayList<>();
@@ -63,7 +63,7 @@ public class da {
                 int start = matcher.start();
                 String substring = str.substring(start, this.f213b.length() + start);
                 if (this.f212a) {
-                    if (substring.compareTo(this.f37422c) > 0) {
+                    if (substring.compareTo(this.f41101c) > 0) {
                         read = start;
                         z = true;
                         break;
@@ -82,7 +82,7 @@ public class da {
                 int i4 = read - i3;
                 this.f209a += i4;
                 bufferedWriter.write(cArr, i3, i4);
-                if (z || this.f209a > this.f37421b) {
+                if (z || this.f209a > this.f41100b) {
                     return;
                 }
             }
@@ -99,7 +99,7 @@ public class da {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
-                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m599a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + "\n");
+                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m598a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + "\n");
                     this.f209a = 0;
                     Iterator<File> it = this.f211a.iterator();
                     while (it.hasNext()) {
@@ -161,7 +161,7 @@ public class da {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public da m226a(File file) {
+    public da m225a(File file) {
         if (file.exists()) {
             this.f211a.add(file);
         }
@@ -177,7 +177,7 @@ public class da {
             this.f213b = this.f210a.format(date);
             format = this.f210a.format(date2);
         }
-        this.f37422c = format;
+        this.f41101c = format;
         return this;
     }
 
@@ -189,14 +189,14 @@ public class da {
             if (!file2.exists()) {
                 file2 = context.getFilesDir();
             }
-            m226a(new File(file2, "xmsf.log.1"));
+            m225a(new File(file2, "xmsf.log.1"));
             file3 = new File(file2, "xmsf.log");
         } else {
-            file2 = new File(context.getExternalFilesDir(null) + f37420a);
-            m226a(new File(file2, "log0.txt"));
+            file2 = new File(context.getExternalFilesDir(null) + f41099a);
+            m225a(new File(file2, "log0.txt"));
             file3 = new File(file2, "log1.txt");
         }
-        m226a(file3);
+        m225a(file3);
         if (file2.isDirectory()) {
             File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
             if (file4.exists()) {
@@ -223,7 +223,7 @@ public class da {
 
     public void a(int i2) {
         if (i2 != 0) {
-            this.f37421b = i2;
+            this.f41100b = i2;
         }
     }
 }

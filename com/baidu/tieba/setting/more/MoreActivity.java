@@ -92,10 +92,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 }
                 String portrait = aVar.a().getPortrait();
                 MoreActivity.this.mView.G(HeadIconRefreshHelper.headPortraitFilter(portrait), false);
-                PersonChangeData s = MoreActivity.this.mModel.s();
-                if (s != null) {
-                    s.setPhotoChanged(true);
-                    s.setPortrait(portrait);
+                PersonChangeData w = MoreActivity.this.mModel.w();
+                if (w != null) {
+                    w.setPhotoChanged(true);
+                    w.setPortrait(portrait);
                 }
             }
         }
@@ -116,7 +116,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode == 200 && error == 0 && MoreActivity.this.mDiscoveryModel != null) {
-                MoreActivity.this.mDiscoveryModel.y(false, true);
+                MoreActivity.this.mDiscoveryModel.C(false, true);
             }
         }
     }
@@ -137,7 +137,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             if (!(data instanceof String) || TextUtils.isEmpty((String) data) || MoreActivity.this.mDiscoveryModel == null) {
                 return;
             }
-            MoreActivity.this.mDiscoveryModel.y(false, true);
+            MoreActivity.this.mDiscoveryModel.C(false, true);
         }
     }
 
@@ -221,13 +221,13 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 if (MoreActivity.this.mDiscoveryModel.getUser().alaUserData != null) {
                     personChangeData.setAlaId(MoreActivity.this.mDiscoveryModel.getUser().alaUserData.ala_id);
                 }
-                if (MoreActivity.this.mDiscoveryModel.z() != null) {
-                    personChangeData.setNickNameLeftDays(MoreActivity.this.mDiscoveryModel.z().left_days.intValue());
+                if (MoreActivity.this.mDiscoveryModel.D() != null) {
+                    personChangeData.setNickNameLeftDays(MoreActivity.this.mDiscoveryModel.D().left_days.intValue());
                 }
                 if (MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo() != null) {
-                    personChangeData.setUserAge(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f50036c);
-                    personChangeData.setBirthdayTime(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f50034a);
-                    personChangeData.setBirthdayShowStatus(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f50037d);
+                    personChangeData.setUserAge(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f53712c);
+                    personChangeData.setBirthdayTime(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f53710a);
+                    personChangeData.setBirthdayShowStatus(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f53713d);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921061, personChangeData));
                 MoreActivity.this.buildModel(personChangeData);
@@ -340,7 +340,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         if (currentAccount == null || currentAccount.length() <= 0) {
             return;
         }
-        sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.mModel.s(), Boolean.FALSE)));
+        sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.mModel.w(), Boolean.FALSE)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -392,9 +392,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             MoreDiscoveryModel moreDiscoveryModel = new MoreDiscoveryModel(this);
             this.mDiscoveryModel = moreDiscoveryModel;
             moreDiscoveryModel.setUniqueId(getUniqueId());
-            this.mDiscoveryModel.J(TbadkCoreApplication.getCurrentAccount());
+            this.mDiscoveryModel.N(TbadkCoreApplication.getCurrentAccount());
             this.mDiscoveryModel.setLoadDataCallBack(new e());
-            this.mDiscoveryModel.y(false, true);
+            this.mDiscoveryModel.C(false, true);
         }
         buildModel(personChangeData);
         this.mFriendAndStrangerSwitchModel = new GetFriendAndStrangerSwitchModel(this);
@@ -402,9 +402,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     private void passPersonInfoChange() {
-        if (this.mModel.t()) {
+        if (this.mModel.x()) {
             Intent intent = new Intent();
-            intent.putExtra("person_change_data", this.mModel.s());
+            intent.putExtra("person_change_data", this.mModel.w());
             setResult(-1, intent);
         }
     }
@@ -467,8 +467,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             if (personChangeData == null) {
                 return;
             }
-            this.mModel.u(personChangeData);
-            this.mModel.v(true);
+            this.mModel.y(personChangeData);
+            this.mModel.z(true);
             if (this.mDiscoveryModel != null) {
                 refreshPortrait();
             }
@@ -529,7 +529,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("person_change_data", OrmObject.jsonStrWithObject(this.mModel.s()));
+        bundle.putSerializable("person_change_data", OrmObject.jsonStrWithObject(this.mModel.w()));
         super.onSaveInstanceState(bundle);
     }
 }

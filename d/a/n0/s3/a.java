@@ -20,19 +20,19 @@ import d.a.m0.r.s.a;
 public class a extends d.a.m0.r.s.a implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f60747e;
+    public ViewGroup f64438e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f60748f;
+    public ImageView f64439f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f60749g;
+    public TextView f64440g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f60750h;
+    public ViewGroup f64441h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbCheckBox f60751i;
+    public TbCheckBox f64442i;
     public TextView j;
     public Button k;
     public Button l;
@@ -47,12 +47,12 @@ public class a extends d.a.m0.r.s.a implements View.OnClickListener {
     public CompoundButton.OnCheckedChangeListener u;
     public boolean v;
     public TbCheckBox.b w;
-    public final d.a.c.e.l.c<d.a.c.j.d.a> x;
+    public final d.a.c.e.l.c<d.a.c.k.d.a> x;
 
     /* renamed from: d.a.n0.s3.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1603a implements TbCheckBox.b {
-        public C1603a() {
+    public class C1659a implements TbCheckBox.b {
+        public C1659a() {
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.b
@@ -64,21 +64,21 @@ public class a extends d.a.m0.r.s.a implements View.OnClickListener {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class b extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((b) aVar, str, i2);
             if (aVar == null || !aVar.w()) {
-                a.this.f60748f.setImageResource(R.drawable.frs_luhan_moren_background);
+                a.this.f64439f.setImageResource(R.drawable.frs_luhan_moren_background);
                 return;
             }
-            a.this.f60748f.setBackgroundResource(0);
-            a.this.f60748f.setImageDrawable(null);
-            aVar.h(a.this.f60748f);
+            a.this.f64439f.setBackgroundResource(0);
+            a.this.f64439f.setImageDrawable(null);
+            aVar.h(a.this.f64439f);
         }
     }
 
@@ -86,26 +86,26 @@ public class a extends d.a.m0.r.s.a implements View.OnClickListener {
     public class c implements TbCheckBox.c {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f60754e = false;
+        public boolean f64445e = false;
 
         public c(a aVar) {
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.c
         public boolean isChecked() {
-            return this.f60754e;
+            return this.f64445e;
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.c
         public void setChecked(boolean z) {
-            this.f60754e = z;
+            this.f64445e = z;
         }
     }
 
     public a(Activity activity) {
         super(activity);
         this.v = false;
-        this.w = new C1603a();
+        this.w = new C1659a();
         this.x = new b();
         c();
         setContentViewSize(1);
@@ -115,28 +115,28 @@ public class a extends d.a.m0.r.s.a implements View.OnClickListener {
 
     public final void c() {
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.easter_egg_dialog, (ViewGroup) null);
-        this.f60747e = viewGroup;
-        this.f60748f = (ImageView) viewGroup.findViewById(R.id.dialog_bg);
-        this.f60749g = (TextView) this.f60747e.findViewById(R.id.message);
-        Button button = (Button) this.f60747e.findViewById(R.id.negative_btn);
+        this.f64438e = viewGroup;
+        this.f64439f = (ImageView) viewGroup.findViewById(R.id.dialog_bg);
+        this.f64440g = (TextView) this.f64438e.findViewById(R.id.message);
+        Button button = (Button) this.f64438e.findViewById(R.id.negative_btn);
         this.l = button;
         button.setOnClickListener(this);
-        Button button2 = (Button) this.f60747e.findViewById(R.id.positive_btn);
+        Button button2 = (Button) this.f64438e.findViewById(R.id.positive_btn);
         this.k = button2;
         button2.setOnClickListener(this);
-        ImageView imageView = (ImageView) this.f60747e.findViewById(R.id.close);
+        ImageView imageView = (ImageView) this.f64438e.findViewById(R.id.close);
         this.m = imageView;
         imageView.setOnClickListener(this);
-        this.f60750h = (ViewGroup) this.f60747e.findViewById(R.id.checkbox_container);
-        this.j = (TextView) this.f60747e.findViewById(R.id.checkbox_text);
-        TbCheckBox tbCheckBox = (TbCheckBox) this.f60747e.findViewById(R.id.checkbox);
-        this.f60751i = tbCheckBox;
+        this.f64441h = (ViewGroup) this.f64438e.findViewById(R.id.checkbox_container);
+        this.j = (TextView) this.f64438e.findViewById(R.id.checkbox_text);
+        TbCheckBox tbCheckBox = (TbCheckBox) this.f64438e.findViewById(R.id.checkbox);
+        this.f64442i = tbCheckBox;
         tbCheckBox.setBackgroundDrawableId(R.drawable.icon_frs_luhan_selct, R.drawable.icon_frs_luhan_selctguand);
-        this.f60751i.setStatedChangedListener(this.w);
-        this.f60751i.setTagData(new c(this));
-        this.f60750h.setClickable(true);
-        this.f60750h.setOnClickListener(this);
-        setContentView(this.f60747e);
+        this.f64442i.setStatedChangedListener(this.w);
+        this.f64442i.setTagData(new c(this));
+        this.f64441h.setClickable(true);
+        this.f64441h.setOnClickListener(this);
+        setContentView(this.f64438e);
     }
 
     @Override // d.a.m0.r.s.a
@@ -147,12 +147,12 @@ public class a extends d.a.m0.r.s.a implements View.OnClickListener {
         this.v = true;
         super.create(fVar);
         if (!k.isEmpty(this.o)) {
-            this.f60749g.setText(this.o);
+            this.f64440g.setText(this.o);
         }
         if (!k.isEmpty(this.t)) {
             this.j.setText(this.t);
         } else {
-            this.f60750h.setVisibility(4);
+            this.f64441h.setVisibility(4);
         }
         if (!k.isEmpty(this.r)) {
             this.l.setText(this.r);
@@ -163,7 +163,7 @@ public class a extends d.a.m0.r.s.a implements View.OnClickListener {
         if (!TextUtils.isEmpty(this.n)) {
             d.h().m(this.n, 10, this.x, fVar.getUniqueId());
         } else {
-            this.f60748f.setImageResource(R.drawable.frs_luhan_moren_background);
+            this.f64439f.setImageResource(R.drawable.frs_luhan_moren_background);
         }
         getRealView().setBackgroundDrawable(null);
         return this;
@@ -231,7 +231,7 @@ public class a extends d.a.m0.r.s.a implements View.OnClickListener {
         } else if (id == R.id.close) {
             dismiss();
         } else if (id == R.id.checkbox_container) {
-            TbCheckBox tbCheckBox = this.f60751i;
+            TbCheckBox tbCheckBox = this.f64442i;
             tbCheckBox.setChecked(!tbCheckBox.d());
         }
     }

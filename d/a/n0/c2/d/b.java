@@ -24,22 +24,22 @@ import com.baidu.tieba.passaccount.app.RemindActivity;
 import d.a.m0.s.c.l;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f52393d;
+    public static volatile b f56082d;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1233b f52394a;
+    public InterfaceC1289b f56083a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f52395b = new AtomicBoolean(false);
+    public AtomicBoolean f56084b = new AtomicBoolean(false);
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f52396c = new AtomicBoolean(false);
+    public AtomicBoolean f56085c = new AtomicBoolean(false);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements CustomMessageTask.CustomRunnable<l> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<l> customMessage) {
@@ -67,40 +67,40 @@ public class b {
     }
 
     /* renamed from: d.a.n0.c2.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1233b {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC1289b {
         void a(l.c cVar);
     }
 
-    /* loaded from: classes4.dex */
-    public static class c implements InterfaceC1233b {
+    /* loaded from: classes5.dex */
+    public static class c implements InterfaceC1289b {
 
         /* renamed from: a  reason: collision with root package name */
-        public l f52397a;
+        public l f56086a;
 
         public c(l lVar) {
-            this.f52397a = lVar;
+            this.f56086a = lVar;
         }
 
-        @Override // d.a.n0.c2.d.b.InterfaceC1233b
+        @Override // d.a.n0.c2.d.b.InterfaceC1289b
         public void a(l.c cVar) {
-            l lVar = this.f52397a;
+            l lVar = this.f56086a;
             if (lVar == null || lVar.f() == null) {
                 return;
             }
-            this.f52397a.f().b(cVar);
+            this.f56086a.f().b(cVar);
         }
     }
 
     public static b f() {
-        if (f52393d == null) {
+        if (f56082d == null) {
             synchronized (b.class) {
-                if (f52393d == null) {
-                    f52393d = new b();
+                if (f56082d == null) {
+                    f56082d = new b();
                 }
             }
         }
-        return f52393d;
+        return f56082d;
     }
 
     public static void n() {
@@ -114,14 +114,14 @@ public class b {
     }
 
     public void a(l.c cVar) {
-        if (this.f52394a != null) {
+        if (this.f56083a != null) {
             if (cVar == null) {
                 cVar = new l.c(false);
             }
-            this.f52394a.a(cVar);
+            this.f56083a.a(cVar);
         }
-        this.f52394a = null;
-        this.f52395b.set(false);
+        this.f56083a = null;
+        this.f56084b.set(false);
     }
 
     public void b(boolean z, String str) {
@@ -170,8 +170,8 @@ public class b {
         return false;
     }
 
-    public final void i(l lVar, InterfaceC1233b interfaceC1233b) {
-        q(interfaceC1233b);
+    public final void i(l lVar, InterfaceC1289b interfaceC1289b) {
+        q(interfaceC1289b);
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (lVar != null && session != null) {
             if (lVar.g() == 0) {
@@ -245,27 +245,27 @@ public class b {
         handler.sendMessage(handler.obtainMessage(1));
     }
 
-    public void q(InterfaceC1233b interfaceC1233b) {
-        this.f52394a = interfaceC1233b;
+    public void q(InterfaceC1289b interfaceC1289b) {
+        this.f56083a = interfaceC1289b;
     }
 
-    public void r(l lVar, InterfaceC1233b interfaceC1233b) {
-        if (this.f52396c.compareAndSet(false, true)) {
-            if (this.f52395b.compareAndSet(false, true)) {
+    public void r(l lVar, InterfaceC1289b interfaceC1289b) {
+        if (this.f56085c.compareAndSet(false, true)) {
+            if (this.f56084b.compareAndSet(false, true)) {
                 try {
-                    i(lVar, interfaceC1233b);
+                    i(lVar, interfaceC1289b);
                 } catch (Exception e2) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e2.toString());
-                    this.f52395b.set(false);
+                    this.f56084b.set(false);
                 }
             } else if (!h()) {
                 try {
-                    i(lVar, interfaceC1233b);
+                    i(lVar, interfaceC1289b);
                 } catch (Exception unused) {
-                    this.f52395b.set(false);
+                    this.f56084b.set(false);
                 }
             }
-            this.f52396c.set(false);
+            this.f56085c.set(false);
         }
     }
 }

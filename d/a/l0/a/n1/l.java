@@ -9,7 +9,7 @@ public class l extends ProviderDelegation {
     public static int a() {
         d.a.l0.a.v1.b.f b2 = d.a.l0.a.v1.b.d.b(l.class, null);
         if (b2.a()) {
-            return b2.f45297a.getInt("net_quality", -1);
+            return b2.f48971a.getInt("net_quality", -1);
         }
         return -1;
     }

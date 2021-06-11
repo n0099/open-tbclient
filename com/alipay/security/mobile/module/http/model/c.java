@@ -3,25 +3,25 @@ package com.alipay.security.mobile.module.http.model;
 public class c extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f2082c = 1;
+    public static final int f2095c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f2083d = 2;
+    public static final int f2096d = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f2084e = 3;
+    public static final int f2097e = 3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f2085f = "APPKEY_ERROR";
+    public static final String f2098f = "APPKEY_ERROR";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f2086g = "SUCCESS";
+    public static final String f2099g = "SUCCESS";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2087h;
+    public String f2100h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f2088i;
+    public String f2101i;
     public String j;
     public String k;
     public String l;
@@ -31,7 +31,7 @@ public class c extends a {
     public String p = "";
 
     public int a() {
-        return this.f2080a ? com.alipay.security.mobile.module.a.a.a(this.f2087h) ? 2 : 1 : f2085f.equals(this.f2081b) ? 3 : 2;
+        return this.f2093a ? com.alipay.security.mobile.module.a.a.a(this.f2100h) ? 2 : 1 : f2098f.equals(this.f2094b) ? 3 : 2;
     }
 
     public boolean b() {

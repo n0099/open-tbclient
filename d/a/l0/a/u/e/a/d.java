@@ -11,16 +11,16 @@ import org.json.JSONObject;
 public class d extends d.a.l0.a.u.c.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f44836d = k.f43199a;
+    public static final boolean f48510d = k.f46875a;
 
     /* loaded from: classes2.dex */
     public class a implements d.a.l0.a.v2.e1.b<i<JSONObject>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44837e;
+        public final /* synthetic */ String f48511e;
 
         public a(String str) {
-            this.f44837e = str;
+            this.f48511e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -30,14 +30,14 @@ public class d extends d.a.l0.a.u.c.d {
             d.a.l0.a.u.h.b bVar = new d.a.l0.a.u.h.b();
             String t = d.this.t(iVar);
             if (TextUtils.isEmpty(t)) {
-                bVar.f45238b = 1001;
-                bVar.f45239c = "openid is empty";
-                d.this.d(this.f44837e, bVar);
+                bVar.f48912b = 1001;
+                bVar.f48913c = "openid is empty";
+                d.this.d(this.f48511e, bVar);
                 return;
             }
-            bVar.d("openid", t);
-            bVar.f45238b = 0;
-            d.this.d(this.f44837e, bVar);
+            bVar.c("openid", t);
+            bVar.f48912b = 0;
+            d.this.d(this.f48511e, bVar);
         }
     }
 
@@ -46,16 +46,16 @@ public class d extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b s(String str) {
-        if (f44836d) {
+        if (f48510d) {
             Log.d("Api-GetOpenId", "start getOpenId action, params = " + str);
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-GetOpenId", str);
-        if (!((d.a.l0.a.u.h.b) b2.first).a()) {
+        if (!((d.a.l0.a.u.h.b) b2.first).isSuccess()) {
             d.a.l0.a.e0.d.b("Api-GetOpenId", "parse failed, params = " + str);
             return (d.a.l0.a.u.h.b) b2.first;
         }
         String optString = ((JSONObject) b2.second).optString("cb");
-        if (f44836d) {
+        if (f48510d) {
             Log.d("Api-GetOpenId", "cb: " + optString);
         }
         if (TextUtils.isEmpty(optString)) {
@@ -70,6 +70,6 @@ public class d extends d.a.l0.a.u.c.d {
     public final String t(i<JSONObject> iVar) {
         JSONObject jSONObject;
         JSONObject optJSONObject;
-        return (!iVar.c() || (jSONObject = iVar.f41736a) == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? "" : optJSONObject.optString("openid");
+        return (!iVar.c() || (jSONObject = iVar.f45412a) == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? "" : optJSONObject.optString("openid");
     }
 }

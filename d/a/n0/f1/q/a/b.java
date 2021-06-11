@@ -21,43 +21,43 @@ import tbclient.Bigvip.UserInfoBigVip;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public RecommendDetailActivity f54676a;
+    public RecommendDetailActivity f58365a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f54677b;
+    public View f58366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f54678c;
+    public NavigationBar f58367c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f54679d;
+    public NoNetworkView f58368d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f54680e;
+    public HeadImageView f58369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f54681f;
+    public TextView f58370f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f54682g;
+    public TextView f58371g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f54683h;
+    public TextView f58372h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f54684i;
+    public LinearLayout f58373i;
     public SettingTextSwitchView j;
     public NoDataView k;
     public LinearLayout l;
     public View m;
 
     public b(RecommendDetailActivity recommendDetailActivity) {
-        this.f54676a = recommendDetailActivity;
+        this.f58365a = recommendDetailActivity;
         c();
     }
 
     public void a() {
-        LinearLayout linearLayout = this.f54684i;
+        LinearLayout linearLayout = this.f58373i;
         if (linearLayout != null) {
             linearLayout.setVisibility(8);
         }
@@ -72,50 +72,50 @@ public class b {
     }
 
     public final void c() {
-        RecommendDetailActivity recommendDetailActivity = this.f54676a;
+        RecommendDetailActivity recommendDetailActivity = this.f58365a;
         if (recommendDetailActivity == null) {
             return;
         }
         recommendDetailActivity.setContentView(R.layout.recommend_detail_activity);
-        this.f54677b = this.f54676a.findViewById(R.id.root_view);
-        NavigationBar navigationBar = (NavigationBar) this.f54676a.findViewById(R.id.view_navigation_bar);
-        this.f54678c = navigationBar;
+        this.f58366b = this.f58365a.findViewById(R.id.root_view);
+        NavigationBar navigationBar = (NavigationBar) this.f58365a.findViewById(R.id.view_navigation_bar);
+        this.f58367c = navigationBar;
         navigationBar.showBottomLine();
-        this.f54678c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        e(this.f54676a.getResources().getString(R.string.recommend_detail_activity_title));
-        this.f54679d = (NoNetworkView) this.f54676a.findViewById(R.id.view_no_network);
-        this.l = (LinearLayout) this.f54676a.findViewById(R.id.content_view);
-        HeadImageView headImageView = (HeadImageView) this.f54676a.findViewById(R.id.user_image);
-        this.f54680e = headImageView;
+        this.f58367c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        e(this.f58365a.getResources().getString(R.string.recommend_detail_activity_title));
+        this.f58368d = (NoNetworkView) this.f58365a.findViewById(R.id.view_no_network);
+        this.l = (LinearLayout) this.f58365a.findViewById(R.id.content_view);
+        HeadImageView headImageView = (HeadImageView) this.f58365a.findViewById(R.id.user_image);
+        this.f58369e = headImageView;
         headImageView.setIsRound(true);
-        this.f54681f = (TextView) this.f54676a.findViewById(R.id.user_name);
-        this.f54682g = (TextView) this.f54676a.findViewById(R.id.user_type);
-        this.f54683h = (TextView) this.f54676a.findViewById(R.id.intro_content);
-        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.f54676a.findViewById(R.id.switch_view);
+        this.f58370f = (TextView) this.f58365a.findViewById(R.id.user_name);
+        this.f58371g = (TextView) this.f58365a.findViewById(R.id.user_type);
+        this.f58372h = (TextView) this.f58365a.findViewById(R.id.intro_content);
+        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.f58365a.findViewById(R.id.switch_view);
         this.j = settingTextSwitchView;
-        settingTextSwitchView.setSwitchStateChangeListener(this.f54676a);
+        settingTextSwitchView.setSwitchStateChangeListener(this.f58365a);
         this.j.setVisibility(8);
         this.l.setVisibility(8);
-        this.f54684i = (LinearLayout) this.f54676a.findViewById(R.id.switch_ll);
-        this.m = this.f54676a.findViewById(R.id.divider_1);
+        this.f58373i = (LinearLayout) this.f58365a.findViewById(R.id.switch_ll);
+        this.m = this.f58365a.findViewById(R.id.divider_1);
     }
 
     public void d(int i2) {
-        RecommendDetailActivity recommendDetailActivity = this.f54676a;
-        if (recommendDetailActivity == null || recommendDetailActivity.getPageContext() == null || this.f54676a.getPageContext().getLayoutMode() == null) {
+        RecommendDetailActivity recommendDetailActivity = this.f58365a;
+        if (recommendDetailActivity == null || recommendDetailActivity.getPageContext() == null || this.f58365a.getPageContext().getLayoutMode() == null) {
             return;
         }
-        NavigationBar navigationBar = this.f54678c;
+        NavigationBar navigationBar = this.f58367c;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.f54676a.getPageContext(), i2);
+            navigationBar.onChangeSkinType(this.f58365a.getPageContext(), i2);
         }
-        NoNetworkView noNetworkView = this.f54679d;
+        NoNetworkView noNetworkView = this.f58368d;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f54676a.getPageContext(), i2);
+            noNetworkView.c(this.f58365a.getPageContext(), i2);
         }
         NoDataView noDataView = this.k;
         if (noDataView != null) {
-            noDataView.f(this.f54676a.getPageContext(), i2);
+            noDataView.f(this.f58365a.getPageContext(), i2);
         }
         SettingTextSwitchView settingTextSwitchView = this.j;
         if (settingTextSwitchView != null) {
@@ -125,12 +125,12 @@ public class b {
         if (view != null) {
             SkinManager.setBackgroundColor(view, R.color.CAM_X0205);
         }
-        this.f54676a.getPageContext().getLayoutMode().k(i2 == 1);
-        this.f54676a.getPageContext().getLayoutMode().j(this.f54677b);
+        this.f58365a.getPageContext().getLayoutMode().k(i2 == 1);
+        this.f58365a.getPageContext().getLayoutMode().j(this.f58366b);
     }
 
     public void e(String str) {
-        NavigationBar navigationBar = this.f54678c;
+        NavigationBar navigationBar = this.f58367c;
         if (navigationBar != null) {
             navigationBar.setCenterTextTitle(str);
         }
@@ -145,7 +145,7 @@ public class b {
     }
 
     public void g() {
-        LinearLayout linearLayout = this.f54684i;
+        LinearLayout linearLayout = this.f58373i;
         if (linearLayout != null) {
             linearLayout.setVisibility(0);
         }
@@ -153,22 +153,22 @@ public class b {
 
     public void h(int i2) {
         if (this.k == null) {
-            this.k = NoDataViewFactory.a(this.f54676a.getPageContext().getPageActivity(), this.f54677b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320)), NoDataViewFactory.e.a(i2), null);
+            this.k = NoDataViewFactory.a(this.f58365a.getPageContext().getPageActivity(), this.f58366b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320)), NoDataViewFactory.e.a(i2), null);
         }
         this.k.setTextOption(NoDataViewFactory.e.a(i2));
-        this.k.f(this.f54676a.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.k.f(this.f58365a.getPageContext(), TbadkApplication.getInst().getSkinType());
         this.l.setVisibility(8);
         this.k.setVisibility(0);
     }
 
     public void i(UserInfoBigVip userInfoBigVip, boolean z) {
-        if (userInfoBigVip == null || this.f54676a == null) {
+        if (userInfoBigVip == null || this.f58365a == null) {
             return;
         }
-        this.f54680e.V(userInfoBigVip.portraith, 12, false);
-        this.f54681f.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
-        this.f54682g.setText(userInfoBigVip.user_type);
-        this.f54683h.setText(userInfoBigVip.user_detail);
+        this.f58369e.U(userInfoBigVip.portraith, 12, false);
+        this.f58370f.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
+        this.f58371g.setText(userInfoBigVip.user_type);
+        this.f58372h.setText(userInfoBigVip.user_detail);
         if (z) {
             if (userInfoBigVip.message_accept.intValue() == 1) {
                 f(true);

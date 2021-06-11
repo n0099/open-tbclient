@@ -9,7 +9,7 @@ import com.baidu.android.util.android.IntentUtils;
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45492a = d.a.l0.a.k.f43199a;
+    public static final boolean f49166a = d.a.l0.a.k.f46875a;
 
     public static boolean a(Activity activity) {
         if (activity == null || !b(activity.getIntent())) {
@@ -42,7 +42,7 @@ public class v {
         try {
             return bundle.getBoolean(str);
         } catch (Throwable unused) {
-            if (f45492a) {
+            if (f49166a) {
                 Log.e(IntentUtils.TAG, "getBoolean failed on bundle " + bundle);
             }
             return z;
@@ -53,7 +53,7 @@ public class v {
         try {
             return bundle.getBundle(str);
         } catch (Throwable unused) {
-            if (f45492a) {
+            if (f49166a) {
                 Log.e(IntentUtils.TAG, "getBundle failed on bundle " + bundle);
                 return null;
             }
@@ -65,7 +65,7 @@ public class v {
         try {
             return intent.getBundleExtra(str);
         } catch (Throwable unused) {
-            if (f45492a) {
+            if (f49166a) {
                 Log.e(IntentUtils.TAG, "getBundleExtra failed on intent " + intent);
                 return null;
             }
@@ -77,7 +77,7 @@ public class v {
         try {
             return bundle.getInt(str);
         } catch (Throwable unused) {
-            if (f45492a) {
+            if (f49166a) {
                 Log.e(IntentUtils.TAG, "getInt failed on bundle " + bundle);
             }
             return i2;
@@ -88,7 +88,7 @@ public class v {
         try {
             return bundle.getString(str);
         } catch (Throwable unused) {
-            if (f45492a) {
+            if (f49166a) {
                 Log.e(IntentUtils.TAG, "getString failed on bundle " + bundle);
                 return null;
             }
@@ -100,7 +100,7 @@ public class v {
         try {
             return intent.getStringExtra(str);
         } catch (Throwable unused) {
-            if (f45492a) {
+            if (f49166a) {
                 Log.e(IntentUtils.TAG, "getStringExtra failed on intent " + intent);
                 return null;
             }
@@ -112,7 +112,7 @@ public class v {
         try {
             return bundle.getString(str);
         } catch (Throwable unused) {
-            if (f45492a) {
+            if (f49166a) {
                 Log.e(IntentUtils.TAG, "getStringExtra failed on bundle " + bundle);
                 return null;
             }

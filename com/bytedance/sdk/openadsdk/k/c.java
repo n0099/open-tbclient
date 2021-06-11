@@ -3,18 +3,18 @@ package com.bytedance.sdk.openadsdk.k;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f29372a;
+    public final long f29475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f29373b;
+    public final long f29476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f29374c;
+    public final long f29477c;
 
     public long a(int i2) {
         if (i2 <= 0) {
-            return this.f29372a;
+            return this.f29475a;
         }
-        return Math.min(this.f29372a + (this.f29373b * i2), this.f29374c);
+        return Math.min(this.f29475a + (this.f29476b * i2), this.f29477c);
     }
 }

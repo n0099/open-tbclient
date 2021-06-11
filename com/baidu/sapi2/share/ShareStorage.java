@@ -35,9 +35,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ShareStorage {
-    public static final String AES_IV = "2314906973403010";
-    public static final String AES_KEY = "w0d4o27mh3k1e461";
     public static final String DEFAULT_PORTRAIT = SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigHttpsUrl() + SapiEnv.DEFAULT_PORTRAIT;
+    public static final String KEY_SHARE_MODELS_AES_IV = "key_pass_share_models_iv";
+    public static final String KEY_SHARE_MODELS_AES_KEY = "key_pass_hare_models_key";
     public static int MODE = 5;
     public static final String SD_FILE_NAME = ".BD_SAPI_CACHE/.sapi_temp/";
     public static final int SHARE_ACCOUNT_BACKGROUND_TO_FOREGROUND = 1;
@@ -48,6 +48,8 @@ public class ShareStorage {
     public static final int SHARE_ACCOUNT_RESET = 4;
     public static final String SP_FILE_NAME = "sapi_share";
     public static final String SP_FILE_PATH = ".BD_SAPI_CACHE/";
+    public String mAesIv;
+    public String mAesKey;
     public boolean readSpFromChmodFile = false;
     public Context context = SapiAccountManager.getInstance().getConfignation().context;
 
@@ -207,10 +209,13 @@ public class ShareStorage {
 
     public ShareStorage() {
         SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-        if (sapiConfiguration == null || sapiConfiguration.loginShareStrategy() != LoginShareStrategy.DISABLED) {
-            return;
+        if (sapiConfiguration != null && sapiConfiguration.loginShareStrategy() == LoginShareStrategy.DISABLED) {
+            MODE = 4;
         }
-        MODE = 4;
+        SapiContext.getInstance().put(KEY_SHARE_MODELS_AES_KEY, "w0d4o27mh3k1e461");
+        SapiContext.getInstance().put(KEY_SHARE_MODELS_AES_IV, "2314906973403010");
+        this.mAesKey = SapiContext.getInstance().getString(KEY_SHARE_MODELS_AES_KEY);
+        this.mAesIv = SapiContext.getInstance().getString(KEY_SHARE_MODELS_AES_IV);
     }
 
     @TargetApi(4)
@@ -269,7 +274,7 @@ public class ShareStorage {
             if (TextUtils.isEmpty(sd)) {
                 return null;
             }
-            StorageModel fromJSON = StorageModel.fromJSON(new JSONObject(new String(SecurityUtil.aesDecrypt(Base64.decode(sd, 0), AES_IV, AES_KEY))));
+            StorageModel fromJSON = StorageModel.fromJSON(new JSONObject(new String(SecurityUtil.aesDecrypt(Base64.decode(sd, 0), this.mAesIv, this.mAesKey))));
             fromJSON.where = 1;
             return fromJSON;
         } catch (Exception e2) {
@@ -292,7 +297,7 @@ public class ShareStorage {
             if (TextUtils.isEmpty(sp)) {
                 return null;
             }
-            StorageModel fromJSON = StorageModel.fromJSON(new JSONObject(new String(SecurityUtil.aesDecrypt(Base64.decode(sp, 0), AES_IV, AES_KEY))));
+            StorageModel fromJSON = StorageModel.fromJSON(new JSONObject(new String(SecurityUtil.aesDecrypt(Base64.decode(sp, 0), this.mAesIv, this.mAesKey))));
             fromJSON.where = 0;
             return fromJSON;
         } catch (Exception unused) {
@@ -385,7 +390,7 @@ public class ShareStorage {
                 }
                 String md5 = SecurityUtil.md5(ShareStorage.this.context.getPackageName().getBytes(), false);
                 try {
-                    str = new String(Base64.encode(SecurityUtil.aesEncrypt(storageModel.toJSON().toString(), ShareStorage.AES_IV, ShareStorage.AES_KEY), 0));
+                    str = new String(Base64.encode(SecurityUtil.aesEncrypt(storageModel.toJSON().toString(), ShareStorage.this.mAesIv, ShareStorage.this.mAesKey), 0));
                 } catch (Exception e2) {
                     Log.e(e2);
                     str = "";

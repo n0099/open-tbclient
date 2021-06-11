@@ -5,17 +5,17 @@ import android.text.TextUtils;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f52803a = "c12585";
+        public static String f56492a = "c12585";
 
         /* renamed from: b  reason: collision with root package name */
-        public static String f52804b = "c12586";
+        public static String f56493b = "c12586";
     }
 
     public static CustomDialogData a(JSONObject jSONObject) {

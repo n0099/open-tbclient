@@ -28,10 +28,10 @@ import java.nio.ByteOrder;
 public class Session {
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.g.b.a.g f30754b = new d.g.b.a.g();
+    public final d.g.b.a.g f30845b = new d.g.b.a.g();
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30753a = 0;
+    public long f30844a = 0;
 
     /* loaded from: classes6.dex */
     public enum Feature {
@@ -51,7 +51,7 @@ public class Session {
         
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30757b = 0;
+        public final int f30848b = 0;
 
         a(int i2) {
         }
@@ -149,10 +149,10 @@ public class Session {
     private native void nativeUpdate(long j, long j2);
 
     public void finalize() {
-        long j = this.f30753a;
+        long j = this.f30844a;
         if (j != 0) {
             nativeDestroySession(j);
-            this.f30753a = 0L;
+            this.f30844a = 0L;
         }
         super.finalize();
     }
@@ -165,56 +165,56 @@ public class Session {
     public static abstract class c {
 
         /* renamed from: g  reason: collision with root package name */
-        public static final c f30772g;
+        public static final c f30863g;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ c[] f30773i;
+        public static final /* synthetic */ c[] f30864i;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30774b;
+        public final int f30865b;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Class<?> f30775h;
+        public final Class<?> f30866h;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c f30768c = new ad("BASE_TRACKABLE", 0, 1095893248, d.g.b.a.b.class);
+        public static final c f30859c = new ad("BASE_TRACKABLE", 0, 1095893248, d.g.b.a.b.class);
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f30767a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
+        public static final c f30858a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
 
         /* renamed from: d  reason: collision with root package name */
-        public static final c f30769d = new af("PLANE", 2, 1095893249, Plane.class);
+        public static final c f30860d = new af("PLANE", 2, 1095893249, Plane.class);
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f30770e = new ag("POINT", 3, 1095893250, Point.class);
+        public static final c f30861e = new ag("POINT", 3, 1095893250, Point.class);
 
         /* renamed from: f  reason: collision with root package name */
-        public static final c f30771f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
+        public static final c f30862f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
 
         static {
             ai aiVar = new ai("FACE", 5, 1095893253, AugmentedFace.class);
-            f30772g = aiVar;
-            f30773i = new c[]{f30768c, f30767a, f30769d, f30770e, f30771f, aiVar};
+            f30863g = aiVar;
+            f30864i = new c[]{f30859c, f30858a, f30860d, f30861e, f30862f, aiVar};
         }
 
         public c(String str, int i2, int i3, Class cls) {
-            this.f30774b = i3;
-            this.f30775h = cls;
+            this.f30865b = i3;
+            this.f30866h = cls;
         }
 
         public static c a(Class<? extends d.g.b.a.b> cls) {
             c[] values;
             for (c cVar : values()) {
-                Class<?> cls2 = cVar.f30775h;
+                Class<?> cls2 = cVar.f30866h;
                 if (cls2 != null && cls2.equals(cls)) {
                     return cVar;
                 }
             }
-            return f30767a;
+            return f30858a;
         }
 
         public static c[] values() {
-            return (c[]) f30773i.clone();
+            return (c[]) f30864i.clone();
         }
 
         public abstract d.g.b.a.b a(long j, Session session);

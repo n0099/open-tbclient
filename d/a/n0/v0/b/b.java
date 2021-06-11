@@ -15,39 +15,39 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f62199e;
+    public Context f65914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<i0> f62200f;
+    public List<i0> f65915f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f62201g = -1;
+    public int f65916g = -1;
 
     /* renamed from: d.a.n0.v0.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1682b {
+    public static class C1739b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f62202a;
+        public TbImageView f65917a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f62203b;
+        public TbImageView f65918b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f62204c;
+        public View f65919c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f62205d;
+        public TextView f65920d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f62206e;
+        public TextView f65921e;
 
-        public C1682b() {
+        public C1739b() {
         }
     }
 
     public b(Context context) {
-        this.f62199e = context;
+        this.f65914e = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,25 +57,25 @@ public class b extends BaseAdapter {
         if (i2 < 0 || i2 >= getCount()) {
             return null;
         }
-        return this.f62200f.get(i2);
+        return this.f65915f.get(i2);
     }
 
     public int b() {
-        return this.f62201g;
+        return this.f65916g;
     }
 
     public void c(List<i0> list) {
-        this.f62200f = list;
+        this.f65915f = list;
         notifyDataSetChanged();
     }
 
     public void d(int i2) {
-        this.f62201g = i2;
+        this.f65916g = i2;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<i0> list = this.f62200f;
+        List<i0> list = this.f65915f;
         if (list == null) {
             return 0;
         }
@@ -89,44 +89,44 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
-        C1682b c1682b;
+        C1739b c1739b;
         if (view != null && view.getTag() != null) {
-            c1682b = (C1682b) view.getTag();
+            c1739b = (C1739b) view.getTag();
         } else {
-            view = LayoutInflater.from(this.f62199e).inflate(R.layout.gift_list_item, (ViewGroup) null);
-            c1682b = new C1682b();
+            view = LayoutInflater.from(this.f65914e).inflate(R.layout.gift_list_item, (ViewGroup) null);
+            c1739b = new C1739b();
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.image);
-            c1682b.f62202a = tbImageView;
+            c1739b.f65917a = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.transparent_bg);
             TbImageView tbImageView2 = (TbImageView) view.findViewById(R.id.mark_icon_iamge);
-            c1682b.f62203b = tbImageView2;
+            c1739b.f65918b = tbImageView2;
             tbImageView2.setDefaultBgResource(R.drawable.transparent_bg);
-            c1682b.f62203b.setDefaultResource(R.drawable.transparent_bg);
-            c1682b.f62204c = view.findViewById(R.id.mask);
-            c1682b.f62205d = (TextView) view.findViewById(R.id.name);
-            c1682b.f62206e = (TextView) view.findViewById(R.id.price);
-            view.setTag(c1682b);
+            c1739b.f65918b.setDefaultResource(R.drawable.transparent_bg);
+            c1739b.f65919c = view.findViewById(R.id.mask);
+            c1739b.f65920d = (TextView) view.findViewById(R.id.name);
+            c1739b.f65921e = (TextView) view.findViewById(R.id.price);
+            view.setTag(c1739b);
         }
-        SkinManager.setViewTextColor(c1682b.f62205d, R.color.CAM_X0105, 1);
-        if (i2 == this.f62201g) {
-            SkinManager.setBackgroundResource(c1682b.f62204c, R.drawable.chx_box_gift_s);
+        SkinManager.setViewTextColor(c1739b.f65920d, R.color.CAM_X0105, 1);
+        if (i2 == this.f65916g) {
+            SkinManager.setBackgroundResource(c1739b.f65919c, R.drawable.chx_box_gift_s);
         } else {
-            c1682b.f62204c.setBackgroundResource(R.color.common_color_10022);
+            c1739b.f65919c.setBackgroundResource(R.color.common_color_10022);
         }
         i0 item = getItem(i2);
         if (item != null) {
-            c1682b.f62205d.setText(item.f50044b);
-            c1682b.f62202a.V(item.f50046d, 10, false);
-            c1682b.f62203b.V(item.f50049g, 10, false);
-            int i3 = item.f50048f;
+            c1739b.f65920d.setText(item.f53720b);
+            c1739b.f65917a.U(item.f53722d, 10, false);
+            c1739b.f65918b.U(item.f53725g, 10, false);
+            int i3 = item.f53724f;
             if (i3 == 5) {
-                c1682b.f62206e.setVisibility(8);
+                c1739b.f65921e.setVisibility(8);
             } else if (i3 == 3) {
-                c1682b.f62206e.setVisibility(0);
-                c1682b.f62206e.setText(g.b(item.a(), false, item.s));
+                c1739b.f65921e.setVisibility(0);
+                c1739b.f65921e.setText(g.b(item.a(), false, item.s));
             } else {
-                c1682b.f62206e.setVisibility(0);
-                c1682b.f62206e.setText(g.b(item.b(), false, item.s));
+                c1739b.f65921e.setVisibility(0);
+                c1739b.f65921e.setText(g.b(item.b(), false, item.s));
             }
         }
         return view;

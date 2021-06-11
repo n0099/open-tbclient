@@ -11,15 +11,15 @@ import java.io.FileOutputStream;
 public class e implements b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48505a;
+    public Context f52179a;
 
     public e(Context context) {
-        this.f48505a = context.getApplicationContext();
+        this.f52179a = context.getApplicationContext();
     }
 
     @Override // d.a.l0.u.c.b
     public boolean a() {
-        return !new File(this.f48505a.getFilesDir(), "libuuid.so").exists();
+        return !new File(this.f52179a.getFilesDir(), "libuuid.so").exists();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,7 +37,7 @@ public class e implements b<String> {
     }
 
     public final String d() {
-        File file = new File(this.f48505a.getFilesDir(), "libuuid.so");
+        File file = new File(this.f52179a.getFilesDir(), "libuuid.so");
         if (file.exists()) {
             return d.a.l0.u.d.a.c(file);
         }
@@ -47,12 +47,12 @@ public class e implements b<String> {
     @SuppressLint({"WorldReadableFiles"})
     @TargetApi(21)
     public final void e(String str) {
-        File file = new File(this.f48505a.getFilesDir(), "libuuid.so");
+        File file = new File(this.f52179a.getFilesDir(), "libuuid.so");
         int i2 = Build.VERSION.SDK_INT >= 24 ? 1 : 0;
         FileOutputStream fileOutputStream = null;
         try {
             try {
-                fileOutputStream = this.f48505a.openFileOutput("libuuid.so", i2 ^ 1);
+                fileOutputStream = this.f52179a.openFileOutput("libuuid.so", i2 ^ 1);
                 fileOutputStream.write(str.getBytes());
                 fileOutputStream.flush();
             } catch (Exception e2) {

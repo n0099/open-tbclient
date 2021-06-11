@@ -6,60 +6,60 @@ import java.util.TimerTask;
 public final class a extends TimerTask {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f49192e = 2.1474836E9f;
+    public float f52866e = 2.1474836E9f;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float f49193f;
+    public final float f52867f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final WheelView f49194g;
+    public final WheelView f52868g;
 
     public a(WheelView wheelView, float f2) {
-        this.f49194g = wheelView;
-        this.f49193f = f2;
+        this.f52868g = wheelView;
+        this.f52867f = f2;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
-        if (this.f49192e == 2.1474836E9f) {
-            if (Math.abs(this.f49193f) > 2000.0f) {
-                this.f49192e = this.f49193f <= 0.0f ? -2000.0f : 2000.0f;
+        if (this.f52866e == 2.1474836E9f) {
+            if (Math.abs(this.f52867f) > 2000.0f) {
+                this.f52866e = this.f52867f <= 0.0f ? -2000.0f : 2000.0f;
             } else {
-                this.f49192e = this.f49193f;
+                this.f52866e = this.f52867f;
             }
         }
-        if (Math.abs(this.f49192e) >= 0.0f && Math.abs(this.f49192e) <= 20.0f) {
-            this.f49194g.b();
-            this.f49194g.getHandler().sendEmptyMessage(2000);
+        if (Math.abs(this.f52866e) >= 0.0f && Math.abs(this.f52866e) <= 20.0f) {
+            this.f52868g.b();
+            this.f52868g.getHandler().sendEmptyMessage(2000);
             return;
         }
-        WheelView wheelView = this.f49194g;
-        float f2 = (int) (this.f49192e / 100.0f);
+        WheelView wheelView = this.f52868g;
+        float f2 = (int) (this.f52866e / 100.0f);
         wheelView.setTotalScrollY(wheelView.getTotalScrollY() - f2);
-        if (!this.f49194g.i()) {
-            float itemHeight = this.f49194g.getItemHeight();
-            float f3 = (-this.f49194g.getInitPosition()) * itemHeight;
-            float itemsCount = ((this.f49194g.getItemsCount() - 1) - this.f49194g.getInitPosition()) * itemHeight;
+        if (!this.f52868g.i()) {
+            float itemHeight = this.f52868g.getItemHeight();
+            float f3 = (-this.f52868g.getInitPosition()) * itemHeight;
+            float itemsCount = ((this.f52868g.getItemsCount() - 1) - this.f52868g.getInitPosition()) * itemHeight;
             double d2 = itemHeight * 0.25d;
-            if (this.f49194g.getTotalScrollY() - d2 < f3) {
-                f3 = this.f49194g.getTotalScrollY() + f2;
-            } else if (this.f49194g.getTotalScrollY() + d2 > itemsCount) {
-                itemsCount = this.f49194g.getTotalScrollY() + f2;
+            if (this.f52868g.getTotalScrollY() - d2 < f3) {
+                f3 = this.f52868g.getTotalScrollY() + f2;
+            } else if (this.f52868g.getTotalScrollY() + d2 > itemsCount) {
+                itemsCount = this.f52868g.getTotalScrollY() + f2;
             }
-            if (this.f49194g.getTotalScrollY() <= f3) {
-                this.f49192e = 40.0f;
-                this.f49194g.setTotalScrollY((int) f3);
-            } else if (this.f49194g.getTotalScrollY() >= itemsCount) {
-                this.f49194g.setTotalScrollY((int) itemsCount);
-                this.f49192e = -40.0f;
+            if (this.f52868g.getTotalScrollY() <= f3) {
+                this.f52866e = 40.0f;
+                this.f52868g.setTotalScrollY((int) f3);
+            } else if (this.f52868g.getTotalScrollY() >= itemsCount) {
+                this.f52868g.setTotalScrollY((int) itemsCount);
+                this.f52866e = -40.0f;
             }
         }
-        float f4 = this.f49192e;
+        float f4 = this.f52866e;
         if (f4 < 0.0f) {
-            this.f49192e = f4 + 20.0f;
+            this.f52866e = f4 + 20.0f;
         } else {
-            this.f49192e = f4 - 20.0f;
+            this.f52866e = f4 - 20.0f;
         }
-        this.f49194g.getHandler().sendEmptyMessage(1000);
+        this.f52868g.getHandler().sendEmptyMessage(1000);
     }
 }

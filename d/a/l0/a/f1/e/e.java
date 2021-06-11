@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.swan.pms.model.PMSAppInfo;
+import com.kwai.video.player.KsMediaMeta;
 import d.a.l0.a.f1.e.e;
 import d.a.l0.a.k;
 import org.json.JSONException;
@@ -16,10 +17,10 @@ import org.json.JSONObject;
 public abstract class e<SelfT extends e<SelfT>> extends d.a.l0.a.f1.e.f.c<SelfT> {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f41840g = k.f43199a;
+    public static final boolean f45516g = k.f46875a;
 
     /* renamed from: f  reason: collision with root package name */
-    public Pair<String, JSONObject> f41841f;
+    public Pair<String, JSONObject> f45517f;
 
     public SelfT A0(long j) {
         return (SelfT) w("last_start_timestamp", j);
@@ -106,26 +107,26 @@ public abstract class e<SelfT extends e<SelfT>> extends d.a.l0.a.f1.e.f.c<SelfT>
 
     public JSONObject M() {
         String W = W();
-        Pair<String, JSONObject> pair = this.f41841f;
+        Pair<String, JSONObject> pair = this.f45517f;
         if (pair != null && TextUtils.equals((CharSequence) pair.first, W)) {
-            return (JSONObject) this.f41841f.second;
+            return (JSONObject) this.f45517f.second;
         }
-        this.f41841f = null;
+        this.f45517f = null;
         if (TextUtils.isEmpty(W)) {
-            this.f41841f = null;
+            this.f45517f = null;
             return null;
         }
         String queryParameter = Uri.parse(W).getQueryParameter("_baiduboxapp");
         if (!TextUtils.isEmpty(queryParameter)) {
             try {
-                this.f41841f = new Pair<>(W, new JSONObject(queryParameter).optJSONObject("ext"));
+                this.f45517f = new Pair<>(W, new JSONObject(queryParameter).optJSONObject("ext"));
             } catch (JSONException e2) {
-                if (f41840g) {
+                if (f45516g) {
                     e2.printStackTrace();
                 }
             }
         }
-        Pair<String, JSONObject> pair2 = this.f41841f;
+        Pair<String, JSONObject> pair2 = this.f45517f;
         if (pair2 == null) {
             return null;
         }
@@ -141,7 +142,7 @@ public abstract class e<SelfT extends e<SelfT>> extends d.a.l0.a.f1.e.f.c<SelfT>
     }
 
     public SelfT N0(long j) {
-        if (2147483648L != j) {
+        if (KsMediaMeta.AV_CH_WIDE_LEFT != j) {
             w("navigate_bar_color_key", j);
         }
         return (SelfT) a();
@@ -258,7 +259,7 @@ public abstract class e<SelfT extends e<SelfT>> extends d.a.l0.a.f1.e.f.c<SelfT>
     }
 
     public long b0() {
-        return l("navigate_bar_color_key", 2147483648L);
+        return l("navigate_bar_color_key", KsMediaMeta.AV_CH_WIDE_LEFT);
     }
 
     public String c0() {

@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static void a(String str) {
         if (StringUtils.isNull(str)) {
@@ -23,7 +23,7 @@ public class d {
         if (StringUtils.isNull(str)) {
             return;
         }
-        FileHelper.deleteFileOrDir(new File(f.f61326e + f.f61322a + str));
+        FileHelper.deleteFileOrDir(new File(f.f65039e + f.f65035a + str));
     }
 
     public static void c(String str, JSONArray jSONArray) {

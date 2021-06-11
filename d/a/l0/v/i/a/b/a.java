@@ -8,16 +8,16 @@ import d.a.l0.a.y0.d;
 import d.a.l0.a.y0.g.h.a;
 /* loaded from: classes3.dex */
 public class a implements d.a.l0.a.y0.g.h.a {
-    @Override // d.a.l0.a.y0.g.h.a
-    public void A(int i2) {
-    }
-
     @Override // d.a.l0.a.y0.d
-    public void B(@NonNull d.a aVar) {
+    public void A(@NonNull d.a aVar) {
     }
 
     @Override // d.a.l0.a.y0.g.h.a
-    public void U(int i2, int i3) {
+    public void R(int i2, int i3) {
+    }
+
+    @Override // d.a.l0.a.y0.g.h.a
+    public void Y(long j) {
     }
 
     @Override // d.a.l0.a.y0.g.h.c
@@ -32,10 +32,6 @@ public class a implements d.a.l0.a.y0.g.h.a {
     }
 
     @Override // d.a.l0.a.y0.g.h.a
-    public void b0(long j) {
-    }
-
-    @Override // d.a.l0.a.y0.g.h.a
     public int getVideoHeight() {
         return 0;
     }
@@ -45,18 +41,18 @@ public class a implements d.a.l0.a.y0.g.h.a {
         return 0;
     }
 
-    @Override // d.a.l0.a.y0.g.h.a
-    public void m(String str) {
-    }
-
     @Override // d.a.l0.a.y0.d
     @Nullable
-    public String n0() {
+    public String k0() {
         return "";
     }
 
     @Override // d.a.l0.a.y0.g.h.a
-    public void o(@NonNull a.InterfaceC0913a interfaceC0913a) {
+    public void l(String str) {
+    }
+
+    @Override // d.a.l0.a.y0.g.h.a
+    public void n(@NonNull a.InterfaceC0969a interfaceC0969a) {
     }
 
     @Override // d.a.l0.a.y0.g.h.c
@@ -64,8 +60,12 @@ public class a implements d.a.l0.a.y0.g.h.a {
     }
 
     @Override // d.a.l0.a.y0.g.h.c
-    public boolean q() {
+    public boolean p() {
         return true;
+    }
+
+    @Override // d.a.l0.a.y0.g.h.a
+    public void s(int i2, int i3, int i4, int i5) {
     }
 
     @Override // d.a.l0.a.y0.g.h.a
@@ -73,6 +73,6 @@ public class a implements d.a.l0.a.y0.g.h.a {
     }
 
     @Override // d.a.l0.a.y0.g.h.a
-    public void t(int i2, int i3, int i4, int i5) {
+    public void z(int i2) {
     }
 }

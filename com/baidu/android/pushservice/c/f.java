@@ -3,20 +3,20 @@ package com.baidu.android.pushservice.c;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2988a;
+    public String f3007a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2989b;
+    public String f3008b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2990c;
+    public String f3009c;
 
     public f(String str, String str2, String str3) {
-        this.f2988a = "";
-        this.f2989b = "";
-        this.f2990c = "";
-        this.f2988a = str;
-        this.f2989b = str2;
-        this.f2990c = str3;
+        this.f3007a = "";
+        this.f3008b = "";
+        this.f3009c = "";
+        this.f3007a = str;
+        this.f3008b = str2;
+        this.f3009c = str3;
     }
 }

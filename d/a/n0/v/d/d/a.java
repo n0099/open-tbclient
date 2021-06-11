@@ -1,9 +1,11 @@
 package d.a.n0.v.d.d;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import d.a.m0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,30 +13,30 @@ import java.util.List;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f61664b;
+    public static a f65378b;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<StatisticItem> f61665a;
+    public List<StatisticItem> f65379a;
 
     public static a c() {
-        if (f61664b == null) {
+        if (f65378b == null) {
             synchronized (a.class) {
-                if (f61664b == null) {
-                    f61664b = new a();
+                if (f65378b == null) {
+                    f65378b = new a();
                 }
             }
         }
-        return f61664b;
+        return f65378b;
     }
 
     public void a(StatisticItem statisticItem) {
         if (statisticItem == null) {
             return;
         }
-        if (this.f61665a == null) {
-            this.f61665a = new ArrayList();
+        if (this.f65379a == null) {
+            this.f65379a = new ArrayList();
         }
-        List<StatisticItem> list = this.f61665a;
+        List<StatisticItem> list = this.f65379a;
         if (list != null) {
             list.add(statisticItem);
         }
@@ -44,27 +46,27 @@ public class a {
         if (str == null) {
             return;
         }
-        if (this.f61665a == null) {
-            this.f61665a = new ArrayList();
+        if (this.f65379a == null) {
+            this.f65379a = new ArrayList();
         }
-        List<StatisticItem> list = this.f61665a;
+        List<StatisticItem> list = this.f65379a;
         if (list != null) {
             list.add(new StatisticItem(str));
         }
     }
 
     public final long d(a2 a2Var) {
-        if (a2Var == null || a2Var.r1() == null) {
+        if (a2Var == null || a2Var.s1() == null) {
             return -1L;
         }
-        return a2Var.r1().live_id;
+        return a2Var.s1().live_id;
     }
 
     public StatisticItem e(int i2, String str, int i3, String str2, a2 a2Var) {
         if (a2Var == null) {
             return null;
         }
-        String str3 = (a2Var.r1() == null || StringUtils.isNull(a2Var.r1().appId)) ? "" : a2Var.r1().appId;
+        String str3 = (a2Var.s1() == null || StringUtils.isNull(a2Var.s1().appId)) ? "" : a2Var.s1().appId;
         StatisticItem statisticItem = new StatisticItem(str);
         statisticItem.param("obj_type", 1);
         statisticItem.param("obj_id", d(a2Var));
@@ -76,31 +78,34 @@ public class a {
         return statisticItem;
     }
 
-    public void f(String str, int i2, int i3, String str2) {
+    public void f(String str, int i2, int i3, String str2, AlaInfoData alaInfoData) {
         StatisticItem statisticItem = new StatisticItem(str);
         statisticItem.param("obj_source", i2);
         statisticItem.param("obj_type", i3);
         statisticItem.param("tid", str2);
+        if (alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
+            TiebaStaticHelper.addYYParam(statisticItem, alaInfoData.mYyExtData);
+        }
         TiebaStatic.log(statisticItem);
     }
 
     public void g() {
-        if (ListUtils.getCount(this.f61665a) == 0) {
+        if (ListUtils.getCount(this.f65379a) == 0) {
             return;
         }
-        for (StatisticItem statisticItem : this.f61665a) {
+        for (StatisticItem statisticItem : this.f65379a) {
             if (statisticItem != null) {
                 TiebaStatic.log(statisticItem);
             }
         }
-        this.f61665a.clear();
+        this.f65379a.clear();
     }
 
     public void h(boolean z) {
-        if (ListUtils.getCount(this.f61665a) == 0) {
+        if (ListUtils.getCount(this.f65379a) == 0) {
             return;
         }
-        for (StatisticItem statisticItem : this.f61665a) {
+        for (StatisticItem statisticItem : this.f65379a) {
             if (statisticItem != null) {
                 if (!statisticItem.getParams().contains(TiebaStatic.Params.OBJ_PARAM2)) {
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, z ? 1 : 0);
@@ -108,6 +113,6 @@ public class a {
                 TiebaStatic.log(statisticItem);
             }
         }
-        this.f61665a.clear();
+        this.f65379a.clear();
     }
 }

@@ -5,38 +5,38 @@ import d.a.l0.a.k;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47175a = "";
+    public String f50849a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47176b = "";
+    public String f50850b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47177c = "";
+    public String f50851c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public float f47178d = 0.0f;
+    public float f50852d = 0.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47179e = false;
+    public boolean f50853e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f47180f = false;
+    public boolean f50854f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47181g = true;
+    public boolean f50855g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47182h = 0;
+    public int f50856h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f47183i = 1.0f;
+    public float f50857i = 1.0f;
     public String j;
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public String toString() {
-        return "url : " + this.f47177c + "; AutoPlay : " + this.f47179e + "; Volume :" + this.f47183i + "; Loop : " + this.f47180f + "; startTime : " + this.f47178d + "; ObeyMute : " + this.f47181g + "; pos : " + this.f47182h;
+        return "url : " + this.f50851c + "; AutoPlay : " + this.f50853e + "; Volume :" + this.f50857i + "; Loop : " + this.f50854f + "; startTime : " + this.f50852d + "; ObeyMute : " + this.f50855g + "; pos : " + this.f50856h;
     }
 }

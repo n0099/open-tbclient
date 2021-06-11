@@ -61,15 +61,15 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f17172e;
+        public final /* synthetic */ d.a.m0.r.s.a f17248e;
 
         public a(d.a.m0.r.s.a aVar) {
-            this.f17172e = aVar;
+            this.f17248e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f17172e.dismiss();
+            this.f17248e.dismiss();
         }
     }
 
@@ -80,7 +80,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
 
         @Override // java.lang.Runnable
         public void run() {
-            ForumDetailActivity.this.mView.p(false);
+            ForumDetailActivity.this.mView.q(false);
         }
     }
 
@@ -91,7 +91,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
 
         @Override // java.lang.Runnable
         public void run() {
-            ForumDetailActivity.this.mView.p(false);
+            ForumDetailActivity.this.mView.q(false);
         }
     }
 
@@ -102,7 +102,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
 
         @Override // java.lang.Runnable
         public void run() {
-            ForumDetailActivity.this.mView.p(true);
+            ForumDetailActivity.this.mView.q(true);
         }
     }
 
@@ -110,10 +110,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public class e extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f17177a;
+        public final /* synthetic */ boolean f17253a;
 
         public e(boolean z) {
-            this.f17177a = z;
+            this.f17253a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +122,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             if (TextUtils.isEmpty(ForumDetailActivity.this.mForumId)) {
                 return null;
             }
-            d.a.n0.f1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(ForumDetailActivity.this.mForumId), this.f17177a);
+            d.a.n0.f1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(ForumDetailActivity.this.mForumId), this.f17253a);
             return null;
         }
     }
@@ -139,13 +139,13 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                 return;
             }
             if (z) {
-                forumDetailActivity.mView.j();
-                ForumDetailActivity.this.mView.s();
-                ForumDetailActivity.this.mModel.B(ForumDetailActivity.this.mForumId);
+                forumDetailActivity.mView.k();
+                ForumDetailActivity.this.mView.t();
+                ForumDetailActivity.this.mModel.F(ForumDetailActivity.this.mForumId);
                 return;
             }
-            forumDetailActivity.mView.h();
-            ForumDetailActivity.this.mView.t(R.string.refresh_view_title_text);
+            forumDetailActivity.mView.i();
+            ForumDetailActivity.this.mView.u(R.string.refresh_view_title_text);
         }
     }
 
@@ -157,9 +157,9 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (l.D()) {
-                ForumDetailActivity.this.mView.j();
-                ForumDetailActivity.this.mView.s();
-                ForumDetailActivity.this.mModel.B(ForumDetailActivity.this.mForumId);
+                ForumDetailActivity.this.mView.k();
+                ForumDetailActivity.this.mView.t();
+                ForumDetailActivity.this.mModel.F(ForumDetailActivity.this.mForumId);
             }
         }
     }
@@ -184,28 +184,28 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
 
     private void onResult() {
         List<SimpleThreadInfo> list;
-        this.mView.h();
-        this.mView.j();
+        this.mView.i();
+        this.mView.k();
         if (this.mForumInfo == null && ((list = this.mThreadInfoList) == null || list.size() <= 0)) {
             this.mIsHasData = false;
-            this.mView.t(R.string.no_data_common_txt);
+            this.mView.u(R.string.no_data_common_txt);
             return;
         }
         this.mIsHasData = true;
         this.mThreadInfoList = filterThreadList(this.mThreadInfoList);
-        this.mView.m(this.mForumInfo, this.isBawuShow, this.mIsComplaintShow, this.applyInfo, this.mPrivateApplyInfo, this.managerElectionTab, this.bzApplySwitch);
-        this.mView.q(this.mThreadInfoList);
+        this.mView.n(this.mForumInfo, this.isBawuShow, this.mIsComplaintShow, this.applyInfo, this.mPrivateApplyInfo, this.managerElectionTab, this.bzApplySwitch);
+        this.mView.r(this.mThreadInfoList);
     }
 
     private void requestNet() {
         if (l.D()) {
-            this.mView.s();
-            this.mModel.B(this.mForumId);
-            this.mModel.A(this.mForumId);
+            this.mView.t();
+            this.mModel.F(this.mForumId);
+            this.mModel.E(this.mForumId);
             return;
         }
-        this.mView.h();
-        this.mView.t(R.string.refresh_view_title_text);
+        this.mView.i();
+        this.mView.u(R.string.refresh_view_title_text);
         showToast(R.string.neterror);
     }
 
@@ -287,7 +287,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             }
             sendMessage(new CustomMessage(2002001, new ForumMemberActivityConfig(getActivity(), String.valueOf(this.mForumInfo.forum_id), this.mForumInfo.forum_name)));
         } else if (id == R.id.bar_info_clean_lay) {
-            this.mView.r();
+            this.mView.s();
         } else if (id == R.id.bar_info_history_lay) {
             sendMessage(new CustomMessage(2002001, new OfficialBarHistoryActivityConfig(getPageContext().getPageActivity(), d.a.c.e.m.b.d(this.mForumId, 0))));
         } else if (id == R.id.bar_info_emotion_layout) {
@@ -347,8 +347,8 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         setContentView(R.layout.forum_detail_activity);
         d.a.n0.f1.i.b.a aVar = new d.a.n0.f1.i.b.a(this);
         this.mView = aVar;
-        aVar.g().a(new f());
-        this.mView.o(new g());
+        aVar.h().a(new f());
+        this.mView.p(new g());
         this.mModel = new ForumDetailModel(this);
         this.mForumId = getIntent().getStringExtra("forum_id");
         requestNet();
@@ -358,7 +358,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.f
     public void onHttpEmotionResponseMessage(BarEmotionResponseMessage barEmotionResponseMessage) {
         if (barEmotionResponseMessage != null) {
-            this.mView.l(barEmotionResponseMessage.data);
+            this.mView.m(barEmotionResponseMessage.data);
             this.mForumEmotionData = barEmotionResponseMessage.data;
         }
     }
@@ -378,23 +378,23 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.f
     public void onNetError(String str) {
-        this.mView.h();
+        this.mView.i();
         if (TextUtils.isEmpty(str)) {
             showToast(R.string.neterror);
         } else {
             showToast(str);
         }
         if (l.D()) {
-            this.mView.t(R.string.no_data_common_txt);
+            this.mView.u(R.string.no_data_common_txt);
         } else {
-            this.mView.t(R.string.refresh_view_title_text);
+            this.mView.u(R.string.refresh_view_title_text);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.mView.k();
+        this.mView.l();
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.f
@@ -444,14 +444,14 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     }
 
     public void setMsgManageVisibility(boolean z) {
-        this.mView.n(this.mForumInfo, z);
+        this.mView.o(this.mForumInfo, z);
     }
 
     public void setSwitch(boolean z) {
-        this.mView.p(z);
+        this.mView.q(z);
     }
 
     public void updateLikeAndMsgStatus(boolean z) {
-        this.mView.u(this.mForumInfo, z);
+        this.mView.v(this.mForumInfo, z);
     }
 }

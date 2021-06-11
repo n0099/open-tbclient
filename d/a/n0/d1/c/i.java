@@ -4,23 +4,23 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.Hottopic.PkModule;
 import tbclient.Hottopic.PkView;
 /* loaded from: classes4.dex */
-public class i implements d.a.c.j.e.n {
+public class i implements d.a.c.k.e.n {
     public static final BdUniqueId p = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52581e;
+    public String f56270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52582f;
+    public String f56271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f52583g;
+    public String f56272g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f52584h;
+    public long f56273h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f52585i;
+    public String f56274i;
     public long j;
     public int k;
     public long l;
@@ -28,18 +28,18 @@ public class i implements d.a.c.j.e.n {
     public long n;
     public long o;
 
-    public void c(PkModule pkModule) {
+    public void b(PkModule pkModule) {
         if (pkModule == null) {
             return;
         }
-        this.f52581e = pkModule.module_name;
-        this.f52582f = pkModule.ques_desc;
+        this.f56270e = pkModule.module_name;
+        this.f56271f = pkModule.ques_desc;
         PkView pkView = pkModule.pk_1;
-        this.f52583g = pkView.pk_desc;
-        this.f52584h = pkView.pk_num.longValue();
+        this.f56272g = pkView.pk_desc;
+        this.f56273h = pkView.pk_num.longValue();
         pkModule.pk_1.pk_index.intValue();
         PkView pkView2 = pkModule.pk_2;
-        this.f52585i = pkView2.pk_desc;
+        this.f56274i = pkView2.pk_desc;
         this.j = pkView2.pk_num.longValue();
         pkModule.pk_2.pk_index.intValue();
         this.k = pkModule.pk_1.has_clicked.intValue() == 1 ? 1 : pkModule.pk_2.has_clicked.intValue() == 1 ? 2 : 0;
@@ -48,7 +48,7 @@ public class i implements d.a.c.j.e.n {
         this.l = pkModule.pk_id.longValue();
         this.m = pkModule.user_pk_id.longValue();
         int i2 = this.k;
-        long j = this.f52584h;
+        long j = this.f56273h;
         if (i2 == 1) {
             j--;
         }
@@ -56,7 +56,7 @@ public class i implements d.a.c.j.e.n {
         this.o = this.k == 2 ? this.j - 1 : this.j;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return p;
     }

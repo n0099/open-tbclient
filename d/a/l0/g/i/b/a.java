@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class a extends d.a.l0.g.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47090c = k.f43199a;
+    public static final boolean f50764c = k.f46875a;
 
     public a() {
         super("GetAppUseDuration");
@@ -31,7 +31,7 @@ public class a extends d.a.l0.g.f.a {
             bVar.onFail(202, "params may be error");
             return null;
         }
-        if (f47090c) {
+        if (f50764c) {
             Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
         }
         String optString = jSONObject.optString("packageName");
@@ -59,7 +59,7 @@ public class a extends d.a.l0.g.f.a {
                             JSONObject jSONObject2 = new JSONObject();
                             jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
                             jSONObject.put("data", jSONObject2);
-                            bVar.b(jSONObject);
+                            bVar.a(jSONObject);
                             return;
                         }
                     }

@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import com.ksad.download.f;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.a;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.ad;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,25 +21,25 @@ import java.util.concurrent.Future;
 public class ApkInstallCheckManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public Future f32050a;
+    public Future f34088a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f32051b;
+    public File f34089b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ExecutorService f32052c;
+    public final ExecutorService f34090c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PackageManager f32053d;
+    public PackageManager f34091d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f32054e;
+    public final f f34092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f32055f;
+    public volatile boolean f34093f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Callable<PackageInfo> f32056g;
+    public final Callable<PackageInfo> f34094g;
 
     /* loaded from: classes6.dex */
     public enum Holder {
@@ -56,19 +56,19 @@ public class ApkInstallCheckManager {
     }
 
     public ApkInstallCheckManager() {
-        this.f32052c = Executors.newSingleThreadExecutor();
-        this.f32055f = false;
-        this.f32056g = new Callable<PackageInfo>() { // from class: com.kwad.sdk.core.diskcache.ApkInstallCheckManager.1
+        this.f34090c = Executors.newSingleThreadExecutor();
+        this.f34093f = false;
+        this.f34094g = new Callable<PackageInfo>() { // from class: com.kwad.sdk.core.diskcache.ApkInstallCheckManager.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public PackageInfo call() {
                 PackageInfo a2;
                 synchronized (ApkInstallCheckManager.class) {
-                    if (ApkInstallCheckManager.this.f32051b != null && ApkInstallCheckManager.this.f32051b.exists()) {
-                        for (File file : ApkInstallCheckManager.this.b(ApkInstallCheckManager.this.f32051b)) {
+                    if (ApkInstallCheckManager.this.f34089b != null && ApkInstallCheckManager.this.f34089b.exists()) {
+                        for (File file : ApkInstallCheckManager.this.b(ApkInstallCheckManager.this.f34089b)) {
                             if (file.getName().endsWith(".apk") && a.a().a(file.getAbsolutePath()) != null && (a2 = ApkInstallCheckManager.this.a(file)) != null) {
-                                ApkInstallCheckManager.this.f32054e.a(file);
+                                ApkInstallCheckManager.this.f34092e.a(file);
                                 return a2;
                             }
                         }
@@ -78,17 +78,17 @@ public class ApkInstallCheckManager {
                 }
             }
         };
-        this.f32054e = new com.kwad.sdk.core.download.c.a();
+        this.f34092e = new com.kwad.sdk.core.download.c.a();
         if (KsAdSDKImpl.get().getContext() == null) {
             return;
         }
         try {
-            this.f32051b = ae.c(KsAdSDKImpl.get().getContext());
-            this.f32053d = KsAdSDKImpl.get().getContext().getPackageManager();
+            this.f34089b = ad.c(KsAdSDKImpl.get().getContext());
+            this.f34091d = KsAdSDKImpl.get().getContext().getPackageManager();
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
         }
-        this.f32055f = true;
+        this.f34093f = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -96,8 +96,8 @@ public class ApkInstallCheckManager {
         if (file != null && file.exists()) {
             try {
                 if (file.exists() & (!file.isDirectory())) {
-                    PackageInfo packageArchiveInfo = this.f32053d.getPackageArchiveInfo(file.getPath(), 65);
-                    if (this.f32053d.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
+                    PackageInfo packageArchiveInfo = this.f34091d.getPackageArchiveInfo(file.getPath(), 65);
+                    if (this.f34091d.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
                         return null;
                     }
                     return packageArchiveInfo;
@@ -141,10 +141,10 @@ public class ApkInstallCheckManager {
 
     public void b() {
         File file;
-        if (this.f32055f && (file = this.f32051b) != null && file.exists()) {
-            Future future = this.f32050a;
+        if (this.f34093f && (file = this.f34089b) != null && file.exists()) {
+            Future future = this.f34088a;
             if (future == null || future.isDone()) {
-                this.f32050a = this.f32052c.submit(this.f32056g);
+                this.f34088a = this.f34090c.submit(this.f34094g);
             }
         }
     }

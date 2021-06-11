@@ -6,16 +6,16 @@ import tbclient.FrsPage.ForumHeadlineImgInfo;
 public class b0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49943a = "";
+    public String f53619a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49944b = "";
+    public String f53620b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public x f49945c;
+    public x f53621c;
 
     public String a() {
-        return this.f49943a;
+        return this.f53619a;
     }
 
     public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
@@ -27,18 +27,18 @@ public class b0 {
         String str = forumHeadlineImgInfo.thread_user_name;
         forumHeadlineImgInfo.img_user_id.longValue();
         String str2 = forumHeadlineImgInfo.img_user_name;
-        this.f49943a = forumHeadlineImgInfo.img_url;
-        this.f49944b = forumHeadlineImgInfo.headline_url;
-        this.f49945c = new x();
+        this.f53619a = forumHeadlineImgInfo.img_url;
+        this.f53620b = forumHeadlineImgInfo.headline_url;
+        this.f53621c = new x();
         ArrayList<a0> arrayList = new ArrayList<>();
-        String str3 = this.f49943a;
+        String str3 = this.f53619a;
         if (str3 == null) {
             str3 = "";
         }
-        String str4 = this.f49944b;
+        String str4 = this.f53620b;
         a0 a0Var = new a0(str3, str4 != null ? str4 : "", null);
         a0Var.n(true);
         arrayList.add(a0Var);
-        this.f49945c.f(arrayList);
+        this.f53621c.f(arrayList);
     }
 }

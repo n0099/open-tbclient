@@ -35,26 +35,26 @@ public class f implements d.a.l0.n.a {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f40936e;
+        public final /* synthetic */ Set f44612e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.n.j.i.j f40937f;
+        public final /* synthetic */ d.a.l0.n.j.i.j f44613f;
 
         /* renamed from: d.a.l0.a.c1.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0578a extends d.a.l0.a.h0.m.a {
+        public class C0634a extends d.a.l0.a.h0.m.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ AtomicInteger f40938a;
+            public final /* synthetic */ AtomicInteger f44614a;
 
-            public C0578a(AtomicInteger atomicInteger) {
-                this.f40938a = atomicInteger;
+            public C0634a(AtomicInteger atomicInteger) {
+                this.f44614a = atomicInteger;
             }
 
             @Override // d.a.l0.a.h0.m.a
             public void d() {
-                if (this.f40938a.get() == 0) {
-                    d.a.l0.n.j.i.k.a().c(a.this.f40937f);
+                if (this.f44614a.get() == 0) {
+                    d.a.l0.n.j.i.k.a().c(a.this.f44613f);
                 }
             }
 
@@ -62,30 +62,30 @@ public class f implements d.a.l0.n.a {
             public void e(d.a.l0.n.h.a aVar) {
                 int i2;
                 super.e(aVar);
-                if (aVar == null || (i2 = aVar.f48002a) == 1010 || i2 == 1015) {
+                if (aVar == null || (i2 = aVar.f51676a) == 1010 || i2 == 1015) {
                     return;
                 }
-                this.f40938a.incrementAndGet();
+                this.f44614a.incrementAndGet();
             }
 
             @Override // d.a.l0.a.h0.m.a
             public void g() {
-                if (this.f40938a.get() == 0) {
-                    d.a.l0.n.j.i.k.a().c(a.this.f40937f);
+                if (this.f44614a.get() == 0) {
+                    d.a.l0.n.j.i.k.a().c(a.this.f44613f);
                 }
             }
         }
 
         public a(f fVar, Set set, d.a.l0.n.j.i.j jVar) {
-            this.f40936e = set;
-            this.f40937f = jVar;
+            this.f44612e = set;
+            this.f44613f = jVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ArrayList arrayList = new ArrayList();
             AtomicInteger atomicInteger = new AtomicInteger(0);
-            for (String str : this.f40936e) {
+            for (String str : this.f44612e) {
                 if (!TextUtils.isEmpty(str)) {
                     arrayList.add(new b.a(str, 0));
                 }
@@ -93,7 +93,7 @@ public class f implements d.a.l0.n.a {
             if (arrayList.isEmpty()) {
                 return;
             }
-            d.a.l0.a.h0.c.a.b.b(arrayList, "3", new C0578a(atomicInteger));
+            d.a.l0.a.h0.c.a.b.b(arrayList, "3", new C0634a(atomicInteger));
         }
     }
 
@@ -101,19 +101,19 @@ public class f implements d.a.l0.n.a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.k2.g.b f40940e;
+        public final /* synthetic */ d.a.l0.a.k2.g.b f44616e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f40941f;
+        public final /* synthetic */ JSONObject f44617f;
 
         public b(f fVar, d.a.l0.a.k2.g.b bVar, JSONObject jSONObject) {
-            this.f40940e = bVar;
-            this.f40941f = jSONObject;
+            this.f44616e = bVar;
+            this.f44617f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.a.n1.q.a.g().q(this.f40940e, this.f40941f);
+            d.a.l0.a.n1.q.a.g().q(this.f44616e, this.f44617f);
         }
     }
 
@@ -121,10 +121,10 @@ public class f implements d.a.l0.n.a {
     public class c implements d.a.l0.a.h0.j.b<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.n.h.h f40942a;
+        public final /* synthetic */ d.a.l0.n.h.h f44618a;
 
         public c(f fVar, d.a.l0.n.h.h hVar) {
-            this.f40942a = hVar;
+            this.f44618a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -132,7 +132,7 @@ public class f implements d.a.l0.n.a {
         /* renamed from: b */
         public void a(Boolean bool) {
             d.a.l0.a.t1.d.a.a("download plugin result = " + bool);
-            d.a.l0.a.t1.e.a.b(this.f40942a.f48012g);
+            d.a.l0.a.t1.e.a.b(this.f44618a.f51686g);
         }
     }
 
@@ -254,7 +254,7 @@ public class f implements d.a.l0.n.a {
 
     @Override // d.a.l0.n.a
     public boolean isDebug() {
-        return d.a.l0.a.k.f43199a;
+        return d.a.l0.a.k.f46875a;
     }
 
     @Override // d.a.l0.n.a
@@ -321,18 +321,18 @@ public class f implements d.a.l0.n.a {
     @Override // d.a.l0.n.a
     public void s(d.a.l0.n.j.k.a aVar, d.a.l0.n.o.f fVar) {
         Collection<d.a.l0.n.h.h> collection;
-        if (aVar == null || (collection = aVar.f48177e) == null || fVar == null) {
+        if (aVar == null || (collection = aVar.f51851e) == null || fVar == null) {
             return;
         }
         for (d.a.l0.n.h.h hVar : collection) {
-            d.a.l0.a.t1.a.a aVar2 = new d.a.l0.a.t1.a.a(hVar.f48012g, hVar.j, hVar.f48014i, new c(this, hVar));
+            d.a.l0.a.t1.a.a aVar2 = new d.a.l0.a.t1.a.a(hVar.f51686g, hVar.j, hVar.f51688i, new c(this, hVar));
             d.a.l0.n.j.k.a aVar3 = new d.a.l0.n.j.k.a();
-            aVar3.f48177e = new ArrayList();
+            aVar3.f51851e = new ArrayList();
             d.a.l0.n.o.f fVar2 = new d.a.l0.n.o.f();
             d.a.l0.n.j.k.b.b(hVar, fVar2);
             aVar2.F(fVar2);
-            aVar3.f48177e.clear();
-            aVar3.f48177e.add(hVar);
+            aVar3.f51851e.clear();
+            aVar3.f51851e.add(hVar);
             d.a.l0.n.i.i.a.e(aVar3, aVar2);
         }
     }

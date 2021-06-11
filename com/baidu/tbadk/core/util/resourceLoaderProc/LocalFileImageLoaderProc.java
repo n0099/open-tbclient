@@ -8,7 +8,7 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import d.a.c.e.l.b;
 import d.a.c.e.l.e;
 import d.a.c.e.p.l;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import d.a.m0.a0.c;
 import d.a.m0.b0.g.d;
 /* loaded from: classes3.dex */
@@ -71,7 +71,7 @@ public class LocalFileImageLoaderProc implements e<a> {
 
     public String toCacheKey(String str) {
         ImageOperation g2 = d.g(this.width, this.height);
-        return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f1873h + g2.actionParam;
+        return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f1886h + g2.actionParam;
     }
 
     @Override // d.a.c.e.l.e

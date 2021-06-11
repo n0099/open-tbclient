@@ -6,31 +6,28 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f32795a;
+    public int f34928a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f32796b;
+    public AdTemplate f34929b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f32797c;
+    public AdBaseFrameLayout f34930c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f32798d;
+    public JSONObject f34931d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f32799e;
+    public ViewGroup f34932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebView f32800f;
+    public WebView f34933f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f32801g = true;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f32802h = true;
+    public boolean f34934g = true;
 }

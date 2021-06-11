@@ -26,7 +26,7 @@ public abstract class a extends a0 {
                 jSONObject.putOpt(entry.getKey(), entry.getValue());
             }
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
         }

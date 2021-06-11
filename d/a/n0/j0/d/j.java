@@ -8,19 +8,19 @@ import tbclient.FrsTabInfo;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<i> f55855a;
+    public ArrayList<i> f59544a;
 
     public void a(List<FrsTabInfo> list) {
-        if (this.f55855a == null) {
-            this.f55855a = new ArrayList<>();
+        if (this.f59544a == null) {
+            this.f59544a = new ArrayList<>();
         }
-        this.f55855a.clear();
+        this.f59544a.clear();
         if (list == null) {
             return;
         }
         for (FrsTabInfo frsTabInfo : list) {
             if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                this.f55855a.add(new i(frsTabInfo));
+                this.f59544a.add(new i(frsTabInfo));
             }
         }
     }

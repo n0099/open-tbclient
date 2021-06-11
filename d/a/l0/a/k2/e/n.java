@@ -32,7 +32,7 @@ public class n extends a0 {
             return true;
         } catch (JSONException e2) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
             return false;

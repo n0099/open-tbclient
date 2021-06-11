@@ -111,37 +111,37 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
 
     /* renamed from: d.a.n0.r0.n1.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1522c implements d.a.m0.b1.j.d {
+    public class C1578c implements d.a.m0.b1.j.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f59127a;
+        public final /* synthetic */ LinkedList f62818a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a2 f59128b;
+        public final /* synthetic */ a2 f62819b;
 
-        public C1522c(LinkedList linkedList, a2 a2Var) {
-            this.f59127a = linkedList;
-            this.f59128b = a2Var;
+        public C1578c(LinkedList linkedList, a2 a2Var) {
+            this.f62818a = linkedList;
+            this.f62819b = a2Var;
         }
 
         @Override // d.a.m0.b1.j.d
         public void a(View view, int i2, boolean z) {
-            b0<a2> h2 = c.this.h();
+            b0<a2> i3 = c.this.i();
             if (!z) {
-                if (h2 != null) {
+                if (i3 != null) {
                     view.setTag("1");
-                    h2.f63445a = Boolean.FALSE;
-                    h2.a(view, c.this.z);
+                    i3.f67163a = Boolean.FALSE;
+                    i3.a(view, c.this.z);
                 }
-                c.this.O(view, this.f59127a, i2, this.f59128b);
+                c.this.P(view, this.f62818a, i2, this.f62819b);
                 return;
             }
-            if (h2 != null) {
+            if (i3 != null) {
                 view.setTag("1");
-                h2.f63445a = Boolean.TRUE;
-                h2.a(view, c.this.z);
+                i3.f67163a = Boolean.TRUE;
+                i3.a(view, c.this.z);
             }
-            c.this.z(false);
+            c.this.A(false);
         }
     }
 
@@ -149,16 +149,16 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a2 f59130e;
+        public final /* synthetic */ a2 f62821e;
 
         public d(a2 a2Var) {
-            this.f59130e = a2Var;
+            this.f62821e = a2Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (c.this.A != null) {
-                c.this.f63441f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(c.this.f63441f.getContext(), "", this.f59130e.v1, true)));
+                c.this.f67159f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(c.this.f67159f.getContext(), "", this.f62821e.w1, true)));
             }
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_STAR_PIC_CLICK));
         }
@@ -168,15 +168,15 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
     public class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f59132e;
+        public final /* synthetic */ ThemeCardInUserData f62823e;
 
         public e(ThemeCardInUserData themeCardInUserData) {
-            this.f59132e = themeCardInUserData;
+            this.f62823e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(c.this.A.getPageActivity(), this.f59132e.getCardId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(c.this.A.getPageActivity(), this.f62823e.getCardId())));
         }
     }
 
@@ -188,11 +188,11 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!d.a.n0.r0.b.e().g() && !d.a.n0.r0.a.h().j()) {
-                if (c.this.h() != null) {
-                    c.this.h().a(view, c.this.z);
+                if (c.this.i() != null) {
+                    c.this.i().a(view, c.this.z);
                 }
                 c cVar = c.this;
-                cVar.z(view == cVar.q);
+                cVar.A(view == cVar.q);
                 return;
             }
             ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = c.this.o;
@@ -209,10 +209,10 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<a2> h2 = c.this.h();
-            if (h2 != null) {
+            b0<a2> i2 = c.this.i();
+            if (i2 != null) {
                 view.setTag("2");
-                h2.a(view, c.this.z);
+                i2.a(view, c.this.z);
             }
         }
     }
@@ -224,8 +224,8 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.h() != null) {
-                c.this.h().a(view, c.this.z);
+            if (c.this.i() != null) {
+                c.this.i().a(view, c.this.z);
             }
         }
     }
@@ -237,11 +237,11 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         this.L = new f();
         this.M = new g();
         this.N = new h();
-        View l = l();
-        p(bdUniqueId);
+        View m = m();
+        q(bdUniqueId);
         this.A = tbPageContext;
         this.l = 3;
-        HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) l.findViewById(R.id.card_home_page_normal_thread_user_pendant_header);
+        HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) m.findViewById(R.id.card_home_page_normal_thread_user_pendant_header);
         this.m = headPendantClickableView;
         if (headPendantClickableView.getHeadView() != null) {
             this.m.getHeadView().setIsRound(true);
@@ -255,23 +255,23 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
             this.m.getPendantView().setDrawBorder(false);
         }
         this.m.setAfterClickListener(this.N);
-        this.t = l.findViewById(R.id.divider_line);
-        this.B = (TextView) l.findViewById(R.id.card_home_page_normal_thread_title);
-        PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) l.findViewById(R.id.card_home_page_normal_thread_abstract_voice);
+        this.t = m.findViewById(R.id.divider_line);
+        this.B = (TextView) m.findViewById(R.id.card_home_page_normal_thread_title);
+        PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) m.findViewById(R.id.card_home_page_normal_thread_abstract_voice);
         this.n = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(this.M);
-        TextView textView = (TextView) l.findViewById(R.id.card_home_page_normal_thread_abstract);
+        TextView textView = (TextView) m.findViewById(R.id.card_home_page_normal_thread_abstract);
         this.C = textView;
         textView.setVisibility(8);
-        this.F = l.findViewById(R.id.divider_line_above_praise);
-        this.D = (ConstrainImageGroup) l.findViewById(R.id.card_home_page_normal_thread_img_layout);
+        this.F = m.findViewById(R.id.divider_line_above_praise);
+        this.D = (ConstrainImageGroup) m.findViewById(R.id.card_home_page_normal_thread_img_layout);
         this.D.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
         this.D.setChildClickListener(this.L);
         d.a.m0.b1.j.f fVar = new d.a.m0.b1.j.f(3);
         fVar.d(1.0d);
         this.D.setImageProcessor(fVar);
-        this.o = (ThreadCommentAndPraiseInfoLayout) l.findViewById(R.id.card_home_page_normal_thread_info_layout);
-        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) l.findViewById(R.id.card_home_page_normal_thread_user_info_layout);
+        this.o = (ThreadCommentAndPraiseInfoLayout) m.findViewById(R.id.card_home_page_normal_thread_info_layout);
+        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) m.findViewById(R.id.card_home_page_normal_thread_user_info_layout);
         this.r = threadUserInfoLayout;
         threadUserInfoLayout.setUserAfterClickListener(this.N);
         this.r.setFrom(3);
@@ -287,68 +287,70 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         this.o.setStType("frs_page");
         this.o.setFrom(2);
         this.o.R = 3;
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) l.findViewById(R.id.card_home_page_source_read_share_layout);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m.findViewById(R.id.card_home_page_source_read_share_layout);
         this.p = threadSourceShareAndPraiseLayout;
         if (threadSourceShareAndPraiseLayout != null) {
-            threadSourceShareAndPraiseLayout.f12401f.setOnClickListener(this.L);
+            threadSourceShareAndPraiseLayout.f12463f.setOnClickListener(this.L);
             this.p.setFrom(2);
             this.p.setShareReportFrom(1);
             this.p.setSourceFromForPb(3);
             this.p.setStType("frs_page");
             this.p.setHideBarName(true);
-            this.p.f12401f.setNeedAddReplyIcon(true);
+            this.p.f12463f.setNeedAddReplyIcon(true);
         }
-        RelativeLayout relativeLayout = (RelativeLayout) l.findViewById(R.id.card_home_page_normal_thread_root);
+        RelativeLayout relativeLayout = (RelativeLayout) m.findViewById(R.id.card_home_page_normal_thread_root);
         this.s = relativeLayout;
         i iVar = new i(this.A, relativeLayout);
         this.I = iVar;
-        iVar.d(i());
-        ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) l.findViewById(R.id.card_frs_god_reply_layout);
+        iVar.d(j());
+        ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) m.findViewById(R.id.card_frs_god_reply_layout);
         this.q = threadGodReplyLayout;
         threadGodReplyLayout.setOnClickListener(this.L);
-        TbImageView tbImageView = (TbImageView) l.findViewById(R.id.frs_normal_item_theme_card);
+        TbImageView tbImageView = (TbImageView) m.findViewById(R.id.frs_normal_item_theme_card);
         this.u = tbImageView;
-        tbImageView.setPageId(i());
-        TbImageView tbImageView2 = (TbImageView) l.findViewById(R.id.frs_normal_item_star_view);
+        tbImageView.setPageId(j());
+        TbImageView tbImageView2 = (TbImageView) m.findViewById(R.id.frs_normal_item_star_view);
         this.G = tbImageView2;
         if (tbImageView2 != null) {
-            tbImageView2.setPageId(i());
+            tbImageView2.setPageId(j());
         }
-        View findViewById = l.findViewById(R.id.thread_multi_del_mask_view);
+        View findViewById = m.findViewById(R.id.thread_multi_del_mask_view);
         this.J = findViewById;
         findViewById.setOnClickListener(new a());
         this.o.setOnSelectStatusChangeListener(new b());
-        this.v = (LinearLayout) l.findViewById(R.id.card_home_page_normal_thread_content_layout);
-        this.K = (AppletsCellView) l.findViewById(R.id.card_home_page_normal_thread_share_info);
+        this.v = (LinearLayout) m.findViewById(R.id.card_home_page_normal_thread_content_layout);
+        this.K = (AppletsCellView) m.findViewById(R.id.card_home_page_normal_thread_share_info);
     }
 
-    public void A(a2 a2Var) {
+    public abstract void A(boolean z);
+
+    public void B(a2 a2Var) {
         if (a2Var == null) {
-            if (l() != null) {
-                l().setVisibility(8);
+            if (m() != null) {
+                m().setVisibility(8);
                 return;
             }
             return;
         }
         this.z = a2Var;
-        if (l() != null) {
-            l().setVisibility(0);
-            l().setOnClickListener(this.L);
+        if (m() != null) {
+            m().setVisibility(0);
+            m().setOnClickListener(this.L);
         }
-        this.q.k();
-        if (!y() && m.k(this.z.o0())) {
+        this.q.l();
+        if (!z() && m.k(this.z.o0())) {
             m.l(this.B, this.z.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             m.l(this.C, this.z.o0(), R.color.CAM_X0107, R.color.CAM_X0109);
             m.l(this.q.getGodReplyContent(), this.z.o0(), R.color.CAM_X0106, R.color.CAM_X0109);
         }
-        x(a2Var);
+        y(a2Var);
         this.I.a(this.z);
-        N(a2Var);
+        O(a2Var);
         this.r.j(this.z);
         this.q.setFromCDN(this.E);
-        this.q.setData(this.z.B1());
+        this.q.setData(this.z.C1());
         this.r.setUserAfterClickListener(this.N);
-        M(v(1));
+        N(w(1));
         if (this.r.getHeaderImg() != null) {
             if (this.r.getIsSimpleThread()) {
                 this.r.getHeaderImg().setVisibility(8);
@@ -363,23 +365,23 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
                 this.r.getHeaderImg().setData(a2Var);
             }
         }
-        L(a2Var);
-        F(a2Var);
-        this.K.setData(a2Var.k1());
+        M(a2Var);
+        G(a2Var);
+        this.K.setData(a2Var.l1());
         this.K.setForumId(String.valueOf(a2Var.c0()));
         this.K.setFrom("frs_card");
-        ArrayList<VoiceData$VoiceModel> J1 = a2Var.J1();
-        if (ListUtils.isEmpty(J1)) {
+        ArrayList<VoiceData$VoiceModel> K1 = a2Var.K1();
+        if (ListUtils.isEmpty(K1)) {
             this.n.setVisibility(8);
         } else {
-            this.n.l();
+            this.n.m();
             this.n.setVisibility(0);
-            VoiceData$VoiceModel voiceData$VoiceModel = J1.get(0);
+            VoiceData$VoiceModel voiceData$VoiceModel = K1.get(0);
             this.n.setVoiceModel(voiceData$VoiceModel);
             this.n.setTag(voiceData$VoiceModel);
             this.n.b();
             if (voiceData$VoiceModel != null) {
-                this.n.j(voiceData$VoiceModel.voice_status.intValue());
+                this.n.k(voiceData$VoiceModel.voice_status.intValue());
             }
         }
         ArrayList<MediaData> L0 = a2Var.L0();
@@ -394,7 +396,7 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
             if (ListUtils.getCount(linkedList) > 0) {
                 this.D.setVisibility(0);
                 this.D.setFromCDN(this.E);
-                this.D.setImageClickListener(new C1522c(linkedList, a2Var));
+                this.D.setImageClickListener(new C1578c(linkedList, a2Var));
                 this.D.setImageMediaList(linkedList);
             } else {
                 this.D.setVisibility(8);
@@ -402,12 +404,12 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         } else {
             this.D.setVisibility(8);
         }
+        R();
+        J();
         Q();
-        I();
-        P();
         if ((d.a.n0.r0.b.e().g() || d.a.n0.r0.a.h().j()) && this.o.isInFrsAllThread()) {
             this.J.setVisibility(0);
-            if (!this.z.l2() && !this.z.m2() && !this.z.A2()) {
+            if (!this.z.m2() && !this.z.n2() && !this.z.B2()) {
                 this.J.setBackgroundResource(R.color.transparent);
             } else {
                 SkinManager.setBackgroundColor(this.J, R.color.CAM_X0201);
@@ -415,26 +417,26 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         } else {
             this.J.setVisibility(8);
         }
-        n(this.A, TbadkCoreApplication.getInst().getSkinType());
+        o(this.A, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void B(BdUniqueId bdUniqueId) {
+    public void F(BdUniqueId bdUniqueId) {
         if (bdUniqueId == null || this.o == null) {
             return;
         }
-        J(bdUniqueId);
+        K(bdUniqueId);
     }
 
-    public final void F(a2 a2Var) {
-        if (a2Var != null && v(2) == 1) {
+    public final void G(a2 a2Var) {
+        if (a2Var != null && w(2) == 1) {
             if (!StringUtils.isNull(this.w) && !StringUtils.isNull(this.x)) {
-                a2Var.l4(this.w, this.x);
+                a2Var.m4(this.w, this.x);
             }
-            SpannableString I2 = a2Var.I2();
-            if (I2 != null && !d.a.c.e.p.k.isEmpty(I2.toString())) {
+            SpannableString J2 = a2Var.J2();
+            if (J2 != null && !d.a.c.e.p.k.isEmpty(J2.toString())) {
                 this.C.setVisibility(0);
-                this.C.setOnTouchListener(new d.a.n0.v3.i(I2));
-                this.C.setText(I2);
+                this.C.setOnTouchListener(new d.a.n0.v3.i(J2));
+                this.C.setText(J2);
                 m.l(this.C, a2Var.o0(), R.color.CAM_X0107, R.color.CAM_X0109);
                 return;
             }
@@ -444,21 +446,21 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         this.C.setVisibility(8);
     }
 
-    public void G(d.a.c.e.k.b<TbImageView> bVar) {
+    public void H(d.a.c.e.k.b<TbImageView> bVar) {
         ConstrainImageGroup constrainImageGroup = this.D;
         if (constrainImageGroup != null) {
             constrainImageGroup.setImageViewPool(bVar);
         }
     }
 
-    public void H(d.a.c.e.k.b<ConstrainImageLayout> bVar) {
+    public void I(d.a.c.e.k.b<ConstrainImageLayout> bVar) {
         ConstrainImageGroup constrainImageGroup = this.D;
         if (constrainImageGroup != null) {
             constrainImageGroup.setConstrainLayoutPool(bVar);
         }
     }
 
-    public final void I() {
+    public final void J() {
         this.n.setClickable(true);
         int childCount = this.D.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
@@ -469,7 +471,7 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         }
     }
 
-    public final void J(BdUniqueId bdUniqueId) {
+    public final void K(BdUniqueId bdUniqueId) {
         ThreadUserInfoLayout threadUserInfoLayout = this.r;
         if (threadUserInfoLayout != null) {
             threadUserInfoLayout.setPageUniqueId(bdUniqueId);
@@ -480,22 +482,22 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         }
     }
 
-    public void K(double d2) {
+    public void L(double d2) {
         ConstrainImageGroup constrainImageGroup = this.D;
         if (constrainImageGroup != null) {
             constrainImageGroup.setSingleImageRatio(d2);
         }
     }
 
-    public final boolean L(a2 a2Var) {
+    public final boolean M(a2 a2Var) {
         if (!StringUtils.isNull(this.w) && !StringUtils.isNull(this.x)) {
-            a2Var.l4(this.w, this.x);
+            a2Var.m4(this.w, this.x);
         }
-        SpannableStringBuilder R2 = a2Var.R2(false, true);
-        if (R2 != null && !StringUtils.isNull(R2.toString())) {
+        SpannableStringBuilder S2 = a2Var.S2(false, true);
+        if (S2 != null && !StringUtils.isNull(S2.toString())) {
             this.B.setVisibility(0);
-            this.B.setOnTouchListener(new d.a.n0.v3.i(R2));
-            this.B.setText(R2);
+            this.B.setOnTouchListener(new d.a.n0.v3.i(S2));
+            this.B.setText(S2);
             m.l(this.B, a2Var.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         } else {
             this.B.setVisibility(8);
@@ -503,7 +505,7 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         return true;
     }
 
-    public void M(int i2) {
+    public void N(int i2) {
         a2 a2Var = this.z;
         if (a2Var == null) {
             return;
@@ -524,12 +526,12 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         }
     }
 
-    public final void N(a2 a2Var) {
+    public final void O(a2 a2Var) {
         if (this.G == null) {
             return;
         }
         if (this.u != null && a2Var != null) {
-            if (!StringUtils.isNull(a2Var.u1) && this.u.getVisibility() != 0) {
+            if (!StringUtils.isNull(a2Var.v1) && this.u.getVisibility() != 0) {
                 i iVar = this.I;
                 if (iVar != null && iVar.b() && (this.G.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.G.getLayoutParams();
@@ -538,7 +540,7 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
                 }
                 this.G.setVisibility(0);
                 this.G.setImageDrawable(null);
-                this.G.V(a2Var.u1, 10, false);
+                this.G.U(a2Var.v1, 10, false);
                 this.G.setOnClickListener(new d(a2Var));
                 return;
             }
@@ -548,7 +550,7 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         this.G.setVisibility(8);
     }
 
-    public final void O(View view, List<MediaData> list, int i2, a2 a2Var) {
+    public final void P(View view, List<MediaData> list, int i2, a2 a2Var) {
         if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
             l.L(this.A.getPageActivity(), R.string.plugin_image_viewer_install_error_tips);
             return;
@@ -566,12 +568,12 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
                 arrayList.add(str);
                 ImageUrlData imageUrlData = new ImageUrlData();
                 imageUrlData.urlType = this.E ? 13 : 14;
-                imageUrlData.imageUrl = w(mediaData);
+                imageUrlData.imageUrl = x(mediaData);
                 imageUrlData.originalUrl = mediaData.getOriginalUrl();
                 imageUrlData.originalSize = mediaData.getOriginalSize();
                 imageUrlData.mIsShowOrigonButton = mediaData.isShowOriginBtn();
                 imageUrlData.isLongPic = mediaData.isLongPic();
-                imageUrlData.threadId = d.a.c.e.m.b.f(a2Var.y1(), -1L);
+                imageUrlData.threadId = d.a.c.e.m.b.f(a2Var.z1(), -1L);
                 imageUrlData.postId = mediaData.getPostId();
                 concurrentHashMap.put(str, imageUrlData);
             }
@@ -586,7 +588,7 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         bVar.B(i2);
         bVar.z(a2Var.i0());
         bVar.y(String.valueOf(a2Var.c0()));
-        bVar.O(a2Var.y1());
+        bVar.O(a2Var.z1());
         bVar.C(this.E);
         bVar.J(arrayList.size() > 0 ? arrayList.get(0) : "");
         bVar.F(true);
@@ -600,28 +602,28 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         HistoryMessage historyMessage = new HistoryMessage();
         historyMessage.Activity = this.A;
         historyMessage.threadId = a2Var.o0();
-        historyMessage.threadName = a2Var.z1();
+        historyMessage.threadName = a2Var.A1();
         historyMessage.forumName = a2Var.i0();
         historyMessage.postID = a2Var.f0();
         MessageManager.getInstance().dispatchResponsedMessage(historyMessage);
     }
 
-    public final void P() {
+    public final void Q() {
         TextView textView = this.B;
-        if (textView == null || this.n == null || this.D == null || this.f63442g == null || textView.getVisibility() != 8) {
+        if (textView == null || this.n == null || this.D == null || this.f67160g == null || textView.getVisibility() != 8) {
             return;
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
-        layoutParams.topMargin = this.f63442g.getResources().getDimensionPixelSize(R.dimen.tbds20);
+        layoutParams.topMargin = this.f67160g.getResources().getDimensionPixelSize(R.dimen.tbds20);
         this.n.setLayoutParams(layoutParams);
         if (this.n.getVisibility() == 8) {
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.D.getLayoutParams();
-            layoutParams2.topMargin = this.f63442g.getResources().getDimensionPixelSize(R.dimen.tbds28);
+            layoutParams2.topMargin = this.f67160g.getResources().getDimensionPixelSize(R.dimen.tbds28);
             this.D.setLayoutParams(layoutParams2);
         }
     }
 
-    public final void Q() {
+    public final void R() {
         ConstrainImageGroup constrainImageGroup;
         if (this.F == null || (constrainImageGroup = this.D) == null || this.q == null) {
             return;
@@ -638,9 +640,9 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.y != i2) {
-            SkinManager.setBackgroundResource(l(), R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundResource(m(), R.drawable.addresslist_item_bg);
             SkinManager.setBackgroundColor(this.t, R.color.CAM_X0204);
             this.D.b();
             this.o.onChangeSkinType();
@@ -667,7 +669,7 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
         this.l = i2;
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.o;
         if (threadCommentAndPraiseInfoLayout != null) {
@@ -684,11 +686,11 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         this.H = str;
     }
 
-    public int v(int i2) {
+    public int w(int i2) {
         return d.a.n0.o.d.c().b(this.H, i2);
     }
 
-    public final String w(MediaData mediaData) {
+    public final String x(MediaData mediaData) {
         if (mediaData == null) {
             return "";
         }
@@ -702,7 +704,7 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         return TextUtils.isEmpty(picUrl) ? mediaData.getSrc_pic() : picUrl;
     }
 
-    public void x(a2 a2Var) {
+    public void y(a2 a2Var) {
         MetaData T;
         if (a2Var == null || this.u == null || (T = a2Var.T()) == null) {
             return;
@@ -711,16 +713,14 @@ public class c extends d.a.n0.z.b<a2> implements z, Object {
         if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
             this.u.setVisibility(0);
             this.u.setImageDrawable(null);
-            this.u.V(themeCard.getCardImageUrlAndroid(), 10, false);
+            this.u.U(themeCard.getCardImageUrlAndroid(), 10, false);
             this.u.setOnClickListener(new e(themeCard));
             return;
         }
         this.u.setVisibility(8);
     }
 
-    public final boolean y() {
+    public final boolean z() {
         return false;
     }
-
-    public abstract void z(boolean z);
 }

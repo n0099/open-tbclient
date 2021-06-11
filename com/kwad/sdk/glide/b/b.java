@@ -1,0 +1,36 @@
+package com.kwad.sdk.glide.b;
+
+import androidx.annotation.ColorInt;
+/* loaded from: classes7.dex */
+public class b {
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f35734a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f35735b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f35736c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f35737d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f35738e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f35739f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f35740g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f35741h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f35742i;
+    public int j;
+    @ColorInt
+    public int[] k;
+}

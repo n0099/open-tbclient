@@ -15,43 +15,43 @@ import org.json.JSONObject;
 public final class b extends d.a.l0.a.h0.m.n.a implements g {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f42383f = k.f43199a;
+    public static final boolean f46059f = k.f46875a;
 
     /* loaded from: classes2.dex */
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.v1.b.b> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ C0680b f42384e;
+        public final /* synthetic */ C0736b f46060e;
 
-        public a(b bVar, C0680b c0680b) {
-            this.f42384e = c0680b;
+        public a(b bVar, C0736b c0736b) {
+            this.f46060e = c0736b;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(d.a.l0.a.v1.b.b bVar) {
-            this.f42384e.onFail(bVar.P());
+            this.f46060e.onFail(bVar.P());
         }
     }
 
     /* renamed from: d.a.l0.a.h0.m.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0680b implements g.a, d.a.l0.a.v2.e1.b<i.a> {
+    public class C0736b implements g.a, d.a.l0.a.v2.e1.b<i.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final g.a f42385e;
+        public final g.a f46061e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f42386f;
+        public final boolean f46062f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f42387g = false;
+        public boolean f46063g = false;
 
-        public C0680b(g.a aVar) {
-            this.f42385e = aVar;
-            this.f42386f = aVar != null;
-            if (b.f42383f) {
+        public C0736b(g.a aVar) {
+            this.f46061e = aVar;
+            this.f46062f = aVar != null;
+            if (b.f46059f) {
                 b.this.k("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
             }
         }
@@ -60,12 +60,12 @@ public final class b extends d.a.l0.a.h0.m.n.a implements g {
         public void a(String str, String str2, JSONObject jSONObject) {
             synchronized (this) {
                 boolean e2 = e();
-                if (b.f42383f) {
+                if (b.f46059f) {
                     b bVar = b.this;
                     bVar.k("IpcHttpCallbackWrapper#onStatRecord", "valid=" + e2 + " url=" + str + " statRecord=" + jSONObject);
                 }
                 if (e2) {
-                    this.f42385e.a(str, str2, jSONObject);
+                    this.f46061e.a(str, str2, jSONObject);
                 }
             }
         }
@@ -74,19 +74,19 @@ public final class b extends d.a.l0.a.h0.m.n.a implements g {
         public void b(String str, int i2) {
             synchronized (this) {
                 boolean e2 = e();
-                if (b.f42383f) {
+                if (b.f46059f) {
                     b bVar = b.this;
                     bVar.k("IpcHttpCallbackWrapper#onSuccess", "valid=" + e2 + " statusCode=" + i2 + " response=" + str);
                 }
                 if (e2) {
                     c();
-                    this.f42385e.b(str, i2);
+                    this.f46061e.b(str, i2);
                 }
             }
         }
 
         public synchronized void c() {
-            this.f42387g = true;
+            this.f46063g = true;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,7 +95,7 @@ public final class b extends d.a.l0.a.h0.m.n.a implements g {
         public void onCallback(i.a aVar) {
             synchronized (this) {
                 boolean e2 = e();
-                if (b.f42383f) {
+                if (b.f46059f) {
                     b bVar = b.this;
                     bVar.k("IpcHttpCallbackWrapper#onCallback", "valid=" + e2 + " msg=" + aVar);
                 }
@@ -143,8 +143,8 @@ public final class b extends d.a.l0.a.h0.m.n.a implements g {
 
         public synchronized boolean e() {
             boolean z;
-            if (this.f42386f) {
-                z = this.f42387g ? false : true;
+            if (this.f46062f) {
+                z = this.f46063g ? false : true;
             }
             return z;
         }
@@ -153,13 +153,13 @@ public final class b extends d.a.l0.a.h0.m.n.a implements g {
         public void onFail(Exception exc) {
             synchronized (this) {
                 boolean e2 = e();
-                if (b.f42383f) {
+                if (b.f46059f) {
                     b bVar = b.this;
                     bVar.k("IpcHttpCallbackWrapper#onFail", "valid=" + e2 + " exception=" + exc);
                 }
                 if (e2) {
                     c();
-                    g.a aVar = this.f42385e;
+                    g.a aVar = this.f46061e;
                     if (exc == null) {
                         exc = new Exception("onFail");
                     }
@@ -172,12 +172,12 @@ public final class b extends d.a.l0.a.h0.m.n.a implements g {
         public void onStart() {
             synchronized (this) {
                 boolean e2 = e();
-                if (b.f42383f) {
+                if (b.f46059f) {
                     b bVar = b.this;
                     bVar.k("IpcHttpCallbackWrapper#onStart", "valid=" + e2);
                 }
                 if (e2) {
-                    this.f42385e.onStart();
+                    this.f46061e.onStart();
                 }
             }
         }
@@ -189,7 +189,7 @@ public final class b extends d.a.l0.a.h0.m.n.a implements g {
 
     @Override // d.a.l0.a.h0.m.n.a, d.a.l0.n.i.g
     public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, g.a aVar) {
-        if (f42383f) {
+        if (f46059f) {
             j("buildJsonPostRequest");
         }
         i("pms_http_with_ipc_action_build_json_post_request", str, map, map2, jSONObject, aVar);
@@ -197,7 +197,7 @@ public final class b extends d.a.l0.a.h0.m.n.a implements g {
 
     @Override // d.a.l0.a.h0.m.n.a, d.a.l0.n.i.g
     public void c(String str, Map<String, String> map, Map<String, String> map2, g.a aVar) {
-        if (f42383f) {
+        if (f46059f) {
             j("buildGetRequest");
         }
         String a2 = d.a.l0.a.r1.l.d.a();
@@ -211,27 +211,27 @@ public final class b extends d.a.l0.a.h0.m.n.a implements g {
     }
 
     public final void i(@NonNull String str, String str2, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, g.a aVar) {
-        if (f42383f) {
+        if (f46059f) {
             j("ipcHttp");
         }
         String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
-        C0680b c0680b = new C0680b(aVar);
+        C0736b c0736b = new C0736b(aVar);
         d.a.l0.a.v1.b.b y = d.a.l0.a.v1.b.c.E("pms_http_with_ipc").y("pms_http_with_ipc_key_action", str);
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
         d.a.l0.a.v1.b.b t = y.y("pms_http_with_ipc_key_url", str2).y("pms_http_with_ipc_keyjson_body", TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2).t("pms_http_with_ipc_key_url_param_map", d.a.l0.a.h0.m.n.a.f(map)).t("pms_http_with_ipc_key_header_param_map", d.a.l0.a.h0.m.n.a.f(map2));
         t.K(true);
-        t.G(c0680b);
-        t.F(new a(this, c0680b));
-        if (f42383f) {
+        t.G(c0736b);
+        t.F(new a(this, c0736b));
+        if (f46059f) {
             k("ipcHttp", "session=" + t);
         }
-        t.M(e.F0);
+        t.M(e.H0);
     }
 
     public final void j(String str) {
-        if (f42383f) {
+        if (f46059f) {
             Log.i("PmsHttpForClient", str);
         }
     }

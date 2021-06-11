@@ -7,45 +7,45 @@ import tbclient.GetLockWindowMsg.DataRes;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f58152a;
+    public String f61843a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58153b;
+    public String f61844b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f58154c;
+    public b f61845c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MetaData f58155d;
+    public MetaData f61846d;
 
     public String a() {
-        return this.f58153b;
+        return this.f61844b;
     }
 
     public String b() {
-        return this.f58152a;
+        return this.f61843a;
     }
 
     public b c() {
-        return this.f58154c;
+        return this.f61845c;
     }
 
     public MetaData d() {
-        return this.f58155d;
+        return this.f61846d;
     }
 
     public void e(DataRes dataRes) {
         if (dataRes == null) {
             return;
         }
-        this.f58152a = dataRes.publish_user;
-        this.f58153b = dataRes.publish_pic;
+        this.f61843a = dataRes.publish_user;
+        this.f61844b = dataRes.publish_pic;
         MetaData metaData = new MetaData();
-        this.f58155d = metaData;
+        this.f61846d = metaData;
         metaData.parserProtobuf(dataRes.author);
-        this.f58155d.setPendantData(null);
+        this.f61846d.setPendantData(null);
         b bVar = new b();
-        this.f58154c = bVar;
+        this.f61845c = bVar;
         bVar.e(TbadkCoreApplication.getInst(), dataRes.thread_info);
     }
 }

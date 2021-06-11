@@ -29,24 +29,24 @@ public class InstallActivity extends Activity {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f11600e;
+        public String f11662e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f11601f;
+        public String f11663f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f11602g;
+        public String f11664g;
 
         /* renamed from: h  reason: collision with root package name */
-        public WeakReference<Activity> f11603h;
+        public WeakReference<Activity> f11665h;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (TextUtils.isEmpty(this.f11600e) || TextUtils.isEmpty(this.f11601f)) {
+            if (TextUtils.isEmpty(this.f11662e) || TextUtils.isEmpty(this.f11663f)) {
                 return;
             }
-            boolean handleInstallApp = InstallActivity.handleInstallApp(this.f11603h, this.f11600e, this.f11601f, this.f11602g);
-            Activity activity = this.f11603h.get();
+            boolean handleInstallApp = InstallActivity.handleInstallApp(this.f11665h, this.f11662e, this.f11663f, this.f11664g);
+            Activity activity = this.f11665h.get();
             if (handleInstallApp || activity == null || activity.isDestroyed() || activity.isFinishing()) {
                 return;
             }
@@ -54,10 +54,10 @@ public class InstallActivity extends Activity {
         }
 
         public b(Activity activity, String str, String str2, String str3) {
-            this.f11600e = str;
-            this.f11601f = str2;
-            this.f11602g = str3;
-            this.f11603h = new WeakReference<>(activity);
+            this.f11662e = str;
+            this.f11663f = str2;
+            this.f11664g = str3;
+            this.f11665h = new WeakReference<>(activity);
         }
     }
 

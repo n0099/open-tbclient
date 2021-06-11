@@ -15,14 +15,10 @@ import com.kwad.sdk.core.config.item.h;
 import com.kwad.sdk.core.config.item.i;
 import com.kwad.sdk.core.config.item.j;
 import com.kwad.sdk.core.config.item.k;
-import com.kwad.sdk.core.config.item.l;
-import com.kwad.sdk.core.config.item.m;
-import com.kwad.sdk.core.config.item.n;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.utils.ag;
-import com.kwad.sdk.utils.v;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,205 +28,234 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f32009a;
+    public static volatile SdkConfigData.TemplateConfig f34057a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f32010b;
+    public static volatile SdkConfigData.TemplateConfig f34058b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f32011c;
+    public static volatile SdkConfigData.TemplateConfig f34059c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f32012d;
+    public static volatile SdkConfigData.TemplateConfig f34060d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f32013e;
+    public static volatile SdkConfigData.TemplateConfig f34061e;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static f f32018a = new f("toolbarSwitch", 1);
+        public static e f34066a = new e("toolbarSwitch", 1);
 
         /* renamed from: b  reason: collision with root package name */
-        public static f f32019b = new f("likeButtonSwitch", 1);
+        public static e f34067b = new e("likeButtonSwitch", 1);
 
         /* renamed from: c  reason: collision with root package name */
-        public static f f32020c = new f("moreButtonSwitch", 1);
+        public static e f34068c = new e("moreButtonSwitch", 1);
 
         /* renamed from: d  reason: collision with root package name */
-        public static f f32021d = new f("commentButtonSwitch", 1);
+        public static e f34069d = new e("commentButtonSwitch", 1);
 
         /* renamed from: e  reason: collision with root package name */
-        public static f f32022e = new f("seekBarSwitch", 59);
+        public static e f34070e = new e("seekBarSwitch", 59);
 
         /* renamed from: f  reason: collision with root package name */
-        public static f f32023f = new f("videoCacheSwitch", 0);
+        public static e f34071f = new e("videoCacheSwitch", 0);
 
         /* renamed from: g  reason: collision with root package name */
-        public static f f32024g = new f("trendDynamicEffect", 0);
+        public static e f34072g = new e("trendDynamicEffect", 0);
 
         /* renamed from: h  reason: collision with root package name */
-        public static f f32025h = new f("homePlaySpeedTime", 90);
+        public static e f34073h = new e("homePlaySpeedTime", 90);
 
         /* renamed from: i  reason: collision with root package name */
-        public static f f32026i = new f("homePlayCompleteType", 0);
-        public static f j = new f("replayTubeEpisode", 0);
-        public static f k = new f("batchReportCatchLimit", 20);
-        public static f l = new f("preloadSwitch", 1);
-        public static f m = new f("rewardTopBarNewStyle", 0);
-        public static f n = new f("convertEnableStrongPatch", 0);
-        public static f o = new f("liveSwitch", 0);
-        public static f p = new f("showAdComment", 0);
-        public static f q = new f("authorProfileSwitch", 1);
-        public static f r = new f("exceptionCollectorSwitch", 1);
-        public static f s = new f("mediaPlayerLogReport", 0);
-        public static f t = new f("slideLeftSwitch", 0);
-        public static f u = new f("tabRefresh", 0);
-        public static f v = new f("backRefreshSwitch", 0);
-        public static f w = new f("mobileNetTipSwitch", 0);
-        public static f x = new f("relatedSwitch", 0);
-        public static f y = new f("closeDelaySeconds", 0);
-        public static f z = new f("rewardFullClickSwitch", 0);
-        public static f A = new f("didCopySwitch", 1);
-        public static f B = new f("slideCoverSwitch", 0);
-        public static f C = new f("profileAdSwitch", 0);
-        public static f D = new f("mediaControlPlaySwitch", 1);
-        public static f E = new f("entrySwipeJumpIndex", 4);
-        public static f F = new f("mediaPlayerActionSwitch", 0);
-        public static f G = new f("showBlurBackground", 0);
-        public static f H = new f("enableHodor", 0);
-        public static f I = new f("preloadVideoCache", 0);
-        public static f J = new f("formAdExitInterceptSwitch", 0);
-        public static f K = new f("adLeaveConfirmSwitch", 0);
-        public static f L = new f("adFrontPageSwitch", 0);
-        public static f M = new f("speedLimitSwitch", 1);
-        public static f N = new f("remindInstallActivateSwitch", 0);
-        public static f O = new f("enableMultiVideoCoding", 0);
-        public static f P = new f("speedLimitThreshold", 200);
-        public static f Q = new f("splashTimeOutMilliSecond", 5000);
-        public static f R = new f("middleEndcardShowTime", 0);
-        public static f S = new f("guideStyle", 0);
-        public static f T = new f("backPatchIntervalMills", 10000);
-        public static h U = new h("guideShowTime", 5000L);
-        public static h V = new h("deviceInfoDisableConfig", 0L);
-        public static com.kwad.sdk.core.config.item.c W = new com.kwad.sdk.core.config.item.c("playerEnable", false);
-        public static com.kwad.sdk.core.config.item.c X = new com.kwad.sdk.core.config.item.c("dynamicEnable", false);
-        public static com.kwad.sdk.core.config.item.c Y = new com.kwad.sdk.core.config.item.c("emotionEnable", true);
-        public static e Z = new e("homePlaySpeed", 0.0f);
-        public static l aa = new l("webpSoUrlV7a", "");
-        public static l ab = new l("webpSoUrlV8a", "");
-        public static g ac = new g("playerConfig", null);
-        public static m ad = new m("pkgNameList", new ArrayList(0));
-        public static m ae = new m("hostList", new ArrayList(0));
-        public static TipsConfigItem af = new TipsConfigItem();
-        public static i ag = new i();
-        public static n ah = new n();
-        public static com.kwad.sdk.core.config.item.b ai = new com.kwad.sdk.core.config.item.b();
-        public static ProfileGuideConfigItem aj = new ProfileGuideConfigItem();
-        public static InstallActivateReminderConfigItem ak = new InstallActivateReminderConfigItem();
-        public static j al = new j("realtimeReportActions", "");
-        public static f am = new f("mediaShareButtonSwitch", 0);
-        public static d an = new d("mediaShareButton", "私信好友");
-        public static k ao = new k();
-        public static f ap = new f("rewardAdVideoPreCacheSize", 800);
-        public static f aq = new f("playableCloseSeconds", 0);
-        public static f ar = new f("playableAutoPlayEnable", 1);
-        public static f as = new f("formAdLeftSlideSwitch", 0);
-        public static f at = new f("preloadPhotoShareSwitch", 1);
-        public static f au = new f("forceActivateAfterInstalled", 0);
-        public static f av = new f("splashFullClickSwitch", 1);
-        public static f aw = new f("watermarkKwaiIdSwitch", 0);
-        public static f ax = new f("entrySwipeStyle", 0);
-        public static f ay = new f("entrySwipeInteraction", 0);
-        public static f az = new f("environmentDetectEnable", 0);
-        public static f aA = new f("simCardInfoEnable", 0);
-        public static f aB = new f("baseStationEnable", 0);
-        public static f aC = new f("sensorEventEnable", 0);
-        public static l aD = new l("fullscreenSkipTips", "");
-        public static l aE = new l("rewardSkipTips", "");
-        public static f aF = new f("fullscreenSkipType", 0);
-        public static f aG = new f("rewardSkipShowTime", 5);
-        public static f aH = new f("fullscreenSkipShowTime", 5);
-        public static f aI = new f("rewardSkipType", 0);
-        public static f aJ = new f("lpAutoDownloadApkSwitch", 1);
-        public static f aK = new f("autoDownloadUrlSwitch", 0);
+        public static e f34074i = new e("homePlayCompleteType", 0);
+        public static e j = new e("replayTubeEpisode", 0);
+        public static e k = new e("batchReportCatchLimit", 20);
+        public static e l = new e("preloadSwitch", 1);
+        public static e m = new e("rewardTopBarNewStyle", 0);
+        public static e n = new e("convertEnableStrongPatch", 0);
+        public static e o = new e("liveSwitch", 0);
+        public static e p = new e("showAdComment", 0);
+        public static e q = new e("authorProfileSwitch", 1);
+        public static e r = new e("exceptionCollectorSwitch", 1);
+        public static e s = new e("mediaPlayerLogReport", 0);
+        public static e t = new e("slideLeftSwitch", 0);
+        public static e u = new e("tabRefresh", 0);
+        public static e v = new e("backRefreshSwitch", 0);
+        public static e w = new e("mobileNetTipSwitch", 0);
+        public static e x = new e("relatedSwitch", 0);
+        public static e y = new e("closeDelaySeconds", 0);
+        public static e z = new e("rewardFullClickSwitch", 0);
+        public static e A = new e("didCopySwitch", 1);
+        public static e B = new e("slideCoverSwitch", 0);
+        public static e C = new e("profileAdSwitch", 0);
+        public static e D = new e("entrySwipeJumpIndex", 4);
+        public static e E = new e("profileGuideSwitch", 1);
+        public static e F = new e("mediaPlayerActionSwitch", 0);
+        public static e G = new e("showBlurBackground", 0);
+        public static e H = new e("enableHodor", 0);
+        public static e I = new e("preloadVideoCache", 0);
+        public static e J = new e("speedLimitSwitch", 1);
+        public static e K = new e("remindInstallActivateSwitch", 0);
+        public static e L = new e("speedLimitThreshold", 200);
+        public static e M = new e("splashTimeOutMilliSecond", 5000);
+        public static e N = new e("middleEndcardShowTime", 0);
+        public static e O = new e("guideStyle", 0);
+        public static g P = new g("guideShowTime", 5000L);
+        public static com.kwad.sdk.core.config.item.c Q = new com.kwad.sdk.core.config.item.c("playerEnable", false);
+        public static com.kwad.sdk.core.config.item.c R = new com.kwad.sdk.core.config.item.c("dynamicEnable", false);
+        public static com.kwad.sdk.core.config.item.c S = new com.kwad.sdk.core.config.item.c("emotionEnable", true);
+        public static d T = new d("homePlaySpeed", 0.0f);
+        public static j U = new j("webpSoUrlV7a", "");
+        public static j V = new j("webpSoUrlV8a", "");
+        public static f W = new f("playerConfig", null);
+        public static k X = new k("pkgNameList", new ArrayList(0));
+        public static k Y = new k("hostList", new ArrayList(0));
+        public static TipsConfigItem Z = new TipsConfigItem();
+        public static h aa = new h();
+        public static com.kwad.sdk.core.config.item.b ab = new com.kwad.sdk.core.config.item.b();
+        public static ProfileGuideConfigItem ac = new ProfileGuideConfigItem();
+        public static InstallActivateReminderConfigItem ad = new InstallActivateReminderConfigItem();
+        public static i ae = new i("realtimeReportActions", "");
+        public static e af = new e("rewardAdVideoPreCacheSize", 800);
+        public static e ag = new e("formAdLeftSlideSwitch", 0);
 
         public static void a() {
         }
     }
 
     public static boolean A() {
-        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_KSPLAYER_HODOR");
-        return a2 != null ? ((Boolean) a2.getValue()).booleanValue() : a.H.b().intValue() == 1;
+        com.kwad.sdk.plugin.d dVar;
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_LIVE_ENABLE");
+        if (a2 != null) {
+            return ((Boolean) a2.getValue()).booleanValue();
+        }
+        if (a.o.b().intValue() == 0 || (dVar = (com.kwad.sdk.plugin.d) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.d.class)) == null) {
+            return false;
+        }
+        return dVar.c();
     }
 
-    public static int B() {
-        return a.aq.b().intValue();
+    public static boolean B() {
+        return a.q.b().intValue() != 0;
     }
 
     public static boolean C() {
-        return a.ar.b().intValue() == 1;
+        return D() != 0;
     }
 
-    public static boolean D() {
-        return a.au.b().intValue() == 1;
+    public static int D() {
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_COMMENT_AD_TYPE");
+        return ((Integer) (a2 != null ? a2.getValue() : a.p.b())).intValue();
     }
 
     public static boolean E() {
-        return a.av.b().intValue() == 1;
+        return a.r.b().intValue() != 0;
     }
 
     public static boolean F() {
-        return a.az.b().intValue() == 1;
+        return a.s.b().intValue() == 0;
     }
 
     public static boolean G() {
-        return a.aA.b().intValue() == 1;
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_SLID_LEFT_ENABLE");
+        return a2 != null ? ((Boolean) a2.getValue()).booleanValue() : a.t.b().intValue() != 0;
     }
 
     public static boolean H() {
-        return a.aC.b().intValue() == 1;
+        return a.u.b().intValue() != 0;
     }
 
-    public static int I() {
-        return a.aF.b().intValue();
+    public static boolean I() {
+        return a.v.b().intValue() != 0;
     }
 
-    public static long J() {
-        return a.aH.b().intValue() * 1000;
+    public static boolean J() {
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_4g_TIPENABLE");
+        return a2 != null ? ((Boolean) a2.getValue()).booleanValue() : a.w.b().intValue() != 0;
     }
 
-    public static long K() {
-        return a.aG.b().intValue() * 1000;
+    public static boolean K() {
+        return a.R.b().booleanValue();
     }
 
-    public static int L() {
-        return a.aI.b().intValue();
+    public static boolean L() {
+        return a.S.b().booleanValue();
     }
 
-    public static String M() {
-        return a.aD.b();
+    public static SdkConfigData.TemplateConfig M() {
+        return f34061e;
     }
 
-    public static String N() {
-        return a.aE.b();
+    public static boolean N() {
+        return a.x.b().intValue() == 1;
     }
 
     public static boolean O() {
-        return a.aB.b().intValue() == 1;
+        return a.x.b().intValue() == 2;
     }
 
-    public static boolean P() {
-        return a.aJ.b().intValue() == 1;
+    public static int P() {
+        return a.y.b().intValue();
     }
 
     public static boolean Q() {
-        return a.aK.b().intValue() == 1;
+        return a.z.b().intValue() == 1;
+    }
+
+    public static boolean R() {
+        return a.A.b().intValue() == 1;
+    }
+
+    public static boolean S() {
+        return a.B.b().intValue() == 1;
+    }
+
+    public static boolean T() {
+        return a.C.b().intValue() == 1;
+    }
+
+    public static boolean U() {
+        return a.F.b().intValue() == 1;
+    }
+
+    public static boolean V() {
+        return a.G.b().intValue() == 1;
+    }
+
+    public static int W() {
+        return a.N.b().intValue();
+    }
+
+    public static boolean X() {
+        TipsConfigItem.TipConfigData b2 = a.Z.b();
+        if (b2 != null) {
+            return b2.isShowTips();
+        }
+        return true;
+    }
+
+    public static boolean Y() {
+        return a.E.b().intValue() == 1;
+    }
+
+    public static String Z() {
+        return a.U.b();
+    }
+
+    public static int a(long j) {
+        for (com.kwad.sdk.core.response.model.b bVar : a.aa.b()) {
+            if (bVar != null && bVar.f34710a == j) {
+                return bVar.f34711b;
+            }
+        }
+        return 0;
     }
 
     public static SdkConfigData.TemplateConfig a() {
-        return f32009a;
+        return f34057a;
     }
 
     public static SdkConfigData.TemplateConfig a(Context context, String str) {
@@ -245,23 +270,28 @@ public class c {
         return templateConfig;
     }
 
+    public static String a(String str) {
+        TipsConfigItem.TipConfigData b2 = a.Z.b();
+        return b2 != null ? b2.getTips(str) : "";
+    }
+
     @WorkerThread
     public static void a(Context context) {
         com.kwad.sdk.core.d.a.a("SdkConfigManager", "load");
         a.a();
         b.b(context);
-        f32009a = a(context, "ksadsdk_template_config");
-        f32010b = a(context, "ksadsdk_splash_template_config");
-        f32011c = a(context, "ksadsdk_mini_card_template_config");
+        f34057a = a(context, "ksadsdk_template_config");
+        f34058b = a(context, "ksadsdk_splash_template_config");
+        f34059c = a(context, "ksadsdk_mini_card_template_config");
     }
 
     @WorkerThread
     public static void a(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
-            if ((f32013e == null || !f(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f32013e.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if ((f34061e == null || !f(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34061e.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_reward_middle_endcard_template_config", "reward_middle_endcard.html");
             }
-            f32013e = templateConfig;
+            f34061e = templateConfig;
         }
     }
 
@@ -308,19 +338,73 @@ public class c {
         a(context, sdkConfigData.rewardMiddleEndcardConfig);
     }
 
-    public static boolean a(long j) {
-        return (j & a.V.b().longValue()) != 0;
+    public static boolean a(AdInfo adInfo) {
+        return a.N.b().intValue() > 0 && W() <= com.kwad.sdk.core.response.b.a.b(adInfo);
     }
 
-    public static boolean a(AdInfo adInfo, Context context) {
-        if (a.R.b().intValue() > 0 && s() <= com.kwad.sdk.core.response.b.a.b(adInfo)) {
-            return !com.kwad.sdk.core.response.b.a.a(adInfo, context) && (com.kwad.sdk.core.response.b.a.e(adInfo) > com.kwad.sdk.core.response.b.a.d(adInfo)) && v.e(context);
-        }
-        return false;
+    public static String aa() {
+        return a.V.b();
+    }
+
+    public static boolean ab() {
+        return a.J.b().intValue() == 1;
+    }
+
+    public static boolean ac() {
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_REMIND_INSTALL_ACTIVATE_ENABLE");
+        return a2 != null ? ((Boolean) a2.getValue()).booleanValue() : a.K.b().intValue() == 1;
+    }
+
+    public static int ad() {
+        return a.L.b().intValue();
+    }
+
+    public static int ae() {
+        return a.af.b().intValue();
+    }
+
+    public static boolean af() {
+        return a.ag.b().intValue() == 1;
+    }
+
+    public static boolean ag() {
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_KSPLAYER_HODOR");
+        return a2 != null ? ((Boolean) a2.getValue()).booleanValue() : a.H.b().intValue() == 1;
+    }
+
+    public static int ah() {
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_PRELOAD_VIDEO_CACHE");
+        int intValue = ((Integer) (a2 != null ? a2.getValue() : a.I.b())).intValue();
+        com.kwad.sdk.core.d.a.a("SdkConfigManager", "getPreloadVideoCache value=" + intValue);
+        return intValue;
+    }
+
+    public static long ai() {
+        return a.P.b().longValue();
+    }
+
+    public static boolean aj() {
+        return a.O.b().intValue() == 0;
+    }
+
+    public static boolean ak() {
+        return a.O.b().intValue() == 1;
+    }
+
+    public static boolean al() {
+        return a.O.b().intValue() == 2;
+    }
+
+    public static int am() {
+        return a.f34066a.b().intValue();
+    }
+
+    public static int an() {
+        return a.f34067b.b().intValue();
     }
 
     public static SdkConfigData.TemplateConfig b() {
-        return f32010b;
+        return f34058b;
     }
 
     public static synchronized File b(Context context) {
@@ -334,15 +418,15 @@ public class c {
     @WorkerThread
     public static void b(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
-            if ((f32009a == null || !c(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f32009a.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if ((f34057a == null || !c(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34057a.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_template_config", "feed.html");
             }
-            f32009a = templateConfig;
+            f34057a = templateConfig;
         }
     }
 
     public static SdkConfigData.TemplateConfig c() {
-        return f32011c != null ? f32011c : new SdkConfigData.TemplateConfig();
+        return f34059c != null ? f34059c : new SdkConfigData.TemplateConfig();
     }
 
     public static synchronized File c(Context context) {
@@ -355,14 +439,14 @@ public class c {
 
     @WorkerThread
     public static void c(Context context, SdkConfigData.TemplateConfig templateConfig) {
-        if (templateConfig != null && ((f32010b == null || !d(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f32010b.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
+        if (templateConfig != null && ((f34058b == null || !d(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34058b.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
             a(context, templateConfig, "ksadsdk_splash_template_config", "feed_splash.html");
         }
-        f32010b = templateConfig;
+        f34058b = templateConfig;
     }
 
     public static SdkConfigData.TemplateConfig d() {
-        return f32012d;
+        return f34060d;
     }
 
     public static synchronized File d(Context context) {
@@ -375,10 +459,10 @@ public class c {
 
     @WorkerThread
     public static void d(Context context, SdkConfigData.TemplateConfig templateConfig) {
-        if (templateConfig != null && ((f32011c == null || !e(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f32011c.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
+        if (templateConfig != null && ((f34059c == null || !e(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34059c.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
             a(context, templateConfig, "ksadsdk_mini_card_template_config", "mini_card.html");
         }
-        f32011c = templateConfig;
+        f34059c = templateConfig;
     }
 
     public static synchronized File e(Context context) {
@@ -389,19 +473,19 @@ public class c {
         return file;
     }
 
-    public static List<String> e() {
-        return a.ad.b();
-    }
-
     @WorkerThread
     public static void e(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
             boolean exists = b(context).exists();
-            if ((f32012d == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f32012d.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if ((f34060d == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f34060d.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_download_pop_window_config", "pop_wind.html");
             }
         }
-        f32012d = templateConfig;
+        f34060d = templateConfig;
+    }
+
+    public static boolean e() {
+        return am() == 1;
     }
 
     public static synchronized File f(Context context) {
@@ -412,98 +496,99 @@ public class c {
         return file;
     }
 
-    public static String f() {
-        return a.ac.b();
+    public static boolean f() {
+        return an() == 1;
     }
 
-    public static boolean g() {
-        if (com.kwad.sdk.d.f33038a == 1) {
+    public static int g() {
+        return a.f34068c.b().intValue();
+    }
+
+    public static boolean h() {
+        return g() == 1;
+    }
+
+    public static int i() {
+        return a.f34069d.b().intValue();
+    }
+
+    public static boolean j() {
+        return i() == 1;
+    }
+
+    public static int k() {
+        return a.D.b().intValue();
+    }
+
+    public static boolean l() {
+        return a.f34071f.b().intValue() == 2;
+    }
+
+    public static boolean m() {
+        return a.l.b().intValue() == 1;
+    }
+
+    public static List<String> n() {
+        return a.X.b();
+    }
+
+    public static String o() {
+        return a.W.b();
+    }
+
+    public static boolean p() {
+        if (com.kwad.sdk.d.f35162a == 1) {
             return false;
         }
-        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_PLAYER_TYPE");
-        return ((Boolean) (a2 != null ? a2.getValue() : a.W.b())).booleanValue();
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_PLAYER_TYPE");
+        return ((Boolean) (a2 != null ? a2.getValue() : a.Q.b())).booleanValue();
     }
 
-    public static int h() {
-        int intValue = a.Q.b().intValue();
+    public static float q() {
+        return a.T.b().floatValue();
+    }
+
+    public static int r() {
+        return a.f34073h.b().intValue();
+    }
+
+    public static int s() {
+        int intValue = a.M.b().intValue();
         if (intValue > 0) {
             return intValue;
         }
         return 5000;
     }
 
-    public static int i() {
+    public static int t() {
+        return a.f34074i.b().intValue();
+    }
+
+    public static int u() {
+        return a.j.b().intValue();
+    }
+
+    public static int v() {
         Integer num;
-        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_BATCH_MAXNUM");
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_BATCH_MAXNUM");
         return (a2 == null || (num = (Integer) a2.getValue()) == null) ? a.k.b().intValue() : num.intValue();
     }
 
     @NonNull
-    public static List<String> j() {
-        return a.ae.b();
-    }
-
-    public static boolean k() {
-        return a.m.b().intValue() != 0;
-    }
-
-    public static boolean l() {
-        return a.r.b().intValue() != 0;
-    }
-
-    public static boolean m() {
-        return a.s.b().intValue() == 0;
-    }
-
-    public static boolean n() {
-        return a.X.b().booleanValue();
-    }
-
-    public static SdkConfigData.TemplateConfig o() {
-        return f32013e;
-    }
-
-    public static int p() {
-        return a.y.b().intValue();
-    }
-
-    public static boolean q() {
-        return a.z.b().intValue() == 1;
-    }
-
-    public static boolean r() {
-        return a.F.b().intValue() == 1;
-    }
-
-    public static int s() {
-        return a.R.b().intValue();
-    }
-
-    public static String t() {
-        return a.aa.b();
-    }
-
-    public static String u() {
-        return a.ab.b();
-    }
-
-    public static boolean v() {
-        return a.M.b().intValue() == 1;
-    }
-
-    public static boolean w() {
-        return a.O.b().intValue() == 1;
+    public static List<String> w() {
+        return a.Y.b();
     }
 
     public static int x() {
-        return a.P.b().intValue();
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_TREND_UI_TYPE");
+        return ((Integer) (a2 != null ? a2.getValue() : a.f34072g.b())).intValue();
     }
 
-    public static int y() {
-        return a.ap.b().intValue();
+    public static boolean y() {
+        return a.m.b().intValue() != 0;
     }
 
     public static boolean z() {
-        return a.J.b().intValue() == 1;
+        return a.n.b().intValue() != 0;
     }
 }

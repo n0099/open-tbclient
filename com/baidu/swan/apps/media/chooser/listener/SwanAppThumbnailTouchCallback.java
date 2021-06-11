@@ -9,14 +9,14 @@ import java.util.Collections;
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f10919a;
+    public f f10981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAppThumbnailAdapter f10920b;
+    public SwanAppThumbnailAdapter f10982b;
 
     public SwanAppThumbnailTouchCallback(f fVar, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
-        this.f10919a = fVar;
-        this.f10920b = swanAppThumbnailAdapter;
+        this.f10981a = fVar;
+        this.f10982b = swanAppThumbnailAdapter;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -46,17 +46,17 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
-        if (this.f10920b.d() == null) {
+        if (this.f10982b.m() == null) {
             return false;
         }
         int adapterPosition = viewHolder.getAdapterPosition();
         int adapterPosition2 = viewHolder2.getAdapterPosition();
-        SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f10920b;
+        SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f10982b;
         if (swanAppThumbnailAdapter != null) {
-            Collections.swap(swanAppThumbnailAdapter.d(), adapterPosition, adapterPosition2);
-            this.f10920b.notifyItemMoved(adapterPosition, adapterPosition2);
+            Collections.swap(swanAppThumbnailAdapter.m(), adapterPosition, adapterPosition2);
+            this.f10982b.notifyItemMoved(adapterPosition, adapterPosition2);
         }
-        f fVar = this.f10919a;
+        f fVar = this.f10981a;
         if (fVar != null) {
             fVar.onMove(adapterPosition, adapterPosition2);
             return true;

@@ -7,38 +7,38 @@ import d.a.l0.a.k;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f40916b = k.f43199a;
+    public static final boolean f44592b = k.f46875a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f40917c = 5;
+    public static int f44593c = 5;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f40918a;
+    public int[] f44594a;
 
     public a(@IntRange(from = 1) int i2) {
         c(i2, false);
     }
 
     public final int a(int i2) {
-        return i2 >> f40917c;
+        return i2 >> f44593c;
     }
 
     public boolean b(@IntRange(from = 0) int i2) {
         if (i2 < 0) {
             d.b("Component-DiffBitMap", "diff < 0: " + i2);
-            if (f40916b) {
+            if (f44592b) {
                 throw new IndexOutOfBoundsException("diff < 0: " + i2);
             }
             return false;
         }
-        int[] iArr = this.f40918a;
-        int length = (iArr.length << f40917c) - 1;
+        int[] iArr = this.f44594a;
+        int length = (iArr.length << f44593c) - 1;
         if (i2 <= length) {
             return ((1 << i2) & iArr[a(i2)]) != 0;
         }
         String str = "diff > " + length + ": " + i2;
         d.b("Component-DiffBitMap", str);
-        if (f40916b) {
+        if (f44592b) {
             throw new IndexOutOfBoundsException(str);
         }
         return false;
@@ -48,17 +48,17 @@ public class a {
         if (i2 <= 0) {
             String str = "number <= 0: " + i2;
             d.b("Component-DiffBitMap", str);
-            if (f40916b) {
+            if (f44592b) {
                 throw new NegativeArraySizeException(str);
             }
             i2 = 500;
         }
         int[] iArr = new int[a(i2 - 1) + 1];
-        this.f40918a = iArr;
+        this.f44594a = iArr;
         int length = iArr.length;
         if (z) {
             for (int i3 = 0; i3 < length; i3++) {
-                this.f40918a[i3] = -1;
+                this.f44594a[i3] = -1;
             }
         }
     }
@@ -66,17 +66,17 @@ public class a {
     public void d(@IntRange(from = 0) int i2) {
         if (i2 < 0) {
             d.b("Component-DiffBitMap", "diff < 0: " + i2);
-            if (f40916b) {
+            if (f44592b) {
                 throw new IndexOutOfBoundsException("diff < 0: " + i2);
             }
             return;
         }
-        int[] iArr = this.f40918a;
-        int length = (iArr.length << f40917c) - 1;
+        int[] iArr = this.f44594a;
+        int length = (iArr.length << f44593c) - 1;
         if (i2 > length) {
             String str = "diff > " + length + ": " + i2;
             d.b("Component-DiffBitMap", str);
-            if (f40916b) {
+            if (f44592b) {
                 throw new IndexOutOfBoundsException(str);
             }
             return;

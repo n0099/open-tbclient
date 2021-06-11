@@ -15,32 +15,32 @@ import d.a.n0.e2.h.e;
 public class PbThreadPostView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19218e;
+    public Context f19295e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f19219f;
+    public View f19296f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19220g;
+    public TextView f19297g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19221h;
+    public TextView f19298h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f19222i;
+    public View.OnClickListener f19299i;
 
     public PbThreadPostView(Context context) {
         this(context, null);
     }
 
     public final void a() {
-        this.f19219f = findViewById(R.id.pb_thread_post_container);
-        this.f19220g = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.f19221h = (TextView) findViewById(R.id.pb_thread_post_button);
+        this.f19296f = findViewById(R.id.pb_thread_post_container);
+        this.f19297g = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.f19298h = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public final void b() {
-        this.f19218e = getContext();
+        this.f19295e = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(1);
@@ -50,15 +50,15 @@ public class PbThreadPostView extends LinearLayout {
     }
 
     public void c(int i2) {
-        SkinManager.setBackgroundColor(this.f19219f, R.color.CAM_X0205, i2);
-        SkinManager.setViewTextColor(this.f19220g, R.color.CAM_X0107);
-        SkinManager.setViewTextColor(this.f19221h, R.color.CAM_X0302);
+        SkinManager.setBackgroundColor(this.f19296f, R.color.CAM_X0205, i2);
+        SkinManager.setViewTextColor(this.f19297g, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f19298h, R.color.CAM_X0302);
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
-        if (this.f19222i == null) {
-            this.f19222i = onClickListener;
-            this.f19221h.setOnClickListener(onClickListener);
+        if (this.f19299i == null) {
+            this.f19299i = onClickListener;
+            this.f19298h.setOnClickListener(onClickListener);
         }
     }
 

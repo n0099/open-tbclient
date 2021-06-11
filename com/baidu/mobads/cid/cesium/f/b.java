@@ -3,13 +3,13 @@ package com.baidu.mobads.cid.cesium.f;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8199a;
+    public long f8261a;
 
     public b() {
         this(0L);
     }
 
     public b(long j) {
-        this.f8199a = j;
+        this.f8261a = j;
     }
 }

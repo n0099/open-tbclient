@@ -9,33 +9,33 @@ import tbclient.BawuThrones;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public w f58402a;
+    public w f62093a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BawuThrones f58403b;
+    public BawuThrones f62094b;
 
     /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f58404a = new c();
+        public static c f62095a = new c();
     }
 
     public static c c() {
-        return b.f58404a;
+        return b.f62095a;
     }
 
     public void a() {
-        this.f58403b = null;
-        w wVar = this.f58402a;
+        this.f62094b = null;
+        w wVar = this.f62093a;
         if (wVar != null) {
             wVar.g();
         }
-        this.f58402a = null;
+        this.f62093a = null;
     }
 
     public BawuThrones b() {
-        return this.f58403b;
+        return this.f62094b;
     }
 
     public void d(String str, String str2) {
@@ -46,14 +46,14 @@ public class c {
     }
 
     public void e(BawuThrones bawuThrones) {
-        this.f58403b = bawuThrones;
+        this.f62094b = bawuThrones;
     }
 
     public void f(TbPageContext tbPageContext, String str, String str2) {
-        if (this.f58402a == null) {
-            this.f58402a = new w();
+        if (this.f62093a == null) {
+            this.f62093a = new w();
         }
-        this.f58402a.i(tbPageContext, str, str2);
+        this.f62093a.i(tbPageContext, str, str2);
     }
 
     public c() {

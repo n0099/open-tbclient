@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class f extends d.a.l0.n.i.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f48047d = d.a.l0.n.c.f47984a;
+    public static final boolean f51721d = d.a.l0.n.c.f51658a;
 
     public static void a(String str, Map<String, String> map, Map<String, String> map2, d.a.l0.n.i.e<String> eVar) {
         if (d(str, eVar)) {
@@ -34,12 +34,12 @@ public class f extends d.a.l0.n.i.a {
 
     /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
     public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, d.a.l0.n.i.e<String> eVar) {
-        httpRequestBuilder.url(d.a.l0.n.i.f.i(str, map)).requestSubFrom(10).addHeader(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, "true").addHeaders(map2).userAgent(d.a.l0.n.i.a.f48017c).cookieManager(d.a.l0.n.i.a.f48016b).enableStat(true).build().executeStat(eVar);
+        httpRequestBuilder.url(d.a.l0.n.i.f.i(str, map)).requestSubFrom(10).addHeader(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, "true").addHeaders(map2).userAgent(d.a.l0.n.i.a.f51691c).cookieManager(d.a.l0.n.i.a.f51690b).enableStat(true).build().executeStat(eVar);
     }
 
     public static boolean d(String str, d.a.l0.n.i.e<String> eVar) {
         if (TextUtils.isEmpty(str)) {
-            if (f48047d) {
+            if (f51721d) {
                 throw new InvalidParameterException("PMS request URL is empty");
             }
             return true;

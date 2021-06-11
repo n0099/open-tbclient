@@ -2,32 +2,38 @@ package d.a.y.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.SDKVersion;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.cyberplayer.sdk.downloader.SilentDownloaderManager;
+import com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager;
 import com.baidu.media.duplayer.LibsInfoDef;
 import com.baidu.media.duplayer.Utils;
 import com.baidu.media.duplayer.d;
+import com.heytap.mcssdk.mode.CommandMessage;
 import dalvik.system.BaseDexClassLoader;
 import java.io.File;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f64871a;
+    public static e f68589a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64872b;
+    public static String f68590b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f64873c;
+    public static String f68591c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f64874d = new LinkedHashSet();
+    public static final Set<String> f68592d = new LinkedHashSet();
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -38,13 +44,13 @@ public class e {
         public void run() {
             File[] listFiles;
             try {
-                for (File file : new File(e.f64873c).listFiles()) {
+                for (File file : new File(e.f68591c).listFiles()) {
                     if (file.isFile()) {
-                        e.this.g(file);
-                    } else if (file.getName().equals(e.f64872b)) {
-                        e.this.k(file);
+                        e.this.h(file);
+                    } else if (file.getName().equals(e.f68590b)) {
+                        e.this.n(file);
                     } else {
-                        Utils.d(file);
+                        Utils.e(file);
                     }
                 }
             } catch (Exception unused) {
@@ -55,13 +61,48 @@ public class e {
     public static synchronized e b() {
         e eVar;
         synchronized (e.class) {
-            if (f64871a == null) {
-                f64872b = Utils.q();
-                f64871a = new e();
+            if (f68589a == null) {
+                f68590b = Utils.s();
+                f68589a = new e();
             }
-            eVar = f64871a;
+            eVar = f68589a;
         }
         return eVar;
+    }
+
+    public boolean A(int i2) {
+        return (i2 & 896) == i2;
+    }
+
+    public final void B() {
+        for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
+            CyberCfgManager cyberCfgManager = CyberCfgManager.getInstance();
+            cyberCfgManager.setPrefStr("build_in_" + dVar.a(), dVar.d());
+        }
+    }
+
+    public boolean C(int i2) {
+        return (i2 & 2048) == i2;
+    }
+
+    public final void D() {
+        if (SDKVersion.VERSION.equals(CyberPlayerManager.getSDKVersion())) {
+            for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
+                if (dVar != null && i(dVar)) {
+                    r(dVar);
+                    t(dVar);
+                    return;
+                }
+            }
+        }
+    }
+
+    public boolean E(int i2) {
+        return (i2 & 3) == i2;
+    }
+
+    public boolean F(int i2) {
+        return (i2 & CommandMessage.COMMAND_BASE) == i2;
     }
 
     public com.baidu.media.duplayer.d a(int i2) {
@@ -71,32 +112,36 @@ public class e {
     public final String c(Context context, com.baidu.media.duplayer.d dVar) {
         StringBuilder sb;
         String str;
-        if (dVar.e() == d.a.LIB_TYPE_JAR) {
-            if (dVar.c().equals(d(dVar.a())) && d.a.y.b.a.e(context.getClassLoader())) {
+        String str2 = null;
+        if (dVar.l() == d.a.LIB_TYPE_JAR) {
+            if (dVar.d().equals(d(dVar.a())) && d.a.y.b.a.e(context.getClassLoader())) {
                 return "apk_internal_jar";
             }
             sb = new StringBuilder();
-            sb.append(f64873c);
+            sb.append(f68591c);
             sb.append(File.separator);
             sb.append(dVar.a());
             sb.append("_");
-            sb.append(dVar.c());
+            sb.append(dVar.d());
             str = ".jar";
-        } else if (dVar.e() != d.a.LIB_TYPE_SO) {
+        } else if (dVar.l() != d.a.LIB_TYPE_SO) {
             return null;
         } else {
-            String findLibrary = dVar.c().equals(d(dVar.a())) ? ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a()) : null;
-            if (!TextUtils.isEmpty(findLibrary)) {
-                return findLibrary;
+            if (dVar.d().equals(d(dVar.a())) && CyberCfgManager.getInstance().getCfgBoolValue("enable_libs_reuse", true)) {
+                str2 = ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a());
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                dVar.i(true);
+                return str2;
             }
             sb = new StringBuilder();
-            sb.append(f64873c);
+            sb.append(f68591c);
             sb.append(File.separator);
-            sb.append(f64872b);
+            sb.append(f68590b);
             sb.append(File.separator);
             sb.append(dVar.a());
             sb.append("_");
-            sb.append(dVar.c());
+            sb.append(dVar.d());
             sb.append(File.separator);
             sb.append("lib");
             sb.append(dVar.a());
@@ -107,17 +152,35 @@ public class e {
     }
 
     public final String d(String str) {
-        return CyberCfgManager.getInstance().getPrefStr(str, "");
+        CyberCfgManager cyberCfgManager = CyberCfgManager.getInstance();
+        return cyberCfgManager.getPrefStr("build_in_" + str, "");
     }
 
-    public void e(Context context, String str) {
-        if (SDKVersion.VERSION.equals(CyberPlayerManager.getSDKVersion())) {
-            u();
+    public Map<String, String> e(CyberPlayerCoreProvider.LibsVersionType libsVersionType) {
+        HashMap hashMap = new HashMap();
+        if (CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION == libsVersionType) {
+            for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
+                hashMap.put(dVar.a(), dVar.d());
+            }
+        } else if (CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION == libsVersionType) {
+            for (com.baidu.media.duplayer.d dVar2 : LibsInfoDef.getAllGroupMap().values()) {
+                if (c.d(dVar2.g())) {
+                    hashMap.put(dVar2.a(), dVar2.d());
+                }
+            }
         }
-        i(context, str);
+        return hashMap;
     }
 
-    public final void g(File file) {
+    public void f(Context context, String str) {
+        if (SDKVersion.VERSION.equals(CyberPlayerManager.getSDKVersion())) {
+            B();
+        }
+        k(context, str);
+        D();
+    }
+
+    public final void h(File file) {
         try {
             if (!file.isFile() || file.getName().contains(SDKVersion.VERSION)) {
                 return;
@@ -127,7 +190,26 @@ public class e {
         }
     }
 
-    public int h(int i2) {
+    public final boolean i(com.baidu.media.duplayer.d dVar) {
+        String[] split;
+        if (dVar != null && !"cyber-player".equals(dVar.a()) && !"cyber-sdl".equals(dVar.a())) {
+            String cfgValue = CyberCfgManager.getInstance().getCfgValue(dVar.a(), "");
+            if (!TextUtils.isEmpty(cfgValue) && (split = cfgValue.split(";")) != null && split.length == 3 && CyberCfgManager.getInstance().isAllowUpdate(dVar.a(), split[1], dVar.d())) {
+                dVar.h(dVar.d());
+                dVar.k(dVar.j());
+                CyberCfgManager.getInstance();
+                dVar.b(CyberCfgManager.keepMainProcessVersion(dVar.a(), split[1]));
+                dVar.e(c(CyberPlayerManager.getApplicationContext(), dVar));
+                dVar.f("1".equals(split[2]));
+                dVar.c(true);
+                l(dVar);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int j(int i2) {
         int i3 = (i2 & 2) == 2 ? 92 : 28;
         if ((i2 & 4) == 4) {
             i3 |= 32;
@@ -138,30 +220,45 @@ public class e {
         if ((i2 & 16) == 16) {
             i3 |= 3;
         }
-        return (i2 & 32) == 32 ? i3 | 2048 : i3;
+        if ((i2 & 32) == 32) {
+            i3 |= 2048;
+        }
+        return (i2 & 64) == 64 ? i3 | CommandMessage.COMMAND_BASE : i3;
     }
 
-    public final void i(Context context, String str) {
-        f64873c = str + File.separator + "libs";
+    public final void k(Context context, String str) {
+        f68591c = str + File.separator + "libs";
         for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
             String c2 = c(context, dVar);
-            dVar.b(c2);
-            if (dVar.e() == d.a.LIB_TYPE_SO) {
+            dVar.e(c2);
+            if (dVar.l() == d.a.LIB_TYPE_SO) {
                 File parentFile = new File(c2).getParentFile();
                 if (!parentFile.exists() || parentFile.isFile()) {
                     parentFile.mkdirs();
                 }
-                f64874d.add(parentFile.getAbsolutePath());
+                f68592d.add(parentFile.getAbsolutePath());
             }
         }
     }
 
-    public final void k(File file) {
+    public final void l(com.baidu.media.duplayer.d dVar) {
+        if (Utils.r(CyberPlayerManager.getApplicationContext())) {
+            String prefStr = CyberCfgManager.getInstance().getPrefStr(CyberCfgManager.SP_KEY_UPDATE_TYPE, dVar.a());
+            String prefStr2 = CyberCfgManager.getInstance().getPrefStr("update_version", dVar.d());
+            if (dVar.a().equals(prefStr) && CyberCfgManager.compareVersion(dVar.d(), prefStr2) == -1) {
+                return;
+            }
+            CyberCfgManager.getInstance().setPrefStr(CyberCfgManager.SP_KEY_UPDATE_TYPE, dVar.a());
+            CyberCfgManager.getInstance().setPrefStr("update_version", dVar.d());
+        }
+    }
+
+    public final void n(File file) {
         File[] listFiles;
         boolean z;
         try {
             for (File file2 : file.listFiles()) {
-                Iterator<String> it = f64874d.iterator();
+                Iterator<String> it = f68592d.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         if (it.next().contains(file2.getAbsolutePath())) {
@@ -174,31 +271,47 @@ public class e {
                     }
                 }
                 if (z) {
-                    Utils.d(file2);
+                    Utils.e(file2);
                 }
             }
         } catch (Exception unused) {
         }
     }
 
-    public String[] l() {
-        Set<String> set = f64874d;
+    public String[] o() {
+        Set<String> set = f68592d;
         return (String[]) set.toArray(new String[set.size()]);
     }
 
-    public String m() {
-        return f64872b;
+    public String p() {
+        return f68590b;
     }
 
-    public String n(int i2) {
+    public String q(int i2) {
         com.baidu.media.duplayer.d a2 = a(i2);
         if (a2 == null) {
             return null;
         }
-        return f64872b + "_" + a2.a() + "_" + a2.c() + ".zip";
+        return f68590b + "_" + a2.a() + "_" + a2.d() + ".zip";
     }
 
-    public void o() {
+    public final boolean r(com.baidu.media.duplayer.d dVar) {
+        if (dVar == null || !dVar.q() || dVar.d().equals(dVar.n())) {
+            return false;
+        }
+        if (SilentDownloaderManager.getInstance().checkLibs(dVar.a(), dVar.d())) {
+            String latestLoadedVersion = CyberCoreLoaderManager.getLatestLoadedVersion(dVar.a());
+            if (CyberCfgManager.compareVersion(latestLoadedVersion, dVar.n()) != 1) {
+                latestLoadedVersion = dVar.n();
+            }
+            dVar.b(latestLoadedVersion);
+            dVar.e(c(CyberPlayerManager.getApplicationContext(), dVar));
+            dVar.c(false);
+        }
+        return true;
+    }
+
+    public void s() {
         long prefLong = CyberCfgManager.getInstance().getPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, 0L);
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - prefLong > 432000000) {
@@ -207,33 +320,46 @@ public class e {
         }
     }
 
-    public boolean p(int i2) {
-        return (i2 & 28) == i2;
-    }
-
-    public boolean r(int i2) {
-        return (i2 & 32) == i2;
-    }
-
-    public boolean t(int i2) {
-        return (i2 & 64) == i2;
-    }
-
-    public final void u() {
-        for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
-            CyberCfgManager.getInstance().setPrefStr(dVar.a(), dVar.c());
+    public final void t(com.baidu.media.duplayer.d dVar) {
+        if (dVar == null || dVar.l() != d.a.LIB_TYPE_SO) {
+            return;
+        }
+        try {
+            File parentFile = new File(dVar.j()).getParentFile();
+            if (!parentFile.exists() || parentFile.isFile()) {
+                parentFile.mkdirs();
+            }
+            f68592d.add(parentFile.getAbsolutePath());
+        } catch (Exception unused) {
         }
     }
 
-    public boolean v(int i2) {
-        return (i2 & 896) == i2;
+    public boolean u(int i2) {
+        return (i2 & 28) == i2;
+    }
+
+    public boolean v() {
+        int size = LibsInfoDef.getAllGroupMap().size();
+        for (int i2 = 0; i2 <= size; i2++) {
+            com.baidu.media.duplayer.d a2 = a(1 << i2);
+            if (a2 != null && a2.m()) {
+                if (a2.q()) {
+                    a2.b(a2.n());
+                    a2.e(a2.o());
+                    a2.c(false);
+                    return true;
+                }
+                return false;
+            }
+        }
+        return false;
     }
 
     public boolean w(int i2) {
-        return (i2 & 2048) == i2;
+        return (i2 & 32) == i2;
     }
 
-    public boolean x(int i2) {
-        return (i2 & 3) == i2;
+    public boolean y(int i2) {
+        return (i2 & 64) == i2;
     }
 }

@@ -1,23 +1,63 @@
 package com.kwad.sdk.utils;
 
-import java.util.Formatter;
-import java.util.Locale;
-/* loaded from: classes6.dex */
+import android.os.SystemClock;
+/* loaded from: classes7.dex */
 public class aj {
-    public static String a(long j) {
-        if (j <= 0 || j >= 86400000) {
-            return "00:00";
+
+    /* renamed from: a  reason: collision with root package name */
+    public long f37472a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f37473b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f37474c;
+
+    public aj() {
+        g();
+    }
+
+    private void g() {
+        this.f37472a = 0L;
+        this.f37473b = -1L;
+    }
+
+    public void a() {
+        g();
+        this.f37474c = true;
+        this.f37473b = SystemClock.elapsedRealtime();
+    }
+
+    public void b() {
+        if (this.f37474c && this.f37473b < 0) {
+            this.f37473b = SystemClock.elapsedRealtime();
         }
-        try {
-            long j2 = j / 1000;
-            long j3 = j2 % 60;
-            long j4 = (j2 / 60) % 60;
-            long j5 = j2 / 3600;
-            Formatter formatter = new Formatter(new StringBuilder(), Locale.getDefault());
-            return j5 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j5), Long.valueOf(j4), Long.valueOf(j3)).toString() : formatter.format("%02d:%02d", Long.valueOf(j4), Long.valueOf(j3)).toString();
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            return "";
+    }
+
+    public void c() {
+        if (this.f37474c && this.f37473b > 0) {
+            this.f37472a += SystemClock.elapsedRealtime() - this.f37473b;
+            this.f37473b = -1L;
         }
+    }
+
+    public long d() {
+        if (this.f37474c) {
+            this.f37474c = false;
+            if (this.f37473b > 0) {
+                this.f37472a += SystemClock.elapsedRealtime() - this.f37473b;
+                this.f37473b = -1L;
+            }
+            return this.f37472a;
+        }
+        return 0L;
+    }
+
+    public boolean e() {
+        return this.f37474c;
+    }
+
+    public long f() {
+        return this.f37472a;
     }
 }

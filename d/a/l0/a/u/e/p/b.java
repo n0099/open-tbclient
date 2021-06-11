@@ -17,20 +17,20 @@ import org.json.JSONObject;
 public class b extends d.a.l0.a.u.c.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f45194d = k.f43199a;
+    public static final boolean f48868d = k.f46875a;
 
     /* loaded from: classes2.dex */
     public class a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45195e;
+        public final /* synthetic */ String f48869e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f45196f;
+        public final /* synthetic */ d.a.l0.a.a2.e f48870f;
 
         public a(String str, d.a.l0.a.a2.e eVar) {
-            this.f45195e = str;
-            this.f45196f = eVar;
+            this.f48869e = str;
+            this.f48870f = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,22 +38,22 @@ public class b extends d.a.l0.a.u.c.d {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                if (b.f45194d) {
+                if (b.f48868d) {
                     Log.d("Api-AddToDesktop", "start add to desktop");
                 }
-                b.this.u(this.f45196f.x(), this.f45196f);
-                b.this.d(this.f45195e, new d.a.l0.a.u.h.b(0));
+                b.this.u(this.f48870f.x(), this.f48870f);
+                b.this.d(this.f48869e, new d.a.l0.a.u.h.b(0));
                 return;
             }
             int b2 = iVar.b();
-            b.this.d(this.f45195e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
+            b.this.d(this.f48869e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
         }
     }
 
     /* renamed from: d.a.l0.a.u.e.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0868b implements a.f {
-        public C0868b(b bVar) {
+    public class C0924b implements a.f {
+        public C0924b(b bVar) {
         }
 
         @Override // d.a.l0.a.f2.a.f
@@ -71,13 +71,13 @@ public class b extends d.a.l0.a.u.c.d {
         d.a.l0.a.a2.d g2 = d.a.l0.a.a2.d.g();
         String appId = g2.getAppId();
         String m = d.a.l0.a.j2.k.m(g2.l());
-        fVar.f43190f = appId;
-        fVar.f43186b = RetrieveTaskManager.KEY;
-        fVar.f43185a = m;
-        fVar.f43189e = "addshortcut";
+        fVar.f46866f = appId;
+        fVar.f46862b = RetrieveTaskManager.KEY;
+        fVar.f46861a = m;
+        fVar.f46865e = "addshortcut";
         b.a L = g2.r().L();
         if (L != null) {
-            fVar.f43187c = L.T();
+            fVar.f46863c = L.T();
         }
         fVar.a("appid", appId);
         fVar.a("resultstate", Integer.valueOf(i2));
@@ -89,20 +89,20 @@ public class b extends d.a.l0.a.u.c.d {
         if (N == null) {
             return;
         }
-        d.a.l0.a.f2.a.k(context, N, new C0868b(this));
+        d.a.l0.a.f2.a.k(context, N, new C0924b(this));
     }
 
     public d.a.l0.a.u.h.b v(String str) {
-        if (f45194d) {
+        if (f48868d) {
             Log.d("Api-AddToDesktop", "start addToDesktop action, params = " + str);
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-AddToDesktop", str);
-        if (!((d.a.l0.a.u.h.b) b2.first).a()) {
+        if (!((d.a.l0.a.u.h.b) b2.first).isSuccess()) {
             d.a.l0.a.e0.d.b("Api-AddToDesktop", "parse failed, params = " + str);
             return (d.a.l0.a.u.h.b) b2.first;
         }
         String optString = ((JSONObject) b2.second).optString("cb");
-        if (f45194d) {
+        if (f48868d) {
             Log.d("Api-AddToDesktop", "cb: " + optString);
         }
         if (TextUtils.isEmpty(optString)) {

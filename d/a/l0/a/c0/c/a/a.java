@@ -15,12 +15,12 @@ import java.io.File;
 public class a implements ImageAssetDelegate {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40851a;
+    public String f44527a;
 
     public a(String str) {
         PathType s = d.a.l0.a.k2.b.s(str);
         if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
-            this.f40851a = new File(f.V().I().a(str)).getParent();
+            this.f44527a = new File(f.V().I().a(str)).getParent();
         }
     }
 
@@ -44,11 +44,11 @@ public class a implements ImageAssetDelegate {
                 Log.w("SwanAppAnimationViewAss", "data URL did not have correct base64 format.", e2);
                 return null;
             }
-        } else if (TextUtils.isEmpty(this.f40851a)) {
+        } else if (TextUtils.isEmpty(this.f44527a)) {
             return null;
         } else {
             String dirName = lottieImageAsset.getDirName();
-            return BitmapFactory.decodeFile(new File(TextUtils.isEmpty(dirName) ? new File(this.f40851a) : new File(this.f40851a, dirName), lottieImageAsset.getFileName()).getAbsolutePath());
+            return BitmapFactory.decodeFile(new File(TextUtils.isEmpty(dirName) ? new File(this.f44527a) : new File(this.f44527a, dirName), lottieImageAsset.getFileName()).getAbsolutePath());
         }
     }
 }

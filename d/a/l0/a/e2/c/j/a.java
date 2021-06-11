@@ -16,22 +16,22 @@ public class a extends h<b> {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f41739a;
+        public final String f45415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f41740b;
+        public final boolean f45416b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final JSONObject f41741c;
+        public final JSONObject f45417c;
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.f41740b), this.f41739a);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.f45416b), this.f45415a);
         }
 
         public b(boolean z, String str, JSONObject jSONObject) {
-            this.f41739a = str == null ? "" : str;
-            this.f41740b = z;
-            this.f41741c = jSONObject;
+            this.f45415a = str == null ? "" : str;
+            this.f45416b = z;
+            this.f45417c = jSONObject;
         }
     }
 
@@ -62,7 +62,7 @@ public class a extends h<b> {
                 d.a.l0.a.e2.c.d.l(c2);
                 d.a.l0.a.e2.c.d.s("Accredit", c2.toString());
             }
-            if (d.a.l0.a.e2.c.c.f41674f) {
+            if (d.a.l0.a.e2.c.c.f45350f) {
                 throw new JSONException("Illegal errno=" + optInt + " errms=" + c2.optString("errms"));
             }
         }

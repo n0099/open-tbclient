@@ -69,7 +69,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
                 return;
             }
             d.a.m0.s.d.b.g0().n();
-            MyGiftListActivity.this.mModel.E(false);
+            MyGiftListActivity.this.mModel.I(false);
             MyGiftListActivity.this.mModel.LoadData();
             d.a.m0.s.d.b.g0().d0(0);
             MyGiftListActivity.this.mMyGiftListView.o();
@@ -110,7 +110,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
             if (z) {
-                MyGiftListActivity.this.mModel.E(false);
+                MyGiftListActivity.this.mModel.I(false);
                 MyGiftListActivity.this.mModel.LoadData();
             }
         }
@@ -129,7 +129,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
             if (customResponsedMessage == null || (l = (Long) customResponsedMessage.getData()) == null || MyGiftListActivity.this.mIsHost || MyGiftListActivity.this.mUserId != l.longValue()) {
                 return;
             }
-            MyGiftListActivity.this.mModel.E(false);
+            MyGiftListActivity.this.mModel.I(false);
             MyGiftListActivity.this.mModel.LoadData();
         }
     }
@@ -141,8 +141,8 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (MyGiftListActivity.this.mModel.A()) {
-                MyGiftListActivity.this.mModel.E(true);
+            if (MyGiftListActivity.this.mModel.E()) {
+                MyGiftListActivity.this.mModel.I(true);
                 MyGiftListActivity.this.mModel.LoadData();
                 MyGiftListActivity.this.mMyGiftListView.n().setVisibility(0);
                 return;
@@ -197,11 +197,11 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         this.mModel = myGiftListModel;
         myGiftListModel.mUserType = this.userType;
         myGiftListModel.setUid(this.mUserId);
-        this.mIsHost = this.mModel.y();
-        this.mModel.C(this.mLoadDataCallback);
+        this.mIsHost = this.mModel.C();
+        this.mModel.G(this.mLoadDataCallback);
         initUI();
         registerListener(this.mSendGiftSucceedListener);
-        this.mModel.E(false);
+        this.mModel.I(false);
         if (l.D()) {
             this.mMyGiftListView.w();
         } else {

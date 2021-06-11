@@ -6,6 +6,7 @@ import com.airbnb.lottie.model.content.ContentModel;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class ContentModelParser {
@@ -105,7 +106,7 @@ public class ContentModelParser {
                 c2 = 65535;
                 break;
             case 3679:
-                if (str.equals("sr")) {
+                if (str.equals(BaseStatisContent.SR)) {
                     c2 = '\n';
                     break;
                 }

@@ -14,6 +14,7 @@ import com.baidu.livesdk.api.im.live.LiveSendMessage;
 import com.baidu.livesdk.sdk.LiveSDK;
 import com.baidu.livesdk.sdk.im.live.MessageUtils;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import com.kwai.video.player.KsMediaMeta;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
 import java.util.List;
@@ -558,7 +559,7 @@ public class LiveMessageParser {
                 if (jSONObject2 != null) {
                     String optString4 = jSONObject2.optString("url");
                     String optString5 = jSONObject2.optString("duration");
-                    String optString6 = jSONObject2.optString("format");
+                    String optString6 = jSONObject2.optString(KsMediaMeta.KSM_KEY_FORMAT);
                     LiveMessageBean.Voice voice = new LiveMessageBean.Voice();
                     voice.url = optString4;
                     voice.duration = optString5;
@@ -586,7 +587,7 @@ public class LiveMessageParser {
                             imageInfo.height = jSONObject6.optInt("height");
                         }
                         imageInfo.url = jSONObject6.optString("url");
-                        imageInfo.format = jSONObject6.optString("format");
+                        imageInfo.format = jSONObject6.optString(KsMediaMeta.KSM_KEY_FORMAT);
                         pic.origin = imageInfo;
                         messageBody.pic = pic;
                     } catch (JSONException e7) {
@@ -602,7 +603,7 @@ public class LiveMessageParser {
                             imageInfo2.height = jSONObject7.optInt("height");
                         }
                         imageInfo2.url = jSONObject7.optString("url");
-                        imageInfo2.format = jSONObject7.optString("format");
+                        imageInfo2.format = jSONObject7.optString(KsMediaMeta.KSM_KEY_FORMAT);
                         pic.thumbnail = imageInfo2;
                         messageBody.pic = pic;
                     } catch (JSONException e8) {

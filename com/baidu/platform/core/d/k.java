@@ -22,10 +22,10 @@ import org.json.JSONObject;
 public class k extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public SuggestAddrInfo f9282b = null;
+    public SuggestAddrInfo f9339b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9283c;
+    public boolean f9340c;
 
     private SuggestAddrInfo a(JSONObject jSONObject) {
         JSONObject optJSONObject;
@@ -160,7 +160,7 @@ public class k extends com.baidu.platform.base.d {
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject != null && optJSONObject.optInt("type") == 23 && optJSONObject.optInt("error") == 0) {
                     SuggestAddrInfo a2 = a(jSONObject);
-                    this.f9282b = a2;
+                    this.f9339b = a2;
                     return a2 != null;
                 }
                 return false;
@@ -180,15 +180,15 @@ public class k extends com.baidu.platform.base.d {
         WalkingRouteResult walkingRouteResult2;
         SearchType a2 = a();
         if (b(str)) {
-            this.f9283c = true;
+            this.f9340c = true;
         } else {
-            this.f9283c = false;
+            this.f9340c = false;
         }
-        int i2 = l.f9284a[a2.ordinal()];
+        int i2 = l.f9341a[a2.ordinal()];
         if (i2 == 1) {
             TransitRouteResult transitRouteResult = new TransitRouteResult();
-            if (this.f9283c) {
-                transitRouteResult.setSuggestAddrInfo(this.f9282b);
+            if (this.f9340c) {
+                transitRouteResult.setSuggestAddrInfo(this.f9339b);
                 walkingRouteResult = transitRouteResult;
                 walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 walkingRouteResult2 = walkingRouteResult;
@@ -198,8 +198,8 @@ public class k extends com.baidu.platform.base.d {
             }
         } else if (i2 == 2) {
             DrivingRouteResult drivingRouteResult = new DrivingRouteResult();
-            if (this.f9283c) {
-                drivingRouteResult.setSuggestAddrInfo(this.f9282b);
+            if (this.f9340c) {
+                drivingRouteResult.setSuggestAddrInfo(this.f9339b);
                 walkingRouteResult = drivingRouteResult;
                 walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 walkingRouteResult2 = walkingRouteResult;
@@ -211,8 +211,8 @@ public class k extends com.baidu.platform.base.d {
             return null;
         } else {
             WalkingRouteResult walkingRouteResult3 = new WalkingRouteResult();
-            if (this.f9283c) {
-                walkingRouteResult3.setSuggestAddrInfo(this.f9282b);
+            if (this.f9340c) {
+                walkingRouteResult3.setSuggestAddrInfo(this.f9339b);
                 walkingRouteResult = walkingRouteResult3;
                 walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 walkingRouteResult2 = walkingRouteResult;
@@ -230,7 +230,7 @@ public class k extends com.baidu.platform.base.d {
             return;
         }
         OnGetRoutePlanResultListener onGetRoutePlanResultListener = (OnGetRoutePlanResultListener) obj;
-        int i2 = l.f9284a[a().ordinal()];
+        int i2 = l.f9341a[a().ordinal()];
         if (i2 == 1) {
             onGetRoutePlanResultListener.onGetTransitRouteResult((TransitRouteResult) searchResult);
         } else if (i2 == 2) {

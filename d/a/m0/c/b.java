@@ -5,14 +5,14 @@ import java.util.concurrent.atomic.AtomicReference;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<Object> f49210a = new AtomicReference<>(null);
+    public static final AtomicReference<Object> f52884a = new AtomicReference<>(null);
 
     /* renamed from: d.a.m0.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1116b {
+    public static class C1172b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f49211a = new b();
+        public static b f52885a = new b();
     }
 
     static {
@@ -20,7 +20,7 @@ public class b {
     }
 
     public static b a() {
-        return C1116b.f49211a;
+        return C1172b.f52885a;
     }
 
     public b() {

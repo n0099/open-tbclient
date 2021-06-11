@@ -9,41 +9,41 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f39973e = 12323;
+    public static int f43654e = 12323;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f39974f = 12324;
+    public static int f43655f = 12324;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f39975a;
+    public b f43656a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f39976b;
+    public JSONObject f43657b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f39977c;
+    public JSONObject f43658c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f39978d;
+    public boolean f43659d;
 
     public final void a() {
-        if (this.f39977c != null) {
-            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.f39977c.toString());
-            this.f39977c = null;
+        if (this.f43658c != null) {
+            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.f43658c.toString());
+            this.f43658c = null;
         }
     }
 
     public final void b(String str, String str2) {
         try {
-            if (this.f39976b == null) {
+            if (this.f43657b == null) {
                 JSONObject jSONObject = new JSONObject();
-                this.f39976b = jSONObject;
-                jSONObject.put("type", f39973e);
+                this.f43657b = jSONObject;
+                jSONObject.put("type", f43654e);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.f39976b.put(str, str2);
+            this.f43657b.put(str, str2);
         } catch (Exception unused) {
             Log.e("staticWebkitInit JSON error");
         }
@@ -51,15 +51,15 @@ public final class a {
 
     public final void c(String str, String str2) {
         try {
-            if (this.f39977c == null) {
+            if (this.f43658c == null) {
                 JSONObject jSONObject = new JSONObject();
-                this.f39977c = jSONObject;
-                jSONObject.put("type", f39974f);
+                this.f43658c = jSONObject;
+                jSONObject.put("type", f43655f);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.f39977c.put(str, str2);
+            this.f43658c.put(str, str2);
         } catch (Exception unused) {
             Log.e("mWebkitDownloadStatics JSON error");
         }

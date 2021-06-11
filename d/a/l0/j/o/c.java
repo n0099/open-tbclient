@@ -7,21 +7,21 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public PoiInfo f47895a;
+    public PoiInfo f51569a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f47896b;
+    public boolean f51570b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f47897c;
+    public boolean f51571c;
 
     public c(PoiInfo poiInfo, boolean z, boolean z2) {
         if (poiInfo == null) {
-            this.f47895a = new PoiInfo();
+            this.f51569a = new PoiInfo();
         }
-        this.f47895a = poiInfo;
-        this.f47896b = z;
-        this.f47897c = z2;
+        this.f51569a = poiInfo;
+        this.f51570b = z;
+        this.f51571c = z2;
     }
 
     public static List<c> a(List<PoiInfo> list) {

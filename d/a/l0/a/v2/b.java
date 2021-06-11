@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45358a = d.a.l0.a.k.f43199a;
+    public static final boolean f49032a = d.a.l0.a.k.f46875a;
 
     public static void a(@NonNull BdSailorWebView bdSailorWebView) {
         AbsoluteLayout webView;
@@ -51,7 +51,7 @@ public class b {
             declaredMethod2.setAccessible(true);
             declaredMethod2.invoke(obj2, drawable2);
         } catch (Throwable th) {
-            if (f45358a) {
+            if (f49032a) {
                 th.printStackTrace();
             }
         }

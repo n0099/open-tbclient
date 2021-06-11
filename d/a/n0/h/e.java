@@ -18,13 +18,13 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpMessageListener f55298a;
+    public HttpMessageListener f58987a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f55299b = null;
+    public c f58988b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f55300c = new a(2016489);
+    public CustomMessageListener f58989c = new a(2016489);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -51,8 +51,8 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && e.this.f55299b != null) {
-                e.this.f55299b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && e.this.f58988b != null) {
+                e.this.f58988b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
             }
         }
     }
@@ -63,11 +63,11 @@ public class e {
     }
 
     public e(String str) {
-        if (this.f55298a == null) {
-            this.f55298a = new b(CmdConfigHttp.CMD_NEG_DELETE_THREAD);
+        if (this.f58987a == null) {
+            this.f58987a = new b(CmdConfigHttp.CMD_NEG_DELETE_THREAD);
         }
-        MessageManager.getInstance().registerListener(this.f55298a);
-        MessageManager.getInstance().registerListener(this.f55300c);
+        MessageManager.getInstance().registerListener(this.f58987a);
+        MessageManager.getInstance().registerListener(this.f58989c);
     }
 
     public final void c(JSONObject jSONObject) {
@@ -91,16 +91,16 @@ public class e {
     }
 
     public void d() {
-        MessageManager.getInstance().unRegisterListener(this.f55300c);
-        MessageManager.getInstance().unRegisterListener(this.f55298a);
+        MessageManager.getInstance().unRegisterListener(this.f58989c);
+        MessageManager.getInstance().unRegisterListener(this.f58987a);
     }
 
     public void e() {
-        MessageManager.getInstance().registerListener(this.f55298a);
-        MessageManager.getInstance().registerListener(this.f55300c);
+        MessageManager.getInstance().registerListener(this.f58987a);
+        MessageManager.getInstance().registerListener(this.f58989c);
     }
 
     public void f(c cVar) {
-        this.f55299b = cVar;
+        this.f58988b = cVar;
     }
 }

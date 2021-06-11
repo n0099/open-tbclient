@@ -14,19 +14,19 @@ public class p extends a0 {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41146e;
+        public final /* synthetic */ String f44822e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f41147f;
+        public final /* synthetic */ JSONObject f44823f;
 
         public a(p pVar, String str, JSONObject jSONObject) {
-            this.f41146e = str;
-            this.f41147f = jSONObject;
+            this.f44822e = str;
+            this.f44823f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.e.m(this.f41146e, this.f41147f);
+            d.a.l0.r.e.m(this.f44822e, this.f44823f);
         }
     }
 
@@ -51,7 +51,7 @@ public class p extends a0 {
             optParamsAsJo.putOpt("eventType", "0");
             optParamsAsJo.putOpt("propagation", d.a.l0.a.v2.w.f(optParamsAsJo.optJSONObject("propagation"), "source", d.a.l0.a.a2.d.g().r().L().T()));
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
         }

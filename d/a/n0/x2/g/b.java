@@ -54,10 +54,10 @@ public class b extends d {
         }
 
         public void c(int i2) {
-            this.f20527f = new ImageView(this.n);
+            this.f20604f = new ImageView(this.n);
             setTag(Integer.valueOf(i2));
-            this.f20527f.setScaleType(ImageView.ScaleType.FIT_XY);
-            WebPManager.setMaskDrawable(this.f20527f, i2, null);
+            this.f20604f.setScaleType(ImageView.ScaleType.FIT_XY);
+            WebPManager.setMaskDrawable(this.f20604f, i2, null);
             b();
         }
 
@@ -86,13 +86,13 @@ public class b extends d {
         this.N = dVar4;
         this.O = dVar5;
         this.P = onClickListener;
-        this.D = (LinearLayout) this.f63332f.findViewById(R.id.first_line);
-        this.E = (LinearLayout) this.f63332f.findViewById(R.id.second_line);
+        this.D = (LinearLayout) this.f67047f.findViewById(R.id.first_line);
+        this.E = (LinearLayout) this.f67047f.findViewById(R.id.second_line);
         b0();
     }
 
     @Override // d.a.n0.x2.g.d
-    public boolean V() {
+    public boolean U() {
         int i2;
         this.D.removeAllViews();
         this.E.removeAllViews();

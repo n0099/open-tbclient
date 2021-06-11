@@ -16,36 +16,36 @@ public class f extends a0 {
     public class a implements d.a.l0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f41610e;
+        public final /* synthetic */ boolean f45286e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41611f;
+        public final /* synthetic */ CallbackHandler f45287f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41612g;
+        public final /* synthetic */ String f45288g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Activity f41613h;
+        public final /* synthetic */ Activity f45289h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f41614i;
+        public final /* synthetic */ String f45290i;
         public final /* synthetic */ String j;
 
         public a(boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
-            this.f41610e = z;
-            this.f41611f = callbackHandler;
-            this.f41612g = str;
-            this.f41613h = activity;
-            this.f41614i = str2;
+            this.f45286e = z;
+            this.f45287f = callbackHandler;
+            this.f45288g = str;
+            this.f45289h = activity;
+            this.f45290i = str2;
             this.j = str3;
         }
 
         @Override // d.a.l0.a.m.a
         public void onResult(int i2) {
             if (i2 == 0) {
-                f.this.k(this.f41610e, this.f41611f, this.f41612g, this.f41613h, this.f41614i, "snsapi_userinfo", this.j);
+                f.this.k(this.f45286e, this.f45287f, this.f45288g, this.f45289h, this.f45290i, "snsapi_userinfo", this.j);
             } else {
-                this.f41611f.handleSchemeDispatchCallback(this.f41612g, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                this.f45287f.handleSchemeDispatchCallback(this.f45288g, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
             }
         }
     }
@@ -54,26 +54,26 @@ public class f extends a0 {
     public class b implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.d.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f41615e;
+        public final /* synthetic */ Activity f45291e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f41616f;
+        public final /* synthetic */ boolean f45292f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41617g;
+        public final /* synthetic */ String f45293g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41618h;
+        public final /* synthetic */ CallbackHandler f45294h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f41619i;
+        public final /* synthetic */ String f45295i;
 
         public b(Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2) {
-            this.f41615e = activity;
-            this.f41616f = z;
-            this.f41617g = str;
-            this.f41618h = callbackHandler;
-            this.f41619i = str2;
+            this.f45291e = activity;
+            this.f45292f = z;
+            this.f45293g = str;
+            this.f45294h = callbackHandler;
+            this.f45295i = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,18 +82,18 @@ public class f extends a0 {
         public void onCallback(d.a.l0.a.e2.d.a aVar) {
             d.a.l0.a.e0.d.a("OpenData", "onOpenDataCallback:: ", aVar);
             d.a.l0.a.a2.e c2 = f.this.c();
-            boolean e2 = c2 != null ? c2.j().e(this.f41615e) : false;
+            boolean e2 = c2 != null ? c2.j().e(this.f45291e) : false;
             if (!aVar.F()) {
-                if (!e2 && !this.f41616f) {
-                    k.M("fail", 3, this.f41617g);
+                if (!e2 && !this.f45292f) {
+                    k.M(com.baidu.pass.biometrics.face.liveness.b.b.g0, 3, this.f45293g);
                 }
-                d.a.l0.a.e2.c.d.m(aVar, this.f41618h, this.f41619i);
+                d.a.l0.a.e2.c.d.m(aVar, this.f45294h, this.f45295i);
                 return;
             }
-            if (e2 && !this.f41616f) {
-                k.M("success", 3, this.f41617g);
+            if (e2 && !this.f45292f) {
+                k.M("success", 3, this.f45293g);
             }
-            this.f41618h.handleSchemeDispatchCallback(this.f41619i, UnitedSchemeUtility.wrapCallbackParams(aVar.f41771g, 0).toString());
+            this.f45294h.handleSchemeDispatchCallback(this.f45295i, UnitedSchemeUtility.wrapCallbackParams(aVar.f45447g, 0).toString());
         }
     }
 

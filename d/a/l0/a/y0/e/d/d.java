@@ -22,6 +22,6 @@ public class d extends d.a.l0.a.y0.a<d.a.l0.a.y0.e.c> {
         int g3 = n0.g(command.arg4);
         String str = command.what;
         d(cVar, str, "(top, inputHeight, keyboardHeight, cursorSpacing) " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + g2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + g3, false);
-        cVar.C0(i2, g2, i3, g3);
+        cVar.z0(i2, g2, i3, g3);
     }
 }

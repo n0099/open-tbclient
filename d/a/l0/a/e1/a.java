@@ -32,7 +32,7 @@ public class a implements b {
                     }
                 }
                 optJSONArray.put(d("success", "function="));
-                optJSONArray.put(d("fail", "function="));
+                optJSONArray.put(d(com.baidu.pass.biometrics.face.liveness.b.b.g0, "function="));
                 optJSONArray.put(d(XAdRemoteEvent.COMPLETE, "function="));
             }
         } catch (JSONException e2) {

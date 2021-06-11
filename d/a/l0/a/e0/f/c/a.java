@@ -15,9 +15,9 @@ public class a {
         e.g gVar = new e.g();
         File file2 = new File(b(), "app.json");
         SwanAppConfigData c2 = SwanAppConfigData.c(d.D(file2), b());
-        gVar.f40691a = b().getPath() + File.separator;
-        gVar.f40692b = c2;
-        d.a.l0.a.e0.d.h("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.f40691a);
+        gVar.f44367a = b().getPath() + File.separator;
+        gVar.f44368b = c2;
+        d.a.l0.a.e0.d.h("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.f44367a);
         return gVar;
     }
 

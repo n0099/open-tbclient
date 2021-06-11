@@ -12,38 +12,38 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f64517c;
+    public static volatile d f68235c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static AtomicBoolean f64518d = new AtomicBoolean(false);
+    public static AtomicBoolean f68236d = new AtomicBoolean(false);
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.t.a.a.a f64519a;
+    public d.a.t.a.a.a f68237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f64520b = new f();
+    public f f68238b = new f();
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f64521e;
+        public final /* synthetic */ Context f68239e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f64522f;
+        public final /* synthetic */ String f68240f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f64523g;
+        public final /* synthetic */ int f68241g;
 
         public a(Context context, String str, int i2) {
-            this.f64521e = context;
-            this.f64522f = str;
-            this.f64523g = i2;
+            this.f68239e = context;
+            this.f68240f = str;
+            this.f68241g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.j(this.f64521e, this.f64522f, this.f64523g);
+            d.this.j(this.f68239e, this.f68240f, this.f68241g);
         }
     }
 
@@ -51,16 +51,16 @@ public class d {
     public class b implements IMPushUploadResponseListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f64525a;
+        public final /* synthetic */ Context f68243a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f64526b;
+        public final /* synthetic */ String f68244b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f64527c;
+        public final /* synthetic */ List f68245c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f64528d;
+        public final /* synthetic */ int f68246d;
 
         /* loaded from: classes2.dex */
         public class a implements Runnable {
@@ -70,43 +70,43 @@ public class d {
             @Override // java.lang.Runnable
             public void run() {
                 b bVar = b.this;
-                d.this.g(bVar.f64525a, bVar.f64526b, bVar.f64527c, bVar.f64528d);
+                d.this.g(bVar.f68243a, bVar.f68244b, bVar.f68245c, bVar.f68246d);
             }
         }
 
         public b(Context context, String str, List list, int i2) {
-            this.f64525a = context;
-            this.f64526b = str;
-            this.f64527c = list;
-            this.f64528d = i2;
+            this.f68243a = context;
+            this.f68244b = str;
+            this.f68245c = list;
+            this.f68246d = i2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
         public void uploadResponse(int i2, String str) {
-            d.f64518d.set(false);
+            d.f68236d.set(false);
             if (i2 == 0) {
-                d.this.f64519a.f().execute(new a());
+                d.this.f68237a.f().execute(new a());
             }
         }
     }
 
     public d(Context context) {
-        this.f64519a = d.a.t.a.a.a.h(context);
+        this.f68237a = d.a.t.a.a.a.h(context);
     }
 
     public static d h(Context context) {
-        if (f64517c == null) {
+        if (f68235c == null) {
             synchronized (d.class) {
-                if (f64517c == null) {
-                    f64517c = new d(context);
+                if (f68235c == null) {
+                    f68235c = new d(context);
                 }
             }
         }
-        return f64517c;
+        return f68235c;
     }
 
     public static Boolean i() {
-        return Boolean.valueOf(f64518d.get());
+        return Boolean.valueOf(f68236d.get());
     }
 
     public synchronized void e(Context context, String str, int i2) {
@@ -115,8 +115,8 @@ public class d {
             e2.printStackTrace();
         }
         if (!TextUtils.isEmpty(str) && context != null && RequsetNetworkUtils.isConnected(context) && g.f(context) && g.e(context, Integer.parseInt(str))) {
-            if (this.f64519a != null) {
-                this.f64519a.f().execute(new a(context, str, i2));
+            if (this.f68237a != null) {
+                this.f68237a.f().execute(new a(context, str, i2));
             }
             return;
         }
@@ -124,7 +124,7 @@ public class d {
     }
 
     public void f() {
-        d.a.t.a.a.a aVar = this.f64519a;
+        d.a.t.a.a.a aVar = this.f68237a;
         if (aVar != null) {
             aVar.c();
         }
@@ -149,22 +149,22 @@ public class d {
 
     public final void j(Context context, String str, int i2) {
         d.a.t.a.h.e.a("FlowTrackManager", "flow begin uplodFlow~~~");
-        f64518d.set(true);
+        f68236d.set(true);
         ArrayList arrayList = new ArrayList();
-        f fVar = this.f64520b;
+        f fVar = this.f68238b;
         if (fVar != null) {
             byte[] c2 = fVar.c(context, str, arrayList, i2);
             if (c2 != null && arrayList.size() > 0) {
                 if (c2.length >= 307200) {
                     d.a.t.a.h.e.a("FlowTrackManager", "flow 上报数据长度超过300k");
-                    f64518d.set(false);
+                    f68236d.set(false);
                     return;
                 }
                 IMPushUploadManager.getInstance(context).requestUpload(null, c2, "", new b(context, str, arrayList, i2));
                 return;
             }
             d.a.t.a.h.e.a("FlowTrackManager", "flow 上报数据为空");
-            f64518d.set(false);
+            f68236d.set(false);
         }
     }
 }

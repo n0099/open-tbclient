@@ -9,38 +9,38 @@ import org.json.JSONObject;
 public class h extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65027e;
+    public final Context f68758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i f65028f;
+    public final i f68759f;
 
     public h(Context context, i iVar) {
         super(false, false);
-        this.f65027e = context;
-        this.f65028f = iVar;
+        this.f68758e = context;
+        this.f68759f = iVar;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
         jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 336);
         jSONObject.put("sdk_version_name", "3.6.0-rc.9-embed");
-        jSONObject.put("channel", this.f65028f.G());
-        j.f(jSONObject, "aid", this.f65028f.F());
-        j.f(jSONObject, "release_build", this.f65028f.W());
-        j.f(jSONObject, "app_region", this.f65028f.J());
-        j.f(jSONObject, "app_language", this.f65028f.I());
-        j.f(jSONObject, com.alipay.sdk.cons.b.f1825b, this.f65028f.a());
-        j.f(jSONObject, "ab_sdk_version", this.f65028f.L());
-        j.f(jSONObject, "ab_version", this.f65028f.P());
-        j.f(jSONObject, "aliyun_uuid", this.f65028f.q());
-        String H = this.f65028f.H();
+        jSONObject.put("channel", this.f68759f.G());
+        j.f(jSONObject, "aid", this.f68759f.F());
+        j.f(jSONObject, "release_build", this.f68759f.W());
+        j.f(jSONObject, "app_region", this.f68759f.J());
+        j.f(jSONObject, "app_language", this.f68759f.I());
+        j.f(jSONObject, com.alipay.sdk.cons.b.f1838b, this.f68759f.a());
+        j.f(jSONObject, "ab_sdk_version", this.f68759f.L());
+        j.f(jSONObject, "ab_version", this.f68759f.P());
+        j.f(jSONObject, "aliyun_uuid", this.f68759f.q());
+        String H = this.f68759f.H();
         if (TextUtils.isEmpty(H)) {
-            H = n0.a(this.f65027e, this.f65028f);
+            H = n0.a(this.f68758e, this.f68759f);
         }
         if (!TextUtils.isEmpty(H)) {
             j.f(jSONObject, "google_aid", H);
         }
-        String V = this.f65028f.V();
+        String V = this.f68759f.V();
         if (!TextUtils.isEmpty(V)) {
             try {
                 jSONObject.put("app_track", new JSONObject(V));
@@ -48,11 +48,11 @@ public class h extends h2 {
                 r0.b(th);
             }
         }
-        String K = this.f65028f.K();
+        String K = this.f68759f.K();
         if (K != null && K.length() > 0) {
             jSONObject.put(SchedulerSupport.CUSTOM, new JSONObject(K));
         }
-        j.f(jSONObject, "user_unique_id", this.f65028f.M());
+        j.f(jSONObject, "user_unique_id", this.f68759f.M());
         return true;
     }
 }

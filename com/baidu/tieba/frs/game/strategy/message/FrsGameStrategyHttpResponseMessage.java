@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.r0.s1.a.c.a;
 import d.a.n0.r0.s1.a.d.e;
 import java.util.List;

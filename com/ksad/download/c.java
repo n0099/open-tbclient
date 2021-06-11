@@ -3,10 +3,10 @@ package com.ksad.download;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31584a;
+    public int f31675a;
 
     public final void a(int i2) {
-        this.f31584a = i2;
+        this.f31675a = i2;
     }
 
     public abstract void a(DownloadTask downloadTask);

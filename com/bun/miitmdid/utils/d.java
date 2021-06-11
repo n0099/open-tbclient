@@ -2,16 +2,17 @@ package com.bun.miitmdid.utils;
 
 import android.text.TextUtils;
 import android.util.Base64;
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import javax.crypto.Cipher;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f26830a = "#PART#".getBytes();
+    public static final byte[] f26933a = "#PART#".getBytes();
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -37,7 +38,7 @@ public class d {
             if (i4 == 117 || i3 == length - 1) {
                 i5++;
                 if (i5 != 1) {
-                    for (byte b2 : f26830a) {
+                    for (byte b2 : f26933a) {
                         arrayList.add(Byte.valueOf(b2));
                     }
                 }
@@ -59,7 +60,7 @@ public class d {
 
     public static byte[] b(byte[] bArr, byte[] bArr2) {
         PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr2));
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
         cipher.init(1, generatePublic);
         return cipher.doFinal(bArr);
     }

@@ -35,7 +35,7 @@ public class c extends a0 {
             } else {
                 L = d.a.l0.a.k2.b.s(optString) == PathType.RELATIVE ? d.a.l0.a.k2.b.L(optString, eVar, eVar.Z()) : "";
             }
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("GetFileInfoAction", "——> handle: fileUrl " + optString);
                 Log.d("GetFileInfoAction", "——> handle: filePath " + L);
             }
@@ -49,7 +49,7 @@ public class c extends a0 {
             if (TextUtils.isEmpty(b2)) {
                 d.a.l0.a.e0.d.b("fileInfo", "hash is null");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, d.a.l0.a.c2.b.a(2001)));
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("GetFileInfoAction", "——> handle: file not exist");
                 }
                 return false;
@@ -63,7 +63,7 @@ public class c extends a0 {
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, d.a.l0.a.c2.b.a(2003)));
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("GetFileInfoAction", "——> handle: jsonException ");
                 }
                 return false;

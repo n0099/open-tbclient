@@ -6,19 +6,19 @@ import android.os.Handler;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f40392a;
+    public b f44071a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f40393b;
+    public Context f44072b;
 
     public a(Context context, Handler handler) {
-        this.f40392a = new b(context, handler);
-        this.f40393b = context;
+        this.f44071a = new b(context, handler);
+        this.f44072b = context;
     }
 
     public String a(String str, byte[] bArr) {
         if (str != null) {
-            return this.f40392a.b(str, bArr, null);
+            return this.f44071a.b(str, bArr, null);
         }
         throw new IllegalArgumentException("postToServerForm request null");
     }

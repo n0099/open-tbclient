@@ -5,7 +5,7 @@ import android.content.Context;
 public class y1 extends a2 {
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f65141h;
+    public boolean f68872h;
 
     public y1(Context context, j jVar, a0 a0Var) {
         super(context, jVar, a0Var);
@@ -13,13 +13,13 @@ public class y1 extends a2 {
 
     @Override // d.b.b.a2, d.b.b.v1
     public long b() {
-        return this.f65141h ? Long.MAX_VALUE : 0L;
+        return this.f68872h ? Long.MAX_VALUE : 0L;
     }
 
     @Override // d.b.b.a2, d.b.b.v1
     public boolean d() {
         boolean d2 = super.d();
-        this.f65141h = d2;
+        this.f68872h = d2;
         return d2;
     }
 }

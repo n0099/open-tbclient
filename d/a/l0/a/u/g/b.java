@@ -12,40 +12,40 @@ import java.util.concurrent.ConcurrentHashMap;
 public class b implements a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45232b = k.f43199a;
+    public static final boolean f48906b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, d.a.l0.a.r1.k.a> f45233a = new ConcurrentHashMap();
+    public Map<String, d.a.l0.a.r1.k.a> f48907a = new ConcurrentHashMap();
 
     @Override // d.a.l0.a.u.g.a
     public void a(String str) {
-        if (this.f45233a.containsKey(str)) {
+        if (this.f48907a.containsKey(str)) {
             return;
         }
-        if (f45232b) {
+        if (f48906b) {
             Log.d("Api-FirstRecorder", "markStart: " + str);
         }
         d.a.l0.a.r1.k.a aVar = new d.a.l0.a.r1.k.a();
-        this.f45233a.put(str, aVar);
+        this.f48907a.put(str, aVar);
         aVar.i(System.currentTimeMillis());
         aVar.f(str);
     }
 
     @Override // d.a.l0.a.u.g.a
     public void b(String str) {
-        d.a.l0.a.r1.k.a aVar = this.f45233a.get(str);
+        d.a.l0.a.r1.k.a aVar = this.f48907a.get(str);
         if (aVar == null) {
-            if (f45232b) {
+            if (f48906b) {
                 throw new RuntimeException(str + " markEnd before markStart");
             }
         } else if (aVar.d() > 0) {
         } else {
             aVar.h(System.currentTimeMillis());
-            if (f45232b) {
+            if (f48906b) {
                 Log.d("Api-FirstRecorder", str + " first called cost " + aVar.c());
             }
             if (TextUtils.equals(str, "request")) {
-                if (f45232b) {
+                if (f48906b) {
                     Log.d("Api-FirstRecorder", "record first request api called " + aVar.toString());
                 }
                 HybridUbcFlow p = h.p("startup");

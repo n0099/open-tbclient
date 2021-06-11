@@ -104,9 +104,9 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
             return;
         }
         if (this.dataList.isEmpty()) {
-            this.mHotTopicMoreView.g();
+            this.mHotTopicMoreView.h();
         } else {
-            this.mHotTopicMoreView.j();
+            this.mHotTopicMoreView.k();
         }
     }
 

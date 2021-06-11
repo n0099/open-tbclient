@@ -8,12 +8,12 @@ import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.bumptech.glide.request.transition.Transition;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProvider<T>, SizeReadyCallback {
     public int[] size;
     public SizeViewTarget viewTarget;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class SizeViewTarget extends ViewTarget<View, Object> {
         public SizeViewTarget(@NonNull View view, @NonNull SizeReadyCallback sizeReadyCallback) {
             super(view);

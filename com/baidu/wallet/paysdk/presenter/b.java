@@ -21,9 +21,9 @@ public class b extends a {
     public void a(boolean z) {
         super.a(z);
         if (z) {
-            this.f25383b = 1;
+            this.f25486b = 1;
         } else {
-            this.f25383b = 2;
+            this.f25486b = 2;
         }
     }
 
@@ -31,7 +31,7 @@ public class b extends a {
     public void b() {
         PayRequest payRequest;
         super.b();
-        AuthorizeSignActivity authorizeSignActivity = this.f25382a;
+        AuthorizeSignActivity authorizeSignActivity = this.f25485a;
         if (authorizeSignActivity == null || (payRequest = authorizeSignActivity.getPayRequest()) == null) {
             return;
         }
@@ -40,29 +40,29 @@ public class b extends a {
         String discountAmount = payRequest.getDiscountAmount();
         String randomDiscountMsg = payRequest.getRandomDiscountMsg();
         boolean z = (TextUtils.isEmpty(StringUtils.fen2Yuan(discountAmount)) || StringUtils.fen2Yuan(discountAmount).equals("0.00")) ? false : true;
-        SpannableString spannableString = new SpannableString(ResUtils.getString(this.f25382a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(orderPrice));
+        SpannableString spannableString = new SpannableString(ResUtils.getString(this.f25485a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(orderPrice));
         if (z) {
             spannableString.setSpan(new StrikethroughSpan(), 0, spannableString.length(), 33);
         }
-        String str = "-" + ResUtils.getString(this.f25382a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(discountAmount);
+        String str = "-" + ResUtils.getString(this.f25485a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(discountAmount);
         if (z) {
-            this.f25382a.updateDiscountTxt(h(), payRequest.getGoodsName(), spannableString, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.presenter.b.1
+            this.f25485a.updateDiscountTxt(h(), payRequest.getGoodsName(), spannableString, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.presenter.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    PayController.getInstance().gotoDiscountPage(b.this.f25382a);
+                    PayController.getInstance().gotoDiscountPage(b.this.f25485a);
                 }
             });
         } else if (!TextUtils.isEmpty(randomDiscountMsg)) {
-            this.f25382a.updateDiscountTxt(true, payRequest.getGoodsName(), null, randomDiscountMsg, null, StringUtils.fen2Yuan(needToPayAmount), null);
+            this.f25485a.updateDiscountTxt(true, payRequest.getGoodsName(), null, randomDiscountMsg, null, StringUtils.fen2Yuan(needToPayAmount), null);
         } else {
-            this.f25382a.updateDiscountTxt(h(), payRequest.getGoodsName(), null, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.presenter.b.2
+            this.f25485a.updateDiscountTxt(h(), payRequest.getGoodsName(), null, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.presenter.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    PayController.getInstance().gotoDiscountPage(b.this.f25382a);
+                    PayController.getInstance().gotoDiscountPage(b.this.f25485a);
                 }
             });
         }
-        this.f25382a.updateDiscountTitle(payRequest.title_url);
+        this.f25485a.updateDiscountTitle(payRequest.title_url);
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, com.baidu.wallet.paysdk.presenter.e
@@ -79,6 +79,6 @@ public class b extends a {
     public void onClick(View view) {
         super.onClick(view);
         view.getId();
-        ResUtils.id(this.f25382a.getApplicationContext(), "sign_next_btn");
+        ResUtils.id(this.f25485a.getApplicationContext(), "sign_next_btn");
     }
 }

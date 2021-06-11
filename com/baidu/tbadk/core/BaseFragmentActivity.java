@@ -67,9 +67,8 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.compatible.menukey.MenuKeyUtils;
-import d.a.c.j.e.q;
-import d.a.m0.a.p;
-import d.a.m0.a.s;
+import d.a.m0.a.q;
+import d.a.m0.a.t;
 import d.a.m0.r.s.a;
 import d.a.m0.z0.d0;
 import d.a.m0.z0.g0;
@@ -78,7 +77,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements TbPageContextSupport, d.a.m0.k0.a, p, Object, d.a.m0.j0.a {
+public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements TbPageContextSupport, d.a.m0.k0.a, q, Object, d.a.m0.j0.a {
     public static int flog = 1;
     public static Class<? extends TbPageContext<BaseFragmentActivity>> mClazz4GetPageContext = MainAPKFragmentActivityPageContext.class;
     public final int SHOW_SOFT_KEYBOARD_DELAY;
@@ -228,30 +227,30 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public class e implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation.AnimationListener f11988a;
+        public final /* synthetic */ Animation.AnimationListener f12050a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WeakReference f11989b;
+        public final /* synthetic */ WeakReference f12051b;
 
         public e(Animation.AnimationListener animationListener, WeakReference weakReference) {
-            this.f11988a = animationListener;
-            this.f11989b = weakReference;
+            this.f12050a = animationListener;
+            this.f12051b = weakReference;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            Animation.AnimationListener animationListener = this.f11988a;
+            Animation.AnimationListener animationListener = this.f12050a;
             if (animationListener != null) {
                 animationListener.onAnimationEnd(animation);
             }
             synchronized (BaseFragmentActivity.this.animationList) {
-                BaseFragmentActivity.this.animationList.remove(this.f11989b);
+                BaseFragmentActivity.this.animationList.remove(this.f12051b);
             }
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
-            Animation.AnimationListener animationListener = this.f11988a;
+            Animation.AnimationListener animationListener = this.f12050a;
             if (animationListener != null) {
                 animationListener.onAnimationRepeat(animation);
             }
@@ -259,7 +258,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
-            Animation.AnimationListener animationListener = this.f11988a;
+            Animation.AnimationListener animationListener = this.f12050a;
             if (animationListener != null) {
                 animationListener.onAnimationStart(animation);
             }
@@ -361,11 +360,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public View f11996e;
+        public View f12058e;
 
         public k(View view) {
-            this.f11996e = null;
-            this.f11996e = view;
+            this.f12058e = null;
+            this.f12058e = view;
         }
 
         @Override // java.lang.Runnable
@@ -373,7 +372,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (BaseFragmentActivity.this.isFinishing()) {
                 return;
             }
-            BaseFragmentActivity.this.ShowSoftKeyPad((InputMethodManager) BaseFragmentActivity.this.getSystemService("input_method"), this.f11996e);
+            BaseFragmentActivity.this.ShowSoftKeyPad((InputMethodManager) BaseFragmentActivity.this.getSystemService("input_method"), this.f12058e);
         }
     }
 
@@ -642,7 +641,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        s.a(motionEvent, getPageId(), getMissionTid());
+        t.a(motionEvent, getPageId(), getMissionTid());
         d.a.n0.j3.a.getInstance().behaviorRecordEvent(motionEvent, this);
         return super.dispatchTouchEvent(motionEvent);
     }
@@ -943,7 +942,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (configuration.screenWidthDp != this.mLastScreenWidth || configuration.screenHeightDp != this.mLastScreenHeight) {
                 this.mLastScreenWidth = configuration.screenWidthDp;
                 this.mLastScreenHeight = configuration.screenHeightDp;
-                d.a.c.e.p.l.f38876a = false;
+                d.a.c.e.p.l.f42529a = false;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921414, getUniqueId()));
             }
         } else {
@@ -1062,10 +1061,10 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onKeyboardVisibilityChanged(boolean z) {
     }
 
-    @Override // d.a.m0.a.p
+    @Override // d.a.m0.a.q
     public boolean onMissionCompleted(CompleteTaskToastData completeTaskToastData) {
         hideClickableTextToast();
-        this.mClickableTextToast = s.i(completeTaskToastData);
+        this.mClickableTextToast = t.i(completeTaskToastData);
         return true;
     }
 
@@ -1100,7 +1099,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, d.a.c.a.i
-    public void onPreLoad(q qVar) {
+    public void onPreLoad(d.a.c.k.e.q qVar) {
         PreLoadImageHelper.load(qVar, getUniqueId());
         PreLoadVideoHelper.load(qVar, getUniqueId(), this);
     }
@@ -1229,7 +1228,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void setCurrentActivityTid() {
-        s.h(getPageId(), getMissionTid());
+        t.h(getPageId(), getMissionTid());
     }
 
     public void setCurrentPermissionJudgePolicy(PermissionJudgePolicy permissionJudgePolicy) {

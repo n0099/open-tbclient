@@ -68,11 +68,11 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         this.mModelController = getModelController();
         this.mViewController = getViewController();
         if (getIntent() != null) {
-            this.mModelController.x(getIntent().getExtras());
+            this.mModelController.B(getIntent().getExtras());
         } else if (bundle != null) {
-            this.mModelController.x(bundle);
+            this.mModelController.B(bundle);
         } else {
-            this.mModelController.x(null);
+            this.mModelController.B(null);
         }
         setContentView(this.mViewController.q());
         this.mViewController.s();
@@ -85,7 +85,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         if (bVar.b() == 4096) {
             handlePictureClick(bVar);
         }
-        return getViewController().r(bVar) || getModelController().z(bVar);
+        return getViewController().r(bVar) || getModelController().D(bVar);
     }
 
     public void onServerError(ErrorData errorData) {

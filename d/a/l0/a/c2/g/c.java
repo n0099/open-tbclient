@@ -13,7 +13,7 @@ import d.a.l0.a.k;
 public class c extends UnitedSchemeBaseInterceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41304a = k.f43199a;
+    public static final boolean f44980a = k.f46875a;
 
     public final String a(UnitedSchemeEntity unitedSchemeEntity) {
         String[] paths;
@@ -37,7 +37,7 @@ public class c extends UnitedSchemeBaseInterceptor {
     public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         String a2 = a(unitedSchemeEntity);
         boolean b2 = d.a.l0.a.u.i.a.b(a2, callbackHandler);
-        if (f41304a) {
+        if (f44980a) {
             Log.d("SwanWebSafeInterceptor", "intercept: result=" + b2 + ", path=" + a2);
         }
         if (b2) {

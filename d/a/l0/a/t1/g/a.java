@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44796a = k.f43199a;
+    public static final boolean f48470a = k.f46875a;
 
     public static String a(String str, long j, String str2) {
         e i2 = e.i();
@@ -33,7 +33,7 @@ public class a {
         try {
             return o.c("SHA-1", sb.toString().getBytes(), false);
         } catch (NoSuchAlgorithmException e2) {
-            if (f44796a) {
+            if (f48470a) {
                 Log.e("SwanPluginHostSign", "getSignature occurs exception:", e2);
                 return "";
             }

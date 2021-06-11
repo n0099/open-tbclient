@@ -5,27 +5,27 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f47152a;
+    public int f50826a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47153b;
+    public String f50827b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f47154c;
+    public int f50828c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f47155d;
+    public long f50829d;
 
     public static g a(JSONObject jSONObject) {
         g gVar = new g();
-        gVar.f47152a = jSONObject.optInt("state");
-        gVar.f47153b = jSONObject.optString("msg");
-        gVar.f47154c = jSONObject.optInt("switch_open");
-        gVar.f47155d = jSONObject.optLong("heartbeat_time");
+        gVar.f50826a = jSONObject.optInt("state");
+        gVar.f50827b = jSONObject.optString("msg");
+        gVar.f50828c = jSONObject.optInt("switch_open");
+        gVar.f50829d = jSONObject.optLong("heartbeat_time");
         return gVar;
     }
 
     public String toString() {
-        return "UpUseTimeModel{state=" + this.f47152a + ", limit='" + this.f47153b + "', open=" + this.f47154c + ", interval=" + this.f47155d + '}';
+        return "UpUseTimeModel{state=" + this.f50826a + ", limit='" + this.f50827b + "', open=" + this.f50828c + ", interval=" + this.f50829d + '}';
     }
 }

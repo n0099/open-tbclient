@@ -26,7 +26,7 @@ public class d extends d.a.f0.a.d.a {
     public f P;
     public volatile boolean Q;
     public d.a.f0.a.i.a R;
-    public a.InterfaceC0535a S;
+    public a.InterfaceC0591a S;
     public a.b T;
 
     /* loaded from: classes2.dex */
@@ -70,11 +70,11 @@ public class d extends d.a.f0.a.d.a {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements a.InterfaceC0535a {
+    public class b implements a.InterfaceC0591a {
         public b() {
         }
 
-        @Override // d.a.f0.a.i.a.InterfaceC0535a
+        @Override // d.a.f0.a.i.a.InterfaceC0591a
         public void onDestroyed() {
             try {
                 if (d.this.N != null) {
@@ -85,11 +85,11 @@ public class d extends d.a.f0.a.d.a {
                 if (d.this.n != null) {
                     d.this.n.setVisibility(8);
                 }
-                if (d.this.f39790c != null) {
-                    d.this.f39790c.setVisibility(8);
+                if (d.this.f43471c != null) {
+                    d.this.f43471c.setVisibility(8);
                 }
-                if (d.this.f39791d != null) {
-                    d.this.f39791d.setVisibility(8);
+                if (d.this.f43472d != null) {
+                    d.this.f43472d.setVisibility(8);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -110,8 +110,8 @@ public class d extends d.a.f0.a.d.a {
 
     /* renamed from: d.a.f0.a.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class View$OnClickListenerC0533d implements View.OnClickListener {
-        public View$OnClickListenerC0533d() {
+    public class View$OnClickListenerC0589d implements View.OnClickListener {
+        public View$OnClickListenerC0589d() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -135,21 +135,21 @@ public class d extends d.a.f0.a.d.a {
     public static class f extends d.a.f0.a.l.b {
 
         /* renamed from: g  reason: collision with root package name */
-        public final WeakReference<d> f39825g;
+        public final WeakReference<d> f43506g;
 
         public f(d dVar) {
-            this.f39825g = new WeakReference<>(dVar);
+            this.f43506g = new WeakReference<>(dVar);
         }
 
         @Override // d.a.f0.a.l.b
         public Object b() {
-            d dVar = this.f39825g.get();
-            if (!d.U.get() || dVar == null || dVar.N == null || dVar.f39792e == null) {
+            d dVar = this.f43506g.get();
+            if (!d.U.get() || dVar == null || dVar.N == null || dVar.f43473e == null) {
                 return null;
             }
             int currentPosition = dVar.N.getCurrentPosition();
             int duration = dVar.N.getDuration();
-            dVar.f39792e.e(duration, duration - currentPosition);
+            dVar.f43473e.e(duration, duration - currentPosition);
             return null;
         }
     }
@@ -163,7 +163,7 @@ public class d extends d.a.f0.a.d.a {
         this.T = new c();
         this.s = "video";
         try {
-            AdVideoView adVideoView = new AdVideoView(this.f39788a);
+            AdVideoView adVideoView = new AdVideoView(this.f43469a);
             this.N = adVideoView;
             if (this.G == 17) {
                 adVideoView.setDisplayMode(7);
@@ -212,7 +212,7 @@ public class d extends d.a.f0.a.d.a {
         try {
             try {
                 try {
-                    mediaMetadataRetriever.setDataSource(this.f39788a, Uri.parse(Y()));
+                    mediaMetadataRetriever.setDataSource(this.f43469a, Uri.parse(Y()));
                     long j = currentPosition * 1000;
                     r3 = j > 0 ? mediaMetadataRetriever.getFrameAtTime(j, 3) : null;
                     mediaMetadataRetriever.release();
@@ -220,10 +220,10 @@ public class d extends d.a.f0.a.d.a {
                     e2.fillInStackTrace();
                 }
             } catch (IllegalArgumentException e3) {
-                this.f39793f.d(e3);
+                this.f43474f.d(e3);
                 mediaMetadataRetriever.release();
             } catch (RuntimeException e4) {
-                this.f39793f.d(e4);
+                this.f43474f.d(e4);
                 mediaMetadataRetriever.release();
             }
             return r3;
@@ -238,7 +238,7 @@ public class d extends d.a.f0.a.d.a {
     }
 
     public final String Y() {
-        String b2 = this.f39796i.b(this.u, MaterialLoader.MaterialCacheType.VIDEO);
+        String b2 = this.f43477i.b(this.u, MaterialLoader.MaterialCacheType.VIDEO);
         return TextUtils.isEmpty(b2) ? this.u : b2;
     }
 
@@ -252,7 +252,7 @@ public class d extends d.a.f0.a.d.a {
     @Override // d.a.f0.a.d.a, d.a.f0.a.g.b
     public void a() {
         super.a();
-        this.N.setOnClickListener(new View$OnClickListenerC0533d());
+        this.N.setOnClickListener(new View$OnClickListenerC0589d());
         M();
     }
 

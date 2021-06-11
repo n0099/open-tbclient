@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class gasd extends uiou {
-    public gasd(bv bvVar, lbvzx lbvzxVar, bv.InterfaceC0006bv interfaceC0006bv) {
-        super(bvVar, lbvzxVar, interfaceC0006bv);
+    public gasd(bv bvVar, lbvzx lbvzxVar, bv.InterfaceC0007bv interfaceC0007bv) {
+        super(bvVar, lbvzxVar, interfaceC0007bv);
     }
 
     @Override // a.a.a.c.b.uiou
@@ -21,9 +21,9 @@ public class gasd extends uiou {
     @Override // a.a.a.c.b.uiou
     public Map<String, String> a(lbvzx lbvzxVar) {
         HashMap hashMap = new HashMap();
-        long j = lbvzxVar.f1421b;
-        long j2 = lbvzxVar.f1423d;
-        long j3 = lbvzxVar.f1422c;
+        long j = lbvzxVar.f1434b;
+        long j2 = lbvzxVar.f1436d;
+        long j3 = lbvzxVar.f1435c;
         hashMap.put("Range", "bytes=" + (j + j2) + "-" + j3);
         return hashMap;
     }

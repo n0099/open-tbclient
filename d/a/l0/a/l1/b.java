@@ -9,43 +9,43 @@ import d.a.l0.a.v2.o0;
 public final class b implements Cloneable {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43357e;
+    public String f47033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43358f;
+    public String f47034f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43359g;
+    public String f47035g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43360h;
+    public String f47036h;
 
     public static String c(b bVar) {
-        if (bVar == null || TextUtils.isEmpty(bVar.f43357e)) {
+        if (bVar == null || TextUtils.isEmpty(bVar.f47033e)) {
             return null;
         }
-        if (TextUtils.isEmpty(bVar.f43358f)) {
-            return bVar.f43357e;
+        if (TextUtils.isEmpty(bVar.f47034f)) {
+            return bVar.f47033e;
         }
-        return bVar.f43357e + "?" + bVar.f43358f;
+        return bVar.f47033e + "?" + bVar.f47034f;
     }
 
     public static String d(b bVar) {
-        if (bVar == null || TextUtils.isEmpty(bVar.f43360h)) {
+        if (bVar == null || TextUtils.isEmpty(bVar.f47036h)) {
             return null;
         }
-        if (TextUtils.isEmpty(bVar.f43358f)) {
-            return bVar.f43360h;
+        if (TextUtils.isEmpty(bVar.f47034f)) {
+            return bVar.f47036h;
         }
-        return bVar.f43360h + "?" + bVar.f43358f;
+        return bVar.f47036h + "?" + bVar.f47034f;
     }
 
     public static b e(String str, String str2) {
         b bVar = new b();
-        bVar.f43357e = o0.f(str);
-        bVar.f43358f = o0.o(str);
-        bVar.f43359g = str2;
-        bVar.f43360h = j.b(bVar.f43357e);
+        bVar.f47033e = o0.f(str);
+        bVar.f47034f = o0.o(str);
+        bVar.f47035g = str2;
+        bVar.f47036h = j.b(bVar.f47033e);
         return bVar;
     }
 
@@ -60,22 +60,22 @@ public final class b implements Cloneable {
     }
 
     public String f() {
-        return this.f43357e;
+        return this.f47033e;
     }
 
     public String g() {
-        return this.f43358f;
+        return this.f47034f;
     }
 
     public String h() {
-        return this.f43360h;
+        return this.f47036h;
     }
 
     public void i(String str) {
-        this.f43358f = str;
+        this.f47034f = str;
     }
 
     public String toString() {
-        return "SwanAppPageParam{mPage='" + this.f43357e + "', mParams='" + this.f43358f + "', mBaseUrl='" + this.f43359g + "', mRoutePage='" + this.f43360h + "'}";
+        return "SwanAppPageParam{mPage='" + this.f47033e + "', mParams='" + this.f47034f + "', mBaseUrl='" + this.f47035g + "', mRoutePage='" + this.f47036h + "'}";
     }
 }

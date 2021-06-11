@@ -10,16 +10,16 @@ import d.a.c.e.p.k;
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f49445d;
+    public static e f53119d;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49447b;
+    public int f53121b;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49446a = false;
+    public boolean f53120a = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f49448c = false;
+    public boolean f53122c = false;
 
     /* loaded from: classes3.dex */
     public class a extends d.a.m0.k0.b {
@@ -44,7 +44,7 @@ public class e {
 
         @Override // d.a.m0.k0.b
         public int getMaxCost() {
-            return e.this.f49447b;
+            return e.this.f53121b;
         }
 
         @Override // d.a.m0.k0.b
@@ -54,49 +54,49 @@ public class e {
     }
 
     public static e b() {
-        if (f49445d == null) {
+        if (f53119d == null) {
             synchronized (e.class) {
-                if (f49445d == null) {
-                    f49445d = new e();
+                if (f53119d == null) {
+                    f53119d = new e();
                 }
             }
         }
-        return f49445d;
+        return f53119d;
     }
 
     public int c() {
         if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
             return d.a.m0.r.d0.b.j().k("page_stay_max_cost", 0);
         }
-        return this.f49447b;
+        return this.f53121b;
     }
 
     public boolean d() {
-        return this.f49446a;
+        return this.f53120a;
     }
 
     public boolean e() {
-        return this.f49448c;
+        return this.f53122c;
     }
 
     public void f(int i2) {
-        this.f49447b = i2;
-        d.a.m0.r.d0.b.j().v("page_stay_max_cost", this.f49447b);
+        this.f53121b = i2;
+        d.a.m0.r.d0.b.j().v("page_stay_max_cost", this.f53121b);
     }
 
     public void g(boolean z) {
-        this.f49446a = z;
+        this.f53120a = z;
     }
 
     public void h(boolean z) {
-        this.f49448c = z;
+        this.f53122c = z;
     }
 
     public void i(Context context, d dVar, d.a.m0.k0.b bVar) {
         if (dVar == null || StringUtils.isNull(dVar.c())) {
             return;
         }
-        if (dVar.f49436a) {
+        if (dVar.f53110a) {
             if (bVar == null) {
                 bVar = new a(this);
             }
@@ -105,8 +105,8 @@ public class e {
                 statisticItem.param("obj_source", c.a(dVar.h()));
                 statisticItem.param("obj_locate", dVar.c());
                 statisticItem.param("obj_type", "0");
-                if (!StringUtils.isNull(dVar.f49444i)) {
-                    statisticItem.param("obj_id", dVar.f49444i);
+                if (!StringUtils.isNull(dVar.f53118i)) {
+                    statisticItem.param("obj_id", dVar.f53118i);
                 }
                 if (dVar.b() != 0) {
                     statisticItem.param("ad_source", dVar.b());
@@ -156,8 +156,8 @@ public class e {
                 statisticItem2.param("ab_tag", dVar.a());
             }
             if (e()) {
-                if (!StringUtils.isNull(dVar.f49444i)) {
-                    statisticItem2.param("obj_id", dVar.f49444i);
+                if (!StringUtils.isNull(dVar.f53118i)) {
+                    statisticItem2.param("obj_id", dVar.f53118i);
                 }
                 if (!StringUtils.isNull(dVar.j)) {
                     statisticItem2.param("obj_name", dVar.j);

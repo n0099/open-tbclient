@@ -22,43 +22,43 @@ import java.io.File;
 public class a implements NewWriteModel.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final NewWriteModel f54204a;
+    public final NewWriteModel f57893a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f54205b;
+    public boolean f57894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f54206c;
+    public BdUniqueId f57895c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54207d;
+    public String f57896d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54208e;
+    public String f57897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54209f;
+    public String f57898f;
 
     /* loaded from: classes5.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f54210a = new a();
+        public static final a f57899a = new a();
     }
 
     public static a f() {
         d.a.n0.e3.q0.b.a("AsyncWriteHelper.getInstance()");
-        return b.f54210a;
+        return b.f57899a;
     }
 
     public void a() {
         d.a.n0.e3.q0.b.a("AsyncWriteHelper.cancelLoadData()");
-        this.f54204a.cancelLoadData();
+        this.f57893a.cancelLoadData();
     }
 
     public boolean b() {
-        d.a.n0.e3.q0.b.a("AsyncWriteHelper.checkImageNum = " + this.f54204a.Q());
-        return this.f54204a.Q();
+        d.a.n0.e3.q0.b.a("AsyncWriteHelper.checkImageNum = " + this.f57893a.U());
+        return this.f57893a.U();
     }
 
     public final void c() {
@@ -105,56 +105,56 @@ public class a implements NewWriteModel.g {
             i1.g(writeData, 100).e(false);
             c.l(postWriteCallBackData, i0Var, writeData, antiData);
         }
-        NewWriteModel newWriteModel = this.f54204a;
+        NewWriteModel newWriteModel = this.f57893a;
         if (newWriteModel != null) {
-            newWriteModel.f0(null);
+            newWriteModel.j0(null);
         }
-        this.f54205b = false;
+        this.f57894b = false;
     }
 
     public final void d() {
-        FileHelper.deleteFileOrDir(new File(d.a.n0.r3.c.f59995c));
+        FileHelper.deleteFileOrDir(new File(d.a.n0.r3.c.f63686c));
     }
 
     public BdUniqueId e() {
-        return this.f54206c;
+        return this.f57895c;
     }
 
     public String g() {
-        return this.f54207d;
+        return this.f57896d;
     }
 
     public String h() {
-        return this.f54208e;
+        return this.f57897e;
     }
 
     public String i() {
-        return this.f54209f;
+        return this.f57898f;
     }
 
     public WriteData j() {
         StringBuilder sb = new StringBuilder();
         sb.append("AsyncWriteHelper.getWriteData = ");
-        sb.append(this.f54204a.T() == null ? StringUtil.NULL_STRING : this.f54204a.T().toDraftString());
+        sb.append(this.f57893a.X() == null ? StringUtil.NULL_STRING : this.f57893a.X().toDraftString());
         d.a.n0.e3.q0.b.a(sb.toString());
-        return this.f54204a.T();
+        return this.f57893a.X();
     }
 
     public void k(@NonNull TbPageContextSupport tbPageContextSupport) {
         d.a.n0.e3.q0.b.a("AsyncWriteHelper.initWriteStatus()");
-        this.f54204a.e0(tbPageContextSupport.getPageContext());
-        this.f54204a.f0(null);
-        this.f54204a.Z(false);
+        this.f57893a.i0(tbPageContextSupport.getPageContext());
+        this.f57893a.j0(null);
+        this.f57893a.d0(false);
     }
 
     public boolean l() {
-        return this.f54205b;
+        return this.f57894b;
     }
 
     public void m() {
         d.a.n0.e3.q0.b.a("AsyncWriteHelper.onWriteActClose()");
-        this.f54204a.e0(null);
-        this.f54204a.setSpanGroupManager(null);
+        this.f57893a.i0(null);
+        this.f57893a.setSpanGroupManager(null);
     }
 
     public final void n(PostWriteCallBackData postWriteCallBackData) {
@@ -162,30 +162,30 @@ public class a implements NewWriteModel.g {
     }
 
     public void o(BdUniqueId bdUniqueId) {
-        this.f54206c = bdUniqueId;
+        this.f57895c = bdUniqueId;
     }
 
     public void p(boolean z) {
         d.a.n0.e3.q0.b.a("AsyncWriteHelper.setHasImage = " + z);
-        this.f54204a.Z(z);
+        this.f57893a.d0(z);
     }
 
     public void q(String str) {
-        this.f54207d = str;
+        this.f57896d = str;
     }
 
     public void r(String str) {
-        this.f54208e = str;
+        this.f57897e = str;
     }
 
     public void s(String str) {
-        this.f54209f = str;
+        this.f57898f = str;
     }
 
     public void t(SpanGroupManager spanGroupManager) {
         d.a.n0.e3.q0.b.a("AsyncWriteHelper.setSpanGroupManager()");
-        this.f54204a.U();
-        this.f54204a.setSpanGroupManager(spanGroupManager);
+        this.f57893a.Y();
+        this.f57893a.setSpanGroupManager(spanGroupManager);
     }
 
     public void u(WriteData writeData) {
@@ -193,22 +193,22 @@ public class a implements NewWriteModel.g {
         sb.append("AsyncWriteHelper.setWriteData = ");
         sb.append(writeData == null ? StringUtil.NULL_STRING : writeData.toDraftString());
         d.a.n0.e3.q0.b.a(sb.toString());
-        this.f54204a.f0(writeData);
+        this.f57893a.j0(writeData);
     }
 
     public boolean v() {
         d.a.n0.e3.q0.b.a("AsyncWriteHelper.startPostWrite()");
-        this.f54204a.U();
-        boolean g0 = this.f54204a.g0();
-        this.f54205b = g0;
-        return g0;
+        this.f57893a.Y();
+        boolean k0 = this.f57893a.k0();
+        this.f57894b = k0;
+        return k0;
     }
 
     public a() {
-        this.f54205b = false;
-        this.f54206c = null;
+        this.f57894b = false;
+        this.f57895c = null;
         NewWriteModel newWriteModel = new NewWriteModel();
-        this.f54204a = newWriteModel;
-        newWriteModel.d0(this);
+        this.f57893a = newWriteModel;
+        newWriteModel.h0(this);
     }
 }

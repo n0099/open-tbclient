@@ -107,8 +107,6 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
 
     /* loaded from: classes6.dex */
     public class TaskCancelledException extends Exception {
-        public static final long serialVersionUID = -504619855289909996L;
-
         public TaskCancelledException() {
         }
     }

@@ -12,13 +12,13 @@ import org.json.JSONArray;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47413a = k.f43199a;
+    public static final boolean f51087a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f47414b = 86400000;
+    public static long f51088b = 86400000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f47415c = "duration_permission_list";
+    public static String f51089c = "duration_permission_list";
 
     public static void a(JsObject jsObject) {
         b bVar;
@@ -27,7 +27,7 @@ public class a {
         if (jsObject == null || i2 == null || !b(i2)) {
             bVar = null;
         } else {
-            if (f47413a) {
+            if (f51087a) {
                 Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
             }
             d.a.l0.a.y.b.a G = d.a.l0.a.y.b.a.G(jsObject);
@@ -48,7 +48,7 @@ public class a {
     }
 
     public static boolean b(e eVar) {
-        String string = h.a().getString(f47415c, "");
+        String string = h.a().getString(f51089c, "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 JSONArray jSONArray = new JSONArray(string);
@@ -58,7 +58,7 @@ public class a {
                     }
                 }
             } catch (Exception e2) {
-                if (f47413a) {
+                if (f51087a) {
                     e2.printStackTrace();
                 }
             }
@@ -85,7 +85,7 @@ public class a {
                 a2.putLong(V + "_Duration", j2 - j);
             }
         } else {
-            a2.putLong(V + "_Duration", j2 % f47414b);
+            a2.putLong(V + "_Duration", j2 % f51088b);
         }
         a2.putLong(V + "_LastPause", System.currentTimeMillis());
     }

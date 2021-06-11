@@ -14,38 +14,38 @@ import org.json.JSONObject;
 public class DataCore {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JSONObject f8360a = new JSONObject();
+    public static JSONObject f8422a = new JSONObject();
 
     /* renamed from: b  reason: collision with root package name */
-    public static DataCore f8361b = new DataCore();
+    public static DataCore f8423b = new DataCore();
 
     /* renamed from: h  reason: collision with root package name */
-    public StatService.WearListener f8367h;
+    public StatService.WearListener f8429h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONObject f8368i;
+    public JSONObject f8430i;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONArray f8362c = new JSONArray();
+    public JSONArray f8424c = new JSONArray();
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f8363d = new JSONArray();
+    public JSONArray f8425d = new JSONArray();
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONArray f8364e = new JSONArray();
+    public JSONArray f8426e = new JSONArray();
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f8365f = false;
+    public boolean f8427f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f8366g = 0;
+    public volatile int f8428g = 0;
     public Object j = new Object();
 
     private void a(Context context, JSONObject jSONObject) {
     }
 
     private boolean a(String str) {
-        return (str.getBytes().length + BDStatCore.instance().getSessionSize()) + this.f8366g > 184320;
+        return (str.getBytes().length + BDStatCore.instance().getSessionSize()) + this.f8428g > 184320;
     }
 
     private void b(Context context, JSONObject jSONObject, JSONObject jSONObject2) {
@@ -61,13 +61,13 @@ public class DataCore {
     }
 
     public static DataCore instance() {
-        return f8361b;
+        return f8423b;
     }
 
     public void clearCache(Context context) {
         a(false);
-        synchronized (f8360a) {
-            f8360a = new JSONObject();
+        synchronized (f8422a) {
+            f8422a = new JSONObject();
         }
         installHeader(context);
         a(context);
@@ -77,7 +77,7 @@ public class DataCore {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         HeadObject headObject = CooperService.instance().getHeadObject();
-        if (TextUtils.isEmpty(headObject.f8392e)) {
+        if (TextUtils.isEmpty(headObject.f8454e)) {
             headObject.installHeader(context, jSONObject2);
         } else {
             headObject.updateHeader(context, jSONObject2);
@@ -104,14 +104,14 @@ public class DataCore {
     public void flush(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            synchronized (this.f8362c) {
-                jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.f8362c.toString()));
+            synchronized (this.f8424c) {
+                jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.f8424c.toString()));
             }
-            synchronized (this.f8363d) {
-                jSONObject.put("ev", new JSONArray(this.f8363d.toString()));
+            synchronized (this.f8425d) {
+                jSONObject.put("ev", new JSONArray(this.f8425d.toString()));
             }
-            synchronized (f8360a) {
-                jSONObject.put(Config.HEADER_PART, new JSONObject(f8360a.toString()));
+            synchronized (f8422a) {
+                jSONObject.put(Config.HEADER_PART, new JSONObject(f8422a.toString()));
             }
         } catch (Exception unused) {
         }
@@ -125,20 +125,20 @@ public class DataCore {
             a(true);
             return;
         }
-        this.f8366g = length;
+        this.f8428g = length;
         String u = bw.u(context);
         bo.a(context, u + Config.STAT_CACHE_FILE_NAME, jSONObject2, false);
-        synchronized (this.f8364e) {
-            bo.a(context, Config.LAST_AP_INFO_FILE_NAME, this.f8364e.toString(), false);
+        synchronized (this.f8426e) {
+            bo.a(context, Config.LAST_AP_INFO_FILE_NAME, this.f8426e.toString(), false);
         }
     }
 
     public int getCacheFileSzie() {
-        return this.f8366g;
+        return this.f8428g;
     }
 
     public JSONObject getLogData() {
-        return this.f8368i;
+        return this.f8430i;
     }
 
     public void init(Context context) {
@@ -148,8 +148,8 @@ public class DataCore {
     }
 
     public void installHeader(Context context) {
-        synchronized (f8360a) {
-            CooperService.instance().getHeadObject().installHeader(context, f8360a);
+        synchronized (f8422a) {
+            CooperService.instance().getHeadObject().installHeader(context, f8422a);
         }
     }
 
@@ -215,10 +215,10 @@ public class DataCore {
             try {
                 JSONObject jSONObject4 = jSONObject.getJSONObject(Config.HEADER_PART);
                 if (jSONObject4 != null) {
-                    synchronized (f8360a) {
-                        f8360a = jSONObject4;
+                    synchronized (f8422a) {
+                        f8422a = jSONObject4;
                         if (TextUtils.isEmpty(bq.a().s(context))) {
-                            String string = f8360a.getString(Config.DEVICE_ID_SEC);
+                            String string = f8422a.getString(Config.DEVICE_ID_SEC);
                             if (!TextUtils.isEmpty(string)) {
                                 bq.a().k(context, string);
                             }
@@ -246,8 +246,8 @@ public class DataCore {
                 if (!TextUtils.isEmpty(g2)) {
                     jSONArray.put(g2);
                 }
-                synchronized (this.f8364e) {
-                    this.f8364e = jSONArray;
+                synchronized (this.f8426e) {
+                    this.f8426e = jSONArray;
                 }
             } catch (JSONException unused) {
             }
@@ -262,8 +262,8 @@ public class DataCore {
             bc.c().b("[WARNING] data to put exceed limit, ignored");
             return;
         }
-        synchronized (this.f8363d) {
-            EventAnalysis.doEventMerge(this.f8363d, jSONObject);
+        synchronized (this.f8425d) {
+            EventAnalysis.doEventMerge(this.f8425d, jSONObject);
         }
     }
 
@@ -291,9 +291,9 @@ public class DataCore {
             bc.c().b("[WARNING] data to put exceed limit, ignored");
             return;
         }
-        synchronized (this.f8362c) {
+        synchronized (this.f8424c) {
             try {
-                this.f8362c.put(this.f8362c.length(), jSONObject);
+                this.f8424c.put(this.f8424c.length(), jSONObject);
             } catch (JSONException unused) {
             }
         }
@@ -302,43 +302,43 @@ public class DataCore {
     public void saveLogData(Context context, boolean z, boolean z2, long j, boolean z3, JSONObject jSONObject) {
         HeadObject headObject = CooperService.instance().getHeadObject();
         if (headObject != null) {
-            synchronized (f8360a) {
-                if (TextUtils.isEmpty(headObject.f8392e)) {
-                    headObject.installHeader(context, f8360a);
+            synchronized (f8422a) {
+                if (TextUtils.isEmpty(headObject.f8454e)) {
+                    headObject.installHeader(context, f8422a);
                 } else {
-                    headObject.updateHeader(context, f8360a);
+                    headObject.updateHeader(context, f8422a);
                 }
             }
-            if (TextUtils.isEmpty(headObject.f8392e)) {
+            if (TextUtils.isEmpty(headObject.f8454e)) {
                 bc.c().c("[WARNING] 无法找到有效APP Key, 请参考文档配置");
                 return;
             }
         }
         JSONObject jSONObject2 = new JSONObject();
-        synchronized (f8360a) {
+        synchronized (f8422a) {
             try {
-                f8360a.put("t", System.currentTimeMillis());
-                f8360a.put(Config.SEQUENCE_INDEX, z ? 0 : 1);
-                f8360a.put("ss", j);
-                synchronized (this.f8364e) {
-                    f8360a.put(Config.WIFI_LOCATION, this.f8364e);
+                f8422a.put("t", System.currentTimeMillis());
+                f8422a.put(Config.SEQUENCE_INDEX, z ? 0 : 1);
+                f8422a.put("ss", j);
+                synchronized (this.f8426e) {
+                    f8422a.put(Config.WIFI_LOCATION, this.f8426e);
                 }
-                f8360a.put("sign", CooperService.instance().getUUID());
-                b(context, f8360a, jSONObject);
-                jSONObject2.put(Config.HEADER_PART, f8360a);
-                synchronized (this.f8362c) {
+                f8422a.put("sign", CooperService.instance().getUUID());
+                b(context, f8422a, jSONObject);
+                jSONObject2.put(Config.HEADER_PART, f8422a);
+                synchronized (this.f8424c) {
                     try {
-                        jSONObject2.put(Config.PRINCIPAL_PART, this.f8362c);
-                        synchronized (this.f8363d) {
+                        jSONObject2.put(Config.PRINCIPAL_PART, this.f8424c);
+                        synchronized (this.f8425d) {
                             try {
-                                jSONObject2.put("ev", this.f8363d);
+                                jSONObject2.put("ev", this.f8425d);
                                 try {
                                     jSONObject2.put(Config.EXCEPTION_PART, new JSONArray());
                                     a(context, jSONObject2, z2);
                                     b(jSONObject2);
                                     a(context, jSONObject2);
                                     a(context, jSONObject2.toString(), z, z3);
-                                    this.f8368i = jSONObject2;
+                                    this.f8430i = jSONObject2;
                                     clearCache(context);
                                 } catch (JSONException unused) {
                                 }
@@ -354,11 +354,11 @@ public class DataCore {
     }
 
     private void a(boolean z) {
-        this.f8365f = z;
+        this.f8427f = z;
     }
 
     private boolean a() {
-        return this.f8365f;
+        return this.f8427f;
     }
 
     private void a(Context context, JSONObject jSONObject, boolean z) {
@@ -608,7 +608,7 @@ public class DataCore {
     }
 
     private void a(Context context, String str, boolean z, boolean z2) {
-        StatService.WearListener wearListener = this.f8367h;
+        StatService.WearListener wearListener = this.f8429h;
         if (wearListener != null && wearListener.onSendLogData(str)) {
             bc c2 = bc.c();
             c2.a("Log has been passed to app level, log: " + str);
@@ -627,14 +627,14 @@ public class DataCore {
     }
 
     private void a(Context context) {
-        synchronized (this.f8363d) {
-            this.f8363d = new JSONArray();
+        synchronized (this.f8425d) {
+            this.f8425d = new JSONArray();
         }
-        synchronized (this.f8362c) {
-            this.f8362c = new JSONArray();
+        synchronized (this.f8424c) {
+            this.f8424c = new JSONArray();
         }
-        synchronized (this.f8364e) {
-            this.f8364e = new JSONArray();
+        synchronized (this.f8426e) {
+            this.f8426e = new JSONArray();
         }
         flush(context);
     }

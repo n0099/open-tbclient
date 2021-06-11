@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.util.ByteArrayBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpMultipart {
     public final String boundary;
     public final Charset charset;
@@ -23,7 +23,7 @@ public class HttpMultipart {
     public static final ByteArrayBuffer TWO_DASHES = encode(MIME.DEFAULT_CHARSET, "--");
 
     /* renamed from: org.apache.http.entity.mime.HttpMultipart$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$apache$http$entity$mime$HttpMultipartMode;
 

@@ -5,17 +5,17 @@ import android.content.Context;
 public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f37320a = false;
+    public static volatile boolean f40999a = false;
 
     public static void a(Class<?> cls, Context context) {
-        if (f37320a) {
+        if (f40999a) {
             return;
         }
         try {
-            f37320a = true;
+            f40999a = true;
             cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("mdid:load lib error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m56a("mdid:load lib error " + th);
         }
     }
 
@@ -28,7 +28,7 @@ public class au {
             }
             return false;
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("mdid:check error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m56a("mdid:check error " + th);
             return false;
         }
     }

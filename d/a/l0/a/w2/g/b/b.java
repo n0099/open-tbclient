@@ -14,47 +14,47 @@ import d.a.l0.a.v2.n0;
 import d.a.l0.a.v2.q0;
 /* loaded from: classes3.dex */
 public class b implements View.OnTouchListener {
-    public static final boolean m = k.f43199a;
+    public static final boolean m = k.f46875a;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45713e;
+    public String f49387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45714f;
+    public String f49388f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45715g;
+    public String f49389g;
     public c j;
     public long k;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f45716h = false;
+    public boolean f49390h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public int[] f45717i = new int[2];
-    public RunnableC0900b l = new RunnableC0900b();
+    public int[] f49391i = new int[2];
+    public RunnableC0956b l = new RunnableC0956b();
 
     /* renamed from: d.a.l0.a.w2.g.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0900b implements Runnable {
+    public class RunnableC0956b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public MotionEvent f45718e;
+        public MotionEvent f49392e;
 
         /* renamed from: f  reason: collision with root package name */
-        public g f45719f;
+        public g f49393f;
 
-        public RunnableC0900b() {
+        public RunnableC0956b() {
         }
 
         public final void b(MotionEvent motionEvent) {
-            this.f45718e = motionEvent;
-            this.f45719f = b.this.d(motionEvent, "longtap");
+            this.f49392e = motionEvent;
+            this.f49393f = b.this.d(motionEvent, "longtap");
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.g(this.f45719f);
+            b.this.g(this.f49393f);
         }
     }
 
@@ -62,21 +62,21 @@ public class b implements View.OnTouchListener {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public double f45721a;
+        public double f49395a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f45722b;
+        public double f49396b;
 
         public c(b bVar, double d2, double d3) {
-            this.f45721a = d2;
-            this.f45722b = d3;
+            this.f49395a = d2;
+            this.f49396b = d3;
         }
 
         public double a(c cVar) {
             if (cVar == null) {
                 return Double.MAX_VALUE;
             }
-            double pow = Math.pow(cVar.f45721a - this.f45721a, 2.0d) + Math.pow(cVar.f45722b - this.f45722b, 2.0d);
+            double pow = Math.pow(cVar.f49395a - this.f49395a, 2.0d) + Math.pow(cVar.f49396b - this.f49396b, 2.0d);
             if (pow <= 0.0d) {
                 return 0.0d;
             }
@@ -85,9 +85,9 @@ public class b implements View.OnTouchListener {
     }
 
     public b(String str, String str2, String str3) {
-        this.f45713e = str;
-        this.f45714f = str2;
-        this.f45715g = str3;
+        this.f49387e = str;
+        this.f49388f = str2;
+        this.f49389g = str3;
         h();
         i();
     }
@@ -95,23 +95,23 @@ public class b implements View.OnTouchListener {
     /* JADX WARN: Type inference failed for: r0v2, types: [org.json.JSONObject, T] */
     public final g c(MotionEvent motionEvent) {
         d.a.l0.a.w2.g.b.a aVar = new d.a.l0.a.w2.g.b.a(motionEvent);
-        aVar.i(this.f45717i);
+        aVar.i(this.f49391i);
         g gVar = new g();
-        gVar.f43924c = d.a.l0.a.w2.g.c.a.b(this.f45713e, this.f45714f, this.f45715g, aVar.e(), aVar.c());
+        gVar.f47600c = d.a.l0.a.w2.g.c.a.b(this.f49387e, this.f49388f, this.f49389g, aVar.e(), aVar.c());
         return gVar;
     }
 
     /* JADX WARN: Type inference failed for: r6v2, types: [org.json.JSONObject, T] */
     public final g d(MotionEvent motionEvent, String str) {
         d.a.l0.a.w2.g.b.a aVar = new d.a.l0.a.w2.g.b.a(motionEvent, str);
-        aVar.i(this.f45717i);
+        aVar.i(this.f49391i);
         g gVar = new g();
-        gVar.f43924c = d.a.l0.a.w2.g.c.a.b(this.f45713e, this.f45714f, this.f45715g, aVar.e(), aVar.c());
+        gVar.f47600c = d.a.l0.a.w2.g.c.a.b(this.f49387e, this.f49388f, this.f49389g, aVar.e(), aVar.c());
         return gVar;
     }
 
     public final void e(View view, MotionEvent motionEvent) {
-        if (view != null && motionEvent != null && !TextUtils.isEmpty(this.f45713e) && !TextUtils.isEmpty(this.f45714f)) {
+        if (view != null && motionEvent != null && !TextUtils.isEmpty(this.f49387e) && !TextUtils.isEmpty(this.f49388f)) {
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
                 this.j = new c(this, motionEvent.getX(), motionEvent.getY());
@@ -129,7 +129,7 @@ public class b implements View.OnTouchListener {
             }
             return;
         }
-        d.b("SwanAppTouchListener", "params is null, slaveId = " + this.f45713e + " ; viewId = " + this.f45714f);
+        d.b("SwanAppTouchListener", "params is null, slaveId = " + this.f49387e + " ; viewId = " + this.f49388f);
     }
 
     public final boolean f(c cVar) {
@@ -139,25 +139,25 @@ public class b implements View.OnTouchListener {
 
     public final void g(g gVar) {
         if (m) {
-            Log.d("SwanAppTouchListener", "sendEventToWebView = " + gVar.f43924c);
+            Log.d("SwanAppTouchListener", "sendEventToWebView = " + gVar.f47600c);
         }
-        if (!this.f45716h) {
-            f.V().m(this.f45713e, gVar);
+        if (!this.f49390h) {
+            f.V().m(this.f49387e, gVar);
         } else {
             f.V().v(gVar);
         }
     }
 
     public final void h() {
-        this.f45716h = l0.f("1.12.0") && TextUtils.equals("canvas", this.f45715g);
+        this.f49390h = l0.f("1.12.0") && TextUtils.equals("canvas", this.f49389g);
     }
 
     public final void i() {
-        AbsoluteLayout m2 = q0.m(this.f45713e);
+        AbsoluteLayout m2 = q0.m(this.f49387e);
         if (m2 == null) {
             return;
         }
-        m2.getLocationOnScreen(this.f45717i);
+        m2.getLocationOnScreen(this.f49391i);
     }
 
     @Override // android.view.View.OnTouchListener

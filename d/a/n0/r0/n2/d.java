@@ -7,14 +7,14 @@ import java.util.Date;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f59141a;
+    public String f62832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59142b;
+    public String f62833b;
 
     public d(String str, String str2) {
-        this.f59141a = str;
-        this.f59142b = str2;
+        this.f62832a = str;
+        this.f62833b = str2;
     }
 
     public final boolean a(String str, String str2) {
@@ -22,11 +22,11 @@ public class d {
     }
 
     public final String b() {
-        return this.f59141a + "_" + this.f59142b;
+        return this.f62832a + "_" + this.f62833b;
     }
 
     public boolean c() {
-        if (a(this.f59141a, this.f59142b)) {
+        if (a(this.f62832a, this.f62833b)) {
             String b2 = b();
             Date date = new Date(d.a.m0.r.d0.b.j().l(b2, 0L));
             long currentTimeMillis = System.currentTimeMillis();

@@ -23,57 +23,57 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f57099a = 3;
+    public int f60788a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonalCardCategoryActivity f57100b;
+    public PersonalCardCategoryActivity f60789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f57101c;
+    public View f60790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f57102d;
+    public NavigationBar f60791d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f57103e;
+    public NoNetworkView f60792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MemberRecommendView f57104f;
+    public MemberRecommendView f60793f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdListView f57105g;
+    public BdListView f60794g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f57106h;
+    public b f60795h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f57107i;
+    public View f60796i;
     public TextView j;
     public int k;
 
     public c(PersonalCardCategoryActivity personalCardCategoryActivity) {
         this.k = 0;
-        this.f57100b = personalCardCategoryActivity;
+        this.f60789b = personalCardCategoryActivity;
         this.k = l.g(personalCardCategoryActivity.getPageContext().getPageActivity(), R.dimen.ds120);
-        View inflate = LayoutInflater.from(this.f57100b.getPageContext().getPageActivity()).inflate(R.layout.category_card_list_layout, (ViewGroup) null);
-        this.f57101c = inflate;
-        this.f57100b.setContentView(inflate);
-        this.f57107i = this.f57101c.findViewById(R.id.body_view);
-        NavigationBar navigationBar = (NavigationBar) this.f57101c.findViewById(R.id.view_navigation_bar);
-        this.f57102d = navigationBar;
+        View inflate = LayoutInflater.from(this.f60789b.getPageContext().getPageActivity()).inflate(R.layout.category_card_list_layout, (ViewGroup) null);
+        this.f60790c = inflate;
+        this.f60789b.setContentView(inflate);
+        this.f60796i = this.f60790c.findViewById(R.id.body_view);
+        NavigationBar navigationBar = (NavigationBar) this.f60790c.findViewById(R.id.view_navigation_bar);
+        this.f60791d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f57102d.setTitleText(R.string.personal_card);
-        this.f57103e = (NoNetworkView) this.f57101c.findViewById(R.id.view_no_network);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.f57101c.findViewById(R.id.categary_card_recommend);
-        this.f57104f = memberRecommendView;
+        this.f60791d.setTitleText(R.string.personal_card);
+        this.f60792e = (NoNetworkView) this.f60790c.findViewById(R.id.view_no_network);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.f60790c.findViewById(R.id.categary_card_recommend);
+        this.f60793f = memberRecommendView;
         memberRecommendView.setFromType(9);
-        TextView textView = new TextView(this.f57100b.getActivity());
+        TextView textView = new TextView(this.f60789b.getActivity());
         this.j = textView;
-        textView.setHeight(l.g(this.f57100b.getActivity(), R.dimen.ds104));
-        this.f57105g = (BdListView) this.f57101c.findViewById(R.id.categary_card_listview);
-        b bVar = new b(this.f57100b.getPageContext());
-        this.f57106h = bVar;
-        this.f57105g.setAdapter((ListAdapter) bVar);
+        textView.setHeight(l.g(this.f60789b.getActivity(), R.dimen.ds104));
+        this.f60794g = (BdListView) this.f60790c.findViewById(R.id.categary_card_listview);
+        b bVar = new b(this.f60789b.getPageContext());
+        this.f60795h = bVar;
+        this.f60794g.setAdapter((ListAdapter) bVar);
     }
 
     public final List<Object> a(List<a> list) {
@@ -92,7 +92,7 @@ public class c {
                     ArrayList arrayList2 = new ArrayList();
                     int i4 = 0;
                     while (true) {
-                        i2 = this.f57099a;
+                        i2 = this.f60788a;
                         if (i4 < i2) {
                             int i5 = i3 + i4;
                             if (i5 < size) {
@@ -110,73 +110,73 @@ public class c {
     }
 
     public void b() {
-        this.f57100b.hideNetRefreshView(this.f57101c);
-        this.f57107i.setVisibility(0);
+        this.f60789b.hideNetRefreshView(this.f60790c);
+        this.f60796i.setVisibility(0);
     }
 
     public View c() {
-        return this.f57101c;
+        return this.f60790c;
     }
 
     public void d() {
         b bVar;
-        this.f57100b.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        this.f57100b.getLayoutMode().j(this.f57101c);
-        NavigationBar navigationBar = this.f57102d;
+        this.f60789b.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
+        this.f60789b.getLayoutMode().j(this.f60790c);
+        NavigationBar navigationBar = this.f60791d;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.f57100b.getPageContext(), TbadkApplication.getInst().getSkinType());
+            navigationBar.onChangeSkinType(this.f60789b.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        NoNetworkView noNetworkView = this.f57103e;
+        NoNetworkView noNetworkView = this.f60792e;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f57100b.getPageContext(), TbadkApplication.getInst().getSkinType());
+            noNetworkView.c(this.f60789b.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        BdListView bdListView = this.f57105g;
-        if (bdListView != null && bdListView.getVisibility() == 0 && (bVar = this.f57106h) != null) {
+        BdListView bdListView = this.f60794g;
+        if (bdListView != null && bdListView.getVisibility() == 0 && (bVar = this.f60795h) != null) {
             bVar.notifyDataSetChanged();
         }
-        MemberRecommendView memberRecommendView = this.f57104f;
+        MemberRecommendView memberRecommendView = this.f60793f;
         if (memberRecommendView != null && memberRecommendView.getVisibility() == 0) {
-            this.f57104f.d();
+            this.f60793f.d();
         }
         SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
     }
 
     public final void e(List<a> list) {
         if (list != null && list.size() > 0) {
-            this.f57105g.setVisibility(0);
-            this.f57106h.b(a(list));
-            this.f57106h.notifyDataSetChanged();
+            this.f60794g.setVisibility(0);
+            this.f60795h.b(a(list));
+            this.f60795h.notifyDataSetChanged();
             return;
         }
-        this.f57105g.setVisibility(8);
+        this.f60794g.setVisibility(8);
     }
 
     public final boolean f(e eVar) {
         if (eVar != null && !StringUtils.isNull(eVar.c())) {
-            this.f57104f.setVisibility(0);
-            this.f57104f.e(eVar);
+            this.f60793f.setVisibility(0);
+            this.f60793f.e(eVar);
             return true;
         }
-        this.f57104f.setVisibility(8);
+        this.f60793f.setVisibility(8);
         return false;
     }
 
     public void g(PersonalCardItemView.b bVar) {
-        b bVar2 = this.f57106h;
+        b bVar2 = this.f60795h;
         if (bVar2 != null) {
             bVar2.a(bVar);
         }
     }
 
     public void h(BdListView.p pVar) {
-        this.f57105g.setOnSrollToBottomListener(pVar);
+        this.f60794g.setOnSrollToBottomListener(pVar);
     }
 
     public void i() {
-        this.f57107i.setVisibility(8);
-        String string = this.f57100b.getPageContext().getResources().getString(R.string.no_data_text);
-        this.f57100b.setNetRefreshViewTopMargin(this.k);
-        this.f57100b.showNetRefreshView(this.f57101c, string, false);
+        this.f60796i.setVisibility(8);
+        String string = this.f60789b.getPageContext().getResources().getString(R.string.no_data_text);
+        this.f60789b.setNetRefreshViewTopMargin(this.k);
+        this.f60789b.showNetRefreshView(this.f60790c, string, false);
     }
 
     public void j(int i2, e eVar, List<a> list, boolean z) {
@@ -186,10 +186,10 @@ public class c {
         } else {
             b();
             if (f(eVar)) {
-                this.f57105g.removeHeaderView(this.j);
-                this.f57105g.addHeaderView(this.j);
+                this.f60794g.removeHeaderView(this.j);
+                this.f60794g.addHeaderView(this.j);
             } else {
-                this.f57105g.removeHeaderView(this.j);
+                this.f60794g.removeHeaderView(this.j);
             }
             e(list);
         }

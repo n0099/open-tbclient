@@ -3,21 +3,21 @@ package d.q.a.a.c.b;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67630a;
+    public int f71417a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67631b;
+    public String f71418b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67632c;
+    public String f71419c;
 
     public d(int i2, String str, String str2) {
-        this.f67630a = i2;
-        this.f67631b = str;
-        this.f67632c = str2;
+        this.f71417a = i2;
+        this.f71418b = str;
+        this.f71419c = str2;
     }
 
     public final String toString() {
-        return "CommandResult{result=" + this.f67630a + ", successMsg='" + this.f67631b + "', errorMsg='" + this.f67632c + "'}";
+        return "CommandResult{result=" + this.f71417a + ", successMsg='" + this.f71418b + "', errorMsg='" + this.f71419c + "'}";
     }
 }

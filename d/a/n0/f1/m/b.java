@@ -31,32 +31,32 @@ public class b {
     public static b r;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<GroupUpdateMessage> f54625e;
+    public List<GroupUpdateMessage> f58314e;
     public boolean n;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54621a = 900000;
+    public int f58310a = 900000;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54622b = 360000;
+    public int f58311b = 360000;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f54623c = 360000;
+    public int f58312c = 360000;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54624d = 0;
+    public int f58313d = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54626f = 0;
+    public int f58315f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f54627g = 0;
+    public long f58316g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54628h = 0;
+    public int f58317h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public final BdUniqueId f54629i = BdUniqueId.gen();
+    public final BdUniqueId f58318i = BdUniqueId.gen();
     public final Handler j = new g(null);
     public LongSparseArray<Long> k = null;
     public LongSparseArray<Long> l = null;
@@ -83,8 +83,8 @@ public class b {
 
     /* renamed from: d.a.n0.f1.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1319b extends CustomMessageListener {
-        public C1319b(int i2) {
+    public static class C1375b extends CustomMessageListener {
+        public C1375b(int i2) {
             super(i2);
         }
 
@@ -148,7 +148,7 @@ public class b {
                 if (responseOnlineMessage.getError() != 0) {
                     return;
                 }
-                b.this.f54625e = responseOnlineMessage.getGroupInfos();
+                b.this.f58314e = responseOnlineMessage.getGroupInfos();
                 if (d.a.n0.f1.k.b.o().z()) {
                     b.this.o();
                 }
@@ -193,7 +193,7 @@ public class b {
             if (b.this.l != null) {
                 b.this.l.clear();
             }
-            b.this.f54625e = null;
+            b.this.f58314e = null;
         }
     }
 
@@ -212,12 +212,12 @@ public class b {
             } else if (i2 != 3) {
             } else {
                 b.l().j.removeMessages(3);
-                if (b.l().f54628h == 3) {
+                if (b.l().f58317h == 3) {
                     b.l().t();
                 } else {
                     b.l().u();
                 }
-                b.l().j.sendMessageDelayed(b.l().j.obtainMessage(3), b.l().f54623c);
+                b.l().j.sendMessageDelayed(b.l().j.obtainMessage(3), b.l().f58312c);
             }
         }
 
@@ -228,7 +228,7 @@ public class b {
 
     static {
         MessageManager.getInstance().registerListener(new a(2008017));
-        MessageManager.getInstance().registerListener(new C1319b(2016002));
+        MessageManager.getInstance().registerListener(new C1375b(2016002));
         r = null;
     }
 
@@ -245,11 +245,11 @@ public class b {
 
     public final void A(int i2) {
         if (i2 == 1) {
-            if (this.f54624d != 2) {
-                this.f54624d = 1;
+            if (this.f58313d != 2) {
+                this.f58313d = 1;
             }
         } else if (i2 == 3 || i2 == 2) {
-            this.f54624d = 2;
+            this.f58313d = 2;
         }
     }
 
@@ -263,15 +263,15 @@ public class b {
     }
 
     public void D() {
-        l().f54623c = l().f54621a;
+        l().f58312c = l().f58310a;
     }
 
     public void E() {
-        this.f54623c = this.f54622b;
+        this.f58312c = this.f58311b;
     }
 
     public final void h() {
-        int i2 = this.f54624d;
+        int i2 = this.f58313d;
         if (i2 != 0) {
             if (i2 == 1) {
                 r(0L, 0L, 0L);
@@ -287,12 +287,12 @@ public class b {
     }
 
     public final void j() {
-        this.f54624d = 0;
+        this.f58313d = 0;
     }
 
     public final MessageSyncMessage k(LongSparseArray<Long> longSparseArray, int i2) {
         MessageSyncMessage messageSyncMessage = new MessageSyncMessage();
-        messageSyncMessage.setTag(this.f54629i);
+        messageSyncMessage.setTag(this.f58318i);
         if (longSparseArray != null && longSparseArray.size() > 0) {
             messageSyncMessage.setGroupMids(longSparseArray);
             NewpushRepair makeNewpushRepair = MessageUtils.makeNewpushRepair(longSparseArray);
@@ -336,16 +336,16 @@ public class b {
     }
 
     public void o() {
-        if (this.f54625e == null) {
+        if (this.f58314e == null) {
             return;
         }
         boolean z = false;
         LongSparseArray<Long> r2 = d.a.n0.f1.k.b.o().r();
         if (r2 == null) {
-            this.f54625e = null;
+            this.f58314e = null;
             return;
         }
-        Iterator<GroupUpdateMessage> it = this.f54625e.iterator();
+        Iterator<GroupUpdateMessage> it = this.f58314e.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -358,14 +358,14 @@ public class b {
                 }
             }
         }
-        this.f54628h = 3;
+        this.f58317h = 3;
         if (z) {
             Handler handler = this.j;
             handler.sendMessage(handler.obtainMessage(3));
         } else {
-            l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f54623c);
+            l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f58312c);
         }
-        this.f54625e = null;
+        this.f58314e = null;
     }
 
     public final void p(LongSparseArray<Long> longSparseArray, int i2) {
@@ -375,7 +375,7 @@ public class b {
             handler.sendMessageDelayed(handler.obtainMessage(2), 2000L);
             return;
         }
-        boolean u = MessageManager.getInstance().getSocketClient().u(202003, this.f54629i);
+        boolean u = MessageManager.getInstance().getSocketClient().u(202003, this.f58318i);
         int t = MessageManager.getInstance().getSocketClient().t(202003);
         if (!u && t <= 0) {
             j();
@@ -415,9 +415,9 @@ public class b {
         if (longSparseArray != null) {
             if (longSparseArray.size() != 0) {
                 this.n = false;
-                this.f54628h = 4;
+                this.f58317h = 4;
                 this.j.removeMessages(3);
-                l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f54623c);
+                l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f58312c);
                 p(longSparseArray, 4);
             }
         }
@@ -429,11 +429,11 @@ public class b {
 
     public synchronized void s(long j, long j2, long j3, boolean z) {
         long longValue;
-        this.f54626f++;
+        this.f58315f++;
         this.n = false;
-        this.f54628h = 1;
+        this.f58317h = 1;
         this.j.removeMessages(3);
-        l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f54623c);
+        l().j.sendMessageDelayed(l().j.obtainMessage(3), l().f58312c);
         if (this.k == null) {
             LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
             this.k = longSparseArray;
@@ -507,7 +507,7 @@ public class b {
 
     public final synchronized void v(int i2) {
         this.n = true;
-        this.f54628h = i2;
+        this.f58317h = i2;
         p(null, i2);
     }
 
@@ -520,17 +520,17 @@ public class b {
     }
 
     public final synchronized void x() {
-        if (System.currentTimeMillis() - this.f54627g < 180000) {
+        if (System.currentTimeMillis() - this.f58316g < 180000) {
             return;
         }
         PushCountMessage pushCountMessage = new PushCountMessage();
-        pushCountMessage.setPusherCount(this.f54626f);
+        pushCountMessage.setPusherCount(this.f58315f);
         pushCountMessage.setUpFlowSize(d.a.c.e.r.h.j().p());
         pushCountMessage.setDownFlowSize(d.a.c.e.r.h.j().i());
         pushCountMessage.setEnterForeCount(TbadkCoreApplication.getInst().getEnterForeCount());
         MessageManager.getInstance().sendMessage(pushCountMessage);
-        this.f54627g = System.currentTimeMillis();
-        this.f54626f = 0;
+        this.f58316g = System.currentTimeMillis();
+        this.f58315f = 0;
         d.a.c.e.r.h.j().d();
         d.a.c.e.r.h.j().e();
         TbadkCoreApplication.getInst().clearEnterForeCount();
@@ -540,13 +540,13 @@ public class b {
         if (i2 <= 0) {
             return;
         }
-        this.f54621a = i2;
+        this.f58310a = i2;
     }
 
     public void z(int i2) {
         if (i2 <= 0) {
             return;
         }
-        this.f54622b = i2;
+        this.f58311b = i2;
     }
 }

@@ -25,24 +25,24 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a implements d.a.l0.a.l0.c {
-    public static final boolean r = k.f43199a;
+    public static final boolean r = k.f46875a;
 
     /* renamed from: e  reason: collision with root package name */
-    public V8Engine f43293e;
+    public V8Engine f46969e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.l0.a.l0.n.b f43294f;
+    public d.a.l0.a.l0.n.b f46970f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f43295g;
+    public final String f46971g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EventTarget f43296h;
+    public EventTarget f46972h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EventTarget f43297i;
+    public EventTarget f46973i;
     public Context j;
     public d.a.l0.a.l0.l.a k;
     public d.a.l0.a.l0.l.b l;
@@ -53,9 +53,9 @@ public abstract class a implements d.a.l0.a.l0.c {
     public boolean q = false;
 
     /* renamed from: d.a.l0.a.l0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0731a implements V8Engine.V8StatusListener {
-        public C0731a() {
+    /* loaded from: classes3.dex */
+    public class C0787a implements V8Engine.V8StatusListener {
+        public C0787a() {
         }
 
         @Override // com.baidu.searchbox.v8engine.V8Engine.V8StatusListener
@@ -72,7 +72,7 @@ public abstract class a implements d.a.l0.a.l0.c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements V8ExecuteCallback {
         public b() {
         }
@@ -86,14 +86,14 @@ public abstract class a implements d.a.l0.a.l0.c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSEvent f43300e;
+        public final /* synthetic */ JSEvent f46976e;
 
         public c(JSEvent jSEvent) {
-            this.f43300e = jSEvent;
+            this.f46976e = jSEvent;
         }
 
         @Override // java.lang.Runnable
@@ -102,14 +102,14 @@ public abstract class a implements d.a.l0.a.l0.c {
                 if (a.r) {
                     Log.d("SwanAppV8Engine", "dispatchEvent add to pending list.");
                 }
-                a.this.n.add(this.f43300e);
+                a.this.n.add(this.f46976e);
                 return;
             }
-            a.this.f43296h.dispatchEvent(this.f43300e);
+            a.this.f46972h.dispatchEvent(this.f46976e);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
         public d() {
         }
@@ -131,27 +131,27 @@ public abstract class a implements d.a.l0.a.l0.c {
     }
 
     public a(@NonNull String str, @NonNull d.a.l0.a.l0.n.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        this.f43295g = str;
-        this.f43294f = bVar;
+        this.f46971g = str;
+        this.f46970f = bVar;
         String initBasePath = getInitBasePath();
         if (TextUtils.isEmpty(initBasePath)) {
             return;
         }
-        this.f43296h = w();
-        this.f43297i = D();
-        V8Engine v8Engine = new V8Engine(AppRuntime.getAppContext(), initBasePath, this.f43294f.a(), v8ThreadDelegatePolicy, this.f43296h, this.f43297i);
-        this.f43293e = v8Engine;
+        this.f46972h = w();
+        this.f46973i = D();
+        V8Engine v8Engine = new V8Engine(AppRuntime.getAppContext(), initBasePath, this.f46970f.a(), v8ThreadDelegatePolicy, this.f46972h, this.f46973i);
+        this.f46969e = v8Engine;
         if (v8ThreadDelegatePolicy instanceof d.a.l0.a.h0.l.f) {
             ((d.a.l0.a.h0.l.f) v8ThreadDelegatePolicy).d(v8Engine);
         }
-        this.f43293e.setExternalV8BinFilesPath(d.a.l0.a.h2.d.a());
-        this.f43293e.setFileSystemDelegatePolicy(new d.a.l0.a.l0.m.d());
-        d.a.l0.a.u.e.j.d.c(this.f43293e);
+        this.f46969e.setExternalV8BinFilesPath(d.a.l0.a.h2.d.a());
+        this.f46969e.setFileSystemDelegatePolicy(new d.a.l0.a.l0.m.d());
+        d.a.l0.a.u.e.j.d.c(this.f46969e);
         if (bVar.b() != null) {
-            this.f43293e.setCodeCacheSetting(bVar.b());
+            this.f46969e.setCodeCacheSetting(bVar.b());
         }
-        this.k = new d.a.l0.a.l0.l.a(this.f43293e);
-        this.m = new d.a.l0.a.l0.k.a(this.f43293e);
+        this.k = new d.a.l0.a.l0.l.a(this.f46969e);
+        this.m = new d.a.l0.a.l0.k.a(this.f46969e);
         this.n = new ArrayList();
         v0();
     }
@@ -167,16 +167,16 @@ public abstract class a implements d.a.l0.a.l0.c {
     }
 
     public void B0(V8EngineConfiguration.JSCacheCallback jSCacheCallback) {
-        this.f43293e.setJSCacheCallback(jSCacheCallback);
+        this.f46969e.setJSCacheCallback(jSCacheCallback);
     }
 
     @Override // d.a.l0.a.l0.c
     public JsSerializeValue C(byte[] bArr, boolean z) {
-        return this.f43293e.deserialize(bArr, z);
+        return this.f46969e.deserialize(bArr, z);
     }
 
     public void C0(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        this.f43293e.setCodeCacheSetting(codeCacheSetting);
+        this.f46969e.setCodeCacheSetting(codeCacheSetting);
     }
 
     @NonNull
@@ -189,9 +189,9 @@ public abstract class a implements d.a.l0.a.l0.c {
     }
 
     public void E0() {
-        if (this.f43293e != null) {
+        if (this.f46969e != null) {
             l m = d.a.l0.a.c1.b.m();
-            this.f43293e.setBdFileRealPath(m != null ? m.e() : null);
+            this.f46969e.setBdFileRealPath(m != null ? m.e() : null);
         }
     }
 
@@ -202,7 +202,7 @@ public abstract class a implements d.a.l0.a.l0.c {
             sb.append(jSEvent != null ? jSEvent.type : "");
             Log.d("SwanAppV8Engine", sb.toString());
         }
-        if (this.f43296h != null && JSEvent.isValid(jSEvent)) {
+        if (this.f46972h != null && JSEvent.isValid(jSEvent)) {
             runOnJSThread(new c(jSEvent));
             return true;
         } else if (r) {
@@ -214,15 +214,15 @@ public abstract class a implements d.a.l0.a.l0.c {
     }
 
     public void F0(V8FileSystemDelegatePolicy v8FileSystemDelegatePolicy) {
-        this.f43293e.setFileSystemDelegatePolicy(v8FileSystemDelegatePolicy);
+        this.f46969e.setFileSystemDelegatePolicy(v8FileSystemDelegatePolicy);
     }
 
     public void G0(@NonNull V8Engine.JavaScriptExceptionDelegate javaScriptExceptionDelegate) {
-        this.f43293e.setJavaScriptExceptionDelegate(javaScriptExceptionDelegate);
+        this.f46969e.setJavaScriptExceptionDelegate(javaScriptExceptionDelegate);
     }
 
     public void H0() {
-        V8Engine v8Engine = this.f43293e;
+        V8Engine v8Engine = this.f46969e;
         if (v8Engine != null) {
             v8Engine.setMainPackageBasePath(d.a.l0.a.g1.f.V().A());
         }
@@ -235,12 +235,12 @@ public abstract class a implements d.a.l0.a.l0.c {
         if (r) {
             Log.d("SwanAppV8Engine", "setUserAgent: " + str);
         }
-        this.f43293e.setUserAgent(str);
+        this.f46969e.setUserAgent(str);
     }
 
     @Override // d.a.l0.a.l0.c
     public byte[] N(JsSerializeValue jsSerializeValue, boolean z) {
-        return this.f43293e.serialize(jsSerializeValue, z);
+        return this.f46969e.serialize(jsSerializeValue, z);
     }
 
     public final void T() {
@@ -266,7 +266,7 @@ public abstract class a implements d.a.l0.a.l0.c {
     @Override // d.a.l0.a.l0.c
     public d.a.l0.a.l0.l.b e0() {
         if (this.l == null) {
-            this.l = new d.a.l0.a.l0.l.b(this.f43293e);
+            this.l = new d.a.l0.a.l0.l.b(this.f46969e);
         }
         return this.l;
     }
@@ -278,7 +278,7 @@ public abstract class a implements d.a.l0.a.l0.c {
 
     @Override // d.a.l0.a.h0.f.a
     public String getContainerId() {
-        return this.f43295g;
+        return this.f46971g;
     }
 
     @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
@@ -288,7 +288,7 @@ public abstract class a implements d.a.l0.a.l0.c {
 
     @Override // d.a.l0.a.l0.c
     public String getInitBasePath() {
-        return this.f43294f.getInitBasePath();
+        return this.f46970f.getInitBasePath();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
@@ -326,23 +326,23 @@ public abstract class a implements d.a.l0.a.l0.c {
         }
         this.p = true;
         x0();
-        this.f43293e.destroyEngine(new b());
+        this.f46969e.destroyEngine(new b());
     }
 
     public V8Engine l0() {
-        return this.f43293e;
+        return this.f46969e;
     }
 
     public String m0() {
-        return "[" + this.f43295g + "] : ";
+        return "[" + this.f46971g + "] : ";
     }
 
     public NetRequest n0() {
-        return this.f43293e.getNetRequest();
+        return this.f46969e.getNetRequest();
     }
 
     public JSONArray o0() {
-        V8Engine v8Engine = this.f43293e;
+        V8Engine v8Engine = this.f46969e;
         if (v8Engine == null) {
             return null;
         }
@@ -355,7 +355,7 @@ public abstract class a implements d.a.l0.a.l0.c {
     }
 
     public void onPause() {
-        V8Engine v8Engine = this.f43293e;
+        V8Engine v8Engine = this.f46969e;
         if (v8Engine != null) {
             v8Engine.onPause();
         }
@@ -364,7 +364,7 @@ public abstract class a implements d.a.l0.a.l0.c {
     }
 
     public void onResume() {
-        V8Engine v8Engine = this.f43293e;
+        V8Engine v8Engine = this.f46969e;
         if (v8Engine != null) {
             v8Engine.onResume();
         }
@@ -374,7 +374,7 @@ public abstract class a implements d.a.l0.a.l0.c {
 
     @Override // d.a.l0.a.l0.c
     public EventTarget p() {
-        return this.f43296h;
+        return this.f46972h;
     }
 
     public final e p0() {
@@ -392,7 +392,7 @@ public abstract class a implements d.a.l0.a.l0.c {
         if (runnable == null) {
             return;
         }
-        this.f43293e.postOnJSThread(runnable);
+        this.f46969e.postOnJSThread(runnable);
     }
 
     public void q0() {
@@ -400,20 +400,20 @@ public abstract class a implements d.a.l0.a.l0.c {
         if (r) {
             Log.d("SwanAppV8Engine", "initEngine start.");
         }
-        this.f43294f.d(this);
-        this.f43293e.startEngine();
-        this.f43293e.addStatusHandler(new C0731a());
+        this.f46970f.d(this);
+        this.f46969e.startEngine();
+        this.f46969e.addStatusHandler(new C0787a());
         if (r) {
             Log.d("SwanAppV8Engine", "initEngine end.");
         }
     }
 
     public void r(@NonNull V8Engine.V8EngineConsole v8EngineConsole) {
-        this.f43293e.addV8EngineConsole(v8EngineConsole);
+        this.f46969e.addV8EngineConsole(v8EngineConsole);
     }
 
     public InspectorNativeClient r0(InspectorNativeChannel inspectorNativeChannel) {
-        return this.f43293e.initInspector(inspectorNativeChannel);
+        return this.f46969e.initInspector(inspectorNativeChannel);
     }
 
     @Override // d.a.l0.a.l0.c, com.baidu.searchbox.v8engine.JSRuntime
@@ -421,7 +421,7 @@ public abstract class a implements d.a.l0.a.l0.c {
         if (runnable == null) {
             return;
         }
-        this.f43293e.runOnJSThread(runnable);
+        this.f46969e.runOnJSThread(runnable);
     }
 
     @Override // com.baidu.searchbox.v8engine.JSRuntime
@@ -429,7 +429,7 @@ public abstract class a implements d.a.l0.a.l0.c {
         if (runnable == null) {
             return;
         }
-        this.f43293e.runOnJSThreadDirectly(runnable);
+        this.f46969e.runOnJSThreadDirectly(runnable);
     }
 
     public boolean s0() {
@@ -438,7 +438,7 @@ public abstract class a implements d.a.l0.a.l0.c {
 
     @Override // d.a.l0.a.l0.c
     public void setPreferredFramesPerSecond(short s) {
-        this.f43293e.setPreferredFramesPerSecond(s);
+        this.f46969e.setPreferredFramesPerSecond(s);
     }
 
     public boolean t0() {
@@ -481,13 +481,13 @@ public abstract class a implements d.a.l0.a.l0.c {
 
     @Override // d.a.l0.a.l0.c
     public EventTarget z() {
-        return this.f43297i;
+        return this.f46973i;
     }
 
     public final void z0() {
         p0().g(this);
         this.o = 2;
-        this.f43294f.c(this);
+        this.f46970f.c(this);
     }
 
     @Override // com.baidu.searchbox.v8engine.JSRuntime
@@ -495,6 +495,6 @@ public abstract class a implements d.a.l0.a.l0.c {
         if (runnable == null) {
             return;
         }
-        this.f43293e.postOnJSThread(runnable, j);
+        this.f46969e.postOnJSThread(runnable, j);
     }
 }

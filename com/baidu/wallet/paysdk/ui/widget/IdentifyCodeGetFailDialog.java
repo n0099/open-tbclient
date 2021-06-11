@@ -13,7 +13,7 @@ import com.baidu.wallet.utils.BdWalletUtils;
 public class IdentifyCodeGetFailDialog extends PromptDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public VerifyCodeType f26055a;
+    public VerifyCodeType f26158a;
 
     /* loaded from: classes5.dex */
     public enum VerifyCodeType {
@@ -26,7 +26,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
     }
 
     private String b() {
-        return this.f26055a == VerifyCodeType.VOICE ? "ebpay_get_voice_code_error_title" : "ebpay_get_sms_error_dialog_title";
+        return this.f26158a == VerifyCodeType.VOICE ? "ebpay_get_voice_code_error_title" : "ebpay_get_sms_error_dialog_title";
     }
 
     private SpannableStringBuilder c() {
@@ -86,10 +86,10 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
 
     public IdentifyCodeGetFailDialog(Context context, VerifyCodeType verifyCodeType) {
         super(context);
-        this.f26055a = verifyCodeType;
+        this.f26158a = verifyCodeType;
     }
 
     private SpannableStringBuilder a() {
-        return this.f26055a == VerifyCodeType.VOICE ? d() : c();
+        return this.f26158a == VerifyCodeType.VOICE ? d() : c();
     }
 }

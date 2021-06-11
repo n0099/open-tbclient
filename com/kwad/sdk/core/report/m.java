@@ -5,27 +5,27 @@ import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f32594a = f();
+    public static String f34685a = g();
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f32595b = 0;
+    public static long f34686b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f32596c;
+    public static Context f34687c;
 
     public static String a() {
         com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
-        String f2 = f();
-        f32594a = f2;
-        return f2;
+        String g2 = g();
+        f34685a = g2;
+        return g2;
     }
 
     public static void a(Context context) {
-        f32596c = context;
+        f34687c = context;
     }
 
     @WorkerThread
@@ -48,7 +48,7 @@ public class m {
     }
 
     public static String b() {
-        return f32594a;
+        return f34685a;
     }
 
     @WorkerThread
@@ -63,8 +63,8 @@ public class m {
 
     @WorkerThread
     public static long c() {
-        long b2 = b(f32596c);
-        a(f32596c, 1 + b2);
+        long b2 = b(f34687c);
+        a(f34687c, 1 + b2);
         return b2;
     }
 
@@ -81,17 +81,24 @@ public class m {
     public static synchronized long d() {
         long c2;
         synchronized (m.class) {
-            c2 = c(f32596c);
-            b(f32596c, 1 + c2);
+            c2 = c(f34687c);
+            b(f34687c, 1 + c2);
         }
         return c2;
     }
 
     public static long e() {
-        return f32595b;
+        com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateListId");
+        long currentTimeMillis = System.currentTimeMillis();
+        f34686b = currentTimeMillis;
+        return currentTimeMillis;
     }
 
-    public static String f() {
+    public static long f() {
+        return f34686b;
+    }
+
+    public static String g() {
         return UUID.randomUUID().toString();
     }
 }

@@ -5,36 +5,36 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class g extends BaseCardInfo implements d.a.c.j.e.n {
+public class g extends BaseCardInfo implements d.a.c.k.e.n {
 
     /* renamed from: g  reason: collision with root package name */
-    public static BdUniqueId f55550g = BdUniqueId.gen();
+    public static BdUniqueId f59239g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f55551e;
+    public List<a> f59240e;
 
     /* renamed from: f  reason: collision with root package name */
-    public UserData f55552f;
+    public UserData f59241f;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f55553a;
+        public int f59242a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f55554b;
+        public int f59243b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f55555c;
+        public String f59244c;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    public void c(List<a> list) {
+        this.f59240e = list;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f55550g;
-    }
-
-    public void h(List<a> list) {
-        this.f55551e = list;
+        return f59239g;
     }
 }

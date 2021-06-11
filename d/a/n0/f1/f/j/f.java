@@ -20,19 +20,19 @@ import java.util.List;
 public class f extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<OfficialBarFeedActivity> f54428e;
+    public TbPageContext<OfficialBarFeedActivity> f58117e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d.a.n0.f1.l.c.b> f54429f = null;
+    public List<d.a.n0.f1.l.c.b> f58118f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public LongSparseArray<d.a.n0.f1.i.a.b.b> f54430g = null;
+    public LongSparseArray<d.a.n0.f1.i.a.b.b> f58119g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public OfficialBarFeedMsglistAdapter.c f54431h;
+    public OfficialBarFeedMsglistAdapter.c f58120h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdTypeListView f54432i;
+    public BdTypeListView f58121i;
     public boolean j;
 
     /* loaded from: classes4.dex */
@@ -43,46 +43,46 @@ public class f extends BaseAdapter {
     }
 
     public f(TbPageContext<OfficialBarFeedActivity> tbPageContext, BdTypeListView bdTypeListView, OfficialBarFeedMsglistAdapter.c cVar) {
-        this.f54428e = tbPageContext;
-        this.f54431h = cVar;
-        this.f54432i = bdTypeListView;
+        this.f58117e = tbPageContext;
+        this.f58120h = cVar;
+        this.f58121i = bdTypeListView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public d.a.n0.f1.l.c.b getItem(int i2) {
-        List<d.a.n0.f1.l.c.b> list = this.f54429f;
+        List<d.a.n0.f1.l.c.b> list = this.f58118f;
         if (list == null || list.size() == 0 || i2 < 0 || i2 >= getCount()) {
             return null;
         }
-        return this.f54429f.get(i2);
+        return this.f58118f.get(i2);
     }
 
     public final View b(int i2, View view, ViewGroup viewGroup, d.a.n0.f1.l.c.b bVar, MsgCommonItemAdapter.MsgViewHolder<b> msgViewHolder) {
         b b2 = msgViewHolder.b();
-        a.C1318a e2 = bVar.e();
-        e2.m = bVar.b();
-        LongSparseArray<d.a.n0.f1.i.a.b.b> longSparseArray = this.f54430g;
-        b2.k(this.f54428e.getPageActivity().getBaseContext(), e2, bVar.d(), longSparseArray == null ? null : longSparseArray.get(e2.f54614h), bVar.g(), bVar.h(), i2);
+        a.C1374a d2 = bVar.d();
+        d2.m = bVar.b();
+        LongSparseArray<d.a.n0.f1.i.a.b.b> longSparseArray = this.f58119g;
+        b2.k(this.f58117e.getPageActivity().getBaseContext(), d2, bVar.c(), longSparseArray == null ? null : longSparseArray.get(d2.f58303h), bVar.f(), bVar.g(), i2);
         StatisticItem statisticItem = new StatisticItem(this.j ? "c13865" : "c13863");
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        String str = e2.n;
+        String str = d2.n;
         if (str == null) {
             str = "";
         }
         statisticItem.param("tid", str);
-        statisticItem.param("fid", e2.f54611e);
+        statisticItem.param("fid", d2.f58300e);
         TiebaStatic.log(statisticItem);
         return view;
     }
 
     public void c(List<d.a.n0.f1.l.c.b> list) {
-        if (this.f54429f == null) {
-            this.f54429f = new LinkedList();
+        if (this.f58118f == null) {
+            this.f58118f = new LinkedList();
         }
-        this.f54429f.clear();
-        this.f54429f.addAll(list);
+        this.f58118f.clear();
+        this.f58118f.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -92,19 +92,19 @@ public class f extends BaseAdapter {
 
     @RequiresApi(api = 16)
     public void e(LongSparseArray<d.a.n0.f1.i.a.b.b> longSparseArray) {
-        if (this.f54430g == null) {
-            this.f54430g = new LongSparseArray<>();
+        if (this.f58119g == null) {
+            this.f58119g = new LongSparseArray<>();
         }
-        this.f54430g.clear();
+        this.f58119g.clear();
         for (int i2 = 0; i2 < longSparseArray.size(); i2++) {
-            this.f54430g.put(longSparseArray.keyAt(i2), longSparseArray.valueAt(i2));
+            this.f58119g.put(longSparseArray.keyAt(i2), longSparseArray.valueAt(i2));
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<d.a.n0.f1.l.c.b> list = this.f54429f;
+        List<d.a.n0.f1.l.c.b> list = this.f58118f;
         if (list == null) {
             return 0;
         }
@@ -121,8 +121,8 @@ public class f extends BaseAdapter {
         a aVar;
         a aVar2 = view != null ? (a) view.getTag() : null;
         if (aVar2 == null) {
-            b bVar = new b(this.f54428e, this.j);
-            bVar.l(this.f54431h);
+            b bVar = new b(this.f58117e, this.j);
+            bVar.l(this.f58120h);
             View e2 = bVar.e();
             a aVar3 = new a(this, bVar.e(), bVar);
             e2.setTag(aVar3);

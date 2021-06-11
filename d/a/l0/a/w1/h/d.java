@@ -21,23 +21,23 @@ import java.util.ArrayList;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45589b = k.f43199a;
+    public static final boolean f49263b = k.f46875a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f45590c;
+    public static d f49264c;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Activity> f45591a;
+    public WeakReference<Activity> f49265a;
 
     public static d b() {
-        if (f45590c == null) {
+        if (f49264c == null) {
             synchronized (d.class) {
-                if (f45590c == null) {
-                    f45590c = new d();
+                if (f49264c == null) {
+                    f49264c = new d();
                 }
             }
         }
-        return f45590c;
+        return f49264c;
     }
 
     public final View a(Context context) {
@@ -53,17 +53,17 @@ public class d {
             illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
         }
         if (illegalArgumentException != null) {
-            if (f45589b) {
+            if (f49263b) {
                 throw illegalArgumentException;
             }
             return false;
         } else if (TextUtils.isEmpty(str)) {
             return false;
         } else {
-            if (f45589b) {
+            if (f49263b) {
                 Log.d("EmojiPanelManager", "start loading emoji " + str);
             }
-            this.f45591a = new WeakReference<>(activity);
+            this.f49265a = new WeakReference<>(activity);
             if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
                 File v = d.a.l0.a.a1.e.v(str2, str3, false, null, null);
                 b.c().f(v.getAbsolutePath() + File.separator + str);
@@ -76,8 +76,8 @@ public class d {
                 arrayList.add(a(activity.getApplicationContext()));
                 viewPager.setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
                 EditText editText = (EditText) view;
-                if (this.f45591a.get() != null) {
-                    a.g(this.f45591a.get().getApplicationContext()).f(editText);
+                if (this.f49265a.get() != null) {
+                    a.g(this.f49265a.get().getApplicationContext()).f(editText);
                     return true;
                 }
             }

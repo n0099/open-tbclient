@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45359a = k.f43199a;
+    public static final boolean f49033a = k.f46875a;
 
     public static List<JSONObject> a(String str) {
         String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
@@ -29,7 +29,7 @@ public class a {
             }
             return arrayList;
         } catch (JSONException e2) {
-            if (f45359a) {
+            if (f49033a) {
                 Log.e("SwanAppCompat", "getDescriptions", e2);
                 return null;
             }

@@ -20,32 +20,32 @@ public class d extends a0 {
     public class a implements d.a.l0.a.w1.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45571a;
+        public final /* synthetic */ CallbackHandler f49245a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f45572b;
+        public final /* synthetic */ UnitedSchemeEntity f49246b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f45573c;
+        public final /* synthetic */ String f49247c;
 
         public a(d dVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            this.f45571a = callbackHandler;
-            this.f45572b = unitedSchemeEntity;
-            this.f45573c = str;
+            this.f49245a = callbackHandler;
+            this.f49246b = unitedSchemeEntity;
+            this.f49247c = str;
         }
 
         @Override // d.a.l0.a.w1.a
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
-                UnitedSchemeUtility.safeCallback(this.f45571a, this.f45572b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.f45573c);
+                UnitedSchemeUtility.safeCallback(this.f49245a, this.f49246b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.f49247c);
             } else {
-                UnitedSchemeUtility.safeCallback(this.f45571a, this.f45572b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f45573c);
+                UnitedSchemeUtility.safeCallback(this.f49245a, this.f49246b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f49247c);
             }
         }
 
         @Override // d.a.l0.a.w1.a
         public void onCancel() {
-            UnitedSchemeUtility.safeCallback(this.f45571a, this.f45572b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.f45573c);
+            UnitedSchemeUtility.safeCallback(this.f49245a, this.f49246b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.f49247c);
         }
     }
 
@@ -69,7 +69,7 @@ public class d extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
             return false;
         } else if (eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");

@@ -8,7 +8,7 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import d.a.n0.h2.e.i;
 import d.a.n0.h2.g.h;
 /* loaded from: classes5.dex */
-public class e extends d.a.c.j.e.a<i, CardViewHolder<h>> {
+public class e extends d.a.c.k.e.a<i, CardViewHolder<h>> {
     public TbPageContext<?> m;
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -17,17 +17,17 @@ public class e extends d.a.c.j.e.a<i, CardViewHolder<h>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public CardViewHolder<h> P(ViewGroup viewGroup) {
+    public CardViewHolder<h> Q(ViewGroup viewGroup) {
         return new CardViewHolder<>(new h(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, i iVar, CardViewHolder<h> cardViewHolder) {
-        cardViewHolder.b().m(iVar);
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, i iVar, CardViewHolder<h> cardViewHolder) {
+        cardViewHolder.b().n(iVar);
         return cardViewHolder.a();
     }
 }

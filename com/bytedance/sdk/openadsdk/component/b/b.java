@@ -33,7 +33,7 @@ public class b extends c implements TTDrawFeedAd {
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC0298c
+    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC0300c
     public /* bridge */ /* synthetic */ void a(int i2, int i3) {
         super.a(i2, i3);
     }
@@ -53,7 +53,7 @@ public class b extends c implements TTDrawFeedAd {
         super.d_();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC0314a
+    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC0316a
     public /* bridge */ /* synthetic */ com.bytedance.sdk.openadsdk.multipro.b.a e() {
         return super.e();
     }
@@ -63,12 +63,12 @@ public class b extends c implements TTDrawFeedAd {
         super.e_();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC0298c
+    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC0300c
     public /* bridge */ /* synthetic */ void f() {
         super.f();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC0314a
+    @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC0316a
     public /* bridge */ /* synthetic */ boolean g() {
         return super.g();
     }
@@ -76,24 +76,24 @@ public class b extends c implements TTDrawFeedAd {
     @Override // com.bytedance.sdk.openadsdk.component.b.c, com.bytedance.sdk.openadsdk.core.e.a, com.bytedance.sdk.openadsdk.TTNativeAd
     public View getAdView() {
         NativeDrawVideoTsView nativeDrawVideoTsView;
-        if (this.f28053h != null && this.f28054i != null) {
+        if (this.f28156h != null && this.f28157i != null) {
             if (h()) {
                 try {
-                    nativeDrawVideoTsView = new NativeDrawVideoTsView(this.f28054i, this.f28053h);
+                    nativeDrawVideoTsView = new NativeDrawVideoTsView(this.f28157i, this.f28156h);
                     nativeDrawVideoTsView.setControllerStatusCallBack(new NativeVideoTsView.a() { // from class: com.bytedance.sdk.openadsdk.component.b.b.1
                         @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
                         public void a(boolean z, long j, long j2, long j3, boolean z2) {
-                            com.bytedance.sdk.openadsdk.multipro.b.a aVar = ((c) b.this).f27391a;
-                            aVar.f29651a = z;
-                            aVar.f29655e = j;
-                            aVar.f29656f = j2;
-                            aVar.f29657g = j3;
-                            aVar.f29654d = z2;
+                            com.bytedance.sdk.openadsdk.multipro.b.a aVar = ((c) b.this).f27494a;
+                            aVar.f29754a = z;
+                            aVar.f29758e = j;
+                            aVar.f29759f = j2;
+                            aVar.f29760g = j3;
+                            aVar.f29757d = z2;
                         }
                     });
                     nativeDrawVideoTsView.setVideoAdLoadListener(this);
                     nativeDrawVideoTsView.setVideoAdInteractionListener(this);
-                    int d2 = ak.d(this.f28053h.ap());
+                    int d2 = ak.d(this.f28156h.ap());
                     nativeDrawVideoTsView.setIsAutoPlay(a(d2));
                     nativeDrawVideoTsView.setIsQuiet(p.h().a(d2));
                     nativeDrawVideoTsView.setCanInterruptVideoPlay(this.n);
@@ -166,11 +166,11 @@ public class b extends c implements TTDrawFeedAd {
         if (3 == c2) {
             return false;
         }
-        if (1 != c2 || !x.d(this.f28054i)) {
+        if (1 != c2 || !x.d(this.f28157i)) {
             if (2 != c2) {
                 return false;
             }
-            if (!x.e(this.f28054i) && !x.d(this.f28054i)) {
+            if (!x.e(this.f28157i) && !x.d(this.f28157i)) {
                 return false;
             }
         }

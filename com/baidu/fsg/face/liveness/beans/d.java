@@ -17,59 +17,59 @@ import org.json.JSONObject;
 public class d extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f5841a;
+    public int f5884a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5842b;
+    public int f5885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LivenessRecogDTO f5843c;
+    public LivenessRecogDTO f5886c;
 
     public d(Context context) {
         super(context);
     }
 
     public void a(int i2) {
-        this.f5841a = i2;
+        this.f5884a = i2;
     }
 
     public void b(int i2) {
-        this.f5842b = i2;
+        this.f5885b = i2;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        LivenessRecogDTO livenessRecogDTO = this.f5843c;
+        LivenessRecogDTO livenessRecogDTO = this.f5886c;
         if (livenessRecogDTO != null) {
             setSpParameter(livenessRecogDTO.spParams);
-            arrayList.add(new RestNameValuePair("processid", this.f5843c.processid));
-            LivenessRecogType livenessRecogType = this.f5843c.livenessType;
+            arrayList.add(new RestNameValuePair("processid", this.f5886c.processid));
+            LivenessRecogType livenessRecogType = this.f5886c.livenessType;
             if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
                 arrayList.add(new RestNameValuePair("type", "contrastportrait"));
                 arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
             } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
                 arrayList.add(new RestNameValuePair("type", "certinfo"));
-                arrayList.add(new RestNameValuePair("exuid", this.f5843c.exUid));
+                arrayList.add(new RestNameValuePair("exuid", this.f5886c.exUid));
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("name", this.f5843c.realName);
-                    jSONObject.put("cert", this.f5843c.idCardNum);
-                    jSONObject.put("bankmobile", this.f5843c.phoneNum);
+                    jSONObject.put("name", this.f5886c.realName);
+                    jSONObject.put("cert", this.f5886c.idCardNum);
+                    jSONObject.put("bankmobile", this.f5886c.phoneNum);
                     arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt("phone_number", jSONObject.toString())));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
                 arrayList.add(new RestNameValuePair("type", "authtoken"));
-                arrayList.add(new RestNameValuePair("authtoken", this.f5843c.authToken));
+                arrayList.add(new RestNameValuePair("authtoken", this.f5886c.authToken));
             } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER) {
                 arrayList.add(new RestNameValuePair("type", "outer"));
-                arrayList.add(new RestNameValuePair("exuid", this.f5843c.exUid));
+                arrayList.add(new RestNameValuePair("exuid", this.f5886c.exUid));
             }
-            arrayList.add(new RestNameValuePair("opt", String.valueOf(this.f5841a)));
-            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5843c.serviceType));
-            arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.f5842b)));
+            arrayList.add(new RestNameValuePair("opt", String.valueOf(this.f5884a)));
+            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5886c.serviceType));
+            arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.f5885b)));
         }
         return arrayList;
     }
@@ -90,14 +90,14 @@ public class d extends BaseBean {
     }
 
     public void a(LivenessRecogDTO livenessRecogDTO) {
-        this.f5843c = livenessRecogDTO;
+        this.f5886c = livenessRecogDTO;
     }
 
     private String a() {
         StringBuilder sb = new StringBuilder();
-        if (this.f5843c != null) {
-            sb.append("bduss=" + this.f5843c.bduss);
-            sb.append(";stoken=" + this.f5843c.stoken);
+        if (this.f5886c != null) {
+            sb.append("bduss=" + this.f5886c.bduss);
+            sb.append(";stoken=" + this.f5886c.stoken);
         }
         return PayUtils.encrypt("phone_number", sb.toString());
     }

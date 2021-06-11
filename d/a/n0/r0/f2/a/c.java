@@ -18,40 +18,40 @@ import d.a.m0.r.s.a;
 public class c implements NetModel.k {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f58567e;
+    public TbPageContext<?> f62258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrsProfessionPermissionModel f58568f;
+    public FrsProfessionPermissionModel f62259f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.r0.f2.a.a f58569g;
+    public d.a.n0.r0.f2.a.a f62260g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f58570h;
+    public d f62261h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58571i;
+    public int f62262i;
 
     /* loaded from: classes4.dex */
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f58572e;
+        public final /* synthetic */ String f62263e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f58573f;
+        public final /* synthetic */ d.a.m0.r.s.a f62264f;
 
         public a(String str, d.a.m0.r.s.a aVar) {
-            this.f58572e = str;
-            this.f58573f = aVar;
+            this.f62263e = str;
+            this.f62264f = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            MembercenterActivityConfig membercenterActivityConfig = new MembercenterActivityConfig(c.this.f58567e.getPageActivity());
-            membercenterActivityConfig.setUrl("https://tieba.baidu.com/mo/q/prozone/view?fid=" + this.f58572e);
+            MembercenterActivityConfig membercenterActivityConfig = new MembercenterActivityConfig(c.this.f62258e.getPageActivity());
+            membercenterActivityConfig.setUrl("https://tieba.baidu.com/mo/q/prozone/view?fid=" + this.f62263e);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, membercenterActivityConfig));
-            this.f58573f.dismiss();
+            this.f62264f.dismiss();
         }
     }
 
@@ -59,32 +59,32 @@ public class c implements NetModel.k {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f58575e;
+        public final /* synthetic */ d.a.m0.r.s.a f62266e;
 
         public b(c cVar, d.a.m0.r.s.a aVar) {
-            this.f58575e = aVar;
+            this.f62266e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f58575e.dismiss();
+            this.f62266e.dismiss();
         }
     }
 
     /* renamed from: d.a.n0.r0.f2.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1496c implements a.e {
+    public class C1552c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f58576e;
+        public final /* synthetic */ d.a.m0.r.s.a f62267e;
 
-        public C1496c(c cVar, d.a.m0.r.s.a aVar) {
-            this.f58576e = aVar;
+        public C1552c(c cVar, d.a.m0.r.s.a aVar) {
+            this.f62267e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f58576e.dismiss();
+            this.f62267e.dismiss();
         }
     }
 
@@ -98,22 +98,22 @@ public class c implements NetModel.k {
     }
 
     public c(TbPageContext<?> tbPageContext) {
-        this.f58567e = tbPageContext;
+        this.f62258e = tbPageContext;
         d.a.n0.r0.f2.a.a aVar = new d.a.n0.r0.f2.a.a();
-        this.f58569g = aVar;
+        this.f62260g = aVar;
         FrsProfessionPermissionModel frsProfessionPermissionModel = new FrsProfessionPermissionModel(tbPageContext, aVar);
-        this.f58568f = frsProfessionPermissionModel;
-        frsProfessionPermissionModel.V(this);
+        this.f62259f = frsProfessionPermissionModel;
+        frsProfessionPermissionModel.Z(this);
     }
 
     public final void b(d.a.n0.r0.f2.a.b bVar) {
-        if (bVar != null && bVar.f58563f == 0) {
-            if (!bVar.f58562e && bVar.f58565h == 2) {
-                n(bVar.f58566i);
+        if (bVar != null && bVar.f62254f == 0) {
+            if (!bVar.f62253e && bVar.f62256h == 2) {
+                m(bVar.f62257i);
             }
-            d dVar = this.f58570h;
+            d dVar = this.f62261h;
             if (dVar != null) {
-                dVar.c(bVar.f58562e);
+                dVar.c(bVar.f62253e);
             }
         }
     }
@@ -122,26 +122,26 @@ public class c implements NetModel.k {
         if (bVar == null) {
             return;
         }
-        if (bVar.f58563f != 0) {
-            if (StringUtils.isNull(bVar.f58564g)) {
-                this.f58567e.showToast(R.string.neterror);
+        if (bVar.f62254f != 0) {
+            if (StringUtils.isNull(bVar.f62255g)) {
+                this.f62258e.showToast(R.string.neterror);
                 return;
             } else {
-                this.f58567e.showToast(bVar.f58564g);
+                this.f62258e.showToast(bVar.f62255g);
                 return;
             }
         }
-        if (!bVar.f58562e) {
-            int i2 = bVar.f58565h;
+        if (!bVar.f62253e) {
+            int i2 = bVar.f62256h;
             if (i2 == 1) {
-                m(bVar.f58566i, str);
+                l(bVar.f62257i, str);
             } else if (i2 == 3) {
-                n(bVar.f58566i);
+                m(bVar.f62257i);
             }
         }
-        d dVar = this.f58570h;
+        d dVar = this.f62261h;
         if (dVar != null) {
-            dVar.b(bVar.f58562e);
+            dVar.b(bVar.f62253e);
         }
     }
 
@@ -149,120 +149,120 @@ public class c implements NetModel.k {
         if (bVar == null) {
             return;
         }
-        if (bVar.f58563f != 0) {
-            if (StringUtils.isNull(bVar.f58564g)) {
-                this.f58567e.showToast(R.string.neterror);
+        if (bVar.f62254f != 0) {
+            if (StringUtils.isNull(bVar.f62255g)) {
+                this.f62258e.showToast(R.string.neterror);
                 return;
             } else {
-                this.f58567e.showToast(bVar.f58564g);
+                this.f62258e.showToast(bVar.f62255g);
                 return;
             }
         }
-        d dVar = this.f58570h;
+        d dVar = this.f62261h;
         if (dVar != null) {
-            dVar.a(bVar.f58562e, i2);
+            dVar.a(bVar.f62253e, i2);
         }
     }
 
     public final void e() {
-        if (this.f58568f.M()) {
+        if (this.f62259f.Q()) {
             return;
         }
-        this.f58568f.N();
+        this.f62259f.R();
     }
 
     public void f(String str) {
-        d.a.n0.r0.f2.a.a aVar = this.f58569g;
-        aVar.f58560h = 1;
-        aVar.f58559g = str;
+        d.a.n0.r0.f2.a.a aVar = this.f62260g;
+        aVar.f62251h = 1;
+        aVar.f62250g = str;
         e();
     }
 
     public void g(String str, long j) {
-        d.a.n0.r0.f2.a.a aVar = this.f58569g;
-        aVar.f58559g = str;
-        aVar.f58558f = j;
-        aVar.f58560h = 3;
+        d.a.n0.r0.f2.a.a aVar = this.f62260g;
+        aVar.f62250g = str;
+        aVar.f62249f = j;
+        aVar.f62251h = 3;
         e();
     }
 
+    public void h(String str, int i2) {
+        d.a.n0.r0.f2.a.a aVar = this.f62260g;
+        aVar.f62248e = i2;
+        aVar.f62250g = str;
+        aVar.f62251h = 2;
+        e();
+    }
+
+    public void i(d dVar) {
+        this.f62261h = dVar;
+    }
+
+    public void j(int i2) {
+        this.f62262i = i2;
+        this.f62260g.f62252i = i2;
+    }
+
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void h(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+    public void k(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
         if (mvcNetMessage == null || !(mvcNetMessage.getRequestData() instanceof d.a.n0.r0.f2.a.a) || mvcSocketResponsedMessage == null || !(mvcSocketResponsedMessage.getData() instanceof d.a.n0.r0.f2.a.b)) {
             return;
         }
         d.a.n0.r0.f2.a.a aVar = (d.a.n0.r0.f2.a.a) mvcNetMessage.getRequestData();
         d.a.n0.r0.f2.a.b bVar = (d.a.n0.r0.f2.a.b) mvcSocketResponsedMessage.getData();
-        if (aVar.f58561i != this.f58571i) {
+        if (aVar.f62252i != this.f62262i) {
             return;
         }
-        int i2 = aVar.f58560h;
+        int i2 = aVar.f62251h;
         if (i2 == 1) {
             b(bVar);
         } else if (i2 == 2) {
-            d(bVar, aVar.f58557e);
+            d(bVar, aVar.f62248e);
         } else if (i2 != 3) {
         } else {
-            c(bVar, aVar.f58559g);
+            c(bVar, aVar.f62250g);
         }
     }
 
-    public void i(String str, int i2) {
-        d.a.n0.r0.f2.a.a aVar = this.f58569g;
-        aVar.f58557e = i2;
-        aVar.f58559g = str;
-        aVar.f58560h = 2;
-        e();
-    }
-
-    public void j(d dVar) {
-        this.f58570h = dVar;
-    }
-
-    public void k(int i2) {
-        this.f58571i = i2;
-        this.f58569g.f58561i = i2;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void l(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
-        if (mvcNetMessage == null || !(mvcNetMessage.getRequestData() instanceof d.a.n0.r0.f2.a.a) || mvcHttpResponsedMessage == null || !(mvcHttpResponsedMessage.getData() instanceof d.a.n0.r0.f2.a.b)) {
-            return;
-        }
-        d.a.n0.r0.f2.a.a aVar = (d.a.n0.r0.f2.a.a) mvcNetMessage.getRequestData();
-        d.a.n0.r0.f2.a.b bVar = (d.a.n0.r0.f2.a.b) mvcHttpResponsedMessage.getData();
-        if (aVar.f58561i != this.f58571i) {
-            return;
-        }
-        int i2 = aVar.f58560h;
-        if (i2 == 1) {
-            b(bVar);
-        } else if (i2 == 2) {
-            d(bVar, aVar.f58557e);
-        } else if (i2 != 3) {
-        } else {
-            c(bVar, aVar.f58559g);
-        }
-    }
-
-    public final void m(String str, String str2) {
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f58567e.getPageActivity());
+    public final void l(String str, String str2) {
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f62258e.getPageActivity());
         aVar.setCanceledOnTouchOutside(false);
         aVar.setCancelable(false);
         aVar.setMessage(str);
         aVar.setPositiveButton(R.string.comfirm_imediate, new a(str2, aVar));
         aVar.setNegativeButton(R.string.comfirm_cancel, new b(this, aVar));
-        aVar.create(this.f58567e);
+        aVar.create(this.f62258e);
         aVar.show();
     }
 
-    public void n(String str) {
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f58567e.getPageActivity());
+    public void m(String str) {
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f62258e.getPageActivity());
         aVar.setCanceledOnTouchOutside(false);
         aVar.setCancelable(false);
         aVar.setMessage(str);
-        aVar.setNegativeButton(R.string.know, new C1496c(this, aVar));
-        aVar.create(this.f58567e);
+        aVar.setNegativeButton(R.string.know, new C1552c(this, aVar));
+        aVar.create(this.f62258e);
         aVar.show();
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void p(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+        if (mvcNetMessage == null || !(mvcNetMessage.getRequestData() instanceof d.a.n0.r0.f2.a.a) || mvcHttpResponsedMessage == null || !(mvcHttpResponsedMessage.getData() instanceof d.a.n0.r0.f2.a.b)) {
+            return;
+        }
+        d.a.n0.r0.f2.a.a aVar = (d.a.n0.r0.f2.a.a) mvcNetMessage.getRequestData();
+        d.a.n0.r0.f2.a.b bVar = (d.a.n0.r0.f2.a.b) mvcHttpResponsedMessage.getData();
+        if (aVar.f62252i != this.f62262i) {
+            return;
+        }
+        int i2 = aVar.f62251h;
+        if (i2 == 1) {
+            b(bVar);
+        } else if (i2 == 2) {
+            d(bVar, aVar.f62248e);
+        } else if (i2 != 3) {
+        } else {
+            c(bVar, aVar.f62250g);
+        }
     }
 }

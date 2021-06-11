@@ -5,7 +5,7 @@ import org.apache.commons.base.BinaryDecoder;
 import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     public static final int DEFAULT_BUFFER_RESIZE_FACTOR = 2;
     public static final int DEFAULT_BUFFER_SIZE = 8192;
@@ -22,7 +22,7 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     public final byte pad;
     public final int unencodedBlockSize;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Context {
         public byte[] buffer;
         public int currentLinePos;

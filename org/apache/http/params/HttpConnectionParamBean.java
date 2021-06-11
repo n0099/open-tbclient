@@ -1,6 +1,6 @@
 package org.apache.http.params;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpConnectionParamBean extends HttpAbstractParamBean {
     public HttpConnectionParamBean(HttpParams httpParams) {
         super(null);

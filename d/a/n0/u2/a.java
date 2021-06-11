@@ -25,31 +25,31 @@ public class a {
     public CustomMessageListener E;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f61341a;
+    public boolean f65054a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61342b;
+    public boolean f65055b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61343c;
+    public boolean f65056c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f61344d;
+    public boolean f65057d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f61345e;
+    public boolean f65058e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61346f;
+    public boolean f65059f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61347g;
+    public boolean f65060g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f61348h;
+    public boolean f65061h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f61349i;
+    public boolean f65062i;
     public boolean j;
     public int k;
     public int l;
@@ -70,8 +70,8 @@ public class a {
 
     /* renamed from: d.a.n0.u2.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1635a extends CustomMessageListener {
-        public C1635a(int i2) {
+    public class C1692a extends CustomMessageListener {
+        public C1692a(int i2) {
             super(i2);
         }
 
@@ -101,7 +101,7 @@ public class a {
                 } else {
                     a.this.o = true;
                     a aVar = a.this;
-                    aVar.f61345e = aVar.o ? true : a.this.f61345e;
+                    aVar.f65058e = aVar.o ? true : a.this.f65058e;
                     a.this.n = responseUnreadPointNum.getNum();
                     a.this.D();
                 }
@@ -126,7 +126,7 @@ public class a {
             if (booleanValue) {
                 d.a.m0.r.d0.b.j().t("key_feedback_tip_show", true);
             }
-            a.this.f61349i = booleanValue;
+            a.this.f65062i = booleanValue;
             a.this.v = booleanValue;
             a.this.D();
         }
@@ -159,7 +159,7 @@ public class a {
                 booleanValue = false;
             }
             a.this.t = booleanValue;
-            a.this.f61347g = booleanValue;
+            a.this.f65060g = booleanValue;
             a.this.D();
         }
     }
@@ -178,7 +178,7 @@ public class a {
             }
             a.this.p = ((Boolean) customResponsedMessage.getData()).booleanValue();
             a aVar = a.this;
-            aVar.f61346f = aVar.p ? true : a.this.f61346f;
+            aVar.f65059f = aVar.p ? true : a.this.f65059f;
             a.this.D();
         }
     }
@@ -243,7 +243,7 @@ public class a {
                 if (StringUtils.isNull(a2) || a2.equals(p)) {
                     return;
                 }
-                a.this.f61348h = true;
+                a.this.f65061h = true;
                 a.this.u = true;
                 a.this.D();
             }
@@ -268,54 +268,54 @@ public class a {
     public static class j {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f61359a = new a(null);
+        public static final a f65072a = new a(null);
     }
 
-    public /* synthetic */ a(C1635a c1635a) {
+    public /* synthetic */ a(C1692a c1692a) {
         this();
     }
 
     public static final a v() {
-        return j.f61359a;
+        return j.f65072a;
     }
 
     public boolean A() {
-        return this.f61343c;
+        return this.f65056c;
     }
 
     public boolean B() {
-        return this.f61342b;
+        return this.f65055b;
     }
 
     public boolean C() {
-        return this.f61347g;
+        return this.f65060g;
     }
 
     public final void D() {
         SparseArray sparseArray = new SparseArray();
         if (this.o) {
-            sparseArray.append(4, new b.a(this.f61345e, this.n));
+            sparseArray.append(4, new b.a(this.f65058e, this.n));
         }
         if (this.q) {
-            sparseArray.append(2, new b.a(this.f61342b, this.k));
+            sparseArray.append(2, new b.a(this.f65055b, this.k));
         }
         if (this.r) {
-            sparseArray.append(1, new b.a(this.f61344d, this.l));
+            sparseArray.append(1, new b.a(this.f65057d, this.l));
         }
         if (this.s) {
-            sparseArray.append(3, new b.a(this.f61343c, this.m));
+            sparseArray.append(3, new b.a(this.f65056c, this.m));
         }
         if (this.p) {
-            sparseArray.append(5, new b.a(this.f61346f, 0));
+            sparseArray.append(5, new b.a(this.f65059f, 0));
         }
         if (this.t) {
-            sparseArray.append(7, new b.a(this.f61347g, 0));
+            sparseArray.append(7, new b.a(this.f65060g, 0));
         }
         if (this.u) {
-            sparseArray.append(9, new b.a(this.f61348h, 0));
+            sparseArray.append(9, new b.a(this.f65061h, 0));
         }
         if (this.v) {
-            sparseArray.append(10, new b.a(this.f61349i, 0));
+            sparseArray.append(10, new b.a(this.f65062i, 0));
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new d.a.n0.u2.b(sparseArray)));
         M();
@@ -331,10 +331,10 @@ public class a {
             this.k = newsNotifyMessage.getMsgFans();
             this.l = newsNotifyMessage.getMsgGiftNum();
             if (this.s || this.q || this.r || this.p) {
-                this.f61342b = this.q ? true : this.f61342b;
-                this.f61343c = this.s ? true : this.f61343c;
-                this.f61344d = this.r ? true : this.f61344d;
-                this.f61346f = this.p ? true : this.f61346f;
+                this.f65055b = this.q ? true : this.f65055b;
+                this.f65056c = this.s ? true : this.f65056c;
+                this.f65057d = this.r ? true : this.f65057d;
+                this.f65059f = this.p ? true : this.f65059f;
                 D();
             }
         }
@@ -345,13 +345,13 @@ public class a {
     }
 
     public void G() {
-        this.f61342b = false;
-        this.f61343c = false;
-        this.f61344d = false;
-        this.f61345e = false;
-        this.f61346f = false;
-        this.f61347g = false;
-        this.f61348h = false;
+        this.f65055b = false;
+        this.f65056c = false;
+        this.f65057d = false;
+        this.f65058e = false;
+        this.f65059f = false;
+        this.f65060g = false;
+        this.f65061h = false;
         this.k = 0;
         this.l = 0;
         this.m = 0;
@@ -378,12 +378,12 @@ public class a {
     }
 
     public void I(boolean z) {
-        this.f61341a = z;
+        this.f65054a = z;
     }
 
     public final void J() {
-        boolean z = this.f61344d || this.f61343c || this.f61342b || this.f61345e || this.f61346f || this.f61347g || this.f61348h || this.j;
-        if (this.f61341a || !TbadkCoreApplication.isLogin()) {
+        boolean z = this.f65057d || this.f65056c || this.f65055b || this.f65058e || this.f65059f || this.f65060g || this.f65061h || this.j;
+        if (this.f65054a || !TbadkCoreApplication.isLogin()) {
             return;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new d.a.m0.e0.a(z, 0)));
@@ -392,14 +392,14 @@ public class a {
     public void K(boolean z) {
         if (z) {
             SparseArray sparseArray = new SparseArray();
-            sparseArray.append(4, new b.a(this.f61345e, this.n));
-            sparseArray.append(2, new b.a(this.f61342b, this.k));
-            sparseArray.append(1, new b.a(this.f61344d, this.l));
-            sparseArray.append(3, new b.a(this.f61343c, this.m));
-            sparseArray.append(5, new b.a(this.f61346f, 0));
-            sparseArray.append(7, new b.a(this.f61347g, 0));
-            sparseArray.append(9, new b.a(this.f61348h, 0));
-            sparseArray.append(10, new b.a(this.f61349i, 0));
+            sparseArray.append(4, new b.a(this.f65058e, this.n));
+            sparseArray.append(2, new b.a(this.f65055b, this.k));
+            sparseArray.append(1, new b.a(this.f65057d, this.l));
+            sparseArray.append(3, new b.a(this.f65056c, this.m));
+            sparseArray.append(5, new b.a(this.f65059f, 0));
+            sparseArray.append(7, new b.a(this.f65060g, 0));
+            sparseArray.append(9, new b.a(this.f65061h, 0));
+            sparseArray.append(10, new b.a(this.f65062i, 0));
             sparseArray.append(11, new b.a(this.j, 0));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new d.a.n0.u2.b(sparseArray)));
         }
@@ -409,38 +409,38 @@ public class a {
         if (z2) {
             switch (i2) {
                 case 1:
-                    this.f61344d = z;
+                    this.f65057d = z;
                     break;
                 case 2:
-                    this.f61342b = z;
+                    this.f65055b = z;
                     break;
                 case 3:
-                    this.f61343c = z;
+                    this.f65056c = z;
                     break;
                 case 4:
-                    this.f61345e = z;
+                    this.f65058e = z;
                     break;
                 case 5:
                     AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                     if (currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
                         d.a.m0.r.d0.b.j().t("member_close_ad_setting_clicked", true);
                     }
-                    this.f61346f = z;
+                    this.f65059f = z;
                     break;
                 case 7:
                     String currentAccount = !TbadkCoreApplication.isLogin() ? SevenZipUtils.FILE_NAME_TEMP : TbadkCoreApplication.getCurrentAccount();
                     d.a.m0.r.d0.b j2 = d.a.m0.r.d0.b.j();
                     j2.w("maintab_member_center_red_tip_" + currentAccount, TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime());
-                    this.f61347g = z;
+                    this.f65060g = z;
                     break;
                 case 9:
-                    this.f61348h = z;
+                    this.f65061h = z;
                     String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
                     d.a.m0.r.d0.b j3 = d.a.m0.r.d0.b.j();
                     j3.x("person_item_activity_prize_red_tip" + currentAccount2, TbadkCoreApplication.getInst().getActivityPrizeData().a());
                     break;
                 case 10:
-                    this.f61349i = z;
+                    this.f65062i = z;
                     break;
                 case 11:
                     this.j = z;
@@ -452,7 +452,7 @@ public class a {
     }
 
     public final void M() {
-        if (((this.k > 0 && this.q) || (this.m > 0 && this.s) || this.p || this.u || this.v) && !this.f61341a && TbadkCoreApplication.isLogin()) {
+        if (((this.k > 0 && this.q) || (this.m > 0 && this.s) || this.p || this.u || this.v) && !this.f65054a && TbadkCoreApplication.isLogin()) {
             if (this.v) {
                 d.a.m0.r.d0.b.j().t("key_feedback_tip_tab_show", true);
             }
@@ -474,7 +474,7 @@ public class a {
     public final void x() {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (!d.a.m0.r.d0.b.j().g("member_close_ad_setting_clicked", false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-            this.f61346f = true;
+            this.f65059f = true;
         }
         TbadkSettings inst = TbadkSettings.getInst();
         StringBuilder sb = new StringBuilder();
@@ -486,24 +486,24 @@ public class a {
 
     public final void y() {
         if (TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new d.a.m0.e0.a(this.f61346f)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new d.a.m0.e0.a(this.f65059f)));
         }
     }
 
     public boolean z() {
-        return this.f61348h;
+        return this.f65061h;
     }
 
     public a() {
-        this.f61341a = false;
-        this.f61342b = false;
-        this.f61343c = false;
-        this.f61344d = false;
-        this.f61345e = false;
-        this.f61346f = false;
-        this.f61347g = false;
-        this.f61348h = false;
-        this.f61349i = d.a.m0.r.d0.b.j().g("key_feedback_tip_show", false);
+        this.f65054a = false;
+        this.f65055b = false;
+        this.f65056c = false;
+        this.f65057d = false;
+        this.f65058e = false;
+        this.f65059f = false;
+        this.f65060g = false;
+        this.f65061h = false;
+        this.f65062i = d.a.m0.r.d0.b.j().g("key_feedback_tip_show", false);
         this.j = false;
         this.k = 0;
         this.l = 0;
@@ -517,7 +517,7 @@ public class a {
         this.t = false;
         this.u = false;
         this.v = false;
-        this.x = new C1635a(2001120);
+        this.x = new C1692a(2001120);
         this.y = new b(2001176);
         this.z = new c(2016561);
         this.A = new d(2016459);

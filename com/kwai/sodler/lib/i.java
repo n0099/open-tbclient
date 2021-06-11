@@ -8,18 +8,18 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i extends g {
     public i(String str) {
         super(str);
     }
 
     private void a(Set<File> set) {
-        com.kwai.sodler.lib.b.b bVar = this.f34409f;
-        if (bVar == null || bVar.f34433h.size() <= 0 || set == null) {
+        com.kwai.sodler.lib.b.b bVar = this.f37893f;
+        if (bVar == null || bVar.f37917h.size() <= 0 || set == null) {
             return;
         }
-        HashMap<String, String> hashMap = this.f34409f.f34433h;
+        HashMap<String, String> hashMap = this.f37893f.f37917h;
         for (File file : set) {
             String f2 = com.kwai.sodler.lib.c.a.f(file);
             String str = hashMap.get(file.getName());
@@ -40,7 +40,7 @@ public class i extends g {
         a.b("Sodler.simple.SoLib", "Install plugin so libs, destDir = " + file2);
         HashSet hashSet = new HashSet();
         if (!file2.exists() || file2.list().length <= 0) {
-            File file3 = new File(file2.getParentFile(), this.f34406c.d());
+            File file3 = new File(file2.getParentFile(), this.f37890c.d());
             com.kwai.sodler.lib.c.a.e(file3);
             Set<String> a2 = com.kwai.sodler.lib.c.c.a(file, file3);
             if (a2 != null) {
@@ -64,11 +64,11 @@ public class i extends g {
         a(file);
         try {
             File b2 = b(file);
-            this.f34404a = b2;
+            this.f37888a = b2;
             try {
                 a(a(context, file, b2));
                 synchronized (Runtime.getRuntime()) {
-                    com.kwai.sodler.lib.ext.d.a(getClass().getClassLoader(), this.f34404a);
+                    com.kwai.sodler.lib.ext.d.a(getClass().getClassLoader(), this.f37888a);
                 }
                 super.a(context, str);
             } catch (IOException e2) {
@@ -80,7 +80,7 @@ public class i extends g {
     }
 
     public File b(File file) {
-        File file2 = new File(file.getParentFile(), this.f34406c.c());
+        File file2 = new File(file.getParentFile(), this.f37890c.c());
         com.kwai.sodler.lib.c.a.e(file2);
         return file2;
     }

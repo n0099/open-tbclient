@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f12592e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
+    public HttpMessageListener f12654e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
 
     /* loaded from: classes3.dex */
     public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
@@ -77,9 +77,9 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public ShareSuccessReplyToServerModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f12592e.setTag(getUniqueId());
-        this.f12592e.setSelfListener(true);
-        registerListener(this.f12592e);
+        this.f12654e.setTag(getUniqueId());
+        this.f12654e.setSelfListener(true);
+        registerListener(this.f12654e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -89,7 +89,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f12592e);
+        MessageManager.getInstance().unRegisterListener(this.f12654e);
         return false;
     }
 
@@ -99,7 +99,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void s(String str, int i2, b bVar) {
+    public void w(String str, int i2, b bVar) {
         if (str == null) {
             return;
         }

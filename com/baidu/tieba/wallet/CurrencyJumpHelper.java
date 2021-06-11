@@ -20,7 +20,7 @@ public class CurrencyJumpHelper {
     }
 
     public static void goYYPay(Context context) {
-        MessageManager.getInstance().runTask(2921546, String.class, new f(context, 0, null));
+        MessageManager.getInstance().runTask(2921546, String.class, new f(context, 0, null, null));
     }
 
     public static void gotoBuyTBeanPage(Context context, long j) {

@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.heytap.mcssdk.mode.CommandMessage;
+import com.kwai.video.player.KsMediaMeta;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import java.util.regex.Pattern;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f1584a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+    public static final Pattern f1597a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
 
     public static String a() {
         String hostAddress;
@@ -33,7 +34,7 @@ public final class g {
                     Enumeration<InetAddress> inetAddresses = nextElement.getInetAddresses();
                     while (inetAddresses.hasMoreElements()) {
                         InetAddress nextElement2 = inetAddresses.nextElement();
-                        if (!nextElement2.isLoopbackAddress() && !nextElement2.isLinkLocalAddress() && (hostAddress = nextElement2.getHostAddress()) != null && f1584a.matcher(hostAddress).matches()) {
+                        if (!nextElement2.isLoopbackAddress() && !nextElement2.isLinkLocalAddress() && (hostAddress = nextElement2.getHostAddress()) != null && f1597a.matcher(hostAddress).matches()) {
                             if (stringBuffer.length() > 0) {
                                 stringBuffer.append(",");
                             }
@@ -66,7 +67,7 @@ public final class g {
         HashMap hashMap = new HashMap();
         hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str);
         hashMap.put("clientType", "30020");
-        hashMap.put("format", "json");
+        hashMap.put(KsMediaMeta.KSM_KEY_FORMAT, "json");
         hashMap.put("paramKey", a2);
         hashMap.put("paramStr", a3);
         hashMap.put("version", "3.0");

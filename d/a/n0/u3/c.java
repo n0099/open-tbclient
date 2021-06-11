@@ -13,19 +13,19 @@ import java.io.File;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61374a;
+    public String f65087a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61375b;
+    public String f65088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61376c = false;
+    public boolean f65089c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a f61377d = new a();
+    public b.a f65090d = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f61378e = new b(2001371);
+    public CustomMessageListener f65091e = new b(2001371);
 
     /* loaded from: classes5.dex */
     public class a implements b.a {
@@ -34,12 +34,12 @@ public class c {
 
         @Override // d.a.n0.u3.b.a
         public void a(boolean z, String str, String str2) {
-            c.this.f61376c = false;
+            c.this.f65089c = false;
             if (z) {
-                c.this.f61375b = str;
-                d.a.m0.r.d0.b.j().x("key_video_splash_path", c.this.f61375b);
-                c.this.f61374a = str2;
-                d.a.m0.r.d0.b.j().x("key_video_splash_url", c.this.f61374a);
+                c.this.f65088b = str;
+                d.a.m0.r.d0.b.j().x("key_video_splash_path", c.this.f65088b);
+                c.this.f65087a = str2;
+                d.a.m0.r.d0.b.j().x("key_video_splash_url", c.this.f65087a);
             }
         }
     }
@@ -72,10 +72,10 @@ public class c {
             return;
         }
         FileHelper.deleteFileOrDir(new File(h()));
-        this.f61375b = null;
-        d.a.m0.r.d0.b.j().x("key_video_splash_path", this.f61375b);
-        this.f61374a = null;
-        d.a.m0.r.d0.b.j().x("key_video_splash_url", this.f61374a);
+        this.f65088b = null;
+        d.a.m0.r.d0.b.j().x("key_video_splash_path", this.f65088b);
+        this.f65087a = null;
+        d.a.m0.r.d0.b.j().x("key_video_splash_url", this.f65087a);
     }
 
     public final String h() {
@@ -83,41 +83,41 @@ public class c {
     }
 
     public String i() {
-        return this.f61375b;
+        return this.f65088b;
     }
 
     public final void j() {
-        this.f61376c = false;
-        this.f61374a = d.a.m0.r.d0.b.j().p("key_video_splash_url", null);
-        this.f61375b = d.a.m0.r.d0.b.j().p("key_video_splash_path", null);
-        MessageManager.getInstance().registerListener(this.f61378e);
+        this.f65089c = false;
+        this.f65087a = d.a.m0.r.d0.b.j().p("key_video_splash_url", null);
+        this.f65088b = d.a.m0.r.d0.b.j().p("key_video_splash_path", null);
+        MessageManager.getInstance().registerListener(this.f65091e);
     }
 
     public final boolean k(String str) {
-        return (k.isEmpty(str) || str.equals(this.f61374a)) ? false : true;
+        return (k.isEmpty(str) || str.equals(this.f65087a)) ? false : true;
     }
 
     public boolean l() {
-        if (this.f61376c || k.isEmpty(i())) {
+        if (this.f65089c || k.isEmpty(i())) {
             return false;
         }
         if (new File(i()).exists()) {
             return true;
         }
-        this.f61375b = null;
-        d.a.m0.r.d0.b.j().x("key_video_splash_path", this.f61375b);
-        this.f61374a = null;
-        d.a.m0.r.d0.b.j().x("key_video_splash_url", this.f61374a);
+        this.f65088b = null;
+        d.a.m0.r.d0.b.j().x("key_video_splash_path", this.f65088b);
+        this.f65087a = null;
+        d.a.m0.r.d0.b.j().x("key_video_splash_url", this.f65087a);
         return false;
     }
 
     public final void m(String str) {
-        this.f61376c = true;
-        new d.a.n0.u3.b(h(), str, this.f61377d).execute(new Void[0]);
+        this.f65089c = true;
+        new d.a.n0.u3.b(h(), str, this.f65090d).execute(new Void[0]);
     }
 
     public final void n(String str) {
-        if ((d.a.m0.r.d0.b.j().k("key_video_splash_switch", 0) == 1) && !this.f61376c && k(str)) {
+        if ((d.a.m0.r.d0.b.j().k("key_video_splash_switch", 0) == 1) && !this.f65089c && k(str)) {
             m(str);
         }
     }

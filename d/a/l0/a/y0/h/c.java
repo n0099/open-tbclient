@@ -12,20 +12,20 @@ public class c extends b {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f45840e;
+        public final /* synthetic */ List f49514e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y0.j.b f45841f;
+        public final /* synthetic */ d.a.l0.a.y0.j.b f49515f;
 
         public a(c cVar, List list, d.a.l0.a.y0.j.b bVar) {
-            this.f45840e = list;
-            this.f45841f = bVar;
+            this.f49514e = list;
+            this.f49515f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            for (String str : this.f45840e) {
-                this.f45841f.e(str);
+            for (String str : this.f49514e) {
+                this.f49515f.e(str);
             }
         }
     }

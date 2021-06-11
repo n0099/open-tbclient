@@ -6,42 +6,42 @@ public interface a {
 
     /* renamed from: d.a.c.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0480a implements a {
+    public static class C0536a implements a {
 
         /* renamed from: c  reason: collision with root package name */
-        public static a f38414c;
+        public static a f42067c;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f38415a;
+        public int f42068a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d f38416b = new d();
+        public final d f42069b = new d();
 
-        public C0480a() {
-            this.f38415a = 0;
-            if (NSGif.f2139f) {
-                this.f38415a = 0;
+        public C0536a() {
+            this.f42068a = 0;
+            if (NSGif.f2152f) {
+                this.f42068a = 0;
             } else {
-                this.f38415a = 1;
+                this.f42068a = 1;
             }
         }
 
         public static synchronized a b() {
             a aVar;
-            synchronized (C0480a.class) {
-                if (f38414c == null) {
-                    f38414c = new C0480a();
+            synchronized (C0536a.class) {
+                if (f42067c == null) {
+                    f42067c = new C0536a();
                 }
-                aVar = f38414c;
+                aVar = f42067c;
             }
             return aVar;
         }
 
         @Override // d.a.c.d.a
-        public d.a.c.j.d.a a(byte[] bArr, int i2, int i3) {
-            if (this.f38415a == 0) {
+        public d.a.c.k.d.a a(byte[] bArr, int i2, int i3) {
+            if (this.f42068a == 0) {
                 try {
-                    return this.f38416b.a(bArr, i2, i3);
+                    return this.f42069b.a(bArr, i2, i3);
                 } catch (Exception unused) {
                 }
             }
@@ -49,10 +49,10 @@ public interface a {
         }
 
         @Override // d.a.c.d.a
-        public d.a.c.j.d.a get(String str) {
-            if (this.f38415a == 0) {
+        public d.a.c.k.d.a get(String str) {
+            if (this.f42068a == 0) {
                 try {
-                    return this.f38416b.get(str);
+                    return this.f42069b.get(str);
                 } catch (Exception unused) {
                 }
             }
@@ -60,7 +60,7 @@ public interface a {
         }
     }
 
-    d.a.c.j.d.a a(byte[] bArr, int i2, int i3);
+    d.a.c.k.d.a a(byte[] bArr, int i2, int i3);
 
-    d.a.c.j.d.a get(String str);
+    d.a.c.k.d.a get(String str);
 }

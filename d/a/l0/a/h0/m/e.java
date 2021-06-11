@@ -7,7 +7,7 @@ import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 /* loaded from: classes2.dex */
 public class e extends f {
-    public static final boolean F = d.a.l0.a.k.f43199a;
+    public static final boolean F = d.a.l0.a.k.f46875a;
 
     public e(String str) {
         super(str);
@@ -20,7 +20,7 @@ public class e extends f {
             Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + aVar.toString());
         }
         E0("checkForUpdate", false);
-        j0(aVar.f48002a);
+        j0(aVar.f51676a);
         if (d.a.l0.a.h0.m.p.a.m(aVar)) {
             d.a.l0.a.h0.m.p.a.c(this.r);
         }

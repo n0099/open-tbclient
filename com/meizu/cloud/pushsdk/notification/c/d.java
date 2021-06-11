@@ -2,36 +2,36 @@ package com.meizu.cloud.pushsdk.notification.c;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f34973b;
+    public static d f38652b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34974a;
+    public Context f38653a;
 
     /* renamed from: c  reason: collision with root package name */
-    public AssetManager f34975c;
+    public AssetManager f38654c;
 
     public d(Context context) {
-        this.f34974a = context;
+        this.f38653a = context;
         a();
     }
 
     public static d a(Context context) {
-        if (f34973b == null) {
-            f34973b = new d(context);
+        if (f38652b == null) {
+            f38652b = new d(context);
         }
-        return f34973b;
+        return f38652b;
     }
 
     private void a() {
-        this.f34975c = this.f34974a.getAssets();
+        this.f38654c = this.f38653a.getAssets();
     }
 
     public int a(String str, String str2) {
         d.j.a.a.a.d("ResourceReader", "Get resource type " + str2 + " " + str);
-        return this.f34974a.getResources().getIdentifier(str, str2, this.f34974a.getApplicationInfo().packageName);
+        return this.f38653a.getResources().getIdentifier(str, str2, this.f38653a.getApplicationInfo().packageName);
     }
 }

@@ -20,42 +20,42 @@ public final class p {
     public static final Pattern m = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65591a;
+    public final String f69322a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f65592b;
+    public final String f69323b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f65593c;
+    public final long f69324c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f65594d;
+    public final String f69325d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f65595e;
+    public final String f69326e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f65596f;
+    public final boolean f69327f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f65597g;
+    public final boolean f69328g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f65598h;
+    public final boolean f69329h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f65599i;
+    public final boolean f69330i;
 
     public p(String str, String str2, long j2, String str3, String str4, boolean z, boolean z2, boolean z3, boolean z4) {
-        this.f65591a = str;
-        this.f65592b = str2;
-        this.f65593c = j2;
-        this.f65594d = str3;
-        this.f65595e = str4;
-        this.f65596f = z;
-        this.f65597g = z2;
-        this.f65599i = z3;
-        this.f65598h = z4;
+        this.f69322a = str;
+        this.f69323b = str2;
+        this.f69324c = j2;
+        this.f69325d = str3;
+        this.f69326e = str4;
+        this.f69327f = z;
+        this.f69328g = z2;
+        this.f69330i = z3;
+        this.f69329h = z4;
     }
 
     public static int a(String str, int i2, int i3, boolean z) {
@@ -160,8 +160,8 @@ public final class p {
         int length = str.length();
         char c2 = ';';
         int c3 = d.b.c.a.b.a.e.c(str, 0, length, ';');
-        char c4 = a.f1873h;
-        int c5 = d.b.c.a.b.a.e.c(str, 0, c3, a.f1873h);
+        char c4 = a.f1886h;
+        int c5 = d.b.c.a.b.a.e.c(str, 0, c3, a.f1886h);
         if (c5 == c3) {
             return null;
         }
@@ -207,12 +207,12 @@ public final class p {
                 }
                 i2 = c6 + 1;
                 c2 = ';';
-                c4 = a.f1873h;
+                c4 = a.f1886h;
             }
             z4 = true;
             i2 = c6 + 1;
             c2 = ';';
-            c4 = a.f1873h;
+            c4 = a.f1886h;
         }
         long j6 = Long.MIN_VALUE;
         if (j4 != Long.MIN_VALUE) {
@@ -307,53 +307,53 @@ public final class p {
     public boolean equals(Object obj) {
         if (obj instanceof p) {
             p pVar = (p) obj;
-            return pVar.f65591a.equals(this.f65591a) && pVar.f65592b.equals(this.f65592b) && pVar.f65594d.equals(this.f65594d) && pVar.f65595e.equals(this.f65595e) && pVar.f65593c == this.f65593c && pVar.f65596f == this.f65596f && pVar.f65597g == this.f65597g && pVar.f65598h == this.f65598h && pVar.f65599i == this.f65599i;
+            return pVar.f69322a.equals(this.f69322a) && pVar.f69323b.equals(this.f69323b) && pVar.f69325d.equals(this.f69325d) && pVar.f69326e.equals(this.f69326e) && pVar.f69324c == this.f69324c && pVar.f69327f == this.f69327f && pVar.f69328g == this.f69328g && pVar.f69329h == this.f69329h && pVar.f69330i == this.f69330i;
         }
         return false;
     }
 
     public String f() {
-        return this.f65591a;
+        return this.f69322a;
     }
 
     public String g(boolean z) {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f65591a);
-        sb.append(a.f1873h);
-        sb.append(this.f65592b);
-        if (this.f65598h) {
-            if (this.f65593c == Long.MIN_VALUE) {
+        sb.append(this.f69322a);
+        sb.append(a.f1886h);
+        sb.append(this.f69323b);
+        if (this.f69329h) {
+            if (this.f69324c == Long.MIN_VALUE) {
                 sb.append("; max-age=0");
             } else {
                 sb.append("; expires=");
-                sb.append(e.f.a(new Date(this.f65593c)));
+                sb.append(e.f.a(new Date(this.f69324c)));
             }
         }
-        if (!this.f65599i) {
+        if (!this.f69330i) {
             sb.append("; domain=");
             if (z) {
                 sb.append(".");
             }
-            sb.append(this.f65594d);
+            sb.append(this.f69325d);
         }
         sb.append("; path=");
-        sb.append(this.f65595e);
-        if (this.f65596f) {
+        sb.append(this.f69326e);
+        if (this.f69327f) {
             sb.append("; secure");
         }
-        if (this.f65597g) {
+        if (this.f69328g) {
             sb.append("; httponly");
         }
         return sb.toString();
     }
 
     public int hashCode() {
-        long j2 = this.f65593c;
-        return ((((((((((((((((527 + this.f65591a.hashCode()) * 31) + this.f65592b.hashCode()) * 31) + this.f65594d.hashCode()) * 31) + this.f65595e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f65596f ? 1 : 0)) * 31) + (!this.f65597g ? 1 : 0)) * 31) + (!this.f65598h ? 1 : 0)) * 31) + (!this.f65599i ? 1 : 0);
+        long j2 = this.f69324c;
+        return ((((((((((((((((527 + this.f69322a.hashCode()) * 31) + this.f69323b.hashCode()) * 31) + this.f69325d.hashCode()) * 31) + this.f69326e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f69327f ? 1 : 0)) * 31) + (!this.f69328g ? 1 : 0)) * 31) + (!this.f69329h ? 1 : 0)) * 31) + (!this.f69330i ? 1 : 0);
     }
 
     public String j() {
-        return this.f65592b;
+        return this.f69323b;
     }
 
     public String toString() {

@@ -9,43 +9,43 @@ public class a {
 
     /* renamed from: com.kwad.sdk.api.loader.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0351a {
+    public static class C0355a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31742a;
+        public int f32318a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f31743b;
+        public String f32319b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f31744c;
+        public String f32320c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f31745d;
+        public long f32321d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f31746e;
+        public String f32322e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient File f31747f;
+        public transient File f32323f;
 
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f31742a = jSONObject.optInt("dynamicType");
-            this.f31743b = jSONObject.optString("dynamicUrl");
-            this.f31744c = jSONObject.optString(PackageTable.MD5);
-            this.f31745d = jSONObject.optLong("interval");
-            this.f31746e = jSONObject.optString(CommandMessage.SDK_VERSION);
+            this.f32318a = jSONObject.optInt("dynamicType");
+            this.f32319b = jSONObject.optString("dynamicUrl");
+            this.f32320c = jSONObject.optString(PackageTable.MD5);
+            this.f32321d = jSONObject.optLong("interval");
+            this.f32322e = jSONObject.optString(CommandMessage.SDK_VERSION);
         }
 
         public boolean a() {
-            return this.f31742a == 1;
+            return this.f32318a == 1;
         }
 
         public boolean b() {
-            return this.f31742a == -1;
+            return this.f32318a == -1;
         }
     }
 
@@ -53,27 +53,27 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f31748a;
+        public long f32324a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f31749b;
+        public String f32325b;
 
         /* renamed from: c  reason: collision with root package name */
-        public C0351a f31750c;
+        public C0355a f32326c;
 
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f31748a = jSONObject.optLong("result");
-            this.f31749b = jSONObject.optString("errorMsg");
-            C0351a c0351a = new C0351a();
-            this.f31750c = c0351a;
-            c0351a.a(jSONObject.optJSONObject("data"));
+            this.f32324a = jSONObject.optLong("result");
+            this.f32325b = jSONObject.optString("errorMsg");
+            C0355a c0355a = new C0355a();
+            this.f32326c = c0355a;
+            c0355a.a(jSONObject.optJSONObject("data"));
         }
 
         public boolean a() {
-            return this.f31748a == 1 && this.f31750c != null;
+            return this.f32324a == 1 && this.f32326c != null;
         }
     }
 }

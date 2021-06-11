@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43372a = k.f43199a;
+    public static final boolean f47048a = k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a implements FileFilter {
@@ -32,7 +32,7 @@ public class c {
         }
         File file = new File(e.g(), str);
         if (file.exists()) {
-            if (f43372a) {
+            if (f47048a) {
                 Log.d("PkgInfoExt", "clear all pkg info's ext ,appId - " + str);
             }
             File[] listFiles = file.listFiles(new a());
@@ -51,7 +51,7 @@ public class c {
             return;
         }
         h.a().edit().remove(e2).apply();
-        if (f43372a) {
+        if (f47048a) {
             Log.d("PkgInfoExt", "clear pkg info's ext , appId - " + str + ", version code - " + str2);
         }
     }
@@ -67,7 +67,7 @@ public class c {
     public static String e(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             return str + "_" + str2 + "_pkg_info_ext";
-        } else if (f43372a) {
+        } else if (f47048a) {
             Log.e("PkgInfoExt", "appId or version code is empty");
             Log.d("PkgInfoExt", "appId - " + str);
             Log.d("PkgInfoExt", "version code - " + str2);
@@ -86,7 +86,7 @@ public class c {
             return "";
         }
         String string = h.a().getString(c2, "");
-        if (f43372a) {
+        if (f47048a) {
             Log.d("PkgInfoExt", "appId - " + pMSAppInfo.appId + ", get pkg info' ext - " + string);
         }
         return string;
@@ -95,33 +95,33 @@ public class c {
     public static void g(String str, JSONObject jSONObject, f fVar, List<g> list) {
         long j;
         if (jSONObject == null) {
-            if (f43372a) {
+            if (f47048a) {
                 Log.d("PkgInfoExt", "pkgObject from pms is null");
             }
         } else if (fVar == null && list == null) {
-            if (f43372a) {
+            if (f47048a) {
                 Log.d("PkgInfoExt", "pkg info's ext must has at lest one main or sub pkg");
             }
         } else {
             String str2 = null;
             if (fVar != null) {
-                str = fVar.f48012g;
-                j = fVar.f48014i;
+                str = fVar.f51686g;
+                j = fVar.f51688i;
                 str2 = fVar.p;
             } else if (list.size() > 0) {
                 g gVar = list.get(0);
-                j = gVar.f48014i;
+                j = gVar.f51688i;
                 str2 = gVar.s;
             } else {
                 j = -1;
             }
             if (str2 == null) {
-                if (f43372a) {
+                if (f47048a) {
                     Log.e("PkgInfoExt", "can not get ext from pkg ");
                 }
             } else if (!TextUtils.isEmpty(str) && j != -1) {
                 h.a().edit().putString(d(str, j), str2).apply();
-            } else if (f43372a) {
+            } else if (f47048a) {
                 Log.e("PkgInfoExt", "can not get appId and version code from pkg ");
             }
         }

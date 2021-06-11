@@ -64,19 +64,25 @@ import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.yy.mobile.framework.revenuesdk.baseapi.IToken;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipayProxyCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipaySdkServiceProxy;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatProxyCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
 import d.a.c.e.p.k;
 import d.a.m0.d.a;
 import d.a.m0.l0.b;
 import d.a.m0.l0.d;
 import d.a.m0.l0.e;
 import d.a.m0.l0.f;
-import d.r.b.a.a.i.d.c;
-import d.r.b.a.a.i.d.g;
-import d.r.b.a.a.i.d.h;
+import d.a.m0.l0.g;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -87,15 +93,17 @@ import tv.athena.revenue.api.MiddleReportConfig;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.YYPayUIKit;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
 /* loaded from: classes5.dex */
 public class PayActivityStatic {
     public static final String KEY_WX_RECHARGE_RESULT_ERROR_CODE = "_wxapi_baseresp_errcode";
     public static final String KEY_WX_RECHARGE_RESULT_ERROR_STR = "_wxapi_baseresp_errstr";
+    public static final String YY_GSLB_APP_ID = "b1e5c785-70de-4bd4-8b9e-f3b6ace8f5dc";
     public static final int YY_PAY_APPID = 41;
     public static final int YY_PAY_USE_CHANNEL = 10002;
     public static final int YY_PAY_USE_CHANNEL_YY_LIVE = 30;
     public static BroadcastReceiver broadcastReceiver;
-    public static g wxPayCallback;
+    public static IWechatProxyCallback wxPayCallback;
     public static b yyPayResultCallback;
     public static YYPayUIKit yyPayUIKit;
     public static YYPayUIKit yyPayUIKitYYLive;
@@ -184,6 +192,7 @@ public class PayActivityStatic {
         build2.setAuthType(6);
         build2.setProtoType(ProtocolType.HTTP);
         build2.setReportConfig(build);
+        build2.setGslbAppId(YY_GSLB_APP_ID);
         build2.setUid(parseLong);
         build2.setToken(currentAccountInfo.getBDUSS());
         build2.setTokenCallback(new IToken() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.17
@@ -307,9 +316,9 @@ public class PayActivityStatic {
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             hashMap.put(entry.getKey(), entry.getValue().toString());
         }
-        g gVar = wxPayCallback;
-        if (gVar != null) {
-            gVar.a(hashMap);
+        IWechatProxyCallback iWechatProxyCallback = wxPayCallback;
+        if (iWechatProxyCallback != null) {
+            iWechatProxyCallback.onSuccess(hashMap);
         }
     }
 
@@ -322,13 +331,13 @@ public class PayActivityStatic {
                 if (customMessage == null || (data = customMessage.getData()) == null) {
                     return null;
                 }
-                final BdUniqueId bdUniqueId = data.f49500a;
-                String str = data.f49502c;
-                int i2 = data.f49501b;
+                final BdUniqueId bdUniqueId = data.f53174a;
+                String str = data.f53176c;
+                int i2 = data.f53175b;
                 if (i2 == 1) {
-                    if (data.f49503d != null) {
+                    if (data.f53177d != null) {
                         PayActivityStatic.initBaiduWallet();
-                        BaiduWallet.getInstance().doPay(data.f49503d, str, new PayCallBack() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.5.1
+                        BaiduWallet.getInstance().doPay(data.f53177d, str, new PayCallBack() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.5.1
                             @Override // com.baidu.android.pay.PayCallBack
                             public boolean isHideLoadingDialog() {
                                 return false;
@@ -337,20 +346,20 @@ public class PayActivityStatic {
                             @Override // com.baidu.android.pay.PayCallBack
                             public void onPayResult(int i3, String str2) {
                                 e eVar = new e();
-                                eVar.f49500a = bdUniqueId;
-                                eVar.f49501b = i3;
-                                eVar.f49502c = str2;
+                                eVar.f53174a = bdUniqueId;
+                                eVar.f53175b = i3;
+                                eVar.f53176c = str2;
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                             }
                         });
                     }
                 } else if (i2 == 2) {
-                    if (data.f49503d != null) {
+                    if (data.f53177d != null) {
                         new BdAsyncTask<String, Integer, Map<String, String>>() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.5.2
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                             public Map<String, String> doInBackground(String... strArr) {
-                                return new PayTask(data.f49503d).payV2(strArr[0], true);
+                                return new PayTask(data.f53177d).payV2(strArr[0], true);
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
@@ -359,7 +368,7 @@ public class PayActivityStatic {
                                 int i3 = -1;
                                 String str2 = null;
                                 for (String str3 : map.keySet()) {
-                                    if (TextUtils.equals(str3, l.f1974a)) {
+                                    if (TextUtils.equals(str3, l.f1987a)) {
                                         i3 = Integer.parseInt(map.get(str3));
                                     } else if (TextUtils.equals(str3, "result")) {
                                         str2 = map.get(str3);
@@ -367,18 +376,18 @@ public class PayActivityStatic {
                                 }
                                 int i4 = i3 == 9000 ? 0 : i3 == 8000 ? 1 : i3 == 6001 ? 2 : 6;
                                 e eVar = new e();
-                                eVar.f49500a = bdUniqueId;
-                                eVar.f49501b = i4;
-                                eVar.f49502c = str2;
+                                eVar.f53174a = bdUniqueId;
+                                eVar.f53175b = i4;
+                                eVar.f53176c = str2;
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                             }
                         }.execute(str);
                     }
                 } else if (i2 == 3) {
-                    if (data.f49503d != null) {
+                    if (data.f53177d != null) {
                         PayActivityStatic.initBaiduWallet();
-                        if (data.f49504e != null && !StringUtils.isNull(data.f49502c)) {
-                            BaiduLBSPay.getInstance().doCallFrontCashierPay(data.f49503d, null, new LBSPayBack() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.5.3
+                        if (data.f53178e != null && !StringUtils.isNull(data.f53176c)) {
+                            BaiduLBSPay.getInstance().doCallFrontCashierPay(data.f53177d, null, new LBSPayBack() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.5.3
                                 @Override // com.baidu.android.lbspay.LBSPayBack
                                 public void onPayResult(int i3, String str2) {
                                     String str3;
@@ -392,17 +401,17 @@ public class PayActivityStatic {
                                         str3 = null;
                                     }
                                     e eVar = new e();
-                                    eVar.f49500a = bdUniqueId;
-                                    eVar.f49501b = i3;
-                                    eVar.f49502c = str3;
+                                    eVar.f53174a = bdUniqueId;
+                                    eVar.f53175b = i3;
+                                    eVar.f53176c = str3;
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                                 }
-                            }, data.f49504e, data.f49502c);
+                            }, data.f53178e, data.f53176c);
                         }
                     }
-                } else if (i2 == 4 && (activity = data.f49503d) != null && data.f49505f != null) {
+                } else if (i2 == 4 && (activity = data.f53177d) != null && data.f53179f != null) {
                     IWXAPI createWXAPI = WXAPIFactory.createWXAPI(activity, TbConfig.WEIXIN_SHARE_APP_ID);
-                    PayReq payReq = PayActivityStatic.getPayReq(data.f49505f);
+                    PayReq payReq = PayActivityStatic.getPayReq(data.f53179f);
                     createWXAPI.registerApp(payReq.appId);
                     createWXAPI.sendReq(payReq);
                 }
@@ -420,7 +429,7 @@ public class PayActivityStatic {
                 if (customMessage.getData() == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921539, new PayTask(customMessage.getData().f49259a).pay(customMessage.getData().f49260b, customMessage.getData().f49261c));
+                return new CustomResponsedMessage<>(2921539, new PayTask(customMessage.getData().f52933a).pay(customMessage.getData().f52934b, customMessage.getData().f52935c));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -442,8 +451,8 @@ public class PayActivityStatic {
                         @Override // com.baidu.android.pay.PayCallBack
                         public void onPayResult(int i2, String str) {
                             e eVar = new e();
-                            eVar.f49501b = i2;
-                            eVar.f49502c = str;
+                            eVar.f53175b = i2;
+                            eVar.f53176c = str;
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921335, eVar));
                         }
                     });
@@ -556,7 +565,7 @@ public class PayActivityStatic {
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                 PayActivityStatic.initBaiduWallet();
-                BaiduWallet.getInstance().gotoWalletService(TbadkApplication.getInst().getContext(), "32", "");
+                BaiduWallet.getInstance().gotoWalletService(TbadkApplication.getInst().getContext(), EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, "");
                 return null;
             }
         });
@@ -705,18 +714,22 @@ public class PayActivityStatic {
                 f data = customMessage.getData();
                 PayActivityStatic.initYYPaySDK();
                 PayActivityStatic.createUIKit();
-                b unused = PayActivityStatic.yyPayResultCallback = data.f49509c;
-                Object obj = data.f49507a;
+                b unused = PayActivityStatic.yyPayResultCallback = data.f53184d;
+                Object obj = data.f53181a;
                 if (!(obj instanceof Activity)) {
                     obj = PayActivityStatic.getCurrentActivity();
                 }
+                IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
+                if (!TextUtils.isEmpty(data.f53183c)) {
+                    viewParams.payAmountDialogTitle = data.f53183c;
+                }
                 if (obj != null) {
-                    if (data.f49508b == 0) {
+                    if (data.f53182b == 0) {
                         PayActivityStatic.yyPayUIKit.startPayDialog((Activity) obj, null, null);
                     } else {
-                        PayActivityStatic.yyPayUIKitYYLive.startPayDialog((Activity) obj, null, new IPayCallback() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.18.1
+                        PayActivityStatic.yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, new IPayCallback() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.18.1
                             @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-                            public void onFail(int i2, String str, d.r.b.a.a.f.b bVar) {
+                            public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
                                 if (PayActivityStatic.yyPayResultCallback != null) {
                                     PayActivityStatic.yyPayResultCallback.onFail(i2, str);
                                 }
@@ -727,28 +740,27 @@ public class PayActivityStatic {
                             }
 
                             @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-                            public void onPayStatus(PurchaseStatus purchaseStatus, d.r.b.a.a.f.b bVar) {
+                            public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
                             }
 
                             @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-                            public void onSuccess(Object obj2, d.r.b.a.a.f.b bVar) {
+                            public void onSuccess(Object obj2, PayCallBackBean payCallBackBean) {
                                 if (PayActivityStatic.yyPayResultCallback != null) {
                                     if (!(obj2 instanceof CurrencyChargeMessage)) {
                                         PayActivityStatic.yyPayResultCallback.a(null);
                                         return;
                                     }
-                                    d.a.m0.l0.g gVar = new d.a.m0.l0.g();
+                                    g gVar = new g();
                                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                                    gVar.f49517h = currencyChargeMessage.status;
-                                    gVar.f49511b = currencyChargeMessage.appid;
-                                    gVar.f49518i = Long.valueOf(currencyChargeMessage.uid);
-                                    gVar.j = currencyChargeMessage.usedChannel;
-                                    gVar.f49513d = currencyChargeMessage.currencyType;
-                                    gVar.f49510a = Long.valueOf(currencyChargeMessage.amount);
-                                    gVar.f49512c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                                    gVar.f49515f = currencyChargeMessage.orderId;
-                                    gVar.f49514e = currencyChargeMessage.expand;
-                                    gVar.f49516g = Boolean.valueOf(currencyChargeMessage.pollingTimeout);
+                                    gVar.f53191g = currencyChargeMessage.status;
+                                    gVar.f53186b = currencyChargeMessage.appid;
+                                    gVar.f53192h = Long.valueOf(currencyChargeMessage.uid);
+                                    gVar.f53193i = currencyChargeMessage.usedChannel;
+                                    gVar.f53188d = currencyChargeMessage.currencyType;
+                                    gVar.f53185a = Long.valueOf(currencyChargeMessage.amount);
+                                    gVar.f53187c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                                    gVar.f53190f = currencyChargeMessage.orderId;
+                                    gVar.f53189e = currencyChargeMessage.expand;
                                     PayActivityStatic.yyPayResultCallback.a(gVar);
                                 }
                             }
@@ -763,34 +775,34 @@ public class PayActivityStatic {
     }
 
     public static void registerYYPayUIKitProxy() {
-        YYPayUIKit.setAlipaySdkProxy(new c() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.14
-            @Override // d.r.b.a.a.i.d.c
-            public void sendPay(long j, Activity activity, String str, d.r.b.a.a.i.d.b bVar) {
+        YYPayUIKit.setAlipaySdkProxy(new IAlipaySdkServiceProxy() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.14
+            @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipaySdkServiceProxy
+            public void sendPay(long j, Activity activity, String str, IAlipayProxyCallback iAlipayProxyCallback) {
                 try {
                     a aVar = new a();
-                    aVar.f49259a = activity;
-                    aVar.f49260b = str;
-                    aVar.f49261c = false;
-                    bVar.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
+                    aVar.f52933a = activity;
+                    aVar.f52934b = str;
+                    aVar.f52935c = false;
+                    iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
                 } catch (Exception e2) {
-                    bVar.a(e2.getMessage());
+                    iAlipayProxyCallback.onFail(e2.getMessage());
                 }
             }
         });
-        YYPayUIKit.setWechatSdkProxy(new h() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.15
-            @Override // d.r.b.a.a.i.d.h
+        YYPayUIKit.setWechatSdkProxy(new IWechatSdkServiceProxy() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.15
+            @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
             public void onWxPayResult(int i2, String str) {
             }
 
-            @Override // d.r.b.a.a.i.d.h
-            public void sendPay(long j, Activity activity, String str, g gVar) {
-                g unused = PayActivityStatic.wxPayCallback = gVar;
+            @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
+            public void sendPay(long j, Activity activity, String str, IWechatProxyCallback iWechatProxyCallback) {
+                IWechatProxyCallback unused = PayActivityStatic.wxPayCallback = iWechatProxyCallback;
                 PayActivityStatic.wxRecharge(str);
             }
         });
-        YYPayUIKit.setDxmPaySdkProxy(new d.r.b.a.a.i.d.e() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.16
-            @Override // d.r.b.a.a.i.d.e
-            public void sendPay(long j, Activity activity, String str, final d.r.b.a.a.i.d.d dVar) {
+        YYPayUIKit.setDxmPaySdkProxy(new IDxmSdkServiceProxy() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.16
+            @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy
+            public void sendPay(long j, Activity activity, String str, final IDxmProxyCallback iDxmProxyCallback) {
                 PayActivityStatic.initBaiduWallet();
                 BaiduWallet.getInstance().doPay(TbadkCoreApplication.getInst(), str, new PayCallBack() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.16.1
                     @Override // com.baidu.android.pay.PayCallBack
@@ -800,7 +812,7 @@ public class PayActivityStatic {
 
                     @Override // com.baidu.android.pay.PayCallBack
                     public void onPayResult(int i2, String str2) {
-                        dVar.onSuccess(i2, str2);
+                        iDxmProxyCallback.onSuccess(i2, str2);
                     }
                 });
             }

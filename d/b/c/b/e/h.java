@@ -8,7 +8,7 @@ import java.lang.ref.WeakReference;
 public class h extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<a> f65832a;
+    public final WeakReference<a> f69563a;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -17,12 +17,12 @@ public class h extends Handler {
 
     public h(Looper looper, a aVar) {
         super(looper);
-        this.f65832a = new WeakReference<>(aVar);
+        this.f69563a = new WeakReference<>(aVar);
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        a aVar = this.f65832a.get();
+        a aVar = this.f69563a.get();
         if (aVar == null || message == null) {
             return;
         }

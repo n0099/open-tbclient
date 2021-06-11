@@ -29,22 +29,22 @@ import java.lang.ref.WeakReference;
 public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f11418e;
+    public b f11480e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FragmentActivity f11419f;
+    public FragmentActivity f11481f;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f11421h;
+    public LinearLayout f11483h;
     public QuickLoginInfo j;
     public String l;
     public String m;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11420g = false;
+    public boolean f11482g = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f11422i = "";
+    public String f11484i = "";
     public boolean k = true;
 
     /* loaded from: classes3.dex */
@@ -55,8 +55,8 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 4) {
-                SwanAppLoginAndGetMobileDialog.this.K0(true);
-                SwanAppLoginAndGetMobileDialog.this.E0();
+                SwanAppLoginAndGetMobileDialog.this.N0(true);
+                SwanAppLoginAndGetMobileDialog.this.H0();
             }
             return true;
         }
@@ -73,24 +73,24 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     public static class c extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Activity> f11424e;
+        public WeakReference<Activity> f11486e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f11425f;
+        public String f11487f;
 
         public c(String str, Activity activity) {
-            this.f11425f = str;
-            this.f11424e = new WeakReference<>(activity);
+            this.f11487f = str;
+            this.f11486e = new WeakReference<>(activity);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            Activity activity = this.f11424e.get();
+            Activity activity = this.f11486e.get();
             if (activity == null) {
                 return;
             }
             Intent intent = new Intent(activity, LoginServiceAgreementActivity.class);
-            intent.putExtra("url", this.f11425f);
+            intent.putExtra("url", this.f11487f);
             activity.startActivity(intent);
         }
 
@@ -101,57 +101,57 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         }
     }
 
-    public void D0(SpannableStringBuilder spannableStringBuilder, int i2, String str, String str2) {
+    public void G0(SpannableStringBuilder spannableStringBuilder, int i2, String str, String str2) {
         spannableStringBuilder.append((CharSequence) str);
-        spannableStringBuilder.setSpan(new c(str2, this.f11419f), i2, spannableStringBuilder.length(), 33);
+        spannableStringBuilder.setSpan(new c(str2, this.f11481f), i2, spannableStringBuilder.length(), 33);
     }
 
-    public void E0() {
-        b bVar = this.f11418e;
+    public void H0() {
+        b bVar = this.f11480e;
         if (bVar != null) {
             bVar.onDialogDismiss(this.k);
         }
         dismissAllowingStateLoss();
     }
 
-    public abstract void F0();
+    public abstract void I0();
 
-    public abstract void G0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
+    public abstract void J0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
 
-    public void H0(boolean z) {
-        this.f11420g = z;
+    public void K0(boolean z) {
+        this.f11482g = z;
         Window window = getDialog().getWindow();
         if (window != null) {
-            window.setBackgroundDrawable(getContext().getResources().getDrawable(this.f11420g ? d.aiapps_login_getmobile_dark_bg : d.aiapps_login_getmobile_bg));
+            window.setBackgroundDrawable(getContext().getResources().getDrawable(this.f11482g ? d.aiapps_login_getmobile_dark_bg : d.aiapps_login_getmobile_bg));
         }
-        N0();
+        Q0();
     }
 
-    public final void I0() {
+    public final void L0() {
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f11422i = arguments.getString("auth_tip");
-            this.f11420g = arguments.getBoolean("is_night");
+            this.f11484i = arguments.getString("auth_tip");
+            this.f11482g = arguments.getBoolean("is_night");
             this.j = (QuickLoginInfo) arguments.getParcelable("quick_login_info");
             this.l = arguments.getString("launch_from");
             this.m = arguments.getString(Constants.APP_ID);
         }
     }
 
-    public void J0(FragmentActivity fragmentActivity) {
-        this.f11419f = fragmentActivity;
+    public void M0(FragmentActivity fragmentActivity) {
+        this.f11481f = fragmentActivity;
     }
 
-    public void K0(boolean z) {
+    public void N0(boolean z) {
         this.k = z;
     }
 
-    public void L0(b bVar) {
-        this.f11418e = bVar;
+    public void O0(b bVar) {
+        this.f11480e = bVar;
     }
 
-    public final void M0(Window window) {
-        window.setBackgroundDrawable(getContext().getResources().getDrawable(this.f11420g ? d.aiapps_login_getmobile_dark_bg : d.aiapps_login_getmobile_bg));
+    public final void P0(Window window) {
+        window.setBackgroundDrawable(getContext().getResources().getDrawable(this.f11482g ? d.aiapps_login_getmobile_dark_bg : d.aiapps_login_getmobile_bg));
         window.getDecorView().setPadding(0, 0, 0, 0);
         window.setFlags(32, 32);
         window.setFlags(262144, 262144);
@@ -163,11 +163,11 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         window.setAttributes(attributes);
     }
 
-    public abstract void N0();
+    public abstract void Q0();
 
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        E0();
+        H0();
         super.onConfigurationChanged(configuration);
     }
 
@@ -179,23 +179,23 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     @Override // androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        I0();
+        L0();
         getDialog().requestWindowFeature(1);
         getDialog().setCanceledOnTouchOutside(true);
         Window window = getDialog().getWindow();
         if (window == null) {
             return null;
         }
-        M0(window);
-        G0(layoutInflater, viewGroup);
-        N0();
-        F0();
-        return this.f11421h;
+        P0(window);
+        J0(layoutInflater, viewGroup);
+        Q0();
+        I0();
+        return this.f11483h;
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
-        b bVar = this.f11418e;
+        b bVar = this.f11480e;
         if (bVar != null) {
             bVar.onDialogDismiss(this.k);
         }
@@ -204,7 +204,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
 
     @Override // androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        b bVar = this.f11418e;
+        b bVar = this.f11480e;
         if (bVar != null) {
             bVar.onDialogDismiss(this.k);
         }
@@ -215,8 +215,8 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     public void onResume() {
         super.onResume();
         boolean a2 = d.a.l0.a.c1.a.H().a();
-        if (a2 != this.f11420g) {
-            H0(a2);
+        if (a2 != this.f11482g) {
+            K0(a2);
         }
     }
 

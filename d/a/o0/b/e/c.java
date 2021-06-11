@@ -11,10 +11,10 @@ public final class c extends f {
     public static int m = 16384;
 
     /* renamed from: h  reason: collision with root package name */
-    public final g f63859h;
+    public final g f67577h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final long f63860i;
+    public final long f67578i;
     public final ByteBuffer j;
     public final UploadDataProvider k = new b();
     public long l;
@@ -26,7 +26,7 @@ public final class c extends f {
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public long n() {
-            return c.this.f63860i;
+            return c.this.f67578i;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -35,7 +35,7 @@ public final class c extends f {
                 byteBuffer.put(c.this.j);
                 c.this.j.clear();
                 uploadDataSink.c(false);
-                c.this.f63859h.quit();
+                c.this.f67577h.quit();
                 return;
             }
             int limit = c.this.j.limit();
@@ -56,9 +56,9 @@ public final class c extends f {
             throw null;
         }
         if (j >= 0) {
-            this.f63860i = j;
+            this.f67578i = j;
             this.j = ByteBuffer.allocate((int) Math.min(j, m));
-            this.f63859h = gVar;
+            this.f67577h = gVar;
             this.l = 0L;
             return;
         }
@@ -66,14 +66,14 @@ public final class c extends f {
     }
 
     public final void A() throws IOException {
-        if (this.l == this.f63860i) {
+        if (this.l == this.f67578i) {
             z();
         }
     }
 
     @Override // d.a.o0.b.e.f
     public void q() throws IOException {
-        if (this.l < this.f63860i) {
+        if (this.l < this.f67578i) {
             throw new ProtocolException("Content received is less than Content-Length.");
         }
     }
@@ -98,10 +98,10 @@ public final class c extends f {
     }
 
     public final void x(int i2) throws ProtocolException {
-        if (this.l + i2 <= this.f63860i) {
+        if (this.l + i2 <= this.f67578i) {
             return;
         }
-        throw new ProtocolException("expected " + (this.f63860i - this.l) + " bytes but received " + i2);
+        throw new ProtocolException("expected " + (this.f67578i - this.l) + " bytes but received " + i2);
     }
 
     public final void y() throws IOException {
@@ -114,7 +114,7 @@ public final class c extends f {
     public final void z() throws IOException {
         o();
         this.j.flip();
-        this.f63859h.a();
+        this.f67577h.a();
         n();
     }
 

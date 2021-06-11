@@ -88,11 +88,11 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         }
     }
 
-    public t0 t() {
+    public t0 u() {
         return this.n;
     }
 
-    public void u(o oVar) {
+    public void v(o oVar) {
         t0 t0Var = this.n;
         if (t0Var != null) {
             t0Var.z(oVar);

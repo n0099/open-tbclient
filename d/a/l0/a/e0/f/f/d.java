@@ -9,7 +9,7 @@ import d.a.l0.a.v2.v;
 public class d implements d.a.l0.a.e0.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41477a;
+    public static String f45153a;
 
     public static void d() {
         e i2 = e.i();
@@ -21,19 +21,19 @@ public class d implements d.a.l0.a.e0.f.a {
     }
 
     public static String e() {
-        return f41477a;
+        return f45153a;
     }
 
     @Override // d.a.l0.a.e0.f.a
     public void a(Bundle bundle) {
-        f41477a = v.i(bundle, "extraWSUrl");
+        f45153a = v.i(bundle, "extraWSUrl");
         d.a.l0.a.e0.f.b.i(v.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
         d.a.l0.a.e0.f.b.j(v.i(bundle, "slavePreload"));
     }
 
     @Override // d.a.l0.a.e0.f.a
     public void b(Bundle bundle) {
-        bundle.putString("extraWSUrl", f41477a);
+        bundle.putString("extraWSUrl", f45153a);
         bundle.putString("slavePreload", d.a.l0.a.e0.f.b.c());
         bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, d.a.l0.a.e0.f.b.a());
     }

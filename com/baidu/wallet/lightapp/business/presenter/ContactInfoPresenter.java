@@ -20,30 +20,30 @@ import java.util.List;
 public class ContactInfoPresenter {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f24761a;
+    public Activity f24864a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LightappBusinessClient f24762b;
+    public LightappBusinessClient f24865b;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24764d = "";
+    public String f24867d = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24763c = a();
+    public int f24866c = a();
 
     public ContactInfoPresenter(Activity activity, LightappBusinessClient lightappBusinessClient) {
-        this.f24761a = activity;
-        this.f24762b = lightappBusinessClient;
+        this.f24864a = activity;
+        this.f24865b = lightappBusinessClient;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        this.f24761a = null;
-        this.f24762b = null;
+        this.f24864a = null;
+        this.f24865b = null;
     }
 
     public String b() {
-        return ResUtils.getString(this.f24761a, "wallet_base_select_phone_fail");
+        return ResUtils.getString(this.f24864a, "wallet_base_select_phone_fail");
     }
 
     public void onModuleEvent(EventBus.Event event) {
@@ -51,25 +51,25 @@ public class ContactInfoPresenter {
             return;
         }
         String str = (String) event.mEventObj;
-        LightappBusinessClient lightappBusinessClient = this.f24762b;
+        LightappBusinessClient lightappBusinessClient = this.f24865b;
         if (lightappBusinessClient != null) {
-            String[] strArr = {StringUtils.trimAll(this.f24764d), StringUtils.trimAll(str)};
-            lightappBusinessClient.onContactsSelected("", 0, strArr, "", this.f24763c + "");
+            String[] strArr = {StringUtils.trimAll(this.f24867d), StringUtils.trimAll(str)};
+            lightappBusinessClient.onContactsSelected("", 0, strArr, "", this.f24866c + "");
             c();
         }
     }
 
     public int a() {
-        if (this.f24761a == null) {
+        if (this.f24864a == null) {
             return 0;
         }
-        return ContactManager.getIContactsImpl().countOfContacts(this.f24761a);
+        return ContactManager.getIContactsImpl().countOfContacts(this.f24864a);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     public void a(Uri uri) {
         ArrayList arrayList = new ArrayList();
-        Activity activity = this.f24761a;
+        Activity activity = this.f24864a;
         if (activity == null) {
             c();
             return;
@@ -81,23 +81,23 @@ public class ContactInfoPresenter {
                 cursor = contentResolver.query(uri, new String[]{"data1", "display_name", "data2"}, null, null, null);
                 if (cursor != null && cursor.moveToFirst()) {
                     String string = cursor.getString(cursor.getColumnIndex("data1"));
-                    this.f24764d = cursor.getString(cursor.getColumnIndex("display_name"));
+                    this.f24867d = cursor.getString(cursor.getColumnIndex("display_name"));
                     int i2 = cursor.getInt(cursor.getColumnIndex("data2"));
                     ContactInfo.Phone phone = new ContactInfo.Phone();
                     phone.number = string;
                     phone.type = i2;
                     arrayList.add(phone);
                 }
-                a(this.f24764d, arrayList);
+                a(this.f24867d, arrayList);
                 if (cursor == null) {
                     return;
                 }
             } catch (Exception e2) {
                 PayStatisticsUtil.onEventWithValue("read_contact_exception", a(e2));
-                if (this.f24762b != null) {
-                    LightappBusinessClient lightappBusinessClient = this.f24762b;
+                if (this.f24865b != null) {
+                    LightappBusinessClient lightappBusinessClient = this.f24865b;
                     String b2 = b();
-                    lightappBusinessClient.onContactsSelected("", 1, null, b2, this.f24763c + "");
+                    lightappBusinessClient.onContactsSelected("", 1, null, b2, this.f24866c + "");
                 }
                 c();
                 if (cursor == null) {
@@ -125,13 +125,13 @@ public class ContactInfoPresenter {
     }
 
     private void a(String str, List<ContactInfo.Phone> list) {
-        final PhoneNumberSelectDialog phoneNumberSelectDialog = new PhoneNumberSelectDialog(this.f24761a);
+        final PhoneNumberSelectDialog phoneNumberSelectDialog = new PhoneNumberSelectDialog(this.f24864a);
         if (list != null && list.size() != 0) {
             if (list.size() == 1) {
-                LightappBusinessClient lightappBusinessClient = this.f24762b;
+                LightappBusinessClient lightappBusinessClient = this.f24865b;
                 if (lightappBusinessClient != null) {
                     String[] strArr = {StringUtils.trimAll(str), StringUtils.trimAll(list.get(0).number)};
-                    lightappBusinessClient.onContactsSelected("", 0, strArr, "", this.f24763c + "");
+                    lightappBusinessClient.onContactsSelected("", 0, strArr, "", this.f24866c + "");
                 }
                 c();
                 return;
@@ -149,10 +149,10 @@ public class ContactInfoPresenter {
             phoneNumberSelectDialog.show();
             return;
         }
-        LightappBusinessClient lightappBusinessClient2 = this.f24762b;
+        LightappBusinessClient lightappBusinessClient2 = this.f24865b;
         if (lightappBusinessClient2 != null) {
             String b2 = b();
-            lightappBusinessClient2.onContactsSelected("", 1, null, b2, this.f24763c + "");
+            lightappBusinessClient2.onContactsSelected("", 1, null, b2, this.f24866c + "");
         }
         c();
     }

@@ -17,75 +17,75 @@ import tbclient.SmartApp;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public PbFragment f53090a;
+    public PbFragment f56779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f53091b;
+    public View.OnClickListener f56780b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f53092c;
+    public RelativeLayout f56781c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HeadImageView f53093d;
+    public HeadImageView f56782d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f53094e;
+    public TextView f56783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f53095f;
+    public TextView f56784f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f53096g;
+    public ImageView f56785g;
 
     public b(PbFragment pbFragment, View.OnClickListener onClickListener) {
-        this.f53091b = null;
-        this.f53090a = pbFragment;
-        this.f53091b = onClickListener;
+        this.f56780b = null;
+        this.f56779a = pbFragment;
+        this.f56780b = onClickListener;
         b();
     }
 
     public void a(BdTypeListView bdTypeListView, int i2) {
         RelativeLayout relativeLayout;
-        if (bdTypeListView == null || (relativeLayout = this.f53092c) == null) {
+        if (bdTypeListView == null || (relativeLayout = this.f56781c) == null) {
             return;
         }
         bdTypeListView.x(relativeLayout, i2);
     }
 
     public void b() {
-        if (this.f53092c != null) {
+        if (this.f56781c != null) {
             return;
         }
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f53090a.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
-        this.f53092c = relativeLayout;
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f56779a.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
+        this.f56781c = relativeLayout;
         HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.iv_pb_video_smart_app_head);
-        this.f53093d = headImageView;
+        this.f56782d = headImageView;
         headImageView.setIsRound(true);
-        this.f53093d.setPlaceHolder(1);
-        this.f53094e = (TextView) this.f53092c.findViewById(R.id.tv_pb_video_smart_app_title);
-        this.f53095f = (TextView) this.f53092c.findViewById(R.id.tv_pb_video_smart_app_abstract);
-        this.f53096g = (ImageView) this.f53092c.findViewById(R.id.iv_pb_video_smart_app_arrow);
-        this.f53092c.setOnClickListener(this.f53091b);
+        this.f56782d.setPlaceHolder(1);
+        this.f56783e = (TextView) this.f56781c.findViewById(R.id.tv_pb_video_smart_app_title);
+        this.f56784f = (TextView) this.f56781c.findViewById(R.id.tv_pb_video_smart_app_abstract);
+        this.f56785g = (ImageView) this.f56781c.findViewById(R.id.iv_pb_video_smart_app_arrow);
+        this.f56781c.setOnClickListener(this.f56780b);
     }
 
     public void c(int i2) {
-        RelativeLayout relativeLayout = this.f53092c;
+        RelativeLayout relativeLayout = this.f56781c;
         if (relativeLayout != null) {
             SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0204);
         }
-        HeadImageView headImageView = this.f53093d;
+        HeadImageView headImageView = this.f56782d;
         if (headImageView != null) {
             headImageView.setIsNight(i2 == 1);
         }
-        TextView textView = this.f53094e;
+        TextView textView = this.f56783e;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
         }
-        TextView textView2 = this.f53095f;
+        TextView textView2 = this.f56784f;
         if (textView2 != null) {
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0107);
         }
-        ImageView imageView = this.f53096g;
+        ImageView imageView = this.f56785g;
         if (imageView != null) {
             SkinManager.setBackgroundResource(imageView, R.drawable.icon_common_arrow16_right_n);
         }
@@ -93,7 +93,7 @@ public class b {
 
     public void d(BdTypeListView bdTypeListView) {
         RelativeLayout relativeLayout;
-        if (bdTypeListView == null || (relativeLayout = this.f53092c) == null) {
+        if (bdTypeListView == null || (relativeLayout = this.f56781c) == null) {
             return;
         }
         bdTypeListView.removeHeaderView(relativeLayout);
@@ -104,29 +104,29 @@ public class b {
         if (eVar == null || bdTypeListView == null) {
             return;
         }
-        if (eVar.L().C2() && eVar.L().k1() != null) {
-            SmartApp k1 = eVar.L().k1();
-            this.f53092c.setVisibility(0);
+        if (eVar.L().D2() && eVar.L().l1() != null) {
+            SmartApp l1 = eVar.L().l1();
+            this.f56781c.setVisibility(0);
             d(bdTypeListView);
             a(bdTypeListView, 1);
-            if (!k.isEmpty(k1.avatar)) {
-                this.f53093d.W(k1.avatar, 10, false, false);
+            if (!k.isEmpty(l1.avatar)) {
+                this.f56782d.V(l1.avatar, 10, false, false);
             }
-            if (!k.isEmpty(k1.name)) {
-                charSequence = k1.name + " " + ((Object) this.f53090a.getText(R.string.smart_app_suffix));
+            if (!k.isEmpty(l1.name)) {
+                charSequence = l1.name + " " + ((Object) this.f56779a.getText(R.string.smart_app_suffix));
             } else {
-                charSequence = this.f53090a.getText(R.string.intelligent_smart_app).toString();
+                charSequence = this.f56779a.getText(R.string.intelligent_smart_app).toString();
             }
-            this.f53094e.setText(charSequence);
-            if (!k.isEmpty(k1._abstract)) {
-                this.f53095f.setText(k1._abstract);
+            this.f56783e.setText(charSequence);
+            if (!k.isEmpty(l1._abstract)) {
+                this.f56784f.setText(l1._abstract);
             } else {
-                this.f53095f.setText(this.f53090a.getText(R.string.smart_app_default_abstract));
+                this.f56784f.setText(this.f56779a.getText(R.string.smart_app_default_abstract));
             }
-            this.f53092c.setTag(k1);
+            this.f56781c.setTag(l1);
             return;
         }
-        this.f53092c.setVisibility(8);
+        this.f56781c.setVisibility(8);
         d(bdTypeListView);
     }
 }

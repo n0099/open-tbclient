@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.adp.BdUniqueId;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class GroupPermData implements n, Serializable {
@@ -63,7 +63,7 @@ public class GroupPermData implements n, Serializable {
         return this.isManager;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return TYPE_FRS_CREATE_GROUP;
     }

@@ -6,9 +6,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.R;
 import com.squareup.wire.Wire;
-import d.a.c.j.e.n;
-import d.a.n0.b1.j.b.c.a;
-import d.a.n0.b1.j.b.c.c;
+import d.a.c.k.e.n;
+import d.a.n0.b1.k.b.c.a;
+import d.a.n0.b1.k.b.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.DataRes;
@@ -48,13 +48,13 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                 aVar.a0(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f51998e = R.dimen.tbds1;
-                cVar.f51999f = R.color.CAM_X0203;
+                cVar.f55687e = R.dimen.tbds1;
+                cVar.f55688f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f51998e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f55687e = 0;
     }
 }

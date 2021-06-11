@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public Hashtable<String, String> f50525a = new Hashtable<>();
+    public Hashtable<String, String> f54201a = new Hashtable<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Hashtable<String, String> f50526b = new Hashtable<>();
+    public Hashtable<String, String> f54202b = new Hashtable<>();
 
     public final void a(Hashtable hashtable, JSONArray jSONArray) {
         int length = jSONArray.length();
@@ -39,9 +39,9 @@ public class u {
         }
         String str2 = null;
         if (i2 == 1) {
-            str2 = this.f50526b.get(str);
+            str2 = this.f54202b.get(str);
         } else if (i2 == 2) {
-            str2 = this.f50525a.get(str);
+            str2 = this.f54201a.get(str);
         }
         if (StringUtils.isNull(str2)) {
             return true;
@@ -57,10 +57,10 @@ public class u {
             JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
             JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
             BdLog.e("consumepath is:" + jSONObject.toString());
-            a(this.f50525a, optJSONArray);
-            a(this.f50526b, optJSONArray2);
-            BdLog.e("pay mPayCashierType:" + this.f50525a.toString());
-            BdLog.e("pay mPayCashierType:" + this.f50526b.toString());
+            a(this.f54201a, optJSONArray);
+            a(this.f54202b, optJSONArray2);
+            BdLog.e("pay mPayCashierType:" + this.f54201a.toString());
+            BdLog.e("pay mPayCashierType:" + this.f54202b.toString());
         } catch (Exception e2) {
             e2.printStackTrace();
         }

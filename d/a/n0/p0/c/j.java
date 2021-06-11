@@ -3,41 +3,41 @@ package d.a.n0.p0.c;
 import com.baidu.adp.BdUniqueId;
 import tbclient.MemberGroupInfo;
 /* loaded from: classes4.dex */
-public class j implements d.a.c.j.e.n {
+public class j implements d.a.c.k.e.n {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f58004g = BdUniqueId.gen();
+    public static final BdUniqueId f61695g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public MemberGroupInfo f58005e;
+    public MemberGroupInfo f61696e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58006f;
+    public String f61697f;
 
-    public String c() {
-        return this.f58006f;
+    public String b() {
+        return this.f61697f;
     }
 
-    public MemberGroupInfo e() {
-        return this.f58005e;
+    public MemberGroupInfo c() {
+        return this.f61696e;
     }
 
-    public void f(String str) {
-        this.f58006f = str;
+    public void e(String str) {
+        this.f61697f = str;
     }
 
-    @Override // d.a.c.j.e.n
+    public void g(String str) {
+    }
+
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f58004g;
+        return f61695g;
     }
 
-    public void h(String str) {
+    public void h(MemberGroupInfo memberGroupInfo) {
+        this.f61696e = memberGroupInfo;
     }
 
-    public void i(MemberGroupInfo memberGroupInfo) {
-        this.f58005e = memberGroupInfo;
-    }
-
-    public void k(boolean z) {
+    public void i(boolean z) {
     }
 }

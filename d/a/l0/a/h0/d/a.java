@@ -9,37 +9,37 @@ import java.util.ArrayList;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41958a = k.f43199a;
+    public static final boolean f45634a = k.f46875a;
 
     /* renamed from: d.a.l0.a.h0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0645a {
+    public static class C0701a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41959a;
+        public int f45635a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f41960b;
+        public int f45636b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f41961c;
+        public long f45637c;
     }
 
     /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f41962a = k.f43199a;
+        public static final boolean f45638a = k.f46875a;
 
-        public static C0645a a() {
-            C0645a c0645a = new C0645a();
-            c0645a.f41959a = c();
-            c0645a.f41960b = d();
-            c0645a.f41961c = b();
-            if (f41962a) {
-                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0645a.f41959a + " ,sizeLimit: " + c0645a.f41960b + " ,diskSizeThreshold: " + c0645a.f41961c);
+        public static C0701a a() {
+            C0701a c0701a = new C0701a();
+            c0701a.f45635a = c();
+            c0701a.f45636b = d();
+            c0701a.f45637c = b();
+            if (f45638a) {
+                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0701a.f45635a + " ,sizeLimit: " + c0701a.f45636b + " ,diskSizeThreshold: " + c0701a.f45637c);
             }
-            return c0645a;
+            return c0701a;
         }
 
         public static long b() {
@@ -66,12 +66,12 @@ public final class a {
             codeCacheSetting.maxCount = 20;
             codeCacheSetting.sizeLimit = 102400;
         } else {
-            C0645a a2 = b.a();
-            codeCacheSetting.maxCount = a2.f41959a;
-            codeCacheSetting.sizeLimit = a2.f41960b;
-            codeCacheSetting.diskCodeCacheSizeThreshold = a2.f41961c;
+            C0701a a2 = b.a();
+            codeCacheSetting.maxCount = a2.f45635a;
+            codeCacheSetting.sizeLimit = a2.f45636b;
+            codeCacheSetting.diskCodeCacheSizeThreshold = a2.f45637c;
         }
-        if (f41958a) {
+        if (f45634a) {
             Log.d("V8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
             Log.d("V8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
             Log.d("V8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);

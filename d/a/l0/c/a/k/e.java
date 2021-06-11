@@ -11,24 +11,24 @@ public class e {
     public class a extends ResponseCallback<byte[]> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f46514a;
+        public final /* synthetic */ b f50188a;
 
         /* renamed from: d.a.l0.c.a.k.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0962a implements Runnable {
+        public class RunnableC1018a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ byte[] f46515e;
+            public final /* synthetic */ byte[] f50189e;
 
-            public RunnableC0962a(byte[] bArr) {
-                this.f46515e = bArr;
+            public RunnableC1018a(byte[] bArr) {
+                this.f50189e = bArr;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b bVar = a.this.f46514a;
+                b bVar = a.this.f50188a;
                 if (bVar != null) {
-                    bVar.a(true, this.f46515e);
+                    bVar.a(true, this.f50189e);
                 }
             }
         }
@@ -40,7 +40,7 @@ public class e {
 
             @Override // java.lang.Runnable
             public void run() {
-                b bVar = a.this.f46514a;
+                b bVar = a.this.f50188a;
                 if (bVar != null) {
                     bVar.a(false, null);
                 }
@@ -48,14 +48,14 @@ public class e {
         }
 
         public a(e eVar, b bVar) {
-            this.f46514a = bVar;
+            this.f50188a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(byte[] bArr, int i2) {
-            q.k(new RunnableC0962a(bArr), "HandshakeRequest");
+            q.k(new RunnableC1018a(bArr), "HandshakeRequest");
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -79,6 +79,6 @@ public class e {
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/octet-stream");
         hashMap.put("Bdtls", "Bdtls");
-        d.a.l0.m.e.a.g().postByteRequest().url(d.a.l0.c.a.b.f46451b).cookieManager(d.a.l0.a.c1.a.p().a()).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
+        d.a.l0.m.e.a.g().postByteRequest().url(d.a.l0.c.a.b.f50125b).cookieManager(d.a.l0.a.c1.a.p().a()).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
     }
 }

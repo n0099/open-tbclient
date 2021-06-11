@@ -11,11 +11,11 @@ import d.a.m0.r.d0.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f49217a = false;
+    public static boolean f52891a = false;
 
     static {
         boolean z = b.j().k("key_lcs_log_switch", 0) == 1;
-        f49217a = z;
+        f52891a = z;
         if (z) {
             a();
         }
@@ -34,7 +34,7 @@ public class a {
     }
 
     public static void c(int i2, int i3, int i4, int i5, int i6, int i7) {
-        if (f49217a) {
+        if (f52891a) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
             httpMessage.addParam("cmd", i2);
             httpMessage.addParam("lcs_status", i3);

@@ -8,10 +8,10 @@ import d.a.m0.w.m;
 public class a extends m {
     public a(Context context, int i2) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.pb_vote_text), 32, i2);
-        this.f50850d = R.drawable.ic_icon_pure_more_vote60_svg;
-        this.f50852f = R.drawable.icon_pure_post_more_vote64;
-        this.f50853g = false;
-        this.f50855i = true;
+        this.f54527d = R.drawable.ic_icon_pure_more_vote60_svg;
+        this.f54529f = R.drawable.icon_pure_post_more_vote64;
+        this.f54530g = false;
+        this.f54532i = true;
         this.n = new int[]{22};
     }
 }

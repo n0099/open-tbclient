@@ -22,36 +22,36 @@ import java.lang.reflect.Method;
 public class b {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f45658i = j();
+    public static final boolean f49332i = j();
     public static int j;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f45659a;
+    public Activity f49333a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f45660b;
+    public ViewGroup f49334b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public View f45661c;
+    public View f49335c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public View f45662d;
+    public View f49336d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45663e;
+    public int f49337e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f45664f;
+    public boolean f49338f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.l0.a.w2.d.a f45665g;
+    public d.a.l0.a.w2.d.a f49339g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnSystemUiVisibilityChangeListener f45666h;
+    public View.OnSystemUiVisibilityChangeListener f49340h;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnSystemUiVisibilityChangeListener {
@@ -102,27 +102,27 @@ public class b {
 
     public final void c() {
         int f2 = f();
-        this.f45665g = b(f2, g(f2), false, false, true);
+        this.f49339g = b(f2, g(f2), false, false, true);
     }
 
     @NonNull
     public d.a.l0.a.w2.d.a d() {
-        if (this.f45665g == null) {
+        if (this.f49339g == null) {
             c();
         }
-        return this.f45665g;
+        return this.f49339g;
     }
 
     @Nullable
     public View e() {
-        return this.f45662d;
+        return this.f49336d;
     }
 
     public final int f() {
         if (Build.VERSION.SDK_INT >= 21) {
-            return this.f45659a.getResources().getColor(c.aiapps_statusbar_immersion_bg);
+            return this.f49333a.getResources().getColor(c.aiapps_statusbar_immersion_bg);
         }
-        return this.f45659a.getResources().getColor(c.aiapps_statusbar_immersion_bg_below_lollipop);
+        return this.f49333a.getResources().getColor(c.aiapps_statusbar_immersion_bg_below_lollipop);
     }
 
     public final int g(int i2) {
@@ -133,25 +133,25 @@ public class b {
     }
 
     public final View h(@NonNull d.a.l0.a.w2.d.a aVar) {
-        if (aVar.f45650g) {
-            View view = this.f45662d;
+        if (aVar.f49324g) {
+            View view = this.f49336d;
             if (view != null) {
-                if (aVar.f45648e) {
+                if (aVar.f49322e) {
                     return view;
                 }
-                this.f45660b.removeView(view);
-                this.f45662d = null;
+                this.f49334b.removeView(view);
+                this.f49336d = null;
                 return null;
-            } else if (!aVar.f45648e) {
-                this.f45662d = null;
+            } else if (!aVar.f49322e) {
+                this.f49336d = null;
                 return null;
             } else {
                 int u = n0.u();
-                View view2 = new View(this.f45659a);
+                View view2 = new View(this.f49333a);
                 view2.setTag("IMMERSION_VIEW");
                 view2.setId(f.immersion_custom_statusbar_view);
-                this.f45660b.addView(view2, new ViewGroup.LayoutParams(-1, u));
-                this.f45662d = view2;
+                this.f49334b.addView(view2, new ViewGroup.LayoutParams(-1, u));
+                this.f49336d = view2;
                 return view2;
             }
         }
@@ -159,12 +159,12 @@ public class b {
     }
 
     public boolean i() {
-        return this.f45664f;
+        return this.f49338f;
     }
 
     public void k() {
-        this.f45665g = null;
-        this.f45663e = 1;
+        this.f49339g = null;
+        this.f49337e = 1;
     }
 
     public void l() {
@@ -177,19 +177,19 @@ public class b {
 
     public void n(int i2, boolean z, boolean z2, boolean z3) {
         d.a.l0.a.w2.d.a b2;
-        if (f45658i) {
+        if (f49332i) {
             if (i2 == 1) {
-                if (this.f45663e != 1) {
+                if (this.f49337e != 1) {
                     k();
                 }
-                this.f45663e = i2;
+                this.f49337e = i2;
                 b2 = d();
             } else {
-                this.f45663e = i2;
+                this.f49337e = i2;
                 b2 = b(i2, g(i2), z3, z, z2);
-                this.f45665g = b2;
+                this.f49339g = b2;
             }
-            this.f45664f = z;
+            this.f49338f = z;
             o(b2);
         }
     }
@@ -201,21 +201,21 @@ public class b {
             r();
             s(aVar);
         }
-        View view = this.f45661c;
+        View view = this.f49335c;
         if (view != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
-            if (aVar.f45649f) {
+            if (aVar.f49323f) {
                 layoutParams.topMargin = 0;
             } else {
                 layoutParams.topMargin = n0.u();
             }
-            this.f45661c.setLayoutParams(layoutParams);
+            this.f49335c.setLayoutParams(layoutParams);
         }
     }
 
     public final void p(d.a.l0.a.w2.d.a aVar) {
         try {
-            Window window = this.f45659a.getWindow();
+            Window window = this.f49333a.getWindow();
             window.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             WindowManager.LayoutParams attributes = window.getAttributes();
             Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
@@ -224,9 +224,9 @@ public class b {
             declaredField2.setAccessible(true);
             int i2 = declaredField.getInt(null);
             int i3 = declaredField2.getInt(attributes);
-            declaredField2.setInt(attributes, aVar.f45647d ? i2 | i3 : (~i2) & i3);
+            declaredField2.setInt(attributes, aVar.f49321d ? i2 | i3 : (~i2) & i3);
             window.setAttributes(attributes);
-            int i4 = aVar.f45645b;
+            int i4 = aVar.f49319b;
             if (i4 == 1) {
                 i4 = f();
             }
@@ -261,7 +261,7 @@ public class b {
 
     @SuppressLint({"ObsoleteSdkInt"})
     public final void r() {
-        Window window = this.f45659a.getWindow();
+        Window window = this.f49333a.getWindow();
         window.clearFlags(1024);
         int i2 = Build.VERSION.SDK_INT;
         if (i2 < 21) {
@@ -276,37 +276,37 @@ public class b {
         if (j != 1) {
             return;
         }
-        q(window, d().f45647d);
+        q(window, d().f49321d);
     }
 
     @SuppressLint({"InlinedApi"})
     public final void s(d.a.l0.a.w2.d.a aVar) {
-        Window window = this.f45659a.getWindow();
-        boolean z = aVar.f45646c;
-        int i2 = aVar.f45647d ? 13312 : 5120;
-        int i3 = !aVar.f45648e ? i2 & (-257) : i2 | 256;
-        int i4 = aVar.f45645b;
+        Window window = this.f49333a.getWindow();
+        boolean z = aVar.f49320c;
+        int i2 = aVar.f49321d ? 13312 : 5120;
+        int i3 = !aVar.f49322e ? i2 & (-257) : i2 | 256;
+        int i4 = aVar.f49319b;
         if (i4 == 1) {
             i4 = f();
         }
         window.getDecorView().setSystemUiVisibility(i3);
         if (Build.VERSION.SDK_INT >= 21) {
-            window.setStatusBarColor(aVar.f45644a);
+            window.setStatusBarColor(aVar.f49318a);
         }
         View h2 = h(aVar);
         if (h2 != null) {
             h2.setBackgroundColor(i4);
         }
-        if (this.f45666h == null) {
-            this.f45666h = new a(this);
-            window.getDecorView().setOnSystemUiVisibilityChangeListener(this.f45666h);
+        if (this.f49340h == null) {
+            this.f49340h = new a(this);
+            window.getDecorView().setOnSystemUiVisibilityChangeListener(this.f49340h);
         }
     }
 
     public b(@NonNull Activity activity, @NonNull ViewGroup viewGroup) {
-        this.f45663e = 1;
-        this.f45659a = activity;
-        this.f45660b = viewGroup;
-        this.f45661c = viewGroup.getChildAt(0);
+        this.f49337e = 1;
+        this.f49333a = activity;
+        this.f49334b = viewGroup;
+        this.f49335c = viewGroup.getChildAt(0);
     }
 }

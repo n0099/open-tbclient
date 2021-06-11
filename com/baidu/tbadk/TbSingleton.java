@@ -94,6 +94,7 @@ public final class TbSingleton {
     public LinkedList<d.a.m0.g.a> mVideoWatchTimeRecord;
     public String mWalletSignLink;
     public YYLiveConfig mYYLiveConfig;
+    public d.a.n0.y3.a mYYLiveTabConfig;
     public String schemaForStartOtherAppAfterSwanApp;
     public e syncModel;
     public String videoTestType;
@@ -107,6 +108,8 @@ public final class TbSingleton {
     public boolean hasShowPermDlg = false;
     public boolean isNewUser = false;
     public boolean mHasAgreeToPlay = false;
+    public boolean mTipsAutoPlayInVideoChannel = false;
+    public boolean mTipsAutoPlayInVideoMiddle = false;
     public e0 mShakeData = null;
     public String invokeSource = "";
     public boolean mFrsRootViewLoadingShow = false;
@@ -501,6 +504,10 @@ public final class TbSingleton {
         return this.mYYLiveConfig;
     }
 
+    public d.a.n0.y3.a getYYLiveTabConfig() {
+        return this.mYYLiveTabConfig;
+    }
+
     public boolean hasAgreeToPlay() {
         return this.mHasAgreeToPlay;
     }
@@ -640,6 +647,14 @@ public final class TbSingleton {
 
     public boolean isSlideAnimLocalSwitchOn() {
         return d.a.m0.r.d0.b.j().g("local_slide_animation__switch", false);
+    }
+
+    public boolean isTipsAutoPlayInVideoChannel() {
+        return this.mTipsAutoPlayInVideoChannel;
+    }
+
+    public boolean isTipsAutoPlayInVideoMiddle() {
+        return this.mTipsAutoPlayInVideoMiddle;
     }
 
     public boolean isUploadOffPack() {
@@ -1007,6 +1022,14 @@ public final class TbSingleton {
         j.t("key_is_yy_live" + TbadkCoreApplication.getCurrentAccount(), z);
     }
 
+    public void setTipsAutoPlayInVideoChannel(boolean z) {
+        this.mTipsAutoPlayInVideoChannel = z;
+    }
+
+    public void setTipsAutoPlayInVideoMiddle(boolean z) {
+        this.mTipsAutoPlayInVideoMiddle = z;
+    }
+
     public void setUploadAndClearModule(d.a.n0.r2.d.b bVar) {
         this.mUploadAndClearModule = bVar;
     }
@@ -1029,6 +1052,10 @@ public final class TbSingleton {
 
     public void setYYLiveConfig(YYLiveConfig yYLiveConfig) {
         this.mYYLiveConfig = yYLiveConfig;
+    }
+
+    public void setYYLiveTabConfig(d.a.n0.y3.a aVar) {
+        this.mYYLiveTabConfig = aVar;
     }
 
     public void setYyCloudSwitch(String str) {

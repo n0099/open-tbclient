@@ -3,7 +3,7 @@ package org.apache.http.cookie;
 import java.util.List;
 import org.apache.http.Header;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface CookieSpec {
     List<Header> formatCookies(List<Cookie> list);
 

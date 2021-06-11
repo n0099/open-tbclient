@@ -6,26 +6,26 @@ import com.baidu.searchbox.v8engine.JsObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.l0.c f47762a;
+    public d.a.l0.a.l0.c f51436a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f47763b;
+    public b f51437b;
 
     public a(d.a.l0.a.l0.c cVar) {
-        this.f47762a = cVar;
+        this.f51436a = cVar;
     }
 
     public c a(JsObject jsObject) {
-        c cVar = new c(b(), this.f47762a);
+        c cVar = new c(b(), this.f51436a);
         cVar.D(jsObject);
         return cVar;
     }
 
     @NonNull
     public final b b() {
-        if (this.f47763b == null) {
-            this.f47763b = new b();
+        if (this.f51437b == null) {
+            this.f51437b = new b();
         }
-        return this.f47763b;
+        return this.f51437b;
     }
 }

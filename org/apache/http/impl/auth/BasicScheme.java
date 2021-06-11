@@ -6,7 +6,7 @@ import org.apache.http.auth.AuthenticationException;
 import org.apache.http.auth.Credentials;
 import org.apache.http.auth.MalformedChallengeException;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BasicScheme extends RFC2617Scheme {
     public BasicScheme() {
         throw new RuntimeException("Stub!");

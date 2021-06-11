@@ -11,8 +11,8 @@ public class c extends e {
         if (e.j) {
             Log.d("GamenowAppEvent", "setCommonData: " + aVar.a());
         }
-        this.f43185a = aVar.f46942a;
-        this.f43190f = aVar.f46944c;
-        this.f43187c = aVar.f46943b;
+        this.f46861a = aVar.f50616a;
+        this.f46866f = aVar.f50618c;
+        this.f46863c = aVar.f50617b;
     }
 }

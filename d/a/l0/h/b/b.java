@@ -19,7 +19,7 @@ public class b extends EventTargetImpl {
         jSONObject.put("msg", str);
         JSEvent jSEvent = new JSEvent("antiaddiction");
         jSEvent.data = jSONObject;
-        if (k.f43199a) {
+        if (k.f46875a) {
             Log.d("AntiAddictionApi", "result: " + jSONObject.toString());
         }
         dispatchEvent(jSEvent);

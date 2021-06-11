@@ -14,37 +14,37 @@ import org.json.JSONObject;
 public class b extends ActivityDelegation {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f47028d = k.f43199a;
+    public static final boolean f50702d = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47029a;
+    public String f50703a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f47030b;
+    public JSONObject f50704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f47031c = new d();
+    public d f50705c = new d();
 
     /* renamed from: d.a.l0.g.c.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0999b implements Runnable {
+    public static class RunnableC1055b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f47032e;
+        public String f50706e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f47033f;
+        public String f50707f;
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.g.c.a.n().t(this.f47033f);
-            d.a.l0.g.c.a.n().l(this.f47032e);
+            d.a.l0.g.c.a.n().t(this.f50707f);
+            d.a.l0.g.c.a.n().l(this.f50706e);
             d.a.l0.g.c.a.n().k();
         }
 
-        public RunnableC0999b(String str, String str2) {
-            this.f47032e = str;
-            this.f47033f = str2;
+        public RunnableC1055b(String str, String str2) {
+            this.f50706e = str;
+            this.f50707f = str2;
         }
     }
 
@@ -52,29 +52,29 @@ public class b extends ActivityDelegation {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public JSONObject f47034e;
+        public JSONObject f50708e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONObject f47035f;
+        public JSONObject f50709f;
 
         /* renamed from: g  reason: collision with root package name */
-        public d.a.l0.g.c.f.a f47036g;
+        public d.a.l0.g.c.f.a f50710g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Activity f47037h;
+        public Activity f50711h;
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.g.c.a.n().G(this.f47035f);
-            d.a.l0.g.c.i.c.a(this.f47034e.optString("packageName"), "installApp", null, null, new d.a.l0.g.c.i.a(this.f47035f));
-            b.d(this.f47037h, this.f47034e, this.f47036g);
+            d.a.l0.g.c.a.n().G(this.f50709f);
+            d.a.l0.g.c.i.c.a(this.f50708e.optString("packageName"), "installApp", null, null, new d.a.l0.g.c.i.a(this.f50709f));
+            b.d(this.f50711h, this.f50708e, this.f50710g);
         }
 
         public c(@NonNull JSONObject jSONObject, JSONObject jSONObject2, @NonNull d.a.l0.g.c.f.a aVar, Activity activity) {
-            this.f47034e = jSONObject;
-            this.f47035f = jSONObject2;
-            this.f47036g = aVar;
-            this.f47037h = activity;
+            this.f50708e = jSONObject;
+            this.f50709f = jSONObject2;
+            this.f50710g = aVar;
+            this.f50711h = activity;
         }
     }
 
@@ -82,31 +82,31 @@ public class b extends ActivityDelegation {
     public class d implements d.a.l0.g.c.f.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f47038a;
+        public String f50712a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f47039b;
+        public String f50713b;
 
         public d() {
         }
 
         @Override // d.a.l0.g.c.f.a
         public void a(String str) {
-            this.f47039b = str;
+            this.f50713b = str;
         }
 
         @Override // d.a.l0.g.c.f.b
         public void b(d.a.l0.g.c.g.b bVar) {
-            if (b.f47028d) {
-                Log.d("InstallAppDelegation", "onResult mPackageName:" + this.f47038a);
+            if (b.f50702d) {
+                Log.d("InstallAppDelegation", "onResult mPackageName:" + this.f50712a);
             }
             b.this.f(bVar);
-            d.a.l0.g.c.c.b.f46988d.execute(new RunnableC0999b(this.f47039b, this.f47038a));
+            d.a.l0.g.c.c.b.f50662d.execute(new RunnableC1055b(this.f50713b, this.f50712a));
         }
 
         @Override // d.a.l0.g.c.f.a
         public void setPackageName(String str) {
-            this.f47038a = str;
+            this.f50712a = str;
         }
     }
 
@@ -125,20 +125,20 @@ public class b extends ActivityDelegation {
     }
 
     public final void e() {
-        if (this.f47031c != null) {
-            d.a.l0.g.c.a.n().B(this.f47029a, this.f47031c);
-            this.f47031c = null;
+        if (this.f50705c != null) {
+            d.a.l0.g.c.a.n().B(this.f50703a, this.f50705c);
+            this.f50705c = null;
         }
-        this.f47031c = null;
+        this.f50705c = null;
     }
 
     public final void f(d.a.l0.g.c.g.b bVar) {
         if (bVar != null) {
             this.mResult.putString("functionType", bVar.a());
             this.mResult.putString("resultData", bVar.b());
-            this.mResult.putInt(l.f1974a, bVar.c());
+            this.mResult.putInt(l.f1987a, bVar.c());
             if (!bVar.d()) {
-                d.a.l0.g.c.i.c.a(this.f47029a, "installApp", "fail", String.valueOf(bVar.c()), new d.a.l0.g.c.i.a(this.f47030b));
+                d.a.l0.g.c.i.c.a(this.f50703a, "installApp", com.baidu.pass.biometrics.face.liveness.b.b.g0, String.valueOf(bVar.c()), new d.a.l0.g.c.i.a(this.f50704b));
             }
         }
         e();
@@ -147,32 +147,32 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAgentDestroy() {
-        if (f47028d) {
-            Log.d("InstallAppDelegation", "onAgentDestroy mPackageName:" + this.f47029a);
+        if (f50702d) {
+            Log.d("InstallAppDelegation", "onAgentDestroy mPackageName:" + this.f50703a);
         }
         e();
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public boolean onExec() {
-        if (f47028d) {
+        if (f50702d) {
             Log.d("InstallAppDelegation", "onExec mParams" + this.mParams);
         }
-        this.f47030b = w.d(this.mParams.getString("ubc_params", ""));
+        this.f50704b = w.d(this.mParams.getString("ubc_params", ""));
         JSONObject d2 = w.d(this.mParams.getString("data", ""));
         String optString = d2.optString("packageName");
-        this.f47029a = optString;
+        this.f50703a = optString;
         this.mResult.putString("packageName", optString);
-        d.a.l0.g.c.c.b.f46988d.execute(new c(d2, this.f47030b, this.f47031c, getAgent()));
+        d.a.l0.g.c.c.b.f50662d.execute(new c(d2, this.f50704b, this.f50705c, getAgent()));
         return false;
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        if (f47028d) {
-            Log.d("InstallAppDelegation", "onSelfFinish mPackageName:" + this.f47029a);
+        if (f50702d) {
+            Log.d("InstallAppDelegation", "onSelfFinish mPackageName:" + this.f50703a);
         }
-        d.a.l0.g.c.i.c.a(this.f47029a, "installApp", "fail", String.valueOf(getAgent() instanceof InstallPluginDelegateActivity ? ((InstallPluginDelegateActivity) getAgent()).getErrorCode() : 31003), new d.a.l0.g.c.i.a(this.f47030b));
+        d.a.l0.g.c.i.c.a(this.f50703a, "installApp", com.baidu.pass.biometrics.face.liveness.b.b.g0, String.valueOf(getAgent() instanceof InstallPluginDelegateActivity ? ((InstallPluginDelegateActivity) getAgent()).getErrorCode() : 31003), new d.a.l0.g.c.i.a(this.f50704b));
         e();
     }
 }

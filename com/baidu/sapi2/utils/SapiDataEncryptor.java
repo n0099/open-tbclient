@@ -43,7 +43,7 @@ public class SapiDataEncryptor implements NoProguard {
         try {
             return new String(SecurityUtil.base64Decode(SecurityUtil.aesDecrypt(SecurityUtil.base64Decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
         } catch (Throwable th) {
-            Log.e(Log.TAG, th.toString());
+            Log.e(Log.TAG, th);
             return "";
         }
     }

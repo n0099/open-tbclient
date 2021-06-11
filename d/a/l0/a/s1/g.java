@@ -18,16 +18,16 @@ import java.util.Set;
 public final class g {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44686c = k.f43199a;
+    public static final boolean f48360c = k.f46875a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile g f44687d;
+    public static volatile g f48361d;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<a> f44688a = new SparseArray<>();
+    public SparseArray<a> f48362a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f44689b = new HashSet();
+    public Set<String> f48363b = new HashSet();
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -47,14 +47,14 @@ public final class g {
     }
 
     public static g c() {
-        if (f44687d == null) {
+        if (f48361d == null) {
             synchronized (g.class) {
-                if (f44687d == null) {
-                    f44687d = new g();
+                if (f48361d == null) {
+                    f48361d = new g();
                 }
             }
         }
-        return f44687d;
+        return f48361d;
     }
 
     @Nullable
@@ -84,7 +84,7 @@ public final class g {
             return true;
         }
         for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.f44689b.contains(str)) {
+            if (!TextUtils.isEmpty(str) && this.f48363b.contains(str)) {
                 return true;
             }
         }
@@ -96,15 +96,15 @@ public final class g {
         if (Build.VERSION.SDK_INT >= 23) {
             i(activity, strArr, iArr);
         }
-        a aVar = this.f44688a.get(i2);
+        a aVar = this.f48362a.get(i2);
         if (aVar != null) {
-            this.f44688a.remove(i2);
+            this.f48362a.remove(i2);
             if ((aVar instanceof b) && z) {
                 aVar = ((b) aVar).s();
             }
             aVar.onRequestPermissionsResult(i2, strArr, iArr);
         }
-        if (f44686c) {
+        if (f48360c) {
             Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i2 + " permissions: " + Arrays.toString(strArr));
             StringBuilder sb = new StringBuilder();
             sb.append("onRequestPermissionsResult grantResults: ");
@@ -120,13 +120,13 @@ public final class g {
         }
         String d2 = d(activity, strArr);
         if (d2 != null) {
-            this.f44688a.put(i2, aVar);
+            this.f48362a.put(i2, aVar);
             activity.requestPermissions(strArr, i2);
             h(d2);
         } else {
             aVar.onRequestPermissionsResult(i2, strArr, b(activity, strArr));
         }
-        if (f44686c) {
+        if (f48360c) {
             Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i2 + " permissions: " + Arrays.toString(strArr));
         }
     }
@@ -139,7 +139,7 @@ public final class g {
                 int i3 = iArr[i2];
                 String str = strArr[i2];
                 if (!TextUtils.isEmpty(str) && i3 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                    this.f44689b.add(str);
+                    this.f48363b.add(str);
                 }
             }
         }

@@ -6,5 +6,5 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<g> f48094a;
+    public List<g> f51768a;
 }

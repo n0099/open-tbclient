@@ -22,27 +22,27 @@ public class n extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.f> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41136e;
+        public final /* synthetic */ CallbackHandler f44812e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41137f;
+        public final /* synthetic */ String f44813f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41138g;
+        public final /* synthetic */ String f44814g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f41139h;
+        public final /* synthetic */ Context f44815h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f41140i;
+        public final /* synthetic */ JSONObject f44816i;
         public final /* synthetic */ String j;
 
         public a(CallbackHandler callbackHandler, String str, String str2, Context context, JSONObject jSONObject, String str3) {
-            this.f41136e = callbackHandler;
-            this.f41137f = str;
-            this.f41138g = str2;
-            this.f41139h = context;
-            this.f41140i = jSONObject;
+            this.f44812e = callbackHandler;
+            this.f44813f = str;
+            this.f44814g = str2;
+            this.f44815h = context;
+            this.f44816i = jSONObject;
             this.j = str3;
         }
 
@@ -50,19 +50,19 @@ public class n extends a0 {
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.f fVar) {
-            if (fVar != null && !fVar.f41697d) {
-                if (n.this.m(fVar, this.f41138g)) {
-                    n.this.l(this.f41139h, this.f41140i, this.f41136e, this.f41137f, this.j);
+            if (fVar != null && !fVar.f45373d) {
+                if (n.this.m(fVar, this.f44814g)) {
+                    n.this.l(this.f44815h, this.f44816i, this.f44812e, this.f44813f, this.j);
                     return;
                 } else {
-                    this.f41136e.handleSchemeDispatchCallback(this.f41137f, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
+                    this.f44812e.handleSchemeDispatchCallback(this.f44813f, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
                     return;
                 }
             }
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.i("OpenAppAction", "no configuration of authority");
             }
-            d.a.l0.a.e2.c.d.n(10005, this.f41136e, this.f41137f);
+            d.a.l0.a.e2.c.d.n(10005, this.f44812e, this.f44813f);
             d.a.l0.a.j2.k.p(10005, fVar);
         }
     }
@@ -71,34 +71,34 @@ public class n extends a0 {
     public class b implements q0.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41141a;
+        public final /* synthetic */ CallbackHandler f44817a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f41142b;
+        public final /* synthetic */ String f44818b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f41143c;
+        public final /* synthetic */ String f44819c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f41144d;
+        public final /* synthetic */ String f44820d;
 
         public b(n nVar, CallbackHandler callbackHandler, String str, String str2, String str3) {
-            this.f41141a = callbackHandler;
-            this.f41142b = str;
-            this.f41143c = str2;
-            this.f41144d = str3;
+            this.f44817a = callbackHandler;
+            this.f44818b = str;
+            this.f44819c = str2;
+            this.f44820d = str3;
         }
 
         @Override // d.a.l0.a.v2.q0.g
         public void a(boolean z) {
-            this.f41141a.handleSchemeDispatchCallback(this.f41142b, UnitedSchemeUtility.wrapCallbackParams(z ? 0 : 1001, z ? "打开APP成功" : "打开APP失败，本地没有安装").toString());
-            c.a("open", this.f41143c, "confirm", this.f41144d);
+            this.f44817a.handleSchemeDispatchCallback(this.f44818b, UnitedSchemeUtility.wrapCallbackParams(z ? 0 : 1001, z ? "打开APP成功" : "打开APP失败，本地没有安装").toString());
+            c.a("open", this.f44819c, "confirm", this.f44820d);
         }
 
         @Override // d.a.l0.a.v2.q0.g
         public void onCancel() {
-            this.f41141a.handleSchemeDispatchCallback(this.f41142b, UnitedSchemeUtility.wrapCallbackParams(1004, "取消打开APP").toString());
-            c.a("open", this.f41143c, QueryResponse.Options.CANCEL, this.f41144d);
+            this.f44817a.handleSchemeDispatchCallback(this.f44818b, UnitedSchemeUtility.wrapCallbackParams(1004, "取消打开APP").toString());
+            c.a("open", this.f44819c, QueryResponse.Options.CANCEL, this.f44820d);
         }
     }
 
@@ -122,11 +122,11 @@ public class n extends a0 {
                 str7 = str6;
             }
             String a2 = d.a.l0.a.c1.a.m().a();
-            eVar.f43185a = str8;
-            eVar.f43186b = str;
-            eVar.f43189e = str2;
-            eVar.f43190f = str6;
-            eVar.f43187c = str5;
+            eVar.f46861a = str8;
+            eVar.f46862b = str;
+            eVar.f46865e = str2;
+            eVar.f46866f = str6;
+            eVar.f46863c = str5;
             eVar.a("appName", str7);
             eVar.a("hostName", a2);
             eVar.a("hostVersion", q0.D());
@@ -137,7 +137,7 @@ public class n extends a0 {
             }
             eVar.a("scheme", str4);
             d.a.l0.a.j2.b.i("2572", "90", eVar.f());
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("OpenAppAction", String.format("ubcId=%s && ceresId=%s , content:%s ", "2572", "90", eVar.f()));
             }
         }
@@ -159,7 +159,7 @@ public class n extends a0 {
             return false;
         }
         String optString = a2.optString("cb");
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.i("OpenAppAction", "params is " + a2.toString());
         }
         String optString2 = a2.optString("open", "");
@@ -178,13 +178,13 @@ public class n extends a0 {
         } else {
             optString = Uri.decode(optString);
             d.a.l0.a.c1.a.K().a(optString, jSONObject.optJSONObject("extraParams"));
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.i("OpenAppAction", "openUrl:" + optString);
             }
             z = o(context, optString, callbackHandler, str, str2);
         }
         boolean optBoolean = jSONObject.optBoolean("isNeedDownload", true);
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.i("OpenAppAction", "open app result=" + z + "\nisNeedDownload=" + optBoolean);
         }
         if (!optBoolean) {
@@ -208,7 +208,7 @@ public class n extends a0 {
             }
             JSONObject jSONObject = fVar.o;
             if (jSONObject != null && jSONObject.keys() != null) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.i("OpenAppAction", "source: " + T + " openUrl:" + str + " 配置数据:" + jSONObject);
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("scene");

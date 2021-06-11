@@ -42,12 +42,12 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
         public void a(int i2, String str, e eVar, List<d.a.n0.k3.d.a> list) {
             AvatarPendantActivity avatarPendantActivity = AvatarPendantActivity.this;
-            avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.g());
+            avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.h());
             if (i2 == 0) {
-                AvatarPendantActivity.this.mView.o(eVar, list);
+                AvatarPendantActivity.this.mView.p(eVar, list);
             } else {
                 AvatarPendantActivity.this.showToast(str);
-                AvatarPendantActivity.this.mView.n();
+                AvatarPendantActivity.this.mView.o();
             }
             AvatarPendantActivity.this.mHasListData = !ListUtils.isEmpty(list);
         }
@@ -60,7 +60,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
-            BdListViewHelper.c(AvatarPendantActivity.this.mView.h(), BdListViewHelper.HeadType.DEFAULT, z);
+            BdListViewHelper.c(AvatarPendantActivity.this.mView.i(), BdListViewHelper.HeadType.DEFAULT, z);
         }
     }
 
@@ -78,12 +78,12 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (dressItemData == null) {
             return "";
         }
-        List<d.a.n0.k3.d.a> x = this.mModel.x();
-        if (x != null && x.size() > 0) {
-            int size = x.size();
+        List<d.a.n0.k3.d.a> B = this.mModel.B();
+        if (B != null && B.size() > 0) {
+            int size = B.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (x.get(i2) != null && !ListUtils.isEmpty(x.get(i2).b())) {
-                    List<DressItemData> b2 = x.get(i2).b();
+                if (B.get(i2) != null && !ListUtils.isEmpty(B.get(i2).b())) {
+                    List<DressItemData> b2 = B.get(i2).b();
                     int size2 = b2.size();
                     int i3 = 0;
                     while (true) {
@@ -91,7 +91,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
                             break;
                         }
                         if (b2.get(i3) != null && dressItemData.getPropsId() == b2.get(i3).getPropsId()) {
-                            str = x.get(i2).a();
+                            str = B.get(i2).a();
                             break;
                         }
                         i3++;
@@ -105,17 +105,17 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
     private void initData() {
         AvatarPendantModel avatarPendantModel = new AvatarPendantModel(this);
         this.mModel = avatarPendantModel;
-        avatarPendantModel.z(this.mCallback);
+        avatarPendantModel.D(this.mCallback);
         SetAvatarPendantModel setAvatarPendantModel = new SetAvatarPendantModel();
         this.mSetAvatarPendantModel = setAvatarPendantModel;
-        setAvatarPendantModel.z(this);
+        setAvatarPendantModel.D(this);
     }
 
     private void initUI() {
         c cVar = new c(this);
         this.mView = cVar;
         cVar.d(this.mNetListener);
-        this.mView.m(this);
+        this.mView.n(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -128,7 +128,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
-        this.mView.j();
+        this.mView.k();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -146,7 +146,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         super.onCreate(bundle);
         initUI();
         initData();
-        showLoadingView(this.mView.g());
+        showLoadingView(this.mView.h());
         this.mModel.LoadData();
     }
 
@@ -154,7 +154,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
     public void onDestroy() {
         super.onDestroy();
         this.mSetAvatarPendantModel.onDestroy();
-        this.mModel.y();
+        this.mModel.C();
     }
 
     @Override // d.a.n0.k3.d.c.a
@@ -162,7 +162,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (checkLogin() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.mHasListData) {
             this.mCurrentCategory = getCurrentCategory(dressItemData);
             TiebaStatic.log(new StatisticItem("c11614").param("obj_type", this.mCurrentCategory));
-            this.mSetAvatarPendantModel.x(dressItemData.getPropsId(), 1, dressItemData.getFreeUserLevel());
+            this.mSetAvatarPendantModel.B(dressItemData.getPropsId(), 1, dressItemData.getFreeUserLevel());
         }
     }
 
@@ -172,7 +172,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (this.mModel == null || (cVar = this.mView) == null) {
             return;
         }
-        showLoadingView(cVar.g());
+        showLoadingView(cVar.h());
         this.mModel.LoadData();
     }
 
@@ -182,8 +182,8 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
             showErrorDialog(i3, str, i2);
             return;
         }
-        List<d.a.n0.k3.d.a> x = this.mModel.x();
-        if (x == null || x.size() <= 0) {
+        List<d.a.n0.k3.d.a> B = this.mModel.B();
+        if (B == null || B.size() <= 0) {
             return;
         }
         if (i2 == 0) {
@@ -191,11 +191,11 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         } else {
             TiebaStatic.log("c11682");
         }
-        int size = x.size();
+        int size = B.size();
         String str2 = "";
         for (int i4 = 0; i4 < size; i4++) {
-            if (x.get(i4) != null && !ListUtils.isEmpty(x.get(i4).b())) {
-                List<DressItemData> b2 = x.get(i4).b();
+            if (B.get(i4) != null && !ListUtils.isEmpty(B.get(i4).b())) {
+                List<DressItemData> b2 = B.get(i4).b();
                 int size2 = b2.size();
                 for (int i5 = 0; i5 < size2; i5++) {
                     if (b2.get(i5) != null && j == b2.get(i5).getPropsId()) {
@@ -210,7 +210,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         n nVar = new n();
         nVar.e(j);
         nVar.d(str2);
-        this.mView.k(this.mModel.x());
+        this.mView.l(this.mModel.B());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016485, nVar));
     }
 
@@ -219,9 +219,9 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i2 == d.a.n0.k3.c.f56957a) {
+        if (i2 == d.a.n0.k3.c.f60646a) {
             d.a.n0.k3.b.d(getPageContext(), 7, str, i4, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-        } else if (i2 == d.a.n0.k3.c.f56958b) {
+        } else if (i2 == d.a.n0.k3.c.f60647b) {
             d.a.n0.k3.b.c(getPageContext(), 7, str, i4);
         }
     }

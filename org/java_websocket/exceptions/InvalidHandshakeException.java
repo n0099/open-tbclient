@@ -1,5 +1,5 @@
 package org.java_websocket.exceptions;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class InvalidHandshakeException extends InvalidDataException {
     public static final long serialVersionUID = -1426533877490484964L;
 

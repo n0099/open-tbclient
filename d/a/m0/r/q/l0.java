@@ -8,17 +8,17 @@ import tbclient.FrsPage.Classify;
 public class l0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50073a = null;
+    public String f53749a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50074b = 0;
+    public int f53750b = 0;
 
     public int a() {
-        return this.f50074b;
+        return this.f53750b;
     }
 
     public String b() {
-        return this.f50073a;
+        return this.f53749a;
     }
 
     public void c(JSONObject jSONObject) {
@@ -26,8 +26,8 @@ public class l0 {
             return;
         }
         try {
-            this.f50074b = jSONObject.optInt("class_id", 0);
-            this.f50073a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            this.f53750b = jSONObject.optInt("class_id", 0);
+            this.f53749a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -37,7 +37,7 @@ public class l0 {
         if (classify == null) {
             return;
         }
-        this.f50074b = classify.class_id.intValue();
-        this.f50073a = classify.class_name;
+        this.f53750b = classify.class_id.intValue();
+        this.f53749a = classify.class_name;
     }
 }

@@ -16,13 +16,13 @@ import org.json.JSONObject;
 public class g implements d.a.l0.f.i.l.f {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ViewGroup.LayoutParams f43878c = new FrameLayout.LayoutParams(-1, -1);
+    public static final ViewGroup.LayoutParams f47554c = new FrameLayout.LayoutParams(-1, -1);
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.h0.g.f f43879a;
+    public d.a.l0.a.h0.g.f f47555a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f43880b;
+    public FrameLayout f47556b;
 
     @Override // d.a.l0.f.i.l.f
     public void a(String str, JSONObject jSONObject) {
@@ -38,7 +38,7 @@ public class g implements d.a.l0.f.i.l.f {
         d.a.l0.a.l1.b e2 = d.a.l0.a.l1.b.e(str, str);
         e2.i(jSONObject.toString());
         g.b i2 = W.i("adLanding");
-        i2.n(d.a.l0.a.h0.g.g.f42076g, d.a.l0.a.h0.g.g.f42078i);
+        i2.n(d.a.l0.a.h0.g.g.f45752g, d.a.l0.a.h0.g.g.f45754i);
         i2.k("adLanding", e2).b();
     }
 
@@ -61,7 +61,7 @@ public class g implements d.a.l0.f.i.l.f {
             return false;
         }
         d.a.l0.a.h0.g.f o = W.o();
-        this.f43879a = o;
+        this.f47555a = o;
         if (o.t3()) {
             int u = n0.u();
             if (view instanceof ViewGroup) {
@@ -77,15 +77,15 @@ public class g implements d.a.l0.f.i.l.f {
             }
         }
         SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
-        this.f43880b = swanAppInlineFullScreenContainer;
-        swanAppInlineFullScreenContainer.addView(view, f43878c);
+        this.f47556b = swanAppInlineFullScreenContainer;
+        swanAppInlineFullScreenContainer.addView(view, f47554c);
         d.a.l0.a.z1.b.c.a floatLayer = o.getFloatLayer();
         if (floatLayer == null) {
             return false;
         }
         floatLayer.j(true);
         n0.b(activity);
-        floatLayer.k(this.f43880b);
+        floatLayer.k(this.f47556b);
         return true;
     }
 
@@ -101,8 +101,8 @@ public class g implements d.a.l0.f.i.l.f {
     @Override // d.a.l0.f.i.l.f
     public boolean removeView(View view) {
         d.a.l0.a.z1.b.c.a floatLayer;
-        this.f43880b.removeAllViews();
-        d.a.l0.a.h0.g.f fVar = this.f43879a;
+        this.f47556b.removeAllViews();
+        d.a.l0.a.h0.g.f fVar = this.f47555a;
         if (fVar == null || (floatLayer = fVar.getFloatLayer()) == null) {
             return false;
         }

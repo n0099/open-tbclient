@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
@@ -36,7 +37,7 @@ public class AudioMsg extends RichMediaMsg {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("url", str);
-            jSONObject.put("format", i2);
+            jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, i2);
             jSONObject.put("duration", i3);
             return jSONObject.toString();
         } catch (JSONException e2) {
@@ -80,7 +81,7 @@ public class AudioMsg extends RichMediaMsg {
         try {
             JSONObject jSONObject = new JSONObject(this.mjsonContent);
             this.mRemoteUrl = jSONObject.optString("url");
-            this.mFormat = jSONObject.optInt("format");
+            this.mFormat = jSONObject.optInt(KsMediaMeta.KSM_KEY_FORMAT);
             this.mDuration = jSONObject.optInt("duration");
             if (this.mRemoteUrl.regionMatches(0, "http%3A", 0, 7)) {
                 transCodeUrl(jSONObject);

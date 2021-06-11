@@ -33,9 +33,9 @@ public class a extends d.a.m0.c.a {
                 currentAccount = "";
             }
             intent.setData(Uri.parse(currentAccount));
-            fVar.f49214a = PendingIntent.getBroadcast(baseContext, i2, intent, 536870912) != null;
+            fVar.f52888a = PendingIntent.getBroadcast(baseContext, i2, intent, 536870912) != null;
             aVar.m(true);
-            aVar.l(fVar.f49214a);
+            aVar.l(fVar.f52888a);
         }
         return fVar;
     }

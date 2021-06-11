@@ -5,35 +5,35 @@ import android.util.Log;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39493a = null;
+    public static String f43174a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39494b = null;
+    public static String f43175b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f39495c = 0;
+    public static int f43176c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f39496d = true;
+    public static boolean f43177d = true;
 
     public static void a(String str, Throwable th) {
-        if (f39496d) {
+        if (f43177d) {
             c(new Throwable().getStackTrace());
             Log.e("CashierSdk", d(str), th);
         }
     }
 
     public static void b(Object... objArr) {
-        if (f39496d) {
+        if (f43177d) {
             c(new Throwable().getStackTrace());
             Log.e("CashierSdk", d(objArr));
         }
     }
 
     public static void c(StackTraceElement[] stackTraceElementArr) {
-        f39493a = stackTraceElementArr[1].getFileName();
-        f39494b = stackTraceElementArr[1].getMethodName();
-        f39495c = stackTraceElementArr[1].getLineNumber();
+        f43174a = stackTraceElementArr[1].getFileName();
+        f43175b = stackTraceElementArr[1].getMethodName();
+        f43176c = stackTraceElementArr[1].getLineNumber();
     }
 
     public static String d(Object... objArr) {
@@ -50,12 +50,12 @@ public class d {
     }
 
     public static void e(String str) {
-        if (f39496d) {
+        if (f43177d) {
             Log.i("CashierSdk", str);
         }
     }
 
     public static String f(String str) {
-        return Thread.currentThread().getName() + "[" + f39493a + ":" + f39494b + ":" + f39495c + "]" + str;
+        return Thread.currentThread().getName() + "[" + f43174a + ":" + f43175b + ":" + f43176c + "]" + str;
     }
 }

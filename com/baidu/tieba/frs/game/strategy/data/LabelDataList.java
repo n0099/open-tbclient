@@ -12,8 +12,8 @@ public class LabelDataList extends ArrayList<a> {
         Iterator<a> it = iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.f59596a == i2) {
-                return next.f59597b;
+            if (next != null && next.f63287a == i2) {
+                return next.f63288b;
             }
         }
         return null;
@@ -23,14 +23,14 @@ public class LabelDataList extends ArrayList<a> {
         Iterator<a> it = iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.f59598c) {
-                return next.f59596a;
+            if (next != null && next.f63289c) {
+                return next.f63287a;
             }
         }
         a aVar = (a) ListUtils.getItem(this, 0);
         if (aVar != null) {
-            aVar.f59598c = true;
-            return aVar.f59596a;
+            aVar.f63289c = true;
+            return aVar.f63287a;
         }
         return 0;
     }
@@ -43,26 +43,26 @@ public class LabelDataList extends ArrayList<a> {
         for (ForumSubLabel forumSubLabel : list) {
             if (forumSubLabel != null) {
                 a aVar = new a();
-                aVar.f59596a = forumSubLabel.id.intValue();
-                aVar.f59597b = forumSubLabel.sub_label_name;
+                aVar.f63287a = forumSubLabel.id.intValue();
+                aVar.f63288b = forumSubLabel.sub_label_name;
                 add(aVar);
             }
         }
         if (isEmpty()) {
             return;
         }
-        get(0).f59598c = true;
+        get(0).f63289c = true;
     }
 
     public void setSelectedIndex(int i2) {
         a aVar = (a) ListUtils.getItem(this, i2);
         if (aVar != null) {
-            aVar.f59598c = true;
+            aVar.f63289c = true;
             Iterator<a> it = iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 if (next != null && next != aVar) {
-                    next.f59598c = false;
+                    next.f63289c = false;
                 }
             }
         }

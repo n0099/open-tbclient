@@ -11,6 +11,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -54,6 +55,7 @@ import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.kwai.video.player.PlayerPostEvent;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
 import d.a.m0.r.q.a2;
@@ -81,16 +83,16 @@ public class e extends d.a.m0.w.e implements y.d {
     public final d.a.c.a.e M;
 
     /* renamed from: f  reason: collision with root package name */
-    public WriteImagesInfo f50896f;
+    public WriteImagesInfo f54573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50897g;
+    public String f54574g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SpanGroupManager f50898h;
+    public SpanGroupManager f54575h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VoiceData$VoiceModel f50899i;
+    public VoiceData$VoiceModel f54576i;
     public String j;
     public LocationModel k;
     public NewWriteModel l;
@@ -115,7 +117,22 @@ public class e extends d.a.m0.w.e implements y.d {
         }
 
         @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void a(String str) {
+        public void a() {
+            e.this.r.showToast(R.string.no_network_guide);
+            e.this.b0(0, false, null);
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void b(LocationData locationData) {
+            if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
+                e.this.b0(2, true, locationData.getFormatted_address());
+            } else {
+                onFail(null);
+            }
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void onFail(String str) {
             if (e.this.I) {
                 TbPageContext tbPageContext = e.this.r;
                 if (StringUtils.isNull(str)) {
@@ -124,21 +141,6 @@ public class e extends d.a.m0.w.e implements y.d {
                 tbPageContext.showToast(str);
             }
             e.this.b0(0, false, null);
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void b() {
-            e.this.r.showToast(R.string.no_network_guide);
-            e.this.b0(0, false, null);
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void c(LocationData locationData) {
-            if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
-                e.this.b0(2, true, locationData.getFormatted_address());
-            } else {
-                a(null);
-            }
         }
     }
 
@@ -179,9 +181,9 @@ public class e extends d.a.m0.w.e implements y.d {
         public void onClick(d.a.m0.r.s.a aVar) {
             if (d.a.c.e.p.j.z()) {
                 e.this.b0(1, true, null);
-                e.this.k.F();
+                e.this.k.J();
             } else {
-                e.this.J.b();
+                e.this.J.a();
             }
             aVar.dismiss();
         }
@@ -189,25 +191,25 @@ public class e extends d.a.m0.w.e implements y.d {
 
     /* renamed from: d.a.m0.w.w.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1169e implements NewWriteModel.g {
-        public C1169e() {
+    public class C1225e implements NewWriteModel.g {
+        public C1225e() {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, i0 i0Var, WriteData writeData, AntiData antiData) {
             if (writeData == null) {
-                writeData = e.this.l.T();
+                writeData = e.this.l.X();
             }
             if (z) {
                 e.this.Y(true);
-                WriteData T = e.this.l.T();
+                WriteData X = e.this.l.X();
                 e.this.S();
                 y.p(e.this.q, null);
-                if (T == null) {
+                if (X == null) {
                     return;
                 }
-                if (T.getType() == 2) {
-                    y.i(T.getThreadId(), e.this);
+                if (X.getType() == 2) {
+                    y.i(X.getThreadId(), e.this);
                 }
             } else if (writeData != null && i0Var != null && !TextUtils.isEmpty(i0Var.d())) {
                 writeData.setVcodeMD5(i0Var.b());
@@ -217,15 +219,15 @@ public class e extends d.a.m0.w.e implements y.d {
                     writeData.setBaijiahaoData(e.this.p.V());
                 }
                 if (d.a.m0.a1.a.b(i0Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(e.this.r.getPageActivity(), 12006, writeData, false, i0Var.d())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(e.this.r.getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, false, i0Var.d())));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(e.this.r.getPageActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(e.this.r.getPageActivity(), writeData, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
                 }
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(e.this.r.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(e.this.r.getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
             }
             e eVar = e.this;
-            eVar.G(eVar.l.T());
+            eVar.G(eVar.l.X());
             NewWriteModel.g gVar = e.this.A;
             if (gVar != null) {
                 gVar.callback(z, postWriteCallBackData, i0Var, writeData, antiData);
@@ -254,15 +256,15 @@ public class e extends d.a.m0.w.e implements y.d {
         @Override // d.a.c.a.e
         public void c(Object obj) {
             if (obj instanceof Bitmap) {
-                e.this.l.Z(true);
+                e.this.l.d0(true);
             }
         }
     }
 
     public e(EditorTools editorTools) {
         super(editorTools);
-        this.f50896f = new WriteImagesInfo();
-        this.f50897g = "";
+        this.f54573f = new WriteImagesInfo();
+        this.f54574g = "";
         this.l = null;
         this.m = null;
         this.q = null;
@@ -273,7 +275,7 @@ public class e extends d.a.m0.w.e implements y.d {
         this.I = true;
         this.J = new a();
         this.K = new b();
-        this.L = new C1169e();
+        this.L = new C1225e();
         this.M = new g();
         this.H = editorTools;
     }
@@ -284,15 +286,15 @@ public class e extends d.a.m0.w.e implements y.d {
 
     public boolean B() {
         LinkedList<ImageFileInfo> chosedFiles;
-        WriteImagesInfo writeImagesInfo = this.f50896f;
+        WriteImagesInfo writeImagesInfo = this.f54573f;
         return (writeImagesInfo == null || (chosedFiles = writeImagesInfo.getChosedFiles()) == null || chosedFiles.isEmpty()) ? false : true;
     }
 
     public boolean C() {
-        if (StringUtils.isNull(this.f50897g)) {
-            WriteImagesInfo writeImagesInfo = this.f50896f;
+        if (StringUtils.isNull(this.f54574g)) {
+            WriteImagesInfo writeImagesInfo = this.f54573f;
             if (writeImagesInfo == null || writeImagesInfo.size() <= 0) {
-                VoiceData$VoiceModel voiceData$VoiceModel = this.f50899i;
+                VoiceData$VoiceModel voiceData$VoiceModel = this.f54576i;
                 if (voiceData$VoiceModel == null || StringUtils.isNull(voiceData$VoiceModel.getId())) {
                     VideoInfo videoInfo = this.y;
                     return videoInfo != null && videoInfo.isAvaliable();
@@ -305,8 +307,8 @@ public class e extends d.a.m0.w.e implements y.d {
     }
 
     public boolean D() {
-        VoiceData$VoiceModel voiceData$VoiceModel = this.f50899i;
-        return (voiceData$VoiceModel == null || TextUtils.isEmpty(voiceData$VoiceModel.voiceId) || this.f50899i.duration <= 0) ? false : true;
+        VoiceData$VoiceModel voiceData$VoiceModel = this.f54576i;
+        return (voiceData$VoiceModel == null || TextUtils.isEmpty(voiceData$VoiceModel.voiceId) || this.f54576i.duration <= 0) ? false : true;
     }
 
     public void E() {
@@ -316,55 +318,55 @@ public class e extends d.a.m0.w.e implements y.d {
     public void F(TbPageContext tbPageContext, Bundle bundle) {
         NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
         this.l = newWriteModel;
-        newWriteModel.d0(this.L);
+        newWriteModel.h0(this.L);
         ImageModel imageModel = new ImageModel(tbPageContext);
         this.m = imageModel;
         imageModel.setLoadDataCallBack(this.M);
         LocationModel locationModel = new LocationModel(tbPageContext);
         this.k = locationModel;
-        locationModel.I(this.J);
-        this.k.J(this.K);
+        locationModel.M(this.J);
+        this.k.N(this.K);
         if (bundle != null) {
-            this.f50896f.parseJson(bundle.getString("write_images"));
+            this.f54573f.parseJson(bundle.getString("write_images"));
             this.j = bundle.getString(WriteActivityConfig.PHOTO_NAME);
         }
-        WriteImagesInfo writeImagesInfo = this.f50896f;
+        WriteImagesInfo writeImagesInfo = this.f54573f;
         if (writeImagesInfo != null) {
             writeImagesInfo.setMaxImagesAllowed(this.z ? 1 : 9);
         }
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && a() != null) {
             a().A(new d.a.m0.w.a(2, 12, " "));
         }
-        if (!this.k.v() && a() != null) {
+        if (!this.k.z() && a() != null) {
             a().A(new d.a.m0.w.a(20, 8, null));
         }
-        WriteImagesInfo writeImagesInfo2 = this.f50896f;
-        if (writeImagesInfo2 == null || writeImagesInfo2.getChosedFiles() == null || this.f50896f.getChosedFiles().size() <= 0) {
+        WriteImagesInfo writeImagesInfo2 = this.f54573f;
+        if (writeImagesInfo2 == null || writeImagesInfo2.getChosedFiles() == null || this.f54573f.getChosedFiles().size() <= 0) {
             return;
         }
         EditorTools a2 = a();
-        a2.A(new d.a.m0.w.a(2, 10, this.f50896f.getChosedFiles().size() + ""));
+        a2.A(new d.a.m0.w.a(2, 10, this.f54573f.getChosedFiles().size() + ""));
     }
 
     public void G(WriteData writeData) {
         if (writeData == null) {
             return;
         }
-        this.f50896f = new WriteImagesInfo();
+        this.f54573f = new WriteImagesInfo();
         if (writeData.getWriteImagesInfo() != null) {
-            this.f50896f.copyFrom(writeData.getWriteImagesInfo());
-            WriteImagesInfo writeImagesInfo = this.f50896f;
-            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f50896f.getChosedFiles().size() > 0) {
+            this.f54573f.copyFrom(writeData.getWriteImagesInfo());
+            WriteImagesInfo writeImagesInfo = this.f54573f;
+            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f54573f.getChosedFiles().size() > 0) {
                 EditorTools a2 = a();
-                a2.A(new d.a.m0.w.a(2, 10, this.f50896f.getChosedFiles().size() + ""));
+                a2.A(new d.a.m0.w.a(2, 10, this.f54573f.getChosedFiles().size() + ""));
             }
         }
-        WriteImagesInfo writeImagesInfo2 = this.f50896f;
+        WriteImagesInfo writeImagesInfo2 = this.f54573f;
         if (writeImagesInfo2 == null || writeImagesInfo2.size() == 0) {
             a().A(new d.a.m0.w.a(2, 10, null));
         }
         String content = writeData.getContent();
-        this.f50897g = content;
+        this.f54574g = content;
         a0(content);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004008));
     }
@@ -379,7 +381,7 @@ public class e extends d.a.m0.w.e implements y.d {
                 if (intent == null || !intent.hasExtra(AlbumActivityConfig.LAST_ALBUM_ID)) {
                     return;
                 }
-                this.f50896f.setLastAlbumId(intent.getStringExtra(AlbumActivityConfig.LAST_ALBUM_ID));
+                this.f54573f.setLastAlbumId(intent.getStringExtra(AlbumActivityConfig.LAST_ALBUM_ID));
             } else if (i2 != 12006) {
             } else {
                 if (intent != null && (intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) {
@@ -388,20 +390,20 @@ public class e extends d.a.m0.w.e implements y.d {
                 PostWriteCallBackData postWriteCallBackData2 = postWriteCallBackData;
                 NewWriteModel.g gVar = this.A;
                 if (gVar != null) {
-                    gVar.callback(false, postWriteCallBackData2, null, this.l.T(), null);
+                    gVar.callback(false, postWriteCallBackData2, null, this.l.X(), null);
                 }
             }
         } else if (i2 == 11001) {
             L(null, null);
         } else if (i2 == 12006) {
-            WriteData T = this.l.T();
+            WriteData X = this.l.X();
             PostWriteCallBackData postWriteCallBackData3 = (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-            if (T != null) {
-                T.deleteUploadedTempImages();
+            if (X != null) {
+                X.deleteUploadedTempImages();
             }
-            this.l.f0(null);
-            this.l.Z(false);
-            this.f50899i = null;
+            this.l.j0(null);
+            this.l.d0(false);
+            this.f54576i = null;
             this.y = null;
             if (!TextUtils.isEmpty(this.q)) {
                 y.p(this.q, null);
@@ -409,7 +411,7 @@ public class e extends d.a.m0.w.e implements y.d {
             Y(true);
             NewWriteModel.g gVar2 = this.A;
             if (gVar2 != null) {
-                gVar2.callback(true, postWriteCallBackData3, null, T, null);
+                gVar2.callback(true, postWriteCallBackData3, null, X, null);
             }
         } else if (i2 == 12012) {
             u(intent);
@@ -437,14 +439,14 @@ public class e extends d.a.m0.w.e implements y.d {
         } else if (i2 == 11025) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.r.getPageActivity(), 12004, true)));
         } else if (i2 == 11026) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.r.getPageActivity(), 12005, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.r.getPageActivity(), CyberPlayerManager.MEDIA_INFO_WEAK_NETWORK_BEST_RANK, true)));
         } else if (i2 == 12009 || i2 == 12010) {
             if (i2 == 12010) {
                 q(intent);
             }
         } else {
             switch (i2) {
-                case 12002:
+                case PlayerPostEvent.MEDIA_REP_CHANGE_END /* 12002 */:
                     if (intent == null) {
                         return;
                     }
@@ -461,10 +463,10 @@ public class e extends d.a.m0.w.e implements y.d {
                     }
                     if (intent.getBooleanExtra("delete", false)) {
                         X();
-                        this.l.Z(false);
+                        this.l.d0(false);
                         return;
                     }
-                    this.m.x(intent.getStringExtra("file_name"));
+                    this.m.B(intent.getStringExtra("file_name"));
                     return;
                 case 12004:
                     if (intent == null || (stringArrayListExtra = intent.getStringArrayListExtra("name_show")) == null) {
@@ -493,7 +495,7 @@ public class e extends d.a.m0.w.e implements y.d {
     }
 
     public void K(Bundle bundle) {
-        WriteImagesInfo writeImagesInfo = this.f50896f;
+        WriteImagesInfo writeImagesInfo = this.f54573f;
         if (writeImagesInfo != null) {
             bundle.putString("write_images", writeImagesInfo.toJsonString());
         }
@@ -502,53 +504,53 @@ public class e extends d.a.m0.w.e implements y.d {
 
     public void L(String str, WriteData writeData) {
         a2 a2Var;
-        if (this.l.T() == null) {
-            WriteData t = this.n.t(str);
-            if (t != null && (a2Var = this.p) != null) {
-                t.setBaijiahaoData(a2Var.V());
+        if (this.l.X() == null) {
+            WriteData x = this.n.x(str);
+            if (x != null && (a2Var = this.p) != null) {
+                x.setBaijiahaoData(a2Var.V());
             }
-            this.l.f0(t);
+            this.l.j0(x);
         }
-        if (this.l.T() == null) {
+        if (this.l.X() == null) {
             return;
         }
-        this.l.setSpanGroupManager(this.f50898h);
+        this.l.setSpanGroupManager(this.f54575h);
         boolean z = true;
         if (this.D) {
-            this.l.T().setCanNoForum(true);
+            this.l.X().setCanNoForum(true);
             if (this.o != null) {
-                this.l.T().setVForumId(this.o.getId());
-                this.l.T().setVForumName(this.o.getName());
+                this.l.X().setVForumId(this.o.getId());
+                this.l.X().setVForumName(this.o.getName());
             }
         } else {
-            this.l.T().setCanNoForum(false);
-            this.l.T().setVForumId("");
-            this.l.T().setVForumName("");
+            this.l.X().setCanNoForum(false);
+            this.l.X().setVForumId("");
+            this.l.X().setVForumName("");
         }
-        this.l.T().setIsBJHPost(this.z);
-        this.l.T().setWriteImagesInfo(this.f50896f);
-        this.l.T().setVideoInfo(this.y);
-        this.l.Z(this.f50896f.size() > 0);
-        WriteData T = this.l.T();
+        this.l.X().setIsBJHPost(this.z);
+        this.l.X().setWriteImagesInfo(this.f54573f);
+        this.l.X().setVideoInfo(this.y);
+        this.l.d0(this.f54573f.size() > 0);
+        WriteData X = this.l.X();
         LocationModel locationModel = this.k;
-        T.setHasLocationData((locationModel == null || !locationModel.v()) ? false : false);
+        X.setHasLocationData((locationModel == null || !locationModel.z()) ? false : false);
         if (str == null) {
-            this.l.T().setContent(this.f50897g);
+            this.l.X().setContent(this.f54574g);
         }
-        VoiceData$VoiceModel voiceData$VoiceModel = this.f50899i;
+        VoiceData$VoiceModel voiceData$VoiceModel = this.f54576i;
         if (voiceData$VoiceModel != null) {
             if (voiceData$VoiceModel.getId() != null) {
-                this.l.T().setVoice(this.f50899i.getId());
-                this.l.T().setVoiceDuringTime(this.f50899i.duration);
+                this.l.X().setVoice(this.f54576i.getId());
+                this.l.X().setVoiceDuringTime(this.f54576i.duration);
             } else {
-                this.l.T().setVoice(null);
-                this.l.T().setVoiceDuringTime(-1);
+                this.l.X().setVoice(null);
+                this.l.X().setVoiceDuringTime(-1);
             }
         } else {
-            this.l.T().setVoice(null);
-            this.l.T().setVoiceDuringTime(-1);
+            this.l.X().setVoice(null);
+            this.l.X().setVoiceDuringTime(-1);
         }
-        if (!this.l.Q()) {
+        if (!this.l.U()) {
             this.r.showToast(R.string.write_img_limit);
             return;
         }
@@ -558,8 +560,8 @@ public class e extends d.a.m0.w.e implements y.d {
             if (cVar != null) {
                 cVar.a();
             }
-            o(this.l.T());
-            if (!this.l.i0()) {
+            o(this.l.X());
+            if (!this.l.m0()) {
             }
         }
     }
@@ -589,17 +591,17 @@ public class e extends d.a.m0.w.e implements y.d {
         if (this.z || this.k == null || d.a.n0.e3.m0.b.a().d() || !UtilHelper.isSystemLocationProviderEnabled(this.r.getPageActivity()) || !TbadkCoreApplication.getInst().getLocationShared()) {
             return;
         }
-        this.k.D();
+        this.k.H();
     }
 
     public void Q() {
-        if (this.k.v()) {
-            if (this.k.z()) {
-                this.J.c(d.a.n0.e3.m0.b.a().b());
+        if (this.k.z()) {
+            if (this.k.D()) {
+                this.J.b(d.a.n0.e3.m0.b.a().b());
                 return;
             }
             if (l.D()) {
-                this.k.D();
+                this.k.H();
             }
             b0(0, true, null);
             return;
@@ -615,11 +617,11 @@ public class e extends d.a.m0.w.e implements y.d {
     }
 
     public void S() {
-        this.l.f0(null);
-        this.l.Z(false);
-        this.f50899i = null;
+        this.l.j0(null);
+        this.l.d0(false);
+        this.f54576i = null;
         this.y = null;
-        this.f50896f.clear();
+        this.f54573f.clear();
     }
 
     public void T() {
@@ -632,16 +634,16 @@ public class e extends d.a.m0.w.e implements y.d {
     }
 
     public void U(String str) {
-        WriteData T = this.l.T();
-        if (T == null) {
-            T = new WriteData(1);
-            T.setThreadId(str);
-            T.setWriteImagesInfo(this.f50896f);
+        WriteData X = this.l.X();
+        if (X == null) {
+            X = new WriteData(1);
+            X.setThreadId(str);
+            X.setWriteImagesInfo(this.f54573f);
         }
-        T.setContent(this.f50897g);
-        T.setVideoInfo(this.y);
-        T.setVoiceModel(this.f50899i);
-        y.p(str, T);
+        X.setContent(this.f54574g);
+        X.setVideoInfo(this.y);
+        X.setVoiceModel(this.f54576i);
+        y.p(str, X);
     }
 
     public final void V(ArrayList<String> arrayList) {
@@ -736,8 +738,8 @@ public class e extends d.a.m0.w.e implements y.d {
             imageFileInfo.setFilePath(vVar.c());
             imageFileInfo.width = vVar.h();
             imageFileInfo.height = vVar.b();
-            this.f50896f.addChooseFile(imageFileInfo);
-            this.f50896f.updateQuality();
+            this.f54573f.addChooseFile(imageFileInfo);
+            this.f54573f.updateQuality();
         }
     }
 
@@ -794,9 +796,9 @@ public class e extends d.a.m0.w.e implements y.d {
     }
 
     public void l() {
-        WriteImagesInfo writeImagesInfo = this.f50896f;
+        WriteImagesInfo writeImagesInfo = this.f54573f;
         if (writeImagesInfo != null && writeImagesInfo.size() > 0) {
-            this.f50896f.clear();
+            this.f54573f.clear();
         }
         VideoInfo videoInfo = this.y;
         if (videoInfo != null && videoInfo.isAvaliable()) {
@@ -806,12 +808,12 @@ public class e extends d.a.m0.w.e implements y.d {
         t0(null);
         a().A(new d.a.m0.w.a(2, 6, null));
         a().A(new d.a.m0.w.a(33, 6, null));
-        if (!StringUtils.isNull(this.f50897g)) {
-            this.f50897g = "";
+        if (!StringUtils.isNull(this.f54574g)) {
+            this.f54574g = "";
         }
         a0("");
-        this.l.f0(null);
-        this.l.Z(false);
+        this.l.j0(null);
+        this.l.d0(false);
     }
 
     public void l0(int i2) {
@@ -829,7 +831,7 @@ public class e extends d.a.m0.w.e implements y.d {
     }
 
     public void m0(String str) {
-        this.f50897g = str;
+        this.f54574g = str;
     }
 
     public final void n() {
@@ -895,27 +897,27 @@ public class e extends d.a.m0.w.e implements y.d {
             c0();
             a().A(new d.a.m0.w.a(39, -1, this.y));
         }
-        if (writeData.getWriteImagesInfo() != null && this.f50896f.size() == 0) {
-            this.f50896f.copyFrom(writeData.getWriteImagesInfo());
-            WriteImagesInfo writeImagesInfo = this.f50896f;
-            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f50896f.getChosedFiles().size() > 0) {
+        if (writeData.getWriteImagesInfo() != null && this.f54573f.size() == 0) {
+            this.f54573f.copyFrom(writeData.getWriteImagesInfo());
+            WriteImagesInfo writeImagesInfo = this.f54573f;
+            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f54573f.getChosedFiles().size() > 0) {
                 EditorTools a2 = a();
-                a2.A(new d.a.m0.w.a(2, 10, this.f50896f.getChosedFiles().size() + ""));
+                a2.A(new d.a.m0.w.a(2, 10, this.f54573f.getChosedFiles().size() + ""));
             }
         }
-        WriteImagesInfo writeImagesInfo2 = this.f50896f;
+        WriteImagesInfo writeImagesInfo2 = this.f54573f;
         if (writeImagesInfo2 == null || writeImagesInfo2.size() == 0) {
             a().A(new d.a.m0.w.a(2, 10, null));
         }
         if (writeData.getVoiceModel() != null && writeData.getVoiceModel().voiceId != null && writeData.getVoiceModel().duration != -1) {
-            if (this.f50899i == null) {
-                this.f50899i = new VoiceData$VoiceModel();
+            if (this.f54576i == null) {
+                this.f54576i = new VoiceData$VoiceModel();
             }
-            this.f50899i.copy(writeData.getVoiceModel());
+            this.f54576i.copy(writeData.getVoiceModel());
         }
-        if (!k.isEmpty(writeData.getContent()) && k.isEmpty(this.f50897g)) {
+        if (!k.isEmpty(writeData.getContent()) && k.isEmpty(this.f54574g)) {
             String content = writeData.getContent();
-            this.f50897g = content;
+            this.f54574g = content;
             a0(content);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004008));
@@ -955,13 +957,13 @@ public class e extends d.a.m0.w.e implements y.d {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(str);
         imageFileInfo.setTempFile(true);
-        this.f50896f.addChooseFile(imageFileInfo);
-        this.f50896f.updateQuality();
+        this.f54573f.addChooseFile(imageFileInfo);
+        this.f54573f.updateQuality();
         z(false, null);
     }
 
     public void q0(SpanGroupManager spanGroupManager) {
-        this.f50898h = spanGroupManager;
+        this.f54575h = spanGroupManager;
     }
 
     public TbPageContext r() {
@@ -974,7 +976,7 @@ public class e extends d.a.m0.w.e implements y.d {
             return;
         }
         a().setFid(this.p.c0());
-        a().setTid(this.p.y1());
+        a().setTid(this.p.z1());
     }
 
     public void s(String str) {
@@ -990,7 +992,7 @@ public class e extends d.a.m0.w.e implements y.d {
     }
 
     public void t0(VoiceData$VoiceModel voiceData$VoiceModel) {
-        this.f50899i = voiceData$VoiceModel;
+        this.f54576i = voiceData$VoiceModel;
     }
 
     public final void u(Intent intent) {
@@ -1015,12 +1017,12 @@ public class e extends d.a.m0.w.e implements y.d {
             this.r.showToast(R.string.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             u0();
-        } else if (this.k.z()) {
+        } else if (this.k.D()) {
             A();
         } else {
-            this.k.H(false);
+            this.k.L(false);
             b0(1, true, null);
-            this.k.D();
+            this.k.H();
         }
     }
 
@@ -1029,9 +1031,9 @@ public class e extends d.a.m0.w.e implements y.d {
         if (intent == null || (stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) == null) {
             return;
         }
-        this.f50896f.parseJson(stringExtra);
-        this.f50896f.updateQuality();
-        if (this.f50896f.getChosedFiles() != null) {
+        this.f54573f.parseJson(stringExtra);
+        this.f54573f.updateQuality();
+        if (this.f54573f.getChosedFiles() != null) {
             z(false, null);
         }
     }
@@ -1041,15 +1043,15 @@ public class e extends d.a.m0.w.e implements y.d {
     }
 
     public WriteImagesInfo y() {
-        return this.f50896f;
+        return this.f54573f;
     }
 
     public void z(boolean z, PostWriteCallBackData postWriteCallBackData) {
         PbEditorData pbEditorData = new PbEditorData();
         pbEditorData.setEditorType(0);
-        pbEditorData.setContent(this.f50897g);
-        pbEditorData.setWriteImagesInfo(this.f50896f);
-        pbEditorData.setVoiceModel(this.f50899i);
+        pbEditorData.setContent(this.f54574g);
+        pbEditorData.setWriteImagesInfo(this.f54573f);
+        pbEditorData.setVoiceModel(this.f54576i);
         PbEditorData.ThreadData threadData = new PbEditorData.ThreadData();
         ForumData forumData = this.o;
         if (forumData != null) {

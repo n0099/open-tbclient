@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.yy.gslbsdk.db.HostTB;
 import d.b.d.b.l;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
@@ -17,7 +18,7 @@ public class b extends a<d.b.d.b.c.a.a> {
     public HashMap<String, String> b() {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("path", "TEXT");
-        hashMap.put("insert_time", "INTEGER");
+        hashMap.put(HostTB.INSERTTIME, "INTEGER");
         hashMap.put("ext1", "TEXT");
         hashMap.put("ext2", "TEXT");
         return hashMap;
@@ -28,18 +29,18 @@ public class b extends a<d.b.d.b.c.a.a> {
     /* renamed from: e */
     public ContentValues a(d.b.d.b.c.a.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("path", aVar.f65876a);
-        contentValues.put("insert_time", Long.valueOf(aVar.f65877b));
+        contentValues.put("path", aVar.f69607a);
+        contentValues.put(HostTB.INSERTTIME, Long.valueOf(aVar.f69608b));
         return contentValues;
     }
 
     public void f(SQLiteDatabase sQLiteDatabase, d.b.d.b.c.a.a aVar) {
-        if (aVar == null || g(sQLiteDatabase, aVar.f65876a)) {
+        if (aVar == null || g(sQLiteDatabase, aVar.f69607a)) {
             return;
         }
         super.d(sQLiteDatabase, aVar);
         try {
-            sQLiteDatabase.execSQL("delete from " + this.f65881a + " where _id in (select _id from " + this.f65881a + " order by insert_time desc limit 1000 offset 500" + SmallTailInfo.EMOTION_SUFFIX);
+            sQLiteDatabase.execSQL("delete from " + this.f69612a + " where _id in (select _id from " + this.f69612a + " order by " + HostTB.INSERTTIME + " desc limit 1000 offset 500" + SmallTailInfo.EMOTION_SUFFIX);
         } catch (Exception e2) {
             l.k.c(e2);
         }
@@ -57,7 +58,7 @@ public class b extends a<d.b.d.b.c.a.a> {
             return false;
         }
         try {
-            query = sQLiteDatabase.query(this.f65881a, null, "path=?", new String[]{str}, null, null, null);
+            query = sQLiteDatabase.query(this.f69612a, null, "path=?", new String[]{str}, null, null, null);
             i2 = query.getCount();
         } catch (Exception e2) {
             e = e2;

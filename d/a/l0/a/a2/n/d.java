@@ -9,39 +9,39 @@ import java.io.FileOutputStream;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40789a = -1;
+    public static int f44465a = -1;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppConfigData f40790e;
+        public final /* synthetic */ SwanAppConfigData f44466e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f40791f;
+        public final /* synthetic */ File f44467f;
 
         public a(SwanAppConfigData swanAppConfigData, File file, String str) {
-            this.f40790e = swanAppConfigData;
-            this.f40791f = file;
+            this.f44466e = swanAppConfigData;
+            this.f44467f = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             FileOutputStream fileOutputStream;
             Throwable th;
-            if (this.f40790e == null) {
+            if (this.f44466e == null) {
                 return;
             }
             FileOutputStream fileOutputStream2 = null;
             try {
-                fileOutputStream = new FileOutputStream(this.f40791f);
+                fileOutputStream = new FileOutputStream(this.f44467f);
             } catch (Exception unused) {
             } catch (Throwable th2) {
                 fileOutputStream = null;
                 th = th2;
             }
             try {
-                fileOutputStream.write(SwanAppConfigData.s.call(this.f40790e));
+                fileOutputStream.write(SwanAppConfigData.s.call(this.f44466e));
                 d.a.l0.t.d.d(fileOutputStream);
             } catch (Exception unused2) {
                 fileOutputStream2 = fileOutputStream;
@@ -55,11 +55,11 @@ public class d {
     }
 
     public static boolean a() {
-        if (f40789a == -1) {
+        if (f44465a == -1) {
             d.a.l0.a.c1.a.Z().getSwitch("swan_app_json_serialize", 0);
-            f40789a = 0;
+            f44465a = 0;
         }
-        return f40789a == 1;
+        return f44465a == 1;
     }
 
     public static SwanAppConfigData b(String str) {

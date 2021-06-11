@@ -26,23 +26,23 @@ public class g extends c {
     public class a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44255a;
+        public final /* synthetic */ CallbackHandler f47929a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44256b;
+        public final /* synthetic */ String f47930b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ h f44257c;
+        public final /* synthetic */ h f47931c;
 
         public a(CallbackHandler callbackHandler, String str, h hVar) {
-            this.f44255a = callbackHandler;
-            this.f44256b = str;
-            this.f44257c = hVar;
+            this.f47929a = callbackHandler;
+            this.f47930b = str;
+            this.f47931c = hVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f44255a.handleSchemeDispatchCallback(this.f44256b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
+            this.f47929a.handleSchemeDispatchCallback(this.f47930b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -51,7 +51,7 @@ public class g extends c {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i2) {
-            g.this.r(response, this.f44255a, this.f44256b, this.f44257c);
+            g.this.r(response, this.f47929a, this.f47930b, this.f47931c);
             return response;
         }
     }
@@ -60,34 +60,34 @@ public class g extends c {
     public class b extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44259a;
+        public final /* synthetic */ CallbackHandler f47933a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44260b;
+        public final /* synthetic */ String f47934b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f44261c;
+        public final /* synthetic */ String f47935c;
 
         public b(CallbackHandler callbackHandler, String str, String str2) {
-            this.f44259a = callbackHandler;
-            this.f44260b = str;
-            this.f44261c = str2;
+            this.f47933a = callbackHandler;
+            this.f47934b = str;
+            this.f47935c = str2;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (c.f44247c) {
+            if (c.f47921c) {
                 Log.i("CloudUploadAction", "onFailure: ");
             }
             g gVar = g.this;
-            CallbackHandler callbackHandler = this.f44259a;
-            String str = this.f44260b;
+            CallbackHandler callbackHandler = this.f47933a;
+            String str = this.f47934b;
             gVar.s(callbackHandler, str, null, "uploadFile:fail" + exc.getMessage());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onSuccess(Object obj, int i2) {
-            this.f44259a.handleSchemeDispatchCallback(this.f44260b, UnitedSchemeUtility.wrapCallbackParams(d.a.l0.a.r.a.n(this.f44261c, null, "uploadFile:ok"), 0).toString());
+            this.f47933a.handleSchemeDispatchCallback(this.f47934b, UnitedSchemeUtility.wrapCallbackParams(d.a.l0.a.r.a.n(this.f47935c, null, "uploadFile:ok"), 0).toString());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -117,7 +117,7 @@ public class g extends c {
         if (TextUtils.isEmpty(optString)) {
             return l(unitedSchemeEntity, 202, "illegal cb");
         }
-        if (c.f44247c) {
+        if (c.f47921c) {
             Log.d("CloudUploadAction", "schema params : " + a2.toString());
             Log.d("CloudUploadAction", "schema cb : " + optString);
         }
@@ -172,7 +172,7 @@ public class g extends c {
         try {
             return Integer.parseInt(str);
         } catch (NumberFormatException e2) {
-            if (c.f44247c) {
+            if (c.f47921c) {
                 e2.printStackTrace();
             }
             return 1001;
@@ -210,14 +210,14 @@ public class g extends c {
                             return;
                         }
                         d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(build.url().toString(), build.body(), new b(callbackHandler, str, optString4));
-                        aVar.f47971c = t;
-                        aVar.f47974f = true;
-                        aVar.f47975g = false;
-                        aVar.f47976h = true;
+                        aVar.f51645c = t;
+                        aVar.f51648f = true;
+                        aVar.f51649g = false;
+                        aVar.f51650h = true;
                         d.a.l0.m.e.a.g().f(aVar);
                         return;
                     } catch (Exception e2) {
-                        if (c.f44247c) {
+                        if (c.f47921c) {
                             e2.printStackTrace();
                         }
                         s(callbackHandler, str, optString, optString2);
@@ -270,7 +270,7 @@ public class g extends c {
                 jSONObject.put("stringMap", optJSONObject);
             }
         } catch (JSONException e2) {
-            if (c.f44247c) {
+            if (c.f47921c) {
                 e2.printStackTrace();
             }
         }

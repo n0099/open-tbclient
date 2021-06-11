@@ -38,10 +38,10 @@ import tbclient.User;
 public class d extends j {
 
     /* renamed from: h  reason: collision with root package name */
-    public final CustomMessageListener f58472h;
+    public final CustomMessageListener f62163h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CustomMessageListener f58473i;
+    public final CustomMessageListener f62164i;
     public final d.a.c.c.g.a j;
 
     /* loaded from: classes4.dex */
@@ -57,14 +57,14 @@ public class d extends j {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
-            if (StringUtils.isNull(str) || d.this.f58538b.g0() == null) {
+            if (StringUtils.isNull(str) || d.this.f62229b.j0() == null) {
                 return;
             }
-            FrsViewData g0 = d.this.f58538b.g0();
-            g0.removeThread(str);
-            d.this.f58537a.v1(g0.getThreadList(), g0);
+            FrsViewData j0 = d.this.f62229b.j0();
+            j0.removeThread(str);
+            d.this.f62228a.v1(j0.getThreadList(), j0);
             if (d.a.n0.e3.e.i() != null) {
-                d.a.n0.e3.e.i().n(d.this.f58538b.g(), false);
+                d.a.n0.e3.e.i().n(d.this.f62229b.h(), false);
             }
         }
     }
@@ -85,26 +85,26 @@ public class d extends j {
                 return;
             }
             d dVar = d.this;
-            if (dVar.f58538b == null || dVar.f58537a == null || dVar.f58540d == null || (eVar = (ForumManageModel.e) customResponsedMessage.getData()) == null || TextUtils.isEmpty(eVar.f20834a) || d.this.f58538b.g0() == null) {
+            if (dVar.f62229b == null || dVar.f62228a == null || dVar.f62231d == null || (eVar = (ForumManageModel.e) customResponsedMessage.getData()) == null || TextUtils.isEmpty(eVar.f20911a) || d.this.f62229b.j0() == null) {
                 return;
             }
-            String str = eVar.f20834a;
-            String str2 = eVar.f20835b;
-            String str3 = eVar.f20836c;
-            if (eVar.f20837d == 4) {
-                FrsViewData g0 = d.this.f58538b.g0();
-                a2 threadDataById = g0.getThreadDataById(str);
-                g0.removeThreadData(threadDataById);
-                List<d.a.c.j.e.n> topThreadList = g0.getTopThreadList();
+            String str = eVar.f20911a;
+            String str2 = eVar.f20912b;
+            String str3 = eVar.f20913c;
+            if (eVar.f20914d == 4) {
+                FrsViewData j0 = d.this.f62229b.j0();
+                a2 threadDataById = j0.getThreadDataById(str);
+                j0.removeThreadData(threadDataById);
+                List<d.a.c.k.e.n> topThreadList = j0.getTopThreadList();
                 if (topThreadList == null) {
                     topThreadList = new ArrayList<>();
                 }
                 topThreadList.add(0, threadDataById);
-                d.this.f58537a.v1(g0.getThreadList(), g0);
-                d.this.f58540d.R(g0);
+                d.this.f62228a.v1(j0.getThreadList(), j0);
+                d.this.f62231d.R(j0);
             }
-            if (TextUtils.equals(d.this.f58538b.g(), str3)) {
-                d.a.n0.e3.e.i().n(d.this.f58538b.g(), false);
+            if (TextUtils.equals(d.this.f62229b.h(), str3)) {
+                d.a.n0.e3.e.i().n(d.this.f62229b.h(), false);
             }
         }
     }
@@ -133,7 +133,7 @@ public class d extends j {
                     if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                         GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                            errorString2 = d.this.f58538b.getResources().getString(R.string.neterror);
+                            errorString2 = d.this.f62229b.getResources().getString(R.string.neterror);
                         } else {
                             errorString2 = getMyPostHttpResponseMessage.getErrorString();
                         }
@@ -146,7 +146,7 @@ public class d extends j {
                     } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                         GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                            errorString = d.this.f58538b.getResources().getString(R.string.neterror);
+                            errorString = d.this.f62229b.getResources().getString(R.string.neterror);
                         } else {
                             errorString = getMyPostSocketResponseMessage.getErrorString();
                         }
@@ -169,25 +169,25 @@ public class d extends j {
 
     /* renamed from: d.a.n0.r0.e2.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1493d implements Runnable {
+    public class RunnableC1549d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostWriteCallBackData f58477e;
+        public final /* synthetic */ PostWriteCallBackData f62168e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f58478f;
+        public final /* synthetic */ long f62169f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f58479g;
+        public final /* synthetic */ long f62170g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f58480h;
+        public final /* synthetic */ long f62171h;
 
-        public RunnableC1493d(PostWriteCallBackData postWriteCallBackData, long j, long j2, long j3) {
-            this.f58477e = postWriteCallBackData;
-            this.f58478f = j;
-            this.f58479g = j2;
-            this.f58480h = j3;
+        public RunnableC1549d(PostWriteCallBackData postWriteCallBackData, long j, long j2, long j3) {
+            this.f62168e = postWriteCallBackData;
+            this.f62169f = j;
+            this.f62170g = j2;
+            this.f62171h = j3;
         }
 
         @Override // java.lang.Runnable
@@ -197,48 +197,48 @@ public class d extends j {
             float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setProZone(this.f58477e.getProZone());
-            requestGetMyPostNetMessage.setParams(this.f58478f, this.f58479g, this.f58480h, k, i2, f2, i3);
-            d.this.f58538b.sendMessage(requestGetMyPostNetMessage);
+            requestGetMyPostNetMessage.setProZone(this.f62168e.getProZone());
+            requestGetMyPostNetMessage.setParams(this.f62169f, this.f62170g, this.f62171h, k, i2, f2, i3);
+            d.this.f62229b.sendMessage(requestGetMyPostNetMessage);
         }
     }
 
     public d(FrsFragment frsFragment) {
         super(frsFragment);
-        this.f58472h = new a(2921031);
-        this.f58473i = new b(2921316);
+        this.f62163h = new a(2921031);
+        this.f62164i = new b(2921316);
         c cVar = new c(CmdConfigHttp.CMD_GET_MY_POST, 303111);
         this.j = cVar;
         cVar.getSocketMessageListener().setSelfListener(true);
         this.j.getHttpMessageListener().setSelfListener(true);
-        this.f58472h.setSelfListener(false);
-        this.f58538b.registerListener(this.f58472h);
-        this.f58538b.registerListener(this.j);
-        this.f58538b.registerListener(this.f58473i);
+        this.f62163h.setSelfListener(false);
+        this.f62229b.registerListener(this.f62163h);
+        this.f62229b.registerListener(this.j);
+        this.f62229b.registerListener(this.f62164i);
     }
 
     public final void b(a2 a2Var, FrsNewAreaFragment frsNewAreaFragment) {
-        frsNewAreaFragment.e1(a2Var);
+        frsNewAreaFragment.h1(a2Var);
     }
 
     public final void c(w0 w0Var) {
-        ArrayList<d.a.c.j.e.n> threadList;
-        FrsViewData g0 = this.f58538b.g0();
-        if (g0 == null) {
+        ArrayList<d.a.c.k.e.n> threadList;
+        FrsViewData j0 = this.f62229b.j0();
+        if (j0 == null) {
             return;
         }
-        this.f58541e.C(w0Var);
-        if (this.f58541e.q0()) {
-            ArrayList<d.a.c.j.e.n> arrayList = new ArrayList<>();
+        this.f62232e.G(w0Var);
+        if (this.f62232e.u0()) {
+            ArrayList<d.a.c.k.e.n> arrayList = new ArrayList<>();
             arrayList.add(w0Var);
-            threadList = this.f58543g.c(false, true, arrayList, null, true);
+            threadList = this.f62234g.c(false, true, arrayList, null, true);
         } else {
-            threadList = g0.getThreadList();
+            threadList = j0.getThreadList();
         }
         if (threadList != null) {
-            g0.setThreadList(threadList);
-            g0.checkLiveStageInThreadList();
-            this.f58537a.v1(threadList, g0);
+            j0.setThreadList(threadList);
+            j0.checkLiveStageInThreadList();
+            this.f62228a.v1(threadList, j0);
         }
     }
 
@@ -246,11 +246,11 @@ public class d extends j {
         DataRes dataRes;
         User_Info user_Info;
         if (i2 != 0) {
-            this.f58538b.showToast(str);
+            this.f62229b.showToast(str);
             return;
         }
-        FrsViewData g0 = this.f58538b.g0();
-        if (g0 == null || g0.getForum() == null || getMyPostResIdl == null || this.f58537a == null || this.f58541e == null || (dataRes = getMyPostResIdl.data) == null || dataRes.thread_info == null) {
+        FrsViewData j0 = this.f62229b.j0();
+        if (j0 == null || j0.getForum() == null || getMyPostResIdl == null || this.f62228a == null || this.f62232e == null || (dataRes = getMyPostResIdl.data) == null || dataRes.thread_info == null) {
             return;
         }
         w0 w0Var = new w0();
@@ -266,9 +266,9 @@ public class d extends j {
             builder.author = builder2.build(true);
         }
         builder.cheak_repeat = 1;
-        builder.fname = g0.getForum().getName();
-        builder.fid = Long.valueOf(d.a.c.e.m.b.f(g0.getForum().getId(), 0L));
-        w0Var.U2(builder.build(true));
+        builder.fname = j0.getForum().getName();
+        builder.fid = Long.valueOf(d.a.c.e.m.b.f(j0.getForum().getId(), 0L));
+        w0Var.V2(builder.build(true));
         f(w0Var, i3);
     }
 
@@ -298,35 +298,35 @@ public class d extends j {
 
     public final void f(w0 w0Var, int i2) {
         if (i2 == 1) {
-            FrsTabViewController.o y = this.f58538b.y2().y();
+            FrsTabViewController.o y = this.f62229b.B2().y();
             if (y != null) {
-                Fragment fragment = y.f15761b;
+                Fragment fragment = y.f15823b;
                 if (fragment instanceof FrsCommonTabFragment) {
-                    ((FrsCommonTabFragment) fragment).J0(w0Var);
+                    ((FrsCommonTabFragment) fragment).M0(w0Var);
                 }
             }
         } else if (i2 == 2) {
-            FrsTabViewController.o F = this.f58538b.y2().F(301);
-            if (F == null || !(F.f15761b instanceof FrsGoodFragment)) {
+            FrsTabViewController.o F = this.f62229b.B2().F(301);
+            if (F == null || !(F.f15823b instanceof FrsGoodFragment)) {
                 return;
             }
-            this.f58539c.b(301);
-            ((FrsGoodFragment) F.f15761b).d1(w0Var);
-        } else if (w0Var.n1() > 0) {
-            FrsTabViewController.o F2 = this.f58538b.y2().F(w0Var.n1());
+            this.f62230c.b(301);
+            ((FrsGoodFragment) F.f15823b).g1(w0Var);
+        } else if (w0Var.o1() > 0) {
+            FrsTabViewController.o F2 = this.f62229b.B2().F(w0Var.o1());
             if (F2 != null) {
-                Fragment fragment2 = F2.f15761b;
+                Fragment fragment2 = F2.f15823b;
                 if (fragment2 instanceof FrsCommonTabFragment) {
-                    ((FrsCommonTabFragment) fragment2).J0(w0Var);
+                    ((FrsCommonTabFragment) fragment2).M0(w0Var);
                 }
             }
         } else {
             if (!ListUtils.isEmpty(w0Var.A0())) {
-                w0Var.L1();
+                w0Var.M1();
             }
-            FrsTabViewController.o F3 = this.f58538b.y2().F(this.f58538b.y2().B());
+            FrsTabViewController.o F3 = this.f62229b.B2().F(this.f62229b.B2().B());
             if (F3 != null) {
-                Fragment fragment3 = F3.f15761b;
+                Fragment fragment3 = F3.f15823b;
                 if (fragment3 instanceof FrsNewAreaFragment) {
                     b(w0Var, (FrsNewAreaFragment) fragment3);
                 } else {
@@ -337,27 +337,27 @@ public class d extends j {
     }
 
     public void g(PostWriteCallBackData postWriteCallBackData) {
-        FrsModelController frsModelController = this.f58541e;
+        FrsModelController frsModelController = this.f62232e;
         if (frsModelController == null) {
             return;
         }
-        boolean z = frsModelController.Z() != null && this.f58541e.Z().getIsBrandForum();
-        int N = this.f58541e.N();
-        if (N == 2 || N == 3 || N == 7 || N == 8 || z) {
-            if ((d0.a().b(1) != null ? this.f58541e.R() : 0) != 0 || postWriteCallBackData == null) {
+        boolean z = frsModelController.d0() != null && this.f62232e.d0().getIsBrandForum();
+        int R = this.f62232e.R();
+        if (R == 2 || R == 3 || R == 7 || R == 8 || z) {
+            if ((d0.a().b(1) != null ? this.f62232e.V() : 0) != 0 || postWriteCallBackData == null) {
                 return;
             }
             long f2 = d.a.c.e.m.b.f(postWriteCallBackData.getPostId(), 0L);
             long f3 = d.a.c.e.m.b.f(postWriteCallBackData.getThreadId(), 0L);
-            long f4 = d.a.c.e.m.b.f(this.f58538b.h(), 0L);
+            long f4 = d.a.c.e.m.b.f(this.f62229b.i(), 0L);
             if (f2 != 0 && f3 != 0 && f4 != 0) {
-                d.a.c.e.m.e.a().postDelayed(new RunnableC1493d(postWriteCallBackData, f3, f2, f4), 1000L);
+                d.a.c.e.m.e.a().postDelayed(new RunnableC1549d(postWriteCallBackData, f3, f2, f4), 1000L);
                 return;
             }
             WriteData writeData = postWriteCallBackData.writeDataForVideo;
             if (writeData != null) {
                 w0 w0Var = new w0();
-                w0Var.K2(writeData);
+                w0Var.L2(writeData);
                 f(w0Var, writeData.getProZone());
             }
         }

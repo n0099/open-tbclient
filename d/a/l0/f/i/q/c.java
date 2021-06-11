@@ -18,10 +18,10 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f46824a;
+    public Context f50498a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f46825b;
+    public JSONObject f50499b;
 
     /* loaded from: classes3.dex */
     public class a extends ResponseCallback {
@@ -43,15 +43,15 @@ public class c {
     }
 
     public c(Context context, JSONObject jSONObject) {
-        this.f46824a = context;
-        this.f46825b = jSONObject;
+        this.f50498a = context;
+        this.f50499b = jSONObject;
     }
 
     public final void a(@NonNull Request request) {
         d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(request.url().toString(), new a(this));
-        aVar.f47974f = true;
-        aVar.f47975g = false;
-        aVar.f47976h = false;
+        aVar.f51648f = true;
+        aVar.f51649g = false;
+        aVar.f51650h = false;
         d.a.l0.m.e.a.g().d(aVar);
     }
 
@@ -81,13 +81,13 @@ public class c {
         } else {
             hashMap.put("da_page", "MINIAPP");
         }
-        hashMap.put("play_mode", String.valueOf((NetworkUtils.g(this.f46824a) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONObject jSONObject = this.f46825b;
+        hashMap.put("play_mode", String.valueOf((NetworkUtils.g(this.f50498a) && TextUtils.equals(str, "vstart")) ? 0 : 1));
+        JSONObject jSONObject = this.f50499b;
         JSONArray optJSONArray = jSONObject != null ? jSONObject.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 String optString = optJSONArray.optString(i2);
-                if (NetworkUtils.f(this.f46824a) && !TextUtils.isEmpty(optString)) {
+                if (NetworkUtils.f(this.f50498a) && !TextUtils.isEmpty(optString)) {
                     HttpUrl parse = HttpUrl.parse(b(optString, hashMap));
                     if (parse == null) {
                         return;
@@ -100,7 +100,7 @@ public class c {
 
     public void e(String str) {
         HttpUrl parse;
-        if (!NetworkUtils.f(this.f46824a) || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
+        if (!NetworkUtils.f(this.f50498a) || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
             return;
         }
         a(new Request.Builder().url(parse.newBuilder().build()).build());

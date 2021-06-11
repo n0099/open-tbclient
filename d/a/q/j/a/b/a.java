@@ -26,27 +26,27 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f64328f = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
+    public static final String[] f68046f = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64329a;
+    public String f68047a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f64330b;
+    public Context f68048b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.C1788a f64331c;
+    public a.C1846a f68049c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ZipFile f64332d;
+    public ZipFile f68050d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PackageManager f64333e;
+    public PackageManager f68051e;
 
     /* renamed from: d.a.q.j.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1798a implements FilenameFilter {
-        public C1798a(a aVar) {
+    public class C1856a implements FilenameFilter {
+        public C1856a(a aVar) {
         }
 
         @Override // java.io.FilenameFilter
@@ -59,7 +59,7 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f64334a;
+        public long f68052a;
 
         public static b a(a aVar) {
             try {
@@ -69,7 +69,7 @@ public class a {
                 }
                 JSONObject jSONObject = new JSONObject(b2);
                 b bVar = new b();
-                bVar.f64334a = jSONObject.getLong("version");
+                bVar.f68052a = jSONObject.getLong("version");
                 return bVar;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -80,7 +80,7 @@ public class a {
 
     public long a() {
         try {
-            Bundle bundle = this.f64333e.getPackageInfo(this.f64329a, 128).applicationInfo.metaData;
+            Bundle bundle = this.f68051e.getPackageInfo(this.f68047a, 128).applicationInfo.metaData;
             if (bundle != null) {
                 String string = bundle.getString("com.baidu.helios.tc.qver");
                 if (TextUtils.isEmpty(string) || !string.startsWith("v")) {
@@ -108,19 +108,19 @@ public class a {
         }
     }
 
-    public void c(String str, Context context, a.C1788a c1788a) {
-        this.f64329a = str;
-        this.f64330b = context;
-        this.f64331c = c1788a;
-        this.f64333e = context.getPackageManager();
+    public void c(String str, Context context, a.C1846a c1846a) {
+        this.f68047a = str;
+        this.f68048b = context;
+        this.f68049c = c1846a;
+        this.f68051e = context.getPackageManager();
     }
 
     public int d() {
         File file;
         FileOutputStream fileOutputStream;
         try {
-            AssetManager assets = this.f64330b.createPackageContext(this.f64329a, 0).getAssets();
-            this.f64331c.a();
+            AssetManager assets = this.f68048b.createPackageContext(this.f68047a, 0).getAssets();
+            this.f68049c.a();
             File k = k();
             InputStream inputStream = null;
             try {
@@ -156,7 +156,7 @@ public class a {
                                     }
                                 }
                                 HashSet hashSet2 = new HashSet();
-                                Collections.addAll(hashSet2, f64328f);
+                                Collections.addAll(hashSet2, f68046f);
                                 if (!hashSet2.equals(hashSet)) {
                                     c.b(inputStream);
                                     c.b(fileOutputStream);
@@ -263,7 +263,7 @@ public class a {
 
     public final InputStream e(String str) {
         try {
-            return this.f64332d.getInputStream(new ZipEntry(str));
+            return this.f68050d.getInputStream(new ZipEntry(str));
         } catch (Exception e2) {
             throw new TrustSubject.ConfigNotFoundException(e2);
         }
@@ -274,7 +274,7 @@ public class a {
     }
 
     public boolean g() {
-        File[] listFiles = this.f64331c.b().listFiles(new C1798a(this));
+        File[] listFiles = this.f68049c.b().listFiles(new C1856a(this));
         int i2 = 0;
         if (listFiles != null) {
             int length = listFiles.length;
@@ -290,13 +290,13 @@ public class a {
     }
 
     public boolean h() {
-        if (this.f64332d != null) {
+        if (this.f68050d != null) {
             return true;
         }
         File k = k();
         if (k.exists()) {
             try {
-                this.f64332d = new ZipFile(k);
+                this.f68050d = new ZipFile(k);
                 return true;
             } catch (IOException e2) {
                 e2.printStackTrace();
@@ -307,10 +307,10 @@ public class a {
     }
 
     public boolean i() {
-        ZipFile zipFile = this.f64332d;
+        ZipFile zipFile = this.f68050d;
         if (zipFile != null) {
             c.d(zipFile);
-            this.f64332d = null;
+            this.f68050d = null;
             return true;
         }
         return false;
@@ -319,12 +319,12 @@ public class a {
     public long j() {
         b a2 = b.a(this);
         if (a2 != null) {
-            return a2.f64334a;
+            return a2.f68052a;
         }
         return 0L;
     }
 
     public final File k() {
-        return this.f64331c.d("c.dat");
+        return this.f68049c.d("c.dat");
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 /* loaded from: classes3.dex */
 public class SimpleBlurLoaderProc extends SimpleLoaderProc {
     public SimpleBlurLoaderProc(boolean z, int i2) {

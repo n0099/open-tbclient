@@ -16,29 +16,29 @@ import java.util.concurrent.TimeUnit;
 public class b implements d.a.l0.f.i.k.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f46708a;
+    public Context f50382a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f46709b;
+    public String f50383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdElementInfo f46710c;
+    public AdElementInfo f50384c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DownloadState f46711d = DownloadState.NOT_START;
+    public DownloadState f50385d = DownloadState.NOT_START;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f46712e;
+    public g f50386e;
 
     /* renamed from: f  reason: collision with root package name */
-    public C0978b f46713f;
+    public C1034b f50387f;
 
     /* renamed from: d.a.l0.f.i.k.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0978b extends BroadcastReceiver {
+    public class C1034b extends BroadcastReceiver {
         public long time;
 
-        public C0978b() {
+        public C1034b() {
             this.time = 0L;
         }
 
@@ -47,7 +47,7 @@ public class b implements d.a.l0.f.i.k.f.a {
             if (intent == null || intent.getData() == null || !PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
                 return;
             }
-            if (!TextUtils.equals(b.this.f46710c.y(), intent.getData().getSchemeSpecificPart()) || System.currentTimeMillis() - this.time < TimeUnit.SECONDS.toMillis(10L)) {
+            if (!TextUtils.equals(b.this.f50384c.y(), intent.getData().getSchemeSpecificPart()) || System.currentTimeMillis() - this.time < TimeUnit.SECONDS.toMillis(10L)) {
                 return;
             }
             this.time = System.currentTimeMillis();
@@ -56,9 +56,9 @@ public class b implements d.a.l0.f.i.k.f.a {
     }
 
     public b(Context context, AdElementInfo adElementInfo, g gVar) {
-        this.f46708a = context;
-        this.f46710c = adElementInfo;
-        this.f46712e = gVar;
+        this.f50382a = context;
+        this.f50384c = adElementInfo;
+        this.f50386e = gVar;
     }
 
     @Override // d.a.l0.f.i.k.f.a
@@ -72,14 +72,14 @@ public class b implements d.a.l0.f.i.k.f.a {
 
     @Override // d.a.l0.f.i.k.f.a
     public void c(DownloadState downloadState, int i2) {
-        if (this.f46711d == downloadState) {
+        if (this.f50385d == downloadState) {
             return;
         }
         if (downloadState == DownloadState.DOWNLOADED) {
             j("2");
             h();
         }
-        this.f46711d = downloadState;
+        this.f50385d = downloadState;
     }
 
     @Override // d.a.l0.f.i.k.f.a
@@ -96,32 +96,32 @@ public class b implements d.a.l0.f.i.k.f.a {
     }
 
     public final void h() {
-        if (this.f46713f == null) {
-            this.f46713f = new C0978b();
+        if (this.f50387f == null) {
+            this.f50387f = new C1034b();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
-            this.f46708a.registerReceiver(this.f46713f, intentFilter);
+            this.f50382a.registerReceiver(this.f50387f, intentFilter);
         }
     }
 
     public void i() {
-        C0978b c0978b = this.f46713f;
-        if (c0978b != null) {
-            this.f46708a.unregisterReceiver(c0978b);
-            this.f46713f = null;
+        C1034b c1034b = this.f50387f;
+        if (c1034b != null) {
+            this.f50382a.unregisterReceiver(c1034b);
+            this.f50387f = null;
         }
     }
 
     public final void j(String str) {
         d.a.l0.f.i.q.a aVar = new d.a.l0.f.i.q.a();
-        aVar.s = this.f46709b;
+        aVar.s = this.f50383b;
         aVar.r = str;
-        d.e(aVar, this.f46710c, this.f46712e);
+        d.e(aVar, this.f50384c, this.f50386e);
     }
 
     public void k(String str) {
-        this.f46709b = str;
+        this.f50383b = str;
         j("1");
     }
 }

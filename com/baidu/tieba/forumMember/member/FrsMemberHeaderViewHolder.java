@@ -11,50 +11,50 @@ import com.baidu.tieba.R;
 public class FrsMemberHeaderViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f14970a;
+    public TextView f15027a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f14971b;
+    public TextView f15028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f14972c;
+    public ImageView f15029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f14973d;
+    public TextView f15030d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f14974e;
+    public View f15031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f14975f;
+    public LinearLayout f15032f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f14976g;
+    public TextView f15033g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoPressedLinearLayout f14977h;
+    public NoPressedLinearLayout f15034h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f14978i;
+    public View f15035i;
     public TextView j;
     public ImageView k;
     public ImageView l;
 
     public FrsMemberHeaderViewHolder(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.f14970a = (TextView) view.findViewById(R.id.like_btn);
-        this.f14971b = (TextView) view.findViewById(R.id.lever_tip_view);
-        this.f14972c = (ImageView) view.findViewById(R.id.header_level_img);
-        this.f14973d = (TextView) view.findViewById(R.id.user_level_name);
-        this.f14974e = view.findViewById(R.id.header_divider_line2);
-        this.f14975f = (LinearLayout) view.findViewById(R.id.view_experience_score);
-        this.f14976g = (TextView) view.findViewById(R.id.tip_experience_score);
-        this.f14977h = (NoPressedLinearLayout) view.findViewById(R.id.root_forum_member_header);
-        this.f14978i = view.findViewById(R.id.header_divider_line3);
+        this.f15027a = (TextView) view.findViewById(R.id.like_btn);
+        this.f15028b = (TextView) view.findViewById(R.id.lever_tip_view);
+        this.f15029c = (ImageView) view.findViewById(R.id.header_level_img);
+        this.f15030d = (TextView) view.findViewById(R.id.user_level_name);
+        this.f15031e = view.findViewById(R.id.header_divider_line2);
+        this.f15032f = (LinearLayout) view.findViewById(R.id.view_experience_score);
+        this.f15033g = (TextView) view.findViewById(R.id.tip_experience_score);
+        this.f15034h = (NoPressedLinearLayout) view.findViewById(R.id.root_forum_member_header);
+        this.f15035i = view.findViewById(R.id.header_divider_line3);
         this.j = (TextView) view.findViewById(R.id.tip_experience);
         this.k = (ImageView) view.findViewById(R.id.love_level_top);
         this.l = (ImageView) view.findViewById(R.id.love_level_bg);
-        this.f14970a.setOnClickListener(onClickListener);
-        this.f14973d.setOnClickListener(onClickListener);
+        this.f15027a.setOnClickListener(onClickListener);
+        this.f15030d.setOnClickListener(onClickListener);
     }
 }

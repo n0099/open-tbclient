@@ -23,22 +23,22 @@ import tbclient.GetBawuInfo.ManagerApplyInfo;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public BawuTeam f57943a;
+    public BawuTeam f61634a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f57944b;
+    public boolean f61635b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ManagerApplyInfo f57945c;
+    public ManagerApplyInfo f61636c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f57946d = null;
+    public c f61637d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.c.c.g.a f57947e = new a(CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007);
+    public d.a.c.c.g.a f61638e = new a(CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007);
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f57948f = new b(2003005);
+    public CustomMessageListener f61639f = new b(2003005);
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -55,26 +55,26 @@ public class e {
             if (z || (responsedMessage instanceof BawuTeamSocketResponseMessage)) {
                 if (z) {
                     BawuTeamHttpResponseMessage bawuTeamHttpResponseMessage = (BawuTeamHttpResponseMessage) responsedMessage;
-                    e.this.f57943a = bawuTeamHttpResponseMessage.getBawuTeamInfo();
-                    e.this.f57944b = bawuTeamHttpResponseMessage.isPrivateForum() != 0;
-                    e.this.f57945c = bawuTeamHttpResponseMessage.getManagerApplyInfo();
+                    e.this.f61634a = bawuTeamHttpResponseMessage.getBawuTeamInfo();
+                    e.this.f61635b = bawuTeamHttpResponseMessage.isPrivateForum() != 0;
+                    e.this.f61636c = bawuTeamHttpResponseMessage.getManagerApplyInfo();
                 } else if (responsedMessage instanceof BawuTeamSocketResponseMessage) {
                     BawuTeamSocketResponseMessage bawuTeamSocketResponseMessage = (BawuTeamSocketResponseMessage) responsedMessage;
-                    e.this.f57943a = bawuTeamSocketResponseMessage.getBawuTeamInfo();
-                    e.this.f57944b = bawuTeamSocketResponseMessage.isPrivateForum() != 0;
-                    e.this.f57945c = bawuTeamSocketResponseMessage.getManagerApplyInfo();
+                    e.this.f61634a = bawuTeamSocketResponseMessage.getBawuTeamInfo();
+                    e.this.f61635b = bawuTeamSocketResponseMessage.isPrivateForum() != 0;
+                    e.this.f61636c = bawuTeamSocketResponseMessage.getManagerApplyInfo();
                 }
                 l lVar = new l();
-                if (e.this.f57945c != null) {
-                    lVar.m(e.this.f57945c.manager_left_num.intValue());
-                    lVar.l(e.this.f57945c.manager_apply_url);
-                    lVar.i(e.this.f57945c.assist_left_num.intValue());
-                    lVar.h(e.this.f57945c.assist_apply_url);
+                if (e.this.f61636c != null) {
+                    lVar.l(e.this.f61636c.manager_left_num.intValue());
+                    lVar.k(e.this.f61636c.manager_apply_url);
+                    lVar.h(e.this.f61636c.assist_left_num.intValue());
+                    lVar.g(e.this.f61636c.assist_apply_url);
                 }
-                if (e.this.f57946d != null) {
-                    c cVar = e.this.f57946d;
+                if (e.this.f61637d != null) {
+                    c cVar = e.this.f61637d;
                     e eVar = e.this;
-                    cVar.a(eVar.j(eVar.f57943a), lVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
+                    cVar.a(eVar.j(eVar.f61634a), lVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -93,20 +93,20 @@ public class e {
                 return;
             }
             BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = (BawuTeamReadCacheResponseMessage) customResponsedMessage;
-            e.this.f57943a = bawuTeamReadCacheResponseMessage.getBawuTeamInfo();
-            e.this.f57944b = bawuTeamReadCacheResponseMessage.isPrivateForum() != 0;
-            e.this.f57945c = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
+            e.this.f61634a = bawuTeamReadCacheResponseMessage.getBawuTeamInfo();
+            e.this.f61635b = bawuTeamReadCacheResponseMessage.isPrivateForum() != 0;
+            e.this.f61636c = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
             l lVar = new l();
-            if (e.this.f57945c != null) {
-                lVar.m(e.this.f57945c.manager_left_num.intValue());
-                lVar.l(e.this.f57945c.manager_apply_url);
-                lVar.i(e.this.f57945c.assist_left_num.intValue());
-                lVar.h(e.this.f57945c.assist_apply_url);
+            if (e.this.f61636c != null) {
+                lVar.l(e.this.f61636c.manager_left_num.intValue());
+                lVar.k(e.this.f61636c.manager_apply_url);
+                lVar.h(e.this.f61636c.assist_left_num.intValue());
+                lVar.g(e.this.f61636c.assist_apply_url);
             }
-            if (e.this.f57946d != null) {
-                c cVar = e.this.f57946d;
+            if (e.this.f61637d != null) {
+                c cVar = e.this.f61637d;
                 e eVar = e.this;
-                cVar.a(eVar.j(eVar.f57943a), lVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
+                cVar.a(eVar.j(eVar.f61634a), lVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
             }
         }
     }
@@ -117,13 +117,13 @@ public class e {
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.f57948f);
-        MessageManager.getInstance().registerListener(this.f57947e);
+        MessageManager.getInstance().registerListener(this.f61639f);
+        MessageManager.getInstance().registerListener(this.f61638e);
     }
 
     public void g() {
-        MessageManager.getInstance().unRegisterListener(this.f57947e);
-        MessageManager.getInstance().unRegisterListener(this.f57948f);
+        MessageManager.getInstance().unRegisterListener(this.f61638e);
+        MessageManager.getInstance().unRegisterListener(this.f61639f);
     }
 
     public void h(long j) {
@@ -165,7 +165,7 @@ public class e {
                     }
                     i3 += 2;
                     if (i3 >= size2) {
-                        if (this.f57944b) {
+                        if (this.f61635b) {
                             bVar.f(false);
                         } else {
                             bVar.f(true);
@@ -186,6 +186,6 @@ public class e {
     }
 
     public void k(c cVar) {
-        this.f57946d = cVar;
+        this.f61637d = cVar;
     }
 }

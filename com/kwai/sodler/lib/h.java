@@ -1,9 +1,9 @@
 package com.kwai.sodler.lib;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class h extends com.kwai.sodler.lib.a.f<g> {
     public h(com.kwai.sodler.lib.b.b bVar, String str) {
         this.p = bVar;
-        this.f34413a = str;
+        this.f37897a = str;
     }
 
     @Override // com.kwai.sodler.lib.a.f

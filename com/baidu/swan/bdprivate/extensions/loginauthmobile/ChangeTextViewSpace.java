@@ -9,15 +9,15 @@ import android.widget.TextView;
 public class ChangeTextViewSpace extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f11414e;
+    public float f11476e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CharSequence f11415f;
+    public CharSequence f11477f;
 
     public ChangeTextViewSpace(Context context) {
         super(context);
-        this.f11414e = 0.0f;
-        this.f11415f = "";
+        this.f11476e = 0.0f;
+        this.f11477f = "";
     }
 
     public static boolean b(String str) {
@@ -25,17 +25,17 @@ public class ChangeTextViewSpace extends TextView {
     }
 
     public final void a() {
-        if (this.f11415f == null) {
+        if (this.f11477f == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();
         int i2 = 0;
-        while (i2 < this.f11415f.length()) {
-            sb.append(this.f11415f.charAt(i2));
+        while (i2 < this.f11477f.length()) {
+            sb.append(this.f11477f.charAt(i2));
             int i3 = i2 + 1;
-            if (i3 < this.f11415f.length()) {
-                if (b(this.f11415f.charAt(i2) + "")) {
-                    if (b(this.f11415f.charAt(i3) + "")) {
+            if (i3 < this.f11477f.length()) {
+                if (b(this.f11477f.charAt(i2) + "")) {
+                    if (b(this.f11477f.charAt(i3) + "")) {
                     }
                 }
                 sb.append(" ");
@@ -45,41 +45,41 @@ public class ChangeTextViewSpace extends TextView {
         SpannableString spannableString = new SpannableString(sb.toString());
         if (sb.toString().length() > 1) {
             for (int i4 = 1; i4 < sb.toString().length(); i4 += 2) {
-                spannableString.setSpan(new ScaleXSpan((this.f11414e + 1.0f) / 10.0f), i4, i4 + 1, 33);
+                spannableString.setSpan(new ScaleXSpan((this.f11476e + 1.0f) / 10.0f), i4, i4 + 1, 33);
             }
         }
         super.setText(spannableString, TextView.BufferType.SPANNABLE);
     }
 
     public float getSpacing() {
-        return this.f11414e;
+        return this.f11476e;
     }
 
     @Override // android.widget.TextView
     public CharSequence getText() {
-        return this.f11415f;
+        return this.f11477f;
     }
 
     public void setSpacing(float f2) {
-        this.f11414e = f2;
+        this.f11476e = f2;
         a();
     }
 
     @Override // android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
-        this.f11415f = charSequence;
+        this.f11477f = charSequence;
         a();
     }
 
     public ChangeTextViewSpace(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11414e = 0.0f;
-        this.f11415f = "";
+        this.f11476e = 0.0f;
+        this.f11477f = "";
     }
 
     public ChangeTextViewSpace(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11414e = 0.0f;
-        this.f11415f = "";
+        this.f11476e = 0.0f;
+        this.f11477f = "";
     }
 }

@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class d extends d.a.l0.n.i.d<d.a.l0.n.i.l.d> {
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f48077h;
+    public final String f51751h;
 
     public d(String str, g gVar, d.a.l0.n.i.m.g gVar2) {
         super(gVar, gVar2);
-        this.f48077h = str;
+        this.f51751h = str;
     }
 
     @Override // d.a.l0.n.i.d
@@ -25,7 +25,7 @@ public class d extends d.a.l0.n.i.d<d.a.l0.n.i.l.d> {
     /* renamed from: o */
     public boolean e(d.a.l0.n.i.l.d dVar) {
         List<d.a.l0.n.h.g> list;
-        if (dVar == null || (list = dVar.f48094a) == null) {
+        if (dVar == null || (list = dVar.f51768a) == null) {
             return false;
         }
         for (d.a.l0.n.h.g gVar : list) {
@@ -40,15 +40,15 @@ public class d extends d.a.l0.n.i.d<d.a.l0.n.i.l.d> {
     @Override // d.a.l0.n.i.d
     /* renamed from: p */
     public d.a.l0.n.h.a m(d.a.l0.n.i.l.d dVar) {
-        this.f48028e.D();
+        this.f51702e.D();
         f fVar = new f();
-        j(dVar.f48094a, fVar);
+        j(dVar.f51768a, fVar);
         if (fVar.l() == 0) {
-            this.f48028e.E();
+            this.f51702e.E();
             return null;
         }
-        this.f48028e.F(fVar);
-        d.a.l0.n.i.i.a.d(dVar, this.f48028e);
+        this.f51702e.F(fVar);
+        d.a.l0.n.i.i.a.d(dVar, this.f51702e);
         return null;
     }
 
@@ -56,6 +56,6 @@ public class d extends d.a.l0.n.i.d<d.a.l0.n.i.l.d> {
     @Override // d.a.l0.n.i.d
     /* renamed from: q */
     public d.a.l0.n.i.l.d n(JSONObject jSONObject) {
-        return d.a.l0.n.o.e.h(this.f48077h, jSONObject);
+        return d.a.l0.n.o.e.h(this.f51751h, jSONObject);
     }
 }

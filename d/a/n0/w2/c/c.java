@@ -22,31 +22,31 @@ import java.util.ArrayList;
 public class c extends d.a.c.a.d<BrowseSettingActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public BrowseSettingActivity f62567a;
+    public BrowseSettingActivity f66282a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f62568b;
+    public View f66283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f62569c;
+    public NavigationBar f66284c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbSettingTextTipView f62570d;
+    public TbSettingTextTipView f66285d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbSettingTextTipView f62571e;
+    public TbSettingTextTipView f66286e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbSettingTextTipView f62572f;
+    public TbSettingTextTipView f66287f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbSettingTextTipView f62573g;
+    public TbSettingTextTipView f66288g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MsgSettingItemView f62574h;
+    public MsgSettingItemView f66289h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.m0.r.s.e f62575i;
+    public d.a.m0.r.s.e f66290i;
     public d.a.m0.r.s.e j;
     public d.a.m0.r.s.e k;
     public d.a.m0.r.s.e l;
@@ -85,7 +85,7 @@ public class c extends d.a.c.a.d<BrowseSettingActivity> {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            c.this.f62575i.h(i2);
+            c.this.f66290i.h(i2);
             if (i2 == 0) {
                 k.c().j(true);
                 k.c().k(0);
@@ -100,15 +100,15 @@ public class c extends d.a.c.a.d<BrowseSettingActivity> {
             } else if (i2 == 3) {
                 k.c().j(false);
             }
-            c.this.f62575i.d();
+            c.this.f66290i.d();
             c.this.G();
         }
     }
 
     /* renamed from: d.a.n0.w2.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1700c implements AdapterView.OnItemClickListener {
-        public C1700c() {
+    public class C1757c implements AdapterView.OnItemClickListener {
+        public C1757c() {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -125,7 +125,7 @@ public class c extends d.a.c.a.d<BrowseSettingActivity> {
                 TiebaStatic.log(new StatisticItem("c10411").param("obj_type", 3));
             }
             SetImageWatermarkTypeReqMsg setImageWatermarkTypeReqMsg = new SetImageWatermarkTypeReqMsg(i3);
-            setImageWatermarkTypeReqMsg.setTag(c.this.f62567a.getUniqueId());
+            setImageWatermarkTypeReqMsg.setTag(c.this.f66282a.getUniqueId());
             MessageManager.getInstance().sendMessage(setImageWatermarkTypeReqMsg);
             k.c().i(i3);
             c.this.H(i3);
@@ -177,22 +177,22 @@ public class c extends d.a.c.a.d<BrowseSettingActivity> {
 
     public c(BrowseSettingActivity browseSettingActivity) {
         super(browseSettingActivity.getPageContext());
-        this.f62567a = null;
-        this.f62568b = null;
-        this.f62569c = null;
-        this.f62570d = null;
-        this.f62571e = null;
-        this.f62572f = null;
-        this.f62573g = null;
-        this.f62575i = null;
+        this.f66282a = null;
+        this.f66283b = null;
+        this.f66284c = null;
+        this.f66285d = null;
+        this.f66286e = null;
+        this.f66287f = null;
+        this.f66288g = null;
+        this.f66290i = null;
         this.j = null;
         this.k = null;
         this.l = null;
         this.r = new b();
-        this.s = new C1700c();
+        this.s = new C1757c();
         this.t = new d();
         this.u = new e();
-        this.f62567a = browseSettingActivity;
+        this.f66282a = browseSettingActivity;
         initUI();
         A();
         t();
@@ -212,84 +212,84 @@ public class c extends d.a.c.a.d<BrowseSettingActivity> {
 
     public void F() {
         if (TbadkCoreApplication.getInst().getFontSize() == 0) {
-            this.f62572f.setTip(this.mContext.getString(R.string.font_size_xlarge));
+            this.f66287f.setTip(this.mContext.getString(R.string.font_size_xlarge));
         } else if (TbadkCoreApplication.getInst().getFontSize() == 1) {
-            this.f62572f.setTip(this.mContext.getString(R.string.font_size_big));
+            this.f66287f.setTip(this.mContext.getString(R.string.font_size_big));
         } else if (TbadkCoreApplication.getInst().getFontSize() == 2) {
-            this.f62572f.setTip(this.mContext.getString(R.string.font_size_mid));
+            this.f66287f.setTip(this.mContext.getString(R.string.font_size_mid));
         } else {
-            this.f62572f.setTip(this.mContext.getString(R.string.font_size_small));
+            this.f66287f.setTip(this.mContext.getString(R.string.font_size_small));
         }
     }
 
     public final void G() {
         if (!k.c().g()) {
-            this.f62570d.setTip(this.mContext.getString(R.string.close));
+            this.f66285d.setTip(this.mContext.getString(R.string.close));
         } else if (k.c().e() == 1) {
-            this.f62570d.setTip(this.mContext.getString(R.string.view_high));
+            this.f66285d.setTip(this.mContext.getString(R.string.view_high));
         } else if (k.c().e() == 2) {
-            this.f62570d.setTip(this.mContext.getString(R.string.view_low));
+            this.f66285d.setTip(this.mContext.getString(R.string.view_low));
         } else {
-            this.f62570d.setTip(this.mContext.getString(R.string.view_image_quality_auto_menu));
+            this.f66285d.setTip(this.mContext.getString(R.string.view_image_quality_auto_menu));
         }
     }
 
     public final void H(int i2) {
         if (i2 == 0) {
-            this.f62571e.setTip(this.mContext.getString(R.string.image_water_show_none));
+            this.f66286e.setTip(this.mContext.getString(R.string.image_water_show_none));
         } else if (i2 == 1) {
-            this.f62571e.setTip(this.mContext.getString(R.string.image_water_show_user_name));
+            this.f66286e.setTip(this.mContext.getString(R.string.image_water_show_user_name));
         } else if (i2 != 2) {
         } else {
-            this.f62571e.setTip(this.mContext.getString(R.string.image_water_show_forum_name));
+            this.f66286e.setTip(this.mContext.getString(R.string.image_water_show_forum_name));
         }
     }
 
     public void I() {
         if (TbadkCoreApplication.getInst().getHomePageAutoPlay() == 0) {
-            this.f62573g.setTip(this.mContext.getString(R.string.video_auto_play_in_wifi));
+            this.f66288g.setTip(this.mContext.getString(R.string.video_auto_play_in_wifi));
         } else if (TbadkCoreApplication.getInst().getHomePageAutoPlay() == 1) {
-            this.f62573g.setTip(this.mContext.getString(R.string.close));
+            this.f66288g.setTip(this.mContext.getString(R.string.close));
         } else if (TbadkCoreApplication.getInst().getHomePageAutoPlay() == 2) {
-            this.f62573g.setTip(this.mContext.getString(R.string.video_auto_play_always));
+            this.f66288g.setTip(this.mContext.getString(R.string.video_auto_play_always));
         }
     }
 
     public final void initUI() {
-        this.f62567a.setContentView(R.layout.browse_setting_activity);
-        NavigationBar navigationBar = (NavigationBar) this.f62567a.findViewById(R.id.view_navigation_bar);
-        this.f62569c = navigationBar;
+        this.f66282a.setContentView(R.layout.browse_setting_activity);
+        NavigationBar navigationBar = (NavigationBar) this.f66282a.findViewById(R.id.view_navigation_bar);
+        this.f66284c = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f62569c.setTitleText(this.f62567a.getPageContext().getString(R.string.browse_setting));
-        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.f62567a.findViewById(R.id.debug_tool_entrance);
+        this.f66284c.setTitleText(this.f66282a.getPageContext().getString(R.string.browse_setting));
+        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.f66282a.findViewById(R.id.debug_tool_entrance);
         this.q = tbSettingTextTipView;
         tbSettingTextTipView.setBottomLineVisibility(true);
-        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.f62567a.findViewById(R.id.img_browser);
-        this.f62570d = tbSettingTextTipView2;
+        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.f66282a.findViewById(R.id.img_browser);
+        this.f66285d = tbSettingTextTipView2;
         tbSettingTextTipView2.setBottomLineVisibility(true);
-        TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.f62567a.findViewById(R.id.add_img_water);
-        this.f62571e = tbSettingTextTipView3;
+        TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.f66282a.findViewById(R.id.add_img_water);
+        this.f66286e = tbSettingTextTipView3;
         tbSettingTextTipView3.setBottomLineVisibility(true);
-        TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.f62567a.findViewById(R.id.font_size);
-        this.f62572f = tbSettingTextTipView4;
+        TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.f66282a.findViewById(R.id.font_size);
+        this.f66287f = tbSettingTextTipView4;
         tbSettingTextTipView4.setBottomLineVisibility(true);
-        this.f62573g = (TbSettingTextTipView) this.f62567a.findViewById(R.id.video_auto_play);
+        this.f66288g = (TbSettingTextTipView) this.f66282a.findViewById(R.id.video_auto_play);
         if (RichTextGifViewSwitch.isOn()) {
-            this.f62573g.setText(R.string.video_gif_auto_play);
+            this.f66288g.setText(R.string.video_gif_auto_play);
         } else {
-            this.f62573g.setText(R.string.video_auto_play);
+            this.f66288g.setText(R.string.video_auto_play);
         }
-        this.f62573g.setBottomLineVisibility(true);
-        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.f62567a.findViewById(R.id.slide_anim_switch);
-        this.f62574h = msgSettingItemView;
+        this.f66288g.setBottomLineVisibility(true);
+        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.f66282a.findViewById(R.id.slide_anim_switch);
+        this.f66289h = msgSettingItemView;
         msgSettingItemView.setText(R.string.slide_anim_switch);
-        this.f62574h.setSwitchStateNoCallback(TbSingleton.getInstance().isSlideAnimLocalSwitchOn());
-        this.f62574h.setOnSwitchStateChangeListener(new a(this));
-        this.f62568b = this.f62567a.findViewById(R.id.parent);
+        this.f66289h.setSwitchStateNoCallback(TbSingleton.getInstance().isSlideAnimLocalSwitchOn());
+        this.f66289h.setOnSwitchStateChangeListener(new a(this));
+        this.f66283b = this.f66282a.findViewById(R.id.parent);
     }
 
     public TbSettingTextTipView l() {
-        return this.f62571e;
+        return this.f66286e;
     }
 
     public TbSettingTextTipView m() {
@@ -297,19 +297,19 @@ public class c extends d.a.c.a.d<BrowseSettingActivity> {
     }
 
     public TbSettingTextTipView n() {
-        return this.f62572f;
+        return this.f66287f;
     }
 
     public TbSettingTextTipView o() {
-        return this.f62570d;
+        return this.f66285d;
     }
 
     public void onChangeSkinType(int i2) {
-        this.f62567a.getLayoutMode().k(i2 == 1);
-        this.f62567a.getLayoutMode().j(this.f62568b);
-        this.f62569c.onChangeSkinType(getPageContext(), i2);
-        this.f62574h.c(this.f62567a.getPageContext(), i2);
-        d.a.m0.r.s.e eVar = this.f62575i;
+        this.f66282a.getLayoutMode().k(i2 == 1);
+        this.f66282a.getLayoutMode().j(this.f66283b);
+        this.f66284c.onChangeSkinType(getPageContext(), i2);
+        this.f66289h.c(this.f66282a.getPageContext(), i2);
+        d.a.m0.r.s.e eVar = this.f66290i;
         if (eVar != null) {
             eVar.g();
         }
@@ -328,16 +328,16 @@ public class c extends d.a.c.a.d<BrowseSettingActivity> {
     }
 
     public TbSettingTextTipView p() {
-        return this.f62573g;
+        return this.f66288g;
     }
 
     public final void q() {
         this.o = new ArrayList<>();
         int b2 = k.c().b();
-        this.o.add(new n(this.f62567a.getPageContext().getString(R.string.image_water_show_user_name), (String) null, b2 == 1));
-        this.o.add(new n(this.f62567a.getPageContext().getString(R.string.image_water_show_forum_name), (String) null, b2 == 2));
-        this.o.add(new n(this.f62567a.getPageContext().getString(R.string.image_water_show_none), (String) null, b2 == 0));
-        d.a.m0.r.s.e eVar = new d.a.m0.r.s.e(this.f62567a.getPageContext());
+        this.o.add(new n(this.f66282a.getPageContext().getString(R.string.image_water_show_user_name), (String) null, b2 == 1));
+        this.o.add(new n(this.f66282a.getPageContext().getString(R.string.image_water_show_forum_name), (String) null, b2 == 2));
+        this.o.add(new n(this.f66282a.getPageContext().getString(R.string.image_water_show_none), (String) null, b2 == 0));
+        d.a.m0.r.s.e eVar = new d.a.m0.r.s.e(this.f66282a.getPageContext());
         eVar.l(R.string.add_image_water);
         this.j = eVar;
         eVar.k(this.o, this.s);
@@ -345,13 +345,13 @@ public class c extends d.a.c.a.d<BrowseSettingActivity> {
     }
 
     public final void r() {
-        this.k = new d.a.m0.r.s.e(this.f62567a.getPageContext());
+        this.k = new d.a.m0.r.s.e(this.f66282a.getPageContext());
         this.m = new ArrayList<>();
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
-        this.m.add(new n(this.f62567a.getPageContext().getString(R.string.font_size_xlarge), (String) null, fontSize == 0));
-        this.m.add(new n(this.f62567a.getPageContext().getString(R.string.font_size_big), (String) null, fontSize == 1));
-        this.m.add(new n(this.f62567a.getPageContext().getString(R.string.font_size_mid), (String) null, fontSize == 2));
-        this.m.add(new n(this.f62567a.getPageContext().getString(R.string.font_size_small), (String) null, fontSize == 3));
+        this.m.add(new n(this.f66282a.getPageContext().getString(R.string.font_size_xlarge), (String) null, fontSize == 0));
+        this.m.add(new n(this.f66282a.getPageContext().getString(R.string.font_size_big), (String) null, fontSize == 1));
+        this.m.add(new n(this.f66282a.getPageContext().getString(R.string.font_size_mid), (String) null, fontSize == 2));
+        this.m.add(new n(this.f66282a.getPageContext().getString(R.string.font_size_small), (String) null, fontSize == 3));
         this.k.l(R.string.font_size);
         this.k.k(this.m, this.t);
         this.k.c();
@@ -362,38 +362,38 @@ public class c extends d.a.c.a.d<BrowseSettingActivity> {
         int e2 = k.c().e();
         boolean g2 = k.c().g();
         boolean z = false;
-        this.n.add(new n(this.f62567a.getPageContext().getString(R.string.view_image_quality_auto_menu), this.f62567a.getPageContext().getString(R.string.view_image_quality_auto_menu_desc), g2 && e2 == 0));
-        this.n.add(new n(this.f62567a.getPageContext().getString(R.string.view_high), this.f62567a.getPageContext().getString(R.string.view_image_quality_high_menu_desc), g2 && e2 == 1));
+        this.n.add(new n(this.f66282a.getPageContext().getString(R.string.view_image_quality_auto_menu), this.f66282a.getPageContext().getString(R.string.view_image_quality_auto_menu_desc), g2 && e2 == 0));
+        this.n.add(new n(this.f66282a.getPageContext().getString(R.string.view_high), this.f66282a.getPageContext().getString(R.string.view_image_quality_high_menu_desc), g2 && e2 == 1));
         ArrayList<n> arrayList = this.n;
-        String string = this.f62567a.getPageContext().getString(R.string.view_low);
-        String string2 = this.f62567a.getPageContext().getString(R.string.view_image_quality_low_menu_desc);
+        String string = this.f66282a.getPageContext().getString(R.string.view_low);
+        String string2 = this.f66282a.getPageContext().getString(R.string.view_image_quality_low_menu_desc);
         if (g2 && e2 == 2) {
             z = true;
         }
         arrayList.add(new n(string, string2, z));
-        d.a.m0.r.s.e eVar = new d.a.m0.r.s.e(this.f62567a.getPageContext());
-        this.f62575i = eVar;
+        d.a.m0.r.s.e eVar = new d.a.m0.r.s.e(this.f66282a.getPageContext());
+        this.f66290i = eVar;
         eVar.l(R.string.browser_image_quality);
-        d.a.m0.r.s.e eVar2 = this.f62575i;
+        d.a.m0.r.s.e eVar2 = this.f66290i;
         eVar2.k(this.n, this.r);
         eVar2.c();
     }
 
     public final void t() {
-        this.f62570d.setOnClickListener(this.f62567a);
-        this.f62571e.setOnClickListener(this.f62567a);
-        this.f62572f.setOnClickListener(this.f62567a);
-        this.f62573g.setOnClickListener(this.f62567a);
-        this.q.setOnClickListener(this.f62567a);
+        this.f66285d.setOnClickListener(this.f66282a);
+        this.f66286e.setOnClickListener(this.f66282a);
+        this.f66287f.setOnClickListener(this.f66282a);
+        this.f66288g.setOnClickListener(this.f66282a);
+        this.q.setOnClickListener(this.f66282a);
     }
 
     public final void u() {
-        this.l = new d.a.m0.r.s.e(this.f62567a.getPageContext());
+        this.l = new d.a.m0.r.s.e(this.f66282a.getPageContext());
         this.p = new ArrayList<>();
         int homePageAutoPlay = TbadkCoreApplication.getInst().getHomePageAutoPlay();
-        this.p.add(new n(this.f62567a.getPageContext().getString(R.string.video_auto_play_always), (String) null, homePageAutoPlay == 2));
-        this.p.add(new n(this.f62567a.getPageContext().getString(R.string.video_auto_play_in_wifi), (String) null, homePageAutoPlay == 0));
-        this.p.add(new n(this.f62567a.getPageContext().getString(R.string.close), (String) null, homePageAutoPlay == 1));
+        this.p.add(new n(this.f66282a.getPageContext().getString(R.string.video_auto_play_always), (String) null, homePageAutoPlay == 2));
+        this.p.add(new n(this.f66282a.getPageContext().getString(R.string.video_auto_play_in_wifi), (String) null, homePageAutoPlay == 0));
+        this.p.add(new n(this.f66282a.getPageContext().getString(R.string.close), (String) null, homePageAutoPlay == 1));
         if (RichTextGifViewSwitch.isOn()) {
             this.l.l(R.string.video_gif_auto_play);
         } else {
@@ -415,7 +415,7 @@ public class c extends d.a.c.a.d<BrowseSettingActivity> {
 
     public void x() {
         s();
-        this.f62575i.n();
+        this.f66290i.n();
     }
 
     public void y() {

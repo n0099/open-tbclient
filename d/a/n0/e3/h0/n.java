@@ -5,79 +5,79 @@ import com.baidu.tieba.tbadkCore.data.AgreeData;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f54026a;
+    public String f57715a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54027b;
+    public String f57716b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54028c = false;
+    public boolean f57717c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f54029d = false;
+    public boolean f57718d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54030e = "";
+    public String f57719e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f54031f;
+    public Object f57720f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AgreeData f54032g;
+    public AgreeData f57721g;
 
     public AgreeData a() {
-        return this.f54032g;
+        return this.f57721g;
     }
 
     public String b() {
-        return this.f54030e;
+        return this.f57719e;
     }
 
     public String c() {
-        return this.f54027b;
+        return this.f57716b;
     }
 
     public Object d() {
-        return this.f54031f;
+        return this.f57720f;
     }
 
     public String e() {
-        return this.f54026a;
+        return this.f57715a;
     }
 
     public boolean f() {
-        return this.f54028c;
+        return this.f57717c;
     }
 
     public boolean g() {
-        return this.f54029d;
+        return this.f57718d;
     }
 
     public void h(AgreeData agreeData) {
-        this.f54032g = agreeData;
+        this.f57721g = agreeData;
     }
 
     public void i(String str) {
-        this.f54030e = str;
+        this.f57719e = str;
     }
 
     public void j(String str) {
-        this.f54027b = str;
+        this.f57716b = str;
     }
 
     public void k(boolean z) {
-        this.f54028c = z;
+        this.f57717c = z;
     }
 
     public void l(Object obj) {
-        this.f54031f = obj;
+        this.f57720f = obj;
     }
 
     public void m(boolean z) {
-        this.f54029d = z;
+        this.f57718d = z;
     }
 
     public void n(String str) {
-        this.f54026a = str;
+        this.f57715a = str;
     }
 }

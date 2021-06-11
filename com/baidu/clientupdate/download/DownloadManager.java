@@ -46,7 +46,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DownloadManager {
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
     public static final String ACTION_DOWNLOAD_PROGRESS_CHANGE = "com.baidu.clientupdate.download.PROGRESS_CHANGE";
@@ -215,21 +215,21 @@ public final class DownloadManager {
                 download.mCurrentLength = j2;
                 download.mFileLength = j3;
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - download.f4610a < 200) {
+                if (currentTimeMillis - download.f4629a < 200) {
                     return;
                 }
-                download.f4610a = currentTimeMillis;
+                download.f4629a = currentTimeMillis;
                 int progress = download.getProgress();
-                if (progress != download.f4612c) {
+                if (progress != download.f4631c) {
                     DownloadManager.this.notifyProgressChange(j, progress);
-                    download.f4612c = progress;
+                    download.f4631c = progress;
                 }
-                if (currentTimeMillis - download.f4611b > 2000) {
+                if (currentTimeMillis - download.f4630b > 2000) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     DownloadManager.this.mDbHelper.b(download);
                     long currentTimeMillis3 = System.currentTimeMillis();
                     LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (currentTimeMillis3 - currentTimeMillis2) + "ms");
-                    download.f4611b = currentTimeMillis;
+                    download.f4630b = currentTimeMillis;
                 }
             }
 
@@ -292,7 +292,7 @@ public final class DownloadManager {
         Download download = (Download) this.mDownloadMap.get(Long.valueOf(j));
         if (download != null) {
             if (downloadState == DownloadState.CANCEL) {
-                if (download.f4613d) {
+                if (download.f4632d) {
                     try {
                         new File(download.mSavedPath, Uri.encode(download.mFileName)).delete();
                     } catch (Exception e2) {
@@ -321,8 +321,8 @@ public final class DownloadManager {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x004c  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00a5  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00d6  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00d9  */
     /* JADX WARN: Removed duplicated region for block: B:51:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -629,7 +629,7 @@ public final class DownloadManager {
         download.mUrl = cursor.getString(cursor.getColumnIndex("uri"));
         download.mFileName = cursor.getString(cursor.getColumnIndex("_data"));
         download.mSavedPath = cursor.getString(cursor.getColumnIndex("saved_path_for_user"));
-        download.mFileLength = cursor.getLong(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES));
+        download.mFileLength = cursor.getLong(cursor.getColumnIndex("total_bytes"));
         download.mCurrentLength = cursor.getLong(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES));
         String encode = Uri.encode(download.mFileName);
         File file = new File(download.mSavedPath + File.separator + encode);
@@ -663,12 +663,12 @@ public final class DownloadManager {
         dVar.a(c2, "0", b2, "a8", "1", (System.currentTimeMillis() / 1000) + "", "", "RSA", str);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0187 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0188 */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:23:0x004e  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0195  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x01e0  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0202  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0196  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x01e1  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0203  */
     /* JADX WARN: Type inference failed for: r7v10 */
     /* JADX WARN: Type inference failed for: r7v11 */
     /* JADX WARN: Type inference failed for: r7v15, types: [boolean] */
@@ -811,7 +811,7 @@ public final class DownloadManager {
                 for (int i2 = 0; i2 < jArr.length; i2++) {
                     Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(jArr[i2]));
                     if (download != null) {
-                        download.f4613d = true;
+                        download.f4632d = true;
                         DownloadManager.this.mTaskManager.stopDownload(download.mUrl, jArr[i2], false);
                     }
                 }
@@ -823,7 +823,7 @@ public final class DownloadManager {
         for (int i2 = 0; i2 < jArr.length; i2++) {
             Download download = (Download) this.mDownloadMap.get(Long.valueOf(jArr[i2]));
             if (download != null) {
-                download.f4613d = false;
+                download.f4632d = false;
                 this.mTaskManager.stopDownload(download.mUrl, jArr[i2], false);
             }
         }

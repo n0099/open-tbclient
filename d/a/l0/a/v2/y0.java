@@ -6,10 +6,10 @@ import java.util.Queue;
 public class y0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<Runnable> f45508a = new ArrayDeque();
+    public final Queue<Runnable> f49182a = new ArrayDeque();
 
     /* renamed from: b  reason: collision with root package name */
-    public Runnable f45509b = null;
+    public Runnable f49183b = null;
 
     public synchronized boolean a(Runnable runnable) {
         boolean z;
@@ -17,17 +17,17 @@ public class y0 {
         boolean z3 = true;
         z = runnable == null;
         if (!z) {
-            this.f45508a.offer(runnable);
+            this.f49182a.offer(runnable);
         }
-        z2 = this.f45509b == null && !this.f45508a.isEmpty();
+        z2 = this.f49183b == null && !this.f49182a.isEmpty();
         if (z2) {
-            while (!this.f45508a.isEmpty()) {
-                Runnable poll = this.f45508a.poll();
-                this.f45509b = poll;
+            while (!this.f49182a.isEmpty()) {
+                Runnable poll = this.f49182a.poll();
+                this.f49183b = poll;
                 if (poll != null) {
                     poll.run();
                 }
-                this.f45509b = null;
+                this.f49183b = null;
             }
         }
         return (z || !z2) ? false : false;

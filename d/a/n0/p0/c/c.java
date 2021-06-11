@@ -8,7 +8,7 @@ import d.a.c.e.d.l;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c.e.d.l<byte[]> f57987a;
+    public d.a.c.e.d.l<byte[]> f61678a;
 
     public c() {
         b();
@@ -20,17 +20,17 @@ public class c {
             return null;
         }
         String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
-        d.a.c.e.d.l<byte[]> lVar = this.f57987a;
+        d.a.c.e.d.l<byte[]> lVar = this.f61678a;
         l.b<byte[]> h2 = lVar != null ? lVar.h(str2) : null;
-        if (h2 == null || (bArr = h2.f38542b) == null) {
+        if (h2 == null || (bArr = h2.f42195b) == null) {
             return null;
         }
         return bArr;
     }
 
     public void b() {
-        if (this.f57987a == null) {
-            this.f57987a = d.a.m0.r.r.a.f().d("tb.forum_member_info");
+        if (this.f61678a == null) {
+            this.f61678a = d.a.m0.r.r.a.f().d("tb.forum_member_info");
         }
     }
 
@@ -40,7 +40,7 @@ public class c {
             return;
         }
         b();
-        d.a.c.e.d.l<byte[]> lVar = this.f57987a;
+        d.a.c.e.d.l<byte[]> lVar = this.f61678a;
         lVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
     }
 }

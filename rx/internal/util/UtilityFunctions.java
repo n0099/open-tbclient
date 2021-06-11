@@ -1,10 +1,10 @@
 package rx.internal.util;
 
 import h.n.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class UtilityFunctions {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum AlwaysFalse implements f<Object, Boolean> {
         INSTANCE;
 
@@ -16,7 +16,7 @@ public final class UtilityFunctions {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum AlwaysTrue implements f<Object, Boolean> {
         INSTANCE;
 
@@ -28,7 +28,7 @@ public final class UtilityFunctions {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum Identity implements f<Object, Object> {
         INSTANCE;
 

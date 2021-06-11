@@ -11,39 +11,39 @@ import java.util.Map;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45225b = k.f43199a;
+    public static final boolean f48899b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, d.a.l0.a.u.f.b.a> f45226a = new LinkedHashMap();
+    public HashMap<String, d.a.l0.a.u.f.b.a> f48900a = new LinkedHashMap();
 
     public synchronized void a(BasePendingOperation basePendingOperation) {
         if (basePendingOperation == null) {
             return;
         }
-        if (f45225b) {
+        if (f48899b) {
             Log.d("PendingOperationHandler", "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c());
         }
         c(basePendingOperation.d()).b(basePendingOperation);
     }
 
     public synchronized void b() {
-        for (Map.Entry<String, d.a.l0.a.u.f.b.a> entry : this.f45226a.entrySet()) {
+        for (Map.Entry<String, d.a.l0.a.u.f.b.a> entry : this.f48900a.entrySet()) {
             entry.getValue().c();
         }
-        this.f45226a.clear();
+        this.f48900a.clear();
     }
 
     public final d.a.l0.a.u.f.b.a c(BasePendingOperation.OperationType operationType) {
-        if (!this.f45226a.containsKey(operationType.name())) {
+        if (!this.f48900a.containsKey(operationType.name())) {
             d.a.l0.a.u.f.b.a a2 = e.a(operationType);
-            this.f45226a.put(operationType.name(), a2);
+            this.f48900a.put(operationType.name(), a2);
             return a2;
         }
-        return this.f45226a.get(operationType.name());
+        return this.f48900a.get(operationType.name());
     }
 
     public synchronized void d() {
-        for (Map.Entry<String, d.a.l0.a.u.f.b.a> entry : this.f45226a.entrySet()) {
+        for (Map.Entry<String, d.a.l0.a.u.f.b.a> entry : this.f48900a.entrySet()) {
             entry.getValue().a();
         }
     }

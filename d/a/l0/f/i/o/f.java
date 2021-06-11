@@ -8,6 +8,7 @@ import android.webkit.WebSettings;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.kwai.video.player.KsMediaMeta;
 import d.a.l0.f.i.r.h;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -51,7 +52,7 @@ public class f extends e {
 
     public final String h() {
         try {
-            String string = Settings.Secure.getString(this.f46792b.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            String string = Settings.Secure.getString(this.f50466b.getContentResolver(), IAdRequestParam.ANDROID_ID);
             return TextUtils.isEmpty(string) ? UUID.randomUUID().toString() : string;
         } catch (Exception unused) {
             return "";
@@ -63,7 +64,7 @@ public class f extends e {
         try {
             jSONObject.put("id", String.valueOf(System.currentTimeMillis()));
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("id", this.f46799i.e());
+            jSONObject2.put("id", this.f50473i.e());
             jSONObject2.put("name", d.a.l0.f.i.m.a.b().a());
             jSONObject2.put("bundle", h.k());
             jSONObject2.put("version", h.l());
@@ -78,21 +79,21 @@ public class f extends e {
             jSONObject3.put("os_version", h.f());
             jSONObject3.put("make", h.g());
             jSONObject3.put("model", h.e());
-            jSONObject3.put("language", this.f46792b.getResources().getConfiguration().locale.getLanguage());
+            jSONObject3.put(KsMediaMeta.KSM_KEY_LANGUAGE, this.f50466b.getResources().getConfiguration().locale.getLanguage());
             jSONObject3.put("connection_type", NetworkUtils.c(true));
-            jSONObject3.put("carrier", k(this.f46792b));
-            jSONObject3.put(IAdRequestParam.MAC, NetworkUtils.e(this.f46792b));
-            jSONObject3.put("screen_width", h.i(this.f46792b));
-            jSONObject3.put("screen_height", h.h(this.f46792b));
-            jSONObject3.put("screen_orientation", this.f46792b.getResources().getConfiguration().orientation);
+            jSONObject3.put("carrier", k(this.f50466b));
+            jSONObject3.put("mac", NetworkUtils.e(this.f50466b));
+            jSONObject3.put("screen_width", h.i(this.f50466b));
+            jSONObject3.put("screen_height", h.h(this.f50466b));
+            jSONObject3.put("screen_orientation", this.f50466b.getResources().getConfiguration().orientation);
             jSONObject.put("device", jSONObject3);
             JSONObject jSONObject4 = new JSONObject();
-            jSONObject4.put("sid", this.f46799i.b());
+            jSONObject4.put("sid", this.f50473i.b());
             jSONObject4.put("ad_count", this.q);
             jSONObject4.put(TiebaStatic.Params.AD_TYPE, this.r);
             jSONObject4.put(IAdRequestParam.POS, this.s);
-            jSONObject4.put("width", this.f46799i.d());
-            jSONObject4.put("height", this.f46799i.a());
+            jSONObject4.put("width", this.f50473i.d());
+            jSONObject4.put("height", this.f50473i.a());
             jSONObject4.put(ClientCookie.SECURE_ATTR, 1);
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(jSONObject4);
@@ -151,7 +152,7 @@ public class f extends e {
         if (TextUtils.isEmpty(this.t)) {
             try {
                 try {
-                    this.t = WebSettings.getDefaultUserAgent(this.f46792b);
+                    this.t = WebSettings.getDefaultUserAgent(this.f50466b);
                 } catch (Exception unused) {
                     this.t = "";
                 }

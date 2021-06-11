@@ -27,38 +27,38 @@ import java.util.List;
 public class d extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f63000e;
+    public TbPageContext f66715e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<d.a.m0.r.f0.p.a> f63001f;
+    public LinkedList<d.a.m0.r.f0.p.a> f66716f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<v> f63002g = new LinkedList<>();
+    public LinkedList<v> f66717g = new LinkedList<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public b f63003h;
+    public b f66718h;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f63004e;
+        public final /* synthetic */ int f66719e;
 
         public a(int i2) {
-            this.f63004e = i2;
+            this.f66719e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.m0.r.f0.p.a g2 = d.this.g(this.f63004e);
+            d.a.m0.r.f0.p.a g2 = d.this.g(this.f66719e);
             if (g2 == null) {
                 return;
             }
-            if (d.this.f63003h != null) {
-                d.this.f63003h.b(g2.e());
+            if (d.this.f66718h != null) {
+                d.this.f66718h.b(g2.e());
             }
-            if (d.this.f63003h != null) {
-                d.this.f63003h.a(d.this.f63002g);
+            if (d.this.f66718h != null) {
+                d.this.f66718h.a(d.this.f66717g);
             }
         }
     }
@@ -74,31 +74,31 @@ public class d extends BaseAdapter {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f63006a;
+        public View f66721a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f63007b;
+        public View f66722b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f63008c;
+        public View f66723c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TbImageView f63009d;
+        public TbImageView f66724d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f63010e;
+        public TextView f66725e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f63011f;
+        public ImageView f66726f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f63012g;
+        public TextView f66727g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f63013h;
+        public TextView f66728h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f63014i;
+        public View f66729i;
 
         public c(d dVar) {
         }
@@ -109,15 +109,15 @@ public class d extends BaseAdapter {
     }
 
     public d(TbPageContext tbPageContext) {
-        this.f63000e = tbPageContext;
+        this.f66715e = tbPageContext;
     }
 
     public final void c() {
-        this.f63002g.clear();
-        if (ListUtils.isEmpty(this.f63001f)) {
+        this.f66717g.clear();
+        if (ListUtils.isEmpty(this.f66716f)) {
             return;
         }
-        Iterator<d.a.m0.r.f0.p.a> it = this.f63001f.iterator();
+        Iterator<d.a.m0.r.f0.p.a> it = this.f66716f.iterator();
         while (it.hasNext()) {
             d.a.m0.r.f0.p.a next = it.next();
             if (next.h() && (next instanceof TbLinkSpanGroup)) {
@@ -125,15 +125,15 @@ public class d extends BaseAdapter {
                 if (tbLinkSpanGroup.t() != null) {
                     v t = tbLinkSpanGroup.t();
                     t.t = tbLinkSpanGroup.f();
-                    this.f63002g.add(t);
+                    this.f66717g.add(t);
                 }
             }
         }
-        Collections.sort(this.f63002g);
+        Collections.sort(this.f66717g);
     }
 
     public LinkedList<v> d() {
-        return this.f63002g;
+        return this.f66717g;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:8:0x0016  */
@@ -141,13 +141,13 @@ public class d extends BaseAdapter {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean e() {
-        if (ListUtils.isEmpty(this.f63002g)) {
+        if (ListUtils.isEmpty(this.f66717g)) {
             return true;
         }
-        Iterator<v> it = this.f63002g.iterator();
+        Iterator<v> it = this.f66717g.iterator();
         while (it.hasNext()) {
             v next = it.next();
-            if (next.f50137f == 2 || !next.m) {
+            if (next.f53813f == 2 || !next.m) {
                 return false;
             }
             while (it.hasNext()) {
@@ -157,13 +157,13 @@ public class d extends BaseAdapter {
     }
 
     public LinkedList<d.a.m0.r.f0.p.a> f() {
-        return this.f63001f;
+        return this.f66716f;
     }
 
     public d.a.m0.r.f0.p.a g(int i2) {
         LinkedList<d.a.m0.r.f0.p.a> linkedList;
         long itemId = getItemId(i2);
-        if (itemId != 0 && (linkedList = this.f63001f) != null) {
+        if (itemId != 0 && (linkedList = this.f66716f) != null) {
             Iterator<d.a.m0.r.f0.p.a> it = linkedList.iterator();
             while (it.hasNext()) {
                 d.a.m0.r.f0.p.a next = it.next();
@@ -177,7 +177,7 @@ public class d extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        LinkedList<v> linkedList = this.f63002g;
+        LinkedList<v> linkedList = this.f66717g;
         if (linkedList == null) {
             return 0;
         }
@@ -186,17 +186,17 @@ public class d extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        LinkedList<v> linkedList = this.f63002g;
+        LinkedList<v> linkedList = this.f66717g;
         if (linkedList == null || linkedList.size() <= i2) {
             return null;
         }
-        return this.f63002g.get(i2);
+        return this.f66717g.get(i2);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i2) {
-        LinkedList<v> linkedList = this.f63002g;
-        return (linkedList == null || linkedList.size() <= i2 || this.f63002g.get(i2) == null) ? 0 : this.f63002g.get(i2).f50136e;
+        LinkedList<v> linkedList = this.f66717g;
+        return (linkedList == null || linkedList.size() <= i2 || this.f66717g.get(i2) == null) ? 0 : this.f66717g.get(i2).f53812e;
     }
 
     @Override // android.widget.Adapter
@@ -208,44 +208,44 @@ public class d extends BaseAdapter {
             return null;
         }
         if (view == null) {
-            view2 = LayoutInflater.from(this.f63000e.getPageActivity()).inflate(R.layout.item_commodity_link, (ViewGroup) null);
+            view2 = LayoutInflater.from(this.f66715e.getPageActivity()).inflate(R.layout.item_commodity_link, (ViewGroup) null);
             cVar = new c(this, null);
-            cVar.f63006a = view2.findViewById(R.id.commodity_root_view);
-            cVar.f63007b = view2.findViewById(R.id.commodity_main_view);
+            cVar.f66721a = view2.findViewById(R.id.commodity_root_view);
+            cVar.f66722b = view2.findViewById(R.id.commodity_main_view);
             TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.commodity_link_icon);
-            cVar.f63009d = tbImageView;
+            cVar.f66724d = tbImageView;
             tbImageView.setConrers(15);
-            cVar.f63009d.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            cVar.f63009d.setPlaceHolderAutoChangeSkinType(1);
-            cVar.f63009d.setGifIconSupport(false);
-            cVar.f63009d.setLongIconSupport(false);
-            cVar.f63009d.setDrawBorder(true);
-            cVar.f63009d.setBorderWidth(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            cVar.f63009d.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            cVar.f63010e = (TextView) view2.findViewById(R.id.commodity_link_content);
-            cVar.f63011f = (ImageView) view2.findViewById(R.id.commodity_link_close_button);
-            cVar.f63008c = view2.findViewById(R.id.extra_info_container);
-            cVar.f63012g = (TextView) view2.findViewById(R.id.commodity_price);
-            cVar.f63013h = (TextView) view2.findViewById(R.id.commodity_extra_infos);
-            cVar.f63014i = view2.findViewById(R.id.commodity_tail_text_mask);
+            cVar.f66724d.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            cVar.f66724d.setPlaceHolderAutoChangeSkinType(1);
+            cVar.f66724d.setGifIconSupport(false);
+            cVar.f66724d.setLongIconSupport(false);
+            cVar.f66724d.setDrawBorder(true);
+            cVar.f66724d.setBorderWidth(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            cVar.f66724d.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            cVar.f66725e = (TextView) view2.findViewById(R.id.commodity_link_content);
+            cVar.f66726f = (ImageView) view2.findViewById(R.id.commodity_link_close_button);
+            cVar.f66723c = view2.findViewById(R.id.extra_info_container);
+            cVar.f66727g = (TextView) view2.findViewById(R.id.commodity_price);
+            cVar.f66728h = (TextView) view2.findViewById(R.id.commodity_extra_infos);
+            cVar.f66729i = view2.findViewById(R.id.commodity_tail_text_mask);
             view2.setTag(cVar);
         } else {
             cVar = (c) view.getTag();
             view2 = view;
         }
-        cVar.f63009d.V(vVar.f50140i, 10, false);
+        cVar.f66724d.U(vVar.f53816i, 10, false);
         if (TextUtils.isEmpty(vVar.j)) {
-            cVar.f63008c.setVisibility(8);
-            cVar.f63010e.setMaxLines(2);
+            cVar.f66723c.setVisibility(8);
+            cVar.f66725e.setMaxLines(2);
         } else {
-            cVar.f63008c.setVisibility(0);
-            cVar.f63010e.setMaxLines(1);
+            cVar.f66723c.setVisibility(0);
+            cVar.f66725e.setMaxLines(1);
         }
         if (TextUtils.isEmpty(vVar.j)) {
-            cVar.f63012g.setVisibility(8);
+            cVar.f66727g.setVisibility(8);
         } else {
-            cVar.f63012g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), vVar.j));
-            cVar.f63012g.setVisibility(0);
+            cVar.f66727g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), vVar.j));
+            cVar.f66727g.setVisibility(0);
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         if (!TextUtils.isEmpty(vVar.p)) {
@@ -263,32 +263,32 @@ public class d extends BaseAdapter {
             bVar.i(g7);
             spannableStringBuilder.setSpan(bVar, 0, vVar.p.length(), 17);
         }
-        if (!vVar.r && vVar.f50137f != 2 && !vVar.m) {
+        if (!vVar.r && vVar.f53813f != 2 && !vVar.m) {
             String str = vVar.k;
             if (str != null) {
                 spannableStringBuilder.append((CharSequence) str);
             }
-            cVar.f63010e.setMaxLines(1);
+            cVar.f66725e.setMaxLines(1);
         } else {
-            String str2 = vVar.f50138g;
+            String str2 = vVar.f53814g;
             if (str2 != null) {
                 spannableStringBuilder.append((CharSequence) str2);
             }
         }
-        cVar.f63010e.setText(spannableStringBuilder);
-        cVar.f63011f.setOnClickListener(new a(i2));
+        cVar.f66725e.setText(spannableStringBuilder);
+        cVar.f66726f.setOnClickListener(new a(i2));
         l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-        View view3 = cVar.f63006a;
+        View view3 = cVar.f66721a;
         int i4 = R.color.CAM_X0205;
         SkinManager.setBackgroundShapeDrawable(view3, 0, i4, i4);
-        d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(cVar.f63007b);
+        d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(cVar.f66722b);
         d2.m(R.string.J_X05);
         d2.f(R.color.CAM_X0206);
-        cVar.f63011f.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(cVar.f63010e, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(cVar.f63012g, R.color.CAM_X0305);
-        SkinManager.setViewTextColor(cVar.f63013h, R.color.CAM_X0109);
-        SkinManager.setBackgroundColorToTransparent(cVar.f63014i, R.color.CAM_X0206, GradientDrawable.Orientation.RIGHT_LEFT);
+        cVar.f66726f.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(cVar.f66725e, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(cVar.f66727g, R.color.CAM_X0305);
+        SkinManager.setViewTextColor(cVar.f66728h, R.color.CAM_X0109);
+        SkinManager.setBackgroundColorToTransparent(cVar.f66729i, R.color.CAM_X0206, GradientDrawable.Orientation.RIGHT_LEFT);
         return view2;
     }
 
@@ -298,10 +298,10 @@ public class d extends BaseAdapter {
     }
 
     public void i(LinkedList<d.a.m0.r.f0.p.a> linkedList) {
-        this.f63001f = linkedList;
+        this.f66716f = linkedList;
     }
 
     public void j(b bVar) {
-        this.f63003h = bVar;
+        this.f66718h = bVar;
     }
 }

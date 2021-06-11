@@ -22,95 +22,95 @@ import java.util.List;
 public class c extends d<NewFriendsActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public NewFriendsActivity f60352a;
+    public NewFriendsActivity f64041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f60353b;
+    public View f64042b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f60354c;
+    public NavigationBar f64043c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f60355d;
+    public ImageView f64044d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f60356e;
+    public BdListView f64045e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f60357f;
+    public a f64046f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f60358g;
+    public g f64047g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoDataView f60359h;
+    public NoDataView f64048h;
 
     public c(NewFriendsActivity newFriendsActivity) {
         super(newFriendsActivity.getPageContext());
-        this.f60352a = newFriendsActivity;
-        this.f60353b = newFriendsActivity.findViewById(R.id.new_friend_activity);
-        NavigationBar navigationBar = (NavigationBar) this.f60352a.findViewById(R.id.view_navigation_bar);
-        this.f60354c = navigationBar;
-        navigationBar.setTitleText(this.f60352a.getPageContext().getString(R.string.new_friends));
-        this.f60354c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        ImageView imageView = (ImageView) this.f60354c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, this.f60352a).findViewById(R.id.new_friend_search);
-        this.f60355d = imageView;
+        this.f64041a = newFriendsActivity;
+        this.f64042b = newFriendsActivity.findViewById(R.id.new_friend_activity);
+        NavigationBar navigationBar = (NavigationBar) this.f64041a.findViewById(R.id.view_navigation_bar);
+        this.f64043c = navigationBar;
+        navigationBar.setTitleText(this.f64041a.getPageContext().getString(R.string.new_friends));
+        this.f64043c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        ImageView imageView = (ImageView) this.f64043c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, this.f64041a).findViewById(R.id.new_friend_search);
+        this.f64044d = imageView;
         imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-        this.f60356e = (BdListView) this.f60352a.findViewById(R.id.new_friend_listview);
-        a aVar = new a(this.f60352a);
-        this.f60357f = aVar;
-        this.f60356e.setAdapter((ListAdapter) aVar);
-        this.f60356e.setOnItemClickListener(this.f60352a);
-        this.f60356e.setOnItemLongClickListener(this.f60352a);
+        this.f64045e = (BdListView) this.f64041a.findViewById(R.id.new_friend_listview);
+        a aVar = new a(this.f64041a);
+        this.f64046f = aVar;
+        this.f64045e.setAdapter((ListAdapter) aVar);
+        this.f64045e.setOnItemClickListener(this.f64041a);
+        this.f64045e.setOnItemLongClickListener(this.f64041a);
         g gVar = new g(newFriendsActivity.getPageContext());
-        this.f60358g = gVar;
-        this.f60356e.setPullRefresh(gVar);
-        BdListViewHelper.d(this.f60352a.getActivity(), this.f60356e, BdListViewHelper.HeadType.DEFAULT);
-        this.f60359h = NoDataViewFactory.a(this.f60352a.getPageContext().getPageActivity(), this.f60353b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f60352a.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.no_new_friend_hint), null);
+        this.f64047g = gVar;
+        this.f64045e.setPullRefresh(gVar);
+        BdListViewHelper.d(this.f64041a.getActivity(), this.f64045e, BdListViewHelper.HeadType.DEFAULT);
+        this.f64048h = NoDataViewFactory.a(this.f64041a.getPageContext().getPageActivity(), this.f64042b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f64041a.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.no_new_friend_hint), null);
     }
 
     public void d(d.a.m0.r.c cVar, int i2) {
         cVar.k(i2 == 1);
-        this.f60354c.onChangeSkinType(this.f60352a.getPageContext(), i2);
-        this.f60358g.I(i2);
-        cVar.j(this.f60353b);
-        this.f60359h.f(this.f60352a.getPageContext(), i2);
-        this.f60355d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.f64043c.onChangeSkinType(this.f64041a.getPageContext(), i2);
+        this.f64047g.I(i2);
+        cVar.j(this.f64042b);
+        this.f64048h.f(this.f64041a.getPageContext(), i2);
+        this.f64044d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     public void e() {
-        this.f60356e.A(0L);
+        this.f64045e.A(0L);
     }
 
     public a f() {
-        return this.f60357f;
+        return this.f64046f;
     }
 
     public void g(d.a.n0.f1.g.a aVar) {
-        this.f60357f.d(aVar);
-        this.f60357f.notifyDataSetChanged();
+        this.f64046f.d(aVar);
+        this.f64046f.notifyDataSetChanged();
     }
 
     public void h(List<d.a.n0.f1.g.a> list) {
-        this.f60356e.setEmptyView(this.f60359h);
-        this.f60357f.e(list);
-        this.f60357f.notifyDataSetChanged();
+        this.f64045e.setEmptyView(this.f64048h);
+        this.f64046f.e(list);
+        this.f64046f.notifyDataSetChanged();
     }
 
-    public void j(f.g gVar) {
-        this.f60358g.a(gVar);
+    public void i(f.g gVar) {
+        this.f64047g.a(gVar);
     }
 
     public void k(a.c cVar) {
-        this.f60357f.f(cVar);
+        this.f64046f.f(cVar);
     }
 
     public void l() {
-        this.f60356e.F();
+        this.f64045e.F();
     }
 
     public void m(List<d.a.n0.f1.g.a> list) {
-        this.f60357f.h(list);
-        this.f60357f.notifyDataSetChanged();
+        this.f64046f.h(list);
+        this.f64046f.notifyDataSetChanged();
     }
 }

@@ -55,7 +55,7 @@ import d.a.n0.e2.g.d.d;
 import d.a.n0.e2.g.d.e;
 import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements VoiceManager.j {
     public static final String CHOSEN_PB_TABLE_NAME = "chosen_pb_page_cache";
     public static final String FROM_CHOSEN_PB = "from_chosen_pb";
@@ -101,13 +101,13 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     public d.a.c.c.g.a zanListener = new d(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, 309095);
     public CustomMessageListener cacheReadListener = new e(2001314);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements d.e {
 
         /* renamed from: com.baidu.tieba.pb.chosen.PbChosenActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0202a extends d.a.c.a.e {
-            public C0202a() {
+        /* loaded from: classes5.dex */
+        public class C0204a extends d.a.c.a.e {
+            public C0204a() {
             }
 
             @Override // d.a.c.a.e
@@ -149,8 +149,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     pbChosenActivity.attentionModel = new LikeModel(pbChosenActivity.getPageContext());
                 }
                 PbChosenActivity.this.attentionModel.setFrom("from_frs");
-                PbChosenActivity.this.attentionModel.setLoadDataCallBack(new C0202a());
-                PbChosenActivity.this.attentionModel.H(PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_name, String.valueOf(PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_id));
+                PbChosenActivity.this.attentionModel.setLoadDataCallBack(new C0204a());
+                PbChosenActivity.this.attentionModel.L(PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_name, String.valueOf(PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_id));
                 if (PbChosenActivity.this.chosenData == null || PbChosenActivity.this.chosenData.getThreadInfo() == null) {
                     return;
                 }
@@ -161,7 +161,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends d.a.c.c.g.a {
         public b(int i2, int i3) {
             super(i2, i3);
@@ -192,7 +192,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends CustomMessageListener {
         public c(int i2) {
             super(i2);
@@ -202,9 +202,9 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PbChosenActivity.this.postInfoView.n();
-            PbChosenActivity.this.postInfoView.f52894h = !PbChosenActivity.this.postInfoView.f52894h;
-            PbChosenActivity.this.postInfoView.m(PbChosenActivity.this.postInfoView.f52894h);
-            if (PbChosenActivity.this.postInfoView.f52894h) {
+            PbChosenActivity.this.postInfoView.f56583h = !PbChosenActivity.this.postInfoView.f56583h;
+            PbChosenActivity.this.postInfoView.m(PbChosenActivity.this.postInfoView.f56583h);
+            if (PbChosenActivity.this.postInfoView.f56583h) {
                 PbChosenActivity.this.praiseData = 1;
             } else {
                 PbChosenActivity.this.praiseData = 0;
@@ -212,7 +212,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d extends d.a.c.c.g.a {
         public d(int i2, int i3) {
             super(i2, i3);
@@ -247,7 +247,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e extends CustomMessageListener {
         public e(int i2) {
             super(i2);
@@ -273,7 +273,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements View.OnTouchListener {
         public f() {
         }
@@ -289,7 +289,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements View.OnClickListener {
         public g() {
         }
@@ -300,7 +300,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h implements View.OnClickListener {
         public h() {
         }
@@ -317,7 +317,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class i extends DataModel<PbChosenActivity> {
         public i(d.a.c.a.f fVar) {
             super(fVar);
@@ -334,12 +334,12 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
 
         @Override // com.baidu.tbadk.editortools.pb.DataModel
-        public String s() {
+        public String w() {
             return null;
         }
 
         @Override // com.baidu.tbadk.editortools.pb.DataModel
-        public WriteData t(String str) {
+        public WriteData x(String str) {
             if (PbChosenActivity.this.chosenData == null || PbChosenActivity.this.chosenData.getThreadInfo() == null) {
                 return null;
             }
@@ -353,12 +353,12 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
 
         @Override // com.baidu.tbadk.editortools.pb.DataModel
-        public boolean u() {
+        public boolean y() {
             return false;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class j implements AbsListView.OnScrollListener {
         public j() {
         }
@@ -377,7 +377,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class k implements d.a.m0.w.w.c {
         public k() {
         }
@@ -388,7 +388,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class l implements View.OnClickListener {
         public l() {
         }
@@ -403,7 +403,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class m implements NewWriteModel.g {
         public m() {
         }
@@ -428,7 +428,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class n implements c.a {
         public n() {
         }
@@ -446,7 +446,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class o implements View.OnClickListener {
         public o() {
         }
@@ -469,7 +469,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class p extends CustomMessageListener {
         public p(int i2) {
             super(i2);
@@ -482,7 +482,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class q extends CustomMessageListener {
         public q(int i2) {
             super(i2);
@@ -495,7 +495,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class r implements e.c {
         public r() {
         }
@@ -766,7 +766,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
-    public d.a.c.j.e.q onGetPreLoadListView() {
+    public d.a.c.k.e.q onGetPreLoadListView() {
         BdListView bdListView = this.listView;
         if (bdListView == null) {
             return null;

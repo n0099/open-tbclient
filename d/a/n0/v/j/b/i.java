@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes4.dex */
-public class i extends d.a.c.j.e.a<d.a.n0.v.j.d.l, CardViewHolder<d.a.n0.v.j.h.a>> {
+public class i extends d.a.c.k.e.a<d.a.n0.v.j.d.l, CardViewHolder<d.a.n0.v.j.h.a>> {
     public TbPageContext m;
     public TextView n;
     public String o;
@@ -26,31 +26,31 @@ public class i extends d.a.c.j.e.a<d.a.n0.v.j.d.l, CardViewHolder<d.a.n0.v.j.h.a
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            i.this.g0();
+            i.this.h0();
         }
     }
 
     public i(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.a.n0.v.j.d.l.f62067f);
+        super(tbPageContext.getPageActivity(), d.a.n0.v.j.d.l.f65782f);
         this.m = tbPageContext;
     }
 
-    public final void f0(d.a.n0.v.j.d.l lVar, d.a.n0.v.j.h.a aVar) {
-        d.a.n0.v.j.d.c h2 = lVar.h();
-        if (h2 == null || aVar == null) {
+    public final void g0(d.a.n0.v.j.d.l lVar, d.a.n0.v.j.h.a aVar) {
+        d.a.n0.v.j.d.c c2 = lVar.c();
+        if (c2 == null || aVar == null) {
             return;
         }
-        this.n = aVar.s();
-        this.o = h2.b().user_id;
-        j0(h2, aVar);
-        aVar.x(8);
-        aVar.y(this.f39228e.getResources().getString(R.string.ala_person_live_privilege));
-        aVar.n(this.m, TbadkCoreApplication.getInst().getSkinType());
+        this.n = aVar.t();
+        this.o = c2.b().user_id;
+        k0(c2, aVar);
+        aVar.y(8);
+        aVar.z(this.f42909e.getResources().getString(R.string.ala_person_live_privilege));
+        aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final void g0() {
+    public final void h0() {
         AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
-        m0(this.n, this.p, false);
+        l0(this.n, this.p, false);
         StatisticItem statisticItem = new StatisticItem("c13333");
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(statisticItem);
@@ -75,30 +75,30 @@ public class i extends d.a.c.j.e.a<d.a.n0.v.j.d.l, CardViewHolder<d.a.n0.v.j.h.a
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public CardViewHolder<d.a.n0.v.j.h.a> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public CardViewHolder<d.a.n0.v.j.h.a> Q(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.a.n0.v.j.h.a(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: i0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.v.j.d.l lVar, CardViewHolder<d.a.n0.v.j.h.a> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: j0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.v.j.d.l lVar, CardViewHolder<d.a.n0.v.j.h.a> cardViewHolder) {
         if (cardViewHolder.b() == null) {
             return null;
         }
-        f0(lVar, cardViewHolder.b());
-        cardViewHolder.b().l().setOnClickListener(new a());
-        return cardViewHolder.b().l();
+        g0(lVar, cardViewHolder.b());
+        cardViewHolder.b().m().setOnClickListener(new a());
+        return cardViewHolder.b().m();
     }
 
-    public final void j0(d.a.n0.v.j.d.c cVar, d.a.n0.v.j.h.a aVar) {
+    public final void k0(d.a.n0.v.j.d.c cVar, d.a.n0.v.j.h.a aVar) {
         if (cVar == null || aVar == null) {
         }
     }
 
-    public final void m0(TextView textView, String str, boolean z) {
+    public final void l0(TextView textView, String str, boolean z) {
         if (textView == null || this.m == null) {
             return;
         }

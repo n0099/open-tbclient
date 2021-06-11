@@ -3,50 +3,50 @@ package d.a.n0.k2;
 public class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f56814e;
+    public boolean f60503e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56815f;
+    public int f60504f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56816g;
+    public int f60505g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f56817h = false;
+    public boolean f60506h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public i f56818i;
+    public i f60507i;
 
     public b(i iVar) {
-        this.f56818i = iVar;
+        this.f60507i = iVar;
     }
 
     public void a(int i2) {
-        this.f56815f = i2;
+        this.f60504f = i2;
     }
 
     public void b(boolean z) {
-        this.f56814e = z;
+        this.f60503e = z;
     }
 
     public void c(int i2) {
-        this.f56816g = i2;
+        this.f60505g = i2;
     }
 
     public void d(boolean z) {
-        this.f56817h = z;
+        this.f60506h = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        i iVar = this.f56818i;
+        i iVar = this.f60507i;
         if (iVar == null) {
             return;
         }
-        if (!this.f56817h) {
-            iVar.m(this.f56815f, this.f56816g, this.f56814e, 2);
+        if (!this.f60506h) {
+            iVar.m(this.f60504f, this.f60505g, this.f60503e, 2);
         } else {
-            iVar.m(this.f56815f, this.f56816g, this.f56814e, 1);
+            iVar.m(this.f60504f, this.f60505g, this.f60503e, 1);
         }
     }
 }

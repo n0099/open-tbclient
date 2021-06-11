@@ -26,7 +26,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.mView.d());
             BubbleGroupActivity.this.mView.i();
             if (i2 == 0) {
-                BubbleGroupActivity.this.mView.k(eVar, list, BubbleGroupActivity.this.mModel.z());
+                BubbleGroupActivity.this.mView.k(eVar, list, BubbleGroupActivity.this.mModel.D());
                 return;
             }
             BubbleGroupActivity.this.showToast(str);
@@ -43,7 +43,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
+            pageStayDurationItem.f53110a = true;
         }
         return pageStayDurationItem;
     }
@@ -62,7 +62,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         super.onCreate(bundle);
         BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
         this.mModel = bubbleGroupModel;
-        bubbleGroupModel.C(this.mCallback);
+        bubbleGroupModel.G(this.mCallback);
         d.a.n0.k3.f.a.a aVar = new d.a.n0.k3.f.a.a(getPageContext());
         this.mItemController = aVar;
         c cVar = new c(this, aVar);

@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import d.a.c.e.h.b;
-import d.a.c.j.e.a;
+import d.a.c.k.e.a;
 /* loaded from: classes4.dex */
 public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHolder<T>> {
     public TbPageContext<MsglistActivity<?>> m;
@@ -23,15 +23,15 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public T f16983a;
+        public T f17059a;
 
         public MsgViewHolder(View view, T t) {
             super(view);
-            this.f16983a = t;
+            this.f17059a = t;
         }
 
         public T b() {
-            return this.f16983a;
+            return this.f17059a;
         }
     }
 
@@ -49,18 +49,18 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
         this.p = System.currentTimeMillis() / 1000;
     }
 
-    public boolean f0() {
+    public boolean g0() {
         return this.r;
     }
 
-    public boolean g0() {
+    public boolean h0() {
         return this.q;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public View W(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public View X(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
@@ -68,19 +68,19 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
         return view;
     }
 
-    public void i0(boolean z) {
+    public void j0(boolean z) {
         this.r = z;
     }
 
-    public void j0(boolean z) {
+    public void k0(boolean z) {
         this.q = z;
     }
 
-    public void m0(d.a.c.e.h.a aVar) {
+    public void l0(d.a.c.e.h.a aVar) {
         this.n = aVar;
     }
 
-    public void n0(b bVar) {
+    public void m0(b bVar) {
         this.o = bVar;
     }
 

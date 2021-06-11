@@ -5,11 +5,11 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BoundaryInterfaceReflectionUtil {
 
     @TargetApi(19)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
         public final Object mDelegate;
 

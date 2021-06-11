@@ -23,45 +23,45 @@ import d.a.l0.f.i.h;
 public class a extends Dialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public C0976a f46678e;
+    public C1032a f50352e;
 
     /* renamed from: d.a.l0.f.i.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0976a {
+    public static class C1032a {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f46679a;
+        public b f50353a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final a f46680b;
+        public final a f50354b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f46681c;
+        public Context f50355c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f46682d = false;
+        public boolean f50356d = false;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f46683e;
+        public int f50357e;
 
         /* renamed from: d.a.l0.f.i.j.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0977a implements View.OnClickListener {
+        public class View$OnClickListenerC1033a implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f46684e;
+            public final /* synthetic */ DialogInterface.OnClickListener f50358e;
 
-            public View$OnClickListenerC0977a(DialogInterface.OnClickListener onClickListener) {
-                this.f46684e = onClickListener;
+            public View$OnClickListenerC1033a(DialogInterface.OnClickListener onClickListener) {
+                this.f50358e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                C0976a.this.f46680b.b(-1);
-                C0976a.this.f46680b.dismiss();
-                DialogInterface.OnClickListener onClickListener = this.f46684e;
+                C1032a.this.f50354b.b(-1);
+                C1032a.this.f50354b.dismiss();
+                DialogInterface.OnClickListener onClickListener = this.f50358e;
                 if (onClickListener != null) {
-                    onClickListener.onClick(C0976a.this.f46680b, -1);
+                    onClickListener.onClick(C1032a.this.f50354b, -1);
                 }
             }
         }
@@ -71,86 +71,86 @@ public class a extends Dialog {
         public class b implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f46686e;
+            public final /* synthetic */ DialogInterface.OnClickListener f50360e;
 
             public b(DialogInterface.OnClickListener onClickListener) {
-                this.f46686e = onClickListener;
+                this.f50360e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                C0976a.this.f46680b.b(-2);
-                C0976a.this.f46680b.dismiss();
-                DialogInterface.OnClickListener onClickListener = this.f46686e;
+                C1032a.this.f50354b.b(-2);
+                C1032a.this.f50354b.dismiss();
+                DialogInterface.OnClickListener onClickListener = this.f50360e;
                 if (onClickListener != null) {
-                    onClickListener.onClick(C0976a.this.f46680b, -2);
+                    onClickListener.onClick(C1032a.this.f50354b, -2);
                 }
             }
         }
 
-        public C0976a(Context context) {
-            this.f46679a = null;
+        public C1032a(Context context) {
+            this.f50353a = null;
             a e2 = e(context);
-            this.f46680b = e2;
+            this.f50354b = e2;
             e2.c(this);
-            this.f46681c = context;
-            this.f46683e = context.getResources().getDimensionPixelSize(d.a.l0.f.i.c.swan_ad_dialog_btns_height);
-            if (this.f46680b.getWindow() != null) {
-                this.f46679a = new b((ViewGroup) this.f46680b.getWindow().getDecorView());
+            this.f50355c = context;
+            this.f50357e = context.getResources().getDimensionPixelSize(d.a.l0.f.i.c.swan_ad_dialog_btns_height);
+            if (this.f50354b.getWindow() != null) {
+                this.f50353a = new b((ViewGroup) this.f50354b.getWindow().getDecorView());
             }
         }
 
         public a a() {
-            this.f46680b.setCancelable(this.f46679a.k.booleanValue());
-            if (this.f46679a.k.booleanValue()) {
-                this.f46680b.setCanceledOnTouchOutside(false);
+            this.f50354b.setCancelable(this.f50353a.k.booleanValue());
+            if (this.f50353a.k.booleanValue()) {
+                this.f50354b.setCanceledOnTouchOutside(false);
             }
-            this.f46680b.setOnCancelListener(this.f46679a.l);
-            this.f46680b.setOnDismissListener(this.f46679a.m);
-            this.f46680b.setOnShowListener(this.f46679a.n);
-            DialogInterface.OnKeyListener onKeyListener = this.f46679a.p;
+            this.f50354b.setOnCancelListener(this.f50353a.l);
+            this.f50354b.setOnDismissListener(this.f50353a.m);
+            this.f50354b.setOnShowListener(this.f50353a.n);
+            DialogInterface.OnKeyListener onKeyListener = this.f50353a.p;
             if (onKeyListener != null) {
-                this.f46680b.setOnKeyListener(onKeyListener);
+                this.f50354b.setOnKeyListener(onKeyListener);
             }
             q();
-            b bVar = this.f46679a;
+            b bVar = this.f50353a;
             c cVar = bVar.z;
             if (cVar != null) {
-                cVar.a(this.f46680b, bVar);
+                cVar.a(this.f50354b, bVar);
             }
-            this.f46680b.c(this);
-            return this.f46680b;
+            this.f50354b.c(this);
+            return this.f50354b;
         }
 
         public Resources b() {
-            return this.f46681c.getResources();
+            return this.f50355c.getResources();
         }
 
-        public C0976a c(boolean z) {
-            this.f46679a.f46688a.setVisibility(z ? 8 : 0);
+        public C1032a c(boolean z) {
+            this.f50353a.f50362a.setVisibility(z ? 8 : 0);
             return this;
         }
 
         public TextView d() {
             int i2;
             TextView textView;
-            TextView textView2 = this.f46679a.f46692e;
+            TextView textView2 = this.f50353a.f50366e;
             if (textView2 == null || textView2.getVisibility() != 0) {
                 i2 = 0;
                 textView = null;
             } else {
-                textView = this.f46679a.f46692e;
+                textView = this.f50353a.f50366e;
                 i2 = 1;
             }
-            TextView textView3 = this.f46679a.f46693f;
+            TextView textView3 = this.f50353a.f50367f;
             if (textView3 != null && textView3.getVisibility() == 0) {
                 i2++;
-                textView = this.f46679a.f46693f;
+                textView = this.f50353a.f50367f;
             }
-            TextView textView4 = this.f46679a.f46694g;
+            TextView textView4 = this.f50353a.f50368g;
             if (textView4 != null && textView4.getVisibility() == 0) {
                 i2++;
-                textView = this.f46679a.f46694g;
+                textView = this.f50353a.f50368g;
             }
             if (i2 != 1) {
                 return null;
@@ -162,92 +162,92 @@ public class a extends Dialog {
             return new a(context, h.AdNoTitleDialog);
         }
 
-        public C0976a f(int i2, int i3, int i4, int i5) {
-            this.f46679a.A.setPadding(i2, i3, i4, i5);
+        public C1032a f(int i2, int i3, int i4, int i5) {
+            this.f50353a.A.setPadding(i2, i3, i4, i5);
             return this;
         }
 
-        public C0976a g(String str) {
-            if (this.f46679a.f46691d.getVisibility() != 0) {
-                this.f46679a.f46691d.setVisibility(0);
+        public C1032a g(String str) {
+            if (this.f50353a.f50365d.getVisibility() != 0) {
+                this.f50353a.f50365d.setVisibility(0);
             }
             if (str != null) {
-                this.f46679a.f46690c.setText(str);
+                this.f50353a.f50364c.setText(str);
                 h();
             }
             return this;
         }
 
         public final void h() {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f46683e);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f50357e);
             layoutParams.addRule(3, e.dialog_message_content);
-            this.f46679a.t.setLayoutParams(layoutParams);
+            this.f50353a.t.setLayoutParams(layoutParams);
         }
 
-        public C0976a i(int i2, DialogInterface.OnClickListener onClickListener) {
-            j(this.f46681c.getText(i2), onClickListener);
+        public C1032a i(int i2, DialogInterface.OnClickListener onClickListener) {
+            j(this.f50355c.getText(i2), onClickListener);
             return this;
         }
 
-        public C0976a j(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
+        public C1032a j(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.f46679a.f46693f.setVisibility(8);
-                if (this.f46679a.f46692e.getVisibility() == 0) {
-                    this.f46679a.f46696i.setVisibility(8);
+                this.f50353a.f50367f.setVisibility(8);
+                if (this.f50353a.f50366e.getVisibility() == 0) {
+                    this.f50353a.f50370i.setVisibility(8);
                 }
                 return this;
             }
-            this.f46679a.f46693f.setVisibility(0);
-            if (this.f46679a.f46692e.getVisibility() == 0) {
-                this.f46679a.f46696i.setVisibility(0);
+            this.f50353a.f50367f.setVisibility(0);
+            if (this.f50353a.f50366e.getVisibility() == 0) {
+                this.f50353a.f50370i.setVisibility(0);
             }
-            this.f46679a.f46693f.setText(charSequence);
-            this.f46679a.f46693f.setOnClickListener(new b(onClickListener));
+            this.f50353a.f50367f.setText(charSequence);
+            this.f50353a.f50367f.setOnClickListener(new b(onClickListener));
             return this;
         }
 
-        public C0976a k(DialogInterface.OnDismissListener onDismissListener) {
-            this.f46679a.m = onDismissListener;
+        public C1032a k(DialogInterface.OnDismissListener onDismissListener) {
+            this.f50353a.m = onDismissListener;
             return this;
         }
 
-        public C0976a l(int i2, DialogInterface.OnClickListener onClickListener) {
-            m(this.f46681c.getText(i2), onClickListener);
+        public C1032a l(int i2, DialogInterface.OnClickListener onClickListener) {
+            m(this.f50355c.getText(i2), onClickListener);
             return this;
         }
 
-        public C0976a m(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
+        public C1032a m(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.f46679a.f46692e.setVisibility(8);
-                if (this.f46679a.f46693f.getVisibility() == 0) {
-                    this.f46679a.f46696i.setVisibility(8);
+                this.f50353a.f50366e.setVisibility(8);
+                if (this.f50353a.f50367f.getVisibility() == 0) {
+                    this.f50353a.f50370i.setVisibility(8);
                 }
                 return this;
             }
-            this.f46679a.f46692e.setVisibility(0);
-            if (this.f46679a.f46693f.getVisibility() == 0) {
-                this.f46679a.f46696i.setVisibility(0);
+            this.f50353a.f50366e.setVisibility(0);
+            if (this.f50353a.f50367f.getVisibility() == 0) {
+                this.f50353a.f50370i.setVisibility(0);
             }
-            this.f46679a.f46692e.setText(charSequence);
-            this.f46679a.f46692e.setOnClickListener(new View$OnClickListenerC0977a(onClickListener));
+            this.f50353a.f50366e.setText(charSequence);
+            this.f50353a.f50366e.setOnClickListener(new View$OnClickListenerC1033a(onClickListener));
             return this;
         }
 
-        public C0976a n(int i2) {
+        public C1032a n(int i2) {
             o(b().getColor(i2));
             return this;
         }
 
-        public C0976a o(int i2) {
-            b bVar = this.f46679a;
+        public C1032a o(int i2) {
+            b bVar = this.f50353a;
             bVar.w = i2;
-            bVar.f46692e.setTextColor(i2);
+            bVar.f50366e.setTextColor(i2);
             return this;
         }
 
         public a p() {
             a a2 = a();
-            if (this.f46682d && a2.getWindow() != null) {
+            if (this.f50356d && a2.getWindow() != null) {
                 a2.getWindow().setType(2003);
             }
             try {
@@ -263,44 +263,44 @@ public class a extends Dialog {
             int color3 = b().getColor(d.a.l0.f.i.b.swan_ad_dialog_btn_text_color);
             int color4 = b().getColor(d.a.l0.f.i.b.swan_ad_box_dialog_message_text_color);
             int color5 = b().getColor(d.a.l0.f.i.b.swan_ad_dialog_gray);
-            RelativeLayout relativeLayout = this.f46679a.r;
+            RelativeLayout relativeLayout = this.f50353a.r;
             Resources b2 = b();
-            int i2 = this.f46679a.C;
+            int i2 = this.f50353a.C;
             if (i2 == -1) {
                 i2 = d.swan_ad_dialog_bg_white;
             }
             relativeLayout.setBackground(b2.getDrawable(i2));
-            this.f46679a.f46689b.setTextColor(color);
-            this.f46679a.f46690c.setTextColor(color4);
-            b bVar = this.f46679a;
-            TextView textView = bVar.f46692e;
+            this.f50353a.f50363b.setTextColor(color);
+            this.f50353a.f50364c.setTextColor(color4);
+            b bVar = this.f50353a;
+            TextView textView = bVar.f50366e;
             int i3 = bVar.w;
             if (i3 != color3) {
                 color3 = i3;
             }
             textView.setTextColor(color3);
-            b bVar2 = this.f46679a;
+            b bVar2 = this.f50353a;
             int i4 = bVar2.x;
             if (i4 != color2) {
-                bVar2.f46693f.setTextColor(i4);
+                bVar2.f50367f.setTextColor(i4);
             } else if (bVar2.y != -1) {
-                bVar2.f46693f.setTextColor(b().getColorStateList(this.f46679a.y));
+                bVar2.f50367f.setTextColor(b().getColorStateList(this.f50353a.y));
             } else {
-                bVar2.f46693f.setTextColor(color2);
+                bVar2.f50367f.setTextColor(color2);
             }
-            this.f46679a.f46694g.setTextColor(color2);
-            if (this.f46679a.D != -1) {
-                color5 = b().getColor(this.f46679a.D);
+            this.f50353a.f50368g.setTextColor(color2);
+            if (this.f50353a.D != -1) {
+                color5 = b().getColor(this.f50353a.D);
             }
-            this.f46679a.f46695h.setBackgroundColor(color5);
-            this.f46679a.f46696i.setBackgroundColor(color5);
-            this.f46679a.j.setBackgroundColor(color5);
-            this.f46679a.f46692e.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_right_selector));
-            this.f46679a.f46693f.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_left_selector));
-            this.f46679a.f46694g.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_all_selector));
+            this.f50353a.f50369h.setBackgroundColor(color5);
+            this.f50353a.f50370i.setBackgroundColor(color5);
+            this.f50353a.j.setBackgroundColor(color5);
+            this.f50353a.f50366e.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_right_selector));
+            this.f50353a.f50367f.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_left_selector));
+            this.f50353a.f50368g.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_all_selector));
             TextView d2 = d();
             if (d2 != null) {
-                d2.setBackground(this.f46679a.E ? b().getDrawable(d.swan_ad_alertdialog_button_day_bg_all_selector) : null);
+                d2.setBackground(this.f50353a.E ? b().getDrawable(d.swan_ad_alertdialog_button_day_bg_all_selector) : null);
             }
         }
     }
@@ -311,31 +311,31 @@ public class a extends Dialog {
         public View B;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f46688a;
+        public LinearLayout f50362a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f46689b;
+        public TextView f50363b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f46690c;
+        public TextView f50364c;
 
         /* renamed from: d  reason: collision with root package name */
-        public LinearLayout f46691d;
+        public LinearLayout f50365d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f46692e;
+        public TextView f50366e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f46693f;
+        public TextView f50367f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f46694g;
+        public TextView f50368g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View f46695h;
+        public View f50369h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f46696i;
+        public View f50370i;
         public View j;
         public DialogInterface.OnCancelListener l;
         public DialogInterface.OnDismissListener m;
@@ -359,19 +359,19 @@ public class a extends Dialog {
 
         public b(ViewGroup viewGroup) {
             this.v = viewGroup;
-            this.f46688a = (LinearLayout) viewGroup.findViewById(e.title_panel);
-            this.f46689b = (TextView) viewGroup.findViewById(e.dialog_title);
-            this.f46690c = (TextView) viewGroup.findViewById(e.dialog_message);
-            this.f46691d = (LinearLayout) viewGroup.findViewById(e.dialog_message_content);
-            this.f46692e = (TextView) viewGroup.findViewById(e.positive_button);
-            this.f46693f = (TextView) viewGroup.findViewById(e.negative_button);
-            this.f46694g = (TextView) viewGroup.findViewById(e.neutral_button);
-            this.f46696i = viewGroup.findViewById(e.divider3);
+            this.f50362a = (LinearLayout) viewGroup.findViewById(e.title_panel);
+            this.f50363b = (TextView) viewGroup.findViewById(e.dialog_title);
+            this.f50364c = (TextView) viewGroup.findViewById(e.dialog_message);
+            this.f50365d = (LinearLayout) viewGroup.findViewById(e.dialog_message_content);
+            this.f50366e = (TextView) viewGroup.findViewById(e.positive_button);
+            this.f50367f = (TextView) viewGroup.findViewById(e.negative_button);
+            this.f50368g = (TextView) viewGroup.findViewById(e.neutral_button);
+            this.f50370i = viewGroup.findViewById(e.divider3);
             this.j = viewGroup.findViewById(e.divider4);
             this.o = (FrameLayout) viewGroup.findViewById(e.dialog_custom_content);
             this.q = (ImageView) viewGroup.findViewById(e.dialog_icon);
             this.r = (RelativeLayout) viewGroup.findViewById(e.searchbox_alert_dialog);
-            this.f46695h = viewGroup.findViewById(e.divider2);
+            this.f50369h = viewGroup.findViewById(e.divider2);
             this.s = (AdScrollView) viewGroup.findViewById(e.message_scrollview);
             this.t = (LinearLayout) viewGroup.findViewById(e.btn_panel);
             this.u = viewGroup.findViewById(e.dialog_customPanel);
@@ -404,14 +404,14 @@ public class a extends Dialog {
     public void b(int i2) {
     }
 
-    public void c(C0976a c0976a) {
-        this.f46678e = c0976a;
+    public void c(C1032a c1032a) {
+        this.f50352e = c1032a;
     }
 
     public void d(String str) {
-        C0976a c0976a = this.f46678e;
-        if (c0976a != null) {
-            c0976a.g(str);
+        C1032a c1032a = this.f50352e;
+        if (c1032a != null) {
+            c1032a.g(str);
         }
     }
 

@@ -9,30 +9,30 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Integer> f41836a = new ConcurrentHashMap();
+    public final Map<String, Integer> f45512a = new ConcurrentHashMap();
 
     /* renamed from: d.a.l0.a.f1.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0632a {
+    public static class C0688a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f41837a = new a();
+        public static final a f45513a = new a();
     }
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public static a b() {
-        return C0632a.f41837a;
+        return C0688a.f45513a;
     }
 
     public void a(String str) {
-        this.f41836a.put(str, Integer.valueOf(c(str) + 1));
+        this.f45512a.put(str, Integer.valueOf(c(str) + 1));
     }
 
     public final int c(String str) {
-        Integer num = this.f41836a.get(str);
+        Integer num = this.f45512a.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -54,6 +54,6 @@ public class a {
     }
 
     public void g(String str) {
-        this.f41836a.remove(str);
+        this.f45512a.remove(str);
     }
 }

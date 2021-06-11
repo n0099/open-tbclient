@@ -9,39 +9,39 @@ import tbclient.ZoneRight.ZoneRightReqIdl;
 public class a implements g {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58557e;
+    public int f62248e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f58558f;
+    public long f62249f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58559g;
+    public String f62250g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58560h;
+    public int f62251h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58561i;
+    public int f62252i;
 
     @Override // d.a.m0.g0.b.i
-    public Object c(boolean z) {
+    public Object e(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         w.c(builder, true, false, true);
-        builder.forum_id = Long.valueOf(d.a.c.e.m.b.f(this.f58559g, 0L));
-        builder.thread_id = Long.valueOf(this.f58558f);
-        builder.req_type = Integer.valueOf(this.f58560h == 1 ? 2 : 1);
+        builder.forum_id = Long.valueOf(d.a.c.e.m.b.f(this.f62250g, 0L));
+        builder.thread_id = Long.valueOf(this.f62249f);
+        builder.req_type = Integer.valueOf(this.f62251h == 1 ? 2 : 1);
         ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
     }
 
     @Override // d.a.m0.g0.b.f
-    public HashMap<String, Object> o() {
+    public HashMap<String, Object> s() {
         return null;
     }
 
     @Override // d.a.m0.g0.b.f
-    public HashMap<String, String> q() {
+    public HashMap<String, String> u() {
         return null;
     }
 }

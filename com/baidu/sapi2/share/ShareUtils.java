@@ -55,8 +55,13 @@ public final class ShareUtils {
     public static final String SHARE_FAIL_REASON = "share_fail_reason";
     public static final String TAG = "pass_share_login";
     public static boolean isRequestShareFromCloudTimeOut = false;
-    public static List<String> lastPkgList4CloudReq;
-    public static List<ShareStorage.StorageModel> shareModelsFromCloud;
+    public static List<ShareStorage.StorageModel> shareModelsMemoryCache;
+
+    public static void cacheShareModels(List<ShareStorage.StorageModel> list) {
+        shareModelsMemoryCache = list;
+        SapiContext.getInstance().put(SapiContext.KEY_SHARE_MODEL_CACHE, ShareStorage.StorageModel.toJSONArray(list).toString());
+        SapiContext.getInstance().put(SapiContext.KEY_SHARE_MODEL_CACHE_TIME, System.currentTimeMillis());
+    }
 
     public static boolean checkCalleeIdentity(Context context, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
@@ -73,6 +78,19 @@ public final class ShareUtils {
         return false;
     }
 
+    public static List<ShareStorage.StorageModel> checkShareAppInstalled(Context context, List<ShareStorage.StorageModel> list) {
+        if (list == null || list.size() <= 0) {
+            return null;
+        }
+        Iterator<ShareStorage.StorageModel> it = list.iterator();
+        while (it.hasNext()) {
+            if (!SapiUtils.isAppInstalled(context, it.next().pkg)) {
+                it.remove();
+            }
+        }
+        return list;
+    }
+
     public static String[] getDeletedShareModels() {
         String string = SapiContext.getInstance().getString(SapiContext.KEY_SHARE_DELETE_LIST);
         if (TextUtils.isEmpty(string)) {
@@ -82,10 +100,16 @@ public final class ShareUtils {
     }
 
     public static void getShareModels(long j, Context context, String str, final ShareModelCallback shareModelCallback) {
+        List<ShareStorage.StorageModel> shareModelsFromQuickCache = getShareModelsFromQuickCache(context);
+        if (shareModelsFromQuickCache != null && shareModelsFromQuickCache.size() > 0) {
+            shareModelCallback.onReceiveShareModels(shareModelsFromQuickCache);
+            return;
+        }
         List<ShareStorage.StorageModel> shareModelsFromShareStorage = getShareModelsFromShareStorage();
         if (shareModelsFromShareStorage != null && shareModelsFromShareStorage.size() > 0) {
-            StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_INIT_SP);
             shareModelCallback.onReceiveShareModels(shareModelsFromShareStorage);
+            cacheShareModels(shareModelsFromShareStorage);
+            StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_INIT_SP);
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -103,24 +127,21 @@ public final class ShareUtils {
         int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
         List<ShareStorage.StorageModel> shareModelsFromSP = getShareModelsFromSP(ordinal, arrayList);
         if (shareModelsFromSP != null && shareModelsFromSP.size() > 0) {
-            StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_DYNAMIC_SP);
             shareModelCallback.onReceiveShareModels(shareModelsFromSP);
+            cacheShareModels(shareModelsFromSP);
+            StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_DYNAMIC_SP);
             return;
         }
         if (SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", context)) {
             List<ShareStorage.StorageModel> shareModelsFromSdCard = getShareModelsFromSdCard(ordinal, arrayList);
             if (shareModelsFromSdCard != null && shareModelsFromSdCard.size() > 0) {
-                StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_DYNAMIC_SDCARD);
                 shareModelCallback.onReceiveShareModels(shareModelsFromSdCard);
+                cacheShareModels(shareModelsFromSdCard);
+                StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_DYNAMIC_SDCARD);
                 return;
             }
         } else {
             StatService.onEventAutoStat(ShareStatKey.GET_SHARE_NO_SDCARD_PERM);
-        }
-        if (shareModelsFromCloud != null && lastPkgList4CloudReq != null && arrayList.size() == lastPkgList4CloudReq.size()) {
-            shareModelCallback.onReceiveShareModels(shareModelsFromCloud);
-            StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_CLOUD_CACHE);
-            return;
         }
         final Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.share.ShareUtils.2
             @Override // android.os.Handler
@@ -132,9 +153,7 @@ public final class ShareUtils {
         handler.removeCallbacksAndMessages(null);
         handler.sendEmptyMessageDelayed(0, j);
         String packageName = context.getPackageName();
-        SapiOptions.Gray gray = SapiContext.getInstance().getSapiOptions().gray;
-        lastPkgList4CloudReq = arrayList;
-        if (gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_SHARE_MODEL_FROM_SERVER).isMeetGray()) {
+        if (SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_SHARE_MODEL_FROM_SERVER).isMeetGray()) {
             SapiAccountManager.getInstance().getAccountService().getShareV3App(str, arrayList, packageName, new GetShareV3AppCallback() { // from class: com.baidu.sapi2.share.ShareUtils.3
                 @Override // com.baidu.sapi2.callback.inner.GetShareV3AppCallback
                 public void onFailure() {
@@ -157,14 +176,14 @@ public final class ShareUtils {
 
                 @Override // com.baidu.sapi2.callback.inner.GetShareV3AppCallback
                 public void onSuccess(final List<ShareStorage.StorageModel> list) {
-                    List unused = ShareUtils.shareModelsFromCloud = list;
+                    ShareUtils.cacheShareModels(list);
                     handler.removeCallbacksAndMessages(null);
                     HashMap hashMap = new HashMap();
                     hashMap.put("timeout", ShareUtils.isRequestShareFromCloudTimeOut ? "1" : "0");
                     hashMap.put("status", "1");
                     StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_CLOUD, hashMap);
                     if (ShareUtils.isRequestShareFromCloudTimeOut) {
-                        boolean unused2 = ShareUtils.isRequestShareFromCloudTimeOut = false;
+                        boolean unused = ShareUtils.isRequestShareFromCloudTimeOut = false;
                     } else {
                         handler.post(new Runnable() { // from class: com.baidu.sapi2.share.ShareUtils.3.1
                             @Override // java.lang.Runnable
@@ -192,6 +211,32 @@ public final class ShareUtils {
             if (jSONArray != null) {
                 return ShareStorage.StorageModel.fromJSONArray(jSONArray);
             }
+        }
+        return null;
+    }
+
+    public static List<ShareStorage.StorageModel> getShareModelsFromQuickCache(Context context) {
+        if (SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_SHARE_CACHE_ABILITY).isMeetGray()) {
+            List<ShareStorage.StorageModel> checkShareAppInstalled = checkShareAppInstalled(context, shareModelsMemoryCache);
+            if (checkShareAppInstalled != null && checkShareAppInstalled.size() > 0) {
+                Log.d(TAG, "get share model from modelsFromMemoryCache, size=" + checkShareAppInstalled.size());
+                StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_MEMORY_CACHE);
+                return checkShareAppInstalled;
+            }
+            if (System.currentTimeMillis() < SapiContext.getInstance().getLong(SapiContext.KEY_SHARE_MODEL_CACHE_TIME, 0L) + SapiContext.getInstance().getShareCacheValidTime()) {
+                try {
+                    List<ShareStorage.StorageModel> checkShareAppInstalled2 = checkShareAppInstalled(context, ShareStorage.StorageModel.fromJSONArray(new JSONArray(SapiContext.getInstance().getString(SapiContext.KEY_SHARE_MODEL_CACHE))));
+                    if (checkShareAppInstalled2 != null && checkShareAppInstalled2.size() > 0) {
+                        shareModelsMemoryCache = checkShareAppInstalled2;
+                        Log.d(TAG, "get share model from modelsFromSPCache, size=" + checkShareAppInstalled2.size());
+                        StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_SP_CACHE);
+                    }
+                    return checkShareAppInstalled2;
+                } catch (Exception e2) {
+                    Log.e(TAG, e2.getMessage());
+                }
+            }
+            return null;
         }
         return null;
     }
@@ -532,7 +577,7 @@ public final class ShareUtils {
                     intent.putExtra(ShareCallPacking.EXTRA_FROM_APP_TPL, "unknown");
                 }
                 intent.setComponent(componentName);
-                activity.startActivityForResult(intent, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT);
+                activity.startActivityForResult(intent, 20001);
                 return;
             }
             Toast.makeText(activity, "登录失败", 0).show();

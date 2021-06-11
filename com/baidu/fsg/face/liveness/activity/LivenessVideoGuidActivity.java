@@ -40,31 +40,31 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class LivenessVideoGuidActivity extends LivenessBaseActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    public Button f5793a;
+    public Button f5836a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f5794b;
+    public ImageView f5837b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f5795c;
+    public ImageView f5838c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f5796d;
+    public View f5839d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f5797e;
+    public View f5840e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LivenessRecogCallback f5798f;
+    public LivenessRecogCallback f5841f;
 
     /* renamed from: g  reason: collision with root package name */
-    public VideoGetPortraitModel f5799g;
+    public VideoGetPortraitModel f5842g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f5800h;
+    public View f5843h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f5801i;
+    public View f5844i;
     public ViewPager j;
     public List<View> k;
     public Handler l;
@@ -74,20 +74,20 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     public class ViewPagerAdapter extends PagerAdapter {
 
         /* renamed from: b  reason: collision with root package name */
-        public List<View> f5816b;
+        public List<View> f5859b;
 
         public ViewPagerAdapter(List<View> list) {
-            this.f5816b = list;
+            this.f5859b = list;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
-            viewGroup.removeView(this.f5816b.get(i2));
+            viewGroup.removeView(this.f5859b.get(i2));
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            List<View> list = this.f5816b;
+            List<View> list = this.f5859b;
             if (list == null) {
                 return 0;
             }
@@ -96,8 +96,8 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i2) {
-            viewGroup.addView(this.f5816b.get(i2));
-            return this.f5816b.get(i2);
+            viewGroup.addView(this.f5859b.get(i2));
+            return this.f5859b.get(i2);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -110,31 +110,31 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     public class a extends Scroller {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f5818b;
+        public int f5861b;
 
         public a(Context context) {
             super(context);
-            this.f5818b = 300;
+            this.f5861b = 300;
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i2, int i3, int i4, int i5, int i6) {
-            super.startScroll(i2, i3, i4, i5, this.f5818b);
+            super.startScroll(i2, i3, i4, i5, this.f5861b);
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i2, int i3, int i4, int i5) {
-            super.startScroll(i2, i3, i4, i5, this.f5818b);
+            super.startScroll(i2, i3, i4, i5, this.f5861b);
         }
 
         public a(Context context, Interpolator interpolator) {
             super(context, interpolator);
-            this.f5818b = 300;
+            this.f5861b = 300;
         }
 
         public a(Context context, Interpolator interpolator, boolean z) {
             super(context, interpolator, z);
-            this.f5818b = 300;
+            this.f5861b = 300;
         }
     }
 
@@ -149,11 +149,11 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     @Override // com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
     public void onBackPressed() {
         super.onBackPressed();
-        if (this.f5798f != null) {
+        if (this.f5841f != null) {
             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
             livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_USER_CANCEL);
             livenessRecogResult.setResultCode(-204);
-            this.f5798f.b(livenessRecogResult);
+            this.f5841f.b(livenessRecogResult);
         }
         RimStatisticsUtil.onEvent(d.R);
         RimStatisticsUtil.getInstance().triggerSending();
@@ -164,7 +164,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         Serializable serializable;
         super.onCreate(bundle);
         if (getIntent().getExtras() != null && (serializable = getIntent().getExtras().getSerializable(LivenessVideoLoadingActivity.KEY_VIDEOGETPORTRAITMODEL)) != null && (serializable instanceof VideoGetPortraitModel)) {
-            this.f5799g = (VideoGetPortraitModel) serializable;
+            this.f5842g = (VideoGetPortraitModel) serializable;
         }
         setContentView(R.layout.layout_sapi_liveness_video_guide_page);
         d();
@@ -172,7 +172,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         this.l.postDelayed(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.1
             @Override // java.lang.Runnable
             public void run() {
-                LivenessVideoGuidActivity.this.f5796d.post(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.1.1
+                LivenessVideoGuidActivity.this.f5839d.post(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         if (LivenessVideoGuidActivity.this.j.getCurrentItem() == 0) {
@@ -192,9 +192,9 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     }
 
     private void b() {
-        final LinearLayout linearLayout = (LinearLayout) this.f5801i.findViewById(R.id.rim_face_guide_video_page2);
-        final LinearLayout linearLayout2 = (LinearLayout) this.f5801i.findViewById(R.id.rim_face_guide_indicator2_wrapper);
-        this.f5801i.findViewById(R.id.btn_start_photo).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.6
+        final LinearLayout linearLayout = (LinearLayout) this.f5844i.findViewById(R.id.rim_face_guide_video_page2);
+        final LinearLayout linearLayout2 = (LinearLayout) this.f5844i.findViewById(R.id.rim_face_guide_indicator2_wrapper);
+        this.f5844i.findViewById(R.id.btn_start_photo).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 RimStatisticsUtil.onEvent(d.M);
@@ -210,11 +210,11 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                 linearLayout2.setLayoutParams(layoutParams);
             }
         });
-        TextView textView = (TextView) this.f5801i.findViewById(R.id.rim_face_guide_indicator2_content);
-        TextView textView2 = (TextView) this.f5801i.findViewById(R.id.rim_face_video_guide_indicator2_title_hint);
-        VideoGetPortraitModel videoGetPortraitModel = this.f5799g;
+        TextView textView = (TextView) this.f5844i.findViewById(R.id.rim_face_guide_indicator2_content);
+        TextView textView2 = (TextView) this.f5844i.findViewById(R.id.rim_face_video_guide_indicator2_title_hint);
+        VideoGetPortraitModel videoGetPortraitModel = this.f5842g;
         if (videoGetPortraitModel != null && !TextUtils.isEmpty(videoGetPortraitModel.guideContent)) {
-            textView.setText(this.f5799g.guideContent);
+            textView.setText(this.f5842g.guideContent);
         }
         String charSequence = textView2.getText().toString();
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(getResources().getColor(R.color.sapi_liveness_video_guide_tip_color));
@@ -227,8 +227,8 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     }
 
     private void c() {
-        final LinearLayout linearLayout = (LinearLayout) this.f5800h.findViewById(R.id.rim_face_guide_video_page1);
-        final LinearLayout linearLayout2 = (LinearLayout) this.f5800h.findViewById(R.id.rim_face_guide_indicator1_wrapper);
+        final LinearLayout linearLayout = (LinearLayout) this.f5843h.findViewById(R.id.rim_face_guide_video_page1);
+        final LinearLayout linearLayout2 = (LinearLayout) this.f5843h.findViewById(R.id.rim_face_guide_indicator1_wrapper);
         linearLayout.post(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.8
             @Override // java.lang.Runnable
             public void run() {
@@ -238,14 +238,14 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                 layoutParams.gravity = 17;
                 linearLayout2.setLayoutParams(layoutParams);
                 LivenessVideoGuidActivity livenessVideoGuidActivity = LivenessVideoGuidActivity.this;
-                livenessVideoGuidActivity.a(width, height, livenessVideoGuidActivity.f5795c);
+                livenessVideoGuidActivity.a(width, height, livenessVideoGuidActivity.f5838c);
             }
         });
-        TextView textView = (TextView) this.f5800h.findViewById(R.id.tv_name);
-        ImageView imageView = (ImageView) this.f5800h.findViewById(R.id.guide_imageview);
-        this.f5795c = imageView;
+        TextView textView = (TextView) this.f5843h.findViewById(R.id.tv_name);
+        ImageView imageView = (ImageView) this.f5843h.findViewById(R.id.guide_imageview);
+        this.f5838c = imageView;
         imageView.setImageDrawable(getResources().getDrawable(R.drawable.rim_face_loading_indicator1_bg));
-        VideoGetPortraitModel videoGetPortraitModel = this.f5799g;
+        VideoGetPortraitModel videoGetPortraitModel = this.f5842g;
         String str = videoGetPortraitModel != null ? videoGetPortraitModel.display_name : "";
         LivenessRecogDTO livenessRecogDTO = this.livenessRecogDTO;
         if (livenessRecogDTO != null && livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_CERTINFO && !TextUtils.isEmpty(livenessRecogDTO.realName)) {
@@ -267,19 +267,19 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     }
 
     private void d() {
-        this.f5798f = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
+        this.f5841f = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
         this.k = new ArrayList();
-        this.f5800h = LayoutInflater.from(getActivity()).inflate(R.layout.rim_face_video_loading_indicator1, (ViewGroup) null);
-        this.f5801i = LayoutInflater.from(getActivity()).inflate(R.layout.rim_face_video_loading_indicator2, (ViewGroup) null);
-        this.k.add(this.f5800h);
-        this.k.add(this.f5801i);
+        this.f5843h = LayoutInflater.from(getActivity()).inflate(R.layout.rim_face_video_loading_indicator1, (ViewGroup) null);
+        this.f5844i = LayoutInflater.from(getActivity()).inflate(R.layout.rim_face_video_loading_indicator2, (ViewGroup) null);
+        this.k.add(this.f5843h);
+        this.k.add(this.f5844i);
         this.l = new Handler();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         Intent intent = new Intent(this, LivenessVideoActivity.class);
-        intent.putExtra(LivenessVideoLoadingActivity.KEY_VIDEOGETPORTRAITMODEL, this.f5799g);
+        intent.putExtra(LivenessVideoLoadingActivity.KEY_VIDEOGETPORTRAITMODEL, this.f5842g);
         startActivityForResult(intent, 1001);
         System.gc();
     }
@@ -287,22 +287,22 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     private void a() {
         c();
         b();
-        this.f5796d = findViewById(R.id.rim_face_guide_indicator_1);
-        this.f5797e = findViewById(R.id.rim_face_guide_indicator_2);
-        this.f5796d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.2
+        this.f5839d = findViewById(R.id.rim_face_guide_indicator_1);
+        this.f5840e = findViewById(R.id.rim_face_guide_indicator_2);
+        this.f5839d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LivenessVideoGuidActivity.this.j.setCurrentItem(0);
             }
         });
-        this.f5797e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.3
+        this.f5840e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LivenessVideoGuidActivity.this.j.setCurrentItem(1);
             }
         });
         ImageView imageView = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
-        this.f5794b = imageView;
+        this.f5837b = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -330,12 +330,12 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                     RimStatisticsUtil.onEvent(d.L);
                 }
                 if (i2 == 0) {
-                    LivenessVideoGuidActivity.this.f5796d.setBackgroundDrawable(LivenessVideoGuidActivity.this.getResources().getDrawable(R.drawable.rim_face_indicator_circle_select));
-                    LivenessVideoGuidActivity.this.f5797e.setBackgroundDrawable(LivenessVideoGuidActivity.this.getResources().getDrawable(R.drawable.rim_face_indicator_circle_normal));
+                    LivenessVideoGuidActivity.this.f5839d.setBackgroundDrawable(LivenessVideoGuidActivity.this.getResources().getDrawable(R.drawable.rim_face_indicator_circle_select));
+                    LivenessVideoGuidActivity.this.f5840e.setBackgroundDrawable(LivenessVideoGuidActivity.this.getResources().getDrawable(R.drawable.rim_face_indicator_circle_normal));
                 } else if (i2 != 1) {
                 } else {
-                    LivenessVideoGuidActivity.this.f5796d.setBackgroundDrawable(LivenessVideoGuidActivity.this.getResources().getDrawable(R.drawable.rim_face_indicator_circle_normal));
-                    LivenessVideoGuidActivity.this.f5797e.setBackgroundDrawable(LivenessVideoGuidActivity.this.getResources().getDrawable(R.drawable.rim_face_indicator_circle_select));
+                    LivenessVideoGuidActivity.this.f5839d.setBackgroundDrawable(LivenessVideoGuidActivity.this.getResources().getDrawable(R.drawable.rim_face_indicator_circle_normal));
+                    LivenessVideoGuidActivity.this.f5840e.setBackgroundDrawable(LivenessVideoGuidActivity.this.getResources().getDrawable(R.drawable.rim_face_indicator_circle_select));
                 }
             }
         });

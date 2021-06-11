@@ -23,19 +23,19 @@ public class PullRefreshFrameLayout extends FrameLayout {
     public static final float I;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12320e;
+    public boolean f12382e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12321f;
+    public boolean f12383f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12322g;
+    public boolean f12384g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12323h;
+    public int f12385h;
 
     /* renamed from: i  reason: collision with root package name */
-    public double f12324i;
+    public double f12386i;
     public int j;
     public int k;
     public boolean l;
@@ -105,7 +105,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             if (PullRefreshFrameLayout.this.v != null) {
-                PullRefreshFrameLayout.this.v.m();
+                PullRefreshFrameLayout.this.v.n();
             }
             PullRefreshFrameLayout.this.s.playAnimation();
         }
@@ -126,10 +126,10 @@ public class PullRefreshFrameLayout extends FrameLayout {
     public class d implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f12328e;
+        public final /* synthetic */ int f12390e;
 
         public d(int i2) {
-            this.f12328e = i2;
+            this.f12390e = i2;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -137,7 +137,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
             int i2 = (((float) (floatValue * 0.3d)) > 0.0f ? 1 : (((float) (floatValue * 0.3d)) == 0.0f ? 0 : -1));
             PullRefreshFrameLayout.this.s.setAlpha(floatValue);
-            PullRefreshFrameLayout.this.t.topMargin = (int) (this.f12328e * floatValue);
+            PullRefreshFrameLayout.this.t.topMargin = (int) (this.f12390e * floatValue);
             PullRefreshFrameLayout.this.s.setLayoutParams(PullRefreshFrameLayout.this.t);
         }
     }
@@ -183,16 +183,16 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     /* loaded from: classes3.dex */
     public interface h {
-        void m();
+        void n();
     }
 
     /* loaded from: classes3.dex */
     public interface i {
-        void k();
+        void l();
 
-        void l(double d2);
+        void m(double d2);
 
-        void m(int i2, double d2);
+        void n(int i2, double d2);
     }
 
     static {
@@ -211,9 +211,9 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     public PullRefreshFrameLayout(Context context) {
         super(context);
-        this.f12320e = false;
-        this.f12321f = false;
-        this.f12322g = false;
+        this.f12382e = false;
+        this.f12383f = false;
+        this.f12384g = false;
         this.l = false;
         this.m = true;
         this.n = D;
@@ -246,24 +246,24 @@ public class PullRefreshFrameLayout extends FrameLayout {
         FrameLayout.LayoutParams layoutParams = this.t;
         layoutParams.topMargin = i3;
         this.s.setLayoutParams(layoutParams);
-        int i6 = this.f12323h + i2;
-        this.f12323h = i6;
+        int i6 = this.f12385h + i2;
+        this.f12385h = i6;
         int i7 = this.n;
         if (i6 > i7) {
-            this.f12323h = i7;
+            this.f12385h = i7;
         } else if (i6 < 0) {
-            this.f12323h = 0;
+            this.f12385h = 0;
         }
-        double d2 = (this.f12323h * 1.0d) / this.n;
-        this.f12324i = d2;
+        double d2 = (this.f12385h * 1.0d) / this.n;
+        this.f12386i = d2;
         i iVar = this.u;
         if (iVar != null) {
-            iVar.l(d2);
+            iVar.m(d2);
         }
     }
 
     public final void k() {
-        if (this.f12324i >= this.p) {
+        if (this.f12386i >= this.p) {
             this.l = true;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(this.t.topMargin, this.o);
             this.y = ofFloat;
@@ -274,7 +274,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
             i iVar = this.u;
             int i2 = this.t.topMargin;
             int i3 = this.o;
-            iVar.m(i2 - i3, (i3 * 1.0d) / i2);
+            iVar.n(i2 - i3, (i3 * 1.0d) / i2);
             return;
         }
         p();
@@ -334,19 +334,19 @@ public class PullRefreshFrameLayout extends FrameLayout {
                     if (action == 2) {
                         int i2 = y - this.k;
                         int i3 = x - this.j;
-                        if (!this.f12320e) {
-                            if (!this.f12321f) {
-                                if (this.f12322g) {
+                        if (!this.f12382e) {
+                            if (!this.f12383f) {
+                                if (this.f12384g) {
                                     if (i2 > 0 && Math.abs(i2) > Math.abs(i3)) {
-                                        this.f12321f = false;
-                                        this.f12320e = true;
+                                        this.f12383f = false;
+                                        this.f12382e = true;
                                     } else if (i2 < 0) {
-                                        this.f12321f = true;
-                                        this.f12320e = false;
+                                        this.f12383f = true;
+                                        this.f12382e = false;
                                     }
                                 } else {
-                                    this.f12321f = true;
-                                    this.f12320e = false;
+                                    this.f12383f = true;
+                                    this.f12382e = false;
                                 }
                             }
                         }
@@ -355,8 +355,8 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 }
                 s();
             } else {
-                this.f12320e = false;
-                this.f12321f = false;
+                this.f12382e = false;
+                this.f12383f = false;
                 this.k = y;
                 this.j = x;
             }
@@ -390,7 +390,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
                     this.k = y;
                     this.j = x;
                 }
-            } else if (this.f12324i < this.p && (fVar = this.w) != null) {
+            } else if (this.f12386i < this.p && (fVar = this.w) != null) {
                 fVar.onCancel();
             }
             k();
@@ -406,7 +406,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
         l();
         i iVar = this.u;
         if (iVar != null) {
-            iVar.k();
+            iVar.l();
         }
     }
 
@@ -432,8 +432,8 @@ public class PullRefreshFrameLayout extends FrameLayout {
         if (!this.q || (continuousAnimationView = this.s) == null) {
             return;
         }
-        continuousAnimationView.setAlpha((float) this.f12324i);
-        this.s.setFrame((int) (this.f12324i * 10.0d));
+        continuousAnimationView.setAlpha((float) this.f12386i);
+        this.s.setFrame((int) (this.f12386i * 10.0d));
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
@@ -444,12 +444,12 @@ public class PullRefreshFrameLayout extends FrameLayout {
     }
 
     public final void s() {
-        this.f12324i = 0.0d;
+        this.f12386i = 0.0d;
         this.k = 0;
         this.j = 0;
-        this.f12323h = 0;
-        this.f12320e = false;
-        this.f12321f = false;
+        this.f12385h = 0;
+        this.f12382e = false;
+        this.f12383f = false;
     }
 
     public void setEnable(boolean z) {
@@ -463,7 +463,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
     }
 
     public void setInterceptScrollDown(boolean z) {
-        this.f12322g = z;
+        this.f12384g = z;
     }
 
     public void setOnCancelCallBack(f fVar) {
@@ -501,9 +501,9 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     public PullRefreshFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12320e = false;
-        this.f12321f = false;
-        this.f12322g = false;
+        this.f12382e = false;
+        this.f12383f = false;
+        this.f12384g = false;
         this.l = false;
         this.m = true;
         this.n = D;
@@ -516,9 +516,9 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     public PullRefreshFrameLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f12320e = false;
-        this.f12321f = false;
-        this.f12322g = false;
+        this.f12382e = false;
+        this.f12383f = false;
+        this.f12384g = false;
         this.l = false;
         this.m = true;
         this.n = D;

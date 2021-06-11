@@ -169,6 +169,7 @@ public class CmdConfigHttp {
     public static final int CMD_GUIDE_INTERESTED_FORUM = 1003457;
     public static final int CMD_GUIDE_INTEREST_COMMIT = 1003458;
     public static final int CMD_HISTORY_SWAN = 1003434;
+    public static final int CMD_HOME_CHANNEL_TAB_LIST = 1003495;
     public static final int CMD_HOME_TAB_ACTIVITY_LIST = 1003461;
     public static final int CMD_HOT_THREAD_UNLIKE = 1003017;
     public static final int CMD_HOT_TOPIC = 1003041;
@@ -183,6 +184,7 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_GET_YINJI = 1001533;
     public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_HTTP_TIEBA_UID_CHECK = 1003493;
+    public static final int CMD_HTTP_VIDEO_CHANNEL_FEED = 1003496;
     public static final int CMD_INCREASE_FORUM_ACCESS_COUNT = 1003150;
     public static final int CMD_LCS_STATISTICS = 1003422;
     public static final int CMD_LOW_FLOWS_PAGE = 1003486;

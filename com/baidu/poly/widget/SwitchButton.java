@@ -59,23 +59,23 @@ public class SwitchButton extends CompoundButton {
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f9304e;
+    public Drawable f9361e;
     public int e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f9305f;
+    public Drawable f9362f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public ColorStateList f9306g;
+    public ColorStateList f9363g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public ColorStateList f9307h;
+    public ColorStateList f9364h;
     public boolean h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f9308i;
+    public float f9365i;
     public CompoundButton.OnCheckedChangeListener i0;
     public float j;
     public RectF k;
@@ -100,10 +100,10 @@ public class SwitchButton extends CompoundButton {
         public static final Parcelable.Creator<a> CREATOR = new C0118a();
 
         /* renamed from: e  reason: collision with root package name */
-        public CharSequence f9309e;
+        public CharSequence f9366e;
 
         /* renamed from: f  reason: collision with root package name */
-        public CharSequence f9310f;
+        public CharSequence f9367f;
 
         /* renamed from: com.baidu.poly.widget.SwitchButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
@@ -126,8 +126,8 @@ public class SwitchButton extends CompoundButton {
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, i2);
-            TextUtils.writeToParcel(this.f9309e, parcel, i2);
-            TextUtils.writeToParcel(this.f9310f, parcel, i2);
+            TextUtils.writeToParcel(this.f9366e, parcel, i2);
+            TextUtils.writeToParcel(this.f9367f, parcel, i2);
         }
 
         public a(Parcelable parcelable) {
@@ -136,8 +136,8 @@ public class SwitchButton extends CompoundButton {
 
         public a(Parcel parcel) {
             super(parcel);
-            this.f9309e = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-            this.f9310f = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+            this.f9366e = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+            this.f9367f = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
         }
     }
 
@@ -326,36 +326,36 @@ public class SwitchButton extends CompoundButton {
         this.c0 = i4;
         this.d0 = i3;
         this.e0 = i2;
-        this.f9304e = drawable2;
-        this.f9307h = colorStateList;
+        this.f9361e = drawable2;
+        this.f9364h = colorStateList;
         this.G = drawable2 != null;
         this.o = i5;
         if (i5 == 0) {
             new TypedValue();
             this.o = 3309506;
         }
-        if (!this.G && this.f9307h == null) {
+        if (!this.G && this.f9364h == null) {
             ColorStateList b2 = d.a.c0.p.b.b(this.o);
-            this.f9307h = b2;
+            this.f9364h = b2;
             this.t = b2.getDefaultColor();
         }
         this.p = f(f3);
         this.q = f(f5);
-        this.f9305f = drawable;
-        this.f9306g = colorStateList3;
+        this.f9362f = drawable;
+        this.f9363g = colorStateList3;
         boolean z5 = drawable != null;
         this.H = z5;
-        if (!z5 && this.f9306g == null) {
+        if (!z5 && this.f9363g == null) {
             ColorStateList a2 = d.a.c0.p.b.a(this.o);
-            this.f9306g = a2;
+            this.f9363g = a2;
             int defaultColor = a2.getDefaultColor();
             this.u = defaultColor;
-            this.v = this.f9306g.getColorForState(j0, defaultColor);
+            this.v = this.f9363g.getColorForState(j0, defaultColor);
         }
         this.k.set(f10, f12, f11, f9);
         float f15 = f8;
         this.l = this.k.width() >= 0.0f ? Math.max(f15, 1.0f) : f15;
-        this.f9308i = f7;
+        this.f9365i = f7;
         this.j = f6;
         long j = i6;
         this.m = j;
@@ -381,10 +381,10 @@ public class SwitchButton extends CompoundButton {
         ColorStateList colorStateList;
         ColorStateList colorStateList2;
         super.drawableStateChanged();
-        if (!this.G && (colorStateList2 = this.f9307h) != null) {
+        if (!this.G && (colorStateList2 = this.f9364h) != null) {
             this.t = colorStateList2.getColorForState(getDrawableState(), this.t);
         } else {
-            setDrawableState(this.f9304e);
+            setDrawableState(this.f9361e);
         }
         int[] iArr = isChecked() ? k0 : j0;
         ColorStateList textColors = getTextColors();
@@ -393,21 +393,21 @@ public class SwitchButton extends CompoundButton {
             this.w = textColors.getColorForState(j0, defaultColor);
             this.x = textColors.getColorForState(k0, defaultColor);
         }
-        if (!this.H && (colorStateList = this.f9306g) != null) {
+        if (!this.H && (colorStateList = this.f9363g) != null) {
             int colorForState = colorStateList.getColorForState(getDrawableState(), this.u);
             this.u = colorForState;
-            this.v = this.f9306g.getColorForState(iArr, colorForState);
+            this.v = this.f9363g.getColorForState(iArr, colorForState);
             return;
         }
-        Drawable drawable = this.f9305f;
+        Drawable drawable = this.f9362f;
         if ((drawable instanceof StateListDrawable) && this.n) {
             drawable.setState(iArr);
-            this.z = this.f9305f.getCurrent().mutate();
+            this.z = this.f9362f.getCurrent().mutate();
         } else {
             this.z = null;
         }
-        setDrawableState(this.f9305f);
-        Drawable drawable2 = this.f9305f;
+        setDrawableState(this.f9362f);
+        Drawable drawable2 = this.f9362f;
         if (drawable2 != null) {
             this.y = drawable2.getCurrent().mutate();
         }
@@ -441,7 +441,7 @@ public class SwitchButton extends CompoundButton {
         int size = View.MeasureSpec.getSize(i2);
         int mode = View.MeasureSpec.getMode(i2);
         if (this.q == 0 && this.G) {
-            this.q = this.f9304e.getIntrinsicHeight();
+            this.q = this.f9361e.getIntrinsicHeight();
         }
         if (mode == 1073741824) {
             if (this.q != 0) {
@@ -495,11 +495,11 @@ public class SwitchButton extends CompoundButton {
     }
 
     public ColorStateList getBackColor() {
-        return this.f9306g;
+        return this.f9363g;
     }
 
     public Drawable getBackDrawable() {
-        return this.f9305f;
+        return this.f9362f;
     }
 
     public float getBackRadius() {
@@ -519,11 +519,11 @@ public class SwitchButton extends CompoundButton {
     }
 
     public ColorStateList getThumbColor() {
-        return this.f9307h;
+        return this.f9364h;
     }
 
     public Drawable getThumbDrawable() {
-        return this.f9304e;
+        return this.f9361e;
     }
 
     public float getThumbHeight() {
@@ -535,7 +535,7 @@ public class SwitchButton extends CompoundButton {
     }
 
     public float getThumbRadius() {
-        return this.f9308i;
+        return this.f9365i;
     }
 
     public float getThumbRangeRatio() {
@@ -555,7 +555,7 @@ public class SwitchButton extends CompoundButton {
         int size = View.MeasureSpec.getSize(i2);
         int mode = View.MeasureSpec.getMode(i2);
         if (this.p == 0 && this.G) {
-            this.p = this.f9304e.getIntrinsicWidth();
+            this.p = this.f9361e.getIntrinsicWidth();
         }
         int f2 = f(this.a0);
         if (this.l == 0.0f) {
@@ -659,8 +659,8 @@ public class SwitchButton extends CompoundButton {
         if (i3 == 0 || (i2 = this.q) == 0 || this.r == 0 || this.s == 0) {
             return;
         }
-        if (this.f9308i == -1.0f) {
-            this.f9308i = Math.min(i3, i2) / 2;
+        if (this.f9365i == -1.0f) {
+            this.f9365i = Math.min(i3, i2) / 2;
         }
         if (this.j == -1.0f) {
             this.j = Math.min(this.r, this.s) / 2;
@@ -691,7 +691,7 @@ public class SwitchButton extends CompoundButton {
         RectF rectF5 = this.A;
         rectF4.set(rectF5.left, 0.0f, (this.B.right - this.k.right) - rectF5.width(), 0.0f);
         this.j = Math.min(Math.min(this.B.width(), this.B.height()) / 2.0f, this.j);
-        Drawable drawable = this.f9305f;
+        Drawable drawable = this.f9362f;
         if (drawable != null) {
             RectF rectF6 = this.B;
             drawable.setBounds((int) rectF6.left, (int) rectF6.top, f(rectF6.right), f(this.B.bottom));
@@ -731,8 +731,8 @@ public class SwitchButton extends CompoundButton {
                     drawable2.setAlpha(255 - progress2);
                     drawable2.draw(canvas);
                 } else {
-                    this.f9305f.setAlpha(255);
-                    this.f9305f.draw(canvas);
+                    this.f9362f.setAlpha(255);
+                    this.f9362f.draw(canvas);
                 }
             } else if (this.n) {
                 int i2 = isChecked() ? this.u : this.v;
@@ -772,14 +772,14 @@ public class SwitchButton extends CompoundButton {
             this.L.set(this.A);
             this.L.offset(this.K * this.C.width(), 0.0f);
             if (this.G) {
-                Drawable drawable3 = this.f9304e;
+                Drawable drawable3 = this.f9361e;
                 RectF rectF5 = this.L;
                 drawable3.setBounds((int) rectF5.left, (int) rectF5.top, f(rectF5.right), f(this.L.bottom));
-                this.f9304e.draw(canvas);
+                this.f9361e.draw(canvas);
             } else {
                 this.F.setColor(this.t);
                 RectF rectF6 = this.L;
-                float f5 = this.f9308i;
+                float f5 = this.f9365i;
                 canvas.drawRoundRect(rectF6, f5, f5, this.F);
             }
             if (this.I) {
@@ -830,7 +830,7 @@ public class SwitchButton extends CompoundButton {
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
         a aVar = (a) parcelable;
-        d(aVar.f9309e, aVar.f9310f);
+        d(aVar.f9366e, aVar.f9367f);
         this.f0 = true;
         super.onRestoreInstanceState(aVar.getSuperState());
         this.f0 = false;
@@ -839,8 +839,8 @@ public class SwitchButton extends CompoundButton {
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     public Parcelable onSaveInstanceState() {
         a aVar = new a(super.onSaveInstanceState());
-        aVar.f9309e = this.S;
-        aVar.f9310f = this.T;
+        aVar.f9366e = this.S;
+        aVar.f9367f = this.T;
         return aVar;
     }
 
@@ -917,7 +917,7 @@ public class SwitchButton extends CompoundButton {
     }
 
     public void setBackColor(ColorStateList colorStateList) {
-        this.f9306g = colorStateList;
+        this.f9363g = colorStateList;
         if (colorStateList != null) {
             setBackDrawable(null);
         }
@@ -929,7 +929,7 @@ public class SwitchButton extends CompoundButton {
     }
 
     public void setBackDrawable(Drawable drawable) {
-        this.f9305f = drawable;
+        this.f9362f = drawable;
         this.H = drawable != null;
         refreshDrawableState();
         this.g0 = false;
@@ -1028,7 +1028,7 @@ public class SwitchButton extends CompoundButton {
     }
 
     public void setThumbColor(ColorStateList colorStateList) {
-        this.f9307h = colorStateList;
+        this.f9364h = colorStateList;
         if (colorStateList != null) {
             setThumbDrawable(null);
         }
@@ -1040,7 +1040,7 @@ public class SwitchButton extends CompoundButton {
     }
 
     public void setThumbDrawable(Drawable drawable) {
-        this.f9304e = drawable;
+        this.f9361e = drawable;
         this.G = drawable != null;
         refreshDrawableState();
         this.g0 = false;
@@ -1061,7 +1061,7 @@ public class SwitchButton extends CompoundButton {
     }
 
     public void setThumbRadius(float f2) {
-        this.f9308i = f2;
+        this.f9365i = f2;
         if (this.G) {
             return;
         }
@@ -1076,8 +1076,8 @@ public class SwitchButton extends CompoundButton {
 
     public void setTintColor(int i2) {
         this.o = i2;
-        this.f9307h = d.a.c0.p.b.b(i2);
-        this.f9306g = d.a.c0.p.b.a(this.o);
+        this.f9364h = d.a.c0.p.b.b(i2);
+        this.f9363g = d.a.c0.p.b.a(this.o);
         this.H = false;
         this.G = false;
         refreshDrawableState();

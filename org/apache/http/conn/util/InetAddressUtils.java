@@ -1,6 +1,6 @@
 package org.apache.http.conn.util;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class InetAddressUtils {
     public InetAddressUtils() {
         throw new RuntimeException("Stub!");

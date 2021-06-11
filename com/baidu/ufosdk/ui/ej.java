@@ -26,13 +26,13 @@ import org.json.JSONObject;
 public final class ej extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference f22792a;
+    public final WeakReference f22895a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22793b;
+    public String f22896b;
 
     public ej(FeedbackInputActivity feedbackInputActivity) {
-        this.f22792a = new WeakReference(feedbackInputActivity);
+        this.f22895a = new WeakReference(feedbackInputActivity);
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:18|(5:20|(1:22)(1:128)|23|24|(1:26)(2:114|(1:116)(2:117|(4:119|(1:121)|122|(1:124))(2:125|(1:127)))))(1:129)|27|(1:29)(1:113)|30|(2:32|33)(1:112)|34|(2:39|(6:109|110|48|49|(2:55|56)|57)(7:43|(2:45|46)(10:65|66|67|(2:69|70)(1:105)|71|72|73|(1:75)(1:101)|76|(11:85|86|87|88|(2:90|91)|(1:97)(1:95)|96|48|49|(1:60)(4:51|53|55|56)|57)(2:80|(1:84)))|47|48|49|(0)(0)|57))|111|110|48|49|(0)(0)|57|16) */
@@ -71,7 +71,7 @@ public final class ej extends Handler {
         String str18 = "discontent_reason";
         String str19 = "evaluation";
         feedbackInputActivity.u = false;
-        feedbackInputActivity.f22596h.clear();
+        feedbackInputActivity.f22699h.clear();
         HashMap hashMap = new HashMap();
         String str20 = "from";
         hashMap.put("from", 1);
@@ -88,12 +88,12 @@ public final class ej extends Handler {
             str = "extra";
             str2 = "contenttype";
             String valueOf = String.valueOf(System.currentTimeMillis());
-            this.f22793b = valueOf;
+            this.f22896b = valueOf;
             hashMap.put("time", valueOf);
         } else {
             str = "extra";
             str2 = "contenttype";
-            String string = feedbackInputActivity.r.getString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f22593e, "0");
+            String string = feedbackInputActivity.r.getString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f22696e, "0");
             if (string.equals("0")) {
                 try {
                     string = (String) new JSONArray(str25).getJSONObject(0).get("time");
@@ -104,7 +104,7 @@ public final class ej extends Handler {
             hashMap.put("time", string);
         }
         if (!feedbackInputActivity.o) {
-            feedbackInputActivity.f22596h.add(hashMap);
+            feedbackInputActivity.f22699h.add(hashMap);
         }
         cg cgVar = feedbackInputActivity.j;
         if (cgVar != null) {
@@ -209,7 +209,7 @@ public final class ej extends Handler {
                                 if (str14 == null) {
                                 }
                                 hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
-                                feedbackInputActivity.f22596h.add(hashMap2);
+                                feedbackInputActivity.f22699h.add(hashMap2);
                                 i2++;
                                 str = str5;
                                 str21 = str13;
@@ -236,7 +236,7 @@ public final class ej extends Handler {
                                     hashMap2.put(str27, "1");
                                 }
                                 hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
-                                feedbackInputActivity.f22596h.add(hashMap2);
+                                feedbackInputActivity.f22699h.add(hashMap2);
                                 i2++;
                                 str = str5;
                                 str21 = str13;
@@ -265,7 +265,7 @@ public final class ej extends Handler {
                         if (str14 == null) {
                         }
                         hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
-                        feedbackInputActivity.f22596h.add(hashMap2);
+                        feedbackInputActivity.f22699h.add(hashMap2);
                         i2++;
                         str = str5;
                         str21 = str13;
@@ -293,7 +293,7 @@ public final class ej extends Handler {
                             hashMap2.put(str27, "1");
                         }
                         hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
-                        feedbackInputActivity.f22596h.add(hashMap2);
+                        feedbackInputActivity.f22699h.add(hashMap2);
                         i2++;
                         str = str5;
                         str21 = str13;
@@ -322,7 +322,7 @@ public final class ej extends Handler {
                 if (str14 == null) {
                 }
                 hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
-                feedbackInputActivity.f22596h.add(hashMap2);
+                feedbackInputActivity.f22699h.add(hashMap2);
                 i2++;
                 str = str5;
                 str21 = str13;
@@ -338,11 +338,11 @@ public final class ej extends Handler {
                 str19 = str3;
             }
             feedbackInputActivity.j.notifyDataSetChanged();
-            feedbackInputActivity.f22592d.setVisibility(0);
-            feedbackInputActivity.f22591c.setVisibility(0);
-            feedbackInputActivity.f22590b.setVisibility(8);
+            feedbackInputActivity.f22695d.setVisibility(0);
+            feedbackInputActivity.f22694c.setVisibility(0);
+            feedbackInputActivity.f22693b.setVisibility(8);
             feedbackInputActivity.k.setVisibility(8);
-            feedbackInputActivity.f22597i.setSelection(feedbackInputActivity.f22597i.getBottom());
+            feedbackInputActivity.f22700i.setSelection(feedbackInputActivity.f22700i.getBottom());
             feedbackInputActivity.n = true;
             new Handler().postDelayed(new ek(this, feedbackInputActivity), 1500L);
         } catch (JSONException e6) {
@@ -362,13 +362,13 @@ public final class ej extends Handler {
             feedbackInputActivity.y = false;
         }
         if (feedbackInputActivity.H) {
-            feedbackInputActivity.f22594f = feedbackInputActivity.f22593e;
+            feedbackInputActivity.f22697f = feedbackInputActivity.f22696e;
         }
         feedbackInputActivity.u = false;
-        feedbackInputActivity.f22592d.setVisibility(0);
+        feedbackInputActivity.f22695d.setVisibility(0);
         ArrayList arrayList = (ArrayList) message.obj;
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            if (((String) ((Map) arrayList.get(i2)).get("id")).equals(feedbackInputActivity.f22593e)) {
+            if (((String) ((Map) arrayList.get(i2)).get("id")).equals(feedbackInputActivity.f22696e)) {
                 HashMap hashMap = new HashMap();
                 if (((Integer) ((Map) arrayList.get(i2)).get("flagRobot")).intValue() == 0) {
                     if (((Map) arrayList.get(i2)).containsKey("chatId")) {
@@ -410,9 +410,9 @@ public final class ej extends Handler {
                         if (((String) ((Map) arrayList.get(i2)).get("toggle")).equals("yes")) {
                         }
                         hashMap.put(obj, 0);
-                        feedbackInputActivity.f22596h.add(hashMap);
+                        feedbackInputActivity.f22699h.add(hashMap);
                         feedbackInputActivity.j.notifyDataSetChanged();
-                        ListView listView = feedbackInputActivity.f22597i;
+                        ListView listView = feedbackInputActivity.f22700i;
                         listView.setSelection(listView.getBottom());
                     }
                     if (((String) ((Map) arrayList.get(i2)).get("toggle")).equals("yes") || feedbackInputActivity.z) {
@@ -422,9 +422,9 @@ public final class ej extends Handler {
                         feedbackInputActivity.B = false;
                     }
                 }
-                feedbackInputActivity.f22596h.add(hashMap);
+                feedbackInputActivity.f22699h.add(hashMap);
                 feedbackInputActivity.j.notifyDataSetChanged();
-                ListView listView2 = feedbackInputActivity.f22597i;
+                ListView listView2 = feedbackInputActivity.f22700i;
                 listView2.setSelection(listView2.getBottom());
             }
         }
@@ -447,7 +447,7 @@ public final class ej extends Handler {
         String str5;
         String str6;
         super.handleMessage(message);
-        FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f22792a.get();
+        FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f22895a.get();
         if (feedbackInputActivity == null) {
             return;
         }
@@ -458,9 +458,9 @@ public final class ej extends Handler {
                 hashMap.put("content", message.obj);
                 hashMap.put("contenttype", "0");
                 hashMap.put("time", String.valueOf(System.currentTimeMillis()));
-                feedbackInputActivity.f22596h.add(hashMap);
+                feedbackInputActivity.f22699h.add(hashMap);
                 feedbackInputActivity.j.notifyDataSetChanged();
-                ListView listView = feedbackInputActivity.f22597i;
+                ListView listView = feedbackInputActivity.f22700i;
                 listView.setSelection(listView.getBottom());
                 feedbackInputActivity.s.setVisibility(8);
                 feedbackInputActivity.E.setEnabled(true);
@@ -481,9 +481,9 @@ public final class ej extends Handler {
                             hashMap2.put("content", decodeByteArray);
                             hashMap2.put("contenttype", "2");
                             hashMap2.put("time", String.valueOf(System.currentTimeMillis()));
-                            feedbackInputActivity.f22596h.add(hashMap2);
+                            feedbackInputActivity.f22699h.add(hashMap2);
                             feedbackInputActivity.j.notifyDataSetChanged();
-                            ListView listView2 = feedbackInputActivity.f22597i;
+                            ListView listView2 = feedbackInputActivity.f22700i;
                             listView2.setSelection(listView2.getBottom());
                             return;
                         }
@@ -495,10 +495,10 @@ public final class ej extends Handler {
                 }
                 return;
             case 4:
-                feedbackInputActivity.f22592d.setVisibility(8);
-                feedbackInputActivity.f22591c.setVisibility(8);
+                feedbackInputActivity.f22695d.setVisibility(8);
+                feedbackInputActivity.f22694c.setVisibility(8);
                 com.baidu.ufosdk.f.i.a(feedbackInputActivity.getApplicationContext(), feedbackInputActivity.m);
-                feedbackInputActivity.f22590b.setVisibility(0);
+                feedbackInputActivity.f22693b.setVisibility(0);
                 feedbackInputActivity.k.setVisibility(8);
                 return;
             case 5:
@@ -506,7 +506,7 @@ public final class ej extends Handler {
                 return;
             case 6:
                 if (feedbackInputActivity.n) {
-                    ListView listView3 = feedbackInputActivity.f22597i;
+                    ListView listView3 = feedbackInputActivity.f22700i;
                     listView3.setSelection(listView3.getBottom());
                     return;
                 }
@@ -519,7 +519,7 @@ public final class ej extends Handler {
                         if (new JSONObject(b2).optInt("errno", -1) == 0) {
                             feedbackInputActivity.u = false;
                             feedbackInputActivity.j.notifyDataSetChanged();
-                            feedbackInputActivity.f22597i.setSelection(feedbackInputActivity.f22597i.getBottom());
+                            feedbackInputActivity.f22700i.setSelection(feedbackInputActivity.f22700i.getBottom());
                             return;
                         }
                     }
@@ -528,7 +528,7 @@ public final class ej extends Handler {
                 }
                 feedbackInputActivity.u = false;
                 feedbackInputActivity.j.notifyDataSetChanged();
-                ListView listView4 = feedbackInputActivity.f22597i;
+                ListView listView4 = feedbackInputActivity.f22700i;
                 listView4.setSelection(listView4.getBottom());
                 if (TextUtils.isEmpty(feedbackInputActivity.L)) {
                     Toast.makeText(feedbackInputActivity.getApplicationContext(), com.baidu.ufosdk.f.s.a("44"), 0).show();
@@ -565,11 +565,11 @@ public final class ej extends Handler {
                     hashMap3.put("contenttype", "0");
                     hashMap3.put("time", String.valueOf(System.currentTimeMillis()));
                     hashMap3.put("ask", 0);
-                    feedbackInputActivity.f22596h.add(hashMap3);
+                    feedbackInputActivity.f22699h.add(hashMap3);
                 }
                 feedbackInputActivity.u = true;
                 feedbackInputActivity.j.notifyDataSetChanged();
-                ListView listView5 = feedbackInputActivity.f22597i;
+                ListView listView5 = feedbackInputActivity.f22700i;
                 listView5.setSelection(listView5.getBottom());
                 return;
             case 9:
@@ -580,9 +580,9 @@ public final class ej extends Handler {
                     hashMap4.put("contenttype", "-1");
                     hashMap4.put("subtype", 1);
                     hashMap4.put("content", (JSONArray) message.obj);
-                    feedbackInputActivity.f22596h.add(hashMap4);
+                    feedbackInputActivity.f22699h.add(hashMap4);
                     feedbackInputActivity.j.notifyDataSetChanged();
-                    feedbackInputActivity.f22597i.setSelection(feedbackInputActivity.f22597i.getBottom());
+                    feedbackInputActivity.f22700i.setSelection(feedbackInputActivity.f22700i.getBottom());
                     return;
                 } catch (Exception e3) {
                     e3.printStackTrace();
@@ -593,19 +593,19 @@ public final class ej extends Handler {
                 Intent intent = new Intent();
                 intent.setClass(feedbackInputActivity, FeedbackEditActivity.class);
                 intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-                intent.putExtra("msgid", feedbackInputActivity.f22593e);
+                intent.putExtra("msgid", feedbackInputActivity.f22696e);
                 intent.putExtra("im_content", feedbackInputActivity.A);
                 intent.putExtra("come_from", 0);
                 feedbackInputActivity.startActivity(intent);
                 return;
             case 11:
-                feedbackInputActivity.K.f22821a.setVisibility(8);
-                feedbackInputActivity.K.f22823c.setBackgroundResource(R.drawable.dialog_btn_selector);
-                feedbackInputActivity.K.f22823c.setTextColor(-1);
-                feedbackInputActivity.K.f22823c.setClickable(true);
-                feedbackInputActivity.K.f22822b.setFocusable(true);
-                feedbackInputActivity.K.f22822b.setFocusableInTouchMode(true);
-                feedbackInputActivity.K.f22822b.requestFocus();
+                feedbackInputActivity.K.f22924a.setVisibility(8);
+                feedbackInputActivity.K.f22926c.setBackgroundResource(R.drawable.dialog_btn_selector);
+                feedbackInputActivity.K.f22926c.setTextColor(-1);
+                feedbackInputActivity.K.f22926c.setClickable(true);
+                feedbackInputActivity.K.f22925b.setFocusable(true);
+                feedbackInputActivity.K.f22925b.setFocusableInTouchMode(true);
+                feedbackInputActivity.K.f22925b.requestFocus();
                 if (((Integer) message.obj).intValue() == 0) {
                     ev evVar = feedbackInputActivity.K;
                     if (evVar != null && evVar.isShowing()) {
@@ -644,13 +644,13 @@ public final class ej extends Handler {
                 StringBuilder sb = new StringBuilder();
                 sb.append(message.arg1);
                 String sb2 = sb.toString();
-                feedbackInputActivity.f22594f = sb2;
-                feedbackInputActivity.f22593e = sb2;
+                feedbackInputActivity.f22697f = sb2;
+                feedbackInputActivity.f22696e = sb2;
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append(message.arg2);
                 String sb4 = sb3.toString();
-                com.baidu.ufosdk.f.c.a("Handler = 12 PluginInvoker.robotAnswer = " + UfoSDK.robotAnswer + "; tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f22594f);
-                if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str4 = feedbackInputActivity.f22594f) == null || str4.length() <= 0) {
+                com.baidu.ufosdk.f.c.a("Handler = 12 PluginInvoker.robotAnswer = " + UfoSDK.robotAnswer + "; tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f22697f);
+                if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str4 = feedbackInputActivity.f22697f) == null || str4.length() <= 0) {
                     return;
                 }
                 feedbackInputActivity.l.execute(new em(this, feedbackInputActivity, sb4));
@@ -675,8 +675,8 @@ public final class ej extends Handler {
                     return;
                 }
                 feedbackInputActivity.G = false;
-                if (!TextUtils.isEmpty(feedbackInputActivity.f22593e) && TextUtils.isEmpty(feedbackInputActivity.F)) {
-                    feedbackInputActivity.q.putString(feedbackInputActivity.f22593e, "");
+                if (!TextUtils.isEmpty(feedbackInputActivity.f22696e) && TextUtils.isEmpty(feedbackInputActivity.F)) {
+                    feedbackInputActivity.q.putString(feedbackInputActivity.f22696e, "");
                 }
                 if (!TextUtils.isEmpty(feedbackInputActivity.F)) {
                     feedbackInputActivity.q.putString(feedbackInputActivity.F, "");
@@ -688,20 +688,20 @@ public final class ej extends Handler {
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append(message.arg1);
                 String sb6 = sb5.toString();
-                feedbackInputActivity.f22594f = sb6;
-                feedbackInputActivity.f22593e = sb6;
+                feedbackInputActivity.f22697f = sb6;
+                feedbackInputActivity.f22696e = sb6;
                 StringBuilder sb7 = new StringBuilder();
                 sb7.append(message.arg2);
                 String sb8 = sb7.toString();
-                com.baidu.ufosdk.a.a aVar = feedbackInputActivity.f22595g;
-                if (aVar != null && (str6 = feedbackInputActivity.f22593e) != null) {
+                com.baidu.ufosdk.a.a aVar = feedbackInputActivity.f22698g;
+                if (aVar != null && (str6 = feedbackInputActivity.f22696e) != null) {
                     aVar.a(str6);
                 }
                 SharedPreferences.Editor editor = feedbackInputActivity.q;
-                editor.putString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f22594f, this.f22793b);
+                editor.putString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f22697f, this.f22896b);
                 feedbackInputActivity.q.commit();
-                com.baidu.ufosdk.f.c.a("Handler = 14 tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f22594f);
-                if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str5 = feedbackInputActivity.f22594f) == null || str5.length() <= 0) {
+                com.baidu.ufosdk.f.c.a("Handler = 14 tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f22697f);
+                if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str5 = feedbackInputActivity.f22697f) == null || str5.length() <= 0) {
                     feedbackInputActivity.l.execute(new eo(this, feedbackInputActivity, sb8));
                     return;
                 } else {
@@ -729,15 +729,15 @@ public final class ej extends Handler {
                     hashMap5.put("contenttype", "0");
                     hashMap5.put("time", String.valueOf(System.currentTimeMillis()));
                     hashMap5.put("ask", 0);
-                    feedbackInputActivity.f22596h.add(hashMap5);
+                    feedbackInputActivity.f22699h.add(hashMap5);
                 }
                 feedbackInputActivity.u = true;
                 feedbackInputActivity.j.notifyDataSetChanged();
-                ListView listView6 = feedbackInputActivity.f22597i;
+                ListView listView6 = feedbackInputActivity.f22700i;
                 listView6.setSelection(listView6.getBottom());
                 return;
             case 18:
-                ((InputMethodManager) feedbackInputActivity.getSystemService("input_method")).showSoftInput(feedbackInputActivity.K.f22822b, 1);
+                ((InputMethodManager) feedbackInputActivity.getSystemService("input_method")).showSoftInput(feedbackInputActivity.K.f22925b, 1);
                 com.baidu.ufosdk.f.c.a("show keyboard! " + message.obj.toString());
                 return;
             default:

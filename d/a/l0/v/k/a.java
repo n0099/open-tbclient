@@ -18,66 +18,66 @@ import java.util.Map;
 public class a implements d.a.l0.a.y0.f.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f48575e = k.f43199a;
+    public static final boolean f52249e = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48576a;
+    public String f52250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.InterfaceC0911a f48577b;
+    public a.InterfaceC0967a f52251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberExtractor f48578c;
+    public CyberExtractor f52252c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f48579d = false;
+    public volatile boolean f52253d = false;
 
     /* renamed from: d.a.l0.v.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1093a implements Runnable {
+    public class RunnableC1149a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48580e;
+        public final /* synthetic */ String f52254e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Map f48581f;
+        public final /* synthetic */ Map f52255f;
 
-        public RunnableC1093a(String str, Map map) {
-            this.f48580e = str;
-            this.f48581f = map;
+        public RunnableC1149a(String str, Map map) {
+            this.f52254e = str;
+            this.f52255f = map;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f48579d) {
-                if (a.f48575e) {
+            if (a.this.f52253d) {
+                if (a.f52249e) {
                     Log.d("MediaExtractorWidget", "media extractor already released");
                     return;
                 }
                 return;
             }
-            a.this.f48578c.setDataSource(a.this.getContext(), Uri.parse(d.a.l0.a.y0.j.a.a(this.f48580e)), this.f48581f);
-            Bundle metaData = a.this.f48578c.getMetaData();
-            if (a.this.f48577b != null) {
-                a.this.f48577b.a(metaData);
+            a.this.f52252c.setDataSource(a.this.getContext(), Uri.parse(d.a.l0.a.y0.j.a.a(this.f52254e)), this.f52255f);
+            Bundle metaData = a.this.f52252c.getMetaData();
+            if (a.this.f52251b != null) {
+                a.this.f52251b.a(metaData);
             }
         }
     }
 
     public a(ZeusPluginFactory.Invoker invoker, String str) {
-        this.f48576a = str;
+        this.f52250a = str;
     }
 
     @Override // d.a.l0.a.y0.d
-    public void B(@NonNull d.a aVar) {
-        this.f48578c = new CyberExtractor(true);
+    public void A(@NonNull d.a aVar) {
+        this.f52252c = new CyberExtractor(true);
         aVar.a(true);
     }
 
     @Override // d.a.l0.a.y0.d
     @Nullable
     public String b() {
-        return this.f48576a;
+        return this.f52250a;
     }
 
     public Context getContext() {
@@ -85,36 +85,36 @@ public class a implements d.a.l0.a.y0.f.a {
     }
 
     @Override // d.a.l0.a.y0.f.a
-    public void k(String str, Map<String, String> map) {
+    public void j(String str, Map<String, String> map) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        q.i(new RunnableC1093a(str, map), "loadMetadata");
+        q.i(new RunnableC1149a(str, map), "loadMetadata");
     }
 
     @Override // d.a.l0.a.y0.d
     @Nullable
-    public String n0() {
+    public String k0() {
         return null;
     }
 
     @Override // d.a.l0.a.y0.f.a
     public void release() {
-        this.f48579d = true;
-        CyberExtractor cyberExtractor = this.f48578c;
+        this.f52253d = true;
+        CyberExtractor cyberExtractor = this.f52252c;
         if (cyberExtractor != null) {
             cyberExtractor.release();
         }
-        this.f48578c = null;
-        a.InterfaceC0911a interfaceC0911a = this.f48577b;
-        if (interfaceC0911a != null) {
-            interfaceC0911a.onRelease();
+        this.f52252c = null;
+        a.InterfaceC0967a interfaceC0967a = this.f52251b;
+        if (interfaceC0967a != null) {
+            interfaceC0967a.onRelease();
         }
-        this.f48577b = null;
+        this.f52251b = null;
     }
 
     @Override // d.a.l0.a.y0.f.a
-    public void x(a.InterfaceC0911a interfaceC0911a) {
-        this.f48577b = interfaceC0911a;
+    public void w(a.InterfaceC0967a interfaceC0967a) {
+        this.f52251b = interfaceC0967a;
     }
 }

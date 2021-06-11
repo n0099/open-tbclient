@@ -1590,7 +1590,7 @@ public class UtilHelper {
         if (str == null || !str.toLowerCase().contains("arm")) {
             try {
                 bArr = new byte[1024];
-                randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7672a);
+                randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7715a);
                 try {
                     try {
                     } catch (Exception e3) {
@@ -2045,7 +2045,7 @@ public class UtilHelper {
         }).create(j.a(activity)).show();
     }
 
-    public static void setBitmapByTag(View view, String str, d.a.c.j.d.a aVar) {
+    public static void setBitmapByTag(View view, String str, d.a.c.k.d.a aVar) {
         if (view == null || str == null) {
             return;
         }

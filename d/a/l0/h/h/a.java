@@ -16,8 +16,8 @@ public class a extends a0 {
 
     /* renamed from: d.a.l0.h.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1025a implements e.c {
-        public C1025a() {
+    public class C1081a implements e.c {
+        public C1081a() {
         }
 
         @Override // d.a.l0.a.a1.e.c
@@ -47,7 +47,7 @@ public class a extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 == null) {
                 l(g.aiapps_debug_game_core_params_empty);
@@ -60,8 +60,8 @@ public class a extends a0 {
             }
             b.a();
             e.d dVar = new e.d();
-            dVar.f40690a = k(context, optString);
-            new d.a.l0.a.k0.a().e(dVar, b.c().getPath(), new C1025a());
+            dVar.f44366a = k(context, optString);
+            new d.a.l0.a.k0.a().e(dVar, b.c().getPath(), new C1081a());
             return false;
         }
         return false;

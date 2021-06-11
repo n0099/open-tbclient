@@ -3,54 +3,54 @@ package d.a.m0.o0;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49595a;
+    public int f53270a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49596b;
+    public int f53271b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49597c;
+    public String f53272c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f49598d;
+    public String f53273d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f49599e;
+    public String f53274e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f49600f = -1;
+    public long f53275f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f49601g = -1;
+    public long f53276g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f49602h = -1;
+    public long f53277h = -1;
 
     public String a() {
-        return this.f49599e;
+        return this.f53274e;
     }
 
     public void b(String str) {
-        this.f49598d = str;
+        this.f53273d = str;
     }
 
     public void c(int i2) {
-        this.f49595a = i2;
+        this.f53270a = i2;
     }
 
     public void d(String str) {
-        this.f49597c = str;
+        this.f53272c = str;
     }
 
     public void e(int i2) {
-        this.f49596b = i2;
+        this.f53271b = i2;
     }
 
     public void f(String str) {
-        this.f49599e = str;
+        this.f53274e = str;
     }
 
     public String g() {
-        return "-netErrorCode-" + this.f49595a + "-serverCode-" + this.f49596b + "-dnsStatus-" + this.f49598d + "-exception-" + this.f49597c + "-url-" + this.f49599e + "-dataLenth-" + this.f49600f + "-fileLength-" + this.f49601g + "-contentLen-" + this.f49602h;
+        return "-netErrorCode-" + this.f53270a + "-serverCode-" + this.f53271b + "-dnsStatus-" + this.f53273d + "-exception-" + this.f53272c + "-url-" + this.f53274e + "-dataLenth-" + this.f53275f + "-fileLength-" + this.f53276g + "-contentLen-" + this.f53277h;
     }
 }

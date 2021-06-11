@@ -12,7 +12,6 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import d.a.l0.a.k;
 import d.a.l0.a.k2.g.h;
 import d.a.l0.a.n0.l.b;
@@ -25,48 +24,48 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43602a = k.f43199a;
+    public static final boolean f47278a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f43603b;
+    public static final int f47279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f43604c;
+    public static final int f47280c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f43605e;
+        public final /* synthetic */ Set f47281e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f43606f;
+        public final /* synthetic */ boolean f47282f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.n.j.i.a f43607g;
+        public final /* synthetic */ d.a.l0.n.j.i.a f47283g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f43608h;
+        public final /* synthetic */ long f47284h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b.C0763b f43609i;
+        public final /* synthetic */ b.C0819b f47285i;
 
-        public a(Set set, boolean z, d.a.l0.n.j.i.a aVar, long j, b.C0763b c0763b) {
-            this.f43605e = set;
-            this.f43606f = z;
-            this.f43607g = aVar;
-            this.f43608h = j;
-            this.f43609i = c0763b;
+        public a(Set set, boolean z, d.a.l0.n.j.i.a aVar, long j, b.C0819b c0819b) {
+            this.f47281e = set;
+            this.f47282f = z;
+            this.f47283g = aVar;
+            this.f47284h = j;
+            this.f47285i = c0819b;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             HashSet hashSet = new HashSet();
-            Set set = this.f43605e;
+            Set set = this.f47281e;
             if (set != null) {
                 hashSet.addAll(set);
             }
@@ -78,7 +77,7 @@ public class e {
             d.a.l0.a.e0.d.h("SwanAppDiskCleaner", "排除正在下载中的小程：" + b2);
             Map<String, PMSAppInfo> t = d.a.l0.n.g.a.h().t();
             if (d.a.l0.a.n0.f.c().d().n(t)) {
-                if (e.f43602a) {
+                if (e.f47278a) {
                     Log.d("SwanAppDiskCleaner", "删除所有小程序包下的历史版本包");
                 }
                 d.a.l0.a.a1.e.d(hashSet, t);
@@ -92,16 +91,16 @@ public class e {
                 ArrayList arrayList3 = new ArrayList();
                 e.l(arrayList, arrayList2, arrayList3);
                 ArrayList arrayList4 = new ArrayList();
-                int max = Math.max(10, this.f43606f ? e.f43603b : this.f43607g.f48132d);
+                int max = Math.max(10, this.f47282f ? e.f47279b : this.f47283g.f51806d);
                 e.r(arrayList3, max, arrayList4);
-                long j = this.f43607g.f48133e;
-                e.q(arrayList3, j * VideoCloudSetting.HOUR_MILLISECOND, arrayList4, m);
-                int max2 = Math.max(40, this.f43606f ? e.f43604c : this.f43607g.f48130b);
+                long j = this.f47283g.f51807e;
+                e.q(arrayList3, j * 3600000, arrayList4, m);
+                int max2 = Math.max(40, this.f47282f ? e.f47280c : this.f47283g.f51804b);
                 e.r(arrayList2, max2, arrayList4);
-                long j2 = this.f43607g.f48131c;
-                e.q(arrayList2, VideoCloudSetting.HOUR_MILLISECOND * j2, arrayList4, m);
-                d.a.l0.a.e0.d.h("SwanAppDiskCleaner", "clean_internal_hour=" + this.f43608h + " pre_hold_count=" + max + " pre_force_clean_hour=" + j + " used_hold_count=" + max2 + " used_force_clean_hour=" + j2 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + "\n");
-                d.a.l0.a.n0.f.c().d().g(arrayList4, false, false, this.f43609i);
+                long j2 = this.f47283g.f51805c;
+                e.q(arrayList2, 3600000 * j2, arrayList4, m);
+                d.a.l0.a.e0.d.h("SwanAppDiskCleaner", "clean_internal_hour=" + this.f47284h + " pre_hold_count=" + max + " pre_force_clean_hour=" + j + " used_hold_count=" + max2 + " used_force_clean_hour=" + j2 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + "\n");
+                d.a.l0.a.n0.f.c().d().g(arrayList4, false, false, this.f47285i);
                 d.a.l0.a.h0.m.r.a.c();
                 return;
             }
@@ -109,7 +108,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Comparator<PMSAppInfo> {
         public b() {
         }
@@ -128,9 +127,9 @@ public class e {
 
     static {
         d.a.l0.a.c1.a.Z().getSwitch("swan_disk_level_pkg_hold_used", 0);
-        f43603b = 0;
+        f47279b = 0;
         d.a.l0.a.c1.a.Z().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
-        f43604c = 0;
+        f47280c = 0;
     }
 
     public static void k(Set<String> set, List<String> list) {
@@ -205,14 +204,14 @@ public class e {
     }
 
     @AnyThread
-    public synchronized void i(@Nullable Set<String> set, boolean z, b.C0763b c0763b) {
-        j(set, z, c0763b);
+    public synchronized void i(@Nullable Set<String> set, boolean z, b.C0819b c0819b) {
+        j(set, z, c0819b);
     }
 
     @AnyThread
-    public synchronized void j(@Nullable Set<String> set, boolean z, b.C0763b c0763b) {
+    public synchronized void j(@Nullable Set<String> set, boolean z, b.C0819b c0819b) {
         if (!ProcessUtils.isMainProcess()) {
-            if (f43602a) {
+            if (f47278a) {
                 Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
             }
             return;
@@ -220,10 +219,10 @@ public class e {
         d.a.l0.a.e0.d.h("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
         d.a.l0.n.j.i.a a2 = d.a.l0.n.j.i.b.b().a();
         boolean z2 = z && c.a();
-        long j = a2.f48129a;
-        if (z2 || !o(VideoCloudSetting.HOUR_MILLISECOND * j)) {
+        long j = a2.f51803a;
+        if (z2 || !o(3600000 * j)) {
             h.a().putLong("clean_disk_check_time", System.currentTimeMillis());
-            ExecutorUtilsExt.postOnSerial(new a(set, z, a2, j, c0763b), "cleanDiskSpaceOptimized");
+            ExecutorUtilsExt.postOnSerial(new a(set, z, a2, j, c0819b), "cleanDiskSpaceOptimized");
         }
     }
 

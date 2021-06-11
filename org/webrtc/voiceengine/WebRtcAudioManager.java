@@ -4,15 +4,13 @@ import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Build;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioManager {
     public static final int BITS_PER_SAMPLE = 16;
     public static final boolean DEBUG = false;
@@ -42,7 +40,7 @@ public class WebRtcAudioManager {
     public int sampleRate;
     public final VolumeLogger volumeLogger;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class VolumeLogger {
         public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
         public static final int TIMER_PERIOD_IN_SECONDS = 30;
@@ -50,7 +48,7 @@ public class WebRtcAudioManager {
         @Nullable
         public Timer timer;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class LogVolumeTask extends TimerTask {
             public final int maxRingVolume;
             public final int maxVoiceCallVolume;
@@ -102,14 +100,14 @@ public class WebRtcAudioManager {
         public void start() {
             Timer timer = new Timer("WebRtcVolumeLevelLoggerThread");
             this.timer = timer;
-            timer.schedule(new LogVolumeTask(this.audioManager.getStreamMaxVolume(2), this.audioManager.getStreamMaxVolume(0)), 0L, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+            timer.schedule(new LogVolumeTask(this.audioManager.getStreamMaxVolume(2), this.audioManager.getStreamMaxVolume(0)), 0L, 30000L);
         }
     }
 
     public WebRtcAudioManager(long j) {
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
         this.nativeAudioManager = j;
-        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
         this.audioManager = audioManager;
         this.volumeLogger = new VolumeLogger(audioManager);
         storeAudioParameters();

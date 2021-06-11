@@ -20,44 +20,44 @@ import org.json.JSONObject;
 public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
 
     /* renamed from: b  reason: collision with root package name */
-    public IOfflineCache f24754b;
+    public IOfflineCache f24857b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24755c;
+    public String f24858c;
     public final String OFFLINE_FAIL_OVER_OCCUR = "OfflineFailOverOccur";
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f24753a = 5000;
+    public final int f24856a = 5000;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24756d = true;
+    public boolean f24859d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24757e = "";
+    public String f24860e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public long f24758f = 0;
+    public long f24861f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f24759g = 5000;
+    public int f24862g = 5000;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LangbridgeCacheManager f24760a = new LangbridgeCacheManager();
+        public static LangbridgeCacheManager f24863a = new LangbridgeCacheManager();
     }
 
     private void a(String str) {
         try {
-            this.f24759g = new JSONObject(str).optInt("refreshInterval", 5000);
+            this.f24862g = new JSONObject(str).optInt("refreshInterval", 5000);
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
     public static LangbridgeCacheManager getInstance() {
-        return a.f24760a;
+        return a.f24863a;
     }
 
     public void forceLangbridgeCacheOnly(Context context, Boolean bool) {
@@ -65,14 +65,14 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     }
 
     public String getLangbridgeUA(Context context) {
-        String str = this.f24755c;
+        String str = this.f24858c;
         if (TextUtils.isEmpty(str)) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 String userAgentString = new LightappBrowserWebView(context.getApplicationContext()).getSettings().getUserAgentString();
                 if (userAgentString != null && !userAgentString.contains("BaiduWallet")) {
                     userAgentString = userAgentString + " " + BussinessUtils.getUA(context.getApplicationContext());
                 }
-                this.f24755c = userAgentString;
+                this.f24858c = userAgentString;
                 return userAgentString;
             }
             return BussinessUtils.getUA(context.getApplicationContext());
@@ -87,7 +87,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public JSONObject getOfflineCacheInfo(String str) {
         if (a()) {
-            return this.f24754b.getOfflineCacheInfo(str);
+            return this.f24857b.getOfflineCacheInfo(str);
         }
         return null;
     }
@@ -95,7 +95,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public JSONObject getSummaryOfflineCacheInfo(String str) {
         JSONObject offlineCacheInfo;
         JSONObject jSONObject = new JSONObject();
-        if (this.f24754b != null && !TextUtils.isEmpty(str) && (offlineCacheInfo = this.f24754b.getOfflineCacheInfo(str)) != null) {
+        if (this.f24857b != null && !TextUtils.isEmpty(str) && (offlineCacheInfo = this.f24857b.getOfflineCacheInfo(str)) != null) {
             try {
                 jSONObject.put("package_name", offlineCacheInfo.optString("name"));
                 jSONObject.put("package_version", offlineCacheInfo.optString("decryVersion"));
@@ -109,49 +109,49 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public void handleCreateLangbirdge(String str, WebView webView) {
         if (a()) {
-            this.f24754b.handleCreateLangbirdge(str, webView);
+            this.f24857b.handleCreateLangbirdge(str, webView);
         }
     }
 
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public void handleFinishLangbirdge(long j) {
         if (a()) {
-            this.f24754b.handleFinishLangbirdge(j);
+            this.f24857b.handleFinishLangbirdge(j);
         }
     }
 
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public void handleFinishPage(String str) {
         if (a()) {
-            this.f24754b.handleFinishPage(str);
+            this.f24857b.handleFinishPage(str);
         }
     }
 
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public void handleLoadUrl(long j, String str) {
         if (a()) {
-            this.f24754b.handleLoadUrl(j, str);
+            this.f24857b.handleLoadUrl(j, str);
         }
     }
 
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public void handleStartLangbirdge(long j, String str) {
         if (a()) {
-            this.f24754b.handleStartLangbirdge(j, str);
+            this.f24857b.handleStartLangbirdge(j, str);
         }
     }
 
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public void handleStartPage(String str) {
         if (a()) {
-            this.f24754b.handleStartPage(str);
+            this.f24857b.handleStartPage(str);
         }
     }
 
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public WebResourceResponse interceptRequest(String str, Map<String, String> map) {
         if (a()) {
-            return this.f24754b.interceptRequest(str, map);
+            return this.f24857b.interceptRequest(str, map);
         }
         return null;
     }
@@ -159,14 +159,14 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public boolean isOfflineCacheReady(String str) {
         if (a()) {
-            return this.f24754b.isOfflineCacheReady(str);
+            return this.f24857b.isOfflineCacheReady(str);
         }
         return false;
     }
 
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public void offlineConfigUpdate(String str) {
-        IOfflineCache iOfflineCache = this.f24754b;
+        IOfflineCache iOfflineCache = this.f24857b;
         if (iOfflineCache != null) {
             iOfflineCache.offlineConfigUpdate(str);
             a(str);
@@ -176,37 +176,37 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public void onLangbridgeRefresh(Context context, String str) {
         if (a()) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.f24757e.equals(str) && currentTimeMillis - this.f24758f < this.f24759g) {
-                this.f24756d = false;
+            if (this.f24860e.equals(str) && currentTimeMillis - this.f24861f < this.f24862g) {
+                this.f24859d = false;
                 HashMap hashMap = new HashMap();
                 hashMap.put("code", "2");
                 hashMap.put("pageUrl", str);
                 Tracker.send("OfflineFailOverOccur", hashMap, context);
             }
-            this.f24757e = str;
-            this.f24758f = currentTimeMillis;
+            this.f24860e = str;
+            this.f24861f = currentTimeMillis;
         }
     }
 
     public void setLangbridgeUA(String str) {
-        if (TextUtils.isEmpty(this.f24755c)) {
-            this.f24755c = str;
+        if (TextUtils.isEmpty(this.f24858c)) {
+            this.f24858c = str;
         }
     }
 
     public void setOfflineCacheImpl(IOfflineCache iOfflineCache) {
-        this.f24754b = iOfflineCache;
+        this.f24857b = iOfflineCache;
     }
 
     @Override // com.baidu.wallet.lightapp.business.offlinecache.IOfflineCache
     public boolean showProgressLine(String str) {
         if (a()) {
-            return this.f24754b.showProgressLine(str);
+            return this.f24857b.showProgressLine(str);
         }
         return true;
     }
 
     private boolean a() {
-        return this.f24754b != null && this.f24756d;
+        return this.f24857b != null && this.f24859d;
     }
 }

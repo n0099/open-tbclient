@@ -1,16 +1,16 @@
 package h.o.d.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class d0<E> extends e0<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f68705e;
+    public int f71961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f68706f;
+    public long f71962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f68707g;
+    public long f71963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public E[] f68708h;
+    public E[] f71964h;
 }

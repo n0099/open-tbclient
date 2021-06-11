@@ -3,6 +3,7 @@ package d.a.l0.a.v2;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,7 +21,7 @@ import javax.crypto.Cipher;
 public class j0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45418a = d.a.l0.a.k.f43199a;
+    public static final boolean f49092a = d.a.l0.a.k.f46875a;
 
     public static boolean a(File file, String str) {
         return b(file, str, null);
@@ -35,7 +36,7 @@ public class j0 {
                 sb.append(z);
                 sb.append("; exists=");
                 sb.append(z ? "" : Boolean.valueOf(file.exists()));
-                cVar.f45356a = sb.toString();
+                cVar.f49030a = sb.toString();
             }
             return false;
         }
@@ -44,7 +45,7 @@ public class j0 {
             readableByteChannel = Channels.newChannel(new FileInputStream(file));
             return d(readableByteChannel, str, cVar);
         } catch (IOException e2) {
-            if (f45418a) {
+            if (f49092a) {
                 e2.printStackTrace();
             }
             return false;
@@ -61,34 +62,34 @@ public class j0 {
         boolean z = readableByteChannel == null;
         if (z || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.f45356a = "zipSource isNullIs=" + z;
+                cVar.f49030a = "zipSource isNullIs=" + z;
             }
             return false;
         }
         String c2 = d.a.l0.t.f.c(false, readableByteChannel);
         if (cVar != null) {
-            cVar.f45356a = c2;
+            cVar.f49030a = c2;
         }
         try {
             String str2 = new String(e(Base64.decode(str.getBytes("utf-8"), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
             if (cVar != null) {
-                cVar.f45357b = str2;
+                cVar.f49031b = str2;
             }
             return TextUtils.equals(str2, c2);
         } catch (Exception e2) {
-            if (f45418a) {
+            if (f49092a) {
                 Log.i("SwanAppSignChecker", e2.toString());
                 e2.printStackTrace();
             }
             if (cVar != null) {
-                cVar.f45357b = e2.getLocalizedMessage();
+                cVar.f49031b = e2.getLocalizedMessage();
             }
             return false;
         }
     }
 
     public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
         cipher.init(2, publicKey);
         return cipher.doFinal(bArr);
     }

@@ -5,10 +5,10 @@ import android.os.Message;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7688a = "w";
+    public static final String f7731a = "w";
 
     /* renamed from: b  reason: collision with root package name */
-    public v f7689b;
+    public v f7732b;
 
     public void a(Message message) {
         if (message.what != 65289) {
@@ -34,17 +34,17 @@ public class w {
                     return;
             }
         }
-        v vVar = this.f7689b;
+        v vVar = this.f7732b;
         if (vVar != null) {
             vVar.a(message.arg1, message.arg2);
         }
     }
 
     public void a(v vVar) {
-        this.f7689b = vVar;
+        this.f7732b = vVar;
     }
 
     public void b(v vVar) {
-        this.f7689b = null;
+        this.f7732b = null;
     }
 }

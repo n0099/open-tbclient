@@ -8,10 +8,10 @@ import java.util.List;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f50549a = Arrays.asList(Domains.BAIDU, Domains.NUOMI, Domains.BAIFUBAO, ".hao123.com");
+    public static final List<String> f54226a = Arrays.asList(Domains.BAIDU, Domains.NUOMI, Domains.BAIFUBAO, ".hao123.com");
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f50550b;
+    public static List<String> f54227b;
 
     public static boolean a(String str) {
         String p;
@@ -20,15 +20,15 @@ public class z {
         }
         Uri parse = Uri.parse(str);
         if (parse == null || !"file".equals(parse.getScheme()) || parse.getPath() == null || !parse.getPath().contains("bdtbNWCache")) {
-            if (f50550b == null && (p = d.a.m0.r.d0.b.j().p("js_host_white_list", null)) != null) {
-                f50550b = b(p);
+            if (f54227b == null && (p = d.a.m0.r.d0.b.j().p("js_host_white_list", null)) != null) {
+                f54227b = b(p);
             }
-            if (f50550b == null) {
-                f50550b = f50549a;
+            if (f54227b == null) {
+                f54227b = f54226a;
             }
             if (parse != null) {
                 String host = parse.getHost();
-                for (String str2 : f50550b) {
+                for (String str2 : f54227b) {
                     if (host.endsWith(str2)) {
                         return true;
                     }
@@ -52,6 +52,6 @@ public class z {
         } else {
             d.a.m0.r.d0.b.j().x("js_host_white_list", str);
         }
-        f50550b = b(str);
+        f54227b = b(str);
     }
 }

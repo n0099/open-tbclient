@@ -22,31 +22,31 @@ import java.util.ArrayList;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public PostSearchActivity f57856a;
+    public PostSearchActivity f61545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57857b;
+    public View f61546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f57858c;
+    public View f61547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdListView f57859d;
+    public BdListView f61548d;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.m0.r.s.a f57862g;
+    public d.a.m0.r.s.a f61551g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoDataView f57863h;
+    public NoDataView f61552h;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.p1.d f57860e = null;
+    public d.a.n0.p1.d f61549e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f57861f = null;
+    public View f61550f = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f57864i = false;
+    public boolean f61553i = false;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -66,24 +66,24 @@ public class c {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            TiebaStatic.log(new StatisticItem("c12403").param("fid", c.this.f57856a.mForumId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fname", c.this.f57856a.mForumName));
-            String str = (String) c.this.f57859d.getItemAtPosition(i2 + 1);
-            c.this.f57856a.setEditSearchText(str);
-            c.this.f57856a.startSearch(str);
-            PostSearchActivity unused = c.this.f57856a;
-            TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", str).param("obj_source", "3").param("obj_type", "2").param("fid", c.this.f57856a.mForumId));
+            TiebaStatic.log(new StatisticItem("c12403").param("fid", c.this.f61545a.mForumId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fname", c.this.f61545a.mForumName));
+            String str = (String) c.this.f61548d.getItemAtPosition(i2 + 1);
+            c.this.f61545a.setEditSearchText(str);
+            c.this.f61545a.startSearch(str);
+            PostSearchActivity unused = c.this.f61545a;
+            TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", str).param("obj_source", "3").param("obj_type", "2").param("fid", c.this.f61545a.mForumId));
         }
     }
 
     /* renamed from: d.a.n0.o2.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnTouchListenerC1456c implements View.OnTouchListener {
-        public View$OnTouchListenerC1456c() {
+    public class View$OnTouchListenerC1512c implements View.OnTouchListener {
+        public View$OnTouchListenerC1512c() {
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            c.this.f57856a.hideSoftKeyPad();
+            c.this.f61545a.hideSoftKeyPad();
             return false;
         }
     }
@@ -107,8 +107,8 @@ public class c {
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            c.this.f57856a.getModel().g();
-            c.this.f57859d.setVisibility(8);
+            c.this.f61545a.getModel().g();
+            c.this.f61548d.setVisibility(8);
             c.this.n();
         }
     }
@@ -120,91 +120,91 @@ public class c {
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            c.this.f57856a.hideSoftKeyPad();
+            c.this.f61545a.hideSoftKeyPad();
             return false;
         }
     }
 
     public c(PostSearchActivity postSearchActivity, View view) {
-        this.f57856a = postSearchActivity;
-        this.f57857b = view;
+        this.f61545a = postSearchActivity;
+        this.f61546b = view;
         h();
     }
 
     public void e() {
-        this.f57858c.setVisibility(8);
+        this.f61547c.setVisibility(8);
     }
 
     public void f() {
-        this.f57864i = false;
-        this.f57856a.hideLoadingView(this.f57858c);
+        this.f61553i = false;
+        this.f61545a.hideLoadingView(this.f61547c);
     }
 
     public void g() {
-        NoDataView noDataView = this.f57863h;
+        NoDataView noDataView = this.f61552h;
         if (noDataView != null) {
             noDataView.setVisibility(8);
         }
     }
 
     public final void h() {
-        this.f57858c = this.f57856a.findViewById(R.id.history_frame);
-        this.f57859d = (BdListView) this.f57857b.findViewById(R.id.history_list);
-        BdListViewHelper.d(this.f57856a.getActivity(), this.f57859d, BdListViewHelper.HeadType.DEFAULT);
-        d.a.n0.p1.d dVar = new d.a.n0.p1.d(this.f57856a.getPageContext().getPageActivity(), null);
-        this.f57860e = dVar;
+        this.f61547c = this.f61545a.findViewById(R.id.history_frame);
+        this.f61548d = (BdListView) this.f61546b.findViewById(R.id.history_list);
+        BdListViewHelper.d(this.f61545a.getActivity(), this.f61548d, BdListViewHelper.HeadType.DEFAULT);
+        d.a.n0.p1.d dVar = new d.a.n0.p1.d(this.f61545a.getPageContext().getPageActivity(), null);
+        this.f61549e = dVar;
         dVar.b(false);
-        this.f57859d.setAdapter((ListAdapter) this.f57860e);
-        View inflate = LayoutInflater.from(this.f57856a.getPageContext().getPageActivity()).inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
-        this.f57861f = inflate;
-        this.f57859d.addFooterView(inflate);
-        this.f57861f.setOnClickListener(new a());
-        this.f57859d.setOnItemClickListener(new b());
-        this.f57859d.setOnTouchListener(new View$OnTouchListenerC1456c());
+        this.f61548d.setAdapter((ListAdapter) this.f61549e);
+        View inflate = LayoutInflater.from(this.f61545a.getPageContext().getPageActivity()).inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
+        this.f61550f = inflate;
+        this.f61548d.addFooterView(inflate);
+        this.f61550f.setOnClickListener(new a());
+        this.f61548d.setOnItemClickListener(new b());
+        this.f61548d.setOnTouchListener(new View$OnTouchListenerC1512c());
     }
 
     public boolean i() {
-        if (this.f57858c.getVisibility() != 0 || this.f57864i) {
+        if (this.f61547c.getVisibility() != 0 || this.f61553i) {
             return false;
         }
-        NoDataView noDataView = this.f57863h;
+        NoDataView noDataView = this.f61552h;
         return noDataView == null || 8 == noDataView.getVisibility();
     }
 
     public void j(int i2) {
-        d.a.m0.s0.a.a(this.f57856a.getPageContext(), this.f57861f);
-        this.f57860e.notifyDataSetChanged();
-        NoDataView noDataView = this.f57863h;
+        d.a.m0.s0.a.a(this.f61545a.getPageContext(), this.f61550f);
+        this.f61549e.notifyDataSetChanged();
+        NoDataView noDataView = this.f61552h;
         if (noDataView != null) {
-            noDataView.f(this.f57856a.getPageContext(), i2);
+            noDataView.f(this.f61545a.getPageContext(), i2);
         }
     }
 
     public void k(ArrayList<String> arrayList) {
-        this.f57858c.setVisibility(0);
+        this.f61547c.setVisibility(0);
         f();
         if (arrayList != null && arrayList.size() != 0) {
             g();
-            this.f57859d.setVisibility(0);
-            this.f57860e.a(arrayList);
-            this.f57860e.notifyDataSetChanged();
+            this.f61548d.setVisibility(0);
+            this.f61549e.a(arrayList);
+            this.f61549e.notifyDataSetChanged();
             return;
         }
-        this.f57859d.setVisibility(8);
+        this.f61548d.setVisibility(8);
         n();
     }
 
     public final void l() {
-        if (this.f57862g == null) {
-            this.f57862g = new d.a.m0.r.s.a(this.f57856a.getPageContext().getPageActivity()).setMessage(this.f57856a.getPageContext().getString(R.string.alert_clean_history)).setPositiveButton(this.f57856a.getPageContext().getString(R.string.clear_all_text), new e()).setNegativeButton(this.f57856a.getPageContext().getString(R.string.cancel), new d(this)).create(this.f57856a.getPageContext());
+        if (this.f61551g == null) {
+            this.f61551g = new d.a.m0.r.s.a(this.f61545a.getPageContext().getPageActivity()).setMessage(this.f61545a.getPageContext().getString(R.string.alert_clean_history)).setPositiveButton(this.f61545a.getPageContext().getString(R.string.clear_all_text), new e()).setNegativeButton(this.f61545a.getPageContext().getString(R.string.cancel), new d(this)).create(this.f61545a.getPageContext());
         }
-        this.f57862g.show();
+        this.f61551g.show();
     }
 
     public void m() {
-        this.f57864i = true;
-        PostSearchActivity postSearchActivity = this.f57856a;
-        postSearchActivity.showLoadingView(this.f57858c, false, postSearchActivity.getResources().getDimensionPixelSize(R.dimen.ds386));
+        this.f61553i = true;
+        PostSearchActivity postSearchActivity = this.f61545a;
+        postSearchActivity.showLoadingView(this.f61547c, false, postSearchActivity.getResources().getDimensionPixelSize(R.dimen.ds386));
     }
 
     public final void n() {
@@ -212,18 +212,18 @@ public class c {
     }
 
     public final void o(int i2) {
-        if (this.f57863h == null) {
-            NoDataView a2 = NoDataViewFactory.a(this.f57856a.getPageContext().getPageActivity(), this.f57858c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f57856a.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.text_no_search_record), null);
-            this.f57863h = a2;
-            a2.f(this.f57856a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            this.f57863h.setOnTouchListener(new f());
+        if (this.f61552h == null) {
+            NoDataView a2 = NoDataViewFactory.a(this.f61545a.getPageContext().getPageActivity(), this.f61547c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f61545a.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.text_no_search_record), null);
+            this.f61552h = a2;
+            a2.f(this.f61545a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.f61552h.setOnTouchListener(new f());
         }
-        this.f57863h.setTextOption(NoDataViewFactory.e.d(null, this.f57856a.getResources().getString(i2)));
-        this.f57863h.setVisibility(0);
+        this.f61552h.setTextOption(NoDataViewFactory.e.d(null, this.f61545a.getResources().getString(i2)));
+        this.f61552h.setVisibility(0);
     }
 
     public void p() {
-        this.f57859d.setVisibility(8);
+        this.f61548d.setVisibility(8);
         o(R.string.new_text_no_search_result);
     }
 }

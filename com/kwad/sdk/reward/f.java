@@ -1,86 +1,44 @@
 package com.kwad.sdk.reward;
 
-import androidx.annotation.Nullable;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.core.response.model.AdInfo;
+import androidx.annotation.NonNull;
+import com.kwad.sdk.core.diskcache.b.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.ag;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import com.kwad.sdk.utils.t;
+import java.io.File;
+/* loaded from: classes7.dex */
 public class f {
-
-    /* loaded from: classes6.dex */
-    public static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public boolean f33776a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f33777b;
-
-        public a(String str) {
-            JSONObject jSONObject;
-            this.f33777b = "-";
-            try {
-                jSONObject = new JSONObject(str);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                this.f33776a = false;
-                this.f33777b = "数据解析失败";
-                jSONObject = null;
-            }
-            a(jSONObject);
+    public static boolean a(@NonNull AdTemplate adTemplate) {
+        if (b(adTemplate)) {
+            return true;
         }
-
-        public void a(@Nullable JSONObject jSONObject) {
-            if (jSONObject != null) {
-                this.f33776a = jSONObject.optBoolean("isValid");
-                this.f33777b = jSONObject.toString();
-            }
+        String a2 = com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.j(adTemplate));
+        String a3 = t.a(a2);
+        long currentTimeMillis = System.currentTimeMillis();
+        com.kwad.sdk.core.d.a.b("VideoCacheHelper", "start cache video key:" + a3 + "--url:" + a2);
+        c.a aVar = new c.a();
+        boolean a4 = com.kwad.sdk.core.diskcache.b.a.a().a(a2, aVar);
+        long currentTimeMillis2 = System.currentTimeMillis();
+        com.kwad.sdk.core.d.a.b("VideoCacheHelper", "finish cache video key:" + a3 + "--cache time:" + (currentTimeMillis2 - currentTimeMillis) + "--success:" + a4);
+        if (a4) {
+            com.kwad.sdk.core.report.e.d(adTemplate, 1);
+        } else {
+            com.kwad.sdk.core.report.e.b(adTemplate, 1, aVar.f34142a);
         }
-
-        public boolean a() {
-            return this.f33776a;
-        }
+        return a4;
     }
 
-    public static void a(final AdTemplate adTemplate, AdInfo adInfo) {
-        final String ab = com.kwad.sdk.core.response.b.a.ab(adInfo);
-        com.kwad.sdk.core.d.a.a("ServerCallbackHandle", "handleRewardVerify callbackUrl: " + ab);
-        if (ag.a(ab)) {
-            return;
-        }
-        com.kwad.sdk.utils.f.a(new Runnable() { // from class: com.kwad.sdk.reward.f.1
-            private void a() {
-                com.kwad.sdk.core.report.e.b(adTemplate, 0, "success");
-            }
+    public static boolean a(@NonNull String str, String str2, c.a aVar) {
+        String a2 = t.a(str2);
+        long currentTimeMillis = System.currentTimeMillis();
+        com.kwad.sdk.core.d.a.b("VideoCacheHelper", "start cache video key:" + a2 + "--url:" + str);
+        boolean a3 = com.kwad.sdk.core.diskcache.b.a.a().a(str, str2, aVar);
+        long currentTimeMillis2 = System.currentTimeMillis();
+        com.kwad.sdk.core.d.a.b("VideoCacheHelper", "finish cache video key:" + a2 + "--cache time:" + (currentTimeMillis2 - currentTimeMillis) + "--success:" + a3);
+        return a3;
+    }
 
-            private void a(String str) {
-                com.kwad.sdk.core.report.e.b(adTemplate, 1, str);
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                String str;
-                try {
-                    com.kwad.sdk.core.network.c doGet = KsAdSDKImpl.get().getProxyForHttp().doGet(ab, null);
-                    if (doGet == null) {
-                        str = "Network Error: url invalid";
-                    } else if (doGet.f32392a == 200) {
-                        a aVar = new a(doGet.f32393b);
-                        if (aVar.a()) {
-                            a();
-                            return;
-                        }
-                        str = aVar.f33777b;
-                    } else {
-                        str = "Network Error: " + doGet.f32393b;
-                    }
-                    a(str);
-                } catch (Throwable th) {
-                    a("Request Error: " + th.getMessage());
-                }
-            }
-        });
+    public static boolean b(@NonNull AdTemplate adTemplate) {
+        File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.j(adTemplate)));
+        return b2 != null && b2.exists();
     }
 }

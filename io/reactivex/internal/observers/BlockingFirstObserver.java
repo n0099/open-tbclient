@@ -13,7 +13,7 @@ public final class BlockingFirstObserver<T> extends BlockingBaseObserver<T> {
     public void onNext(T t) {
         if (this.value == null) {
             this.value = t;
-            this.f68955d.dispose();
+            this.f72264d.dispose();
             countDown();
         }
     }

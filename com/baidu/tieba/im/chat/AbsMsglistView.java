@@ -113,9 +113,9 @@ public abstract class AbsMsglistView extends d.a.c.a.d<MsglistActivity<?>> imple
             if (aVar == null) {
                 return;
             }
-            int i2 = aVar.f50841a;
+            int i2 = aVar.f54518a;
             if (i2 == 24) {
-                Object obj = aVar.f50843c;
+                Object obj = aVar.f54520c;
                 if (obj == null || !(obj instanceof v)) {
                     return;
                 }
@@ -134,7 +134,7 @@ public abstract class AbsMsglistView extends d.a.c.a.d<MsglistActivity<?>> imple
                     AbsMsglistView.this.mContext.openImageView();
                 }
             } else {
-                Object obj2 = aVar.f50843c;
+                Object obj2 = aVar.f54520c;
                 if (obj2 == null || !(obj2 instanceof String)) {
                     return;
                 }
@@ -164,10 +164,10 @@ public abstract class AbsMsglistView extends d.a.c.a.d<MsglistActivity<?>> imple
     public class c implements AbsListView.OnScrollListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsglistActivity f16962e;
+        public final /* synthetic */ MsglistActivity f17038e;
 
         public c(MsglistActivity msglistActivity) {
-            this.f16962e = msglistActivity;
+            this.f17038e = msglistActivity;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -176,7 +176,7 @@ public abstract class AbsMsglistView extends d.a.c.a.d<MsglistActivity<?>> imple
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i2) {
-            l.x(this.f16962e.getActivity(), this.f16962e.getActivity().getCurrentFocus());
+            l.x(this.f17038e.getActivity(), this.f17038e.getActivity().getCurrentFocus());
             EditorTools editorTools = AbsMsglistView.this.mTool;
             if (editorTools != null) {
                 editorTools.q();
@@ -188,15 +188,15 @@ public abstract class AbsMsglistView extends d.a.c.a.d<MsglistActivity<?>> imple
     public class d implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsglistActivity f16964e;
+        public final /* synthetic */ MsglistActivity f17040e;
 
         public d(MsglistActivity msglistActivity) {
-            this.f16964e = msglistActivity;
+            this.f17040e = msglistActivity;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            l.x(this.f16964e.getActivity(), this.f16964e.getActivity().getCurrentFocus());
+            l.x(this.f17040e.getActivity(), this.f17040e.getActivity().getCurrentFocus());
             EditorTools editorTools = AbsMsglistView.this.mTool;
             if (editorTools != null) {
                 editorTools.q();

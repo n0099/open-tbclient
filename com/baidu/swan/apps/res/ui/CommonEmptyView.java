@@ -21,19 +21,19 @@ import d.a.l0.a.g;
 public class CommonEmptyView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f11074e;
+    public ImageView f11136e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f11075f;
+    public TextView f11137f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f11076g;
+    public TextView f11138g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f11077h;
+    public TextView f11139h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f11078i;
+    public TextView f11140i;
     public FrameLayout j;
     public TextView k;
 
@@ -50,11 +50,11 @@ public class CommonEmptyView extends RelativeLayout {
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(g.aiapps_common_empty_view, (ViewGroup) this, true);
         setBackground(context.getResources().getDrawable(c.aiapps_empty_layout_backgroud));
-        this.f11074e = (ImageView) findViewById(f.emptyview_image);
-        this.f11075f = (TextView) findViewById(f.emptyview_title);
-        this.f11076g = (TextView) findViewById(f.emptyview_subtitle);
-        this.f11077h = (TextView) findViewById(f.emptyview_link);
-        this.f11078i = (TextView) findViewById(f.emptyview_btn);
+        this.f11136e = (ImageView) findViewById(f.emptyview_image);
+        this.f11137f = (TextView) findViewById(f.emptyview_title);
+        this.f11138g = (TextView) findViewById(f.emptyview_subtitle);
+        this.f11139h = (TextView) findViewById(f.emptyview_link);
+        this.f11140i = (TextView) findViewById(f.emptyview_btn);
         this.j = (FrameLayout) findViewById(f.emptyview_bottom_layout);
         this.k = (TextView) findViewById(f.emptyview_problem_feedback);
         setPageResources();
@@ -90,60 +90,60 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setButtonText(String str) {
-        this.f11078i.setText(str);
+        this.f11140i.setText(str);
     }
 
     public void setButtonTextColor(ColorStateList colorStateList) {
-        this.f11078i.setTextColor(colorStateList);
+        this.f11140i.setTextColor(colorStateList);
     }
 
     public void setIcon(Drawable drawable) {
-        this.f11074e.setImageDrawable(drawable);
+        this.f11136e.setImageDrawable(drawable);
     }
 
     public void setLinkClickListener(View.OnClickListener onClickListener) {
-        this.f11077h.setVisibility(0);
-        this.f11077h.setOnClickListener(onClickListener);
+        this.f11139h.setVisibility(0);
+        this.f11139h.setOnClickListener(onClickListener);
     }
 
     public void setPageResources() {
         setBackgroundColor(-1);
-        TextView textView = this.f11075f;
+        TextView textView = this.f11137f;
         if (textView != null) {
             textView.setTextColor(getResources().getColor(c.aiapps_emptyview_title_text_color));
         }
-        TextView textView2 = this.f11077h;
+        TextView textView2 = this.f11139h;
         if (textView2 != null) {
             textView2.setTextColor(getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
         }
-        TextView textView3 = this.f11078i;
+        TextView textView3 = this.f11140i;
         if (textView3 != null) {
             textView3.setBackground(getResources().getDrawable(e.aiapps_emptyview_btn_bg));
-            this.f11078i.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color));
+            this.f11140i.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color));
         }
-        TextView textView4 = this.f11076g;
+        TextView textView4 = this.f11138g;
         if (textView4 != null) {
             textView4.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
         }
     }
 
     public void setSubTitle(String str) {
-        this.f11076g.setVisibility(0);
-        this.f11076g.setText(str);
-        this.f11076g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+        this.f11138g.setVisibility(0);
+        this.f11138g.setText(str);
+        this.f11138g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
     }
 
     public void setTextButtonClickListener(View.OnClickListener onClickListener) {
-        this.f11078i.setVisibility(0);
-        this.f11078i.setOnClickListener(onClickListener);
+        this.f11140i.setVisibility(0);
+        this.f11140i.setOnClickListener(onClickListener);
     }
 
     public void setTitle(String str) {
-        this.f11075f.setText(str);
+        this.f11137f.setText(str);
     }
 
     public void setTitleColor(int i2) {
-        this.f11075f.setTextColor(i2);
+        this.f11137f.setTextColor(i2);
     }
 
     public CommonEmptyView(Context context, AttributeSet attributeSet) {
@@ -151,15 +151,15 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setButtonText(int i2) {
-        this.f11078i.setText(i2);
+        this.f11140i.setText(i2);
     }
 
     public void setIcon(int i2) {
-        this.f11074e.setImageDrawable(getResources().getDrawable(i2));
+        this.f11136e.setImageDrawable(getResources().getDrawable(i2));
     }
 
     public void setTitle(int i2) {
-        this.f11075f.setText(i2);
+        this.f11137f.setText(i2);
     }
 
     public CommonEmptyView(Context context, AttributeSet attributeSet, int i2) {
@@ -168,8 +168,8 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setSubTitle(int i2) {
-        this.f11076g.setVisibility(0);
-        this.f11076g.setText(i2);
-        this.f11076g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+        this.f11138g.setVisibility(0);
+        this.f11138g.setText(i2);
+        this.f11138g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
     }
 }

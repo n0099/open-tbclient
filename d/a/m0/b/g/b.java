@@ -177,7 +177,7 @@ public final class b {
         layoutParams.height = i5;
         boolean z2 = (i4 == i2 && i5 == i3) ? false : true;
         if (aVar != null) {
-            aVar.U(0);
+            aVar.W(0);
         }
         return z2;
     }

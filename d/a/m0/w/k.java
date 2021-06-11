@@ -6,9 +6,9 @@ import com.baidu.tieba.R;
 public class k extends m {
     public k(Context context) {
         super((String) null, 23, 0);
-        this.f50850d = R.drawable.icon_pure_post_more24_svg;
-        this.f50851e = R.drawable.icon_mask_post_more24_selection_svg;
-        this.f50853g = true;
+        this.f54527d = R.drawable.icon_pure_post_more24_svg;
+        this.f54528e = R.drawable.icon_mask_post_more24_selection_svg;
+        this.f54530g = true;
         this.n = new int[]{32};
     }
 }

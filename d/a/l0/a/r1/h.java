@@ -25,41 +25,41 @@ import org.json.JSONObject;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44438a = k.f43199a;
+    public static final boolean f48112a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44439b;
+    public static final boolean f48113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44440c;
+    public static final boolean f48114c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Timer f44441d;
+    public static Timer f48115d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f44442e;
+    public static String f48116e;
     @Deprecated
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile d.a.l0.a.r1.b f44443f;
+    public static volatile d.a.l0.a.r1.b f48117f;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f44444e;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f48118e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f44445f;
+        public final /* synthetic */ boolean f48119f;
 
         public a(d.a.l0.a.f1.e.b bVar, boolean z) {
-            this.f44444e = bVar;
-            this.f44445f = z;
+            this.f48118e = bVar;
+            this.f48119f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            h.i(this.f44444e, this.f44445f);
+            h.i(this.f48118e, this.f48119f);
         }
     }
 
@@ -67,33 +67,33 @@ public final class h {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f44446e;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f48120e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44447f;
+        public final /* synthetic */ String f48121f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f44448g;
+        public final /* synthetic */ boolean f48122g;
 
         public b(d.a.l0.a.f1.e.b bVar, String str, boolean z) {
-            this.f44446e = bVar;
-            this.f44447f = str;
-            this.f44448g = z;
+            this.f48120e = bVar;
+            this.f48121f = str;
+            this.f48122g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             HybridUbcFlow p = h.p("startup");
-            String T = TextUtils.isEmpty(this.f44446e.T()) ? AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA : this.f44446e.T();
-            if (this.f44446e.G() == 1) {
+            String T = TextUtils.isEmpty(this.f48120e.T()) ? AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA : this.f48120e.T();
+            if (this.f48120e.G() == 1) {
                 p.F(HybridUbcFlow.SubmitStrategy.NA_ONLY);
             }
             p.B("from", "swan");
             p.B("source", T);
-            p.A("appid", this.f44446e.H());
-            p.A("swan", d.a.l0.a.m2.b.i(this.f44446e.i0(), this.f44446e.G()));
+            p.A("appid", this.f48120e.H());
+            p.A("swan", d.a.l0.a.m2.b.i(this.f48120e.i0(), this.f48120e.G()));
             p.A("mobile", m.c());
-            long l = this.f44446e.l("box_cold_launch", -1L);
+            long l = this.f48120e.l("box_cold_launch", -1L);
             if (l < 0) {
                 l = d.a.l0.a.r1.c.a();
             }
@@ -101,19 +101,19 @@ public final class h {
                 p.A("box_cold_launch", String.valueOf(l));
             }
             p.A("net", SwanAppNetworkUtils.f().type);
-            p.A("appversion", this.f44446e.u1());
-            p.A("thirdversion", this.f44446e.v1());
-            p.B("from", this.f44446e.G() == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan");
-            p.A("scheme", this.f44446e.W());
+            p.A("appversion", this.f48120e.u1());
+            p.A("thirdversion", this.f48120e.v1());
+            p.B("from", this.f48120e.G() == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan");
+            p.A("scheme", this.f48120e.W());
             HashSet hashSet = new HashSet();
             hashSet.add("callback");
             hashSet.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
-            String i2 = o0.i(this.f44447f, hashSet);
+            String i2 = o0.i(this.f48121f, hashSet);
             if (!TextUtils.isEmpty(i2) && i2.startsWith(File.separator)) {
                 i2 = i2.substring(1);
             }
             p.A("path", TextUtils.isEmpty(i2) ? "" : i2);
-            if (h.f44438a) {
+            if (h.f48112a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("PerformanceUbc path: ");
                 if (TextUtils.isEmpty(i2)) {
@@ -122,18 +122,18 @@ public final class h {
                 sb.append(i2);
                 Log.v("SwanAppPerformanceUBC", sb.toString());
             }
-            if (this.f44448g) {
+            if (this.f48122g) {
                 p.B("value", "arrive_success");
             }
-            p.A("launchid", this.f44446e.V());
-            p.A("isPreDownloading", this.f44446e.r0().getString("aiapp_extra_pkg_downloading", "0"));
-            p.A("isReloadApp", this.f44446e.d("launch_by_reload") ? "1" : "0");
-            p.A("preAppReadyState", String.valueOf(d.a.l0.a.h0.u.b.a(this.f44446e)));
-            if (this.f44446e.G() == 0) {
-                p.A("is_opti", d.a.l0.a.l1.d.d.f().g(this.f44446e.f0()) ? "1" : "0");
+            p.A("launchid", this.f48120e.V());
+            p.A("isPreDownloading", this.f48120e.r0().getString("aiapp_extra_pkg_downloading", "0"));
+            p.A("isReloadApp", this.f48120e.d("launch_by_reload") ? "1" : "0");
+            p.A("preAppReadyState", String.valueOf(d.a.l0.a.h0.u.b.a(this.f48120e)));
+            if (this.f48120e.G() == 0) {
+                p.A("is_opti", d.a.l0.a.l1.d.d.f().g(this.f48120e.f0()) ? "1" : "0");
                 p.x();
             }
-            d.a.l0.a.e0.d.h("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup" + this.f44446e);
+            d.a.l0.a.e0.d.h("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup" + this.f48120e);
         }
     }
 
@@ -158,9 +158,9 @@ public final class h {
 
         @Override // d.a.l0.a.j2.p.e
         public JSONObject f() {
-            this.f43187c = TextUtils.isEmpty(this.f43187c) ? AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA : this.f43187c;
-            if (this.f43192h == null) {
-                this.f43192h = new JSONObject();
+            this.f46863c = TextUtils.isEmpty(this.f46863c) ? AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA : this.f46863c;
+            if (this.f46868h == null) {
+                this.f46868h = new JSONObject();
             }
             try {
                 if (this.l != null) {
@@ -170,7 +170,7 @@ public final class h {
                             this.l.put("stacktrace", z);
                         }
                     }
-                    this.f43192h.put("info", this.l);
+                    this.f46868h.put("info", this.l);
                 }
             } catch (JSONException e2) {
                 if (d.a.l0.a.j2.p.e.j) {
@@ -181,46 +181,46 @@ public final class h {
         }
 
         public d g(String str) {
-            this.f43185a = str;
+            this.f46861a = str;
             return this;
         }
 
         public d h(String str) {
-            this.f43187c = str;
+            this.f46863c = str;
             return this;
         }
 
         public d i(String str) {
-            this.f43186b = str;
+            this.f46862b = str;
             return this;
         }
     }
 
     static {
         d.a.l0.a.c1.a.Z().getSwitch("swan_performance_aligned_search_switch", false);
-        f44439b = false;
+        f48113b = false;
         d.a.l0.a.c1.a.Z().getSwitch("swan_app_use_performance_end_v2", false);
-        f44440c = false;
+        f48114c = false;
     }
 
     public static String c(d.a.l0.a.f1.e.b bVar) {
         String e0 = bVar.e0();
         if (TextUtils.isEmpty(e0)) {
-            if (TextUtils.isEmpty(f44442e)) {
-                f44442e = d.a.l0.a.c2.f.p0.c.b();
-                if (f44438a) {
-                    Log.v("SwanAppPerformanceUBC", "chechPath- 冷启场景 path 为空，取首页 path: " + f44442e);
+            if (TextUtils.isEmpty(f48116e)) {
+                f48116e = d.a.l0.a.c2.f.p0.c.b();
+                if (f48112a) {
+                    Log.v("SwanAppPerformanceUBC", "chechPath- 冷启场景 path 为空，取首页 path: " + f48116e);
                 }
-            } else if (f44438a) {
-                Log.v("SwanAppPerformanceUBC", "chechPath- 热启场景 path 为空，使用上次调起 path: " + f44442e);
+            } else if (f48112a) {
+                Log.v("SwanAppPerformanceUBC", "chechPath- 热启场景 path 为空，使用上次调起 path: " + f48116e);
             }
         } else {
-            f44442e = e0;
-            if (f44438a) {
-                Log.v("SwanAppPerformanceUBC", "chechPath- 冷/热启场景 path 不为空，直接使用调起 path: " + f44442e);
+            f48116e = e0;
+            if (f48112a) {
+                Log.v("SwanAppPerformanceUBC", "chechPath- 冷/热启场景 path 不为空，直接使用调起 path: " + f48116e);
             }
         }
-        return f44442e;
+        return f48116e;
     }
 
     public static synchronized HybridUbcFlow d(String str) {
@@ -240,15 +240,15 @@ public final class h {
     }
 
     public static d.a.l0.a.r1.b f() {
-        if (f44443f == null) {
+        if (f48117f == null) {
             synchronized (d.a.l0.a.r1.b.class) {
-                if (f44443f == null) {
-                    f44443f = new d.a.l0.a.r1.b();
-                    g(f44443f);
+                if (f48117f == null) {
+                    f48117f = new d.a.l0.a.r1.b();
+                    g(f48117f);
                 }
             }
         }
-        return f44443f;
+        return f48117f;
     }
 
     public static void g(d.a.l0.a.r1.b bVar) {
@@ -364,7 +364,7 @@ public final class h {
 
     public static void n() {
         Timer timer = new Timer();
-        f44441d = timer;
+        f48115d = timer;
         timer.schedule(new c(), 15000L);
     }
 
@@ -378,7 +378,7 @@ public final class h {
     }
 
     public static void onEvent(d dVar) {
-        if (f44438a) {
+        if (f48112a) {
             Log.i("SwanAppPerformanceUBC", "onEvent " + dVar);
         }
         d.a.l0.a.j2.b.k(dVar.k, dVar.f());
@@ -413,10 +413,10 @@ public final class h {
     }
 
     public static void t() {
-        Timer timer = f44441d;
+        Timer timer = f48115d;
         if (timer != null) {
             timer.cancel();
-            f44441d = null;
+            f48115d = null;
         }
     }
 }

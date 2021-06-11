@@ -7,17 +7,17 @@ import tbclient.Topic;
 public class e2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50007a = 0;
+    public int f53683a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50008b = "";
+    public String f53684b = "";
 
     public int a() {
-        return this.f50007a;
+        return this.f53683a;
     }
 
     public String b() {
-        return this.f50008b;
+        return this.f53684b;
     }
 
     public void c(JSONObject jSONObject) {
@@ -25,9 +25,9 @@ public class e2 {
             return;
         }
         try {
-            this.f50007a = jSONObject.optInt("is_lpost", 0);
+            this.f53683a = jSONObject.optInt("is_lpost", 0);
             jSONObject.optInt("topic_type", 0);
-            this.f50008b = jSONObject.optString("link", "");
+            this.f53684b = jSONObject.optString("link", "");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -37,8 +37,8 @@ public class e2 {
         if (topic == null) {
             return;
         }
-        this.f50007a = topic.is_lpost.intValue();
+        this.f53683a = topic.is_lpost.intValue();
         topic.topic_type.intValue();
-        this.f50008b = topic.link;
+        this.f53684b = topic.link;
     }
 }

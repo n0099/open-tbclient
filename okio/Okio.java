@@ -16,7 +16,7 @@ import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Okio {
     public static final Logger logger = Logger.getLogger(Okio.class.getName());
 

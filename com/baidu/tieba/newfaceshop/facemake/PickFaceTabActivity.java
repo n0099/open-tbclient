@@ -52,24 +52,24 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         public void onClick(View view) {
             Intent intent = new Intent();
             ArrayList arrayList = new ArrayList();
-            if (PickFaceTabActivity.this.mSearchFragment != null && PickFaceTabActivity.this.mSearchFragment.S0() != null) {
-                for (Map.Entry<String, EmotionImageData> entry : PickFaceTabActivity.this.mSearchFragment.S0().entrySet()) {
+            if (PickFaceTabActivity.this.mSearchFragment != null && PickFaceTabActivity.this.mSearchFragment.V0() != null) {
+                for (Map.Entry<String, EmotionImageData> entry : PickFaceTabActivity.this.mSearchFragment.V0().entrySet()) {
                     FaceData faceData = new FaceData();
                     faceData.type = 2;
                     faceData.emotionImageData = entry.getValue();
                     arrayList.add(faceData);
                 }
             }
-            if (PickFaceTabActivity.this.mAlbumFragment != null && PickFaceTabActivity.this.mAlbumFragment.H0() != null) {
-                for (Map.Entry<String, ImageFileInfo> entry2 : PickFaceTabActivity.this.mAlbumFragment.H0().entrySet()) {
+            if (PickFaceTabActivity.this.mAlbumFragment != null && PickFaceTabActivity.this.mAlbumFragment.K0() != null) {
+                for (Map.Entry<String, ImageFileInfo> entry2 : PickFaceTabActivity.this.mAlbumFragment.K0().entrySet()) {
                     FaceData faceData2 = new FaceData();
                     faceData2.type = 3;
                     faceData2.imageFileInfo = entry2.getValue();
                     arrayList.add(faceData2);
                 }
             }
-            if (PickFaceTabActivity.this.mCollectFragment != null && PickFaceTabActivity.this.mCollectFragment.H0() != null) {
-                for (Map.Entry<String, EmotionImageData> entry3 : PickFaceTabActivity.this.mCollectFragment.H0().entrySet()) {
+            if (PickFaceTabActivity.this.mCollectFragment != null && PickFaceTabActivity.this.mCollectFragment.K0() != null) {
+                for (Map.Entry<String, EmotionImageData> entry3 : PickFaceTabActivity.this.mCollectFragment.K0().entrySet()) {
                     FaceData faceData3 = new FaceData();
                     faceData3.type = 1;
                     faceData3.emotionImageData = entry3.getValue();
@@ -107,25 +107,25 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12151c = fragment;
-        bVar.f12149a = i2;
+        bVar.f12213c = fragment;
+        bVar.f12211a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f12150b = fragmentTabIndicator;
+        bVar.f12212b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
     private void initFragment() {
         FaceSearchFragment faceSearchFragment = new FaceSearchFragment();
         this.mSearchFragment = faceSearchFragment;
-        faceSearchFragment.Y0(this);
+        faceSearchFragment.b1(this);
         FaceAlbumFragment faceAlbumFragment = new FaceAlbumFragment();
         this.mAlbumFragment = faceAlbumFragment;
-        faceAlbumFragment.L0(this);
+        faceAlbumFragment.O0(this);
         FaceCollectFragment faceCollectFragment = new FaceCollectFragment();
         this.mCollectFragment = faceCollectFragment;
-        faceCollectFragment.J0(this);
+        faceCollectFragment.M0(this);
         Intent intent = getIntent();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(PickFaceTabActivityConfig.CHOOSED_LIST);
@@ -201,7 +201,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         this.mCollectFragment.onChangeSkinType(i2);
         this.mAlbumFragment.onChangeSkinType(i2);
         this.mNoNetView.c(getPageContext(), i2);
-        this.mTabHost.o(i2);
+        this.mTabHost.p(i2);
     }
 
     @Override // d.a.n0.z1.g.f
@@ -221,7 +221,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         fragmentTabHost.setup(getSupportFragmentManager());
         this.mTabHost.setOnPageChangeListener(this.mOnPageChangeListener);
         this.mTabHost.setShouldDrawIndicatorLine(false);
-        this.mTabHost.n(true);
+        this.mTabHost.o(true);
         initTitleBar();
         initFragment();
     }

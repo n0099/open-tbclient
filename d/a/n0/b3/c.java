@@ -27,31 +27,31 @@ import d.a.c.e.p.j;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f52091a;
+    public final Context f55780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.a.n0.b3.b f52092b;
+    public final d.a.n0.b3.b f55781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.n0.b3.a f52093c;
+    public final d.a.n0.b3.a f55782c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.c.c.g.a f52094d = new a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+    public d.a.c.c.g.a f55783d = new a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
 
     /* renamed from: e  reason: collision with root package name */
-    public final View.OnClickListener f52095e = new b();
+    public final View.OnClickListener f55784e = new b();
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f52096f = new View$OnClickListenerC1221c();
+    public View.OnClickListener f55785f = new View$OnClickListenerC1277c();
 
     /* renamed from: g  reason: collision with root package name */
-    public LeftAdapter.b f52097g = new d();
+    public LeftAdapter.b f55786g = new d();
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView.OnScrollListener f52098h = new e(this);
+    public RecyclerView.OnScrollListener f55787h = new e(this);
 
     /* renamed from: i  reason: collision with root package name */
-    public BdListView.p f52099i = new f();
+    public BdListView.p f55788i = new f();
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
@@ -65,19 +65,19 @@ public class c {
             if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
                 forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage = (forumRecommendSocketResponseMessage) responsedMessage;
                 if (forumrecommendsocketresponsemessage.getHotSearchInfoData() != null) {
-                    str = forumrecommendsocketresponsemessage.getHotSearchInfoData().s();
+                    str = forumrecommendsocketresponsemessage.getHotSearchInfoData().w();
                 }
             } else if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
                 forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage = (forumRecommendHttpResponseMessage) responsedMessage;
                 if (forumrecommendhttpresponsemessage.getHotSearchInfoData() != null) {
-                    str = forumrecommendhttpresponsemessage.getHotSearchInfoData().s();
+                    str = forumrecommendhttpresponsemessage.getHotSearchInfoData().w();
                 }
             }
             if (TextUtils.isEmpty(str)) {
-                str = c.this.f52091a.getResources().getString(R.string.enter_forum_search_tip);
+                str = c.this.f55780a.getResources().getString(R.string.enter_forum_search_tip);
             }
-            if (c.this.f52092b != null) {
-                c.this.f52092b.A(str);
+            if (c.this.f55781b != null) {
+                c.this.f55781b.A(str);
             }
         }
     }
@@ -89,14 +89,14 @@ public class c {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.f52093c.h();
+            c.this.f55782c.h();
         }
     }
 
     /* renamed from: d.a.n0.b3.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1221c implements View.OnClickListener {
-        public View$OnClickListenerC1221c() {
+    public class View$OnClickListenerC1277c implements View.OnClickListener {
+        public View$OnClickListenerC1277c() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -113,7 +113,7 @@ public class c {
 
         @Override // com.baidu.tieba.square.adapter.LeftAdapter.b
         public void a(View view, int i2, String str) {
-            c.this.f52093c.i(str);
+            c.this.f55782c.i(str);
         }
     }
 
@@ -140,28 +140,28 @@ public class c {
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            c.this.f52093c.g();
+            c.this.f55782c.g();
         }
     }
 
     public c(@NonNull Context context, d.a.n0.b3.a aVar, @NonNull d.a.n0.b3.b bVar) {
-        this.f52091a = context;
-        this.f52092b = bVar;
-        this.f52093c = aVar;
-        bVar.v(this.f52096f);
-        this.f52092b.x(this.f52095e);
-        this.f52092b.w(this.f52097g);
-        this.f52092b.z(this.f52099i);
-        this.f52092b.y(this.f52098h);
+        this.f55780a = context;
+        this.f55781b = bVar;
+        this.f55782c = aVar;
+        bVar.v(this.f55785f);
+        this.f55781b.x(this.f55784e);
+        this.f55781b.w(this.f55786g);
+        this.f55781b.z(this.f55788i);
+        this.f55781b.y(this.f55787h);
     }
 
     public void e() {
         String hotSearch = TbSingleton.getInstance().getHotSearch();
         if (!TextUtils.isEmpty(hotSearch)) {
-            this.f52092b.A(hotSearch);
+            this.f55781b.A(hotSearch);
         } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
         } else {
-            MessageManager.getInstance().registerListener(this.f52094d);
+            MessageManager.getInstance().registerListener(this.f55783d);
             g();
         }
     }
@@ -169,9 +169,9 @@ public class c {
     public final void f() {
         if (j.z()) {
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                TbadkCoreApplication.getInst().login(UtilHelper.getTbPageContext(this.f52091a), new CustomMessage<>(2002001, new LoginActivityConfig(this.f52091a, true, 11013)));
+                TbadkCoreApplication.getInst().login(UtilHelper.getTbPageContext(this.f55780a), new CustomMessage<>(2002001, new LoginActivityConfig(this.f55780a, true, 11013)));
             } else {
-                UrlManager.getInstance().dealOneLink(UtilHelper.getTbPageContext(this.f52091a), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+                UrlManager.getInstance().dealOneLink(UtilHelper.getTbPageContext(this.f55780a), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
             }
         }
     }

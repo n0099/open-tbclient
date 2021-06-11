@@ -83,7 +83,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             bdTopToast.j((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
             return;
         }
-        this.mModel.v(this.mForumId, forumRuleBaseData, z);
+        this.mModel.z(this.mForumId, forumRuleBaseData, z);
     }
 
     @Override // d.a.n0.r0.q1.b.b
@@ -117,7 +117,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     }
 
     public void loadDraftData(String str) {
-        this.mModel.w(str);
+        this.mModel.A(str);
     }
 
     @Override // com.baidu.tbadk.BaseActivity

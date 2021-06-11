@@ -20,13 +20,13 @@ import okhttp3.CertificatePinner;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40813a = k.f43199a;
+    public static final boolean f44489a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f40814b = Sets.newHashSet("https", "wss");
+    public static final Set<String> f44490b = Sets.newHashSet("https", "wss");
 
     public static boolean a(String str) {
-        if (f40813a && !d.a.l0.a.u1.a.a.z()) {
+        if (f44489a && !d.a.l0.a.u1.a.a.z()) {
             Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
             return true;
         } else if (TextUtils.isEmpty(str)) {
@@ -40,7 +40,7 @@ public final class b {
             }
             List<String> b2 = i2.a0().b();
             if (b2 != null && b2.contains(str)) {
-                if (f40813a) {
+                if (f44489a) {
                     Log.d("WebSafeCheckers", "Action in white list: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2);
                 }
                 return true;
@@ -76,28 +76,28 @@ public final class b {
         String host;
         List<String> list;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (f40813a) {
+            if (f44489a) {
                 Log.i("WebSafeCheckers", "requestName : " + str);
                 Log.i("WebSafeCheckers", "requestUrl : " + str2);
             }
             boolean z2 = !d.a.l0.a.u1.a.a.v();
             boolean z3 = false;
             if (z2) {
-                if (f40813a) {
+                if (f44489a) {
                     Log.d("WebSafeCheckers", "debug包serverDomains鉴权关闭： " + z2);
                 }
                 return 0;
             }
             boolean i2 = i();
             if (!i2) {
-                if (f40813a) {
+                if (f44489a) {
                     Log.d("WebSafeCheckers", "开发包serverDomains鉴权关闭： " + i2);
                 }
                 return 0;
             } else if (d(str2)) {
                 boolean t = d.a.l0.a.c1.a.Z().t();
                 if (!t) {
-                    if (f40813a) {
+                    if (f44489a) {
                         Log.d("WebSafeCheckers", "AB实验serverDomains鉴权关闭： " + t);
                     }
                     return 0;
@@ -106,13 +106,13 @@ public final class b {
                 if (i3 == null) {
                     return 1;
                 }
-                String str4 = i3.f40749f;
+                String str4 = i3.f44425f;
                 if (TextUtils.isEmpty(str4)) {
                     return 1;
                 }
                 if (TextUtils.isEmpty(str3)) {
                     if (!new File(c.i(str4)).exists()) {
-                        if (f40813a) {
+                        if (f44489a) {
                             Log.w("WebSafeCheckers", "服务器域名配置文件未下发放行");
                         }
                         return 0;
@@ -120,7 +120,7 @@ public final class b {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         host = new URI(str2).getHost();
-                        list = i3.a0().c(e.V(), str, false).f40824b;
+                        list = i3.a0().c(e.V(), str, false).f44500b;
                         z = b(host, list);
                     } catch (URISyntaxException e2) {
                         e = e2;
@@ -134,14 +134,14 @@ public final class b {
                     } catch (URISyntaxException e3) {
                         e = e3;
                         z3 = z;
-                        if (f40813a) {
+                        if (f44489a) {
                             Log.e("WebSafeCheckers", Log.getStackTraceString(e));
                         }
                         z = z3;
                         if (!z) {
                         }
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (f40813a) {
+                        if (f44489a) {
                         }
                         return !z;
                     }
@@ -149,7 +149,7 @@ public final class b {
                         d.g("WebSafeCheckers", "domain is not in white list");
                     }
                     long currentTimeMillis22 = System.currentTimeMillis();
-                    if (f40813a) {
+                    if (f44489a) {
                         Log.d("WebSafeCheckers", "serverDomain: cost time = " + (currentTimeMillis22 - currentTimeMillis) + "ms");
                         if (z != 0) {
                             Log.d("WebSafeCheckers", "serverDomain in white list");
@@ -164,14 +164,14 @@ public final class b {
                 return 2;
             }
         }
-        if (f40813a) {
+        if (f44489a) {
             Log.d("WebSafeCheckers", "server domains: requestName or requestUrl is empty");
         }
         return 1;
     }
 
     public static boolean d(String str) {
-        for (String str2 : f40814b) {
+        for (String str2 : f44490b) {
             if (str.startsWith(str2)) {
                 return true;
             }
@@ -180,7 +180,7 @@ public final class b {
             return true;
         }
         boolean r = d.a.l0.a.c1.a.Z().r();
-        if (f40813a) {
+        if (f44489a) {
             Log.d("WebSafeCheckers", "abTestHttpsProtocolSwitch=" + r);
         }
         return !r && str.startsWith("http");
@@ -195,7 +195,7 @@ public final class b {
     }
 
     public static boolean g(String str) {
-        if (f40813a && !d.a.l0.a.u1.a.a.z()) {
+        if (f44489a && !d.a.l0.a.u1.a.a.z()) {
             Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
             return true;
         } else if (TextUtils.isEmpty(str)) {
@@ -209,7 +209,7 @@ public final class b {
             }
             List<String> d2 = i2.a0().d(false);
             if (d2 != null && d2.contains(str)) {
-                if (f40813a) {
+                if (f44489a) {
                     Log.d("WebSafeCheckers", "Action in white list: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + d2);
                 }
                 return true;
@@ -239,19 +239,19 @@ public final class b {
         }
         String lowerCase = str.toLowerCase();
         if (!d.a.l0.a.u1.a.a.z()) {
-            if (f40813a) {
+            if (f44489a) {
                 Log.w("WebSafeCheckers", "checkWebHost: Debug下鉴权未开启");
             }
             return true;
         }
         boolean B = d.a.l0.a.c1.a.Z().B();
         if (!B) {
-            if (f40813a) {
+            if (f44489a) {
                 Log.w("WebSafeCheckers", "ABTest : webDomains switch " + B);
             }
             return true;
         } else if (!i()) {
-            if (f40813a) {
+            if (f44489a) {
                 Log.d("WebSafeCheckers", "checkWebDomains: 线下环境开发者授权跳过域名校验");
             }
             return true;
@@ -272,7 +272,7 @@ public final class b {
                 } else {
                     long currentTimeMillis = System.currentTimeMillis();
                     if (TextUtils.isEmpty(str)) {
-                        if (f40813a) {
+                        if (f44489a) {
                             Log.w("WebSafeCheckers", "checkWebDomain: url is empty");
                         }
                         return false;
@@ -307,20 +307,20 @@ public final class b {
                     } catch (MalformedURLException e4) {
                         e = e4;
                         z2 = z;
-                        if (f40813a) {
+                        if (f44489a) {
                             Log.e("WebSafeCheckers", Log.getStackTraceString(e));
                         }
                         z = z2;
-                        if (f40813a) {
+                        if (f44489a) {
                         }
                         if (!z) {
                         }
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (f40813a) {
+                        if (f44489a) {
                         }
                         return z;
                     }
-                    if (f40813a) {
+                    if (f44489a) {
                         if (z) {
                             Log.d("WebSafeCheckers", "Domain in white list");
                         } else {
@@ -331,7 +331,7 @@ public final class b {
                         d.g("WebSafeCheckers", "domain is not in white list：" + e2);
                     }
                     long currentTimeMillis22 = System.currentTimeMillis();
-                    if (f40813a) {
+                    if (f44489a) {
                         Log.d("WebSafeCheckers", "checkWebDomain: cost time = " + (currentTimeMillis22 - currentTimeMillis) + "ms");
                     }
                     return z;
@@ -343,7 +343,7 @@ public final class b {
 
     public static boolean i() {
         if (d.a.l0.a.a2.d.g().l() == 0 && SwanAppConfigData.h.d()) {
-            if (f40813a) {
+            if (f44489a) {
                 Log.d("WebSafeCheckers", "授权跳过url校验");
                 return false;
             }

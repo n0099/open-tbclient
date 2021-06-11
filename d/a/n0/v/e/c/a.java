@@ -11,56 +11,56 @@ import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment;
 public class a extends d.a.m0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaFrsLiveFragment f61872a;
+    public AlaFrsLiveFragment f65587a;
 
     public a(boolean z) {
         AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
-        this.f61872a = alaFrsLiveFragment;
-        alaFrsLiveFragment.R0(z);
-        getFragmentTabStructure().f49334a = this.f61872a;
+        this.f65587a = alaFrsLiveFragment;
+        alaFrsLiveFragment.U0(z);
+        getFragmentTabStructure().f53008a = this.f65587a;
     }
 
     public void a(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment = this.f61872a;
+        AlaFrsLiveFragment alaFrsLiveFragment = this.f65587a;
         if (alaFrsLiveFragment != null) {
-            alaFrsLiveFragment.N0(str);
+            alaFrsLiveFragment.Q0(str);
         }
     }
 
     public void b(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment = this.f61872a;
+        AlaFrsLiveFragment alaFrsLiveFragment = this.f65587a;
         if (alaFrsLiveFragment != null) {
-            alaFrsLiveFragment.O0(str);
+            alaFrsLiveFragment.R0(str);
         }
     }
 
     public void c(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment = this.f61872a;
+        AlaFrsLiveFragment alaFrsLiveFragment = this.f65587a;
         if (alaFrsLiveFragment != null) {
-            alaFrsLiveFragment.P0(str);
+            alaFrsLiveFragment.S0(str);
         }
     }
 
     @Override // d.a.m0.e0.b
     public d.a.m0.e0.c createFragmentTabStructure() {
         d.a.m0.e0.c cVar = new d.a.m0.e0.c();
-        cVar.f49338e = 2;
-        cVar.f49335b = R.string.ala_live;
-        cVar.f49342i = d.a.m0.e0.c.k;
+        cVar.f53012e = 2;
+        cVar.f53009b = R.string.ala_live;
+        cVar.f53016i = d.a.m0.e0.c.k;
         return cVar;
     }
 
     public void d(int i2) {
-        AlaFrsLiveFragment alaFrsLiveFragment = this.f61872a;
+        AlaFrsLiveFragment alaFrsLiveFragment = this.f65587a;
         if (alaFrsLiveFragment != null) {
-            alaFrsLiveFragment.Q0(i2);
+            alaFrsLiveFragment.T0(i2);
         }
     }
 
     public void e(boolean z) {
-        AlaFrsLiveFragment alaFrsLiveFragment = this.f61872a;
+        AlaFrsLiveFragment alaFrsLiveFragment = this.f65587a;
         if (alaFrsLiveFragment != null) {
-            alaFrsLiveFragment.S0(z);
+            alaFrsLiveFragment.V0(z);
         }
     }
 

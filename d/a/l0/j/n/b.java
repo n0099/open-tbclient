@@ -17,125 +17,125 @@ import d.a.l0.a.h1.c.h.d;
 public class b {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Boolean f47880h = Boolean.TRUE;
+    public static final Boolean f51554h = Boolean.TRUE;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f47881a;
+    public d f51555a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Marker f47882b;
+    public Marker f51556b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Marker f47883c;
+    public Marker f51557c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f47884d;
+    public View f51558d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f47885e;
+    public ViewGroup f51559e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Marker f47886f;
+    public Marker f51560f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f47887g;
+    public ValueAnimator f51561g;
 
     /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f47888e = false;
+        public boolean f51562e = false;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f47889f;
+        public final /* synthetic */ c f51563f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC1069b f47890g;
+        public final /* synthetic */ InterfaceC1125b f51564g;
 
-        public a(c cVar, InterfaceC1069b interfaceC1069b) {
-            this.f47889f = cVar;
-            this.f47890g = interfaceC1069b;
+        public a(c cVar, InterfaceC1125b interfaceC1125b) {
+            this.f51563f = cVar;
+            this.f51564g = interfaceC1125b;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             float animatedFraction = valueAnimator.getAnimatedFraction();
-            b.this.a(this.f47889f, (LatLng) valueAnimator.getAnimatedValue());
-            if (this.f47888e || animatedFraction <= 0.99d) {
+            b.this.a(this.f51563f, (LatLng) valueAnimator.getAnimatedValue());
+            if (this.f51562e || animatedFraction <= 0.99d) {
                 return;
             }
-            this.f47888e = true;
-            InterfaceC1069b interfaceC1069b = this.f47890g;
-            if (interfaceC1069b != null) {
-                interfaceC1069b.onAnimationEnd();
+            this.f51562e = true;
+            InterfaceC1125b interfaceC1125b = this.f51564g;
+            if (interfaceC1125b != null) {
+                interfaceC1125b.onAnimationEnd();
             }
         }
     }
 
     /* renamed from: d.a.l0.j.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1069b {
+    public interface InterfaceC1125b {
         void onAnimationEnd();
     }
 
     public void a(c cVar, LatLng latLng) {
-        Marker marker = this.f47882b;
+        Marker marker = this.f51556b;
         if (marker == null) {
             return;
         }
         marker.setPosition(latLng);
-        d.a.l0.a.h1.c.h.c cVar2 = this.f47881a.f42676f;
-        cVar2.f42673e = latLng.latitude;
-        cVar2.f42674f = latLng.longitude;
-        Marker marker2 = this.f47886f;
+        d.a.l0.a.h1.c.h.c cVar2 = this.f51555a.f46352f;
+        cVar2.f46349e = latLng.latitude;
+        cVar2.f46350f = latLng.longitude;
+        Marker marker2 = this.f51560f;
         if (marker2 != null) {
             marker2.setPosition(latLng);
         }
-        if (f47880h.booleanValue()) {
-            Marker marker3 = this.f47883c;
+        if (f51554h.booleanValue()) {
+            Marker marker3 = this.f51557c;
             if (marker3 != null) {
                 marker3.setPosition(latLng);
             }
-            ViewGroup viewGroup = this.f47885e;
+            ViewGroup viewGroup = this.f51559e;
             if (viewGroup != null) {
                 cVar.l.removeView(viewGroup);
                 MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
                 builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
                 builder.position(latLng);
-                cVar.l.addView(this.f47885e, builder.build());
-                this.f47885e.setAlpha(0.0f);
+                cVar.l.addView(this.f51559e, builder.build());
+                this.f51559e.setAlpha(0.0f);
             }
         }
     }
 
     public void b(c cVar) {
         d.b bVar;
-        d dVar = this.f47881a;
+        d dVar = this.f51555a;
         if (dVar == null || (bVar = dVar.m) == null || !bVar.isValid()) {
             return;
         }
-        d dVar2 = this.f47881a;
-        if (dVar2.o == null || this.f47884d != null || TextUtils.equals(dVar2.m.k, "ALWAYS")) {
+        d dVar2 = this.f51555a;
+        if (dVar2.o == null || this.f51558d != null || TextUtils.equals(dVar2.m.k, "ALWAYS")) {
             return;
         }
-        cVar.l.removeView(this.f47885e);
-        this.f47885e.removeView(this.f47884d);
-        View a2 = d.a.l0.j.k.f.a.a(cVar, this.f47881a);
-        this.f47884d = a2;
-        this.f47885e.addView(a2, 0);
-        this.f47885e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+        cVar.l.removeView(this.f51559e);
+        this.f51559e.removeView(this.f51558d);
+        View a2 = d.a.l0.j.k.f.a.a(cVar, this.f51555a);
+        this.f51558d = a2;
+        this.f51559e.addView(a2, 0);
+        this.f51559e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
         builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-        builder.position(this.f47882b.getPosition());
-        Bitmap bitmap = this.f47882b.getIcon().getBitmap();
-        builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.f47881a.o.f42681f)) + 0.0d));
-        cVar.l.addView(this.f47885e, builder.build());
-        this.f47885e.setAlpha(0.0f);
-        Marker marker = this.f47886f;
+        builder.position(this.f51556b.getPosition());
+        Bitmap bitmap = this.f51556b.getIcon().getBitmap();
+        builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.f51555a.o.f46357f)) + 0.0d));
+        cVar.l.addView(this.f51559e, builder.build());
+        this.f51559e.setAlpha(0.0f);
+        Marker marker = this.f51560f;
         if (marker != null) {
             marker.remove();
         }
-        BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.f47885e);
+        BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.f51559e);
         if (fromView == null) {
             return;
         }
@@ -143,17 +143,17 @@ public class b {
         if (bitmap2.getHeight() <= 0 || bitmap2.getWidth() <= 0) {
             return;
         }
-        float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.f47881a.o.f42680e * bitmap.getWidth()))) / bitmap2.getWidth();
-        float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.f47881a.o.f42681f * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
+        float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.f51555a.o.f46356e * bitmap.getWidth()))) / bitmap2.getWidth();
+        float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.f51555a.o.f46357f * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
         MarkerOptions markerOptions = new MarkerOptions();
-        d.a.l0.a.h1.c.h.c cVar2 = this.f47881a.f42676f;
-        this.f47886f = (Marker) cVar.l.getMap().addOverlay(markerOptions.position(new LatLng(cVar2.f42673e, cVar2.f42674f)).icon(fromView).zIndex(66).anchor(width, height));
+        d.a.l0.a.h1.c.h.c cVar2 = this.f51555a.f46352f;
+        this.f51560f = (Marker) cVar.l.getMap().addOverlay(markerOptions.position(new LatLng(cVar2.f46349e, cVar2.f46350f)).icon(fromView).zIndex(66).anchor(width, height));
     }
 
-    public void c(c cVar, LatLng latLng, f fVar, InterfaceC1069b interfaceC1069b) {
+    public void c(c cVar, LatLng latLng, f fVar, InterfaceC1125b interfaceC1125b) {
         Marker marker;
-        ValueAnimator valueAnimator = this.f47887g;
-        if ((valueAnimator == null || !valueAnimator.isRunning()) && (marker = this.f47882b) != null) {
+        ValueAnimator valueAnimator = this.f51561g;
+        if ((valueAnimator == null || !valueAnimator.isRunning()) && (marker = this.f51556b) != null) {
             float f2 = 360.0f - ((float) fVar.F);
             if (f2 >= 0.0f && f2 <= 360.0f) {
                 marker.setRotate(f2);
@@ -162,11 +162,11 @@ public class b {
             if (i2 < 0) {
                 i2 = -i2;
             }
-            ValueAnimator ofObject = ValueAnimator.ofObject(new d.a.l0.j.k.e.h.a(), this.f47882b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
-            this.f47887g = ofObject;
+            ValueAnimator ofObject = ValueAnimator.ofObject(new d.a.l0.j.k.e.h.a(), this.f51556b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
+            this.f51561g = ofObject;
             ofObject.setDuration(i2);
-            this.f47887g.addUpdateListener(new a(cVar, interfaceC1069b));
-            this.f47887g.start();
+            this.f51561g.addUpdateListener(new a(cVar, interfaceC1125b));
+            this.f51561g.start();
         }
     }
 }

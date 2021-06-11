@@ -7,19 +7,19 @@ import android.view.View;
 public class aa extends AnimatorListenerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f7070a;
+    public final /* synthetic */ View f7113a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f7071b;
+    public final /* synthetic */ WearMapView f7114b;
 
     public aa(WearMapView wearMapView, View view) {
-        this.f7071b = wearMapView;
-        this.f7070a = view;
+        this.f7114b = wearMapView;
+        this.f7113a = view;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
-        this.f7070a.setVisibility(4);
+        this.f7113a.setVisibility(4);
         super.onAnimationEnd(animator);
     }
 }

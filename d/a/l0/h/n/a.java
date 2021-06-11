@@ -43,16 +43,15 @@ import d.a.l0.h.o0.g.f.c;
 import d.a.l0.k.n;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
-public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.InterfaceC0935a {
-    public static final boolean f1 = d.a.l0.a.k.f43199a;
+public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.InterfaceC0991a {
+    public static final boolean f1 = d.a.l0.a.k.f46875a;
     public View A0;
     public ImageView B0;
     public FrameLayout C0;
     public View D0;
     public d.a.l0.h.o0.c E0;
-    public d.a.l0.h.o0.c K0;
+    public d.a.l0.h.o0.c F0;
     public d.a.l0.a.z1.b.c.a M0;
     public TextView O0;
     public boolean P0;
@@ -70,7 +69,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
     public DuMixGameSurfaceView x0;
     public View y0;
     public ImageView z0;
-    public d.a.l0.h.e0.a.b.a L0 = new d.a.l0.h.e0.a.b.a();
+    public d.a.l0.h.e0.a.b.a G0 = new d.a.l0.h.e0.a.b.a();
     public d.a.l0.h.o0.a N0 = new d.a.l0.h.o0.a();
     public volatile boolean R0 = true;
     public String W0 = "landscape";
@@ -79,8 +78,8 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
 
     /* renamed from: d.a.l0.h.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1032a implements Runnable {
-        public RunnableC1032a() {
+    public class RunnableC1088a implements Runnable {
+        public RunnableC1088a() {
         }
 
         @Override // java.lang.Runnable
@@ -93,12 +92,12 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
     public class b extends OrientationEventListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.l0.a f47487a;
+        public final /* synthetic */ d.a.l0.a.l0.a f51161a;
 
         /* renamed from: d.a.l0.h.n.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC1033a implements Runnable {
-            public RunnableC1033a() {
+        public class RunnableC1089a implements Runnable {
+            public RunnableC1089a() {
             }
 
             @Override // java.lang.Runnable
@@ -117,7 +116,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(Context context, int i2, d.a.l0.a.l0.a aVar) {
             super(context, i2);
-            this.f47487a = aVar;
+            this.f51161a = aVar;
         }
 
         @Override // android.view.OrientationEventListener
@@ -132,11 +131,11 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
                 }
                 a.this.f0.setRequestedOrientation(8);
                 a.this.W0 = "landscapeReverse";
-                d.a.l0.h.j0.a.a(this.f47487a, a.this.W0);
+                d.a.l0.h.j0.a.a(this.f51161a, a.this.W0);
                 if (a.f1) {
                     Log.d("SwanGameFragment", "onOrientationChanged: " + a.this.W0);
                 }
-                a.this.y0.postDelayed(new RunnableC1033a(), 100L);
+                a.this.y0.postDelayed(new RunnableC1089a(), 100L);
                 return;
             }
             a.this.f0.setRequestedOrientation(0);
@@ -145,7 +144,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
             layoutParams.rightMargin = a.this.z().getDimensionPixelSize(d.a.l0.a.d.aigames_action_bar_right_operation_margin);
             a.this.y0.setLayoutParams(layoutParams);
             d.a.l0.h.t.a.e().b(0);
-            d.a.l0.h.j0.a.a(this.f47487a, a.this.W0);
+            d.a.l0.h.j0.a.a(this.f51161a, a.this.W0);
             if (a.f1) {
                 Log.d("SwanGameFragment", "onOrientationChanged: " + a.this.W0);
             }
@@ -205,7 +204,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
         public void onClick(View view) {
             a.this.e2();
             d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-            fVar.f43189e = SupportMenuInflater.XML_MENU;
+            fVar.f46865e = SupportMenuInflater.XML_MENU;
             a.this.y1(fVar);
         }
     }
@@ -324,13 +323,13 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
 
         /* renamed from: d.a.l0.h.n.a$l$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC1034a implements Runnable {
+        public class RunnableC1090a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f47500e;
+            public final /* synthetic */ int f51174e;
 
-            public RunnableC1034a(int i2) {
-                this.f47500e = i2;
+            public RunnableC1090a(int i2) {
+                this.f51174e = i2;
             }
 
             @Override // java.lang.Runnable
@@ -338,7 +337,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
                 if (a.this.r3()) {
                     return;
                 }
-                int i2 = this.f47500e;
+                int i2 = this.f51174e;
                 if (i2 == -2) {
                     if (a.f1) {
                         Log.d("SwanGameFragment", "--focusChange AUDIOFOCUS_LOSS_TRANSIENT");
@@ -359,7 +358,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
 
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i2) {
-            q0.b0(new RunnableC1034a(i2));
+            q0.b0(new RunnableC1090a(i2));
         }
 
         public /* synthetic */ l(a aVar, c cVar) {
@@ -371,20 +370,20 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
     public static class m extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<TextView> f47502a;
+        public WeakReference<TextView> f51176a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WeakReference<DuMixGameSurfaceView> f47503b;
+        public WeakReference<DuMixGameSurfaceView> f51177b;
 
         public m(TextView textView, DuMixGameSurfaceView duMixGameSurfaceView) {
-            this.f47502a = new WeakReference<>(textView);
-            this.f47503b = new WeakReference<>(duMixGameSurfaceView);
+            this.f51176a = new WeakReference<>(textView);
+            this.f51177b = new WeakReference<>(duMixGameSurfaceView);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            TextView textView = this.f47502a.get();
-            DuMixGameSurfaceView duMixGameSurfaceView = this.f47503b.get();
+            TextView textView = this.f51176a.get();
+            DuMixGameSurfaceView duMixGameSurfaceView = this.f51177b.get();
             if (textView != null) {
                 String valueOf = String.valueOf(duMixGameSurfaceView == null ? 0 : duMixGameSurfaceView.getFPS());
                 textView.setText(valueOf);
@@ -521,7 +520,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
     @Override // d.a.l0.h.e0.a.b.b
     @NonNull
     public d.a.l0.h.e0.a.b.a b() {
-        return this.L0;
+        return this.G0;
     }
 
     @Override // d.a.l0.a.h0.g.d
@@ -547,7 +546,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
             activity.moveTaskToBack(true);
         }
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43189e = IntentConfig.CLOSE;
+        fVar.f46865e = IntentConfig.CLOSE;
         y1(fVar);
         ((SwanAppActivity) this.f0).handleSwanAppExit(1);
         x0.b().e(2);
@@ -562,11 +561,11 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
         return this.N0;
     }
 
-    @Override // d.a.l0.a.z1.b.c.a.InterfaceC0935a
+    @Override // d.a.l0.a.z1.b.c.a.InterfaceC0991a
     public d.a.l0.a.z1.b.c.a getFloatLayer() {
         d.a.l0.h.o0.c cVar;
-        if (this.M0 == null && (cVar = this.K0) != null && cVar.getRootView() != null) {
-            this.M0 = new d.a.l0.a.z1.b.c.a(this, this.K0.getRootView(), 0);
+        if (this.M0 == null && (cVar = this.F0) != null && cVar.getRootView() != null) {
+            this.M0 = new d.a.l0.a.z1.b.c.a(this, this.F0.getRootView(), 0);
         }
         return this.M0;
     }
@@ -584,7 +583,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
     }
 
     public d.a.l0.h.o0.c k3() {
-        return this.K0;
+        return this.F0;
     }
 
     public final void l3() {
@@ -601,7 +600,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
         if (f1) {
             Log.d("SwanGameFragment", "setUserVisibleHint isVisibleToUser: " + z);
         }
-        if (n0()) {
+        if (l0()) {
             if (z) {
                 w3();
             } else {
@@ -645,7 +644,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
             n nVar2 = new n(h2, this.y0, 0, d.a.l0.a.c1.a.G(), new d.a.l0.a.w2.h.b());
             this.j0 = nVar2;
             nVar2.k(d.a.l0.a.v2.f.c());
-            this.L0.b(this.j0);
+            this.G0.b(this.j0);
             d.a.l0.a.p.b.a.k H = d.a.l0.a.g1.f.V().H();
             if (H != null) {
                 H.b(this.j0);
@@ -673,7 +672,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
             A3();
         }
         m3(view);
-        this.K0 = new d.a.l0.h.o0.c((FrameLayout) view.findViewById(d.a.l0.a.f.ai_games_na_layout));
+        this.F0 = new d.a.l0.h.o0.c((FrameLayout) view.findViewById(d.a.l0.a.f.ai_games_na_layout));
         this.E0 = new d.a.l0.h.o0.c(this.C0);
     }
 
@@ -708,7 +707,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
         if (cVar != null) {
             cVar.l();
         }
-        d.a.l0.h.o0.c cVar2 = this.K0;
+        d.a.l0.h.o0.c cVar2 = this.F0;
         if (cVar2 != null) {
             cVar2.l();
         }
@@ -725,7 +724,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
             Log.d("SwanGameFragment", "onPause() obj: " + this);
         }
         super.onPause();
-        if (W()) {
+        if (V()) {
             u3();
         }
     }
@@ -736,7 +735,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
             Log.d("SwanGameFragment", "onResume() obj: " + this);
         }
         super.onResume();
-        if (W()) {
+        if (V()) {
             w3();
         }
     }
@@ -764,7 +763,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
             return;
         }
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43189e = str;
+        fVar.f46865e = str;
         y1(fVar);
     }
 
@@ -785,7 +784,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
         if (cVar != null) {
             cVar.k();
         }
-        d.a.l0.h.o0.c cVar2 = this.K0;
+        d.a.l0.h.o0.c cVar2 = this.F0;
         if (cVar2 != null) {
             cVar2.k();
         }
@@ -831,7 +830,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
             return;
         }
         if (this.S0 == null) {
-            AudioManager audioManager = (AudioManager) AppRuntime.getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            AudioManager audioManager = (AudioManager) AppRuntime.getAppContext().getSystemService("audio");
             this.S0 = audioManager;
             if (audioManager == null) {
                 return;
@@ -867,7 +866,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
         }
         v8Engine.onResume();
         if (this.C0 != null && this.D0 != null) {
-            q0.Y(new RunnableC1032a(), 500L);
+            q0.Y(new RunnableC1088a(), 500L);
         }
         Activity activity3 = this.f0;
         if (activity3 != null && (activity3 instanceof SwanAppActivity)) {
@@ -875,7 +874,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
             if (!this.E0.h()) {
                 this.f0.setRequestedOrientation(isLandScape ? this.W0.equals("landscape") ? 0 : 8 : 1);
                 this.E0.n(isLandScape);
-                this.K0.n(isLandScape);
+                this.F0.n(isLandScape);
             }
             d.a.l0.a.v2.f.e(this.f0);
         }
@@ -904,7 +903,7 @@ public class a extends d.a.l0.a.h0.g.d implements d.a.l0.h.e0.a.b.b, a.Interface
         if (cVar != null) {
             cVar.m();
         }
-        d.a.l0.h.o0.c cVar2 = this.K0;
+        d.a.l0.h.o0.c cVar2 = this.F0;
         if (cVar2 != null) {
             cVar2.m();
         }

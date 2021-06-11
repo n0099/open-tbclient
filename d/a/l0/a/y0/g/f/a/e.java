@@ -18,7 +18,7 @@ public class e extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.a> {
         d(aVar, str, "" + command.obj, true);
         Object obj = command.obj;
         if (obj instanceof String) {
-            aVar.m((String) obj);
+            aVar.l((String) obj);
         }
     }
 }

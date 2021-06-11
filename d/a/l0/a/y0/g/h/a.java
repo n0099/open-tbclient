@@ -7,24 +7,24 @@ public interface a extends c {
 
     /* renamed from: d.a.l0.a.y0.g.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0913a {
+    public interface InterfaceC0969a {
     }
 
-    void A(int i2);
+    void R(int i2, int i3);
 
-    void U(int i2, int i3);
-
-    void b0(long j);
+    void Y(long j);
 
     int getVideoHeight();
 
     int getVideoWidth();
 
-    void m(String str);
+    void l(String str);
 
-    void o(@NonNull InterfaceC0913a interfaceC0913a);
+    void n(@NonNull InterfaceC0969a interfaceC0969a);
+
+    void s(int i2, int i3, int i4, int i5);
 
     void setSurface(Surface surface);
 
-    void t(int i2, int i3, int i4, int i5);
+    void z(int i2);
 }

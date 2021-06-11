@@ -3,13 +3,13 @@ package d.a.p0;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64004a;
+    public String f67722a;
 
     public p(String str, String str2, String str3) {
-        this.f64004a = str2;
+        this.f67722a = str2;
     }
 
     public String a() {
-        return this.f64004a;
+        return this.f67722a;
     }
 }

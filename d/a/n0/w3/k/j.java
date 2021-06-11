@@ -35,19 +35,19 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
     public final CustomMessageListener B;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseFragmentActivity f62860e;
+    public BaseFragmentActivity f66575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62861f;
+    public String f66576f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62862g;
+    public String f66577g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f62863h;
+    public String f66578h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f62864i;
+    public String f66579i;
     public VideoFileInfo j;
     public String k;
     public AlbumVideoCompressingDialogView o;
@@ -89,8 +89,8 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
                 Intent intent = new Intent();
                 intent.putExtra(AlbumActivityConfig.FINISH_SELF, true);
-                j.this.f62860e.setResult(-1, intent);
-                j.this.f62860e.finish();
+                j.this.f66575e.setResult(-1, intent);
+                j.this.f66575e.finish();
             }
         }
     }
@@ -106,10 +106,10 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
             gVar.g();
         }
         this.B = new b(2001374);
-        this.f62860e = baseFragmentActivity;
-        this.f62861f = str;
-        this.f62862g = str2;
-        this.f62863h = str3;
+        this.f66575e = baseFragmentActivity;
+        this.f66576f = str;
+        this.f66577g = str2;
+        this.f66578h = str3;
         VideoConvertUtil videoConvertUtil = new VideoConvertUtil(baseFragmentActivity);
         this.p = videoConvertUtil;
         videoConvertUtil.t(this);
@@ -189,7 +189,7 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
         videoInfo.setVideoLength(new File(e2.videoPath).length());
         videoInfo.setVideoType(2);
         videoInfo.setIsCompressedVideo(z);
-        EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this.f62860e, this.f62864i, this.f62861f, this.f62862g, this.f62863h, videoInfo);
+        EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this.f66575e, this.f66579i, this.f66576f, this.f66577g, this.f66578h, videoInfo);
         editVideoActivityConfig.setProZone(this.z);
         editVideoActivityConfig.setStatisticFrom(this.A);
         editVideoActivityConfig.setFrsTabInfo(this.t);
@@ -206,9 +206,9 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
 
     public void g(VideoFileInfo videoFileInfo, String str, String str2) {
         this.j = videoFileInfo;
-        this.f62864i = str;
+        this.f66579i = str;
         this.u = str2;
-        if (videoFileInfo == null || this.f62860e == null) {
+        if (videoFileInfo == null || this.f66575e == null) {
             return;
         }
         if (videoFileInfo.videoDuration > 600000) {
@@ -219,11 +219,11 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
         if (videoConvertUtil == null || !videoConvertUtil.r()) {
             String str3 = this.j.videoPath;
             if (TextUtils.isEmpty(str3)) {
-                l.L(this.f62860e, R.string.mv_local_video_video_not_exist);
+                l.L(this.f66575e, R.string.mv_local_video_video_not_exist);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
                 n(107);
             } else if (!new File(str3).exists()) {
-                l.L(this.f62860e, R.string.mv_local_video_video_not_exist);
+                l.L(this.f66575e, R.string.mv_local_video_video_not_exist);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
                 n(106);
             } else if (XiaoyingUtil.isXiaoyingInstalled() && !XiaoyingUtil.isXiaoyingForbidden()) {
@@ -266,7 +266,7 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
     }
 
     public final void h() {
-        RelativeLayout relativeLayout = (RelativeLayout) this.f62860e.findViewById(R.id.parent);
+        RelativeLayout relativeLayout = (RelativeLayout) this.f66575e.findViewById(R.id.parent);
         if (relativeLayout == null || this.o.getParent() == null) {
             return;
         }
@@ -287,7 +287,7 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
             handler.sendMessageDelayed(handler.obtainMessage(5), 60000L);
         } else if (i2 == 2) {
             if (!this.n) {
-                l.L(this.f62860e, R.string.mv_local_video_compress_failed);
+                l.L(this.f66575e, R.string.mv_local_video_compress_failed);
                 n(103);
             }
             this.s = false;
@@ -316,7 +316,7 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
             n(104);
         } else if (i2 == 5) {
             this.s = false;
-            l.L(this.f62860e, R.string.mv_local_video_compress_failed);
+            l.L(this.f66575e, R.string.mv_local_video_compress_failed);
             VideoConvertUtil videoConvertUtil = this.p;
             if (videoConvertUtil != null && videoConvertUtil.r()) {
                 d();
@@ -415,10 +415,10 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
     }
 
     public final void s() {
-        RelativeLayout relativeLayout = (RelativeLayout) this.f62860e.findViewById(R.id.parent);
+        RelativeLayout relativeLayout = (RelativeLayout) this.f66575e.findViewById(R.id.parent);
         if (relativeLayout != null) {
             if (this.o == null) {
-                this.o = new AlbumVideoCompressingDialogView(this.f62860e);
+                this.o = new AlbumVideoCompressingDialogView(this.f66575e);
             }
             if (this.o.getParent() != null) {
                 return;
@@ -435,8 +435,8 @@ public class j implements d.a.n0.r3.d, Handler.Callback {
     }
 
     public final void t() {
-        d.a.m0.r.s.a positiveButton = new d.a.m0.r.s.a(this.f62860e).setTitle(R.string.mv_local_video_too_long).setPositiveButton(R.string.group_create_private_isee, new a(this));
-        positiveButton.create(this.f62860e.getPageContext());
+        d.a.m0.r.s.a positiveButton = new d.a.m0.r.s.a(this.f66575e).setTitle(R.string.mv_local_video_too_long).setPositiveButton(R.string.group_create_private_isee, new a(this));
+        positiveButton.create(this.f66575e.getPageContext());
         positiveButton.setCanceledOnTouchOutside(false);
         positiveButton.show();
     }

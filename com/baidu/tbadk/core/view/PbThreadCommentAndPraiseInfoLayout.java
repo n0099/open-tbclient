@@ -51,10 +51,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void L(a2 a2Var) {
         super.L(a2Var);
-        if (a2Var == null || this.k == null || !a2Var.D2()) {
+        if (a2Var == null || this.k == null || !a2Var.E2()) {
             return;
         }
-        if (a2Var.a1() == 0) {
+        if (a2Var.b1() == 0) {
             this.k.setVisibility(0);
         } else {
             this.k.setVisibility(8);
@@ -163,14 +163,14 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     }
 
     public void Q(String str) {
-        if (this.E == null || TextUtils.isEmpty(str) || !str.equals(this.E.y1())) {
+        if (this.E == null || TextUtils.isEmpty(str) || !str.equals(this.E.z1())) {
             return;
         }
         e eVar = new e();
-        eVar.f49994b = 4;
-        eVar.f49996d = 2;
-        this.f12350h.setStatisticData(eVar);
-        this.f12350h.s();
+        eVar.f53670b = 4;
+        eVar.f53672d = 2;
+        this.f12412h.setStatisticData(eVar);
+        this.f12412h.s();
     }
 
     public void R() {
@@ -189,16 +189,16 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     public boolean S() {
         a2 a2Var = this.E;
-        return (a2Var == null || !a2Var.C2() || this.E.w1() == null) ? false : true;
+        return (a2Var == null || !a2Var.D2() || this.E.x1() == null) ? false : true;
     }
 
     public boolean T() {
         a2 a2Var;
         WorksInfoData worksInfoData;
-        return S() && (a2Var = this.E) != null && (worksInfoData = a2Var.F2) != null && worksInfoData.isWorks;
+        return S() && (a2Var = this.E) != null && (worksInfoData = a2Var.H2) != null && worksInfoData.isWorks;
     }
 
-    public boolean V(a2 a2Var, AntiData antiData) {
+    public boolean U(a2 a2Var, AntiData antiData) {
         return setData(a2Var);
     }
 
@@ -232,21 +232,21 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(a2 a2Var) {
         if (a2Var != null) {
-            this.f12350h.setDisagreeShow(a2Var.B2());
+            this.f12412h.setDisagreeShow(a2Var.C2());
         }
-        if (a2Var != null && a2Var.D2()) {
-            this.f12350h.setDisagreeShow(true);
+        if (a2Var != null && a2Var.E2()) {
+            this.f12412h.setDisagreeShow(true);
         }
         if (a2Var != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12350h.getLayoutParams();
-            if (a2Var.D2()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12412h.getLayoutParams();
+            if (a2Var.E2()) {
                 layoutParams.weight = 0.2f;
-            } else if (a2Var.B2()) {
+            } else if (a2Var.C2()) {
                 layoutParams.weight = 0.25f;
             } else {
                 layoutParams.weight = 0.5f;
             }
-            this.f12350h.setLayoutParams(layoutParams);
+            this.f12412h.setLayoutParams(layoutParams);
         }
     }
 

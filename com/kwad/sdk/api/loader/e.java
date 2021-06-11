@@ -8,7 +8,6 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.RequestParamsUtils;
-import com.kwad.sdk.api.core.TLSConnectionUtils;
 import com.kwad.sdk.api.loader.a;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -24,13 +23,13 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31753a;
+    public String f32329a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31754b;
+    public String f32330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31755c;
+    public int f32331c;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -40,14 +39,14 @@ public class e {
     }
 
     public e(String str) {
-        this.f31754b = str;
-        this.f31753a = str;
+        this.f32330b = str;
+        this.f32329a = str;
     }
 
     private String a() {
         int i2;
         Context context = Loader.get().getContext();
-        int i3 = com.kwad.sdk.api.a.f31714a;
+        int i3 = com.kwad.sdk.api.a.f32290a;
         String valueOf = String.valueOf(Loader.get().a(context));
         IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
         if (ksAdSDKImpl != null) {
@@ -63,8 +62,8 @@ public class e {
         JSONObject networkInfo = Loader.get().getKsAdSDKImpl().getNetworkInfo();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("sdkApiVersion", "3.3.8.3");
-            jSONObject.put("sdkApiVersionCode", 3030803);
+            jSONObject.put("sdkApiVersion", "3.3.9");
+            jSONObject.put("sdkApiVersionCode", 3030900);
             jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
             jSONObject.put("SDKVersionCode", i2);
             jSONObject.put("sdkType", i3);
@@ -140,7 +139,6 @@ public class e {
 
     private URLConnection a(String str, int i2, int i3, boolean z) {
         URLConnection openConnection = new URL(str).openConnection();
-        TLSConnectionUtils.wrapHttpURLConnection(openConnection);
         openConnection.setRequestProperty("Accept-Language", "zh-CN");
         if (i2 > 0) {
             openConnection.setConnectTimeout(i2);
@@ -157,10 +155,10 @@ public class e {
 
     @Nullable
     private HttpURLConnection b() {
-        if (TextUtils.isEmpty(this.f31753a)) {
+        if (TextUtils.isEmpty(this.f32329a)) {
             return null;
         }
-        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f31753a, 10000, 30000, false);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f32329a, 10000, 30000, false);
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setDoOutput(true);
         httpURLConnection.setInstanceFollowRedirects(true);
@@ -186,9 +184,9 @@ public class e {
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f31755c < 21) {
-                        this.f31753a = httpURLConnection.getHeaderField("Location");
-                        this.f31755c++;
+                    } else if (this.f32331c < 21) {
+                        this.f32329a = httpURLConnection.getHeaderField("Location");
+                        this.f32331c++;
                         b(aVar);
                     }
                 }

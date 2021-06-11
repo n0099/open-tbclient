@@ -11,42 +11,42 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f39573a;
+    public b f43254a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39574b;
+    public boolean f43255b;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoPasterResponseData f39576d;
+    public VideoPasterResponseData f43257d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f39577e = new C0518a(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
+    public final HttpMessageListener f43258e = new C0574a(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f39575c = BdUniqueId.gen();
+    public BdUniqueId f43256c = BdUniqueId.gen();
 
     /* renamed from: d.a.d.m.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0518a extends HttpMessageListener {
-        public C0518a(int i2) {
+    public class C0574a extends HttpMessageListener {
+        public C0574a(int i2) {
             super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            a.this.f39574b = false;
+            a.this.f43255b = false;
             VideoPasterResponseData videoPasterResponseData = (VideoPasterResponseData) httpResponsedMessage;
-            a.this.f39576d = videoPasterResponseData;
+            a.this.f43257d = videoPasterResponseData;
             if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003431) {
                 return;
             }
             if (httpResponsedMessage instanceof VideoPasterResponseData) {
-                if (a.this.f39573a != null) {
-                    a.this.f39573a.b(videoPasterResponseData.getPasterData());
+                if (a.this.f43254a != null) {
+                    a.this.f43254a.b(videoPasterResponseData.getPasterData());
                 }
-            } else if (a.this.f39573a != null) {
-                a.this.f39573a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+            } else if (a.this.f43254a != null) {
+                a.this.f43254a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
             }
         }
     }
@@ -59,50 +59,50 @@ public class a {
     }
 
     public a() {
-        this.f39577e.setSelfListener(true);
-        this.f39577e.setTag(this.f39575c);
-        MessageManager.getInstance().registerListener(this.f39577e);
+        this.f43258e.setSelfListener(true);
+        this.f43258e.setTag(this.f43256c);
+        MessageManager.getInstance().registerListener(this.f43258e);
     }
 
     public void d() {
-        if (this.f39575c != null) {
-            MessageManager.getInstance().removeMessage(this.f39575c);
+        if (this.f43256c != null) {
+            MessageManager.getInstance().removeMessage(this.f43256c);
         }
     }
 
     public VideoPasterResponseData e() {
-        return this.f39576d;
+        return this.f43257d;
     }
 
     public boolean f() {
-        return this.f39574b;
+        return this.f43255b;
     }
 
     public void g(VideoPasterRequestData videoPasterRequestData) {
         if (videoPasterRequestData == null) {
             return;
         }
-        this.f39574b = true;
-        videoPasterRequestData.setTag(this.f39575c);
+        this.f43255b = true;
+        videoPasterRequestData.setTag(this.f43256c);
         MessageManager.getInstance().sendMessage(videoPasterRequestData);
     }
 
     public void h() {
-        if (this.f39577e != null) {
-            MessageManager.getInstance().unRegisterListener(this.f39577e);
+        if (this.f43258e != null) {
+            MessageManager.getInstance().unRegisterListener(this.f43258e);
         }
-        if (this.f39573a != null) {
-            this.f39573a = null;
+        if (this.f43254a != null) {
+            this.f43254a = null;
         }
     }
 
     public void i() {
         d();
-        this.f39574b = false;
-        this.f39576d = null;
+        this.f43255b = false;
+        this.f43257d = null;
     }
 
     public void j(b bVar) {
-        this.f39573a = bVar;
+        this.f43254a = bVar;
     }
 }

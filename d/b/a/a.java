@@ -7,49 +7,49 @@ import d.b.b.f1;
 import d.b.b.g1;
 import d.b.b.y0;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64957b;
+    public String f68688b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f64956a = new AtomicBoolean();
+    public final AtomicBoolean f68687a = new AtomicBoolean();
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f64958c = false;
+    public volatile boolean f68689c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f64959d = new Object();
+    public final Object f68690d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public IIdentifierListener f64960e = new C1823a(this);
+    public IIdentifierListener f68691e = new C1882a(this);
 
     /* renamed from: d.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C1823a implements IIdentifierListener {
-        public C1823a(a aVar) {
+    /* loaded from: classes6.dex */
+    public class C1882a implements IIdentifierListener {
+        public C1882a(a aVar) {
         }
     }
 
     public final int a(Context context) {
-        return MdidSdkHelper.InitSdk(context, true, this.f64960e);
+        return MdidSdkHelper.InitSdk(context, true, this.f68691e);
     }
 
     public g1.a b(Context context) {
-        synchronized (this.f64959d) {
-            if (this.f64958c) {
-                this.f64959d.wait(10000L);
+        synchronized (this.f68690d) {
+            if (this.f68689c) {
+                this.f68690d.wait(10000L);
             }
         }
         g1.a aVar = new g1.a();
-        aVar.f65023a = this.f64957b;
+        aVar.f68754a = this.f68688b;
         return aVar;
     }
 
     public void c(Context context) {
-        synchronized (this.f64959d) {
-            this.f64958c = true;
+        synchronized (this.f68690d) {
+            this.f68689c = true;
             int a2 = a(context);
             if (a2 == 1008612) {
                 y0.e(f1.j, "OaidMiit#getDeviceIds 不支持的设备");
@@ -59,7 +59,7 @@ public final class a {
                 y0.e(f1.j, "OaidMiit#getDeviceIds 不支持的设备厂商");
             } else if (a2 == 1008614) {
                 y0.e(f1.j, "OaidMiit#getDeviceIds 获取接口是异步的，结果会在回调中返回，回调执行的回调可能在工作线程");
-                if (this.f64956a.compareAndSet(false, true)) {
+                if (this.f68687a.compareAndSet(false, true)) {
                     c(context);
                 }
             } else if (a2 == 1008615) {

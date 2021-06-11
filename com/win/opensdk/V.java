@@ -8,44 +8,44 @@ import java.util.Arrays;
 public class V {
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f36965b;
+    public ByteBuffer f40644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public U f36966c;
+    public U f40645c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f36964a = new byte[256];
+    public final byte[] f40643a = new byte[256];
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36967d = 0;
+    public int f40646d = 0;
 
     public V a(byte[] bArr) {
         if (bArr != null) {
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            this.f36965b = null;
-            Arrays.fill(this.f36964a, (byte) 0);
-            this.f36966c = new U();
-            this.f36967d = 0;
+            this.f40644b = null;
+            Arrays.fill(this.f40643a, (byte) 0);
+            this.f40645c = new U();
+            this.f40646d = 0;
             ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
-            this.f36965b = asReadOnlyBuffer;
+            this.f40644b = asReadOnlyBuffer;
             asReadOnlyBuffer.position(0);
-            this.f36965b.order(ByteOrder.LITTLE_ENDIAN);
+            this.f40644b.order(ByteOrder.LITTLE_ENDIAN);
         } else {
-            this.f36965b = null;
-            this.f36966c.f36954b = 2;
+            this.f40644b = null;
+            this.f40645c.f40633b = 2;
         }
         return this;
     }
 
     public final boolean a() {
-        return this.f36966c.f36954b != 0;
+        return this.f40645c.f40633b != 0;
     }
 
     public final int[] a(int i2) {
         int[] iArr;
         byte[] bArr = new byte[i2 * 3];
         try {
-            this.f36965b.get(bArr);
+            this.f40644b.get(bArr);
             iArr = new int[256];
             int i3 = 0;
             int i4 = 0;
@@ -59,7 +59,7 @@ public class V {
                     i4 = i7;
                     i3 = i8;
                 } catch (BufferUnderflowException unused) {
-                    this.f36966c.f36954b = 1;
+                    this.f40645c.f40633b = 1;
                     return iArr;
                 }
             }
@@ -71,25 +71,25 @@ public class V {
 
     public final int b() {
         try {
-            return this.f36965b.get() & 255;
+            return this.f40644b.get() & 255;
         } catch (Exception unused) {
-            this.f36966c.f36954b = 1;
+            this.f40645c.f40633b = 1;
             return 0;
         }
     }
 
     public final int c() {
         int b2 = b();
-        this.f36967d = b2;
+        this.f40646d = b2;
         int i2 = 0;
         if (b2 > 0) {
-            while (i2 < this.f36967d) {
+            while (i2 < this.f40646d) {
                 try {
-                    int i3 = this.f36967d - i2;
-                    this.f36965b.get(this.f36964a, i2, i3);
+                    int i3 = this.f40646d - i2;
+                    this.f40644b.get(this.f40643a, i2, i3);
                     i2 += i3;
                 } catch (Exception unused) {
-                    this.f36966c.f36954b = 1;
+                    this.f40645c.f40633b = 1;
                 }
             }
         }
@@ -101,7 +101,7 @@ public class V {
         do {
             try {
                 b2 = b();
-                this.f36965b.position(this.f36965b.position() + b2);
+                this.f40644b.position(this.f40644b.position() + b2);
             } catch (IllegalArgumentException unused) {
                 return;
             }

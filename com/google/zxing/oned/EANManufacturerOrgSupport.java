@@ -102,7 +102,7 @@ public final class EANManufacturerOrgSupport {
             add(new int[]{750}, "MX");
             add(new int[]{754, 755}, "CA");
             add(new int[]{759}, "VE");
-            add(new int[]{AiAppGuideActivity.GIF_WIDTH, BankSignFactory.BEAN_ID_POLLING}, "CH");
+            add(new int[]{AiAppGuideActivity.GIF_WIDTH, 769}, "CH");
             add(new int[]{BankSignFactory.BEAN_ID_QUERY}, "CO");
             add(new int[]{FingerprintBeanFactory.BEAN_ID_SYS_FINGERPRINT_CLOSE}, "UY");
             add(new int[]{775}, "PE");

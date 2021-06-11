@@ -8,7 +8,7 @@ import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
 import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
 import d.a.c.a.f;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.m0.y.c.b;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,26 +16,26 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f57406a;
+    public f f61095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f57407b;
+    public BdTypeListView f61096b;
 
     /* renamed from: d  reason: collision with root package name */
-    public EmotionCategoryAdapter f57409d;
+    public EmotionCategoryAdapter f61098d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EmotionHorizontalAdapter f57410e;
+    public EmotionHorizontalAdapter f61099e;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<d.a.c.j.e.a> f57408c = new ArrayList();
+    public final List<d.a.c.k.e.a> f61097c = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f57411f = new ArrayList();
+    public List<n> f61100f = new ArrayList();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.f57406a = tbPageContext;
-        this.f57407b = bdTypeListView;
+        this.f61095a = tbPageContext;
+        this.f61096b = bdTypeListView;
         b();
     }
 
@@ -43,40 +43,40 @@ public class a {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        if (this.f57407b != null) {
-            this.f57411f.addAll(list);
-            this.f57407b.setData(this.f57411f);
+        if (this.f61096b != null) {
+            this.f61100f.addAll(list);
+            this.f61096b.setData(this.f61100f);
         }
         c();
     }
 
     public final void b() {
-        this.f57409d = new EmotionCategoryAdapter((TbPageContext) this.f57406a, d.a.n0.m0.y.c.a.f57412e);
-        this.f57410e = new EmotionHorizontalAdapter((TbPageContext) this.f57406a, b.f57413f);
-        this.f57408c.add(this.f57409d);
-        this.f57408c.add(this.f57410e);
-        this.f57407b.a(this.f57408c);
+        this.f61098d = new EmotionCategoryAdapter((TbPageContext) this.f61095a, d.a.n0.m0.y.c.a.f61101e);
+        this.f61099e = new EmotionHorizontalAdapter((TbPageContext) this.f61095a, b.f61102f);
+        this.f61097c.add(this.f61098d);
+        this.f61097c.add(this.f61099e);
+        this.f61096b.a(this.f61097c);
     }
 
     public void c() {
-        BdTypeListView bdTypeListView = this.f57407b;
-        if (bdTypeListView == null || bdTypeListView.getAdapter2() == null || !(this.f57407b.getAdapter2() instanceof BaseAdapter)) {
+        BdTypeListView bdTypeListView = this.f61096b;
+        if (bdTypeListView == null || bdTypeListView.getAdapter2() == null || !(this.f61096b.getAdapter2() instanceof BaseAdapter)) {
             return;
         }
-        this.f57407b.getAdapter2().notifyDataSetChanged();
+        this.f61096b.getAdapter2().notifyDataSetChanged();
     }
 
     public void d(List<n> list) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        if (!ListUtils.isEmpty(this.f57411f)) {
-            this.f57411f.clear();
+        if (!ListUtils.isEmpty(this.f61100f)) {
+            this.f61100f.clear();
         }
-        BdTypeListView bdTypeListView = this.f57407b;
+        BdTypeListView bdTypeListView = this.f61096b;
         if (bdTypeListView != null) {
             bdTypeListView.setData(list);
-            this.f57411f.addAll(list);
+            this.f61100f.addAll(list);
         }
         c();
     }
@@ -84,11 +84,11 @@ public class a {
     public void e(EmotionPackageData emotionPackageData) {
         b bVar;
         EmotionPackageData emotionPackageData2;
-        if (emotionPackageData == null || ListUtils.isEmpty(this.f57411f)) {
+        if (emotionPackageData == null || ListUtils.isEmpty(this.f61100f)) {
             return;
         }
-        for (n nVar : this.f57411f) {
-            if ((nVar instanceof b) && (bVar = (b) nVar) != null && (emotionPackageData2 = bVar.f57414e) != null && emotionPackageData2.id == emotionPackageData.id) {
+        for (n nVar : this.f61100f) {
+            if ((nVar instanceof b) && (bVar = (b) nVar) != null && (emotionPackageData2 = bVar.f61103e) != null && emotionPackageData2.id == emotionPackageData.id) {
                 emotionPackageData2.download = emotionPackageData.download;
                 emotionPackageData2.share = emotionPackageData.share;
                 c();

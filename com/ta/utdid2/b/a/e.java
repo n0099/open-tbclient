@@ -60,14 +60,14 @@ public class e {
                 obj = Boolean.valueOf(xmlPullParser.getAttributeValue(null, "value"));
             } else if (name.equals("int-array")) {
                 xmlPullParser.next();
-                int[] m52a = m52a(xmlPullParser, "int-array", strArr);
-                strArr[0] = attributeValue;
-                return m52a;
-            } else if (name.equals("map")) {
-                xmlPullParser.next();
-                HashMap m51a = m51a(xmlPullParser, "map", strArr);
+                int[] m51a = m51a(xmlPullParser, "int-array", strArr);
                 strArr[0] = attributeValue;
                 return m51a;
+            } else if (name.equals("map")) {
+                xmlPullParser.next();
+                HashMap m50a = m50a(xmlPullParser, "map", strArr);
+                strArr[0] = attributeValue;
+                return m50a;
             } else if (name.equals("list")) {
                 xmlPullParser.next();
                 ArrayList a2 = a(xmlPullParser, "list", strArr);
@@ -235,7 +235,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final HashMap m51a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final HashMap m50a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         HashMap hashMap = new HashMap();
         int eventType = xmlPullParser.getEventType();
         do {
@@ -275,7 +275,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final int[] m52a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final int[] m51a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         try {
             int[] iArr = new int[Integer.parseInt(xmlPullParser.getAttributeValue(null, "num"))];
             int i2 = 0;

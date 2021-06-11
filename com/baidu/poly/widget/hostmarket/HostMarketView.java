@@ -22,19 +22,19 @@ import java.text.DecimalFormat;
 public class HostMarketView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9339e;
+    public ImageView f9396e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9340f;
+    public TextView f9397f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f9341g;
+    public TextView f9398g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f9342h;
+    public TextView f9399h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwitchButton f9343i;
+    public SwitchButton f9400i;
     public o j;
     public a k;
     public boolean l;
@@ -43,7 +43,7 @@ public class HostMarketView extends FrameLayout {
     public interface a {
         void a(boolean z, o oVar, d.a.c0.k.j.a aVar);
 
-        void b(a.C0511a c0511a);
+        void b(a.C0567a c0567a);
     }
 
     /* loaded from: classes2.dex */
@@ -63,22 +63,22 @@ public class HostMarketView extends FrameLayout {
         }
 
         @Override // d.a.c0.k.j.a
-        public void a(a.C0511a c0511a) {
-            HostMarketView.this.k.b(c0511a);
-            if (c0511a == null) {
+        public void a(a.C0567a c0567a) {
+            HostMarketView.this.k.b(c0567a);
+            if (c0567a == null) {
                 return;
             }
-            if (c0511a.f39482a == 0) {
-                if (HostMarketView.this.f9343i.isChecked()) {
-                    HostMarketView.this.f9342h.setVisibility(0);
+            if (c0567a.f43163a == 0) {
+                if (HostMarketView.this.f9400i.isChecked()) {
+                    HostMarketView.this.f9399h.setVisibility(0);
                 } else {
-                    HostMarketView.this.f9342h.setVisibility(4);
+                    HostMarketView.this.f9399h.setVisibility(4);
                 }
             } else {
-                HostMarketView.this.f9343i.j();
+                HostMarketView.this.f9400i.j();
                 Toast.makeText(HostMarketView.this.getContext(), HostMarketView.this.getResources().getString(h.host_market_calculate_error), 0).show();
             }
-            HostMarketView.this.j.i(HostMarketView.this.f9343i.isChecked() ? 1 : 0);
+            HostMarketView.this.j.i(HostMarketView.this.f9400i.isChecked() ? 1 : 0);
         }
     }
 
@@ -100,12 +100,12 @@ public class HostMarketView extends FrameLayout {
 
     public final void g(Context context) {
         LayoutInflater.from(context).inflate(g.hostmarket_item, (ViewGroup) this, true);
-        this.f9339e = (ImageView) findViewById(f.icon);
-        this.f9340f = (TextView) findViewById(f.title);
-        this.f9341g = (TextView) findViewById(f.subtitle);
-        this.f9342h = (TextView) findViewById(f.cut_text);
+        this.f9396e = (ImageView) findViewById(f.icon);
+        this.f9397f = (TextView) findViewById(f.title);
+        this.f9398g = (TextView) findViewById(f.subtitle);
+        this.f9399h = (TextView) findViewById(f.cut_text);
         SwitchButton switchButton = (SwitchButton) findViewById(f.switch_button);
-        this.f9343i = switchButton;
+        this.f9400i = switchButton;
         switchButton.setOnCheckedChangeListener(new b());
     }
 
@@ -113,7 +113,7 @@ public class HostMarketView extends FrameLayout {
         if (this.k == null) {
             return;
         }
-        this.j.i(this.f9343i.isChecked() ? 1 : 0);
+        this.j.i(this.f9400i.isChecked() ? 1 : 0);
         this.k.a(z, this.j, new c());
     }
 
@@ -123,28 +123,28 @@ public class HostMarketView extends FrameLayout {
             return;
         }
         setVisibility(0);
-        d.a.c0.k.d.b.c().b(this.f9339e, this.j.getIcon());
-        this.f9340f.setText(this.j.getDisplayName());
-        this.f9341g.setText(this.j.S());
+        d.a.c0.k.d.b.c().b(this.f9396e, this.j.getIcon());
+        this.f9397f.setText(this.j.getDisplayName());
+        this.f9398g.setText(this.j.S());
         if (!TextUtils.isEmpty(this.j.M())) {
             try {
-                this.f9341g.setTextColor(Color.parseColor(this.j.M()));
+                this.f9398g.setTextColor(Color.parseColor(this.j.M()));
             } catch (Exception unused) {
             }
         }
         if (this.l) {
-            this.f9343i.setVisibility(4);
-            this.f9342h.setVisibility(0);
-            TextView textView = this.f9342h;
+            this.f9400i.setVisibility(4);
+            this.f9399h.setVisibility(0);
+            TextView textView = this.f9399h;
             textView.setText("-" + b(this.j.L()) + "元");
             return;
         }
-        this.f9343i.setVisibility(0);
-        this.f9342h.setVisibility(4);
+        this.f9400i.setVisibility(0);
+        this.f9399h.setVisibility(4);
         if (this.j.P() == 1) {
-            this.f9343i.setChecked(true);
+            this.f9400i.setChecked(true);
         } else {
-            this.f9343i.setChecked(false);
+            this.f9400i.setChecked(false);
         }
     }
 

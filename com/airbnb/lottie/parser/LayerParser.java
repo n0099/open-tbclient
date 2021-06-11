@@ -17,12 +17,13 @@ import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.fun.ad.sdk.FunAdSdk;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes.dex */
 public class LayerParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", "sw", IAdRequestParam.SCREEN_HEIGHT, Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, "masksProperties", "shapes", "t", "ef", "sr", "st", "w", "h", "ip", "op", "tm", Config.CELL_LOCATION, "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", "sw", IAdRequestParam.SCREEN_HEIGHT, Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", Config.CELL_LOCATION, "hd");
     public static final JsonReader.Options TEXT_NAMES = JsonReader.Options.of("d", "a");
     public static final JsonReader.Options EFFECTS_NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE);
 

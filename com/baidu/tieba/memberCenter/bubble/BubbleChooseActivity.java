@@ -43,7 +43,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.c
         public void a(BubbleListData bubbleListData) {
             BubbleChooseActivity.this.mBubbleChooseView.h();
-            BubbleChooseActivity.this.mBubbleChooseView.j(null, false);
+            BubbleChooseActivity.this.mBubbleChooseView.i(null, false);
             if (bubbleListData != null) {
                 if (!bubbleListData.getError_code().equals("0")) {
                     if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
@@ -67,20 +67,20 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             if (bubbleListData == null) {
                 return;
             }
-            BubbleChooseActivity.this.mBubbleChooseView.j(bubbleListData.getB_info(), BubbleListModel.u(bubbleListData.getB_info()));
-            if (BubbleChooseActivity.this.mBubbleModel.w() <= 0 || (b_info = bubbleListData.getB_info()) == null || b_info.size() == 0) {
+            BubbleChooseActivity.this.mBubbleChooseView.i(bubbleListData.getB_info(), BubbleListModel.y(bubbleListData.getB_info()));
+            if (BubbleChooseActivity.this.mBubbleModel.A() <= 0 || (b_info = bubbleListData.getB_info()) == null || b_info.size() == 0) {
                 return;
             }
             for (BubbleListData.BubbleData bubbleData : b_info) {
-                if (bubbleData != null && bubbleData.getBcode() == BubbleChooseActivity.this.mBubbleModel.w()) {
+                if (bubbleData != null && bubbleData.getBcode() == BubbleChooseActivity.this.mBubbleModel.A()) {
                     if (!bubbleData.canUse() && !bubbleData.isFree()) {
                         break;
                     }
-                    BubbleChooseActivity.this.mBubbleModel.C(BubbleChooseActivity.this.mBubbleModel.w());
-                    BubbleChooseActivity.this.mBubbleModel.B(BubbleChooseActivity.this.mBubbleModel.w(), l.k(BubbleChooseActivity.this.getPageContext().getPageActivity()), l.i(BubbleChooseActivity.this.getPageContext().getPageActivity()));
+                    BubbleChooseActivity.this.mBubbleModel.G(BubbleChooseActivity.this.mBubbleModel.A());
+                    BubbleChooseActivity.this.mBubbleModel.F(BubbleChooseActivity.this.mBubbleModel.A(), l.k(BubbleChooseActivity.this.getPageContext().getPageActivity()), l.i(BubbleChooseActivity.this.getPageContext().getPageActivity()));
                 }
             }
-            BubbleChooseActivity.this.mBubbleModel.D(-1);
+            BubbleChooseActivity.this.mBubbleModel.H(-1);
         }
     }
 
@@ -92,9 +92,9 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.d
         public void a(SetBubbleResultData setBubbleResultData) {
             BubbleChooseActivity.this.mBubbleChooseView.h();
-            int v = BubbleChooseActivity.this.mBubbleModel.v();
+            int z = BubbleChooseActivity.this.mBubbleModel.z();
             d.a.n0.s1.a.a d2 = BubbleChooseActivity.this.mBubbleChooseView.d();
-            if (v == 0) {
+            if (z == 0) {
                 d2.d(true);
                 for (BubbleListData.BubbleData bubbleData : d2.b()) {
                     if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
@@ -104,7 +104,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
                 d2.notifyDataSetChanged();
             } else if (setBubbleResultData.getB_info().canUser()) {
                 for (BubbleListData.BubbleData bubbleData2 : d2.b()) {
-                    if (bubbleData2.getBcode() == v) {
+                    if (bubbleData2.getBcode() == z) {
                         bubbleData2.setIs_def(1);
                     } else if (bubbleData2.isDef()) {
                         bubbleData2.setIs_def(0);
@@ -161,7 +161,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         @Override // d.a.n0.s1.a.c.e
         public void a(int i2) {
             TiebaStatic.eventStat(BubbleChooseActivity.this.getPageContext().getPageActivity(), "consume_19", PrefetchEvent.STATE_CLICK);
-            BubbleChooseActivity.this.mBubbleModel.D(i2);
+            BubbleChooseActivity.this.mBubbleModel.H(i2);
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) BubbleChooseActivity.this.getPageContext().getPageActivity(), true, 23004, "pop_unable", 7);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_ALL_BUBBLE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -188,9 +188,9 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     private void initData() {
         BubbleListModel bubbleListModel = new BubbleListModel(getPageContext());
         this.mBubbleModel = bubbleListModel;
-        bubbleListModel.E(this.mRequestDataCallBack);
-        this.mBubbleModel.F(this.mSetBubbleCallBack);
-        this.mBubbleModel.z(this.mRefreshListener);
+        bubbleListModel.I(this.mRequestDataCallBack);
+        this.mBubbleModel.J(this.mSetBubbleCallBack);
+        this.mBubbleModel.D(this.mRefreshListener);
         registerTask();
     }
 
@@ -203,18 +203,18 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        this.mBubbleModel.A(0, 50, l.k(getPageContext().getPageActivity()), l.i(getPageContext().getPageActivity()));
+        this.mBubbleModel.E(0, 50, l.k(getPageContext().getPageActivity()), l.i(getPageContext().getPageActivity()));
     }
 
     private void registerTask() {
-        this.mBubbleModel.x();
-        this.mBubbleModel.y();
+        this.mBubbleModel.B();
+        this.mBubbleModel.C();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void useBubble(int i2) {
-        this.mBubbleModel.B(i2, l.k(getPageContext().getPageActivity()), l.i(getPageContext().getPageActivity()));
-        this.mBubbleModel.C(i2);
+        this.mBubbleModel.F(i2, l.k(getPageContext().getPageActivity()), l.i(getPageContext().getPageActivity()));
+        this.mBubbleModel.G(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -255,7 +255,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         BubbleListModel bubbleListModel = this.mBubbleModel;
         if (bubbleListModel != null) {
             bubbleListModel.unRegisterListener();
-            this.mBubbleModel.G(this.mRefreshListener);
+            this.mBubbleModel.K(this.mRefreshListener);
         }
     }
 

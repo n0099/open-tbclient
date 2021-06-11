@@ -1,184 +1,214 @@
 package a.a.a.a.v;
 
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.zip.GZIPInputStream;
+import a.a.a.a.q;
+import a.a.a.a.v.e;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f1345a;
+public final class d extends a.a.a.a.v.f.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1346b;
+    public final String f1328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1347c;
+    public final long f1329c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f1348d;
+    public final long f1330d;
 
-    public d(String str, e eVar) {
-        StringBuilder sb;
-        if (str == null) {
-            throw new IllegalArgumentException("url is null");
+    /* renamed from: e  reason: collision with root package name */
+    public final Set<b> f1331e;
+
+    /* loaded from: classes.dex */
+    public static final class a extends a.a.a.a.v.f.a implements q {
+
+        /* renamed from: b  reason: collision with root package name */
+        public final long f1332b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final int f1333c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final e.a f1334d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final b f1335e;
+
+        public a(int i2, ObjectInput objectInput, Map<Long, e.a> map, b bVar) {
+            super(i2);
+            this.f1335e = bVar;
+            this.f1332b = objectInput.readLong();
+            this.f1333c = objectInput.readInt();
+            this.f1334d = map.get(Long.valueOf(this.f1332b));
         }
-        this.f1345a = str;
-        if (eVar != null) {
-            String str2 = "?";
-            if (str.contains("?")) {
-                sb = new StringBuilder();
-                sb.append(this.f1345a);
-                str2 = "&";
-            } else {
-                sb = new StringBuilder();
-                sb.append(this.f1345a);
+
+        public a(JSONObject jSONObject, Map<Long, e.a> map, b bVar) {
+            super(0);
+            this.f1335e = bVar;
+            this.f1332b = a.a.a.a.v.b.a(jSONObject.getLong("id"), 0L);
+            this.f1333c = a.a.a.a.v.b.a(jSONObject.getInt("weight"), 0);
+            this.f1334d = map.get(Long.valueOf(this.f1332b));
+        }
+
+        @Override // a.a.a.a.v.f.a
+        public void a(ObjectOutput objectOutput) {
+            objectOutput.writeLong(this.f1332b);
+            objectOutput.writeInt(this.f1333c);
+        }
+
+        @Override // a.a.a.a.q
+        public boolean a() {
+            return true;
+        }
+
+        @Override // a.a.a.a.q
+        public int b() {
+            return this.f1333c;
+        }
+
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
             }
-            sb.append(str2);
-            sb.append(eVar.b());
-            this.f1345a = sb.toString();
+            if (obj == null || a.class != obj.getClass()) {
+                return false;
+            }
+            a aVar = (a) obj;
+            return this.f1332b == aVar.f1332b && this.f1333c == aVar.f1333c && Objects.equals(this.f1334d, aVar.f1334d);
+        }
+
+        public int hashCode() {
+            return Objects.hash(Long.valueOf(this.f1332b), Integer.valueOf(this.f1333c), this.f1334d);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00c6  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x00ec  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x00f8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x00f1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public f a() {
-        OutputStream outputStream;
-        InputStream inputStream;
-        Throwable th;
-        OutputStream outputStream2;
-        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f1345a).openConnection();
-        InputStream inputStream2 = null;
-        try {
-            httpURLConnection.setConnectTimeout(30000);
-            httpURLConnection.setReadTimeout(8000);
-            httpURLConnection.setRequestMethod(this.f1346b);
-            httpURLConnection.setDoOutput("POST".equals(this.f1346b) && this.f1348d != null);
-            if (this.f1347c != null) {
-                httpURLConnection.setRequestProperty("Content-Type", this.f1347c);
+    /* loaded from: classes.dex */
+    public static final class b extends a.a.a.a.v.f.a implements q {
+
+        /* renamed from: b  reason: collision with root package name */
+        public final int f1336b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final Set<a> f1337c;
+
+        public b(int i2, ObjectInput objectInput, Map<Long, e.a> map) {
+            super(i2);
+            this.f1336b = objectInput.readInt();
+            int readInt = objectInput.readInt();
+            HashSet hashSet = new HashSet();
+            for (int i3 = 0; i3 < readInt; i3++) {
+                hashSet.add(new a(objectInput.readInt(), objectInput, map, this));
             }
-            httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
-            try {
-                httpURLConnection.setRequestProperty("user-agent", System.getProperty("http.agent"));
-                httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
-                try {
-                    httpURLConnection.connect();
-                    if (httpURLConnection.getDoOutput()) {
-                        outputStream2 = httpURLConnection.getOutputStream();
-                        if (outputStream2 != null) {
-                            try {
-                                outputStream2.write(this.f1348d);
-                                outputStream2.close();
-                            } catch (Exception e2) {
-                                e = e2;
-                                throw new IOException(e);
-                            }
-                        }
-                        inputStream = httpURLConnection.getInputStream();
-                        if (inputStream != null) {
-                            httpURLConnection.disconnect();
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception unused) {
-                                }
-                            }
-                            if (outputStream2 != null) {
-                                try {
-                                    outputStream2.close();
-                                } catch (Exception unused2) {
-                                }
-                            }
-                            return null;
-                        }
-                        try {
-                            String contentEncoding = httpURLConnection.getContentEncoding();
-                            if (contentEncoding != null && AsyncHttpClient.ENCODING_GZIP.equals(contentEncoding.toLowerCase())) {
-                                inputStream = new GZIPInputStream(inputStream);
-                            }
-                        } catch (Throwable th2) {
-                            outputStream = outputStream2;
-                            th = th2;
-                            inputStream2 = inputStream;
-                            inputStream = inputStream2;
-                            th = th;
-                            outputStream2 = outputStream;
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
-                            }
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception unused3) {
-                                }
-                            }
-                            if (outputStream2 != null) {
-                                try {
-                                    outputStream2.close();
-                                } catch (Exception unused4) {
-                                }
-                            }
-                            throw th;
-                        }
-                        try {
-                            byte[] bArr = new byte[16384];
-                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                            while (true) {
-                                int read = inputStream.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                byteArrayOutputStream.write(bArr, 0, read);
-                            }
-                            f fVar = new f(httpURLConnection.getResponseCode(), httpURLConnection.getContentType(), byteArrayOutputStream.toString());
-                            httpURLConnection.disconnect();
-                            try {
-                                inputStream.close();
-                            } catch (Exception unused5) {
-                            }
-                            if (outputStream2 != null) {
-                                try {
-                                    outputStream2.close();
-                                } catch (Exception unused6) {
-                                }
-                            }
-                            return fVar;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            if (httpURLConnection != null) {
-                            }
-                            if (inputStream != null) {
-                            }
-                            if (outputStream2 != null) {
-                            }
-                            throw th;
-                        }
-                    }
-                    outputStream2 = null;
-                    inputStream = httpURLConnection.getInputStream();
-                    if (inputStream != null) {
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                }
-            } catch (Throwable th4) {
-                outputStream = "user-agent";
-                th = th4;
-            }
-        } catch (Throwable th5) {
-            th = th5;
-            outputStream = null;
+            this.f1337c = Collections.unmodifiableSet(hashSet);
         }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(JSONObject jSONObject, Map<Long, e.a> map) {
+            super(0);
+            this.f1336b = a.a.a.a.v.b.a(jSONObject.getInt("weight"), 0);
+            HashSet hashSet = new HashSet();
+            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                hashSet.add(new a(jSONArray.getJSONObject(i2), map, this));
+            }
+            this.f1337c = Collections.unmodifiableSet(hashSet);
+        }
+
+        @Override // a.a.a.a.v.f.a
+        public void a(ObjectOutput objectOutput) {
+            objectOutput.writeInt(this.f1336b);
+            objectOutput.writeInt(this.f1337c.size());
+            for (a aVar : this.f1337c) {
+                objectOutput.writeInt(aVar.f1349a);
+                aVar.a(objectOutput);
+            }
+        }
+
+        @Override // a.a.a.a.q
+        public boolean a() {
+            return true;
+        }
+
+        @Override // a.a.a.a.q
+        public int b() {
+            return this.f1336b;
+        }
+
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || b.class != obj.getClass()) {
+                return false;
+            }
+            b bVar = (b) obj;
+            return this.f1336b == bVar.f1336b && Objects.equals(this.f1337c, bVar.f1337c);
+        }
+
+        public int hashCode() {
+            return Objects.hash(Integer.valueOf(this.f1336b), this.f1337c);
+        }
+    }
+
+    public d(int i2, ObjectInput objectInput, Map<Long, e.a> map) {
+        super(i2);
+        this.f1328b = objectInput.readUTF();
+        this.f1329c = objectInput.readLong();
+        this.f1330d = objectInput.readLong();
+        int readInt = objectInput.readInt();
+        HashSet hashSet = new HashSet(readInt);
+        for (int i3 = 0; i3 < readInt; i3++) {
+            hashSet.add(new b(objectInput.readInt(), objectInput, map));
+        }
+        this.f1331e = Collections.unmodifiableSet(hashSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(JSONObject jSONObject, Map<Long, e.a> map) {
+        super(0);
+        this.f1328b = jSONObject.getString("sid");
+        this.f1329c = a.a.a.a.v.b.a(jSONObject.getLong("wt"), 0L);
+        this.f1330d = a.a.a.a.v.b.a(jSONObject.getLong("tmout"), 0L);
+        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
+        HashSet hashSet = new HashSet();
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            hashSet.add(new b(jSONArray.getJSONObject(i2), map));
+        }
+        this.f1331e = Collections.unmodifiableSet(hashSet);
+    }
+
+    @Override // a.a.a.a.v.f.a
+    public void a(ObjectOutput objectOutput) {
+        objectOutput.writeUTF(this.f1328b);
+        objectOutput.writeLong(this.f1329c);
+        objectOutput.writeLong(this.f1330d);
+        objectOutput.writeInt(this.f1331e.size());
+        for (b bVar : this.f1331e) {
+            objectOutput.writeInt(bVar.f1349a);
+            bVar.a(objectOutput);
+        }
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || d.class != obj.getClass()) {
+            return false;
+        }
+        d dVar = (d) obj;
+        return this.f1329c == dVar.f1329c && this.f1330d == dVar.f1330d && Objects.equals(this.f1328b, dVar.f1328b) && Objects.equals(this.f1331e, dVar.f1331e);
+    }
+
+    public int hashCode() {
+        return Objects.hash(this.f1328b, Long.valueOf(this.f1329c), Long.valueOf(this.f1330d), this.f1331e);
     }
 }

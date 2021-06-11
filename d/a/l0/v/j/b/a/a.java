@@ -14,46 +14,46 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48556a = k.f43199a;
+    public static final boolean f52230a = k.f46875a;
 
     /* renamed from: d.a.l0.v.j.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC1091a implements Runnable {
+    public static class RunnableC1147a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppComponentContainerView f48557e;
+        public final /* synthetic */ SwanAppComponentContainerView f52231e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f48558f;
+        public final /* synthetic */ boolean f52232f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f48559g;
+        public final /* synthetic */ String f52233g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f48560h;
+        public final /* synthetic */ String f52234h;
 
-        public RunnableC1091a(SwanAppComponentContainerView swanAppComponentContainerView, boolean z, String str, String str2) {
-            this.f48557e = swanAppComponentContainerView;
-            this.f48558f = z;
-            this.f48559g = str;
-            this.f48560h = str2;
+        public RunnableC1147a(SwanAppComponentContainerView swanAppComponentContainerView, boolean z, String str, String str2) {
+            this.f52231e = swanAppComponentContainerView;
+            this.f52232f = z;
+            this.f52233g = str;
+            this.f52234h = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             JSONObject jSONObject = new JSONObject();
             try {
-                int K = n0.K(this.f48557e.getWidth());
-                int K2 = n0.K(this.f48557e.getHeight());
-                jSONObject.putOpt("fullscreen", this.f48558f ? "1" : "0");
+                int K = n0.K(this.f52231e.getWidth());
+                int K2 = n0.K(this.f52231e.getHeight());
+                jSONObject.putOpt("fullscreen", this.f52232f ? "1" : "0");
                 jSONObject.putOpt("width", String.valueOf(K));
                 jSONObject.putOpt("height", String.valueOf(K2));
             } catch (JSONException e2) {
-                if (a.f48556a) {
+                if (a.f52230a) {
                     e2.printStackTrace();
                 }
             }
-            a.b(this.f48559g, this.f48560h, "fullscreenchange", jSONObject);
+            a.b(this.f52233g, this.f52234h, "fullscreenchange", jSONObject);
         }
     }
 
@@ -66,19 +66,19 @@ public class a {
                 jSONObject.putOpt("videoId", str);
                 jSONObject2.put("data", jSONObject.toString());
             } catch (JSONException e2) {
-                if (f48556a) {
+                if (f52230a) {
                     e2.printStackTrace();
                 }
             }
             d.a("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
             d.a.l0.a.w2.g.c.a.d(str2, str, "video", str3, jSONObject2);
-        } else if (f48556a) {
+        } else if (f52230a) {
             Log.e("VideoStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str);
         }
     }
 
     public static void c(String str, String str2, boolean z, VideoContainerManager videoContainerManager) {
         SwanAppComponentContainerView I = videoContainerManager.I();
-        I.post(new RunnableC1091a(I, z, str, str2));
+        I.post(new RunnableC1147a(I, z, str, str2));
     }
 }

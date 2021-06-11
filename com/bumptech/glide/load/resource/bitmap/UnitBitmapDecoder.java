@@ -6,10 +6,10 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class UnitBitmapDecoder implements ResourceDecoder<Bitmap, Bitmap> {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class NonOwnedBitmapResource implements Resource<Bitmap> {
         public final Bitmap bitmap;
 

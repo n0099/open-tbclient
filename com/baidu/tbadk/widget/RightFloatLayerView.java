@@ -21,19 +21,19 @@ import com.baidu.tieba.R;
 public class RightFloatLayerView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f13002e;
+    public ImageView f13067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f13003f;
+    public TbImageView f13068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlphaAnimation f13004g;
+    public AlphaAnimation f13069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AlphaAnimation f13005h;
+    public AlphaAnimation f13070h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ValueAnimator f13006i;
+    public ValueAnimator f13071i;
     public ValueAnimator j;
     public ValueAnimator k;
     public ValueAnimator l;
@@ -54,7 +54,7 @@ public class RightFloatLayerView extends RelativeLayout {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            RightFloatLayerView.this.f13003f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            RightFloatLayerView.this.f13068f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -65,7 +65,7 @@ public class RightFloatLayerView extends RelativeLayout {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            RightFloatLayerView.this.f13002e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            RightFloatLayerView.this.f13067e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -76,7 +76,7 @@ public class RightFloatLayerView extends RelativeLayout {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            RightFloatLayerView.this.f13003f.setTranslationX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            RightFloatLayerView.this.f13068f.setTranslationX(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -98,7 +98,7 @@ public class RightFloatLayerView extends RelativeLayout {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            RightFloatLayerView.this.f13003f.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            RightFloatLayerView.this.f13068f.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -109,7 +109,7 @@ public class RightFloatLayerView extends RelativeLayout {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            RightFloatLayerView.this.f13003f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            RightFloatLayerView.this.f13068f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -120,7 +120,7 @@ public class RightFloatLayerView extends RelativeLayout {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            RightFloatLayerView.this.f13002e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            RightFloatLayerView.this.f13067e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -131,7 +131,7 @@ public class RightFloatLayerView extends RelativeLayout {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            RightFloatLayerView.this.f13003f.setTranslationX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            RightFloatLayerView.this.f13068f.setTranslationX(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -154,7 +154,7 @@ public class RightFloatLayerView extends RelativeLayout {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            RightFloatLayerView.this.f13003f.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            RightFloatLayerView.this.f13068f.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -182,15 +182,15 @@ public class RightFloatLayerView extends RelativeLayout {
         if (getVisibility() != 0) {
             return;
         }
-        AlphaAnimation alphaAnimation = this.f13004g;
+        AlphaAnimation alphaAnimation = this.f13069g;
         if (alphaAnimation != null) {
             alphaAnimation.cancel();
         }
         AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
-        this.f13004g = alphaAnimation2;
+        this.f13069g = alphaAnimation2;
         alphaAnimation2.setDuration(300L);
-        this.f13004g.setFillAfter(true);
-        startAnimation(this.f13004g);
+        this.f13069g.setFillAfter(true);
+        startAnimation(this.f13069g);
         setClickable(false);
         setVisibility(8);
     }
@@ -199,15 +199,15 @@ public class RightFloatLayerView extends RelativeLayout {
         if (getVisibility() == 0) {
             return;
         }
-        AlphaAnimation alphaAnimation = this.f13005h;
+        AlphaAnimation alphaAnimation = this.f13070h;
         if (alphaAnimation != null) {
             alphaAnimation.cancel();
         }
         AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
-        this.f13005h = alphaAnimation2;
+        this.f13070h = alphaAnimation2;
         alphaAnimation2.setDuration(300L);
-        this.f13005h.setFillAfter(true);
-        startAnimation(this.f13005h);
+        this.f13070h.setFillAfter(true);
+        startAnimation(this.f13070h);
         setClickable(true);
         setVisibility(0);
     }
@@ -216,11 +216,11 @@ public class RightFloatLayerView extends RelativeLayout {
         if (getVisibility() != 0 || this.s) {
             return;
         }
-        if (this.f13006i == null) {
+        if (this.f13071i == null) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, -45.0f);
-            this.f13006i = ofFloat;
+            this.f13071i = ofFloat;
             ofFloat.setDuration(400L);
-            this.f13006i.addUpdateListener(new e());
+            this.f13071i.addUpdateListener(new e());
         }
         if (this.j == null) {
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(1.0f, 0.5f);
@@ -244,7 +244,7 @@ public class RightFloatLayerView extends RelativeLayout {
         if (this.q == null) {
             AnimatorSet animatorSet = new AnimatorSet();
             this.q = animatorSet;
-            animatorSet.play(this.f13006i).with(this.j).with(this.k).before(this.l);
+            animatorSet.play(this.f13071i).with(this.j).with(this.k).before(this.l);
         }
         this.q.start();
         setClickable(false);
@@ -298,10 +298,10 @@ public class RightFloatLayerView extends RelativeLayout {
     public final void l(Context context) {
         LayoutInflater.from(context).inflate(R.layout.new_float_view, (ViewGroup) this, true);
         ImageView imageView = (ImageView) findViewById(R.id.float_layer_feedback_picture);
-        this.f13002e = imageView;
+        this.f13067e = imageView;
         SkinManager.setImageResource(imageView, R.drawable.ic_icon_popup_close_n);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.float_layer_logo_picture);
-        this.f13003f = tbImageView;
+        this.f13068f = tbImageView;
         tbImageView.setAutoChangeStyle(true);
     }
 
@@ -314,8 +314,8 @@ public class RightFloatLayerView extends RelativeLayout {
     }
 
     public void o() {
-        this.f13003f.invalidate();
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f13002e, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
+        this.f13068f.invalidate();
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f13067e, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void p() {
@@ -342,18 +342,18 @@ public class RightFloatLayerView extends RelativeLayout {
         if (d.a.c.e.p.k.isEmpty(str)) {
             return;
         }
-        this.f13003f.V(str, 45, false);
+        this.f13068f.U(str, 45, false);
     }
 
     public void setFeedBackListener(View.OnClickListener onClickListener) {
-        ImageView imageView = this.f13002e;
+        ImageView imageView = this.f13067e;
         if (imageView != null) {
             imageView.setOnClickListener(onClickListener);
         }
     }
 
     public void setLogoListener(View.OnClickListener onClickListener) {
-        TbImageView tbImageView = this.f13003f;
+        TbImageView tbImageView = this.f13068f;
         if (tbImageView != null) {
             tbImageView.setOnClickListener(onClickListener);
         }
@@ -373,8 +373,8 @@ public class RightFloatLayerView extends RelativeLayout {
 
     public RightFloatLayerView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13004g = null;
-        this.f13005h = null;
+        this.f13069g = null;
+        this.f13070h = null;
         this.s = false;
         this.t = false;
         this.u = new d();

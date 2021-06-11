@@ -6,16 +6,16 @@ import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 public class c extends ProviderDelegation {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f44433a = -1;
+    public static long f48107a = -1;
 
     public static long a() {
-        long j = f44433a;
+        long j = f48107a;
         if (j >= 0) {
             return j;
         }
         Bundle a2 = d.a.l0.a.v1.b.d.a(c.class, null);
         long j2 = a2 != null ? a2.getLong("result", 0L) : 0L;
-        f44433a = j2;
+        f48107a = j2;
         return j2;
     }
 

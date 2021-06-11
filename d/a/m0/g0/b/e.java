@@ -1,7 +1,7 @@
 package d.a.m0.g0.b;
 /* loaded from: classes3.dex */
 public interface e extends c {
-    String f();
+    String h();
 
-    boolean k(String str);
+    boolean n(String str);
 }

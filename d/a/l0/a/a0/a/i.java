@@ -18,7 +18,7 @@ public class i extends a {
             d.a.l0.a.e0.d.b("SwanAppCanvas", "update action parse model is null");
             return false;
         }
-        String str = k.f40845f;
+        String str = k.f44521f;
         d.a.l0.a.l1.e.a.a aVar = k.l;
         if (!TextUtils.isEmpty(str) && aVar != null && aVar.i()) {
             d.a.l0.a.c0.c.d.a aVar2 = (d.a.l0.a.c0.c.d.a) d.a.l0.a.c0.d.a.a(k);
@@ -30,7 +30,7 @@ public class i extends a {
             d.a.l0.a.c0.b.c G = aVar2.G(k);
             boolean a2 = G.a();
             if (!a2) {
-                d.a.l0.a.e0.d.b("SwanAppCanvas", "update canvas fail: " + G.f40850b);
+                d.a.l0.a.e0.d.b("SwanAppCanvas", "update canvas fail: " + G.f44526b);
             }
             j(unitedSchemeEntity, callbackHandler, a2);
             return a2;

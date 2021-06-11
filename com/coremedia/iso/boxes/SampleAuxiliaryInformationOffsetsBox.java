@@ -15,12 +15,12 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
     public static final String TYPE = "saio";
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_5 = null;
     public String auxInfoType;
     public String auxInfoTypeParameter;
     public List<Long> offsets;

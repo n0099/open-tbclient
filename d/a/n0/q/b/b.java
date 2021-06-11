@@ -17,13 +17,13 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public PlaceId f58176a;
+    public PlaceId f61867a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC1472b f58177b;
+    public InterfaceC1528b f61868b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f58178c = new a(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
+    public HttpMessageListener f61869c = new a(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -36,8 +36,8 @@ public class b {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if ((httpResponsedMessage instanceof AdAsyncResponseData) && httpResponsedMessage.getCmd() == 1003491) {
                 AdAsyncResponseData adAsyncResponseData = (AdAsyncResponseData) httpResponsedMessage;
-                if (b.this.f58177b != null) {
-                    b.this.f58177b.a(adAsyncResponseData.isSuccess(), adAsyncResponseData.getAds());
+                if (b.this.f61868b != null) {
+                    b.this.f61868b.a(adAsyncResponseData.isSuccess(), adAsyncResponseData.getAds());
                 }
             }
         }
@@ -45,13 +45,13 @@ public class b {
 
     /* renamed from: d.a.n0.q.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1472b {
+    public interface InterfaceC1528b {
         void a(boolean z, List<AdvertAppInfo> list);
     }
 
-    public b(InterfaceC1472b interfaceC1472b, PlaceId placeId) {
-        this.f58176a = placeId;
-        this.f58177b = interfaceC1472b;
+    public b(InterfaceC1528b interfaceC1528b, PlaceId placeId) {
+        this.f61867a = placeId;
+        this.f61868b = interfaceC1528b;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/commonbatch");
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -60,14 +60,14 @@ public class b {
         tbHttpMessageTask.setmIsNBaiduServer(false);
         tbHttpMessageTask.setResponsedClass(AdAsyncResponseData.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.f58178c);
+        MessageManager.getInstance().registerListener(this.f61869c);
     }
 
     public void b() {
-        MessageManager.getInstance().unRegisterListener(this.f58178c);
+        MessageManager.getInstance().unRegisterListener(this.f61869c);
     }
 
     public void c(Map<String, String> map, int i2) {
-        MessageManager.getInstance().sendMessage(new AdAsyncRequestData(this.f58176a, map, i2));
+        MessageManager.getInstance().sendMessage(new AdAsyncRequestData(this.f61867a, map, i2));
     }
 }

@@ -22,17 +22,17 @@ public class g extends b<d.a.n0.e0.e> {
 
     public g(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        s(l());
+        t(m());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_frs_game_hot_topic_view_item;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        SkinManager.setBackgroundResource(l(), R.color.CAM_X0201);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        SkinManager.setBackgroundResource(m(), R.color.CAM_X0201);
         SkinManager.setBackgroundResource(this.r, R.color.CAM_X0205);
         SkinManager.setBackgroundResource(this.s, R.color.CAM_X0205);
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0106, 1);
@@ -46,11 +46,11 @@ public class g extends b<d.a.n0.e0.e> {
     public void onClick(View view) {
         if (view == this.n || view == this.o || view == this.p || view == this.q) {
             TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.t));
-            UrlManager.getInstance().dealOneLink((TbPageContext) d.a.c.a.j.a(this.f63441f.getPageActivity()), new String[]{(String) view.getTag()}, true);
+            UrlManager.getInstance().dealOneLink((TbPageContext) d.a.c.a.j.a(this.f67159f.getPageActivity()), new String[]{(String) view.getTag()}, true);
         }
     }
 
-    public final void s(View view) {
+    public final void t(View view) {
         this.m = (TextView) view.findViewById(R.id.card_frs_game_hot_title);
         this.n = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_1);
         this.o = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_2);
@@ -66,41 +66,41 @@ public class g extends b<d.a.n0.e0.e> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(d.a.n0.e0.e eVar) {
-        if (eVar == null || eVar.h() == null) {
+    /* renamed from: u */
+    public void n(d.a.n0.e0.e eVar) {
+        if (eVar == null || eVar.c() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(eVar.h().title)) {
-            this.m.setText(eVar.h().title);
+        if (!TextUtils.isEmpty(eVar.c().title)) {
+            this.m.setText(eVar.c().title);
         }
         this.n.setVisibility(8);
         this.o.setVisibility(8);
         this.p.setVisibility(8);
         this.q.setVisibility(8);
-        if (eVar.h().sub_nodes.size() >= 1) {
+        if (eVar.c().sub_nodes.size() >= 1) {
             this.n.setVisibility(0);
-            this.n.setTag(eVar.h().sub_nodes.get(0).url);
-            this.n.setText(eVar.h().sub_nodes.get(0).title);
+            this.n.setTag(eVar.c().sub_nodes.get(0).url);
+            this.n.setText(eVar.c().sub_nodes.get(0).title);
         }
-        if (eVar.h().sub_nodes.size() >= 2) {
+        if (eVar.c().sub_nodes.size() >= 2) {
             this.o.setVisibility(0);
-            this.o.setTag(eVar.h().sub_nodes.get(1).url);
-            this.o.setText(eVar.h().sub_nodes.get(1).title);
+            this.o.setTag(eVar.c().sub_nodes.get(1).url);
+            this.o.setText(eVar.c().sub_nodes.get(1).title);
         }
-        if (eVar.h().sub_nodes.size() >= 3) {
+        if (eVar.c().sub_nodes.size() >= 3) {
             this.p.setVisibility(0);
-            this.p.setTag(eVar.h().sub_nodes.get(2).url);
-            this.p.setText(eVar.h().sub_nodes.get(2).title);
+            this.p.setTag(eVar.c().sub_nodes.get(2).url);
+            this.p.setText(eVar.c().sub_nodes.get(2).title);
         }
-        if (eVar.h().sub_nodes.size() >= 4) {
+        if (eVar.c().sub_nodes.size() >= 4) {
             this.q.setVisibility(0);
-            this.q.setTag(eVar.h().sub_nodes.get(3).url);
-            this.q.setText(eVar.h().sub_nodes.get(3).title);
+            this.q.setTag(eVar.c().sub_nodes.get(3).url);
+            this.q.setText(eVar.c().sub_nodes.get(3).title);
         }
     }
 
-    public void u(String str) {
+    public void v(String str) {
         this.t = str;
     }
 }

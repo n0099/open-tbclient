@@ -35,7 +35,7 @@ public class BigImgView extends BaseCardView<BigImgCard> {
             layoutParams.height = (int) ((l.k(getContext()) * 0.5f) + 0.5f);
             this.r.setLayoutParams(layoutParams);
         }
-        this.r.V(bigImgCard.getUrl(), 10, false);
+        this.r.U(bigImgCard.getUrl(), 10, false);
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView

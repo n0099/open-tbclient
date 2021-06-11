@@ -11,28 +11,28 @@ public class h extends g {
     public HashMap<String, String> E;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49539b;
+    public boolean f53214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f49540c;
+    public long f53215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f49541d;
+    public long f53216d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f49542e;
+    public long f53217e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f49543f;
+    public long f53218f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f49544g;
+    public long f53219g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f49545h;
+    public long f53220h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f49546i;
+    public long f53221i;
     public long j;
     public long k;
     public long l;
@@ -52,7 +52,7 @@ public class h extends g {
     public long z;
 
     public h() {
-        this.f49546i = 0L;
+        this.f53221i = 0L;
         this.j = 0L;
         this.n = 0L;
         this.p = 0L;
@@ -72,28 +72,28 @@ public class h extends g {
     }
 
     public void c() {
-        m mVar = (m) k.d().e(this.f49538a);
+        m mVar = (m) k.d().e(this.f53213a);
         if (mVar != null) {
             mVar.b(this);
         }
     }
 
     public void d(int i2) {
-        m mVar = (m) k.d().e(this.f49538a);
+        m mVar = (m) k.d().e(this.f53213a);
         if (mVar != null) {
             mVar.c(this, i2);
         }
     }
 
     public void e(boolean z) {
-        m mVar = (m) k.d().e(this.f49538a);
+        m mVar = (m) k.d().e(this.f53213a);
         if (mVar != null) {
             mVar.d(this, z);
         }
     }
 
     public h(int i2, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
-        this.f49546i = 0L;
+        this.f53221i = 0L;
         this.j = 0L;
         this.n = 0L;
         this.p = 0L;
@@ -106,7 +106,7 @@ public class h extends g {
         if (responsedMessage == null) {
             return;
         }
-        this.f49538a = i2;
+        this.f53213a = i2;
         this.s = z;
         if (z) {
             this.r = responsedMessage.getDownSize();
@@ -115,27 +115,27 @@ public class h extends g {
             d.a.c.c.i.a aVar = responsedMessage.performanceData;
             this.w = aVar.k;
             this.x = aVar.l;
-            this.t = aVar.f38406i;
+            this.t = aVar.f42059i;
             this.u = aVar.j;
         } else {
             this.q = responsedMessage.getDownSize();
             this.z = responsedMessage.getOrginalMessage().getSquencedId();
         }
-        this.f49540c = j;
-        this.f49541d = j4;
-        this.f49542e = j2;
+        this.f53215c = j;
+        this.f53216d = j4;
+        this.f53217e = j2;
         this.o = j3;
         this.m = j5;
-        this.f49539b = !responsedMessage.hasError();
+        this.f53214b = !responsedMessage.hasError();
         d.a.c.c.i.a aVar2 = responsedMessage.performanceData;
-        this.f49543f = aVar2.f38398a;
-        this.f49544g = aVar2.f38399b;
-        this.f49545h = aVar2.f38400c;
-        this.f49546i = aVar2.f38401d;
-        this.j = aVar2.f38402e;
-        this.k = aVar2.f38403f;
-        this.l = aVar2.f38404g;
-        long j7 = aVar2.f38405h;
+        this.f53218f = aVar2.f42051a;
+        this.f53219g = aVar2.f42052b;
+        this.f53220h = aVar2.f42053c;
+        this.f53221i = aVar2.f42054d;
+        this.j = aVar2.f42055e;
+        this.k = aVar2.f42056f;
+        this.l = aVar2.f42057g;
+        long j7 = aVar2.f42058h;
         this.n = j7;
         this.n = j7 + (responsedMessage.getProcessTime() - responsedMessage.getStartTime());
         this.v = responsedMessage.getError();

@@ -7,11 +7,11 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import d.a.l0.a.k;
 import d.a.l0.a.v1.b.d;
 import d.a.l0.a.v1.b.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends ProviderDelegation {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43623a = k.f43199a;
+    public static final boolean f47299a = k.f46875a;
 
     public static int a(int i2) {
         if (ProcessUtils.isMainProcess()) {
@@ -20,8 +20,8 @@ public class a extends ProviderDelegation {
         Bundle bundle = new Bundle();
         bundle.putInt("level", i2);
         f b2 = d.b(a.class, bundle);
-        int i3 = b2.a() ? b2.f45297a.getInt("count", 0) : 0;
-        if (f43623a) {
+        int i3 = b2.a() ? b2.f48971a.getInt("count", 0) : 0;
+        if (f47299a) {
             Log.d("RecoveryCountDelegation", "GetRecoveryCount level=" + i2 + ";count=" + i3);
         }
         return i3;

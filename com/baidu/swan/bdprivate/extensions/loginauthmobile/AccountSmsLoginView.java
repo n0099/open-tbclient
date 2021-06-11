@@ -10,7 +10,7 @@ import d.a.l0.a.v2.x;
 import d.a.l0.b.e;
 /* loaded from: classes3.dex */
 public class AccountSmsLoginView extends SmsLoginView {
-    public Context s;
+    public Context u;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -19,7 +19,7 @@ public class AccountSmsLoginView extends SmsLoginView {
 
         @Override // java.lang.Runnable
         public void run() {
-            x.a(AccountSmsLoginView.this.s, ((FragmentActivity) AccountSmsLoginView.this.s).getWindow().getDecorView().getWindowToken());
+            x.a(AccountSmsLoginView.this.u, ((FragmentActivity) AccountSmsLoginView.this.u).getWindow().getDecorView().getWindowToken());
         }
     }
 
@@ -30,14 +30,14 @@ public class AccountSmsLoginView extends SmsLoginView {
 
         @Override // java.lang.Runnable
         public void run() {
-            x.b(AccountSmsLoginView.this.s, false);
+            x.b(AccountSmsLoginView.this.u, false);
         }
     }
 
     public AccountSmsLoginView(Context context) {
         super(context);
-        this.s = context;
-        n();
+        this.u = context;
+        o();
     }
 
     @Override // com.baidu.sapi2.views.SmsLoginView
@@ -51,20 +51,20 @@ public class AccountSmsLoginView extends SmsLoginView {
         new Handler().postDelayed(new a(), 100L);
     }
 
-    public void n() {
+    public void o() {
         ((EditText) findViewById(e.phone)).requestFocus();
         new Handler().postDelayed(new b(), 100L);
     }
 
     public AccountSmsLoginView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.s = context;
-        n();
+        this.u = context;
+        o();
     }
 
     public AccountSmsLoginView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.s = context;
-        n();
+        this.u = context;
+        o();
     }
 }

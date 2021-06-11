@@ -7,14 +7,14 @@ import java.util.Iterator;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<ArrayList<b>> f3572a = new SparseArray<>();
+    public final SparseArray<ArrayList<b>> f3591a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3573b;
+    public int f3592b;
 
     /* renamed from: com.baidu.apollon.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0058a {
+    public interface InterfaceC0059a {
         void a();
     }
 
@@ -22,60 +22,60 @@ public class a {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3574a;
+        public int f3593a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f3575b;
+        public int f3594b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f3576c;
+        public int f3595c;
 
         /* renamed from: d  reason: collision with root package name */
-        public InterfaceC0058a f3577d;
+        public InterfaceC0059a f3596d;
 
-        public b(int i2, int i3, int i4, InterfaceC0058a interfaceC0058a) {
-            this.f3574a = i2;
-            this.f3575b = i3;
-            this.f3576c = i4;
-            this.f3577d = interfaceC0058a;
+        public b(int i2, int i3, int i4, InterfaceC0059a interfaceC0059a) {
+            this.f3593a = i2;
+            this.f3594b = i3;
+            this.f3595c = i4;
+            this.f3596d = interfaceC0059a;
         }
     }
 
     public a(int i2) {
-        this.f3573b = 0;
-        this.f3573b = i2;
+        this.f3592b = 0;
+        this.f3592b = i2;
     }
 
     public void a(b bVar) {
-        int i2 = bVar.f3574a;
+        int i2 = bVar.f3593a;
         if (i2 < 0) {
             return;
         }
-        ArrayList<b> arrayList = this.f3572a.get(i2);
+        ArrayList<b> arrayList = this.f3591a.get(i2);
         if (arrayList == null) {
             arrayList = new ArrayList<>();
-            this.f3572a.put(bVar.f3574a, arrayList);
+            this.f3591a.put(bVar.f3593a, arrayList);
         }
         arrayList.add(bVar);
     }
 
     public void b(int i2) {
-        ArrayList<b> arrayList = this.f3572a.get(this.f3573b);
+        ArrayList<b> arrayList = this.f3591a.get(this.f3592b);
         if (arrayList == null || arrayList.size() == 0) {
             return;
         }
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next.f3576c == i2) {
-                this.f3573b = next.f3575b;
-                next.f3577d.a();
+            if (next.f3595c == i2) {
+                this.f3592b = next.f3594b;
+                next.f3596d.a();
                 return;
             }
         }
     }
 
     public void a(int i2) {
-        this.f3573b = i2;
+        this.f3592b = i2;
     }
 }

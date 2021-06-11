@@ -3,7 +3,7 @@ package d.a.n0.k2;
 public interface d {
     void b();
 
-    void c();
-
     void d();
+
+    void e();
 }

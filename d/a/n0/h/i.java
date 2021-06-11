@@ -47,19 +47,19 @@ public class i {
     public ClickableSpan G;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f55327a;
+    public Context f59016a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f55328b;
+    public TbPageContext f59017b;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55332f;
+    public int f59021f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55333g;
+    public int f59022g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55334h;
+    public int f59023h;
     public PopupWindow j;
     public View k;
     public d.a.n0.h.b l;
@@ -77,16 +77,16 @@ public class i {
     public h y;
 
     /* renamed from: c  reason: collision with root package name */
-    public v0 f55329c = null;
+    public v0 f59018c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public SparseArray<String> f55330d = null;
+    public SparseArray<String> f59019d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b.C1356b> f55331e = new ArrayList();
+    public List<b.C1412b> f59020e = new ArrayList();
 
     /* renamed from: i  reason: collision with root package name */
-    public NEGFeedBackView.b f55335i = null;
+    public NEGFeedBackView.b f59024i = null;
     public PopupWindow o = null;
     public d.a.m0.r.f0.a z = null;
     public int A = 3;
@@ -103,16 +103,16 @@ public class i {
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            if (i.this.f55335i != null) {
-                i.this.f55335i.onCheckedChanged(i.this.f55329c, compoundButton, z);
+            if (i.this.f59024i != null) {
+                i.this.f59024i.onCheckedChanged(i.this.f59018c, compoundButton, z);
             }
-            if (compoundButton.getTag() instanceof b.C1356b) {
-                b.C1356b c1356b = (b.C1356b) compoundButton.getTag();
+            if (compoundButton.getTag() instanceof b.C1412b) {
+                b.C1412b c1412b = (b.C1412b) compoundButton.getTag();
                 if (z) {
-                    if (i.this.f55331e.contains(c1356b)) {
+                    if (i.this.f59020e.contains(c1412b)) {
                         return;
                     }
-                    i.this.f55331e.add(c1356b);
+                    i.this.f59020e.add(c1412b);
                     if (!i.this.D || i.this.r == null) {
                         return;
                     }
@@ -120,7 +120,7 @@ public class i {
                     d.a.m0.r.u.c.d(i.this.r).s(R.color.CAM_X0302);
                     return;
                 }
-                i.this.f55331e.remove(c1356b);
+                i.this.f59020e.remove(c1412b);
                 if (!i.this.D || i.this.r == null) {
                     return;
                 }
@@ -193,7 +193,7 @@ public class i {
                 i.this.t();
             } else if (u != null) {
                 i.this.E();
-                CustomMessage customMessage = new CustomMessage(2016489, i.this.f55328b.getUniqueId());
+                CustomMessage customMessage = new CustomMessage(2016489, i.this.f59017b.getUniqueId());
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, u);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -208,7 +208,7 @@ public class i {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(i.this.f55327a, i.this.B.b(), i.this.B.c(), i.this.B.a(), i.this.B.g(), ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(i.this.f59016a, i.this.B.b(), i.this.B.c(), i.this.B.a(), i.this.B.g(), ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS)));
             if (i.this.j != null) {
                 i.this.j.dismiss();
                 i.this.j = null;
@@ -238,9 +238,9 @@ public class i {
     }
 
     public i(TbPageContext tbPageContext, View view, d.a.n0.h.h hVar, UserData userData) {
-        this.f55327a = null;
-        this.f55327a = tbPageContext.getPageActivity();
-        this.f55328b = tbPageContext;
+        this.f59016a = null;
+        this.f59016a = tbPageContext.getPageActivity();
+        this.f59017b = tbPageContext;
         this.k = view;
         this.B = hVar;
         this.C = userData;
@@ -252,12 +252,12 @@ public class i {
         if (v0Var == null) {
             return;
         }
-        this.f55329c = v0Var;
+        this.f59018c = v0Var;
         SparseArray<String> b2 = v0Var.b();
-        this.f55330d = b2;
+        this.f59019d = b2;
         if (b2 != null && b2.size() > 8) {
-            for (int size = this.f55330d.size() - 1; size >= 8; size--) {
-                this.f55330d.removeAt(size);
+            for (int size = this.f59019d.size() - 1; size >= 8; size--) {
+                this.f59019d.removeAt(size);
             }
         }
         this.l.j(v0Var);
@@ -272,7 +272,7 @@ public class i {
     }
 
     public void D(String str) {
-        if (this.f55327a == null) {
+        if (this.f59016a == null) {
             return;
         }
         this.w = str;
@@ -286,26 +286,26 @@ public class i {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0205));
-        gradientDrawable.setCornerRadius(l.g(this.f55327a, R.dimen.tbds31));
+        gradientDrawable.setCornerRadius(l.g(this.f59016a, R.dimen.tbds31));
         v.setBackgroundDrawable(gradientDrawable);
         s();
-        this.f55332f = w();
-        PopupWindow popupWindow = new PopupWindow(v, this.f55333g, this.f55332f);
+        this.f59021f = w();
+        PopupWindow popupWindow = new PopupWindow(v, this.f59022g, this.f59021f);
         this.o = popupWindow;
         popupWindow.setFocusable(true);
         this.o.setTouchable(true);
         this.o.setOnDismissListener(this.I);
         z();
-        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f55327a).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f59016a).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
         this.j = popupWindow2;
         if (Build.VERSION.SDK_INT >= 22) {
             popupWindow2.setAttachedInDecor(false);
         }
         this.j.showAtLocation(this.k, 0, 0, 0);
         this.o.showAtLocation(this.k, 17, 0, 0);
-        NEGFeedBackView.b bVar = this.f55335i;
+        NEGFeedBackView.b bVar = this.f59024i;
         if (bVar != null) {
-            bVar.onNEGFeedbackWindowShow(this.f55329c);
+            bVar.onNEGFeedbackWindowShow(this.f59018c);
         }
         this.m = true;
         MessageManager.getInstance().registerListener(this.J);
@@ -313,7 +313,7 @@ public class i {
 
     public final void E() {
         if (this.z == null) {
-            this.z = new d.a.m0.r.f0.a(this.f55328b);
+            this.z = new d.a.m0.r.f0.a(this.f59017b);
         }
         this.z.i(R.string.loading);
         this.z.h(true);
@@ -336,7 +336,7 @@ public class i {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0205));
-            gradientDrawable.setCornerRadius(l.g(this.f55327a, R.dimen.tbds31));
+            gradientDrawable.setCornerRadius(l.g(this.f59016a, R.dimen.tbds31));
             this.p.setBackgroundDrawable(gradientDrawable);
             this.A = skinType;
         }
@@ -357,18 +357,18 @@ public class i {
 
     public final JSONObject u() {
         JSONObject jSONObject = new JSONObject();
-        if (this.f55329c == null) {
+        if (this.f59018c == null) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
         int i2 = 0;
-        if (!ListUtils.isEmpty(this.f55331e)) {
+        if (!ListUtils.isEmpty(this.f59020e)) {
             int i3 = 0;
-            while (i2 < this.f55331e.size()) {
-                b.C1356b c1356b = this.f55331e.get(i2);
-                if (c1356b != null) {
-                    jSONArray.put(String.valueOf(c1356b.f55277b));
-                    i3 = c1356b.f55276a + 1;
+            while (i2 < this.f59020e.size()) {
+                b.C1412b c1412b = this.f59020e.get(i2);
+                if (c1412b != null) {
+                    jSONArray.put(String.valueOf(c1412b.f58966b));
+                    i3 = c1412b.f58965a + 1;
                 }
                 i2++;
             }
@@ -381,9 +381,9 @@ public class i {
         }
         try {
             jSONObject.put("reason", jSONArray);
-            jSONObject.put("thread_ids", this.f55329c.f());
-            jSONObject.put("type", this.f55329c.a());
-            jSONObject.put("forum_id", this.f55329c.c());
+            jSONObject.put("thread_ids", this.f59018c.f());
+            jSONObject.put("type", this.f59018c.a());
+            jSONObject.put("forum_id", this.f59018c.c());
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -391,7 +391,7 @@ public class i {
     }
 
     public final View v() {
-        Context context = this.f55327a;
+        Context context = this.f59016a;
         if (context == null) {
             return null;
         }
@@ -416,7 +416,7 @@ public class i {
         this.v = (LinearLayout) this.p.findViewById(R.id.ueg_new_delete_thread_reason_view_container);
         View g2 = this.l.g();
         if (g2 != null && g2.getParent() == null) {
-            int g3 = l.g(this.f55327a, R.dimen.M_W_X009);
+            int g3 = l.g(this.f59016a, R.dimen.M_W_X009);
             g2.setPadding(g3, 0, g3, 0);
             this.v.addView(g2);
         }
@@ -427,14 +427,14 @@ public class i {
             this.u.setVisibility(0);
             if (1 == this.F) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) this.f55327a.getString(R.string.set_forum_rule_tip_manager));
+                spannableStringBuilder.append((CharSequence) this.f59016a.getString(R.string.set_forum_rule_tip_manager));
                 f fVar = new f();
                 this.G = fVar;
                 spannableStringBuilder.setSpan(fVar, 13, 17, 18);
                 this.u.setText(spannableStringBuilder);
                 this.u.setMovementMethod(LinkMovementMethod.getInstance());
             } else {
-                this.u.setText(this.f55327a.getString(R.string.set_forum_rule_tip_assist));
+                this.u.setText(this.f59016a.getString(R.string.set_forum_rule_tip_assist));
             }
         } else {
             this.u.setVisibility(8);
@@ -452,14 +452,14 @@ public class i {
         }
         viewGroup.measure(0, 0);
         int measuredHeight = this.p.getMeasuredHeight();
-        this.f55334h = measuredHeight;
+        this.f59023h = measuredHeight;
         return measuredHeight;
     }
 
     public final void x() {
-        this.n = l.g(this.f55327a, R.dimen.M_W_X009);
-        this.f55333g = l.k(this.f55327a) - (this.n * 2);
-        d.a.n0.h.b bVar = new d.a.n0.h.b(this.f55328b);
+        this.n = l.g(this.f59016a, R.dimen.M_W_X009);
+        this.f59022g = l.k(this.f59016a) - (this.n * 2);
+        d.a.n0.h.b bVar = new d.a.n0.h.b(this.f59017b);
         this.l = bVar;
         bVar.o(this.H);
         this.l.n(true);
@@ -490,8 +490,8 @@ public class i {
     }
 
     public final void z() {
-        if (this.m && this.f55331e.size() != 0) {
-            this.f55331e.clear();
+        if (this.m && this.f59020e.size() != 0) {
+            this.f59020e.clear();
         }
     }
 }

@@ -160,12 +160,6 @@ public class DownloadTask implements Serializable {
 
     private void notifyDownloadCompleted(com.kwai.filedownloader.a aVar) {
         if ((this.mNotificationVisibility & 2) != 0) {
-            e.a().c(this);
-        }
-    }
-
-    private void notifyDownloadError(com.kwai.filedownloader.a aVar) {
-        if ((this.mNotificationVisibility & 1) != 0) {
             e.a().b(this);
         }
     }
@@ -269,7 +263,7 @@ public class DownloadTask implements Serializable {
             for (c cVar : this.mDownloadListeners) {
                 cVar.a(this, th);
             }
-            notifyDownloadError(aVar);
+            notifyDownloadProgress(aVar, true);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

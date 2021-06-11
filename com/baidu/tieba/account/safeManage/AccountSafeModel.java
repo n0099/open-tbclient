@@ -9,21 +9,48 @@ import tbclient.SimpleUser;
 public class AccountSafeModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13463e;
+    public boolean f13528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f13464f;
+    public a f13529f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13465g;
+    public String f13530g;
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.f13463e = false;
+        this.f13528e = false;
     }
 
-    public void A(boolean z) {
-        this.f13463e = z;
+    public boolean A() {
+        return this.f13528e;
+    }
+
+    public final void B() {
+        SimpleUser z = z();
+        if (z != null) {
+            String str = z.secureemail;
+            String str2 = z.securemobil;
+            this.f13530g = z.ahead_url;
+        }
+    }
+
+    public boolean C() {
+        if (this.f13528e) {
+            return false;
+        }
+        this.f13528e = true;
+        sendMessage(w());
+        return true;
+    }
+
+    public void D(a aVar) {
+        this.f13529f = aVar;
+        B();
+    }
+
+    public void E(boolean z) {
+        this.f13528e = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -33,54 +60,27 @@ public class AccountSafeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.f13463e = false;
+        this.f13528e = false;
         return false;
     }
 
-    public final PrivateInfoNetMessage s() {
+    public final PrivateInfoNetMessage w() {
         return new PrivateInfoNetMessage();
     }
 
-    public a t() {
-        return this.f13464f;
+    public a x() {
+        return this.f13529f;
     }
 
-    public String u() {
-        return this.f13465g;
+    public String y() {
+        return this.f13530g;
     }
 
-    public final SimpleUser v() {
-        a aVar = this.f13464f;
+    public final SimpleUser z() {
+        a aVar = this.f13529f;
         if (aVar == null || aVar.f() == null) {
             return null;
         }
-        return this.f13464f.f();
-    }
-
-    public boolean w() {
-        return this.f13463e;
-    }
-
-    public final void x() {
-        SimpleUser v = v();
-        if (v != null) {
-            String str = v.secureemail;
-            String str2 = v.securemobil;
-            this.f13465g = v.ahead_url;
-        }
-    }
-
-    public boolean y() {
-        if (this.f13463e) {
-            return false;
-        }
-        this.f13463e = true;
-        sendMessage(s());
-        return true;
-    }
-
-    public void z(a aVar) {
-        this.f13464f = aVar;
-        x();
+        return this.f13529f.f();
     }
 }

@@ -13,13 +13,13 @@ import java.util.LinkedList;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f54492a;
+    public static String f58181a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SQLiteDatabase f54493b;
+    public static volatile SQLiteDatabase f58182b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, SQLiteDatabase> f54494c = new HashMap<>();
+    public static HashMap<String, SQLiteDatabase> f58183c = new HashMap<>();
 
     public static void a(String str) {
         try {
@@ -84,18 +84,18 @@ public class g {
                 return null;
             }
             String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-            if (f54494c.containsKey(str)) {
-                return f54494c.get(str);
-            } else if (f54493b != null && str.equals(f54492a) && f54493b.isOpen()) {
-                return f54493b;
+            if (f58183c.containsKey(str)) {
+                return f58183c.get(str);
+            } else if (f58182b != null && str.equals(f58181a) && f58182b.isOpen()) {
+                return f58182b;
             } else {
-                if (f54493b != null) {
-                    d.a.c.e.p.m.b(f54493b);
+                if (f58182b != null) {
+                    d.a.c.e.p.m.b(f58182b);
                 }
                 f fVar = new f(TbadkCoreApplication.getInst().getApp(), str);
-                f54492a = str;
-                f54493b = fVar.getWritableDatabase();
-                return f54493b;
+                f58181a = str;
+                f58182b = fVar.getWritableDatabase();
+                return f58182b;
             }
         }
     }

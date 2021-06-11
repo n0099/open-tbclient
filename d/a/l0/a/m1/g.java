@@ -15,19 +15,19 @@ import d.a.l0.a.j2.k;
 public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f43475d = d.a.l0.a.a2.e.y;
+    public static final boolean f47151d = d.a.l0.a.a2.e.y;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile g f43476e;
+    public static volatile g f47152e;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f43477a;
+    public boolean f47153a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43478b = false;
+    public boolean f47154b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.l0.a.m1.a f43479c = new b();
+    public d.a.l0.a.m1.a f47155c = new b();
 
     /* loaded from: classes3.dex */
     public class a implements Action<d.a.l0.a.z1.b.b.a> {
@@ -52,19 +52,19 @@ public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
 
     @NonNull
     public static g f() {
-        if (f43476e == null) {
+        if (f47152e == null) {
             synchronized (g.class) {
-                if (f43476e == null) {
-                    f43476e = new g();
+                if (f47152e == null) {
+                    f47152e = new g();
                 }
             }
         }
-        return f43476e;
+        return f47152e;
     }
 
     @Override // d.a.l0.a.h0.j.e
     public void a(d.a.l0.a.p.e.e eVar) {
-        if (f43475d) {
+        if (f47151d) {
             Log.d("SwanAppPageMonitor", "webview insert event");
         }
         h(new d.a.l0.a.m1.h.e(eVar, true));
@@ -72,14 +72,14 @@ public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
 
     @Override // d.a.l0.a.h0.j.e
     public void b(d.a.l0.a.p.e.e eVar) {
-        if (f43475d) {
+        if (f47151d) {
             Log.d("SwanAppPageMonitor", "webview remove event");
         }
         h(new d.a.l0.a.m1.h.e(eVar, false));
     }
 
     public int e() {
-        return ((b) this.f43479c).d();
+        return ((b) this.f47155c).d();
     }
 
     public final boolean g() {
@@ -88,7 +88,7 @@ public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
     }
 
     public final void h(d.a.l0.a.m1.h.c cVar) {
-        this.f43479c.a(cVar);
+        this.f47155c.a(cVar);
     }
 
     public void i() {
@@ -96,7 +96,7 @@ public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
     }
 
     public void j(boolean z) {
-        if (f43475d) {
+        if (f47151d) {
             StringBuilder sb = new StringBuilder();
             sb.append("change to ");
             sb.append(z ? NotificationCompat.WearableExtender.KEY_BACKGROUND : Constant.FOREGROUND);
@@ -106,7 +106,7 @@ public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
     }
 
     public void k(boolean z) {
-        if (h.f43129e) {
+        if (h.f46805e) {
             if (z) {
                 m();
             } else {
@@ -116,28 +116,28 @@ public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
     }
 
     public final void l() {
-        this.f43478b = true;
+        this.f47154b = true;
         h(new d.a.l0.a.m1.h.c(12, null, 0L, false));
-        if (f43475d) {
+        if (f47151d) {
             Log.d("SwanAPPPageMonitor-Route", "**************** page onPause cancel route monitor");
         }
     }
 
     public final void m() {
-        if (this.f43478b) {
+        if (this.f47154b) {
             h(new d.a.l0.a.m1.h.c(13, null, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL, false));
-            if (f43475d) {
+            if (f47151d) {
                 Log.d("SwanAPPPageMonitor-Route", "**************** page onResume start route monitor, time=" + PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
             }
         }
     }
 
     public void n(boolean z) {
-        this.f43477a = z;
+        this.f47153a = z;
         if (z) {
             f.k();
             d.a.l0.a.j2.e.z();
-            this.f43478b = false;
+            this.f47154b = false;
         }
     }
 
@@ -145,12 +145,12 @@ public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
         d.a.l0.a.m1.h.c cVar;
         b.a L;
         long o = d.a.l0.a.c1.a.Z().o();
-        if (f43475d) {
+        if (f47151d) {
             Log.d("SwanAppPageMonitor", "start page monitoring, delay: " + o);
         }
-        if (this.f43477a) {
+        if (this.f47153a) {
             boolean g2 = g();
-            if (f43475d) {
+            if (f47151d) {
                 Log.d("SwanAppPageMonitor", "WhiteScreenForward: switch=" + g2);
             }
             SwanAppActivity activity = d.a.l0.a.g1.f.V().getActivity();
@@ -158,7 +158,7 @@ public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
                 long currentTimeMillis = System.currentTimeMillis() - L.N();
                 o -= currentTimeMillis;
                 if (o < 0) {
-                    if (f43475d) {
+                    if (f47151d) {
                         Log.d("SwanAppPageMonitor", "WhiteScreenMonitor out of time: time=" + currentTimeMillis);
                     }
                     d.a.l0.a.q2.a aVar = new d.a.l0.a.q2.a();
@@ -173,18 +173,18 @@ public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
                 }
             }
             cVar = new d.a.l0.a.m1.h.c(1, null, o, true);
-            this.f43477a = false;
-            this.f43478b = false;
-            if (h.f43129e) {
+            this.f47153a = false;
+            this.f47154b = false;
+            if (h.f46805e) {
                 h(cVar);
             }
         } else {
             cVar = null;
         }
-        if (f43475d) {
+        if (f47151d) {
             Log.d("SwanAppPageMonitor", "WhiteScreenMonitor monitortime: " + o);
         }
-        if (h.f43129e) {
+        if (h.f46805e) {
             return;
         }
         if (cVar == null) {
@@ -206,7 +206,7 @@ public class g implements d.a.l0.a.h0.j.c, d.a.l0.a.h0.j.e {
     }
 
     public void q() {
-        if (f43475d) {
+        if (f47151d) {
             Log.d("SwanAppPageMonitor", "stop page monitoring");
         }
         h(new d.a.l0.a.m1.h.c(7));

@@ -5,22 +5,22 @@ import android.text.TextUtils;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65738a;
+    public final String f69469a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f65739b;
+    public final String f69470b;
 
     public a(String str, String str2) {
-        this.f65738a = str;
-        this.f65739b = str2;
+        this.f69469a = str;
+        this.f69470b = str2;
     }
 
     public final String a() {
-        return this.f65738a;
+        return this.f69469a;
     }
 
     public final String b() {
-        return this.f65739b;
+        return this.f69470b;
     }
 
     public boolean equals(Object obj) {
@@ -31,14 +31,14 @@ public final class a {
             return false;
         }
         a aVar = (a) obj;
-        return TextUtils.equals(this.f65738a, aVar.f65738a) && TextUtils.equals(this.f65739b, aVar.f65739b);
+        return TextUtils.equals(this.f69469a, aVar.f69469a) && TextUtils.equals(this.f69470b, aVar.f69470b);
     }
 
     public int hashCode() {
-        return (this.f65738a.hashCode() * 31) + this.f65739b.hashCode();
+        return (this.f69469a.hashCode() * 31) + this.f69470b.hashCode();
     }
 
     public String toString() {
-        return "Header[name=" + this.f65738a + ",value=" + this.f65739b + "]";
+        return "Header[name=" + this.f69469a + ",value=" + this.f69470b + "]";
     }
 }

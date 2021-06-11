@@ -2,7 +2,7 @@ package org.apache.commons.codec.digest4util;
 
 import androidx.core.view.ViewCompat;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class B64 {
     public static final String B64T = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 

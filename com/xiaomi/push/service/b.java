@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference;
 public class b extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ie f38092a;
+    public ie f41771a;
 
     /* renamed from: a  reason: collision with other field name */
     public WeakReference<XMPushService> f917a;
@@ -20,14 +20,14 @@ public class b extends ai.a {
 
     public b(ie ieVar, WeakReference<XMPushService> weakReference, boolean z) {
         this.f918a = false;
-        this.f38092a = ieVar;
+        this.f41771a = ieVar;
         this.f917a = weakReference;
         this.f918a = z;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo171a() {
+    public String mo170a() {
         return Constants.VIA_REPORT_TYPE_DATALINE;
     }
 
@@ -35,15 +35,15 @@ public class b extends ai.a {
     public void run() {
         XMPushService xMPushService;
         WeakReference<XMPushService> weakReference = this.f917a;
-        if (weakReference == null || this.f38092a == null || (xMPushService = weakReference.get()) == null) {
+        if (weakReference == null || this.f41771a == null || (xMPushService = weakReference.get()) == null) {
             return;
         }
-        this.f38092a.a(at.a());
-        this.f38092a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f38092a.m452a());
+        this.f41771a.a(at.a());
+        this.f41771a.a(false);
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f41771a.m451a());
         try {
-            String c2 = this.f38092a.c();
-            xMPushService.a(c2, ip.a(y.a(c2, this.f38092a.b(), this.f38092a, hf.Notification)), this.f918a);
+            String c2 = this.f41771a.c();
+            xMPushService.a(c2, ip.a(y.a(c2, this.f41771a.b(), this.f41771a, hf.Notification)), this.f918a);
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e2.toString());
         }

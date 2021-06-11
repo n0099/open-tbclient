@@ -37,16 +37,16 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCard f17961e;
+        public final /* synthetic */ SingleLineCard f18037e;
 
         public a(SingleLineCard singleLineCard) {
-            this.f17961e = singleLineCard;
+            this.f18037e = singleLineCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            i.e(this.f17961e).d(TiebaStatic.Params.OBJ_URL, this.f17961e.getScheme()).b("obj_locate", SingleLineCardView.this.getStatPosition()).a(this.f17961e);
-            v.c(SingleLineCardView.this.m, this.f17961e.getScheme());
+            i.e(this.f18037e).d(TiebaStatic.Params.OBJ_URL, this.f18037e.getScheme()).b("obj_locate", SingleLineCardView.this.getStatPosition()).a(this.f18037e);
+            v.c(SingleLineCardView.this.m, this.f18037e.getScheme());
         }
     }
 
@@ -160,7 +160,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
             this.t.setVisibility(0);
             if (!TextUtils.isEmpty(I(singleLineCard))) {
                 this.t.setImageDrawable(null);
-                this.t.V(I(singleLineCard), 10, false);
+                this.t.U(I(singleLineCard), 10, false);
             } else if (!TextUtils.isEmpty(singleLineCard.getIconTitle())) {
                 this.t.setVisibility(8);
                 setPrefixTitle(singleLineCard);

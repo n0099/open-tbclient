@@ -3,20 +3,20 @@ package d.a.l0.a.h0.g;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42020a = -1;
+    public static int f45696a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.a.l0.a.k2.g.g f42021b;
+    public static d.a.l0.a.k2.g.g f45697b;
 
     public static d.a.l0.a.k2.g.g a() {
-        if (f42021b == null) {
+        if (f45697b == null) {
             synchronized (b.class) {
-                if (f42021b == null) {
-                    f42021b = new d.a.l0.a.k2.g.g("swan_about_page_sp", true);
+                if (f45697b == null) {
+                    f45697b = new d.a.l0.a.k2.g.g("swan_about_page_sp", true);
                 }
             }
         }
-        return f42021b;
+        return f45697b;
     }
 
     public static String b() {
@@ -31,9 +31,9 @@ public class b {
     }
 
     public static boolean c() {
-        if (f42020a == -1) {
-            f42020a = a().getInt(b(), 0);
+        if (f45696a == -1) {
+            f45696a = a().getInt(b(), 0);
         }
-        return f42020a == 1;
+        return f45696a == 1;
     }
 }

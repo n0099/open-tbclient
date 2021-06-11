@@ -20,13 +20,13 @@ import org.json.JSONObject;
 public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
 
     /* renamed from: g  reason: collision with root package name */
-    public final Map<String, String> f41755g = new HashMap();
+    public final Map<String, String> f45431g = new HashMap();
 
     /* renamed from: h  reason: collision with root package name */
-    public String f41756h;
+    public String f45432h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONObject f41757i;
+    public JSONObject f45433i;
     public boolean j;
     public boolean k;
     public String l;
@@ -38,7 +38,7 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.a.l0.a.e2.c.c.f41674f) {
+            if (d.a.l0.a.e2.c.c.f45350f) {
                 Log.d("OAuthRequest", "OAuthRequest.onExec in thread pool");
             }
             h.this.E();
@@ -49,18 +49,18 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
     public class b extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HttpRequest f41759a;
+        public final /* synthetic */ HttpRequest f45435a;
 
         public b(HttpRequest httpRequest) {
-            this.f41759a = httpRequest;
+            this.f45435a = httpRequest;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             if (h.this.F()) {
-                h.this.O(this.f41759a);
+                h.this.O(this.f45435a);
             } else {
-                h.this.I(this.f41759a, exc);
+                h.this.I(this.f45435a, exc);
             }
         }
 
@@ -79,16 +79,16 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
     public class c extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HttpRequest f41761a;
+        public final /* synthetic */ HttpRequest f45437a;
 
         public c(HttpRequest httpRequest) {
-            this.f41761a = httpRequest;
+            this.f45437a = httpRequest;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             d.a.l0.a.e0.d.g("OAuthRequest", "retryRequest fail: ");
-            h.this.I(this.f41761a, exc);
+            h.this.I(this.f45437a, exc);
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -107,10 +107,10 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
     public class d implements d.a.l0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41763e;
+        public final /* synthetic */ String f45439e;
 
         public d(String str) {
-            this.f41763e = str;
+            this.f45439e = str;
         }
 
         @Override // d.a.l0.a.m.a
@@ -120,7 +120,7 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
                 h.this.a();
                 return;
             }
-            h.this.D(null, this.f41763e);
+            h.this.D(null, this.f45439e);
         }
     }
 
@@ -131,15 +131,15 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
     }
 
     public Map<String, String> C() {
-        return this.f41755g;
+        return this.f45431g;
     }
 
     public void D(Response response, String str) {
         int optInt;
-        this.f41756h = str;
+        this.f45432h = str;
         try {
-            JSONObject jSONObject = new JSONObject(this.f41756h);
-            this.f41757i = jSONObject;
+            JSONObject jSONObject = new JSONObject(this.f45432h);
+            this.f45433i = jSONObject;
             optInt = jSONObject.optInt("errno");
         } catch (OAuthException e2) {
             H(e2.mErrorCode, str, response);
@@ -154,22 +154,22 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
         if ((this.j && optInt == 402) || (this.k && optInt == 401)) {
             this.j = false;
             this.k = false;
-            if (d.a.l0.a.s.a.f.f44582d.f()) {
-                d.a.l0.a.s.a.f.f44582d.b();
+            if (d.a.l0.a.s.a.f.f48256d.f()) {
+                d.a.l0.a.s.a.f.f48256d.b();
             }
             P(str);
         } else if (G(optInt)) {
-            if (d.a.l0.a.s.a.f.f44582d.f()) {
-                d.a.l0.a.s.a.f.f44582d.b();
+            if (d.a.l0.a.s.a.f.f48256d.f()) {
+                d.a.l0.a.s.a.f.f48256d.b();
                 P(str);
-            } else if (d.a.l0.a.e2.c.c.f41674f) {
+            } else if (d.a.l0.a.e2.c.c.f45350f) {
                 throw new RuntimeException("is not AllianceLogin, error number");
             }
         } else {
             if (response != null && optInt != 0) {
                 H(optInt, str, response);
             }
-            s(n(this.f41757i));
+            s(n(this.f45433i));
             J();
             d();
         }
@@ -222,7 +222,7 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
         try {
             D(response, body.string());
         } catch (IOException e2) {
-            if (d.a.l0.a.e2.c.c.f41674f) {
+            if (d.a.l0.a.e2.c.c.f45350f) {
                 e2.printStackTrace();
             }
         }
@@ -232,7 +232,7 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
     }
 
     public final void M(String str, Exception exc) {
-        if (this.f41757i == null) {
+        if (this.f45433i == null) {
             d.a.l0.a.e2.c.d.s("OAuthRequest", "ex: " + exc.toString() + " ,strResponse: " + str);
             return;
         }
@@ -243,7 +243,7 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
     public d.a.l0.a.a2.e N() {
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
         if (i2 == null) {
-            if (!d.a.l0.a.e2.c.c.f41674f) {
+            if (!d.a.l0.a.e2.c.c.f45350f) {
                 return d.a.l0.a.a2.d.g().r();
             }
             throw new IllegalStateException("null SwanApp");
@@ -278,12 +278,12 @@ public abstract class h<ResultDataT> extends d.a.l0.a.e2.c.c<ResultDataT> {
     }
 
     public String toString() {
-        i<ResultDataT> iVar = this.f41675a;
-        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), f(), Integer.valueOf(this.f41675a.b()), this.f41756h, this.f41757i, iVar.f41736a, iVar.a());
+        i<ResultDataT> iVar = this.f45351a;
+        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), f(), Integer.valueOf(this.f45351a.b()), this.f45432h, this.f45433i, iVar.f45412a, iVar.a());
     }
 
     public h<ResultDataT> w(String str, String str2) {
-        this.f41755g.put(str, str2);
+        this.f45431g.put(str, str2);
         return this;
     }
 

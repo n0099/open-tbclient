@@ -1,250 +1,162 @@
 package d.a.n0.r3.l;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.swan.nalib.audio.SwanAudioPlayer;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
+import android.app.Activity;
+import android.content.pm.FeatureInfo;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
+import android.os.Build;
+import com.baidu.sapi2.activity.IdCardOcrCameraActivity;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class a extends d {
+public class a {
 
-    /* renamed from: d  reason: collision with root package name */
-    public long f60205d;
+    /* loaded from: classes5.dex */
+    public static class b implements Comparator<Camera.Size> {
+        public b() {
+        }
 
-    public a(String str) {
-        super(str);
-        this.f60205d = 88200L;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:102:0x016c A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00d7 A[Catch: all -> 0x01a3, Exception -> 0x01a6, TryCatch #8 {Exception -> 0x01a6, all -> 0x01a3, blocks: (B:11:0x002a, B:15:0x0057, B:17:0x005d, B:19:0x0069, B:22:0x006e, B:27:0x007e, B:31:0x00d1, B:33:0x00d7, B:35:0x00dd, B:36:0x00e9, B:38:0x00ed, B:40:0x011f, B:41:0x0154, B:42:0x0159, B:47:0x0170, B:50:0x0178, B:28:0x009c, B:52:0x0197), top: B:96:0x002a }] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x01d8 A[Catch: Exception -> 0x01d4, TRY_LEAVE, TryCatch #8 {Exception -> 0x01d4, blocks: (B:82:0x01d0, B:86:0x01d8), top: B:93:0x01d0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x01d0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // d.a.n0.r3.l.d
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(String str) {
-        Throwable th;
-        FileOutputStream fileOutputStream;
-        ByteBuffer[] byteBufferArr;
-        long j;
-        int dequeueOutputBuffer;
-        int dequeueInputBuffer;
-        boolean z;
-        int i2;
-        a aVar = this;
-        FileInputStream fileInputStream = null;
-        try {
-            try {
-                if (aVar.f60210b == 0) {
-                    aVar.f60210b = 48000;
-                }
-                if (aVar.f60211c == 0) {
-                    aVar.f60211c = 1;
-                }
-                aVar.f60205d = (aVar.f60210b * 16) / 8;
-                FileInputStream fileInputStream2 = new FileInputStream(aVar.f60209a);
-                try {
-                    fileOutputStream = new FileOutputStream(str);
-                    try {
-                        MediaCodec f2 = f();
-                        f2.start();
-                        ByteBuffer[] inputBuffers = f2.getInputBuffers();
-                        ByteBuffer[] outputBuffers = f2.getOutputBuffers();
-                        MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                        byte[] bArr = new byte[4096];
-                        ByteBuffer[] byteBufferArr2 = outputBuffers;
-                        long j2 = 0;
-                        long j3 = 0;
-                        boolean z2 = false;
-                        int i3 = 0;
-                        boolean z3 = false;
-                        boolean z4 = false;
-                        int i4 = 0;
-                        while (!z3) {
-                            if (z4 || (dequeueInputBuffer = f2.dequeueInputBuffer(10000L)) < 0) {
-                                byteBufferArr = inputBuffers;
-                            } else {
-                                ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
-                                byteBuffer.clear();
-                                int remaining = byteBuffer.remaining();
-                                if (remaining != bArr.length) {
-                                    bArr = new byte[remaining];
-                                }
-                                byte[] bArr2 = bArr;
-                                if (z2 || (i3 = fileInputStream2.read(bArr2)) != -1) {
-                                    z = z2;
-                                    i2 = i3;
-                                } else {
-                                    i2 = i3;
-                                    z = true;
-                                }
-                                if (z) {
-                                    f2.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                    byteBufferArr = inputBuffers;
-                                    i3 = i2;
-                                    bArr = bArr2;
-                                    z2 = z;
-                                    j = 10000;
-                                    z4 = true;
-                                    dequeueOutputBuffer = f2.dequeueOutputBuffer(bufferInfo, j);
-                                    if (dequeueOutputBuffer < 0) {
-                                        if ((bufferInfo.flags & 2) != 0) {
-                                            BdLog.i("audio encoder: codec config buffer");
-                                            f2.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                        } else {
-                                            if (bufferInfo.size != 0) {
-                                                ByteBuffer byteBuffer2 = byteBufferArr2[dequeueOutputBuffer];
-                                                byteBuffer2.position(bufferInfo.offset);
-                                                byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
-                                                BdLog.i(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
-                                                if (j2 < bufferInfo.presentationTimeUs) {
-                                                    long j4 = bufferInfo.presentationTimeUs;
-                                                    int i5 = bufferInfo.size;
-                                                    int i6 = i5 + 7;
-                                                    byteBuffer2.position(bufferInfo.offset);
-                                                    byteBuffer2.limit(bufferInfo.offset + i5);
-                                                    byte[] bArr3 = new byte[i6];
-                                                    aVar.e(bArr3, i6);
-                                                    byteBuffer2.get(bArr3, 7, i5);
-                                                    fileOutputStream.write(bArr3, 0, i6);
-                                                    BdLog.i(i6 + " bytes written.");
-                                                    j2 = j4;
-                                                } else {
-                                                    BdLog.i("error sample! its presentationTimeUs should not lower than before.");
-                                                }
-                                            }
-                                            f2.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                            if ((bufferInfo.flags & 4) != 0) {
-                                                aVar = this;
-                                                inputBuffers = byteBufferArr;
-                                                z3 = true;
-                                            }
-                                        }
-                                    } else if (dequeueOutputBuffer == -3) {
-                                        byteBufferArr2 = f2.getOutputBuffers();
-                                    } else if (dequeueOutputBuffer == -2) {
-                                        BdLog.i("format change : " + f2.getOutputFormat());
-                                    }
-                                    aVar = this;
-                                    inputBuffers = byteBufferArr;
-                                } else {
-                                    int i7 = i2;
-                                    byteBuffer.put(bArr2, 0, i7);
-                                    int i8 = i4 + i7;
-                                    byteBufferArr = inputBuffers;
-                                    f2.queueInputBuffer(dequeueInputBuffer, 0, i7, j3, 0);
-                                    i4 = i8;
-                                    i3 = i7;
-                                    j3 = (long) (((i8 / 2.0d) * 1000000.0d) / aVar.f60205d);
-                                    bArr = bArr2;
-                                    z2 = z;
-                                }
-                            }
-                            j = 10000;
-                            dequeueOutputBuffer = f2.dequeueOutputBuffer(bufferInfo, j);
-                            if (dequeueOutputBuffer < 0) {
-                            }
-                            aVar = this;
-                            inputBuffers = byteBufferArr;
-                        }
-                        BdLog.i("acc encode done");
-                        fileInputStream2.close();
-                        fileOutputStream.close();
-                    } catch (Exception e2) {
-                        e = e2;
-                        fileInputStream = fileInputStream2;
-                        try {
-                            e.printStackTrace();
-                            if (fileInputStream != null) {
-                                fileInputStream.close();
-                            }
-                            if (fileOutputStream != null) {
-                                fileOutputStream.close();
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e3) {
-                                    e3.printStackTrace();
-                                    throw th;
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                fileOutputStream.close();
-                            }
-                            throw th;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        fileInputStream = fileInputStream2;
-                        if (fileInputStream != null) {
-                        }
-                        if (fileOutputStream != null) {
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    fileOutputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    fileOutputStream = null;
-                }
-            } catch (Exception e5) {
-                e5.printStackTrace();
-            }
-        } catch (Exception e6) {
-            e = e6;
-            fileOutputStream = null;
-        } catch (Throwable th5) {
-            th = th5;
-            fileOutputStream = null;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Camera.Size size, Camera.Size size2) {
+            int i2 = size.width;
+            int i3 = size2.width;
+            return i2 != i3 ? i2 - i3 : size.height - size2.height;
         }
     }
 
-    public final void e(byte[] bArr, int i2) {
-        int[] iArr = {96000, 88200, 64000, 48000, SwanAudioPlayer.DEFAULT_SAMPLE_RATE, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
-        int i3 = 0;
-        while (true) {
-            if (i3 >= 13) {
-                i3 = 4;
-                break;
-            } else if (iArr[i3] == this.f60210b) {
-                break;
-            } else {
-                i3++;
-            }
-        }
-        bArr[0] = -1;
-        bArr[1] = -7;
-        bArr[2] = (byte) (64 + (i3 << 2) + 0);
-        bArr[3] = (byte) (128 + (i2 >> 11));
-        bArr[4] = (byte) ((i2 & 2047) >> 3);
-        bArr[5] = (byte) (((i2 & 7) << 5) + 31);
-        bArr[6] = -4;
+    public static int a(int i2, int i3, int i4) {
+        return i2 > i4 ? i4 : i2 < i3 ? i3 : i2;
     }
 
-    @TargetApi(16)
-    public final MediaCodec f() throws IOException {
-        MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
-        MediaFormat mediaFormat = new MediaFormat();
-        mediaFormat.setString("mime", "audio/mp4a-latm");
-        mediaFormat.setInteger("bitrate", 128000);
-        mediaFormat.setInteger("channel-count", this.f60211c);
-        mediaFormat.setInteger("sample-rate", this.f60210b);
-        mediaFormat.setInteger("aac-profile", 2);
-        createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-        return createEncoderByType;
+    public static int b(Activity activity, int i2) {
+        if (Build.VERSION.SDK_INT > 8) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i2, cameraInfo);
+            int e2 = e(activity);
+            if (cameraInfo.facing == 1) {
+                return (360 - ((cameraInfo.orientation + e2) % 360)) % 360;
+            }
+            return ((cameraInfo.orientation - e2) + 360) % 360;
+        }
+        return 0;
+    }
+
+    public static int c(boolean z) {
+        int numberOfCameras = Camera.getNumberOfCameras();
+        Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
+        for (int i2 = 0; i2 < numberOfCameras; i2++) {
+            cameraInfoArr[i2] = new Camera.CameraInfo();
+            Camera.getCameraInfo(i2, cameraInfoArr[i2]);
+        }
+        int i3 = -1;
+        int i4 = -1;
+        for (int i5 = 0; i5 < numberOfCameras; i5++) {
+            if (i4 == -1 && cameraInfoArr[i5].facing == 0) {
+                i4 = i5;
+            } else if (i3 == -1 && cameraInfoArr[i5].facing == 1) {
+                i3 = i5;
+            }
+        }
+        if (i3 == -1 || !z) {
+            if (i4 == -1 || z) {
+                if (z && i3 == -1) {
+                    return i4;
+                }
+                if (i3 != -1) {
+                    return i3;
+                }
+                if (i4 != -1) {
+                    return i4;
+                }
+                return -1;
+            }
+            return i4;
+        }
+        return i3;
+    }
+
+    public static Camera.Size d(Camera camera, int i2, int i3) {
+        List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
+        Camera.Size size = null;
+        Collections.sort(supportedPreviewSizes, new b());
+        if (supportedPreviewSizes != null && supportedPreviewSizes.size() > 0) {
+            boolean z = false;
+            Iterator<Camera.Size> it = supportedPreviewSizes.iterator();
+            int i4 = -1;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                Camera.Size next = it.next();
+                i4++;
+                if (next != null && next.width >= i3 && next.height >= i2) {
+                    size = next;
+                    z = true;
+                    break;
+                }
+            }
+            if (!z) {
+                i4 = supportedPreviewSizes.size() - 1;
+                size = supportedPreviewSizes.get(i4);
+            }
+            int i5 = ((int) (((float) IdCardOcrCameraActivity.G) * ((i3 * 1.0f) / i2))) * IdCardOcrCameraActivity.G;
+            while (size.width * size.height > i5 && i4 > 0) {
+                i4--;
+                size = supportedPreviewSizes.get(i4);
+            }
+        }
+        return size;
+    }
+
+    public static int e(Activity activity) {
+        int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+        if (rotation != 0) {
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    return rotation != 3 ? 0 : 270;
+                }
+                return 180;
+            }
+            return 90;
+        }
+        return 0;
+    }
+
+    public static boolean f(boolean z) {
+        int numberOfCameras = Camera.getNumberOfCameras();
+        Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
+        for (int i2 = 0; i2 < numberOfCameras; i2++) {
+            cameraInfoArr[i2] = new Camera.CameraInfo();
+            Camera.getCameraInfo(i2, cameraInfoArr[i2]);
+        }
+        int i3 = -1;
+        int i4 = -1;
+        for (int i5 = 0; i5 < numberOfCameras; i5++) {
+            if (i4 == -1 && cameraInfoArr[i5].facing == 0) {
+                i4 = i5;
+            } else if (i3 == -1 && cameraInfoArr[i5].facing == 1) {
+                i3 = i5;
+            }
+        }
+        if (i3 == -1 || !z) {
+            return (i4 == -1 || z) ? false : true;
+        }
+        return true;
+    }
+
+    public static boolean g(PackageManager packageManager) {
+        FeatureInfo[] systemAvailableFeatures;
+        if (packageManager != null && (systemAvailableFeatures = packageManager.getSystemAvailableFeatures()) != null) {
+            for (FeatureInfo featureInfo : systemAvailableFeatures) {
+                if (featureInfo != null && "android.hardware.camera.flash".equals(featureInfo.name)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

@@ -3,7 +3,7 @@ package g.b.a;
 import java.io.IOException;
 import java.io.InputStream;
 import org.brotli.dec.BrotliRuntimeException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public byte[] A;
     public int B;
@@ -29,19 +29,19 @@ public final class j {
     public byte[] Z;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68348b;
+    public int f71604b;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f68350d;
+    public byte[] f71606d;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f68353g;
+    public int f71609g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f68354h;
+    public boolean f71610h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f68355i;
+    public boolean f71611i;
     public boolean j;
     public int w;
     public int x;
@@ -49,16 +49,16 @@ public final class j {
     public byte[] z;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68347a = 0;
+    public int f71603a = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f68349c = new a();
+    public final a f71605c = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f68351e = new int[3240];
+    public final int[] f71607e = new int[3240];
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f68352f = new int[3240];
+    public final int[] f71608f = new int[3240];
     public final g k = new g();
     public final g l = new g();
     public final g m = new g();
@@ -77,15 +77,15 @@ public final class j {
     public int T = 0;
 
     public static void a(j jVar) throws IOException {
-        int i2 = jVar.f68347a;
+        int i2 = jVar.f71603a;
         if (i2 == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
         if (i2 == 11) {
             return;
         }
-        jVar.f68347a = 11;
-        a.b(jVar.f68349c);
+        jVar.f71603a = 11;
+        a.b(jVar.f71605c);
     }
 
     public static int b(a aVar) {
@@ -104,14 +104,14 @@ public final class j {
     }
 
     public static void c(j jVar, InputStream inputStream) {
-        if (jVar.f68347a == 0) {
-            a.e(jVar.f68349c, inputStream);
-            int b2 = b(jVar.f68349c);
+        if (jVar.f71603a == 0) {
+            a.e(jVar.f71605c, inputStream);
+            int b2 = b(jVar.f71605c);
             if (b2 != 9) {
                 int i2 = 1 << b2;
                 jVar.P = i2;
                 jVar.O = i2 - 16;
-                jVar.f68347a = 1;
+                jVar.f71603a = 1;
                 return;
             }
             throw new BrotliRuntimeException("Invalid 'windowBits' code");

@@ -30,23 +30,23 @@ import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.constant.PersonStatus;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class f extends d.a.n0.j2.d.e {
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f56326f;
+    public TbPageContext f60015f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoDataView f56327g;
+    public NoDataView f60016g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f56328h;
+    public View f60017h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.m0.d0.h f56329i;
+    public d.a.m0.d0.h f60018i;
     public e j;
     public PbListView k;
     public NoNetworkView l;
@@ -67,8 +67,8 @@ public class f extends d.a.n0.j2.d.e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.eventStat(f.this.f56326f.getPageActivity(), "notlogin_10", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-            ViewHelper.skipToLoginActivity(f.this.f56326f.getPageActivity());
+            TiebaStatic.eventStat(f.this.f60015f.getPageActivity(), "notlogin_10", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+            ViewHelper.skipToLoginActivity(f.this.f60015f.getPageActivity());
         }
     }
 
@@ -96,7 +96,7 @@ public class f extends d.a.n0.j2.d.e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(f.this.f56326f.getPageActivity(), null, d.a.n0.e2.c.a(), true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(f.this.f60015f.getPageActivity(), null, d.a.n0.e2.c.a(), true)));
         }
     }
 
@@ -104,26 +104,26 @@ public class f extends d.a.n0.j2.d.e {
     public static class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.a.n0.j2.f.b f56333e = new d.a.n0.j2.f.b();
+        public d.a.n0.j2.f.b f60022e = new d.a.n0.j2.f.b();
 
         /* renamed from: f  reason: collision with root package name */
-        public UserData f56334f;
+        public UserData f60023f;
 
         /* renamed from: g  reason: collision with root package name */
-        public d.a.n0.v3.f f56335g;
+        public d.a.n0.v3.f f60024g;
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UserData userData = this.f56334f;
+            UserData userData = this.f60023f;
             if (userData == null || !userData.isBaijiahaoUser()) {
                 TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "3"));
-                d.a.n0.j2.f.b bVar = this.f56333e;
-                bVar.f56586a = 10;
-                bVar.f56587b = new Bundle();
-                this.f56333e.f56587b.putSerializable(UserData.TYPE_USER, this.f56334f);
-                d.a.n0.v3.f fVar = this.f56335g;
+                d.a.n0.j2.f.b bVar = this.f60022e;
+                bVar.f60275a = 10;
+                bVar.f60276b = new Bundle();
+                this.f60022e.f60276b.putSerializable(UserData.TYPE_USER, this.f60023f);
+                d.a.n0.v3.f fVar = this.f60024g;
                 if (fVar != null) {
-                    fVar.a(view, this.f56333e);
+                    fVar.a(view, this.f60022e);
                 }
             }
         }
@@ -141,25 +141,25 @@ public class f extends d.a.n0.j2.d.e {
         if (tbPageContext == null || view == null) {
             return;
         }
-        this.f56326f = tbPageContext;
-        this.f56328h = view;
+        this.f60015f = tbPageContext;
+        this.f60017h = view;
         this.l = (NoNetworkView) view.findViewById(R.id.person_center_no_network_view);
-        this.m = (PluginErrorTipView) this.f56328h.findViewById(R.id.person_center_plugin_error_tip_view);
-        this.q = (LinearLayout) this.f56328h.findViewById(R.id.person_center_anti_container);
-        d.a.n0.j2.j.k kVar = new d.a.n0.j2.j.k(this.f56326f, this.f56328h.findViewById(R.id.person_center_anti_navigation_bar), this.f56328h.findViewById(R.id.person_center_anti_status_bar_space), z);
+        this.m = (PluginErrorTipView) this.f60017h.findViewById(R.id.person_center_plugin_error_tip_view);
+        this.q = (LinearLayout) this.f60017h.findViewById(R.id.person_center_anti_container);
+        d.a.n0.j2.j.k kVar = new d.a.n0.j2.j.k(this.f60015f, this.f60017h.findViewById(R.id.person_center_anti_navigation_bar), this.f60017h.findViewById(R.id.person_center_anti_status_bar_space), z);
         this.u = kVar;
         kVar.k(PersonStatus.GUEST_DEFAULT);
-        this.r = (FrameLayout) this.f56328h.findViewById(R.id.person_center_anti_content);
-        this.s = (NoNetworkView) this.f56328h.findViewById(R.id.person_center_anti_no_network_view);
-        this.t = (RelativeLayout) this.f56328h.findViewById(R.id.person_center_noanti_rootview);
-        PbListView pbListView = new PbListView(this.f56326f.getPageActivity());
+        this.r = (FrameLayout) this.f60017h.findViewById(R.id.person_center_anti_content);
+        this.s = (NoNetworkView) this.f60017h.findViewById(R.id.person_center_anti_no_network_view);
+        this.t = (RelativeLayout) this.f60017h.findViewById(R.id.person_center_noanti_rootview);
+        PbListView pbListView = new PbListView(this.f60015f.getPageActivity());
         this.k = pbListView;
         pbListView.b();
         this.k.C(SkinManager.getColor(R.color.CAM_X0109));
         this.k.y(R.color.CAM_X0110);
         this.k.o(R.color.CAM_X0201);
-        this.k.r(l.g(this.f56326f.getPageActivity(), R.dimen.ds140));
-        this.k.p(l.g(this.f56326f.getPageActivity(), R.dimen.ds12));
+        this.k.r(l.g(this.f60015f.getPageActivity(), R.dimen.ds140));
+        this.k.p(l.g(this.f60015f.getPageActivity(), R.dimen.ds12));
         this.k.x();
         this.k.u(R.color.CAM_X0205);
         r(TbadkCoreApplication.getInst().getSkinType());
@@ -174,15 +174,15 @@ public class f extends d.a.n0.j2.d.e {
             imageView.setVisibility(8);
         }
         this.q.setVisibility(0);
-        int dimensionPixelSize = this.f56326f.getResources().getDimensionPixelSize(R.dimen.ds220);
-        int dimensionPixelSize2 = this.f56326f.getResources().getDimensionPixelSize(R.dimen.ds480);
-        int dimensionPixelSize3 = this.f56326f.getResources().getDimensionPixelSize(R.dimen.ds360);
-        int dimensionPixelSize4 = this.f56326f.getResources().getDimensionPixelSize(R.dimen.ds60);
-        int dimensionPixelSize5 = this.f56326f.getResources().getDimensionPixelSize(R.dimen.ds20);
-        NoDataView a2 = NoDataViewFactory.a(this.f56326f.getPageActivity(), this.r, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.e(R.string.unlogin_person_msg_text, dimensionPixelSize4), NoDataViewFactory.c.b(new NoDataViewFactory.b(this.f56326f.getString(R.string.unlogin_person_button_text), new a()), dimensionPixelSize5));
-        this.f56327g = a2;
+        int dimensionPixelSize = this.f60015f.getResources().getDimensionPixelSize(R.dimen.ds220);
+        int dimensionPixelSize2 = this.f60015f.getResources().getDimensionPixelSize(R.dimen.ds480);
+        int dimensionPixelSize3 = this.f60015f.getResources().getDimensionPixelSize(R.dimen.ds360);
+        int dimensionPixelSize4 = this.f60015f.getResources().getDimensionPixelSize(R.dimen.ds60);
+        int dimensionPixelSize5 = this.f60015f.getResources().getDimensionPixelSize(R.dimen.ds20);
+        NoDataView a2 = NoDataViewFactory.a(this.f60015f.getPageActivity(), this.r, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.e(R.string.unlogin_person_msg_text, dimensionPixelSize4), NoDataViewFactory.c.b(new NoDataViewFactory.b(this.f60015f.getString(R.string.unlogin_person_button_text), new a()), dimensionPixelSize5));
+        this.f60016g = a2;
         a2.setVisibility(0);
-        this.f56327g.f(this.f56326f, TbadkCoreApplication.getInst().getSkinType());
+        this.f60016g.f(this.f60015f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void B(boolean z) {
@@ -203,17 +203,17 @@ public class f extends d.a.n0.j2.d.e {
     public void n() {
         d.a.m0.d0.g gVar = this.o;
         if (gVar != null) {
-            gVar.dettachView(this.f56328h);
+            gVar.dettachView(this.f60017h);
             this.o = null;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921440, Boolean.TRUE));
     }
 
     public void o() {
-        d.a.m0.d0.h hVar = this.f56329i;
+        d.a.m0.d0.h hVar = this.f60018i;
         if (hVar != null) {
             hVar.dettachView(this.r);
-            this.f56329i = null;
+            this.f60018i = null;
         }
     }
 
@@ -221,7 +221,7 @@ public class f extends d.a.n0.j2.d.e {
     }
 
     public boolean q() {
-        d.a.m0.d0.h hVar = this.f56329i;
+        d.a.m0.d0.h hVar = this.f60018i;
         if (hVar != null) {
             return hVar.isViewAttached();
         }
@@ -232,20 +232,20 @@ public class f extends d.a.n0.j2.d.e {
         if (this.p == i2) {
             return;
         }
-        NoDataView noDataView = this.f56327g;
+        NoDataView noDataView = this.f60016g;
         if (noDataView != null) {
-            noDataView.f(this.f56326f, i2);
+            noDataView.f(this.f60015f, i2);
         }
         NoNetworkView noNetworkView = this.s;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f56326f, i2);
+            noNetworkView.c(this.f60015f, i2);
         }
         d.a.n0.j2.j.k kVar = this.u;
         if (kVar != null) {
             kVar.g(i2);
         }
-        SkinManager.setBackgroundResource(this.f56328h, R.color.CAM_X0201);
-        d.a.m0.d0.h hVar = this.f56329i;
+        SkinManager.setBackgroundResource(this.f60017h, R.color.CAM_X0201);
+        d.a.m0.d0.h hVar = this.f60018i;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
@@ -262,13 +262,13 @@ public class f extends d.a.n0.j2.d.e {
 
     public void u(boolean z) {
         this.t.setVisibility(8);
-        int dimensionPixelSize = this.f56326f.getResources().getDimensionPixelSize(R.dimen.ds240);
-        if (this.f56327g == null) {
-            this.f56327g = NoDataViewFactory.a(this.f56326f.getPageActivity(), this.f56328h, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.f56326f.getString(R.string.user_to_anti)), null);
+        int dimensionPixelSize = this.f60015f.getResources().getDimensionPixelSize(R.dimen.ds240);
+        if (this.f60016g == null) {
+            this.f60016g = NoDataViewFactory.a(this.f60015f.getPageActivity(), this.f60017h, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.f60015f.getString(R.string.user_to_anti)), null);
         }
-        SkinManager.setViewTextColor(this.f56327g.getSuTextView(), R.color.CAM_X0106);
-        this.f56327g.f(this.f56326f, TbadkCoreApplication.getInst().getSkinType());
-        this.f56327g.setVisibility(0);
+        SkinManager.setViewTextColor(this.f60016g.getSuTextView(), R.color.CAM_X0106);
+        this.f60016g.f(this.f60015f, TbadkCoreApplication.getInst().getSkinType());
+        this.f60016g.setVisibility(0);
     }
 
     public void v(List<n> list) {
@@ -280,13 +280,13 @@ public class f extends d.a.n0.j2.d.e {
     public void w(boolean z, int i2) {
         if (this.o == null) {
             if (i2 < 0) {
-                this.o = new d.a.m0.d0.g(this.f56326f.getContext());
+                this.o = new d.a.m0.d0.g(this.f60015f.getContext());
             } else {
-                this.o = new d.a.m0.d0.g(this.f56326f.getContext(), i2);
+                this.o = new d.a.m0.d0.g(this.f60015f.getContext(), i2);
             }
             this.o.onChangeSkinType();
         }
-        this.o.attachView(this.f56328h, z);
+        this.o.attachView(this.f60017h, z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921440, Boolean.FALSE));
     }
 
@@ -295,13 +295,13 @@ public class f extends d.a.n0.j2.d.e {
             return;
         }
         this.q.setVisibility(0);
-        if (this.f56329i == null) {
-            this.f56329i = new d.a.m0.d0.h(this.f56326f.getPageActivity(), new b());
+        if (this.f60018i == null) {
+            this.f60018i = new d.a.m0.d0.h(this.f60015f.getPageActivity(), new b());
         }
-        this.f56329i.h(R.drawable.new_pic_emotion_08);
-        this.f56329i.attachView(this.r, z);
-        this.f56329i.o();
-        this.f56329i.onChangeSkinType();
+        this.f60018i.h(R.drawable.new_pic_emotion_08);
+        this.f60018i.attachView(this.r, z);
+        this.f60018i.o();
+        this.f60018i.onChangeSkinType();
         ImageView imageView = this.n;
         if (imageView != null) {
             imageView.setVisibility(8);
@@ -311,7 +311,7 @@ public class f extends d.a.n0.j2.d.e {
     public void y() {
         if (NickNameActivitySwitch.isOn()) {
             if (this.n == null) {
-                ImageView imageView = new ImageView(this.f56326f.getPageActivity());
+                ImageView imageView = new ImageView(this.f60015f.getPageActivity());
                 this.n = imageView;
                 imageView.setImageResource(R.drawable.icon_nichengjun);
                 this.n.setOnClickListener(new c());
@@ -322,9 +322,9 @@ public class f extends d.a.n0.j2.d.e {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.addRule(10);
-            layoutParams.topMargin = l.g(this.f56326f.getPageActivity(), R.dimen.ds504);
-            layoutParams.rightMargin = l.g(this.f56326f.getPageActivity(), R.dimen.ds26);
-            View view = this.f56328h;
+            layoutParams.topMargin = l.g(this.f60015f.getPageActivity(), R.dimen.ds504);
+            layoutParams.rightMargin = l.g(this.f60015f.getPageActivity(), R.dimen.ds26);
+            View view = this.f60017h;
             if (view instanceof RelativeLayout) {
                 ((RelativeLayout) view).addView(this.n, layoutParams);
                 return;
@@ -336,7 +336,7 @@ public class f extends d.a.n0.j2.d.e {
             return;
         }
         ViewParent parent = this.n.getParent();
-        View view2 = this.f56328h;
+        View view2 = this.f60017h;
         if (parent == view2) {
             ((RelativeLayout) view2).removeView(this.n);
         }

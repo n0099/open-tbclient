@@ -12,31 +12,31 @@ import com.baidu.fsg.face.base.d.h;
 public class DynamicWaveView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f6041a = 1715238655;
+    public static final int f6084a = 1715238655;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f6042b = 30.0f;
+    public static final float f6085b = 30.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f6043c = 0;
+    public static final int f6086c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f6044d = 3;
+    public static final int f6087d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f6045e = 5;
+    public static final int f6088e = 5;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f6046f;
+    public float f6089f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6047g;
+    public int f6090g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6048h;
+    public int f6091h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f6049i;
+    public int f6092i;
     public int j;
     public int k;
     public float[] l;
@@ -75,16 +75,16 @@ public class DynamicWaveView extends View {
         canvas.setDrawFilter(this.t);
         b();
         int i2 = this.j;
-        int i3 = this.f6047g - i2;
+        int i3 = this.f6090g - i2;
         while (i2 < i3) {
-            int i4 = (int) ((this.f6048h - this.m[i2]) - this.k);
-            int i5 = this.f6049i;
-            int sqrt = (int) (i5 + Math.sqrt(Math.pow(i5, 2.0d) - Math.pow(Math.abs(this.f6049i - i2), 2.0d)));
+            int i4 = (int) ((this.f6091h - this.m[i2]) - this.k);
+            int i5 = this.f6092i;
+            int sqrt = (int) (i5 + Math.sqrt(Math.pow(i5, 2.0d) - Math.pow(Math.abs(this.f6092i - i2), 2.0d)));
             if (sqrt >= i4) {
                 float f2 = i2;
                 canvas.drawLine(f2, i4, f2, sqrt, this.s);
             }
-            int i6 = (int) ((this.f6048h - this.n[i2]) - this.k);
+            int i6 = (int) ((this.f6091h - this.n[i2]) - this.k);
             if (sqrt >= i6) {
                 float f3 = i2;
                 canvas.drawLine(f3, i6, f3, sqrt, this.s);
@@ -94,10 +94,10 @@ public class DynamicWaveView extends View {
         int i7 = this.q + this.o;
         this.q = i7;
         this.r += this.p;
-        if (i7 >= this.f6047g) {
+        if (i7 >= this.f6090g) {
             this.q = 0;
         }
-        if (this.r > this.f6047g) {
+        if (this.r > this.f6090g) {
             this.r = 0;
         }
     }
@@ -105,15 +105,15 @@ public class DynamicWaveView extends View {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        this.f6047g = i2;
-        this.f6048h = i3;
-        this.f6049i = i2 / 2;
+        this.f6090g = i2;
+        this.f6091h = i3;
+        this.f6092i = i2 / 2;
         this.l = new float[i2];
         this.m = new float[i2];
         this.n = new float[i2];
-        this.f6046f = (float) (6.283185307179586d / i2);
-        for (int i6 = 0; i6 < this.f6047g; i6++) {
-            this.l[i6] = (float) ((Math.sin(this.f6046f * i6) * 30.0d) + 0.0d);
+        this.f6089f = (float) (6.283185307179586d / i2);
+        for (int i6 = 0; i6 < this.f6090g; i6++) {
+            this.l[i6] = (float) ((Math.sin(this.f6089f * i6) * 30.0d) + 0.0d);
         }
     }
 
@@ -175,7 +175,7 @@ public class DynamicWaveView extends View {
         this.s = paint;
         paint.setAntiAlias(true);
         this.s.setStyle(Paint.Style.FILL);
-        this.s.setColor(f6041a);
+        this.s.setColor(f6084a);
         this.t = new PaintFlagsDrawFilter(0, 3);
         this.j = h.a(context, 5.0f);
         this.k = h.a(context, 30.0f);

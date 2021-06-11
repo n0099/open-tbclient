@@ -3,23 +3,23 @@ package com.vivo.push;
 public final class r implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.b f36670a;
+    public final /* synthetic */ com.vivo.push.b.b f40349a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f36671b;
+    public final /* synthetic */ String f40350b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ p f36672c;
+    public final /* synthetic */ p f40351c;
 
     public r(p pVar, com.vivo.push.b.b bVar, String str) {
-        this.f36672c = pVar;
-        this.f36670a = bVar;
-        this.f36671b = str;
+        this.f40351c = pVar;
+        this.f40349a = bVar;
+        this.f40350b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.f36672c.a(this.f36670a);
-        this.f36672c.d(this.f36671b);
+        this.f40351c.a(this.f40349a);
+        this.f40351c.d(this.f40350b);
     }
 }

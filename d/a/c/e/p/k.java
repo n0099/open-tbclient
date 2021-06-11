@@ -4,9 +4,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import java.lang.Character;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -300,14 +298,14 @@ public class k {
         Date date2 = new Date();
         int day = date2.getDay() - date.getDay();
         long time = date2.getTime() - date.getTime();
-        if (time < StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+        if (time < 30000) {
             return "刚刚";
         }
         if (time < 60000) {
             return "半分钟前";
         }
-        if (time < VideoCloudSetting.HOUR_MILLISECOND) {
-            return String.valueOf((time * 60) / VideoCloudSetting.HOUR_MILLISECOND) + "分钟前";
+        if (time < 3600000) {
+            return String.valueOf((time * 60) / 3600000) + "分钟前";
         } else if (time < 86400000) {
             return day == 0 ? getDateStringHm(date) : "1天前";
         } else if (time >= 2678400000L) {

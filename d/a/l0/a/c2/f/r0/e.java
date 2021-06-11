@@ -15,14 +15,14 @@ public abstract class e extends a0 {
     public class a implements d.a.l0.a.h0.j.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f41262a;
+        public final /* synthetic */ d f44938a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41263b;
+        public final /* synthetic */ CallbackHandler f44939b;
 
         public a(d dVar, CallbackHandler callbackHandler) {
-            this.f41262a = dVar;
-            this.f41263b = callbackHandler;
+            this.f44938a = dVar;
+            this.f44939b = callbackHandler;
         }
 
         @Override // d.a.l0.a.h0.j.d
@@ -35,8 +35,8 @@ public abstract class e extends a0 {
 
         @Override // d.a.l0.a.h0.j.d
         public boolean c(String str) {
-            if (e.this.l(str, this.f41262a.r)) {
-                e.this.k(str, this.f41263b, this.f41262a.f40848i);
+            if (e.this.l(str, this.f44938a.r)) {
+                e.this.k(str, this.f44939b, this.f44938a.f44524i);
                 return true;
             }
             return false;
@@ -64,7 +64,7 @@ public abstract class e extends a0 {
         try {
             jSONObject.put("url", str);
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
         }

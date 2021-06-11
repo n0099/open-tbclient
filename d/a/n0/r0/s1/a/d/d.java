@@ -12,28 +12,28 @@ import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 public class d extends d.a.n0.r0.s1.a.e.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public LabelDataList f59629g;
+    public LabelDataList f63320g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f59630h;
+    public Context f63321h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f59631i = 0;
+    public int f63322i = 0;
     public final int j;
 
     public d(Context context) {
-        this.f59630h = context;
+        this.f63321h = context;
         this.j = context.getResources().getDimensionPixelSize(R.dimen.ds64);
     }
 
     @Override // d.a.n0.r0.s1.a.e.a
     public int b() {
-        return ListUtils.getCount(this.f59629g);
+        return ListUtils.getCount(this.f63320g);
     }
 
     @Override // d.a.n0.r0.s1.a.e.a
     public Object c(int i2) {
-        return ListUtils.getItem(this.f59629g, i2);
+        return ListUtils.getItem(this.f63320g, i2);
     }
 
     @Override // d.a.n0.r0.s1.a.e.a
@@ -54,18 +54,18 @@ public class d extends d.a.n0.r0.s1.a.e.a {
         } else {
             m = m();
         }
-        d.a.n0.r0.s1.a.a.a aVar = (d.a.n0.r0.s1.a.a.a) ListUtils.getItem(this.f59629g, i2);
+        d.a.n0.r0.s1.a.a.a aVar = (d.a.n0.r0.s1.a.a.a) ListUtils.getItem(this.f63320g, i2);
         if (aVar != null) {
-            m.setText(aVar.f59597b);
+            m.setText(aVar.f63288b);
         }
-        l(m, this.f59631i == i2);
+        l(m, this.f63322i == i2);
         return m;
     }
 
     @Override // d.a.n0.r0.s1.a.e.a
     public void j(int i2) {
-        this.f59631i = i2;
-        this.f59629g.setSelectedIndex(i2);
+        this.f63322i = i2;
+        this.f63320g.setSelectedIndex(i2);
         notifyDataSetChanged();
     }
 
@@ -80,15 +80,15 @@ public class d extends d.a.n0.r0.s1.a.e.a {
     }
 
     public final TextView m() {
-        TextView textView = new TextView(this.f59630h);
-        textView.setTextSize(0, this.f59630h.getResources().getDimensionPixelSize(R.dimen.fontsize26));
+        TextView textView = new TextView(this.f63321h);
+        textView.setTextSize(0, this.f63321h.getResources().getDimensionPixelSize(R.dimen.fontsize26));
         textView.setGravity(17);
         textView.setHeight(d());
         return textView;
     }
 
     public void n(LabelDataList labelDataList) {
-        this.f59629g = labelDataList;
+        this.f63320g = labelDataList;
         notifyDataSetChanged();
     }
 }

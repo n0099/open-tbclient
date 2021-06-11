@@ -15,25 +15,25 @@ public class c {
     public static class a implements n.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f41964a;
+        public final /* synthetic */ Context f45640a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f41965b;
+        public final /* synthetic */ b f45641b;
 
         public a(Context context, b bVar) {
-            this.f41964a = context;
-            this.f41965b = bVar;
+            this.f45640a = context;
+            this.f45641b = bVar;
         }
 
         @Override // d.a.l0.a.p.d.n.b
         public void a(boolean z) {
             if (!z) {
                 d.a.l0.a.e0.d.b("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                this.f41965b.a(false, this.f41964a.getString(h.aiapps_authenticate_fail));
+                this.f45641b.a(false, this.f45640a.getString(h.aiapps_authenticate_fail));
                 return;
             }
             d.a.l0.a.e0.d.b("DeveloperAuthenticateHelper", "Authentication Success");
-            this.f41965b.a(true, "");
+            this.f45641b.a(true, "");
         }
 
         @Override // d.a.l0.a.p.d.n.b
@@ -42,14 +42,14 @@ public class c {
             d.a.l0.a.e0.d.c("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
             String message = exc.getMessage();
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f41964a.getString(h.aiapps_authenticate_fail));
+            sb.append(this.f45640a.getString(h.aiapps_authenticate_fail));
             if (TextUtils.isEmpty(message)) {
                 str = "";
             } else {
                 str = "\n" + message;
             }
             sb.append(str);
-            this.f41965b.a(false, sb.toString());
+            this.f45641b.a(false, sb.toString());
         }
     }
 

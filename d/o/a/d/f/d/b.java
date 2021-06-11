@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public DownloadInfo f66779e;
+    public DownloadInfo f70565e;
 
     /* loaded from: classes7.dex */
     public class a implements e {
@@ -20,17 +20,17 @@ public class b implements Runnable {
     }
 
     public b(DownloadInfo downloadInfo) {
-        this.f66779e = downloadInfo;
+        this.f70565e = downloadInfo;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         d.o.a.b.a.c.b c2;
-        if (this.f66779e == null || (c2 = c.g.e().c(this.f66779e)) == null) {
+        if (this.f70565e == null || (c2 = c.g.e().c(this.f70565e)) == null) {
             return;
         }
         j.c.a().o("cleanspace_task", c2);
-        long longValue = Double.valueOf((d.o.a.d.n.e.a(this.f66779e.c0()) + 1.0d) * this.f66779e.Q0()).longValue() - this.f66779e.E();
+        long longValue = Double.valueOf((d.o.a.d.n.e.a(this.f70565e.c0()) + 1.0d) * this.f70565e.Q0()).longValue() - this.f70565e.E();
         long d2 = k.d(0L);
         if (n.v() != null) {
             n.v().e();
@@ -51,11 +51,11 @@ public class b implements Runnable {
                 e2.printStackTrace();
             }
             j.c.a().u("cleanspace_download_after_quite_clean", jSONObject, c2);
-            d.o.a.e.b.g.a.l(n.a()).z(this.f66779e.c0());
+            d.o.a.e.b.g.a.l(n.a()).z(this.f70565e.c0());
         } else if (n.v() != null) {
             c2.u0(false);
             d.a().e(c2.a(), new a(this, c2));
-            if (n.v().a(this.f66779e.c0(), this.f66779e.T0(), true, longValue)) {
+            if (n.v().a(this.f70565e.c0(), this.f70565e.T0(), true, longValue)) {
                 c2.y0(true);
             }
         } else {

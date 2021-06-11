@@ -13,7 +13,7 @@ import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class PolystarShapeParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", Config.PLATFORM_TYPE, "p", r.f7672a, "or", IAdRequestParam.OS, "ir", "is", "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", Config.PLATFORM_TYPE, "p", r.f7715a, "or", IAdRequestParam.OS, "ir", "is", "hd");
 
     public static PolystarShape parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         String str = null;

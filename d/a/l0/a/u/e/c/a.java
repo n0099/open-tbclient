@@ -23,30 +23,30 @@ import org.json.JSONObject;
 public class a extends d.a.l0.a.u.c.d {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f44854e = SchemeConfig.getSchemeHead() + "://swan/";
+    public static final String f48528e = SchemeConfig.getSchemeHead() + "://swan/";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f44855f = {"_id", "account_name", "calendar_displayName"};
+    public static final String[] f48529f = {"_id", "account_name", "calendar_displayName"};
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f44856g = {"_id", "calendar_id", "title", "dtstart", "dtend"};
+    public static final String[] f48530g = {"_id", "calendar_id", "title", "dtstart", "dtend"};
 
     /* renamed from: d  reason: collision with root package name */
-    public int f44857d;
+    public int f48531d;
 
     /* renamed from: d.a.l0.a.u.e.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0835a implements d.a.l0.a.v2.e1.b<i<b.e>> {
+    public class C0891a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44858e;
+        public final /* synthetic */ String f48532e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f44859f;
+        public final /* synthetic */ d f48533f;
 
-        public C0835a(String str, d dVar) {
-            this.f44858e = str;
-            this.f44859f = dVar;
+        public C0891a(String str, d dVar) {
+            this.f48532e = str;
+            this.f48533f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,9 +54,9 @@ public class a extends d.a.l0.a.u.c.d {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                a.this.B(this.f44858e, this.f44859f);
+                a.this.B(this.f48532e, this.f48533f);
             } else {
-                a.this.d(this.f44858e, new d.a.l0.a.u.h.b(iVar.b(), d.a.l0.a.e2.c.d.f(iVar.b())));
+                a.this.d(this.f48532e, new d.a.l0.a.u.h.b(iVar.b(), d.a.l0.a.e2.c.d.f(iVar.b())));
             }
         }
     }
@@ -65,14 +65,14 @@ public class a extends d.a.l0.a.u.c.d {
     public class b implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44861e;
+        public final /* synthetic */ String f48535e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f44862f;
+        public final /* synthetic */ d f48536f;
 
         public b(String str, d dVar) {
-            this.f44861e = str;
-            this.f44862f = dVar;
+            this.f48535e = str;
+            this.f48536f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,9 +80,9 @@ public class a extends d.a.l0.a.u.c.d {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                a.this.B(this.f44861e, this.f44862f);
+                a.this.B(this.f48535e, this.f48536f);
             } else {
-                a.this.d(this.f44861e, new d.a.l0.a.u.h.b(iVar.b(), d.a.l0.a.e2.c.d.f(iVar.b())));
+                a.this.d(this.f48535e, new d.a.l0.a.u.h.b(iVar.b(), d.a.l0.a.e2.c.d.f(iVar.b())));
             }
         }
     }
@@ -91,31 +91,31 @@ public class a extends d.a.l0.a.u.c.d {
     public class c implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f44864a;
+        public final /* synthetic */ d f48538a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44865b;
+        public final /* synthetic */ String f48539b;
 
         public c(d dVar, String str) {
-            this.f44864a = dVar;
-            this.f44865b = str;
+            this.f48538a = dVar;
+            this.f48539b = str;
         }
 
         @Override // d.a.l0.a.s1.f
         public void a(String str) {
-            d dVar = this.f44864a;
-            int i2 = dVar.f44874h;
+            d dVar = this.f48538a;
+            int i2 = dVar.f48548h;
             if (i2 == 0) {
-                a.this.v(dVar, this.f44865b);
+                a.this.v(dVar, this.f48539b);
             } else if (i2 != 1) {
             } else {
-                a.this.y(dVar, this.f44865b);
+                a.this.y(dVar, this.f48539b);
             }
         }
 
         @Override // d.a.l0.a.s1.f
         public void b(int i2, String str) {
-            a.this.d(this.f44865b, new d.a.l0.a.u.h.b(i2, str));
+            a.this.d(this.f48539b, new d.a.l0.a.u.h.b(i2, str));
         }
     }
 
@@ -123,47 +123,47 @@ public class a extends d.a.l0.a.u.c.d {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f44867a;
+        public String f48541a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f44868b;
+        public long f48542b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f44869c;
+        public long f48543c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44870d;
+        public String f48544d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f44871e;
+        public int f48545e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f44872f = -1;
+        public long f48546f = -1;
 
         /* renamed from: g  reason: collision with root package name */
-        public d.a.l0.a.u.h.b f44873g;
+        public d.a.l0.a.u.h.b f48547g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f44874h;
+        public int f48548h;
 
         public d(int i2) {
-            this.f44874h = i2;
+            this.f48548h = i2;
         }
 
         public boolean a() {
-            d.a.l0.a.u.h.b bVar = this.f44873g;
-            return bVar != null && bVar.a();
+            d.a.l0.a.u.h.b bVar = this.f48547g;
+            return bVar != null && bVar.isSuccess();
         }
     }
 
     public a(@NonNull d.a.l0.a.u.c.b bVar) {
         super(bVar);
-        this.f44857d = -1;
+        this.f48531d = -1;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public final long A(d dVar) {
-        Cursor query = i().getContentResolver().query(CalendarContract.Events.CONTENT_URI, f44856g, "((account_name = ?))", new String[]{"智能小程序"}, null);
+        Cursor query = i().getContentResolver().query(CalendarContract.Events.CONTENT_URI, f48530g, "((account_name = ?))", new String[]{"智能小程序"}, null);
         if (query != null) {
             try {
                 if (query.getCount() >= 1) {
@@ -173,7 +173,7 @@ public class a extends d.a.l0.a.u.c.d {
                         String string = query.getString(query.getColumnIndex("title"));
                         long j2 = query.getLong(query.getColumnIndex("dtstart"));
                         long j3 = query.getLong(query.getColumnIndex("dtend"));
-                        if (TextUtils.equals(dVar.f44867a, string) && j2 == dVar.f44868b && j3 == dVar.f44869c) {
+                        if (TextUtils.equals(dVar.f48541a, string) && j2 == dVar.f48542b && j3 == dVar.f48543c) {
                             if (query != null) {
                                 query.close();
                             }
@@ -215,7 +215,7 @@ public class a extends d.a.l0.a.u.c.d {
         try {
             jSONObject.put(TbEnum.SystemMessage.KEY_EVENT_ID, j + "");
         } catch (JSONException e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e2.printStackTrace();
             }
         }
@@ -226,46 +226,46 @@ public class a extends d.a.l0.a.u.c.d {
         d dVar = new d(i2);
         if (i2 == 0) {
             String optString = jSONObject.optString("title");
-            dVar.f44867a = optString;
+            dVar.f48541a = optString;
             if (TextUtils.isEmpty(optString)) {
                 d.a.l0.a.e0.d.b("Api-CalendarApi", "addEventOnCalendar requires a valid title");
-                dVar.f44873g = new d.a.l0.a.u.h.b(1001, "addEventOnCalendar requires a valid title");
+                dVar.f48547g = new d.a.l0.a.u.h.b(1001, "addEventOnCalendar requires a valid title");
                 return dVar;
             }
             long optLong = jSONObject.optLong("startTime", -1L);
-            dVar.f44868b = optLong;
+            dVar.f48542b = optLong;
             if (optLong == -1) {
                 d.a.l0.a.e0.d.b("Api-CalendarApi", "addEventOnCalendar requires a valid startTime");
-                dVar.f44873g = new d.a.l0.a.u.h.b(1001, "addEventOnCalendar requires a valid startTime");
+                dVar.f48547g = new d.a.l0.a.u.h.b(1001, "addEventOnCalendar requires a valid startTime");
                 return dVar;
             }
             long optLong2 = jSONObject.optLong("endTime", -1L);
-            dVar.f44869c = optLong2;
-            if (optLong2 < dVar.f44868b) {
+            dVar.f48543c = optLong2;
+            if (optLong2 < dVar.f48542b) {
                 d.a.l0.a.e0.d.b("Api-CalendarApi", "addEventOnCalendar requires a valid endTime");
-                dVar.f44873g = new d.a.l0.a.u.h.b(1001, "addEventOnCalendar requires a valid endTime");
+                dVar.f48547g = new d.a.l0.a.u.h.b(1001, "addEventOnCalendar requires a valid endTime");
                 return dVar;
             }
-            dVar.f44871e = jSONObject.optInt("remindMinutesBefore", 10);
-            dVar.f44870d = jSONObject.optString("location");
+            dVar.f48545e = jSONObject.optInt("remindMinutesBefore", 10);
+            dVar.f48544d = jSONObject.optString("location");
             String optString2 = jSONObject.optString("url");
             if (!TextUtils.isEmpty(optString2)) {
-                if (optString2.startsWith(f44854e)) {
-                    dVar.f44867a += " " + optString2;
+                if (optString2.startsWith(f48528e)) {
+                    dVar.f48541a += " " + optString2;
                 } else {
-                    dVar.f44873g = new d.a.l0.a.u.h.b(2002, "invalid url");
+                    dVar.f48547g = new d.a.l0.a.u.h.b(2002, "invalid url");
                     return dVar;
                 }
             }
-            dVar.f44873g = new d.a.l0.a.u.h.b(0);
+            dVar.f48547g = new d.a.l0.a.u.h.b(0);
         } else if (i2 == 1) {
             long optLong3 = jSONObject.optLong(TbEnum.SystemMessage.KEY_EVENT_ID, -1L);
-            dVar.f44872f = optLong3;
+            dVar.f48546f = optLong3;
             if (optLong3 == -1) {
                 d.a.l0.a.e0.d.b("Api-CalendarApi", "deleteEventOnCalendar requires a valid eventId");
-                dVar.f44873g = new d.a.l0.a.u.h.b(1001, "deleteEventOnCalendar requires a valid eventId");
+                dVar.f48547g = new d.a.l0.a.u.h.b(1001, "deleteEventOnCalendar requires a valid eventId");
             } else {
-                dVar.f44873g = new d.a.l0.a.u.h.b(0);
+                dVar.f48547g = new d.a.l0.a.u.h.b(0);
             }
         }
         return dVar;
@@ -274,7 +274,7 @@ public class a extends d.a.l0.a.u.c.d {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public final int E() {
         Context i2 = i();
-        Cursor query = i2.getContentResolver().query(CalendarContract.Calendars.CONTENT_URI, f44855f, "((account_name = ?) AND (calendar_displayName = ?))", new String[]{"智能小程序", "智能小程序"}, null);
+        Cursor query = i2.getContentResolver().query(CalendarContract.Calendars.CONTENT_URI, f48529f, "((account_name = ?) AND (calendar_displayName = ?))", new String[]{"智能小程序", "智能小程序"}, null);
         if (query != null) {
             try {
                 if (query.getCount() >= 1) {
@@ -309,7 +309,7 @@ public class a extends d.a.l0.a.u.c.d {
 
     public d.a.l0.a.u.h.b u(String str) {
         Object obj;
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-CalendarApi", "start addEventOnCalendar");
         }
         if (l()) {
@@ -318,17 +318,17 @@ public class a extends d.a.l0.a.u.c.d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-CalendarApi", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (bVar.a() && (obj = b2.second) != null) {
+        if (bVar.isSuccess() && (obj = b2.second) != null) {
             JSONObject jSONObject = (JSONObject) obj;
             d D = D(jSONObject, 0);
             if (!D.a()) {
-                return D.f44873g;
+                return D.f48547g;
             }
             String optString = jSONObject.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 return new d.a.l0.a.u.h.b(1001, "addEventOnCalendar requires cb");
             }
-            d.a.l0.a.a2.e.i().T().g(i(), "scope_calendar", new C0835a(optString, D));
+            d.a.l0.a.a2.e.i().T().g(i(), "scope_calendar", new C0891a(optString, D));
             return new d.a.l0.a.u.h.b(0);
         }
         d.a.l0.a.e0.d.b("Api-CalendarApi", "parse fail");
@@ -353,11 +353,11 @@ public class a extends d.a.l0.a.u.c.d {
         contentValues.put("accessLevel", (Integer) 3);
         contentValues.put("eventTimezone", "Asia/Shanghai");
         contentValues.put("eventEndTimezone", "Asia/Shanghai");
-        contentValues.put("dtstart", Long.valueOf(dVar.f44868b));
-        contentValues.put("dtend", Long.valueOf(dVar.f44869c));
-        contentValues.put("title", dVar.f44867a);
-        if (!TextUtils.isEmpty(dVar.f44870d)) {
-            contentValues.put("eventLocation", dVar.f44870d);
+        contentValues.put("dtstart", Long.valueOf(dVar.f48542b));
+        contentValues.put("dtend", Long.valueOf(dVar.f48543c));
+        contentValues.put("title", dVar.f48541a);
+        if (!TextUtils.isEmpty(dVar.f48544d)) {
+            contentValues.put("eventLocation", dVar.f48544d);
         }
         ContentResolver contentResolver = i().getContentResolver();
         Uri insert = contentResolver.insert(CalendarContract.Events.CONTENT_URI, contentValues);
@@ -365,14 +365,14 @@ public class a extends d.a.l0.a.u.c.d {
             try {
                 j = Long.parseLong(lastPathSegment);
             } catch (NumberFormatException e2) {
-                if (d.a.l0.a.u.c.d.f44812c) {
+                if (d.a.l0.a.u.c.d.f48486c) {
                     e2.printStackTrace();
                 }
                 j = -1;
             }
             ContentValues contentValues2 = new ContentValues();
             contentValues2.put("event_id", Long.valueOf(j));
-            contentValues2.put("minutes", Integer.valueOf(dVar.f44871e));
+            contentValues2.put("minutes", Integer.valueOf(dVar.f48545e));
             contentValues2.put("method", (Integer) 1);
             Uri insert2 = contentResolver.insert(CalendarContract.Reminders.CONTENT_URI, contentValues2);
             if (insert2 != null && ContentUris.parseId(insert2) != 0) {
@@ -405,7 +405,7 @@ public class a extends d.a.l0.a.u.c.d {
 
     public d.a.l0.a.u.h.b x(String str) {
         Object obj;
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-CalendarApi", "start deleteEventOnCalendar");
         }
         if (l()) {
@@ -414,11 +414,11 @@ public class a extends d.a.l0.a.u.c.d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-CalendarApi", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (bVar.a() && (obj = b2.second) != null) {
+        if (bVar.isSuccess() && (obj = b2.second) != null) {
             JSONObject jSONObject = (JSONObject) obj;
             d D = D(jSONObject, 1);
             if (!D.a()) {
-                return D.f44873g;
+                return D.f48547g;
             }
             String optString = jSONObject.optString("cb");
             if (TextUtils.isEmpty(optString)) {
@@ -436,7 +436,7 @@ public class a extends d.a.l0.a.u.c.d {
             d(str, new d.a.l0.a.u.h.b(2102, "deleteEventOnCalendar fail , system error"));
             return;
         }
-        int delete = i().getContentResolver().delete(ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, dVar.f44872f), null, null);
+        int delete = i().getContentResolver().delete(ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, dVar.f48546f), null, null);
         if (delete < 0) {
             d(str, new d.a.l0.a.u.h.b(2102, "deleteEventOnCalendar fail , system error"));
         } else if (delete == 0) {
@@ -447,9 +447,9 @@ public class a extends d.a.l0.a.u.c.d {
     }
 
     public final int z() {
-        if (this.f44857d == -1) {
-            this.f44857d = E();
+        if (this.f48531d == -1) {
+            this.f48531d = E();
         }
-        return this.f44857d;
+        return this.f48531d;
     }
 }

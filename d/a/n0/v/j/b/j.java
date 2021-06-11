@@ -25,7 +25,7 @@ import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.a.m0.r.s.a;
 import d.a.n0.v.j.d.m;
 /* loaded from: classes4.dex */
-public class j extends d.a.c.j.e.a<m, CardViewHolder<d.a.n0.v.j.h.a>> {
+public class j extends d.a.c.k.e.a<m, CardViewHolder<d.a.n0.v.j.h.a>> {
     public TbPageContext m;
     public d.a.n0.m3.d n;
     public boolean o;
@@ -39,15 +39,15 @@ public class j extends d.a.c.j.e.a<m, CardViewHolder<d.a.n0.v.j.h.a>> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f62031e;
+        public final /* synthetic */ m f65746e;
 
         public a(m mVar) {
-            this.f62031e = mVar;
+            this.f65746e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            j.this.m0(this.f62031e);
+            j.this.l0(this.f65746e);
         }
     }
 
@@ -66,10 +66,10 @@ public class j extends d.a.c.j.e.a<m, CardViewHolder<d.a.n0.v.j.h.a>> {
     public class c implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f62033a;
+        public final /* synthetic */ TbPageContext f65748a;
 
         public c(TbPageContext tbPageContext) {
-            this.f62033a = tbPageContext;
+            this.f65748a = tbPageContext;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
@@ -79,12 +79,12 @@ public class j extends d.a.c.j.e.a<m, CardViewHolder<d.a.n0.v.j.h.a>> {
             String str3 = j.this.o ? j.this.r : null;
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
             d.a.c.e.i.a.l().h(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f62033a.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f65748a.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
         }
     }
 
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), m.f62068f);
+        super(tbPageContext.getPageActivity(), m.f65783f);
         this.o = false;
         this.t = false;
         this.m = tbPageContext;
@@ -94,44 +94,44 @@ public class j extends d.a.c.j.e.a<m, CardViewHolder<d.a.n0.v.j.h.a>> {
         this.q = str;
     }
 
-    public final void j0(m mVar, d.a.n0.v.j.h.a aVar) {
-        if (mVar.h() == null) {
+    public final void k0(m mVar, d.a.n0.v.j.h.a aVar) {
+        if (mVar.c() == null) {
             return;
         }
-        this.s = aVar.s();
-        w0();
-        aVar.x(8);
-        aVar.y(this.f39228e.getResources().getString(R.string.ala_person_center_publish_live));
-        aVar.n(this.m, TbadkCoreApplication.getInst().getSkinType());
+        this.s = aVar.t();
+        x0();
+        aVar.y(8);
+        aVar.z(this.f42909e.getResources().getString(R.string.ala_person_center_publish_live));
+        aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final void m0(m mVar) {
-        if (mVar == null || mVar.h() == null) {
+    public final void l0(m mVar) {
+        if (mVar == null || mVar.c() == null) {
             return;
         }
         d.a.m0.r.d0.b.j().t(d.a.m0.r.d0.b.n("live_publish_live_has_showed"), true);
-        x0(this.s, null, false);
+        y0(this.s, null, false);
         s0();
         TiebaStatic.log("c13618");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: n0 */
-    public CardViewHolder<d.a.n0.v.j.h.a> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: m0 */
+    public CardViewHolder<d.a.n0.v.j.h.a> Q(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.a.n0.v.j.h.a(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: p0 */
-    public View W(int i2, View view, ViewGroup viewGroup, m mVar, CardViewHolder<d.a.n0.v.j.h.a> cardViewHolder) {
+    public View X(int i2, View view, ViewGroup viewGroup, m mVar, CardViewHolder<d.a.n0.v.j.h.a> cardViewHolder) {
         if (cardViewHolder.b() == null) {
             return null;
         }
-        j0(mVar, cardViewHolder.b());
-        cardViewHolder.b().l().setOnClickListener(new a(mVar));
-        return cardViewHolder.b().l();
+        k0(mVar, cardViewHolder.b());
+        cardViewHolder.b().m().setOnClickListener(new a(mVar));
+        return cardViewHolder.b().m();
     }
 
     public final void q0(TbPageContext tbPageContext) {
@@ -181,28 +181,28 @@ public class j extends d.a.c.j.e.a<m, CardViewHolder<d.a.n0.v.j.h.a>> {
         this.p = str;
     }
 
-    public void u0(String str) {
+    public void v0(String str) {
         this.r = str;
     }
 
-    public void v0(boolean z) {
+    public void w0(boolean z) {
         this.o = z;
     }
 
-    public final void w0() {
+    public final void x0() {
         if (this.t) {
             return;
         }
         this.t = true;
         if (!d.a.m0.r.d0.b.j().g(d.a.m0.r.d0.b.n("live_publish_live_has_showed"), false)) {
             d.a.m0.r.d0.b.j().t(d.a.m0.r.d0.b.n("live_publish_live_has_showed"), true);
-            x0(this.s, null, true);
+            y0(this.s, null, true);
             return;
         }
-        x0(this.s, null, false);
+        y0(this.s, null, false);
     }
 
-    public final void x0(TextView textView, String str, boolean z) {
+    public final void y0(TextView textView, String str, boolean z) {
         if (textView == null || this.m == null) {
             return;
         }

@@ -16,43 +16,43 @@ public class d extends d.a.l0.a.u.c.d {
 
         /* renamed from: d.a.l0.a.u.e.g.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0845a implements Runnable {
+        public class RunnableC0901a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f44940e;
+            public final /* synthetic */ int f48614e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f44941f;
+            public final /* synthetic */ int f48615f;
 
             /* renamed from: d.a.l0.a.u.e.g.d$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public class C0846a implements ValueAnimator.AnimatorUpdateListener {
+            public class C0902a implements ValueAnimator.AnimatorUpdateListener {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ d.a.l0.a.p.e.c f44943e;
+                public final /* synthetic */ d.a.l0.a.p.e.c f48617e;
 
-                public C0846a(RunnableC0845a runnableC0845a, d.a.l0.a.p.e.c cVar) {
-                    this.f44943e = cVar;
+                public C0902a(RunnableC0901a runnableC0901a, d.a.l0.a.p.e.c cVar) {
+                    this.f48617e = cVar;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    this.f44943e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    this.f48617e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             }
 
-            public RunnableC0845a(int i2, int i3) {
-                this.f44940e = i2;
-                this.f44941f = i3;
+            public RunnableC0901a(int i2, int i3) {
+                this.f48614e = i2;
+                this.f48615f = i3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 d.a.l0.a.p.e.c h2 = d.a.l0.a.g1.f.V().h();
                 if (h2 != null) {
-                    ValueAnimator ofInt = ValueAnimator.ofInt(h2.getWebViewScrollY(), d.s(h2, n0.f(d.this.i(), this.f44940e)));
-                    ofInt.setDuration(this.f44941f);
-                    ofInt.addUpdateListener(new C0846a(this, h2));
+                    ValueAnimator ofInt = ValueAnimator.ofInt(h2.getWebViewScrollY(), d.s(h2, n0.f(d.this.i(), this.f48614e)));
+                    ofInt.setDuration(this.f48615f);
+                    ofInt.addUpdateListener(new C0902a(this, h2));
                     ofInt.start();
                 }
             }
@@ -66,7 +66,7 @@ public class d extends d.a.l0.a.u.c.d {
             int optInt = jSONObject.optInt("scrollTop", -1);
             int optInt2 = jSONObject.optInt("duration", -1);
             if (optInt > -1 && optInt2 > -1) {
-                q0.b0(new RunnableC0845a(optInt, optInt2));
+                q0.b0(new RunnableC0901a(optInt, optInt2));
                 return new d.a.l0.a.u.h.b(0);
             }
             d.a.l0.a.e0.d.b("Api-PageScrollTo", "illegal scrollTop or duration");
@@ -87,7 +87,7 @@ public class d extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b t(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-PageScrollTo", "page scroll to");
         }
         return j(str, false, new a());

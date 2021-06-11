@@ -37,18 +37,18 @@ public class w extends b<a2> implements d.a.n0.o.e {
 
     public w(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        View l = l();
-        l.setOnClickListener(this);
+        View m = m();
+        m.setOnClickListener(this);
         this.n = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) l.findViewById(R.id.topic_icon);
+        HeadImageView headImageView = (HeadImageView) m.findViewById(R.id.topic_icon);
         this.o = headImageView;
         headImageView.setIsRound(true);
         this.o.setDefaultResource(R.drawable.pic_head_topic);
-        this.p = (TextView) l.findViewById(R.id.card_topic_name);
-        this.r = (TextView) l.findViewById(R.id.card_thread_title);
-        this.q = (TextView) l.findViewById(R.id.card_reply_time);
-        this.u = (ConstrainImageGroup) l.findViewById(R.id.card_img_layout);
-        this.m = l.findViewById(R.id.card_divider_line);
+        this.p = (TextView) m.findViewById(R.id.card_topic_name);
+        this.r = (TextView) m.findViewById(R.id.card_thread_title);
+        this.q = (TextView) m.findViewById(R.id.card_reply_time);
+        this.u = (ConstrainImageGroup) m.findViewById(R.id.card_img_layout);
+        this.m = m.findViewById(R.id.card_divider_line);
         this.u.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
         d.a.m0.b1.j.f fVar = new d.a.m0.b1.j.f(3);
         fVar.d(1.0d);
@@ -59,16 +59,16 @@ public class w extends b<a2> implements d.a.n0.o.e {
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.frs_hot_topic_card_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         this.o.invalidate();
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.q, R.color.CAM_X0109);
-        SkinManager.setBackgroundResource(l(), R.drawable.addresslist_item_bg);
+        SkinManager.setBackgroundResource(m(), R.drawable.addresslist_item_bg);
         SkinManager.setBackgroundColor(this.m, R.color.CAM_X0204);
         this.u.b();
         this.o.setDefaultBgResource(i2);
@@ -79,23 +79,27 @@ public class w extends b<a2> implements d.a.n0.o.e {
         if (this.s == null) {
             return;
         }
-        if (h() != null) {
-            h().b(view, this.s, this.t);
+        if (i() != null) {
+            i().b(view, this.s, this.t);
         }
-        if (view == l()) {
-            m.a(this.s.y1());
-            m.l(this.r, this.s.y1(), R.color.CAM_X0105, R.color.CAM_X0109);
-            s();
+        if (view == m()) {
+            m.a(this.s.z1());
+            m.l(this.r, this.s.z1(), R.color.CAM_X0105, R.color.CAM_X0109);
+            t();
         }
     }
 
-    public final void s() {
+    @Override // d.a.n0.o.e
+    public void setPage(String str) {
+    }
+
+    public final void t() {
         a2 a2Var = this.s;
         if (a2Var == null || a2Var.T() == null || this.s.T().getName_show() == null) {
             return;
         }
         long c0 = this.s.c0();
-        OriginalForumInfo originalForumInfo = this.s.D1;
+        OriginalForumInfo originalForumInfo = this.s.E1;
         if (originalForumInfo != null) {
             c0 = d.a.c.e.m.b.f(originalForumInfo.id, 0L);
         }
@@ -104,40 +108,36 @@ public class w extends b<a2> implements d.a.n0.o.e {
             String name_show = this.s.T().getName_show();
             HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(b());
             HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
-            createNormalConfig.setExtra(j, this.s.d0(), this.s.e1(), d.a.c.e.m.b.f(this.s.y1(), 0L));
+            createNormalConfig.setExtra(j, this.s.d0(), this.s.f1(), d.a.c.e.m.b.f(this.s.z1(), 0L));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
             return;
         }
-        UrlManager.getInstance().dealOneLink(this.n, new String[]{this.s.E1()});
-    }
-
-    @Override // d.a.n0.o.e
-    public void setPage(String str) {
+        UrlManager.getInstance().dealOneLink(this.n, new String[]{this.s.F1()});
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(a2 a2Var) {
+    /* renamed from: u */
+    public void n(a2 a2Var) {
         if (a2Var == null) {
-            if (l() != null) {
-                l().setVisibility(8);
+            if (m() != null) {
+                m().setVisibility(8);
                 return;
             }
             return;
         }
         this.s = a2Var;
-        if (l() != null) {
-            l().setVisibility(0);
-            l().setOnClickListener(this);
+        if (m() != null) {
+            m().setVisibility(0);
+            m().setOnClickListener(this);
         }
         if (a2Var.T() != null) {
             this.p.setText(a2Var.T().getName_show());
         }
         this.q.setText(StringHelper.getFormatTime(a2Var.C0() * 1000));
-        String str = a2Var.F1() + "：";
+        String str = a2Var.G1() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.append((CharSequence) a2Var.R2(false, true));
+        spannableStringBuilder.append((CharSequence) a2Var.S2(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
         this.r.setText(spannableStringBuilder);
         ArrayList<MediaData> L0 = a2Var.L0();
@@ -158,18 +158,18 @@ public class w extends b<a2> implements d.a.n0.o.e {
         } else {
             this.u.setVisibility(8);
         }
-        m.l(this.r, this.s.y1(), R.color.CAM_X0105, R.color.CAM_X0109);
-        n(this.n, TbadkCoreApplication.getInst().getSkinType());
+        m.l(this.r, this.s.z1(), R.color.CAM_X0105, R.color.CAM_X0109);
+        o(this.n, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void u(d.a.c.e.k.b<TbImageView> bVar) {
+    public void v(d.a.c.e.k.b<TbImageView> bVar) {
         ConstrainImageGroup constrainImageGroup = this.u;
         if (constrainImageGroup != null) {
             constrainImageGroup.setImageViewPool(bVar);
         }
     }
 
-    public void v(d.a.c.e.k.b<ConstrainImageLayout> bVar) {
+    public void w(d.a.c.e.k.b<ConstrainImageLayout> bVar) {
         ConstrainImageGroup constrainImageGroup = this.u;
         if (constrainImageGroup != null) {
             constrainImageGroup.setConstrainLayoutPool(bVar);

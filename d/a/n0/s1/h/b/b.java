@@ -25,111 +25,111 @@ import java.util.regex.Pattern;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public EditText f60638a;
+    public EditText f64329a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f60639b;
+    public ImageView f64330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f60640c;
+    public TextView f64331c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f60641d;
+    public ViewGroup f64332d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f60642e;
+    public BaseActivity<?> f64333e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Window f60643f;
+    public Window f64334f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f60644g;
+    public ImageView f64335g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EditorTools f60645h;
+    public EditorTools f64336h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f60646i;
+    public FrameLayout f64337i;
     public ProgressBar j;
 
     public b(BaseActivity<?> baseActivity, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.f60642e = baseActivity;
+        this.f64333e = baseActivity;
         Window window = baseActivity.getWindow();
-        this.f60643f = window;
-        this.f60641d = (ViewGroup) window.findViewById(R.id.tail_edit_root);
-        this.f60638a = (EditText) this.f60643f.findViewById(R.id.tail_edit_edittext);
-        ImageView imageView = (ImageView) this.f60643f.findViewById(R.id.tail_edit_submit);
-        this.f60639b = imageView;
+        this.f64334f = window;
+        this.f64332d = (ViewGroup) window.findViewById(R.id.tail_edit_root);
+        this.f64329a = (EditText) this.f64334f.findViewById(R.id.tail_edit_edittext);
+        ImageView imageView = (ImageView) this.f64334f.findViewById(R.id.tail_edit_submit);
+        this.f64330b = imageView;
         imageView.setOnClickListener(onClickListener);
-        ImageView imageView2 = (ImageView) this.f60643f.findViewById(R.id.tail_edit_cancel);
-        this.f60644g = imageView2;
+        ImageView imageView2 = (ImageView) this.f64334f.findViewById(R.id.tail_edit_cancel);
+        this.f64335g = imageView2;
         imageView2.setOnClickListener(onClickListener2);
-        this.f60640c = (TextView) this.f60643f.findViewById(R.id.tail_edit_text_number);
-        this.f60646i = (FrameLayout) this.f60643f.findViewById(R.id.tail_edit_editor);
-        this.j = (ProgressBar) this.f60643f.findViewById(R.id.tail_edit_progress);
+        this.f64331c = (TextView) this.f64334f.findViewById(R.id.tail_edit_text_number);
+        this.f64337i = (FrameLayout) this.f64334f.findViewById(R.id.tail_edit_editor);
+        this.j = (ProgressBar) this.f64334f.findViewById(R.id.tail_edit_progress);
     }
 
     public void a(d.a.m0.w.b bVar, String str) {
-        this.f60645h = new EditorTools(this.f60642e.getPageContext().getPageActivity());
+        this.f64336h = new EditorTools(this.f64333e.getPageContext().getPageActivity());
         d();
         c(bVar);
         b(bVar, str);
-        this.f60645h.f();
-        this.f60645h.A(new d.a.m0.w.a(35, 5, Boolean.FALSE));
-        this.f60645h.j();
-        o(this.f60645h);
+        this.f64336h.f();
+        this.f64336h.A(new d.a.m0.w.a(35, 5, Boolean.FALSE));
+        this.f64336h.j();
+        o(this.f64336h);
     }
 
     public final void b(d.a.m0.w.b bVar, String str) {
-        this.f60645h.d(new d(this.f60642e.getPageContext(), 2, str));
-        this.f60645h.setActionListener(26, bVar);
-        this.f60645h.setActionListener(3, bVar);
+        this.f64336h.d(new d(this.f64333e.getPageContext(), 2, str));
+        this.f64336h.setActionListener(26, bVar);
+        this.f64336h.setActionListener(3, bVar);
     }
 
     public final void c(d.a.m0.w.b bVar) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        this.f60645h.h(arrayList);
-        m n = this.f60645h.n(5);
+        this.f64336h.h(arrayList);
+        m n = this.f64336h.n(5);
         if (n != null) {
             n.j = 1;
             n.f(false);
         }
-        this.f60645h.setActionListener(24, bVar);
+        this.f64336h.setActionListener(24, bVar);
     }
 
     public final void d() {
-        this.f60645h.setBarMaxLauCount(4);
-        this.f60645h.setBarLauncherType(1);
-        this.f60645h.C(true);
-        this.f60645h.setBackgroundColorId(R.color.CAM_X0201);
+        this.f64336h.setBarMaxLauCount(4);
+        this.f64336h.setBarLauncherType(1);
+        this.f64336h.C(true);
+        this.f64336h.setBackgroundColorId(R.color.CAM_X0201);
     }
 
     public void e() {
-        if (this.f60638a.getSelectionStart() <= 0) {
+        if (this.f64329a.getSelectionStart() <= 0) {
             return;
         }
-        String substring = this.f60638a.getText().toString().substring(0, this.f60638a.getSelectionStart());
+        String substring = this.f64329a.getText().toString().substring(0, this.f64329a.getSelectionStart());
         Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
         int i2 = 1;
         if (matcher.find()) {
             i2 = substring.length() - matcher.replaceFirst("").length();
         }
-        this.f60638a.getText().delete(this.f60638a.getSelectionStart() - i2, this.f60638a.getSelectionStart());
+        this.f64329a.getText().delete(this.f64329a.getSelectionStart() - i2, this.f64329a.getSelectionStart());
     }
 
     public void f() {
-        this.f60642e.ShowSoftKeyPadDelay(this.f60638a);
-        EditText editText = this.f60638a;
+        this.f64333e.ShowSoftKeyPadDelay(this.f64329a);
+        EditText editText = this.f64329a;
         editText.setSelection(editText.length());
     }
 
     public String g() {
-        return this.f60638a.getText().toString();
+        return this.f64329a.getText().toString();
     }
 
     public EditText h() {
-        return this.f60638a;
+        return this.f64329a;
     }
 
     public void i() {
@@ -137,45 +137,45 @@ public class b {
     }
 
     public void j() {
-        this.f60645h.q();
-        this.f60645h.A(new d.a.m0.w.a(5, -1, null));
+        this.f64336h.q();
+        this.f64336h.A(new d.a.m0.w.a(5, -1, null));
     }
 
     public void k() {
-        EditText editText = this.f60638a;
+        EditText editText = this.f64329a;
         editText.setSelection(editText.length());
     }
 
     public void l(int i2) {
-        this.f60642e.getLayoutMode().k(i2 == 1);
-        this.f60642e.getLayoutMode().j(this.f60641d);
-        this.f60645h.w(i2);
+        this.f64333e.getLayoutMode().k(i2 == 1);
+        this.f64333e.getLayoutMode().j(this.f64332d);
+        this.f64336h.w(i2);
     }
 
     public void m(String str) {
-        this.f60638a.setTextColor(c.a(str));
+        this.f64329a.setTextColor(c.a(str));
     }
 
     public void n(String str) {
-        this.f60638a.setText(TbFaceManager.e().l(this.f60642e.getPageContext().getPageActivity(), str, null));
+        this.f64329a.setText(TbFaceManager.e().l(this.f64333e.getPageContext().getPageActivity(), str, null));
     }
 
     public void o(EditorTools editorTools) {
-        this.f60646i.addView(editorTools, new LinearLayout.LayoutParams(-1, -2));
+        this.f64337i.addView(editorTools, new LinearLayout.LayoutParams(-1, -2));
     }
 
     public void p(boolean z) {
-        this.f60639b.setEnabled(z);
+        this.f64330b.setEnabled(z);
     }
 
     public void q(int i2, int i3) {
-        TextView textView = this.f60640c;
+        TextView textView = this.f64331c;
         textView.setText(i2 + "/" + i3);
         int i4 = R.color.CAM_X0109;
         if (i2 == i3) {
             i4 = R.color.CAM_X0301;
         }
-        SkinManager.setViewTextColor(this.f60640c, i4, 1);
+        SkinManager.setViewTextColor(this.f64331c, i4, 1);
     }
 
     public void r() {

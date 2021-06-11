@@ -25,7 +25,7 @@ public class FieldBuilder {
                 this.builder.append("=");
                 this.builder.append(obj.toString());
             } else {
-                this.builder.append(SE);
+                this.builder.append("|");
                 this.builder.append(str);
                 this.builder.append("=");
                 this.builder.append(obj.toString());
@@ -46,7 +46,7 @@ public class FieldBuilder {
             sb2.append(fieldBuilder.toString());
             return;
         }
-        sb.append(SE);
+        sb.append("|");
         this.builder.append(fieldBuilder.toString());
     }
 

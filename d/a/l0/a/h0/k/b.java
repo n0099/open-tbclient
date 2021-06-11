@@ -9,14 +9,14 @@ import d.a.l0.a.k;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42207a = k.f43199a;
+    public static final boolean f45883a = k.f46875a;
 
     public b(d.a.l0.a.h0.f.a aVar) {
     }
 
     @JavascriptInterface
     public String setData(String str, String str2) {
-        if (f42207a) {
+        if (f45883a) {
             Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
         }
         int i2 = 0;

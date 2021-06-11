@@ -1,49 +1,41 @@
 package com.kwad.sdk.core.d;
 
 import android.util.Log;
-import com.kwad.sdk.b;
 /* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f32041a = true;
+    public static boolean f34079a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f32042b = "[KSAdSDK_3.3.8.3]";
+    public static String f34080b = "[KSAdSDK_3.3.9]";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f32043c = false;
+    public static boolean f34081c = false;
 
     public static String a() {
-        return f32042b;
-    }
-
-    public static void a(String str) {
-        Log.v(a(), str);
+        return f34080b;
     }
 
     public static void a(String str, String str2) {
-        if (f32041a && b.f31819b.booleanValue()) {
-            b(a(), f(str, str2));
-        }
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (f32041a) {
+        if (f34079a) {
             Log.e(str, str2, th);
         }
     }
 
     public static void a(String str, boolean z) {
-        f32042b = "[" + str + "]";
-        f32041a = z;
+        f34080b = "[" + str + "]";
+        f34079a = z;
     }
 
     public static void a(Throwable th) {
-        if (f32041a && th != null) {
+        if (f34079a && th != null) {
             th.printStackTrace();
         }
-        if (b.f31819b.booleanValue()) {
+        if (com.kwad.sdk.a.f32184b.booleanValue()) {
             throw new RuntimeException(th);
         }
     }
@@ -51,7 +43,7 @@ public class a {
     public static String b() {
         String str;
         int i2;
-        if (f32043c) {
+        if (f34081c) {
             StackTraceElement[] stackTrace = new Throwable().getStackTrace();
             if (stackTrace.length > 3) {
                 str = stackTrace[3].getFileName();
@@ -66,40 +58,31 @@ public class a {
     }
 
     public static void b(String str, String str2) {
-        if (str2.length() <= 4000) {
-            Log.d(str, str2);
-            return;
+        if (f34079a) {
+            Log.i(a(), e(str, str2));
         }
-        Log.d(str, str2.substring(0, 4000));
-        b(str, str2.substring(4000));
     }
 
     public static void b(Throwable th) {
-        if (!f32041a || th == null) {
+        if (!f34079a || th == null) {
             return;
         }
         th.printStackTrace();
     }
 
     public static void c(String str, String str2) {
-        if (f32041a) {
-            Log.i(a(), f(str, str2));
+        if (f34079a) {
+            Log.w(a(), e(str, str2));
         }
     }
 
     public static void d(String str, String str2) {
-        if (f32041a) {
-            Log.w(a(), f(str, str2));
+        if (f34079a) {
+            Log.e(a(), e(str, str2));
         }
     }
 
-    public static void e(String str, String str2) {
-        if (f32041a) {
-            Log.e(a(), f(str, str2));
-        }
-    }
-
-    public static String f(String str, String str2) {
+    public static String e(String str, String str2) {
         return "[" + str + "]: " + str2 + " " + b();
     }
 }

@@ -6,30 +6,30 @@ import d.a.l0.a.v2.q0;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42165a;
+    public static String f45841a;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f42166e;
+        public final /* synthetic */ SwanAppActivity f45842e;
 
         public a(SwanAppActivity swanAppActivity) {
-            this.f42166e = swanAppActivity;
+            this.f45842e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f42166e.finish();
+            this.f45842e.finish();
         }
     }
 
     public static String a() {
-        return f42165a;
+        return f45841a;
     }
 
     public static void b(String str) {
-        f42165a = str;
+        f45841a = str;
     }
 
     public static void c() {

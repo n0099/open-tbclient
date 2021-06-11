@@ -14,89 +14,89 @@ public class a implements SensorEventListener {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile a f43770i;
+    public static volatile a f47446i;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f43771a;
+    public Context f47447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SensorManager f43772b;
+    public SensorManager f47448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Sensor f43773c;
+    public Sensor f47449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC0768a f43774d;
+    public InterfaceC0824a f47450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double[] f43775e = new double[3];
+    public double[] f47451e = new double[3];
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f43776f = false;
+    public boolean f47452f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f43777g = 0;
+    public long f47453g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43778h;
+    public int f47454h;
 
     /* renamed from: d.a.l0.a.n2.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0768a {
+    public interface InterfaceC0824a {
         void a(double[] dArr);
     }
 
     public static a a() {
-        if (f43770i == null) {
+        if (f47446i == null) {
             synchronized (a.class) {
-                if (f43770i == null) {
-                    f43770i = new a();
+                if (f47446i == null) {
+                    f47446i = new a();
                 }
             }
         }
-        return f43770i;
+        return f47446i;
     }
 
     public static synchronized void d() {
         synchronized (a.class) {
-            if (f43770i == null) {
+            if (f47446i == null) {
                 return;
             }
-            f43770i.c();
+            f47446i.c();
         }
     }
 
     public synchronized void b(Context context, int i2) {
-        this.f43771a = context;
-        this.f43778h = i2;
+        this.f47447a = context;
+        this.f47454h = i2;
     }
 
     public final synchronized void c() {
         d.g("accelerometer", "release");
-        if (this.f43776f) {
+        if (this.f47452f) {
             g();
         }
-        this.f43771a = null;
-        f43770i = null;
+        this.f47447a = null;
+        f47446i = null;
     }
 
-    public synchronized void e(InterfaceC0768a interfaceC0768a) {
-        this.f43774d = interfaceC0768a;
+    public synchronized void e(InterfaceC0824a interfaceC0824a) {
+        this.f47450d = interfaceC0824a;
     }
 
     public synchronized void f() {
-        if (this.f43771a == null) {
+        if (this.f47447a == null) {
             d.b("accelerometer", "start error, none context");
-        } else if (this.f43776f) {
+        } else if (this.f47452f) {
             d.l("accelerometer", "has already start");
         } else {
-            SensorManager sensorManager = (SensorManager) this.f43771a.getSystemService("sensor");
-            this.f43772b = sensorManager;
+            SensorManager sensorManager = (SensorManager) this.f47447a.getSystemService("sensor");
+            this.f47448b = sensorManager;
             if (sensorManager != null) {
                 Sensor defaultSensor = sensorManager.getDefaultSensor(1);
-                this.f43773c = defaultSensor;
-                this.f43772b.registerListener(this, defaultSensor, 1);
-                this.f43776f = true;
+                this.f47449c = defaultSensor;
+                this.f47448b.registerListener(this, defaultSensor, 1);
+                this.f47452f = true;
                 d.g("accelerometer", "start listen");
             } else {
                 d.b("accelerometer", "none sensorManager");
@@ -105,16 +105,16 @@ public class a implements SensorEventListener {
     }
 
     public synchronized void g() {
-        if (!this.f43776f) {
+        if (!this.f47452f) {
             d.l("accelerometer", "has already stop");
             return;
         }
-        if (this.f43772b != null) {
-            this.f43772b.unregisterListener(this);
+        if (this.f47448b != null) {
+            this.f47448b.unregisterListener(this);
         }
-        this.f43772b = null;
-        this.f43773c = null;
-        this.f43776f = false;
+        this.f47448b = null;
+        this.f47449c = null;
+        this.f47452f = false;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -130,15 +130,15 @@ public class a implements SensorEventListener {
         float[] fArr = sensorEvent.values;
         if (fArr != null && fArr.length == 3) {
             synchronized (this) {
-                if (this.f43776f && this.f43774d != null && System.currentTimeMillis() - this.f43777g > this.f43778h) {
-                    this.f43775e[0] = (-sensorEvent.values[0]) / 9.8d;
-                    this.f43775e[1] = (-sensorEvent.values[1]) / 9.8d;
-                    this.f43775e[2] = (-sensorEvent.values[2]) / 9.8d;
-                    this.f43774d.a(this.f43775e);
-                    this.f43777g = System.currentTimeMillis();
+                if (this.f47452f && this.f47450d != null && System.currentTimeMillis() - this.f47453g > this.f47454h) {
+                    this.f47451e[0] = (-sensorEvent.values[0]) / 9.8d;
+                    this.f47451e[1] = (-sensorEvent.values[1]) / 9.8d;
+                    this.f47451e[2] = (-sensorEvent.values[2]) / 9.8d;
+                    this.f47450d.a(this.f47451e);
+                    this.f47453g = System.currentTimeMillis();
                 }
                 if (e.y) {
-                    Log.d("AccelerometerManager", "current Time : " + this.f43777g + "current Acc x : " + this.f43775e[0] + "current Acc y : " + this.f43775e[1] + "current Acc z : " + this.f43775e[2]);
+                    Log.d("AccelerometerManager", "current Time : " + this.f47453g + "current Acc x : " + this.f47451e[0] + "current Acc y : " + this.f47451e[1] + "current Acc z : " + this.f47451e[2]);
                 }
             }
             return;

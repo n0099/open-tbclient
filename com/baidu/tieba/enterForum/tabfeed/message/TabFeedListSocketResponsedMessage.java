@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.tabfeed.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.g0.b.a;
 import java.util.ArrayList;
 import tbclient.Error;

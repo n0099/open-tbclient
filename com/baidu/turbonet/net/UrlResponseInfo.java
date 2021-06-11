@@ -12,53 +12,53 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class UrlResponseInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f22429a;
+    public final List<String> f22532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f22430b;
+    public final int f22533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f22431c;
+    public final String f22534c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f22432d;
+    public final boolean f22535d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f22433e;
+    public final String f22536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f22434f;
+    public final String f22537f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f22435g = new AtomicLong();
+    public final AtomicLong f22538g = new AtomicLong();
 
     /* renamed from: h  reason: collision with root package name */
-    public final HeaderBlock f22436h;
+    public final HeaderBlock f22539h;
 
     /* loaded from: classes5.dex */
     public static final class HeaderBlock {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<Map.Entry<String, String>> f22437a;
+        public final List<Map.Entry<String, String>> f22540a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, List<String>> f22438b;
+        public Map<String, List<String>> f22541b;
 
         public HeaderBlock(List<Map.Entry<String, String>> list) {
-            this.f22437a = list;
+            this.f22540a = list;
         }
 
         public List<Map.Entry<String, String>> a() {
-            return this.f22437a;
+            return this.f22540a;
         }
 
         public Map<String, List<String>> b() {
-            Map<String, List<String>> map = this.f22438b;
+            Map<String, List<String>> map = this.f22541b;
             if (map != null) {
                 return map;
             }
             TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-            for (Map.Entry<String, String> entry : this.f22437a) {
+            for (Map.Entry<String, String> entry : this.f22540a) {
                 ArrayList arrayList = new ArrayList();
                 if (treeMap.containsKey(entry.getKey())) {
                     arrayList.addAll((Collection) treeMap.get(entry.getKey()));
@@ -67,64 +67,64 @@ public final class UrlResponseInfo {
                 treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
             }
             Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
-            this.f22438b = unmodifiableMap;
+            this.f22541b = unmodifiableMap;
             return unmodifiableMap;
         }
     }
 
     public UrlResponseInfo(List<String> list, int i2, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this.f22429a = Collections.unmodifiableList(list);
-        this.f22430b = i2;
-        this.f22431c = str;
-        this.f22436h = new HeaderBlock(Collections.unmodifiableList(list2));
-        this.f22432d = z;
-        this.f22433e = str2;
-        this.f22434f = str3;
+        this.f22532a = Collections.unmodifiableList(list);
+        this.f22533b = i2;
+        this.f22534c = str;
+        this.f22539h = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.f22535d = z;
+        this.f22536e = str2;
+        this.f22537f = str3;
     }
 
     public Map<String, List<String>> a() {
-        return this.f22436h.b();
+        return this.f22539h.b();
     }
 
     public List<Map.Entry<String, String>> b() {
-        return this.f22436h.a();
+        return this.f22539h.a();
     }
 
     public int c() {
-        return this.f22430b;
+        return this.f22533b;
     }
 
     public String d() {
-        return this.f22431c;
+        return this.f22534c;
     }
 
     public String e() {
-        return this.f22433e;
+        return this.f22536e;
     }
 
     public String f() {
-        return this.f22434f;
+        return this.f22537f;
     }
 
     public long g() {
-        return this.f22435g.get();
+        return this.f22538g.get();
     }
 
     public String h() {
-        List<String> list = this.f22429a;
+        List<String> list = this.f22532a;
         return list.get(list.size() - 1);
     }
 
     public List<String> i() {
-        return this.f22429a;
+        return this.f22532a;
     }
 
     public void j(long j) {
-        this.f22435g.set(j);
+        this.f22538g.set(j);
     }
 
     public boolean k() {
-        return this.f22432d;
+        return this.f22535d;
     }
 
     public String toString() {

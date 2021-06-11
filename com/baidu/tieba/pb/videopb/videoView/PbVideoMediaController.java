@@ -46,8 +46,8 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public void setBottomBarShow(boolean z) {
         this.t.setVisibility(z ? 0 : 8);
         this.l.setVisibility(z ? 8 : 0);
-        this.f19937h.setVisibility(z ? 8 : 0);
-        this.f19938i.setVisibility(z ? 8 : 0);
+        this.f20014h.setVisibility(z ? 8 : 0);
+        this.f20015i.setVisibility(z ? 8 : 0);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
@@ -55,7 +55,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         super.setCurrentDuration(i2, z);
         if (!z) {
             this.l.setProgress((int) (((i2 * 1.0f) / this.p) * 10000.0f));
-            TextView textView = this.f19937h;
+            TextView textView = this.f20014h;
             if (textView != null) {
                 textView.setText(StringHelper.stringForVideoTime(i2));
             }
@@ -70,8 +70,8 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
             g2 = l.g(getContext(), R.dimen.tbds210);
         }
         layoutParams.height = g2;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f19937h.getLayoutParams();
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f19938i.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f20014h.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f20015i.getLayoutParams();
         layoutParams2.leftMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
         layoutParams3.rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
     }

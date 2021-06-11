@@ -10,10 +10,10 @@ import java.util.List;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f54507a = 1500;
+    public static int f58196a = 1500;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f54508b = 500;
+    public static int f58197b = 500;
 
     public static void a() {
         String d2;
@@ -50,7 +50,7 @@ public class n {
     }
 
     public static int c() {
-        return d.a.m0.r.d0.b.j().k("key_max_stranger", f54507a);
+        return d.a.m0.r.d0.b.j().k("key_max_stranger", f58196a);
     }
 
     public static String d() {
@@ -107,7 +107,7 @@ public class n {
     }
 
     public static void f(int i2) {
-        int i3 = f54508b;
+        int i3 = f58197b;
         if (i2 < i3) {
             i2 = i3;
         }

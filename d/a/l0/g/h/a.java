@@ -19,56 +19,56 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Gson f47084a;
+    public Gson f50758a;
 
     /* renamed from: d.a.l0.g.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1002a extends StringResponseCallback {
+    public class C1058a extends StringResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.g.h.b f47085a;
+        public final /* synthetic */ d.a.l0.g.h.b f50759a;
 
         /* renamed from: d.a.l0.g.h.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1003a extends TypeToken<ResultData<ReservationGameResultData>> {
-            public C1003a(C1002a c1002a) {
+        public class C1059a extends TypeToken<ResultData<ReservationGameResultData>> {
+            public C1059a(C1058a c1058a) {
             }
         }
 
-        public C1002a(d.a.l0.g.h.b bVar) {
-            this.f47085a = bVar;
+        public C1058a(d.a.l0.g.h.b bVar) {
+            this.f50759a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(String str, int i2) {
-            if (TextUtils.isEmpty(str) || this.f47085a == null) {
+            if (TextUtils.isEmpty(str) || this.f50759a == null) {
                 return;
             }
-            ResultData resultData = (ResultData) a.this.f47084a.fromJson(str, new C1003a(this).getType());
+            ResultData resultData = (ResultData) a.this.f50758a.fromJson(str, new C1059a(this).getType());
             if (resultData == null) {
-                this.f47085a.a("result is null");
+                this.f50759a.onFail("result is null");
             } else if (resultData.errno == 0) {
                 T t = resultData.data;
                 if (t != 0 && ((ReservationGameResultData) t).apps != null) {
-                    this.f47085a.onSuccess(((ReservationGameResultData) t).apps);
+                    this.f50759a.onSuccess(((ReservationGameResultData) t).apps);
                     return;
                 }
-                this.f47085a.a("result data is null");
+                this.f50759a.onFail("result data is null");
             } else {
-                d.a.l0.g.h.b bVar = this.f47085a;
+                d.a.l0.g.h.b bVar = this.f50759a;
                 if (bVar != null) {
-                    bVar.a(resultData.errmsg);
+                    bVar.onFail(resultData.errmsg);
                 }
             }
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            d.a.l0.g.h.b bVar = this.f47085a;
+            d.a.l0.g.h.b bVar = this.f50759a;
             if (bVar != null) {
-                bVar.a(exc.toString());
+                bVar.onFail(exc.toString());
             }
         }
     }
@@ -93,15 +93,15 @@ public class a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f47087a = new a(null);
+        public static final a f50761a = new a(null);
     }
 
-    public /* synthetic */ a(C1002a c1002a) {
+    public /* synthetic */ a(C1058a c1058a) {
         this();
     }
 
     public static final a b() {
-        return c.f47087a;
+        return c.f50761a;
     }
 
     public void c(String str) {
@@ -128,7 +128,7 @@ public class a {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("status", 2);
-                d.a.l0.m.e.a.g().getRequest().cookieManager(a2).url(b2).addUrlParam("data", jSONObject.toString()).build().executeAsync(new C1002a(bVar));
+                d.a.l0.m.e.a.g().getRequest().cookieManager(a2).url(b2).addUrlParam("data", jSONObject.toString()).build().executeAsync(new C1058a(bVar));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -136,6 +136,6 @@ public class a {
     }
 
     public a() {
-        this.f47084a = new Gson();
+        this.f50758a = new Gson();
     }
 }

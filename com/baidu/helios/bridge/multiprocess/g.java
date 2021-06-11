@@ -19,24 +19,24 @@ import d.a.q.g.c.a.c;
 public class g extends a implements IBinder.DeathRecipient {
 
     /* renamed from: g  reason: collision with root package name */
-    public ContentProviderClient f6177g;
+    public ContentProviderClient f6220g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f6178h;
+    public e f6221h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.q.d.d.b f6179i;
+    public d.a.q.d.d.b f6222i;
     public String j;
 
     public g(d.a.q.d.d.b bVar, String str) {
-        this.f6179i = bVar;
+        this.f6222i = bVar;
         this.j = str;
     }
 
     public static Bundle j(a.d dVar) {
         Bundle bundle = new Bundle();
-        bundle.putInt("errcode", dVar.f64051b);
-        bundle.putString("id", dVar.f64050a);
+        bundle.putInt("errcode", dVar.f67769b);
+        bundle.putString("id", dVar.f67768a);
         return bundle;
     }
 
@@ -68,7 +68,7 @@ public class g extends a implements IBinder.DeathRecipient {
     @Override // d.a.q.d.a
     public void a(String str, Bundle bundle, final a.c<String> cVar) {
         try {
-            this.f6178h.a(str, bundle, new f.a() { // from class: com.baidu.helios.bridge.multiprocess.g.1
+            this.f6221h.a(str, bundle, new f.a() { // from class: com.baidu.helios.bridge.multiprocess.g.1
                 @Override // com.baidu.helios.bridge.multiprocess.f
                 public void a(int i2, Bundle bundle2) {
                     cVar.b(i2, null, bundle2);
@@ -86,13 +86,13 @@ public class g extends a implements IBinder.DeathRecipient {
 
     @Override // android.os.IBinder.DeathRecipient
     public void binderDied() {
-        this.f6179i.j();
+        this.f6222i.j();
     }
 
     @Override // d.a.q.d.a
     public boolean d(String str) {
         try {
-            return this.f6178h.a(str);
+            return this.f6221h.a(str);
         } catch (RemoteException unused) {
             return false;
         }
@@ -100,13 +100,13 @@ public class g extends a implements IBinder.DeathRecipient {
 
     @Override // d.a.q.d.a
     public void e(a.b bVar) {
-        this.f6178h = p(this.f64043e.f64047c);
+        this.f6221h = p(this.f67761e.f67765c);
     }
 
     @Override // d.a.q.d.a
     public a.d f(String str, Bundle bundle) {
         try {
-            Bundle a2 = this.f6178h.a(str, bundle);
+            Bundle a2 = this.f6221h.a(str, bundle);
             if (a2 != null) {
                 return k(a2);
             }
@@ -119,7 +119,7 @@ public class g extends a implements IBinder.DeathRecipient {
         Cursor cursor;
         Cursor cursor2 = null;
         try {
-            cursor = contentProviderClient.query(Uri.withAppendedPath(uri, BaseIPCProvider.f6158a), null, null, null, null);
+            cursor = contentProviderClient.query(Uri.withAppendedPath(uri, BaseIPCProvider.f6201a), null, null, null, null);
         } catch (Exception unused) {
             cursor = null;
         } catch (Throwable th) {
@@ -163,7 +163,7 @@ public class g extends a implements IBinder.DeathRecipient {
                 bundle = g(acquireContentProviderClient, uri);
             }
             if (bundle != null) {
-                this.f6177g = acquireContentProviderClient;
+                this.f6220g = acquireContentProviderClient;
                 break;
             }
             try {
@@ -180,12 +180,12 @@ public class g extends a implements IBinder.DeathRecipient {
     }
 
     public boolean n() {
-        return this.f6178h != null;
+        return this.f6221h != null;
     }
 
     public final e p(Context context) {
         IBinder o;
-        Bundle i2 = i(context, false, Uri.parse("content://" + l(context)), BaseIPCProvider.f6159b);
+        Bundle i2 = i(context, false, Uri.parse("content://" + l(context)), BaseIPCProvider.f6202b);
         StringBuilder sb = new StringBuilder();
         sb.append("remote bridge bundle result is ");
         sb.append(i2);

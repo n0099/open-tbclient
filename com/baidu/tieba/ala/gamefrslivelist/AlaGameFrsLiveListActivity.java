@@ -109,12 +109,12 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             ArrayList arrayList = new ArrayList();
             if (k0Var.e() != null) {
                 for (d.a.m0.e0.b bVar : k0Var.e()) {
-                    if (bVar.getFragmentTabStructure().f49334a != null) {
-                        arrayList.add(bVar.getFragmentTabStructure().f49334a);
+                    if (bVar.getFragmentTabStructure().f53008a != null) {
+                        arrayList.add(bVar.getFragmentTabStructure().f53008a);
                     }
                 }
             }
-            AlaGameFrsLiveListActivity.this.mFragmentAdapter.b(arrayList);
+            AlaGameFrsLiveListActivity.this.mFragmentAdapter.c(arrayList);
             int count = AlaGameFrsLiveListActivity.this.mFragmentAdapter.getCount();
             for (int i2 = 0; i2 < count; i2++) {
                 AlaGameFrsLiveListActivity alaGameFrsLiveListActivity = AlaGameFrsLiveListActivity.this;
@@ -132,13 +132,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12151c = fragment;
-        bVar.f12149a = i2;
+        bVar.f12213c = fragment;
+        bVar.f12211a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f12150b = fragmentTabIndicator;
+        bVar.f12212b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -209,7 +209,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 i3 = R.color.CAM_X0105;
             }
             fragmentTabWidget.setDiverColor(resources.getColor(i3));
-            this.mTabHost.o(i2);
+            this.mTabHost.p(i2);
             SkinManager.setBackgroundColor(this.mTabHost.getTabWrapper(), R.color.common_color_10274);
         }
         View view = this.mStatusBarView;
@@ -286,7 +286,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         fragmentTabHost.setup(getSupportFragmentManager());
         this.mTabHost.setOnPageChangeListener(this);
         this.mTabHost.setTabWidgetViewHeight(0);
-        this.mTabHost.p();
+        this.mTabHost.q();
         this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.ds12));
         this.mTabHost.getFragmentTabWidget().setDviderRectWidth(-2);
         this.mTabHost.getFragmentTabWidget().setDviderRectHeight(l.g(getActivity(), R.dimen.ds4));

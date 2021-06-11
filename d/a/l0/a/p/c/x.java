@@ -1,10 +1,10 @@
 package d.a.l0.a.p.c;
 
-import android.os.Message;
+import android.content.Context;
+import d.a.l0.a.p.d.q0;
 /* loaded from: classes2.dex */
-public class x implements d.a.l0.a.p.d.n0 {
-    @Override // d.a.l0.a.p.d.n0
-    public boolean a(Message message) {
-        return false;
+public class x implements q0 {
+    @Override // d.a.l0.a.p.d.q0
+    public void a(d.a.l0.a.l1.c cVar, Context context) {
     }
 }

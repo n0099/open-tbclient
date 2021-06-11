@@ -167,7 +167,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         dVar.z();
         if (view.getId() == this.mView.v()) {
             showLoadingDialog();
-            this.mModel.u(this.mView.t());
+            this.mModel.y(this.mView.t());
         }
     }
 
@@ -227,7 +227,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.e(), aVar.f(), aVar.g(), aVar.h(), 0)));
         } else if (view == null || (tag = view.getTag()) == null || !(tag instanceof c.a)) {
         } else {
-            TbCheckBox tbCheckBox = ((c.a) tag).f54962d;
+            TbCheckBox tbCheckBox = ((c.a) tag).f58651d;
             tbCheckBox.setChecked(!tbCheckBox.d());
         }
     }
@@ -244,7 +244,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.mModel.t(bundle);
+        this.mModel.x(bundle);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity

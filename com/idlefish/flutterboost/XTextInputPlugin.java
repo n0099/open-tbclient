@@ -13,7 +13,6 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import com.baidubce.auth.NTLMEngineImpl;
 import com.google.android.material.internal.ManufacturerUtils;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
@@ -150,7 +149,7 @@ public class XTextInputPlugin {
             TextInputChannel.Configuration configuration = this.configuration;
             int inputTypeFromTextInputType = inputTypeFromTextInputType(configuration.inputType, configuration.obscureText, configuration.autocorrect, configuration.enableSuggestions, configuration.textCapitalization);
             editorInfo.inputType = inputTypeFromTextInputType;
-            editorInfo.imeOptions = NTLMEngineImpl.FLAG_REQUEST_VERSION;
+            editorInfo.imeOptions = 33554432;
             Integer num = this.configuration.inputAction;
             if (num == null) {
                 intValue = (inputTypeFromTextInputType & 131072) != 0 ? 1 : 6;

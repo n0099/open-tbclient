@@ -26,23 +26,23 @@ import java.util.Date;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.a.c.e.g.c f53975a;
+    public static d.a.c.e.g.c f57664a;
 
     /* renamed from: d.a.n0.e3.g0.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1294a implements a.e {
+    public static class C1350a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f53976e;
+        public final /* synthetic */ TbPageContext f57665e;
 
-        public C1294a(TbPageContext tbPageContext) {
-            this.f53976e = tbPageContext;
+        public C1350a(TbPageContext tbPageContext) {
+            this.f57665e = tbPageContext;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f53976e.getPageActivity(), true, 23004, "remind");
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f57665e.getPageActivity(), true, 23004, "remind");
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
         }
@@ -61,82 +61,82 @@ public class a {
     public static class c implements d.a.c.e.g.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f53977a;
+        public final /* synthetic */ TbPageContext f57666a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f53978b;
+        public final /* synthetic */ boolean f57667b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SpannableString f53979c;
+        public final /* synthetic */ SpannableString f57668c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f53980d;
+        public final /* synthetic */ int f57669d;
 
         /* renamed from: d.a.n0.e3.g0.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1295a implements View.OnClickListener {
-            public View$OnClickListenerC1295a() {
+        public class View$OnClickListenerC1351a implements View.OnClickListener {
+            public View$OnClickListenerC1351a() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.f53975a != null) {
-                    a.f53975a.d();
+                if (a.f57664a != null) {
+                    a.f57664a.d();
                 }
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) c.this.f53977a.getPageActivity(), true, 23004, "expiring");
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) c.this.f57666a.getPageActivity(), true, 23004, "expiring");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
             }
         }
 
         public c(TbPageContext tbPageContext, boolean z, SpannableString spannableString, int i2) {
-            this.f53977a = tbPageContext;
-            this.f53978b = z;
-            this.f53979c = spannableString;
-            this.f53980d = i2;
+            this.f57666a = tbPageContext;
+            this.f57667b = z;
+            this.f57668c = spannableString;
+            this.f57669d = i2;
         }
 
         @Override // d.a.c.e.g.b
         public int a() {
-            return this.f53978b ? 4 : 2;
+            return this.f57667b ? 4 : 2;
         }
 
         @Override // d.a.c.e.g.b
         public int b() {
-            return this.f53978b ? 32 : 16;
+            return this.f57667b ? 32 : 16;
         }
 
         @Override // d.a.c.e.g.b
         public View c(LayoutInflater layoutInflater) {
-            TextView textView = new TextView(this.f53977a.getPageActivity());
-            if (this.f53978b) {
+            TextView textView = new TextView(this.f57666a.getPageActivity());
+            if (this.f57667b) {
                 textView.setBackgroundResource(R.drawable.pop_float_top);
             } else {
                 textView.setBackgroundResource(R.drawable.pop_float);
             }
-            int dimensionPixelSize = this.f53977a.getResources().getDimensionPixelSize(R.dimen.ds32);
-            int dimensionPixelSize2 = this.f53977a.getResources().getDimensionPixelSize(R.dimen.ds22);
-            if (this.f53978b) {
+            int dimensionPixelSize = this.f57666a.getResources().getDimensionPixelSize(R.dimen.ds32);
+            int dimensionPixelSize2 = this.f57666a.getResources().getDimensionPixelSize(R.dimen.ds22);
+            if (this.f57667b) {
                 textView.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2);
             } else {
                 textView.setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize);
             }
             textView.setGravity(17);
-            textView.setText(this.f53979c);
+            textView.setText(this.f57668c);
             textView.setCompoundDrawablePadding(dimensionPixelSize);
-            textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(this.f53980d), (Drawable) null);
-            textView.setOnClickListener(new View$OnClickListenerC1295a());
+            textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(this.f57669d), (Drawable) null);
+            textView.setOnClickListener(new View$OnClickListenerC1351a());
             return textView;
         }
 
         @Override // d.a.c.e.g.b
         public int getXOffset() {
-            return this.f53978b ? 0 : 4;
+            return this.f57667b ? 0 : 4;
         }
 
         @Override // d.a.c.e.g.b
         public int getYOffset() {
-            return this.f53978b ? 5 : 30;
+            return this.f57667b ? 5 : 30;
         }
     }
 
@@ -144,19 +144,19 @@ public class a {
     public static class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f53982e;
+        public final /* synthetic */ TbPageContext f57671e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f53983f;
+        public final /* synthetic */ boolean f57672f;
 
         public d(TbPageContext tbPageContext, boolean z) {
-            this.f53982e = tbPageContext;
-            this.f53983f = z;
+            this.f57671e = tbPageContext;
+            this.f57672f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.d(this.f53982e.getPageActivity(), this.f53983f);
+            a.d(this.f57671e.getPageActivity(), this.f57672f);
         }
     }
 
@@ -164,8 +164,8 @@ public class a {
     public static class e implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            if (a.f53975a != null) {
-                a.f53975a.d();
+            if (a.f57664a != null) {
+                a.f57664a.d();
             }
         }
     }
@@ -208,7 +208,7 @@ public class a {
                 textView2.setText(tbPageContext.getPageActivity().getString(R.string.bubble_ended_tip2));
                 textView2.setTextSize(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.fontsize32));
                 aVar.setContentView(inflate);
-                aVar.setPositiveButton(R.string.open_now, new C1294a(tbPageContext));
+                aVar.setPositiveButton(R.string.open_now, new C1350a(tbPageContext));
                 aVar.setNegativeButton(R.string.group_create_private_isee, new b());
                 aVar.create(tbPageContext);
                 aVar.show();
@@ -250,16 +250,16 @@ public class a {
             dVar.a(new c(tbPageContext, z, spannableString, i5));
             dVar.d(true);
             dVar.h(r12);
-            f53975a = dVar.b();
+            f57664a = dVar.b();
             new Handler().postDelayed(new d(tbPageContext, z), 1000L);
             d.a.m0.r.d0.b.j().w("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
         }
     }
 
     public static void d(Activity activity, boolean z) {
-        d.a.c.e.g.c cVar = f53975a;
+        d.a.c.e.g.c cVar = f57664a;
         if (cVar != null) {
-            cVar.m(activity);
+            cVar.n(activity);
         }
         if (z) {
             return;

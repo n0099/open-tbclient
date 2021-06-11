@@ -12,31 +12,31 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1926a = "alipay_tid_storage";
+    public static final String f1939a = "alipay_tid_storage";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1927b = "tidinfo";
+    public static final String f1940b = "tidinfo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1928c = "upgraded_from_db";
+    public static final String f1941c = "upgraded_from_db";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1929d = "tid";
+    public static final String f1942d = "tid";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1930e = "client_key";
+    public static final String f1943e = "client_key";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1931f = "timestamp";
+    public static final String f1944f = "timestamp";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1932g = "vimei";
+    public static final String f1945g = "vimei";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1933h = "vimsi";
+    public static final String f1946h = "vimsi";
 
     /* renamed from: i  reason: collision with root package name */
-    public static Context f1934i;
+    public static Context f1947i;
     public static b o;
     public String j;
     public String k;
@@ -52,7 +52,7 @@ public class b {
                 c.b("TidStorage", "getInstance");
                 o = new b();
             }
-            if (f1934i == null) {
+            if (f1947i == null) {
                 o.b(context);
             }
             bVar = o;
@@ -63,7 +63,7 @@ public class b {
     private void b(Context context) {
         if (context != null) {
             c.b("TidStorage", "TidStorage.initialize context != null");
-            f1934i = context.getApplicationContext();
+            f1947i = context.getApplicationContext();
         }
         if (this.p) {
             return;
@@ -83,11 +83,11 @@ public class b {
     private void k() {
         com.alipay.sdk.tid.a aVar;
         Throwable th;
-        Context context = f1934i;
+        Context context = f1947i;
         if (context == null) {
             return;
         }
-        if (a.d(f1926a, f1928c)) {
+        if (a.d(f1939a, f1941c)) {
             c.b("TidStorage", "transferTidFromOldDb: already migrated. returning");
             return;
         }
@@ -129,7 +129,7 @@ public class b {
                 aVar = aVar2;
                 try {
                     c.a(th);
-                    a.a(f1926a, f1928c, "updated", false);
+                    a.a(f1939a, f1941c, "updated", false);
                 } finally {
                     if (aVar != null) {
                         aVar.close();
@@ -139,7 +139,7 @@ public class b {
         } catch (Throwable th5) {
             th = th5;
         }
-        a.a(f1926a, f1928c, "updated", false);
+        a.a(f1939a, f1941c, "updated", false);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x0091  */
@@ -156,7 +156,7 @@ public class b {
         Long valueOf = Long.valueOf(System.currentTimeMillis());
         String str5 = null;
         try {
-            a2 = a.a(f1926a, f1927b, true);
+            a2 = a.a(f1939a, f1940b, true);
         } catch (Exception e2) {
             e = e2;
             str = null;
@@ -166,10 +166,10 @@ public class b {
             JSONObject jSONObject = new JSONObject(a2);
             str = jSONObject.optString("tid", "");
             try {
-                str2 = jSONObject.optString(f1930e, "");
+                str2 = jSONObject.optString(f1943e, "");
                 try {
                     valueOf = Long.valueOf(jSONObject.optLong("timestamp", System.currentTimeMillis()));
-                    str3 = jSONObject.optString(f1932g, "");
+                    str3 = jSONObject.optString(f1945g, "");
                 } catch (Exception e3) {
                     e = e3;
                     str3 = null;
@@ -186,7 +186,7 @@ public class b {
                 }
             }
             try {
-                str4 = jSONObject.optString(f1933h, "");
+                str4 = jSONObject.optString(f1946h, "");
             } catch (Exception e5) {
                 e = e5;
                 c.a(e);
@@ -223,7 +223,7 @@ public class b {
         this.l = System.currentTimeMillis();
         this.m = n();
         this.n = n();
-        a.b(f1926a, f1927b);
+        a.b(f1939a, f1940b);
     }
 
     private String n() {
@@ -239,11 +239,11 @@ public class b {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("tid", this.j);
-            jSONObject.put(f1930e, this.k);
+            jSONObject.put(f1943e, this.k);
             jSONObject.put("timestamp", this.l);
-            jSONObject.put(f1932g, this.m);
-            jSONObject.put(f1933h, this.n);
-            a.a(f1926a, f1927b, jSONObject.toString(), true);
+            jSONObject.put(f1945g, this.m);
+            jSONObject.put(f1946h, this.n);
+            a.a(f1939a, f1940b, jSONObject.toString(), true);
         } catch (Exception e2) {
             c.a(e2);
         }
@@ -289,17 +289,17 @@ public class b {
         }
 
         public static boolean a(String str, String str2) {
-            if (b.f1934i == null) {
+            if (b.f1947i == null) {
                 return false;
             }
-            return b.f1934i.getSharedPreferences(str, 0).contains(str2);
+            return b.f1947i.getSharedPreferences(str, 0).contains(str2);
         }
 
         public static void b(String str, String str2) {
-            if (b.f1934i == null) {
+            if (b.f1947i == null) {
                 return;
             }
-            b.f1934i.getSharedPreferences(str, 0).edit().remove(str2).apply();
+            b.f1947i.getSharedPreferences(str, 0).edit().remove(str2).apply();
         }
 
         public static String c(String str, String str2) {
@@ -307,18 +307,18 @@ public class b {
         }
 
         public static boolean d(String str, String str2) {
-            if (b.f1934i == null) {
+            if (b.f1947i == null) {
                 return false;
             }
-            return b.f1934i.getSharedPreferences(str, 0).contains(str2);
+            return b.f1947i.getSharedPreferences(str, 0).contains(str2);
         }
 
         public static String a(String str, String str2, boolean z) {
             String str3;
-            if (b.f1934i == null) {
+            if (b.f1947i == null) {
                 return null;
             }
-            String string = b.f1934i.getSharedPreferences(str, 0).getString(str2, null);
+            String string = b.f1947i.getSharedPreferences(str, 0).getString(str2, null);
             if (TextUtils.isEmpty(string) || !z) {
                 str3 = string;
             } else {
@@ -342,7 +342,7 @@ public class b {
         public static String b() {
             String str;
             try {
-                str = b.f1934i.getApplicationContext().getPackageName();
+                str = b.f1947i.getApplicationContext().getPackageName();
             } catch (Throwable th) {
                 c.a(th);
                 str = "";
@@ -358,10 +358,10 @@ public class b {
         }
 
         public static void a(String str, String str2, String str3, boolean z) {
-            if (b.f1934i == null) {
+            if (b.f1947i == null) {
                 return;
             }
-            SharedPreferences sharedPreferences = b.f1934i.getSharedPreferences(str, 0);
+            SharedPreferences sharedPreferences = b.f1947i.getSharedPreferences(str, 0);
             if (z) {
                 String b2 = b();
                 String a2 = com.alipay.sdk.encrypt.b.a(str3, b2);

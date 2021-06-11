@@ -86,7 +86,6 @@ import com.baidu.mobads.container.util.OpenAppUtils;
 import com.baidu.mobads.container.util.PermissionUtils;
 import com.baidu.mobads.container.util.RemoteCommonUtils;
 import com.baidu.mobads.container.util.RemoteXAdLogger;
-import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.mobads.container.util.ScreenUtils;
 import com.baidu.mobads.container.util.SendLogUtil;
 import com.baidu.mobads.container.video.CpuLpVideoLayout;
@@ -1148,7 +1147,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
                     }
                 }
                 hashMap.put("info", str);
-                SendLogUtil.sendExpLpLog(this.mProxyActivity, SDKLogTypeConstants.TYPE_LP_LIFE_CIRCLE, hashMap);
+                SendLogUtil.sendExpLpLog(this.mProxyActivity, 703, hashMap);
             }
         } catch (Exception unused2) {
         }

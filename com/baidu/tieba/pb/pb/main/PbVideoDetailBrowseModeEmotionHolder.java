@@ -17,48 +17,48 @@ import kotlin.jvm.internal.Intrinsics;
 public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BDImageView f19144a;
+    public final BDImageView f19221a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final EMTextView f19145b;
+    public final EMTextView f19222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TBSpecificationBtn f19146c;
+    public final TBSpecificationBtn f19223c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f19147d;
+    public View.OnClickListener f19224d;
 
     public PbVideoDetailBrowseModeEmotionHolder(View view) {
         super(view);
         View findViewById = a().findViewById(R.id.emotion_img);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "getView().findViewById(R.id.emotion_img)");
-        this.f19144a = (BDImageView) findViewById;
+        this.f19221a = (BDImageView) findViewById;
         View findViewById2 = a().findViewById(R.id.description_text);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "getView().findViewById(R.id.description_text)");
-        this.f19145b = (EMTextView) findViewById2;
+        this.f19222b = (EMTextView) findViewById2;
         View findViewById3 = a().findViewById(R.id.agree_btn);
         Intrinsics.checkExpressionValueIsNotNull(findViewById3, "getView().findViewById(R.id.agree_btn)");
-        this.f19146c = (TBSpecificationBtn) findViewById3;
-        SkinManager.setImageResource(this.f19144a, R.drawable.new_pic_emotion_01);
-        this.f19145b.setText(R.string.pb_video_detail_browse_mode_description);
-        c.d(this.f19145b).s(R.color.CAM_X0107);
+        this.f19223c = (TBSpecificationBtn) findViewById3;
+        SkinManager.setImageResource(this.f19221a, R.drawable.new_pic_emotion_01);
+        this.f19222b.setText(R.string.pb_video_detail_browse_mode_description);
+        c.d(this.f19222b).s(R.color.CAM_X0107);
         b bVar = new b();
         bVar.o(R.color.CAM_X0303, R.color.CAM_X0101);
-        this.f19146c.setConfig(bVar);
-        this.f19146c.setText(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_browse_mode_agree_btn));
-        this.f19146c.setTextSize(R.dimen.T_X07);
+        this.f19223c.setConfig(bVar);
+        this.f19223c.setText(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_browse_mode_agree_btn));
+        this.f19223c.setTextSize(R.dimen.T_X07);
     }
 
     public final void b() {
-        SkinManager.setImageResource(this.f19144a, R.drawable.new_pic_emotion_01);
-        c.d(this.f19145b).s(R.color.CAM_X0107);
-        this.f19146c.k();
+        SkinManager.setImageResource(this.f19221a, R.drawable.new_pic_emotion_01);
+        c.d(this.f19222b).s(R.color.CAM_X0107);
+        this.f19223c.k();
     }
 
     public final void c(View.OnClickListener onClickListener) {
-        this.f19147d = onClickListener;
+        this.f19224d = onClickListener;
         if (onClickListener != null) {
-            this.f19146c.setOnClickListener(onClickListener);
+            this.f19223c.setOnClickListener(onClickListener);
         }
     }
 }

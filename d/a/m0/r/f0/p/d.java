@@ -6,45 +6,45 @@ import tbclient.UrlParser.UrlParserResIdl;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49778a;
+    public int f53453a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49779b;
+    public int f53454b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49780c;
+    public String f53455c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f49781d;
+    public String f53456d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f49782e;
+    public String f53457e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f49783f;
+    public String f53458f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f49784g;
+    public String f53459g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f49785h;
+    public boolean f53460h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f49786i;
+    public String f53461i;
 
     public void a(UrlParserResIdl urlParserResIdl) {
         DataRes dataRes;
         if (urlParserResIdl == null || (dataRes = urlParserResIdl.data) == null) {
             return;
         }
-        this.f49778a = dataRes.status.intValue();
-        this.f49779b = urlParserResIdl.data.url_type.intValue();
+        this.f53453a = dataRes.status.intValue();
+        this.f53454b = urlParserResIdl.data.url_type.intValue();
         DataRes dataRes2 = urlParserResIdl.data;
-        this.f49781d = dataRes2.image;
-        this.f49782e = dataRes2.title;
-        this.f49783f = dataRes2.link_from;
-        this.f49784g = dataRes2.price_txt;
-        this.f49785h = dataRes2.is_recognize.intValue() == 1;
-        this.f49786i = urlParserResIdl.data.description;
+        this.f53456d = dataRes2.image;
+        this.f53457e = dataRes2.title;
+        this.f53458f = dataRes2.link_from;
+        this.f53459g = dataRes2.price_txt;
+        this.f53460h = dataRes2.is_recognize.intValue() == 1;
+        this.f53461i = urlParserResIdl.data.description;
     }
 }

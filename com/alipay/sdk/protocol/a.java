@@ -12,10 +12,10 @@ public enum a {
     
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1908g;
+    public String f1921g;
 
     a(String str) {
-        this.f1908g = str;
+        this.f1921g = str;
     }
 
     public static a a(String str) {
@@ -25,7 +25,7 @@ public enum a {
         }
         a aVar = None;
         for (a aVar2 : values()) {
-            if (str.startsWith(aVar2.f1908g)) {
+            if (str.startsWith(aVar2.f1921g)) {
                 return aVar2;
             }
         }

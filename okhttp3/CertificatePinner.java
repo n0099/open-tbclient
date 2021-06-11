@@ -13,14 +13,14 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CertificatePinner {
     public static final CertificatePinner DEFAULT = new Builder().build();
     @Nullable
     public final CertificateChainCleaner certificateChainCleaner;
     public final Set<Pin> pins;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public final List<Pin> pins = new ArrayList();
 
@@ -39,7 +39,7 @@ public final class CertificatePinner {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Pin {
         public static final String WILDCARD = "*.";
         public final String canonicalHostname;

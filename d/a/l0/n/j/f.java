@@ -31,7 +31,7 @@ public class f {
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
             return null;
@@ -56,7 +56,7 @@ public class f {
                 }
             }
         }
-        if (!l.f48154a || (b2 = d.a.l0.n.c.b()) == null) {
+        if (!l.f51828a || (b2 = d.a.l0.n.c.b()) == null) {
             return;
         }
         b2.z();

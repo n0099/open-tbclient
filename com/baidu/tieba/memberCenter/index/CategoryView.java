@@ -18,19 +18,19 @@ import d.a.n0.s1.c.b.d;
 public class CategoryView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18206e;
+    public Context f18282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18207f;
+    public View f18283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18208g;
+    public TextView f18284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18209h;
+    public TextView f18285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f18210i;
+    public ImageView f18286i;
     public d j;
     public View.OnClickListener k;
 
@@ -52,38 +52,38 @@ public class CategoryView extends LinearLayout {
             } else if (a2 == 3) {
                 TiebaStatic.log("c10449");
             }
-            MemberCenterStatic.a((TbPageContext) j.a(CategoryView.this.f18206e), new String[]{CategoryView.this.j.c()});
+            MemberCenterStatic.a((TbPageContext) j.a(CategoryView.this.f18282e), new String[]{CategoryView.this.j.c()});
         }
     }
 
     public CategoryView(Context context) {
         super(context);
         this.k = new a();
-        this.f18206e = context;
+        this.f18282e = context;
         c();
     }
 
     public final void c() {
-        View inflate = LayoutInflater.from(this.f18206e).inflate(R.layout.index_category, this);
-        this.f18207f = inflate;
-        this.f18208g = (TextView) inflate.findViewById(R.id.class_name);
-        this.f18209h = (TextView) this.f18207f.findViewById(R.id.sprend_name);
-        this.f18210i = (ImageView) this.f18207f.findViewById(R.id.spread_icon);
-        this.f18207f.setOnClickListener(this.k);
-        this.f18210i.setOnClickListener(this.k);
+        View inflate = LayoutInflater.from(this.f18282e).inflate(R.layout.index_category, this);
+        this.f18283f = inflate;
+        this.f18284g = (TextView) inflate.findViewById(R.id.class_name);
+        this.f18285h = (TextView) this.f18283f.findViewById(R.id.sprend_name);
+        this.f18286i = (ImageView) this.f18283f.findViewById(R.id.spread_icon);
+        this.f18283f.setOnClickListener(this.k);
+        this.f18286i.setOnClickListener(this.k);
     }
 
     public CategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.k = new a();
-        this.f18206e = context;
+        this.f18282e = context;
         c();
     }
 
     public CategoryView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
         this.k = new a();
-        this.f18206e = context;
+        this.f18282e = context;
         c();
     }
 }

@@ -14,24 +14,24 @@ public class c implements ee {
     @Override // com.xiaomi.push.ee
     public void a(Context context, HashMap<String, String> hashMap) {
         ie ieVar = new ie();
-        ieVar.b(ea.a(context).m271a());
+        ieVar.b(ea.a(context).m270a());
         ieVar.d(ea.a(context).b());
         ieVar.c(hp.AwakeAppResponse.f506a);
         ieVar.a(com.xiaomi.push.service.at.a());
         ieVar.f647a = hashMap;
         an.a(context).a((an) ieVar, hf.Notification, true, (hs) null, true);
-        com.xiaomi.channel.commonutils.logger.b.m57a("MoleInfo：\u3000send data in app layer");
+        com.xiaomi.channel.commonutils.logger.b.m56a("MoleInfo：\u3000send data in app layer");
     }
 
     @Override // com.xiaomi.push.ee
     public void b(Context context, HashMap<String, String> hashMap) {
         MiTinyDataClient.upload("category_awake_app", "wake_up_app", 1L, dv.a(hashMap));
-        com.xiaomi.channel.commonutils.logger.b.m57a("MoleInfo：\u3000send data in app layer");
+        com.xiaomi.channel.commonutils.logger.b.m56a("MoleInfo：\u3000send data in app layer");
     }
 
     @Override // com.xiaomi.push.ee
     public void c(Context context, HashMap<String, String> hashMap) {
-        com.xiaomi.channel.commonutils.logger.b.m57a("MoleInfo：\u3000" + dv.b(hashMap));
+        com.xiaomi.channel.commonutils.logger.b.m56a("MoleInfo：\u3000" + dv.b(hashMap));
         String str = hashMap.get("awake_info");
         if (String.valueOf(1007).equals(hashMap.get("event_type"))) {
             o.a(context, str);

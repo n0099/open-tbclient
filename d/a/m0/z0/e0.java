@@ -8,10 +8,10 @@ import java.util.regex.Pattern;
 public class e0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f51019a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
+    public static final Pattern f54696a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f51020b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
+    public static final Pattern f54697b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
 
     public static boolean a() {
         if (d.a.m0.b.d.H()) {
@@ -28,14 +28,14 @@ public class e0 {
         if (d.a.c.e.p.k.isEmpty(str)) {
             return false;
         }
-        return f51019a.matcher(str.toLowerCase()).find();
+        return f54696a.matcher(str.toLowerCase()).find();
     }
 
     public static boolean c(String str) {
         if (d.a.c.e.p.k.isEmpty(str)) {
             return false;
         }
-        return f51020b.matcher(str.toLowerCase()).find();
+        return f54697b.matcher(str.toLowerCase()).find();
     }
 
     public static boolean d(String str) {

@@ -18,6 +18,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class SapiConfiguration implements NoProguard {
+    public static final int BROWSE_MODE_STATE_ONLY = 2;
+    public static final int BROWSE_MODE_STATE_USER_AUTHORIZED = 1;
+    public static final int BROWSE_MODE_STATE_USER_UNSELECTED = 0;
     public static final int JOIN_LOGIN = 4;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_CHINA_MOBILE_OAUTH = 5;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_FACE_LOGIN = 4;
@@ -33,12 +36,14 @@ public final class SapiConfiguration implements NoProguard {
     public final String appId;
     public final String appSignKey;
     public final String bdOauthAppId;
+    public int browseModeState;
     public String clientId;
     public String clientIp;
     public final Switch configurableViewLayout;
     public final Context context;
     public boolean customActionBarEnabled;
     public final boolean debug;
+    public String deviceName;
     public boolean disableVoiceVerify;
     public final boolean enableShare;
     public final Domain environment;
@@ -48,6 +53,7 @@ public final class SapiConfiguration implements NoProguard {
     public String googleClientId;
     public final LoginShareStrategy initialShareStrategy;
     public boolean isDarkMode;
+    public boolean isHideLoginHelpEntrance;
     public final boolean isNewLogin;
     public boolean isNightMode;
     public boolean isShowBottomBackText;
@@ -68,6 +74,7 @@ public final class SapiConfiguration implements NoProguard {
     public final String sofireAppKey;
     public final int sofireHostID;
     public final String sofireSecKey;
+    public boolean supportBrowseMode;
     public boolean supportCheckFloatfLayer;
     public boolean supportFaceLogin;
     public boolean supportGestureSlide;
@@ -183,6 +190,10 @@ public final class SapiConfiguration implements NoProguard {
         return this.isShowBottomBackText;
     }
 
+    public boolean isSupportBrowseMode() {
+        return this.supportBrowseMode;
+    }
+
     public boolean isSupportTouchLogin() {
         return this.supportTouchLogin && SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_GINGER).meetGray;
     }
@@ -222,6 +233,7 @@ public final class SapiConfiguration implements NoProguard {
         public String bdOauthAppId;
         public Context context;
         public String deviceLoginSignKey;
+        public String deviceName;
         public Domain environment;
         public List<FastLoginFeature> fastLoginFeatureList;
         public boolean forbidPresetPhoneNumber;
@@ -239,6 +251,7 @@ public final class SapiConfiguration implements NoProguard {
         public String skin;
         public SmsLoginConfig smsLoginConfig;
         public BindType socialBindType;
+        public boolean supportBrowseMode;
         public boolean supportCheckFloatfLayer;
         public String tpl;
         public String twitterAppKey;
@@ -276,6 +289,8 @@ public final class SapiConfiguration implements NoProguard {
         public boolean isNewLogin = true;
         public int textZoom = 100;
         public boolean isShowBottomBackText = false;
+        public int browseModeState = 1;
+        public boolean isHideLoginHelpEntrance = false;
 
         public Builder(Context context) {
             this.context = context.getApplicationContext();
@@ -374,6 +389,11 @@ public final class SapiConfiguration implements NoProguard {
             return this;
         }
 
+        public Builder isHideLoginHelpEntrance(boolean z) {
+            this.isHideLoginHelpEntrance = z;
+            return this;
+        }
+
         public Builder isNewLogin(boolean z) {
             this.isNewLogin = z;
             return this;
@@ -416,8 +436,18 @@ public final class SapiConfiguration implements NoProguard {
             return this;
         }
 
+        public Builder setBrowseModeState(int i2) {
+            this.browseModeState = i2;
+            return this;
+        }
+
         public Builder setDarkMode(boolean z) {
             this.isDarkMode = z;
+            return this;
+        }
+
+        public Builder setDeviceName(String str) {
+            this.deviceName = str;
             return this;
         }
 
@@ -489,6 +519,11 @@ public final class SapiConfiguration implements NoProguard {
 
         public Builder setSupNewVerSapiLogin(boolean z) {
             this.supNewVerSapiLogin = z;
+            return this;
+        }
+
+        public Builder setSupportBrowseMode(boolean z) {
+            this.supportBrowseMode = z;
             return this;
         }
 
@@ -661,6 +696,10 @@ public final class SapiConfiguration implements NoProguard {
         this.supportCheckFloatfLayer = builder.supportCheckFloatfLayer;
         this.textZoom = builder.textZoom;
         this.isShowBottomBackText = builder.isShowBottomBackText;
+        this.deviceName = builder.deviceName;
+        this.isHideLoginHelpEntrance = builder.isHideLoginHelpEntrance;
+        this.browseModeState = builder.browseModeState;
+        this.supportBrowseMode = builder.supportBrowseMode;
     }
 
     /* loaded from: classes2.dex */

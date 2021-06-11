@@ -16,12 +16,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import d.a.m0.r.q.z1;
 /* loaded from: classes4.dex */
-public abstract class k<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a<T, V> {
+public abstract class k<T, V extends TypeAdapter.ViewHolder> extends d.a.c.k.e.a<T, V> {
     public boolean m;
     public FrsViewData n;
     public TbPageContext<?> o;
     public f p;
-    public d.a.c.j.e.s q;
+    public d.a.c.k.e.s q;
     public int r;
     public i s;
     public boolean t;
@@ -39,15 +39,15 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.m = false;
         this.v = null;
-        n(tbPageContext, bdUniqueId2);
+        o(tbPageContext, bdUniqueId2);
     }
 
-    @Override // d.a.c.j.e.a
-    public View W(int i2, View view, ViewGroup viewGroup, T t, V v) {
+    @Override // d.a.c.k.e.a
+    public View X(int i2, View view, ViewGroup viewGroup, T t, V v) {
         this.r = TbadkCoreApplication.getInst().getSkinType();
-        this.q = (d.a.c.j.e.s) viewGroup;
+        this.q = (d.a.c.k.e.s) viewGroup;
         if (t instanceof z1) {
-            ((z1) t).w.d4(2);
+            ((z1) t).w.e4(2);
             return null;
         }
         return null;
@@ -70,20 +70,20 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a
         }
     }
 
-    public TbPageTag f0() {
+    public TbPageTag g0() {
         return this.v;
     }
 
-    public boolean g0() {
+    public boolean h0() {
         return this.t;
     }
 
-    public void h0() {
-        this.f39228e = null;
+    public void i0() {
+        this.f42909e = null;
         this.o = null;
         this.p = null;
-        this.f39229f = null;
-        this.f39230g = null;
+        this.f42910f = null;
+        this.f42911g = null;
         i iVar = this.s;
         if (iVar != null) {
             iVar.a();
@@ -91,28 +91,28 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a
         }
     }
 
-    public void i0(i iVar) {
+    public void j0(i iVar) {
         this.s = iVar;
     }
 
-    public void j0(f fVar) {
+    public void k0(f fVar) {
         this.p = fVar;
     }
 
-    public void m0(FrsViewData frsViewData) {
+    public void l0(FrsViewData frsViewData) {
         this.n = frsViewData;
     }
 
-    public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        if (tbPageContext != null) {
-            this.f39228e = tbPageContext.getPageActivity();
-            this.o = tbPageContext;
-            this.f39232i = bdUniqueId;
-        }
+    public void m0(d.a.c.k.e.s sVar) {
+        this.q = sVar;
     }
 
-    public void n0(d.a.c.j.e.s sVar) {
-        this.q = sVar;
+    public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        if (tbPageContext != null) {
+            this.f42909e = tbPageContext.getPageActivity();
+            this.o = tbPageContext;
+            this.f42913i = bdUniqueId;
+        }
     }
 
     public void p0(TbPageTag tbPageTag) {
@@ -133,6 +133,6 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.m = false;
         this.v = null;
-        n(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
+        o(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
 }

@@ -3,17 +3,17 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.squareup.wire.Wire;
-import d.a.m0.a.h;
+import d.a.m0.a.i;
 import tbclient.DecryptCode.DecryptCodeResIdl;
 /* loaded from: classes3.dex */
 public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
-    public h decryptData;
+    public i decryptData;
 
     public DecryptCodeHttpRespMsg(int i2) {
         super(i2);
     }
 
-    public h getDecryptData() {
+    public i getDecryptData() {
         return this.decryptData;
     }
 
@@ -23,9 +23,9 @@ public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
         try {
             DecryptCodeResIdl decryptCodeResIdl = (DecryptCodeResIdl) new Wire(new Class[0]).parseFrom(bArr, DecryptCodeResIdl.class);
             if (decryptCodeResIdl != null) {
-                h hVar = new h();
-                this.decryptData = hVar;
-                hVar.h(decryptCodeResIdl.data);
+                i iVar = new i();
+                this.decryptData = iVar;
+                iVar.h(decryptCodeResIdl.data);
             }
         } catch (Throwable th) {
             BdLog.e(th);

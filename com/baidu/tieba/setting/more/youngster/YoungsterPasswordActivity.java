@@ -48,21 +48,21 @@ public class YoungsterPasswordActivity extends BaseActivity {
                 this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
                 break;
         }
-        this.mYoungsterPasswordView.i(i2);
+        this.mYoungsterPasswordView.j(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-        this.mYoungsterPasswordView.j();
+        this.mYoungsterPasswordView.k();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.mBack) {
-            this.mYoungsterPasswordView.g();
+            this.mYoungsterPasswordView.h();
             e.a().postDelayed(this.finishWithResult, 200L);
         }
     }
@@ -104,7 +104,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
         super.onResume();
         YoungsterPasswordView youngsterPasswordView = this.mYoungsterPasswordView;
         if (youngsterPasswordView != null) {
-            youngsterPasswordView.k();
+            youngsterPasswordView.l();
         }
     }
 }

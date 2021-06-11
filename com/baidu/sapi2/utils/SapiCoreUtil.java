@@ -116,33 +116,39 @@ public class SapiCoreUtil {
     }
 
     public static void executeJsCode(String str, String str2, String str3, Context context, final ExecuteJsCallback executeJsCallback) {
-        final WebView webView = new WebView(context);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadDataWithBaseURL("", "<html><head><meta charset=\"utf-8\"><script> " + str + str2 + " </script></head></html>", SapiWebView.DATA_MIME_TYPE, "UTF-8", "");
-        StringBuilder sb = new StringBuilder();
-        sb.append("javascript:moonshade(");
-        sb.append(str3);
-        sb.append(SmallTailInfo.EMOTION_SUFFIX);
-        final String sb2 = sb.toString();
-        webView.setWebViewClient(new WebViewClient() { // from class: com.baidu.sapi2.utils.SapiCoreUtil.1
-            @Override // android.webkit.WebViewClient
-            public void onPageFinished(WebView webView2, String str4) {
-                super.onPageFinished(webView2, str4);
-                if (Build.VERSION.SDK_INT >= 19) {
-                    webView.evaluateJavascript(sb2, new ValueCallback<String>() { // from class: com.baidu.sapi2.utils.SapiCoreUtil.1.1
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // android.webkit.ValueCallback
-                        public void onReceiveValue(String str5) {
-                            executeJsCallback.jsExecuteCompleted(str5);
-                            webView.destroy();
-                        }
-                    });
-                    return;
+        try {
+            final WebView webView = new WebView(context);
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.loadDataWithBaseURL("", "<html><head><meta charset=\"utf-8\"><script> " + str + str2 + " </script></head></html>", SapiWebView.DATA_MIME_TYPE, "UTF-8", "");
+            StringBuilder sb = new StringBuilder();
+            sb.append("javascript:moonshade(");
+            sb.append(str3);
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            final String sb2 = sb.toString();
+            webView.setWebViewClient(new WebViewClient() { // from class: com.baidu.sapi2.utils.SapiCoreUtil.1
+                @Override // android.webkit.WebViewClient
+                public void onPageFinished(WebView webView2, String str4) {
+                    super.onPageFinished(webView2, str4);
+                    if (Build.VERSION.SDK_INT >= 19) {
+                        webView.evaluateJavascript(sb2, new ValueCallback<String>() { // from class: com.baidu.sapi2.utils.SapiCoreUtil.1.1
+                            /* JADX DEBUG: Method merged with bridge method */
+                            @Override // android.webkit.ValueCallback
+                            public void onReceiveValue(String str5) {
+                                executeJsCallback.jsExecuteCompleted(str5);
+                                webView.destroy();
+                            }
+                        });
+                        return;
+                    }
+                    executeJsCallback.jsExecuteCompleted(null);
+                    webView.destroy();
                 }
+            });
+        } catch (Exception unused) {
+            if (executeJsCallback != null) {
                 executeJsCallback.jsExecuteCompleted(null);
-                webView.destroy();
             }
-        });
+        }
     }
 
     public static InputStream getCacheInputStream(Context context, String str) {
@@ -316,6 +322,9 @@ public class SapiCoreUtil {
                         } else if (name.equalsIgnoreCase("os_headurl")) {
                             sapiAccountResponse2.socialPortraitUrl = newPullParser.nextText();
                             continue;
+                        } else if (name.equalsIgnoreCase("os_name")) {
+                            sapiAccountResponse2.socialNickname = newPullParser.nextText();
+                            continue;
                         } else if (name.equalsIgnoreCase(SearchJsBridge.COOKIE_OS_TYPE)) {
                             sapiAccountResponse2.socialType = SocialType.getSocialType(Integer.parseInt(newPullParser.nextText()));
                             continue;
@@ -385,7 +394,7 @@ public class SapiCoreUtil {
             return null;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put(r.f7672a, 4);
+        hashMap.put(r.f7715a, 4);
         hashMap.put("w", 2);
         int i2 = 1;
         hashMap.put("x", 1);

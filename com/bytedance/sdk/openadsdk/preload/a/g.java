@@ -12,31 +12,31 @@ import java.util.Map;
 public final class g {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f29914h;
+    public String f30017h;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.a.b.d f29907a = com.bytedance.sdk.openadsdk.preload.a.b.d.f29806a;
+    public com.bytedance.sdk.openadsdk.preload.a.b.d f30010a = com.bytedance.sdk.openadsdk.preload.a.b.d.f29909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public u f29908b = u.DEFAULT;
+    public u f30011b = u.DEFAULT;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f29909c = d.IDENTITY;
+    public e f30012c = d.IDENTITY;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<Type, h<?>> f29910d = new HashMap();
+    public final Map<Type, h<?>> f30013d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<w> f29911e = new ArrayList();
+    public final List<w> f30014e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<w> f29912f = new ArrayList();
+    public final List<w> f30015f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29913g = false;
+    public boolean f30016g = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29915i = 2;
+    public int f30018i = 2;
     public int j = 2;
     public boolean k = false;
     public boolean l = false;
@@ -49,26 +49,26 @@ public final class g {
         boolean z = obj instanceof s;
         com.bytedance.sdk.openadsdk.preload.a.b.a.a(z || (obj instanceof k) || (obj instanceof h) || (obj instanceof v));
         if (obj instanceof h) {
-            this.f29910d.put(type, (h) obj);
+            this.f30013d.put(type, (h) obj);
         }
         if (z || (obj instanceof k)) {
-            this.f29911e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.l.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), obj));
+            this.f30014e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.l.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), obj));
         }
         if (obj instanceof v) {
-            this.f29911e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), (v) obj));
+            this.f30014e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), (v) obj));
         }
         return this;
     }
 
     public f a() {
-        List<w> arrayList = new ArrayList<>(this.f29911e.size() + this.f29912f.size() + 3);
-        arrayList.addAll(this.f29911e);
+        List<w> arrayList = new ArrayList<>(this.f30014e.size() + this.f30015f.size() + 3);
+        arrayList.addAll(this.f30014e);
         Collections.reverse(arrayList);
-        ArrayList arrayList2 = new ArrayList(this.f29912f);
+        ArrayList arrayList2 = new ArrayList(this.f30015f);
         Collections.reverse(arrayList2);
         arrayList.addAll(arrayList2);
-        a(this.f29914h, this.f29915i, this.j, arrayList);
-        return new f(this.f29907a, this.f29909c, this.f29910d, this.f29913g, this.k, this.o, this.m, this.n, this.p, this.l, this.f29908b, this.f29914h, this.f29915i, this.j, this.f29911e, this.f29912f, arrayList);
+        a(this.f30017h, this.f30018i, this.j, arrayList);
+        return new f(this.f30010a, this.f30012c, this.f30013d, this.f30016g, this.k, this.o, this.m, this.n, this.p, this.l, this.f30011b, this.f30017h, this.f30018i, this.j, this.f30014e, this.f30015f, arrayList);
     }
 
     private void a(String str, int i2, int i3, List<w> list) {

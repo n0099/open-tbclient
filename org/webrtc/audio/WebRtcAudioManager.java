@@ -7,8 +7,7 @@ import android.media.AudioTrack;
 import android.os.Build;
 import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioManager {
     public static final int BITS_PER_SAMPLE = 16;
     public static final int DEFAULT_FRAME_PER_BUFFER = 256;
@@ -17,7 +16,7 @@ public class WebRtcAudioManager {
 
     @CalledByNative
     public static AudioManager getAudioManager(Context context) {
-        return (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        return (AudioManager) context.getSystemService("audio");
     }
 
     @CalledByNative

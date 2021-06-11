@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import com.baidu.mobads.cid.cesium.b.a;
 import com.baidu.mobads.cid.cesium.e.a;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -16,63 +15,63 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f8200b = false;
+    public static boolean f8262b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f8201a;
+    public c f8263a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f8202c;
+    public Context f8264c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C0106a f8203d;
+    public a.C0107a f8265d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.mobads.cid.cesium.b.b f8204e;
+    public com.baidu.mobads.cid.cesium.b.b f8266e;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String[] f8205b = {"V", "O", "0"};
+        public static final String[] f8267b = {"V", "O", "0"};
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8207c;
+        public String f8269c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f8208d;
+        public String f8270d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f8209e;
+        public String f8271e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f8210f;
+        public long f8272f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f8211g;
+        public String f8273g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f8212h = 1;
+        public int f8274h = 1;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f8206a = false;
+        public boolean f8268a = false;
 
         public String a() {
-            if (this.f8206a) {
+            if (this.f8268a) {
                 return null;
             }
-            return this.f8207c;
+            return this.f8269c;
         }
 
         public String b() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("dik", this.f8207c);
-                jSONObject.put("v270fk", this.f8208d);
-                jSONObject.put("cck", this.f8209e);
-                jSONObject.put("vsk", this.f8212h);
-                jSONObject.put("ctk", this.f8210f);
-                jSONObject.put("ek", this.f8211g);
+                jSONObject.put("dik", this.f8269c);
+                jSONObject.put("v270fk", this.f8270d);
+                jSONObject.put("cck", this.f8271e);
+                jSONObject.put("vsk", this.f8274h);
+                jSONObject.put("ctk", this.f8272f);
+                jSONObject.put("ek", this.f8273g);
                 return jSONObject.toString();
             } catch (JSONException e2) {
                 com.baidu.mobads.cid.cesium.f.c.a(e2);
@@ -81,22 +80,22 @@ public class g {
         }
 
         public String c() {
-            if (this.f8206a) {
+            if (this.f8268a) {
                 return null;
             }
-            String str = this.f8208d;
+            String str = this.f8270d;
             if (TextUtils.isEmpty(str)) {
                 str = "0";
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f8207c);
-            sb.append(FieldBuilder.SE);
+            sb.append(this.f8269c);
+            sb.append("|");
             sb.append(str);
             if ("V".equals(str)) {
-                sb.append(this.f8209e);
+                sb.append(this.f8271e);
             }
-            if (!TextUtils.isEmpty(this.f8211g)) {
-                sb.append(this.f8211g);
+            if (!TextUtils.isEmpty(this.f8273g)) {
+                sb.append(this.f8273g);
             }
             return sb.toString().trim();
         }
@@ -109,9 +108,9 @@ public class g {
                 return false;
             }
             a aVar = (a) obj;
-            if (this.f8212h == aVar.f8212h && this.f8207c.equals(aVar.f8207c) && this.f8208d.equals(aVar.f8208d) && this.f8209e.equals(aVar.f8209e)) {
-                String str = this.f8211g;
-                String str2 = aVar.f8211g;
+            if (this.f8274h == aVar.f8274h && this.f8269c.equals(aVar.f8269c) && this.f8270d.equals(aVar.f8270d) && this.f8271e.equals(aVar.f8271e)) {
+                String str = this.f8273g;
+                String str2 = aVar.f8273g;
                 if (str == str2) {
                     return true;
                 }
@@ -123,7 +122,7 @@ public class g {
         }
 
         public int hashCode() {
-            return Arrays.hashCode(new Object[]{this.f8207c, this.f8208d, this.f8209e, this.f8211g, Integer.valueOf(this.f8212h)});
+            return Arrays.hashCode(new Object[]{this.f8269c, this.f8270d, this.f8271e, this.f8273g, Integer.valueOf(this.f8274h)});
         }
     }
 
@@ -131,11 +130,11 @@ public class g {
         if (context == null) {
             throw new NullPointerException("context should not be null!!!");
         }
-        this.f8202c = context.getApplicationContext();
-        a.C0106a a2 = aVar.b().a("bohrium");
-        this.f8203d = a2;
+        this.f8264c = context.getApplicationContext();
+        a.C0107a a2 = aVar.b().a("bohrium");
+        this.f8265d = a2;
         a2.a();
-        this.f8201a = cVar;
+        this.f8263a = cVar;
         a(aVar);
     }
 
@@ -153,12 +152,12 @@ public class g {
             String optString4 = jSONObject.optString("v270fk", "V");
             if (!TextUtils.isEmpty(optString)) {
                 a aVar = new a();
-                aVar.f8207c = optString;
-                aVar.f8209e = optString2;
-                aVar.f8210f = optLong;
-                aVar.f8212h = optInt;
-                aVar.f8211g = optString3;
-                aVar.f8208d = optString4;
+                aVar.f8269c = optString;
+                aVar.f8271e = optString2;
+                aVar.f8272f = optLong;
+                aVar.f8274h = optInt;
+                aVar.f8273g = optString3;
+                aVar.f8270d = optString4;
                 return aVar;
             }
         } catch (Exception e2) {
@@ -173,12 +172,12 @@ public class g {
                 String b2 = b(str);
                 long currentTimeMillis = System.currentTimeMillis();
                 a aVar = new a();
-                aVar.f8207c = str;
-                aVar.f8209e = b2;
-                aVar.f8210f = currentTimeMillis;
-                aVar.f8212h = 1;
-                aVar.f8211g = str3;
-                aVar.f8208d = str2;
+                aVar.f8269c = str;
+                aVar.f8271e = b2;
+                aVar.f8272f = currentTimeMillis;
+                aVar.f8274h = 1;
+                aVar.f8273g = str3;
+                aVar.f8270d = str2;
                 return aVar;
             } catch (Exception e2) {
                 com.baidu.mobads.cid.cesium.f.c.a(e2);
@@ -194,15 +193,15 @@ public class g {
 
     private void a(com.baidu.mobads.cid.cesium.e.a aVar) {
         com.baidu.mobads.cid.cesium.b.b bVar = new com.baidu.mobads.cid.cesium.b.b(new com.baidu.mobads.cid.cesium.a());
-        a.C0104a c0104a = new a.C0104a();
-        c0104a.f8066a = this.f8202c;
-        c0104a.f8067b = aVar;
+        a.C0105a c0105a = new a.C0105a();
+        c0105a.f8128a = this.f8264c;
+        c0105a.f8129b = aVar;
         a.c cVar = new a.c();
         for (com.baidu.mobads.cid.cesium.b.a aVar2 : bVar.a()) {
-            aVar2.a(c0104a);
+            aVar2.a(c0105a);
             aVar2.a(cVar);
         }
-        this.f8204e = bVar;
+        this.f8266e = bVar;
     }
 
     public static String b(String str) {
@@ -216,7 +215,7 @@ public class g {
 
     public a a() {
         a aVar = new a();
-        aVar.f8206a = true;
+        aVar.f8268a = true;
         return aVar;
     }
 
@@ -224,28 +223,28 @@ public class g {
         String str;
         if (eVar != null) {
             a aVar = new a();
-            aVar.f8210f = System.currentTimeMillis();
-            aVar.f8212h = 1;
+            aVar.f8272f = System.currentTimeMillis();
+            aVar.f8274h = 1;
             try {
                 boolean z = false;
-                aVar.f8208d = eVar.f8184b.substring(0, 1);
-                aVar.f8207c = eVar.f8183a;
-                aVar.f8209e = b(eVar.f8183a);
-                String[] strArr = a.f8205b;
+                aVar.f8270d = eVar.f8246b.substring(0, 1);
+                aVar.f8269c = eVar.f8245a;
+                aVar.f8271e = b(eVar.f8245a);
+                String[] strArr = a.f8267b;
                 int length = strArr.length;
                 int i2 = 0;
                 while (true) {
                     if (i2 >= length) {
                         z = true;
                         break;
-                    } else if (strArr[i2].equals(aVar.f8208d)) {
+                    } else if (strArr[i2].equals(aVar.f8270d)) {
                         break;
                     } else {
                         i2++;
                     }
                 }
-                if (z && (str = eVar.f8184b) != null && str.length() >= 2) {
-                    aVar.f8211g = eVar.f8184b.substring(1);
+                if (z && (str = eVar.f8246b) != null && str.length() >= 2) {
+                    aVar.f8273g = eVar.f8246b.substring(1);
                 }
                 return aVar;
             } catch (Exception unused) {
@@ -258,16 +257,16 @@ public class g {
     public a b() {
         a aVar;
         a.d dVar = new a.d();
-        dVar.f8072a = true;
-        List<com.baidu.mobads.cid.cesium.b.a> a2 = this.f8204e.a();
-        Collections.sort(a2, com.baidu.mobads.cid.cesium.b.a.f8061c);
-        List<b> b2 = this.f8201a.b(this.f8202c);
+        dVar.f8134a = true;
+        List<com.baidu.mobads.cid.cesium.b.a> a2 = this.f8266e.a();
+        Collections.sort(a2, com.baidu.mobads.cid.cesium.b.a.f8123c);
+        List<b> b2 = this.f8263a.b(this.f8264c);
         if (b2 != null) {
             for (b bVar : b2) {
-                if (!bVar.f8060d && bVar.f8059c) {
+                if (!bVar.f8122d && bVar.f8121c) {
                     for (com.baidu.mobads.cid.cesium.b.a aVar2 : a2) {
-                        a.e a3 = aVar2.a(bVar.f8057a.packageName, dVar);
-                        if (a3 != null && a3.a() && (aVar = a3.f8073a) != null) {
+                        a.e a3 = aVar2.a(bVar.f8119a.packageName, dVar);
+                        if (a3 != null && a3.a() && (aVar = a3.f8135a) != null) {
                             return aVar;
                         }
                     }
@@ -280,15 +279,15 @@ public class g {
     }
 
     public a c() {
-        String a2 = a(this.f8202c);
+        String a2 = a(this.f8264c);
         String a3 = com.baidu.mobads.cid.cesium.d.b.a(("com.baidu" + a2).getBytes(), true);
         a aVar = new a();
-        aVar.f8210f = System.currentTimeMillis();
-        aVar.f8212h = 1;
-        aVar.f8207c = a3;
-        aVar.f8208d = "V";
-        aVar.f8209e = b(a3);
-        aVar.f8211g = null;
+        aVar.f8272f = System.currentTimeMillis();
+        aVar.f8274h = 1;
+        aVar.f8269c = a3;
+        aVar.f8270d = "V";
+        aVar.f8271e = b(a3);
+        aVar.f8273g = null;
         return aVar;
     }
 }

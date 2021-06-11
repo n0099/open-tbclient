@@ -12,21 +12,21 @@ public class j {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f49389a;
+        public static final /* synthetic */ int[] f53063a;
 
         static {
             int[] iArr = new int[DataType.values().length];
-            f49389a = iArr;
+            f53063a = iArr;
             try {
                 iArr[DataType.ORM.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f49389a[DataType.PARCELABLE.ordinal()] = 2;
+                f53063a[DataType.PARCELABLE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f49389a[DataType.SERIALIZABLE.ordinal()] = 3;
+                f53063a[DataType.SERIALIZABLE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -37,7 +37,7 @@ public class j {
         if (intExtra < 0) {
             return null;
         }
-        int i2 = a.f49389a[DataType.values()[intExtra].ordinal()];
+        int i2 = a.f53063a[DataType.values()[intExtra].ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 != 3) {

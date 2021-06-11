@@ -16,26 +16,26 @@ import java.util.HashMap;
 public class b extends k {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f55373a;
+    public c f59062a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<String> f55374b;
+    public SparseArray<String> f59063b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f55375c;
+    public HashMap<String, String> f59064c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Gson f55376d;
+    public Gson f59065d;
 
     public b(int i2) {
         super(i2);
-        this.f55376d = new Gson();
+        this.f59065d = new Gson();
         a();
     }
 
     public final void a() {
         int d2;
-        this.f55374b = new SparseArray<>();
+        this.f59063b = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (ListUtils.isEmpty(findHttpTasks)) {
             return;
@@ -47,7 +47,7 @@ public class b extends k {
                 String str = split[1];
                 String str2 = split[0];
                 if (!d.a.c.e.p.k.isEmpty(str) && str.contains("=") && (d2 = d.a.c.e.m.b.d(str.split("[=]")[1], 0)) != 0) {
-                    this.f55374b.put(d2, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                    this.f59063b.put(d2, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                 }
             }
         }
@@ -55,19 +55,19 @@ public class b extends k {
 
     public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         HashMap<String, String> hashMap;
-        String str = this.f55374b.get(socketMessage.getCmd());
-        if (str != null && (hashMap = this.f55375c) != null && hashMap.get(str) != null && this.f55373a != null) {
-            this.f55373a.a(str, this.f55376d.toJson(this.f55375c.get(str)), this.f55376d.toJson(this.f55376d.toJson(socketMessage.getData())));
+        String str = this.f59063b.get(socketMessage.getCmd());
+        if (str != null && (hashMap = this.f59064c) != null && hashMap.get(str) != null && this.f59062a != null) {
+            this.f59062a.a(str, this.f59065d.toJson(this.f59064c.get(str)), this.f59065d.toJson(this.f59065d.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
     public void c(c cVar) {
-        this.f55373a = cVar;
+        this.f59062a = cVar;
     }
 
     public void d(HashMap<String, String> hashMap) {
-        this.f55375c = hashMap;
+        this.f59064c = hashMap;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */

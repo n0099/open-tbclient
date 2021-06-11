@@ -10,19 +10,19 @@ import com.baidu.adp.widget.SwipeBackLayout;
 public class ListViewPager extends ViewPager {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f13334e;
+    public float f13399e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13335f;
+    public float f13400f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13336g;
+    public float f13401g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13337h;
+    public float f13402h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GestureDetector f13338i;
+    public GestureDetector f13403i;
     public boolean j;
     public SwipeBackLayout.c k;
 
@@ -43,19 +43,19 @@ public class ListViewPager extends ViewPager {
     public ListViewPager(Context context) {
         super(context);
         this.j = false;
-        b();
+        c();
     }
 
-    public final void b() {
-        this.f13338i = new GestureDetector((Context) null, new b());
+    public final void c() {
+        this.f13403i = new GestureDetector((Context) null, new b());
     }
 
-    public final boolean c(MotionEvent motionEvent) {
+    public final boolean d(MotionEvent motionEvent) {
         int action = (motionEvent.getAction() & 65280) >> 8;
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
-    public final void d(boolean z) {
+    public final void e(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }
@@ -63,7 +63,7 @@ public class ListViewPager extends ViewPager {
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (c(motionEvent)) {
+        if (d(motionEvent)) {
             return true;
         }
         if (this.j) {
@@ -76,8 +76,8 @@ public class ListViewPager extends ViewPager {
                 return false;
             }
         }
-        if (getCurrentItem() != 0 && this.f13338i.onTouchEvent(motionEvent)) {
-            d(true);
+        if (getCurrentItem() != 0 && this.f13403i.onTouchEvent(motionEvent)) {
+            e(true);
         }
         try {
             return super.onInterceptTouchEvent(motionEvent);
@@ -114,18 +114,18 @@ public class ListViewPager extends ViewPager {
                     if (cVar != null) {
                         cVar.enableSwipeBack();
                     }
-                    this.f13336g = motionEvent.getX() - this.f13334e;
-                    this.f13337h = motionEvent.getY() - this.f13335f;
-                    this.f13334e = motionEvent.getX();
-                    this.f13335f = motionEvent.getY();
-                    if (getCurrentItem() != 0 && Math.abs(this.f13336g) > Math.abs(this.f13337h)) {
-                        d(true);
+                    this.f13401g = motionEvent.getX() - this.f13399e;
+                    this.f13402h = motionEvent.getY() - this.f13400f;
+                    this.f13399e = motionEvent.getX();
+                    this.f13400f = motionEvent.getY();
+                    if (getCurrentItem() != 0 && Math.abs(this.f13401g) > Math.abs(this.f13402h)) {
+                        e(true);
                     }
                 } else if (action != 3) {
                     if (action != 5) {
                     }
                 }
-                if (c(motionEvent)) {
+                if (d(motionEvent)) {
                     return true;
                 }
                 try {
@@ -138,20 +138,20 @@ public class ListViewPager extends ViewPager {
             if (cVar2 != null) {
                 cVar2.enableSwipeBack();
             }
-            this.f13334e = 0.0f;
-            this.f13335f = 0.0f;
-            this.f13336g = 0.0f;
-            this.f13337h = 0.0f;
-            if (c(motionEvent)) {
+            this.f13399e = 0.0f;
+            this.f13400f = 0.0f;
+            this.f13401g = 0.0f;
+            this.f13402h = 0.0f;
+            if (d(motionEvent)) {
             }
         }
         SwipeBackLayout.c cVar3 = this.k;
         if (cVar3 != null) {
             cVar3.enableSwipeBack();
         }
-        this.f13334e = motionEvent.getX();
-        this.f13335f = motionEvent.getY();
-        if (c(motionEvent)) {
+        this.f13399e = motionEvent.getX();
+        this.f13400f = motionEvent.getY();
+        if (d(motionEvent)) {
         }
     }
 
@@ -166,6 +166,6 @@ public class ListViewPager extends ViewPager {
     public ListViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.j = false;
-        b();
+        c();
     }
 }

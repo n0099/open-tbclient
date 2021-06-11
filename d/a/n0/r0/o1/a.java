@@ -20,19 +20,19 @@ import d.a.n0.e3.y;
 public abstract class a implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final BaseFragmentActivity f59170e;
+    public final BaseFragmentActivity f62861e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ForumWriteData f59171f;
+    public final ForumWriteData f62862f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f59172g;
+    public View f62863g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NavigationBar f59173h;
+    public NavigationBar f62864h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f59174i;
+    public TextView f62865i;
     public View j;
     public TextView k;
     public SerializableItemInfo l;
@@ -43,8 +43,8 @@ public abstract class a implements View.OnClickListener {
 
     /* renamed from: d.a.n0.r0.o1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1523a implements View.OnClickListener {
-        public View$OnClickListenerC1523a() {
+    public class View$OnClickListenerC1579a implements View.OnClickListener {
+        public View$OnClickListenerC1579a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -55,27 +55,27 @@ public abstract class a implements View.OnClickListener {
             int id = view.getId();
             if (id == R.id.save_draft_dialog_not_save) {
                 a.this.b();
-                a.this.f59170e.finish();
+                a.this.f62861e.finish();
             } else if (id == R.id.save_draft_dialog_save) {
-                a.this.k();
-                a.this.f59170e.finish();
+                a.this.l();
+                a.this.f62861e.finish();
             }
             a.this.o.dismiss();
         }
     }
 
     public a(BaseFragmentActivity baseFragmentActivity, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
-        this.f59170e = baseFragmentActivity;
-        this.f59171f = forumWriteData;
+        this.f62861e = baseFragmentActivity;
+        this.f62862f = forumWriteData;
         this.l = serializableItemInfo;
-        this.m = new c(baseFragmentActivity, baseFragmentActivity.getUniqueId(), this.f59171f, this.l);
+        this.m = new c(baseFragmentActivity, baseFragmentActivity.getUniqueId(), this.f62862f, this.l);
         f();
         e();
-        g();
+        h();
     }
 
     public void b() {
-        ForumWriteData forumWriteData = this.f59171f;
+        ForumWriteData forumWriteData = this.f62862f;
         if (forumWriteData == null) {
             return;
         }
@@ -85,39 +85,39 @@ public abstract class a implements View.OnClickListener {
     public abstract void c();
 
     public View d() {
-        return this.f59172g;
+        return this.f62863g;
     }
 
     public void e() {
-        if (this.f59173h == null) {
+        if (this.f62864h == null) {
             return;
         }
-        TextView textView = new TextView(this.f59170e);
+        TextView textView = new TextView(this.f62861e);
         this.k = textView;
         textView.setAlpha(0.5f);
-        this.k.setText(this.f59170e.getString(R.string.send_post));
-        this.k.setTextSize(0, l.g(this.f59170e, R.dimen.tbds44));
+        this.k.setText(this.f62861e.getString(R.string.send_post));
+        this.k.setTextSize(0, l.g(this.f62861e, R.dimen.tbds44));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        layoutParams.rightMargin = l.g(this.f59170e, R.dimen.tbds44);
+        layoutParams.rightMargin = l.g(this.f62861e, R.dimen.tbds44);
         this.k.setLayoutParams(layoutParams);
-        this.f59173h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.k, this);
-        TextView centerTextTitle = this.f59173h.setCenterTextTitle(this.f59170e.getString(R.string.publish_comment));
-        this.f59174i = centerTextTitle;
-        centerTextTitle.setTextSize(0, l.g(this.f59170e, R.dimen.tbds44));
-        this.j = this.f59173h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f62864h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.k, this);
+        TextView centerTextTitle = this.f62864h.setCenterTextTitle(this.f62861e.getString(R.string.publish_comment));
+        this.f62865i = centerTextTitle;
+        centerTextTitle.setTextSize(0, l.g(this.f62861e, R.dimen.tbds44));
+        this.j = this.f62864h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     public abstract void f();
 
-    public abstract void g();
+    public abstract void h();
 
-    public void h(int i2, int i3, Intent intent) {
+    public void i(int i2, int i3, Intent intent) {
     }
 
-    public void i() {
-        SkinManager.setBackgroundColor(this.f59172g, R.color.CAM_X0201);
-        TextView textView = this.f59174i;
+    public void j() {
+        SkinManager.setBackgroundColor(this.f62863g, R.color.CAM_X0201);
+        TextView textView = this.f62865i;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
         }
@@ -125,29 +125,29 @@ public abstract class a implements View.OnClickListener {
         if (textView2 != null) {
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0304);
         }
-        NavigationBar navigationBar = this.f59173h;
+        NavigationBar navigationBar = this.f62864h;
         if (navigationBar != null) {
             navigationBar.onBackBtnOnChangeSkin();
         }
     }
 
-    public void j() {
-        g.a(this.o, this.f59170e);
+    public void k() {
+        g.a(this.o, this.f62861e);
     }
 
-    public abstract void k();
+    public abstract void l();
 
-    public void l() {
+    public void m() {
         if (this.p == null) {
-            this.p = new SaveDraftDialogView(this.f59170e);
-            this.p.setOnClickListener(new View$OnClickListenerC1523a());
+            this.p = new SaveDraftDialogView(this.f62861e);
+            this.p.setOnClickListener(new View$OnClickListenerC1579a());
         }
         if (this.o == null) {
-            j jVar = new j(this.f59170e.getPageContext());
+            j jVar = new j(this.f62861e.getPageContext());
             this.o = jVar;
             jVar.setContentView(this.p);
         }
-        this.p.setText(this.f59170e.getString(R.string.write_save_draft_dialog_normal_title), null, this.f59170e.getString(R.string.save));
+        this.p.setText(this.f62861e.getString(R.string.write_save_draft_dialog_normal_title), null, this.f62861e.getString(R.string.save));
         this.o.l();
     }
 }

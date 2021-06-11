@@ -1,102 +1,73 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.os.Environment;
 import android.text.TextUtils;
-import com.kwad.sdk.api.KsScene;
-import com.kwad.sdk.core.config.c;
-import com.kwad.sdk.core.config.item.k;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes6.dex */
+import androidx.annotation.NonNull;
+import java.io.File;
+/* loaded from: classes7.dex */
 public class ad {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile ad f34013a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f34014b = false;
-
-    /* renamed from: c  reason: collision with root package name */
-    public k.a f34015c;
-
-    public static ad a() {
-        if (f34013a == null) {
-            synchronized (ad.class) {
-                if (f34013a == null) {
-                    f34013a = new ad();
-                }
+    @NonNull
+    public static String a(Context context) {
+        File file;
+        String str = "";
+        try {
+            str = Environment.getExternalStorageState();
+        } catch (IncompatibleClassChangeError | NullPointerException unused) {
+        }
+        String str2 = null;
+        if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
+            try {
+                file = context.getExternalFilesDir(null);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+                file = null;
+            }
+            if (file != null) {
+                str2 = file.getPath();
             }
         }
-        return f34013a;
+        if (TextUtils.isEmpty(str2)) {
+            str2 = context.getFilesDir().getPath();
+        }
+        return str2 + File.separator + "ksadsdk";
     }
 
-    private boolean a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+    public static File b(Context context) {
+        File file;
+        String str = "";
+        try {
+            str = Environment.getExternalStorageState();
+        } catch (IncompatibleClassChangeError | NullPointerException unused) {
         }
-        return Class.forName(str) != null;
+        String str2 = null;
+        if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
+            try {
+                file = context.getExternalCacheDir();
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+                file = null;
+            }
+            if (file != null) {
+                str2 = file.getPath();
+            }
+        }
+        if (TextUtils.isEmpty(str2)) {
+            str2 = context.getCacheDir().getPath();
+        }
+        return new File(str2 + File.separator + "ksadsdk");
     }
 
-    private boolean a(List<String> list) {
-        if (list != null && list.size() >= 1) {
-            for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
-                String className = stackTraceElement.getClassName();
-                if (className != null) {
-                    for (String str : list) {
-                        if (className.contains(str)) {
-                            return true;
-                        }
-                    }
-                    continue;
-                }
-            }
-        }
-        return false;
+    public static File c(Context context) {
+        String a2 = a(context);
+        return new File(a2 + File.separator + "Download");
     }
 
-    private void b() {
-        k.a aVar = this.f34015c;
-        if (aVar == null) {
-            return;
+    public static String d(Context context) {
+        if (context == null) {
+            return "";
         }
-        if (!this.f34014b && aVar.f32039c.size() > 0) {
-            for (String str : this.f34015c.f32039c) {
-                boolean a2 = a(str);
-                this.f34014b = a2;
-                if (a2) {
-                    break;
-                }
-            }
-        }
-        if (this.f34014b) {
-            ArrayList arrayList = new ArrayList();
-            if (this.f34015c.f32037a.size() > 0) {
-                for (Map.Entry<Integer, String> entry : this.f34015c.f32037a.entrySet()) {
-                    if (a(entry.getValue())) {
-                        arrayList.add(entry.getKey());
-                    }
-                }
-            }
-            com.kwad.sdk.core.report.e.a(a(this.f34015c.f32038b), arrayList);
-        }
-    }
-
-    public void a(Context context) {
-        if (context != null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
-            if (sharedPreferences != null) {
-                c.a.ao.a(sharedPreferences);
-                this.f34015c = c.a.ao.b();
-            }
-            if (this.f34015c != null) {
-                b();
-            }
-        }
-    }
-
-    public void a(KsScene ksScene, String str) {
-        com.kwad.sdk.core.report.e.a(ksScene, this.f34014b ? a(this.f34015c.f32038b) : false, str);
+        String path = context.getFilesDir().getPath();
+        return path + File.separator + "ksadsdk";
     }
 }

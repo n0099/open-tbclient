@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.c.j.e.a;
-import d.a.c.j.e.t;
+import d.a.c.k.e.a;
+import d.a.c.k.e.t;
 import d.a.m0.d0.g;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     public static class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public g f2375a;
+        public g f2394a;
 
         public TabLoadingViewHolder(View view) {
             super(view);
@@ -31,16 +31,16 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     }
 
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.f39323e);
+        super(tbPageContext.getPageActivity(), t.f43004e);
         this.m = new LinkedList<>();
         this.n = e0(R.dimen.tbds304);
         this.o = e0(R.dimen.tbds198);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
-        g0(i2, view, viewGroup, tVar, tabLoadingViewHolder);
+    @Override // d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
+        h0(i2, view, viewGroup, tVar, tabLoadingViewHolder);
         return view;
     }
 
@@ -49,16 +49,16 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public TabLoadingViewHolder P(ViewGroup viewGroup) {
-        RelativeLayout relativeLayout = new RelativeLayout(this.f39228e);
-        ViewGroup.LayoutParams t = t(viewGroup);
-        t.width = -1;
-        t.height = -1;
-        relativeLayout.setLayoutParams(t);
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public TabLoadingViewHolder Q(ViewGroup viewGroup) {
+        RelativeLayout relativeLayout = new RelativeLayout(this.f42909e);
+        ViewGroup.LayoutParams u = u(viewGroup);
+        u.width = -1;
+        u.height = -1;
+        relativeLayout.setLayoutParams(u);
         relativeLayout.setGravity(1);
-        g gVar = new g(this.f39228e, 0);
+        g gVar = new g(this.f42909e, 0);
         gVar.attachView(relativeLayout);
         gVar.q(this.n);
         gVar.o(this.o);
@@ -70,13 +70,13 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
         view.setLayoutParams(layoutParams);
         this.m.add(new Pair<>(relativeLayout, gVar));
         TabLoadingViewHolder tabLoadingViewHolder = new TabLoadingViewHolder(relativeLayout);
-        tabLoadingViewHolder.f2375a = gVar;
+        tabLoadingViewHolder.f2394a = gVar;
         return tabLoadingViewHolder;
     }
 
-    public View g0(int i2, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
+    public View h0(int i2, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
         g gVar;
-        if (tabLoadingViewHolder != null && (gVar = tabLoadingViewHolder.f2375a) != null) {
+        if (tabLoadingViewHolder != null && (gVar = tabLoadingViewHolder.f2394a) != null) {
             gVar.l(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;

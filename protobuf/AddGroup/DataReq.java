@@ -2,7 +2,7 @@ package protobuf.AddGroup;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_BUSINESS = "";
     public static final Integer DEFAULT_FLAG;
@@ -38,7 +38,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
     public final String position;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String business;
         public Integer flag;

@@ -15,7 +15,7 @@ import java.util.Locale;
 public final class c extends v<Date> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f29683a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.c.1
+    public static final w f29786a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.c.1
         @Override // com.bytedance.sdk.openadsdk.preload.a.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
             if (aVar.a() == Date.class) {
@@ -26,17 +26,17 @@ public final class c extends v<Date> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<DateFormat> f29684b;
+    public final List<DateFormat> f29787b;
 
     public c() {
         ArrayList arrayList = new ArrayList();
-        this.f29684b = arrayList;
+        this.f29787b = arrayList;
         arrayList.add(DateFormat.getDateTimeInstance(2, 2, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.f29684b.add(DateFormat.getDateTimeInstance(2, 2));
+            this.f29787b.add(DateFormat.getDateTimeInstance(2, 2));
         }
         if (com.bytedance.sdk.openadsdk.preload.a.b.e.b()) {
-            this.f29684b.add(com.bytedance.sdk.openadsdk.preload.a.b.j.a(2, 2));
+            this.f29787b.add(com.bytedance.sdk.openadsdk.preload.a.b.j.a(2, 2));
         }
     }
 
@@ -52,7 +52,7 @@ public final class c extends v<Date> {
     }
 
     private synchronized Date a(String str) {
-        for (DateFormat dateFormat : this.f29684b) {
+        for (DateFormat dateFormat : this.f29787b) {
             try {
                 return dateFormat.parse(str);
             } catch (ParseException unused) {
@@ -71,7 +71,7 @@ public final class c extends v<Date> {
         if (date == null) {
             cVar.f();
         } else {
-            cVar.b(this.f29684b.get(0).format(date));
+            cVar.b(this.f29787b.get(0).format(date));
         }
     }
 }

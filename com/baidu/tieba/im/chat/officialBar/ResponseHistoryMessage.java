@@ -19,16 +19,16 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17110a;
+        public String f17186a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f17111b;
+        public int f17187b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17112c;
+        public String f17188c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f17113d;
+        public int f17189d;
     }
 
     public ResponseHistoryMessage() {
@@ -59,10 +59,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    aVar.f17110a = k.getDateStringMouth(date);
-                    aVar.f17111b = msgInfo.type.intValue();
-                    aVar.f17112c = msgInfo.content;
-                    aVar.f17113d = msgInfo.id.intValue();
+                    aVar.f17186a = k.getDateStringMouth(date);
+                    aVar.f17187b = msgInfo.type.intValue();
+                    aVar.f17188c = msgInfo.content;
+                    aVar.f17189d = msgInfo.id.intValue();
                     this.msg.add(aVar);
                 }
             }

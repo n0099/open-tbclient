@@ -24,31 +24,31 @@ import kotlin.text.Typography;
 public class a implements b<String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5139a = "Host";
+    public static final String f5182a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5140b = "Accept";
+    public static final String f5183b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5141c = "Accept-Charset";
+    public static final String f5184c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5142d = "Accept-Encoding";
+    public static final String f5185d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5143e = "Accept-Language";
+    public static final String f5186e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5144f = "Allow";
+    public static final String f5187f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5145g = "Cache-Control";
+    public static final String f5188g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5146h = "Content-Disposition";
+    public static final String f5189h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5147i = "Content-Encoding";
+    public static final String f5190i = "Content-Encoding";
     public static final String j = "Content-Length";
     public static final String k = "Content-Type";
     public static final String l = "Date";

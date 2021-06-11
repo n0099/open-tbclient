@@ -9,14 +9,14 @@ import java.util.ArrayList;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44685a = k.f43199a;
+    public static final boolean f48359a = k.f46875a;
 
     public static boolean a(Context context, @NonNull f fVar) {
         if (context instanceof SwanAppBaseActivity) {
             return true;
         }
         fVar.b(2, "method should be called after setActivityRef");
-        if (f44685a) {
+        if (f48359a) {
             throw new IllegalStateException("this method should be called after setActivityRef");
         }
         return false;

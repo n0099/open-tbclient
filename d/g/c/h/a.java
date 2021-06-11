@@ -9,15 +9,15 @@ import java.lang.reflect.Member;
 public class a extends AccessibleObject implements Member {
 
     /* renamed from: e  reason: collision with root package name */
-    public final AccessibleObject f66331e;
+    public final AccessibleObject f70062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Member f66332f;
+    public final Member f70063f;
 
     public <M extends AccessibleObject & Member> a(M m) {
         n.p(m);
-        this.f66331e = m;
-        this.f66332f = m;
+        this.f70062e = m;
+        this.f70063f = m;
     }
 
     public TypeToken<?> a() {
@@ -27,66 +27,66 @@ public class a extends AccessibleObject implements Member {
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return a().equals(aVar.a()) && this.f66332f.equals(aVar.f66332f);
+            return a().equals(aVar.a()) && this.f70063f.equals(aVar.f70063f);
         }
         return false;
     }
 
     @Override // java.lang.reflect.AccessibleObject, java.lang.reflect.AnnotatedElement
     public final <A extends Annotation> A getAnnotation(Class<A> cls) {
-        return (A) this.f66331e.getAnnotation(cls);
+        return (A) this.f70062e.getAnnotation(cls);
     }
 
     @Override // java.lang.reflect.AccessibleObject, java.lang.reflect.AnnotatedElement
     public final Annotation[] getAnnotations() {
-        return this.f66331e.getAnnotations();
+        return this.f70062e.getAnnotations();
     }
 
     @Override // java.lang.reflect.AccessibleObject, java.lang.reflect.AnnotatedElement
     public final Annotation[] getDeclaredAnnotations() {
-        return this.f66331e.getDeclaredAnnotations();
+        return this.f70062e.getDeclaredAnnotations();
     }
 
     @Override // java.lang.reflect.Member
     public Class<?> getDeclaringClass() {
-        return this.f66332f.getDeclaringClass();
+        return this.f70063f.getDeclaringClass();
     }
 
     @Override // java.lang.reflect.Member
     public final int getModifiers() {
-        return this.f66332f.getModifiers();
+        return this.f70063f.getModifiers();
     }
 
     @Override // java.lang.reflect.Member
     public final String getName() {
-        return this.f66332f.getName();
+        return this.f70063f.getName();
     }
 
     public int hashCode() {
-        return this.f66332f.hashCode();
+        return this.f70063f.hashCode();
     }
 
     @Override // java.lang.reflect.AccessibleObject
     public final boolean isAccessible() {
-        return this.f66331e.isAccessible();
+        return this.f70062e.isAccessible();
     }
 
     @Override // java.lang.reflect.AccessibleObject, java.lang.reflect.AnnotatedElement
     public final boolean isAnnotationPresent(Class<? extends Annotation> cls) {
-        return this.f66331e.isAnnotationPresent(cls);
+        return this.f70062e.isAnnotationPresent(cls);
     }
 
     @Override // java.lang.reflect.Member
     public final boolean isSynthetic() {
-        return this.f66332f.isSynthetic();
+        return this.f70063f.isSynthetic();
     }
 
     @Override // java.lang.reflect.AccessibleObject
     public final void setAccessible(boolean z) throws SecurityException {
-        this.f66331e.setAccessible(z);
+        this.f70062e.setAccessible(z);
     }
 
     public String toString() {
-        return this.f66332f.toString();
+        return this.f70063f.toString();
     }
 }

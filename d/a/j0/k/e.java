@@ -10,16 +10,16 @@ import java.util.regex.Pattern;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f40461b = null;
+    public static e f44140b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f40462c = Integer.MAX_VALUE;
+    public static int f44141c = Integer.MAX_VALUE;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f40463d = 120;
+    public static long f44142d = 120;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f40464a;
+    public ThreadPoolExecutor f44143a;
 
     /* loaded from: classes2.dex */
     public class a implements FileFilter {
@@ -34,18 +34,18 @@ public class e {
 
     public e() {
         int a2 = (a() / 2) + 2;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(a2 > 3 ? 3 : a2, f40462c, f40463d, TimeUnit.SECONDS, new PriorityBlockingQueue());
-        this.f40464a = threadPoolExecutor;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(a2 > 3 ? 3 : a2, f44141c, f44142d, TimeUnit.SECONDS, new PriorityBlockingQueue());
+        this.f44143a = threadPoolExecutor;
         threadPoolExecutor.setThreadFactory(new d());
     }
 
     public static e c() {
         synchronized (e.class) {
-            if (f40461b == null) {
-                f40461b = new e();
+            if (f44140b == null) {
+                f44140b = new e();
             }
         }
-        return f40461b;
+        return f44140b;
     }
 
     public int a() {
@@ -58,7 +58,7 @@ public class e {
 
     public void b(d.a.j0.k.a aVar) {
         try {
-            this.f40464a.execute(aVar);
+            this.f44143a.execute(aVar);
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
         }

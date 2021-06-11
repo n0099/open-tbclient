@@ -22,7 +22,7 @@ import java.lang.ref.WeakReference;
 public class e implements k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f28950a;
+    public final WeakReference<Context> f29053a;
 
     /* loaded from: classes6.dex */
     public class a implements DialogInterface {
@@ -39,39 +39,39 @@ public class e implements k {
     }
 
     public e(Context context) {
-        this.f28950a = new WeakReference<>(context);
+        this.f29053a = new WeakReference<>(context);
     }
 
     private void c(final d.o.a.a.a.d.c cVar) {
         g.a aVar = new g.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.6
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void a() {
-                c.InterfaceC1860c interfaceC1860c = cVar.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.a(new a());
+                c.InterfaceC1920c interfaceC1920c = cVar.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.b(new a());
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void b() {
-                c.InterfaceC1860c interfaceC1860c = cVar.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.b(new a());
+                c.InterfaceC1920c interfaceC1920c = cVar.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.a(new a());
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void c() {
-                c.InterfaceC1860c interfaceC1860c = cVar.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.c(new a());
+                c.InterfaceC1920c interfaceC1920c = cVar.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.c(new a());
                 }
             }
         };
         if (cVar.j == 1) {
-            g.a(this.f28950a.get(), String.valueOf(cVar.hashCode()), cVar.f66556b, cVar.f66557c, cVar.f66558d, cVar.f66559e, aVar);
+            g.a(this.f29053a.get(), String.valueOf(cVar.hashCode()), cVar.f70342b, cVar.f70343c, cVar.f70344d, cVar.f70345e, aVar);
         } else {
-            g.a(this.f28950a.get(), String.valueOf(cVar.hashCode()), cVar.f66556b, cVar.f66557c, aVar);
+            g.a(this.f29053a.get(), String.valueOf(cVar.hashCode()), cVar.f70342b, cVar.f70343c, aVar);
         }
     }
 
@@ -88,28 +88,28 @@ public class e implements k {
     }
 
     private AlertDialog b(Activity activity, final d.o.a.a.a.d.c cVar) {
-        return new com.bytedance.sdk.openadsdk.core.widget.e(activity).a(cVar.f66556b).b(cVar.f66557c).c(cVar.f66558d).d(cVar.f66559e).a(cVar.f66561g).a(new e.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.5
+        return new com.bytedance.sdk.openadsdk.core.widget.e(activity).a(cVar.f70342b).b(cVar.f70343c).c(cVar.f70344d).d(cVar.f70345e).a(cVar.f70347g).a(new e.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.5
             @Override // com.bytedance.sdk.openadsdk.core.widget.e.a
             public void a(Dialog dialog) {
-                c.InterfaceC1860c interfaceC1860c = cVar.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.a(dialog);
+                c.InterfaceC1920c interfaceC1920c = cVar.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.b(dialog);
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.e.a
             public void b(Dialog dialog) {
-                c.InterfaceC1860c interfaceC1860c = cVar.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.b(dialog);
+                c.InterfaceC1920c interfaceC1920c = cVar.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.a(dialog);
                 }
             }
         }).a(new DialogInterface.OnCancelListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.4
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                c.InterfaceC1860c interfaceC1860c = cVar.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.c(dialogInterface);
+                c.InterfaceC1920c interfaceC1920c = cVar.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.c(dialogInterface);
                 }
             }
         });
@@ -122,7 +122,7 @@ public class e implements k {
         if (cVar == null) {
             return null;
         }
-        Context context = cVar.f66555a;
+        Context context = cVar.f70341a;
         if (context != null && (context instanceof Activity)) {
             return a((Activity) context, cVar);
         }
@@ -136,32 +136,32 @@ public class e implements k {
             b2.show();
             return b2;
         }
-        AlertDialog.Builder onCancelListener = new AlertDialog.Builder(activity, ad.g(activity, Build.VERSION.SDK_INT >= 21 ? "Theme.Dialog.TTDownload" : "Theme.Dialog.TTDownloadOld")).setTitle(cVar.f66556b).setMessage(cVar.f66557c).setPositiveButton(cVar.f66558d, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.3
+        AlertDialog.Builder onCancelListener = new AlertDialog.Builder(activity, ad.g(activity, Build.VERSION.SDK_INT >= 21 ? "Theme.Dialog.TTDownload" : "Theme.Dialog.TTDownloadOld")).setTitle(cVar.f70342b).setMessage(cVar.f70343c).setPositiveButton(cVar.f70344d, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                c.InterfaceC1860c interfaceC1860c = cVar.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.a(dialogInterface);
+                c.InterfaceC1920c interfaceC1920c = cVar.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.b(dialogInterface);
                 }
             }
-        }).setNegativeButton(cVar.f66559e, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.2
+        }).setNegativeButton(cVar.f70345e, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                c.InterfaceC1860c interfaceC1860c = cVar.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.b(dialogInterface);
+                c.InterfaceC1920c interfaceC1920c = cVar.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.a(dialogInterface);
                 }
             }
         }).setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.1
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                c.InterfaceC1860c interfaceC1860c = cVar.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.c(dialogInterface);
+                c.InterfaceC1920c interfaceC1920c = cVar.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.c(dialogInterface);
                 }
             }
         });
-        Drawable drawable = cVar.f66561g;
+        Drawable drawable = cVar.f70347g;
         if (drawable != null) {
             onCancelListener.setIcon(drawable);
         }

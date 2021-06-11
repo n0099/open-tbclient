@@ -15,37 +15,36 @@ import android.os.Build;
 import android.os.Handler;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.mcast.McastConfig;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f6642a;
+    public static long f6685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f6643b;
+    public static i f6686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WifiManager f6644c = null;
+    public WifiManager f6687c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f6645d = null;
+    public a f6688d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f6646e = null;
+    public h f6689e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f6647f = 0;
+    public long f6690f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f6648g = 0;
+    public long f6691g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6649h = false;
+    public boolean f6692h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f6650i = new Handler();
+    public Handler f6693i = new Handler();
     public boolean j = false;
     public long k = 0;
     public long l = 0;
@@ -54,14 +53,14 @@ public class i {
     public class a extends BroadcastReceiver {
 
         /* renamed from: b  reason: collision with root package name */
-        public long f6652b;
+        public long f6695b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f6653c;
+        public boolean f6696c;
 
         public a() {
-            this.f6652b = 0L;
-            this.f6653c = false;
+            this.f6695b = 0L;
+            this.f6696c = false;
         }
 
         @Override // android.content.BroadcastReceiver
@@ -71,14 +70,14 @@ public class i {
             }
             String action = intent.getAction();
             if (action.equals("android.net.wifi.SCAN_RESULTS")) {
-                i.f6642a = System.currentTimeMillis() / 1000;
-                i.this.f6650i.post(new j(this, intent.getBooleanExtra("resultsUpdated", true)));
-            } else if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED) && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.f6652b >= 5000) {
-                this.f6652b = System.currentTimeMillis();
-                if (this.f6653c) {
+                i.f6685a = System.currentTimeMillis() / 1000;
+                i.this.f6693i.post(new j(this, intent.getBooleanExtra("resultsUpdated", true)));
+            } else if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED) && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.f6695b >= 5000) {
+                this.f6695b = System.currentTimeMillis();
+                if (this.f6696c) {
                     return;
                 }
-                this.f6653c = true;
+                this.f6696c = true;
             }
         }
     }
@@ -86,10 +85,10 @@ public class i {
     public static synchronized i a() {
         i iVar;
         synchronized (i.class) {
-            if (f6643b == null) {
-                f6643b = new i();
+            if (f6686b == null) {
+                f6686b = new i();
             }
-            iVar = f6643b;
+            iVar = f6686b;
         }
         return iVar;
     }
@@ -108,8 +107,8 @@ public class i {
 
     public static boolean a(h hVar, h hVar2) {
         boolean a2 = a(hVar, hVar2, 0.7f);
-        long currentTimeMillis = System.currentTimeMillis() - com.baidu.location.b.a.f6432c;
-        if (currentTimeMillis <= 0 || currentTimeMillis >= StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD || !a2 || hVar2.g() - hVar.g() <= 30) {
+        long currentTimeMillis = System.currentTimeMillis() - com.baidu.location.b.a.f6475c;
+        if (currentTimeMillis <= 0 || currentTimeMillis >= 30000 || !a2 || hVar2.g() - hVar.g() <= 30) {
             return a2;
         }
         return false;
@@ -117,8 +116,8 @@ public class i {
 
     public static boolean a(h hVar, h hVar2, float f2) {
         if (hVar != null && hVar2 != null) {
-            List<ScanResult> list = hVar.f6637a;
-            List<ScanResult> list2 = hVar2.f6637a;
+            List<ScanResult> list = hVar.f6680a;
+            List<ScanResult> list2 = hVar2.f6680a;
             if (list == list2) {
                 return true;
             }
@@ -170,7 +169,7 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        WifiManager wifiManager = this.f6644c;
+        WifiManager wifiManager = this.f6687c;
         if (wifiManager == null) {
             return;
         }
@@ -178,9 +177,9 @@ public class i {
             List<ScanResult> scanResults = wifiManager.getScanResults();
             if (scanResults != null) {
                 h hVar = new h(scanResults, System.currentTimeMillis());
-                h hVar2 = this.f6646e;
+                h hVar2 = this.f6689e;
                 if (hVar2 == null || !hVar.a(hVar2)) {
-                    this.f6646e = hVar;
+                    this.f6689e = hVar;
                 }
             }
         } catch (Exception unused) {
@@ -192,38 +191,38 @@ public class i {
     }
 
     public synchronized void c() {
-        if (this.f6649h) {
+        if (this.f6692h) {
             return;
         }
         if (com.baidu.location.f.isServing) {
-            this.f6644c = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService("wifi");
-            this.f6645d = new a();
+            this.f6687c = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService("wifi");
+            this.f6688d = new a();
             try {
-                com.baidu.location.f.getServiceContext().registerReceiver(this.f6645d, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
+                com.baidu.location.f.getServiceContext().registerReceiver(this.f6688d, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
             } catch (Exception unused) {
             }
-            this.f6649h = true;
+            this.f6692h = true;
         }
     }
 
     public synchronized void d() {
-        if (this.f6649h) {
+        if (this.f6692h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.f6645d);
-                f6642a = 0L;
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.f6688d);
+                f6685a = 0L;
             } catch (Exception unused) {
             }
-            this.f6645d = null;
-            this.f6644c = null;
-            this.f6649h = false;
+            this.f6688d = null;
+            this.f6687c = null;
+            this.f6692h = false;
         }
     }
 
     public boolean e() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = this.f6648g;
+        long j = this.f6691g;
         if (currentTimeMillis - j <= 0 || currentTimeMillis - j > 5000) {
-            this.f6648g = currentTimeMillis;
+            this.f6691g = currentTimeMillis;
             b();
             return f();
         }
@@ -231,17 +230,17 @@ public class i {
     }
 
     public boolean f() {
-        if (this.f6644c == null) {
+        if (this.f6687c == null) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        long j = this.f6647f;
+        long j = this.f6690f;
         if (currentTimeMillis - j > 0) {
             long j2 = this.k;
-            if (currentTimeMillis - j <= j2 + 5000 || currentTimeMillis - (f6642a * 1000) <= j2 + 5000) {
+            if (currentTimeMillis - j <= j2 + 5000 || currentTimeMillis - (f6685a * 1000) <= j2 + 5000) {
                 return false;
             }
-            if (i() && currentTimeMillis - this.f6647f <= this.k + 10000) {
+            if (i() && currentTimeMillis - this.f6690f <= this.k + 10000) {
                 return false;
             }
         }
@@ -250,14 +249,14 @@ public class i {
 
     @SuppressLint({"NewApi"})
     public String g() {
-        WifiManager wifiManager = this.f6644c;
+        WifiManager wifiManager = this.f6687c;
         if (wifiManager != null) {
             try {
                 if (!wifiManager.isWifiEnabled()) {
                     if (Build.VERSION.SDK_INT <= 17) {
                         return "";
                     }
-                    if (!this.f6644c.isScanAlwaysAvailable()) {
+                    if (!this.f6687c.isScanAlwaysAvailable()) {
                         return "";
                     }
                 }
@@ -275,11 +274,11 @@ public class i {
         if (currentTimeMillis < 0 || currentTimeMillis > 2000) {
             this.l = System.currentTimeMillis();
             try {
-                if (!this.f6644c.isWifiEnabled() && (Build.VERSION.SDK_INT <= 17 || !this.f6644c.isScanAlwaysAvailable())) {
+                if (!this.f6687c.isWifiEnabled() && (Build.VERSION.SDK_INT <= 17 || !this.f6687c.isScanAlwaysAvailable())) {
                     return false;
                 }
-                this.f6644c.startScan();
-                this.f6647f = System.currentTimeMillis();
+                this.f6687c.startScan();
+                this.f6690f = System.currentTimeMillis();
                 return true;
             } catch (Exception | NoSuchMethodError unused) {
                 return false;
@@ -291,8 +290,8 @@ public class i {
     @SuppressLint({"NewApi"})
     public boolean j() {
         try {
-            if ((this.f6644c.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.f6644c.isScanAlwaysAvailable())) && !i()) {
-                return new h(this.f6644c.getScanResults(), 0L).e();
+            if ((this.f6687c.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.f6687c.isScanAlwaysAvailable())) && !i()) {
+                return new h(this.f6687c.getScanResults(), 0L).e();
             }
             return false;
         } catch (Exception | NoSuchMethodError unused) {
@@ -301,7 +300,7 @@ public class i {
     }
 
     public WifiInfo k() {
-        WifiManager wifiManager = this.f6644c;
+        WifiManager wifiManager = this.f6687c;
         if (wifiManager == null) {
             return null;
         }
@@ -357,7 +356,7 @@ public class i {
 
     public String m() {
         DhcpInfo dhcpInfo;
-        WifiManager wifiManager = this.f6644c;
+        WifiManager wifiManager = this.f6687c;
         if (wifiManager == null || (dhcpInfo = wifiManager.getDhcpInfo()) == null) {
             return null;
         }
@@ -365,20 +364,20 @@ public class i {
     }
 
     public h n() {
-        h hVar = this.f6646e;
-        return (hVar == null || !hVar.j()) ? p() : this.f6646e;
+        h hVar = this.f6689e;
+        return (hVar == null || !hVar.j()) ? p() : this.f6689e;
     }
 
     public h o() {
-        h hVar = this.f6646e;
-        return (hVar == null || !hVar.k()) ? p() : this.f6646e;
+        h hVar = this.f6689e;
+        return (hVar == null || !hVar.k()) ? p() : this.f6689e;
     }
 
     public h p() {
-        WifiManager wifiManager = this.f6644c;
+        WifiManager wifiManager = this.f6687c;
         if (wifiManager != null) {
             try {
-                return new h(wifiManager.getScanResults(), this.f6647f);
+                return new h(wifiManager.getScanResults(), this.f6690f);
             } catch (Exception unused) {
             }
         }

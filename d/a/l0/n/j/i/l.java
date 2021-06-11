@@ -3,18 +3,18 @@ package d.a.l0.n.j.i;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f48154a = false;
+    public static boolean f51828a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f48155b = "0";
+    public static String f51829b = "0";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f48156c;
+    public static long f51830c;
 
     static {
         d.a.l0.n.a b2 = d.a.l0.n.c.b();
         if (b2 != null) {
-            f48155b = b2.j().getString("key_h2_heart_beat_version", "0");
+            f51829b = b2.j().getString("key_h2_heart_beat_version", "0");
         }
     }
 

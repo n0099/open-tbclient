@@ -22,10 +22,10 @@ import org.json.JSONObject;
 public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f41838i = k.f43199a;
+    public static final boolean f45514i = k.f46875a;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f41839h;
+    public long f45515h;
 
     /* loaded from: classes3.dex */
     public static final class a extends b<a> {
@@ -56,7 +56,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     }
 
     public static b b1(@NonNull Intent intent) {
-        boolean z = f41838i;
+        boolean z = f45514i;
         return new a().I1(intent);
     }
 
@@ -66,7 +66,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         }
         String f2 = o0.f(str);
         if (d.a.l0.a.t1.b.a.e(f2)) {
-            return o0.i(str, d.a.l0.a.c2.g.a.f41303b);
+            return o0.i(str, d.a.l0.a.c2.g.a.f44979b);
         }
         if (swanAppConfigData.o(j.b(f2))) {
             return str;
@@ -82,7 +82,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         if (!TextUtils.isEmpty(str) && swanAppConfigData != null) {
             return j1(w1(m1(str)), swanAppConfigData);
         }
-        if (f41838i) {
+        if (f45514i) {
             Log.d("SwanAppLaunchInfo", "getPageInfo ret null - " + str);
             return null;
         }
@@ -96,26 +96,26 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         Uri parse = Uri.parse(str);
         String j = o0.j(parse);
         if (TextUtils.isEmpty(j)) {
-            if (f41838i) {
+            if (f45514i) {
                 Log.d("SwanAppLaunchInfo", "getPageInfo appId is null");
             }
             return null;
         }
         String n = o0.n(j, parse, true);
         if (TextUtils.isEmpty(n)) {
-            if (f41838i) {
+            if (f45514i) {
                 Log.d("SwanAppLaunchInfo", "getPageInfo no launchPath ");
             }
             return null;
         }
-        String i2 = o0.i(parse.getEncodedQuery(), d.a.l0.a.c2.g.a.f41303b);
-        if (f41838i) {
+        String i2 = o0.i(parse.getEncodedQuery(), d.a.l0.a.c2.g.a.f44979b);
+        if (f45514i) {
             Log.d("SwanAppLaunchInfo", "query: " + i2);
         }
         if (!TextUtils.isEmpty(i2)) {
             n = n + "?" + i2;
         }
-        if (f41838i) {
+        if (f45514i) {
             Log.d("SwanAppLaunchInfo", "launch path - " + n);
         }
         return n;
@@ -185,8 +185,8 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     }
 
     public SelfT F1(long j) {
-        if (this.f41839h < 1 && j > 0) {
-            this.f41839h = j;
+        if (this.f45515h < 1 && j > 0) {
+            this.f45515h = j;
             return (SelfT) super.W0(j);
         }
         return (SelfT) a();
@@ -199,7 +199,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
                 f0.versionCode = Integer.parseInt(str);
                 return (SelfT) super.Z0(str);
             } catch (NumberFormatException e2) {
-                if (f41838i) {
+                if (f45514i) {
                     e2.printStackTrace();
                 }
             }
@@ -309,7 +309,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
                 try {
                     return new JSONObject(queryParameter).optJSONObject("baidusearch");
                 } catch (JSONException e2) {
-                    if (f41838i) {
+                    if (f45514i) {
                         e2.printStackTrace();
                     }
                 }
@@ -360,7 +360,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     }
 
     public long s1() {
-        return this.f41839h;
+        return this.f45515h;
     }
 
     public int t1() {

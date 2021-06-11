@@ -8,7 +8,6 @@ import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import com.baidu.apollon.statistics.g;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -72,7 +71,7 @@ public class RequsetNetworkUtils {
                 case 14:
                 case 15:
                 case 17:
-                    str = g.f3966b;
+                    str = g.f3985b;
                     break;
                 case 13:
                 case 18:
@@ -92,7 +91,7 @@ public class RequsetNetworkUtils {
             if (isWifiConnected(context)) {
                 return "wifi|" + getWifiIp(context);
             }
-            return getOperatorName(context) + FieldBuilder.SE + getMobileIp(context) + FieldBuilder.SE + getMobileType(context);
+            return getOperatorName(context) + "|" + getMobileIp(context) + "|" + getMobileType(context);
         }
         return "nonNet";
     }

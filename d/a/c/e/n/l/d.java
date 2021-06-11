@@ -45,15 +45,15 @@ public class d {
         try {
             sb.append("product");
             sb.append("=");
-            sb.append(URLEncoder.encode(cVar.f38735a, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.f42388a, "utf-8"));
             sb.append("&");
             sb.append("sub_sys");
             sb.append("=");
-            sb.append(URLEncoder.encode(cVar.f38736b, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.f42389b, "utf-8"));
             sb.append("&");
             sb.append("version");
             sb.append("=");
-            sb.append(URLEncoder.encode(cVar.f38737c, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.f42390c, "utf-8"));
             sb.append("&");
             sb.append(IAdRequestParam.OS);
             sb.append("=");
@@ -62,17 +62,17 @@ public class d {
             sb.append("os_version");
             sb.append("=");
             sb.append(URLEncoder.encode(cVar.q, "utf-8"));
-            if (!TextUtils.isEmpty(cVar.f38738d)) {
+            if (!TextUtils.isEmpty(cVar.f42391d)) {
                 sb.append("&");
                 sb.append("from");
                 sb.append("=");
-                sb.append(URLEncoder.encode(cVar.f38738d, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.f42391d, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.f38739e)) {
+            if (!TextUtils.isEmpty(cVar.f42392e)) {
                 sb.append("&");
                 sb.append("cfrom");
                 sb.append("=");
-                sb.append(URLEncoder.encode(cVar.f38739e, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.f42392e, "utf-8"));
             }
             sb.append("&");
             sb.append("phone");
@@ -84,17 +84,17 @@ public class d {
                 sb.append("=");
                 sb.append(URLEncoder.encode(cVar.l, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.f38740f)) {
+            if (!TextUtils.isEmpty(cVar.f42393f)) {
                 sb.append("&");
                 sb.append("client_id");
                 sb.append("=");
-                sb.append(URLEncoder.encode(cVar.f38740f, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.f42393f, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.f38743i)) {
+            if (!TextUtils.isEmpty(cVar.f42396i)) {
                 sb.append("&");
                 sb.append("imei");
                 sb.append("=");
-                sb.append(URLEncoder.encode(cVar.f38743i, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.f42396i, "utf-8"));
             }
             if (!TextUtils.isEmpty(cVar.m)) {
                 sb.append("&");
@@ -102,11 +102,11 @@ public class d {
                 sb.append("=");
                 sb.append(URLEncoder.encode(cVar.m, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.f38741g)) {
+            if (!TextUtils.isEmpty(cVar.f42394g)) {
                 sb.append("&");
                 sb.append("cuid");
                 sb.append("=");
-                sb.append(URLEncoder.encode(cVar.f38741g, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.f42394g, "utf-8"));
             }
             sb.append("&");
             sb.append("net");
@@ -124,15 +124,15 @@ public class d {
         }
         StringBuilder sb = new StringBuilder();
         sb.append("_client_type=2");
-        b(sb, "_client_version", cVar.f38737c, z);
-        b(sb, HttpRequest.PHONE_IMEI, cVar.f38743i, z);
-        b(sb, HttpRequest.CLIENT_ID, cVar.f38740f, z);
+        b(sb, "_client_version", cVar.f42390c, z);
+        b(sb, HttpRequest.PHONE_IMEI, cVar.f42396i, z);
+        b(sb, HttpRequest.CLIENT_ID, cVar.f42393f, z);
         b(sb, HttpRequest.SUBAPP_TYPE, cVar.j, z);
         b(sb, "os_version", cVar.q, z);
-        b(sb, "from", cVar.f38738d, z);
-        b(sb, "cfrom", cVar.f38739e, z);
+        b(sb, "from", cVar.f42391d, z);
+        b(sb, "cfrom", cVar.f42392e, z);
         b(sb, "net_type", cVar.p, z);
-        b(sb, "cuid", cVar.f38741g, z);
+        b(sb, "cuid", cVar.f42394g, z);
         b(sb, "model", cVar.k, z);
         if (TextUtils.isEmpty(cVar.l)) {
             b(sb, "uid", "0", z);
@@ -154,13 +154,13 @@ public class d {
     public static HashMap<String, Object> f(d.a.c.e.n.c cVar, boolean z) {
         HashMap<String, Object> hashMap = new HashMap<>();
         a(hashMap, HttpRequest.CLIENT_TYPE, "2");
-        a(hashMap, "_client_version", cVar.f38737c);
-        a(hashMap, HttpRequest.PHONE_IMEI, cVar.f38743i);
-        a(hashMap, HttpRequest.CLIENT_ID, cVar.f38740f);
+        a(hashMap, "_client_version", cVar.f42390c);
+        a(hashMap, HttpRequest.PHONE_IMEI, cVar.f42396i);
+        a(hashMap, HttpRequest.CLIENT_ID, cVar.f42393f);
         a(hashMap, HttpRequest.SUBAPP_TYPE, cVar.j);
-        a(hashMap, "from", cVar.f38738d);
+        a(hashMap, "from", cVar.f42391d);
         a(hashMap, "net_type", cVar.p);
-        a(hashMap, "cuid", cVar.f38741g);
+        a(hashMap, "cuid", cVar.f42394g);
         a(hashMap, "model", cVar.k);
         if (TextUtils.isEmpty(cVar.l)) {
             cVar.l = "0";
@@ -178,11 +178,11 @@ public class d {
         a(hashMap, "bdid", cVar.z);
         a(hashMap, "cookie", cVar.n);
         a(hashMap, "oaid", cVar.t);
-        a(hashMap, IAdRequestParam.MAC, cVar.u);
+        a(hashMap, "mac", cVar.u);
         a(hashMap, IAdRequestParam.ANDROID_ID, cVar.v);
         a(hashMap, "utbrand", cVar.w);
         a(hashMap, "baiduapppb_ut", cVar.x);
-        a(hashMap, com.alipay.sdk.cons.b.f1825b, cVar.y);
+        a(hashMap, com.alipay.sdk.cons.b.f1838b, cVar.y);
         a(hashMap, "active_timestamp", cVar.A);
         a(hashMap, "first_install_time", cVar.B);
         a(hashMap, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, cVar.C);

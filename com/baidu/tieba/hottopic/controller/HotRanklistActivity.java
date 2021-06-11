@@ -120,7 +120,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         this.hotTopicShareModel = new d.a.n0.d1.b.b(this);
         HotRanklistModel hotRanklistModel = new HotRanklistModel(getPageContext());
         this.ranklistModel = hotRanklistModel;
-        hotRanklistModel.x(this);
+        hotRanklistModel.B(this);
     }
 
     private void sendPauseMessageForVideo() {
@@ -138,9 +138,9 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         } else if (this.ranklistModel != null) {
             String str = this.isTabListLoaded ? "0" : "1";
             if (!ListUtils.isEmpty(this.mTopicTabList)) {
-                this.listType = this.mTopicTabList.get(this.ranklistMainView.h()).f52612f;
+                this.listType = this.mTopicTabList.get(this.ranklistMainView.h()).f56301f;
             }
-            this.ranklistModel.u(this.callFrom, this.listType, str, 0L);
+            this.ranklistModel.y(this.callFrom, this.listType, str, 0L);
         }
     }
 
@@ -154,12 +154,12 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         if (this.ranklistMainView == null) {
             return;
         }
-        if (!ListUtils.isEmpty(jVar.f52587b) && !this.isTabListLoaded) {
-            this.mTopicTabList = jVar.f52587b;
+        if (!ListUtils.isEmpty(jVar.f56276b) && !this.isTabListLoaded) {
+            this.mTopicTabList = jVar.f56276b;
             this.mHotTopicRanklistDataList = new ArrayList();
-            for (p pVar : jVar.f52587b) {
+            for (p pVar : jVar.f56276b) {
                 j jVar2 = new j();
-                jVar2.f52586a = pVar.f52612f;
+                jVar2.f56275a = pVar.f56301f;
                 this.mHotTopicRanklistDataList.add(jVar2);
             }
         }
@@ -171,7 +171,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
             while (true) {
                 if (i4 >= this.mHotTopicRanklistDataList.size()) {
                     break;
-                } else if (this.mHotTopicRanklistDataList.get(i4).f52586a.equals(jVar.f52586a)) {
+                } else if (this.mHotTopicRanklistDataList.get(i4).f56275a.equals(jVar.f56275a)) {
                     i3 = i4;
                     break;
                 } else {
@@ -179,15 +179,15 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
                 }
             }
             if (i3 == 0) {
-                jVar.f52587b = this.mTopicTabList;
-            } else if (ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f52587b)) {
-                this.mHotTopicRanklistDataList.get(0).f52587b = this.mTopicTabList;
+                jVar.f56276b = this.mTopicTabList;
+            } else if (ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f56276b)) {
+                this.mHotTopicRanklistDataList.get(0).f56276b = this.mTopicTabList;
             }
             this.mHotTopicRanklistDataList.add(i3, jVar);
             this.mHotTopicRanklistDataList.remove(i3 + 1);
         }
         this.ranklistMainView.n(this.mHotTopicRanklistDataList);
-        if (this.isTabListLoaded || ListUtils.isEmpty(this.mHotTopicRanklistDataList) || ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f52587b) || ListUtils.isEmpty(this.mTopicTabList)) {
+        if (this.isTabListLoaded || ListUtils.isEmpty(this.mHotTopicRanklistDataList) || ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f56276b) || ListUtils.isEmpty(this.mTopicTabList)) {
             return;
         }
         this.isTabListLoaded = true;
@@ -271,6 +271,6 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         if (ListUtils.isEmpty(this.mTopicTabList) || (pVar = this.mTopicTabList.get(this.ranklistMainView.h())) == null) {
             return;
         }
-        this.hotTopicShareModel.e(null, pVar.f52614h, pVar.j, pVar.f52613g, pVar.f52615i, false);
+        this.hotTopicShareModel.e(null, pVar.f56303h, pVar.j, pVar.f56302g, pVar.f56304i, false);
     }
 }

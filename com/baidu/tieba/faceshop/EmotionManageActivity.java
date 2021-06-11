@@ -34,16 +34,16 @@ import java.util.List;
 public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<f> f14608e;
+    public List<f> f14665e;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f14610g;
+    public g f14667g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f14611h;
+    public d f14668h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f14612i;
+    public LinearLayout f14669i;
     public NavigationBar j;
     public View k;
     public TextView l;
@@ -56,7 +56,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     public e s;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<String> f14609f = new LinkedList();
+    public final List<String> f14666f = new LinkedList();
     public boolean t = false;
     public final View.OnClickListener u = new a();
     public final AdapterView.OnItemClickListener v = new b();
@@ -74,7 +74,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
             } else if (view == EmotionManageActivity.this.m) {
                 if (EmotionManageActivity.this.t) {
                     EmotionManageActivity.this.y();
-                    EmotionManageActivity.this.f14609f.clear();
+                    EmotionManageActivity.this.f14666f.clear();
                 } else {
                     EmotionManageActivity.this.z();
                 }
@@ -98,23 +98,23 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             h hVar;
             if (EmotionManageActivity.this.t) {
-                if (EmotionManageActivity.this.f14608e.get(i2) == null || (hVar = (h) view.getTag()) == null) {
+                if (EmotionManageActivity.this.f14665e.get(i2) == null || (hVar = (h) view.getTag()) == null) {
                     return;
                 }
-                Object tag = hVar.f14624a.getTag();
+                Object tag = hVar.f14681a.getTag();
                 if (tag instanceof String) {
                     String str = (String) tag;
-                    for (f fVar : EmotionManageActivity.this.f14608e) {
-                        if (fVar.f14618a.equals(str)) {
-                            if (EmotionManageActivity.this.f14609f.contains(str)) {
-                                SkinManager.setImageResource(hVar.f14624a, R.drawable.btn_expression_choose_n);
-                                EmotionManageActivity.this.f14609f.remove(str);
+                    for (f fVar : EmotionManageActivity.this.f14665e) {
+                        if (fVar.f14675a.equals(str)) {
+                            if (EmotionManageActivity.this.f14666f.contains(str)) {
+                                SkinManager.setImageResource(hVar.f14681a, R.drawable.btn_expression_choose_n);
+                                EmotionManageActivity.this.f14666f.remove(str);
                                 EmotionManageActivity.this.I(str);
-                                fVar.f14620c = false;
+                                fVar.f14677c = false;
                             } else {
-                                SkinManager.setImageResource(hVar.f14624a, R.drawable.btn_expression_choose_s);
+                                SkinManager.setImageResource(hVar.f14681a, R.drawable.btn_expression_choose_s);
                                 EmotionManageActivity.this.x(str);
-                                fVar.f14620c = true;
+                                fVar.f14677c = true;
                             }
                         }
                     }
@@ -122,7 +122,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                 }
                 return;
             }
-            EmotionManageActivity.this.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(EmotionManageActivity.this.getPageContext().getPageActivity(), ((f) EmotionManageActivity.this.f14608e.get(i2)).f14618a, false, "emotion_manage")));
+            EmotionManageActivity.this.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(EmotionManageActivity.this.getPageContext().getPageActivity(), ((f) EmotionManageActivity.this.f14665e.get(i2)).f14675a, false, "emotion_manage")));
         }
     }
 
@@ -136,8 +136,8 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001117) {
-                EmotionManageActivity.this.f14610g = new g(EmotionManageActivity.this, null);
-                EmotionManageActivity.this.f14610g.execute(new String[0]);
+                EmotionManageActivity.this.f14667g = new g(EmotionManageActivity.this, null);
+                EmotionManageActivity.this.f14667g.execute(new String[0]);
             }
         }
     }
@@ -194,32 +194,32 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         public final View a() {
             View inflate = View.inflate(EmotionManageActivity.this.getPageContext().getPageActivity(), R.layout.emotion_manage_list_item, null);
             h hVar = new h(null);
-            hVar.f14624a = (ImageView) inflate.findViewById(R.id.emotion_group_select);
-            hVar.f14625b = (ImageView) inflate.findViewById(R.id.emotion_group_photo);
-            hVar.f14626c = (TextView) inflate.findViewById(R.id.emotion_group_name);
+            hVar.f14681a = (ImageView) inflate.findViewById(R.id.emotion_group_select);
+            hVar.f14682b = (ImageView) inflate.findViewById(R.id.emotion_group_photo);
+            hVar.f14683c = (TextView) inflate.findViewById(R.id.emotion_group_name);
             inflate.setTag(hVar);
             return inflate;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (EmotionManageActivity.this.f14608e == null) {
+            if (EmotionManageActivity.this.f14665e == null) {
                 return 0;
             }
-            return EmotionManageActivity.this.f14608e.size();
+            return EmotionManageActivity.this.f14665e.size();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
-            if (EmotionManageActivity.this.f14608e == null || i2 > EmotionManageActivity.this.f14608e.size()) {
+            if (EmotionManageActivity.this.f14665e == null || i2 > EmotionManageActivity.this.f14665e.size()) {
                 return null;
             }
-            return EmotionManageActivity.this.f14608e.get(i2);
+            return EmotionManageActivity.this.f14665e.get(i2);
         }
 
         @Override // android.widget.Adapter
         public long getItemId(int i2) {
-            if (EmotionManageActivity.this.f14608e == null || i2 > EmotionManageActivity.this.f14608e.size()) {
+            if (EmotionManageActivity.this.f14665e == null || i2 > EmotionManageActivity.this.f14665e.size()) {
                 return 0L;
             }
             return i2;
@@ -231,24 +231,24 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                 view = a();
             }
             h hVar = (h) view.getTag();
-            Bitmap bitmap = ((f) EmotionManageActivity.this.f14608e.get(i2)).f14621d;
+            Bitmap bitmap = ((f) EmotionManageActivity.this.f14665e.get(i2)).f14678d;
             if (bitmap != null) {
-                hVar.f14625b.setImageBitmap(bitmap);
+                hVar.f14682b.setImageBitmap(bitmap);
             } else {
-                SkinManager.setImageResource(hVar.f14625b, R.drawable.pic_image_h_not);
+                SkinManager.setImageResource(hVar.f14682b, R.drawable.pic_image_h_not);
             }
             if (EmotionManageActivity.this.t) {
-                if (EmotionManageActivity.this.f14609f.contains(((f) EmotionManageActivity.this.f14608e.get(i2)).f14618a)) {
-                    SkinManager.setImageResource(hVar.f14624a, R.drawable.btn_expression_choose_s);
+                if (EmotionManageActivity.this.f14666f.contains(((f) EmotionManageActivity.this.f14665e.get(i2)).f14675a)) {
+                    SkinManager.setImageResource(hVar.f14681a, R.drawable.btn_expression_choose_s);
                 } else {
-                    SkinManager.setImageResource(hVar.f14624a, R.drawable.btn_expression_choose_n);
+                    SkinManager.setImageResource(hVar.f14681a, R.drawable.btn_expression_choose_n);
                 }
-                hVar.f14624a.setVisibility(0);
-                hVar.f14624a.setTag(((f) EmotionManageActivity.this.f14608e.get(i2)).f14618a);
+                hVar.f14681a.setVisibility(0);
+                hVar.f14681a.setTag(((f) EmotionManageActivity.this.f14665e.get(i2)).f14675a);
             } else {
-                hVar.f14624a.setVisibility(8);
+                hVar.f14681a.setVisibility(8);
             }
-            hVar.f14626c.setText(((f) EmotionManageActivity.this.f14608e.get(i2)).f14619b);
+            hVar.f14683c.setText(((f) EmotionManageActivity.this.f14665e.get(i2)).f14676b);
             EmotionManageActivity.this.getLayoutMode().j(view);
             return view;
         }
@@ -262,16 +262,16 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     public class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f14618a;
+        public String f14675a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f14619b;
+        public String f14676b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f14620c;
+        public boolean f14677c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Bitmap f14621d;
+        public Bitmap f14678d;
 
         public f() {
         }
@@ -300,9 +300,9 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                         EmotionGroupData next = it.next();
                         if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && d.a.n0.m0.b.d(next.getGroupId())) {
                             f fVar = new f(EmotionManageActivity.this, null);
-                            fVar.f14618a = next.getGroupId();
-                            fVar.f14619b = next.getGroupName();
-                            fVar.f14621d = d.a.n0.m0.b.f(fVar.f14618a, "list.png");
+                            fVar.f14675a = next.getGroupId();
+                            fVar.f14676b = next.getGroupName();
+                            fVar.f14678d = d.a.n0.m0.b.f(fVar.f14675a, "list.png");
                             linkedList.add(fVar);
                             break;
                         }
@@ -322,7 +322,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
             if (list == null) {
                 list = new LinkedList<>();
             }
-            EmotionManageActivity.this.f14608e = list;
+            EmotionManageActivity.this.f14665e = list;
             EmotionManageActivity.this.G(false);
             EmotionManageActivity.this.hideProgressBar();
             EmotionManageActivity.this.H();
@@ -343,13 +343,13 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f14624a;
+        public ImageView f14681a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f14625b;
+        public ImageView f14682b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f14626c;
+        public TextView f14683c;
 
         public h() {
         }
@@ -362,7 +362,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     public final void A() {
         registerListener(2001117, this.w);
         g gVar = new g(this, null);
-        this.f14610g = gVar;
+        this.f14667g = gVar;
         gVar.execute(new String[0]);
         e eVar = new e(this, null);
         this.s = eVar;
@@ -370,14 +370,14 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     }
 
     public final void B() {
-        this.f14612i = (LinearLayout) findViewById(R.id.emotion_manage_root);
+        this.f14669i = (LinearLayout) findViewById(R.id.emotion_manage_root);
         NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.j = navigationBar;
         navigationBar.setTitleText(R.string.title_activity_emotion_manage);
         this.k = this.j.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         NavigationBar navigationBar2 = this.j;
         NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_LEFT;
-        this.l = navigationBar2.addTextButton(controlAlign, getString(R.string.delete) + "(" + this.f14609f.size() + SmallTailInfo.EMOTION_SUFFIX, this.u, true);
+        this.l = navigationBar2.addTextButton(controlAlign, getString(R.string.delete) + "(" + this.f14666f.size() + SmallTailInfo.EMOTION_SUFFIX, this.u, true);
         F();
         TextView addTextButton = this.j.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit), this.u);
         this.m = addTextButton;
@@ -394,14 +394,14 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         this.q = textView;
         textView.setOnClickListener(this.u);
         getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        getLayoutMode().j(this.f14612i);
+        getLayoutMode().j(this.f14669i);
         getLayoutMode().j(this.r);
         y();
     }
 
     @SuppressLint({"ResourceAsColor"})
     public final void F() {
-        int size = this.f14609f.size();
+        int size = this.f14666f.size();
         TextView textView = this.l;
         textView.setText(getString(R.string.delete) + "(" + size + SmallTailInfo.EMOTION_SUFFIX);
         if (size == 0) {
@@ -414,14 +414,14 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
 
     public final void G(boolean z) {
         if (z) {
-            this.f14609f.clear();
+            this.f14666f.clear();
         } else {
-            for (String str : this.f14609f) {
+            for (String str : this.f14666f) {
                 boolean z2 = false;
-                Iterator<f> it = this.f14608e.iterator();
+                Iterator<f> it = this.f14665e.iterator();
                 while (true) {
                     if (it.hasNext()) {
-                        if (str.equals(it.next().f14618a)) {
+                        if (str.equals(it.next().f14675a)) {
                             z2 = true;
                             break;
                         }
@@ -430,7 +430,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                     }
                 }
                 if (!z2) {
-                    this.f14609f.remove(str);
+                    this.f14666f.remove(str);
                 }
             }
         }
@@ -440,7 +440,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     }
 
     public final void H() {
-        List<f> list = this.f14608e;
+        List<f> list = this.f14665e;
         if (list == null) {
             return;
         }
@@ -457,21 +457,21 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     }
 
     public final void I(String str) {
-        this.f14609f.remove(str);
+        this.f14666f.remove(str);
         F();
     }
 
     public final void J() {
         d dVar = new d(this, null);
-        this.f14611h = dVar;
-        dVar.execute(this.f14609f);
+        this.f14668h = dVar;
+        dVar.execute(this.f14666f);
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onBackPressed() {
         if (this.t) {
             y();
-            this.f14609f.clear();
+            this.f14666f.clear();
             this.t = false;
             this.s.notifyDataSetChanged();
             return;
@@ -498,18 +498,18 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        d dVar = this.f14611h;
+        d dVar = this.f14668h;
         if (dVar != null) {
             dVar.cancel(true);
-            this.f14611h = null;
+            this.f14668h = null;
         }
     }
 
     public final void x(String str) {
-        if (this.f14609f.contains(str)) {
+        if (this.f14666f.contains(str)) {
             return;
         }
-        this.f14609f.add(str);
+        this.f14666f.add(str);
         F();
     }
 

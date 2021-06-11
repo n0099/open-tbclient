@@ -31,24 +31,24 @@ import java.util.Locale;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public final class c extends d.a.l0.a.v1.c.b implements Object {
-    public static final boolean r = d.a.l0.a.v1.c.a.f45298b;
+    public static final boolean r = d.a.l0.a.v1.c.a.f48972b;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SwanAppProcessInfo f45331f;
+    public final SwanAppProcessInfo f49005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45332g;
+    public String f49006g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Messenger f45333h;
+    public Messenger f49007h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwanAppCores f45334i;
+    public SwanAppCores f49008i;
     public PrefetchEvent j;
     public boolean k;
     public long l;
     public boolean m;
-    public ServiceConnectionC0882c n;
+    public ServiceConnectionC0938c n;
     public final Deque<Message> o;
     public b p;
     public final Set<String> q;
@@ -60,18 +60,18 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
 
     /* renamed from: d.a.l0.a.v1.c.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class ServiceConnectionC0882c implements ServiceConnection {
-        public ServiceConnectionC0882c() {
+    public class ServiceConnectionC0938c implements ServiceConnection {
+        public ServiceConnectionC0938c() {
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            synchronized (c.this.f45331f) {
-                c.this.f45333h = new Messenger(iBinder);
+            synchronized (c.this.f49005f) {
+                c.this.f49007h = new Messenger(iBinder);
                 e k = e.k();
                 k.m().a("event_puppet_online", c.this);
                 if (c.r) {
-                    k.u("on main bind to swan: " + c.this.f45331f);
+                    k.u("on main bind to swan: " + c.this.f49005f);
                 }
                 c.this.h();
             }
@@ -85,14 +85,14 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
 
     public c(SwanAppProcessInfo swanAppProcessInfo) {
         super(d.a.l0.a.a2.d.g());
-        this.f45332g = "";
-        this.f45333h = null;
+        this.f49006g = "";
+        this.f49007h = null;
         this.k = true;
         this.l = 0L;
         this.m = false;
         this.o = new ArrayDeque();
         this.q = d.a.l0.a.v2.z0.a.a(new String[0]);
-        this.f45331f = swanAppProcessInfo;
+        this.f49005f = swanAppProcessInfo;
         d.a.l0.a.a2.b bVar = new d.a.l0.a.a2.b();
         bVar.e(this, "event_messenger_call");
         v(bVar);
@@ -100,13 +100,13 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
 
     @Override // d.a.l0.a.a2.m, d.a.l0.a.a2.h
     public boolean C() {
-        return !TextUtils.isEmpty(this.f45332g);
+        return !TextUtils.isEmpty(this.f49006g);
     }
 
     public boolean D() {
         boolean z;
-        synchronized (this.f45331f) {
-            z = this.f45333h != null;
+        synchronized (this.f49005f) {
+            z = this.f49007h != null;
         }
         return z;
     }
@@ -128,11 +128,11 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
     }
 
     public c I(String str) {
-        if (!TextUtils.equals(str, this.f45332g)) {
+        if (!TextUtils.equals(str, this.f49006g)) {
             if (TextUtils.isEmpty(str)) {
                 str = "swan_id_unknown";
             }
-            this.f45332g = str;
+            this.f49006g = str;
             e.k().m().a("event_puppet_load_app", this);
             this.k = true;
         } else {
@@ -169,7 +169,7 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
     /* renamed from: N */
     public void onCallback(i.a aVar) {
         String[] p;
-        if (d.a.l0.a.v1.b.c.f(aVar.C(), "swan_multi_preload_on_server") && aVar.i("swan_multi_preload_app_process_index") == this.f45331f.index && (p = aVar.p("swan_multi_preload_app_ids")) != null) {
+        if (d.a.l0.a.v1.b.c.f(aVar.C(), "swan_multi_preload_on_server") && aVar.i("swan_multi_preload_app_process_index") == this.f49005f.index && (p = aVar.p("swan_multi_preload_app_ids")) != null) {
             synchronized (this.q) {
                 this.q.clear();
                 for (String str : p) {
@@ -185,8 +185,8 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
     }
 
     public final void O() {
-        synchronized (this.f45331f) {
-            this.f45333h = null;
+        synchronized (this.f49005f) {
+            this.f49007h = null;
             this.n = null;
             Q();
             e k = e.k();
@@ -209,10 +209,10 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
     }
 
     public c Q() {
-        synchronized (this.f45331f) {
+        synchronized (this.f49005f) {
             R();
-            this.f45333h = null;
-            this.f45334i = null;
+            this.f49007h = null;
+            this.f49008i = null;
             X(null);
             g();
             S();
@@ -221,7 +221,7 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
     }
 
     public c R() {
-        this.f45332g = "";
+        this.f49006g = "";
         X(null);
         g();
         return this;
@@ -238,7 +238,7 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
     public void T(@NonNull Message message) {
         try {
             Application b2 = d.a.l0.a.c1.a.b();
-            Intent intent = new Intent(b2, this.f45331f.service);
+            Intent intent = new Intent(b2, this.f49005f.service);
             intent.setAction(SwanAppLocalService.ACTION_RECEIVER_MSG);
             intent.putExtra("data", message);
             b2.startService(intent);
@@ -258,11 +258,11 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final boolean V(Message message) {
-        synchronized (this.f45331f) {
+        synchronized (this.f49005f) {
             if (message != null) {
                 if (H()) {
                     try {
-                        this.f45333h.send(message);
+                        this.f49007h.send(message);
                         return true;
                     } catch (RemoteException e2) {
                         e = e2;
@@ -308,12 +308,12 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
     public c a0(boolean z, Context context, Bundle bundle) {
         if (r) {
             e k = e.k();
-            k.u("b4 tryPreBind: " + this.f45331f);
+            k.u("b4 tryPreBind: " + this.f49005f);
         }
         if (context == null) {
             context = d.a.l0.a.c1.a.b();
         }
-        Intent intent = new Intent(context, this.f45331f.service);
+        Intent intent = new Intent(context, this.f49005f.service);
         if (bundle != null) {
             intent.putExtras(bundle);
         }
@@ -322,12 +322,12 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
         intent.putExtra("bundle_key_main_pid", Process.myPid());
         intent.setAction(SwanAppLocalService.ACTION_PERLOAD);
         intent.addCategory("android.intent.category.DEFAULT");
-        synchronized (this.f45331f) {
+        synchronized (this.f49005f) {
             try {
                 if (this.n == null) {
-                    ServiceConnectionC0882c serviceConnectionC0882c = new ServiceConnectionC0882c();
-                    this.n = serviceConnectionC0882c;
-                    context.bindService(intent, serviceConnectionC0882c, 1);
+                    ServiceConnectionC0938c serviceConnectionC0938c = new ServiceConnectionC0938c();
+                    this.n = serviceConnectionC0938c;
+                    context.bindService(intent, serviceConnectionC0938c, 1);
                 } else if (z) {
                     context.startService(intent);
                 }
@@ -336,7 +336,7 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
                     e2.printStackTrace();
                 }
             }
-            if (this.f45333h != null) {
+            if (this.f49007h != null) {
                 h();
             }
         }
@@ -346,7 +346,7 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
     public c b0(Context context, Bundle bundle) {
         if (r) {
             e k = e.k();
-            k.u("b4 preload: " + this.f45331f);
+            k.u("b4 preload: " + this.f49005f);
         }
         a0(true, context, bundle);
         return this;
@@ -375,7 +375,7 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
 
     public c e0(SwanAppCores swanAppCores) {
         if (swanAppCores != null) {
-            this.f45334i = swanAppCores;
+            this.f49008i = swanAppCores;
         }
         return this;
     }
@@ -391,16 +391,16 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
 
     @Override // d.a.l0.a.a2.m, d.a.l0.a.a2.h
     public String getAppId() {
-        return this.f45332g;
+        return this.f49006g;
     }
 
     public c h() {
         J("flushCachedMsgs");
-        synchronized (this.f45331f) {
-            while (this.f45333h != null && !this.o.isEmpty()) {
+        synchronized (this.f49005f) {
+            while (this.f49007h != null && !this.o.isEmpty()) {
                 Message peek = this.o.peek();
                 if (peek.replyTo == null) {
-                    peek.replyTo = e.k().f45342d;
+                    peek.replyTo = e.k().f49016d;
                 }
                 if (!V(peek)) {
                     break;
@@ -428,15 +428,15 @@ public final class c extends d.a.l0.a.v1.c.b implements Object {
     }
 
     public SwanAppProcessInfo k() {
-        return this.f45331f;
+        return this.f49005f;
     }
 
     @Override // d.a.l0.a.a2.m, d.a.l0.a.a2.h
     public SwanAppCores n() {
-        return this.f45334i;
+        return this.f49008i;
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "%s: Connected=%d Preloaded=%d TryPreload=%s Loaded=%s", this.f45331f.toString(), Integer.valueOf(H() ? 1 : 0), Integer.valueOf(this.m ? 1 : 0), SimpleDateFormat.getTimeInstance(2).format(new Date(this.l)), this.f45332g);
+        return String.format(Locale.getDefault(), "%s: Connected=%d Preloaded=%d TryPreload=%s Loaded=%s", this.f49005f.toString(), Integer.valueOf(H() ? 1 : 0), Integer.valueOf(this.m ? 1 : 0), SimpleDateFormat.getTimeInstance(2).format(new Date(this.l)), this.f49006g);
     }
 }

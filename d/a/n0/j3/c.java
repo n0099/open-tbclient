@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f56578b;
+    public static c f60267b;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f56579a = c();
+    public a f60268a = c();
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -25,19 +25,19 @@ public class c {
     }
 
     public static c b() {
-        if (f56578b == null) {
+        if (f60267b == null) {
             synchronized (c.class) {
-                if (f56578b == null) {
-                    f56578b = new c();
+                if (f60267b == null) {
+                    f60267b = new c();
                 }
             }
         }
-        return f56578b;
+        return f60267b;
     }
 
     public void a(Context context) {
         a aVar;
-        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f56579a) != null) {
+        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f60268a) != null) {
             aVar.a(context);
         }
     }
@@ -56,14 +56,14 @@ public class c {
 
     public void e(Context context, String str, boolean z) {
         a aVar;
-        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f56579a) != null) {
+        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f60268a) != null) {
             aVar.c(context, str, z);
         }
     }
 
     public void f(Context context, WebView webView, WebChromeClient webChromeClient) {
         a aVar;
-        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f56579a) != null) {
+        if (PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f60268a) != null) {
             aVar.b(context, webView, webChromeClient);
         }
     }

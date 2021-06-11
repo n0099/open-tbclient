@@ -1,6 +1,6 @@
 package org.apache.http.protocol;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SyncBasicHttpContext extends BasicHttpContext {
     public SyncBasicHttpContext(HttpContext httpContext) {
         throw new RuntimeException("Stub!");

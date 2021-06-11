@@ -8,9 +8,9 @@ import d.a.m0.w.m;
 public class a extends m {
     public a(Context context, int i2) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_gift_tab), 22, i2);
-        this.f50850d = R.drawable.icon_pure_post_vip24_pb;
-        this.f50853g = false;
-        this.f50854h = true;
+        this.f54527d = R.drawable.icon_pure_post_vip24_pb;
+        this.f54530g = false;
+        this.f54531h = true;
         this.n = new int[]{36};
     }
 }

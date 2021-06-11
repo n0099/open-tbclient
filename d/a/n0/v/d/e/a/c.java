@@ -29,24 +29,24 @@ import java.util.List;
 public class c extends d.a.n0.v.d.e.a.a {
 
     /* renamed from: i  reason: collision with root package name */
-    public long f61678i;
-    public InterfaceC1652c j;
+    public long f65392i;
+    public InterfaceC1709c j;
     public Drawable k;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.v.d.e.b.b f61679e;
+        public final /* synthetic */ d.a.n0.v.d.e.b.b f65393e;
 
         public a(d.a.n0.v.d.e.b.b bVar) {
-            this.f61679e = bVar;
+            this.f65393e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (c.this.j != null) {
-                c.this.j.a(this.f61679e);
+                c.this.j.a(this.f65393e);
             }
         }
     }
@@ -55,35 +55,35 @@ public class c extends d.a.n0.v.d.e.a.a {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.v.d.e.b.b f61681e;
+        public final /* synthetic */ d.a.n0.v.d.e.b.b f65395e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MetaData f61682f;
+        public final /* synthetic */ MetaData f65396f;
 
         public b(d.a.n0.v.d.e.b.b bVar, MetaData metaData) {
-            this.f61681e = bVar;
-            this.f61682f = metaData;
+            this.f65395e = bVar;
+            this.f65396f = metaData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            boolean g2 = c.this.g(this.f61681e.f61696d);
+            boolean g2 = c.this.g(this.f65395e.f65410d);
             StatisticItem statisticItem = new StatisticItem("c12661");
-            statisticItem.param("obj_id", this.f61681e.f61693a.T().getUserId());
+            statisticItem.param("obj_id", this.f65395e.f65407a.T().getUserId());
             statisticItem.param("obj_type", g2 ? 1 : 0);
             TiebaStatic.log(statisticItem);
-            if (!c.this.g(this.f61681e.f61696d)) {
-                c.this.h(this.f61682f);
+            if (!c.this.g(this.f65395e.f65410d)) {
+                c.this.h(this.f65396f);
                 return;
             }
             c cVar = c.this;
-            cVar.b(cVar.f61666e, this.f61681e.f61693a, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_RECENT_HISTORY_WHOLE_TAB);
+            cVar.b(cVar.f65380e, this.f65395e.f65407a, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_RECENT_HISTORY_WHOLE_TAB);
         }
     }
 
     /* renamed from: d.a.n0.v.d.e.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1652c {
+    public interface InterfaceC1709c {
         void a(d.a.n0.v.d.e.b.b bVar);
     }
 
@@ -91,25 +91,25 @@ public class c extends d.a.n0.v.d.e.a.a {
     public class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f61684a;
+        public TbImageView f65398a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f61685b;
+        public TextView f65399b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f61686c;
+        public TextView f65400c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f61687d;
+        public TextView f65401d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f61688e;
+        public TextView f65402e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f61689f;
+        public TextView f65403f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f61690g;
+        public TextView f65404g;
 
         public d(c cVar) {
         }
@@ -121,8 +121,8 @@ public class c extends d.a.n0.v.d.e.a.a {
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f61678i = d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
-        this.k = SkinManager.getDrawable(this.f61667f.getResources(), R.drawable.icon_video_direct_seeding);
+        this.f65392i = d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
+        this.k = SkinManager.getDrawable(this.f65381f.getResources(), R.drawable.icon_video_direct_seeding);
     }
 
     public final boolean g(List<b.a> list) {
@@ -130,7 +130,7 @@ public class c extends d.a.n0.v.d.e.a.a {
             return false;
         }
         for (b.a aVar : list) {
-            if (aVar != null && 1 == aVar.f61697a) {
+            if (aVar != null && 1 == aVar.f65411a) {
                 return true;
             }
         }
@@ -144,62 +144,62 @@ public class c extends d.a.n0.v.d.e.a.a {
         a2 a2Var;
         if (view == null) {
             dVar = new d(this, null);
-            view2 = LayoutInflater.from(this.f61667f).inflate(R.layout.square_recent_history_whole_item, (ViewGroup) null);
+            view2 = LayoutInflater.from(this.f65381f).inflate(R.layout.square_recent_history_whole_item, (ViewGroup) null);
             TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.recent_history_whole_img);
-            dVar.f61684a = tbImageView;
+            dVar.f65398a = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-            dVar.f61684a.setIsRound(true);
-            dVar.f61684a.setAutoChangeStyle(false);
-            dVar.f61684a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            dVar.f61685b = (TextView) view2.findViewById(R.id.recent_history_whole_user_name);
-            dVar.f61686c = (TextView) view2.findViewById(R.id.recent_history_whole_living_tag);
-            dVar.f61687d = (TextView) view2.findViewById(R.id.recent_history_whole_send_gift_tag);
-            dVar.f61688e = (TextView) view2.findViewById(R.id.recent_history_whole_live_begin_time);
-            dVar.f61689f = (TextView) view2.findViewById(R.id.recent_history_whole_follow_btn);
-            dVar.f61690g = (TextView) view2.findViewById(R.id.recent_history_whole_unfollow_btn);
+            dVar.f65398a.setIsRound(true);
+            dVar.f65398a.setAutoChangeStyle(false);
+            dVar.f65398a.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            dVar.f65399b = (TextView) view2.findViewById(R.id.recent_history_whole_user_name);
+            dVar.f65400c = (TextView) view2.findViewById(R.id.recent_history_whole_living_tag);
+            dVar.f65401d = (TextView) view2.findViewById(R.id.recent_history_whole_send_gift_tag);
+            dVar.f65402e = (TextView) view2.findViewById(R.id.recent_history_whole_live_begin_time);
+            dVar.f65403f = (TextView) view2.findViewById(R.id.recent_history_whole_follow_btn);
+            dVar.f65404g = (TextView) view2.findViewById(R.id.recent_history_whole_unfollow_btn);
             SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(dVar.f61685b, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(dVar.f61688e, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(dVar.f61689f, R.color.CAM_X0110);
-            SkinManager.setViewTextColor(dVar.f61690g, R.color.square_follow_btn_txt_color);
-            dVar.f61686c.setCompoundDrawablesWithIntrinsicBounds(this.k, (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setViewTextColor(dVar.f61687d, R.color.CAM_X0301);
+            SkinManager.setViewTextColor(dVar.f65399b, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(dVar.f65402e, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(dVar.f65403f, R.color.CAM_X0110);
+            SkinManager.setViewTextColor(dVar.f65404g, R.color.square_follow_btn_txt_color);
+            dVar.f65400c.setCompoundDrawablesWithIntrinsicBounds(this.k, (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(dVar.f65401d, R.color.CAM_X0301);
             view2.setTag(dVar);
         } else {
             view2 = view;
             dVar = (d) view.getTag();
         }
         d.a.n0.v.d.e.b.b item = getItem(i2);
-        if (item != null && (a2Var = item.f61693a) != null && a2Var.T() != null) {
-            com.baidu.tbadk.core.data.MetaData T = item.f61693a.T();
+        if (item != null && (a2Var = item.f65407a) != null && a2Var.T() != null) {
+            com.baidu.tbadk.core.data.MetaData T = item.f65407a.T();
             int i3 = 12;
-            dVar.f61684a.V(T.getPortrait(), 12, false);
-            this.f61669h = 0;
-            dVar.f61686c.setVisibility(8);
-            dVar.f61687d.setVisibility(8);
-            if (!ListUtils.isEmpty(item.f61696d)) {
-                for (b.a aVar : item.f61696d) {
+            dVar.f65398a.U(T.getPortrait(), 12, false);
+            this.f65383h = 0;
+            dVar.f65400c.setVisibility(8);
+            dVar.f65401d.setVisibility(8);
+            if (!ListUtils.isEmpty(item.f65410d)) {
+                for (b.a aVar : item.f65410d) {
                     if (aVar != null) {
-                        int i4 = aVar.f61697a;
+                        int i4 = aVar.f65411a;
                         if (1 == i4) {
-                            dVar.f61686c.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar.f61698b)) {
-                                dVar.f61686c.setText(aVar.f61698b);
+                            dVar.f65400c.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar.f65412b)) {
+                                dVar.f65400c.setText(aVar.f65412b);
                             }
-                            this.f61669h++;
+                            this.f65383h++;
                         } else if (2 == i4) {
-                            dVar.f61687d.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar.f61698b)) {
-                                dVar.f61687d.setText(aVar.f61698b);
+                            dVar.f65401d.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar.f65412b)) {
+                                dVar.f65401d.setText(aVar.f65412b);
                             }
-                            this.f61669h++;
+                            this.f65383h++;
                         }
                     }
                 }
             }
-            boolean z = item.f61694b;
+            boolean z = item.f65408b;
             String name_show = T.getName_show();
-            if (this.f61669h <= 1) {
+            if (this.f65383h <= 1) {
                 i3 = 14;
             } else if (!z) {
                 i3 = 10;
@@ -207,34 +207,34 @@ public class c extends d.a.n0.v.d.e.a.a {
             if (k.byteLength(name_show) > i3) {
                 name_show = StringHelper.cutChineseAndEnglishWithSuffix(name_show, i3, StringHelper.STRING_MORE);
             }
-            dVar.f61685b.setText(name_show);
-            dVar.f61688e.setText(StringHelper.getFormatTimeShort(item.f61695c * 1000));
+            dVar.f65399b.setText(name_show);
+            dVar.f65402e.setText(StringHelper.getFormatTimeShort(item.f65409c * 1000));
             j(z, dVar);
-            dVar.f61690g.setOnClickListener(new a(item));
+            dVar.f65404g.setOnClickListener(new a(item));
             view2.setOnClickListener(new b(item, T));
             StatisticItem statisticItem = new StatisticItem("c12660");
-            statisticItem.param("obj_id", item.f61693a.T().getUserId());
+            statisticItem.param("obj_id", item.f65407a.T().getUserId());
             d.a.n0.v.d.d.a.c().a(statisticItem);
         }
         return view2;
     }
 
     public final void h(MetaData metaData) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f61667f).createNormalConfig(Long.valueOf(metaData.getUserId()).longValue(), String.valueOf(this.f61678i).equals(metaData.getUserId()), metaData.isBigV())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f65381f).createNormalConfig(Long.valueOf(metaData.getUserId()).longValue(), String.valueOf(this.f65392i).equals(metaData.getUserId()), metaData.isBigV())));
     }
 
-    public void i(InterfaceC1652c interfaceC1652c) {
-        this.j = interfaceC1652c;
+    public void i(InterfaceC1709c interfaceC1709c) {
+        this.j = interfaceC1709c;
     }
 
     public final void j(boolean z, d dVar) {
         if (z) {
-            dVar.f61690g.setVisibility(8);
-            dVar.f61689f.setVisibility(0);
-            dVar.f61689f.setEnabled(false);
+            dVar.f65404g.setVisibility(8);
+            dVar.f65403f.setVisibility(0);
+            dVar.f65403f.setEnabled(false);
             return;
         }
-        dVar.f61689f.setVisibility(8);
-        dVar.f61690g.setVisibility(0);
+        dVar.f65403f.setVisibility(8);
+        dVar.f65404g.setVisibility(0);
     }
 }

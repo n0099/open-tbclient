@@ -33,9 +33,9 @@ public class b extends e {
 
         @Override // d.a.m0.w.b
         public void onAction(d.a.m0.w.a aVar) {
-            Object obj = aVar.f50843c;
+            Object obj = aVar.f54520c;
             if (obj instanceof v) {
-                if (((v) obj).f() == EmotionGroupType.BIG_EMOTION || ((v) aVar.f50843c).f() == EmotionGroupType.USER_COLLECT) {
+                if (((v) obj).f() == EmotionGroupType.BIG_EMOTION || ((v) aVar.f54520c).f() == EmotionGroupType.USER_COLLECT) {
                     if (b.this.R == null) {
                         b.this.R = new PermissionJudgePolicy();
                     }
@@ -44,7 +44,7 @@ public class b extends e {
                     if (b.this.R.startRequestPermission(b.this.r.getPageActivity())) {
                         return;
                     }
-                    b.this.h((v) aVar.f50843c);
+                    b.this.h((v) aVar.f54520c);
                     b.this.z(false, null);
                 }
             }
@@ -88,65 +88,65 @@ public class b extends e {
 
     @Override // d.a.m0.w.w.e
     public void L(String str, WriteData writeData) {
-        if (this.l.T() == null) {
-            this.l.f0(A0());
+        if (this.l.X() == null) {
+            this.l.j0(A0());
         }
-        if (this.l.T() == null) {
+        if (this.l.X() == null) {
             return;
         }
-        this.l.setSpanGroupManager(this.f50898h);
-        this.l.T().setIsBJHPost(this.z);
-        this.l.T().setWriteImagesInfo(this.f50896f);
+        this.l.setSpanGroupManager(this.f54575h);
+        this.l.X().setIsBJHPost(this.z);
+        this.l.X().setWriteImagesInfo(this.f54573f);
         boolean z = true;
-        this.l.Z(this.f50896f.size() > 0);
-        WriteData T = this.l.T();
+        this.l.d0(this.f54573f.size() > 0);
+        WriteData X = this.l.X();
         LocationModel locationModel = this.k;
-        T.setHasLocationData((locationModel == null || !locationModel.v()) ? false : false);
+        X.setHasLocationData((locationModel == null || !locationModel.z()) ? false : false);
         if (str == null) {
-            this.l.T().setContent(this.f50897g);
+            this.l.X().setContent(this.f54574g);
         }
-        VoiceData$VoiceModel voiceData$VoiceModel = this.f50899i;
+        VoiceData$VoiceModel voiceData$VoiceModel = this.f54576i;
         if (voiceData$VoiceModel != null) {
             if (voiceData$VoiceModel.getId() != null) {
-                this.l.T().setVoice(this.f50899i.getId());
-                this.l.T().setVoiceDuringTime(this.f50899i.duration);
+                this.l.X().setVoice(this.f54576i.getId());
+                this.l.X().setVoiceDuringTime(this.f54576i.duration);
             } else {
-                this.l.T().setVoice(null);
-                this.l.T().setVoiceDuringTime(-1);
+                this.l.X().setVoice(null);
+                this.l.X().setVoiceDuringTime(-1);
             }
         } else {
-            this.l.T().setVoice(null);
-            this.l.T().setVoiceDuringTime(-1);
+            this.l.X().setVoice(null);
+            this.l.X().setVoiceDuringTime(-1);
         }
-        if (!this.l.Q()) {
+        if (!this.l.U()) {
             this.r.showToast(R.string.write_img_limit);
             return;
         }
         d.a.m0.w.w.b bVar = this.C;
-        if ((bVar == null || !bVar.a()) && !this.l.i0()) {
+        if ((bVar == null || !bVar.a()) && !this.l.m0()) {
         }
     }
 
     @Override // d.a.m0.w.w.e
     public void U(String str) {
-        WriteData T = this.l.T();
-        if (T == null) {
-            T = new WriteData(this.N ? 2 : 1);
-            T.setThreadId(str);
-            T.setWriteImagesInfo(this.f50896f);
+        WriteData X = this.l.X();
+        if (X == null) {
+            X = new WriteData(this.N ? 2 : 1);
+            X.setThreadId(str);
+            X.setWriteImagesInfo(this.f54573f);
         }
         if (!k.isEmpty(this.Q)) {
-            T.setFromForumId(this.Q);
+            X.setFromForumId(this.Q);
         }
-        T.setContent(this.f50897g);
-        T.setVoiceModel(this.f50899i);
+        X.setContent(this.f54574g);
+        X.setVoiceModel(this.f54576i);
         if (this.N) {
-            T.setReplyId(this.P);
-            T.setThreadId(this.O);
-            y.q(this.O, T);
+            X.setReplyId(this.P);
+            X.setThreadId(this.O);
+            y.q(this.O, X);
             return;
         }
-        y.p(str, T);
+        y.p(str, X);
     }
 
     @Override // d.a.m0.w.w.e
@@ -162,9 +162,9 @@ public class b extends e {
     public void z(boolean z, PostWriteCallBackData postWriteCallBackData) {
         PbEditorData pbEditorData = new PbEditorData();
         pbEditorData.setEditorType(this.N ? 1 : 0);
-        pbEditorData.setContent(this.f50897g);
-        pbEditorData.setWriteImagesInfo(this.f50896f);
-        pbEditorData.setVoiceModel(this.f50899i);
+        pbEditorData.setContent(this.f54574g);
+        pbEditorData.setWriteImagesInfo(this.f54573f);
+        pbEditorData.setVoiceModel(this.f54576i);
         PbEditorData.ThreadData threadData = new PbEditorData.ThreadData();
         ForumData forumData = this.o;
         if (forumData != null) {

@@ -9,91 +9,90 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.payment.PayVcodeActivity;
-import com.baidubce.auth.NTLMEngineImpl;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a extends d.a.c.a.d<PayVcodeActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public PayVcodeActivity f52703a;
+    public PayVcodeActivity f56392a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f52704b;
+    public ViewGroup f56393b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f52705c;
+    public View f56394c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f52706d;
+    public ViewGroup f56395d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f52707e;
+    public TextView f56396e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseWebView f52708f;
+    public BaseWebView f56397f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52709g;
+    public TextView f56398g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f52710h;
+    public ProgressBar f56399h;
 
     public a(PayVcodeActivity payVcodeActivity) {
         super(payVcodeActivity.getPageContext());
-        this.f52703a = payVcodeActivity;
+        this.f56392a = payVcodeActivity;
         payVcodeActivity.setContentView(R.layout.pay_vcode_activity);
-        j(payVcodeActivity);
+        k(payVcodeActivity);
     }
 
     public View d() {
-        return this.f52705c;
+        return this.f56394c;
     }
 
     public TextView e() {
-        return this.f52709g;
+        return this.f56398g;
     }
 
     public TextView f() {
-        return this.f52707e;
+        return this.f56396e;
     }
 
-    public ViewGroup g() {
-        return this.f52706d;
+    public ViewGroup h() {
+        return this.f56395d;
     }
 
-    public BaseWebView h() {
-        return this.f52708f;
+    public BaseWebView i() {
+        return this.f56397f;
     }
 
-    public final void j(PayVcodeActivity payVcodeActivity) {
-        this.f52704b = (ViewGroup) this.f52703a.findViewById(R.id.payvcode_parent);
-        TextView textView = (TextView) this.f52703a.findViewById(R.id.payment_performance);
-        this.f52707e = textView;
+    public final void k(PayVcodeActivity payVcodeActivity) {
+        this.f56393b = (ViewGroup) this.f56392a.findViewById(R.id.payvcode_parent);
+        TextView textView = (TextView) this.f56392a.findViewById(R.id.payment_performance);
+        this.f56396e = textView;
         SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
-        SkinManager.setViewTextColor(this.f52707e, R.color.CAM_X0101, 1);
-        this.f52708f = (BaseWebView) payVcodeActivity.findViewById(R.id.vcode_webview);
-        this.f52709g = (TextView) payVcodeActivity.findViewById(R.id.webview_fail_view);
-        this.f52705c = payVcodeActivity.findViewById(R.id.payvcode_empty_layout);
-        this.f52706d = (ViewGroup) payVcodeActivity.findViewById(R.id.payvcode_layout);
-        this.f52710h = (ProgressBar) payVcodeActivity.findViewById(R.id.payvcode_progress);
-        this.f52708f.setHorizontalScrollBarEnabled(false);
-        this.f52708f.setHorizontalScrollbarOverlay(false);
-        this.f52708f.setScrollBarStyle(NTLMEngineImpl.FLAG_REQUEST_VERSION);
-        this.f52708f.getSettings().setJavaScriptEnabled(true);
-    }
-
-    public void k(boolean z) {
-        this.f52709g.setVisibility(z ? 0 : 8);
+        SkinManager.setViewTextColor(this.f56396e, R.color.CAM_X0101, 1);
+        this.f56397f = (BaseWebView) payVcodeActivity.findViewById(R.id.vcode_webview);
+        this.f56398g = (TextView) payVcodeActivity.findViewById(R.id.webview_fail_view);
+        this.f56394c = payVcodeActivity.findViewById(R.id.payvcode_empty_layout);
+        this.f56395d = (ViewGroup) payVcodeActivity.findViewById(R.id.payvcode_layout);
+        this.f56399h = (ProgressBar) payVcodeActivity.findViewById(R.id.payvcode_progress);
+        this.f56397f.setHorizontalScrollBarEnabled(false);
+        this.f56397f.setHorizontalScrollbarOverlay(false);
+        this.f56397f.setScrollBarStyle(33554432);
+        this.f56397f.getSettings().setJavaScriptEnabled(true);
     }
 
     public void l(boolean z) {
-        this.f52710h.setVisibility(z ? 0 : 8);
+        this.f56398g.setVisibility(z ? 0 : 8);
+    }
+
+    public void m(boolean z) {
+        this.f56399h.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i2) {
-        d.a.m0.s0.a.a(this.f52703a.getPageContext(), this.f52704b);
-        SkinManager.setBgColor(this.f52709g, i2);
-        SkinManager.setBackgroundResource(this.f52707e, R.drawable.s_navbar_button_bg);
-        SkinManager.setViewTextColor(this.f52707e, R.color.CAM_X0101, 1);
+        d.a.m0.s0.a.a(this.f56392a.getPageContext(), this.f56393b);
+        SkinManager.setBgColor(this.f56398g, i2);
+        SkinManager.setBackgroundResource(this.f56396e, R.drawable.s_navbar_button_bg);
+        SkinManager.setViewTextColor(this.f56396e, R.color.CAM_X0101, 1);
     }
 }

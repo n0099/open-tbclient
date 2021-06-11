@@ -5,27 +5,27 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 public class ForumBroadcastMajorResidueData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17158e;
+    public int f17234e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17159f;
+    public int f17235f;
 
-    public int s() {
-        return this.f17159f;
+    public void A(int i2) {
+        this.f17234e = i2;
     }
 
-    public int t() {
-        return this.f17158e;
+    public int w() {
+        return this.f17235f;
     }
 
-    public void u(int i2) {
-        this.f17159f = i2;
+    public int x() {
+        return this.f17234e;
     }
 
-    public void v(int i2) {
+    public void y(int i2) {
+        this.f17235f = i2;
     }
 
-    public void w(int i2) {
-        this.f17158e = i2;
+    public void z(int i2) {
     }
 }

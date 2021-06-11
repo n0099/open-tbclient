@@ -1,5 +1,6 @@
 package com.alipay.sdk.encrypt;
 
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.KeyFactory;
@@ -11,7 +12,7 @@ import javax.crypto.Cipher;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1875a = "RSA";
+    public static final String f1888a = "RSA";
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0052: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:28:0x0052 */
     /* JADX WARN: Removed duplicated region for block: B:35:0x0055 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -29,7 +30,7 @@ public class d {
             try {
                 try {
                     PublicKey b2 = b("RSA", str2);
-                    Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                    Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
                     cipher.init(1, b2);
                     byte[] bytes = str.getBytes("UTF-8");
                     int blockSize = cipher.getBlockSize();

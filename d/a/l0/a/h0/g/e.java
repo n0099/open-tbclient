@@ -57,10 +57,10 @@ public class e extends d.a.l0.a.h0.g.d {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f42052e;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f45728e;
 
         public b(d.a.l0.a.f1.e.b bVar) {
-            this.f42052e = bVar;
+            this.f45728e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -68,7 +68,7 @@ public class e extends d.a.l0.a.h0.g.d {
             Activity activity;
             String str = e.this.B0;
             if (((str.hashCode() == 49 && str.equals("1")) ? (char) 0 : (char) 65535) == 0 && (activity = e.this.f0) != null && SwanAppNetworkUtils.i(activity)) {
-                SwanLauncher.j().n(this.f42052e, null);
+                SwanLauncher.j().n(this.f45728e, null);
                 e.this.f0.finish();
             }
         }
@@ -78,10 +78,10 @@ public class e extends d.a.l0.a.h0.g.d {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f42054e;
+        public final /* synthetic */ String f45730e;
 
         public c(String str) {
-            this.f42054e = str;
+            this.f45730e = str;
         }
 
         @Override // android.view.View.OnClickListener
@@ -89,7 +89,7 @@ public class e extends d.a.l0.a.h0.g.d {
             if (e.this.y0 == null || TextUtils.isEmpty(e.this.y0.forbiddenDetail)) {
                 return;
             }
-            d.a.l0.a.c1.a.t().b(e.this.h(), this.f42054e, e.this.y0.appTitle, e.this.y0.forbiddenDetail);
+            d.a.l0.a.c1.a.t().b(e.this.h(), this.f45730e, e.this.y0.appTitle, e.this.y0.forbiddenDetail);
         }
     }
 
@@ -97,26 +97,26 @@ public class e extends d.a.l0.a.h0.g.d {
     public class d implements d.a.l0.k.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f42056e;
+        public final /* synthetic */ Activity f45732e;
 
         public d(Activity activity) {
-            this.f42056e = activity;
+            this.f45732e = activity;
         }
 
         @Override // d.a.l0.k.e
         public boolean b(View view, o oVar) {
             int c2 = oVar.c();
             if (c2 == 5) {
-                e.this.V2(this.f42056e);
+                e.this.V2(this.f45732e);
             } else if (c2 == 9) {
-                e.this.S2(this.f42056e);
+                e.this.S2(this.f45732e);
                 return true;
             } else if (c2 == 39) {
-                e.this.W2(this.f42056e);
+                e.this.W2(this.f45732e);
             } else if (c2 == 46) {
-                e.this.T2(oVar, this.f42056e);
+                e.this.T2(oVar, this.f45732e);
             } else if (c2 == 47) {
-                e.this.U2(oVar, this.f42056e);
+                e.this.U2(oVar, this.f45732e);
             }
             return true;
         }
@@ -124,32 +124,32 @@ public class e extends d.a.l0.a.h0.g.d {
 
     /* renamed from: d.a.l0.a.h0.g.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0660e {
+    public static class C0716e {
 
         /* renamed from: d.a.l0.a.h0.g.e$e$a */
         /* loaded from: classes2.dex */
         public static class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.a.l0.a.j2.p.e f42058e;
+            public final /* synthetic */ d.a.l0.a.j2.p.e f45734e;
 
             public a(d.a.l0.a.j2.p.e eVar) {
-                this.f42058e = eVar;
+                this.f45734e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.l0.a.j2.b.i("934", "85", this.f42058e.f());
+                d.a.l0.a.j2.b.i("934", "85", this.f45734e.f());
             }
         }
 
         public static void a(String str, d.a.l0.a.f1.e.b bVar, ForbiddenInfo forbiddenInfo) {
             d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-            eVar.f43190f = forbiddenInfo.appId;
-            eVar.f43191g = "errormenu";
-            eVar.f43186b = PrefetchEvent.STATE_CLICK;
-            eVar.f43189e = str;
-            eVar.f43187c = forbiddenInfo.launchSource;
+            eVar.f46866f = forbiddenInfo.appId;
+            eVar.f46867g = "errormenu";
+            eVar.f46862b = PrefetchEvent.STATE_CLICK;
+            eVar.f46865e = str;
+            eVar.f46863c = forbiddenInfo.launchSource;
             eVar.b(d.a.l0.a.j2.k.k(bVar.W()));
             eVar.d(bVar.r0().getString(UBCCloudControlProcessor.UBC_KEY));
             q.i(new a(eVar), "SwanAppFuncClickUBC");
@@ -508,29 +508,29 @@ public class e extends d.a.l0.a.h0.g.d {
 
     public void S2(Activity activity) {
         d.a.l0.a.c1.a.G().f(activity, L2(activity));
-        C0660e.a("feedback", M2(), this.y0);
+        C0716e.a("feedback", M2(), this.y0);
     }
 
     public void T2(o oVar, Activity activity) {
         d.a.l0.a.c1.a.G().e(activity, oVar);
-        C0660e.a(ErrorContentResponse.Operations.NOTICE, M2(), this.y0);
+        C0716e.a(ErrorContentResponse.Operations.NOTICE, M2(), this.y0);
     }
 
     public void U2(o oVar, Activity activity) {
         d.a.l0.a.c1.a.G().a(activity, oVar);
-        C0660e.a(ErrorContentResponse.Operations.NOTICE, M2(), this.y0);
+        C0716e.a(ErrorContentResponse.Operations.NOTICE, M2(), this.y0);
     }
 
     public void V2(Activity activity) {
         d.a.l0.a.j1.a.j(activity);
-        C0660e.a("daynightmode", M2(), this.y0);
+        C0716e.a("daynightmode", M2(), this.y0);
     }
 
     public void W2(Activity activity) {
         if (activity instanceof SwanAppErrorActivity) {
             d.a.l0.a.j1.a.t(activity);
         }
-        C0660e.a("refresh", M2(), this.y0);
+        C0716e.a("refresh", M2(), this.y0);
     }
 
     @Override // d.a.l0.a.h0.g.d
@@ -573,7 +573,7 @@ public class e extends d.a.l0.a.h0.g.d {
     }
 
     public final void Z2() {
-        C0660e.a(SupportMenuInflater.XML_MENU, M2(), this.y0);
+        C0716e.a(SupportMenuInflater.XML_MENU, M2(), this.y0);
     }
 
     public final String a3() {

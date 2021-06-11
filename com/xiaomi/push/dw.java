@@ -10,16 +10,16 @@ public class dw {
     }
 
     public static void a(Context context, HashMap<String, String> hashMap) {
-        ee m270a = ea.a(context).m270a();
-        if (m270a != null) {
-            m270a.a(context, hashMap);
+        ee m269a = ea.a(context).m269a();
+        if (m269a != null) {
+            m269a.a(context, hashMap);
         }
     }
 
     public static void b(Context context, HashMap<String, String> hashMap) {
-        ee m270a = ea.a(context).m270a();
-        if (m270a != null) {
-            m270a.c(context, hashMap);
+        ee m269a = ea.a(context).m269a();
+        if (m269a != null) {
+            m269a.c(context, hashMap);
         }
     }
 
@@ -50,9 +50,9 @@ public class dw {
     }
 
     public static void c(Context context, HashMap<String, String> hashMap) {
-        ee m270a = ea.a(context).m270a();
-        if (m270a != null) {
-            m270a.b(context, hashMap);
+        ee m269a = ea.a(context).m269a();
+        if (m269a != null) {
+            m269a.b(context, hashMap);
         }
     }
 }

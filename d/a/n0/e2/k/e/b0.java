@@ -18,28 +18,28 @@ public class b0 extends o<d.a.n0.e2.h.j, PbLoadMoreItemViewHolder> {
         this.s = bdUniqueId2;
     }
 
-    @Override // d.a.n0.e2.k.e.o, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        h0(i2, view, viewGroup, (d.a.n0.e2.h.j) obj, (PbLoadMoreItemViewHolder) viewHolder);
+    @Override // d.a.n0.e2.k.e.o, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        i0(i2, view, viewGroup, (d.a.n0.e2.h.j) obj, (PbLoadMoreItemViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public PbLoadMoreItemViewHolder P(ViewGroup viewGroup) {
-        return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.new_pb_list_more, viewGroup, false), this.s);
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public PbLoadMoreItemViewHolder Q(ViewGroup viewGroup) {
+        return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.new_pb_list_more, viewGroup, false), this.s);
     }
 
-    public View h0(int i2, View view, ViewGroup viewGroup, d.a.n0.e2.h.j jVar, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
-        super.W(i2, view, viewGroup, jVar, pbLoadMoreItemViewHolder);
-        pbLoadMoreItemViewHolder.e(jVar.f52939e, d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104));
+    public View i0(int i2, View view, ViewGroup viewGroup, d.a.n0.e2.h.j jVar, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
+        super.X(i2, view, viewGroup, jVar, pbLoadMoreItemViewHolder);
+        pbLoadMoreItemViewHolder.e(jVar.f56628e, d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104));
         pbLoadMoreItemViewHolder.d(this.t);
         pbLoadMoreItemViewHolder.c();
         return view;
     }
 
-    public void i0(View.OnClickListener onClickListener) {
+    public void j0(View.OnClickListener onClickListener) {
         this.t = onClickListener;
     }
 }

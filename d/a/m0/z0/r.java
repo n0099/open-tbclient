@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 public class r extends ClickableSpan {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51076e;
+    public Context f54753e;
 
     public r(Context context) {
-        this.f51076e = null;
-        this.f51076e = context;
+        this.f54753e = null;
+        this.f54753e = context;
     }
 
     public Context a() {
-        return this.f51076e;
+        return this.f54753e;
     }
 
     public void b(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f51076e).createNormalCfg(str, null, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f54753e).createNormalCfg(str, null, null)));
     }
 
     public void c(String str) {
-        d.a.m0.l.a.l(this.f51076e, str);
+        d.a.m0.l.a.l(this.f54753e, str);
     }
 }

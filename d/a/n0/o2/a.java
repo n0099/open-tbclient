@@ -19,38 +19,38 @@ import d.a.c.e.p.l;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public PostSearchActivity f57831a;
+    public PostSearchActivity f61520a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57832b;
+    public View f61521b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f57833c;
+    public NavigationBar f61522c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f57834d;
+    public View f61523d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f57835e = null;
+    public EditText f61524e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f57836f = null;
+    public ImageView f61525f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f57837g = null;
+    public Runnable f61526g = null;
 
     /* renamed from: d.a.n0.o2.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1455a implements View.OnClickListener {
-        public View$OnClickListenerC1455a() {
+    public class View$OnClickListenerC1511a implements View.OnClickListener {
+        public View$OnClickListenerC1511a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f57835e.hasFocus()) {
-                l.x(a.this.f57831a.getPageContext().getPageActivity(), a.this.f57835e);
+            if (a.this.f61524e.hasFocus()) {
+                l.x(a.this.f61520a.getPageContext().getPageActivity(), a.this.f61524e);
             }
-            a.this.f57831a.finish();
+            a.this.f61520a.finish();
         }
     }
 
@@ -62,7 +62,7 @@ public class a {
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             if (!z) {
-                l.x(a.this.f57831a.getPageContext().getPageActivity(), view);
+                l.x(a.this.f61520a.getPageContext().getPageActivity(), view);
                 return;
             }
             a.this.n();
@@ -94,9 +94,9 @@ public class a {
                 if (StringUtils.isNull(charSequence)) {
                     return true;
                 }
-                a.this.f57831a.startSearch(charSequence);
-                PostSearchActivity unused = a.this.f57831a;
-                TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", charSequence).param("obj_source", "1").param("obj_type", "2").param("fid", a.this.f57831a.mForumId));
+                a.this.f61520a.startSearch(charSequence);
+                PostSearchActivity unused = a.this.f61520a;
+                TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", charSequence).param("obj_source", "1").param("obj_type", "2").param("fid", a.this.f61520a.mForumId));
                 return true;
             }
             return false;
@@ -110,7 +110,7 @@ public class a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.f57835e.setText("");
+            a.this.f61524e.setText("");
             a.this.n();
         }
     }
@@ -123,13 +123,13 @@ public class a {
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             String obj = editable.toString();
-            a.this.f57831a.mSearchKey = obj;
+            a.this.f61520a.mSearchKey = obj;
             if (obj.trim().length() == 0) {
                 a.this.n();
-                a.this.f57836f.setVisibility(8);
+                a.this.f61525f.setVisibility(8);
                 return;
             }
-            a.this.f57836f.setVisibility(0);
+            a.this.f61525f.setVisibility(0);
         }
 
         @Override // android.text.TextWatcher
@@ -148,82 +148,82 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            l.K(a.this.f57831a.getPageContext().getPageActivity(), a.this.f57835e);
+            l.K(a.this.f61520a.getPageContext().getPageActivity(), a.this.f61524e);
         }
     }
 
     public a(PostSearchActivity postSearchActivity, View view) {
-        this.f57832b = view;
-        this.f57831a = postSearchActivity;
+        this.f61521b = view;
+        this.f61520a = postSearchActivity;
         i();
     }
 
     public void f() {
-        this.f57836f.setVisibility(8);
+        this.f61525f.setVisibility(8);
     }
 
     public void g() {
-        this.f57832b.setFocusable(true);
-        this.f57832b.setFocusableInTouchMode(true);
-        this.f57832b.requestFocus();
+        this.f61521b.setFocusable(true);
+        this.f61521b.setFocusableInTouchMode(true);
+        this.f61521b.requestFocus();
     }
 
     public void h() {
-        l.x(this.f57831a.getPageContext().getPageActivity(), this.f57835e);
+        l.x(this.f61520a.getPageContext().getPageActivity(), this.f61524e);
     }
 
     public final void i() {
-        NavigationBar navigationBar = (NavigationBar) this.f57832b.findViewById(R.id.view_navigation_bar);
-        this.f57833c = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View$OnClickListenerC1455a());
-        View addCustomView = this.f57833c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.post_search_navigation_view, (View.OnClickListener) null);
-        this.f57834d = addCustomView;
-        this.f57835e = (EditText) addCustomView.findViewById(R.id.search_text);
-        ImageView imageView = (ImageView) this.f57834d.findViewById(R.id.search_del);
-        this.f57836f = imageView;
+        NavigationBar navigationBar = (NavigationBar) this.f61521b.findViewById(R.id.view_navigation_bar);
+        this.f61522c = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View$OnClickListenerC1511a());
+        View addCustomView = this.f61522c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.post_search_navigation_view, (View.OnClickListener) null);
+        this.f61523d = addCustomView;
+        this.f61524e = (EditText) addCustomView.findViewById(R.id.search_text);
+        ImageView imageView = (ImageView) this.f61523d.findViewById(R.id.search_del);
+        this.f61525f = imageView;
         imageView.setVisibility(8);
-        this.f57835e.requestFocus();
-        this.f57835e.setOnFocusChangeListener(new b());
-        this.f57835e.setOnClickListener(new c());
-        this.f57835e.setOnEditorActionListener(new d());
-        this.f57836f.setOnClickListener(new e());
-        this.f57835e.addTextChangedListener(new f());
-        this.f57837g = new g();
-        d.a.c.e.m.e.a().postDelayed(this.f57837g, 500L);
+        this.f61524e.requestFocus();
+        this.f61524e.setOnFocusChangeListener(new b());
+        this.f61524e.setOnClickListener(new c());
+        this.f61524e.setOnEditorActionListener(new d());
+        this.f61525f.setOnClickListener(new e());
+        this.f61524e.addTextChangedListener(new f());
+        this.f61526g = new g();
+        d.a.c.e.m.e.a().postDelayed(this.f61526g, 500L);
     }
 
     public void j(int i2) {
-        this.f57833c.onChangeSkinType(this.f57831a.getPageContext(), i2);
-        d.a.m0.s0.a.a(this.f57831a.getPageContext(), this.f57834d);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f57836f, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.f61522c.onChangeSkinType(this.f61520a.getPageContext(), i2);
+        d.a.m0.s0.a.a(this.f61520a.getPageContext(), this.f61523d);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f61525f, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void k() {
-        if (this.f57837g != null) {
-            d.a.c.e.m.e.a().removeCallbacks(this.f57837g);
+        if (this.f61526g != null) {
+            d.a.c.e.m.e.a().removeCallbacks(this.f61526g);
         }
     }
 
     public void l(String str) {
-        this.f57835e.setText(str);
+        this.f61524e.setText(str);
     }
 
     public final void m() {
-        if (StringUtils.isNull(this.f57835e.getText().toString())) {
+        if (StringUtils.isNull(this.f61524e.getText().toString())) {
             return;
         }
-        this.f57836f.setVisibility(0);
+        this.f61525f.setVisibility(0);
     }
 
     public final void n() {
-        if (this.f57831a.isHistoryVisible()) {
+        if (this.f61520a.isHistoryVisible()) {
             return;
         }
-        this.f57831a.refreshHistoryList();
-        if (this.f57835e.hasFocus()) {
+        this.f61520a.refreshHistoryList();
+        if (this.f61524e.hasFocus()) {
             return;
         }
-        this.f57835e.requestFocus();
-        l.K(this.f57831a.getPageContext().getPageActivity(), this.f57835e);
+        this.f61524e.requestFocus();
+        l.K(this.f61520a.getPageContext().getPageActivity(), this.f61524e);
     }
 }

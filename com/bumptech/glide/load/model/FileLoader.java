@@ -15,12 +15,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FileLoader<Data> implements ModelLoader<File, Data> {
     public static final String TAG = "FileLoader";
     public final FileOpener<Data> fileOpener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Factory<Data> implements ModelLoaderFactory<File, Data> {
         public final FileOpener<Data> opener;
 
@@ -39,7 +39,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
         public FileDescriptorFactory() {
             super(new FileOpener<ParcelFileDescriptor>() { // from class: com.bumptech.glide.load.model.FileLoader.FileDescriptorFactory.1
@@ -64,7 +64,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class FileFetcher<Data> implements DataFetcher<Data> {
         public Data data;
         public final File file;
@@ -118,7 +118,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface FileOpener<Data> {
         void close(Data data) throws IOException;
 
@@ -127,7 +127,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         Data open(File file) throws FileNotFoundException;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class StreamFactory extends Factory<InputStream> {
         public StreamFactory() {
             super(new FileOpener<InputStream>() { // from class: com.bumptech.glide.load.model.FileLoader.StreamFactory.1

@@ -7,11 +7,12 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.IntRange;
 import com.facebook.fresco.animation.backend.AnimationBackend;
+import com.kwai.video.player.KsMediaMeta;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class AnimationBackendDelegate<T extends AnimationBackend> implements AnimationBackend {
     public static final int ALPHA_UNSET = -1;
-    @IntRange(from = -1, to = 255)
+    @IntRange(from = -1, to = KsMediaMeta.AV_CH_LAYOUT_7POINT1_WIDE_BACK)
     public int mAlpha = -1;
     @Nullable
     public T mAnimationBackend;

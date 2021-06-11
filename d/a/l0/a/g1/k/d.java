@@ -14,31 +14,31 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f41941c = k.f43199a;
+    public static final boolean f45617c = k.f46875a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final d f41942d = new d();
+    public static final d f45618d = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f41943a = new AtomicBoolean(false);
+    public final AtomicBoolean f45619a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<d.a.l0.a.g1.k.a> f41944b;
+    public final List<d.a.l0.a.g1.k.a> f45620b;
 
     /* loaded from: classes3.dex */
     public class b extends d.a.l0.a.g1.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f41945e;
+        public int f45621e;
 
         public b() {
-            this.f41945e = 0;
+            this.f45621e = 0;
         }
 
         @Override // d.a.l0.a.g1.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(@NonNull Activity activity) {
-            int i2 = this.f41945e + 1;
-            this.f41945e = i2;
+            int i2 = this.f45621e + 1;
+            this.f45621e = i2;
             if (i2 == 1) {
                 d.this.d(activity);
             }
@@ -46,8 +46,8 @@ public class d {
 
         @Override // d.a.l0.a.g1.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStopped(@NonNull Activity activity) {
-            int i2 = this.f41945e - 1;
-            this.f41945e = i2;
+            int i2 = this.f45621e - 1;
+            this.f45621e = i2;
             if (i2 == 0) {
                 d.this.e(activity);
             }
@@ -55,16 +55,16 @@ public class d {
     }
 
     public d() {
-        d.a.e0.a.b.d<d.a.l0.a.g1.k.a> dVar = new c().f41940a;
-        this.f41944b = dVar == null ? null : dVar.getList();
+        d.a.e0.a.b.d<d.a.l0.a.g1.k.a> dVar = new c().f45616a;
+        this.f45620b = dVar == null ? null : dVar.getList();
     }
 
     public static d a() {
-        return f41942d;
+        return f45618d;
     }
 
     public void b(Context context) {
-        if (this.f41943a.getAndSet(true) || !c()) {
+        if (this.f45619a.getAndSet(true) || !c()) {
             return;
         }
         Context applicationContext = context.getApplicationContext();
@@ -78,13 +78,13 @@ public class d {
     }
 
     public void d(Activity activity) {
-        if (f41941c) {
+        if (f45617c) {
             String curProcessName = ProcessUtils.getCurProcessName();
             Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
         }
-        if (this.f41944b != null) {
+        if (this.f45620b != null) {
             LifecycleProcessType current = LifecycleProcessType.getCurrent();
-            for (d.a.l0.a.g1.k.a aVar : this.f41944b) {
+            for (d.a.l0.a.g1.k.a aVar : this.f45620b) {
                 if (current == aVar.b()) {
                     aVar.a(true, activity);
                 }
@@ -93,13 +93,13 @@ public class d {
     }
 
     public void e(Activity activity) {
-        if (f41941c) {
+        if (f45617c) {
             String curProcessName = ProcessUtils.getCurProcessName();
             Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
         }
-        if (this.f41944b != null) {
+        if (this.f45620b != null) {
             LifecycleProcessType current = LifecycleProcessType.getCurrent();
-            for (d.a.l0.a.g1.k.a aVar : this.f41944b) {
+            for (d.a.l0.a.g1.k.a aVar : this.f45620b) {
                 if (current == aVar.b()) {
                     aVar.a(false, activity);
                 }

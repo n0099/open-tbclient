@@ -14,7 +14,7 @@ public class a extends d.a.l0.g.f.a {
         String optString = jSONObject.optString("message");
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optInt == 0) {
-            bVar.b(optJSONObject);
+            bVar.a(optJSONObject);
             return null;
         }
         bVar.onFail(optInt, optString);

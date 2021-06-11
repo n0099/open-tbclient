@@ -40,14 +40,14 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
     public void loadMore() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
         if (forumBroadCastMajorHistoryModel != null) {
-            forumBroadCastMajorHistoryModel.E();
+            forumBroadCastMajorHistoryModel.loadMore();
         }
     }
 
     @Override // d.a.n0.f1.i.a.a
     public void netCallback(d.a.n0.f1.i.a.b.a aVar) {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
-        if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.C()) {
+        if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.b()) {
             this.mView.r(getString(R.string.im_error_default), false);
             return;
         }
@@ -81,7 +81,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         this.rootView = LayoutInflater.from(this).inflate(R.layout.forum_broadcast_history_list, (ViewGroup) null);
         this.mView = new d.a.n0.f1.i.a.c.a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.mfrom, bundle);
         setContentView(this.rootView);
-        this.mModel.B();
+        this.mModel.F();
         refresh();
     }
 
@@ -94,7 +94,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
         if (forumBroadCastMajorHistoryModel != null) {
-            forumBroadCastMajorHistoryModel.F();
+            forumBroadCastMajorHistoryModel.H();
         }
     }
 
@@ -137,7 +137,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
             }
         }
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
-        if (forumBroadCastMajorHistoryModel == null || forumBroadCastMajorHistoryModel.C()) {
+        if (forumBroadCastMajorHistoryModel == null || forumBroadCastMajorHistoryModel.b()) {
             return;
         }
         this.mView.r(errorData != null ? getString(R.string.net_error_text, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)}) : null, false);
@@ -147,7 +147,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
     public void refresh() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
         if (forumBroadCastMajorHistoryModel != null) {
-            forumBroadCastMajorHistoryModel.H();
+            forumBroadCastMajorHistoryModel.refresh();
         }
     }
 }

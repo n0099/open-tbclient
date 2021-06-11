@@ -7,23 +7,23 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class sysParamters {
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile sysParamters f26831e;
+    public static volatile sysParamters f26934e;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26832a;
+    public String f26935a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26833b;
+    public String f26936b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26834c;
+    public String f26937c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26835d = "Android";
+    public String f26938d = "Android";
     @Keep
     public String sdk_version = "10011";
     @Keep
@@ -38,14 +38,14 @@ public class sysParamters {
     }
 
     public static sysParamters a() {
-        if (f26831e == null) {
+        if (f26934e == null) {
             synchronized (sysParamters.class) {
-                if (f26831e == null) {
-                    f26831e = new sysParamters();
+                if (f26934e == null) {
+                    f26934e = new sysParamters();
                 }
             }
         }
-        return f26831e;
+        return f26934e;
     }
 
     public static String a(Context context) {
@@ -73,12 +73,12 @@ public class sysParamters {
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f26832a)) {
+        if (TextUtils.isEmpty(this.f26935a)) {
             String a2 = a(b.a());
-            this.f26832a = a2;
+            this.f26935a = a2;
             return a2;
         }
-        return this.f26832a;
+        return this.f26935a;
     }
 
     public String c() {
@@ -86,22 +86,22 @@ public class sysParamters {
     }
 
     public String d() {
-        if (TextUtils.isEmpty(this.f26833b)) {
+        if (TextUtils.isEmpty(this.f26936b)) {
             String str = Build.MODEL;
-            this.f26833b = str;
+            this.f26936b = str;
             String replace = str.replace(" ", "-");
-            this.f26833b = replace;
+            this.f26936b = replace;
             return replace;
         }
-        return this.f26833b;
+        return this.f26936b;
     }
 
     public String e() {
-        if (TextUtils.isEmpty(this.f26834c)) {
+        if (TextUtils.isEmpty(this.f26937c)) {
             String encode = Uri.encode(Build.MANUFACTURER);
-            this.f26834c = encode;
+            this.f26937c = encode;
             return encode;
         }
-        return this.f26834c;
+        return this.f26937c;
     }
 }

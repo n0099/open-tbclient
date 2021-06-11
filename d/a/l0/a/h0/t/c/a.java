@@ -18,19 +18,19 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42596a = k.f43199a;
+    public static final boolean f46272a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f42597b;
+    public static final boolean f46273b;
 
     static {
         d.a.l0.a.c1.a.Z().getSwitch("swan_next_page_res_load", 0);
-        f42597b = false;
-        d.h("SwanAppSlaveTopPages", "swan_top_page_res_load - " + f42597b);
+        f46273b = false;
+        d.h("SwanAppSlaveTopPages", "swan_top_page_res_load - " + f46273b);
         j();
     }
 
@@ -40,7 +40,7 @@ public class a {
             String str = pMSAppInfo.appId;
             String valueOf = String.valueOf(pMSAppInfo.versionCode);
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
-                String str2 = e.C0561e.i(str, valueOf).getPath() + File.separator;
+                String str2 = e.C0617e.i(str, valueOf).getPath() + File.separator;
                 b bVar2 = new b();
                 for (String str3 : k) {
                     if (g(str2, str3)) {
@@ -84,8 +84,8 @@ public class a {
 
     public static void h(d.a.l0.a.p.e.b<?> bVar) {
         PMSAppInfo f0;
-        if (f42597b && bVar != null) {
-            long currentTimeMillis = f42596a ? System.currentTimeMillis() : 0L;
+        if (f46273b && bVar != null) {
+            long currentTimeMillis = f46272a ? System.currentTimeMillis() : 0L;
             d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
             if (Q == null || (f0 = Q.L().f0()) == null) {
                 return;
@@ -98,7 +98,7 @@ public class a {
             if (d2 != null) {
                 g.N().I0(bVar.b(), d2);
             }
-            if (f42596a) {
+            if (f46272a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 Log.d("SwanAppSlaveTopPages", "sendTopPageMsg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
             }
@@ -117,7 +117,7 @@ public class a {
                 linkedHashSet.add(next);
             }
         }
-        if (f42596a) {
+        if (f46272a) {
             Log.d("SwanAppSlaveTopPages", "get top pages - " + linkedHashSet);
         }
         return linkedHashSet;
@@ -127,7 +127,7 @@ public class a {
     }
 
     public static Set<String> k(@NonNull PMSAppInfo pMSAppInfo) {
-        if (f42596a) {
+        if (f46272a) {
             d.a.l0.a.l1.b b2 = b();
             Log.d("SwanAppSlaveTopPages", "current page - " + b2);
         }
@@ -135,7 +135,7 @@ public class a {
         if (f2 == null || f2.length() <= 0) {
             return null;
         }
-        if (f42596a) {
+        if (f46272a) {
             Log.d("SwanAppSlaveTopPages", "pages info - " + f2);
         }
         return i(f2);

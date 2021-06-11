@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public static final String TAG = "ViewTarget";
     public static boolean isTagUsedAtLeastOnce;
@@ -34,7 +34,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public final T view;
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class SizeDeterminer {
         public static final int PENDING_SIZE = 0;
         @Nullable
@@ -46,7 +46,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         public final View view;
         public boolean waitForLayout;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public final WeakReference<SizeDeterminer> sizeDeterminerRef;
 

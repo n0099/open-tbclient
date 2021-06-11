@@ -3,13 +3,13 @@ package com.baidu.mapsdkplatform.comapi.map;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public t f7687a;
+    public t f7730a;
 
     public t a() {
-        return this.f7687a;
+        return this.f7730a;
     }
 
     public void a(t tVar) {
-        this.f7687a = tVar;
+        this.f7730a = tVar;
     }
 }

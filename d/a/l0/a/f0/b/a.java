@@ -24,31 +24,31 @@ public class a extends a0 {
 
     /* renamed from: d.a.l0.a.f0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0626a implements d.a.l0.a.v2.e1.b<i<b.e>> {
+    public class C0682a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f41798e;
+        public final /* synthetic */ e f45474e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f41799f;
+        public final /* synthetic */ Context f45475f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f41800g;
+        public final /* synthetic */ boolean f45476g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f41801h;
+        public final /* synthetic */ String f45477h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41802i;
+        public final /* synthetic */ CallbackHandler f45478i;
         public final /* synthetic */ String j;
         public final /* synthetic */ Activity k;
 
-        public C0626a(e eVar, Context context, boolean z, String str, CallbackHandler callbackHandler, String str2, Activity activity) {
-            this.f41798e = eVar;
-            this.f41799f = context;
-            this.f41800g = z;
-            this.f41801h = str;
-            this.f41802i = callbackHandler;
+        public C0682a(e eVar, Context context, boolean z, String str, CallbackHandler callbackHandler, String str2, Activity activity) {
+            this.f45474e = eVar;
+            this.f45475f = context;
+            this.f45476g = z;
+            this.f45477h = str;
+            this.f45478i = callbackHandler;
             this.j = str2;
             this.k = activity;
         }
@@ -57,19 +57,19 @@ public class a extends a0 {
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
-            boolean e2 = this.f41798e.j().e(this.f41799f);
+            boolean e2 = this.f45474e.j().e(this.f45475f);
             if (!d.h(iVar)) {
-                if (!e2 && !this.f41800g) {
-                    k.M("fail", 7, this.f41801h);
+                if (!e2 && !this.f45476g) {
+                    k.M(com.baidu.pass.biometrics.face.liveness.b.b.g0, 7, this.f45477h);
                 }
-                d.p(iVar, this.f41802i, this.j);
+                d.p(iVar, this.f45478i, this.j);
                 return;
             }
-            if (e2 && !this.f41800g) {
-                k.M("success", 7, this.f41801h);
+            if (e2 && !this.f45476g) {
+                k.M("success", 7, this.f45477h);
             }
             d.a.l0.a.e0.d.g("ReadContacts", "request authorize success");
-            a.this.p(this.k, this.f41802i, this.j);
+            a.this.p(this.k, this.f45478i, this.j);
         }
     }
 
@@ -77,29 +77,29 @@ public class a extends a0 {
     public class b implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f41803a;
+        public final /* synthetic */ Activity f45479a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41804b;
+        public final /* synthetic */ CallbackHandler f45480b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f41805c;
+        public final /* synthetic */ String f45481c;
 
         public b(Activity activity, CallbackHandler callbackHandler, String str) {
-            this.f41803a = activity;
-            this.f41804b = callbackHandler;
-            this.f41805c = str;
+            this.f45479a = activity;
+            this.f45480b = callbackHandler;
+            this.f45481c = str;
         }
 
         @Override // d.a.l0.a.s1.f
         public void a(String str) {
-            a.this.m(this.f41803a, this.f41804b, this.f41805c);
+            a.this.m(this.f45479a, this.f45480b, this.f45481c);
             d.a.l0.a.e0.d.b("ReadContacts", str + "");
         }
 
         @Override // d.a.l0.a.s1.f
         public void b(int i2, String str) {
-            d.n(10005, this.f41804b, this.f41805c);
+            d.n(10005, this.f45480b, this.f45481c);
             d.a.l0.a.e0.d.b("ReadContacts", str + "");
         }
     }
@@ -139,7 +139,7 @@ public class a extends a0 {
         if (!e2) {
             k.M("show", 7, optString2);
         }
-        eVar.T().g(activity, "mapp_i_read_contacts", new C0626a(eVar, context, e2, optString2, callbackHandler, optString, activity));
+        eVar.T().g(activity, "mapp_i_read_contacts", new C0682a(eVar, context, e2, optString2, callbackHandler, optString, activity));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
@@ -243,13 +243,13 @@ public class a extends a0 {
     public final void m(Activity activity, CallbackHandler callbackHandler, String str) {
         try {
             JSONObject l = l(activity);
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.i("ReadContactsAction", "read contacts:" + l.toString());
             }
             d.a.l0.a.e0.d.b("ReadContacts", "read contacts:" + l.toString());
             o(callbackHandler, str, 0, l);
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.e("ReadContactsAction", "read contacts error caused by JsonException");
                 e2.printStackTrace();
             }

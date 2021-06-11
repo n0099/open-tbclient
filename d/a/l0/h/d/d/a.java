@@ -12,23 +12,23 @@ public final class a extends EventTargetImpl {
     public final String domain;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f47278e;
+    public c f50952e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.l0.h.z.c f47279f;
+    public d.a.l0.h.z.c f50953f;
 
     public a(c cVar) {
         super(cVar);
         this.domain = "openData";
-        this.f47278e = cVar;
+        this.f50952e = cVar;
     }
 
     @JavascriptInterface
     public void getFriendCloudStorage(JsObject jsObject) {
-        if (this.f47279f == null) {
-            this.f47279f = new d.a.l0.h.z.c(this.f47278e);
+        if (this.f50953f == null) {
+            this.f50953f = new d.a.l0.h.z.c(this.f50952e);
         }
-        this.f47279f.getFriendCloudStorage(jsObject);
+        this.f50953f.getFriendCloudStorage(jsObject);
     }
 
     @JavascriptInterface
@@ -38,40 +38,40 @@ public final class a extends EventTargetImpl {
 
     @JavascriptInterface
     public void getUserCloudStorage(JsObject jsObject) {
-        if (this.f47279f == null) {
-            this.f47279f = new d.a.l0.h.z.c(this.f47278e);
+        if (this.f50953f == null) {
+            this.f50953f = new d.a.l0.h.z.c(this.f50952e);
         }
-        this.f47279f.getUserCloudStorage(jsObject);
+        this.f50953f.getUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void getUserInfo(JsObject jsObject) {
-        if (this.f47279f == null) {
-            this.f47279f = new d.a.l0.h.z.c(this.f47278e);
+        if (this.f50953f == null) {
+            this.f50953f = new d.a.l0.h.z.c(this.f50952e);
         }
-        this.f47279f.getUserInfo(jsObject);
+        this.f50953f.getUserInfo(jsObject);
     }
 
     @JavascriptInterface
     public void initSharedCanvas(JsObject jsObject) {
-        if (this.f47278e.p() instanceof b) {
-            ((b) this.f47278e.p()).B(jsObject);
+        if (this.f50952e.p() instanceof b) {
+            ((b) this.f50952e.p()).B(jsObject);
         }
     }
 
     @JavascriptInterface
     public void removeUserCloudStorage(JsObject jsObject) {
-        if (this.f47279f == null) {
-            this.f47279f = new d.a.l0.h.z.c(this.f47278e);
+        if (this.f50953f == null) {
+            this.f50953f = new d.a.l0.h.z.c(this.f50952e);
         }
-        this.f47279f.removeUserCloudStorage(jsObject);
+        this.f50953f.removeUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void setUserCloudStorage(JsObject jsObject) {
-        if (this.f47279f == null) {
-            this.f47279f = new d.a.l0.h.z.c(this.f47278e);
+        if (this.f50953f == null) {
+            this.f50953f = new d.a.l0.h.z.c(this.f50952e);
         }
-        this.f47279f.setUserCloudStorage(jsObject);
+        this.f50953f.setUserCloudStorage(jsObject);
     }
 }

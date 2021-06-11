@@ -29,7 +29,7 @@ public class c extends k<a2, FrsPageAlaEmptyLiveViewHolder> implements z {
             if (view == null || a2Var == null) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001607, Integer.valueOf(a2Var.u1())));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001607, Integer.valueOf(a2Var.v1())));
         }
     }
 
@@ -44,38 +44,38 @@ public class c extends k<a2, FrsPageAlaEmptyLiveViewHolder> implements z {
     }
 
     @Override // d.a.n0.r0.k, d.a.n0.z.y
-    public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super.n(tbPageContext, bdUniqueId);
+    public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super.o(tbPageContext, bdUniqueId);
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: s0 */
-    public FrsPageAlaEmptyLiveViewHolder P(ViewGroup viewGroup) {
+    public FrsPageAlaEmptyLiveViewHolder Q(ViewGroup viewGroup) {
         TbPageContext<?> tbPageContext = this.o;
         if (tbPageContext == null) {
             return null;
         }
         d.a.n0.v.i.e.b bVar = new d.a.n0.v.i.e.b(tbPageContext);
         this.w = bVar;
-        bVar.v(this.f39232i);
+        bVar.w(this.f42913i);
         this.w.a(this.x);
         return new FrsPageAlaEmptyLiveViewHolder(this.w);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
     /* renamed from: t0 */
-    public View W(int i2, View view, ViewGroup viewGroup, a2 a2Var, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
-        frsPageAlaEmptyLiveViewHolder.f14001a.m(a2Var);
-        frsPageAlaEmptyLiveViewHolder.f14001a.a(this.x);
-        frsPageAlaEmptyLiveViewHolder.f14001a.o(this.y);
+    public View X(int i2, View view, ViewGroup viewGroup, a2 a2Var, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
+        frsPageAlaEmptyLiveViewHolder.f14058a.n(a2Var);
+        frsPageAlaEmptyLiveViewHolder.f14058a.a(this.x);
+        frsPageAlaEmptyLiveViewHolder.f14058a.p(this.y);
         if (a2Var != null) {
-            a2Var.B4();
+            a2Var.C4();
         }
         return frsPageAlaEmptyLiveViewHolder.a();
     }

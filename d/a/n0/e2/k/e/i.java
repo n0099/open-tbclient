@@ -53,39 +53,39 @@ public class i {
     public a2 X;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbFragment f53350a;
+    public PbFragment f57039a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f53351b;
+    public BdTypeListView f57040b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f53352c;
+    public s f57041c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PbFirstFloorCommentAndPraiseAdapter f53353d;
-    public List<d.a.c.j.e.a> d0;
+    public PbFirstFloorCommentAndPraiseAdapter f57042d;
+    public List<d.a.c.k.e.a> d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public PbFirstFloorEnterForumAdapter f53354e;
+    public PbFirstFloorEnterForumAdapter f57043e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbFirstFloorItemAdapter f53355f;
+    public PbFirstFloorItemAdapter f57044f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.e2.k.e.z0.a f53356g;
+    public d.a.n0.e2.k.e.z0.a f57045g;
 
     /* renamed from: h  reason: collision with root package name */
-    public n0 f53357h;
+    public n0 f57046h;
 
     /* renamed from: i  reason: collision with root package name */
-    public n0 f53358i;
+    public n0 f57047i;
     public m j;
     public d.a.n0.e2.n.a k;
     public d.a.n0.z.f0.a l;
-    public d.a.c.j.e.a m;
-    public d.a.c.j.e.a n;
-    public d.a.c.j.e.a o;
-    public d.a.c.j.e.a p;
+    public d.a.c.k.e.a m;
+    public d.a.c.k.e.a n;
+    public d.a.c.k.e.a o;
+    public d.a.c.k.e.a p;
     public k0 q;
     public l0 r;
     public j0 s;
@@ -93,7 +93,7 @@ public class i {
     public j v;
     public x w;
     public d.a.n0.e2.h.e x;
-    public ArrayList<d.a.c.j.e.n> z;
+    public ArrayList<d.a.c.k.e.n> z;
     public ArrayList<d.a.n0.e2.k.c.a> u = new ArrayList<>();
     public ArrayList<PostData> y = new ArrayList<>();
     public boolean A = false;
@@ -110,8 +110,8 @@ public class i {
     public d.a.n0.e2.i.c O = null;
     public View.OnLongClickListener P = null;
     public SortSwitchButton.f Q = null;
-    public final List<d.a.c.j.e.a> R = new ArrayList();
-    public final List<d.a.c.j.e.a> S = new ArrayList();
+    public final List<d.a.c.k.e.a> R = new ArrayList();
+    public final List<d.a.c.k.e.a> S = new ArrayList();
     public int U = -1;
     public int W = -1;
     public final CustomMessageListener Y = new a(2921523);
@@ -133,11 +133,11 @@ public class i {
                 return;
             }
             d.a.n0.e3.h0.n nVar = (d.a.n0.e3.h0.n) customResponsedMessage.getData();
-            if (i.this.X == null || i.this.X.D2 != nVar) {
+            if (i.this.X == null || i.this.X.F2 != nVar) {
                 return;
             }
-            i.this.X.D2.m(true);
-            i.this.f53351b.setData(i.this.z);
+            i.this.X.F2.m(true);
+            i.this.f57040b.setData(i.this.z);
             i.this.U();
         }
     }
@@ -153,11 +153,11 @@ public class i {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof d.a.n0.e3.h0.d)) {
                 AbsDelegateAdapterList a2 = ((d.a.n0.e3.h0.d) customResponsedMessage.getData()).a();
-                Iterator<d.a.c.j.e.a<?, ?>> it = a2.iterator();
+                Iterator<d.a.c.k.e.a<?, ?>> it = a2.iterator();
                 while (it.hasNext()) {
-                    d.a.c.j.e.a<?, ?> next = it.next();
+                    d.a.c.k.e.a<?, ?> next = it.next();
                     if (next instanceof o) {
-                        ((o) next).f0(i.this.f53350a);
+                        ((o) next).g0(i.this.f57039a);
                         if (next instanceof d.a.n0.e2.k.c.a) {
                             i.this.u.add((d.a.n0.e2.k.c.a) next);
                         }
@@ -167,8 +167,8 @@ public class i {
                 arrayList.addAll(a2);
                 i.this.S.clear();
                 i.this.S.addAll(arrayList);
-                if (i.this.f53351b != null) {
-                    i.this.f53351b.a(arrayList);
+                if (i.this.f57040b != null) {
+                    i.this.f57040b.a(arrayList);
                 }
             }
         }
@@ -201,7 +201,7 @@ public class i {
         /* renamed from: onMessage  reason: avoid collision after fix types in other method */
         public void onMessage2(CustomResponsedMessage customResponsedMessage) {
             List<DownloadData> data;
-            if (customResponsedMessage == null || i.this.x == null || d.a.c.a.j.c(i.this.f53350a.getActivity()).isScroll() || customResponsedMessage.getCmd() != 2001118 || !(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null || data.size() == 0) {
+            if (customResponsedMessage == null || i.this.x == null || d.a.c.a.j.c(i.this.f57039a.getActivity()).isScroll() || customResponsedMessage.getCmd() != 2001118 || !(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null || data.size() == 0) {
                 return;
             }
             boolean z = false;
@@ -227,10 +227,10 @@ public class i {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (i.this.f53350a == null || i.this.x == null || i.this.x.Q() == null) {
+            if (i.this.f57039a == null || i.this.x == null || i.this.x.Q() == null) {
                 return;
             }
-            i.this.f53350a.K4().D0().v();
+            i.this.f57039a.N4().D0().v();
             TiebaStatic.log(new StatisticItem("c12040"));
         }
     }
@@ -239,15 +239,15 @@ public class i {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f53364e;
+        public final /* synthetic */ List f57053e;
 
         public e(List list) {
-            this.f53364e = list;
+            this.f57053e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            i.this.f53351b.setSelectionFromTop(i.this.f53351b.getHeaderViewsCount() + this.f53364e.size(), 0 - i.this.V);
+            i.this.f57040b.setSelectionFromTop(i.this.f57040b.getHeaderViewsCount() + this.f57053e.size(), 0 - i.this.V);
             i.this.G = false;
         }
     }
@@ -273,20 +273,20 @@ public class i {
         this.I = 0;
         this.V = 0;
         this.I = d.a.c.e.p.l.k(pbFragment.getPageContext().getPageActivity());
-        this.f53350a = pbFragment;
-        this.f53351b = bdTypeListView;
+        this.f57039a = pbFragment;
+        this.f57040b = bdTypeListView;
         H(pbFragment, bdTypeListView);
         pbFragment.registerListener(this.a0);
-        this.V = d.a.c.e.p.l.i(this.f53350a.getContext()) / 3;
+        this.V = d.a.c.e.p.l.i(this.f57039a.getContext()) / 3;
     }
 
     public int A() {
-        BdTypeListView bdTypeListView = this.f53351b;
+        BdTypeListView bdTypeListView = this.f57040b;
         if (bdTypeListView == null || bdTypeListView.getData() == null) {
             return -1;
         }
-        for (int i2 = 0; i2 < this.f53351b.getData().size(); i2++) {
-            d.a.c.j.e.n nVar = this.f53351b.getData().get(i2);
+        for (int i2 = 0; i2 < this.f57040b.getData().size(); i2++) {
+            d.a.c.k.e.n nVar = this.f57040b.getData().get(i2);
             if (nVar != null && nVar.getType() == d.a.n0.e2.h.o.l) {
                 return i2;
             }
@@ -294,7 +294,7 @@ public class i {
         return -1;
     }
 
-    public int B(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.j.e.n> arrayList, boolean z) {
+    public int B(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.k.e.n> arrayList, boolean z) {
         if (eVar == null || eVar.D() == null || eVar.B() == null || eVar.D().size() == 0 || eVar.L() == null || arrayList == null || !eVar.B().C0()) {
             return -1;
         }
@@ -308,7 +308,7 @@ public class i {
         }
     }
 
-    public int C(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.j.e.n> arrayList, boolean z) {
+    public int C(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.k.e.n> arrayList, boolean z) {
         if (eVar == null || eVar.D() == null || eVar.C() == null || eVar.D().size() == 0 || eVar.L() == null || arrayList == null || !eVar.C().C0()) {
             return -1;
         }
@@ -326,7 +326,7 @@ public class i {
         return this.y;
     }
 
-    public final int E(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.j.e.n> arrayList, boolean z) {
+    public final int E(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.k.e.n> arrayList, boolean z) {
         if (eVar == null || ListUtils.isEmpty(eVar.D()) || arrayList == null || arrayList.size() <= 0) {
             return (eVar == null || !eVar.f0()) ? -1 : 0;
         }
@@ -342,49 +342,49 @@ public class i {
     }
 
     public View G() {
-        s sVar = this.f53352c;
-        if (sVar == null || sVar.x0() == null) {
+        s sVar = this.f57041c;
+        if (sVar == null || sVar.y0() == null) {
             return null;
         }
-        if (this.f53352c.x0().s != null && this.f53352c.x0().s.isShown()) {
-            return this.f53352c.x0().s;
+        if (this.f57041c.y0().s != null && this.f57041c.y0().s.isShown()) {
+            return this.f57041c.y0().s;
         }
-        return this.f53352c.x0().r;
+        return this.f57041c.y0().r;
     }
 
     public void H(PbFragment pbFragment, BdTypeListView bdTypeListView) {
         s sVar = new s(pbFragment, PostData.o0);
-        this.f53352c = sVar;
-        sVar.H0(pbFragment);
-        this.f53353d = new PbFirstFloorCommentAndPraiseAdapter(pbFragment, d.a.n0.e2.h.p.j);
-        this.f53354e = new PbFirstFloorEnterForumAdapter(pbFragment.getContext(), d.a.n0.e2.h.g.l);
-        this.f53355f = new PbFirstFloorItemAdapter(pbFragment.getContext(), d.a.n0.e2.h.h.f52933g);
-        this.f53356g = new d.a.n0.e2.k.e.z0.a(pbFragment, d.a.n0.e2.h.a.f52904g);
-        this.f53357h = new n0(pbFragment, d.a.n0.e2.h.o.l);
-        this.f53358i = new n0(pbFragment, d.a.n0.e2.h.o.m);
+        this.f57041c = sVar;
+        sVar.I0(pbFragment);
+        this.f57042d = new PbFirstFloorCommentAndPraiseAdapter(pbFragment, d.a.n0.e2.h.p.j);
+        this.f57043e = new PbFirstFloorEnterForumAdapter(pbFragment.getContext(), d.a.n0.e2.h.g.l);
+        this.f57044f = new PbFirstFloorItemAdapter(pbFragment.getContext(), d.a.n0.e2.h.h.f56622g);
+        this.f57045g = new d.a.n0.e2.k.e.z0.a(pbFragment, d.a.n0.e2.h.a.f56593g);
+        this.f57046h = new n0(pbFragment, d.a.n0.e2.h.o.l);
+        this.f57047i = new n0(pbFragment, d.a.n0.e2.h.o.m);
         m mVar = new m(pbFragment, PostData.p0);
         this.j = mVar;
-        mVar.Y0(pbFragment);
-        this.m = d.a.n0.t2.x.p().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.b4);
-        this.n = d.a.n0.t2.x.p().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.d4);
-        this.o = d.a.n0.s0.b.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.j4);
-        this.p = d.a.n0.s0.b.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.k4);
+        mVar.Z0(pbFragment);
+        this.m = d.a.n0.t2.x.p().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.e4);
+        this.n = d.a.n0.t2.x.p().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.g4);
+        this.o = d.a.n0.s0.b.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.m4);
+        this.p = d.a.n0.s0.b.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.n4);
         this.s = new j0(pbFragment, d.a.n0.e2.h.l.D0);
         this.q = new k0(pbFragment, i0.A0);
-        this.r = new l0(pbFragment, d1.L0);
+        this.r = new l0(pbFragment, d1.G0);
         this.t = new PbReplyLoadMoreAdapter(pbFragment, PostData.v0);
-        this.k = new d.a.n0.e2.n.a(pbFragment, d.a.n0.e2.n.b.f53675e);
+        this.k = new d.a.n0.e2.n.a(pbFragment, d.a.n0.e2.n.b.f57364e);
         this.l = new d.a.n0.z.f0.a(pbFragment.getPageContext());
-        this.v = new j(pbFragment, d.a.m0.r.q.p.K3);
+        this.v = new j(pbFragment, d.a.m0.r.q.p.N3);
         this.w = new x(pbFragment, pbFragment.getUniqueId());
-        this.R.add(this.f53352c);
-        this.R.add(this.f53353d);
-        this.R.add(this.f53354e);
-        this.R.add(this.f53355f);
-        this.R.add(this.f53356g);
+        this.R.add(this.f57041c);
+        this.R.add(this.f57042d);
+        this.R.add(this.f57043e);
+        this.R.add(this.f57044f);
+        this.R.add(this.f57045g);
         this.R.add(this.j);
-        this.R.add(this.f53357h);
-        this.R.add(this.f53358i);
+        this.R.add(this.f57046h);
+        this.R.add(this.f57047i);
         this.R.add(this.m);
         this.R.add(this.n);
         this.R.add(this.o);
@@ -412,119 +412,119 @@ public class i {
     }
 
     public final void I(@NonNull d.a.n0.e2.h.e eVar) {
-        this.f53352c.s(eVar);
-        this.f53352c.setFromCDN(this.A);
-        this.f53352c.m(this.I);
-        this.f53352c.c(this.B);
-        this.f53352c.e(this.M);
-        this.f53352c.l(this.L);
-        this.f53352c.o(this.N);
-        this.f53352c.d(this.P);
-        this.f53352c.G0(this.O);
-        this.j.s(eVar);
+        this.f57041c.t(eVar);
+        this.f57041c.setFromCDN(this.A);
+        this.f57041c.n(this.I);
+        this.f57041c.c(this.B);
+        this.f57041c.e(this.M);
+        this.f57041c.m(this.L);
+        this.f57041c.p(this.N);
+        this.f57041c.d(this.P);
+        this.f57041c.H0(this.O);
+        this.j.t(eVar);
         this.j.setFromCDN(this.A);
-        this.j.p(this.J);
+        this.j.q(this.J);
         this.j.c(this.B);
         this.j.e(this.M);
-        this.j.l(this.L);
-        this.j.o(this.N);
+        this.j.m(this.L);
+        this.j.p(this.N);
         this.j.d(this.P);
-        this.j.X0(this.O);
-        this.f53353d.t0(this.M);
-        this.t.i0(this.M);
-        this.k.i0(this.b0);
-        d.a.c.j.e.a aVar = this.n;
+        this.j.Y0(this.O);
+        this.f57042d.t0(this.M);
+        this.t.j0(this.M);
+        this.k.j0(this.b0);
+        d.a.c.k.e.a aVar = this.n;
         if (aVar != null && (aVar instanceof d.a.n0.t2.t)) {
-            ((d.a.n0.t2.t) aVar).j(this.A);
+            ((d.a.n0.t2.t) aVar).k(this.A);
         }
         Iterator<d.a.n0.e2.k.c.a> it = this.u.iterator();
         while (it.hasNext()) {
             d.a.n0.e2.k.c.a next = it.next();
             if (next != null) {
-                next.s(eVar);
+                next.t(eVar);
                 next.setFromCDN(this.A);
-                next.p(this.J);
-                next.m(this.I);
+                next.q(this.J);
+                next.n(this.I);
                 next.c(this.B);
                 next.f(this.C);
-                next.r(this.H);
+                next.s(this.H);
                 next.e(this.M);
-                next.l(this.L);
-                next.o(this.N);
+                next.m(this.L);
+                next.p(this.N);
                 next.d(this.P);
             }
         }
-        this.f53357h.e(this.M);
-        this.f53357h.m0(this.Q);
-        this.f53358i.e(this.M);
-        this.f53357h.s(eVar);
-        this.f53356g.s(eVar);
-        this.f53358i.s(eVar);
-        this.q.s(eVar);
-        this.r.s(eVar);
-        this.v.m0(eVar);
-        this.v.j0(this.f53350a.m1);
-        this.w.i0(eVar);
+        this.f57046h.e(this.M);
+        this.f57046h.l0(this.Q);
+        this.f57047i.e(this.M);
+        this.f57046h.t(eVar);
+        this.f57045g.t(eVar);
+        this.f57047i.t(eVar);
+        this.q.t(eVar);
+        this.r.t(eVar);
+        this.v.l0(eVar);
+        this.v.k0(this.f57039a.m1);
+        this.w.j0(eVar);
     }
 
-    public final d.a.c.j.e.n J(ArrayList<d.a.c.j.e.n> arrayList, int i2) {
+    public final d.a.c.k.e.n J(ArrayList<d.a.c.k.e.n> arrayList, int i2) {
         if (this.x == null) {
             return null;
         }
-        d.a.n0.e3.h0.o U = this.f53350a.z().U();
-        if (U == null) {
-            U = this.x.x();
+        d.a.n0.e3.h0.o Y = this.f57039a.A().Y();
+        if (Y == null) {
+            Y = this.x.x();
         }
-        if (U == null) {
+        if (Y == null) {
             return null;
         }
-        AdvertAppInfo.ILegoAdvert F0 = U.F0();
+        AdvertAppInfo.ILegoAdvert F0 = Y.F0();
         if (F0 != null) {
-            F0.setAdvertAppInfo(U.getAdvertAppInfo());
+            F0.setAdvertAppInfo(Y.getAdvertAppInfo());
         }
-        int H4 = U.getAdvertAppInfo().H4();
-        if (H4 != 0) {
-            d.a.n0.t2.i0.d.i(U, H4);
-            if (H4 != 28 && H4 != 31) {
-                U.getAdvertAppInfo().I3 = -1001;
+        int I4 = Y.getAdvertAppInfo().I4();
+        if (I4 != 0) {
+            d.a.n0.t2.i0.d.i(Y, I4);
+            if (I4 != 28 && I4 != 31) {
+                Y.getAdvertAppInfo().L3 = -1001;
             }
             return null;
         }
         if (this.x.l() != null) {
-            U.z0 = this.x.l().getId();
+            Y.z0 = this.x.l().getId();
         }
         if (this.x.L() != null) {
-            U.C0 = d.a.c.e.m.b.f(this.x.L().o0(), 0L);
+            Y.C0 = d.a.c.e.m.b.f(this.x.L().o0(), 0L);
         }
         d.a.n0.e2.h.e eVar = this.x;
         if (eVar != null && eVar.w() != null) {
-            U.D0 = this.x.w().a();
+            Y.D0 = this.x.w().a();
         }
-        l(U);
+        l(Y);
         if (i2 >= 0) {
-            d.a.n0.k1.o.k.a.b(arrayList, U, i2);
-            return U;
+            d.a.n0.k1.o.k.a.b(arrayList, Y, i2);
+            return Y;
         }
         return null;
     }
 
-    public final boolean K(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.j.e.n> arrayList, boolean z, boolean z2, int i2, int i3, int i4, int i5) {
+    public final boolean K(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.k.e.n> arrayList, boolean z, boolean z2, int i2, int i3, int i4, int i5) {
         ArrayList arrayList2 = new ArrayList();
         if (!ListUtils.isEmpty(eVar.f()) && eVar.f().size() > 2) {
             int min = Math.min(eVar.f().size(), 7);
             for (int i6 = 0; i6 < min; i6++) {
                 d.a.m0.r.q.p pVar = eVar.f().get(i6);
                 if (!z2 && i6 == 0) {
-                    pVar.H4(true);
+                    pVar.I4(true);
                 }
-                if (pVar.w1() == null) {
+                if (pVar.x1() == null) {
                     if (i6 == min - 1) {
-                        pVar.J4(true);
+                        pVar.K4(true);
                     }
                 } else if (i6 == min - 2) {
-                    pVar.J4(true);
+                    pVar.K4(true);
                 } else if (i6 == min - 1) {
-                    pVar.I4(true);
+                    pVar.J4(true);
                 }
                 arrayList2.add(pVar);
             }
@@ -541,7 +541,7 @@ public class i {
         return false;
     }
 
-    public final d.a.c.j.e.n L(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.j.e.n> arrayList, int i2) {
+    public final d.a.c.k.e.n L(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.k.e.n> arrayList, int i2) {
         d.a.n0.e2.h.a aVar;
         if (i2 < 0 || eVar == null || !eVar.k || (aVar = eVar.l) == null) {
             return null;
@@ -550,48 +550,48 @@ public class i {
         return aVar;
     }
 
-    public final d.a.c.j.e.n M(ArrayList<d.a.c.j.e.n> arrayList, int i2) {
+    public final d.a.c.k.e.n M(ArrayList<d.a.c.k.e.n> arrayList, int i2) {
         if (d.a.m0.b.d.B() && i2 > 0) {
             String d2 = d.a.n0.s0.d.c.e().d("pb_banner");
             if (this.X == null && d.a.n0.s0.a.h().k(d2)) {
                 a2 a2Var = new a2();
                 this.X = a2Var;
-                a2Var.D2 = new d.a.n0.e3.h0.n();
+                a2Var.F2 = new d.a.n0.e3.h0.n();
                 d.a.n0.e2.h.e eVar = this.x;
                 if (eVar != null) {
-                    this.X.D2.j(eVar.m());
-                    this.X.D2.n(this.x.N());
+                    this.X.F2.j(eVar.m());
+                    this.X.F2.n(this.x.N());
                 }
             }
             a2 a2Var2 = this.X;
-            if (a2Var2 != null && a2Var2.D2 != null) {
+            if (a2Var2 != null && a2Var2.F2 != null) {
                 ListUtils.add(arrayList, i2, a2Var2);
             }
         }
         return this.X;
     }
 
-    public final d.a.c.j.e.n N(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.j.e.n> arrayList, int i2) {
+    public final d.a.c.k.e.n N(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.k.e.n> arrayList, int i2) {
         d.a.n0.e2.h.g gVar;
         if (eVar.l() == null || StringUtils.isNull(eVar.l().getName())) {
             return null;
         }
-        if (TextUtils.equals(eVar.l().getName(), this.f53350a.z().a0()) && this.f53350a.z().e0()) {
+        if (TextUtils.equals(eVar.l().getName(), this.f57039a.A().e0()) && this.f57039a.A().i0()) {
             return null;
         }
-        if (!this.f53350a.isSimpleForum() && !ListUtils.isEmpty(eVar.p())) {
+        if (!this.f57039a.isSimpleForum() && !ListUtils.isEmpty(eVar.p())) {
             gVar = new d.a.n0.e2.h.g(eVar.p().get(0));
         } else {
             gVar = new d.a.n0.e2.h.g(eVar.l());
         }
-        gVar.k = this.f53350a.z().O0();
+        gVar.k = this.f57039a.A().S0();
         ListUtils.add(arrayList, i2 + 1, gVar);
         return gVar;
     }
 
-    public final d.a.c.j.e.n O(d.a.n0.e2.h.e eVar, PostData postData, ArrayList<d.a.c.j.e.n> arrayList, int i2) {
+    public final d.a.c.k.e.n O(d.a.n0.e2.h.e eVar, PostData postData, ArrayList<d.a.c.k.e.n> arrayList, int i2) {
         d.a.n0.e2.h.h hVar = null;
-        if (eVar.l() == null || StringUtils.isNull(eVar.l().getName()) || !TextUtils.equals(eVar.l().getName(), this.f53350a.z().a0()) || !this.f53350a.z().e0()) {
+        if (eVar.l() == null || StringUtils.isNull(eVar.l().getName()) || !TextUtils.equals(eVar.l().getName(), this.f57039a.A().e0()) || !this.f57039a.A().i0()) {
             if (postData != null) {
                 if (postData.k0 != null) {
                     hVar = new d.a.n0.e2.h.h(postData.k0);
@@ -603,7 +603,7 @@ public class i {
                 }
             }
             if (hVar != null) {
-                hVar.f52935f = this.f53350a.z().O0();
+                hVar.f56624f = this.f57039a.A().S0();
                 ListUtils.add(arrayList, i2 + 1, hVar);
             }
             return hVar;
@@ -611,12 +611,12 @@ public class i {
         return null;
     }
 
-    public final y P(ArrayList<d.a.c.j.e.n> arrayList, d.a.c.j.e.n nVar, int i2, int i3) {
+    public final y P(ArrayList<d.a.c.k.e.n> arrayList, d.a.c.k.e.n nVar, int i2, int i3) {
         y z = this.x.z();
         if (z != null) {
             if (nVar != null) {
-                if (i3 >= 0 || nVar.getType() == AdvertAppInfo.d4) {
-                    i3 = nVar.getType() != AdvertAppInfo.d4 ? i3 + 1 : -1;
+                if (i3 >= 0 || nVar.getType() == AdvertAppInfo.g4) {
+                    i3 = nVar.getType() != AdvertAppInfo.g4 ? i3 + 1 : -1;
                 } else {
                     i3 = i2 + 2;
                 }
@@ -630,26 +630,26 @@ public class i {
         return null;
     }
 
-    public final void Q(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.j.e.n> arrayList, int i2) {
+    public final void Q(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.k.e.n> arrayList, int i2) {
         d.a.n0.e2.h.o oVar = new d.a.n0.e2.h.o(d.a.n0.e2.h.o.l);
         a2 L = eVar.L();
         if (L != null) {
-            L.a1();
+            L.b1();
         }
-        oVar.f52958h = this.f53350a.c5();
-        oVar.f52957g = eVar.f52925g;
+        oVar.f56647h = this.f57039a.f5();
+        oVar.f56646g = eVar.f56614g;
         eVar.c();
-        oVar.f52959i = eVar.a0();
-        oVar.k = eVar.f52924f;
+        oVar.f56648i = eVar.a0();
+        oVar.k = eVar.f56613f;
         ListUtils.add(arrayList, i2, oVar);
         if (eVar.I() == 4) {
             ListUtils.add(arrayList, i2 + 1, new d.a.n0.e2.h.n());
         }
     }
 
-    public final d.a.c.j.e.n R(ArrayList<d.a.c.j.e.n> arrayList, int i2) {
-        PbModel z;
-        if (i2 < 0 || (z = this.f53350a.z()) == null || TextUtils.isEmpty(z.C0())) {
+    public final d.a.c.k.e.n R(ArrayList<d.a.c.k.e.n> arrayList, int i2) {
+        PbModel A;
+        if (i2 < 0 || (A = this.f57039a.A()) == null || TextUtils.isEmpty(A.G0())) {
             return null;
         }
         d.a.n0.e3.h0.o oVar = new d.a.n0.e3.h0.o();
@@ -668,51 +668,51 @@ public class i {
 
     public void U() {
         this.U = A();
-        if (this.f53351b.getAdapter2() instanceof d.a.c.j.e.e) {
-            this.f53351b.getAdapter2().notifyDataSetChanged();
+        if (this.f57040b.getAdapter2() instanceof d.a.c.k.e.e) {
+            this.f57040b.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void V(int i2) {
         if (i2 == 1) {
-            s sVar = this.f53352c;
+            s sVar = this.f57041c;
             if (sVar != null) {
-                sVar.B0();
+                sVar.C0();
             }
-            d.a.c.j.e.a aVar = this.n;
+            d.a.c.k.e.a aVar = this.n;
             if (aVar instanceof d.a.n0.t2.p) {
                 ((d.a.n0.t2.p) aVar).onPause();
             }
-            d.a.c.j.e.a aVar2 = this.o;
+            d.a.c.k.e.a aVar2 = this.o;
             if (aVar2 instanceof d.a.n0.t2.p) {
                 ((d.a.n0.t2.p) aVar2).onPause();
             }
-            n.a().h(this.f53350a.A());
+            n.a().h(this.f57039a.B());
         } else if (i2 == 2) {
-            s sVar2 = this.f53352c;
+            s sVar2 = this.f57041c;
             if (sVar2 != null) {
-                sVar2.D0();
+                sVar2.E0();
             }
-            d.a.c.j.e.a aVar3 = this.n;
+            d.a.c.k.e.a aVar3 = this.n;
             if (aVar3 instanceof d.a.n0.t2.p) {
                 ((d.a.n0.t2.p) aVar3).onResume();
             }
-            d.a.c.j.e.a aVar4 = this.o;
+            d.a.c.k.e.a aVar4 = this.o;
             if (aVar4 instanceof d.a.n0.t2.p) {
                 ((d.a.n0.t2.p) aVar4).onResume();
             }
             Y(false);
         } else if (i2 != 3) {
         } else {
-            s sVar3 = this.f53352c;
+            s sVar3 = this.f57041c;
             if (sVar3 != null) {
-                sVar3.C0();
+                sVar3.D0();
             }
-            d.a.c.j.e.a aVar5 = this.n;
+            d.a.c.k.e.a aVar5 = this.n;
             if (aVar5 instanceof d.a.n0.t2.p) {
                 ((d.a.n0.t2.p) aVar5).onDestroy();
             }
-            d.a.c.j.e.a aVar6 = this.o;
+            d.a.c.k.e.a aVar6 = this.o;
             if (aVar6 instanceof d.a.n0.t2.p) {
                 ((d.a.n0.t2.p) aVar6).onDestroy();
             }
@@ -722,25 +722,25 @@ public class i {
 
     public void W() {
         d.a.c.e.m.e.a().removeCallbacks(this.T);
-        n0 n0Var = this.f53357h;
+        n0 n0Var = this.f57046h;
         if (n0Var != null) {
             n0Var.onDestroy();
         }
-        n0 n0Var2 = this.f53358i;
+        n0 n0Var2 = this.f57047i;
         if (n0Var2 != null) {
             n0Var2.onDestroy();
         }
-        PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter = this.f53353d;
+        PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter = this.f57042d;
         if (pbFirstFloorCommentAndPraiseAdapter != null) {
             pbFirstFloorCommentAndPraiseAdapter.onDestroy();
         }
-        d.a.n0.e2.k.e.z0.a aVar = this.f53356g;
+        d.a.n0.e2.k.e.z0.a aVar = this.f57045g;
         if (aVar != null) {
             aVar.onDestroy();
         }
     }
 
-    public final void X(boolean z, boolean z2, int i2, List<d.a.c.j.e.n> list) {
+    public final void X(boolean z, boolean z2, int i2, List<d.a.c.k.e.n> list) {
         if (z || z2) {
             return;
         }
@@ -752,10 +752,10 @@ public class i {
     }
 
     public void Y(boolean z) {
-        if (this.f53350a.K4() == null || this.f53350a.A() == null || this.f53350a.A().getPbModel() == null) {
+        if (this.f57039a.N4() == null || this.f57039a.B() == null || this.f57039a.B().getPbModel() == null) {
             return;
         }
-        n.a().f(this.f53350a.A().getPbModel().Y0(), this.f53357h.h0(), this.f53350a.K4().H0(), this.f53350a.A().getPageStayDurationItem(), z);
+        n.a().f(this.f57039a.B().getPbModel().b1(), this.f57046h.i0(), this.f57039a.N4().H0(), this.f57039a.B().getPageStayDurationItem(), z);
     }
 
     public void Z(d.a.n0.e2.h.e eVar, boolean z) {
@@ -769,10 +769,10 @@ public class i {
         boolean z7;
         y yVar;
         int i3;
-        List<d.a.c.j.e.n> list;
+        List<d.a.c.k.e.n> list;
         int i4;
         boolean z8;
-        d.a.c.j.e.n nVar;
+        d.a.c.k.e.n nVar;
         int i5;
         PostData postData2;
         if (eVar == null) {
@@ -791,14 +791,14 @@ public class i {
         if (eVar.L() != null && eVar.L().T() != null) {
             this.J = eVar.L().T().getUserId();
         }
-        if (this.f53352c == null) {
+        if (this.f57041c == null) {
             return;
         }
         I(eVar);
-        ArrayList<d.a.c.j.e.n> arrayList = new ArrayList<>(eVar.D());
+        ArrayList<d.a.c.k.e.n> arrayList = new ArrayList<>(eVar.D());
         if (d.a.m0.c1.b.e.d()) {
-            this.f53351b.setData(arrayList.subList(0, 1));
-            this.f53352c.F0(false);
+            this.f57040b.setData(arrayList.subList(0, 1));
+            this.f57041c.G0(false);
             return;
         }
         PostData p = p(arrayList);
@@ -829,7 +829,7 @@ public class i {
             z3 = true;
         }
         o(arrayList);
-        if (this.f53350a.z4()) {
+        if (this.f57039a.C4()) {
             if (eVar.D().size() > 0 && (postData2 = eVar.D().get(0)) != null && postData2.A() == 1 && !ListUtils.isEmpty(arrayList)) {
                 arrayList.remove(0);
             }
@@ -852,9 +852,9 @@ public class i {
             z4 = false;
         }
         int t = t(eVar, arrayList);
-        List<d.a.c.j.e.n> u = u(eVar);
+        List<d.a.c.k.e.n> u = u(eVar);
         if (!ListUtils.isEmpty(u) && t >= 0) {
-            d.a.c.j.e.n nVar2 = (d.a.c.j.e.n) ListUtils.getItem(arrayList, t);
+            d.a.c.k.e.n nVar2 = (d.a.c.k.e.n) ListUtils.getItem(arrayList, t);
             if (nVar2 instanceof PostData) {
                 ((PostData) nVar2).R = true;
             }
@@ -884,7 +884,7 @@ public class i {
             E++;
         }
         if (z9) {
-            d.a.c.j.e.n R = R(arrayList, E);
+            d.a.c.k.e.n R = R(arrayList, E);
             boolean z12 = R != null;
             if (z12) {
                 z8 = z12;
@@ -944,46 +944,46 @@ public class i {
             list = u;
             i4 = t;
         }
-        this.f53352c.F0(!z5);
+        this.f57041c.G0(!z5);
         boolean p0 = p0(postData);
         if (this.D && !p0) {
             arrayList.remove(postData);
             this.D = false;
         }
         if (eVar.P() != null) {
-            eVar.P().l(!z6);
+            eVar.P().k(!z6);
         }
-        if (this.f53351b != null) {
+        if (this.f57040b != null) {
             this.z = arrayList;
-            List<d.a.c.j.e.n> O = eVar.O();
+            List<d.a.c.k.e.n> O = eVar.O();
             if (!ListUtils.isEmpty(O)) {
                 ArrayList arrayList2 = new ArrayList(arrayList.size() + O.size() + 2);
                 arrayList2.addAll(arrayList);
                 d.a.n0.e2.h.j jVar = new d.a.n0.e2.h.j();
-                jVar.f52939e = TbadkCoreApplication.getInst().getString(R.string.list_has_no_more);
+                jVar.f56628e = TbadkCoreApplication.getInst().getString(R.string.list_has_no_more);
                 arrayList2.add(jVar);
                 d.a.n0.z.f0.e eVar3 = new d.a.n0.z.f0.e();
-                eVar3.f63499e = TbadkCoreApplication.getInst().getString(R.string.hot_recommendation);
+                eVar3.f67217e = TbadkCoreApplication.getInst().getString(R.string.hot_recommendation);
                 eVar3.needTopMargin = false;
                 arrayList2.add(eVar3);
                 arrayList2.addAll(O);
-                this.f53351b.setData(arrayList2);
+                this.f57040b.setData(arrayList2);
             } else {
-                this.f53351b.setData(this.z);
+                this.f57040b.setData(this.z);
             }
         }
         X(p0, z, i4, list);
         if (q(postData, arrayList, z3)) {
-            this.f53351b.setData(arrayList);
+            this.f57040b.setData(arrayList);
         }
     }
 
     public void a0(boolean z) {
         this.A = z;
-        this.f53352c.setFromCDN(z);
-        d.a.c.j.e.a aVar = this.n;
+        this.f57041c.setFromCDN(z);
+        d.a.c.k.e.a aVar = this.n;
         if (aVar != null && (aVar instanceof d.a.n0.t2.t)) {
-            ((d.a.n0.t2.t) aVar).j(z);
+            ((d.a.n0.t2.t) aVar).k(z);
         }
         Iterator<d.a.n0.e2.k.c.a> it = this.u.iterator();
         while (it.hasNext()) {
@@ -1022,7 +1022,7 @@ public class i {
     public void i0(boolean z) {
         m mVar = this.j;
         if (mVar != null) {
-            mVar.W0(z);
+            mVar.X0(z);
         }
     }
 
@@ -1039,22 +1039,22 @@ public class i {
         if (oVar == null || this.x == null || oVar.getAdvertAppInfo() == null) {
             return;
         }
-        oVar.getAdvertAppInfo().P3 = new d.a.m0.r.q.d();
+        oVar.getAdvertAppInfo().S3 = new d.a.m0.r.q.d();
         if (this.x.w() != null) {
-            oVar.getAdvertAppInfo().P3.f49980b = this.x.w().a();
+            oVar.getAdvertAppInfo().S3.f53656b = this.x.w().a();
         }
-        oVar.getAdvertAppInfo().P3.f49979a = oVar.E0();
+        oVar.getAdvertAppInfo().S3.f53655a = oVar.E0();
         if (this.x.l() != null && (l = this.x.l()) != null) {
-            oVar.getAdvertAppInfo().P3.f49982d = l.getId();
-            oVar.getAdvertAppInfo().P3.f49983e = l.getFirst_class();
-            oVar.getAdvertAppInfo().P3.f49984f = l.getSecond_class();
+            oVar.getAdvertAppInfo().S3.f53658d = l.getId();
+            oVar.getAdvertAppInfo().S3.f53659e = l.getFirst_class();
+            oVar.getAdvertAppInfo().S3.f53660f = l.getSecond_class();
         }
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            oVar.getAdvertAppInfo().P3.f49985g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
+            oVar.getAdvertAppInfo().S3.f53661g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
         }
-        oVar.getAdvertAppInfo().P3.f49986h = oVar.getAdvertAppInfo().N3;
-        oVar.getAdvertAppInfo().P3.f49987i = false;
+        oVar.getAdvertAppInfo().S3.f53662h = oVar.getAdvertAppInfo().Q3;
+        oVar.getAdvertAppInfo().S3.f53663i = false;
     }
 
     public void l0(View.OnLongClickListener onLongClickListener) {
@@ -1062,10 +1062,10 @@ public class i {
     }
 
     public final void m() {
-        if (this.f53350a == null || n()) {
+        if (this.f57039a == null || n()) {
             return;
         }
-        this.f53350a.registerListener(this.c0);
+        this.f57039a.registerListener(this.c0);
     }
 
     public void m0(SortSwitchButton.f fVar) {
@@ -1073,7 +1073,7 @@ public class i {
     }
 
     public final boolean n() {
-        if (this.f53350a == null) {
+        if (this.f57039a == null) {
             return false;
         }
         this.d0 = new ArrayList();
@@ -1083,7 +1083,7 @@ public class i {
         }
         int size = g2.size();
         for (int i2 = 0; i2 < size; i2++) {
-            d.a.n0.k1.o.g.a b2 = d.a.n0.k1.r.b.d().b(this.f53350a.getPageContext(), g2.get(i2), 2);
+            d.a.n0.k1.o.g.a b2 = d.a.n0.k1.r.b.d().b(this.f57039a.getPageContext(), g2.get(i2), 2);
             if (b2 != null) {
                 this.R.add(b2);
                 this.d0.add(b2);
@@ -1092,7 +1092,7 @@ public class i {
         if (ListUtils.isEmpty(this.d0)) {
             return true;
         }
-        this.f53351b.a(this.d0);
+        this.f57040b.a(this.d0);
         return true;
     }
 
@@ -1100,7 +1100,7 @@ public class i {
         this.M = onClickListener;
     }
 
-    public final void o(List<d.a.c.j.e.n> list) {
+    public final void o(List<d.a.c.k.e.n> list) {
         int size;
         if (list == null || (size = list.size()) <= 0) {
             return;
@@ -1110,7 +1110,7 @@ public class i {
                 PostData postData = (PostData) list.get(i2);
                 if (!TextUtils.isEmpty(postData.H())) {
                     d.a.m0.r.q.n0 n0Var = new d.a.m0.r.q.n0();
-                    n0Var.m(postData.H());
+                    n0Var.i(postData.H());
                     list.set(i2, n0Var);
                 }
             }
@@ -1121,10 +1121,10 @@ public class i {
         this.O = cVar;
     }
 
-    public final PostData p(ArrayList<d.a.c.j.e.n> arrayList) {
-        Iterator<d.a.c.j.e.n> it = arrayList.iterator();
+    public final PostData p(ArrayList<d.a.c.k.e.n> arrayList) {
+        Iterator<d.a.c.k.e.n> it = arrayList.iterator();
         while (it.hasNext()) {
-            d.a.c.j.e.n next = it.next();
+            d.a.c.k.e.n next = it.next();
             if (next instanceof PostData) {
                 PostData postData = (PostData) next;
                 if (postData.A() == 1) {
@@ -1136,10 +1136,10 @@ public class i {
     }
 
     public final boolean p0(PostData postData) {
-        return (this.f53350a.z() == null || postData == null || postData.E() == null || !postData.E().equals(this.f53350a.z().S0())) ? false : true;
+        return (this.f57039a.A() == null || postData == null || postData.E() == null || !postData.E().equals(this.f57039a.A().W0())) ? false : true;
     }
 
-    public final boolean q(PostData postData, ArrayList<d.a.c.j.e.n> arrayList, boolean z) {
+    public final boolean q(PostData postData, ArrayList<d.a.c.k.e.n> arrayList, boolean z) {
         if (postData != null) {
             if (z) {
                 ListUtils.add(arrayList, 0, postData);
@@ -1186,7 +1186,7 @@ public class i {
         while (it2.hasNext()) {
             d.a.n0.e3.h0.o next2 = it2.next();
             if (next2 != null) {
-                next2.K0 = next2.getPosition() - 1;
+                next2.F0 = next2.getPosition() - 1;
             }
         }
         SparseArray sparseArray = new SparseArray();
@@ -1194,11 +1194,11 @@ public class i {
         while (it3.hasNext()) {
             d.a.n0.e3.h0.o next3 = it3.next();
             if (next3.getAdvertAppInfo() != null) {
-                int H4 = next3.getAdvertAppInfo().H4();
-                if (H4 != 0) {
-                    d.a.n0.t2.i0.d.i(next3, H4);
-                    if (H4 != 28 && H4 != 31) {
-                        next3.getAdvertAppInfo().I3 = -1001;
+                int I4 = next3.getAdvertAppInfo().I4();
+                if (I4 != 0) {
+                    d.a.n0.t2.i0.d.i(next3, I4);
+                    if (I4 != 28 && I4 != 31) {
+                        next3.getAdvertAppInfo().L3 = -1001;
                     }
                 }
                 sparseArray.put(next3.getPosition(), next3);
@@ -1238,24 +1238,24 @@ public class i {
             l(oVar4);
             int position = oVar4.getPosition() + this.x.X;
             if (position >= d.a.n0.k1.o.k.a.k(D)) {
-                oVar4.K0 = position;
+                oVar4.F0 = position;
                 d.a.n0.t2.i0.d.j(oVar4, 2, position, d.a.n0.k1.o.k.a.k(D));
                 return;
             }
             if (!this.C) {
                 position--;
-                oVar4.K0 = position;
+                oVar4.F0 = position;
             }
             if (position < 0) {
                 d.a.n0.t2.i0.d.i(oVar4, 23);
             } else {
                 d.a.n0.k1.o.k.a.b(D, oVar4, position);
-                TiebaStatic.eventStat(this.f53350a.getPageContext().getContext(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", oVar4.getAdvertAppInfo().Y3);
+                TiebaStatic.eventStat(this.f57039a.getPageContext().getContext(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", oVar4.getAdvertAppInfo().b4);
             }
         }
     }
 
-    public ArrayList<d.a.c.j.e.n> r() {
+    public ArrayList<d.a.c.k.e.n> r() {
         return this.z;
     }
 
@@ -1265,24 +1265,24 @@ public class i {
             return;
         }
         this.W = -1;
-        this.f53351b.setData(this.z);
+        this.f57040b.setData(this.z);
         U();
     }
 
     public PbFirstFloorViewHolder s() {
-        s sVar = this.f53352c;
-        if (sVar == null || sVar.x0() == null) {
+        s sVar = this.f57041c;
+        if (sVar == null || sVar.y0() == null) {
             return null;
         }
-        return this.f53352c.x0();
+        return this.f57041c.y0();
     }
 
-    public final int t(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.j.e.n> arrayList) {
+    public final int t(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.k.e.n> arrayList) {
         boolean z;
         if (this.E || eVar == null || ListUtils.isEmpty(eVar.D()) || arrayList == null || arrayList.size() <= 0) {
             return (eVar != null && eVar.f0() && this.C) ? 0 : -1;
-        } else if (this.f53350a.z() == null || !this.f53350a.z().i0()) {
-            if (this.f53350a.K4() == null || !this.f53350a.K4().z0()) {
+        } else if (this.f57039a.A() == null || !this.f57039a.A().m0()) {
+            if (this.f57039a.N4() == null || !this.f57039a.N4().z0()) {
                 int size = arrayList.size();
                 int i2 = 0;
                 while (true) {
@@ -1291,7 +1291,7 @@ public class i {
                         i2 = -1;
                         break;
                     }
-                    d.a.c.j.e.n nVar = arrayList.get(i2);
+                    d.a.c.k.e.n nVar = arrayList.get(i2);
                     if (nVar instanceof PostData) {
                         PostData postData = (PostData) nVar;
                         if (postData.A() == 1 && postData.O == 0) {
@@ -1309,12 +1309,12 @@ public class i {
         }
     }
 
-    public final List<d.a.c.j.e.n> u(d.a.n0.e2.h.e eVar) {
-        if (eVar == null || eVar.Q() == null || ListUtils.isEmpty(eVar.Q().f52976a)) {
+    public final List<d.a.c.k.e.n> u(d.a.n0.e2.h.e eVar) {
+        if (eVar == null || eVar.Q() == null || ListUtils.isEmpty(eVar.Q().f56665a)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = eVar.Q().f52976a;
+        List<PostData> list = eVar.Q().f56665a;
         if (ListUtils.isEmpty(list)) {
             return null;
         }
@@ -1327,44 +1327,44 @@ public class i {
                 arrayList.add(postData);
             }
         }
-        if (ListUtils.getCount(eVar.Q().f52977b) > 2) {
-            d.a.c.j.e.n nVar = (d.a.c.j.e.n) ListUtils.getItem(arrayList, arrayList.size() - 1);
+        if (ListUtils.getCount(eVar.Q().f56666b) > 2) {
+            d.a.c.k.e.n nVar = (d.a.c.k.e.n) ListUtils.getItem(arrayList, arrayList.size() - 1);
             if (nVar instanceof PostData) {
                 ((PostData) nVar).P = false;
             }
             arrayList.add(new d.a.n0.e2.n.b());
         } else {
-            d.a.c.j.e.n nVar2 = (d.a.c.j.e.n) ListUtils.getItem(arrayList, arrayList.size() - 1);
+            d.a.c.k.e.n nVar2 = (d.a.c.k.e.n) ListUtils.getItem(arrayList, arrayList.size() - 1);
             if (nVar2 instanceof PostData) {
                 ((PostData) nVar2).P = true;
             }
         }
         d.a.n0.e2.h.o oVar = new d.a.n0.e2.h.o(d.a.n0.e2.h.o.m);
-        oVar.f52955e = eVar.Q().f52978c;
+        oVar.f56644e = eVar.Q().f56667c;
         arrayList.add(0, oVar);
         return arrayList;
     }
 
     public int v() {
-        return this.f53351b.getHeaderViewsCount();
+        return this.f57040b.getHeaderViewsCount();
     }
 
-    public d.a.c.j.e.n w(int i2) {
-        return this.f53351b.G(i2);
+    public d.a.c.k.e.n w(int i2) {
+        return this.f57040b.G(i2);
     }
 
     public BdUniqueId x(int i2) {
-        if (this.f53351b.G(i2) != null) {
-            return this.f53351b.G(i2).getType();
+        if (this.f57040b.G(i2) != null) {
+            return this.f57040b.G(i2).getType();
         }
         return null;
     }
 
     public PbFirstFloorCommentAndPraiseAdapter y() {
-        return this.f53353d;
+        return this.f57042d;
     }
 
-    public final int z(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.j.e.n> arrayList) {
+    public final int z(d.a.n0.e2.h.e eVar, ArrayList<d.a.c.k.e.n> arrayList) {
         boolean z;
         if (eVar == null || ListUtils.isEmpty(eVar.D()) || ListUtils.isEmpty(arrayList) || ((PostData) ListUtils.getItem(eVar.D(), 0)) == null) {
             return 0;
@@ -1377,7 +1377,7 @@ public class i {
                 i2 = 0;
                 break;
             }
-            d.a.c.j.e.n nVar = arrayList.get(i2);
+            d.a.c.k.e.n nVar = arrayList.get(i2);
             if (nVar instanceof PostData) {
                 PostData postData = (PostData) nVar;
                 if (postData.A() == 1 && postData.O == 0) {

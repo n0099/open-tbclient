@@ -78,15 +78,15 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     public static class a implements X509TrustManager {
 
         /* renamed from: a  reason: collision with root package name */
-        public X509TrustManager f26708a;
+        public X509TrustManager f26811a;
 
         /* renamed from: b  reason: collision with root package name */
-        public X509TrustManager f26709b;
+        public X509TrustManager f26812b;
 
         public a(KeyStore keyStore) throws KeyStoreException {
             try {
-                this.f26708a = a(null);
-                this.f26709b = a(keyStore);
+                this.f26811a = a(null);
+                this.f26812b = a(keyStore);
             } catch (NoSuchAlgorithmException e2) {
                 e2.printStackTrace();
             }
@@ -101,25 +101,25 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.f26708a.checkClientTrusted(x509CertificateArr, str);
+                this.f26811a.checkClientTrusted(x509CertificateArr, str);
             } catch (CertificateException unused) {
-                this.f26709b.checkClientTrusted(x509CertificateArr, str);
+                this.f26812b.checkClientTrusted(x509CertificateArr, str);
             }
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.f26708a.checkServerTrusted(x509CertificateArr, str);
+                this.f26811a.checkServerTrusted(x509CertificateArr, str);
             } catch (CertificateException unused) {
-                this.f26709b.checkServerTrusted(x509CertificateArr, str);
+                this.f26812b.checkServerTrusted(x509CertificateArr, str);
             }
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            X509Certificate[] acceptedIssuers = this.f26708a.getAcceptedIssuers();
-            X509Certificate[] acceptedIssuers2 = this.f26709b.getAcceptedIssuers();
+            X509Certificate[] acceptedIssuers = this.f26811a.getAcceptedIssuers();
+            X509Certificate[] acceptedIssuers2 = this.f26812b.getAcceptedIssuers();
             X509Certificate[] x509CertificateArr = (X509Certificate[]) Arrays.copyOf(acceptedIssuers, acceptedIssuers.length + acceptedIssuers2.length);
             System.arraycopy(acceptedIssuers2, 0, x509CertificateArr, acceptedIssuers.length, acceptedIssuers2.length);
             return x509CertificateArr;
@@ -128,8 +128,8 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
 
     public BdNet(Context context) {
         this.mContext = new WeakReference<>(context);
-        if (com.baidu.webkit.net.a.a().f26729c == null) {
-            com.baidu.webkit.net.a.a().f26729c = getContext().getApplicationContext();
+        if (com.baidu.webkit.net.a.a().f26832c == null) {
+            com.baidu.webkit.net.a.a().f26832c = getContext().getApplicationContext();
         }
         this.mTaskList = new Vector<>();
         this.mWorkerList = new Vector<>();
@@ -179,7 +179,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             d2.getWorker().a(bdNetEngine);
             return d2;
         } else if (pollTask != null) {
-            worker.f26731a = pollTask;
+            worker.f26834a = pollTask;
             worker.a(bdNetEngine);
             pollTask.setWorker(worker);
             return pollTask;
@@ -193,15 +193,15 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 if (com.baidu.webkit.net.a.b()) {
                     com.baidu.webkit.net.a a2 = com.baidu.webkit.net.a.a();
                     try {
-                        if (a2.f26727a != null) {
-                            a2.f26727a.clear();
-                            a2.f26727a = null;
+                        if (a2.f26830a != null) {
+                            a2.f26830a.clear();
+                            a2.f26830a = null;
                         }
-                        int size = a2.f26728b.size();
+                        int size = a2.f26831b.size();
                         for (int i2 = 0; i2 < size; i2++) {
-                            a2.f26728b.get(i2).stopDownload();
+                            a2.f26831b.get(i2).stopDownload();
                         }
-                        a2.f26728b.clear();
+                        a2.f26831b.clear();
                         releaseSSLContext();
                         BdNetTask.clearTaskPool();
                         com.baidu.webkit.net.a.c();

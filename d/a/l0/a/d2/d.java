@@ -18,18 +18,18 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41323a = k.f43199a;
+    public static final boolean f44999a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f41324b;
+    public static c f45000b;
 
     /* loaded from: classes3.dex */
     public static class a implements c {
         @Override // d.a.l0.a.d2.c
-        public void a(e.C0595e c0595e) {
-            d.e(c0595e);
+        public void a(e.C0651e c0651e) {
+            d.e(c0651e);
             if (!d.a.l0.a.d2.a.c()) {
-                d.i(c0595e);
+                d.i(c0651e);
             }
         }
     }
@@ -38,7 +38,7 @@ public final class d {
     public static class b implements d.a.l0.a.v2.e1.b<Boolean> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.C0595e f41325e;
+        public final /* synthetic */ e.C0651e f45001e;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
@@ -49,9 +49,9 @@ public final class d {
             public void run() {
                 Bitmap decodeFile;
                 if (d.a.l0.a.v2.d.a()) {
-                    decodeFile = u.e(b.this.f41325e.f41345b);
+                    decodeFile = u.e(b.this.f45001e.f45021b);
                 } else {
-                    decodeFile = BitmapFactory.decodeFile(b.this.f41325e.f41344a);
+                    decodeFile = BitmapFactory.decodeFile(b.this.f45001e.f45020a);
                 }
                 File k = u.k("screenshot.jpg");
                 if (decodeFile != null) {
@@ -62,14 +62,14 @@ public final class d {
                     h2 = "";
                 }
                 d.f(h2);
-                if (d.f41323a) {
+                if (d.f44999a) {
                     Log.d("SwanAppScreenshot", "saveScreenshot:" + TextUtils.isEmpty(h2) + ",path:" + k.getAbsolutePath());
                 }
             }
         }
 
-        public b(e.C0595e c0595e) {
-            this.f41325e = c0595e;
+        public b(e.C0651e c0651e) {
+            this.f45001e = c0651e;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,8 +84,8 @@ public final class d {
         }
     }
 
-    public static void e(e.C0595e c0595e) {
-        d.a.l0.a.d2.a.b(new b(c0595e));
+    public static void e(e.C0651e c0651e) {
+        d.a.l0.a.d2.a.b(new b(c0651e));
     }
 
     public static void f(String str) {
@@ -100,35 +100,35 @@ public final class d {
 
     public static void g() {
         e.s(d.a.l0.a.c1.a.b());
-        if (f41323a) {
+        if (f44999a) {
             Log.d("SwanAppScreenshot", "registerScreenshotEvent.");
         }
-        if (f41324b == null) {
-            f41324b = new a();
+        if (f45000b == null) {
+            f45000b = new a();
         }
-        e.r(f41324b);
+        e.r(f45000b);
     }
 
     public static void h() {
         d.a.l0.a.d2.a.d();
     }
 
-    public static void i(e.C0595e c0595e) {
+    public static void i(e.C0651e c0651e) {
         SwanAppActivity activity = f.V().getActivity();
         if (activity == null) {
             return;
         }
-        d.a.l0.a.c1.a.Y().b(activity, c0595e.f41344a, c0595e.f41345b);
+        d.a.l0.a.c1.a.Y().b(activity, c0651e.f45020a, c0651e.f45021b);
     }
 
     public static void j() {
-        if (f41323a) {
+        if (f44999a) {
             Log.d("SwanAppScreenshot", "unRegisterScreenshotEvent.");
         }
-        c cVar = f41324b;
+        c cVar = f45000b;
         if (cVar != null) {
             e.u(cVar);
-            f41324b = null;
+            f45000b = null;
         }
     }
 }

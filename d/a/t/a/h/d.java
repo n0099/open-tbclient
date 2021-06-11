@@ -11,17 +11,17 @@ import java.io.FileWriter;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f64638a;
+    public static Context f68356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f64639b;
+    public static d f68357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static File f64640c;
+    public static File f68358c;
 
     public static File a() {
         if (Environment.getExternalStorageState().equals("mounted")) {
-            File file = new File(f64638a.getExternalFilesDir("Log").getPath() + "/");
+            File file = new File(f68356a.getExternalFilesDir("Log").getPath() + "/");
             Log.i("LogToFileUtils", "file path ..." + file.getPath());
             if (!file.exists()) {
                 file.mkdirs();
@@ -44,7 +44,7 @@ public class d {
     public static String b() {
         try {
             Class<?> cls = Class.forName("com.baidu.android.imsdk.internal.IMConfigInternal");
-            String valueOf = String.valueOf(cls.getMethod("getSDKVersionValue", Context.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(new Object(), new Object[0]), f64638a));
+            String valueOf = String.valueOf(cls.getMethod("getSDKVersionValue", Context.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(new Object(), new Object[0]), f68356a));
             return String.format("%s.%s.%s", valueOf.substring(0, 1), valueOf.substring(1, 2), valueOf.substring(2, 3));
         } catch (Exception e2) {
             Log.i("LogToFileUtils", e2.getMessage());
@@ -56,17 +56,17 @@ public class d {
     public static d c(Context context) {
         File file;
         Log.i("LogToFileUtils", "init ...");
-        if (f64638a != null && f64639b != null && (file = f64640c) != null && file.exists()) {
+        if (f68356a != null && f68357b != null && (file = f68358c) != null && file.exists()) {
             Log.i("LogToFileUtils", "LogToFileUtils has been init ...");
         } else {
-            f64638a = context;
-            f64639b = new d();
-            f64640c = a();
+            f68356a = context;
+            f68357b = new d();
+            f68358c = a();
             e("imsdkversion:" + b());
             e("lcpsdkversion:" + d());
-            Log.i("LogToFileUtils", "LogFilePath is: " + f64640c.getPath());
+            Log.i("LogToFileUtils", "LogFilePath is: " + f68358c.getPath());
         }
-        return f64639b;
+        return f68357b;
     }
 
     public static String d() {
@@ -75,11 +75,11 @@ public class d {
 
     public static void e(Object obj) {
         File file;
-        if (f64638a != null && f64639b != null && (file = f64640c) != null && file.exists()) {
+        if (f68356a != null && f68357b != null && (file = f68358c) != null && file.exists()) {
             String str = System.currentTimeMillis() + ":" + obj.toString();
             Log.i("LogToFileUtils", str);
             try {
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f64640c, true));
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f68358c, true));
                 bufferedWriter.write(str);
                 bufferedWriter.write(Part.CRLF);
                 bufferedWriter.flush();

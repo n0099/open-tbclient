@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.post.ReplyLinearLayout;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.n2.a;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,22 +32,22 @@ import java.util.regex.Pattern;
 public class g extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonPostModel.c f57697e;
+    public PersonPostModel.c f61386e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PersonPostModel f57698f;
+    public PersonPostModel f61387f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f57699g;
+    public final String f61388g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f57700h;
+    public BdUniqueId f61389h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f57701i;
+    public String f61390i;
     public TbPageContext<BaseFragmentActivity> j;
     public final PersonPostModel.c k = new a();
-    public final a.InterfaceC1445a l = new b();
+    public final a.InterfaceC1501a l = new b();
 
     /* loaded from: classes5.dex */
     public class a implements PersonPostModel.c {
@@ -55,36 +55,36 @@ public class g extends BaseAdapter {
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-        public void L(PersonPostModel personPostModel, boolean z) {
+        public void M(PersonPostModel personPostModel, boolean z) {
             if (z) {
-                g.this.f57698f = personPostModel;
-                Iterator<n> it = g.this.f57698f.postList.iterator();
+                g.this.f61387f = personPostModel;
+                Iterator<n> it = g.this.f61387f.postList.iterator();
                 while (it.hasNext()) {
                     n next = it.next();
                     if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
                         it.remove();
                     }
                 }
-            } else if (g.this.f57698f != null) {
+            } else if (g.this.f61387f != null) {
                 for (int i2 = 0; i2 < personPostModel.postList.size(); i2++) {
                     if (personPostModel.postList.get(i2) instanceof PersonPostModel.PostInfoList) {
-                        g.this.f57698f.postList.add(personPostModel.postList.get(i2));
+                        g.this.f61387f.postList.add(personPostModel.postList.get(i2));
                     }
                 }
             }
-            if (g.this.f57697e != null) {
-                g.this.f57697e.L(personPostModel, z);
+            if (g.this.f61386e != null) {
+                g.this.f61386e.M(personPostModel, z);
             }
             g.this.notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements a.InterfaceC1445a {
+    public class b implements a.InterfaceC1501a {
         public b() {
         }
 
-        @Override // d.a.n0.n2.a.InterfaceC1445a
+        @Override // d.a.n0.n2.a.InterfaceC1501a
         public void a(View view) {
             String[] strArr;
             int id = view.getId();
@@ -135,32 +135,32 @@ public class g extends BaseAdapter {
 
     public g(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2, BdUniqueId bdUniqueId) {
         this.j = tbPageContext;
-        this.f57699g = str;
-        this.f57700h = bdUniqueId;
+        this.f61388g = str;
+        this.f61389h = bdUniqueId;
     }
 
     public void e() {
-        PersonPostModel personPostModel = this.f57698f;
+        PersonPostModel personPostModel = this.f61387f;
         if (personPostModel != null) {
             personPostModel.cancelLoadData();
         }
     }
 
     public void f(boolean z) {
-        if (this.f57698f == null) {
-            PersonPostModel personPostModel = new PersonPostModel(this.j, this.f57700h, null, true, PersonPostModel.FROM_PERSON_POST);
-            this.f57698f = personPostModel;
-            personPostModel.setUniqueId(this.f57700h);
+        if (this.f61387f == null) {
+            PersonPostModel personPostModel = new PersonPostModel(this.j, this.f61389h, null, true, PersonPostModel.FROM_PERSON_POST);
+            this.f61387f = personPostModel;
+            personPostModel.setUniqueId(this.f61389h);
         }
-        this.f57698f.fetchPost(this.j, this.k, z, this.f57699g, false, true, false, null);
+        this.f61387f.fetchPost(this.j, this.k, z, this.f61388g, false, true, false, null);
     }
 
     public final void g(int i2, c cVar, ViewGroup viewGroup) {
         PersonPostModel.PostInfoList h2 = h(i2);
-        if (this.f57701i == null) {
-            this.f57701i = h2.user_portrait;
+        if (this.f61390i == null) {
+            this.f61390i = h2.user_portrait;
         }
-        cVar.d(h2, false, this.f57701i);
+        cVar.d(h2, false, this.f61390i);
         ArrayList<String[]> arrayList = new ArrayList<>();
         int length = h2.content.length;
         for (int i3 = 0; i3 < length; i3++) {
@@ -183,8 +183,8 @@ public class g extends BaseAdapter {
             cVar.w.setText(h2.title);
         }
         OriginalThreadInfo originalThreadInfo = h2.originalThreadInfo;
-        if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.f12034b)) {
-            cVar.w.setText("分享：" + h2.originalThreadInfo.f12034b);
+        if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.f12096b)) {
+            cVar.w.setText("分享：" + h2.originalThreadInfo.f12096b);
         }
         cVar.w.setTag(new String[]{String.valueOf(h2.thread_id), null, null, String.valueOf(h2.thread_type)});
         if (h2.thread_type == 33) {
@@ -203,7 +203,7 @@ public class g extends BaseAdapter {
     @Override // android.widget.Adapter
     public int getCount() {
         ArrayList<n> arrayList;
-        PersonPostModel personPostModel = this.f57698f;
+        PersonPostModel personPostModel = this.f61387f;
         if (personPostModel == null || (arrayList = personPostModel.postList) == null) {
             return 0;
         }
@@ -240,10 +240,10 @@ public class g extends BaseAdapter {
     }
 
     public PersonPostModel.PostInfoList h(int i2) {
-        return (PersonPostModel.PostInfoList) this.f57698f.postList.get(i2);
+        return (PersonPostModel.PostInfoList) this.f61387f.postList.get(i2);
     }
 
     public void i(PersonPostModel.c cVar) {
-        this.f57697e = cVar;
+        this.f61386e = cVar;
     }
 }

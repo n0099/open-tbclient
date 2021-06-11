@@ -24,31 +24,31 @@ import java.util.Map;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f2060a = 300000;
+    public static final long f2073a = 300000;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f2061b;
+    public Context f2074b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2062c;
+    public String f2075c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2063d;
+    public String f2076d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2064e;
+    public String f2077e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2065f;
+    public String f2078f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2066g;
+    public String f2079g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2067h;
+    public String f2080h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f2068i;
+    public String f2081i;
     public String j;
     public String k;
     public String l;
@@ -82,7 +82,7 @@ public class e {
         CdmaCellLocation cdmaCellLocation2;
         TelephonyManager telephonyManager;
         e eVar = new e();
-        eVar.f2061b = context;
+        eVar.f2074b = context;
         boolean z = false;
         if (!b.a(context, "android.permission.ACCESS_COARSE_LOCATION")) {
             try {
@@ -304,7 +304,7 @@ public class e {
     }
 
     public void a(String str) {
-        this.f2062c = str;
+        this.f2075c = str;
     }
 
     public boolean a() {
@@ -329,7 +329,7 @@ public class e {
     }
 
     public void b(String str) {
-        this.f2063d = str;
+        this.f2076d = str;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0048: IGET  (r2v4 int A[REMOVE]) = (r2v3 android.net.wifi.ScanResult) android.net.wifi.ScanResult.level int)] */
@@ -337,7 +337,7 @@ public class e {
         WifiManager wifiManager;
         List<ScanResult> scanResults;
         ArrayList arrayList = new ArrayList();
-        Context context = this.f2061b;
+        Context context = this.f2074b;
         if (context == null || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null || (scanResults = wifiManager.getScanResults()) == null) {
             return arrayList;
         }
@@ -358,16 +358,16 @@ public class e {
     }
 
     public void c(String str) {
-        this.f2064e = str;
+        this.f2077e = str;
     }
 
     public void d(String str) {
-        this.f2065f = str;
+        this.f2078f = str;
     }
 
     public boolean d() {
         LocationManager locationManager;
-        Context context = this.f2061b;
+        Context context = this.f2074b;
         if (context == null || (locationManager = (LocationManager) context.getSystemService("location")) == null) {
             return false;
         }
@@ -375,7 +375,7 @@ public class e {
     }
 
     public void e(String str) {
-        this.f2066g = str;
+        this.f2079g = str;
     }
 
     public boolean e() {
@@ -383,11 +383,11 @@ public class e {
         WifiInfo connectionInfo;
         WifiManager wifiManager2;
         List<WifiConfiguration> configuredNetworks;
-        Context context = this.f2061b;
+        Context context = this.f2074b;
         if (context == null || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
             return false;
         }
-        Context context2 = this.f2061b;
+        Context context2 = this.f2074b;
         String ssid = connectionInfo.getSSID();
         WifiConfiguration wifiConfiguration = null;
         if (context2 != null && ssid != null && (wifiManager2 = (WifiManager) context2.getSystemService("wifi")) != null && (configuredNetworks = wifiManager2.getConfiguredNetworks()) != null) {
@@ -416,23 +416,23 @@ public class e {
     }
 
     public String f() {
-        return this.f2062c;
+        return this.f2075c;
     }
 
     public void f(String str) {
-        this.f2067h = str;
+        this.f2080h = str;
     }
 
     public String g() {
-        return this.f2063d;
+        return this.f2076d;
     }
 
     public void g(String str) {
-        this.f2068i = str;
+        this.f2081i = str;
     }
 
     public String h() {
-        return this.f2064e;
+        return this.f2077e;
     }
 
     public void h(String str) {
@@ -440,7 +440,7 @@ public class e {
     }
 
     public String i() {
-        return this.f2065f;
+        return this.f2078f;
     }
 
     public void i(String str) {
@@ -448,7 +448,7 @@ public class e {
     }
 
     public String j() {
-        return this.f2066g;
+        return this.f2079g;
     }
 
     public void j(String str) {
@@ -456,11 +456,11 @@ public class e {
     }
 
     public String k() {
-        return this.f2067h;
+        return this.f2080h;
     }
 
     public String l() {
-        return this.f2068i;
+        return this.f2081i;
     }
 
     public String m() {

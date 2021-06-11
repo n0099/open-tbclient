@@ -5,10 +5,10 @@ import cn.com.chinatelecom.gateway.lib.CtAuth;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1516a = "e";
+    public static final String f1529a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f1517b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final char[] f1530b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String a(byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
@@ -16,8 +16,8 @@ public class e {
         }
         StringBuilder sb = new StringBuilder();
         for (int i2 = 0; i2 < bArr.length; i2++) {
-            sb.append(f1517b[(bArr[i2] >> 4) & 15]);
-            sb.append(f1517b[bArr[i2] & 15]);
+            sb.append(f1530b[(bArr[i2] >> 4) & 15]);
+            sb.append(f1530b[bArr[i2] & 15]);
         }
         return sb.toString();
     }
@@ -45,7 +45,7 @@ public class e {
         try {
             return str.getBytes("UTF-8");
         } catch (Throwable th) {
-            CtAuth.warn(f1516a, "getBytes error", th);
+            CtAuth.warn(f1529a, "getBytes error", th);
             return bArr;
         }
     }

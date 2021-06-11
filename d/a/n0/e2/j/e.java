@@ -17,17 +17,17 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import d.a.n0.e2.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e extends b<CustomDialogData> implements View.OnClickListener {
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomDialogData f53004g;
+    public CustomDialogData f56693g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f53005h;
+    public f f56694h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f53006i;
+    public TbImageView f56695i;
     public TextView j;
     public TextView k;
     public TextView l;
@@ -42,7 +42,7 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
 
     @Override // d.a.n0.e2.j.g
     public void a() {
-        this.f53006i = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
+        this.f56695i = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
         this.j = (TextView) getViewGroup().findViewById(R.id.dialog_title);
         this.k = (TextView) getViewGroup().findViewById(R.id.dialog_body);
         this.l = (TextView) getViewGroup().findViewById(R.id.yes);
@@ -74,10 +74,10 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
         if (customDialogData == null) {
             return;
         }
-        this.f53004g = customDialogData;
+        this.f56693g = customDialogData;
         CustomDialogData.Head head = customDialogData.head;
         if (!TextUtils.isEmpty(head.imageUrl)) {
-            this.f53006i.V(head.imageUrl, 10, false);
+            this.f56695i.U(head.imageUrl, 10, false);
         }
         if (!TextUtils.isEmpty(head.text)) {
             this.j.setText(head.text);
@@ -97,7 +97,7 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     }
 
     public void f(f fVar) {
-        this.f53005h = fVar;
+        this.f56694h = fVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -105,27 +105,27 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
         CustomDialogData.Button button;
         CustomDialogData.Button button2;
         if (view == this.l) {
-            CustomDialogData customDialogData = this.f53004g;
+            CustomDialogData customDialogData = this.f56693g;
             if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
-                UrlManager.getInstance().dealOneLink(d(), new String[]{this.f53004g.rightButton.action});
+                UrlManager.getInstance().dealOneLink(d(), new String[]{this.f56693g.rightButton.action});
             }
-            f fVar = this.f53005h;
+            f fVar = this.f56694h;
             if (fVar != null) {
                 fVar.dismiss();
             }
-            StatisticItem statisticItem = new StatisticItem(b.a.f52804b);
+            StatisticItem statisticItem = new StatisticItem(b.a.f56493b);
             statisticItem.param("obj_locate", 2);
             TiebaStatic.log(statisticItem);
         } else if (view == this.m) {
-            CustomDialogData customDialogData2 = this.f53004g;
+            CustomDialogData customDialogData2 = this.f56693g;
             if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f53002e.getPageActivity(), null, this.f53004g.leftButton.action, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f56691e.getPageActivity(), null, this.f56693g.leftButton.action, true)));
             }
-            f fVar2 = this.f53005h;
+            f fVar2 = this.f56694h;
             if (fVar2 != null) {
                 fVar2.dismiss();
             }
-            StatisticItem statisticItem2 = new StatisticItem(b.a.f52804b);
+            StatisticItem statisticItem2 = new StatisticItem(b.a.f56493b);
             statisticItem2.param("obj_locate", 1);
             TiebaStatic.log(statisticItem2);
         }

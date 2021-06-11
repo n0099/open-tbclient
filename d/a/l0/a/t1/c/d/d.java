@@ -14,27 +14,27 @@ public class d extends b {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44783e;
+        public final /* synthetic */ String f48457e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.t1.c.b.b f44784f;
+        public final /* synthetic */ d.a.l0.a.t1.c.b.b f48458f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f44785g;
+        public final /* synthetic */ g f48459g;
 
         public a(d dVar, String str, d.a.l0.a.t1.c.b.b bVar, g gVar) {
-            this.f44783e = str;
-            this.f44784f = bVar;
-            this.f44785g = gVar;
+            this.f48457e = str;
+            this.f48458f = bVar;
+            this.f48459g = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.a.l0.a.l1.b bVar = new d.a.l0.a.l1.b();
-            bVar.f43359g = this.f44783e;
-            bVar.f43358f = d.a.l0.a.t1.c.c.a.a(this.f44784f);
-            g.b i2 = this.f44785g.i("navigateTo");
-            i2.n(g.f42076g, g.f42078i);
+            bVar.f47035g = this.f48457e;
+            bVar.f47034f = d.a.l0.a.t1.c.c.a.a(this.f48458f);
+            g.b i2 = this.f48459g.i("navigateTo");
+            i2.n(g.f45752g, g.f45754i);
             i2.k("pluginFunPage", bVar).a();
         }
     }
@@ -61,14 +61,14 @@ public class d extends b {
         if (bVar == null) {
             return null;
         }
-        String str = bVar.f44752a;
-        String str2 = bVar.f44754c;
+        String str = bVar.f48426a;
+        String str2 = bVar.f48428c;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         d.a.l0.a.t1.c.b.a aVar = new d.a.l0.a.t1.c.b.a();
-        aVar.f44746a = str;
-        aVar.f44747b = str2;
+        aVar.f48420a = str;
+        aVar.f48421b = str2;
         if (d.a.l0.a.e0.f.e.e.d()) {
             file = e.f.e();
         } else if (d.a.l0.a.u1.a.a.G()) {
@@ -76,7 +76,7 @@ public class d extends b {
         } else if (d.a.l0.a.u1.a.a.C()) {
             file = d.a.l0.a.e0.f.d.b.d();
         } else {
-            if (TextUtils.equals(bVar.f44755d, "develop")) {
+            if (TextUtils.equals(bVar.f48429d, "develop")) {
                 String a2 = d.a.l0.a.v.a.a(str);
                 File g2 = d.a.l0.a.a1.e.g();
                 String[] list2 = g2.list();
@@ -98,15 +98,15 @@ public class d extends b {
                     }
                 }
                 if (i3 > -1) {
-                    aVar.f44746a = str3 + i3;
-                    aVar.f44750e = true;
-                    File file2 = new File(g2, aVar.f44746a + File.separator + i3);
-                    aVar.f44748c = file2.getAbsolutePath();
-                    aVar.f44749d = i3;
+                    aVar.f48420a = str3 + i3;
+                    aVar.f48424e = true;
+                    File file2 = new File(g2, aVar.f48420a + File.separator + i3);
+                    aVar.f48422c = file2.getAbsolutePath();
+                    aVar.f48423d = i3;
                     file = file2;
                 } else {
-                    aVar.f44750e = false;
-                    aVar.f44748c = null;
+                    aVar.f48424e = false;
+                    aVar.f48422c = null;
                 }
             } else {
                 File file3 = new File(d.a.l0.a.a1.e.g(), str);
@@ -128,10 +128,10 @@ public class d extends b {
                         }
                     }
                     if (i4 != -1) {
-                        aVar.f44749d = i4;
-                        aVar.f44750e = true;
+                        aVar.f48423d = i4;
+                        aVar.f48424e = true;
                         file = new File(file3, str5);
-                        aVar.f44748c = file.getAbsolutePath();
+                        aVar.f48422c = file.getAbsolutePath();
                     }
                 }
                 return aVar;
@@ -142,8 +142,8 @@ public class d extends b {
         }
         File file4 = new File(file, str2);
         if (n(file4)) {
-            aVar.f44751f = true;
-            aVar.f44748c = file4.getAbsolutePath();
+            aVar.f48425f = true;
+            aVar.f48422c = file4.getAbsolutePath();
             return aVar;
         }
         return aVar;

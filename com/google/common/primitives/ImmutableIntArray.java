@@ -100,13 +100,13 @@ public final class ImmutableIntArray implements Serializable {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int[] f31374a;
+        public int[] f31465a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31375b = 0;
+        public int f31466b = 0;
 
         public b(int i2) {
-            this.f31374a = new int[i2];
+            this.f31465a = new int[i2];
         }
 
         public static int f(int i2, int i3) {
@@ -125,10 +125,10 @@ public final class ImmutableIntArray implements Serializable {
 
         public b a(int i2) {
             e(1);
-            int[] iArr = this.f31374a;
-            int i3 = this.f31375b;
+            int[] iArr = this.f31465a;
+            int i3 = this.f31466b;
             iArr[i3] = i2;
-            this.f31375b = i3 + 1;
+            this.f31466b = i3 + 1;
             return this;
         }
 
@@ -146,25 +146,25 @@ public final class ImmutableIntArray implements Serializable {
         public b c(Collection<Integer> collection) {
             e(collection.size());
             for (Integer num : collection) {
-                int[] iArr = this.f31374a;
-                int i2 = this.f31375b;
-                this.f31375b = i2 + 1;
+                int[] iArr = this.f31465a;
+                int i2 = this.f31466b;
+                this.f31466b = i2 + 1;
                 iArr[i2] = num.intValue();
             }
             return this;
         }
 
         public ImmutableIntArray d() {
-            return this.f31375b == 0 ? ImmutableIntArray.EMPTY : new ImmutableIntArray(this.f31374a, 0, this.f31375b);
+            return this.f31466b == 0 ? ImmutableIntArray.EMPTY : new ImmutableIntArray(this.f31465a, 0, this.f31466b);
         }
 
         public final void e(int i2) {
-            int i3 = this.f31375b + i2;
-            int[] iArr = this.f31374a;
+            int i3 = this.f31466b + i2;
+            int[] iArr = this.f31465a;
             if (i3 > iArr.length) {
                 int[] iArr2 = new int[f(iArr.length, i3)];
-                System.arraycopy(this.f31374a, 0, iArr2, 0, this.f31375b);
-                this.f31374a = iArr2;
+                System.arraycopy(this.f31465a, 0, iArr2, 0, this.f31466b);
+                this.f31465a = iArr2;
             }
         }
     }

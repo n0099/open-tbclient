@@ -20,24 +20,24 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public NEGFeedBackView f61990a;
+    public NEGFeedBackView f65705a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f61991b;
+    public TbPageContext f65706b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f61992c;
+    public ViewGroup f65707c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f61993d;
+    public BdUniqueId f65708d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NEGFeedBackView.b f61994e = new C1666a(this);
+    public NEGFeedBackView.b f65709e = new C1723a(this);
 
     /* renamed from: d.a.n0.v.i.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1666a implements NEGFeedBackView.b {
-        public C1666a(a aVar) {
+    public class C1723a implements NEGFeedBackView.b {
+        public C1723a(a aVar) {
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
@@ -77,72 +77,72 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        this.f61991b = tbPageContext;
-        this.f61992c = viewGroup;
+        this.f65706b = tbPageContext;
+        this.f65707c = viewGroup;
     }
 
     public View a() {
-        return this.f61990a;
+        return this.f65705a;
     }
 
     public void b(a2 a2Var, String str) {
-        if (a2Var == null || a2Var.r1() == null || this.f61991b == null || this.f61992c == null) {
+        if (a2Var == null || a2Var.s1() == null || this.f65706b == null || this.f65707c == null) {
             return;
         }
         int i2 = 0;
         boolean z = (a2Var.T() == null || a2Var.T().getUserId() == null || !a2Var.T().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-        if (TbadkCoreApplication.isLogin() && a2Var.r1().dislikeInfo != null && !z && a2Var.r1().dislikeInfo.size() > 0) {
-            if (this.f61990a == null) {
-                NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.f61991b);
-                this.f61990a = nEGFeedBackView;
-                nEGFeedBackView.setUniqueId(this.f61993d);
-                this.f61990a.setId(R.id.negative_feedback_view);
-                this.f61990a.setDefaultReasonArray(new String[]{this.f61991b.getString(R.string.bad_quality), "", ""});
-                this.f61990a.setEventCallback(this.f61994e);
-                this.f61990a.n(this.f61992c, l.g(this.f61991b.getPageActivity(), R.dimen.tbds120), l.g(this.f61991b.getPageActivity(), R.dimen.tbds20));
-                this.f61990a.q();
+        if (TbadkCoreApplication.isLogin() && a2Var.s1().dislikeInfo != null && !z && a2Var.s1().dislikeInfo.size() > 0) {
+            if (this.f65705a == null) {
+                NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.f65706b);
+                this.f65705a = nEGFeedBackView;
+                nEGFeedBackView.setUniqueId(this.f65708d);
+                this.f65705a.setId(R.id.negative_feedback_view);
+                this.f65705a.setDefaultReasonArray(new String[]{this.f65706b.getString(R.string.bad_quality), "", ""});
+                this.f65705a.setEventCallback(this.f65709e);
+                this.f65705a.n(this.f65707c, l.g(this.f65706b.getPageActivity(), R.dimen.tbds120), l.g(this.f65706b.getPageActivity(), R.dimen.tbds20));
+                this.f65705a.q();
             }
-            if (this.f61990a.getVisibility() != 0) {
-                this.f61990a.setVisibility(0);
+            if (this.f65705a.getVisibility() != 0) {
+                this.f65705a.setVisibility(0);
             }
             v0 v0Var = new v0();
-            v0Var.n(a2Var.y1());
+            v0Var.n(a2Var.z1());
             v0Var.k(a2Var.c0());
             v0Var.m(a2Var.M0());
             v0Var.q(str);
-            v0Var.j(a2Var.r1().dislikeInfo);
-            this.f61990a.setData(v0Var);
+            v0Var.j(a2Var.s1().dislikeInfo);
+            this.f65705a.setData(v0Var);
         } else {
-            NEGFeedBackView nEGFeedBackView2 = this.f61990a;
+            NEGFeedBackView nEGFeedBackView2 = this.f65705a;
             if (nEGFeedBackView2 != null && nEGFeedBackView2.getVisibility() != 8) {
-                this.f61990a.setVisibility(8);
+                this.f65705a.setVisibility(8);
             }
-            i2 = l.g(this.f61991b.getPageActivity(), R.dimen.ds32);
+            i2 = l.g(this.f65706b.getPageActivity(), R.dimen.ds32);
         }
-        if (this.f61992c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f61992c.getLayoutParams();
+        if (this.f65707c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f65707c.getLayoutParams();
             layoutParams.rightMargin = i2;
-            this.f61992c.setLayoutParams(layoutParams);
+            this.f65707c.setLayoutParams(layoutParams);
         }
-        if (this.f61992c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f61992c.getLayoutParams();
+        if (this.f65707c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f65707c.getLayoutParams();
             layoutParams2.rightMargin = i2;
-            this.f61992c.setLayoutParams(layoutParams2);
+            this.f65707c.setLayoutParams(layoutParams2);
         }
-        NEGFeedBackView nEGFeedBackView3 = this.f61990a;
+        NEGFeedBackView nEGFeedBackView3 = this.f65705a;
         if (nEGFeedBackView3 != null) {
             nEGFeedBackView3.o();
         }
     }
 
     public void c() {
-        NEGFeedBackView nEGFeedBackView = this.f61990a;
+        NEGFeedBackView nEGFeedBackView = this.f65705a;
         if (nEGFeedBackView != null) {
             nEGFeedBackView.q();
         }
     }
 
     public void d(BdUniqueId bdUniqueId) {
-        this.f61993d = bdUniqueId;
+        this.f65708d = bdUniqueId;
     }
 }

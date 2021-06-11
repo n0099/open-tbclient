@@ -3,10 +3,10 @@ package d.a.m0.b1.i.c;
 public class b implements d.a.c.e.k.c<d.a.m0.b1.i.a.a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49065a;
+    public int f52739a;
 
     public b(int i2) {
-        this.f49065a = i2;
+        this.f52739a = i2;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -42,14 +42,14 @@ public class b implements d.a.c.e.k.c<d.a.m0.b1.i.a.a> {
     }
 
     public int g() {
-        return this.f49065a;
+        return this.f52739a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.c.e.k.c
     /* renamed from: h */
     public d.a.m0.b1.i.a.a d() {
-        return new d.a.m0.b1.i.a.a(this.f49065a);
+        return new d.a.m0.b1.i.a.a(this.f52739a);
     }
 
     public d.a.m0.b1.i.a.a i(d.a.m0.b1.i.a.a aVar) {
@@ -57,6 +57,6 @@ public class b implements d.a.c.e.k.c<d.a.m0.b1.i.a.a> {
     }
 
     public void j(int i2) {
-        this.f49065a = i2;
+        this.f52739a = i2;
     }
 }

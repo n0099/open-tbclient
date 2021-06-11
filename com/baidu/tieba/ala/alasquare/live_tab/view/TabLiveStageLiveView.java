@@ -18,6 +18,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -31,19 +32,19 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     public static final float[] q;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f13771e;
+    public TbImageView f13836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f13772f;
+    public HeadImageView f13837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13773g;
+    public View f13838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f13774h;
+    public TextView f13839h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f13775i;
+    public TextView f13840i;
     public TextView j;
     public View k;
     public TabLiveStageLiveZanLottieView l;
@@ -61,11 +62,16 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
             if (!c.d(TabLiveStageLiveView.this.n)) {
                 c.h(TabLiveStageLiveView.this.getContext(), TabLiveStageLiveView.this.n);
             } else if (j.a(TabLiveStageLiveView.this.getContext()) instanceof TbPageContext) {
-                c.j((TbPageContext) j.a(TabLiveStageLiveView.this.getContext()), TabLiveStageLiveView.this.n);
+                int i2 = TabLiveStageLiveView.this.m;
+                String str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_STAGE;
+                if (i2 != 101 && TabLiveStageLiveView.this.m == 102) {
+                    str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_RECOMMEND;
+                }
+                c.j((TbPageContext) j.a(TabLiveStageLiveView.this.getContext()), TabLiveStageLiveView.this.n, str);
             }
-            int i2 = TabLiveStageLiveView.this.m;
-            String str = TiebaStatic.YYValues.YY_LIVE;
-            if (i2 != 101) {
+            int i3 = TabLiveStageLiveView.this.m;
+            String str2 = TiebaStatic.YYValues.YY_LIVE;
+            if (i3 != 101) {
                 if (TabLiveStageLiveView.this.m == 102) {
                     StatisticItem statisticItem = new StatisticItem("c13559");
                     if (TabLiveStageLiveView.this.n.liveInfo != null) {
@@ -73,10 +79,10 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                         if (TabLiveStageLiveView.this.n.liveInfo.yyExt != null) {
                             TiebaStaticHelper.addYYParam(statisticItem, c.k(TabLiveStageLiveView.this.n.liveInfo.yyExt));
                         } else {
-                            str = "";
+                            str2 = "";
                         }
                         statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, a2);
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str);
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str2);
                     }
                     statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
                     TiebaStatic.log(statisticItem);
@@ -90,10 +96,10 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                 if (TabLiveStageLiveView.this.n.liveInfo.yyExt != null) {
                     TiebaStaticHelper.addYYParam(statisticItem2, c.k(TabLiveStageLiveView.this.n.liveInfo.yyExt));
                 } else {
-                    str = "";
+                    str2 = "";
                 }
                 statisticItem2.param("obj_param1", a3);
-                statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, str);
+                statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, str2);
             }
             statisticItem2.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
             TiebaStatic.log(statisticItem2);
@@ -114,8 +120,8 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     }
 
     public void c() {
-        SkinManager.setViewTextColor(this.f13774h, R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.f13775i, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f13839h, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f13840i, R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0101);
         Drawable drawable = SkinManager.getDrawable(getContext().getResources(), R.drawable.tab_icon_living_seeding);
         drawable.setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18), getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18));
@@ -142,19 +148,19 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
         this.l = tabLiveStageLiveZanLottieView;
         tabLiveStageLiveZanLottieView.setForbidAutoUpdateState(true);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.cover);
-        this.f13771e = tbImageView;
+        this.f13836e = tbImageView;
         tbImageView.setBackgroundColor(0);
-        this.f13771e.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
-        this.f13771e.setConrers(15);
+        this.f13836e.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
+        this.f13836e.setConrers(15);
         HeadImageView headImageView = (HeadImageView) findViewById(R.id.head_img);
-        this.f13772f = headImageView;
+        this.f13837f = headImageView;
         headImageView.setAutoChangeStyle(false);
-        this.f13772f.setClickable(true);
-        this.f13772f.setIsRound(true);
-        this.f13772f.setBorderWidth(l.g(getContext(), R.dimen.tbds1));
-        this.f13773g = findViewById(R.id.head_mask_view);
-        this.f13774h = (TextView) findViewById(R.id.title);
-        this.f13775i = (TextView) findViewById(R.id.user_name);
+        this.f13837f.setClickable(true);
+        this.f13837f.setIsRound(true);
+        this.f13837f.setBorderWidth(l.g(getContext(), R.dimen.tbds1));
+        this.f13838g = findViewById(R.id.head_mask_view);
+        this.f13839h = (TextView) findViewById(R.id.title);
+        this.f13840i = (TextView) findViewById(R.id.user_name);
         this.j = (TextView) findViewById(R.id.audience_count);
         this.k = findViewById(R.id.bottom_gradient_bg);
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.o);
@@ -187,23 +193,23 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
         if (sdkLiveInfoData != null && sdkLiveInfoData.liveInfo != null) {
             this.n = sdkLiveInfoData;
             this.m = i2;
-            this.f13771e.setPlaceHolder(3);
-            this.f13771e.V(sdkLiveInfoData.liveInfo.cover, 10, false);
+            this.f13836e.setPlaceHolder(3);
+            this.f13836e.U(sdkLiveInfoData.liveInfo.cover, 10, false);
             SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
             if (liveAuthor != null) {
                 String name_show = liveAuthor.getName_show();
                 if (i0.d(name_show) > 16) {
                     name_show = i0.m(name_show, 16) + StringHelper.STRING_MORE;
                 }
-                this.f13775i.setText(name_show);
-                AlaUtilHelper.startLoadPortrait(this.f13772f, sdkLiveInfoData.liveAuthor.portrait, false);
+                this.f13840i.setText(name_show);
+                AlaUtilHelper.startLoadPortrait(this.f13837f, sdkLiveInfoData.liveAuthor.portrait, false);
                 if (1 == TbadkCoreApplication.getInst().getSkinType()) {
-                    this.f13773g.setVisibility(0);
+                    this.f13838g.setVisibility(0);
                 } else {
-                    this.f13773g.setVisibility(8);
+                    this.f13838g.setVisibility(8);
                 }
             }
-            this.f13774h.setText(sdkLiveInfoData.title);
+            this.f13839h.setText(sdkLiveInfoData.title);
             this.j.setText(getContext().getResources().getString(R.string.square_sub_live_audience_label, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
             return;
         }

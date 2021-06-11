@@ -31,7 +31,7 @@ import java.io.File;
 @Service
 /* loaded from: classes3.dex */
 public class a extends d.a.l0.a.g1.b {
-    public static final boolean o = k.f43199a;
+    public static final boolean o = k.f46875a;
     public String k;
     public Runnable m;
     public d.a.l0.h.r.b l = new d.a.l0.h.r.b();
@@ -39,71 +39,71 @@ public class a extends d.a.l0.a.g1.b {
 
     /* renamed from: d.a.l0.h.w.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1055a implements d.a.l0.a.a1.b {
+    public class C1111a implements d.a.l0.a.a1.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a1.b f47712a;
+        public final /* synthetic */ d.a.l0.a.a1.b f51386a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f47713b;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f51387b;
 
         /* renamed from: d.a.l0.h.w.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC1056a implements Runnable {
+        public class RunnableC1112a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.a.l0.a.a1.a f47715e;
+            public final /* synthetic */ d.a.l0.a.a1.a f51389e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f47716f;
+            public final /* synthetic */ int f51390f;
 
-            public RunnableC1056a(d.a.l0.a.a1.a aVar, int i2) {
-                this.f47715e = aVar;
-                this.f47716f = i2;
+            public RunnableC1112a(d.a.l0.a.a1.a aVar, int i2) {
+                this.f51389e = aVar;
+                this.f51390f = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f41897i) {
+                if (a.this.f45573i) {
                     return;
                 }
-                a.c cVar = (a.c) this.f47715e;
-                if (this.f47716f != 0 || cVar == null) {
+                a.c cVar = (a.c) this.f51389e;
+                if (this.f51390f != 0 || cVar == null) {
                     return;
                 }
-                C1055a c1055a = C1055a.this;
-                if (c1055a.f47712a == null) {
+                C1111a c1111a = C1111a.this;
+                if (c1111a.f51386a == null) {
                     return;
                 }
-                if (c1055a.f47713b.l0()) {
+                if (c1111a.f51387b.l0()) {
                     if (!d.a.l0.h.f.d.m().n()) {
                         d.a.l0.a.e0.b.c(false);
-                        C1055a.this.f47713b.y0(false);
+                        C1111a.this.f51387b.y0(false);
                     } else {
                         a aVar = a.this;
-                        aVar.n(aVar.f41892d).setVisibility(0);
-                        a.this.q().I(a.this.f41894f);
+                        aVar.n(aVar.f45568d).setVisibility(0);
+                        a.this.q().I(a.this.f45570f);
                         d.a.l0.a.e0.a.b(true);
                         d.a.l0.a.e0.d.g("GamesControllerImpl", "init sConsole for devHook");
                     }
                 }
-                a.this.l.c(cVar, a.this.f41892d);
-                a.this.k = cVar.f47674a;
-                C1055a.this.f47712a.a(0, cVar);
-                a.this.f0(cVar.f47676c);
-                d.a.l0.h.i0.a.b().e(cVar.f47676c);
+                a.this.l.c(cVar, a.this.f45568d);
+                a.this.k = cVar.f51348a;
+                C1111a.this.f51386a.a(0, cVar);
+                a.this.f0(cVar.f51350c);
+                d.a.l0.h.i0.a.b().e(cVar.f51350c);
             }
         }
 
-        public C1055a(d.a.l0.a.a1.b bVar, d.a.l0.a.f1.e.b bVar2) {
-            this.f47712a = bVar;
-            this.f47713b = bVar2;
+        public C1111a(d.a.l0.a.a1.b bVar, d.a.l0.a.f1.e.b bVar2) {
+            this.f51386a = bVar;
+            this.f51387b = bVar2;
         }
 
         @Override // d.a.l0.a.a1.b
         public void a(int i2, d.a.l0.a.a1.a aVar) {
             q0.a0(a.this.m);
-            a.this.m = new RunnableC1056a(aVar, i2);
+            a.this.m = new RunnableC1112a(aVar, i2);
             q0.d0(a.this.m);
         }
     }
@@ -119,7 +119,7 @@ public class a extends d.a.l0.a.g1.b {
         if (o) {
             Log.d("GamesControllerImpl", "asyncLoadSwanApp swanCoreVersion: " + bVar.i0());
         }
-        d.a.l0.h.s.a.c(bVar, new C1055a(bVar2, bVar));
+        d.a.l0.h.s.a.c(bVar, new C1111a(bVar2, bVar));
         d.a.l0.h.o.c.m().I(bVar);
         d.a.l0.h.o.c.m().G(bVar);
         if (o) {
@@ -139,13 +139,13 @@ public class a extends d.a.l0.a.g1.b {
         if (activity == null) {
             return null;
         }
-        if (this.f41895g == null && (viewGroup = (ViewGroup) activity.findViewById(f.ai_apps_activity_root)) != null) {
+        if (this.f45571g == null && (viewGroup = (ViewGroup) activity.findViewById(f.ai_apps_activity_root)) != null) {
             SwanAppPropertyWindow swanAppPropertyWindow = new SwanAppPropertyWindow(activity);
-            this.f41895g = swanAppPropertyWindow;
+            this.f45571g = swanAppPropertyWindow;
             swanAppPropertyWindow.setVisibility(8);
-            viewGroup.addView(this.f41895g);
+            viewGroup.addView(this.f45571g);
         }
-        return this.f41895g;
+        return this.f45571g;
     }
 
     @Override // d.a.l0.a.g1.b, d.a.l0.a.g1.d
@@ -167,7 +167,7 @@ public class a extends d.a.l0.a.g1.b {
     public void P() {
         super.P();
         d.a.l0.h.o.c.C();
-        d.a.l0.h.a0.b.f47120a.a().d(new JsObject());
+        d.a.l0.h.a0.b.f50794a.a().d(new JsObject());
         d.a.l0.t.d.j(d.a.l0.a.r0.n.n() + File.separator + "tmp");
     }
 
@@ -196,24 +196,24 @@ public class a extends d.a.l0.a.g1.b {
 
     @Override // d.a.l0.a.g1.d
     public boolean j() {
-        return this.f41896h;
+        return this.f45572h;
     }
 
     @Override // d.a.l0.a.g1.b, d.a.l0.a.g1.d
     public FullScreenFloatView n(Activity activity) {
         super.n(activity);
-        this.f41894f.setAutoAttachEnable(false);
-        return this.f41894f;
+        this.f45570f.setAutoAttachEnable(false);
+        return this.f45570f;
     }
 
     @Override // d.a.l0.a.g1.b, d.a.l0.a.g1.d
     public d.a.l0.a.p.e.a q() {
-        if (this.f41889a == null) {
-            this.f41889a = new h(AppRuntime.getAppContext());
+        if (this.f45565a == null) {
+            this.f45565a = new h(AppRuntime.getAppContext());
             i.h(true);
         }
-        this.f41889a.H((ViewGroup) this.f41892d.findViewById(16908290));
-        return this.f41889a;
+        this.f45565a.H((ViewGroup) this.f45568d.findViewById(16908290));
+        return this.f45565a;
     }
 
     @Override // d.a.l0.a.g1.b, d.a.l0.a.g1.d
@@ -225,27 +225,27 @@ public class a extends d.a.l0.a.g1.b {
     @Override // d.a.l0.a.g1.b, d.a.l0.a.g1.d
     public void w() {
         super.w();
-        SwanAppActivity swanAppActivity = this.f41892d;
+        SwanAppActivity swanAppActivity = this.f45568d;
         if (swanAppActivity != null && swanAppActivity.getLaunchInfo() != null) {
-            b.a launchInfo = this.f41892d.getLaunchInfo();
+            b.a launchInfo = this.f45568d.getLaunchInfo();
             d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-            fVar.f43185a = d.a.l0.a.j2.k.m(1);
-            fVar.f43190f = launchInfo.H();
-            fVar.f43187c = launchInfo.T();
-            fVar.f43186b = "show";
+            fVar.f46861a = d.a.l0.a.j2.k.m(1);
+            fVar.f46866f = launchInfo.H();
+            fVar.f46863c = launchInfo.T();
+            fVar.f46862b = "show";
             fVar.d(launchInfo.r0().getString(UBCCloudControlProcessor.UBC_KEY));
             fVar.b(d.a.l0.a.j2.k.k(launchInfo.W()));
             d.a.l0.a.j2.k.onEvent(fVar);
         }
         d.a.l0.a.i1.b.h(true);
-        d.a.l0.h.a0.b.f47120a.a().j();
+        d.a.l0.h.a0.b.f50794a.a().j();
     }
 
     @Override // d.a.l0.a.g1.b, d.a.l0.a.g1.d
     public void x() {
         super.x();
         d.a.l0.a.i1.b.h(false);
-        d.a.l0.h.a0.b.f47120a.a().f();
+        d.a.l0.h.a0.b.f50794a.a().f();
     }
 
     @Override // d.a.l0.a.g1.b, d.a.l0.a.g1.d
@@ -254,7 +254,7 @@ public class a extends d.a.l0.a.g1.b {
         int i2;
         int i3;
         View decorView;
-        SwanAppActivity swanAppActivity = this.f41892d;
+        SwanAppActivity swanAppActivity = this.f45568d;
         if (swanAppActivity == null) {
             return super.y();
         }
@@ -267,14 +267,14 @@ public class a extends d.a.l0.a.g1.b {
             i3 = decorView.getWidth();
             i2 = decorView.getHeight();
         }
-        Display defaultDisplay = this.f41892d.getWindowManager().getDefaultDisplay();
+        Display defaultDisplay = this.f45568d.getWindowManager().getDefaultDisplay();
         if (i3 == 0 || i2 == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             defaultDisplay.getRealMetrics(displayMetrics);
             i3 = displayMetrics.widthPixels;
             i2 = displayMetrics.heightPixels;
         }
-        if (this.f41892d.isLandScape() == ((defaultDisplay.getRotation() == 1 || defaultDisplay.getRotation() == 3) ? true : true)) {
+        if (this.f45568d.isLandScape() == ((defaultDisplay.getRotation() == 1 || defaultDisplay.getRotation() == 3) ? true : true)) {
             int i4 = i3;
             i3 = i2;
             i2 = i4;

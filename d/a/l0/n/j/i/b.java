@@ -7,13 +7,13 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f48134c;
+    public static volatile b f51808c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f48135a = new a();
+    public final a f51809a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.n.j.i.a f48136b;
+    public d.a.l0.n.j.i.a f51810b;
 
     /* loaded from: classes3.dex */
     public static class a extends d.a.l0.t.j {
@@ -23,30 +23,30 @@ public class b {
     }
 
     public static b b() {
-        if (f48134c == null) {
+        if (f51808c == null) {
             synchronized (b.class) {
-                if (f48134c == null) {
-                    f48134c = new b();
+                if (f51808c == null) {
+                    f51808c = new b();
                 }
             }
         }
-        return f48134c;
+        return f51808c;
     }
 
     @NonNull
     public d.a.l0.n.j.i.a a() {
-        if (this.f48136b == null) {
+        if (this.f51810b == null) {
             synchronized (b.class) {
-                if (this.f48136b == null) {
-                    this.f48136b = d.a.l0.n.j.i.a.b(this.f48135a.getString("data", ""));
+                if (this.f51810b == null) {
+                    this.f51810b = d.a.l0.n.j.i.a.b(this.f51809a.getString("data", ""));
                 }
             }
         }
-        return this.f48136b;
+        return this.f51810b;
     }
 
     public String c() {
-        return this.f48135a.getString("version", "0");
+        return this.f51809a.getString("version", "0");
     }
 
     public void d(JSONObject jSONObject) {
@@ -61,6 +61,6 @@ public class b {
         if (TextUtils.isEmpty(optString2)) {
             return;
         }
-        this.f48135a.edit().putString("version", optString).putString("data", optString2).apply();
+        this.f51809a.edit().putString("version", optString).putString("data", optString2).apply();
     }
 }

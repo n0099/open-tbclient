@@ -20,26 +20,26 @@ public class c extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41596e;
+        public final /* synthetic */ CallbackHandler f45272e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41597f;
+        public final /* synthetic */ String f45273f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f41598g;
+        public final /* synthetic */ Activity f45274g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f41599h;
+        public final /* synthetic */ String f45275h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f41600i;
+        public final /* synthetic */ String f45276i;
 
         public a(CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
-            this.f41596e = callbackHandler;
-            this.f41597f = str;
-            this.f41598g = activity;
-            this.f41599h = str2;
-            this.f41600i = str3;
+            this.f45272e = callbackHandler;
+            this.f45273f = str;
+            this.f45274g = activity;
+            this.f45275h = str2;
+            this.f45276i = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,15 +47,15 @@ public class c extends a0 {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.i("SwanAppAction", "onCallback: has permission scope_mobile_api");
                 }
-                c.this.m(this.f41596e, this.f41597f, this.f41598g, this.f41599h, this.f41600i);
+                c.this.m(this.f45272e, this.f45273f, this.f45274g, this.f45275h, this.f45276i);
                 return;
             }
             d.a.l0.a.e0.d.h("SwanAppAction", "onCallback: no permission scope_mobile_api");
-            k.O(this.f41600i, "fail", "onCallback: no permission ");
-            this.f41596e.handleSchemeDispatchCallback(this.f41597f, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+            k.O(this.f45276i, com.baidu.pass.biometrics.face.liveness.b.b.g0, "onCallback: no permission ");
+            this.f45272e.handleSchemeDispatchCallback(this.f45273f, UnitedSchemeUtility.wrapCallbackParams(402).toString());
         }
     }
 
@@ -63,27 +63,27 @@ public class c extends a0 {
     public class b implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.d.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f41601e;
+        public final /* synthetic */ Activity f45277e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f41602f;
+        public final /* synthetic */ boolean f45278f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41603g;
+        public final /* synthetic */ String f45279g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41604h;
+        public final /* synthetic */ CallbackHandler f45280h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f41605i;
+        public final /* synthetic */ String f45281i;
         public final /* synthetic */ String j;
 
         public b(Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2, String str3) {
-            this.f41601e = activity;
-            this.f41602f = z;
-            this.f41603g = str;
-            this.f41604h = callbackHandler;
-            this.f41605i = str2;
+            this.f45277e = activity;
+            this.f45278f = z;
+            this.f45279g = str;
+            this.f45280h = callbackHandler;
+            this.f45281i = str2;
             this.j = str3;
         }
 
@@ -94,22 +94,22 @@ public class c extends a0 {
             d.a.l0.a.e0.d.a("OpenData", "onOpenDataCallback:: ", aVar);
             d.a.l0.a.a2.e c2 = c.this.c();
             if (!aVar.E()) {
-                if (c2 != null && !c2.j().e(this.f41601e) && !this.f41602f) {
-                    k.M("fail", 2, this.f41603g);
+                if (c2 != null && !c2.j().e(this.f45277e) && !this.f45278f) {
+                    k.M(com.baidu.pass.biometrics.face.liveness.b.b.g0, 2, this.f45279g);
                 }
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.i("SwanAppAction", "onCallback: no open datamobile");
                 }
-                d.a.l0.a.e2.c.d.m(aVar, this.f41604h, this.f41605i);
-                k.O(this.j, "fail", "onCallback: no open data");
+                d.a.l0.a.e2.c.d.m(aVar, this.f45280h, this.f45281i);
+                k.O(this.j, com.baidu.pass.biometrics.face.liveness.b.b.g0, "onCallback: no open data");
                 return;
             }
             d.a.l0.a.e0.d.h("SwanAppAction", "onCallback: got open datamobile");
-            if (c2 != null && c2.j().e(this.f41601e) && !this.f41602f) {
-                k.M("success", 2, this.f41603g);
+            if (c2 != null && c2.j().e(this.f45277e) && !this.f45278f) {
+                k.M("success", 2, this.f45279g);
             }
             k.N(this.j, "success");
-            this.f41604h.handleSchemeDispatchCallback(this.f41605i, UnitedSchemeUtility.wrapCallbackParams(aVar.f41771g, 0).toString());
+            this.f45280h.handleSchemeDispatchCallback(this.f45281i, UnitedSchemeUtility.wrapCallbackParams(aVar.f45447g, 0).toString());
         }
     }
 
@@ -134,13 +134,13 @@ public class c extends a0 {
         String optString2 = optParamsAsJo.optString("cb");
         if (TextUtils.isEmpty(optString2)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-            k.O(str, "fail", "empty cb");
+            k.O(str, com.baidu.pass.biometrics.face.liveness.b.b.g0, "empty cb");
             return false;
         }
         SwanAppActivity x = d.a.l0.a.a2.d.g().x();
         if (x == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
-            k.O(str, "fail", "the context is not an activity");
+            k.O(str, com.baidu.pass.biometrics.face.liveness.b.b.g0, "the context is not an activity");
             return false;
         }
         if (!eVar.j().e(context)) {

@@ -8,9 +8,9 @@ import d.a.l0.a.c1.a;
 import d.a.l0.a.k;
 import d.a.l0.a.m2.b;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanJSVersionUpdateEvent {
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final String TAG = "SwanJSVersionUpdateEven";
     public final long mVersionCode;
     public final String mVersionName;

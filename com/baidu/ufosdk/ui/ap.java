@@ -7,10 +7,10 @@ import com.baidu.ufosdk.UfoSDK;
 public final class ap implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ao f22641a;
+    public final /* synthetic */ ao f22744a;
 
     public ap(ao aoVar) {
-        this.f22641a = aoVar;
+        this.f22744a = aoVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,20 +18,20 @@ public final class ap implements Runnable {
         Handler handler;
         int i2;
         Handler handler2;
-        com.baidu.ufosdk.e.a.a(this.f22641a.f22640a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f22744a.f22743a.getApplicationContext());
         if (UfoSDK.clientid.length() != 0) {
-            handler = this.f22641a.f22640a.v;
+            handler = this.f22744a.f22743a.v;
             i2 = 1;
         } else {
-            handler = this.f22641a.f22640a.v;
+            handler = this.f22744a.f22743a.v;
             i2 = 4;
         }
         handler.obtainMessage(i2, null).sendToTarget();
-        Context applicationContext = this.f22641a.f22640a.getApplicationContext();
+        Context applicationContext = this.f22744a.f22743a.getApplicationContext();
         String str = UfoSDK.clientid;
         String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
         if (c2 != null) {
-            handler2 = this.f22641a.f22640a.v;
+            handler2 = this.f22744a.f22743a.v;
             handler2.obtainMessage(0, c2).sendToTarget();
         }
     }

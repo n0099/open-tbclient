@@ -15,127 +15,127 @@ import d.a.c.e.m.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f56763a;
+    public ImageView f60452a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f56764b;
+    public View f60453b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f56765c;
+    public TextView f60454c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SlidingTabLayout f56766d;
+    public SlidingTabLayout f60455d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f56767e;
+    public Context f60456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f56768f;
+    public Animation f60457f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f56769g;
+    public Animation f60458g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f56770h = true;
+    public boolean f60459h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f56771i = new C1413a();
+    public d f60460i = new C1469a();
 
     /* renamed from: d.a.n0.k1.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1413a extends d {
-        public C1413a() {
+    public class C1469a extends d {
+        public C1469a() {
         }
 
         @Override // d.a.c.e.m.d
         public void a(Animation animation) {
-            if (a.this.f56765c == null) {
+            if (a.this.f60454c == null) {
                 return;
             }
-            if (animation == a.this.f56768f) {
-                a.this.f56765c.setVisibility(0);
-                a.this.f56765c.setClickable(true);
-            } else if (animation == a.this.f56769g) {
-                a.this.f56765c.setVisibility(8);
-                a.this.f56765c.setClickable(false);
+            if (animation == a.this.f60457f) {
+                a.this.f60454c.setVisibility(0);
+                a.this.f60454c.setClickable(true);
+            } else if (animation == a.this.f60458g) {
+                a.this.f60454c.setVisibility(8);
+                a.this.f60454c.setClickable(false);
             }
         }
     }
 
     public a(Context context, View view) {
-        this.f56764b = view;
-        this.f56767e = context;
-        this.f56765c = (TextView) view.findViewById(R.id.tab_widget_switch);
-        this.f56763a = (ImageView) view.findViewById(R.id.tab_widget_more);
-        this.f56766d = (SlidingTabLayout) view.findViewById(R.id.tab_widget_sliding_tab);
+        this.f60453b = view;
+        this.f60456e = context;
+        this.f60454c = (TextView) view.findViewById(R.id.tab_widget_switch);
+        this.f60452a = (ImageView) view.findViewById(R.id.tab_widget_more);
+        this.f60455d = (SlidingTabLayout) view.findViewById(R.id.tab_widget_sliding_tab);
     }
 
     public void d() {
-        this.f56770h = true;
-        TextView textView = this.f56765c;
+        this.f60459h = true;
+        TextView textView = this.f60454c;
         if (textView != null) {
             textView.clearAnimation();
-            this.f56765c.startAnimation(f());
+            this.f60454c.startAnimation(f());
         }
-        SkinManager.setImageResource(this.f56763a, R.drawable.lego_icon_triangle_down_normal);
+        SkinManager.setImageResource(this.f60452a, R.drawable.lego_icon_triangle_down_normal);
     }
 
     public final Animation e() {
-        if (this.f56768f == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f56767e, R.anim.fade_in);
-            this.f56768f = loadAnimation;
-            loadAnimation.setAnimationListener(this.f56771i);
+        if (this.f60457f == null) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f60456e, R.anim.fade_in);
+            this.f60457f = loadAnimation;
+            loadAnimation.setAnimationListener(this.f60460i);
         }
-        return this.f56768f;
+        return this.f60457f;
     }
 
     public final Animation f() {
-        if (this.f56769g == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f56767e, R.anim.fade_out);
-            this.f56769g = loadAnimation;
-            loadAnimation.setAnimationListener(this.f56771i);
+        if (this.f60458g == null) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f60456e, R.anim.fade_out);
+            this.f60458g = loadAnimation;
+            loadAnimation.setAnimationListener(this.f60460i);
         }
-        return this.f56769g;
+        return this.f60458g;
     }
 
     public void g(int i2) {
-        SkinManager.setBackgroundColor(this.f56764b, R.color.CAM_X0205);
-        SkinManager.setBackgroundColor(this.f56765c, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(this.f56765c, R.color.CAM_X0106, 1);
-        if (this.f56770h) {
-            SkinManager.setImageResource(this.f56763a, R.drawable.lego_icon_triangle_down_normal);
+        SkinManager.setBackgroundColor(this.f60453b, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.f60454c, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(this.f60454c, R.color.CAM_X0106, 1);
+        if (this.f60459h) {
+            SkinManager.setImageResource(this.f60452a, R.drawable.lego_icon_triangle_down_normal);
         } else {
-            SkinManager.setImageResource(this.f56763a, R.drawable.lego_icon_triangle_up_normal);
+            SkinManager.setImageResource(this.f60452a, R.drawable.lego_icon_triangle_up_normal);
         }
-        SkinManager.setBackgroundResource(this.f56763a, R.drawable.lego_btn_more_selector);
-        SlidingTabLayout slidingTabLayout = this.f56766d;
+        SkinManager.setBackgroundResource(this.f60452a, R.drawable.lego_btn_more_selector);
+        SlidingTabLayout slidingTabLayout = this.f60455d;
         if (slidingTabLayout != null) {
             slidingTabLayout.onChangeSkinType(i2);
         }
     }
 
     public void h(View.OnClickListener onClickListener) {
-        ImageView imageView = this.f56763a;
+        ImageView imageView = this.f60452a;
         if (imageView != null) {
             imageView.setOnClickListener(onClickListener);
         }
     }
 
     public void i(ViewPager viewPager, int i2) {
-        SlidingTabLayout slidingTabLayout = this.f56766d;
+        SlidingTabLayout slidingTabLayout = this.f60455d;
         if (slidingTabLayout != null) {
             slidingTabLayout.setViewPager(viewPager, i2);
         }
     }
 
     public void j() {
-        this.f56770h = false;
-        TextView textView = this.f56765c;
+        this.f60459h = false;
+        TextView textView = this.f60454c;
         if (textView != null) {
             textView.clearAnimation();
-            this.f56765c.setVisibility(0);
-            this.f56765c.startAnimation(e());
+            this.f60454c.setVisibility(0);
+            this.f60454c.startAnimation(e());
         }
-        SkinManager.setImageResource(this.f56763a, R.drawable.lego_icon_triangle_up_normal);
+        SkinManager.setImageResource(this.f60452a, R.drawable.lego_icon_triangle_up_normal);
     }
 }

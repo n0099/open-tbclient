@@ -5,26 +5,26 @@ import tbclient.GetVipInfo.VipBannerItem;
 public class b implements d.a.m0.r.w.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f60419a;
+    public String f64110a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60420b;
+    public String f64111b;
 
     public b(VipBannerItem vipBannerItem) {
         if (vipBannerItem == null) {
             return;
         }
-        this.f60419a = vipBannerItem.img_url;
-        this.f60420b = vipBannerItem.link;
+        this.f64110a = vipBannerItem.img_url;
+        this.f64111b = vipBannerItem.link;
     }
 
     @Override // d.a.m0.r.w.b.a
     public String a() {
-        return this.f60419a;
+        return this.f64110a;
     }
 
     @Override // d.a.m0.r.w.b.a
     public String b() {
-        return this.f60420b;
+        return this.f64111b;
     }
 }

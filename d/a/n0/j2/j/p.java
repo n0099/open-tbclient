@@ -65,31 +65,31 @@ public class p {
     public d.a.n0.j2.d.a S;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f56539a;
+    public TbPageContext f60228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NoNetworkView f56540b;
+    public NoNetworkView f60229b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PluginErrorTipView f56541c;
+    public PluginErrorTipView f60230c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f56542d;
+    public View f60231d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.t1.a f56543e;
+    public d.a.n0.t1.a f60232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f56544f;
+    public CustomMessageListener f60233f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f56545g;
+    public CustomMessageListener f60234g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f56546h;
+    public CustomMessageListener f60235h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f56547i;
+    public CustomMessageListener f60236i;
     public d.a.n0.j2.e.a j;
     public boolean k;
     public BdUniqueId l;
@@ -105,7 +105,7 @@ public class p {
     public NewPagerSlidingTabBaseStrip v;
     public View w;
     public CustomViewPager x;
-    public C1406p y;
+    public C1462p y;
     public LinearLayout z;
 
     /* loaded from: classes5.dex */
@@ -113,30 +113,30 @@ public class p {
 
         /* renamed from: d.a.n0.j2.j.p$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1405a implements ValueAnimator.AnimatorUpdateListener {
+        public class C1461a implements ValueAnimator.AnimatorUpdateListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f56549e;
+            public final /* synthetic */ int f60238e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f56550f;
+            public final /* synthetic */ int f60239f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f56551g;
+            public final /* synthetic */ int f60240g;
 
-            public C1405a(int i2, int i3, int i4) {
-                this.f56549e = i2;
-                this.f56550f = i3;
-                this.f56551g = i4;
+            public C1461a(int i2, int i3, int i4) {
+                this.f60238e = i2;
+                this.f60239f = i3;
+                this.f60240g = i4;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                p.this.G.height = (int) (this.f56549e - (this.f56550f * animatedFraction));
+                p.this.G.height = (int) (this.f60238e - (this.f60239f * animatedFraction));
                 p.this.F.setLayoutParams(p.this.G);
                 if (p.this.s != null) {
-                    p.this.s.j((int) (this.f56551g - (animatedFraction * this.f56550f)));
+                    p.this.s.j((int) (this.f60240g - (animatedFraction * this.f60239f)));
                 }
             }
         }
@@ -169,29 +169,29 @@ public class p {
         public class c implements ValueAnimator.AnimatorUpdateListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f56554e;
+            public final /* synthetic */ int f60243e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f56555f;
+            public final /* synthetic */ int f60244f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f56556g;
+            public final /* synthetic */ int f60245g;
 
             public c(int i2, int i3, int i4) {
-                this.f56554e = i2;
-                this.f56555f = i3;
-                this.f56556g = i4;
+                this.f60243e = i2;
+                this.f60244f = i3;
+                this.f60245g = i4;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                p.this.G.height = (int) (this.f56554e - (this.f56555f * floatValue));
+                p.this.G.height = (int) (this.f60243e - (this.f60244f * floatValue));
                 p.this.F.setLayoutParams(p.this.G);
-                if (p.this.s == null || this.f56556g <= 0) {
+                if (p.this.s == null || this.f60245g <= 0) {
                     return;
                 }
-                p.this.s.j((int) (this.f56556g - (floatValue * this.f56555f)));
+                p.this.s.j((int) (this.f60245g - (floatValue * this.f60244f)));
             }
         }
 
@@ -227,7 +227,7 @@ public class p {
         }
 
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.i
-        public void k() {
+        public void l() {
             int measuredHeight = p.this.F.getMeasuredHeight();
             int i2 = (measuredHeight - p.this.C) - (p.this.Q ? d.a.n0.j2.g.a.b0 : 0);
             int g2 = p.this.s != null ? p.this.s.g() : 0;
@@ -245,7 +245,7 @@ public class p {
         }
 
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.i
-        public void l(double d2) {
+        public void m(double d2) {
             p.this.G.height = (int) (p.this.C + (p.this.Q ? d.a.n0.j2.g.a.b0 : 0) + (PullRefreshFrameLayout.D * d2));
             p.this.F.setLayoutParams(p.this.G);
             if (p.this.s != null) {
@@ -255,10 +255,10 @@ public class p {
         }
 
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.i
-        public void m(int i2, double d2) {
+        public void n(int i2, double d2) {
             p.this.L = ValueAnimator.ofFloat(0.0f, 1.0f);
             p.this.L.setDuration(150L);
-            p.this.L.addUpdateListener(new C1405a(p.this.F.getMeasuredHeight(), i2, p.this.s.g()));
+            p.this.L.addUpdateListener(new C1461a(p.this.F.getMeasuredHeight(), i2, p.this.s.g()));
             p.this.L.addListener(new b());
             p.this.L.start();
         }
@@ -301,13 +301,13 @@ public class p {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001435 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof d.a.n0.u2.b)) {
-                SparseArray<b.a> sparseArray = ((d.a.n0.u2.b) customResponsedMessage.getData()).f61360a;
+                SparseArray<b.a> sparseArray = ((d.a.n0.u2.b) customResponsedMessage.getData()).f65073a;
                 if (sparseArray.size() <= 0) {
                     return;
                 }
                 b.a aVar = sparseArray.get(2);
                 if (p.this.J != null && aVar != null) {
-                    p.this.J.K(aVar.f61361a);
+                    p.this.J.K(aVar.f65074a);
                 }
                 b.a aVar2 = sparseArray.get(4);
                 b.a aVar3 = sparseArray.get(3);
@@ -315,23 +315,23 @@ public class p {
                 b.a aVar5 = sparseArray.get(7);
                 b.a aVar6 = sparseArray.get(8);
                 if (p.this.j != null) {
-                    if (p.this.j.w != null && p.this.j.w.f56436b != null && aVar2 != null) {
-                        p.this.j.w.f56436b.putBoolean("person_center_item_red_tip_show", aVar2.f61361a);
+                    if (p.this.j.w != null && p.this.j.w.f60125b != null && aVar2 != null) {
+                        p.this.j.w.f60125b.putBoolean("person_center_item_red_tip_show", aVar2.f65074a);
                     }
-                    if (aVar3 != null && p.this.j.v != null && p.this.j.v.f56436b != null) {
-                        p.this.j.v.f56436b.putBoolean("person_center_item_red_tip_show", aVar3.f61361a);
+                    if (aVar3 != null && p.this.j.v != null && p.this.j.v.f60125b != null) {
+                        p.this.j.v.f60125b.putBoolean("person_center_item_red_tip_show", aVar3.f65074a);
                     }
-                    if (aVar4 != null && p.this.j.u != null && p.this.j.u.f56436b != null) {
-                        p.this.j.u.f56436b.putBoolean("person_center_item_red_tip_show", aVar4.f61361a);
+                    if (aVar4 != null && p.this.j.u != null && p.this.j.u.f60125b != null) {
+                        p.this.j.u.f60125b.putBoolean("person_center_item_red_tip_show", aVar4.f65074a);
                     }
-                    if (aVar5 != null && p.this.j.x != null && p.this.j.x.f56436b != null) {
-                        p.this.j.x.f56436b.putBoolean("person_center_item_red_tip_show", aVar5.f61361a);
+                    if (aVar5 != null && p.this.j.x != null && p.this.j.x.f60125b != null) {
+                        p.this.j.x.f60125b.putBoolean("person_center_item_red_tip_show", aVar5.f65074a);
                     }
-                    if (aVar6 == null || p.this.j.y == null || p.this.j.y.f56436b == null) {
+                    if (aVar6 == null || p.this.j.y == null || p.this.j.y.f60125b == null) {
                         return;
                     }
-                    p.this.j.y.f56436b.putBoolean("person_center_item_red_tip_show", aVar6.f61361a);
-                    p.this.j.y.f56436b.putString("person_center_item_txt", String.valueOf(aVar6.f61362b));
+                    p.this.j.y.f60125b.putBoolean("person_center_item_red_tip_show", aVar6.f65074a);
+                    p.this.j.y.f60125b.putString("person_center_item_txt", String.valueOf(aVar6.f65075b));
                 }
             }
         }
@@ -413,13 +413,13 @@ public class p {
         }
 
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.h
-        public void m() {
+        public void n() {
             d.a.c.e.m.e.a().postDelayed(p.this.R, p.T);
             p.this.N = true;
             p pVar = p.this;
-            pVar.O = pVar.y.d();
+            pVar.O = pVar.y.f();
             p.this.Q();
-            p.this.y.c();
+            p.this.y.e();
         }
     }
 
@@ -456,9 +456,9 @@ public class p {
         @Override // com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener, com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         public void onOffsetChanged(AppBarLayout appBarLayout, int i2) {
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                UtilHelper.changeStatusBarIconAndTextColor(i2 == 0, p.this.f56539a.getPageActivity());
+                UtilHelper.changeStatusBarIconAndTextColor(i2 == 0, p.this.f60228a.getPageActivity());
             } else {
-                UtilHelper.changeStatusBarIconAndTextColor(true, p.this.f56539a.getPageActivity());
+                UtilHelper.changeStatusBarIconAndTextColor(true, p.this.f60228a.getPageActivity());
             }
             p.this.r.setInterceptScrollDown(i2 == 0);
             int abs = Math.abs(i2);
@@ -501,7 +501,7 @@ public class p {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
-            p.this.y.h(i2);
+            p.this.y.l(i2);
         }
     }
 
@@ -564,81 +564,56 @@ public class p {
 
     /* renamed from: d.a.n0.j2.j.p$p  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1406p extends FragmentPagerAdapter {
+    public class C1462p extends FragmentPagerAdapter {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<String> f56573a;
+        public List<String> f60262a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<PersonCenterTabBaseFragment> f56574b;
+        public List<PersonCenterTabBaseFragment> f60263b;
 
-        public C1406p(p pVar, FragmentManager fragmentManager) {
+        public C1462p(p pVar, FragmentManager fragmentManager) {
             super(fragmentManager);
             ArrayList arrayList = new ArrayList();
-            this.f56573a = arrayList;
-            arrayList.add(pVar.f56539a.getResources().getString(R.string.person_center_tab_main));
-            this.f56573a.add(pVar.f56539a.getResources().getString(R.string.person_center_tab_thread));
-            this.f56573a.add(pVar.f56539a.getResources().getString(R.string.person_center_tab_dynamic));
+            this.f60262a = arrayList;
+            arrayList.add(pVar.f60228a.getResources().getString(R.string.person_center_tab_main));
+            this.f60262a.add(pVar.f60228a.getResources().getString(R.string.person_center_tab_thread));
+            this.f60262a.add(pVar.f60228a.getResources().getString(R.string.person_center_tab_dynamic));
             ArrayList arrayList2 = new ArrayList();
-            this.f56574b = arrayList2;
-            arrayList2.add(PersonCenterMainTabFragment.J0(pVar.M, pVar.k));
-            this.f56574b.add(PersonCenterThreadTabFragment.P0(pVar.M, pVar.k));
-            this.f56574b.add(PersonCenterDynamicTabFragment.M0(pVar.M, pVar.k));
+            this.f60263b = arrayList2;
+            arrayList2.add(PersonCenterMainTabFragment.M0(pVar.M, pVar.k));
+            this.f60263b.add(PersonCenterThreadTabFragment.S0(pVar.M, pVar.k));
+            this.f60263b.add(PersonCenterDynamicTabFragment.P0(pVar.M, pVar.k));
         }
 
-        public void c() {
-            if (ListUtils.isEmpty(this.f56574b)) {
+        public void e() {
+            if (ListUtils.isEmpty(this.f60263b)) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f56574b.size(); i2++) {
-                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f56574b.get(i2);
+            for (int i2 = 0; i2 < this.f60263b.size(); i2++) {
+                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f60263b.get(i2);
                 if (personCenterTabBaseFragment != null) {
-                    personCenterTabBaseFragment.D0(false);
+                    personCenterTabBaseFragment.G0(false);
                 }
             }
         }
 
-        public int d() {
-            if (ListUtils.isEmpty(this.f56574b)) {
+        public int f() {
+            if (ListUtils.isEmpty(this.f60263b)) {
                 return -1;
             }
-            for (int i2 = 0; i2 < this.f56574b.size(); i2++) {
-                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f56574b.get(i2);
+            for (int i2 = 0; i2 < this.f60263b.size(); i2++) {
+                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f60263b.get(i2);
                 if (personCenterTabBaseFragment != null && personCenterTabBaseFragment.isPrimary()) {
-                    return personCenterTabBaseFragment.E0();
+                    return personCenterTabBaseFragment.H0();
                 }
             }
             return -1;
         }
 
-        public PersonCenterTabBaseFragment e(int i2) {
-            if (i2 < this.f56574b.size()) {
-                return this.f56574b.get(i2);
-            }
-            return null;
-        }
-
-        public final String f(int i2) {
-            return this.f56573a.get(i2);
-        }
-
-        public void g(int i2) {
-            List<PersonCenterTabBaseFragment> list = this.f56574b;
-            if (list == null || list.size() <= 0) {
-                return;
-            }
-            int size = this.f56574b.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f56574b.get(i3);
-                if (personCenterTabBaseFragment != null) {
-                    personCenterTabBaseFragment.onChangeSkinType(i2);
-                }
-            }
-        }
-
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            List<PersonCenterTabBaseFragment> list = this.f56574b;
+            List<PersonCenterTabBaseFragment> list = this.f60263b;
             if (list != null) {
                 return list.size();
             }
@@ -647,17 +622,42 @@ public class p {
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
         public Fragment getItem(int i2) {
-            return e(i2);
+            return i(i2);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public CharSequence getPageTitle(int i2) {
-            return f(i2);
+            return j(i2);
         }
 
-        public void h(int i2) {
+        public PersonCenterTabBaseFragment i(int i2) {
+            if (i2 < this.f60263b.size()) {
+                return this.f60263b.get(i2);
+            }
+            return null;
+        }
+
+        public final String j(int i2) {
+            return this.f60262a.get(i2);
+        }
+
+        public void k(int i2) {
+            List<PersonCenterTabBaseFragment> list = this.f60263b;
+            if (list == null || list.size() <= 0) {
+                return;
+            }
+            int size = this.f60263b.size();
+            for (int i3 = 0; i3 < size; i3++) {
+                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f60263b.get(i3);
+                if (personCenterTabBaseFragment != null) {
+                    personCenterTabBaseFragment.onChangeSkinType(i2);
+                }
+            }
+        }
+
+        public void l(int i2) {
             PersonCenterTabBaseFragment personCenterTabBaseFragment;
-            for (int i3 = 0; i3 < this.f56573a.size() && (personCenterTabBaseFragment = this.f56574b.get(i3)) != null; i3++) {
+            for (int i3 = 0; i3 < this.f60262a.size() && (personCenterTabBaseFragment = this.f60263b.get(i3)) != null; i3++) {
                 if (i3 == i2) {
                     personCenterTabBaseFragment.setPrimary(true);
                 } else {
@@ -666,27 +666,27 @@ public class p {
             }
         }
 
-        public void i(d.a.n0.j2.e.a aVar) {
-            if (aVar == null || ListUtils.isEmpty(this.f56574b)) {
+        public void m(d.a.n0.j2.e.a aVar) {
+            if (aVar == null || ListUtils.isEmpty(this.f60263b)) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f56574b.size(); i2++) {
-                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f56574b.get(i2);
+            for (int i2 = 0; i2 < this.f60263b.size(); i2++) {
+                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f60263b.get(i2);
                 if (personCenterTabBaseFragment instanceof PersonCenterMainTabFragment) {
-                    ((PersonCenterMainTabFragment) personCenterTabBaseFragment).L0(aVar);
+                    ((PersonCenterMainTabFragment) personCenterTabBaseFragment).O0(aVar);
                 }
             }
         }
 
-        public void j(d.a.n0.j2.e.a aVar) {
-            if (aVar == null || aVar.i() == null || ListUtils.isEmpty(this.f56574b)) {
+        public void n(d.a.n0.j2.e.a aVar) {
+            if (aVar == null || aVar.i() == null || ListUtils.isEmpty(this.f60263b)) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f56574b.size(); i2++) {
-                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f56574b.get(i2);
+            for (int i2 = 0; i2 < this.f60263b.size(); i2++) {
+                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f60263b.get(i2);
                 if (personCenterTabBaseFragment != null) {
-                    personCenterTabBaseFragment.G0(aVar.C);
-                    personCenterTabBaseFragment.H0(aVar.i());
+                    personCenterTabBaseFragment.J0(aVar.C);
+                    personCenterTabBaseFragment.K0(aVar.i());
                 }
             }
         }
@@ -701,12 +701,12 @@ public class p {
         this.R = new f();
         this.S = new g();
         this.n = baseFragment;
-        this.f56539a = baseFragment.getPageContext();
+        this.f60228a = baseFragment.getPageContext();
         this.l = bdUniqueId;
         this.k = z;
         this.M = j2;
         this.m = gVar.l();
-        V(gVar.f56339i);
+        V(gVar.f60028i);
     }
 
     public d.a.n0.j2.g.b P() {
@@ -715,8 +715,8 @@ public class p {
 
     public void Q() {
         if (d.a.c.e.p.j.z()) {
-            this.f56543e.f();
-            this.f56543e.g();
+            this.f60232e.f();
+            this.f60232e.h();
             this.m.l();
             return;
         }
@@ -741,88 +741,88 @@ public class p {
 
     public final void T(TbPageContext tbPageContext) {
         m mVar = new m(2005016);
-        this.f56547i = mVar;
+        this.f60236i = mVar;
         mVar.setTag(this.l);
-        tbPageContext.registerListener(this.f56547i);
+        tbPageContext.registerListener(this.f60236i);
     }
 
     public final void U(TbPageContext tbPageContext) {
         c cVar = new c(2001435);
-        this.f56544f = cVar;
+        this.f60233f = cVar;
         cVar.setTag(this.l);
-        tbPageContext.registerListener(this.f56544f);
+        tbPageContext.registerListener(this.f60233f);
         d dVar = new d(2016485);
-        this.f56545g = dVar;
+        this.f60234g = dVar;
         dVar.setTag(this.l);
-        tbPageContext.registerListener(this.f56545g);
+        tbPageContext.registerListener(this.f60234g);
         e eVar = new e(2921435);
-        this.f56546h = eVar;
+        this.f60235h = eVar;
         eVar.setTag(this.l);
-        tbPageContext.registerListener(this.f56546h);
+        tbPageContext.registerListener(this.f60235h);
     }
 
     public final void V(View view) {
-        this.f56542d = view;
+        this.f60231d = view;
         this.q = UtilHelper.getStatusBarHeight();
-        this.r = (PullRefreshFrameLayout) this.f56542d.findViewById(R.id.person_center_content_view);
-        View findViewById = this.f56542d.findViewById(R.id.person_center_background_cover);
-        this.s = new PersonHeaderBackgroundController(this.f56539a, (TbImageView) this.f56542d.findViewById(R.id.person_center_header_bg), findViewById, this.k);
-        TbPageContext tbPageContext = this.f56539a;
-        View view2 = this.f56542d;
+        this.r = (PullRefreshFrameLayout) this.f60231d.findViewById(R.id.person_center_content_view);
+        View findViewById = this.f60231d.findViewById(R.id.person_center_background_cover);
+        this.s = new PersonHeaderBackgroundController(this.f60228a, (TbImageView) this.f60231d.findViewById(R.id.person_center_header_bg), findViewById, this.k);
+        TbPageContext tbPageContext = this.f60228a;
+        View view2 = this.f60231d;
         this.K = new d.a.n0.j2.j.k(tbPageContext, view2, view2.findViewById(R.id.person_center_status_bar_space), this.k);
-        FrameLayout frameLayout = (FrameLayout) this.f56542d.findViewById(R.id.person_center_header_container);
+        FrameLayout frameLayout = (FrameLayout) this.f60231d.findViewById(R.id.person_center_header_container);
         this.F = frameLayout;
         this.G = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
         this.r.setOnTouchCallback(new a());
         this.r.setOnPullRefreshListener(new h());
         this.r.setOnCancelCallBack(new i());
         this.r.setOnLoadingStartCallback(new j());
-        AppBarLayout appBarLayout = (AppBarLayout) this.f56542d.findViewById(R.id.person_center_app_bar_layout);
+        AppBarLayout appBarLayout = (AppBarLayout) this.f60231d.findViewById(R.id.person_center_app_bar_layout);
         this.t = appBarLayout;
         appBarLayout.addOnOffsetChangedListener((AppBarLayout.OnOffsetChangedListener) new k());
-        this.u = (FrameLayout) this.f56542d.findViewById(R.id.person_center_tab_layout_container);
-        NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.f56542d.findViewById(R.id.person_center_tab_layout);
+        this.u = (FrameLayout) this.f60231d.findViewById(R.id.person_center_tab_layout_container);
+        NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.f60231d.findViewById(R.id.person_center_tab_layout);
         this.v = newPagerSlidingTabBaseStrip;
         newPagerSlidingTabBaseStrip.setDefaultSelectorColorResourceId(R.color.CAM_X0105);
         this.v.setRectPaintColor(R.color.CAM_X0302);
-        this.v.B(d.a.c.e.p.l.g(this.f56539a.getPageActivity(), R.dimen.tbds46), d.a.c.e.p.l.g(this.f56539a.getPageActivity(), R.dimen.tbds46), d.a.c.e.p.l.g(this.f56539a.getPageActivity(), R.dimen.tbds10), d.a.c.e.p.l.g(this.f56539a.getPageActivity(), R.dimen.tbds46), true);
-        this.v.setIndicatorOffset(d.a.c.e.p.l.g(this.f56539a.getPageActivity(), R.dimen.tbds64));
-        this.v.setIndicatorOvershot(d.a.c.e.p.l.g(this.f56539a.getPageActivity(), R.dimen.tbds8));
-        this.v.setIndicatorRadius(d.a.c.e.p.l.g(this.f56539a.getPageActivity(), R.dimen.tbds8));
-        this.v.setIndicatorMarginBottom(d.a.c.e.p.l.g(this.f56539a.getPageActivity(), R.dimen.tbds0));
-        this.v.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(d.a.c.e.p.l.g(this.f56539a.getPageActivity(), R.dimen.tbds166), -1));
+        this.v.B(d.a.c.e.p.l.g(this.f60228a.getPageActivity(), R.dimen.tbds46), d.a.c.e.p.l.g(this.f60228a.getPageActivity(), R.dimen.tbds46), d.a.c.e.p.l.g(this.f60228a.getPageActivity(), R.dimen.tbds10), d.a.c.e.p.l.g(this.f60228a.getPageActivity(), R.dimen.tbds46), true);
+        this.v.setIndicatorOffset(d.a.c.e.p.l.g(this.f60228a.getPageActivity(), R.dimen.tbds64));
+        this.v.setIndicatorOvershot(d.a.c.e.p.l.g(this.f60228a.getPageActivity(), R.dimen.tbds8));
+        this.v.setIndicatorRadius(d.a.c.e.p.l.g(this.f60228a.getPageActivity(), R.dimen.tbds8));
+        this.v.setIndicatorMarginBottom(d.a.c.e.p.l.g(this.f60228a.getPageActivity(), R.dimen.tbds0));
+        this.v.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(d.a.c.e.p.l.g(this.f60228a.getPageActivity(), R.dimen.tbds166), -1));
         this.v.setOnPageChangeListener(new l());
         GradientDrawable gradientDrawable = new GradientDrawable();
         this.E = gradientDrawable;
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0201));
         this.E.setCornerRadii(this.o);
         this.u.setBackgroundDrawable(this.E);
-        View findViewById2 = this.f56542d.findViewById(R.id.person_center_pager_shadow);
+        View findViewById2 = this.f60231d.findViewById(R.id.person_center_pager_shadow);
         this.w = findViewById2;
         SkinManager.setBackgroundResource(findViewById2, R.drawable.personalize_tab_shadow);
-        this.x = (CustomViewPager) this.f56542d.findViewById(R.id.person_center_view_pager);
-        C1406p c1406p = new C1406p(this, this.n.getActivity().getSupportFragmentManager());
-        this.y = c1406p;
-        this.x.setAdapter(c1406p);
-        this.x.setOffscreenPageLimit(this.y.f56574b.size());
+        this.x = (CustomViewPager) this.f60231d.findViewById(R.id.person_center_view_pager);
+        C1462p c1462p = new C1462p(this, this.n.getActivity().getSupportFragmentManager());
+        this.y = c1462p;
+        this.x.setAdapter(c1462p);
+        this.x.setOffscreenPageLimit(this.y.f60263b.size());
         this.y.notifyDataSetChanged();
         this.v.setViewPager(this.x);
         this.x.setCurrentItem(1);
-        d.a.n0.j2.g.b bVar = new d.a.n0.j2.g.b(this.f56539a, this.k);
+        d.a.n0.j2.g.b bVar = new d.a.n0.j2.g.b(this.f60228a, this.k);
         this.J = bVar;
         bVar.I(this.S);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 80;
         this.F.addView(this.J.C(), layoutParams);
         if (this.K.f()) {
-            U(this.f56539a);
+            U(this.f60228a);
         }
-        T(this.f56539a);
-        this.f56540b = (NoNetworkView) this.f56542d.findViewById(R.id.person_center_no_network_view);
-        this.f56541c = (PluginErrorTipView) this.f56542d.findViewById(R.id.person_center_plugin_error_tip_view);
-        this.z = (LinearLayout) this.f56542d.findViewById(R.id.person_center_anti_container);
-        this.A = (FrameLayout) this.f56542d.findViewById(R.id.person_center_anti_content);
-        this.B = (RelativeLayout) this.f56542d.findViewById(R.id.person_center_noanti_rootview);
+        T(this.f60228a);
+        this.f60229b = (NoNetworkView) this.f60231d.findViewById(R.id.person_center_no_network_view);
+        this.f60230c = (PluginErrorTipView) this.f60231d.findViewById(R.id.person_center_plugin_error_tip_view);
+        this.z = (LinearLayout) this.f60231d.findViewById(R.id.person_center_anti_container);
+        this.A = (FrameLayout) this.f60231d.findViewById(R.id.person_center_anti_content);
+        this.B = (RelativeLayout) this.f60231d.findViewById(R.id.person_center_noanti_rootview);
     }
 
     public final boolean W() {
@@ -848,20 +848,20 @@ public class p {
         if (bVar != null) {
             bVar.F(i2);
         }
-        C1406p c1406p = this.y;
-        if (c1406p != null) {
-            c1406p.g(i2);
+        C1462p c1462p = this.y;
+        if (c1462p != null) {
+            c1462p.k(i2);
         }
-        NoNetworkView noNetworkView = this.f56540b;
+        NoNetworkView noNetworkView = this.f60229b;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f56539a, i2);
+            noNetworkView.c(this.f60228a, i2);
         }
-        PluginErrorTipView pluginErrorTipView = this.f56541c;
+        PluginErrorTipView pluginErrorTipView = this.f60230c;
         if (pluginErrorTipView != null) {
-            pluginErrorTipView.e(this.f56539a, i2);
+            pluginErrorTipView.e(this.f60228a, i2);
         }
         SkinManager.setBackgroundResource(this.z, R.color.CAM_X0201);
-        SkinManager.setBackgroundResource(this.f56542d, R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.f60231d, R.color.CAM_X0201);
         SkinManager.setBackgroundResource(this.w, R.drawable.personalize_tab_shadow);
     }
 
@@ -894,7 +894,7 @@ public class p {
     }
 
     public void a0(d.a.n0.t1.a aVar) {
-        this.f56543e = aVar;
+        this.f60232e = aVar;
     }
 
     public void b0(d.a.n0.v3.f fVar) {
@@ -939,17 +939,17 @@ public class p {
             personHeaderBackgroundController.e(this.j.j());
         }
         this.F.post(new b());
-        this.y.j(aVar);
-        this.y.i(aVar);
+        this.y.n(aVar);
+        this.y.m(aVar);
         if (ListUtils.isEmpty(aVar.f())) {
             this.m.m();
-            d.a.c.e.p.l.M(this.f56539a.getContext(), this.f56539a.getString(R.string.data_load_error));
+            d.a.c.e.p.l.M(this.f60228a.getContext(), this.f60228a.getString(R.string.data_load_error));
             return;
         }
         d.a.n0.u2.a.v().K(this.k);
         int size = aVar.f().size();
         for (int i2 = 0; i2 < size; i2++) {
-            d.a.c.j.e.n nVar = aVar.f().get(i2);
+            d.a.c.k.e.n nVar = aVar.f().get(i2);
             if (nVar != null && (nVar instanceof d.a.n0.j2.e.i)) {
                 this.m.m();
                 return;

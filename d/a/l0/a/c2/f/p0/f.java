@@ -28,28 +28,28 @@ public class f extends a0 {
     public class a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41178a;
+        public final /* synthetic */ String f44854a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41179b;
+        public final /* synthetic */ CallbackHandler f44855b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f41180c;
+        public final /* synthetic */ d.a.l0.a.a2.e f44856c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f41181d;
+        public final /* synthetic */ String f44857d;
 
         public a(String str, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar, String str2) {
-            this.f41178a = str;
-            this.f41179b = callbackHandler;
-            this.f41180c = eVar;
-            this.f41181d = str2;
+            this.f44854a = str;
+            this.f44855b = callbackHandler;
+            this.f44856c = eVar;
+            this.f44857d = str2;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f41179b.handleSchemeDispatchCallback(this.f41178a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-            d.a.l0.a.j2.q.a.b(SwanInterfaceType.NAVIGATE, 2101, this.f41181d, null, exc.getMessage());
+            this.f44855b.handleSchemeDispatchCallback(this.f44854a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            d.a.l0.a.j2.q.a.b(SwanInterfaceType.NAVIGATE, 2101, this.f44857d, null, exc.getMessage());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -58,7 +58,7 @@ public class f extends a0 {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i2) throws Exception {
-            f.this.n(response, this.f41178a, this.f41179b, this.f41180c);
+            f.this.n(response, this.f44854a, this.f44855b, this.f44856c);
             return response;
         }
     }
@@ -77,7 +77,7 @@ public class f extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else if (eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("NavigateToSmartProgram", "NavigateToSmartProgram does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
@@ -124,7 +124,7 @@ public class f extends a0 {
             schemeHead = BaseWebViewActivity.SHOUBAI_SCHEME;
         }
         buildUpon.scheme(schemeHead);
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.i("NavigateToSmartProgram", buildUpon.build().toString());
         }
         return buildUpon.build();
@@ -140,12 +140,12 @@ public class f extends a0 {
                 jSONObject2.put("params", jSONObject);
                 String F = d.a.l0.a.c1.a.n().F();
                 Request build = new Request.Builder().url(F).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
                 }
                 return build;
             } catch (Exception e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e2.printStackTrace();
                 }
             }
@@ -156,9 +156,9 @@ public class f extends a0 {
     public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
         String F = d.a.l0.a.c1.a.n().F();
         d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(F, requestBody, new a(str, callbackHandler, eVar, F));
-        aVar.f47974f = true;
-        aVar.f47975g = false;
-        aVar.f47976h = true;
+        aVar.f51648f = true;
+        aVar.f51649g = false;
+        aVar.f51650h = true;
         d.a.l0.m.e.a.g().e(aVar);
         d.a.l0.a.j2.q.a.a(SwanInterfaceType.NAVIGATE);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -190,7 +190,7 @@ public class f extends a0 {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(eVar.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
             }
         } catch (Exception e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("NavigateToSmartProgram", e2.getMessage());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());

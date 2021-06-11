@@ -7,7 +7,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Sink;
 import okio.Timeout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WebSocketWriter {
     public boolean activeWriter;
     public final Buffer buffer = new Buffer();
@@ -20,7 +20,7 @@ public final class WebSocketWriter {
     public final Buffer sinkBuffer;
     public boolean writerClosed;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class FrameSink implements Sink {
         public boolean closed;
         public long contentLength;

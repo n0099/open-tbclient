@@ -31,13 +31,13 @@ public class f0 extends h {
 
     public void s() {
         if (d.a.m0.b.d.V()) {
-            int g2 = d.a.c.e.p.l.g(this.f40008f, R.dimen.M_H_X003);
-            int g3 = d.a.c.e.p.l.g(this.f40008f, d.a.m0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+            int g2 = d.a.c.e.p.l.g(this.f43689f, R.dimen.M_H_X003);
+            int g3 = d.a.c.e.p.l.g(this.f43689f, d.a.m0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
             r(g2);
             q(g3);
             return;
         }
-        int g4 = d.a.c.e.p.l.g(this.f40008f, R.dimen.tbds10);
+        int g4 = d.a.c.e.p.l.g(this.f43689f, R.dimen.tbds10);
         r(g4);
         q(0);
         u(this.l, g4, 0);

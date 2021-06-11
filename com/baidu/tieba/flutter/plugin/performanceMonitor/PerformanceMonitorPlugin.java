@@ -11,7 +11,6 @@ import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorAuto;
 import com.baidu.wallet.router.RouterCallback;
 import com.facebook.common.util.UriUtil;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import d.a.c.e.n.a;
 import d.a.m0.m0.j;
 import d.a.m0.m0.k;
@@ -161,7 +160,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         a a2 = j.a();
         a2.b("action", "time");
         a2.c("ishttp", params.get("isHttp"));
-        a2.b("issuccess", params.get(RouterCallback.KEY_ERROR_CODE) == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
+        a2.b("issuccess", params.get(RouterCallback.KEY_ERROR_CODE) == "200" ? "1" : "0");
         a2.b("nettype", k.d().f());
         if (params.containsKey("whiteTime") && (params.get("whiteTime") instanceof Double)) {
             a2.c("wt", Double.valueOf(((Double) params.get("whiteTime")).doubleValue() * 1000.0d));

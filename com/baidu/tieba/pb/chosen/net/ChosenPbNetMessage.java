@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.a.m0.z0.w;
 import tbclient.ExcPbPage.DataReq;
 import tbclient.ExcPbPage.ExcPbPageReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChosenPbNetMessage extends NetMessage {
     public static final int QUALITY_HIGH = 80;
     public static final int QUALITY_LOW = 45;

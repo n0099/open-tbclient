@@ -6,13 +6,13 @@ import android.view.View;
 public class m0 implements View.OnTouchListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f45431e;
+    public View f49105e;
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            View view2 = this.f45431e;
+            View view2 = this.f49105e;
             if (view2 == null) {
                 view.setAlpha(d.a.l0.a.c1.a.H().a() ? 0.5f : 0.2f);
                 return false;
@@ -20,7 +20,7 @@ public class m0 implements View.OnTouchListener {
             view2.setAlpha(d.a.l0.a.c1.a.H().a() ? 0.5f : 0.2f);
             return false;
         } else if (action != 2) {
-            View view3 = this.f45431e;
+            View view3 = this.f49105e;
             if (view3 == null) {
                 view.setAlpha(1.0f);
                 return false;

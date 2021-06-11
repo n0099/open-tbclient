@@ -18,18 +18,18 @@ public class b extends d.a.l0.a.u.c.d {
     public class a implements d.a.l0.a.v2.e1.b<i<JSONObject>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f44820e;
+        public final /* synthetic */ h f48494e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44821f;
+        public final /* synthetic */ CallbackHandler f48495f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f44822g;
+        public final /* synthetic */ String f48496g;
 
         public a(b bVar, h hVar, CallbackHandler callbackHandler, String str) {
-            this.f44820e = hVar;
-            this.f44821f = callbackHandler;
-            this.f44822g = str;
+            this.f48494e = hVar;
+            this.f48495f = callbackHandler;
+            this.f48496g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -37,21 +37,21 @@ public class b extends d.a.l0.a.u.c.d {
         /* renamed from: a */
         public void onCallback(i<JSONObject> iVar) {
             JSONObject wrapCallbackParams;
-            if (iVar.c() && b.s(iVar.f41736a)) {
-                JSONObject optJSONObject = iVar.f41736a.optJSONObject("data");
+            if (iVar.c() && b.s(iVar.f45412a)) {
+                JSONObject optJSONObject = iVar.f45412a.optJSONObject("data");
                 if (optJSONObject != null && optJSONObject.optBoolean("result")) {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
                     k.N("checkSession", "success");
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "session key expired");
-                    k.O("checkSession", "fail", "session key expired");
+                    k.O("checkSession", com.baidu.pass.biometrics.face.liveness.b.b.g0, "session key expired");
                 }
             } else {
                 wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(iVar.b());
-                this.f44820e.g(this.f44821f, wrapCallbackParams.toString());
-                k.O("checkSession", "fail", "result failed");
+                this.f48494e.g(this.f48495f, wrapCallbackParams.toString());
+                k.O("checkSession", com.baidu.pass.biometrics.face.liveness.b.b.g0, "result failed");
             }
-            this.f44821f.handleSchemeDispatchCallback(this.f44822g, wrapCallbackParams.toString());
+            this.f48495f.handleSchemeDispatchCallback(this.f48496g, wrapCallbackParams.toString());
         }
     }
 
@@ -64,7 +64,7 @@ public class b extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b r(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-CheckSession", "start check session");
         }
         k.N("checkSession", "create");
@@ -73,31 +73,31 @@ public class b extends d.a.l0.a.u.c.d {
         e Q = e.Q();
         if (Q == null) {
             j.g(h2, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
-            k.O("checkSession", "fail", "empty swanApp");
+            k.O("checkSession", com.baidu.pass.biometrics.face.liveness.b.b.g0, "empty swanApp");
             return new d.a.l0.a.u.h.b(1001, "empty swanApp");
         }
         String D = Q.D();
         if (TextUtils.isEmpty(D)) {
             j.g(h2, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
-            k.O("checkSession", "fail", "empty app key");
+            k.O("checkSession", com.baidu.pass.biometrics.face.liveness.b.b.g0, "empty app key");
             return new d.a.l0.a.u.h.b(1001, "empty app key");
         }
         JSONObject m = d.a.l0.a.u.c.d.m(str);
         if (m == null) {
             j.g(h2, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
-            k.O("checkSession", "fail", "empty joParams");
+            k.O("checkSession", com.baidu.pass.biometrics.face.liveness.b.b.g0, "empty joParams");
             return new d.a.l0.a.u.h.b(201, "empty joParams");
         }
         String optString = m.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             j.g(h2, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
-            k.O("checkSession", "fail", "empty cb");
+            k.O("checkSession", com.baidu.pass.biometrics.face.liveness.b.b.g0, "empty cb");
             return new d.a.l0.a.u.h.b(201, "empty cb");
         }
         Context i2 = i();
         if (!Q.j().e(i2)) {
             j.g(h2, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-            k.O("checkSession", "fail", "account not login");
+            k.O("checkSession", com.baidu.pass.biometrics.face.liveness.b.b.g0, "account not login");
             return new d.a.l0.a.u.h.b(10004, "user not logged in");
         }
         k.N("checkSession", "checkSession");

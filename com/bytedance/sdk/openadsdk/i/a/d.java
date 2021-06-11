@@ -8,66 +8,66 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f29255a;
+    public byte[] f29358a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f29256b;
+    public Bitmap f29359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d.b.c.b.d.a> f29257c;
+    public List<d.b.c.b.d.a> f29360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f29258d;
+    public Map<String, String> f29361d;
 
     public d(byte[] bArr) {
-        this.f29255a = null;
-        this.f29256b = null;
-        this.f29257c = null;
-        this.f29258d = null;
-        this.f29255a = bArr;
+        this.f29358a = null;
+        this.f29359b = null;
+        this.f29360c = null;
+        this.f29361d = null;
+        this.f29358a = bArr;
     }
 
     public Bitmap a() {
-        return this.f29256b;
+        return this.f29359b;
     }
 
     public byte[] b() {
-        if (this.f29255a == null) {
-            this.f29255a = f.b(this.f29256b);
+        if (this.f29358a == null) {
+            this.f29358a = f.b(this.f29359b);
         }
-        return this.f29255a;
+        return this.f29358a;
     }
 
     public boolean c() {
-        if (this.f29256b != null) {
+        if (this.f29359b != null) {
             return true;
         }
-        byte[] bArr = this.f29255a;
+        byte[] bArr = this.f29358a;
         return bArr != null && bArr.length > 0;
     }
 
     public boolean d() {
-        byte[] bArr = this.f29255a;
+        byte[] bArr = this.f29358a;
         return bArr != null && bArr.length >= 3 && bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70;
     }
 
     public Map<String, String> e() {
-        return this.f29258d;
+        return this.f29361d;
     }
 
     public void a(List<d.b.c.b.d.a> list) {
-        this.f29257c = list;
+        this.f29360c = list;
     }
 
     public void a(Map<String, String> map) {
-        this.f29258d = map;
+        this.f29361d = map;
     }
 
     public d(Bitmap bitmap) {
-        this.f29255a = null;
-        this.f29256b = null;
-        this.f29257c = null;
-        this.f29258d = null;
-        this.f29256b = bitmap;
+        this.f29358a = null;
+        this.f29359b = null;
+        this.f29360c = null;
+        this.f29361d = null;
+        this.f29359b = bitmap;
     }
 }

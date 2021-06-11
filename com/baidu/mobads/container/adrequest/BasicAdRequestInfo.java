@@ -67,7 +67,7 @@ public class BasicAdRequestInfo implements IAdRequestParam {
             hashMap.put("g", DeviceUtils.getInstance().getGPS(this.mCxt));
             hashMap.put(IAdRequestParam.WIFI, DeviceUtils.getInstance().getWIFI(this.mCxt));
             hashMap.put(IAdRequestParam.APINFO, DeviceUtils.getInstance().getBaiduMapsInfo(this.mCxt));
-            hashMap.put(IAdRequestParam.MAC, "");
+            hashMap.put("mac", "");
             hashMap.put(IAdRequestParam.CSS_ID, "");
             hashMap.put("im", DeviceUtils.getInstance().getSubscriberId(this.mCxt));
             hashMap.put("imei", DeviceUtils.getInstance().getIMEI(this.mCxt));

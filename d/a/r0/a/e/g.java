@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tieba.service.AsInstallService;
 import com.bumptech.glide.load.engine.GlideException;
 import d.a.r0.a.d.b;
@@ -18,21 +17,21 @@ import org.json.JSONObject;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f64421a;
+    public static int f68139a;
 
     /* loaded from: classes5.dex */
     public static class b extends d.a.r0.a.f.c {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f64422e;
+        public final /* synthetic */ Context f68140e;
 
         public b(Context context) {
-            this.f64422e = context;
+            this.f68140e = context;
         }
 
         @Override // d.a.r0.a.f.c
         public final void a() {
-            g.k(this.f64422e);
+            g.k(this.f68140e);
             if (d.a.r0.a.c.i().j() != null && !d.a.r0.a.c.i().j().equals("")) {
                 d.a.r0.a.f.i.a("BaiDuAB sdk  init success");
             } else {
@@ -53,7 +52,7 @@ public final class g {
     public static class e extends d.a.r0.a.f.c {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f64425e;
+        public final /* synthetic */ String f68143e;
 
         /* loaded from: classes5.dex */
         public class a implements b.a<JSONObject> {
@@ -72,7 +71,7 @@ public final class g {
         }
 
         public e(String str) {
-            this.f64425e = str;
+            this.f68143e = str;
         }
 
         @Override // d.a.r0.a.f.c
@@ -81,7 +80,7 @@ public final class g {
                 return;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("exids", this.f64425e);
+            hashMap.put("exids", this.f68143e);
             d.a.r0.a.d.b.c(d.a.r0.a.d.b.d("http://absample.baidu.com/appabapp/appapi/updateStatus", hashMap), new a(this));
         }
     }
@@ -177,13 +176,13 @@ public final class g {
         d.a.r0.a.f.a.b("网络请求  cuid~~");
         HashMap hashMap = new HashMap();
         hashMap.put("imei", i.g(d.a.r0.a.c.i().g()));
-        hashMap.put(IAdRequestParam.MAC, i.h(d.a.r0.a.c.i().g()));
+        hashMap.put("mac", i.h(d.a.r0.a.c.i().g()));
         d.a.r0.a.d.b.c(d.a.r0.a.d.b.d("http://absample.baidu.com/appabapp/appapi/getcuid", hashMap), new d());
     }
 
     public static /* synthetic */ int f() {
-        int i2 = f64421a;
-        f64421a = i2 + 1;
+        int i2 = f68139a;
+        f68139a = i2 + 1;
         return i2;
     }
 
@@ -259,14 +258,14 @@ public final class g {
     public static class c implements b.a<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f64423a;
+        public final /* synthetic */ long f68141a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f64424b;
+        public final /* synthetic */ Context f68142b;
 
         public c(long j, Context context) {
-            this.f64423a = j;
-            this.f64424b = context;
+            this.f68141a = j;
+            this.f68142b = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -278,8 +277,8 @@ public final class g {
             }
             d.a.r0.a.c.i().b(optString);
             d.a.r0.a.f.d.f("token", optString);
-            d.a.r0.a.f.d.g("token_update_time", this.f64423a);
-            d.a.r0.a.f.d.f("lastkey", g.i(this.f64424b));
+            d.a.r0.a.f.d.g("token_update_time", this.f68141a);
+            d.a.r0.a.f.d.f("lastkey", g.i(this.f68142b));
         }
 
         @Override // d.a.r0.a.d.b.a
@@ -314,7 +313,7 @@ public final class g {
 
         @Override // d.a.r0.a.d.b.a
         public final void a(String str) {
-            while (g.f64421a < 2) {
+            while (g.f68139a < 2) {
                 synchronized (this) {
                     g.f();
                 }

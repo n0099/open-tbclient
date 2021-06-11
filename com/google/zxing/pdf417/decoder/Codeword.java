@@ -1,6 +1,4 @@
 package com.google.zxing.pdf417.decoder;
-
-import com.baidu.tbadk.core.util.FieldBuilder;
 /* loaded from: classes6.dex */
 public final class Codeword {
     public static final int BARCODE_ROW_UNKNOWN = -1;
@@ -58,6 +56,6 @@ public final class Codeword {
     }
 
     public String toString() {
-        return this.rowNumber + FieldBuilder.SE + this.value;
+        return this.rowNumber + "|" + this.value;
     }
 }

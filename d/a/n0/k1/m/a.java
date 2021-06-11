@@ -6,17 +6,17 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, d.a.m0.c.e> f56623a;
+    public final HashMap<String, d.a.m0.c.e> f60312a;
 
     /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f56624a = new a();
+        public static final a f60313a = new a();
     }
 
     public static a a() {
-        return b.f56624a;
+        return b.f60313a;
     }
 
     public void b(d.a.m0.c.e eVar) {
@@ -24,18 +24,18 @@ public class a {
     }
 
     public final void c(String str, d.a.m0.c.e eVar) {
-        this.f56623a.put(str, eVar);
+        this.f60312a.put(str, eVar);
     }
 
     public void d(String str, HashMap<String, String> hashMap, f fVar) {
         d.a.m0.c.e eVar;
-        if (str == null || hashMap == null || hashMap.isEmpty() || fVar == null || (eVar = this.f56623a.get(str)) == null) {
+        if (str == null || hashMap == null || hashMap.isEmpty() || fVar == null || (eVar = this.f60312a.get(str)) == null) {
             return;
         }
         eVar.b(hashMap, fVar);
     }
 
     public a() {
-        this.f56623a = new HashMap<>();
+        this.f60312a = new HashMap<>();
     }
 }

@@ -1,29 +1,28 @@
 package d.a.n0.v1;
 
-import androidx.multidex.ZipUtil;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.zip.CRC32;
 import java.util.zip.ZipException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f62305a;
+        public long f66020a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f62306b;
+        public long f66021b;
     }
 
     public static long a(RandomAccessFile randomAccessFile, a aVar) throws IOException {
         CRC32 crc32 = new CRC32();
-        long j = aVar.f62306b;
-        randomAccessFile.seek(aVar.f62305a);
+        long j = aVar.f66021b;
+        randomAccessFile.seek(aVar.f66020a);
         int min = (int) Math.min(16384L, j);
         byte[] bArr = new byte[16384];
         while (true) {
@@ -46,7 +45,7 @@ public final class d {
         if (length >= 0) {
             long j = length - 65536;
             long j2 = j >= 0 ? j : 0L;
-            int reverseBytes = Integer.reverseBytes(ZipUtil.ENDSIG);
+            int reverseBytes = Integer.reverseBytes(101010256);
             do {
                 randomAccessFile.seek(length);
                 if (randomAccessFile.readInt() == reverseBytes) {
@@ -55,8 +54,8 @@ public final class d {
                     randomAccessFile.skipBytes(2);
                     randomAccessFile.skipBytes(2);
                     a aVar = new a();
-                    aVar.f62306b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
-                    aVar.f62305a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                    aVar.f66021b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                    aVar.f66020a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                     return aVar;
                 }
                 length--;
@@ -67,7 +66,7 @@ public final class d {
     }
 
     public static long c(File file) throws IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7672a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7715a);
         try {
             return a(randomAccessFile, b(randomAccessFile));
         } finally {

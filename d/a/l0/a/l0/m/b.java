@@ -9,95 +9,95 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f43323f = k.f43199a;
+    public static final boolean f46999f = k.f46875a;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile b f43324g;
+    public static volatile b f47000g;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, c> f43325a = new HashMap<>();
+    public HashMap<String, c> f47001a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<ValueCallback<String>>> f43326b = new HashMap<>();
+    public HashMap<String, ArrayList<ValueCallback<String>>> f47002b = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f43329e = new Object();
+    public final Object f47005e = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpManager f43328d = d.a.l0.a.c1.b.l().b();
+    public HttpManager f47004d = d.a.l0.a.c1.b.l().b();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43327c = d.a.l0.a.c1.b.f().a();
+    public String f47003c = d.a.l0.a.c1.b.f().a();
 
     public static b e() {
-        if (f43324g == null) {
+        if (f47000g == null) {
             synchronized (b.class) {
-                if (f43324g == null) {
-                    f43324g = new b();
+                if (f47000g == null) {
+                    f47000g = new b();
                 }
             }
         }
-        return f43324g;
+        return f47000g;
     }
 
     @Override // d.a.l0.a.l0.m.a
     public void a(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
-        synchronized (this.f43329e) {
-            if (f(str) && (arrayList = this.f43326b.get(str)) != null) {
+        synchronized (this.f47005e) {
+            if (f(str) && (arrayList = this.f47002b.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).onReceiveValue(str2);
-                    if (f43323f) {
+                    if (f46999f) {
                         Log.e("ImageDownloadManager", i2 + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.f43325a.remove(str);
+                this.f47001a.remove(str);
             }
         }
     }
 
     public final void b(String str, ValueCallback<String> valueCallback) {
-        if (this.f43326b.containsKey(str)) {
-            this.f43326b.get(str).add(valueCallback);
+        if (this.f47002b.containsKey(str)) {
+            this.f47002b.get(str).add(valueCallback);
             return;
         }
         ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
         arrayList.add(valueCallback);
-        this.f43326b.put(str, arrayList);
+        this.f47002b.put(str, arrayList);
     }
 
     public final void c(String str) {
-        if (f43323f) {
+        if (f46999f) {
             Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.f43328d, this.f43327c, str, this);
-        this.f43325a.put(str, cVar);
+        c cVar = new c(this.f47004d, this.f47003c, str, this);
+        this.f47001a.put(str, cVar);
         cVar.e();
     }
 
     public final String d(String str) throws MalformedURLException {
-        return this.f43327c + d.a.l0.a.c1.b.f().c(str);
+        return this.f47003c + d.a.l0.a.c1.b.f().c(str);
     }
 
     public final boolean f(String str) {
-        return this.f43325a.containsKey(str);
+        return this.f47001a.containsKey(str);
     }
 
     @Override // d.a.l0.a.l0.m.a
     public void fail(int i2, String str) {
         ArrayList<ValueCallback<String>> arrayList;
-        synchronized (this.f43329e) {
-            if (f(str) && (arrayList = this.f43326b.get(str)) != null) {
+        synchronized (this.f47005e) {
+            if (f(str) && (arrayList = this.f47002b.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i3 = 0; i3 < size; i3++) {
                     arrayList.get(i3).onReceiveValue("");
                 }
-                this.f43325a.remove(str);
+                this.f47001a.remove(str);
             }
         }
     }
@@ -120,14 +120,14 @@ public class b implements a {
                 }
                 return;
             }
-            synchronized (this.f43329e) {
+            synchronized (this.f47005e) {
                 if (!f(str)) {
                     c(str);
                 }
                 b(str, valueCallback);
             }
         } catch (Exception e2) {
-            if (f43323f) {
+            if (f46999f) {
                 e2.printStackTrace();
             }
         }

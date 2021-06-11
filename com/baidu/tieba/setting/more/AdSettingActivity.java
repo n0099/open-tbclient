@@ -93,7 +93,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                 AdSettingActivity.this.setMemberCloseAdFail();
                 return;
             }
-            AdSettingActivity.this.setMemberCloseAdSuccess(closeAdData.t());
+            AdSettingActivity.this.setMemberCloseAdSuccess(closeAdData.x());
         }
     }
 
@@ -110,10 +110,10 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void setMemberCloseAdSuccess(int i2) {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (i2 == 0) {
-            this.mView.g();
+            this.mView.h();
             currentAccountObj.setMemberCloseAdVipClose(0);
         } else {
-            this.mView.h();
+            this.mView.i();
             currentAccountObj.setMemberCloseAdVipClose(1);
         }
         this.mMemberCloseAdSettingState = NO_SET_MEMBER_CLOSE_AD;
@@ -191,9 +191,9 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void setMemberCloseAdFail(boolean z) {
         int i2 = this.mMemberCloseAdSettingState;
         if (i2 == SET_MEMBER_CLOSE_AD_FALSE) {
-            this.mView.h();
+            this.mView.i();
         } else if (i2 == SET_MEMBER_CLOSE_AD_TRUE) {
-            this.mView.g();
+            this.mView.h();
         }
         if (z) {
             showToast(R.string.setdefualt_error);

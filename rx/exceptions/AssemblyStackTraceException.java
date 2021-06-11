@@ -2,7 +2,7 @@ package rx.exceptions;
 
 import h.r.c;
 import java.util.HashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class AssemblyStackTraceException extends RuntimeException {
     public static final long serialVersionUID = 2038859767182585852L;
 

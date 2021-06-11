@@ -11,10 +11,10 @@ import java.util.zip.ZipInputStream;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f30135a = {80, 75, 3, 4};
+    public static byte[] f30238a = {80, 75, 3, 4};
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f30136b = {80, 75, 5, 6};
+    public static byte[] f30239b = {80, 75, 5, 6};
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v6, types: [java.io.OutputStream, java.io.Closeable, java.io.FileOutputStream] */
@@ -93,7 +93,7 @@ public class l {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0018, code lost:
-        if (java.util.Arrays.equals(com.bytedance.sdk.openadsdk.preload.geckox.utils.l.f30136b, r1) != false) goto L13;
+        if (java.util.Arrays.equals(com.bytedance.sdk.openadsdk.preload.geckox.utils.l.f30239b, r1) != false) goto L13;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -103,7 +103,7 @@ public class l {
             byte[] bArr = new byte[4];
             boolean z = false;
             if (inputStream.read(bArr, 0, 4) == 4) {
-                if (!Arrays.equals(f30135a, bArr)) {
+                if (!Arrays.equals(f30238a, bArr)) {
                 }
                 z = true;
                 return z;

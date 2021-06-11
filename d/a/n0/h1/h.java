@@ -33,22 +33,22 @@ import d.a.n0.e3.z;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageViewerActivity f55431a;
+    public ImageViewerActivity f59120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f55432b;
+    public b f59121b;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f55434d;
+    public View.OnClickListener f59123d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f55435e = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
+    public final int f59124e = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f55436f = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
+    public final int f59125f = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f55433c = new a();
+    public Runnable f59122c = new a();
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -57,8 +57,8 @@ public class h {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (h.this.f55432b != null) {
-                h.this.f55432b.dismiss();
+            if (h.this.f59121b != null) {
+                h.this.f59121b.dismiss();
             }
         }
     }
@@ -67,19 +67,19 @@ public class h {
     public class b extends PopupWindow implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public Activity f55438e;
+        public Activity f59127e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f55439f;
+        public View f59128f;
 
         /* renamed from: g  reason: collision with root package name */
-        public EMTextView f55440g;
+        public EMTextView f59129g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f55441h;
+        public ImageView f59130h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ImageView f55442i;
+        public ImageView f59131i;
         public ImageView j;
         public ImageView k;
         public ImageView l;
@@ -88,9 +88,9 @@ public class h {
 
         public b(Activity activity) {
             super(activity);
-            this.f55438e = activity;
+            this.f59127e = activity;
             this.n = new d.a.m0.s.g.g(activity, null);
-            setWidth(l.k(activity) - (h.this.f55436f * 2));
+            setWidth(l.k(activity) - (h.this.f59125f * 2));
             setHeight(-2);
             setFocusable(false);
             setTouchable(true);
@@ -101,30 +101,30 @@ public class h {
         }
 
         public final void a() {
-            View inflate = LayoutInflater.from(this.f55438e).inflate(R.layout.image_viewer_download_dialog, (ViewGroup) null);
-            this.f55439f = inflate;
-            this.f55440g = (EMTextView) inflate.findViewById(R.id.title);
-            ImageView imageView = (ImageView) this.f55439f.findViewById(R.id.qq_friend);
-            this.f55441h = imageView;
-            imageView.setImageDrawable(this.f55438e.getDrawable(R.drawable.icon_mask_share_qq40_svg));
-            this.f55441h.setOnClickListener(this);
-            ImageView imageView2 = (ImageView) this.f55439f.findViewById(R.id.qq_zone);
-            this.f55442i = imageView2;
-            imageView2.setImageDrawable(this.f55438e.getDrawable(R.drawable.icon_mask_share_qqzone40_svg));
-            this.f55442i.setOnClickListener(this);
-            ImageView imageView3 = (ImageView) this.f55439f.findViewById(R.id.wechat_friend);
+            View inflate = LayoutInflater.from(this.f59127e).inflate(R.layout.image_viewer_download_dialog, (ViewGroup) null);
+            this.f59128f = inflate;
+            this.f59129g = (EMTextView) inflate.findViewById(R.id.title);
+            ImageView imageView = (ImageView) this.f59128f.findViewById(R.id.qq_friend);
+            this.f59130h = imageView;
+            imageView.setImageDrawable(this.f59127e.getDrawable(R.drawable.icon_mask_share_qq40_svg));
+            this.f59130h.setOnClickListener(this);
+            ImageView imageView2 = (ImageView) this.f59128f.findViewById(R.id.qq_zone);
+            this.f59131i = imageView2;
+            imageView2.setImageDrawable(this.f59127e.getDrawable(R.drawable.icon_mask_share_qqzone40_svg));
+            this.f59131i.setOnClickListener(this);
+            ImageView imageView3 = (ImageView) this.f59128f.findViewById(R.id.wechat_friend);
             this.j = imageView3;
-            imageView3.setImageDrawable(this.f55438e.getDrawable(R.drawable.icon_mask_share_wechat40_svg));
+            imageView3.setImageDrawable(this.f59127e.getDrawable(R.drawable.icon_mask_share_wechat40_svg));
             this.j.setOnClickListener(this);
-            ImageView imageView4 = (ImageView) this.f55439f.findViewById(R.id.wechat_timeline);
+            ImageView imageView4 = (ImageView) this.f59128f.findViewById(R.id.wechat_timeline);
             this.k = imageView4;
-            imageView4.setImageDrawable(this.f55438e.getDrawable(R.drawable.icon_mask_share_circle40_svg));
+            imageView4.setImageDrawable(this.f59127e.getDrawable(R.drawable.icon_mask_share_circle40_svg));
             this.k.setOnClickListener(this);
-            ImageView imageView5 = (ImageView) this.f55439f.findViewById(R.id.wechat_emotion);
+            ImageView imageView5 = (ImageView) this.f59128f.findViewById(R.id.wechat_emotion);
             this.l = imageView5;
-            imageView5.setImageDrawable(this.f55438e.getDrawable(R.drawable.icon_share_wechatexpression));
+            imageView5.setImageDrawable(this.f59127e.getDrawable(R.drawable.icon_share_wechatexpression));
             this.l.setOnClickListener(this);
-            setContentView(this.f55439f);
+            setContentView(this.f59128f);
         }
 
         public final ShareItem b() {
@@ -185,15 +185,15 @@ public class h {
         }
 
         public void d() {
-            SkinManager.setViewTextColor(this.f55440g, R.color.CAM_X0109);
-            d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f55439f);
+            SkinManager.setViewTextColor(this.f59129g, R.color.CAM_X0109);
+            d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f59128f);
             d2.m(R.string.J_X06);
             d2.f(R.color.CAM_X0204);
         }
 
         public void e() {
             this.m = null;
-            this.f55438e = null;
+            this.f59127e = null;
             this.n = null;
         }
 
@@ -209,57 +209,57 @@ public class h {
             }
             if (!d.a.c.e.p.j.z()) {
                 l.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
-            } else if (view == this.f55441h) {
-                if (z.b(this.f55438e, "com.tencent.mobileqq")) {
+            } else if (view == this.f59130h) {
+                if (z.b(this.f59127e, "com.tencent.mobileqq")) {
                     if (c(b2) && b2.a() != null && b2.a().contains(4)) {
-                        d.a.m0.s.g.a.e(b2, this.f55438e, 8, null);
+                        d.a.m0.s.g.a.e(b2, this.f59127e, 8, null);
                         return;
                     } else {
                         this.n.h(b2);
                         return;
                     }
                 }
-                Activity activity = this.f55438e;
+                Activity activity = this.f59127e;
                 BdToast.c(activity, activity.getText(R.string.share_qq_not_install)).q();
-            } else if (view == this.f55442i) {
-                if (z.b(this.f55438e, "com.tencent.mobileqq")) {
+            } else if (view == this.f59131i) {
+                if (z.b(this.f59127e, "com.tencent.mobileqq")) {
                     if (c(b2) && b2.a() != null && b2.a().contains(4)) {
-                        d.a.m0.s.g.a.e(b2, this.f55438e, 4, null);
+                        d.a.m0.s.g.a.e(b2, this.f59127e, 4, null);
                         return;
                     } else {
                         this.n.i(b2);
                         return;
                     }
                 }
-                Activity activity2 = this.f55438e;
+                Activity activity2 = this.f59127e;
                 BdToast.c(activity2, activity2.getText(R.string.share_qq_not_install)).q();
             } else if (view == this.j) {
                 if (c(b2) && b2.a() != null && b2.a().contains(3)) {
-                    d.a.m0.s.g.a.e(b2, this.f55438e, 3, null);
+                    d.a.m0.s.g.a.e(b2, this.f59127e, 3, null);
                 } else if (b2.d0 != 1) {
                     this.n.m(b2);
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_source", 22).param("tid", b2.K).param("fid", b2.J));
             } else if (view == this.k) {
                 if (c(b2) && b2.a() != null && b2.a().contains(2)) {
-                    d.a.m0.s.g.a.e(b2, this.f55438e, 2, null);
+                    d.a.m0.s.g.a.e(b2, this.f59127e, 2, null);
                 } else if (b2.d0 == 1) {
                 } else {
-                    if (b2.f12596b) {
+                    if (b2.f12658b) {
                         b2.s = "【" + b2.r + "】 " + b2.s;
                     }
                     this.n.n(b2);
                 }
-            } else if (view != this.l || h.this.f55434d == null) {
+            } else if (view != this.l || h.this.f59123d == null) {
             } else {
-                h.this.f55434d.onClick(view);
+                h.this.f59123d.onClick(view);
             }
         }
     }
 
     public h(ImageViewerActivity imageViewerActivity) {
-        this.f55431a = imageViewerActivity;
-        this.f55432b = new b(imageViewerActivity);
+        this.f59120a = imageViewerActivity;
+        this.f59121b = new b(imageViewerActivity);
     }
 
     public final int e(String str) {
@@ -276,24 +276,24 @@ public class h {
     }
 
     public void f() {
-        b bVar = this.f55432b;
+        b bVar = this.f59121b;
         if (bVar != null) {
             bVar.e();
         }
-        this.f55431a = null;
-        this.f55434d = null;
+        this.f59120a = null;
+        this.f59123d = null;
     }
 
     public void g(MultiImageView multiImageView, int i2, View.OnClickListener onClickListener) {
         String str;
         String str2;
         ImageUrlData imageUrlData;
-        b bVar = this.f55432b;
+        b bVar = this.f59121b;
         if (bVar == null || multiImageView == null) {
             return;
         }
         if (!bVar.isShowing()) {
-            d.a.c.e.m.g.m(this.f55432b, multiImageView, 81, 0, i2 + d.a.c.e.p.a.b(this.f55431a) + this.f55435e);
+            d.a.c.e.m.g.m(this.f59121b, multiImageView, 81, 0, i2 + d.a.c.e.p.a.b(this.f59120a) + this.f59124e);
             int i3 = 5;
             UrlDragImageView currentUrlDragImageView = multiImageView.getCurrentUrlDragImageView();
             String str3 = "";
@@ -310,9 +310,9 @@ public class h {
             }
             TiebaStatic.log(new StatisticItem("c14045").param("post_id", str3).param("tid", str).param("fid", str2).param("obj_source", i3));
         }
-        this.f55432b.f(multiImageView);
-        this.f55434d = onClickListener;
-        d.a.c.e.m.e.a().removeCallbacks(this.f55433c);
-        d.a.c.e.m.e.a().postDelayed(this.f55433c, 5000L);
+        this.f59121b.f(multiImageView);
+        this.f59123d = onClickListener;
+        d.a.c.e.m.e.a().removeCallbacks(this.f59122c);
+        d.a.c.e.m.e.a().postDelayed(this.f59122c, 5000L);
     }
 }

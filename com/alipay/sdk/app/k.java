@@ -14,22 +14,22 @@ public enum k {
     
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1800h;
+    public int f1813h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f1801i;
+    public String f1814i;
 
     k(int i2, String str) {
-        this.f1800h = i2;
-        this.f1801i = str;
+        this.f1813h = i2;
+        this.f1814i = str;
     }
 
     public void a(int i2) {
-        this.f1800h = i2;
+        this.f1813h = i2;
     }
 
     public String b() {
-        return this.f1801i;
+        return this.f1814i;
     }
 
     public static k b(int i2) {
@@ -55,10 +55,10 @@ public enum k {
     }
 
     public int a() {
-        return this.f1800h;
+        return this.f1813h;
     }
 
     public void a(String str) {
-        this.f1801i = str;
+        this.f1814i = str;
     }
 }

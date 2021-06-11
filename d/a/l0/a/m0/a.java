@@ -4,7 +4,7 @@ import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import d.a.l0.a.l0.d;
 import d.a.l0.a.l0.h;
 import d.a.l0.a.l0.n.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements h {
     @Override // d.a.l0.a.l0.h
     public String a() {

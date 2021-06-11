@@ -27,19 +27,19 @@ import java.util.List;
 public class SwanContextMenuView extends FrameLayout implements a.g {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f11392e;
+    public final Context f11454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f11393f;
+    public boolean f11455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ListView f11394g;
+    public ListView f11456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f11395h;
+    public b f11457h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f11396i;
+    public boolean f11458i;
 
     /* loaded from: classes3.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -48,7 +48,7 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            SwanContextMenuView.this.f11395h.a(i2);
+            SwanContextMenuView.this.f11457h.a(i2);
         }
     }
 
@@ -56,31 +56,31 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
     public class b extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Context f11398e;
+        public final Context f11460e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<d.a.l0.a.z1.b.e.b> f11399f;
+        public List<d.a.l0.a.z1.b.e.b> f11461f;
 
         /* loaded from: classes3.dex */
         public class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public ImageView f11401a;
+            public ImageView f11463a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TextView f11402b;
+            public TextView f11464b;
 
             public a(b bVar) {
             }
         }
 
         public b(Context context, List<d.a.l0.a.z1.b.e.b> list) {
-            this.f11399f = list;
-            this.f11398e = context;
+            this.f11461f = list;
+            this.f11460e = context;
         }
 
         public void a(int i2) {
-            d.a.l0.a.z1.b.e.b bVar = this.f11399f.get(i2);
+            d.a.l0.a.z1.b.e.b bVar = this.f11461f.get(i2);
             b.a d2 = bVar.d();
             if (d2 != null) {
                 d2.a(bVar);
@@ -89,29 +89,29 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
 
         public final void b(View view, int i2) {
             if (getCount() == 1) {
-                view.setBackground(this.f11398e.getResources().getDrawable(e.swan_app_context_menu_round_corner_selector));
+                view.setBackground(this.f11460e.getResources().getDrawable(e.swan_app_context_menu_round_corner_selector));
             } else if (i2 == 0) {
-                view.setBackground(this.f11398e.getResources().getDrawable(e.swan_app_context_menu_top_corner_selector));
+                view.setBackground(this.f11460e.getResources().getDrawable(e.swan_app_context_menu_top_corner_selector));
             } else if (i2 == getCount() - 1) {
-                view.setBackground(this.f11398e.getResources().getDrawable(e.swan_app_context_menu_bottom_corner_selector));
+                view.setBackground(this.f11460e.getResources().getDrawable(e.swan_app_context_menu_bottom_corner_selector));
             } else {
-                view.setBackground(this.f11398e.getResources().getDrawable(e.swan_app_context_menu_no_corner_selector));
+                view.setBackground(this.f11460e.getResources().getDrawable(e.swan_app_context_menu_no_corner_selector));
             }
         }
 
         public void c(List<d.a.l0.a.z1.b.e.b> list) {
-            this.f11399f = list;
+            this.f11461f = list;
             notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.f11399f.size();
+            return this.f11461f.size();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
-            return this.f11399f.get(i2);
+            return this.f11461f.get(i2);
         }
 
         @Override // android.widget.Adapter
@@ -124,37 +124,37 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
         public View getView(int i2, View view, ViewGroup viewGroup) {
             a aVar;
             if (view == null) {
-                view = LayoutInflater.from(this.f11398e).inflate(g.swan_app_menu_item_view, (ViewGroup) null);
+                view = LayoutInflater.from(this.f11460e).inflate(g.swan_app_menu_item_view, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.f11401a = (ImageView) view.findViewById(f.item_icon);
-                aVar.f11402b = (TextView) view.findViewById(f.item_title);
+                aVar.f11463a = (ImageView) view.findViewById(f.item_icon);
+                aVar.f11464b = (TextView) view.findViewById(f.item_title);
                 b(view, i2);
                 view.setTag(aVar);
             } else {
                 aVar = (a) view.getTag();
             }
-            d.a.l0.a.z1.b.e.b bVar = this.f11399f.get(i2);
-            aVar.f11402b.setText(bVar.e());
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.f11402b.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.f11401a.getLayoutParams();
+            d.a.l0.a.z1.b.e.b bVar = this.f11461f.get(i2);
+            aVar.f11464b.setText(bVar.e());
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.f11464b.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.f11463a.getLayoutParams();
             if (bVar.b() != null) {
-                aVar.f11401a.setVisibility(0);
-                aVar.f11401a.setImageDrawable(bVar.b());
-                layoutParams.setMarginStart(this.f11398e.getResources().getDimensionPixelSize(d.swan_context_menu_item_title_left_margin));
+                aVar.f11463a.setVisibility(0);
+                aVar.f11463a.setImageDrawable(bVar.b());
+                layoutParams.setMarginStart(this.f11460e.getResources().getDimensionPixelSize(d.swan_context_menu_item_title_left_margin));
             } else {
-                aVar.f11401a.setVisibility(8);
-                layoutParams.setMarginStart(this.f11398e.getResources().getDimensionPixelSize(d.swan_context_menu_item_icon_left_margin));
+                aVar.f11463a.setVisibility(8);
+                layoutParams.setMarginStart(this.f11460e.getResources().getDimensionPixelSize(d.swan_context_menu_item_icon_left_margin));
             }
-            aVar.f11402b.setLayoutParams(layoutParams);
-            if (SwanContextMenuView.this.f11396i) {
+            aVar.f11464b.setLayoutParams(layoutParams);
+            if (SwanContextMenuView.this.f11458i) {
                 ((LinearLayout) view).setGravity(17);
                 layoutParams.width = -2;
                 if (bVar.b() != null) {
                     layoutParams2.setMarginStart(0);
-                    aVar.f11401a.setLayoutParams(layoutParams2);
+                    aVar.f11463a.setLayoutParams(layoutParams2);
                 } else {
                     layoutParams.setMarginStart(0);
-                    aVar.f11402b.setLayoutParams(layoutParams);
+                    aVar.f11464b.setLayoutParams(layoutParams);
                 }
             }
             return view;
@@ -163,54 +163,54 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
 
     public SwanContextMenuView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11393f = false;
-        this.f11392e = context;
+        this.f11455f = false;
+        this.f11454e = context;
         b();
     }
 
     public final void b() {
         setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        setBackground(this.f11392e.getResources().getDrawable(e.swan_app_context_menu_bg));
-        ListView listView = new ListView(this.f11392e);
-        this.f11394g = listView;
+        setBackground(this.f11454e.getResources().getDrawable(e.swan_app_context_menu_bg));
+        ListView listView = new ListView(this.f11454e);
+        this.f11456g = listView;
         listView.setCacheColorHint(0);
-        this.f11394g.setDivider(getResources().getDrawable(c.swan_context_menu_divider_color));
-        this.f11394g.setDividerHeight(1);
-        this.f11394g.setSelector(new ColorDrawable(0));
-        addView(this.f11394g, new FrameLayout.LayoutParams(-1, -1));
-        this.f11394g.setOnItemClickListener(new a());
+        this.f11456g.setDivider(getResources().getDrawable(c.swan_context_menu_divider_color));
+        this.f11456g.setDividerHeight(1);
+        this.f11456g.setSelector(new ColorDrawable(0));
+        addView(this.f11456g, new FrameLayout.LayoutParams(-1, -1));
+        this.f11456g.setOnItemClickListener(new a());
     }
 
     public void c(List<d.a.l0.a.z1.b.e.b> list) {
-        if (this.f11393f) {
+        if (this.f11455f) {
             return;
         }
-        b bVar = this.f11395h;
+        b bVar = this.f11457h;
         if (bVar == null) {
-            b bVar2 = new b(this.f11392e, list);
-            this.f11395h = bVar2;
-            this.f11394g.setAdapter((ListAdapter) bVar2);
+            b bVar2 = new b(this.f11454e, list);
+            this.f11457h = bVar2;
+            this.f11456g.setAdapter((ListAdapter) bVar2);
         } else {
             bVar.c(list);
         }
-        this.f11393f = true;
+        this.f11455f = true;
     }
 
     public void setLayoutInCenter(boolean z) {
-        this.f11396i = z;
+        this.f11458i = z;
     }
 
     public SwanContextMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11393f = false;
-        this.f11392e = context;
+        this.f11455f = false;
+        this.f11454e = context;
         b();
     }
 
     public SwanContextMenuView(Context context) {
         super(context);
-        this.f11393f = false;
-        this.f11392e = context;
+        this.f11455f = false;
+        this.f11454e = context;
         b();
     }
 }

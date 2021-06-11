@@ -24,7 +24,7 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect h2 = this.f20110g.h(i3);
+                Rect h2 = this.f20187g.h(i3);
                 if (h2 != null) {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i2, i3, h2.left, h2.top, h2.width(), h2.height(), false);
                 } else {
@@ -48,7 +48,7 @@ public class ZXingView extends QRCodeView {
     public final void o() {
         MultiFormatReader multiFormatReader = new MultiFormatReader();
         this.n = multiFormatReader;
-        multiFormatReader.setHints(a.f58344a);
+        multiFormatReader.setHints(a.f62035a);
     }
 
     public ZXingView(Context context, AttributeSet attributeSet, int i2) {

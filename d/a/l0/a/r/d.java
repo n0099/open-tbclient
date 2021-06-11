@@ -17,25 +17,25 @@ public class d extends c {
     public class a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f44251a;
+        public final /* synthetic */ String f47925a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44252b;
+        public final /* synthetic */ String f47926b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44253c;
+        public final /* synthetic */ CallbackHandler f47927c;
 
         public a(String str, String str2, CallbackHandler callbackHandler) {
-            this.f44251a = str;
-            this.f44252b = str2;
-            this.f44253c = callbackHandler;
+            this.f47925a = str;
+            this.f47926b = str2;
+            this.f47927c = callbackHandler;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             d dVar = d.this;
-            CallbackHandler callbackHandler = this.f44253c;
-            String str = this.f44252b;
+            CallbackHandler callbackHandler = this.f47927c;
+            String str = this.f47926b;
             dVar.r(callbackHandler, str, null, "downloadFile:fail" + exc.getMessage());
         }
 
@@ -45,7 +45,7 @@ public class d extends c {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i2) {
-            d.this.s(response, this.f44251a, this.f44252b, this.f44253c);
+            d.this.s(response, this.f47925a, this.f47926b, this.f47927c);
             return response;
         }
     }
@@ -100,9 +100,9 @@ public class d extends c {
 
     public final void q(String str, String str2, CallbackHandler callbackHandler) {
         d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(str, new a(str, str2, callbackHandler));
-        aVar.f47974f = true;
-        aVar.f47975g = false;
-        aVar.f47976h = true;
+        aVar.f51648f = true;
+        aVar.f51649g = false;
+        aVar.f51650h = true;
         d.a.l0.m.e.a.g().d(aVar);
     }
 
@@ -142,7 +142,7 @@ public class d extends c {
             try {
                 file.createNewFile();
             } catch (IOException e2) {
-                if (c.f44247c) {
+                if (c.f47921c) {
                     e2.printStackTrace();
                 }
             }

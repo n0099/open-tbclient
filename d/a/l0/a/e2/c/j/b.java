@@ -29,22 +29,22 @@ public class b extends h<e> {
 
     /* renamed from: d.a.l0.a.e2.c.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0622b extends d.a.l0.a.e2.c.e {
+    public class C0678b extends d.a.l0.a.e2.c.e {
 
         /* renamed from: d.a.l0.a.e2.c.j.b$b$a */
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Activity f41743e;
+            public final /* synthetic */ Activity f45419e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.a.l0.a.e2.c.f f41744f;
+            public final /* synthetic */ d.a.l0.a.e2.c.f f45420f;
 
             /* renamed from: d.a.l0.a.e2.c.j.b$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0623a implements d.a.l0.a.e2.c.a {
-                public C0623a() {
+            public class C0679a implements d.a.l0.a.e2.c.a {
+                public C0679a() {
                 }
 
                 @Override // d.a.l0.a.e2.c.a
@@ -52,25 +52,25 @@ public class b extends h<e> {
                     b bVar = b.this;
                     bVar.p = z;
                     bVar.u = !z;
-                    C0622b.this.d();
+                    C0678b.this.d();
                 }
             }
 
             public a(Activity activity, d.a.l0.a.e2.c.f fVar) {
-                this.f41743e = activity;
-                this.f41744f = fVar;
+                this.f45419e = activity;
+                this.f45420f = fVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f41743e.isFinishing()) {
+                if (this.f45419e.isFinishing()) {
                     return;
                 }
-                d.a.l0.a.e2.c.d.t(this.f41743e, b.this.N(), this.f41744f, null, new C0623a());
+                d.a.l0.a.e2.c.d.t(this.f45419e, b.this.N(), this.f45420f, null, new C0679a());
             }
         }
 
-        public C0622b() {
+        public C0678b() {
         }
 
         @Override // d.a.l0.a.e2.c.e
@@ -82,7 +82,7 @@ public class b extends h<e> {
                 b.this.e(new OAuthException(10001));
                 k.p(10001, null);
                 return true;
-            } else if (fVar.f41697d) {
+            } else if (fVar.f45373d) {
                 bVar.e(new OAuthException(10005));
                 k.p(10005, fVar);
                 return true;
@@ -127,7 +127,7 @@ public class b extends h<e> {
             @Override // d.a.l0.a.v2.e1.b
             /* renamed from: a */
             public void onCallback(d.a.l0.a.e2.c.f fVar) {
-                if (d.a.l0.a.e2.c.c.f41674f) {
+                if (d.a.l0.a.e2.c.c.f45350f) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("ListPreparation result: ");
                     sb.append(fVar == null ? StringUtil.NULL_STRING : fVar);
@@ -147,7 +147,7 @@ public class b extends h<e> {
                     }
                 }
                 b bVar2 = b.this;
-                bVar2.i(new C0622b());
+                bVar2.i(new C0678b());
                 c.this.d();
             }
         }
@@ -223,18 +223,18 @@ public class b extends h<e> {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f41750a;
+        public final String f45426a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f41751b;
+        public final boolean f45427b;
 
         public e(boolean z, String str) {
-            this.f41750a = str == null ? "" : str;
-            this.f41751b = z;
+            this.f45426a = str == null ? "" : str;
+            this.f45427b = z;
         }
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.f41751b), this.f41750a);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.f45427b), this.f45426a);
         }
     }
 
@@ -288,7 +288,7 @@ public class b extends h<e> {
                 d.a.l0.a.e2.c.d.l(c2);
                 d.a.l0.a.e2.c.d.s("Authorize", c2.toString());
             }
-            if (d.a.l0.a.e2.c.c.f41674f) {
+            if (d.a.l0.a.e2.c.c.f45350f) {
                 throw new JSONException("Illegal errno=" + optInt + " errms=" + c2.optString("errms"));
             }
         }
@@ -322,7 +322,7 @@ public class b extends h<e> {
                 jSONObject.put("provider_appkey", this.s);
             }
         } catch (JSONException e2) {
-            if (d.a.l0.a.e2.c.c.f41674f) {
+            if (d.a.l0.a.e2.c.c.f45350f) {
                 e2.printStackTrace();
             }
         }

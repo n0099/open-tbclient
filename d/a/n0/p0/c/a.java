@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forumMember.member.ComplaintBarlordViewHolder;
 /* loaded from: classes4.dex */
-public class a extends d.a.c.j.e.a<b, ComplaintBarlordViewHolder> {
+public class a extends d.a.c.k.e.a<b, ComplaintBarlordViewHolder> {
     public int m;
     public View.OnClickListener n;
 
     /* renamed from: d.a.n0.p0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1460a implements View.OnClickListener {
-        public View$OnClickListenerC1460a() {
+    public class View$OnClickListenerC1516a implements View.OnClickListener {
+        public View$OnClickListenerC1516a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -28,55 +28,55 @@ public class a extends d.a.c.j.e.a<b, ComplaintBarlordViewHolder> {
                 if (a.this.m == 1 || a.this.m == 4) {
                     str = str + "?isNightModel=1";
                 }
-                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.f39228e, a.this.f39228e.getString(R.string.complaint_bar_lord), str, true));
-                customMessage.setTag(a.this.f39232i);
+                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.f42909e, a.this.f42909e.getString(R.string.complaint_bar_lord), str, true));
+                customMessage.setTag(a.this.f42913i);
                 MessageManager.getInstance().sendMessage(customMessage);
             }
         }
     }
 
     public a(d.a.c.a.f fVar) {
-        super(fVar.getPageActivity(), b.f57984g, fVar.getUniqueId());
-        this.n = new View$OnClickListenerC1460a();
+        super(fVar.getPageActivity(), b.f61675g, fVar.getUniqueId());
+        this.n = new View$OnClickListenerC1516a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, b bVar, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
-        n0(i2, view, viewGroup, bVar, complaintBarlordViewHolder);
+    @Override // d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, b bVar, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        m0(i2, view, viewGroup, bVar, complaintBarlordViewHolder);
         return view;
     }
 
-    public final void i0(ComplaintBarlordViewHolder complaintBarlordViewHolder, b bVar) {
-        complaintBarlordViewHolder.f14965d.setText(bVar.f57985e);
-        complaintBarlordViewHolder.f14963b.setTag(bVar.f57986f);
-        complaintBarlordViewHolder.f14963b.setOnClickListener(this.n);
+    public final void j0(ComplaintBarlordViewHolder complaintBarlordViewHolder, b bVar) {
+        complaintBarlordViewHolder.f15022d.setText(bVar.f61676e);
+        complaintBarlordViewHolder.f15020b.setTag(bVar.f61677f);
+        complaintBarlordViewHolder.f15020b.setOnClickListener(this.n);
     }
 
-    public final void j0(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+    public final void k0(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         this.m = skinType;
-        if (complaintBarlordViewHolder.f14962a == skinType) {
+        if (complaintBarlordViewHolder.f15019a == skinType) {
             return;
         }
-        complaintBarlordViewHolder.f14962a = skinType;
-        SkinManager.setBackgroundResource(complaintBarlordViewHolder.f14963b, R.drawable.frs_member_manito_bg);
-        SkinManager.setBackgroundColor(complaintBarlordViewHolder.f14964c, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(complaintBarlordViewHolder.f14965d, R.color.CAM_X0105, 1);
-        SkinManager.setImageResource(complaintBarlordViewHolder.f14966e, R.drawable.icon_arrow12_gray66_right);
+        complaintBarlordViewHolder.f15019a = skinType;
+        SkinManager.setBackgroundResource(complaintBarlordViewHolder.f15020b, R.drawable.frs_member_manito_bg);
+        SkinManager.setBackgroundColor(complaintBarlordViewHolder.f15021c, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(complaintBarlordViewHolder.f15022d, R.color.CAM_X0105, 1);
+        SkinManager.setImageResource(complaintBarlordViewHolder.f15023e, R.drawable.icon_arrow12_gray66_right);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: m0 */
-    public ComplaintBarlordViewHolder P(ViewGroup viewGroup) {
-        return new ComplaintBarlordViewHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false));
+    @Override // d.a.c.k.e.a
+    /* renamed from: l0 */
+    public ComplaintBarlordViewHolder Q(ViewGroup viewGroup) {
+        return new ComplaintBarlordViewHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false));
     }
 
-    public View n0(int i2, View view, ViewGroup viewGroup, b bVar, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+    public View m0(int i2, View view, ViewGroup viewGroup, b bVar, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
         if (bVar != null && complaintBarlordViewHolder != null) {
-            j0(complaintBarlordViewHolder);
-            i0(complaintBarlordViewHolder, bVar);
+            k0(complaintBarlordViewHolder);
+            j0(complaintBarlordViewHolder, bVar);
         }
         return view;
     }

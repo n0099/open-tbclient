@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Surface;
 import com.baidu.swan.nalib.audio.SwanAudioPlayer;
+import com.kwai.video.player.KsMediaMeta;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import d.a.l0.a.k;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -17,34 +19,34 @@ import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class a {
-    public static final boolean j = k.f43199a;
+    public static final boolean j = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaCodec f42956a;
+    public MediaCodec f46632a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer[] f42957b;
+    public ByteBuffer[] f46633b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ByteBuffer[] f42958c;
+    public ByteBuffer[] f46634c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaCodec.BufferInfo f42959d;
+    public MediaCodec.BufferInfo f46635d;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42962g;
+    public int f46638g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42963h;
+    public int f46639h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f42964i;
+    public String f46640i;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f42961f = 0;
+    public long f46637f = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public ByteArrayOutputStream f42960e = new ByteArrayOutputStream();
+    public ByteArrayOutputStream f46636e = new ByteArrayOutputStream();
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x005f  */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0060 A[Catch: IOException -> 0x00b2, TryCatch #0 {IOException -> 0x00b2, blocks: (B:6:0x0028, B:25:0x0060, B:27:0x0064, B:28:0x006b, B:30:0x0087, B:13:0x0041, B:16:0x004b, B:19:0x0055), top: B:35:0x0028 }] */
@@ -53,18 +55,18 @@ public class a {
     */
     public a(String str, int i2, int i3, int i4) {
         char c2 = 0;
-        this.f42962g = 0;
-        this.f42963h = 0;
-        this.f42964i = "aac";
-        this.f42962g = i3;
-        this.f42963h = i2;
+        this.f46638g = 0;
+        this.f46639h = 0;
+        this.f46640i = "aac";
+        this.f46638g = i3;
+        this.f46639h = i2;
         if (TextUtils.isEmpty(str)) {
-            this.f42964i = "aac";
+            this.f46640i = "aac";
         } else {
-            this.f42964i = str;
+            this.f46640i = str;
         }
         try {
-            String str2 = this.f42964i;
+            String str2 = this.f46640i;
             int hashCode = str2.hashCode();
             if (hashCode == 96323) {
                 if (str2.equals("aac")) {
@@ -85,17 +87,17 @@ public class a {
                     }
                     MediaCodecInfo d2 = d("audio/mp4a-latm");
                     MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", i3, i2);
-                    createAudioFormat.setInteger("bitrate", i4);
+                    createAudioFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, i4);
                     createAudioFormat.setInteger("aac-profile", 2);
                     createAudioFormat.setInteger("max-input-size", 102400);
                     if (d2 != null) {
                         MediaCodec createByCodecName = MediaCodec.createByCodecName(d2.getName());
-                        this.f42956a = createByCodecName;
+                        this.f46632a = createByCodecName;
                         createByCodecName.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
-                        this.f42956a.start();
-                        this.f42957b = this.f42956a.getInputBuffers();
-                        this.f42958c = this.f42956a.getOutputBuffers();
-                        this.f42959d = new MediaCodec.BufferInfo();
+                        this.f46632a.start();
+                        this.f46633b = this.f46632a.getInputBuffers();
+                        this.f46634c = this.f46632a.getOutputBuffers();
+                        this.f46635d = new MediaCodec.BufferInfo();
                         return;
                     }
                     return;
@@ -151,7 +153,7 @@ public class a {
     }
 
     public final long b(long j2) {
-        int i2 = this.f42962g;
+        int i2 = this.f46638g;
         if (i2 == 0) {
             return 0L;
         }
@@ -166,7 +168,7 @@ public class a {
         bArr[1] = -15;
         bArr[2] = (byte) (((i3 - 1) << 6) + (a2 << 2) + (i5 >> 2));
         bArr[3] = (byte) (((i5 & 3) << 6) + (i6 >> 11));
-        bArr[4] = (byte) ((i6 & 2047) >> 3);
+        bArr[4] = (byte) ((i6 & RevenueServerConst.GetUserCouponStoreResponse) >> 3);
         bArr[5] = (byte) (((i6 & 7) << 5) + 31);
         bArr[6] = -4;
         return bArr;
@@ -189,19 +191,19 @@ public class a {
     }
 
     public final byte[] e(byte[] bArr) {
-        if (this.f42956a != null && bArr != null) {
+        if (this.f46632a != null && bArr != null) {
             if (j) {
                 Log.d("AudioRecorderManager", "start AAC encode");
             }
-            int dequeueInputBuffer = this.f42956a.dequeueInputBuffer(-1L);
+            int dequeueInputBuffer = this.f46632a.dequeueInputBuffer(-1L);
             if (dequeueInputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.f42957b[dequeueInputBuffer];
+                ByteBuffer byteBuffer = this.f46633b[dequeueInputBuffer];
                 byteBuffer.clear();
                 try {
                     byteBuffer.put(bArr);
                     byteBuffer.limit(bArr.length);
-                    this.f42956a.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, b(this.f42961f), 0);
-                    this.f42961f++;
+                    this.f46632a.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, b(this.f46637f), 0);
+                    this.f46637f++;
                 } catch (IllegalArgumentException | BufferOverflowException e2) {
                     if (j) {
                         e2.printStackTrace();
@@ -209,21 +211,21 @@ public class a {
                     return bArr;
                 }
             }
-            int dequeueOutputBuffer = this.f42956a.dequeueOutputBuffer(this.f42959d, 0L);
+            int dequeueOutputBuffer = this.f46632a.dequeueOutputBuffer(this.f46635d, 0L);
             while (dequeueOutputBuffer >= 0) {
-                MediaCodec.BufferInfo bufferInfo = this.f42959d;
+                MediaCodec.BufferInfo bufferInfo = this.f46635d;
                 int i2 = bufferInfo.size;
-                ByteBuffer byteBuffer2 = this.f42958c[dequeueOutputBuffer];
+                ByteBuffer byteBuffer2 = this.f46634c[dequeueOutputBuffer];
                 try {
                     byteBuffer2.position(bufferInfo.offset);
-                    byteBuffer2.limit(this.f42959d.offset + i2);
-                    byte[] c2 = c(i2, 2, this.f42962g, this.f42963h);
+                    byteBuffer2.limit(this.f46635d.offset + i2);
+                    byte[] c2 = c(i2, 2, this.f46638g, this.f46639h);
                     try {
                         byteBuffer2.get(c2, 7, i2);
-                        byteBuffer2.position(this.f42959d.offset);
-                        this.f42960e.write(c2);
-                        this.f42956a.releaseOutputBuffer(dequeueOutputBuffer, false);
-                        dequeueOutputBuffer = this.f42956a.dequeueOutputBuffer(this.f42959d, 0L);
+                        byteBuffer2.position(this.f46635d.offset);
+                        this.f46636e.write(c2);
+                        this.f46632a.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        dequeueOutputBuffer = this.f46632a.dequeueOutputBuffer(this.f46635d, 0L);
                     } catch (IOException | IllegalArgumentException | BufferUnderflowException e3) {
                         if (j) {
                             e3.printStackTrace();
@@ -237,22 +239,22 @@ public class a {
                     return bArr;
                 }
             }
-            bArr = this.f42960e.toByteArray();
+            bArr = this.f46636e.toByteArray();
             try {
-                this.f42960e.flush();
+                this.f46636e.flush();
             } catch (IOException e5) {
                 if (j) {
                     e5.printStackTrace();
                 }
             }
-            this.f42960e.reset();
+            this.f46636e.reset();
         }
         return bArr;
     }
 
     public byte[] f(byte[] bArr) {
-        if (this.f42956a != null && bArr != null) {
-            String str = this.f42964i;
+        if (this.f46632a != null && bArr != null) {
+            String str = this.f46640i;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 96323) {

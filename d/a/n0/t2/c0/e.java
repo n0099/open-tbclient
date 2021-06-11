@@ -29,22 +29,22 @@ import java.util.List;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f60943c;
+    public static e f64635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static DownloadData f60944d;
+    public static DownloadData f64636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<DownloadData> f60945e = new LinkedList();
+    public static List<DownloadData> f64637e = new LinkedList();
 
     /* renamed from: f  reason: collision with root package name */
-    public static HashMap<String, Integer> f60946f = new HashMap<>();
+    public static HashMap<String, Integer> f64638f = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public b f60947a = null;
+    public b f64639a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, g> f60948b = new HashMap<>();
+    public HashMap<String, g> f64640b = new HashMap<>();
 
     /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<DownloadData, DownloadData, DownloadData> {
@@ -87,7 +87,7 @@ public class e {
         /* renamed from: c */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            e.this.f60947a = null;
+            e.this.f64639a = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     e.this.y(downloadData);
@@ -104,7 +104,7 @@ public class e {
                         if (downloadData.isNeedNotify()) {
                             String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
                             g gVar = new g(downloadData, 0);
-                            e.this.f60948b.put(downloadData.getUrl(), gVar);
+                            e.this.f64640b.put(downloadData.getUrl(), gVar);
                             Application app2 = TbadkCoreApplication.getInst().getApp();
                             int notifyId = downloadData.getNotifyId();
                             NotificationHelper.showProgressNotification(app2, notifyId, downloadData.getUser_name() + string, 0, string, downloadData.getUser_name(), e.this.h(downloadData.getAction()), false, gVar.b(), false);
@@ -116,11 +116,11 @@ public class e {
                         e.this.C(downloadData);
                     }
                 }
-                DownloadData unused = e.f60944d = null;
-                if (e.f60945e.isEmpty()) {
+                DownloadData unused = e.f64636d = null;
+                if (e.f64637e.isEmpty()) {
                     return;
                 }
-                e.f60945e.remove(0);
+                e.f64637e.remove(0);
                 e.this.F();
             }
         }
@@ -130,10 +130,10 @@ public class e {
     public class c extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<AdvertAppInfo> f60950a;
+        public ArrayList<AdvertAppInfo> f64642a;
 
         public c() {
-            this.f60950a = null;
+            this.f64642a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -145,12 +145,12 @@ public class e {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.f60950a = arrayList;
+            this.f64642a = arrayList;
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
                 String downloadId = next.getDownloadId();
-                if (FileHelper.GetFile(e.this.k(next.X3)) != null) {
+                if (FileHelper.GetFile(e.this.k(next.a4)) != null) {
                     DownloadData downloadData = new DownloadData(downloadId);
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -168,7 +168,7 @@ public class e {
                 list = new LinkedList<>();
             }
             for (DownloadData downloadData : f.j().i()) {
-                Iterator<AdvertAppInfo> it = this.f60950a.iterator();
+                Iterator<AdvertAppInfo> it = this.f64642a.iterator();
                 while (it.hasNext()) {
                     if (TextUtils.equals(it.next().getDownloadId(), downloadData.getId())) {
                         list.add(downloadData);
@@ -176,7 +176,7 @@ public class e {
                 }
             }
             e.this.x(list);
-            this.f60950a = null;
+            this.f64642a = null;
         }
     }
 
@@ -194,19 +194,19 @@ public class e {
 
     public static e n() {
         synchronized (e.class) {
-            if (f60943c == null) {
-                f60943c = new e();
+            if (f64635c == null) {
+                f64635c = new e();
             }
         }
-        return f60943c;
+        return f64635c;
     }
 
     public static Integer o(String str) {
-        if (f60946f.containsKey(str)) {
-            return f60946f.get(str);
+        if (f64638f.containsKey(str)) {
+            return f64638f.get(str);
         }
         Integer valueOf = Integer.valueOf(BdUniqueId.gen().getId());
-        f60946f.put(str, valueOf);
+        f64638f.put(str, valueOf);
         return valueOf;
     }
 
@@ -236,7 +236,7 @@ public class e {
 
     public void A(DownloadData downloadData) {
         if (downloadData != null) {
-            g gVar = this.f60948b.get(downloadData.getUrl());
+            g gVar = this.f64640b.get(downloadData.getUrl());
             int j = j(downloadData.getId(), downloadData.getName());
             if (gVar == null) {
                 gVar = new g(downloadData, j);
@@ -274,7 +274,7 @@ public class e {
         }
         int j = j(downloadData.getId(), downloadData.getName());
         String str = j + "%";
-        g gVar = this.f60948b.get(downloadData.getUrl());
+        g gVar = this.f64640b.get(downloadData.getUrl());
         if (gVar == null) {
             gVar = new g(downloadData, j);
         }
@@ -303,7 +303,7 @@ public class e {
             UtilHelper.showToast(TbadkCoreApplication.getInst(), R.string.download_fail_over_max);
             return;
         }
-        f60945e.add(downloadData);
+        f64637e.add(downloadData);
         F();
     }
 
@@ -326,16 +326,16 @@ public class e {
     }
 
     public final void F() {
-        if (f60944d != null || f60945e.isEmpty()) {
+        if (f64636d != null || f64637e.isEmpty()) {
             return;
         }
-        DownloadData downloadData = f60945e.get(0);
-        f60944d = downloadData;
+        DownloadData downloadData = f64637e.get(0);
+        f64636d = downloadData;
         if (downloadData != null) {
             b bVar = new b();
-            this.f60947a = bVar;
+            this.f64639a = bVar;
             bVar.setPriority(3);
-            this.f60947a.execute(f60944d);
+            this.f64639a.execute(f64636d);
         }
     }
 
@@ -360,7 +360,7 @@ public class e {
             if (downloadData == null || j < 0) {
                 return;
             }
-            g gVar = this.f60948b.get(downloadData.getUrl());
+            g gVar = this.f64640b.get(downloadData.getUrl());
             if (gVar == null) {
                 gVar = new g(downloadData, j);
             }
@@ -471,7 +471,7 @@ public class e {
     public void v(DownloadData downloadData) {
         if (downloadData != null) {
             z(downloadData);
-            g gVar = this.f60948b.get(downloadData.getUrl());
+            g gVar = this.f64640b.get(downloadData.getUrl());
             if (gVar != null) {
                 NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, j(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), h(downloadData.getAction()), false, gVar.b(), false);
             }
@@ -497,7 +497,7 @@ public class e {
 
     public void z(DownloadData downloadData) {
         if (downloadData != null) {
-            g gVar = this.f60948b.get(downloadData.getUrl());
+            g gVar = this.f64640b.get(downloadData.getUrl());
             int j = j(downloadData.getId(), downloadData.getName());
             if (gVar == null) {
                 gVar = new g(downloadData, j);

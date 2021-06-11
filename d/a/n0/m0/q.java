@@ -6,27 +6,27 @@ import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 public class q extends d.a.m0.w.p.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f57325e;
+    public final String f61014e;
 
     /* loaded from: classes4.dex */
-    public class a extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f57326a;
+        public final /* synthetic */ b f61015a;
 
         public a(b bVar) {
-            this.f57326a = bVar;
+            this.f61015a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((a) aVar, str, i2);
             if (aVar != null) {
                 q.this.q(aVar);
                 q.this.r(aVar);
                 if (q.this.t()) {
-                    this.f57326a.a(q.this);
+                    this.f61015a.a(q.this);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class q extends d.a.m0.w.p.c {
     }
 
     public q(d.a.n0.l0.c.b bVar) {
-        this.f57325e = bVar.getGroupId();
+        this.f61014e = bVar.getGroupId();
         s(1);
         p(4);
     }
@@ -54,13 +54,13 @@ public class q extends d.a.m0.w.p.c {
     }
 
     @Override // d.a.m0.w.p.c
-    public d.a.c.j.d.a e() {
+    public d.a.c.k.d.a e() {
         return super.d();
     }
 
     @Override // d.a.m0.w.p.c
     public String f() {
-        return this.f57325e;
+        return this.f61014e;
     }
 
     @Override // d.a.m0.w.p.c
@@ -94,12 +94,12 @@ public class q extends d.a.m0.w.p.c {
     }
 
     @Override // d.a.m0.w.p.c
-    public d.a.c.j.d.a n(String str) {
+    public d.a.c.k.d.a n(String str) {
         return null;
     }
 
     @Override // d.a.m0.w.p.c
-    public d.a.c.j.d.a o(String str) {
+    public d.a.c.k.d.a o(String str) {
         return null;
     }
 

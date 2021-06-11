@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 public class f0 extends SparseArray<p0> {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f58554e = null;
+    public BdUniqueId f62245e = null;
 
     public void a(int i2, p0 p0Var) {
         if (i2 > 100) {
@@ -19,8 +19,8 @@ public class f0 extends SparseArray<p0> {
         for (int i2 = 0; i2 < size(); i2++) {
             p0 valueAt = valueAt(i2);
             if (valueAt != null) {
-                valueAt.p(null);
-                valueAt.e();
+                valueAt.t(null);
+                valueAt.g();
             }
         }
     }
@@ -45,7 +45,7 @@ public class f0 extends SparseArray<p0> {
         for (int i2 = 0; i2 < size(); i2++) {
             p0 valueAt = valueAt(i2);
             if (valueAt != null) {
-                valueAt.p(t0Var);
+                valueAt.t(t0Var);
             }
         }
     }

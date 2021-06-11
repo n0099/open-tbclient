@@ -1,154 +1,82 @@
 package d.a.l0.a.p.c;
 
-import org.json.JSONObject;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import d.a.l0.a.p.d.n;
 /* loaded from: classes2.dex */
-public class i implements d.a.l0.a.p.d.m {
-    @Override // d.a.l0.a.p.d.m
-    public boolean B() {
-        return true;
+public class i implements d.a.l0.a.p.d.n {
+
+    /* renamed from: a  reason: collision with root package name */
+    public Boolean f47638a;
+
+    @Override // d.a.l0.a.p.d.n
+    public void a(n.a aVar) {
+        if (aVar != null) {
+            aVar.onFinish();
+        }
     }
 
-    @Override // d.a.l0.a.p.d.m
-    public boolean C() {
-        return false;
+    @Override // d.a.l0.a.p.d.n
+    public void b(Activity activity, Bundle bundle, d.a.l0.a.m.a aVar) {
+        d.a.l0.a.s.a.f.f48256d.i(aVar);
     }
 
-    @Override // d.a.l0.a.p.d.m
-    public boolean D() {
-        return false;
+    @Override // d.a.l0.a.p.d.n
+    public void c(d.a.l0.a.m.c cVar) {
+        if (cVar == null) {
+            return;
+        }
+        d.a.l0.a.s.a.f.f48256d.m(cVar);
     }
 
-    @Override // d.a.l0.a.p.d.m
-    public JSONObject E() {
-        return null;
+    @Override // d.a.l0.a.p.d.n
+    public String d(@NonNull Context context) {
+        return d.a.l0.a.s.a.d.f48251a.a();
     }
 
-    @Override // d.a.l0.a.p.d.m
-    public boolean F() {
-        return true;
+    @Override // d.a.l0.a.p.d.n
+    public boolean e(Context context) {
+        boolean g2 = d.a.l0.a.s.a.f.f48256d.g();
+        this.f47638a = Boolean.TRUE;
+        return g2;
     }
 
-    @Override // d.a.l0.a.p.d.m
-    public boolean G() {
-        return false;
+    @Override // d.a.l0.a.p.d.n
+    public String f(@NonNull Context context) {
+        return d.a.l0.u.b.b(context).a();
     }
 
-    @Override // d.a.l0.a.p.d.m
-    public void H() {
+    @Override // d.a.l0.a.p.d.n
+    public void g(n.c cVar) {
+        if (cVar != null) {
+            cVar.b();
+        }
     }
 
-    @Override // d.a.l0.a.p.d.m
-    public long I() {
-        return 3000L;
+    @Override // d.a.l0.a.p.d.n
+    public String h(Context context) {
+        return d.a.l0.a.s.a.h.f48267b.a();
     }
 
-    @Override // d.a.l0.a.p.d.m
-    public boolean J() {
-        return false;
+    @Override // d.a.l0.a.p.d.n
+    public String i(@NonNull Context context) {
+        return d.a.l0.u.b.b(context).a();
     }
 
-    @Override // d.a.l0.a.p.d.m
-    public long K() {
-        return 10000L;
+    @Override // d.a.l0.a.p.d.n
+    public void j(d.a.l0.a.m.a aVar) {
     }
 
-    @Override // d.a.l0.a.p.d.m
-    public int getSwitch(String str, int i2) {
-        return i2;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public String getSwitch(String str, String str2) {
-        return str2;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean getSwitch(String str, boolean z) {
-        return z;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean j() {
-        return false;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public String k() {
-        return null;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean l() {
-        return false;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean m() {
-        return false;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean n() {
-        return false;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public long o() {
-        return 6000L;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean p() {
-        return true;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public String q() {
-        return "";
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean r() {
-        return true;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public int s() {
-        return 10;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean t() {
-        return false;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public int u() {
-        return 60000;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean v() {
-        return false;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean w() {
-        return false;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public int x() {
-        return 150;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean y() {
-        return false;
-    }
-
-    @Override // d.a.l0.a.p.d.m
-    public boolean z() {
-        return true;
+    public boolean k(Context context) {
+        if (this.f47638a == null) {
+            e(context);
+        }
+        Boolean bool = this.f47638a;
+        if (bool == null) {
+            return false;
+        }
+        return bool.booleanValue();
     }
 }

@@ -7,19 +7,19 @@ import com.fun.openid.sdk.OnGetOaidListener;
 public class p1 implements OnGetOaidListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q1 f37093a;
+    public final /* synthetic */ q1 f40772a;
 
     public p1(q1 q1Var) {
-        this.f37093a = q1Var;
+        this.f40772a = q1Var;
     }
 
     @Override // com.fun.openid.sdk.OnGetOaidListener
     public void onGetOaid(String str) {
         Context context;
-        if (!TextUtils.isEmpty(q1.f37106c) || TextUtils.isEmpty(str) || (context = this.f37093a.f37109a) == null) {
+        if (!TextUtils.isEmpty(q1.f40785c) || TextUtils.isEmpty(str) || (context = this.f40772a.f40788a) == null) {
             return;
         }
-        q1.f37106c = str;
+        q1.f40785c = str;
         s1.g(context, str);
     }
 }

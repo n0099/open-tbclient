@@ -12,7 +12,7 @@ public final class TagTextHelper {
     public enum HotTopicTag {
         NEW(R.string.tag_str_new, R.color.CAM_X0305),
         HOT(R.string.tag_str_hot, R.color.CAM_X0301),
-        REC(R.string.tag_str_rec, R.color.CAM_X0302),
+        REC(R.string.tag_str_rec, R.color.CAM_X0306),
         BAO(R.string.tag_str_bao, R.color.CAM_X0308),
         FEI(R.string.tag_str_fei, R.color.CAM_X0317);
         
@@ -65,11 +65,11 @@ public final class TagTextHelper {
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 != 3) {
-                    return R.color.CAM_X0110;
+                    return R.color.CAM_X0315;
                 }
-                return R.color.CAM_X0312;
+                return R.color.CAM_X0305;
             }
-            return R.color.CAM_X0305;
+            return R.color.CAM_X0319;
         }
         return R.color.CAM_X0301;
     }

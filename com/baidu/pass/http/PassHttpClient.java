@@ -13,34 +13,34 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class PassHttpClient implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f9174a;
+    public static final int f9231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f9175b;
+    public static final int f9232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final AtomicInteger f9176c;
+    public static final AtomicInteger f9233c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ThreadFactory f9177d;
+    public static final ThreadFactory f9234d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ThreadPoolExecutor f9178e;
+    public static final ThreadPoolExecutor f9235e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final PassHttpClient f9179f;
+    public static final PassHttpClient f9236f;
 
     static {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f9174a = availableProcessors;
-        f9175b = availableProcessors > 4 ? availableProcessors / 2 : 2;
-        f9176c = new AtomicInteger();
-        f9177d = new c();
-        f9179f = new PassHttpClient();
-        int i2 = f9175b;
-        f9178e = new ThreadPoolExecutor(i2, i2, 60L, TimeUnit.SECONDS, new PriorityBlockingQueue(), f9177d);
+        f9231a = availableProcessors;
+        f9232b = availableProcessors > 4 ? availableProcessors / 2 : 2;
+        f9233c = new AtomicInteger();
+        f9234d = new c();
+        f9236f = new PassHttpClient();
+        int i2 = f9232b;
+        f9235e = new ThreadPoolExecutor(i2, i2, 60L, TimeUnit.SECONDS, new PriorityBlockingQueue(), f9234d);
         if (Build.VERSION.SDK_INT >= 9) {
-            f9178e.allowCoreThreadTimeOut(true);
+            f9235e.allowCoreThreadTimeOut(true);
         }
     }
 
@@ -55,7 +55,7 @@ public class PassHttpClient implements com.baidu.pass.a {
     }
 
     public static PassHttpClient getInstance() {
-        return f9179f;
+        return f9236f;
     }
 
     public PassHttpClientRequest get(Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
@@ -86,8 +86,8 @@ public class PassHttpClient implements com.baidu.pass.a {
     }
 
     private PassHttpClientRequest a(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
-        PassHttpClientRequest passHttpClientRequest = new PassHttpClientRequest(method, context, passHttpParamDTO, f9176c.incrementAndGet(), httpResponseHandler);
-        f9178e.execute(passHttpClientRequest);
+        PassHttpClientRequest passHttpClientRequest = new PassHttpClientRequest(method, context, passHttpParamDTO, f9233c.incrementAndGet(), httpResponseHandler);
+        f9235e.execute(passHttpClientRequest);
         return passHttpClientRequest;
     }
 }

@@ -12,24 +12,24 @@ import org.apache.http.message.BasicHeader;
 public final class j extends a {
 
     /* renamed from: g  reason: collision with root package name */
-    public g f1626g;
+    public g f1639g;
 
     public j(g gVar, Method method, int i2, String str, byte[] bArr, boolean z) {
         super(method, i2, str, bArr, "application/x-www-form-urlencoded", z);
-        this.f1626g = gVar;
+        this.f1639g = gVar;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.v
     public final Object a() {
-        o oVar = new o(this.f1626g.a());
-        oVar.a(this.f1595b);
-        oVar.a(this.f1598e);
-        oVar.a(this.f1599f);
-        oVar.a("id", String.valueOf(this.f1597d));
-        oVar.a("operationType", this.f1596c);
-        oVar.a(AsyncHttpClient.ENCODING_GZIP, String.valueOf(this.f1626g.d()));
+        o oVar = new o(this.f1639g.a());
+        oVar.a(this.f1608b);
+        oVar.a(this.f1611e);
+        oVar.a(this.f1612f);
+        oVar.a("id", String.valueOf(this.f1610d));
+        oVar.a("operationType", this.f1609c);
+        oVar.a(AsyncHttpClient.ENCODING_GZIP, String.valueOf(this.f1639g.d()));
         oVar.a(new BasicHeader("uuid", UUID.randomUUID().toString()));
-        List<Header> b2 = this.f1626g.c().b();
+        List<Header> b2 = this.f1639g.c().b();
         if (b2 != null && !b2.isEmpty()) {
             for (Header header : b2) {
                 oVar.a(header);
@@ -40,7 +40,7 @@ public final class j extends a {
         sb.append("; ");
         sb.append(oVar.toString());
         try {
-            u uVar = this.f1626g.b().a(oVar).get();
+            u uVar = this.f1639g.b().a(oVar).get();
             if (uVar != null) {
                 return uVar.b();
             }

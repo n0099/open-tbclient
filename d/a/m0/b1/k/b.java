@@ -12,16 +12,16 @@ import java.io.File;
 public class b extends BdAsyncTask<Void, Void, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49088a;
+    public String f52762a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49089b;
+    public String f52763b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetWork f49090c;
+    public NetWork f52764c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f49091d;
+    public a f52765d;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -29,9 +29,9 @@ public class b extends BdAsyncTask<Void, Void, String> {
     }
 
     public b(String str, String str2, a aVar) {
-        this.f49088a = str;
-        this.f49089b = str2;
-        this.f49091d = aVar;
+        this.f52762a = str;
+        this.f52763b = str2;
+        this.f52765d = aVar;
     }
 
     public static boolean b(String str) {
@@ -58,19 +58,19 @@ public class b extends BdAsyncTask<Void, Void, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public String doInBackground(Void... voidArr) {
-        if (k.isEmpty(this.f49088a) || k.isEmpty(this.f49089b) || !b(this.f49088a)) {
+        if (k.isEmpty(this.f52762a) || k.isEmpty(this.f52763b) || !b(this.f52762a)) {
             return null;
         }
-        String c2 = q.c(this.f49089b);
-        String str = this.f49088a + c2 + "/";
+        String c2 = q.c(this.f52763b);
+        String str = this.f52762a + c2 + "/";
         if (e(str)) {
             return c2;
         }
         NetWork netWork = new NetWork();
-        this.f49090c = netWork;
-        netWork.setUrl(this.f49089b);
-        String str2 = this.f49088a + c2 + ".zip";
-        if (this.f49090c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
+        this.f52764c = netWork;
+        netWork.setUrl(this.f52763b);
+        String str2 = this.f52762a + c2 + ".zip";
+        if (this.f52764c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
             c(str2);
             return c2;
         }
@@ -92,13 +92,13 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.f49091d == null) {
+        if (this.f52765d == null) {
             return;
         }
         if (!k.isEmpty(str)) {
-            this.f49091d.a(true, str);
+            this.f52765d.a(true, str);
         } else {
-            this.f49091d.a(false, null);
+            this.f52765d.a(false, null);
         }
     }
 }

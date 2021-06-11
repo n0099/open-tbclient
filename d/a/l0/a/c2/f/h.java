@@ -17,7 +17,7 @@ public class h extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("GetAppInfoSyncAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         if (eVar == null) {
@@ -27,13 +27,13 @@ public class h extends a0 {
         }
         try {
             JSONObject x = d.a.l0.a.u.e.l.b.x(eVar, context);
-            if (a0.f40949b && x != null) {
+            if (a0.f44625b && x != null) {
                 Log.d("GetAppInfoSyncAction", "data: " + x.toString());
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(x, 0);
             return true;
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("GetAppInfoSyncAction", Log.getStackTraceString(e2));
             }
             d.a.l0.a.e0.d.b(DI.APP_INFO_NAME, Log.getStackTraceString(e2));

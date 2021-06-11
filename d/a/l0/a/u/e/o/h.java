@@ -13,10 +13,10 @@ public class h extends d.a.l0.a.u.c.d {
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45165e;
+        public final /* synthetic */ String f48839e;
 
         public a(String str) {
-            this.f45165e = str;
+            this.f48839e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -28,19 +28,19 @@ public class h extends d.a.l0.a.u.c.d {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("isAuthorized", a2);
-                    h.this.d(this.f45165e, new d.a.l0.a.u.h.b(0, jSONObject));
+                    h.this.d(this.f48839e, new d.a.l0.a.u.h.b(0, jSONObject));
                     h.this.u(a2);
                     return;
                 } catch (JSONException e2) {
-                    if (d.a.l0.a.u.c.d.f44812c) {
+                    if (d.a.l0.a.u.c.d.f48486c) {
                         e2.printStackTrace();
                     }
-                    h.this.d(this.f45165e, new d.a.l0.a.u.h.b(1001));
+                    h.this.d(this.f48839e, new d.a.l0.a.u.h.b(1001));
                     return;
                 }
             }
             int b2 = iVar.b();
-            h.this.d(this.f45165e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
+            h.this.d(this.f48839e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
         }
     }
 
@@ -52,7 +52,7 @@ public class h extends d.a.l0.a.u.c.d {
         Object obj;
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (bVar.a() && (obj = b2.second) != null) {
+        if (bVar.isSuccess() && (obj = b2.second) != null) {
             String optString = ((JSONObject) obj).optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 return new d.a.l0.a.u.h.b(201, "cb is empty");
@@ -70,7 +70,7 @@ public class h extends d.a.l0.a.u.c.d {
 
     public final void u(boolean z) {
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43189e = String.valueOf(z);
+        fVar.f46865e = String.valueOf(z);
         fVar.a("appid", d.a.l0.a.a2.d.g().getAppId());
         fVar.a("appname", d.a.l0.a.a2.d.g().r().O());
         d.a.l0.a.j2.k.u("1717", fVar);

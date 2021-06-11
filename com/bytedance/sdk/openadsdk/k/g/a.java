@@ -12,11 +12,11 @@ import java.io.InputStreamReader;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f29461a;
+    public static Context f29564a;
 
     public static void a(Context context) {
         if (context != null) {
-            f29461a = context;
+            f29564a = context;
             return;
         }
         throw null;
@@ -51,7 +51,7 @@ public class a {
 
     @Deprecated
     public static File a() {
-        return b(f29461a);
+        return b(f29564a);
     }
 
     public static File b() {

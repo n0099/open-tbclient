@@ -20,25 +20,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d extends c {
-    public static final boolean k = k.f43199a;
+    public static final boolean k = k.f46875a;
 
     /* renamed from: d  reason: collision with root package name */
-    public Callback f46507d;
+    public Callback f50181d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f46508e;
+    public JSONObject f50182e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f46509f;
+    public String f50183f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46510g;
+    public String f50184g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f46511h;
+    public String f50185h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f46512i;
+    public String f50186i;
     public int j;
 
     /* loaded from: classes3.dex */
@@ -48,14 +48,14 @@ public class d extends c {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (d.a.l0.c.a.a.f46449a) {
+            if (d.a.l0.c.a.a.f50123a) {
                 Log.d("BDTLS", "Bdtls Request API onFailure = " + exc.getMessage());
             }
-            if (d.this.f46507d != null) {
+            if (d.this.f50181d != null) {
                 if (exc instanceof IOException) {
-                    d.this.f46507d.onFailure(null, (IOException) exc);
+                    d.this.f50181d.onFailure(null, (IOException) exc);
                 } else {
-                    d.this.f46507d.onFailure(null, new IOException(exc));
+                    d.this.f50181d.onFailure(null, new IOException(exc));
                 }
             }
         }
@@ -72,15 +72,15 @@ public class d extends c {
     }
 
     public d(d.a.l0.a.a2.e eVar, JSONObject jSONObject, String str, Callback callback) {
-        this.f46507d = callback;
-        this.f46509f = str;
+        this.f50181d = callback;
+        this.f50183f = str;
         m(jSONObject);
-        d(this.f46508e.optString("method"));
+        d(this.f50182e.optString("method"));
     }
 
     @Override // d.a.l0.c.a.k.c
     public void e(IOException iOException) {
-        Callback callback = this.f46507d;
+        Callback callback = this.f50181d;
         if (callback != null) {
             callback.onFailure(null, iOException);
         }
@@ -88,10 +88,10 @@ public class d extends c {
 
     @Override // d.a.l0.c.a.k.c
     public void f(int i2) {
-        if (d.a.l0.c.a.a.f46449a) {
+        if (d.a.l0.c.a.a.f50123a) {
             Log.d("BdtlsRequestApi", "onRequestError=" + i2);
         }
-        Callback callback = this.f46507d;
+        Callback callback = this.f50181d;
         if (callback != null) {
             callback.onFailure(null, new IOException("request error  code : " + i2));
         }
@@ -106,17 +106,17 @@ public class d extends c {
         String str2;
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject = new JSONObject(this.f46508e.toString());
+            jSONObject = new JSONObject(this.f50182e.toString());
             try {
-                Uri parse = Uri.parse(this.f46511h);
+                Uri parse = Uri.parse(this.f50185h);
                 String path = parse.getPath();
                 String query = parse.getQuery();
-                if (TextUtils.isEmpty(this.f46512i)) {
-                    str = d.a.l0.c.a.b.f46451b;
+                if (TextUtils.isEmpty(this.f50186i)) {
+                    str = d.a.l0.c.a.b.f50125b;
                 } else {
-                    str = this.f46512i + "/bdtls";
+                    str = this.f50186i + "/bdtls";
                 }
-                StringBuilder sb = new StringBuilder(str + "/" + this.f46510g);
+                StringBuilder sb = new StringBuilder(str + "/" + this.f50184g);
                 String str3 = "";
                 if (TextUtils.isEmpty(path)) {
                     path = "";
@@ -130,7 +130,7 @@ public class d extends c {
                     Log.d("BdtlsRequestApi", "bdtls url is : " + sb.toString());
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("header");
-                if (this.f46504a) {
+                if (this.f50178a) {
                     if (TextUtils.equals(b(), "GET")) {
                         str2 = Base64.encodeToString(bArr, 2);
                     } else {
@@ -148,7 +148,7 @@ public class d extends c {
                     Log.e("BdtlsRequestApi", "Bdtls request data is invalid", e);
                 }
                 jSONObject = jSONObject2;
-                httpRequest = (HttpRequest) g.u(jSONObject, this.f46509f).first;
+                httpRequest = (HttpRequest) g.u(jSONObject, this.f50183f).first;
                 if (httpRequest == null) {
                     callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
                 }
@@ -157,8 +157,8 @@ public class d extends c {
         } catch (JSONException e3) {
             e = e3;
         }
-        httpRequest = (HttpRequest) g.u(jSONObject, this.f46509f).first;
-        if (httpRequest == null && (callback = this.f46507d) != null) {
+        httpRequest = (HttpRequest) g.u(jSONObject, this.f50183f).first;
+        if (httpRequest == null && (callback = this.f50181d) != null) {
             callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
         }
         l(httpRequest);
@@ -172,11 +172,11 @@ public class d extends c {
     }
 
     public final void m(JSONObject jSONObject) {
-        this.f46508e = jSONObject;
-        this.f46511h = jSONObject.optString("url");
-        JSONObject optJSONObject = this.f46508e.optJSONObject("ext");
+        this.f50182e = jSONObject;
+        this.f50185h = jSONObject.optString("url");
+        JSONObject optJSONObject = this.f50182e.optJSONObject("ext");
         if (optJSONObject != null) {
-            this.f46512i = optJSONObject.optString("customHost");
+            this.f50186i = optJSONObject.optString("customHost");
         }
     }
 
@@ -190,21 +190,21 @@ public class d extends c {
                 p();
                 return;
             }
-            this.f46507d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
+            this.f50181d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
             return;
         }
         d.a.l0.c.a.g.l().m().k();
-        if (this.f46504a) {
+        if (this.f50178a) {
             ResponseBody body = response.body();
             String g2 = g(body.bytes());
-            if (d.a.l0.c.a.a.f46449a) {
+            if (d.a.l0.c.a.a.f50123a) {
                 Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g2);
             }
-            if (this.f46505b == 1) {
+            if (this.f50179b == 1) {
                 Buffer buffer = new Buffer();
                 buffer.writeString(g2, Charset.forName("utf-8"));
                 Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                Callback callback = this.f46507d;
+                Callback callback = this.f50181d;
                 if (callback != null) {
                     callback.onResponse(call, build);
                 }
@@ -214,25 +214,25 @@ public class d extends c {
                 p();
                 return;
             } else {
-                this.f46507d.onFailure(call, new IOException("Url or serviceId is invalid"));
+                this.f50181d.onFailure(call, new IOException("Url or serviceId is invalid"));
                 this.j = 0;
                 return;
             }
         }
-        Callback callback2 = this.f46507d;
+        Callback callback2 = this.f50181d;
         if (callback2 != null) {
             callback2.onResponse(call, response);
         }
     }
 
     public void o(String str) {
-        this.f46510g = str;
-        JSONObject jSONObject = this.f46508e;
+        this.f50184g = str;
+        JSONObject jSONObject = this.f50182e;
         a(jSONObject != null ? jSONObject.optString("data") : "");
     }
 
     public final void p() {
         this.j++;
-        o(this.f46510g);
+        o(this.f50184g);
     }
 }

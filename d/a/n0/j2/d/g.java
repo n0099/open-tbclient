@@ -22,7 +22,7 @@ import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.g2.a;
 import d.a.n0.j2.d.f;
 import d.a.n0.j2.e.p;
@@ -33,16 +33,16 @@ import tbclient.Profile.NicknameInfo;
 public class g extends e implements d.a.n0.j2.h.b {
 
     /* renamed from: f  reason: collision with root package name */
-    public final BaseFragmentActivity f56336f;
+    public final BaseFragmentActivity f60025f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseFragment f56337g;
+    public BaseFragment f60026g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f56338h;
+    public TbPageContext f60027h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View f56339i;
+    public final View f60028i;
     public final BdUniqueId j;
     public long k;
     public String l;
@@ -79,7 +79,7 @@ public class g extends e implements d.a.n0.j2.h.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            g.this.g();
+            g.this.h();
         }
     }
 
@@ -109,33 +109,33 @@ public class g extends e implements d.a.n0.j2.h.b {
         this.v = false;
         this.w = new a();
         this.x = new b(2921424);
-        this.f56337g = baseFragment;
+        this.f60026g = baseFragment;
         BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
-        this.f56336f = baseFragmentActivity;
-        this.f56339i = view;
+        this.f60025f = baseFragmentActivity;
+        this.f60028i = view;
         this.j = bdUniqueId;
         this.k = j;
         this.l = str;
-        this.f56338h = baseFragmentActivity.getPageContext();
+        this.f60027h = baseFragmentActivity.getPageContext();
         MessageManager.getInstance().registerListener(this.x);
-        this.o = new d(this.f56337g.getPageContext(), bdUniqueId);
-        f fVar = new f(this.f56337g.getPageContext(), view, z);
+        this.o = new d(this.f60026g.getPageContext(), bdUniqueId);
+        f fVar = new f(this.f60026g.getPageContext(), view, z);
         this.m = fVar;
         fVar.t(this.w);
-        this.s = new PersonPolymericEventController(this.f56338h, this);
-        PersonPolymericModel personPolymericModel = new PersonPolymericModel(this.f56336f, bdUniqueId, z);
+        this.s = new PersonPolymericEventController(this.f60027h, this);
+        PersonPolymericModel personPolymericModel = new PersonPolymericModel(this.f60025f, bdUniqueId, z);
         this.n = personPolymericModel;
-        personPolymericModel.J(new p(z));
-        this.n.H(this);
-        this.n.I(this.o);
-        this.p = new BlackListModel(this.f56336f.getPageContext(), bdUniqueId);
+        personPolymericModel.N(new p(z));
+        this.n.L(this);
+        this.n.M(this.o);
+        this.p = new BlackListModel(this.f60025f.getPageContext(), bdUniqueId);
         if (StringUtils.isNull(this.l)) {
-            k kVar = new k(this.f56337g, this, this.j, this.k, z);
+            k kVar = new k(this.f60026g, this, this.j, this.k, z);
             this.q = kVar;
             kVar.k(TbadkCoreApplication.getInst().getSkinType());
             this.q.j(this.s);
         }
-        this.t = new h(this.f56338h, this.o, this.p, bdUniqueId);
+        this.t = new h(this.f60027h, this.o, this.p, bdUniqueId);
         loadData();
     }
 
@@ -145,12 +145,12 @@ public class g extends e implements d.a.n0.j2.h.b {
         if (aVar != null && aVar.j() != null && !StringUtils.isNull(this.l)) {
             this.k = aVar.j().getUserIdLong();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921443, Long.valueOf(this.k)));
-            this.f56325e = this.k == d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
+            this.f60014e = this.k == d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
         }
         this.m.n();
         h hVar = this.t;
         if (hVar != null) {
-            hVar.h(aVar);
+            hVar.i(aVar);
         }
         if (aVar != null) {
             this.m.k(aVar);
@@ -159,7 +159,7 @@ public class g extends e implements d.a.n0.j2.h.b {
         if (kVar != null) {
             kVar.o(aVar);
         } else {
-            k kVar2 = new k(this.f56337g, this, this.j, this.k, this.f56325e);
+            k kVar2 = new k(this.f60026g, this, this.j, this.k, this.f60014e);
             this.q = kVar2;
             kVar2.k(TbadkCoreApplication.getInst().getSkinType());
             this.q.j(this.s);
@@ -174,17 +174,17 @@ public class g extends e implements d.a.n0.j2.h.b {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921061, personChangeData));
     }
 
-    public void g() {
-        if (!TbadkCoreApplication.isLogin() && this.f56325e) {
+    public void h() {
+        if (!TbadkCoreApplication.isLogin() && this.f60014e) {
             this.m.A();
         } else if (d.a.c.e.p.j.A()) {
-            this.n.E(this.k, this.l);
+            this.n.I(this.k, this.l);
         } else {
             this.m.n();
-            l.M(this.f56338h.getContext(), this.f56338h.getString(R.string.data_load_error));
+            l.M(this.f60027h.getContext(), this.f60027h.getString(R.string.data_load_error));
             ArrayList arrayList = new ArrayList();
             d.a.n0.j2.e.i iVar = new d.a.n0.j2.e.i();
-            iVar.f56418e = this.f56325e;
+            iVar.f60107e = this.f60014e;
             arrayList.add(iVar);
             this.m.m();
             this.m.v(arrayList);
@@ -201,7 +201,7 @@ public class g extends e implements d.a.n0.j2.h.b {
             return false;
         }
         if (d.a.m0.r.d0.b.j().g(d.a.m0.r.d0.b.n(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f56336f).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f60025f).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
             return true;
         }
         return false;
@@ -212,18 +212,18 @@ public class g extends e implements d.a.n0.j2.h.b {
     }
 
     public void loadData() {
-        if (!TbadkCoreApplication.isLogin() && this.f56325e) {
+        if (!TbadkCoreApplication.isLogin() && this.f60014e) {
             this.m.A();
         } else if (d.a.c.e.p.j.A()) {
             d.a.n0.j2.b.d().m(System.currentTimeMillis());
             this.m.w(false, -1);
             this.m.B(true);
-            this.n.F(this.k);
-            this.n.E(this.k, this.l);
+            this.n.J(this.k);
+            this.n.I(this.k, this.l);
         } else {
             this.m.n();
             this.m.s(8);
-            this.m.x(this.f56337g.getString(R.string.neterror), true);
+            this.m.x(this.f60026g.getString(R.string.neterror), true);
         }
     }
 
@@ -243,10 +243,10 @@ public class g extends e implements d.a.n0.j2.h.b {
         if (z) {
             this.v = z;
             if (d.a.c.e.p.j.A()) {
-                this.n.E(this.k, this.l);
+                this.n.I(this.k, this.l);
             }
         }
-        return this.n.D();
+        return this.n.H();
     }
 
     public PersonPolymericModel q() {
@@ -254,10 +254,10 @@ public class g extends e implements d.a.n0.j2.h.b {
     }
 
     public List<n> r() {
-        if (this.n.D() == null) {
+        if (this.n.H() == null) {
             return null;
         }
-        return this.n.D().k();
+        return this.n.H().k();
     }
 
     public void s(int i2) {
@@ -299,8 +299,8 @@ public class g extends e implements d.a.n0.j2.h.b {
 
     public void w(PostWriteCallBackData postWriteCallBackData) {
         if (this.r == null) {
-            this.r = new d.a.n0.d0.h(this.f56336f.getPageContext(), (NavigationBarCoverTip) this.f56336f.findViewById(R.id.navigation_cover_tip));
+            this.r = new d.a.n0.d0.h(this.f60025f.getPageContext(), (NavigationBarCoverTip) this.f60025f.findViewById(R.id.navigation_cover_tip));
         }
-        this.r.l(postWriteCallBackData);
+        this.r.m(postWriteCallBackData);
     }
 }

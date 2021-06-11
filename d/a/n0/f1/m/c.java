@@ -3,7 +3,6 @@ package d.a.n0.f1.m;
 import androidx.collection.LongSparseArray;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 import d.a.c.c.f.k;
 /* loaded from: classes4.dex */
@@ -21,7 +20,7 @@ public class c extends k {
                 sb.append(groupMids.keyAt(i2));
                 sb.append("-");
                 sb.append(groupMids.valueAt(i2));
-                sb.append(FieldBuilder.SE);
+                sb.append("|");
             }
             d.a.m0.r.z.a.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + messageSyncMessage.getSyncTypeString(), "comment", sb.toString());
         }

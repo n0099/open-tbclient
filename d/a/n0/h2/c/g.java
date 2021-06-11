@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.a.n0.h2.e.n;
 /* loaded from: classes5.dex */
-public class g extends d.a.c.j.e.a<n, CardViewHolder<d.a.n0.h2.g.e>> {
+public class g extends d.a.c.k.e.a<n, CardViewHolder<d.a.n0.h2.g.e>> {
     public TbPageContext m;
 
     public g(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -16,17 +16,17 @@ public class g extends d.a.c.j.e.a<n, CardViewHolder<d.a.n0.h2.g.e>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public CardViewHolder<d.a.n0.h2.g.e> P(ViewGroup viewGroup) {
+    public CardViewHolder<d.a.n0.h2.g.e> Q(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.a.n0.h2.g.e(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, n nVar, CardViewHolder<d.a.n0.h2.g.e> cardViewHolder) {
-        cardViewHolder.b().m(nVar);
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, n nVar, CardViewHolder<d.a.n0.h2.g.e> cardViewHolder) {
+        cardViewHolder.b().n(nVar);
         return cardViewHolder.a();
     }
 }

@@ -52,13 +52,13 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
         }
         for (int i3 = 0; i3 < getADListResIdl.data.ad_list.size(); i3++) {
             c cVar = new c();
-            cVar.v(getADListResIdl.data.ad_list.get(i3));
+            cVar.t(getADListResIdl.data.ad_list.get(i3));
             if (getADListResIdl.data.ad_list.size() - 1 == i3) {
                 cVar.w(true);
             } else {
                 cVar.w(false);
             }
-            if (cVar.u() == 0 || cVar.u() == 2) {
+            if (cVar.q() == 0 || cVar.q() == 2) {
                 this.list.add(cVar);
             }
         }

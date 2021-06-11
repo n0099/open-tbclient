@@ -5,7 +5,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.v.j.g.d.d.a;
 import java.util.LinkedList;
 import java.util.List;
@@ -56,7 +56,7 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
             JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
             if (optJSONObject2 != null) {
                 a aVar = new a();
-                aVar.c(optJSONObject2);
+                aVar.b(optJSONObject2);
                 this.mEffectList.add(aVar);
                 JSONArray optJSONArray2 = optJSONObject2.optJSONArray("effect_list");
                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {

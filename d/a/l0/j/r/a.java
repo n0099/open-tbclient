@@ -9,24 +9,24 @@ import com.baidu.mapapi.search.route.RoutePlanSearch;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f47931b;
+    public static a f51605b;
 
     /* renamed from: a  reason: collision with root package name */
-    public RoutePlanSearch f47932a;
+    public RoutePlanSearch f51606a;
 
     public static a b() {
-        if (f47931b == null) {
+        if (f51605b == null) {
             synchronized (a.class) {
-                if (f47931b == null) {
-                    f47931b = new a();
+                if (f51605b == null) {
+                    f51605b = new a();
                 }
             }
         }
-        return f47931b;
+        return f51605b;
     }
 
     public void a() {
-        RoutePlanSearch routePlanSearch = this.f47932a;
+        RoutePlanSearch routePlanSearch = this.f51606a;
         if (routePlanSearch != null) {
             routePlanSearch.destroy();
         }
@@ -37,9 +37,9 @@ public class a {
             return;
         }
         RoutePlanSearch newInstance = RoutePlanSearch.newInstance();
-        this.f47932a = newInstance;
+        this.f51606a = newInstance;
         newInstance.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
         PlanNode withLocation = PlanNode.withLocation(latLng);
-        this.f47932a.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
+        this.f51606a.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
     }
 }

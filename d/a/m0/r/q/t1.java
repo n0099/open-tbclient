@@ -3,11 +3,11 @@ package d.a.m0.r.q;
 public class t1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50127a;
+    public String f53803a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50128b;
+    public String f53804b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50129c;
+    public String f53805c;
 }

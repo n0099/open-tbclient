@@ -30,23 +30,23 @@ public class m {
         if (spannableStringBuilder == null || d.a.c.e.p.k.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || a2Var == null || a2Var.y0() != 0) {
             return;
         }
-        if (z || a2Var.v0() == 1 || StringUtils.isNull(a2Var.z1())) {
-            ArrayList<d.a.m0.b1.m.b> R0 = a2Var.R0();
-            if (ListUtils.isEmpty(R0)) {
+        if (z || a2Var.v0() == 1 || StringUtils.isNull(a2Var.A1())) {
+            ArrayList<d.a.m0.b1.m.b> S0 = a2Var.S0();
+            if (ListUtils.isEmpty(S0)) {
                 return;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < R0.size(); i2++) {
-                if (R0.get(i2) != null && !StringUtils.isNull(R0.get(i2).a())) {
-                    sb.append(R0.get(i2).a());
+            for (int i2 = 0; i2 < S0.size(); i2++) {
+                if (S0.get(i2) != null && !StringUtils.isNull(S0.get(i2).a())) {
+                    sb.append(S0.get(i2).a());
                 }
             }
             SpannableString spannableString = new SpannableString(sb.toString());
             int i3 = 0;
-            for (int i4 = 0; i4 < R0.size(); i4++) {
-                if (R0.get(i4) != null && !StringUtils.isNull(R0.get(i4).a())) {
-                    int length = R0.get(i4).a().length();
-                    c(spannableString, R0.get(i4), i3, length);
+            for (int i4 = 0; i4 < S0.size(); i4++) {
+                if (S0.get(i4) != null && !StringUtils.isNull(S0.get(i4).a())) {
+                    int length = S0.get(i4).a().length();
+                    c(spannableString, S0.get(i4), i3, length);
                     i3 += length;
                 }
             }
@@ -60,7 +60,7 @@ public class m {
             return;
         }
         spannableString.setSpan(new d.a.m0.b1.m.c(bVar), i2, i4, 33);
-        spannableString.setSpan(new AbsoluteSizeSpan(bVar.f49110i), i2, i4, 33);
+        spannableString.setSpan(new AbsoluteSizeSpan(bVar.f52784i), i2, i4, 33);
     }
 
     public static SpannableStringBuilder d(String str, String str2) {
@@ -94,24 +94,24 @@ public class m {
         for (int i2 = 0; i2 != arrayList.size(); i2++) {
             a aVar = arrayList.get(i2);
             if (aVar != null) {
-                int i3 = aVar.f63529a;
+                int i3 = aVar.f67247a;
                 if (i3 > 0) {
-                    aVar.f63530b = context.getString(i3);
+                    aVar.f67248b = context.getString(i3);
                 }
-                if (!d.a.c.e.p.k.isEmpty(aVar.f63530b)) {
+                if (!d.a.c.e.p.k.isEmpty(aVar.f67248b)) {
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.f63530b);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f63531c)), length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.append((CharSequence) aVar.f67248b);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f67249c)), length, spannableStringBuilder.length(), 17);
                     if (i2 == arrayList.size() - 1 && !z2) {
                         break;
                     }
-                    Bitmap bitmap = SkinManager.getBitmap(aVar.f63532d);
+                    Bitmap bitmap = SkinManager.getBitmap(aVar.f67250d);
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
                     if (bitmap != null) {
                         bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                     }
                     d.a.m0.r.f0.i iVar = new d.a.m0.r.f0.i(bitmapDrawable);
-                    int i4 = aVar.f63533e;
+                    int i4 = aVar.f67251e;
                     if (i4 != 0) {
                         iVar.b(i4);
                     }
@@ -130,11 +130,11 @@ public class m {
     }
 
     public static void j(a2 a2Var, TextView textView) {
-        if ((StringUtils.isNull(a2Var.z1()) && (a2Var.c1() == null || a2Var.c1().size() == 0)) || a2Var.v0() == 1) {
-            a2Var.V2(false, true);
-            if (a2Var.m1() != null && !StringUtils.isNull(a2Var.m1().toString())) {
+        if ((StringUtils.isNull(a2Var.A1()) && (a2Var.d1() == null || a2Var.d1().size() == 0)) || a2Var.v0() == 1) {
+            a2Var.W2(false, true);
+            if (a2Var.n1() != null && !StringUtils.isNull(a2Var.n1().toString())) {
                 textView.setVisibility(0);
-                textView.setText(a2Var.m1());
+                textView.setText(a2Var.n1());
                 return;
             }
             textView.setVisibility(8);
@@ -142,10 +142,10 @@ public class m {
         }
         textView.setVisibility(0);
         a2Var.p = 0;
-        a2Var.V2(false, true);
-        SpannableStringBuilder m1 = a2Var.m1();
-        textView.setOnTouchListener(new d.a.n0.v3.i(m1));
-        textView.setText(m1);
+        a2Var.W2(false, true);
+        SpannableStringBuilder n1 = a2Var.n1();
+        textView.setOnTouchListener(new d.a.n0.v3.i(n1));
+        textView.setText(n1);
         l(textView, a2Var.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
     }
 
@@ -168,57 +168,57 @@ public class m {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f63529a;
+        public int f67247a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63530b;
+        public String f67248b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f63531c;
+        public int f67249c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f63532d;
+        public int f67250d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f63533e;
+        public int f67251e;
 
         public a(int i2, int i3, int i4) {
-            this.f63529a = -1;
-            this.f63530b = "";
-            this.f63531c = R.color.CAM_X0304;
-            this.f63532d = R.drawable.pic_dot_title;
-            this.f63533e = 0;
-            this.f63529a = i2;
-            this.f63531c = i3;
-            this.f63532d = i4;
+            this.f67247a = -1;
+            this.f67248b = "";
+            this.f67249c = R.color.CAM_X0304;
+            this.f67250d = R.drawable.pic_dot_title;
+            this.f67251e = 0;
+            this.f67247a = i2;
+            this.f67249c = i3;
+            this.f67250d = i4;
         }
 
         public a(int i2) {
-            this.f63529a = -1;
-            this.f63530b = "";
-            this.f63531c = R.color.CAM_X0304;
-            this.f63532d = R.drawable.pic_dot_title;
-            this.f63533e = 0;
-            this.f63529a = i2;
+            this.f67247a = -1;
+            this.f67248b = "";
+            this.f67249c = R.color.CAM_X0304;
+            this.f67250d = R.drawable.pic_dot_title;
+            this.f67251e = 0;
+            this.f67247a = i2;
         }
 
         public a(String str) {
-            this.f63529a = -1;
-            this.f63530b = "";
-            this.f63531c = R.color.CAM_X0304;
-            this.f63532d = R.drawable.pic_dot_title;
-            this.f63533e = 0;
-            this.f63530b = str;
+            this.f67247a = -1;
+            this.f67248b = "";
+            this.f67249c = R.color.CAM_X0304;
+            this.f67250d = R.drawable.pic_dot_title;
+            this.f67251e = 0;
+            this.f67248b = str;
         }
 
         public a(String str, int i2) {
-            this.f63529a = -1;
-            this.f63530b = "";
-            this.f63531c = R.color.CAM_X0304;
-            this.f63532d = R.drawable.pic_dot_title;
-            this.f63533e = 0;
-            this.f63530b = str;
-            this.f63532d = i2;
+            this.f67247a = -1;
+            this.f67248b = "";
+            this.f67249c = R.color.CAM_X0304;
+            this.f67250d = R.drawable.pic_dot_title;
+            this.f67251e = 0;
+            this.f67248b = str;
+            this.f67250d = i2;
         }
     }
 }

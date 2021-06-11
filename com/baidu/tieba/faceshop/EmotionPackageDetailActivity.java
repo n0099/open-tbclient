@@ -105,15 +105,15 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f14627e;
+        public final /* synthetic */ ShareItem f14684e;
 
         public a(ShareItem shareItem) {
-            this.f14627e = shareItem;
+            this.f14684e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.c.e.p.a.a(this.f14627e.t);
+            d.a.c.e.p.a.a(this.f14684e.t);
             l.M(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
@@ -131,7 +131,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 EmotionPackageDetailActivity.this.mNoDataView.setVisibility(8);
                 EmotionPackageDetailActivity emotionPackageDetailActivity = EmotionPackageDetailActivity.this;
                 emotionPackageDetailActivity.showLoadingView(emotionPackageDetailActivity.mRootView, false, l.g(EmotionPackageDetailActivity.this, R.dimen.ds400));
-                EmotionPackageDetailActivity.this.mModel.y(EmotionPackageDetailActivity.this.mPckId);
+                EmotionPackageDetailActivity.this.mModel.C(EmotionPackageDetailActivity.this.mPckId);
             }
         }
     }
@@ -235,13 +235,13 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 EmotionPackageDetailActivity.this.mCoverImage.setGifIconSupport(false);
                 if (EmotionPackageDetailActivity.this.mPageData.forum_id > 0) {
                     EmotionPackageDetailActivity.this.emationSingleBarIcon.setVisibility(0);
-                    EmotionPackageDetailActivity.this.mUserAvatar.V(EmotionPackageDetailActivity.this.mPageData.forum_avatar, 10, false);
+                    EmotionPackageDetailActivity.this.mUserAvatar.U(EmotionPackageDetailActivity.this.mPageData.forum_avatar, 10, false);
                     EmotionPackageDetailActivity.this.mUserName.setText(EmotionPackageDetailActivity.this.mPageData.forum_name);
                 } else {
-                    EmotionPackageDetailActivity.this.mUserAvatar.V(EmotionPackageDetailActivity.this.mPageData.avatar, 10, false);
+                    EmotionPackageDetailActivity.this.mUserAvatar.U(EmotionPackageDetailActivity.this.mPageData.avatar, 10, false);
                     EmotionPackageDetailActivity.this.mUserName.setText(EmotionPackageDetailActivity.this.mPageData.author);
                 }
-                EmotionPackageDetailActivity.this.mCoverImage.V(EmotionPackageDetailActivity.this.mPageData.cover, 10, false);
+                EmotionPackageDetailActivity.this.mCoverImage.U(EmotionPackageDetailActivity.this.mPageData.cover, 10, false);
                 EmotionPackageDetailActivity.this.mImageNum.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_num), Integer.valueOf(EmotionPackageDetailActivity.this.mPageData.num)));
                 EmotionPackageDetailActivity.this.mDownloadNum.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_download_num), StringHelper.numFormatOverWan(EmotionPackageDetailActivity.this.mPageData.download)));
                 EmotionPackageDetailActivity.this.mShareNum.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_share_num), StringHelper.numFormatOverWan(EmotionPackageDetailActivity.this.mPageData.share)));
@@ -475,7 +475,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 return;
             }
             d.a.n0.m0.a0.a aVar = (d.a.n0.m0.a0.a) customResponsedMessage.getData();
-            int i2 = aVar.f57202a;
+            int i2 = aVar.f60891a;
             if (i2 == 0) {
                 l.L(EmotionPackageDetailActivity.this.getActivity(), R.string.down_state_success);
                 SkinManager.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_downloaded);
@@ -490,7 +490,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 l.L(EmotionPackageDetailActivity.this.getActivity(), R.string.download_error);
                 EmotionPackageDetailActivity.this.mLeftContainer.setEnabled(true);
             } else if (i2 == 2) {
-                int i3 = aVar.f57203b;
+                int i3 = aVar.f60892b;
                 if (i3 > 0 && i3 < 100) {
                     l.J(EmotionPackageDetailActivity.this.getActivity(), EmotionPackageDetailActivity.this.getString(R.string.package_downloading_progress));
                 } else if (i3 >= 100) {
@@ -510,7 +510,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
 
     /* JADX INFO: Access modifiers changed from: private */
     public void deleteEmotion() {
-        this.mModel.x(this.mPckId, new g());
+        this.mModel.B(this.mPckId, new g());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -522,7 +522,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         this.mLikeModel.setLoadDataCallBack(new i());
         LikeModel likeModel = this.mLikeModel;
         EmotionPackageData emotionPackageData = this.mPageData;
-        likeModel.H(emotionPackageData.forum_name, String.valueOf(emotionPackageData.forum_id));
+        likeModel.L(emotionPackageData.forum_name, String.valueOf(emotionPackageData.forum_id));
     }
 
     private void downloadEmotion() {
@@ -535,7 +535,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 this.mFaceGroupDownloadModel = new NewFaceGroupDownloadModel();
             }
             this.mLeftContainer.setEnabled(false);
-            this.mFaceGroupDownloadModel.s(Integer.toString(this.mPckId), Boolean.TRUE, null);
+            this.mFaceGroupDownloadModel.w(Integer.toString(this.mPckId), Boolean.TRUE, null);
         }
     }
 
@@ -554,7 +554,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             this.mModel = new EmotionPackageDetailModel();
         }
         this.mModel.setLoadDataCallBack(this.dataCallBack);
-        this.mModel.y(this.mPckId);
+        this.mModel.C(this.mPckId);
         this.voteSum = 0;
     }
 
@@ -636,7 +636,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
 
     private void voteEmotion(int i2) {
         this.mVoteContainer.setEnabled(false);
-        this.mModel.z(i2, new h());
+        this.mModel.D(i2, new h());
     }
 
     public PackageDetailListView getListView() {
@@ -656,7 +656,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             if (this.mFaceGroupShareModel == null) {
                 this.mFaceGroupShareModel = new NewFaceGroupShareModel();
             }
-            this.mFaceGroupShareModel.s(str);
+            this.mFaceGroupShareModel.w(str);
         }
     }
 
@@ -767,32 +767,32 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
     public class k extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public List<EmotionPackageData.SingleEmotionData> f14641e;
+        public List<EmotionPackageData.SingleEmotionData> f14698e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f14642f;
+        public int f14699f;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f14644e;
+            public final /* synthetic */ int f14701e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ TbImageView f14645f;
+            public final /* synthetic */ TbImageView f14702f;
 
             public a(int i2, TbImageView tbImageView) {
-                this.f14644e = i2;
-                this.f14645f = tbImageView;
+                this.f14701e = i2;
+                this.f14702f = tbImageView;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EmotionPackageData.SingleEmotionData singleEmotionData = (EmotionPackageData.SingleEmotionData) k.this.f14641e.get(this.f14644e);
+                EmotionPackageData.SingleEmotionData singleEmotionData = (EmotionPackageData.SingleEmotionData) k.this.f14698e.get(this.f14701e);
                 if (singleEmotionData == null || singleEmotionData.id < 0 || EmotionPackageDetailActivity.this.mPckId < 0 || !d.a.c.e.p.j.z()) {
                     return;
                 }
-                EmotionDetailActivityConfig emotionDetailActivityConfig = new EmotionDetailActivityConfig(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), EmotionPackageDetailActivity.this.mPckId, singleEmotionData.id, this.f14645f.H());
+                EmotionDetailActivityConfig emotionDetailActivityConfig = new EmotionDetailActivityConfig(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), EmotionPackageDetailActivity.this.mPckId, singleEmotionData.id, this.f14702f.H());
                 emotionDetailActivityConfig.setFromEmotionPackage(true);
                 EmotionPackageDetailActivity.this.sendMessage(new CustomMessage(2002001, emotionDetailActivityConfig));
             }
@@ -802,16 +802,16 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         public class b {
 
             /* renamed from: a  reason: collision with root package name */
-            public TbImageView f14647a;
+            public TbImageView f14704a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TbImageView f14648b;
+            public TbImageView f14705b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TbImageView f14649c;
+            public TbImageView f14706c;
 
             /* renamed from: d  reason: collision with root package name */
-            public TbImageView f14650d;
+            public TbImageView f14707d;
 
             public b(k kVar) {
             }
@@ -823,13 +823,13 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                             if (i2 != 3) {
                                 return null;
                             }
-                            return this.f14650d;
+                            return this.f14707d;
                         }
-                        return this.f14649c;
+                        return this.f14706c;
                     }
-                    return this.f14648b;
+                    return this.f14705b;
                 }
-                return this.f14647a;
+                return this.f14704a;
             }
 
             public /* synthetic */ b(k kVar, b bVar) {
@@ -838,8 +838,8 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         }
 
         public k() {
-            this.f14641e = new ArrayList();
-            this.f14642f = (l.k(TbadkCoreApplication.getInst()) - l.g(EmotionPackageDetailActivity.this.getActivity(), R.dimen.ds230)) / 4;
+            this.f14698e = new ArrayList();
+            this.f14699f = (l.k(TbadkCoreApplication.getInst()) - l.g(EmotionPackageDetailActivity.this.getActivity(), R.dimen.ds230)) / 4;
         }
 
         public final void c(int i2, b bVar) {
@@ -847,11 +847,11 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 TbImageView a2 = bVar.a(i3);
                 if (a2 != null) {
                     int i4 = (i2 * 4) + i3;
-                    if (i4 < this.f14641e.size() && i4 >= 0) {
+                    if (i4 < this.f14698e.size() && i4 >= 0) {
                         a2.setVisibility(0);
                         a2.setTag(null);
                         a2.setDefaultResource(R.drawable.img_default_100);
-                        a2.V(this.f14641e.get(i4).thumbnail, 10, false);
+                        a2.U(this.f14698e.get(i4).thumbnail, 10, false);
                         a2.invalidate();
                         a2.setOnClickListener(new a(i4, a2));
                     } else {
@@ -866,27 +866,27 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         /* renamed from: d */
         public List<EmotionPackageData.SingleEmotionData> getItem(int i2) {
             ArrayList arrayList = new ArrayList();
-            for (int size = this.f14641e.size() / 4; size < (this.f14641e.size() / 4) + 4; size++) {
-                if (size > 0 && size < this.f14641e.size()) {
-                    arrayList.add(this.f14641e.get(size));
+            for (int size = this.f14698e.size() / 4; size < (this.f14698e.size() / 4) + 4; size++) {
+                if (size > 0 && size < this.f14698e.size()) {
+                    arrayList.add(this.f14698e.get(size));
                 }
             }
-            return this.f14641e;
+            return this.f14698e;
         }
 
         public final void e(List<EmotionPackageData.SingleEmotionData> list) {
             if (list == null) {
                 return;
             }
-            this.f14641e.clear();
-            this.f14641e.addAll(new ArrayList(list));
+            this.f14698e.clear();
+            this.f14698e.addAll(new ArrayList(list));
             notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            int size = this.f14641e.size() / 4;
-            return this.f14641e.size() % 4 > 0 ? size + 1 : size;
+            int size = this.f14698e.size() / 4;
+            return this.f14698e.size() % 4 > 0 ? size + 1 : size;
         }
 
         @Override // android.widget.Adapter
@@ -902,29 +902,29 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 bVar = new b(this, null);
                 view2 = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.package_detail_item, viewGroup, false);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.package_item_image1);
-                bVar.f14647a = tbImageView;
+                bVar.f14704a = tbImageView;
                 ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-                layoutParams.height = this.f14642f;
-                bVar.f14647a.setLayoutParams(layoutParams);
-                SkinManager.setBackgroundColor(bVar.f14647a, R.color.CAM_X0201);
+                layoutParams.height = this.f14699f;
+                bVar.f14704a.setLayoutParams(layoutParams);
+                SkinManager.setBackgroundColor(bVar.f14704a, R.color.CAM_X0201);
                 TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.package_item_image2);
-                bVar.f14648b = tbImageView2;
+                bVar.f14705b = tbImageView2;
                 ViewGroup.LayoutParams layoutParams2 = tbImageView2.getLayoutParams();
-                layoutParams2.height = this.f14642f;
-                bVar.f14648b.setLayoutParams(layoutParams2);
-                SkinManager.setBackgroundColor(bVar.f14648b, R.color.CAM_X0201);
+                layoutParams2.height = this.f14699f;
+                bVar.f14705b.setLayoutParams(layoutParams2);
+                SkinManager.setBackgroundColor(bVar.f14705b, R.color.CAM_X0201);
                 TbImageView tbImageView3 = (TbImageView) view2.findViewById(R.id.package_item_image3);
-                bVar.f14649c = tbImageView3;
+                bVar.f14706c = tbImageView3;
                 ViewGroup.LayoutParams layoutParams3 = tbImageView3.getLayoutParams();
-                layoutParams3.height = this.f14642f;
-                bVar.f14649c.setLayoutParams(layoutParams3);
-                SkinManager.setBackgroundColor(bVar.f14649c, R.color.CAM_X0201);
+                layoutParams3.height = this.f14699f;
+                bVar.f14706c.setLayoutParams(layoutParams3);
+                SkinManager.setBackgroundColor(bVar.f14706c, R.color.CAM_X0201);
                 TbImageView tbImageView4 = (TbImageView) view2.findViewById(R.id.package_item_image4);
-                bVar.f14650d = tbImageView4;
+                bVar.f14707d = tbImageView4;
                 ViewGroup.LayoutParams layoutParams4 = tbImageView4.getLayoutParams();
-                layoutParams4.height = this.f14642f;
-                bVar.f14650d.setLayoutParams(layoutParams4);
-                SkinManager.setBackgroundColor(bVar.f14650d, R.color.CAM_X0201);
+                layoutParams4.height = this.f14699f;
+                bVar.f14707d.setLayoutParams(layoutParams4);
+                SkinManager.setBackgroundColor(bVar.f14707d, R.color.CAM_X0201);
                 view2.setTag(bVar);
             } else {
                 view2 = view;

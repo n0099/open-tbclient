@@ -21,61 +21,61 @@ import tbclient.Lego.DataRes;
 public class h {
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f56592d;
+    public boolean f60281d;
 
     /* renamed from: h  reason: collision with root package name */
-    public final BdListView f56596h;
+    public final BdListView f60285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d.a.n0.k1.n.a f56597i;
+    public final d.a.n0.k1.n.a f60286i;
     public long j;
     public String k;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f56589a = null;
+    public c f60278a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<ICardInfo> f56590b = new LinkedList();
+    public final List<ICardInfo> f60279b = new LinkedList();
 
     /* renamed from: c  reason: collision with root package name */
-    public int f56591c = 1;
+    public int f60280c = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56593e = "";
+    public String f60282e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56594f = false;
+    public boolean f60283f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56595g = false;
+    public boolean f60284g = false;
 
     /* loaded from: classes4.dex */
     public class a extends f0<DataRes> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.d.l f56598a;
+        public final /* synthetic */ d.a.c.e.d.l f60287a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f56599b;
+        public final /* synthetic */ long f60288b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f56600c;
+        public final /* synthetic */ String f60289c;
 
         public a(h hVar, d.a.c.e.d.l lVar, long j, String str) {
-            this.f56598a = lVar;
-            this.f56599b = j;
-            this.f56600c = str;
+            this.f60287a = lVar;
+            this.f60288b = j;
+            this.f60289c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public DataRes doInBackground() {
-            d.a.c.e.d.l lVar = this.f56598a;
+            d.a.c.e.d.l lVar = this.f60287a;
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f56599b);
+            sb.append(this.f60288b);
             sb.append("_");
-            sb.append(TextUtils.isEmpty(this.f56600c) ? "" : this.f56600c);
+            sb.append(TextUtils.isEmpty(this.f60289c) ? "" : this.f60289c);
             byte[] bArr = (byte[]) lVar.get(sb.toString());
             if (bArr != null && bArr.length != 0) {
                 try {
@@ -117,20 +117,20 @@ public class h {
     }
 
     public h(BdListView bdListView, d.a.n0.k1.n.a aVar) {
-        this.f56596h = bdListView;
-        this.f56597i = aVar;
+        this.f60285h = bdListView;
+        this.f60286i = aVar;
     }
 
     public List<ICardInfo> b() {
-        return this.f56590b;
+        return this.f60279b;
     }
 
     public boolean c() {
-        return this.f56592d;
+        return this.f60281d;
     }
 
     public final boolean d() {
-        return this.f56594f;
+        return this.f60283f;
     }
 
     public final void e(long j, String str) {
@@ -138,26 +138,26 @@ public class h {
     }
 
     public final void f(long j, String str) {
-        c cVar = this.f56589a;
+        c cVar = this.f60278a;
         if (cVar != null) {
             cVar.b(j, str);
         }
     }
 
     public void g() {
-        if (d() || this.f56589a == null) {
+        if (d() || this.f60278a == null) {
             return;
         }
-        this.f56591c++;
+        this.f60280c++;
         k(true);
-        this.f56589a.c(this.f56591c, this.f56593e);
+        this.f60278a.c(this.f60280c, this.f60282e);
     }
 
     public final void h(DataRes dataRes) {
         c cVar;
-        this.f56595g = true;
+        this.f60284g = true;
         if (dataRes != null) {
-            if (j(true, dataRes) && (cVar = this.f56589a) != null) {
+            if (j(true, dataRes) && (cVar = this.f60278a) != null) {
                 cVar.onSuccess();
             }
             f(this.j, this.k);
@@ -169,23 +169,23 @@ public class h {
     public void i(boolean z, DataRes dataRes, int i2, String str) {
         k(false);
         if (z) {
-            this.f56596h.z();
+            this.f60285h.z();
         }
         if (i2 == 0 && dataRes != null && j(z, dataRes)) {
-            c cVar = this.f56589a;
+            c cVar = this.f60278a;
             if (cVar != null) {
                 cVar.onSuccess();
             }
             if (z) {
                 n(dataRes);
             }
-        } else if (this.f56590b.size() > 0) {
-            c cVar2 = this.f56589a;
+        } else if (this.f60279b.size() > 0) {
+            c cVar2 = this.f60278a;
             if (cVar2 != null) {
                 cVar2.onError(1, str);
             }
         } else {
-            c cVar3 = this.f56589a;
+            c cVar3 = this.f60278a;
             if (cVar3 != null) {
                 cVar3.onError(2, str);
             }
@@ -202,9 +202,9 @@ public class h {
             return false;
         }
         if (z) {
-            this.f56590b.clear();
+            this.f60279b.clear();
         }
-        this.f56592d = dataRes.has_more.intValue() == 1;
+        this.f60281d = dataRes.has_more.intValue() == 1;
         ArrayList arrayList = new ArrayList();
         try {
             JSONObject jSONObject3 = new JSONObject(dataRes.page_info);
@@ -225,13 +225,13 @@ public class h {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
                         d.a.n0.k1.p.e eVar = new d.a.n0.k1.p.e();
-                        eVar.f56760c = optJSONObject2.optString("title");
+                        eVar.f60449c = optJSONObject2.optString("title");
                         jSONObject2 = jSONObject3;
-                        eVar.f56758a = optJSONObject2.optLong("page_id");
+                        eVar.f60447a = optJSONObject2.optLong("page_id");
                         optJSONObject2.optInt("page_type");
-                        eVar.f56761d = optJSONObject2.optInt("rn");
-                        eVar.f56759b = optJSONObject2.optString(LegoListActivityConfig.ITEM_ID);
-                        eVar.f56762e = optJSONObject2.optString("params");
+                        eVar.f60450d = optJSONObject2.optInt("rn");
+                        eVar.f60448b = optJSONObject2.optString(LegoListActivityConfig.ITEM_ID);
+                        eVar.f60451e = optJSONObject2.optString("params");
                         eVar.b();
                         arrayList.add(eVar);
                     } else {
@@ -241,7 +241,7 @@ public class h {
                     jSONObject3 = jSONObject2;
                 }
                 jSONObject = jSONObject3;
-                this.f56589a.d(str2, str3, str, arrayList);
+                this.f60278a.d(str2, str3, str, arrayList);
             } else {
                 jSONObject = jSONObject3;
             }
@@ -258,7 +258,7 @@ public class h {
                         }
                     }
                 }
-                this.f56589a.a(arrayList2);
+                this.f60278a.a(arrayList2);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -267,35 +267,35 @@ public class h {
             for (int i4 = 0; i4 < dataRes.cards.size(); i4++) {
                 ICardInfo i5 = d.a.n0.k1.o.b.i(dataRes.cards.get(i4));
                 if (i5 != null && i5.isValid()) {
-                    this.f56590b.add(i5);
+                    this.f60279b.add(i5);
                 }
             }
         }
-        if (this.f56590b.size() == 0) {
+        if (this.f60279b.size() == 0) {
             return false;
         }
         try {
-            this.f56593e = this.f56590b.get(this.f56590b.size() - 1).getFlipId();
+            this.f60282e = this.f60279b.get(this.f60279b.size() - 1).getFlipId();
         } catch (Exception unused) {
-            this.f56593e = "";
+            this.f60282e = "";
         }
-        this.f56597i.C(this.f56590b);
+        this.f60286i.C(this.f60279b);
         return true;
     }
 
     public final void k(boolean z) {
-        this.f56594f = z;
+        this.f60283f = z;
     }
 
     public void l(c cVar) {
-        this.f56589a = cVar;
+        this.f60278a = cVar;
     }
 
     public void m(long j, String str) {
-        this.f56591c = 1;
+        this.f60280c = 1;
         this.j = j;
         this.k = str;
-        if (this.f56590b.size() == 0 && !this.f56595g) {
+        if (this.f60279b.size() == 0 && !this.f60284g) {
             e(j, str);
         } else {
             f(j, str);

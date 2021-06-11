@@ -36,7 +36,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Date;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class VoiceManager extends BroadcastReceiver implements SensorEventListener {
     public static final boolean BOOLEAN_SEEKTO = false;
@@ -140,10 +139,10 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (VoiceManager.this.mCurPlayModel == null || VoiceManager.this.sPlayView == null || aVar == null) {
                 return;
             }
-            String str2 = aVar.f49821b;
-            String str3 = aVar.f49820a;
-            int i3 = aVar.f49822c;
-            String str4 = aVar.f49823d;
+            String str2 = aVar.f53496b;
+            String str3 = aVar.f53495a;
+            int i3 = aVar.f53497c;
+            String str4 = aVar.f53498d;
             if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
                 if (VoiceManager.this.mCurPlayModel.voiceId.equals(str3) && VoiceManager.isVoiceDownloading(VoiceManager.this.mCurPlayModel.voice_status.intValue())) {
                     VoiceManager voiceManager = VoiceManager.this;
@@ -799,9 +798,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             firstOpenSpeaker();
             if (this.audioManager != null) {
                 if (this.audioManager.isSpeakerphoneOn()) {
-                    d.a.c.e.q.h.f38911b = 3;
+                    d.a.c.e.q.h.f42564b = 3;
                 } else {
-                    d.a.c.e.q.h.f38911b = 0;
+                    d.a.c.e.q.h.f42564b = 0;
                 }
             }
             setVolumeControlStream();
@@ -859,7 +858,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void setStatusWaiting(VoiceData$VoiceModel voiceData$VoiceModel) {
         unRegistSensorHandler();
         voiceData$VoiceModel.voice_status = 1;
-        d.a.c.e.q.h.f38911b = 2;
+        d.a.c.e.q.h.f42564b = 2;
         setVolumeControlStream();
         i playView = getPlayView();
         if (playView != null) {
@@ -878,7 +877,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.context == null || this.context.getPageActivity() == null) {
                 return;
             }
-            this.context.getPageActivity().setVolumeControlStream(d.a.c.e.q.h.f38911b);
+            this.context.getPageActivity().setVolumeControlStream(d.a.c.e.q.h.f42564b);
         } catch (Exception e2) {
             TiebaStatic.voiceError(TbErrInfo.ERR_VOI_VOLUME, "setVolumeControlStream exception: " + e2.getMessage(), "");
         }
@@ -966,7 +965,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         saveInitVoiceStatus();
         try {
             setSpeakerphone(false);
-            d.a.c.e.q.h.f38911b = 0;
+            d.a.c.e.q.h.f42564b = 0;
             stopVoiceAndRePlay();
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -1031,7 +1030,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void onCreate(TbPageContext<?> tbPageContext) {
         this.context = tbPageContext;
         this.mHandle = new Handler();
-        this.audioManager = (AudioManager) tbPageContext.getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.audioManager = (AudioManager) tbPageContext.getContext().getSystemService("audio");
         SensorManager sensorManager = (SensorManager) TbadkCoreApplication.getInst().getSystemService("sensor");
         this.sensorManager = sensorManager;
         this.proximitySensor = sensorManager.getDefaultSensor(8);
@@ -1118,14 +1117,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void openSpeaker() {
-        if (this.audioManager == null || d.a.c.e.q.h.f38910a == 2) {
+        if (this.audioManager == null || d.a.c.e.q.h.f42563a == 2) {
             return;
         }
         if (!TbadkCoreApplication.getInst().isHeadsetModeOn() && !TbadkCoreApplication.getInst().getIsPhoneCalling()) {
             try {
                 saveInitVoiceStatus();
                 setSpeakerphone(true);
-                d.a.c.e.q.h.f38911b = 3;
+                d.a.c.e.q.h.f42564b = 3;
                 stopVoiceAndRePlay();
                 return;
             } catch (Exception e2) {
@@ -1162,7 +1161,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 return;
             }
             setSpeakerphone(bInitSpeakerphoneOn.booleanValue());
-            d.a.c.e.q.h.f38911b = 3;
+            d.a.c.e.q.h.f42564b = 3;
             bInitSpeakerphoneOn = null;
             bInitMode = null;
             bInitVolume = null;

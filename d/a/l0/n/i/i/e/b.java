@@ -17,29 +17,29 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f48033a;
+    public c f51707a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BlockingQueue<Runnable> f48034b;
+    public BlockingQueue<Runnable> f51708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f48035c;
+    public ThreadPoolExecutor f51709c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f48036d;
+    public f f51710d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicBoolean f48037e = new AtomicBoolean(false);
+    public final AtomicBoolean f51711e = new AtomicBoolean(false);
     @SuppressLint({"SyntheticAccessor"})
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.l0.n.i.i.g.b f48038f;
+    public final d.a.l0.n.i.i.g.b f51712f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final l f48039g;
+    public final l f51713g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.l0.n.i.i.g.a f48040h;
+    public d.a.l0.n.i.i.g.a f51714h;
 
     /* loaded from: classes3.dex */
     public class a implements d.a.l0.n.i.i.g.b {
@@ -48,21 +48,21 @@ public class b {
 
         @Override // d.a.l0.n.i.i.g.b
         public <T> void a(f<T> fVar) {
-            b.this.f48036d = fVar;
+            b.this.f51710d = fVar;
         }
 
         @Override // d.a.l0.n.i.i.g.b
         public <T> void b(f<T> fVar) {
-            if (b.this.f48036d == fVar) {
-                b.this.f48036d = null;
+            if (b.this.f51710d == fVar) {
+                b.this.f51710d = null;
             }
         }
     }
 
     /* renamed from: d.a.l0.n.i.i.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1077b implements d.a.l0.n.i.i.g.a {
-        public C1077b() {
+    public class C1133b implements d.a.l0.n.i.i.g.a {
+        public C1133b() {
         }
 
         @Override // d.a.l0.n.i.i.g.a
@@ -73,48 +73,48 @@ public class b {
 
     public b() {
         a aVar = new a();
-        this.f48038f = aVar;
-        this.f48039g = new l(aVar);
-        this.f48040h = new C1077b();
-        this.f48033a = new c();
-        this.f48034b = new LinkedBlockingQueue();
-        this.f48035c = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, this.f48034b);
-        c(this.f48033a);
+        this.f51712f = aVar;
+        this.f51713g = new l(aVar);
+        this.f51714h = new C1133b();
+        this.f51707a = new c();
+        this.f51708b = new LinkedBlockingQueue();
+        this.f51709c = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, this.f51708b);
+        c(this.f51707a);
     }
 
     public void c(d.a.l0.n.i.i.g.b bVar) {
-        this.f48039g.c(bVar);
+        this.f51713g.c(bVar);
     }
 
     public synchronized Runnable d(boolean z) {
-        if (this.f48033a != null) {
+        if (this.f51707a != null) {
             if (z) {
-                return this.f48033a.g();
+                return this.f51707a.g();
             }
-            return this.f48033a.i();
+            return this.f51707a.i();
         }
         return null;
     }
 
     public synchronized boolean e(String str) {
-        if (this.f48036d == null) {
+        if (this.f51710d == null) {
             return false;
         }
-        Object f2 = this.f48036d.f();
+        Object f2 = this.f51710d.f();
         if (f2 instanceof d.a.l0.n.h.f) {
             d.a.l0.n.h.f fVar = (d.a.l0.n.h.f) f2;
-            if (d.a.l0.n.c.f47984a) {
-                Log.v("PMSThreadQueue", "Current PMSPkgMain appId: " + fVar.f48012g + ", checking id: " + str);
+            if (d.a.l0.n.c.f51658a) {
+                Log.v("PMSThreadQueue", "Current PMSPkgMain appId: " + fVar.f51686g + ", checking id: " + str);
             }
-            return TextUtils.equals(fVar.f48012g, str);
-        } else if (f2 instanceof a.C1078a) {
-            a.C1078a c1078a = (a.C1078a) f2;
-            if (d.a.l0.n.c.f47984a) {
-                Log.v("PMSThreadQueue", "Current Item appId: " + c1078a.f48082b + ", checking id: " + str);
+            return TextUtils.equals(fVar.f51686g, str);
+        } else if (f2 instanceof a.C1134a) {
+            a.C1134a c1134a = (a.C1134a) f2;
+            if (d.a.l0.n.c.f51658a) {
+                Log.v("PMSThreadQueue", "Current Item appId: " + c1134a.f51756b + ", checking id: " + str);
             }
-            return TextUtils.equals(c1078a.f48082b, str);
+            return TextUtils.equals(c1134a.f51756b, str);
         } else {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 Log.v("PMSThreadQueue", "Current model type not match: " + f2.getClass().getSimpleName());
             }
             return false;
@@ -122,28 +122,28 @@ public class b {
     }
 
     public synchronized boolean f(String str) {
-        Iterator<f> f2 = this.f48033a.f();
+        Iterator<f> f2 = this.f51707a.f();
         while (f2.hasNext()) {
             f next = f2.next();
             if (next != null) {
                 Object f3 = next.f();
                 if (f3 instanceof d.a.l0.n.h.f) {
                     d.a.l0.n.h.f fVar = (d.a.l0.n.h.f) f3;
-                    if (d.a.l0.n.c.f47984a) {
-                        Log.v("PMSThreadQueue", "Queue PMSPkgMain appId: " + fVar.f48012g + ", checking id: " + str);
+                    if (d.a.l0.n.c.f51658a) {
+                        Log.v("PMSThreadQueue", "Queue PMSPkgMain appId: " + fVar.f51686g + ", checking id: " + str);
                     }
-                    if (TextUtils.equals(fVar.f48012g, str)) {
+                    if (TextUtils.equals(fVar.f51686g, str)) {
                         return true;
                     }
-                } else if (f3 instanceof a.C1078a) {
-                    a.C1078a c1078a = (a.C1078a) f3;
-                    if (d.a.l0.n.c.f47984a) {
-                        Log.v("PMSThreadQueue", "Queue Item appId: " + c1078a.f48082b + ", checking id: " + str);
+                } else if (f3 instanceof a.C1134a) {
+                    a.C1134a c1134a = (a.C1134a) f3;
+                    if (d.a.l0.n.c.f51658a) {
+                        Log.v("PMSThreadQueue", "Queue Item appId: " + c1134a.f51756b + ", checking id: " + str);
                     }
-                    if (TextUtils.equals(c1078a.f48082b, str)) {
+                    if (TextUtils.equals(c1134a.f51756b, str)) {
                         return true;
                     }
-                } else if (d.a.l0.n.c.f47984a) {
+                } else if (d.a.l0.n.c.f51658a) {
                     Log.v("PMSThreadQueue", "Queue model type not match: " + f3.getClass().getSimpleName());
                 }
             }
@@ -152,11 +152,11 @@ public class b {
     }
 
     public synchronized <T> void g(f<T> fVar) {
-        this.f48033a.h(fVar);
-        if (d.a.l0.n.c.f47984a) {
+        this.f51707a.h(fVar);
+        if (d.a.l0.n.c.f51658a) {
             Log.d("PMSThreadQueue", "put Task:" + fVar);
-            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.f48033a);
-            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.f48034b);
+            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.f51707a);
+            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.f51708b);
         }
     }
 
@@ -166,12 +166,12 @@ public class b {
     }
 
     public void i(d.a.l0.n.i.i.g.b bVar) {
-        this.f48039g.d(bVar);
+        this.f51713g.d(bVar);
     }
 
     public synchronized void j() {
-        if (this.f48034b.size() < 1) {
-            this.f48035c.execute(new g(this.f48037e, this.f48039g, this.f48040h));
+        if (this.f51708b.size() < 1) {
+            this.f51709c.execute(new g(this.f51711e, this.f51713g, this.f51714h));
         }
     }
 }

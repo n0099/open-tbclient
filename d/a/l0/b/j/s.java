@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class s extends d.a.l0.a.e2.c.j.f {
-    public static final boolean t = d.a.l0.a.k.f43199a;
+    public static final boolean t = d.a.l0.a.k.f46875a;
     public String s;
 
     /* loaded from: classes3.dex */
@@ -89,11 +89,11 @@ public class s extends d.a.l0.a.e2.c.j.f {
         }
 
         public c() {
-            c.C0832c c0832c;
-            if (s.this.o == null || (c0832c = s.this.n) == null || !c0832c.f44834a) {
+            c.C0888c c0888c;
+            if (s.this.o == null || (c0888c = s.this.n) == null || !c0888c.f48508a) {
                 return;
             }
-            long j = c0832c.f44835b;
+            long j = c0888c.f48509b;
             if (s.t) {
                 Log.d("LoginRequest", "send timeout " + j + "ms msg");
             }
@@ -101,8 +101,8 @@ public class s extends d.a.l0.a.e2.c.j.f {
         }
     }
 
-    public s(Activity activity, c.C0832c c0832c, Bundle bundle) {
-        super(activity, c0832c, bundle);
+    public s(Activity activity, c.C0888c c0888c, Bundle bundle) {
+        super(activity, c0888c, bundle);
         y();
         z();
     }

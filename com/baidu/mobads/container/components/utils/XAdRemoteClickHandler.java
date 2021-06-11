@@ -459,7 +459,7 @@ public class XAdRemoteClickHandler {
                 registerLpCloseReceiver(xBaseAdContainer.getAdContainerContext().getAppContext());
                 StateMachine.event(iXAdInstanceInfo.getUniqueId(), AdStateCode.EVENT_CLICK_LP);
                 try {
-                    SendLogUtil.Builder appendAdInfo = SendLogUtil.Builder.create(xBaseAdContainer.getAdContainerContext().getAppContext()).appendType(SDKLogTypeConstants.TYPE_AD_CLICK_LP).appendAdInfo(iXAdInstanceInfo);
+                    SendLogUtil.Builder appendAdInfo = SendLogUtil.Builder.create(xBaseAdContainer.getAdContainerContext().getAppContext()).appendType(1047).appendAdInfo(iXAdInstanceInfo);
                     appendAdInfo.appendApId(xBaseAdContainer.getAdContainerContext().getAdPlacementId());
                     appendAdInfo.appendProdType(xBaseAdContainer.getAdContainerContext().getAdProd());
                     appendAdInfo.appendAppSid(xBaseAdContainer.getAdContainerContext().getAppsid());

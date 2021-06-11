@@ -10,19 +10,19 @@ import java.util.ArrayList;
 public class g implements f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BDHttpDns.a f39883a;
+    public final BDHttpDns.a f43564a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BDHttpDns f39884b;
+    public final BDHttpDns f43565b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final h f39885c;
+    public final h f43566c;
 
     public g(Context context, BDHttpDns.a aVar) {
-        this.f39883a = aVar;
+        this.f43564a = aVar;
         BDHttpDns j = BDHttpDns.j(context);
-        this.f39884b = j;
-        this.f39885c = j.d();
+        this.f43565b = j;
+        this.f43566c = j.d();
     }
 
     @Override // d.a.g.f.a
@@ -31,7 +31,7 @@ public class g implements f.a {
         BDHttpDnsResult bDHttpDnsResult;
         if (i2 == -1) {
             k.a("Async resolve failed, host(%s), dns resolve failed", str);
-            aVar = this.f39883a;
+            aVar = this.f43564a;
             if (aVar == null) {
                 return;
             }
@@ -51,8 +51,8 @@ public class g implements f.a {
             aVar2.e(System.currentTimeMillis() / 1000);
             aVar2.b(arrayList);
             aVar2.f(arrayList2);
-            this.f39885c.c(str, aVar2);
-            aVar = this.f39883a;
+            this.f43566c.c(str, aVar2);
+            aVar = this.f43564a;
             if (aVar == null) {
                 return;
             }

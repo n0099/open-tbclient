@@ -16,35 +16,35 @@ public class LivenessCameraSurfaceView extends SurfaceView {
         super(context, attributeSet);
     }
 
-    private b.a a(Activity activity, a.C0083a c0083a) {
-        if (c0083a == null) {
+    private b.a a(Activity activity, a.C0084a c0084a) {
+        if (c0084a == null) {
             return null;
         }
-        a.C0083a a2 = a(activity);
-        b.a aVar = new b.a(c0083a.f5915a, c0083a.f5916b);
-        float f2 = c0083a.f5915a / c0083a.f5916b;
-        float f3 = a2.f5916b / a2.f5915a;
+        a.C0084a a2 = a(activity);
+        b.a aVar = new b.a(c0084a.f5958a, c0084a.f5959b);
+        float f2 = c0084a.f5958a / c0084a.f5959b;
+        float f3 = a2.f5959b / a2.f5958a;
         if (Math.abs(f2 - f3) <= 0.02d) {
             return aVar;
         }
         if (f2 < f3) {
-            int i2 = a2.f5916b;
-            aVar.f5927a = (c0083a.f5916b * i2) / c0083a.f5915a;
-            aVar.f5928b = i2;
+            int i2 = a2.f5959b;
+            aVar.f5970a = (c0084a.f5959b * i2) / c0084a.f5958a;
+            aVar.f5971b = i2;
         } else {
-            int i3 = a2.f5915a;
-            aVar.f5927a = i3;
-            aVar.f5928b = (i3 * c0083a.f5915a) / c0083a.f5916b;
+            int i3 = a2.f5958a;
+            aVar.f5970a = i3;
+            aVar.f5971b = (i3 * c0084a.f5958a) / c0084a.f5959b;
         }
         return aVar;
     }
 
-    public void bindSurfaceView(Activity activity, a.C0083a c0083a) {
+    public void bindSurfaceView(Activity activity, a.C0084a c0084a) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getLayoutParams());
-        b.a a2 = a(activity, c0083a);
-        if (a2 != null && (a2.f5927a != c0083a.f5915a || a2.f5928b != c0083a.f5916b)) {
-            layoutParams.width = a2.f5927a;
-            layoutParams.height = a2.f5928b;
+        b.a a2 = a(activity, c0084a);
+        if (a2 != null && (a2.f5970a != c0084a.f5958a || a2.f5971b != c0084a.f5959b)) {
+            layoutParams.width = a2.f5970a;
+            layoutParams.height = a2.f5971b;
         } else {
             layoutParams.width = -2;
             layoutParams.height = -1;
@@ -52,8 +52,8 @@ public class LivenessCameraSurfaceView extends SurfaceView {
         setLayoutParams(layoutParams);
     }
 
-    private a.C0083a a(Activity activity) {
+    private a.C0084a a(Activity activity) {
         Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-        return new a.C0083a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
+        return new a.C0084a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
     }
 }

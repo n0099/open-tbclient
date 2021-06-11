@@ -10,44 +10,44 @@ import java.io.File;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f59985a;
+    public BaseActivity f63676a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59986b;
+    public String f63677b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59987c;
+    public String f63678c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59988d;
+    public String f63679d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59989e;
+    public boolean f63680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f59990f;
+    public String f63681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f59991g;
+    public String f63682g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f59992h;
+    public boolean f63683h;
 
     public b(BaseActivity baseActivity, String str, String str2) {
-        this.f59986b = str;
-        this.f59987c = str2;
-        this.f59985a = baseActivity;
+        this.f63677b = str;
+        this.f63678c = str2;
+        this.f63676a = baseActivity;
     }
 
     public final void a() {
-        if (k.isEmpty(this.f59991g)) {
+        if (k.isEmpty(this.f63682g)) {
             return;
         }
-        FileHelper.deleteFile(new File(this.f59991g));
+        FileHelper.deleteFile(new File(this.f63682g));
     }
 
     public boolean b() {
-        return this.f59992h;
+        return this.f63683h;
     }
 
     public void c() {
@@ -71,27 +71,27 @@ public abstract class b {
     public abstract void h();
 
     public void i(boolean z) {
-        this.f59992h = z;
+        this.f63683h = z;
     }
 
     public void j(EditVideoData editVideoData) {
         if (editVideoData != null) {
-            this.f59986b = editVideoData.originPath;
-            this.f59987c = editVideoData.coverPath;
-            this.f59988d = editVideoData.musicPath;
-            this.f59989e = editVideoData.isMute;
-            this.f59990f = editVideoData.filterName;
+            this.f63677b = editVideoData.originPath;
+            this.f63678c = editVideoData.coverPath;
+            this.f63679d = editVideoData.musicPath;
+            this.f63680e = editVideoData.isMute;
+            this.f63681f = editVideoData.filterName;
         }
     }
 
     public b(BaseActivity baseActivity, EditVideoData editVideoData) {
         if (editVideoData != null) {
-            this.f59986b = editVideoData.originPath;
-            this.f59987c = editVideoData.coverPath;
-            this.f59988d = editVideoData.musicPath;
-            this.f59989e = editVideoData.isMute;
-            this.f59990f = editVideoData.filterName;
+            this.f63677b = editVideoData.originPath;
+            this.f63678c = editVideoData.coverPath;
+            this.f63679d = editVideoData.musicPath;
+            this.f63680e = editVideoData.isMute;
+            this.f63681f = editVideoData.filterName;
         }
-        this.f59985a = baseActivity;
+        this.f63676a = baseActivity;
     }
 }

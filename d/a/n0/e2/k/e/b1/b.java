@@ -13,13 +13,13 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<EmotionImageData> f53132e;
+    public List<EmotionImageData> f56821e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterfaceC1259b f53133f;
+    public InterfaceC1315b f56822f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EmotionView.c f53134g;
+    public EmotionView.c f56823g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -28,16 +28,16 @@ public class b extends BaseAdapter {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.f53133f == null || !(view instanceof EmotionView)) {
+            if (b.this.f56822f == null || !(view instanceof EmotionView)) {
                 return;
             }
-            b.this.f53133f.f(((EmotionView) view).getData());
+            b.this.f56822f.f(((EmotionView) view).getData());
         }
     }
 
     /* renamed from: d.a.n0.e2.k.e.b1.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1259b {
+    public interface InterfaceC1315b {
         void f(EmotionImageData emotionImageData);
     }
 
@@ -45,27 +45,27 @@ public class b extends BaseAdapter {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionView f53136a;
+        public EmotionView f56825a;
     }
 
     public void b(List<EmotionImageData> list) {
-        this.f53132e = list;
+        this.f56821e = list;
     }
 
     public void c(EmotionView.c cVar) {
-        this.f53134g = cVar;
+        this.f56823g = cVar;
     }
 
-    public void d(InterfaceC1259b interfaceC1259b) {
-        this.f53133f = interfaceC1259b;
+    public void d(InterfaceC1315b interfaceC1315b) {
+        this.f56822f = interfaceC1315b;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (ListUtils.isEmpty(this.f53132e)) {
+        if (ListUtils.isEmpty(this.f56821e)) {
             return 0;
         }
-        return this.f53132e.size();
+        return this.f56821e.size();
     }
 
     @Override // android.widget.Adapter
@@ -86,18 +86,18 @@ public class b extends BaseAdapter {
             cVar = new c();
             view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_sug_emotion, (ViewGroup) null);
             EmotionView emotionView = (EmotionView) view2.findViewById(R.id.emotion_view);
-            cVar.f53136a = emotionView;
+            cVar.f56825a = emotionView;
             emotionView.A0();
-            cVar.f53136a.setController(this.f53134g);
-            cVar.f53136a.setOnClickListener(new a());
+            cVar.f56825a.setController(this.f56823g);
+            cVar.f56825a.setOnClickListener(new a());
             view2.setTag(cVar);
         } else {
             view2 = view;
             cVar = (c) view.getTag();
         }
-        List<EmotionImageData> list = this.f53132e;
+        List<EmotionImageData> list = this.f56821e;
         if (list != null && i2 >= 0 && i2 < list.size()) {
-            cVar.f53136a.C0(this.f53132e.get(i2));
+            cVar.f56825a.C0(this.f56821e.get(i2));
         }
         return view2;
     }

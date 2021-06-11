@@ -174,7 +174,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.m0.
                 HotTopicSelectActivity.this.mNoDataView.setVisibility(8);
                 HotTopicSelectActivity.this.mListCustomView.setVisibility(8);
                 HotTopicSelectActivity.this.showLoadingView();
-                HotTopicSelectActivity.this.mHotModel.G(obj);
+                HotTopicSelectActivity.this.mHotModel.K(obj);
             }
             HotTopicSelectActivity.this.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
             HotTopicSelectActivity.this.setTopicTextViewColor();
@@ -208,12 +208,12 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.m0.
             return;
         }
         showLoadingView();
-        this.mHotModel.x();
+        this.mHotModel.B();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clearAllTextStatus() {
-        this.mHotModel.H("");
+        this.mHotModel.L("");
         this.mInputEdt.setText("");
     }
 
@@ -241,8 +241,8 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.m0.
     /* JADX INFO: Access modifiers changed from: private */
     public String getSearchKey() {
         HotTopicSelectModel hotTopicSelectModel = this.mHotModel;
-        String y = hotTopicSelectModel != null ? hotTopicSelectModel.y() : "";
-        return y != null ? y : "";
+        String C = hotTopicSelectModel != null ? hotTopicSelectModel.C() : "";
+        return C != null ? C : "";
     }
 
     private void initInputEdit() {
@@ -382,12 +382,12 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.m0.
         super.onCreate(bundle);
         HotTopicSelectModel hotTopicSelectModel = new HotTopicSelectModel(getPageContext(), this);
         this.mHotModel = hotTopicSelectModel;
-        hotTopicSelectModel.B(getIntent());
-        this.mHotModel.E();
+        hotTopicSelectModel.F(getIntent());
+        this.mHotModel.I();
         initUI();
         getWindow().setSoftInputMode(1);
         showLoadingView();
-        this.mHotModel.F();
+        this.mHotModel.J();
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity

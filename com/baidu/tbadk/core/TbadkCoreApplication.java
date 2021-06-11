@@ -83,7 +83,6 @@ import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.CertVerifyHelper;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.ICDNProblemUploader;
@@ -176,7 +175,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 @ModifyClass
 /* loaded from: classes3.dex */
-public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.InterfaceC1687c {
+public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.InterfaceC1744c {
     public static final long ACTION_TEST = 1;
     public static final String ACTIVE_CLEAR_TAG = "active_clear";
     public static final int APP_EVENT_LOGIN = 1;
@@ -308,7 +307,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public CombineDownload mCombineDownload = null;
     public ArrayList<BaseActivity<?>> mRemoteActivity = null;
     public int mFontSize = 3;
-    public HashMap<String, SoftReference<d.a.c.j.d.a>> mFaces = null;
+    public HashMap<String, SoftReference<d.a.c.k.d.a>> mFaces = null;
     public boolean isPhoneCalling = false;
     public ExecutorService imagePvThread = null;
     public Hashtable<String, Integer> mHasLikeList = null;
@@ -402,8 +401,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements a.InterfaceC0478a {
-        @Override // d.a.c.a.k.a.InterfaceC0478a
+    public static class e implements a.InterfaceC0534a {
+        @Override // d.a.c.a.k.a.InterfaceC0534a
         public void a(SQLiteDatabase sQLiteDatabase) {
             TbadkCoreApplication.resetTDatabaseCreateTime();
         }
@@ -480,8 +479,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
                 return;
             }
             d.a.n0.e3.l0.d.d dVar = (d.a.n0.e3.l0.d.d) customResponsedMessage.getData();
-            DescriptionTableInfo.setModuleSet(dVar.f54126a);
-            DescriptionTableInfo.setDescriptionTable(dVar.f54127b);
+            DescriptionTableInfo.setModuleSet(dVar.f57815a);
+            DescriptionTableInfo.setDescriptionTable(dVar.f57816b);
         }
     }
 
@@ -527,15 +526,15 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public class m implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f12009e;
+        public final /* synthetic */ boolean f12071e;
 
         public m(boolean z) {
-            this.f12009e = z;
+            this.f12071e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new d.a.m0.e0.a(this.f12009e)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new d.a.m0.e0.a(this.f12071e)));
         }
     }
 
@@ -559,15 +558,15 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public class o implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BDHttpDns f12012e;
+        public final /* synthetic */ BDHttpDns f12074e;
 
         public o(BDHttpDns bDHttpDns) {
-            this.f12012e = bDHttpDns;
+            this.f12074e = bDHttpDns;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f12012e.p(PrefetchEvent.MODULE);
+            this.f12074e.p(PrefetchEvent.MODULE);
         }
     }
 
@@ -664,17 +663,17 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public class t extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f12018a;
+        public final /* synthetic */ Context f12080a;
 
         public t(Context context) {
-            this.f12018a = context;
+            this.f12080a = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.a.m0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(CertVerifyHelper.isOfficial(this.f12018a));
+            return Boolean.valueOf(CertVerifyHelper.isOfficial(this.f12080a));
         }
     }
 
@@ -937,7 +936,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
                 String cuid = getInst().getCuid();
                 String packageName = getInst().getApp().getPackageName();
                 String version = TbConfig.getVersion();
-                mUniqueId = cuid + FieldBuilder.SE + packageName + version;
+                mUniqueId = cuid + "|" + packageName + version;
             }
             str = mUniqueId;
         }
@@ -1072,7 +1071,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     private void initICDN() {
-        d.a.c.e.j.a.c.f38615f = UseHttpdnsSdkSwitch.isOn();
+        d.a.c.e.j.a.c.f42268f = UseHttpdnsSdkSwitch.isOn();
         if (UseHttpdnsSdkSwitch.isOn()) {
             BDHttpDns j2 = BDHttpDns.j(getApplicationContext());
             j2.n(false);
@@ -1851,12 +1850,12 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         return d.a.m0.z0.m.g().f();
     }
 
-    public d.a.c.j.d.a getFace(String str) {
-        SoftReference<d.a.c.j.d.a> softReference = this.mFaces.get(str);
+    public d.a.c.k.d.a getFace(String str) {
+        SoftReference<d.a.c.k.d.a> softReference = this.mFaces.get(str);
         if (softReference != null && softReference.get() != null) {
             return softReference.get();
         }
-        d.a.c.j.d.a a2 = TbFaceManager.e().a(str);
+        d.a.c.k.d.a a2 = TbFaceManager.e().a(str);
         if (a2 != null) {
             this.mFaces.put(str, new SoftReference<>(a2));
         }
@@ -2255,7 +2254,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         return iArr;
     }
 
-    @Override // d.a.n0.v1.c.InterfaceC1687c
+    @Override // d.a.n0.v1.c.InterfaceC1744c
     public d.a.n0.v1.c getSplash() {
         if (this.mSplash == null) {
             this.mSplash = new d.a.n0.v1.c(this);
@@ -2511,7 +2510,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     public void initAxeSdk() {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
-            b.C1786b.c(getApplicationContext()).b().t();
+            b.C1844b.c(getApplicationContext()).b().t();
         }
     }
 
@@ -2679,6 +2678,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         sb.append("passport_crash_count_");
         sb.append(TbConfig.getVersion());
         return TbadkSettings.getInst().loadInt(sb.toString(), 0) <= getFeatureCrashAutoCloseLimit() && SwitchManager.getInstance().findType(AccountsDataFromPassSwitch.ACCOUNT_DATA_FROM_PASS) != 1;
+    }
+
+    public boolean isAllActivityBackground() {
+        return this.mCoreActivityLifecycleCallbacks != null && d.a.m0.r.j.f53531e == 0;
     }
 
     public boolean isAppUploadOpen() {
@@ -3420,7 +3423,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         StringBuilder sb = new StringBuilder(20);
         for (int i2 : iArr) {
             sb.append(i2);
-            sb.append(FieldBuilder.SE);
+            sb.append("|");
         }
         TbadkSettings.getInst().saveString("socket_time_out", sb.toString());
         d.a.c.c.j.c.c().d(iArr[0], iArr[1], iArr[2]);

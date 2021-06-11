@@ -7,10 +7,10 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 public class d extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48940a;
+    public int f52614a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48941b;
+    public int f52615b;
 
     public static ImageOperation g(int i2, int i3) {
         ImageOperation imageOperation = new ImageOperation();
@@ -30,12 +30,12 @@ public class d extends b {
             return null;
         }
         d.a.m0.a0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-        return BitmapHelper.resizeBitmap(bitmap, this.f48940a, this.f48941b, z);
+        return BitmapHelper.resizeBitmap(bitmap, this.f52614a, this.f52615b, z);
     }
 
     @Override // d.a.m0.b0.g.b
     public Bitmap c(String str) throws Exception {
-        return b(BitmapHelper.loadResizedBitmap(str, this.f48940a, this.f48941b), true);
+        return b(BitmapHelper.loadResizedBitmap(str, this.f52614a, this.f52615b), true);
     }
 
     @Override // d.a.m0.b0.g.b
@@ -47,15 +47,15 @@ public class d extends b {
         if (split.length != 2) {
             return;
         }
-        this.f48940a = d.a.c.e.m.b.d(split[0], 0);
-        this.f48941b = d.a.c.e.m.b.d(split[1], 0);
+        this.f52614a = d.a.c.e.m.b.d(split[0], 0);
+        this.f52615b = d.a.c.e.m.b.d(split[1], 0);
     }
 
     public int e() {
-        return this.f48941b;
+        return this.f52615b;
     }
 
     public int f() {
-        return this.f48940a;
+        return this.f52614a;
     }
 }

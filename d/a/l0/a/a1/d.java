@@ -8,31 +8,31 @@ import java.io.IOException;
 import java.nio.channels.Pipe;
 /* loaded from: classes3.dex */
 public class d extends g.f {
-    public static final boolean j = k.f43199a;
+    public static final boolean j = k.f46875a;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f40683h;
+    public final String f44359h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d.a.l0.n.f.d f40684i;
+    public final d.a.l0.n.f.d f44360i;
 
     public d(String str, d.a.l0.n.f.d dVar) {
         super("check_sign");
-        this.f40683h = str;
-        this.f40684i = dVar;
+        this.f44359h = str;
+        this.f44360i = dVar;
     }
 
     @Override // d.a.l0.a.a1.g.f
     public boolean f(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         d.a.l0.a.q2.a aVar;
         d.a.l0.a.f1.g.a d2 = d.a.l0.a.f1.g.a.d(bundle.getString("launch_id"));
-        b.C0635b e2 = d2.e();
+        b.C0691b e2 = d2.e();
         e2.b("SignChecker");
         e2.d(1);
         long currentTimeMillis = System.currentTimeMillis();
         try {
             try {
-                aVar = d.a.l0.a.h0.m.r.a.a(sourceChannel, this.f40683h, this.f40684i);
+                aVar = d.a.l0.a.h0.m.r.a.a(sourceChannel, this.f44359h, this.f44360i);
             } catch (IOException e3) {
                 if (j) {
                     e3.printStackTrace();

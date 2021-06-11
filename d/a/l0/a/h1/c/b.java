@@ -45,6 +45,6 @@ public class b extends c {
     @Override // d.a.l0.a.c0.b.b, d.a.l0.a.l1.a
     public boolean isValid() {
         ArrayList<d.a.l0.a.h1.c.h.c> arrayList;
-        return (TextUtils.isEmpty(this.f40846g) || TextUtils.isEmpty(this.f40845f) || (arrayList = this.D) == null || arrayList.size() <= 0) ? false : true;
+        return (TextUtils.isEmpty(this.f44522g) || TextUtils.isEmpty(this.f44521f) || (arrayList = this.D) == null || arrayList.size() <= 0) ? false : true;
     }
 }

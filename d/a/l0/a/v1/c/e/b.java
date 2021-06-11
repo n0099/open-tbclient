@@ -15,18 +15,18 @@ import java.util.Deque;
 public class b implements a.c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45317b = k.f43199a;
+    public static final boolean f48991b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Deque<Message> f45318a = new ArrayDeque();
+    public final Deque<Message> f48992a = new ArrayDeque();
 
     @Override // d.a.l0.a.v1.c.a.c
     public void a() {
         a E = a.E();
-        while (E.k() && !this.f45318a.isEmpty()) {
-            Message peek = this.f45318a.peek();
+        while (E.k() && !this.f48992a.isEmpty()) {
+            Message peek = this.f48992a.peek();
             if (peek == null || e(peek)) {
-                this.f45318a.poll();
+                this.f48992a.poll();
             }
         }
     }
@@ -47,7 +47,7 @@ public class b implements a.c {
         if (e(h2) || !cVar.n()) {
             return;
         }
-        this.f45318a.offer(h2);
+        this.f48992a.offer(h2);
         a.E().Q();
     }
 
@@ -69,7 +69,7 @@ public class b implements a.c {
             return true;
         } catch (RemoteException e2) {
             E.I();
-            if (f45317b) {
+            if (f48991b) {
                 e2.printStackTrace();
                 return false;
             }

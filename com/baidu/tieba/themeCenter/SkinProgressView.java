@@ -17,19 +17,19 @@ import d.a.c.e.p.l;
 public class SkinProgressView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21041e;
+    public Context f21119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f21042f;
+    public Paint f21120f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f21043g;
+    public Paint f21121g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f21044h;
+    public Paint f21122h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f21045i;
+    public int f21123i;
     public int j;
     public int k;
     public int l;
@@ -45,26 +45,26 @@ public class SkinProgressView extends View {
     public SkinProgressView(Context context) {
         super(context);
         this.s = false;
-        this.f21041e = context;
+        this.f21119e = context;
         a();
     }
 
     public final void a() {
-        this.o = l.g(this.f21041e, R.dimen.ds6);
-        this.k = l.g(this.f21041e, R.dimen.fontsize24);
-        this.f21045i = R.color.CAM_X0302;
+        this.o = l.g(this.f21119e, R.dimen.ds6);
+        this.k = l.g(this.f21119e, R.dimen.fontsize24);
+        this.f21123i = R.color.CAM_X0302;
         this.l = R.color.CAM_X0108;
         Paint paint = new Paint();
-        this.f21042f = paint;
+        this.f21120f = paint;
         paint.setAntiAlias(true);
         Paint paint2 = new Paint();
-        this.f21044h = paint2;
+        this.f21122h = paint2;
         paint2.setAntiAlias(true);
         Paint paint3 = new Paint();
-        this.f21043g = paint3;
+        this.f21121g = paint3;
         paint3.setAntiAlias(true);
-        this.f21043g.setTextSize(this.k);
-        this.f21043g.setTextAlign(Paint.Align.CENTER);
+        this.f21121g.setTextSize(this.k);
+        this.f21121g.setTextAlign(Paint.Align.CENTER);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -99,7 +99,7 @@ public class SkinProgressView extends View {
                                     setText(R.string.become_member_download_free);
                                     break;
                                 } else {
-                                    setText(String.format(this.f21041e.getString(R.string.btn_vip_can_download_free), Integer.valueOf(i3)));
+                                    setText(String.format(this.f21119e.getString(R.string.btn_vip_can_download_free), Integer.valueOf(i3)));
                                     break;
                                 }
                             } else {
@@ -174,7 +174,7 @@ public class SkinProgressView extends View {
                 } else if (i3 == 101) {
                     setText(R.string.become_annual_free_use);
                 } else if (i3 > 1) {
-                    setText(String.format(this.f21041e.getString(R.string.become_vip_free_use), Integer.valueOf(i3)));
+                    setText(String.format(this.f21119e.getString(R.string.become_vip_free_use), Integer.valueOf(i3)));
                 } else {
                     setText(R.string.become_member_free_use);
                 }
@@ -233,23 +233,23 @@ public class SkinProgressView extends View {
         super.onDraw(canvas);
         if (this.s) {
             RectF rectF = new RectF(0.0f, 0.0f, this.m, this.n);
-            this.f21044h.setColor(SkinManager.getColor(this.j));
+            this.f21122h.setColor(SkinManager.getColor(this.j));
             int i2 = this.o;
-            canvas.drawRoundRect(rectF, i2, i2, this.f21044h);
+            canvas.drawRoundRect(rectF, i2, i2, this.f21122h);
         }
         RectF rectF2 = new RectF(0.0f, 0.0f, this.m * this.q, this.n);
-        this.f21042f.setColor(SkinManager.getColor(this.f21045i));
+        this.f21120f.setColor(SkinManager.getColor(this.f21123i));
         int i3 = this.o;
-        canvas.drawRoundRect(rectF2, i3, i3, this.f21042f);
+        canvas.drawRoundRect(rectF2, i3, i3, this.f21120f);
         if (StringUtils.isNull(this.p)) {
             return;
         }
-        this.f21043g.setColor(SkinManager.getColor(this.l));
-        this.f21043g.setTextSize(this.k);
-        float f2 = this.f21043g.getFontMetrics().bottom - this.f21043g.getFontMetrics().top;
+        this.f21121g.setColor(SkinManager.getColor(this.l));
+        this.f21121g.setTextSize(this.k);
+        float f2 = this.f21121g.getFontMetrics().bottom - this.f21121g.getFontMetrics().top;
         this.r = f2;
         float f3 = this.n;
-        canvas.drawText(this.p, this.m / 2.0f, (f3 - ((f3 - f2) / 2.0f)) - this.f21043g.getFontMetrics().bottom, this.f21043g);
+        canvas.drawText(this.p, this.m / 2.0f, (f3 - ((f3 - f2) / 2.0f)) - this.f21121g.getFontMetrics().bottom, this.f21121g);
     }
 
     @Override // android.view.View
@@ -276,7 +276,7 @@ public class SkinProgressView extends View {
     }
 
     public void setText(int i2) {
-        this.p = this.f21041e.getResources().getString(i2);
+        this.p = this.f21119e.getResources().getString(i2);
     }
 
     public void setTextColor(int i2) {
@@ -290,14 +290,14 @@ public class SkinProgressView extends View {
     public SkinProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.s = false;
-        this.f21041e = context;
+        this.f21119e = context;
         a();
     }
 
     public SkinProgressView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         this.s = false;
-        this.f21041e = context;
+        this.f21119e = context;
         a();
     }
 }

@@ -16,22 +16,22 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1522b;
+    public String f1535b;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1524d;
+    public String f1537d;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1526f;
+    public String f1539f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1527g;
+    public String f1540g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f1528h;
+    public String f1541h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f1529i;
+    public String f1542i;
     public String j;
     public String k;
     public String l;
@@ -44,26 +44,26 @@ public class b {
     public StringBuffer t = new StringBuffer();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1523c = "";
+    public String f1536c = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1525e = "";
+    public String f1538e = "";
     public String n = "";
     public String m = "";
     public String p = "";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1521a = "1.1";
+    public String f1534a = "1.1";
 
     public b(String str) {
         long currentTimeMillis = System.currentTimeMillis();
         this.u = currentTimeMillis;
-        this.f1522b = a(currentTimeMillis);
-        this.f1524d = "";
-        this.f1526f = "";
-        this.f1527g = Build.BRAND;
-        this.f1528h = Build.MODEL;
-        this.f1529i = "Android";
+        this.f1535b = a(currentTimeMillis);
+        this.f1537d = "";
+        this.f1539f = "";
+        this.f1540g = Build.BRAND;
+        this.f1541h = Build.MODEL;
+        this.f1542i = "Android";
         this.j = Build.VERSION.RELEASE;
         this.k = "SDK-JJ-v3.6.2";
         this.l = str;
@@ -85,7 +85,7 @@ public class b {
     }
 
     public b a(String str) {
-        this.f1524d = str;
+        this.f1537d = str;
         return this;
     }
 
@@ -95,12 +95,12 @@ public class b {
     }
 
     public b b(String str) {
-        this.f1525e = str;
+        this.f1538e = str;
         return this;
     }
 
     public b c(String str) {
-        this.f1526f = str;
+        this.f1539f = str;
         return this;
     }
 
@@ -139,15 +139,15 @@ public class b {
             this.v = currentTimeMillis;
             this.r = currentTimeMillis - this.u;
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("v", this.f1521a);
-            jSONObject.put("t", this.f1522b);
-            jSONObject.put("tag", this.f1523c);
-            jSONObject.put("ai", this.f1524d);
-            jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f1525e);
-            jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f1526f);
-            jSONObject.put("br", this.f1527g);
-            jSONObject.put("ml", this.f1528h);
-            jSONObject.put(IAdRequestParam.OS, this.f1529i);
+            jSONObject.put("v", this.f1534a);
+            jSONObject.put("t", this.f1535b);
+            jSONObject.put("tag", this.f1536c);
+            jSONObject.put("ai", this.f1537d);
+            jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f1538e);
+            jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f1539f);
+            jSONObject.put("br", this.f1540g);
+            jSONObject.put("ml", this.f1541h);
+            jSONObject.put(IAdRequestParam.OS, this.f1542i);
             jSONObject.put(SearchJsBridge.COOKIE_OV, this.j);
             jSONObject.put("sv", this.k);
             jSONObject.put("ri", this.l);

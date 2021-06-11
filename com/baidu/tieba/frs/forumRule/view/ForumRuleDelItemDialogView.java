@@ -12,48 +12,48 @@ import d.a.m0.r.u.c;
 public class ForumRuleDelItemDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15382e;
+    public LinearLayout f15444e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f15383f;
+    public Context f15445f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15384g;
+    public TextView f15446g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15385h;
+    public TextView f15447h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f15386i;
+    public TextView f15448i;
     public TextView j;
 
     public ForumRuleDelItemDialogView(Context context) {
         super(context);
-        this.f15383f = context;
+        this.f15445f = context;
         a(context);
     }
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.forum_rule_del_dialog, this);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.ll_main);
-        this.f15382e = linearLayout;
-        this.f15384g = (TextView) linearLayout.findViewById(R.id.dialog_title);
-        this.f15385h = (TextView) this.f15382e.findViewById(R.id.dialog_content);
-        this.f15386i = (TextView) this.f15382e.findViewById(R.id.next_time);
-        this.j = (TextView) this.f15382e.findViewById(R.id.del_tv);
-        this.f15384g.setText(R.string.forum_rule_item_del_dialog_title);
-        this.f15385h.setText(R.string.forum_rule_item_del_dialog_abstract);
-        this.f15386i.setText(R.string.next_time);
+        this.f15444e = linearLayout;
+        this.f15446g = (TextView) linearLayout.findViewById(R.id.dialog_title);
+        this.f15447h = (TextView) this.f15444e.findViewById(R.id.dialog_content);
+        this.f15448i = (TextView) this.f15444e.findViewById(R.id.next_time);
+        this.j = (TextView) this.f15444e.findViewById(R.id.del_tv);
+        this.f15446g.setText(R.string.forum_rule_item_del_dialog_title);
+        this.f15447h.setText(R.string.forum_rule_item_del_dialog_abstract);
+        this.f15448i.setText(R.string.next_time);
         this.j.setText(R.string.del_post);
-        SkinManager.setBackgroundResource(this.f15382e, R.drawable.bg_frs_private_dialog);
-        c d2 = c.d(this.f15384g);
+        SkinManager.setBackgroundResource(this.f15444e, R.drawable.bg_frs_private_dialog);
+        c d2 = c.d(this.f15446g);
         d2.s(R.color.CAM_X0105);
         d2.x(R.string.F_X02);
         d2.w(R.dimen.T_X06);
-        c d3 = c.d(this.f15385h);
+        c d3 = c.d(this.f15447h);
         d3.s(R.color.CAM_X0107);
         d3.w(R.dimen.T_X07);
-        c d4 = c.d(this.f15386i);
+        c d4 = c.d(this.f15448i);
         d4.s(R.color.CAM_X0105);
         d4.m(R.string.J_X07);
         d4.k(R.dimen.L_X02);
@@ -72,7 +72,7 @@ public class ForumRuleDelItemDialogView extends LinearLayout {
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.f15386i.setOnClickListener(onClickListener);
+            this.f15448i.setOnClickListener(onClickListener);
         }
     }
 

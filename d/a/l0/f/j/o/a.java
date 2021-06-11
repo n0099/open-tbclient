@@ -22,7 +22,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46938a = k.f43199a;
+    public static final boolean f50612a = k.f46875a;
 
     public static long a() {
         return h.a().getLong("install_authorize_guide_time_key", 0L);
@@ -65,7 +65,7 @@ public class a {
     public static boolean h(Context context, File file, boolean z) {
         if (context != null && file != null && file.isFile() && file.exists()) {
             Intent intent = new Intent("android.intent.action.VIEW");
-            if (f46938a) {
+            if (f50612a) {
                 Log.e("GameCenterApkUtil", "install apk start");
             }
             try {
@@ -90,22 +90,22 @@ public class a {
                 } else {
                     context.startActivity(intent);
                 }
-                if (f46938a) {
+                if (f50612a) {
                     Log.e("GameCenterApkUtil", "install apk done");
                 }
             } catch (Exception e2) {
-                if (f46938a) {
+                if (f50612a) {
                     e2.printStackTrace();
                 }
                 intent.setComponent(null);
                 m(context, file, intent);
                 try {
                     context.startActivity(intent);
-                    if (f46938a) {
+                    if (f50612a) {
                         Log.e("GameCenterApkUtil", "retry install apk done");
                     }
                 } catch (Exception e3) {
-                    if (f46938a) {
+                    if (f50612a) {
                         e3.printStackTrace();
                     }
                 }
@@ -116,7 +116,7 @@ public class a {
     }
 
     public static boolean i(Context context, String str, boolean z) {
-        if (f46938a) {
+        if (f50612a) {
             Log.e("GameCenterApkUtil", "call installApk filePath = " + str);
         }
         if (TextUtils.isEmpty(str)) {
@@ -125,7 +125,7 @@ public class a {
         try {
             return h(context, new File(str), z);
         } catch (Exception e2) {
-            if (f46938a) {
+            if (f50612a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -151,7 +151,7 @@ public class a {
                 intent2.setFlags(270532608);
                 try {
                     context.startActivity(intent2);
-                    if (f46938a) {
+                    if (f50612a) {
                         Log.d("GameCenterApkUtil", "openApp:packageName = " + str);
                         return true;
                     }
@@ -187,7 +187,7 @@ public class a {
                     }
                 }
             } catch (IllegalArgumentException e2) {
-                if (f46938a) {
+                if (f50612a) {
                     throw e2;
                 }
                 return false;

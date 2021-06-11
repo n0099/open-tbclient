@@ -19,69 +19,69 @@ public class a implements d.a.l0.h.t.c.c {
 
     /* renamed from: d.a.l0.f.j.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0990a {
+    public static /* synthetic */ class C1046a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f46870a;
+        public static final /* synthetic */ int[] f50544a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f46871b;
+        public static final /* synthetic */ int[] f50545b;
 
         static {
             int[] iArr = new int[Download.DownloadState.values().length];
-            f46871b = iArr;
+            f50545b = iArr;
             try {
                 iArr[Download.DownloadState.WAITING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f46871b[Download.DownloadState.DOWNLOADING.ordinal()] = 2;
+                f50545b[Download.DownloadState.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f46871b[Download.DownloadState.PAUSE.ordinal()] = 3;
+                f50545b[Download.DownloadState.PAUSE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f46871b[Download.DownloadState.FAILED.ordinal()] = 4;
+                f50545b[Download.DownloadState.FAILED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f46871b[Download.DownloadState.CANCEL.ordinal()] = 5;
+                f50545b[Download.DownloadState.CANCEL.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f46871b[Download.DownloadState.FINISH.ordinal()] = 6;
+                f50545b[Download.DownloadState.FINISH.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             int[] iArr2 = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
-            f46870a = iArr2;
+            f50544a = iArr2;
             try {
                 iArr2[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f46870a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
+                f50544a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f46870a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
+                f50544a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f46870a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
+                f50544a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f46870a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE.ordinal()] = 5;
+                f50544a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE.ordinal()] = 5;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f46870a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 6;
+                f50544a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 6;
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                f46870a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 7;
+                f50544a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 7;
             } catch (NoSuchFieldError unused13) {
             }
         }
@@ -91,10 +91,10 @@ public class a implements d.a.l0.h.t.c.c {
     public static class b extends d.a.l0.a.v1.a.b.c.c {
 
         /* renamed from: c  reason: collision with root package name */
-        public d.a.l0.f.i.k.f.a f46872c;
+        public d.a.l0.f.i.k.f.a f50546c;
 
         public b(d.a.l0.f.i.k.f.a aVar) {
-            this.f46872c = aVar;
+            this.f50546c = aVar;
         }
 
         @Override // d.a.l0.a.v1.a.b.c.a
@@ -114,7 +114,7 @@ public class a implements d.a.l0.h.t.c.c {
             if (a2 == null) {
                 return;
             }
-            a.f(a2, this.f46872c);
+            a.f(a2, this.f50546c);
         }
     }
 
@@ -154,7 +154,7 @@ public class a implements d.a.l0.h.t.c.c {
             if (optJSONObject == null) {
                 return;
             }
-            switch (C0990a.f46871b[Download.DownloadState.getState(optJSONObject.optInt("status", -1)).ordinal()]) {
+            switch (C1046a.f50545b[Download.DownloadState.getState(optJSONObject.optInt("status", -1)).ordinal()]) {
                 case 1:
                     aVar.c(DownloadState.WAIT, optInt);
                     return;
@@ -213,7 +213,7 @@ public class a implements d.a.l0.h.t.c.c {
     }
 
     public final String d(SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
-        switch (C0990a.f46870a[swanAppDownloadType.ordinal()]) {
+        switch (C1046a.f50544a[swanAppDownloadType.ordinal()]) {
             case 1:
                 return "queryStatus";
             case 2:

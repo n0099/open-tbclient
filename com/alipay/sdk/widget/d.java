@@ -7,16 +7,16 @@ import android.os.Message;
 public class d extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f2009a;
+    public final /* synthetic */ a f2022a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(a aVar, Looper looper) {
         super(looper);
-        this.f2009a = aVar;
+        this.f2022a = aVar;
     }
 
     @Override // android.os.Handler
     public void dispatchMessage(Message message) {
-        this.f2009a.c();
+        this.f2022a.c();
     }
 }

@@ -9,34 +9,34 @@ import com.baidu.tieba.pushdialog.PushDialogActivity;
 public class HomeWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5387a = "HomeWatcher";
+    public static final String f5430a = "HomeWatcher";
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f5388b;
+    public final Context f5431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final IntentFilter f5389c = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
+    public final IntentFilter f5432c = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
 
     /* renamed from: d  reason: collision with root package name */
-    public OnHomePressedListener f5390d;
+    public OnHomePressedListener f5433d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InnerRecevier f5391e;
+    public InnerRecevier f5434e;
 
     /* loaded from: classes2.dex */
     public class InnerRecevier extends BroadcastReceiver {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f5392a = "reason";
+        public final String f5435a = "reason";
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f5393b = "globalactions";
+        public final String f5436b = "globalactions";
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f5394c = PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS;
+        public final String f5437c = PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f5395d = "homekey";
+        public final String f5438d = "homekey";
 
         public InnerRecevier() {
         }
@@ -44,13 +44,13 @@ public class HomeWatcher {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             String stringExtra;
-            if (!intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") || (stringExtra = intent.getStringExtra("reason")) == null || HomeWatcher.this.f5390d == null) {
+            if (!intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") || (stringExtra = intent.getStringExtra("reason")) == null || HomeWatcher.this.f5433d == null) {
                 return;
             }
             if (stringExtra.equals("homekey")) {
-                HomeWatcher.this.f5390d.onHomePressed();
+                HomeWatcher.this.f5433d.onHomePressed();
             } else if (stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) {
-                HomeWatcher.this.f5390d.onHomeLongPressed();
+                HomeWatcher.this.f5433d.onHomeLongPressed();
             }
         }
     }
@@ -63,25 +63,25 @@ public class HomeWatcher {
     }
 
     public HomeWatcher(Context context) {
-        this.f5388b = context;
+        this.f5431b = context;
     }
 
     public void setOnHomePressedListener(OnHomePressedListener onHomePressedListener) {
-        this.f5390d = onHomePressedListener;
-        this.f5391e = new InnerRecevier();
+        this.f5433d = onHomePressedListener;
+        this.f5434e = new InnerRecevier();
     }
 
     public void startWatch() {
-        InnerRecevier innerRecevier = this.f5391e;
+        InnerRecevier innerRecevier = this.f5434e;
         if (innerRecevier != null) {
-            this.f5388b.registerReceiver(innerRecevier, this.f5389c);
+            this.f5431b.registerReceiver(innerRecevier, this.f5432c);
         }
     }
 
     public void stopWatch() {
-        InnerRecevier innerRecevier = this.f5391e;
+        InnerRecevier innerRecevier = this.f5434e;
         if (innerRecevier != null) {
-            this.f5388b.unregisterReceiver(innerRecevier);
+            this.f5431b.unregisterReceiver(innerRecevier);
         }
     }
 }

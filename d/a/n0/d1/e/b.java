@@ -10,6 +10,6 @@ public class b {
         if (a2Var == null || TextUtils.isEmpty(str)) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c13022").param("obj_name", str).param("tid", a2Var.y1()).param("fid", a2Var.c0()).param("obj_source", a2Var.S0).param("obj_locate", str2).param("obj_type", i2).param("ab_tag", a2Var.U0));
+        TiebaStatic.log(new StatisticItem("c13022").param("obj_name", str).param("tid", a2Var.z1()).param("fid", a2Var.c0()).param("obj_source", a2Var.T0).param("obj_locate", str2).param("obj_type", i2).param("ab_tag", a2Var.V0));
     }
 }

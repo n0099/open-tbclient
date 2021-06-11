@@ -5,60 +5,60 @@ import android.content.Context;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3502a;
+    public Context f3521a;
 
     /* renamed from: com.baidu.android.pushservice.message.a$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3503a;
+        public static final /* synthetic */ int[] f3522a;
 
         static {
             int[] iArr = new int[h.values().length];
-            f3503a = iArr;
+            f3522a = iArr;
             try {
                 iArr[h.MSG_ID_HANDSHAKE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f3503a[h.MSG_ID_HEARTBEAT_SERVER.ordinal()] = 2;
+                f3522a[h.MSG_ID_HEARTBEAT_SERVER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f3503a[h.MSG_ID_TINY_HEARTBEAT_SERVER.ordinal()] = 3;
+                f3522a[h.MSG_ID_TINY_HEARTBEAT_SERVER.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f3503a[h.MSG_ID_HEARTBEAT_CLIENT.ordinal()] = 4;
+                f3522a[h.MSG_ID_HEARTBEAT_CLIENT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f3503a[h.MSG_ID_TINY_HEARTBEAT_CLIENT.ordinal()] = 5;
+                f3522a[h.MSG_ID_TINY_HEARTBEAT_CLIENT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f3503a[h.MSG_ID_PUSH_MSG.ordinal()] = 6;
+                f3522a[h.MSG_ID_PUSH_MSG.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
     public a(Context context) {
-        this.f3502a = context;
+        this.f3521a = context;
     }
 
     public c a(h hVar) {
-        int i2 = AnonymousClass1.f3503a[hVar.ordinal()];
+        int i2 = AnonymousClass1.f3522a[hVar.ordinal()];
         if (i2 != 1) {
             if (i2 == 2 || i2 == 3) {
-                return new l(this.f3502a);
+                return new l(this.f3521a);
             }
             if (i2 != 6) {
                 return null;
             }
-            return new j(this.f3502a);
+            return new j(this.f3521a);
         }
-        return new b(this.f3502a);
+        return new b(this.f3521a);
     }
 }

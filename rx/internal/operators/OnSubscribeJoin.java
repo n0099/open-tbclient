@@ -8,25 +8,25 @@ import h.n.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements d.a<R> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<TLeft> f69088e;
+    public final d<TLeft> f72397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d<TRight> f69089f;
+    public final d<TRight> f72398f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final f<TLeft, d<TLeftDuration>> f69090g;
+    public final f<TLeft, d<TLeftDuration>> f72399g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final f<TRight, d<TRightDuration>> f69091h;
+    public final f<TRight, d<TRightDuration>> f72400h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g<TLeft, TRight, R> f69092i;
+    public final g<TLeft, TRight, R> f72401i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class ResultSink extends HashMap<Integer, TLeft> {
         public static final long serialVersionUID = 3491669543549085380L;
         public boolean leftDone;
@@ -37,28 +37,28 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
         public final h.u.b group = new h.u.b();
         public final Map<Integer, TRight> rightMap = new HashMap();
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public final class a extends j<TLeft> {
 
             /* renamed from: rx.internal.operators.OnSubscribeJoin$ResultSink$a$a  reason: collision with other inner class name */
-            /* loaded from: classes7.dex */
-            public final class C1955a extends j<TLeftDuration> {
+            /* loaded from: classes8.dex */
+            public final class C2005a extends j<TLeftDuration> {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final int f69094e;
+                public final int f72403e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public boolean f69095f = true;
+                public boolean f72404f = true;
 
-                public C1955a(int i2) {
-                    this.f69094e = i2;
+                public C2005a(int i2) {
+                    this.f72403e = i2;
                 }
 
                 @Override // h.e
                 public void onCompleted() {
-                    if (this.f69095f) {
-                        this.f69095f = false;
-                        a.this.b(this.f69094e, this);
+                    if (this.f72404f) {
+                        this.f72404f = false;
+                        a.this.b(this.f72403e, this);
                     }
                 }
 
@@ -127,9 +127,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     i3 = ResultSink.this.rightId;
                 }
                 try {
-                    C1955a c1955a = new C1955a(i2);
-                    ResultSink.this.group.a(c1955a);
-                    OnSubscribeJoin.this.f69090g.call(tleft).I(c1955a);
+                    C2005a c2005a = new C2005a(i2);
+                    ResultSink.this.group.a(c2005a);
+                    OnSubscribeJoin.this.f72399g.call(tleft).I(c2005a);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TRight> entry : ResultSink.this.rightMap.entrySet()) {
@@ -139,7 +139,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.f69092i.a(tleft, obj));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.f72401i.a(tleft, obj));
                     }
                 } catch (Throwable th) {
                     h.m.a.f(th, this);
@@ -147,27 +147,27 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public final class b extends j<TRight> {
 
-            /* loaded from: classes7.dex */
+            /* loaded from: classes8.dex */
             public final class a extends j<TRightDuration> {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final int f69098e;
+                public final int f72407e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public boolean f69099f = true;
+                public boolean f72408f = true;
 
                 public a(int i2) {
-                    this.f69098e = i2;
+                    this.f72407e = i2;
                 }
 
                 @Override // h.e
                 public void onCompleted() {
-                    if (this.f69099f) {
-                        this.f69099f = false;
-                        b.this.b(this.f69098e, this);
+                    if (this.f72408f) {
+                        this.f72408f = false;
+                        b.this.b(this.f72407e, this);
                     }
                 }
 
@@ -239,7 +239,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 try {
                     a aVar = new a(i2);
                     ResultSink.this.group.a(aVar);
-                    OnSubscribeJoin.this.f69091h.call(tright).I(aVar);
+                    OnSubscribeJoin.this.f72400h.call(tright).I(aVar);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TLeft> entry : ResultSink.this.leftMap().entrySet()) {
@@ -249,7 +249,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.f69092i.a(obj, tright));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.f72401i.a(obj, tright));
                     }
                 } catch (Throwable th) {
                     h.m.a.f(th, this);
@@ -271,8 +271,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             b bVar = new b();
             this.group.a(aVar);
             this.group.a(bVar);
-            OnSubscribeJoin.this.f69088e.I(aVar);
-            OnSubscribeJoin.this.f69089f.I(bVar);
+            OnSubscribeJoin.this.f72397e.I(aVar);
+            OnSubscribeJoin.this.f72398f.I(bVar);
         }
     }
 }

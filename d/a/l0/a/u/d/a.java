@@ -20,13 +20,13 @@ public class a extends d {
 
     /* renamed from: d.a.l0.a.u.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0831a extends ResponseCallback<JSONObject> {
+    public class C0887a extends ResponseCallback<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f44818a;
+        public final /* synthetic */ String f48492a;
 
-        public C0831a(String str) {
-            this.f44818a = str;
+        public C0887a(String str) {
+            this.f48492a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -34,21 +34,21 @@ public class a extends d {
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
             if (jSONObject == null) {
-                a.this.d(this.f44818a, new b(1001, "server response fail"));
+                a.this.d(this.f48492a, new b(1001, "server response fail"));
                 return;
             }
             int optInt = jSONObject.optInt("errno", 10002);
             String optString = jSONObject.optString("errmsg", SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR);
             if (optInt != 0) {
-                a.this.d(this.f44818a, new b(optInt, optString));
+                a.this.d(this.f48492a, new b(optInt, optString));
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
-                a.this.d(this.f44818a, new b(optInt, optString));
+                a.this.d(this.f48492a, new b(optInt, optString));
                 return;
             }
-            a.this.d(this.f44818a, new b(0, optString, optJSONObject));
+            a.this.d(this.f48492a, new b(0, optString, optJSONObject));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class a extends d {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             a aVar = a.this;
-            String str = this.f44818a;
+            String str = this.f48492a;
             aVar.d(str, new b(1001, "operation fail, msg = " + exc.getMessage()));
         }
     }
@@ -75,7 +75,7 @@ public class a extends d {
     }
 
     public b r(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Base", "handle: " + str);
         }
         e Q = e.Q();
@@ -88,7 +88,7 @@ public class a extends d {
         }
         Pair<b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         JSONObject jSONObject = (JSONObject) b2.second;
-        if (((b) b2.first).a() && jSONObject != null) {
+        if (((b) b2.first).isSuccess() && jSONObject != null) {
             String optString = jSONObject.optString("couponAppKey");
             if (TextUtils.isEmpty(optString)) {
                 return new b(202, "couponAppKey is invalid");
@@ -145,7 +145,7 @@ public class a extends d {
     }
 
     public b t(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Base", "handle: " + str);
         }
         e Q = e.Q();
@@ -161,7 +161,7 @@ public class a extends d {
         }
         Pair<b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         JSONObject jSONObject = (JSONObject) b2.second;
-        if (((b) b2.first).a() && jSONObject != null) {
+        if (((b) b2.first).isSuccess() && jSONObject != null) {
             String optString = jSONObject.optString("couponAppKey");
             if (TextUtils.isEmpty(optString)) {
                 return new b(202, "couponAppKey is invalid");
@@ -180,30 +180,30 @@ public class a extends d {
 
     public final void u(String str, e eVar) {
         d.a.l0.a.j2.p.e eVar2 = new d.a.l0.a.j2.p.e();
-        eVar2.f43185a = "swan";
-        eVar2.f43186b = str;
-        eVar2.f43190f = eVar.D();
+        eVar2.f46861a = "swan";
+        eVar2.f46862b = str;
+        eVar2.f46866f = eVar.D();
         eVar2.a("host_app", d.a.l0.a.c1.a.m().a());
         d.a.l0.a.j2.b.i("2267", "83", eVar2.f());
     }
 
     public final b v(String str, FormBody.Builder builder, String str2) {
-        d.a.l0.a.n1.d a2 = d.a.l0.a.n1.d.a(builder.build(), f.f43694b);
+        d.a.l0.a.n1.d a2 = d.a.l0.a.n1.d.a(builder.build(), f.f47370b);
         String s = s(str);
         if (TextUtils.isEmpty(s)) {
             return new b(202);
         }
-        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(s, a2, new C0831a(str2));
+        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(s, a2, new C0887a(str2));
         if (d.a.l0.m.e.a.g().c()) {
-            aVar.f47974f = true;
+            aVar.f51648f = true;
         }
-        aVar.f47975g = true;
+        aVar.f51649g = true;
         d.a.l0.m.e.a.g().e(aVar);
         return new b(0);
     }
 
     public b w(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Base", "handle: " + str);
         }
         e Q = e.Q();
@@ -219,7 +219,7 @@ public class a extends d {
         }
         Pair<b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         JSONObject jSONObject = (JSONObject) b2.second;
-        if (((b) b2.first).a() && jSONObject != null) {
+        if (((b) b2.first).isSuccess() && jSONObject != null) {
             String optString = jSONObject.optString("promotionId");
             if (TextUtils.isEmpty(optString)) {
                 return new b(202, "couponAppKey is invalid");

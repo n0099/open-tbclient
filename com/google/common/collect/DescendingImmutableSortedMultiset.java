@@ -6,25 +6,25 @@ import d.g.c.c.v0;
 public final class DescendingImmutableSortedMultiset<E> extends ImmutableSortedMultiset<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient ImmutableSortedMultiset<E> f30981e;
+    public final transient ImmutableSortedMultiset<E> f31072e;
 
     public DescendingImmutableSortedMultiset(ImmutableSortedMultiset<E> immutableSortedMultiset) {
-        this.f30981e = immutableSortedMultiset;
+        this.f31072e = immutableSortedMultiset;
     }
 
     @Override // com.google.common.collect.ImmutableSortedMultiset, com.google.common.collect.ImmutableSortedMultisetFauxverideShim, com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
     public int count(Object obj) {
-        return this.f30981e.count(obj);
+        return this.f31072e.count(obj);
     }
 
     @Override // com.google.common.collect.ImmutableSortedMultiset, d.g.c.c.v0
     public i0.a<E> firstEntry() {
-        return this.f30981e.lastEntry();
+        return this.f31072e.lastEntry();
     }
 
     @Override // com.google.common.collect.ImmutableMultiset
     public i0.a<E> getEntry(int i2) {
-        return this.f30981e.entrySet().asList().reverse().get(i2);
+        return this.f31072e.entrySet().asList().reverse().get(i2);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -36,17 +36,17 @@ public final class DescendingImmutableSortedMultiset<E> extends ImmutableSortedM
 
     @Override // com.google.common.collect.ImmutableCollection
     public boolean isPartialView() {
-        return this.f30981e.isPartialView();
+        return this.f31072e.isPartialView();
     }
 
     @Override // com.google.common.collect.ImmutableSortedMultiset, d.g.c.c.v0
     public i0.a<E> lastEntry() {
-        return this.f30981e.firstEntry();
+        return this.f31072e.firstEntry();
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
     public int size() {
-        return this.f30981e.size();
+        return this.f31072e.size();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -59,22 +59,22 @@ public final class DescendingImmutableSortedMultiset<E> extends ImmutableSortedM
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.common.collect.ImmutableSortedMultiset, d.g.c.c.v0
     public ImmutableSortedMultiset<E> descendingMultiset() {
-        return this.f30981e;
+        return this.f31072e;
     }
 
     @Override // com.google.common.collect.ImmutableSortedMultiset, d.g.c.c.v0
     public ImmutableSortedMultiset<E> headMultiset(E e2, BoundType boundType) {
-        return this.f30981e.tailMultiset((ImmutableSortedMultiset<E>) e2, boundType).descendingMultiset();
+        return this.f31072e.tailMultiset((ImmutableSortedMultiset<E>) e2, boundType).descendingMultiset();
     }
 
     @Override // com.google.common.collect.ImmutableSortedMultiset, d.g.c.c.v0
     public ImmutableSortedMultiset<E> tailMultiset(E e2, BoundType boundType) {
-        return this.f30981e.headMultiset((ImmutableSortedMultiset<E>) e2, boundType).descendingMultiset();
+        return this.f31072e.headMultiset((ImmutableSortedMultiset<E>) e2, boundType).descendingMultiset();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.common.collect.ImmutableSortedMultiset, com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
     public ImmutableSortedSet<E> elementSet() {
-        return this.f30981e.elementSet().descendingSet();
+        return this.f31072e.elementSet().descendingSet();
     }
 }

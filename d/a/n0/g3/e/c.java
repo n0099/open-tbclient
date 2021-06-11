@@ -2,7 +2,7 @@ package d.a.n0.g3.e;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import tbclient.GetIconList.Custom;
 import tbclient.GetIconList.Setting;
 import tbclient.GetIconList.UserInfo;
@@ -10,19 +10,19 @@ import tbclient.GetIconList.UserInfo;
 public class c extends BaseCardInfo implements n {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f55243h = BdUniqueId.gen();
+    public static final BdUniqueId f58932h = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public Custom f55244e;
+    public Custom f58933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public UserInfo f55245f;
+    public UserInfo f58934f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Setting f55246g;
+    public Setting f58935g;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f55243h;
+        return f58932h;
     }
 }

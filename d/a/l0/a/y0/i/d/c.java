@@ -15,6 +15,6 @@ public class c extends d.a.l0.a.y0.a<d.a.l0.a.y0.i.c> {
     /* renamed from: e */
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.a.l0.a.y0.i.c cVar) {
         d(cVar, command.what, null, false);
-        cVar.B0();
+        cVar.y0();
     }
 }

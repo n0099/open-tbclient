@@ -42,6 +42,7 @@ public final class SapiOptions implements NoProguard {
     public static final String KEY_OPTN_BDUSS_DOMAINS = "open_bduss_domains";
     public static final String KEY_PASSHTTP_CLIENT_ASYNC_COOKIE = "pass_httpclient_async_cookie";
     public static final String KEY_RESET_FILE_EXEC_PER = "reset_file_exec_per";
+    public static final String KEY_SHARE_CACHE_VALID_TIME = "share_cache_valid_time";
     public static final String KEY_SHARE_COMMOM_STORAGE_ENABLE = "share_common_storage_enable";
     public static final String KEY_SHARE_INTERNAL_STORAGE = "share_inter_storage_gray";
     public static final String KEY_SHARE_LIVINGUNAME_ENABLE = "share_livinguname_enabled";
@@ -52,6 +53,7 @@ public final class SapiOptions implements NoProguard {
     public boolean httpClientAsyncCookie;
     public int loginStatExtraLimitLen;
     public boolean resetFileExecPer;
+    public long shareCacheValidTime;
     public boolean shareCommonStorageEnable;
     public boolean shareLivingunameEnabled;
     public String tid;
@@ -214,7 +216,9 @@ public final class SapiOptions implements NoProguard {
         public static final String FUN_NAME_GINGER = "finger";
         public static final String FUN_NAME_NUOMI_ADDR = "nuomi_addr";
         public static final String FUN_NAME_SHARE_V3 = "share_v3";
+        public static final String FUN_NAME_SHARE_V4 = "share_v4";
         public static final String FUN_NAME_VALIDATE_SP_COMMIT = "validate_sp_commit";
+        public static final String FUN_SHARE_CACHE_ABILITY = "fun_share_cache_ability";
         public static final String FUN_SHARE_MODEL_FROM_SERVER = "share_model_from_server";
         public static final String FUN_SHARE_V3_EXTERNAL_RECOVERY = "share_v3_external_recovery";
         public static String KEY_GRAY_EX = "ex";
@@ -398,6 +402,39 @@ public final class SapiOptions implements NoProguard {
             hashMap.put("com.baidu.duer.superapp", "bd8af7603d638668269bff68aeffd05a");
             hashMap.put("com.zaijia.xiaodu", "ea36f50eb0a843f6f5063b897b5e9497");
             hashMap.put("com.baidu.aihome", "047b5448218d47f64f2d40009c20e306");
+            hashMap.put("com.baidu.tingshu", "0fb46b5e8f8d50dd5a8cda441c8af10d");
+            hashMap.put("com.baidu.auto.accountmanager", "e4cebec6e83e2817aaae40de3a2275cb");
+            hashMap.put("car.baidu.carlink", "e4cebec6e83e2817aaae40de3a2275cb");
+            hashMap.put("com.baidu.yuedupro", "5663095053b6d5e3cfb34b1286af472c");
+            hashMap.put("com.baidu.xiaoduos.launcher", "8ddb342f2da5408402d7568af21e29f9");
+            hashMap.put("com.baidu.iov.faceos", "9b284760b6eed6ad6ff793c5ad32736a");
+            hashMap.put("com.baidu.searchbox.mission", "c2b0b497d0389e6de1505e7fd8f4d539");
+            hashMap.put("com.intelligence.wm", "187cbd79d77a11cfdefdf63d6fd49272");
+            hashMap.put("com.ivi.map", "9693645ee43055f27cee881ca6567f2c");
+            hashMap.put("com.ivi.accountcenter", "9693645ee43055f27cee881ca6567f2c");
+            hashMap.put("com.baidu.carlife", "e4cebec6e83e2817aaae40de3a2275cb");
+            hashMap.put("com.xiaodu.smartspeaker", "09d3c630491bea65d747bc0e433c89f0");
+            hashMap.put("com.baidu.live.assistant", "05ffabc16f5415dcfd5c52104041a3d3");
+            hashMap.put("com.baidu.zhaopin", "2da0b26ff041f5bc3225ff00d8d6d38b");
+            hashMap.put("com.baidu.xifan", "7e0543973c0a725830bf6d8f192e6774");
+            hashMap.put("com.ford.oa.ap", "6815c19a21647794bdb19140c005b050");
+            hashMap.put("com.baidu.iotsecurity", "35abb58862c10c50a5d746ec9db24de5");
+            hashMap.put("com.baidu.tbflutterlite", "673004cf2f6efdec2385c8116c1e8c14");
+            hashMap.put("com.baidu.baijia", "121c6e789e83fd28e8103ba0c7610955");
+            hashMap.put("com.baidu.lemon", "db7265b0d6b46addf86ac746afa005c3");
+            hashMap.put("com.baidu.mv.drama", "7fd3727852d29eb6f4283988dc0d6150");
+            hashMap.put("com.baidu.youavideo", "ae5821440fab5e1a61a025f014bd8972");
+            hashMap.put("com.baidu.gamenow", "26085162dd9d02784b4705f2b89f9e79");
+            hashMap.put("com.baidu.autocar", "b0406d30b7fe65b186e969b1ee3b38ee");
+            hashMap.put("com.baidu.voice.assistant", "77e0bd9fbce28dd13545826d352fd15f");
+            hashMap.put("com.baidu.yinbo", "7fd3727852d29eb6f4283988dc0d6150");
+            hashMap.put("com.baidu.apollo.go", "3335596e86b479021d8ef2a2a560ceb2");
+            hashMap.put("com.baidu.aipurchase.buyer", "84c884d8daa7a674e81bcae0f6fdbc82");
+            hashMap.put("com.baidu.xin.aiqicha", "9fd27d8a245e04de41f6d0756c1b31f7");
+            hashMap.put("com.baidu.yiju", "3b7df5eb5b1592c160f37b22ff53350d");
+            hashMap.put("com.baidu.duershow.swan", "ff3cc4b3dfcb2419ea8cf8abfcba6684");
+            hashMap.put("com.baidu.launcher", "2171946eb93787d73348c42064b5c8b7");
+            hashMap.put("com.baidu.rap", "44488ccee79ea8da05b4654a4d689016");
             return hashMap;
         }
 
@@ -486,6 +523,7 @@ public final class SapiOptions implements NoProguard {
         sapiOptions.defaultHttpsEnabled = jSONObject.optBoolean(KEY_DEFAULT_HTTPS_ENABLED, true);
         sapiOptions.addressUseWeb = jSONObject.optBoolean(KEY_ADDRESS_USE_WEB);
         sapiOptions.shareInterGray = jSONObject.optInt(KEY_SHARE_INTERNAL_STORAGE, 0);
+        sapiOptions.shareCacheValidTime = jSONObject.optLong(KEY_SHARE_CACHE_VALID_TIME, 0L);
         String optString = jSONObject.optString(KEY_GLOBAL_SHARE_STRATEGY);
         if (!TextUtils.isEmpty(optString)) {
             sapiOptions.globalShareStrategy = LoginShareStrategy.mapStrToValue(optString);
@@ -711,6 +749,7 @@ public final class SapiOptions implements NoProguard {
             jSONObject.put(KEY_SHARE_LIVINGUNAME_ENABLE, this.shareLivingunameEnabled);
             jSONObject.put(KEY_SHARE_COMMOM_STORAGE_ENABLE, this.shareCommonStorageEnable);
             jSONObject.put(KEY_SHARE_INTERNAL_STORAGE, this.shareInterGray);
+            jSONObject.put(KEY_SHARE_CACHE_VALID_TIME, this.shareCacheValidTime);
             if (this.globalShareStrategy != null) {
                 jSONObject.put(KEY_GLOBAL_SHARE_STRATEGY, this.globalShareStrategy.getStrValue());
             }

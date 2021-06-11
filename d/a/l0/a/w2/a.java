@@ -22,76 +22,76 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f45638d = k.f43199a;
+    public static final boolean f49312d = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public BearLayout f45639a;
+    public BearLayout f49313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f45640b;
+    public Activity f49314b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppBearInfo f45641c;
+    public SwanAppBearInfo f49315c;
 
     /* renamed from: d.a.l0.a.w2.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0895a extends ResponseCallback<String> {
+    public class C0951a extends ResponseCallback<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public BearLayout.d f45642a;
+        public BearLayout.d f49316a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f45643b;
+        public boolean f49317b;
 
-        public C0895a(a aVar, BearLayout.d dVar, boolean z) {
-            this.f45642a = dVar;
-            this.f45643b = z;
+        public C0951a(a aVar, BearLayout.d dVar, boolean z) {
+            this.f49316a = dVar;
+            this.f49317b = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(String str, int i2) {
-            if (this.f45642a == null) {
+            if (this.f49316a == null) {
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("errno");
                 if (optInt == 0) {
-                    if (this.f45643b) {
+                    if (this.f49317b) {
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
                             JSONArray optJSONArray = optJSONObject.optJSONArray("items");
                             if (optJSONArray != null && optJSONArray.length() > 0) {
-                                this.f45642a.a(true);
+                                this.f49316a.a(true);
                             }
-                            this.f45642a.a(false);
+                            this.f49316a.a(false);
                         }
                     } else {
-                        this.f45642a.a(true);
+                        this.f49316a.a(true);
                     }
                 } else if (800200 == optInt) {
                     String optString = jSONObject.optString("errmsg");
-                    BearLayout.d dVar = this.f45642a;
+                    BearLayout.d dVar = this.f49316a;
                     dVar.b("errNo:" + optInt + ",errMsg:" + optString);
                 } else {
-                    BearLayout.d dVar2 = this.f45642a;
+                    BearLayout.d dVar2 = this.f49316a;
                     dVar2.b("errNo:" + optInt);
                 }
             } catch (JSONException e2) {
-                if (a.f45638d) {
+                if (a.f49312d) {
                     e2.printStackTrace();
-                    this.f45642a.b(e2.getMessage());
+                    this.f49316a.b(e2.getMessage());
                 }
             }
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (a.f45638d) {
+            if (a.f49312d) {
                 exc.printStackTrace();
-                this.f45642a.b(exc.getMessage());
+                this.f49316a.b(exc.getMessage());
             }
         }
 
@@ -103,46 +103,46 @@ public class a {
     }
 
     public a(Activity activity, View view, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i2) {
-        this.f45640b = activity;
-        this.f45641c = swanAppBearInfo;
+        this.f49314b = activity;
+        this.f49315c = swanAppBearInfo;
         BearLayout bearLayout = (BearLayout) view.findViewById(i2);
-        this.f45639a = bearLayout;
+        this.f49313a = bearLayout;
         bearLayout.setVisibility(0);
-        this.f45639a.k(activity, swanAppBearInfo, this);
+        this.f49313a.k(activity, swanAppBearInfo, this);
     }
 
     public void b() {
-        if (SwanAppNetworkUtils.i(this.f45640b)) {
+        if (SwanAppNetworkUtils.i(this.f49314b)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("type", VodClient.PATH_MEDIA);
             linkedHashMap.put("sfrom", "searchpaws");
             linkedHashMap.put("store", "uid_cuid");
             linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.f45641c.bearId);
+            linkedHashMap.put("third_id", this.f49315c.bearId);
             linkedHashMap.put("op_type", IMTrack.DbBuilder.ACTION_ADD);
             String b2 = d.a.l0.a.b0.b.b();
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            d.a.l0.m.e.a.g().getRequest().url(b2).addUrlParams(linkedHashMap).cookieManager(d.a.l0.a.c1.a.p().a()).build().executeAsyncOnUIBack(new C0895a(this, this.f45639a.getCallback(), false));
+            d.a.l0.m.e.a.g().getRequest().url(b2).addUrlParams(linkedHashMap).cookieManager(d.a.l0.a.c1.a.p().a()).build().executeAsyncOnUIBack(new C0951a(this, this.f49313a.getCallback(), false));
             return;
         }
-        d.a.l0.a.z1.b.f.e.f(this.f45640b, h.aiapps_net_error).F();
+        d.a.l0.a.z1.b.f.e.f(this.f49314b, h.aiapps_net_error).F();
     }
 
     public void c() {
-        if (SwanAppNetworkUtils.i(this.f45640b)) {
+        if (SwanAppNetworkUtils.i(this.f49314b)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("type", VodClient.PATH_MEDIA);
             linkedHashMap.put("sfrom", "searchpaws");
             linkedHashMap.put("store", "uid_cuid");
             linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.f45641c.bearId);
+            linkedHashMap.put("third_id", this.f49315c.bearId);
             String z = d.a.l0.a.c1.a.n().z();
             if (TextUtils.isEmpty(z)) {
                 return;
             }
-            d.a.l0.m.e.a.g().getRequest().url(z).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(d.a.l0.a.c1.a.p().a()).build().executeAsyncOnUIBack(new C0895a(this, this.f45639a.getCallback(), true));
+            d.a.l0.m.e.a.g().getRequest().url(z).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(d.a.l0.a.c1.a.p().a()).build().executeAsyncOnUIBack(new C0951a(this, this.f49313a.getCallback(), true));
         }
     }
 }

@@ -7,29 +7,29 @@ import com.alipay.security.mobile.module.http.model.c;
 public class b implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f2098a;
+    public static a f2111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static com.alipay.security.mobile.module.http.a f2099b;
+    public static com.alipay.security.mobile.module.http.a f2112b;
 
     public static a a(Context context, String str) {
         if (context == null) {
             return null;
         }
-        if (f2098a == null) {
-            f2099b = d.a(context, str);
-            f2098a = new b();
+        if (f2111a == null) {
+            f2112b = d.a(context, str);
+            f2111a = new b();
         }
-        return f2098a;
+        return f2111a;
     }
 
     @Override // com.alipay.security.mobile.module.http.v2.a
     public c a(com.alipay.security.mobile.module.http.model.d dVar) {
-        return com.alipay.security.mobile.module.http.model.b.a(f2099b.a(com.alipay.security.mobile.module.http.model.b.a(dVar)));
+        return com.alipay.security.mobile.module.http.model.b.a(f2112b.a(com.alipay.security.mobile.module.http.model.b.a(dVar)));
     }
 
     @Override // com.alipay.security.mobile.module.http.v2.a
     public boolean a(String str) {
-        return f2099b.a(str);
+        return f2112b.a(str);
     }
 }

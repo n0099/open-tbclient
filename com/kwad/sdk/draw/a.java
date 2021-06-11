@@ -12,38 +12,39 @@ import com.kwad.sdk.contentalliance.detail.video.DetailVideoView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
+import com.kwad.sdk.core.view.g;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes6.dex */
-public class a extends com.kwad.sdk.core.view.a {
+/* loaded from: classes7.dex */
+public class a extends com.kwad.sdk.core.view.b {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public KsDrawAd.AdInteractionListener f33040a;
+    public KsDrawAd.AdInteractionListener f35164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f33041b;
+    public AdBaseFrameLayout f35165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DetailVideoView f33042c;
+    public DetailVideoView f35166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.draw.a.b f33043d;
+    public com.kwad.sdk.draw.a.b f35167d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Presenter f33044e;
+    public Presenter f35168e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f33045f;
+    public AdTemplate f35169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdInfo f33046g;
+    public AdInfo f35170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.draw.c.a f33047h;
+    public com.kwad.sdk.draw.c.a f35171h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.core.view.b f33048i;
+    public g f35172i;
     public Context j;
 
     public a(@NonNull Context context) {
@@ -55,24 +56,24 @@ public class a extends com.kwad.sdk.core.view.a {
     private void c() {
         FrameLayout.inflate(this.j, R.layout.ksad_draw_layout, this);
         AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
-        this.f33041b = adBaseFrameLayout;
+        this.f35165b = adBaseFrameLayout;
         DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.ksad_video_player);
-        this.f33042c = detailVideoView;
+        this.f35166c = detailVideoView;
         detailVideoView.setAd(true);
     }
 
     private com.kwad.sdk.draw.a.b d() {
         com.kwad.sdk.draw.a.b bVar = new com.kwad.sdk.draw.a.b();
-        bVar.f33050a = this.f33040a;
-        bVar.f33051b = this.f33041b;
-        bVar.f33052c = this.f33045f;
-        if (com.kwad.sdk.core.response.b.a.v(this.f33046g)) {
-            bVar.f33053d = new com.kwad.sdk.core.download.b.b(this.f33045f);
+        bVar.f35174a = this.f35164a;
+        bVar.f35175b = this.f35165b;
+        bVar.f35176c = this.f35169f;
+        if (com.kwad.sdk.core.response.b.a.y(this.f35170g)) {
+            bVar.f35177d = new com.kwad.sdk.core.download.b.b(this.f35169f);
         }
-        bVar.f33054e = this.f33047h;
-        bVar.f33055f = new com.kwad.sdk.draw.b.b.a(this.f33045f);
-        if (com.kwad.sdk.core.response.b.b.j(this.f33045f)) {
-            bVar.f33056g = new c();
+        bVar.f35178e = this.f35171h;
+        bVar.f35179f = new com.kwad.sdk.draw.b.b.a(this.f35169f);
+        if (com.kwad.sdk.core.response.b.b.p(this.f35169f)) {
+            bVar.f35180g = new c();
         }
         return bVar;
     }
@@ -84,56 +85,56 @@ public class a extends com.kwad.sdk.core.view.a {
         presenter.a((Presenter) new com.kwad.sdk.draw.b.c());
         presenter.a((Presenter) new com.kwad.sdk.draw.b.b());
         presenter.a((Presenter) new com.kwad.sdk.draw.b.b.b());
-        if (com.kwad.sdk.core.response.b.b.i(this.f33045f)) {
+        if (com.kwad.sdk.core.response.b.b.o(this.f35169f)) {
             presenter.a((Presenter) new com.kwad.sdk.draw.b.b.c());
         }
         presenter.a((Presenter) new com.kwad.sdk.draw.b.c.a());
-        if (com.kwad.sdk.core.response.b.b.j(this.f33045f)) {
+        if (com.kwad.sdk.core.response.b.b.p(this.f35169f)) {
             presenter.a((Presenter) new com.kwad.sdk.draw.b.c.b());
         }
         return presenter;
     }
 
-    @Override // com.kwad.sdk.core.view.a
+    @Override // com.kwad.sdk.core.view.b
     public void a() {
-        this.f33043d = d();
+        this.f35167d = d();
         Presenter e2 = e();
-        this.f33044e = e2;
-        e2.a((View) this.f33041b);
-        this.f33044e.a(this.f33043d);
-        this.f33048i.a();
-        this.f33047h.a();
+        this.f35168e = e2;
+        e2.a((View) this.f35165b);
+        this.f35168e.a(this.f35167d);
+        this.f35172i.a();
+        this.f35171h.a();
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        this.f33045f = adTemplate;
-        this.f33046g = com.kwad.sdk.core.response.b.c.g(adTemplate);
-        com.kwad.sdk.core.view.b bVar = new com.kwad.sdk.core.view.b(this, 70);
-        this.f33048i = bVar;
-        this.f33047h = new com.kwad.sdk.draw.c.a(this.f33045f, bVar, this.f33042c);
+        this.f35169f = adTemplate;
+        this.f35170g = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        g gVar = new g(this, 70);
+        this.f35172i = gVar;
+        this.f35171h = new com.kwad.sdk.draw.c.a(this.f35169f, gVar, this.f35166c);
     }
 
-    @Override // com.kwad.sdk.core.view.a
+    @Override // com.kwad.sdk.core.view.b
     public void b() {
-        com.kwad.sdk.core.view.b bVar = this.f33048i;
-        if (bVar != null) {
-            bVar.c();
+        g gVar = this.f35172i;
+        if (gVar != null) {
+            gVar.c();
         }
-        com.kwad.sdk.draw.c.a aVar = this.f33047h;
+        com.kwad.sdk.draw.c.a aVar = this.f35171h;
         if (aVar != null) {
             aVar.b();
         }
-        com.kwad.sdk.draw.a.b bVar2 = this.f33043d;
-        if (bVar2 != null) {
-            bVar2.a();
+        com.kwad.sdk.draw.a.b bVar = this.f35167d;
+        if (bVar != null) {
+            bVar.a();
         }
-        Presenter presenter = this.f33044e;
+        Presenter presenter = this.f35168e;
         if (presenter != null) {
-            presenter.g();
+            presenter.j();
         }
     }
 
     public void setAdInteractionListener(KsDrawAd.AdInteractionListener adInteractionListener) {
-        this.f33040a = adInteractionListener;
+        this.f35164a = adInteractionListener;
     }
 }

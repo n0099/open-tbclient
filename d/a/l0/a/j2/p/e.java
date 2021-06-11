@@ -10,41 +10,41 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e {
-    public static final boolean j = k.f43199a;
+    public static final boolean j = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43185a = "swan";
+    public String f46861a = "swan";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43186b;
+    public String f46862b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43187c;
+    public String f46863c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43188d;
+    public String f46864d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43189e;
+    public String f46865e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43190f;
+    public String f46866f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43191g;
+    public String f46867g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f43192h;
+    public JSONObject f46868h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONObject f43193i;
+    public JSONObject f46869i;
 
     public void a(@NonNull String str, Object obj) {
-        if (this.f43192h == null) {
-            this.f43192h = new JSONObject();
+        if (this.f46868h == null) {
+            this.f46868h = new JSONObject();
         }
         try {
-            this.f43192h.put(str, obj);
+            this.f46868h.put(str, obj);
         } catch (JSONException e2) {
             if (j) {
                 e2.printStackTrace();
@@ -56,19 +56,19 @@ public class e {
         if (jSONObject == null) {
             return;
         }
-        if (this.f43192h == null) {
-            this.f43192h = new JSONObject();
+        if (this.f46868h == null) {
+            this.f46868h = new JSONObject();
         }
-        JSONObject optJSONObject = this.f43192h.optJSONObject("extlog");
-        this.f43193i = optJSONObject;
+        JSONObject optJSONObject = this.f46868h.optJSONObject("extlog");
+        this.f46869i = optJSONObject;
         if (optJSONObject == null) {
-            this.f43193i = new JSONObject();
+            this.f46869i = new JSONObject();
         }
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
             try {
-                this.f43193i.put(next, jSONObject.opt(next));
+                this.f46869i.put(next, jSONObject.opt(next));
             } catch (JSONException e2) {
                 if (j) {
                     e2.printStackTrace();
@@ -76,7 +76,7 @@ public class e {
             }
         }
         try {
-            this.f43192h.put("extlog", this.f43193i);
+            this.f46868h.put("extlog", this.f46869i);
         } catch (JSONException e3) {
             if (j) {
                 e3.printStackTrace();
@@ -85,11 +85,11 @@ public class e {
     }
 
     public JSONObject c() {
-        if (this.f43192h == null) {
+        if (this.f46868h == null) {
             return null;
         }
         try {
-            return new JSONObject(this.f43192h.toString());
+            return new JSONObject(this.f46868h.toString());
         } catch (JSONException e2) {
             if (j) {
                 e2.printStackTrace();
@@ -115,14 +115,14 @@ public class e {
         if (jSONObject == null) {
             return;
         }
-        if (this.f43192h == null) {
-            this.f43192h = new JSONObject();
+        if (this.f46868h == null) {
+            this.f46868h = new JSONObject();
         }
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
             try {
-                this.f43192h.put(next, jSONObject.opt(next));
+                this.f46868h.put(next, jSONObject.opt(next));
             } catch (JSONException e2) {
                 if (j) {
                     e2.printStackTrace();
@@ -134,34 +134,34 @@ public class e {
     public JSONObject f() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(this.f43185a)) {
-                jSONObject.put("from", this.f43185a);
+            if (!TextUtils.isEmpty(this.f46861a)) {
+                jSONObject.put("from", this.f46861a);
             }
-            if (!TextUtils.isEmpty(this.f43186b)) {
-                jSONObject.put("type", this.f43186b);
+            if (!TextUtils.isEmpty(this.f46862b)) {
+                jSONObject.put("type", this.f46862b);
             }
-            if (!TextUtils.isEmpty(this.f43189e)) {
-                jSONObject.put("value", this.f43189e);
+            if (!TextUtils.isEmpty(this.f46865e)) {
+                jSONObject.put("value", this.f46865e);
             }
-            if (TextUtils.isEmpty(this.f43187c)) {
-                this.f43187c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
+            if (TextUtils.isEmpty(this.f46863c)) {
+                this.f46863c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
             }
-            jSONObject.put("source", this.f43187c);
-            if (!TextUtils.isEmpty(this.f43191g)) {
-                String a2 = j.a(this.f43191g);
-                this.f43191g = a2;
+            jSONObject.put("source", this.f46863c);
+            if (!TextUtils.isEmpty(this.f46867g)) {
+                String a2 = j.a(this.f46867g);
+                this.f46867g = a2;
                 jSONObject.put("page", a2);
             }
-            if (this.f43192h == null) {
-                this.f43192h = new JSONObject();
+            if (this.f46868h == null) {
+                this.f46868h = new JSONObject();
             }
-            if (!TextUtils.isEmpty(this.f43190f)) {
-                this.f43192h.put("appid", this.f43190f);
+            if (!TextUtils.isEmpty(this.f46866f)) {
+                this.f46868h.put("appid", this.f46866f);
             }
-            if (!TextUtils.isEmpty(this.f43188d)) {
-                this.f43192h.put("launchid", this.f43188d);
+            if (!TextUtils.isEmpty(this.f46864d)) {
+                this.f46868h.put("launchid", this.f46864d);
             }
-            jSONObject.put("ext", this.f43192h);
+            jSONObject.put("ext", this.f46868h);
             return jSONObject;
         } catch (JSONException e2) {
             if (j) {

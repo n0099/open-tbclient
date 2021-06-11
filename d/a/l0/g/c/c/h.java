@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class h extends d.a.l0.g.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public AppDownloadNetworkStateReceiver f46999c;
+    public AppDownloadNetworkStateReceiver f50673c;
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public h() {
@@ -24,13 +24,13 @@ public class h extends d.a.l0.g.f.a {
             bVar.onFail(202, "params may be error");
             return null;
         }
-        if (this.f46999c == null) {
-            this.f46999c = new AppDownloadNetworkStateReceiver();
+        if (this.f50673c == null) {
+            this.f50673c = new AppDownloadNetworkStateReceiver();
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        d.a.l0.a.c1.a.b().registerReceiver(this.f46999c, intentFilter);
-        bVar.b(null);
+        d.a.l0.a.c1.a.b().registerReceiver(this.f50673c, intentFilter);
+        bVar.a(null);
         return null;
     }
 }

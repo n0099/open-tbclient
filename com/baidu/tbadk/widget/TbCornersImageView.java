@@ -18,19 +18,19 @@ import com.baidu.tieba.R$styleable;
 public class TbCornersImageView extends AppCompatImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13032e;
+    public boolean f13097e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13033f;
+    public boolean f13098f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13034g;
+    public int f13099g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13035h;
+    public int f13100h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13036i;
+    public int f13101i;
     public int j;
     public int k;
     public int l;
@@ -53,7 +53,7 @@ public class TbCornersImageView extends AppCompatImageView {
     }
 
     public final void a() {
-        if (this.f13032e) {
+        if (this.f13097e) {
             return;
         }
         int i2 = 0;
@@ -76,7 +76,7 @@ public class TbCornersImageView extends AppCompatImageView {
             fArr[7] = f5;
             fArr[6] = f5;
             float[] fArr2 = this.u;
-            int i7 = this.f13034g;
+            int i7 = this.f13099g;
             float f6 = i3 - (i7 / 2.0f);
             fArr2[1] = f6;
             fArr2[0] = f6;
@@ -98,7 +98,7 @@ public class TbCornersImageView extends AppCompatImageView {
             }
             int i8 = this.k;
             fArr3[i2] = i8;
-            this.u[i2] = i8 - (this.f13034g / 2.0f);
+            this.u[i2] = i8 - (this.f13099g / 2.0f);
             i2++;
         }
     }
@@ -108,62 +108,56 @@ public class TbCornersImageView extends AppCompatImageView {
             this.k = 0;
         }
         a();
-        q();
+        r();
         invalidate();
     }
 
-    public final void i() {
-        if (this.f13032e) {
+    public final void l() {
+        if (this.f13097e) {
             return;
         }
-        this.f13036i = 0;
+        this.f13101i = 0;
     }
 
-    public final void l(Canvas canvas) {
-        if (this.f13032e) {
-            int i2 = this.f13034g;
+    public final void n(Canvas canvas) {
+        if (this.f13097e) {
+            int i2 = this.f13099g;
             if (i2 > 0) {
-                n(canvas, i2, this.f13035h, this.s - (i2 / 2.0f));
+                o(canvas, i2, this.f13100h, this.s - (i2 / 2.0f));
             }
-            int i3 = this.f13036i;
+            int i3 = this.f13101i;
             if (i3 > 0) {
-                n(canvas, i3, this.j, (this.s - this.f13034g) - (i3 / 2.0f));
+                o(canvas, i3, this.j, (this.s - this.f13099g) - (i3 / 2.0f));
                 return;
             }
             return;
         }
-        int i4 = this.f13034g;
+        int i4 = this.f13099g;
         if (i4 > 0) {
-            o(canvas, i4, this.f13035h, this.w, this.t);
+            p(canvas, i4, this.f13100h, this.w, this.t);
         }
     }
 
-    public final void n(Canvas canvas, int i2, int i3, float f2) {
-        p(i2, i3);
+    public final void o(Canvas canvas, int i2, int i3, float f2) {
+        q(i2, i3);
         this.y.addCircle(this.q / 2.0f, this.r / 2.0f, f2, Path.Direction.CCW);
-        canvas.drawPath(this.y, this.x);
-    }
-
-    public final void o(Canvas canvas, int i2, int i3, RectF rectF, float[] fArr) {
-        p(i2, i3);
-        this.y.addRoundRect(rectF, fArr, Path.Direction.CCW);
         canvas.drawPath(this.y, this.x);
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         canvas.saveLayer(this.v, null, 31);
-        if (!this.f13033f) {
+        if (!this.f13098f) {
             int i2 = this.q;
-            int i3 = this.f13034g;
-            int i4 = this.f13036i;
+            int i3 = this.f13099g;
+            int i4 = this.f13101i;
             int i5 = this.r;
             canvas.scale((((i2 - (i3 * 2)) - (i4 * 2)) * 1.0f) / i2, (((i5 - (i3 * 2)) - (i4 * 2)) * 1.0f) / i5, i2 / 2.0f, i5 / 2.0f);
         }
         super.onDraw(canvas);
         this.x.reset();
         this.y.reset();
-        if (this.f13032e) {
+        if (this.f13097e) {
             this.y.addCircle(this.q / 2.0f, this.r / 2.0f, this.s, Path.Direction.CCW);
         } else {
             this.y.addRoundRect(this.v, this.u, Path.Direction.CCW);
@@ -189,7 +183,7 @@ public class TbCornersImageView extends AppCompatImageView {
             canvas.drawPath(this.y, this.x);
         }
         canvas.restore();
-        l(canvas);
+        n(canvas);
     }
 
     @Override // android.view.View
@@ -197,28 +191,34 @@ public class TbCornersImageView extends AppCompatImageView {
         super.onSizeChanged(i2, i3, i4, i5);
         this.q = i2;
         this.r = i3;
-        q();
         r();
+        s();
     }
 
-    public final void p(int i2, int i3) {
+    public final void p(Canvas canvas, int i2, int i3, RectF rectF, float[] fArr) {
+        q(i2, i3);
+        this.y.addRoundRect(rectF, fArr, Path.Direction.CCW);
+        canvas.drawPath(this.y, this.x);
+    }
+
+    public final void q(int i2, int i3) {
         this.y.reset();
         this.x.setStrokeWidth(i2);
         this.x.setColor(i3);
         this.x.setStyle(Paint.Style.STROKE);
     }
 
-    public final void q() {
-        if (this.f13032e) {
+    public final void r() {
+        if (this.f13097e) {
             return;
         }
         RectF rectF = this.w;
-        int i2 = this.f13034g;
+        int i2 = this.f13099g;
         rectF.set(i2 / 2.0f, i2 / 2.0f, this.q - (i2 / 2.0f), this.r - (i2 / 2.0f));
     }
 
-    public final void r() {
-        if (this.f13032e) {
+    public final void s() {
+        if (this.f13097e) {
             float min = Math.min(this.q, this.r) / 2.0f;
             this.s = min;
             RectF rectF = this.v;
@@ -228,18 +228,18 @@ public class TbCornersImageView extends AppCompatImageView {
             return;
         }
         this.v.set(0.0f, 0.0f, this.q, this.r);
-        if (this.f13033f) {
+        if (this.f13098f) {
             this.v = this.w;
         }
     }
 
     public void setBorderColor(@ColorInt int i2) {
-        this.f13035h = i2;
+        this.f13100h = i2;
         invalidate();
     }
 
     public void setBorderWidth(int i2) {
-        this.f13034g = i2;
+        this.f13099g = i2;
         b(false);
     }
 
@@ -274,8 +274,8 @@ public class TbCornersImageView extends AppCompatImageView {
     }
 
     public void setInnerBorderWidth(int i2) {
-        this.f13036i = i2;
-        i();
+        this.f13101i = i2;
+        l();
         invalidate();
     }
 
@@ -290,21 +290,21 @@ public class TbCornersImageView extends AppCompatImageView {
 
     public TbCornersImageView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13035h = -1;
+        this.f13100h = -1;
         this.j = -1;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CornersImageView, 0, 0);
         for (int i3 = 0; i3 < obtainStyledAttributes.getIndexCount(); i3++) {
             int index = obtainStyledAttributes.getIndex(i3);
             if (index == R$styleable.CornersImageView_is_cover_src) {
-                this.f13033f = obtainStyledAttributes.getBoolean(index, this.f13033f);
+                this.f13098f = obtainStyledAttributes.getBoolean(index, this.f13098f);
             } else if (index == R$styleable.CornersImageView_is_circle) {
-                this.f13032e = obtainStyledAttributes.getBoolean(index, this.f13032e);
+                this.f13097e = obtainStyledAttributes.getBoolean(index, this.f13097e);
             } else if (index == R$styleable.CornersImageView_border_width) {
-                this.f13034g = obtainStyledAttributes.getDimensionPixelSize(index, this.f13034g);
+                this.f13099g = obtainStyledAttributes.getDimensionPixelSize(index, this.f13099g);
             } else if (index == R$styleable.CornersImageView_border_color) {
-                this.f13035h = obtainStyledAttributes.getColor(index, this.f13035h);
+                this.f13100h = obtainStyledAttributes.getColor(index, this.f13100h);
             } else if (index == R$styleable.CornersImageView_inner_border_width) {
-                this.f13036i = obtainStyledAttributes.getDimensionPixelSize(index, this.f13036i);
+                this.f13101i = obtainStyledAttributes.getDimensionPixelSize(index, this.f13101i);
             } else if (index == R$styleable.CornersImageView_inner_border_color) {
                 this.j = obtainStyledAttributes.getColor(index, this.j);
             } else if (index == R$styleable.CornersImageView_corner_radius) {
@@ -329,6 +329,6 @@ public class TbCornersImageView extends AppCompatImageView {
         this.x = new Paint();
         this.y = new Path();
         a();
-        i();
+        l();
     }
 }

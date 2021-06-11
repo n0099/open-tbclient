@@ -18,10 +18,10 @@ public class o extends a0 {
     public class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f41145a;
+        public final /* synthetic */ Activity f44821a;
 
         public a(o oVar, Activity activity, Uri uri, String str, CallbackHandler callbackHandler, String str2) {
-            this.f41145a = activity;
+            this.f44821a = activity;
         }
     }
 
@@ -39,7 +39,7 @@ public class o extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
             return false;
         } else if (eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");

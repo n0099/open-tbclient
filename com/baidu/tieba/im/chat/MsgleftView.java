@@ -31,7 +31,7 @@ public class MsgleftView extends e {
     public class a implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f16984e = 0;
+        public long f17060e = 0;
 
         public a() {
         }
@@ -39,17 +39,17 @@ public class MsgleftView extends e {
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 0) {
-                this.f16984e = System.currentTimeMillis();
+                this.f17060e = System.currentTimeMillis();
             } else if (motionEvent.getAction() == 1) {
-                if (System.currentTimeMillis() - this.f16984e > 200) {
+                if (System.currentTimeMillis() - this.f17060e > 200) {
                     if (MsgleftView.this.y.get()) {
                         MsgleftView msgleftView = MsgleftView.this;
-                        msgleftView.f54339c.onItemViewLongClick(view, 2, msgleftView.f54342f, 0L);
+                        msgleftView.f58028c.onItemViewLongClick(view, 2, msgleftView.f58031f, 0L);
                         MsgleftView.this.y.set(false);
                     }
                 } else {
                     MsgleftView msgleftView2 = MsgleftView.this;
-                    msgleftView2.f54338b.onItemViewClick(view, 2, msgleftView2.f54342f, 0L);
+                    msgleftView2.f58027b.onItemViewClick(view, 2, msgleftView2.f58031f, 0L);
                 }
             }
             return false;
@@ -73,7 +73,7 @@ public class MsgleftView extends e {
         this.y = new TouchType();
         this.A = new b();
         this.z = tbPageContext;
-        g();
+        h();
         this.x = (ImageView) d(R.id.iv_live_group_host);
         this.u = (TextView) d(R.id.tex_msgitem_name);
         this.v = (ViewGroup) d(R.id.box_msgitem_bubble);
@@ -91,7 +91,7 @@ public class MsgleftView extends e {
         this.n.setIsLeft(true);
     }
 
-    public final void F(ChatMessage chatMessage) {
+    public final void G(ChatMessage chatMessage) {
         String p = d.a.m0.r.d0.b.j().p("live_room_chat_page_author_id", "");
         if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(p)) {
             this.x.setVisibility(0);
@@ -100,7 +100,7 @@ public class MsgleftView extends e {
         }
     }
 
-    public void G() {
+    public void H() {
         if (this.q) {
             this.u.setVisibility(0);
             this.w.setVisibility(0);
@@ -117,7 +117,7 @@ public class MsgleftView extends e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void H(ChatMessage chatMessage) {
+    public final void I(ChatMessage chatMessage) {
         int i2;
         if (this.q) {
             if (chatMessage != null && chatMessage.getUserInfo() != null) {
@@ -145,12 +145,12 @@ public class MsgleftView extends e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void k(View view, ChatMessage chatMessage) {
+    public void l(View view, ChatMessage chatMessage) {
         int msgType;
-        super.k(view, chatMessage);
+        super.l(view, chatMessage);
         String str = null;
         ArrayList<IconData> tShowInfoNew = chatMessage != null ? chatMessage.getUserInfo().getTShowInfoNew() : null;
-        G();
+        H();
         UserIconBox userIconBox = this.w;
         if (userIconBox != null && this.q) {
             userIconBox.setVisibility(0);
@@ -160,9 +160,9 @@ public class MsgleftView extends e {
         }
         if (chatMessage == null) {
             this.u.setText((CharSequence) null);
-            this.f54345i.setVisibility(0);
-            this.f54345i.setText(null);
-            l(8);
+            this.f58034i.setVisibility(0);
+            this.f58034i.setText(null);
+            m(8);
             this.p.getImage().setTag(null);
             this.j.setVisibility(8);
             this.j.setTag(null);
@@ -174,10 +174,10 @@ public class MsgleftView extends e {
             this.x.setVisibility(8);
             return;
         }
-        w(chatMessage);
-        H(chatMessage);
+        x(chatMessage);
+        I(chatMessage);
         this.u.setText("");
-        F(chatMessage);
+        G(chatMessage);
         try {
             if (chatMessage.getUserInfo() != null) {
                 this.u.setText(chatMessage.getUserInfo().getName_show());
@@ -185,10 +185,10 @@ public class MsgleftView extends e {
                 str = chatMessage.getUserInfo().getAvater();
             }
             if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
-                this.t.V(str, 12, false);
+                this.t.U(str, 12, false);
                 this.t.setContentDescription(chatMessage.getUserInfo().getName_show());
-                this.f54345i.setVisibility(8);
-                l(8);
+                this.f58034i.setVisibility(8);
+                m(8);
                 this.j.setVisibility(8);
                 this.k.setVisibility(8);
                 this.l.setVisibility(8);
@@ -197,31 +197,31 @@ public class MsgleftView extends e {
                 this.o.setVisibility(8);
                 msgType = chatMessage.getMsgType();
                 if (msgType != 1) {
-                    z(chatMessage, B);
-                    return;
-                } else if (msgType == 2) {
-                    y(view, chatMessage, B);
-                    return;
-                } else if (msgType == 3) {
                     A(chatMessage, B);
                     return;
+                } else if (msgType == 2) {
+                    z(view, chatMessage, B);
+                    return;
+                } else if (msgType == 3) {
+                    B(chatMessage, B);
+                    return;
                 } else if (msgType == 4) {
-                    u(chatMessage, false);
+                    v(chatMessage, false);
                     return;
                 } else if (msgType == 5) {
-                    x(view, chatMessage, B);
+                    y(view, chatMessage, B);
                     return;
                 } else if (msgType != 9) {
                     return;
                 } else {
-                    v(view, chatMessage, B);
+                    w(view, chatMessage, B);
                     return;
                 }
             }
-            this.t.V(str, 10, false);
+            this.t.U(str, 10, false);
             this.t.setContentDescription(chatMessage.getUserInfo().getName_show());
-            this.f54345i.setVisibility(8);
-            l(8);
+            this.f58034i.setVisibility(8);
+            m(8);
             this.j.setVisibility(8);
             this.k.setVisibility(8);
             this.l.setVisibility(8);

@@ -6,44 +6,44 @@ import java.io.File;
 public class f {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile f f47811c;
+    public static volatile f f51485c;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f47812a;
+    public boolean f51486a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47813b;
+    public String f51487b;
 
     public static f a() {
-        if (f47811c == null) {
+        if (f51485c == null) {
             synchronized (f.class) {
-                if (f47811c == null) {
-                    f47811c = new f();
+                if (f51485c == null) {
+                    f51485c = new f();
                 }
             }
         }
-        return f47811c;
+        return f51485c;
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f47813b)) {
+        if (TextUtils.isEmpty(this.f51487b)) {
             return "";
         }
-        return this.f47813b + File.separator + "index.js";
+        return this.f51487b + File.separator + "index.js";
     }
 
     public boolean c() {
-        return this.f47812a;
+        return this.f51486a;
     }
 
     public void d(boolean z) {
-        this.f47812a = z;
+        this.f51486a = z;
     }
 
     public void e(String str) {
     }
 
     public void f(String str) {
-        this.f47813b = str;
+        this.f51487b = str;
     }
 }

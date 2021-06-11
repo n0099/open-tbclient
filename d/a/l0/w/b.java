@@ -20,34 +20,34 @@ public class b {
     public static final String t = ZeusWebViewPreloadClass.ZEUS_FILE_DIR + s + "libs" + s;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48584a;
+    public Context f52258a;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f48591h;
+    public JSONObject f52265h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONObject f48592i;
+    public JSONObject f52266i;
     public int j;
     public int k;
     public Method r;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48585b = 0;
+    public int f52259b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f48586c = 0;
+    public int f52260c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f48587d = null;
+    public String f52261d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f48588e = null;
+    public int[] f52262e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public int[] f48589f = null;
+    public int[] f52263f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public int[] f48590g = null;
+    public int[] f52264g = null;
     public int l = 0;
     public int m = 0;
     public int n = 0;
@@ -56,7 +56,7 @@ public class b {
     public boolean q = false;
 
     public b(Context context) {
-        this.f48584a = context;
+        this.f52258a = context;
         m();
     }
 
@@ -80,21 +80,21 @@ public class b {
 
     public final boolean c() {
         int i2;
-        int i3 = this.f48585b;
-        if (i3 <= 0 || (i2 = this.f48586c) <= 0) {
+        int i3 = this.f52259b;
+        if (i3 <= 0 || (i2 = this.f52260c) <= 0) {
             return true;
         }
-        String str = this.f48587d;
-        int[] iArr = this.f48588e;
-        int[] iArr2 = this.f48589f;
-        int[] iArr3 = this.f48590g;
+        String str = this.f52261d;
+        int[] iArr = this.f52262e;
+        int[] iArr2 = this.f52263f;
+        int[] iArr3 = this.f52264g;
         if (!this.o) {
             this.j = 0;
             this.k = i2;
         }
         String str2 = j() + "libzeuswebviewchromium.so";
         String str3 = j() + "libzeuswebviewchromium.so.tmp";
-        int g2 = g(this.p, str3, this.f48586c, this.j, this.k, this.o ? 1 : 0);
+        int g2 = g(this.p, str3, this.f52260c, this.j, this.k, this.o ? 1 : 0);
         if (g2 != 0) {
             return false;
         }
@@ -205,9 +205,9 @@ public class b {
                 int indexOf2 = str.indexOf(SevenZipUtils.FILE_SEP, indexOf) + 2;
                 this.m = indexOf2;
                 this.n = str.indexOf(SevenZipUtils.FILE_SEP, indexOf2) + 2;
-                this.f48591h = new JSONObject(str.substring(this.l, this.m - 2));
+                this.f52265h = new JSONObject(str.substring(this.l, this.m - 2));
                 JSONObject jSONObject = new JSONObject(str.substring(this.m, this.n - 2));
-                this.f48592i = jSONObject;
+                this.f52266i = jSONObject;
                 int i2 = Integer.MAX_VALUE;
                 JSONArray jSONArray = jSONObject.getJSONArray(SevenZipUtils.LZMA_META_KEY_LOADABLE);
                 int i3 = 0;
@@ -225,24 +225,24 @@ public class b {
                 }
                 this.j = i2;
                 this.k = i3;
-                int i8 = this.f48591h.getInt("count");
-                this.f48585b = i8;
-                this.f48588e = new int[i8];
-                this.f48589f = new int[i8];
-                this.f48590g = new int[i8];
-                this.f48587d = k();
-                JSONArray jSONArray2 = this.f48591h.getJSONArray(SevenZipUtils.LZMA_META_KEY_OFFSET);
-                JSONArray jSONArray3 = this.f48591h.getJSONArray(SevenZipUtils.LZMA_META_KEY_SZ_OFFSET);
-                this.f48589f[0] = 0;
-                for (int i9 = 0; i9 < this.f48585b; i9++) {
-                    this.f48588e[i9] = jSONArray2.getInt(i9);
+                int i8 = this.f52265h.getInt("count");
+                this.f52259b = i8;
+                this.f52262e = new int[i8];
+                this.f52263f = new int[i8];
+                this.f52264g = new int[i8];
+                this.f52261d = k();
+                JSONArray jSONArray2 = this.f52265h.getJSONArray(SevenZipUtils.LZMA_META_KEY_OFFSET);
+                JSONArray jSONArray3 = this.f52265h.getJSONArray(SevenZipUtils.LZMA_META_KEY_SZ_OFFSET);
+                this.f52263f[0] = 0;
+                for (int i9 = 0; i9 < this.f52259b; i9++) {
+                    this.f52262e[i9] = jSONArray2.getInt(i9);
                     if (i9 > 0) {
                         int i10 = i9 - 1;
-                        this.f48589f[i9] = this.f48589f[i10] + this.f48588e[i10];
+                        this.f52263f[i9] = this.f52263f[i10] + this.f52262e[i10];
                     }
-                    this.f48590g[i9] = jSONArray3.getInt(i9) + this.n;
+                    this.f52264g[i9] = jSONArray3.getInt(i9) + this.n;
                 }
-                this.f48586c = this.f48591h.getInt("total");
+                this.f52260c = this.f52265h.getInt("total");
                 try {
                     fileInputStream.close();
                     return true;
@@ -274,7 +274,7 @@ public class b {
     }
 
     public final String j() {
-        return this.f48584a.getFilesDir() + s + t;
+        return this.f52258a.getFilesDir() + s + t;
     }
 
     public final String k() {
@@ -348,7 +348,7 @@ public class b {
 
     public boolean q() {
         if (p()) {
-            if (this.q && i() && o(this.f48586c)) {
+            if (this.q && i() && o(this.f52260c)) {
                 l(false);
                 return a() && b() && c();
             }

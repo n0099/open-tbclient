@@ -2,19 +2,27 @@ package com.baidu.media.duplayer;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider;
 import com.baidu.cyberplayer.sdk.PlayerProvider;
 import com.baidu.cyberplayer.sdk.SDKVersion;
+import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 import com.baidu.cyberplayer.sdk.extractor.ExtractorProvider;
 import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
+import com.baidu.cyberplayer.sdk.remote.PrefetchOptions;
 import com.baidu.cyberplayer.sdk.rtc.CaptureManagerProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
+import com.baidu.media.dlna.DlnaProviderImpl;
 import com.baidu.media.duplayer.monitor.DuplayerQualityMonitorManager;
+import com.baidu.media.kernelnet.KernelNetApi;
+import com.baidu.media.playerconfig.PlayerConfigManagerInternal;
 import com.baidu.media.recorder.DuAudioRecorder;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import d.a.y.a.c;
+import d.a.y.a.e;
 import d.a.y.b.a;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,9 +32,14 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public long caculateFolderSize() {
         if (isLoaded(1)) {
-            return Utils.m();
+            return Utils.n();
         }
         return 0L;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
+    public void cleanFilecacheWithTimeExpired(long j) {
+        Utils.d(j);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -50,6 +63,11 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
+    public DlnaProvider createDlna() {
+        return DlnaProviderImpl.create();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public MediaInstanceManagerProvider createInstanceManager() {
         return new MediaInstanceManagerImpl();
     }
@@ -65,18 +83,18 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
+    public boolean downgrade() {
+        return e.b().v();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void duplayerEncrypt(byte[] bArr, int i2, byte[] bArr2) {
-        Utils.h(bArr, i2, bArr2);
+        Utils.i(bArr, i2, bArr2);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void enableRTCCaptureDebug(boolean z) {
         a.g(z);
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public void forceCleanFilecache() {
-        Utils.k();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -91,7 +109,12 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public String[] getLibsSearchPath() {
-        return c.f();
+        return c.g();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
+    public Map<String, String> getLibsVersion(CyberPlayerCoreProvider.LibsVersionType libsVersionType) {
+        return e.b().e(libsVersionType);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -130,8 +153,18 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public void prefetch(String str, String str2, String str3, int i2, int i3, int i4, CyberPlayerManager.HttpDNS httpDNS, String str4) {
-        Prefetch.add(str, str2, str3, i2, i3, i4, httpDNS, str4);
+    public int nativeKernelNetInit(long j) {
+        return KernelNetApi.nativeKernelNetInit(j);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
+    public void prefetch(String str, String str2, String str3, int i2, int i3, int i4, CyberPlayerManager.HttpDNS httpDNS, String str4, int i5, int i6, int i7, int i8, PrefetchOptions prefetchOptions) {
+        if (prefetchOptions != null) {
+            for (Map.Entry<String, String> entry : prefetchOptions.getOptions().entrySet()) {
+                CyberLog.i("PlayerServer-CyberPlayerCoreImpl", entry.getKey() + ZeusCrashHandler.NAME_SEPERATOR + entry.getValue());
+            }
+        }
+        Prefetch.add(str, str2, str3, i2, i3, i4, httpDNS, str4, i5, i6, i7, i8, prefetchOptions);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -146,6 +179,16 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void updateCfg() {
-        Utils.o();
+        Utils.q();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
+    public void updatePlayerConfig(String str) {
+        PlayerConfigManagerInternal.getInstance().updatePlayerConfig(str);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
+    public void updateStorageQuota(long j) {
+        Utils.l(j);
     }
 }

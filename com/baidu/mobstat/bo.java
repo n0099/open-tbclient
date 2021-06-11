@@ -5,7 +5,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -22,10 +21,10 @@ import java.net.URL;
 public final class bo {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Proxy f8720a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+    public static final Proxy f8782a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f8721b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+    public static final Proxy f8783b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
 
     public static String a() {
         try {
@@ -77,7 +76,7 @@ public final class bo {
     }
 
     public static HttpURLConnection d(Context context, String str) throws IOException {
-        return a(context, str, (int) IMConstants.ERROR_BASE, (int) IMConstants.ERROR_BASE);
+        return a(context, str, 50000, 50000);
     }
 
     public static boolean e(Context context, String str) {
@@ -205,10 +204,10 @@ public final class bo {
                 String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                 if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                     if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(f8721b);
+                        httpURLConnection = (HttpURLConnection) url.openConnection(f8783b);
                     }
                 } else {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(f8720a);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(f8782a);
                 }
             }
             httpURLConnection = null;

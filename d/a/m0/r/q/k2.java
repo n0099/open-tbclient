@@ -8,24 +8,24 @@ import tbclient.FrsPage.YuleActivity;
 public class k2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50067a;
+    public String f53743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50068b;
+    public String f53744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50069c;
+    public String f53745c;
 
     public String a() {
-        return this.f50068b;
+        return this.f53744b;
     }
 
     public String b() {
-        return this.f50069c;
+        return this.f53745c;
     }
 
     public String c() {
-        return this.f50067a;
+        return this.f53743a;
     }
 
     public void d(JSONObject jSONObject) {
@@ -35,9 +35,9 @@ public class k2 {
         try {
             jSONObject.optLong("activity_id");
             jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
-            this.f50067a = jSONObject.optString("activity_url");
-            this.f50068b = jSONObject.optString("activity_all_icon");
-            this.f50069c = jSONObject.optString("activity_half_icon");
+            this.f53743a = jSONObject.optString("activity_url");
+            this.f53744b = jSONObject.optString("activity_all_icon");
+            this.f53745c = jSONObject.optString("activity_half_icon");
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -49,8 +49,8 @@ public class k2 {
         }
         yuleActivity.activity_id.longValue();
         yuleActivity.activity_type.intValue();
-        this.f50067a = yuleActivity.activity_url;
-        this.f50068b = yuleActivity.activity_all_icon;
-        this.f50069c = yuleActivity.activity_half_icon;
+        this.f53743a = yuleActivity.activity_url;
+        this.f53744b = yuleActivity.activity_all_icon;
+        this.f53745c = yuleActivity.activity_half_icon;
     }
 }

@@ -6,7 +6,7 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b {
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public static void a(String str, String str2) {

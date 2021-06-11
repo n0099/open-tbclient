@@ -19,7 +19,7 @@ import d.a.c.e.a.f.c;
 import d.a.c.e.l.b;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class FlutterLoaderProc extends AbstractImageLoaderProc {
@@ -97,7 +97,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f38695a = diskCancelWorker;
+            bVar.f42348a = diskCancelWorker;
         }
     }
 
@@ -119,7 +119,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(createDiskPicOperate);
-            bVar.f38695a = diskCancelWorker;
+            bVar.f42348a = diskCancelWorker;
         }
         boolean H = j.H();
         if (d.g().a(createDiskPicOperate)) {
@@ -187,7 +187,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 z = true;
                 webClient = new WebClient();
                 if (bVar != null) {
-                    bVar.f38695a = webClient;
+                    bVar.f42348a = webClient;
                 }
                 downloadImageBytes = webClient.downloadImageBytes(urlbyClientServerAddr, !isFromCDN);
                 boolean needCache = webClient.needCache();
@@ -231,13 +231,13 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     z2 = needCache;
                     webClient2 = webClient;
                     i4 = 1;
-                    if (!webClient2.getResponse().f38641a) {
+                    if (!webClient2.getResponse().f42294a) {
                         ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "NetworkError", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                         return null;
                     }
                 }
                 if (downloadImageBytes != null) {
-                    if (!webClient2.getResponse().f38641a) {
+                    if (!webClient2.getResponse().f42294a) {
                         ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "ByteIsNull", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                     }
                     return null;

@@ -5,6 +5,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.mobstat.Config;
+import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i {
@@ -14,42 +15,42 @@ public class i {
     public static String n = "";
     public static String o = "";
     public static String p = "";
-    public static int q;
-    public static int r;
+    public static String q;
+    public static String r;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40379a;
+    public Context f44058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40380b;
+    public String f44059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40381c;
+    public int f44060c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f40382d;
+    public int f44061d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40383e;
+    public String f44062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f40384f;
+    public long f44063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40385g;
+    public String f44064g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f40386h;
+    public String f44065h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f40387i;
+    public long f44066i;
     public long j = 8000;
 
     public i(Context context) {
-        this.f40379a = context;
+        this.f44058a = context;
     }
 
-    public static void i(String str, String str2, String str3) {
+    public static void j(String str, String str2, String str3) {
         if (TextUtils.equals(str, "cm")) {
             k = str2;
             l = str3;
@@ -62,161 +63,189 @@ public class i {
         }
     }
 
-    public void a(int i2) {
+    public String a(String str) {
+        try {
+            if (!TextUtils.isEmpty(str) && str.length() == 11 && str.contains("*") && str.charAt(3) == '*') {
+                int g0 = d.a.j0.b.a.h(this.f44058a).g0();
+                if (g0 <= 11 - str.replace("*", "").trim().length()) {
+                    return str;
+                }
+                char[] charArray = str.toCharArray();
+                StringBuilder sb = new StringBuilder();
+                int i2 = g0 + 3;
+                for (int i3 = 0; i3 < charArray.length; i3++) {
+                    if (i3 < 3) {
+                        sb.append(charArray[i3]);
+                    } else if (i3 < i2) {
+                        sb.append("*");
+                    } else {
+                        sb.append(charArray[i3]);
+                    }
+                }
+                return sb.toString();
+            }
+            return str;
+        } catch (Throwable th) {
+            d.a.j0.l.c.d(th);
+            return str;
+        }
+    }
+
+    public void b(int i2) {
         try {
             if (d.a.j0.c.a.c().h(i2)) {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", this.f40381c);
-                jSONObject.put("1", this.f40383e);
-                jSONObject.put("3", this.f40380b);
-                jSONObject.put("4", d.a.j0.l.d.l(this.f40379a));
-                if (!TextUtils.isEmpty(this.f40385g)) {
-                    jSONObject.put("5", d.a.j0.l.e.c(this.f40385g.getBytes(), d.a.j0.b.a.g(this.f40379a).h0()));
+                jSONObject.put("0", this.f44060c);
+                jSONObject.put("1", this.f44062e);
+                jSONObject.put("3", this.f44059b);
+                jSONObject.put("4", d.a.j0.l.d.j(this.f44058a));
+                if (!TextUtils.isEmpty(this.f44064g)) {
+                    jSONObject.put("5", d.a.j0.l.e.c(this.f44064g.getBytes(), d.a.j0.b.a.h(this.f44058a).k0()));
                 }
                 jSONObject.put("6", q);
-                String c2 = d.a.j0.b.c.b(this.f40379a).c(jSONObject, this.j);
+                String c2 = d.a.j0.b.c.b(this.f44058a).c(jSONObject, this.j);
                 if (d.a.j0.c.a.c().h(i2)) {
                     if (!TextUtils.isEmpty(c2)) {
-                        r();
+                        s();
                         JSONObject jSONObject2 = new JSONObject(c2);
                         int optInt = jSONObject2.optInt("0", -1);
-                        d.a.j0.b.a.g(this.f40379a).y(System.currentTimeMillis());
+                        d.a.j0.b.a.h(this.f44058a).A(System.currentTimeMillis());
                         if (optInt == 0) {
-                            d.a.j0.b.a.g(this.f40379a).j(0);
+                            d.a.j0.b.a.h(this.f44058a).k(0);
                             JSONObject optJSONObject = new JSONObject(jSONObject2.optString("1")).optJSONObject("data");
-                            e(i2, 0, 0, this.f40381c, jSONObject2.optString("1"), optInt, optJSONObject != null ? optJSONObject.optString("uk") : "");
+                            f(i2, 0, 0, this.f44060c, jSONObject2.optString("1"), optInt, optJSONObject != null ? optJSONObject.optString("uk") : "");
                             return;
                         }
-                        d.a.j0.b.a.g(this.f40379a).j(4);
-                        e(i2, 4, a.a(optInt), this.f40381c, jSONObject2.optString("1"), optInt, "");
+                        d.a.j0.b.a.h(this.f44058a).k(4);
+                        f(i2, 4, a.a(optInt), this.f44060c, jSONObject2.optString("1"), optInt, "");
                         return;
                     }
-                    e(i2, 4, 2005, this.f40381c, "server req empty.", -1, "");
+                    f(i2, 4, 2005, this.f44060c, "server req empty.", -1, "");
                 }
             }
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
-            c(i2, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, this.f40381c, "post token unknown error.");
+            d(i2, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, this.f44060c, "post token unknown error.");
         }
     }
 
-    public void b(int i2, int i3) {
+    public void c(int i2, int i3) {
         Message message = new Message();
         message.what = i2;
-        message.arg1 = this.f40381c;
+        message.arg1 = this.f44060c;
         message.arg2 = i3;
         d.a().c(message, this.j);
     }
 
-    public void c(int i2, int i3, int i4, int i5, String str) {
-        e(i2, i3, i4, i5, str, -1, "");
+    public void d(int i2, int i3, int i4, int i5, String str) {
+        f(i2, i3, i4, i5, str, -1, "");
     }
 
-    public synchronized void d(int i2, int i3, int i4, int i5, String str, int i6) {
+    public synchronized void e(int i2, int i3, int i4, int i5, String str, int i6) {
         b bVar = new b();
-        bVar.f40301a = i6;
-        c.i().c(i2, i3, i4, i5, str, bVar, true);
+        bVar.f43979a = i6;
+        c.j().c(i2, i3, i4, i5, str, bVar, true);
     }
 
-    public synchronized void e(int i2, int i3, int i4, int i5, String str, int i6, String str2) {
+    public synchronized void f(int i2, int i3, int i4, int i5, String str, int i6, String str2) {
         b bVar = new b();
-        bVar.f40301a = 2;
-        bVar.f40303c = i6;
-        bVar.f40304d = str2;
-        c.i().c(i2, i3, i4, i5, str, bVar, true);
+        bVar.f43979a = 2;
+        bVar.f43981c = i6;
+        bVar.f43982d = str2;
+        c.j().c(i2, i3, i4, i5, str, bVar, true);
     }
 
-    public void f(int i2, int i3, String str) {
+    public void g(int i2, int i3, String str) {
         if (d.a.j0.c.a.c().h(i2)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("0", i3);
                 jSONObject.put("1", str);
-                String e2 = d.a.j0.b.c.b(this.f40379a).e(jSONObject, this.j);
+                String e2 = d.a.j0.b.c.b(this.f44058a).e(jSONObject, this.j);
                 if (d.a.j0.c.a.c().h(i2)) {
                     if (TextUtils.isEmpty(e2)) {
-                        l(i2, 4, 2005, this.f40381c, "server req empty.");
+                        m(i2, 4, 2005, this.f44060c, "server req empty.");
                     } else {
-                        s();
+                        t();
                         JSONObject jSONObject2 = new JSONObject(e2);
                         int optInt = jSONObject2.optInt("0", -1);
                         String optString = jSONObject2.optString("1");
-                        d.a.j0.b.a.g(this.f40379a).I(System.currentTimeMillis());
+                        d.a.j0.b.a.h(this.f44058a).K(System.currentTimeMillis());
                         if (optInt == 0) {
-                            d.a.j0.b.a.g(this.f40379a).p(0);
-                            m(i2, 0, 0, this.f40381c, optString, optInt, "");
+                            d.a.j0.b.a.h(this.f44058a).q(0);
+                            n(i2, 0, 0, this.f44060c, optString, optInt, "");
                         } else {
                             int a2 = a.a(optInt);
-                            d.a.j0.b.a.g(this.f40379a).p(4);
-                            m(i2, 4, a2, this.f40381c, optString, optInt, "");
+                            d.a.j0.b.a.h(this.f44058a).q(4);
+                            n(i2, 4, a2, this.f44060c, optString, optInt, "");
                         }
                     }
                 }
             } catch (Throwable th) {
                 d.a.j0.l.c.d(th);
-                l(i2, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, this.f40381c, "post token unknown error.");
+                m(i2, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, this.f44060c, "post token unknown error.");
             }
         }
     }
 
-    public void g(Context context, int i2) {
-        q = (int) (System.currentTimeMillis() / 1000);
-        d.a.j0.b.c.b(context).f();
-        r();
-    }
-
-    public void h(Context context, int i2, long j) {
-        this.j = j;
-    }
-
-    public boolean j() {
-        return false;
-    }
-
-    public void k(int i2) {
-        this.f40382d = i2;
-    }
-
-    public void l(int i2, int i3, int i4, int i5, String str) {
-        m(i2, i3, i4, i5, str, -1, "");
-    }
-
-    public void m(int i2, int i3, int i4, int i5, String str, int i6, String str2) {
-        b bVar = new b();
-        bVar.f40301a = 4;
-        bVar.f40303c = i6;
-        bVar.f40304d = str2;
-        c.i().c(i2, i3, i4, i5, str, bVar, true);
-    }
-
-    public void n(Context context, int i2) {
-        r = (int) (System.currentTimeMillis() / 1000);
+    public void h(Context context, int i2) {
+        q = UUID.randomUUID().toString();
         d.a.j0.b.c.b(context).f();
         s();
     }
 
-    public void o(Context context, int i2, long j) {
-        d.a.j0.b.c.b(context).f();
+    public void i(Context context, int i2, long j) {
+        this.j = j;
     }
 
-    public boolean p() {
+    public boolean k() {
         return false;
     }
 
+    public void l(int i2) {
+        this.f44061d = i2;
+    }
+
+    public void m(int i2, int i3, int i4, int i5, String str) {
+        n(i2, i3, i4, i5, str, -1, "");
+    }
+
+    public void n(int i2, int i3, int i4, int i5, String str, int i6, String str2) {
+        b bVar = new b();
+        bVar.f43979a = 4;
+        bVar.f43981c = i6;
+        bVar.f43982d = str2;
+        c.j().c(i2, i3, i4, i5, str, bVar, true);
+    }
+
+    public void o(Context context, int i2) {
+        r = UUID.randomUUID().toString();
+        d.a.j0.b.c.b(context).f();
+        t();
+    }
+
+    public void p(Context context, int i2, long j) {
+        d.a.j0.b.c.b(context).f();
+    }
+
     public boolean q() {
-        int i2 = this.f40381c;
+        return false;
+    }
+
+    public boolean r() {
+        int i2 = this.f44060c;
         return i2 == 1 ? (TextUtils.isEmpty(k) || TextUtils.isEmpty(l)) ? false : true : i2 == 3 ? (TextUtils.isEmpty(m) || TextUtils.isEmpty(n)) ? false : true : (i2 != 2 || TextUtils.isEmpty(o) || TextUtils.isEmpty(p)) ? false : true;
     }
 
-    public void r() {
-        this.f40383e = null;
-        this.f40384f = 0L;
-        this.f40385g = null;
+    public void s() {
+        this.f44062e = null;
+        this.f44063f = 0L;
+        this.f44064g = null;
     }
 
-    public void s() {
-        this.f40386h = null;
-        this.f40387i = 0L;
+    public void t() {
+        this.f44065h = null;
+        this.f44066i = 0L;
     }
 
     public String toString() {

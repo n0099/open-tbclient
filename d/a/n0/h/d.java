@@ -26,22 +26,22 @@ public class d {
     public static class a implements i.h {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f55294a;
+        public final /* synthetic */ TbPageContext f58983a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f55295b;
+        public final /* synthetic */ g f58984b;
 
         public a(TbPageContext tbPageContext, g gVar) {
-            this.f55294a = tbPageContext;
-            this.f55295b = gVar;
+            this.f58983a = tbPageContext;
+            this.f58984b = gVar;
         }
 
         @Override // d.a.n0.h.i.h
         public void a(JSONArray jSONArray) {
             if (j.A()) {
-                d.e(jSONArray, this.f55295b.b(), this.f55295b.c());
+                d.e(jSONArray, this.f58984b.b(), this.f58984b.c());
             } else {
-                l.L(this.f55294a.getContext(), R.string.neterror);
+                l.L(this.f58983a.getContext(), R.string.neterror);
             }
         }
     }
@@ -50,22 +50,22 @@ public class d {
     public static class b implements f.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f55296a;
+        public final /* synthetic */ TbPageContext f58985a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f55297b;
+        public final /* synthetic */ g f58986b;
 
         public b(TbPageContext tbPageContext, g gVar) {
-            this.f55296a = tbPageContext;
-            this.f55297b = gVar;
+            this.f58985a = tbPageContext;
+            this.f58986b = gVar;
         }
 
         @Override // d.a.n0.h.f.g
         public void a(JSONArray jSONArray) {
             if (j.A()) {
-                d.e(jSONArray, this.f55297b.b(), this.f55297b.c());
+                d.e(jSONArray, this.f58986b.b(), this.f58986b.c());
             } else {
-                l.L(this.f55296a.getContext(), R.string.neterror);
+                l.L(this.f58985a.getContext(), R.string.neterror);
             }
         }
     }
@@ -88,7 +88,7 @@ public class d {
         JSONArray jSONArray = new JSONArray();
         List<a2> f2 = d.a.n0.r0.b.e().f();
         for (int i3 = 0; i3 < f2.size(); i3++) {
-            jSONArray.put(f2.get(i3).y1());
+            jSONArray.put(f2.get(i3).z1());
         }
         v0 v0Var = new v0();
         v0Var.j(sparseArray);
@@ -119,7 +119,7 @@ public class d {
         JSONArray jSONArray = new JSONArray();
         List<a2> f2 = d.a.n0.r0.b.e().f();
         for (int i3 = 0; i3 < f2.size(); i3++) {
-            jSONArray.put(f2.get(i3).y1());
+            jSONArray.put(f2.get(i3).z1());
         }
         v0 v0Var = new v0();
         v0Var.j(sparseArray);
@@ -150,8 +150,8 @@ public class d {
         String valueOf = String.valueOf(a2Var.c0());
         boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
         if (jSONArray != null) {
-            forumManageModel.M(StringHelper.JsonArrayToString(jSONArray));
+            forumManageModel.Q(StringHelper.JsonArrayToString(jSONArray));
         }
-        forumManageModel.N(valueOf, i0, o0, null, 0, 1, isCurrentAccount, a2Var.V());
+        forumManageModel.R(valueOf, i0, o0, null, 0, 1, isCurrentAccount, a2Var.V());
     }
 }

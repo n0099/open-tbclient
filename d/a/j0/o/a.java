@@ -1,71 +1,66 @@
 package d.a.j0.o;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.ServiceConnection;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.text.TextUtils;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import android.os.IBinder;
+import com.baidu.sso.n.d;
 /* loaded from: classes2.dex */
-public final class a {
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f40496b;
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.sso.n.a f40495a = null;
+    public Context f44166a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public d f44167b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40497c = null;
+    public ServiceConnection f44168c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40498d = null;
+    public d.a.j0.n.b f44169d;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f40499e = new c(this);
-
-    public a(Context context, d.a.j0.m.c cVar) {
-        this.f40496b = context;
-    }
-
-    public final String a(String str) {
-        return this.f40495a == null ? "" : b(str);
-    }
-
-    public final String b(String str) {
-        String str2;
-        Signature[] signatureArr;
-        String str3 = null;
-        try {
-            if (TextUtils.isEmpty(this.f40497c)) {
-                this.f40497c = this.f40496b.getPackageName();
-            }
-            if (TextUtils.isEmpty(this.f40498d)) {
-                try {
-                    signatureArr = this.f40496b.getPackageManager().getPackageInfo(this.f40497c, 64).signatures;
-                } catch (PackageManager.NameNotFoundException unused) {
-                    signatureArr = null;
-                }
-                if (signatureArr != null && signatureArr.length > 0) {
-                    try {
-                        byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
-                        StringBuilder sb = new StringBuilder();
-                        for (byte b2 : digest) {
-                            sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
-                        }
-                        str3 = sb.toString();
-                    } catch (NoSuchAlgorithmException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                this.f40498d = str3;
-            }
-            str2 = this.f40495a.a(this.f40497c, this.f40498d, str);
-        } catch (Throwable th) {
-            th.printStackTrace();
-            str2 = str3;
+    /* renamed from: d.a.j0.o.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public class ServiceConnectionC0613a implements ServiceConnection {
+        public ServiceConnectionC0613a() {
         }
-        return TextUtils.isEmpty(str2) ? "" : str2;
+
+        @Override // android.content.ServiceConnection
+        public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            a.this.f44167b = d.a.a(iBinder);
+            d.a.j0.n.b bVar = a.this.f44169d;
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            a aVar = a.this;
+            aVar.f44167b = null;
+            d.a.j0.n.b bVar = aVar.f44169d;
+        }
+    }
+
+    public a(Context context) {
+        this.f44166a = null;
+        this.f44166a = context;
+    }
+
+    public String a() {
+        try {
+            if (this.f44167b != null) {
+                return ((d.a.C0147a) this.f44167b).a();
+            }
+            return null;
+        } catch (Throwable unused) {
+            return null;
+        }
+    }
+
+    public void b() {
+        this.f44168c = new ServiceConnectionC0613a();
+        Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+        intent.setPackage("com.huawei.hwid");
+        this.f44166a.bindService(intent, this.f44168c, 1);
     }
 }

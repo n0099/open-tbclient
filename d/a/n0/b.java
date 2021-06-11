@@ -8,13 +8,13 @@ public class b {
         if (hVar == null) {
             return;
         }
-        if (hVar.f50462b != 0) {
-            d.a.m0.r.d0.b.j().x("app_entrance_nologin", hVar.f50462b + "");
+        if (hVar.f54138b != 0) {
+            d.a.m0.r.d0.b.j().x("app_entrance_nologin", hVar.f54138b + "");
         }
-        if (hVar.f50461a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
+        if (hVar.f54137a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        d.a.m0.r.d0.b.j().x("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), hVar.f50461a + "");
+        d.a.m0.r.d0.b.j().x("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), hVar.f54137a + "");
     }
 
     public int a() {

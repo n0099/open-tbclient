@@ -1,29 +1,9 @@
 package d.a.c.j;
 
-import android.view.animation.Interpolator;
+import com.baidu.searchbox.config.AppConfig;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Interpolator f39200a = new animation.InterpolatorC0497a();
-
-    /* renamed from: d.a.c.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class animation.InterpolatorC0497a implements Interpolator {
-        @Override // android.animation.TimeInterpolator
-        public float getInterpolation(float f2) {
-            float f3 = f2 - 1.0f;
-            return (f3 * f3 * f3 * f3 * f3) + 1.0f;
-        }
-    }
-
-    public static int a(float f2, float f3, boolean z) {
-        float interpolation;
-        if (z) {
-            interpolation = f2 - (f39200a.getInterpolation(f3 / (f3 - f2)) * f2);
-        } else {
-            interpolation = f2 * f39200a.getInterpolation(f3 / f2);
-        }
-        return (int) interpolation;
-    }
+    public static final boolean f42853a = AppConfig.isDebug();
 }

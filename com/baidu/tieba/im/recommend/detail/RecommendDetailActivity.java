@@ -68,9 +68,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.OFF) {
-            this.mModel.C(false);
+            this.mModel.G(false);
         } else {
-            this.mModel.C(true);
+            this.mModel.G(true);
         }
     }
 
@@ -100,7 +100,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         this.mModel = new RecommendDetailModel(getPageContext(), this);
         initData(bundle);
         checkIsShowAcceptSwitch();
-        this.mModel.A(this.mUserId);
+        this.mModel.E(this.mUserId);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -118,7 +118,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         if (!StringUtils.isNull(str)) {
             showToast(str);
         }
-        if (this.mView == null || (recommendDetailModel = this.mModel) == null || !recommendDetailModel.y() || this.mModel.x()) {
+        if (this.mView == null || (recommendDetailModel = this.mModel) == null || !recommendDetailModel.C() || this.mModel.B()) {
             return;
         }
         if (l.D()) {

@@ -25,27 +25,27 @@ import java.util.Arrays;
 public class RoundCornerFrameLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f4507e;
+    public RectF f4526e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f4508f;
+    public float[] f4527f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f4509g;
+    public Paint f4528g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f4510h;
+    public ImageView f4529h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bitmap f4511i;
+    public Bitmap f4530i;
     public int j;
     public ColorFilter k;
     public ColorFilter l;
 
     public RoundCornerFrameLayout(Context context) {
         super(context);
-        this.f4508f = new float[8];
-        this.f4510h = null;
+        this.f4527f = new float[8];
+        this.f4529h = null;
         this.j = 3;
         b();
     }
@@ -54,15 +54,15 @@ public class RoundCornerFrameLayout extends FrameLayout {
         if (getMeasuredHeight() <= 0 || getMeasuredWidth() <= 0) {
             return;
         }
-        this.f4507e.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        this.f4526e.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         try {
-            this.f4511i = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+            this.f4530i = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
         } catch (OutOfMemoryError e2) {
             BdLog.e(e2);
             System.gc();
             TbadkCoreApplication.getInst().onLowMemory();
             try {
-                this.f4511i = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+                this.f4530i = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
             } catch (OutOfMemoryError unused) {
                 BdLog.e(e2);
                 System.gc();
@@ -70,58 +70,58 @@ public class RoundCornerFrameLayout extends FrameLayout {
                 return;
             }
         }
-        Canvas canvas = new Canvas(this.f4511i);
+        Canvas canvas = new Canvas(this.f4530i);
         canvas.drawColor(-16777216);
-        this.f4509g.setColor(-1);
+        this.f4528g.setColor(-1);
         Path path = new Path();
-        path.addRoundRect(this.f4507e, this.f4508f, Path.Direction.CW);
-        canvas.drawPath(path, this.f4509g);
-        this.f4510h.setImageBitmap(this.f4511i);
-        if (this.f4510h.getParent() == null) {
-            addView(this.f4510h);
+        path.addRoundRect(this.f4526e, this.f4527f, Path.Direction.CW);
+        canvas.drawPath(path, this.f4528g);
+        this.f4529h.setImageBitmap(this.f4530i);
+        if (this.f4529h.getParent() == null) {
+            addView(this.f4529h);
         }
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        ImageView imageView = this.f4510h;
+        ImageView imageView = this.f4529h;
         if (imageView == null || view == imageView) {
             return;
         }
         if (imageView.getParent() != null) {
-            ((ViewGroup) this.f4510h.getParent()).removeView(this.f4510h);
+            ((ViewGroup) this.f4529h.getParent()).removeView(this.f4529h);
         }
-        super.addView(this.f4510h);
+        super.addView(this.f4529h);
     }
 
     public final void b() {
         setWillNotDraw(false);
-        this.f4507e = new RectF();
-        this.f4508f = a.v(R.string.J_X05);
+        this.f4526e = new RectF();
+        this.f4527f = a.v(R.string.J_X05);
         Paint paint = new Paint();
-        this.f4509g = paint;
+        this.f4528g = paint;
         paint.setStrokeWidth(0.0f);
-        this.f4509g.setStrokeCap(Paint.Cap.ROUND);
-        this.f4509g.setAntiAlias(true);
-        this.f4509g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f4528g.setStrokeCap(Paint.Cap.ROUND);
+        this.f4528g.setAntiAlias(true);
+        this.f4528g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         ImageView imageView = new ImageView(getContext());
-        this.f4510h = imageView;
+        this.f4529h = imageView;
         imageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 
     public void c(int i2) {
-        if (this.f4510h == null || this.j == i2) {
+        if (this.f4529h == null || this.j == i2) {
             return;
         }
         this.j = i2;
         this.k = new SimpleColorFilter(SkinManager.getColor(R.color.CAM_X0201));
         this.l = new SimpleColorFilter(SkinManager.getColor(R.color.CAM_X0205));
-        this.f4510h.setColorFilter(this.k);
+        this.f4529h.setColorFilter(this.k);
     }
 
     public void d(boolean z) {
-        ImageView imageView = this.f4510h;
+        ImageView imageView = this.f4529h;
         if (imageView != null) {
             imageView.setColorFilter(z ? this.l : this.k);
         }
@@ -130,9 +130,9 @@ public class RoundCornerFrameLayout extends FrameLayout {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         if (!(i2 == i4 && i3 == i5) && i2 > 0 && i3 > 0) {
-            Bitmap bitmap = this.f4511i;
+            Bitmap bitmap = this.f4530i;
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f4511i.recycle();
+                this.f4530i.recycle();
             }
             a();
         }
@@ -141,18 +141,18 @@ public class RoundCornerFrameLayout extends FrameLayout {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        ImageView imageView = this.f4510h;
+        ImageView imageView = this.f4529h;
         if (imageView != null) {
             if (imageView.getParent() != null) {
-                ((ViewGroup) this.f4510h.getParent()).removeView(this.f4510h);
+                ((ViewGroup) this.f4529h.getParent()).removeView(this.f4529h);
             }
-            super.addView(this.f4510h);
+            super.addView(this.f4529h);
         }
     }
 
     public void setCorner(float f2) {
-        Arrays.fill(this.f4508f, f2);
-        Bitmap bitmap = this.f4511i;
+        Arrays.fill(this.f4527f, f2);
+        Bitmap bitmap = this.f4530i;
         if (bitmap != null) {
             bitmap.recycle();
             a();
@@ -160,8 +160,8 @@ public class RoundCornerFrameLayout extends FrameLayout {
     }
 
     public void setCornerId(int i2) {
-        this.f4508f = a.v(i2);
-        Bitmap bitmap = this.f4511i;
+        this.f4527f = a.v(i2);
+        Bitmap bitmap = this.f4530i;
         if (bitmap != null) {
             bitmap.recycle();
             a();
@@ -170,16 +170,16 @@ public class RoundCornerFrameLayout extends FrameLayout {
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4508f = new float[8];
-        this.f4510h = null;
+        this.f4527f = new float[8];
+        this.f4529h = null;
         this.j = 3;
         b();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f4508f = new float[8];
-        this.f4510h = null;
+        this.f4527f = new float[8];
+        this.f4529h = null;
         this.j = 3;
         b();
     }

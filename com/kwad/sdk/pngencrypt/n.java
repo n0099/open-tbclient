@@ -3,17 +3,17 @@ package com.kwad.sdk.pngencrypt;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Charset f33468a = Charset.forName("ISO-8859-1");
+    public static Charset f36928a = Charset.forName("ISO-8859-1");
 
     /* renamed from: b  reason: collision with root package name */
-    public static Charset f33469b = Charset.forName("UTF-8");
+    public static Charset f36929b = Charset.forName("UTF-8");
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThreadLocal<Boolean> f33470c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+    public static ThreadLocal<Boolean> f36930c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.ThreadLocal
         /* renamed from: a */

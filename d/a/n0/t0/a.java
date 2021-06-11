@@ -1,7 +1,7 @@
 package d.a.n0.t0;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a2;
 import java.util.List;
 import tbclient.FrsTabInfo;
@@ -9,7 +9,7 @@ import tbclient.FrsTabInfo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f60836a;
+    public int f64527a;
 
     public static a a(boolean z) {
         if (z && d()) {
@@ -46,9 +46,9 @@ public class a {
                 }
             }
         } else {
-            i2 = this.f60836a;
+            i2 = this.f64527a;
         }
-        this.f60836a = c(i2, d2, list, str);
+        this.f64527a = c(i2, d2, list, str);
     }
 
     public final int c(int i2, int i3, List<n> list, String str) {
@@ -59,7 +59,7 @@ public class a {
             a2 a2Var = new a2();
             d.a.n0.e3.h0.n nVar = new d.a.n0.e3.h0.n();
             nVar.k(true);
-            a2Var.D2 = nVar;
+            a2Var.F2 = nVar;
             nVar.j(str);
             list.add(i2, a2Var);
             i2 = i2 + i3 + 1;

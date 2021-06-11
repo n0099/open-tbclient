@@ -3,7 +3,7 @@ package okio;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
 import java.util.zip.Deflater;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DeflaterSink implements Sink {
     public boolean closed;
     public final Deflater deflater;

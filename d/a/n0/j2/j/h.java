@@ -17,24 +17,24 @@ public class h extends d.a.n0.z.b<d.a.n0.j2.e.j> implements View.OnClickListener
 
     public h(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        s(l());
+        t(m());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_privacy_setting_view;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
             SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0109, 1);
             SkinManager.setImageResource(this.r, R.drawable.pic_pop_key);
             SkinManager.setViewTextColor(this.p, R.color.CAM_X0304, 1);
         }
-        this.f63440e = i2;
+        this.f67158e = i2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -46,7 +46,7 @@ public class h extends d.a.n0.z.b<d.a.n0.j2.e.j> implements View.OnClickListener
         cVar.a();
     }
 
-    public final void s(View view) {
+    public final void t(View view) {
         this.m = view.findViewById(R.id.card_privacy_setting_rootview);
         this.o = view.findViewById(R.id.top_divider_line);
         this.r = (ImageView) view.findViewById(R.id.lock_img);
@@ -57,8 +57,8 @@ public class h extends d.a.n0.z.b<d.a.n0.j2.e.j> implements View.OnClickListener
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(d.a.n0.j2.e.j jVar) {
+    /* renamed from: u */
+    public void n(d.a.n0.j2.e.j jVar) {
         if (jVar == null) {
             this.m.setVisibility(8);
             return;
@@ -68,7 +68,7 @@ public class h extends d.a.n0.z.b<d.a.n0.j2.e.j> implements View.OnClickListener
         }
         View view = this.o;
         if (view != null) {
-            if (jVar.f56421e) {
+            if (jVar.f60110e) {
                 view.setVisibility(8);
             } else {
                 view.setVisibility(0);
@@ -76,7 +76,7 @@ public class h extends d.a.n0.z.b<d.a.n0.j2.e.j> implements View.OnClickListener
         }
     }
 
-    public void u(d.a.n0.j2.d.c cVar) {
+    public void v(d.a.n0.j2.d.c cVar) {
         this.n = cVar;
     }
 }

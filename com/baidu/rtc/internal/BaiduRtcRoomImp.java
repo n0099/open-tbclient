@@ -40,6 +40,7 @@ import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.heytap.mcssdk.mode.CommandMessage;
+import com.kwai.video.player.KsMediaMeta;
 import d.a.k.c.b;
 import d.a.k.d.a;
 import d.a.k.d.b;
@@ -71,7 +72,6 @@ import org.webrtc.CameraVideoCapturer;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase_CC;
 import org.webrtc.IceCandidate;
-import org.webrtc.MediaStreamTrack;
 import org.webrtc.SessionDescription;
 import org.webrtc.StatsReport;
 import org.webrtc.VideoCapturer;
@@ -231,7 +231,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
             BaiduRtcRoom.RtcSoundMode rtcSoundMode;
             if (BaiduRtcRoomImp.this.audioManager == null) {
                 BaiduRtcRoomImp baiduRtcRoomImp2 = BaiduRtcRoomImp.this;
-                baiduRtcRoomImp2.audioManager = (AudioManager) ((Context) baiduRtcRoomImp2.mContext.get()).getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                baiduRtcRoomImp2.audioManager = (AudioManager) ((Context) baiduRtcRoomImp2.mContext.get()).getSystemService("audio");
             }
             String action = intent.getAction();
             if ("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED".equals(action)) {
@@ -505,7 +505,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
             zArr[i2] = false;
             i2++;
         }
-        AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
         audioManager.setSpeakerphoneOn(false);
         if (this.mIsEnablePushQualityMonitor || this.mIsEnablePullQualityMonitor || this.mIsEnableErrorInfoMonitor) {
             this.mCpuMonitor = new CpuMonitor(context);
@@ -517,7 +517,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         ErrorInfoReport.getInstance().setAppId(this.mAppId);
         this.bluetoothOpSeq = 0;
         this.isBluetoothOn = Boolean.FALSE;
-        audioManager = audioManager == null ? (AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND) : audioManager;
+        audioManager = audioManager == null ? (AudioManager) this.mContext.get().getSystemService("audio") : audioManager;
         this.mHeadSetReceiver = new HeadsetReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
@@ -684,7 +684,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     public boolean isHeadsetOn(Context context) {
         AudioDeviceInfo[] devices;
         if (this.audioManager == null) {
-            this.audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            this.audioManager = (AudioManager) context.getSystemService("audio");
         }
         AudioManager audioManager = this.audioManager;
         if (audioManager == null) {
@@ -845,7 +845,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
             if (this.mIsEnablePushQualityMonitor) {
                 JSONObject jSONObject4 = new JSONObject();
                 if (z) {
-                    jSONObject4.put("bitrate", hashMap.get("bitrate_s"));
+                    jSONObject4.put(KsMediaMeta.KSM_KEY_BITRATE, hashMap.get("bitrate_s"));
                     jSONObject4.put("packetloss", hashMap.get("packetloss_s"));
                     jSONObject4.put("cfps", hashMap.get("fps_s"));
                     jSONObject4.put("fps", hashMap.get("fps_i"));
@@ -854,7 +854,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                         jSONObject2.put("senderQualityInfo", jSONObject4);
                     }
                 } else {
-                    jSONObject4.put("bitrate", 0);
+                    jSONObject4.put(KsMediaMeta.KSM_KEY_BITRATE, 0);
                     jSONObject4.put("packetloss", 0);
                     jSONObject4.put("fps", 0);
                 }
@@ -872,7 +872,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                             if (this.mWebSocketChannel != null) {
                                 jSONObject5.put("feedId", this.mWebSocketChannel.getFeedByHandle(bigInteger));
                             }
-                            jSONObject5.put("bitrate", hashMap2.get("bitrate_r"));
+                            jSONObject5.put(KsMediaMeta.KSM_KEY_BITRATE, hashMap2.get("bitrate_r"));
                             jSONObject5.put("packetloss", hashMap2.get("packetloss_r"));
                             jSONObject5.put("fps", hashMap2.get("fps_r"));
                             jSONObject5.put("resolution", hUDStatistics.getRecvResolution());
@@ -1095,7 +1095,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
             return 0;
         }
         if (this.audioManager == null) {
-            this.audioManager = (AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            this.audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
         }
         if (this.audioManager == null) {
             return -1;
@@ -1358,7 +1358,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean isSpeakerOn() {
-        return ((AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).isSpeakerphoneOn();
+        return ((AudioManager) this.mContext.get().getSystemService("audio")).isSpeakerphoneOn();
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
@@ -2325,7 +2325,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void presetLoudSpeaker(boolean z) {
-        ((AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).setSpeakerphoneOn(z);
+        ((AudioManager) this.mContext.get().getSystemService("audio")).setSpeakerphoneOn(z);
         reportRoomEventInfo("PRESETLOUDSPEAKER");
     }
 
@@ -2645,7 +2645,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void setSoundMod(BaiduRtcRoom.RtcSoundMode rtcSoundMode) {
         boolean z;
-        AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
         if (rtcSoundMode == BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_SPEAKER) {
             z = true;
         } else if (rtcSoundMode != BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_EAR) {
@@ -2826,7 +2826,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void switchLoundSpeaker() {
-        AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService("audio");
         audioManager.setSpeakerphoneOn(!audioManager.isSpeakerphoneOn());
         reportRoomEventInfo("SWITCH_LOUDSPEAKER");
     }

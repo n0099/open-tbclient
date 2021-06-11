@@ -10,10 +10,10 @@ import java.util.Map;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, a> f30208a = Collections.synchronizedMap(new HashMap());
+    public static final Map<String, a> f30311a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    public static IListenerManager f30209b;
+    public static IListenerManager f30312b;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -26,7 +26,7 @@ public class h {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f30208a.remove(str);
+        return f30311a.remove(str);
     }
 
     public static void a(String str, String[] strArr, a aVar) {
@@ -38,10 +38,10 @@ public class h {
     }
 
     public static IListenerManager b() {
-        if (f30209b == null) {
-            f30209b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(4));
+        if (f30312b == null) {
+            f30312b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(4));
         }
-        return f30209b;
+        return f30312b;
     }
 
     public static void a(final String str) {
@@ -110,7 +110,7 @@ public class h {
                 }
             }, 5);
         } else {
-            f30208a.put(str, aVar);
+            f30311a.put(str, aVar);
         }
     }
 }

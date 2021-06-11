@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.a.m0.z0.w;
 import tbclient.CheckRealName.CheckRealNameReqIdl;
 import tbclient.CheckRealName.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CheckRealNameRequestNetMessage extends NetMessage {
     public String objSource;
     public Object objTag;

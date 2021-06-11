@@ -16,30 +16,30 @@ import androidx.swiperefreshlayout.widget.CircleImageView;
 public class BdCircleImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Animation.AnimationListener f2470e;
+    public Animation.AnimationListener f2489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2471f;
+    public int f2490f;
 
     /* loaded from: classes.dex */
     public class a extends OvalShape {
 
         /* renamed from: e  reason: collision with root package name */
-        public RadialGradient f2472e;
+        public RadialGradient f2491e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f2473f = new Paint();
+        public Paint f2492f = new Paint();
 
         public a(int i2) {
-            BdCircleImageView.this.f2471f = i2;
+            BdCircleImageView.this.f2490f = i2;
             a((int) rect().width());
         }
 
         public final void a(int i2) {
             float f2 = i2 / 2;
-            RadialGradient radialGradient = new RadialGradient(f2, f2, BdCircleImageView.this.f2471f, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
-            this.f2472e = radialGradient;
-            this.f2473f.setShader(radialGradient);
+            RadialGradient radialGradient = new RadialGradient(f2, f2, BdCircleImageView.this.f2490f, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
+            this.f2491e = radialGradient;
+            this.f2492f.setShader(radialGradient);
         }
 
         @Override // android.graphics.drawable.shapes.OvalShape, android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
@@ -47,8 +47,8 @@ public class BdCircleImageView extends ImageView {
             int width;
             float width2 = BdCircleImageView.this.getWidth() / 2;
             float height = BdCircleImageView.this.getHeight() / 2;
-            canvas.drawCircle(width2, height, width2, this.f2473f);
-            canvas.drawCircle(width2, height, width - BdCircleImageView.this.f2471f, paint);
+            canvas.drawCircle(width2, height, width2, this.f2492f);
+            canvas.drawCircle(width2, height, width - BdCircleImageView.this.f2490f, paint);
         }
 
         @Override // android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
@@ -64,15 +64,15 @@ public class BdCircleImageView extends ImageView {
         float f2 = getContext().getResources().getDisplayMetrics().density;
         int i3 = (int) (1.75f * f2);
         int i4 = (int) (0.0f * f2);
-        this.f2471f = (int) (3.5f * f2);
+        this.f2490f = (int) (3.5f * f2);
         if (a()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
             ViewCompat.setElevation(this, f2 * 4.0f);
         } else {
-            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new a(this.f2471f));
+            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new a(this.f2490f));
             ViewCompat.setLayerType(this, 1, shapeDrawable2.getPaint());
-            shapeDrawable2.getPaint().setShadowLayer(this.f2471f, i4, i3, CircleImageView.KEY_SHADOW_COLOR);
-            int i5 = this.f2471f;
+            shapeDrawable2.getPaint().setShadowLayer(this.f2490f, i4, i3, CircleImageView.KEY_SHADOW_COLOR);
+            int i5 = this.f2490f;
             setPadding(i5, i5, i5, i5);
             shapeDrawable = shapeDrawable2;
         }
@@ -87,7 +87,7 @@ public class BdCircleImageView extends ImageView {
     @Override // android.view.View
     public void onAnimationEnd() {
         super.onAnimationEnd();
-        Animation.AnimationListener animationListener = this.f2470e;
+        Animation.AnimationListener animationListener = this.f2489e;
         if (animationListener != null) {
             animationListener.onAnimationEnd(getAnimation());
         }
@@ -96,7 +96,7 @@ public class BdCircleImageView extends ImageView {
     @Override // android.view.View
     public void onAnimationStart() {
         super.onAnimationStart();
-        Animation.AnimationListener animationListener = this.f2470e;
+        Animation.AnimationListener animationListener = this.f2489e;
         if (animationListener != null) {
             animationListener.onAnimationStart(getAnimation());
         }
@@ -108,11 +108,11 @@ public class BdCircleImageView extends ImageView {
         if (a()) {
             return;
         }
-        setMeasuredDimension(getMeasuredWidth() + (this.f2471f * 2), getMeasuredHeight() + (this.f2471f * 2));
+        setMeasuredDimension(getMeasuredWidth() + (this.f2490f * 2), getMeasuredHeight() + (this.f2490f * 2));
     }
 
     public void setAnimationListener(Animation.AnimationListener animationListener) {
-        this.f2470e = animationListener;
+        this.f2489e = animationListener;
     }
 
     @Override // android.view.View

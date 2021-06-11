@@ -36,58 +36,58 @@ public class b {
     public static b l;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f49867c;
+    public d f53543c;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49873i;
+    public int f53549i;
     public ChangeSkinReceiver k;
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountData f49865a = null;
+    public AccountData f53541a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49866b = false;
+    public boolean f53542b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49868d = 0;
+    public int f53544d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49869e = 0;
+    public int f53545e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49870f = 0;
+    public int f53546f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49871g = 0;
+    public int f53547g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f49872h = true;
+    public boolean f53548h = true;
     public boolean j = true;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f49874e;
+        public final /* synthetic */ AccountData f53550e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f49875f;
+        public final /* synthetic */ Context f53551f;
 
         public a(AccountData accountData, Context context) {
-            this.f49874e = accountData;
-            this.f49875f = context;
+            this.f53550e = accountData;
+            this.f53551f = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.M(this.f49874e, this.f49875f);
+            b.this.M(this.f53550e, this.f53551f);
         }
     }
 
     /* renamed from: d.a.m0.r.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1142b implements Runnable {
-        public RunnableC1142b() {
+    public class RunnableC1198b implements Runnable {
+        public RunnableC1198b() {
         }
 
         @Override // java.lang.Runnable
@@ -114,15 +114,15 @@ public class b {
             if (b.this.E() && intent != null && "com.baidu.tieba.action.accountChange".equals(intent.getAction())) {
                 Serializable serializableExtra = intent.getSerializableExtra("intent_data_accountData");
                 if (serializableExtra instanceof AccountData) {
-                    b.this.f49865a = (AccountData) serializableExtra;
+                    b.this.f53541a = (AccountData) serializableExtra;
                 } else {
-                    b.this.f49865a = null;
+                    b.this.f53541a = null;
                 }
                 d.a.m0.f0.f.h(b.this.C());
-                if (b.this.f49865a != null) {
-                    d.a.m0.f0.f.g(b.this.f49865a.getBDUSS());
-                    d.a.m0.f0.f.j(b.this.f49865a.getTbs());
-                    d.a.m0.f0.f.i(b.this.f49865a.getStoken());
+                if (b.this.f53541a != null) {
+                    d.a.m0.f0.f.g(b.this.f53541a.getBDUSS());
+                    d.a.m0.f0.f.j(b.this.f53541a.getTbs());
+                    d.a.m0.f0.f.i(b.this.f53541a.getStoken());
                 }
             }
         }
@@ -183,11 +183,11 @@ public class b {
     }
 
     public void A() {
-        if (!D(false) && E() && this.f49867c == null) {
-            this.f49867c = new d(this, null);
+        if (!D(false) && E() && this.f53543c == null) {
+            this.f53543c = new d(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.tieba.action.accountChange");
-            TbadkCoreApplication.getInst().registerReceiver(this.f49867c, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(this.f53543c, intentFilter);
         }
     }
 
@@ -214,7 +214,7 @@ public class b {
     }
 
     public boolean F() {
-        return this.f49872h;
+        return this.f53548h;
     }
 
     public void G(AccountData accountData, Application application) {
@@ -222,22 +222,22 @@ public class b {
         d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
         String p = j.p("current_used_theme_" + g(), null);
         if (StringUtils.isNull(p)) {
-            this.f49869e = 0;
-            this.f49870f = 0;
+            this.f53545e = 0;
+            this.f53546f = 0;
         } else {
             String[] split = p.split("/");
             if (split != null && split.length >= 2) {
-                this.f49869e = d.a.c.e.m.b.d(split[0], 0);
-                this.f49870f = d.a.c.e.m.b.d(split[1], 0);
+                this.f53545e = d.a.c.e.m.b.d(split[0], 0);
+                this.f53546f = d.a.c.e.m.b.d(split[1], 0);
             } else {
-                this.f49869e = 0;
-                this.f49870f = 0;
+                this.f53545e = 0;
+                this.f53546f = 0;
             }
         }
-        this.f49868d = TbadkSettings.getInst().loadInt("skin_", 0);
+        this.f53544d = TbadkSettings.getInst().loadInt("skin_", 0);
         this.j = true;
         e();
-        d.a.c.e.m.e.a().postDelayed(new RunnableC1142b(), 600L);
+        d.a.c.e.m.e.a().postDelayed(new RunnableC1198b(), 600L);
         MessageManager.getInstance().sendMessage(new CustomMessage(2005006, accountData));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
@@ -247,29 +247,29 @@ public class b {
     }
 
     public void J(AccountData accountData, String str, String str2) {
-        if (accountData == null && this.f49865a != null) {
-            this.f49866b = true;
-        } else if (this.f49865a == null && accountData != null) {
-            this.f49866b = true;
+        if (accountData == null && this.f53541a != null) {
+            this.f53542b = true;
+        } else if (this.f53541a == null && accountData != null) {
+            this.f53542b = true;
         } else {
-            AccountData accountData2 = this.f49865a;
+            AccountData accountData2 = this.f53541a;
             if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
-                this.f49866b = true;
+                this.f53542b = true;
             }
         }
-        if (this.f49865a == null && accountData != null) {
-            this.f49865a = accountData;
+        if (this.f53541a == null && accountData != null) {
+            this.f53541a = accountData;
         }
-        if (this.f49865a == null) {
+        if (this.f53541a == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f49865a.setBDUSS(str);
+            this.f53541a.setBDUSS(str);
         }
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f49865a.setTbs(str2);
+        this.f53541a.setTbs(str2);
     }
 
     public void K(AccountData accountData, Context context) {
@@ -294,7 +294,7 @@ public class b {
     public void L(AccountData accountData, Context context) {
         String str;
         String str2;
-        this.f49865a = accountData;
+        this.f53541a = accountData;
         String str3 = null;
         if (accountData != null) {
             str3 = accountData.getID();
@@ -308,19 +308,19 @@ public class b {
     }
 
     public void M(AccountData accountData, Context context) {
-        if (!this.f49866b) {
-            if (accountData == null && this.f49865a != null) {
-                this.f49866b = true;
-            } else if (this.f49865a == null && accountData != null) {
-                this.f49866b = true;
+        if (!this.f53542b) {
+            if (accountData == null && this.f53541a != null) {
+                this.f53542b = true;
+            } else if (this.f53541a == null && accountData != null) {
+                this.f53542b = true;
             } else {
-                AccountData accountData2 = this.f49865a;
+                AccountData accountData2 = this.f53541a;
                 if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
-                    this.f49866b = true;
+                    this.f53542b = true;
                 }
             }
         }
-        this.f49865a = accountData;
+        this.f53541a = accountData;
         if (context != null) {
             if (TbadkCoreApplication.getInst().isPushServiceOpen()) {
                 UtilHelper.startPushService(context);
@@ -329,7 +329,7 @@ public class b {
             }
         }
         I(accountData);
-        if (this.f49866b) {
+        if (this.f53542b) {
             G(accountData, TbadkCoreApplication.getInst());
             BdSocketLinkService.setHasAbsoluteClose(false);
             BdSocketLinkService.setAvailable(true);
@@ -344,14 +344,14 @@ public class b {
     }
 
     public void N(int i2) {
-        AccountData accountData = this.f49865a;
+        AccountData accountData = this.f53541a;
         if (accountData != null) {
             accountData.setMemberType(i2);
         }
     }
 
     public void O(int i2) {
-        this.f49873i = v();
+        this.f53549i = v();
         H();
         P(i2);
         TbadkSettings.getInst().saveInt("skin_", i2);
@@ -360,7 +360,7 @@ public class b {
     }
 
     public void P(int i2) {
-        this.f49868d = i2;
+        this.f53544d = i2;
     }
 
     public void Q(String str) {
@@ -368,23 +368,23 @@ public class b {
             return;
         }
         synchronized (this) {
-            if (this.f49865a != null) {
-                this.f49865a.setTbs(str);
+            if (this.f53541a != null) {
+                this.f53541a.setTbs(str);
             }
         }
     }
 
     public void R(boolean z) {
-        this.f49872h = z;
+        this.f53548h = z;
     }
 
     public void S() {
         int i2;
-        if (this.f49868d == 2 && (i2 = this.f49869e) > 0) {
-            T(i2, this.f49870f);
+        if (this.f53544d == 2 && (i2 = this.f53545e) > 0) {
+            T(i2, this.f53546f);
             return;
         }
-        int i3 = this.f49868d;
+        int i3 = this.f53544d;
         if (i3 == 1) {
             O(i3);
         } else {
@@ -396,7 +396,7 @@ public class b {
         if (i2 <= 0) {
             return;
         }
-        if (!this.j && i2 == this.f49869e && this.f49868d == 2) {
+        if (!this.j && i2 == this.f53545e && this.f53544d == 2) {
             return;
         }
         this.j = false;
@@ -405,16 +405,16 @@ public class b {
             SkinManager.setSkinRes(str);
             PackageInfo apkFileMetaData = FileHelper.getApkFileMetaData(str);
             if (apkFileMetaData != null && apkFileMetaData.applicationInfo != null && apkFileMetaData.applicationInfo.metaData != null) {
-                this.f49871g = apkFileMetaData.applicationInfo.metaData.getInt(SkinManager.THEME_ICON_COLOR_VALUE);
-                this.f49872h = apkFileMetaData.applicationInfo.metaData.getInt(SkinManager.THEME_ICON_COVER_VALUE) != 1;
-                this.f49869e = i2;
+                this.f53547g = apkFileMetaData.applicationInfo.metaData.getInt(SkinManager.THEME_ICON_COLOR_VALUE);
+                this.f53548h = apkFileMetaData.applicationInfo.metaData.getInt(SkinManager.THEME_ICON_COVER_VALUE) != 1;
+                this.f53545e = i2;
                 BitmapHelper.clearThemeCashBitmap();
-                d.a.m0.r.d0.b.j().x("current_used_theme_" + g(), i2 + "/" + this.f49870f);
+                d.a.m0.r.d0.b.j().x("current_used_theme_" + g(), i2 + "/" + this.f53546f);
                 O(2);
                 return;
             }
             O(0);
-            this.f49869e = 0;
+            this.f53545e = 0;
         } catch (Throwable th) {
             O(0);
             BdLog.e(th);
@@ -422,7 +422,7 @@ public class b {
     }
 
     public void U(int i2) {
-        this.f49871g = i2;
+        this.f53547g = i2;
     }
 
     public void a(int i2) {
@@ -455,7 +455,7 @@ public class b {
     }
 
     public String g() {
-        AccountData accountData = this.f49865a;
+        AccountData accountData = this.f53541a;
         if (accountData != null) {
             return accountData.getID();
         }
@@ -472,7 +472,7 @@ public class b {
     }
 
     public long i() {
-        AccountData accountData = this.f49865a;
+        AccountData accountData = this.f53541a;
         if (accountData != null) {
             return d.a.c.e.m.b.f(accountData.getID(), 0L);
         }
@@ -480,11 +480,11 @@ public class b {
     }
 
     public AccountData j() {
-        return this.f49865a;
+        return this.f53541a;
     }
 
     public String k() {
-        AccountData accountData = this.f49865a;
+        AccountData accountData = this.f53541a;
         if (accountData != null) {
             return accountData.getAccount();
         }
@@ -492,7 +492,7 @@ public class b {
     }
 
     public String l() {
-        AccountData accountData = this.f49865a;
+        AccountData accountData = this.f53541a;
         if (accountData != null) {
             return accountData.getAccountNameShow();
         }
@@ -500,7 +500,7 @@ public class b {
     }
 
     public AccountData m() {
-        return this.f49865a;
+        return this.f53541a;
     }
 
     public String n() {
@@ -515,7 +515,7 @@ public class b {
     }
 
     public String o() {
-        AccountData accountData = this.f49865a;
+        AccountData accountData = this.f53541a;
         if (accountData != null) {
             return accountData.getBDUSS();
         }
@@ -523,7 +523,7 @@ public class b {
     }
 
     public int p() {
-        AccountData accountData = this.f49865a;
+        AccountData accountData = this.f53541a;
         if (accountData != null) {
             return accountData.getMemberType();
         }
@@ -539,11 +539,11 @@ public class b {
     }
 
     public int r() {
-        AccountData accountData = this.f49865a;
+        AccountData accountData = this.f53541a;
         if (accountData == null || accountData.getVipInfo() == null) {
             return 0;
         }
-        return this.f49865a.getVipInfo().getVipLevel();
+        return this.f53541a.getVipInfo().getVipLevel();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: int */
@@ -582,15 +582,15 @@ public class b {
     }
 
     public int u() {
-        return this.f49873i;
+        return this.f53549i;
     }
 
     public int v() {
-        return this.f49868d;
+        return this.f53544d;
     }
 
     public String w() {
-        AccountData accountData = this.f49865a;
+        AccountData accountData = this.f53541a;
         if (accountData != null) {
             return accountData.getTbs();
         }
@@ -598,11 +598,11 @@ public class b {
     }
 
     public int x() {
-        return this.f49871g;
+        return this.f53547g;
     }
 
     public int y() {
-        return this.f49869e;
+        return this.f53545e;
     }
 
     public void z() {

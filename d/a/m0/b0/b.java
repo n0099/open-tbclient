@@ -11,69 +11,69 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Queue<C1102b> f48901a = new ConcurrentLinkedQueue();
+    public Queue<C1158b> f52575a = new ConcurrentLinkedQueue();
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile c f48902b;
+    public volatile c f52576b;
 
     /* renamed from: d.a.m0.b0.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1102b {
+    public class C1158b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageFileInfo f48903a;
+        public ImageFileInfo f52577a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.m0.a0.b f48904b;
+        public d.a.m0.a0.b f52578b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f48905c;
+        public boolean f52579c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d.a.c.j.d.a f48906d;
+        public d.a.c.k.d.a f52580d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f48907e;
+        public boolean f52581e;
 
-        public C1102b(b bVar) {
+        public C1158b(b bVar) {
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c extends BdAsyncTask<Void, C1102b, C1102b> {
+    public class c extends BdAsyncTask<Void, C1158b, C1158b> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Queue<C1102b> f48908a;
+        public final Queue<C1158b> f52582a;
 
-        public c(Queue<C1102b> queue) {
-            this.f48908a = queue;
+        public c(Queue<C1158b> queue) {
+            this.f52582a = queue;
             super.setPriority(2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public C1102b doInBackground(Void... voidArr) {
+        public C1158b doInBackground(Void... voidArr) {
             int i2;
             while (true) {
-                C1102b poll = this.f48908a.poll();
+                C1158b poll = this.f52582a.poll();
                 Bitmap bitmap = null;
                 if (poll == null) {
                     return null;
                 }
                 if (isCancelled()) {
-                    this.f48908a.add(poll);
+                    this.f52582a.add(poll);
                     return null;
                 }
-                d.a.c.j.d.a m = d.a.m0.a0.c.k().m(poll.f48903a.toCachedKey(poll.f48905c));
+                d.a.c.k.d.a m = d.a.m0.a0.c.k().m(poll.f52577a.toCachedKey(poll.f52579c));
                 if (m != null) {
-                    poll.f48906d = m;
-                    poll.f48907e = true;
+                    poll.f52580d = m;
+                    poll.f52581e = true;
                 } else {
-                    Bitmap f2 = b.this.f(poll.f48903a, poll.f48905c);
+                    Bitmap f2 = b.this.f(poll.f52577a, poll.f52579c);
                     if (f2 != null) {
                         try {
-                            i2 = BitmapHelper.readPictureDegree(poll.f48903a.getFilePath());
+                            i2 = BitmapHelper.readPictureDegree(poll.f52577a.getFilePath());
                             if (i2 != 0) {
                                 try {
                                     Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(f2, i2);
@@ -92,9 +92,9 @@ public class b {
                             i2 = 0;
                         }
                         if (i2 != 0 && bitmap != null) {
-                            poll.f48906d = new d.a.c.j.d.a(bitmap, poll.f48903a.isGif(), poll.f48903a.getFilePath());
+                            poll.f52580d = new d.a.c.k.d.a(bitmap, poll.f52577a.isGif(), poll.f52577a.getFilePath());
                         } else {
-                            poll.f48906d = new d.a.c.j.d.a(f2, poll.f48903a.isGif(), poll.f48903a.getFilePath());
+                            poll.f52580d = new d.a.c.k.d.a(f2, poll.f52577a.isGif(), poll.f52577a.getFilePath());
                         }
                     }
                 }
@@ -105,25 +105,25 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(C1102b c1102b) {
-            super.onPostExecute(c1102b);
-            b.this.f48902b = null;
+        public void onPostExecute(C1158b c1158b) {
+            super.onPostExecute(c1158b);
+            b.this.f52576b = null;
             b.this.g();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
-        public void onProgressUpdate(C1102b... c1102bArr) {
-            if (c1102bArr != null) {
-                for (C1102b c1102b : c1102bArr) {
-                    d.a.c.j.d.a aVar = c1102b.f48906d;
-                    if (aVar != null && !c1102b.f48907e) {
-                        d.a.m0.a0.c.k().d(c1102b.f48903a.toCachedKey(c1102b.f48905c), aVar);
+        public void onProgressUpdate(C1158b... c1158bArr) {
+            if (c1158bArr != null) {
+                for (C1158b c1158b : c1158bArr) {
+                    d.a.c.k.d.a aVar = c1158b.f52580d;
+                    if (aVar != null && !c1158b.f52581e) {
+                        d.a.m0.a0.c.k().d(c1158b.f52577a.toCachedKey(c1158b.f52579c), aVar);
                     }
-                    d.a.m0.a0.b bVar = c1102b.f48904b;
+                    d.a.m0.a0.b bVar = c1158b.f52578b;
                     if (bVar != null) {
-                        bVar.a(aVar, c1102b.f48903a.toCachedKey(c1102b.f48905c), c1102b.f48907e);
+                        bVar.a(aVar, c1158b.f52577a.toCachedKey(c1158b.f52579c), c1158b.f52581e);
                     }
                 }
             }
@@ -132,52 +132,52 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            b.this.f48902b = null;
+            b.this.f52576b = null;
             while (true) {
-                C1102b poll = this.f48908a.poll();
+                C1158b poll = this.f52582a.poll();
                 if (poll == null) {
                     return;
                 }
-                d.a.m0.a0.b bVar = poll.f48904b;
+                d.a.m0.a0.b bVar = poll.f52578b;
                 if (bVar != null) {
-                    bVar.a(null, poll.f48903a.toCachedKey(poll.f48905c), false);
+                    bVar.a(null, poll.f52577a.toCachedKey(poll.f52579c), false);
                 }
             }
         }
     }
 
     public void b() {
-        this.f48901a = new ConcurrentLinkedQueue();
-        if (this.f48902b != null) {
-            this.f48902b.cancel(true);
-            this.f48902b = null;
+        this.f52575a = new ConcurrentLinkedQueue();
+        if (this.f52576b != null) {
+            this.f52576b.cancel(true);
+            this.f52576b = null;
         }
     }
 
-    public d.a.c.j.d.a c(ImageFileInfo imageFileInfo, boolean z) {
+    public d.a.c.k.d.a c(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
             return null;
         }
         return d.a.m0.a0.c.k().m(imageFileInfo.toCachedKey(z));
     }
 
-    public d.a.c.j.d.a d(ImageFileInfo imageFileInfo, d.a.m0.a0.b bVar, boolean z) {
+    public d.a.c.k.d.a d(ImageFileInfo imageFileInfo, d.a.m0.a0.b bVar, boolean z) {
         return e(imageFileInfo, bVar, z, false);
     }
 
-    public d.a.c.j.d.a e(ImageFileInfo imageFileInfo, d.a.m0.a0.b bVar, boolean z, boolean z2) {
-        d.a.c.j.d.a c2 = c(imageFileInfo, z);
+    public d.a.c.k.d.a e(ImageFileInfo imageFileInfo, d.a.m0.a0.b bVar, boolean z, boolean z2) {
+        d.a.c.k.d.a c2 = c(imageFileInfo, z);
         if (c2 != null) {
             return c2;
         }
         if (z2) {
             return null;
         }
-        C1102b c1102b = new C1102b();
-        c1102b.f48904b = bVar;
-        c1102b.f48903a = imageFileInfo;
-        c1102b.f48905c = z;
-        this.f48901a.add(c1102b);
+        C1158b c1158b = new C1158b();
+        c1158b.f52578b = bVar;
+        c1158b.f52577a = imageFileInfo;
+        c1158b.f52579c = z;
+        this.f52575a.add(c1158b);
         g();
         return null;
     }
@@ -213,10 +213,10 @@ public class b {
     }
 
     public void g() {
-        if (this.f48902b != null || this.f48901a.isEmpty()) {
+        if (this.f52576b != null || this.f52575a.isEmpty()) {
             return;
         }
-        this.f48902b = new c(this.f48901a);
-        this.f48902b.execute(new Void[0]);
+        this.f52576b = new c(this.f52575a);
+        this.f52576b.execute(new Void[0]);
     }
 }

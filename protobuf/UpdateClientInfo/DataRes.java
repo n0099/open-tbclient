@@ -8,7 +8,7 @@ import protobuf.ConfigVersion;
 import protobuf.GroupInfo;
 import protobuf.MaskInfo;
 import protobuf.UserInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataRes extends Message {
     public static final List<GroupInfo> DEFAULT_GROUPINFO = Collections.emptyList();
     public static final List<Integer> DEFAULT_HEARTBEATINTERVAL = Collections.emptyList();
@@ -26,7 +26,7 @@ public final class DataRes extends Message {
     @ProtoField(tag = 2)
     public final UserInfo userInfo;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public ConfigVersion configVersion;
         public List<GroupInfo> groupInfo;

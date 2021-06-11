@@ -7,45 +7,45 @@ import android.util.Printer;
 public class g implements Printer {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f66151a;
+    public long f69882a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f66152b = 0;
+    public long f69883b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f66153c = 0;
+    public long f69884c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f66154d;
+    public b f69885d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f66155e;
+    public final boolean f69886e;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f66156e;
+        public final /* synthetic */ long f69887e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f66157f;
+        public final /* synthetic */ long f69888f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f66158g;
+        public final /* synthetic */ long f69889g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f66159h;
+        public final /* synthetic */ long f69890h;
 
         public a(long j, long j2, long j3, long j4) {
-            this.f66156e = j;
-            this.f66157f = j2;
-            this.f66158g = j3;
-            this.f66159h = j4;
+            this.f69887e = j;
+            this.f69888f = j2;
+            this.f69889g = j3;
+            this.f69890h = j4;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g.this.f66154d.a(this.f66156e, this.f66157f, this.f66158g, this.f66159h);
+            g.this.f69885d.a(this.f69887e, this.f69888f, this.f69889g, this.f69890h);
         }
     }
 
@@ -55,51 +55,51 @@ public class g implements Printer {
     }
 
     public g(b bVar, long j, boolean z) {
-        this.f66151a = 3000L;
-        this.f66154d = null;
+        this.f69882a = 3000L;
+        this.f69885d = null;
         if (bVar != null) {
-            this.f66154d = bVar;
-            this.f66151a = j;
-            this.f66155e = z;
+            this.f69885d = bVar;
+            this.f69882a = j;
+            this.f69886e = z;
             return;
         }
         throw new IllegalArgumentException("blockListener should not be null.");
     }
 
     public final boolean b(long j) {
-        return j - this.f66152b > this.f66151a;
+        return j - this.f69883b > this.f69882a;
     }
 
     public final void c(long j) {
-        e.b().post(new a(this.f66152b, j, this.f66153c, SystemClock.currentThreadTimeMillis()));
+        e.b().post(new a(this.f69883b, j, this.f69884c, SystemClock.currentThreadTimeMillis()));
     }
 
     public final void d() {
-        if (c.f().f66140b != null) {
-            c.f().f66140b.c();
+        if (c.f().f69871b != null) {
+            c.f().f69871b.c();
         }
-        if (c.f().f66141c != null) {
-            c.f().f66141c.c();
+        if (c.f().f69872c != null) {
+            c.f().f69872c.c();
         }
     }
 
     public final void e() {
-        if (c.f().f66140b != null) {
-            c.f().f66140b.d();
+        if (c.f().f69871b != null) {
+            c.f().f69871b.d();
         }
-        if (c.f().f66141c != null) {
-            c.f().f66141c.d();
+        if (c.f().f69872c != null) {
+            c.f().f69872c.d();
         }
     }
 
     @Override // android.util.Printer
     public void println(String str) {
-        if (this.f66155e && Debug.isDebuggerConnected()) {
+        if (this.f69886e && Debug.isDebuggerConnected()) {
             return;
         }
         if (str.charAt(0) == '>') {
-            this.f66152b = System.currentTimeMillis();
-            this.f66153c = SystemClock.currentThreadTimeMillis();
+            this.f69883b = System.currentTimeMillis();
+            this.f69884c = SystemClock.currentThreadTimeMillis();
             d();
             return;
         }

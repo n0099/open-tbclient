@@ -6,17 +6,17 @@ import android.view.View;
 public class a implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f26407a;
+    public float f26510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26408b = 0;
+    public int f26511b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public InterfaceC0265a f26409c;
+    public InterfaceC0267a f26512c;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0265a {
+    public interface InterfaceC0267a {
         void a();
 
         void a(boolean z);
@@ -29,36 +29,36 @@ public class a implements View.OnTouchListener {
     }
 
     private void b() {
-        InterfaceC0265a interfaceC0265a = this.f26409c;
-        if (interfaceC0265a != null) {
-            interfaceC0265a.a(false);
+        InterfaceC0267a interfaceC0267a = this.f26512c;
+        if (interfaceC0267a != null) {
+            interfaceC0267a.a(false);
         }
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        InterfaceC0265a interfaceC0265a = this.f26409c;
-        if (interfaceC0265a != null) {
-            interfaceC0265a.a();
+        InterfaceC0267a interfaceC0267a = this.f26512c;
+        if (interfaceC0267a != null) {
+            interfaceC0267a.a();
         }
         int action = motionEvent.getAction() & 255;
         if (action == 0) {
-            this.f26408b = 1;
+            this.f26511b = 1;
         } else if (action == 1) {
-            this.f26408b = 0;
+            this.f26511b = 0;
         } else if (action != 2) {
             if (action == 5) {
-                this.f26407a = a(motionEvent);
-                this.f26408b++;
+                this.f26510a = a(motionEvent);
+                this.f26511b++;
             } else if (action == 6) {
-                this.f26408b--;
+                this.f26511b--;
             }
-        } else if (this.f26408b >= 2) {
+        } else if (this.f26511b >= 2) {
             float a2 = a(motionEvent);
-            if (a2 > this.f26407a) {
+            if (a2 > this.f26510a) {
                 a();
             }
-            if (a2 < this.f26407a) {
+            if (a2 < this.f26510a) {
                 b();
             }
         }
@@ -66,13 +66,13 @@ public class a implements View.OnTouchListener {
     }
 
     private void a() {
-        InterfaceC0265a interfaceC0265a = this.f26409c;
-        if (interfaceC0265a != null) {
-            interfaceC0265a.a(true);
+        InterfaceC0267a interfaceC0267a = this.f26512c;
+        if (interfaceC0267a != null) {
+            interfaceC0267a.a(true);
         }
     }
 
-    public void a(InterfaceC0265a interfaceC0265a) {
-        this.f26409c = interfaceC0265a;
+    public void a(InterfaceC0267a interfaceC0267a) {
+        this.f26512c = interfaceC0267a;
     }
 }

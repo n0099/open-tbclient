@@ -11,16 +11,16 @@ import java.util.List;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f64716d = "a";
+    public static final String f68434d = "a";
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.w.b.c.a f64717a;
+    public d.a.w.b.c.a f68435a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f64718b;
+    public List<b> f68436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64719c = 0;
+    public int f68437c = 0;
 
     public a(Object obj, List<c> list) {
         b(obj, list);
@@ -28,18 +28,18 @@ public class a {
 
     public void a(long j) {
         List<b> list;
-        if (this.f64717a == null || (list = this.f64718b) == null || list.size() == 0) {
+        if (this.f68435a == null || (list = this.f68436b) == null || list.size() == 0) {
             return;
         }
         synchronized (this) {
-            for (b bVar : this.f64718b) {
-                this.f64717a.b(bVar.c());
+            for (b bVar : this.f68436b) {
+                this.f68435a.b(bVar.c());
                 bVar.b(j);
             }
             notifyAll();
         }
-        this.f64717a.d(j);
-        this.f64717a.e();
+        this.f68435a.d(j);
+        this.f68435a.e();
     }
 
     public final void b(Object obj, List<c> list) {
@@ -48,42 +48,42 @@ public class a {
         if (list == null || list.size() == 0) {
             return;
         }
-        List<b> list2 = this.f64718b;
+        List<b> list2 = this.f68436b;
         if (list2 == null) {
-            this.f64718b = new ArrayList();
+            this.f68436b = new ArrayList();
         } else {
             list2.clear();
         }
         for (int i2 = 0; i2 < list.size(); i2++) {
             try {
-                this.f64718b.add(new b(list.get(i2)));
+                this.f68436b.add(new b(list.get(i2)));
                 if (list.get(i2).l()) {
-                    this.f64719c = i2;
+                    this.f68437c = i2;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        int size = this.f64718b.size();
-        int i3 = this.f64719c;
+        int size = this.f68436b.size();
+        int i3 = this.f68437c;
         if (size > i3) {
             if (obj != null) {
                 if (obj instanceof Surface) {
-                    this.f64717a = new d.a.w.b.c.a(this.f64718b.get(this.f64719c).c(), (Surface) obj, true);
+                    this.f68435a = new d.a.w.b.c.a(this.f68436b.get(this.f68437c).c(), (Surface) obj, true);
                 } else if (obj instanceof SurfaceTexture) {
-                    this.f64717a = new d.a.w.b.c.a(this.f64718b.get(this.f64719c).c(), (SurfaceTexture) obj);
+                    this.f68435a = new d.a.w.b.c.a(this.f68436b.get(this.f68437c).c(), (SurfaceTexture) obj);
                 } else if (obj instanceof SurfaceHolder) {
-                    this.f64717a = new d.a.w.b.c.a(this.f64718b.get(this.f64719c).c(), (SurfaceHolder) obj);
+                    this.f68435a = new d.a.w.b.c.a(this.f68436b.get(this.f68437c).c(), (SurfaceHolder) obj);
                 }
             } else {
-                List<b> list3 = this.f64718b;
-                if (list3 != null && list3 != null && (bVar = list3.get(i3)) != null && (aVar = this.f64717a) != null) {
+                List<b> list3 = this.f68436b;
+                if (list3 != null && list3 != null && (bVar = list3.get(i3)) != null && (aVar = this.f68435a) != null) {
                     aVar.f(bVar.c());
                 }
             }
         }
-        for (b bVar2 : this.f64718b) {
-            d.a.w.b.c.a aVar2 = this.f64717a;
+        for (b bVar2 : this.f68436b) {
+            d.a.w.b.c.a aVar2 = this.f68435a;
             if (aVar2 != null) {
                 aVar2.b(bVar2.c());
                 bVar2.f();
@@ -92,24 +92,24 @@ public class a {
     }
 
     public void c() {
-        d.a.w.b.c.a aVar = this.f64717a;
+        d.a.w.b.c.a aVar = this.f68435a;
         if (aVar != null) {
             aVar.g();
-            this.f64717a = null;
+            this.f68435a = null;
         }
-        List<b> list = this.f64718b;
+        List<b> list = this.f68436b;
         if (list != null) {
             for (b bVar : list) {
                 bVar.e();
             }
-            this.f64718b.clear();
-            this.f64718b = null;
+            this.f68436b.clear();
+            this.f68436b = null;
         }
     }
 
     public void d(d.a.w.b.e.c cVar) {
-        for (b bVar : this.f64718b) {
-            d.a.w.b.c.a aVar = this.f64717a;
+        for (b bVar : this.f68436b) {
+            d.a.w.b.c.a aVar = this.f68435a;
             if (aVar != null) {
                 aVar.b(bVar.c());
                 bVar.g(cVar);
@@ -118,12 +118,12 @@ public class a {
     }
 
     public void e(List<c> list) {
-        Log.d(f64716d, "updateSurfaceDrawer !!!");
-        this.f64717a.c();
-        for (b bVar : this.f64718b) {
+        Log.d(f68434d, "updateSurfaceDrawer !!!");
+        this.f68435a.c();
+        for (b bVar : this.f68436b) {
             bVar.e();
         }
-        this.f64718b.clear();
+        this.f68436b.clear();
         b(null, list);
     }
 }

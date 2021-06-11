@@ -12,13 +12,13 @@ public class m extends j {
             d.a.c.e.n.a a2 = j.a();
             a2.b("action", "time");
             a2.b("ishttp", hVar.s ? "1" : "0");
-            a2.b("issuccess", hVar.f49539b ? "1" : "0");
+            a2.b("issuccess", hVar.f53214b ? "1" : "0");
             a2.b("nettype", k.d().f());
             a2.b("wt", String.valueOf(hVar.p));
-            a2.b("qt", String.valueOf(hVar.f49543f));
-            a2.b("connt", String.valueOf(hVar.f49544g));
-            a2.b("rwt", String.valueOf(hVar.f49545h));
-            a2.b("fbt", String.valueOf(hVar.f49546i));
+            a2.b("qt", String.valueOf(hVar.f53218f));
+            a2.b("connt", String.valueOf(hVar.f53219g));
+            a2.b("rwt", String.valueOf(hVar.f53220h));
+            a2.b("fbt", String.valueOf(hVar.f53221i));
             a2.b("abt", String.valueOf(hVar.j));
             a2.b("dect", String.valueOf(hVar.k));
             a2.b("parset", String.valueOf(hVar.l));
@@ -44,9 +44,9 @@ public class m extends j {
             if (hVar.y) {
                 a2.b(Config.PLATFORM_TYPE, "1");
             } else {
-                a2.b("sysct", String.valueOf(hVar.f49540c));
-                a2.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.f49542e));
-                a2.b("lt", String.valueOf(hVar.f49541d));
+                a2.b("sysct", String.valueOf(hVar.f53215c));
+                a2.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.f53217e));
+                a2.b("lt", String.valueOf(hVar.f53216d));
                 a2.b("df", String.valueOf(hVar.m));
             }
             if (hVar.s) {
@@ -64,7 +64,7 @@ public class m extends j {
                     a2.b(entry.getKey(), entry.getValue());
                 }
             }
-            BdStatisticsManager.getInstance().performance(this.f49559a, a2);
+            BdStatisticsManager.getInstance().performance(this.f53234a, a2);
         }
     }
 
@@ -80,7 +80,7 @@ public class m extends j {
             } else {
                 a2.b("pct_type", String.valueOf(101));
             }
-            BdStatisticsManager.getInstance().performance(this.f49559a, a2);
+            BdStatisticsManager.getInstance().performance(this.f53234a, a2);
         }
     }
 
@@ -97,11 +97,11 @@ public class m extends j {
                         a2.b("pdt", String.valueOf(hVar.C));
                     }
                     a2.b("ishttp", hVar.s ? "1" : "0");
-                    a2.b("issuccess", hVar.f49539b ? "1" : "0");
+                    a2.b("issuccess", hVar.f53214b ? "1" : "0");
                     a2.b("nettype", k.d().f());
-                    a2.b("qt", String.valueOf(hVar.f49543f));
-                    a2.b("connt", String.valueOf(hVar.f49544g));
-                    a2.b("rwt", String.valueOf(hVar.f49545h));
+                    a2.b("qt", String.valueOf(hVar.f53218f));
+                    a2.b("connt", String.valueOf(hVar.f53219g));
+                    a2.b("rwt", String.valueOf(hVar.f53220h));
                     a2.b("dect", String.valueOf(hVar.k));
                     a2.b("parset", String.valueOf(hVar.l));
                     a2.b("rendert", String.valueOf(hVar.o));
@@ -118,7 +118,7 @@ public class m extends j {
                     if (i3 != 0) {
                         a2.c("errcode", Integer.valueOf(i3));
                     }
-                    BdStatisticsManager.getInstance().performance(this.f49559a, a2);
+                    BdStatisticsManager.getInstance().performance(this.f53234a, a2);
                 }
             }
         }
@@ -129,11 +129,11 @@ public class m extends j {
             d.a.c.e.n.a a2 = j.a();
             a2.b("action", "fluency");
             a2.b("fps", String.valueOf(bVar.b()));
-            BdStatisticsManager.getInstance().performance(this.f49559a, a2);
+            BdStatisticsManager.getInstance().performance(this.f53234a, a2);
             d.a.c.e.n.a a3 = j.a();
             a3.b("action", "mem");
             a3.b("memp", String.valueOf(k.d().c()));
-            BdStatisticsManager.getInstance().performance(this.f49559a, a3);
+            BdStatisticsManager.getInstance().performance(this.f53234a, a3);
         }
     }
 }

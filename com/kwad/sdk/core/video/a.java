@@ -3,25 +3,25 @@ package com.kwad.sdk.core.video;
 import android.content.Context;
 import android.view.TextureView;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends TextureView {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f32633a;
+    public int f34725a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32634b;
+    public int f34726b;
 
     public a(Context context) {
         super(context);
     }
 
     public void a(int i2, int i3) {
-        if (this.f32634b == i2 || this.f32633a == i3) {
+        if (this.f34726b == i2 || this.f34725a == i3) {
             return;
         }
-        this.f32634b = i2;
-        this.f32633a = i3;
+        this.f34726b = i2;
+        this.f34725a = i3;
         requestLayout();
     }
 
@@ -33,17 +33,17 @@ public class a extends TextureView {
             i3 = i2;
             i2 = i3;
         }
-        int defaultSize = TextureView.getDefaultSize(this.f32634b, i2);
-        int defaultSize2 = TextureView.getDefaultSize(this.f32633a, i3);
-        if (this.f32634b > 0 && this.f32633a > 0) {
+        int defaultSize = TextureView.getDefaultSize(this.f34726b, i2);
+        int defaultSize2 = TextureView.getDefaultSize(this.f34725a, i3);
+        if (this.f34726b > 0 && this.f34725a > 0) {
             int mode = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i2);
             int mode2 = View.MeasureSpec.getMode(i3);
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode == 1073741824 && mode2 == 1073741824) {
-                int i5 = this.f32634b;
+                int i5 = this.f34726b;
                 int i6 = i5 * size2;
-                int i7 = this.f32633a;
+                int i7 = this.f34725a;
                 if (i6 < size * i7) {
                     defaultSize = (i5 * size2) / i7;
                 } else if (i5 * size2 > size * i7) {
@@ -54,8 +54,8 @@ public class a extends TextureView {
                 }
                 defaultSize2 = size2;
             } else if (mode == 1073741824) {
-                int i8 = this.f32633a;
-                int i9 = this.f32634b;
+                int i8 = this.f34725a;
+                int i9 = this.f34726b;
                 int i10 = (size * i8) / i9;
                 if (mode2 != Integer.MIN_VALUE || i10 <= size2) {
                     defaultSize = size;
@@ -65,8 +65,8 @@ public class a extends TextureView {
                     defaultSize2 = size2;
                 }
             } else if (mode2 == 1073741824) {
-                int i11 = this.f32634b;
-                int i12 = this.f32633a;
+                int i11 = this.f34726b;
+                int i12 = this.f34725a;
                 i4 = (size2 * i11) / i12;
                 if (mode != Integer.MIN_VALUE || i4 <= size) {
                     defaultSize2 = size2;
@@ -76,8 +76,8 @@ public class a extends TextureView {
                     defaultSize = size;
                 }
             } else {
-                i4 = this.f32634b;
-                int i13 = this.f32633a;
+                i4 = this.f34726b;
+                int i13 = this.f34725a;
                 if (mode2 != Integer.MIN_VALUE || i13 <= size2) {
                     defaultSize2 = i13;
                 } else {
@@ -85,7 +85,7 @@ public class a extends TextureView {
                     defaultSize2 = size2;
                 }
                 if (mode == Integer.MIN_VALUE && i4 > size) {
-                    defaultSize2 = (this.f32633a * size) / this.f32634b;
+                    defaultSize2 = (this.f34725a * size) / this.f34726b;
                     defaultSize = size;
                 }
                 defaultSize = i4;

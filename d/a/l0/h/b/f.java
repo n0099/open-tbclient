@@ -5,19 +5,19 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f47150a;
+    public int f50824a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47151b;
+    public String f50825b;
 
     public static f a(JSONObject jSONObject) {
         f fVar = new f();
-        fVar.f47150a = jSONObject.optInt("state");
-        fVar.f47151b = jSONObject.optString("msg");
+        fVar.f50824a = jSONObject.optInt("state");
+        fVar.f50825b = jSONObject.optString("msg");
         return fVar;
     }
 
     public String toString() {
-        return "CheckPayAuthModel{state=" + this.f47150a + ", msg='" + this.f47151b + "'}";
+        return "CheckPayAuthModel{state=" + this.f50824a + ", msg='" + this.f50825b + "'}";
     }
 }

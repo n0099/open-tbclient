@@ -46,6 +46,8 @@ public abstract class PlayerProvider {
 
     public abstract void seekTo(long j);
 
+    public abstract void seekTo(long j, int i2);
+
     public void sendCommand(int i2, int i3, long j, String str) {
     }
 
@@ -110,5 +112,8 @@ public abstract class PlayerProvider {
     public abstract void stop();
 
     public void switchMediaSource(int i2) {
+    }
+
+    public void updateDisplaySize(int i2, int i3) {
     }
 }

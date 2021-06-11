@@ -13,22 +13,22 @@ import java.lang.reflect.Method;
 public class h extends PopupWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f62763a;
+    public int f66478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f62764b;
+    public a f66479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62765c;
+    public int f66480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f62766d;
+    public LinearLayout f66481d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f62767e;
+    public Context f66482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62768f;
+    public int f66483f;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -39,46 +39,46 @@ public class h extends PopupWindow {
     public static class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f62769e;
+        public int f66484e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a f62770f;
+        public a f66485f;
 
         public b(int i2, a aVar) {
-            this.f62769e = i2;
-            this.f62770f = aVar;
+            this.f66484e = i2;
+            this.f66485f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a aVar = this.f62770f;
+            a aVar = this.f66485f;
             if (aVar != null) {
-                aVar.onPrefixItemClick(this.f62769e);
+                aVar.onPrefixItemClick(this.f66484e);
             }
         }
     }
 
     public h(Context context) {
         super(context);
-        this.f62763a = -1;
-        this.f62767e = context;
+        this.f66478a = -1;
+        this.f66482e = context;
         b(context);
     }
 
     public void a(View view) {
-        view.setOnClickListener(new b(this.f62765c, this.f62764b));
-        this.f62766d.addView(view);
-        this.f62765c++;
+        view.setOnClickListener(new b(this.f66480c, this.f66479b));
+        this.f66481d.addView(view);
+        this.f66480c++;
     }
 
     public final void b(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f62766d = linearLayout;
+        this.f66481d = linearLayout;
         linearLayout.setOrientation(1);
-        this.f62766d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.f62766d);
+        this.f66481d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.f66481d);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, l.e(context, 1.0f), l.e(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -93,31 +93,31 @@ public class h extends PopupWindow {
     }
 
     public void c(int i2) {
-        int i3 = this.f62763a;
+        int i3 = this.f66478a;
         if (i3 != -1) {
-            this.f62766d.getChildAt(i3).setSelected(false);
+            this.f66481d.getChildAt(i3).setSelected(false);
         }
-        this.f62763a = i2;
-        this.f62766d.getChildAt(i2).setSelected(true);
+        this.f66478a = i2;
+        this.f66481d.getChildAt(i2).setSelected(true);
     }
 
     public void d(int i2) {
-        this.f62768f = i2;
+        this.f66483f = i2;
     }
 
     public void e(a aVar) {
-        this.f62764b = aVar;
+        this.f66479b = aVar;
     }
 
     @Override // android.widget.PopupWindow
     public void showAsDropDown(View view, int i2, int i3) {
-        getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.f62767e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.f62767e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
+        getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.f66482e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.f66482e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
         int measuredWidth = getContentView().getMeasuredWidth();
         if (measuredWidth < view.getWidth()) {
             measuredWidth = view.getWidth();
         }
         int measuredHeight = getContentView().getMeasuredHeight();
-        int i4 = this.f62768f;
+        int i4 = this.f66483f;
         if (measuredHeight > i4) {
             measuredHeight = i4;
         }

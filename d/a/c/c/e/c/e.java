@@ -11,28 +11,28 @@ public class e extends d.a.c.e.r.c {
     public static Handler o = new Handler();
 
     /* renamed from: c  reason: collision with root package name */
-    public CoderException f38328c;
+    public CoderException f41981c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SocketMessage f38329d;
+    public SocketMessage f41982d;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f38332g;
+    public g f41985g;
     public SocketMessageTask l;
     public long m;
     public long n;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f38330e = 0;
+    public volatile int f41983e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f38331f = null;
+    public Runnable f41984f = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f38333h = true;
+    public boolean f41986h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38334i = 0;
+    public int f41987i = 0;
     public int j = 0;
     public long k = 0;
 
@@ -48,21 +48,21 @@ public class e extends d.a.c.e.r.c {
     }
 
     public e(SocketMessage socketMessage, SocketMessageTask socketMessageTask, g gVar) {
-        this.f38329d = null;
-        this.f38332g = null;
+        this.f41982d = null;
+        this.f41985g = null;
         this.l = null;
         if (socketMessage != null && socketMessageTask != null) {
             this.l = socketMessageTask;
-            this.f38329d = socketMessage;
-            this.f38332g = gVar;
+            this.f41982d = socketMessage;
+            this.f41985g = gVar;
             return;
         }
         throw new InvalidParameterException("SenderData msg null");
     }
 
     public final void A() {
-        g gVar = this.f38332g;
-        if (gVar == null || !this.f38333h) {
+        g gVar = this.f41985g;
+        if (gVar == null || !this.f41986h) {
             return;
         }
         gVar.B(this);
@@ -79,10 +79,10 @@ public class e extends d.a.c.e.r.c {
         if (this.k == 0) {
             this.k = System.currentTimeMillis();
         }
-        int cmd = this.f38329d.getCmd();
+        int cmd = this.f41982d.getCmd();
         int length = e() != null ? e().length : 0;
-        long clientLogID = this.f38329d.getClientLogID();
-        int i2 = this.f38330e;
+        long clientLogID = this.f41982d.getClientLogID();
+        int i2 = this.f41983e;
         i.b("SenderData", cmd, clientLogID, i2, "StartSend", 0, "SenderData: start send size = " + length);
         o.removeCallbacks(u());
         if (this.l.getTimeOut() != null) {
@@ -94,15 +94,15 @@ public class e extends d.a.c.e.r.c {
     @Override // d.a.c.e.r.f0
     public void c() {
         int i2;
-        int cmd = this.f38329d.getCmd();
+        int cmd = this.f41982d.getCmd();
         if (e() != null) {
             i2 = e().length;
-            this.f38329d.setEncodedBinarySize(i2);
+            this.f41982d.setEncodedBinarySize(i2);
         } else {
             i2 = 0;
         }
-        long clientLogID = this.f38329d.getClientLogID();
-        int i3 = this.f38330e;
+        long clientLogID = this.f41982d.getClientLogID();
+        int i3 = this.f41983e;
         i.b("SenderData", cmd, clientLogID, i3, "FinishSend", 0, "SenderData: finish send  size = " + i2);
         if (!this.l.b()) {
             o.removeCallbacks(u());
@@ -115,26 +115,26 @@ public class e extends d.a.c.e.r.c {
         if (this.k == 0) {
             this.k = System.currentTimeMillis();
         }
-        this.f38328c = null;
+        this.f41981c = null;
         d.a.c.c.e.c.j.b f2 = d.a.c.c.e.c.j.b.f();
-        this.f38330e = f.a().b();
-        SocketMessage socketMessage = this.f38329d;
+        this.f41983e = f.a().b();
+        SocketMessage socketMessage = this.f41982d;
         if (socketMessage != null) {
-            socketMessage.setSquencedId(this.f38330e);
+            socketMessage.setSquencedId(this.f41983e);
             BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-            SocketMessage socketMessage2 = this.f38329d;
+            SocketMessage socketMessage2 = this.f41982d;
             long clientLogID = socketMessage2 == null ? -1L : socketMessage2.getClientLogID();
-            String valueOf = String.valueOf(this.f38330e & 4294967295L);
+            String valueOf = String.valueOf(this.f41983e & 4294967295L);
             Object[] objArr = new Object[2];
             objArr[0] = "cmd";
-            SocketMessage socketMessage3 = this.f38329d;
+            SocketMessage socketMessage3 = this.f41982d;
             objArr[1] = Integer.valueOf(socketMessage3 == null ? -1 : socketMessage3.getCmd());
             bdStatisticsManager.newDebug("seqid", clientLogID, valueOf, objArr);
         }
         try {
-            return f2.e(this.f38329d, this.f38330e, this.l.c(), this.l.getNeedEncrypt());
+            return f2.e(this.f41982d, this.f41983e, this.l.c(), this.l.getNeedEncrypt());
         } catch (CoderException e2) {
-            this.f38328c = e2;
+            this.f41981c = e2;
             return null;
         }
     }
@@ -146,8 +146,8 @@ public class e extends d.a.c.e.r.c {
     }
 
     public int h() {
-        int i2 = this.f38334i + 1;
-        this.f38334i = i2;
+        int i2 = this.f41987i + 1;
+        this.f41987i = i2;
         return i2;
     }
 
@@ -160,7 +160,7 @@ public class e extends d.a.c.e.r.c {
     }
 
     public int k() {
-        SocketMessage socketMessage = this.f38329d;
+        SocketMessage socketMessage = this.f41982d;
         if (socketMessage != null) {
             return socketMessage.getCmd();
         }
@@ -176,7 +176,7 @@ public class e extends d.a.c.e.r.c {
     }
 
     public SocketMessage m() {
-        return this.f38329d;
+        return this.f41982d;
     }
 
     public int n() {
@@ -188,15 +188,15 @@ public class e extends d.a.c.e.r.c {
     }
 
     public int p() {
-        return this.f38334i;
+        return this.f41987i;
     }
 
     public int q() {
-        return this.f38330e;
+        return this.f41983e;
     }
 
     public CoderException r() {
-        return this.f38328c;
+        return this.f41981c;
     }
 
     public long s() {
@@ -208,10 +208,10 @@ public class e extends d.a.c.e.r.c {
     }
 
     public final Runnable u() {
-        if (this.f38331f == null) {
-            this.f38331f = new a();
+        if (this.f41984f == null) {
+            this.f41984f = new a();
         }
-        return this.f38331f;
+        return this.f41984f;
     }
 
     public boolean v() {
@@ -220,28 +220,28 @@ public class e extends d.a.c.e.r.c {
 
     public void w() {
         j();
-        this.f38333h = false;
+        this.f41986h = false;
     }
 
     public final void x(int i2) {
-        g gVar = this.f38332g;
-        if (gVar == null || !this.f38333h) {
+        g gVar = this.f41985g;
+        if (gVar == null || !this.f41986h) {
             return;
         }
         gVar.y(i2, this);
     }
 
     public final void y() {
-        g gVar = this.f38332g;
-        if (gVar == null || !this.f38333h) {
+        g gVar = this.f41985g;
+        if (gVar == null || !this.f41986h) {
             return;
         }
         gVar.z(this);
     }
 
     public final void z() {
-        g gVar = this.f38332g;
-        if (gVar == null || !this.f38333h) {
+        g gVar = this.f41985g;
+        if (gVar == null || !this.f41986h) {
             return;
         }
         gVar.A(this);

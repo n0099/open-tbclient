@@ -11,7 +11,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class a implements k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<Integer> f47718a = new ArrayList<>();
+    public final ArrayList<Integer> f51392a = new ArrayList<>();
 
     @Override // d.a.l0.a.p.b.a.k
     public void a(d.a.l0.a.y.b.a aVar) {
@@ -22,10 +22,10 @@ public final class a implements k {
 
     @Override // d.a.l0.a.p.b.a.k
     public void b(n nVar) {
-        if (this.f47718a.isEmpty()) {
+        if (this.f51392a.isEmpty()) {
             return;
         }
-        Iterator<Integer> it = this.f47718a.iterator();
+        Iterator<Integer> it = this.f51392a.iterator();
         while (it.hasNext()) {
             Integer id = it.next();
             if (nVar != null) {
@@ -38,8 +38,8 @@ public final class a implements k {
     public final boolean c(n nVar, String str) {
         Integer a2 = b.a(str);
         if (a2 != null) {
-            if (!this.f47718a.contains(a2)) {
-                this.f47718a.add(a2);
+            if (!this.f51392a.contains(a2)) {
+                this.f51392a.add(a2);
             }
             if (nVar != null) {
                 nVar.j(a2.intValue());

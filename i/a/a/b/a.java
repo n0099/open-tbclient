@@ -19,9 +19,5 @@ public interface a {
 
     void removeRevenueConfig(int i2, int i3);
 
-    void subscribeBroadcast(long j, long j2);
-
-    void unSubscribeBroadcast(long j, long j2);
-
     void updateMiddleRevenueConfig(int i2, int i3, Long l, String str);
 }

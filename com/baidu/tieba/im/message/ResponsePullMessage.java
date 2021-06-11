@@ -71,10 +71,10 @@ public class ResponsePullMessage extends SocketResponsedMessage {
     public class b implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f17299a;
+        public final /* synthetic */ ImMessageCenterPojo f17375a;
 
         public b(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-            this.f17299a = imMessageCenterPojo;
+            this.f17375a = imMessageCenterPojo;
         }
 
         @Override // d.a.n0.f1.f.l.a.b
@@ -90,22 +90,22 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             }
             int i3 = 2;
             j.f().k(imMessageCenterPojo, 2);
-            if (imMessageCenterPojo.getIsFriend() != 0 || (imMessageCenterPojo2 = this.f17299a) == null) {
+            if (imMessageCenterPojo.getIsFriend() != 0 || (imMessageCenterPojo2 = this.f17375a) == null) {
                 return;
             }
             imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
-            this.f17299a.setCustomGroupType(-7);
+            this.f17375a.setCustomGroupType(-7);
             if (i2 == 0) {
-                this.f17299a.setUnread_count(0);
+                this.f17375a.setUnread_count(0);
             } else if (i2 == 1) {
-                this.f17299a.setUnread_count(1);
+                this.f17375a.setUnread_count(1);
             } else {
                 i3 = 1;
             }
             if (z) {
-                this.f17299a.setIs_hidden(0);
+                this.f17375a.setIs_hidden(0);
             }
-            j.f().k(this.f17299a, i3);
+            j.f().k(this.f17375a, i3);
         }
     }
 
@@ -113,10 +113,10 @@ public class ResponsePullMessage extends SocketResponsedMessage {
     public class c implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f17300a;
+        public final /* synthetic */ ImMessageCenterPojo f17376a;
 
         public c(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-            this.f17300a = imMessageCenterPojo;
+            this.f17376a = imMessageCenterPojo;
         }
 
         @Override // d.a.n0.f1.f.l.a.b
@@ -132,21 +132,21 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             int i3 = 2;
             j.f().k(imMessageCenterPojo, 2);
             int userType = imMessageCenterPojo.getUserType();
-            if (this.f17300a != null) {
+            if (this.f17376a != null) {
                 if (userType == 1 || userType == 3) {
-                    this.f17300a.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
-                    this.f17300a.setCustomGroupType(-8);
+                    this.f17376a.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
+                    this.f17376a.setCustomGroupType(-8);
                     if (i2 == 0) {
-                        this.f17300a.setUnread_count(0);
+                        this.f17376a.setUnread_count(0);
                     } else if (i2 == 1) {
-                        this.f17300a.setUnread_count(1);
+                        this.f17376a.setUnread_count(1);
                     } else {
                         i3 = 1;
                     }
                     if (z) {
-                        this.f17300a.setIs_hidden(0);
+                        this.f17376a.setIs_hidden(0);
                     }
-                    j.f().k(this.f17300a, i3);
+                    j.f().k(this.f17376a, i3);
                 }
             }
         }
@@ -415,12 +415,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             if (next2.getListMessage() != null && next2.getListMessage().size() != 0) {
                                 ChatMessage chatMessage2 = next2.getListMessage().get(i4);
                                 ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
-                                imMessageCenterPojo3.setGid(String.valueOf(d.a.n0.f1.s.a.f54696i));
+                                imMessageCenterPojo3.setGid(String.valueOf(d.a.n0.f1.s.a.f58385i));
                                 imMessageCenterPojo3.setCustomGroupType(-1);
                                 imMessageCenterPojo3.setIs_hidden(1);
                                 imMessageCenterPojo3.setPulled_msgId(chatMessage2.getMsgId());
                                 j.f().j(imMessageCenterPojo3);
-                                BdLog.i("pullMessage insertMessagecent personal_Group gid = " + d.a.n0.f1.s.a.f54696i + " msgid = " + chatMessage2.getMsgId());
+                                BdLog.i("pullMessage insertMessagecent personal_Group gid = " + d.a.n0.f1.s.a.f58385i + " msgid = " + chatMessage2.getMsgId());
                             }
                         } else {
                             if (next2.getCmd() == 2012129) {
@@ -508,11 +508,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                         getCmd();
                         d.a.c.c.i.a aVar3 = this.performanceData;
                         if (aVar3 != null) {
-                            fVar.f49528b = aVar3.f38403f;
-                            fVar.f49529c = getDownSize();
-                            fVar.f49530d = currentTimeMillis3;
-                            fVar.f49531e = i5;
-                            fVar.f49532f = this.performanceData.f38400c;
+                            fVar.f53203b = aVar3.f42056f;
+                            fVar.f53204c = getDownSize();
+                            fVar.f53205d = currentTimeMillis3;
+                            fVar.f53206e = i5;
+                            fVar.f53207f = this.performanceData.f42053c;
                             fVar.a(1002);
                             fVar.f();
                         }
@@ -525,11 +525,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                         getCmd();
                         aVar = this.performanceData;
                         if (aVar != null) {
-                            fVar2.f49528b = aVar.f38403f;
-                            fVar2.f49529c = getDownSize();
-                            fVar2.f49530d = currentTimeMillis4;
-                            fVar2.f49531e = i5;
-                            fVar2.f49532f = this.performanceData.f38400c;
+                            fVar2.f53203b = aVar.f42056f;
+                            fVar2.f53204c = getDownSize();
+                            fVar2.f53205d = currentTimeMillis4;
+                            fVar2.f53206e = i5;
+                            fVar2.f53207f = this.performanceData.f42053c;
                             fVar2.a(1002);
                             fVar2.f();
                         }
@@ -561,11 +561,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             i5 = 0;
         }
         if (aVar2 != null) {
-            fVar.f49528b = aVar2.f38403f;
-            fVar.f49529c = getDownSize();
-            fVar.f49530d = currentTimeMillis;
-            fVar.f49531e = i6;
-            fVar.f49532f = this.performanceData.f38400c;
+            fVar.f53203b = aVar2.f42056f;
+            fVar.f53204c = getDownSize();
+            fVar.f53205d = currentTimeMillis;
+            fVar.f53206e = i6;
+            fVar.f53207f = this.performanceData.f42053c;
             fVar.a(1002);
             fVar.f();
         }

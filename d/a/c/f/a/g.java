@@ -40,12 +40,12 @@ public class g extends l {
             return;
         }
         boolean z = true;
-        boolean z2 = this.t == null || this.u != this.k.f39022b;
+        boolean z2 = this.t == null || this.u != this.k.f42675b;
         Rect rect2 = this.v;
         if (rect2 != null && rect2.contains(rect)) {
             z = z2;
         }
-        this.u = this.k.f39022b;
+        this.u = this.k.f42675b;
         if (z) {
             this.v = rect;
             Path path = new Path();
@@ -53,7 +53,7 @@ public class g extends l {
             if (this.u) {
                 this.t.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
             } else {
-                path.addRoundRect(new RectF(rect), this.k.f39021a, Path.Direction.CW);
+                path.addRoundRect(new RectF(rect), this.k.f42674a, Path.Direction.CW);
             }
             this.t.close();
         }

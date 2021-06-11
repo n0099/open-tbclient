@@ -14,14 +14,14 @@ import com.baidu.tieba.R;
 public class ScanLoadingView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TBLottieAnimationView f20126e;
+    public TBLottieAnimationView f20203e;
 
     public ScanLoadingView(Context context) {
         this(context, null);
     }
 
     public void a() {
-        TBLottieAnimationView tBLottieAnimationView = this.f20126e;
+        TBLottieAnimationView tBLottieAnimationView = this.f20203e;
         if (tBLottieAnimationView != null) {
             tBLottieAnimationView.cancelAnimation();
         }
@@ -31,22 +31,22 @@ public class ScanLoadingView extends LinearLayout {
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-        this.f20126e = tBLottieAnimationView;
+        this.f20203e = tBLottieAnimationView;
         tBLottieAnimationView.loop(true);
-        this.f20126e.setFrame(0);
-        SkinManager.setLottieAnimation(this.f20126e, R.raw.scan_refresh);
+        this.f20203e.setFrame(0);
+        SkinManager.setLottieAnimation(this.f20203e, R.raw.scan_refresh);
         SkinManager.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
         setVisibility(8);
     }
 
     public void c() {
         setVisibility(0);
-        TBLottieAnimationView tBLottieAnimationView = this.f20126e;
+        TBLottieAnimationView tBLottieAnimationView = this.f20203e;
         if (tBLottieAnimationView != null) {
             if (tBLottieAnimationView.isAnimating()) {
-                this.f20126e.cancelAnimation();
+                this.f20203e.cancelAnimation();
             }
-            this.f20126e.playAnimation();
+            this.f20203e.playAnimation();
         }
     }
 

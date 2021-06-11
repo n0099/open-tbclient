@@ -12,61 +12,61 @@ import com.baidu.platform.base.SearchType;
 public class j extends com.baidu.platform.base.a implements e {
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetRoutePlanResultListener f9281b = null;
+    public OnGetRoutePlanResultListener f9338b = null;
 
     @Override // com.baidu.platform.core.d.e
     public void a() {
-        this.f9238a.lock();
-        this.f9281b = null;
-        this.f9238a.unlock();
+        this.f9295a.lock();
+        this.f9338b = null;
+        this.f9295a.unlock();
     }
 
     @Override // com.baidu.platform.core.d.e
     public void a(OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
-        this.f9238a.lock();
-        this.f9281b = onGetRoutePlanResultListener;
-        this.f9238a.unlock();
+        this.f9295a.lock();
+        this.f9338b = onGetRoutePlanResultListener;
+        this.f9295a.unlock();
     }
 
     @Override // com.baidu.platform.core.d.e
     public boolean a(BikingRoutePlanOption bikingRoutePlanOption) {
         a aVar = new a();
         aVar.a(SearchType.BIKE_ROUTE);
-        return a(new b(bikingRoutePlanOption), this.f9281b, aVar);
+        return a(new b(bikingRoutePlanOption), this.f9338b, aVar);
     }
 
     @Override // com.baidu.platform.core.d.e
     public boolean a(DrivingRoutePlanOption drivingRoutePlanOption) {
         c cVar = new c();
         cVar.a(SearchType.DRIVE_ROUTE);
-        return a(new d(drivingRoutePlanOption), this.f9281b, cVar);
+        return a(new d(drivingRoutePlanOption), this.f9338b, cVar);
     }
 
     @Override // com.baidu.platform.core.d.e
     public boolean a(IndoorRoutePlanOption indoorRoutePlanOption) {
         f fVar = new f();
         fVar.a(SearchType.INDOOR_ROUTE);
-        return a(new g(indoorRoutePlanOption), this.f9281b, fVar);
+        return a(new g(indoorRoutePlanOption), this.f9338b, fVar);
     }
 
     @Override // com.baidu.platform.core.d.e
     public boolean a(MassTransitRoutePlanOption massTransitRoutePlanOption) {
         h hVar = new h();
         hVar.a(SearchType.MASS_TRANSIT_ROUTE);
-        return a(new i(massTransitRoutePlanOption), this.f9281b, hVar);
+        return a(new i(massTransitRoutePlanOption), this.f9338b, hVar);
     }
 
     @Override // com.baidu.platform.core.d.e
     public boolean a(TransitRoutePlanOption transitRoutePlanOption) {
         m mVar = new m();
         mVar.a(SearchType.TRANSIT_ROUTE);
-        return a(new n(transitRoutePlanOption), this.f9281b, mVar);
+        return a(new n(transitRoutePlanOption), this.f9338b, mVar);
     }
 
     @Override // com.baidu.platform.core.d.e
     public boolean a(WalkingRoutePlanOption walkingRoutePlanOption) {
         o oVar = new o();
         oVar.a(SearchType.WALK_ROUTE);
-        return a(new p(walkingRoutePlanOption), this.f9281b, oVar);
+        return a(new p(walkingRoutePlanOption), this.f9338b, oVar);
     }
 }

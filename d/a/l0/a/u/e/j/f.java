@@ -14,19 +14,19 @@ public class f extends d.a.l0.a.u.c.d {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f45046e;
+        public final /* synthetic */ d.a.l0.a.a2.e f48720e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45047f;
+        public final /* synthetic */ String f48721f;
 
         public a(d.a.l0.a.a2.e eVar, String str) {
-            this.f45046e = eVar;
-            this.f45047f = str;
+            this.f48720e = eVar;
+            this.f48721f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f45046e.P().b(f.this.a().h(), this.f45047f);
+            this.f48720e.P().b(f.this.a().h(), this.f48721f);
         }
     }
 
@@ -44,12 +44,12 @@ public class f extends d.a.l0.a.u.c.d {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("networkType", e2);
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.i("Api-Network", "getNetworkType:  " + jSONObject);
             }
             return new d.a.l0.a.u.h.b(0, jSONObject);
         } catch (JSONException e3) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e3.printStackTrace();
             }
             return new d.a.l0.a.u.h.b(202);
@@ -59,22 +59,22 @@ public class f extends d.a.l0.a.u.c.d {
     public d.a.l0.a.u.h.b s(String str) {
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
         if (i2 == null) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-Network", "swan app is null");
             }
             return new d.a.l0.a.u.h.b(202, "swan app is null");
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Network", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-Network", "parse fail");
             }
             return bVar;
         }
         String optString = ((JSONObject) b2.second).optString("cb");
         if (TextUtils.isEmpty(optString)) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-Network", "callback is null");
             }
             return new d.a.l0.a.u.h.b(1001, "callback is null");

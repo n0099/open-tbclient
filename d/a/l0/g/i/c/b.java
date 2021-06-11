@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class b extends d.a.l0.g.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47093c = k.f43199a;
+    public static final boolean f50767c = k.f46875a;
 
     public b() {
         super("startPermissionsPage");
@@ -35,7 +35,7 @@ public class b extends d.a.l0.g.f.a {
                     intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
                     Q.x().startActivity(intent);
                 } catch (Exception e2) {
-                    if (f47093c) {
+                    if (f50767c) {
                         e2.printStackTrace();
                     }
                     a0.f(Q.x());
@@ -43,8 +43,8 @@ public class b extends d.a.l0.g.f.a {
             } else {
                 a0.g(Q.x());
             }
-            bVar.b(null);
-        } else if (f47093c) {
+            bVar.a(null);
+        } else if (f50767c) {
             Log.d("StartPermissionsPage", "swan or activity is null");
         }
         return null;

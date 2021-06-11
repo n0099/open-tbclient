@@ -14,23 +14,23 @@ public class g {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SharedPreferences f64537e;
+        public final /* synthetic */ SharedPreferences f68255e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f64538f;
+        public final /* synthetic */ String f68256f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f64539g;
+        public final /* synthetic */ Object f68257g;
 
         public a(SharedPreferences sharedPreferences, String str, Object obj) {
-            this.f64537e = sharedPreferences;
-            this.f64538f = str;
-            this.f64539g = obj;
+            this.f68255e = sharedPreferences;
+            this.f68256f = str;
+            this.f68257g = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g.n(this.f64537e, this.f64538f, this.f64539g);
+            g.n(this.f68255e, this.f68256f, this.f68257g);
         }
     }
 
@@ -38,23 +38,23 @@ public class g {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f64540e;
+        public final /* synthetic */ Context f68258e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f64541f;
+        public final /* synthetic */ String f68259f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Set f64542g;
+        public final /* synthetic */ Set f68260g;
 
         public b(Context context, String str, Set set) {
-            this.f64540e = context;
-            this.f64541f = str;
-            this.f64542g = set;
+            this.f68258e = context;
+            this.f68259f = str;
+            this.f68260g = set;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f64540e.getSharedPreferences("track_sp", 0).edit().putStringSet(this.f64541f, this.f64542g).apply();
+            this.f68258e.getSharedPreferences("track_sp", 0).edit().putStringSet(this.f68259f, this.f68260g).apply();
         }
     }
 

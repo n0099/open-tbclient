@@ -55,7 +55,7 @@ import org.json.JSONObject;
 public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.i1.d.d.c<MediaModel> {
     public ImageView B0;
     public ReplyEditorParams E0;
-    public d.a.l0.a.w1.a L0;
+    public d.a.l0.a.w1.a G0;
     public String M0;
     public MediaModel N0;
     public LinearLayout o0;
@@ -73,7 +73,7 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
     public boolean A0 = false;
     public boolean C0 = false;
     public boolean D0 = false;
-    public boolean K0 = false;
+    public boolean F0 = false;
 
     /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnClickListener {
@@ -115,8 +115,8 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
 
     /* renamed from: d.a.l0.a.w1.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0891d implements TextWatcher {
-        public C0891d() {
+    public class C0947d implements TextWatcher {
+        public C0947d() {
         }
 
         @Override // android.text.TextWatcher
@@ -175,7 +175,7 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
     public class g implements e.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f45552e;
+        public final /* synthetic */ ViewGroup f49226e;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
@@ -189,7 +189,7 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
         }
 
         public g(ViewGroup viewGroup) {
-            this.f45552e = viewGroup;
+            this.f49226e = viewGroup;
         }
 
         @Override // d.a.l0.a.w1.j.e.b
@@ -197,7 +197,7 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
             d.this.D0 = z;
             if (z) {
                 d.this.B0.setImageResource(d.a.l0.a.e.swanapp_reply_editor_emotion);
-                this.f45552e.post(new a());
+                this.f49226e.post(new a());
             }
         }
     }
@@ -276,7 +276,7 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
             this.B0.setVisibility(8);
         }
         this.z0.setOnTouchListener(new c());
-        this.q0.addTextChangedListener(new C0891d());
+        this.q0.addTextChangedListener(new C0947d());
         this.q0.setListener(new e());
         this.q0.setListener(new f());
         L1();
@@ -318,10 +318,10 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
     }
 
     public final void E1() {
-        this.q0.setHint(this.E0.f10997e);
-        this.t0.setText(this.E0.f10998f);
-        this.t0.setTextColor(this.E0.f10999g);
-        this.t0.setBackground(G1(this.E0.f11000h));
+        this.q0.setHint(this.E0.f11059e);
+        this.t0.setText(this.E0.f11060f);
+        this.t0.setTextColor(this.E0.f11061g);
+        this.t0.setBackground(G1(this.E0.f11062h));
         if (this.E0.c()) {
             this.o0.findViewById(d.a.l0.a.f.module_layout).setVisibility(8);
         }
@@ -353,7 +353,7 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
     }
 
     public final void H1(String str) {
-        if (this.L0 == null) {
+        if (this.G0 == null) {
             return;
         }
         if (!SwanAppNetworkUtils.i(q())) {
@@ -375,7 +375,7 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
             }
             jSONObject.put("content", this.M0);
             jSONObject.put("status", str);
-            this.L0.a(jSONObject);
+            this.G0.a(jSONObject);
             this.A0 = true;
             if (TextUtils.equals("reply", str)) {
                 J1();
@@ -409,7 +409,7 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
         ViewGroup viewGroup = (ViewGroup) window.getDecorView().findViewById(16908290);
         d.a.l0.a.w1.j.e.c(h(), viewGroup, this.y0, new g(viewGroup));
         d.a.l0.a.w1.j.b.b(this.y0, this.B0, this.q0, new h());
-        d.a.l0.a.w1.h.d.b().c(h(), this.y0, this.q0, this.E0.f11001i, d.a.l0.a.a2.e.V(), d.a.l0.a.a2.e.i().Z());
+        d.a.l0.a.w1.h.d.b().c(h(), this.y0, this.q0, this.E0.f11063i, d.a.l0.a.a2.e.V(), d.a.l0.a.a2.e.i().Z());
         this.o0.setVisibility(4);
     }
 
@@ -464,7 +464,7 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void N0(View view, Bundle bundle) {
         super.N0(view, bundle);
-        if (this.K0) {
+        if (this.F0) {
             Q1();
             return;
         }
@@ -527,7 +527,7 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
     }
 
     public void P1(d.a.l0.a.w1.a aVar) {
-        this.L0 = aVar;
+        this.G0 = aVar;
     }
 
     public final void Q1() {
@@ -615,12 +615,12 @@ public class d extends d.a.l0.o.a.a.h implements View.OnClickListener, d.a.l0.a.
                 this.N0 = (MediaModel) n.getParcelable("image");
             }
             if (this.E0 == null) {
-                this.K0 = true;
+                this.F0 = true;
                 return;
             }
             return;
         }
-        this.K0 = true;
+        this.F0 = true;
     }
 
     @Override // d.a.l0.o.a.a.h, android.content.DialogInterface.OnDismissListener

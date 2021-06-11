@@ -18,19 +18,19 @@ import java.util.List;
 public class b extends d.a.l0.e.n.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f46551a = {"_id", Constants.APP_ID, "app_key", "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
+    public static final String[] f50225a = {"_id", Constants.APP_ID, "app_key", "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
 
     /* renamed from: d.a.l0.e.n.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0966b implements Comparator<c> {
-        public C0966b() {
+    public static class C1022b implements Comparator<c> {
+        public C1022b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(c cVar, c cVar2) {
-            return Long.compare(cVar2.f46553b, cVar.f46553b);
+            return Long.compare(cVar2.f50227b, cVar.f50227b);
         }
     }
 
@@ -38,14 +38,14 @@ public class b extends d.a.l0.e.n.a.a {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f46552a;
+        public String f50226a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f46553b;
+        public long f50227b;
 
         public c(b bVar, String str, long j) {
-            this.f46552a = str;
-            this.f46553b = j;
+            this.f50226a = str;
+            this.f50227b = j;
         }
     }
 
@@ -60,11 +60,11 @@ public class b extends d.a.l0.e.n.a.a {
         if (a2.isEmpty()) {
             return null;
         }
-        Collections.sort(f2, new C0966b());
-        MatrixCursor matrixCursor = new MatrixCursor(f46551a, f2.size());
+        Collections.sort(f2, new C1022b());
+        MatrixCursor matrixCursor = new MatrixCursor(f50225a, f2.size());
         int i2 = 0;
         for (c cVar : f2) {
-            PMSAppInfo pMSAppInfo = a2.get(cVar.f46552a);
+            PMSAppInfo pMSAppInfo = a2.get(cVar.f50226a);
             if (pMSAppInfo != null) {
                 e(matrixCursor, i2, cVar, pMSAppInfo);
                 i2++;
@@ -77,7 +77,7 @@ public class b extends d.a.l0.e.n.a.a {
         if (matrixCursor == null || i2 < 0 || cVar == null || pMSAppInfo == null) {
             return;
         }
-        matrixCursor.newRow().add("_id", Integer.valueOf(i2)).add(Constants.APP_ID, pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.i())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.f46553b));
+        matrixCursor.newRow().add("_id", Integer.valueOf(i2)).add(Constants.APP_ID, pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.i())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.f50227b));
     }
 
     public final List<c> f() {

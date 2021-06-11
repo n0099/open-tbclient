@@ -25,39 +25,39 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    public static final boolean r = k.f43199a;
+    public static final boolean r = k.f46875a;
     public static int s = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public GamenowDownloadButtomView f46891a;
+    public GamenowDownloadButtomView f50565a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f46892b;
+    public j f50566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.l0.f.i.k.f.a f46893c;
+    public d.a.l0.f.i.k.f.a f50567c;
 
     /* renamed from: d  reason: collision with root package name */
-    public GameGuideConfigInfo.CloseInfo f46894d;
+    public GameGuideConfigInfo.CloseInfo f50568d;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f46898h;
+    public String f50572h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f46899i;
+    public String f50573i;
     public int k;
     public int l;
     public int m;
     public String q;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f46895e = "";
+    public String f50569e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f46896f = "";
+    public String f50570f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46897g = "";
+    public String f50571g = "";
     public String j = "";
     public String n = "";
     public String o = "";
@@ -70,10 +70,10 @@ public class c {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!c.this.f46898h.equals("wdview")) {
-                if (c.this.f46898h.equals("gbview") && c.this.f46894d != null) {
-                    if (c.this.f46894d.type != 0 && c.this.f46894d.type != 1) {
-                        if (c.this.f46894d.type == 2) {
+            if (!c.this.f50572h.equals("wdview")) {
+                if (c.this.f50572h.equals("gbview") && c.this.f50568d != null) {
+                    if (c.this.f50568d.type != 0 && c.this.f50568d.type != 1) {
+                        if (c.this.f50568d.type == 2) {
                             d.a.l0.f.j.r.b.n().b("gbADialogClick", "0", "", "");
                         }
                     } else {
@@ -91,33 +91,33 @@ public class c {
     public static /* synthetic */ class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f46901a;
+        public static final /* synthetic */ int[] f50575a;
 
         static {
             int[] iArr = new int[DownloadState.values().length];
-            f46901a = iArr;
+            f50575a = iArr;
             try {
                 iArr[DownloadState.DOWNLOADING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f46901a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 2;
+                f50575a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f46901a[DownloadState.DOWNLOADED.ordinal()] = 3;
+                f50575a[DownloadState.DOWNLOADED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f46901a[DownloadState.NOT_START.ordinal()] = 4;
+                f50575a[DownloadState.NOT_START.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f46901a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 5;
+                f50575a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f46901a[DownloadState.INSTALLED.ordinal()] = 6;
+                f50575a[DownloadState.INSTALLED.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -125,29 +125,29 @@ public class c {
 
     /* renamed from: d.a.l0.f.j.n.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0992c extends d.a.l0.a.v1.a.b.c.c {
+    public static class C1048c extends d.a.l0.a.v1.a.b.c.c {
 
         /* renamed from: c  reason: collision with root package name */
-        public String f46902c;
+        public String f50576c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f46903d;
+        public String f50577d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.a.l0.f.i.k.f.a f46904e;
+        public d.a.l0.f.i.k.f.a f50578e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f46905f;
+        public String f50579f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f46906g;
+        public String f50580g;
 
-        public C0992c(String str, String str2, d.a.l0.f.i.k.f.a aVar, String str3, String str4) {
-            this.f46903d = str;
-            this.f46902c = str2;
-            this.f46904e = aVar;
-            this.f46905f = str3;
-            this.f46906g = str4;
+        public C1048c(String str, String str2, d.a.l0.f.i.k.f.a aVar, String str3, String str4) {
+            this.f50577d = str;
+            this.f50576c = str2;
+            this.f50578e = aVar;
+            this.f50579f = str3;
+            this.f50580g = str4;
         }
 
         @Override // d.a.l0.a.v1.a.b.c.a
@@ -167,7 +167,7 @@ public class c {
             if (a2 == null) {
                 return;
             }
-            c.q(a2, this.f46904e, this.f46903d, this.f46902c, this.f46905f, this.f46906g);
+            c.q(a2, this.f50578e, this.f50577d, this.f50576c, this.f50579f, this.f50580g);
         }
     }
 
@@ -175,7 +175,7 @@ public class c {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f46907a = new c();
+        public static final c f50581a = new c();
     }
 
     public static String f(String str, Map<String, String> map) {
@@ -190,13 +190,13 @@ public class c {
     }
 
     public static void g(String str, String str2, String str3, String str4, int i2) {
-        if (TextUtils.equals(d.a.l0.f.j.m.c.f46874a, str) && TextUtils.equals(str2, "checkPackageExpired")) {
+        if (TextUtils.equals(d.a.l0.f.j.m.c.f50548a, str) && TextUtils.equals(str2, "checkPackageExpired")) {
             d.a.l0.f.j.r.b.n().m(str3, str4, i2);
         }
     }
 
     public static c n() {
-        return d.f46907a;
+        return d.f50581a;
     }
 
     public static void q(@NonNull Bundle bundle, d.a.l0.f.i.k.f.a aVar, String str, String str2, String str3, String str4) {
@@ -270,54 +270,54 @@ public class c {
     }
 
     public void A(String str, String str2, String str3, int i2) {
-        j jVar = this.f46892b;
+        j jVar = this.f50566b;
         if (jVar == null) {
             return;
         }
-        DownloadState downloadState = jVar.f46933a;
+        DownloadState downloadState = jVar.f50607a;
         if (downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) {
             String str4 = this.o;
-            if (TextUtils.equals(d.a.l0.f.j.m.c.f46874a, this.f46892b.f46935c)) {
+            if (TextUtils.equals(d.a.l0.f.j.m.c.f50548a, this.f50566b.f50609c)) {
                 str4 = k(1, str, str2, str3);
                 if (!TextUtils.isEmpty(this.q)) {
-                    this.f46892b.c(this.q);
+                    this.f50566b.c(this.q);
                 }
             }
-            this.f46892b.f46934b = str4;
-            this.f46896f = str;
+            this.f50566b.f50608b = str4;
+            this.f50570f = str;
             if (i2 >= 0) {
-                this.f46897g = String.valueOf(i2);
+                this.f50571g = String.valueOf(i2);
             }
         }
         s(false);
     }
 
     public final void B() {
-        j jVar = this.f46892b;
+        j jVar = this.f50566b;
         if (jVar == null) {
             return;
         }
-        int i2 = b.f46901a[jVar.f46933a.ordinal()];
+        int i2 = b.f50575a[jVar.f50607a.ordinal()];
         if (i2 == 1 || i2 == 2) {
-            this.f46891a.j(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_blue_color));
-            this.f46891a.h(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_blue_color));
-            this.f46891a.i(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_light_blue_color));
+            this.f50565a.j(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_blue_color));
+            this.f50565a.h(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_blue_color));
+            this.f50565a.i(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_light_blue_color));
         } else if (i2 != 3) {
-            this.f46891a.j(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.a.c.aiapps_white));
-            this.f46891a.h(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_blue_color));
-            this.f46891a.i(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_light_blue_color));
+            this.f50565a.j(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.a.c.aiapps_white));
+            this.f50565a.h(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_blue_color));
+            this.f50565a.i(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_light_blue_color));
         } else {
-            this.f46891a.j(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.a.c.aiapps_white));
-            this.f46891a.i(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_gold_color));
+            this.f50565a.j(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.a.c.aiapps_white));
+            this.f50565a.i(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_gold_color));
         }
     }
 
     public final void C(String str) {
-        j jVar = this.f46892b;
+        j jVar = this.f50566b;
         if (jVar == null) {
             return;
         }
-        jVar.f46935c = str;
+        jVar.f50609c = str;
     }
 
     public void D(int i2) {
@@ -330,41 +330,41 @@ public class c {
 
     public final void F() {
         String string;
-        j jVar = this.f46892b;
+        j jVar = this.f50566b;
         if (jVar == null) {
             return;
         }
-        if (jVar.f46933a == DownloadState.DOWNLOADING) {
-            GamenowDownloadButtomView gamenowDownloadButtomView = this.f46891a;
+        if (jVar.f50607a == DownloadState.DOWNLOADING) {
+            GamenowDownloadButtomView gamenowDownloadButtomView = this.f50565a;
             if (gamenowDownloadButtomView != null && gamenowDownloadButtomView.getVisibility() != 8) {
-                if (this.f46892b.f46936d < this.f46891a.getMax()) {
+                if (this.f50566b.f50610d < this.f50565a.getMax()) {
                     String string2 = d.a.l0.a.c1.a.b().getResources().getString(d.a.l0.f.j.k.aiapps_game_button_downloading);
-                    string = String.format(string2, this.f46892b.f46936d + "%");
+                    string = String.format(string2, this.f50566b.f50610d + "%");
                 } else {
                     string = d.a.l0.a.c1.a.b().getResources().getString(d.a.l0.f.j.k.aiapps_game_download_button_install);
                 }
-                this.f46891a.setText(string);
-                this.f46891a.setProgress(this.f46892b.f46936d);
+                this.f50565a.setText(string);
+                this.f50565a.setProgress(this.f50566b.f50610d);
             }
         } else {
-            String string3 = d.a.l0.a.c1.a.b().getResources().getString(v(this.f46892b.f46933a));
-            if (this.f46892b.f46933a == DownloadState.DOWNLOADED) {
-                this.f46891a.setProgress(100);
+            String string3 = d.a.l0.a.c1.a.b().getResources().getString(v(this.f50566b.f50607a));
+            if (this.f50566b.f50607a == DownloadState.DOWNLOADED) {
+                this.f50565a.setProgress(100);
             }
-            j jVar2 = this.f46892b;
-            if (jVar2.f46933a == DownloadState.DOWNLOAD_PAUSED) {
-                this.f46891a.setProgress(jVar2.f46936d);
+            j jVar2 = this.f50566b;
+            if (jVar2.f50607a == DownloadState.DOWNLOAD_PAUSED) {
+                this.f50565a.setProgress(jVar2.f50610d);
             }
-            this.f46891a.setText(string3);
-            DownloadState downloadState = this.f46892b.f46933a;
-            if ((downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) && !TextUtils.isEmpty(this.f46895e)) {
-                this.f46891a.setText(this.f46895e);
+            this.f50565a.setText(string3);
+            DownloadState downloadState = this.f50566b.f50607a;
+            if ((downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) && !TextUtils.isEmpty(this.f50569e)) {
+                this.f50565a.setText(this.f50569e);
             }
         }
-        if (this.f46891a != null) {
+        if (this.f50565a != null) {
             B();
-            this.f46891a.setState(this.f46892b.f46933a);
-            this.f46891a.postInvalidate();
+            this.f50565a.setState(this.f50566b.f50607a);
+            this.f50565a.postInvalidate();
         }
     }
 
@@ -380,8 +380,8 @@ public class c {
     }
 
     public GamenowDownloadButtomView j(d.a.l0.f.i.k.f.a aVar, String str, String str2, int i2, int i3) {
-        this.f46898h = str;
-        this.f46899i = str2;
+        this.f50572h = str;
+        this.f50573i = str2;
         this.k = i2;
         this.l = i3;
         GameGuideConfigInfo z = d.a.l0.f.j.b.o.z();
@@ -392,7 +392,7 @@ public class c {
             this.o = z.targetAppDownloadUrl;
             String str3 = z.targetAppPackageId;
             this.p = str3;
-            if (TextUtils.equals(d.a.l0.f.j.m.c.f46874a, str3)) {
+            if (TextUtils.equals(d.a.l0.f.j.m.c.f50548a, str3)) {
                 this.q = z.gamenowApkId;
             }
             char c2 = 65535;
@@ -407,57 +407,57 @@ public class c {
             if (c2 == 0) {
                 GameGuideConfigInfo.DialogInfo dialogInfo = z.dialogInfo;
                 if (dialogInfo != null) {
-                    this.f46895e = dialogInfo.buttonText;
+                    this.f50569e = dialogInfo.buttonText;
                     this.m = dialogInfo.targetType;
                     this.n = dialogInfo.target;
                 }
             } else if (c2 == 1) {
                 GameGuideConfigInfo.CloseInfo closeInfo = z.closeInfo;
-                this.f46894d = closeInfo;
+                this.f50568d = closeInfo;
                 if (closeInfo != null) {
                     try {
-                        if (!TextUtils.isEmpty(closeInfo.downloadBackgroundColor) && !this.f46894d.downloadBackgroundColor.equals(StringUtil.NULL_STRING)) {
-                            color = Color.parseColor(this.f46894d.downloadBackgroundColor);
+                        if (!TextUtils.isEmpty(closeInfo.downloadBackgroundColor) && !this.f50568d.downloadBackgroundColor.equals(StringUtil.NULL_STRING)) {
+                            color = Color.parseColor(this.f50568d.downloadBackgroundColor);
                         }
-                        if (!TextUtils.isEmpty(this.f46894d.downloadTextColor) && !this.f46894d.downloadTextColor.equals(StringUtil.NULL_STRING)) {
-                            color2 = Color.parseColor(this.f46894d.downloadTextColor);
+                        if (!TextUtils.isEmpty(this.f50568d.downloadTextColor) && !this.f50568d.downloadTextColor.equals(StringUtil.NULL_STRING)) {
+                            color2 = Color.parseColor(this.f50568d.downloadTextColor);
                         }
                     } catch (IllegalArgumentException e2) {
                         if (r) {
                             e2.printStackTrace();
                         }
                     }
-                    GameGuideConfigInfo.CloseInfo closeInfo2 = this.f46894d;
-                    this.f46895e = closeInfo2.buttonText;
+                    GameGuideConfigInfo.CloseInfo closeInfo2 = this.f50568d;
+                    this.f50569e = closeInfo2.buttonText;
                     this.m = closeInfo2.targetType;
                     this.n = closeInfo2.target;
                 }
             }
         }
         String str4 = this.o;
-        if (TextUtils.equals(d.a.l0.f.j.m.c.f46874a, this.p)) {
+        if (TextUtils.equals(d.a.l0.f.j.m.c.f50548a, this.p)) {
             str4 = k(this.m, this.n, "", "");
         }
-        this.f46892b = j.a(str4, this.p);
+        this.f50566b = j.a(str4, this.p);
         if (!TextUtils.isEmpty(this.q)) {
-            this.f46892b.c(this.q);
+            this.f50566b.c(this.q);
         }
-        this.f46893c = aVar;
+        this.f50567c = aVar;
         GamenowDownloadButtomView gamenowDownloadButtomView = new GamenowDownloadButtomView(d.a.l0.a.c1.a.b());
-        this.f46891a = gamenowDownloadButtomView;
+        this.f50565a = gamenowDownloadButtomView;
         gamenowDownloadButtomView.k(n0.g(16.0f));
         gamenowDownloadButtomView.f(true);
         gamenowDownloadButtomView.j(color2);
         gamenowDownloadButtomView.h(color);
         gamenowDownloadButtomView.i(d.a.l0.a.c1.a.b().getResources().getColor(d.a.l0.f.j.e.aiapps_download_button_light_blue_color));
         gamenowDownloadButtomView.g(true);
-        this.f46891a.setText(this.f46895e);
-        this.f46891a.setVisibility(0);
-        this.f46891a.setProgress(s);
-        this.f46891a.setState(DownloadState.NOT_START);
+        this.f50565a.setText(this.f50569e);
+        this.f50565a.setVisibility(0);
+        this.f50565a.setProgress(s);
+        this.f50565a.setState(DownloadState.NOT_START);
         r();
         t();
-        return this.f46891a;
+        return this.f50565a;
     }
 
     public final String k(int i2, String str, String str2, String str3) {
@@ -521,30 +521,30 @@ public class c {
     }
 
     public String l() {
-        return this.f46896f;
+        return this.f50570f;
     }
 
     public String m() {
-        return this.f46897g;
+        return this.f50571g;
     }
 
     public String o() {
-        return this.f46892b.f46934b;
+        return this.f50566b.f50608b;
     }
 
     public final void p(String str, d.a.l0.f.i.k.f.a aVar) {
-        if (this.f46892b == null) {
+        if (this.f50566b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("key_download_package_name", this.f46892b.f46935c);
-            jSONObject.put("key_download_url", this.f46892b.f46934b);
-            jSONObject2.put("from_view", this.f46898h);
-            jSONObject2.put("from_value", this.f46899i);
+            jSONObject.put("key_download_package_name", this.f50566b.f50609c);
+            jSONObject.put("key_download_url", this.f50566b.f50608b);
+            jSONObject2.put("from_view", this.f50572h);
+            jSONObject2.put("from_value", this.f50573i);
             jSONObject2.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.j);
-            jSONObject2.put("apk_id", this.f46892b.b());
+            jSONObject2.put("apk_id", this.f50566b.b());
             jSONObject.put("download_params", jSONObject2.toString());
             if (TextUtils.equals(str, "checkPackageExpired")) {
                 jSONObject.put(GameGuideConfigInfo.KEY_PACKAGE_EXPIRE, d.a.l0.f.j.b.o.z() == null ? 0L : d.a.l0.f.j.b.o.z().packageExpire);
@@ -558,12 +558,12 @@ public class c {
         bundle.putString("data", jSONObject.toString());
         d.a.l0.a.v1.c.e.a z = d.a.l0.a.a2.d.g().z();
         if (z != null) {
-            z.L(bundle, f.class, new C0992c(this.f46892b.f46935c, str, aVar, this.f46898h, this.f46899i));
+            z.L(bundle, f.class, new C1048c(this.f50566b.f50609c, str, aVar, this.f50572h, this.f50573i));
         }
     }
 
     public final void r() {
-        this.f46891a.setOnClickListener(new a());
+        this.f50565a.setOnClickListener(new a());
     }
 
     public void s(boolean z) {
@@ -571,74 +571,74 @@ public class c {
             Toast.makeText(d.a.l0.a.c1.a.b(), d.a.l0.a.c1.a.b().getResources().getString(d.a.l0.f.j.k.aiapps_gamenow_network_disconnect), 0).show();
             return;
         }
-        j jVar = this.f46892b;
+        j jVar = this.f50566b;
         if (jVar == null) {
             return;
         }
-        DownloadState downloadState = jVar.f46933a;
+        DownloadState downloadState = jVar.f50607a;
         if (downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) {
             if (r) {
                 Log.d("DownloadButtonManager", "download start");
             }
-            p("startDownload", this.f46893c);
+            p("startDownload", this.f50567c);
         }
-        if (this.f46892b.f46933a == DownloadState.DOWNLOADING && z) {
+        if (this.f50566b.f50607a == DownloadState.DOWNLOADING && z) {
             if (r) {
                 Log.d("DownloadButtonManager", "download pause");
             }
-            p("pauseDownload", this.f46893c);
+            p("pauseDownload", this.f50567c);
         }
-        if (this.f46892b.f46933a == DownloadState.DOWNLOAD_PAUSED) {
+        if (this.f50566b.f50607a == DownloadState.DOWNLOAD_PAUSED) {
             if (r) {
                 Log.d("DownloadButtonManager", "download resume");
             }
-            p("resumeDownload", this.f46893c);
+            p("resumeDownload", this.f50567c);
         }
-        if (this.f46892b.f46933a == DownloadState.DOWNLOAD_FAILED) {
+        if (this.f50566b.f50607a == DownloadState.DOWNLOAD_FAILED) {
             if (r) {
                 Log.d("DownloadButtonManager", "download retry");
             }
-            p("startDownload", this.f46893c);
+            p("startDownload", this.f50567c);
         }
-        if (this.f46892b.f46933a == DownloadState.DOWNLOADED) {
+        if (this.f50566b.f50607a == DownloadState.DOWNLOADED) {
             if (r) {
                 Log.d("DownloadButtonManager", "download install");
             }
-            this.f46893c.b();
-            p("installApp", this.f46893c);
+            this.f50567c.b();
+            p("installApp", this.f50567c);
         }
-        if (this.f46892b.f46933a == DownloadState.INSTALLED) {
+        if (this.f50566b.f50607a == DownloadState.INSTALLED) {
             if (r) {
                 Log.d("DownloadButtonManager", "open app");
             }
-            String e2 = this.f46893c.e();
-            if (TextUtils.isEmpty(this.f46892b.f46935c) && !TextUtils.isEmpty(e2)) {
+            String e2 = this.f50567c.e();
+            if (TextUtils.isEmpty(this.f50566b.f50609c) && !TextUtils.isEmpty(e2)) {
                 C(e2);
             }
-            p("open_manual", this.f46893c);
+            p("open_manual", this.f50567c);
         }
     }
 
     public final void t() {
-        if (this.f46892b == null) {
+        if (this.f50566b == null) {
             return;
         }
-        if (q0.F(d.a.l0.a.c1.a.b(), this.f46892b.f46935c)) {
+        if (q0.F(d.a.l0.a.c1.a.b(), this.f50566b.f50609c)) {
             E(DownloadState.INSTALLED);
-            g(this.p, "checkPackageExpired", this.f46898h, this.f46899i, DownloadState.INSTALLED.value());
+            g(this.p, "checkPackageExpired", this.f50572h, this.f50573i, DownloadState.INSTALLED.value());
             return;
         }
-        p("checkPackageExpired", this.f46893c);
+        p("checkPackageExpired", this.f50567c);
     }
 
     public void u() {
-        this.f46893c = null;
-        this.f46891a = null;
-        this.f46892b = null;
+        this.f50567c = null;
+        this.f50565a = null;
+        this.f50566b = null;
     }
 
     public final int v(DownloadState downloadState) {
-        switch (b.f46901a[downloadState.ordinal()]) {
+        switch (b.f50575a[downloadState.ordinal()]) {
             case 1:
                 return d.a.l0.f.j.k.aiapps_game_download_button_pause;
             case 2:
@@ -657,28 +657,28 @@ public class c {
     }
 
     public void w(String str) {
-        this.f46896f = str;
+        this.f50570f = str;
     }
 
     public void x(String str) {
-        this.f46897g = str;
+        this.f50571g = str;
     }
 
     public final void y(int i2) {
-        j jVar = this.f46892b;
-        if (jVar == null || i2 == jVar.f46936d) {
+        j jVar = this.f50566b;
+        if (jVar == null || i2 == jVar.f50610d) {
             return;
         }
-        jVar.f46936d = i2;
+        jVar.f50610d = i2;
         F();
     }
 
     public final void z(DownloadState downloadState) {
-        j jVar = this.f46892b;
-        if (jVar == null || downloadState == jVar.f46933a) {
+        j jVar = this.f50566b;
+        if (jVar == null || downloadState == jVar.f50607a) {
             return;
         }
-        jVar.f46933a = downloadState;
+        jVar.f50607a = downloadState;
         F();
     }
 }

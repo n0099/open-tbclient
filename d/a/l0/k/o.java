@@ -6,76 +6,76 @@ import android.graphics.drawable.Drawable;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f47951a;
+    public int f51625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f47952b;
+    public int f51626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f47953c;
+    public int f51627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f47954d;
+    public String f51628d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f47955e;
+    public Drawable f51629e;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47957g;
+    public boolean f51631g;
     public e k;
     public d.a.l0.k.r.b l;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f47956f = true;
+    public boolean f51630f = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47958h = 0;
+    public int f51632h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47959i = 0;
+    public int f51633i = 0;
     public long j = 0;
 
     public o(int i2, int i3, int i4, boolean z) {
-        this.f47952b = -1;
-        this.f47953c = -1;
-        this.f47957g = true;
-        this.f47951a = i2;
-        this.f47952b = i3;
-        this.f47953c = i4;
-        this.f47957g = z;
+        this.f51626b = -1;
+        this.f51627c = -1;
+        this.f51631g = true;
+        this.f51625a = i2;
+        this.f51626b = i3;
+        this.f51627c = i4;
+        this.f51631g = z;
     }
 
     public static o k(o oVar) {
         if (oVar == null) {
             return null;
         }
-        return new o(oVar.f47951a, oVar.f47952b, oVar.f47953c, oVar.f47957g);
+        return new o(oVar.f51625a, oVar.f51626b, oVar.f51627c, oVar.f51631g);
     }
 
     public static o l(o oVar, boolean z) {
         if (oVar == null) {
             return null;
         }
-        return new o(oVar.f47951a, oVar.f47952b, oVar.f47953c, z);
+        return new o(oVar.f51625a, oVar.f51626b, oVar.f51627c, z);
     }
 
     public Drawable a(Context context) {
-        Drawable drawable = this.f47955e;
+        Drawable drawable = this.f51629e;
         if (drawable != null) {
             return drawable;
         }
-        if (this.f47953c <= 0) {
+        if (this.f51627c <= 0) {
             return null;
         }
-        return context.getResources().getDrawable(this.f47953c);
+        return context.getResources().getDrawable(this.f51627c);
     }
 
     public int b() {
-        return this.f47958h;
+        return this.f51632h;
     }
 
     public int c() {
-        return this.f47951a;
+        return this.f51625a;
     }
 
     public d.a.l0.k.r.b d() {
@@ -87,7 +87,7 @@ public class o {
     }
 
     public int f() {
-        return this.f47959i;
+        return this.f51633i;
     }
 
     public e g() {
@@ -95,26 +95,26 @@ public class o {
     }
 
     public String h(Context context) {
-        String str = this.f47954d;
+        String str = this.f51628d;
         if (str != null) {
             return str;
         }
-        if (this.f47952b <= 0) {
+        if (this.f51626b <= 0) {
             return null;
         }
-        return context.getResources().getString(this.f47952b);
+        return context.getResources().getString(this.f51626b);
     }
 
     public boolean i() {
-        return this.f47957g;
+        return this.f51631g;
     }
 
     public boolean j() {
-        return this.f47956f;
+        return this.f51630f;
     }
 
     public void m(int i2) {
-        this.f47953c = i2;
+        this.f51627c = i2;
     }
 
     public void n(long j) {
@@ -122,7 +122,7 @@ public class o {
     }
 
     public void o(int i2) {
-        this.f47959i = i2;
+        this.f51633i = i2;
     }
 
     public void p(e eVar) {
@@ -130,6 +130,6 @@ public class o {
     }
 
     public void q(int i2) {
-        this.f47952b = i2;
+        this.f51626b = i2;
     }
 }

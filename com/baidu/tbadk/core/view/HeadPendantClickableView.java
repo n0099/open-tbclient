@@ -11,14 +11,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
 import d.a.m0.b.d;
@@ -37,39 +36,56 @@ public class HeadPendantClickableView extends HeadPendantView {
         public a() {
         }
 
+        /* JADX WARN: Removed duplicated region for block: B:31:0x0153  */
+        /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
         @Override // android.view.View.OnClickListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public void onClick(View view) {
             String str;
+            String str2;
+            String str3;
+            AlaInfoData alaInfo;
             if (HeadPendantClickableView.this.q == null || HeadPendantClickableView.this.q.T() == null || StringUtils.isNull(HeadPendantClickableView.this.q.T().getName_show()) || StringUtils.isNull(HeadPendantClickableView.this.q.T().getUserId())) {
                 return;
             }
-            if (HeadPendantClickableView.this.q.U1) {
-                str = AddFriendActivityConfig.TYPE_HOME_HEAD;
-            } else if (HeadPendantClickableView.this.q.a2()) {
-                str = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
-            } else {
-                str = HeadPendantClickableView.this.q.p() ? AddFriendActivityConfig.TYPE_FRS_HEAD : "";
-            }
-            String str2 = str;
-            AlaUserInfoData alaUserData = HeadPendantClickableView.this.q.T().getAlaUserData();
-            AlaInfoData alaInfo = HeadPendantClickableView.this.q.T().getAlaInfo();
-            if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
-                YYLiveUtil.jumpYYLiveRoom(HeadPendantClickableView.this.getTbPageContext(), alaInfo);
-                HeadPendantClickableView headPendantClickableView = HeadPendantClickableView.this;
-                headPendantClickableView.r(headPendantClickableView.q.y1(), String.valueOf(HeadPendantClickableView.this.q.c0()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
-            } else if (alaUserData != null && alaUserData.live_status == 1 && alaUserData.live_id > 0) {
-                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                alaLiveInfoCoreData.liveID = alaUserData.live_id;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(HeadPendantClickableView.this.r, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION, null, false, "")));
-                if (alaInfo != null) {
-                    HeadPendantClickableView headPendantClickableView2 = HeadPendantClickableView.this;
-                    headPendantClickableView2.r(headPendantClickableView2.q.y1(), String.valueOf(HeadPendantClickableView.this.q.c0()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), null);
+            if (HeadPendantClickableView.this.q.V1) {
+                str3 = AddFriendActivityConfig.TYPE_HOME_HEAD;
+                str = YYLiveUtil.SOURCE_HOME_RECOMMEND_HEAD;
+            } else if (HeadPendantClickableView.this.q.b2()) {
+                str3 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
+                str = YYLiveUtil.SOURCE_HOME_FOLLOW_TAB_HEAD;
+            } else if (!HeadPendantClickableView.this.q.k()) {
+                str = YYLiveUtil.SOURCE_NOT_DEFINE;
+                str2 = "";
+                String str4 = str;
+                alaInfo = HeadPendantClickableView.this.q.T().getAlaInfo();
+                if (alaInfo == null && alaInfo.isLegalYYLiveData()) {
+                    TbPageContext tbPageContext = HeadPendantClickableView.this.getTbPageContext();
+                    YyExtData yyExtData = alaInfo.mYyExtData;
+                    YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, str4);
+                    HeadPendantClickableView headPendantClickableView = HeadPendantClickableView.this;
+                    headPendantClickableView.r(headPendantClickableView.q.z1(), String.valueOf(HeadPendantClickableView.this.q.c0()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(HeadPendantClickableView.this.r, HeadPendantClickableView.this.q.T().getUserId(), HeadPendantClickableView.this.q.T().getName_show(), HeadPendantClickableView.this.q.i0(), str2, HeadPendantClickableView.this.q.z1(), HeadPendantClickableView.this.q.M0())));
                 }
+                if (HeadPendantClickableView.this.s == null) {
+                    HeadPendantClickableView.this.s.onClick(view);
+                    return;
+                }
+                return;
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(HeadPendantClickableView.this.r, HeadPendantClickableView.this.q.T().getUserId(), HeadPendantClickableView.this.q.T().getName_show(), HeadPendantClickableView.this.q.i0(), str2, HeadPendantClickableView.this.q.y1(), HeadPendantClickableView.this.q.M0())));
+                str = YYLiveUtil.SOURCE_FRS_LIVE_HEAD_ + TbSingleton.getInstance().getFrsCurTabType();
+                str3 = AddFriendActivityConfig.TYPE_FRS_HEAD;
             }
-            if (HeadPendantClickableView.this.s != null) {
-                HeadPendantClickableView.this.s.onClick(view);
+            str2 = str3;
+            String str42 = str;
+            alaInfo = HeadPendantClickableView.this.q.T().getAlaInfo();
+            if (alaInfo == null) {
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(HeadPendantClickableView.this.r, HeadPendantClickableView.this.q.T().getUserId(), HeadPendantClickableView.this.q.T().getName_show(), HeadPendantClickableView.this.q.i0(), str2, HeadPendantClickableView.this.q.z1(), HeadPendantClickableView.this.q.M0())));
+            if (HeadPendantClickableView.this.s == null) {
             }
         }
     }
@@ -133,13 +149,13 @@ public class HeadPendantClickableView extends HeadPendantView {
         getHeadView().setUserName(T.getUserName());
         getHeadView().setUrl(T.getAvater());
         if (T.isDefaultAvatar && d.V()) {
-            getHeadView().V(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
+            getHeadView().U(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
         } else if (!StringUtils.isNull(T.getAvater()) && T.getAvater().startsWith("http")) {
-            getHeadView().V(T.getAvater(), 10, false);
+            getHeadView().U(T.getAvater(), 10, false);
         } else if (z) {
-            getHeadView().V(T.getAvater(), 25, false);
+            getHeadView().U(T.getAvater(), 25, false);
         } else {
-            getHeadView().V(T.getAvater(), 28, false);
+            getHeadView().U(T.getAvater(), 28, false);
         }
         i(T, 0);
     }
@@ -161,7 +177,7 @@ public class HeadPendantClickableView extends HeadPendantView {
             return;
         }
         a2 a2Var = new a2();
-        a2Var.t3(metaData);
+        a2Var.u3(metaData);
         setData(a2Var, z);
     }
 }

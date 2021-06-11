@@ -1,6 +1,7 @@
 package com.tencent.open.utils;
 
 import android.util.Base64;
+import com.yy.hiidostatis.inner.util.cipher.Coder;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
@@ -8,12 +9,12 @@ import javax.crypto.spec.SecretKeySpec;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f36466a = {1, 2, 3, 4, 5, 6, 7, 8};
+    public static byte[] f40145a = {1, 2, 3, 4, 5, 6, 7, 8};
 
     public static String a(String str, String str2) {
         try {
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f36466a);
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f40145a);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), Coder.KEY_DES);
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
             cipher.init(1, secretKeySpec, ivParameterSpec);
             return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
@@ -26,8 +27,8 @@ public class d {
     public static String b(String str, String str2) {
         try {
             byte[] decode = Base64.decode(str, 0);
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f36466a);
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f40145a);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), Coder.KEY_DES);
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
             cipher.init(2, secretKeySpec, ivParameterSpec);
             return new String(cipher.doFinal(decode));

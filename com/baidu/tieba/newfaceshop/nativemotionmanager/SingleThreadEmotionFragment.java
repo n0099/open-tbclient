@@ -17,13 +17,13 @@ import java.util.List;
 public class SingleThreadEmotionFragment extends BaseFragment implements d.a.n0.z1.h.e.a.a<List<EmotionPackageData>> {
 
     /* renamed from: e  reason: collision with root package name */
-    public f f18613e;
+    public f f18689e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SingleThreadEmotionModel f18614f;
+    public SingleThreadEmotionModel f18690f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f18615g = new a(2921314);
+    public CustomMessageListener f18691g = new a(2921314);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -34,8 +34,8 @@ public class SingleThreadEmotionFragment extends BaseFragment implements d.a.n0.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (SingleThreadEmotionFragment.this.f18614f != null) {
-                SingleThreadEmotionFragment.this.f18614f.y();
+            if (SingleThreadEmotionFragment.this.f18690f != null) {
+                SingleThreadEmotionFragment.this.f18690f.C();
             }
         }
     }
@@ -44,17 +44,17 @@ public class SingleThreadEmotionFragment extends BaseFragment implements d.a.n0.
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f18617e;
+        public final /* synthetic */ List f18693e;
 
         public b(List list) {
-            this.f18617e = list;
+            this.f18693e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (SingleThreadEmotionFragment.this.f18613e != null) {
-                SingleThreadEmotionFragment.this.f18613e.j(this.f18617e);
-                SingleThreadEmotionFragment.this.H0();
+            if (SingleThreadEmotionFragment.this.f18689e != null) {
+                SingleThreadEmotionFragment.this.f18689e.j(this.f18693e);
+                SingleThreadEmotionFragment.this.K0();
             }
         }
     }
@@ -66,21 +66,21 @@ public class SingleThreadEmotionFragment extends BaseFragment implements d.a.n0.
 
         @Override // java.lang.Runnable
         public void run() {
-            if (SingleThreadEmotionFragment.this.f18613e != null) {
-                SingleThreadEmotionFragment.this.f18613e.i();
+            if (SingleThreadEmotionFragment.this.f18689e != null) {
+                SingleThreadEmotionFragment.this.f18689e.i();
             }
         }
     }
 
-    public final void G0() {
-        SingleThreadEmotionModel singleThreadEmotionModel = this.f18614f;
+    public final void J0() {
+        SingleThreadEmotionModel singleThreadEmotionModel = this.f18690f;
         if (singleThreadEmotionModel != null) {
-            singleThreadEmotionModel.y();
+            singleThreadEmotionModel.C();
         }
     }
 
-    public final void H0() {
-        f fVar = this.f18613e;
+    public final void K0() {
+        f fVar = this.f18689e;
         if (fVar != null) {
             fVar.c();
         }
@@ -88,19 +88,19 @@ public class SingleThreadEmotionFragment extends BaseFragment implements d.a.n0.
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z1.h.e.a.a
-    /* renamed from: I0 */
+    /* renamed from: L0 */
     public void onSuccess(List<EmotionPackageData> list) {
         e.a().post(new b(list));
     }
 
     @Override // d.a.n0.z1.h.e.a.a
-    public void d0() {
+    public void g0() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        f fVar = this.f18613e;
+        f fVar = this.f18689e;
         if (fVar != null) {
             fVar.e(i2);
         }
@@ -108,24 +108,24 @@ public class SingleThreadEmotionFragment extends BaseFragment implements d.a.n0.
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f18613e = new f(getPageContext());
+        this.f18689e = new f(getPageContext());
         SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
-        this.f18614f = singleThreadEmotionModel;
-        singleThreadEmotionModel.B(this);
-        registerListener(this.f18615g);
-        G0();
-        return this.f18613e.a();
+        this.f18690f = singleThreadEmotionModel;
+        singleThreadEmotionModel.F(this);
+        registerListener(this.f18691g);
+        J0();
+        return this.f18689e.a();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.f18615g != null) {
-            MessageManager.getInstance().unRegisterListener(this.f18615g);
+        if (this.f18691g != null) {
+            MessageManager.getInstance().unRegisterListener(this.f18691g);
         }
-        SingleThreadEmotionModel singleThreadEmotionModel = this.f18614f;
+        SingleThreadEmotionModel singleThreadEmotionModel = this.f18690f;
         if (singleThreadEmotionModel != null) {
-            singleThreadEmotionModel.z();
+            singleThreadEmotionModel.D();
         }
     }
 

@@ -14,10 +14,10 @@ import java.util.List;
 public class StickerModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.w3.u.l.a f22122e;
+    public d.a.n0.w3.u.l.a f22225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f22123f;
+    public d.a.c.c.g.a f22226f;
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
@@ -38,8 +38,8 @@ public class StickerModel extends BdBaseModel {
                 } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                     list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                 }
-                if (StickerModel.this.f22122e != null) {
-                    StickerModel.this.f22122e.e(list);
+                if (StickerModel.this.f22225e != null) {
+                    StickerModel.this.f22225e.e(list);
                 }
             }
         }
@@ -48,7 +48,7 @@ public class StickerModel extends BdBaseModel {
     public StickerModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         a aVar = new a(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475);
-        this.f22123f = aVar;
+        this.f22226f = aVar;
         registerListener(aVar);
     }
 
@@ -75,7 +75,7 @@ public class StickerModel extends BdBaseModel {
         cancelLoadData();
     }
 
-    public void t(d.a.n0.w3.u.l.a aVar) {
-        this.f22122e = aVar;
+    public void x(d.a.n0.w3.u.l.a aVar) {
+        this.f22225e = aVar;
     }
 }

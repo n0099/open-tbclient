@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Share.ShareResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ShareReportHttpResponseMessage extends TbHttpResponsedMessage {
     public ShareResIdl idl;
 

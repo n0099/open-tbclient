@@ -9,22 +9,22 @@ import d.a.n0.z.b0;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f53225a;
+    public TbPageContext f56914a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b0 f53226b;
+    public b0 f56915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.InterfaceC0542a f53227c;
+    public a.InterfaceC0598a f56916c;
 
     /* renamed from: d  reason: collision with root package name */
-    public OriginalThreadInfo f53228d;
+    public OriginalThreadInfo f56917d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53229e = 3;
+    public int f56918e = 3;
 
     public a(TbPageContext tbPageContext) {
-        this.f53225a = tbPageContext;
+        this.f56914a = tbPageContext;
     }
 
     public abstract View a();
@@ -33,11 +33,11 @@ public abstract class a {
 
     public abstract void c(OriginalThreadInfo originalThreadInfo);
 
-    public void d(a.InterfaceC0542a interfaceC0542a) {
-        this.f53227c = interfaceC0542a;
+    public void d(a.InterfaceC0598a interfaceC0598a) {
+        this.f56916c = interfaceC0598a;
     }
 
     public void e(b0 b0Var) {
-        this.f53226b = b0Var;
+        this.f56915b = b0Var;
     }
 }

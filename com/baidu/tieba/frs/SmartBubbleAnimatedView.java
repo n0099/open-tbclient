@@ -19,19 +19,19 @@ import d.a.c.e.p.l;
 public class SmartBubbleAnimatedView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f15174e;
+    public String f15236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f15175f;
+    public long f15237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f15176g;
+    public float f15238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ValueAnimator f15177h;
+    public ValueAnimator f15239h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ValueAnimator f15178i;
+    public ValueAnimator f15240i;
     public Paint j;
     public Paint k;
     public RectF l;
@@ -50,7 +50,7 @@ public class SmartBubbleAnimatedView extends View {
             ViewGroup.LayoutParams layoutParams = SmartBubbleAnimatedView.this.getLayoutParams();
             layoutParams.height = l.g(SmartBubbleAnimatedView.this.getContext(), R.dimen.tbds83);
             SmartBubbleAnimatedView.this.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-            SmartBubbleAnimatedView.this.f15176g = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+            SmartBubbleAnimatedView.this.f15238g = ((Float) valueAnimator.getAnimatedValue()).floatValue();
             if (SmartBubbleAnimatedView.this.p && (layoutParams instanceof LinearLayout.LayoutParams)) {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) layoutParams;
                 int i2 = layoutParams2.topMargin;
@@ -127,8 +127,8 @@ public class SmartBubbleAnimatedView extends View {
 
     public SmartBubbleAnimatedView(Context context) {
         super(context);
-        this.f15175f = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
-        this.f15176g = 0.0f;
+        this.f15237f = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+        this.f15238g = 0.0f;
         this.j = new Paint();
         this.k = new Paint();
         this.l = new RectF();
@@ -161,15 +161,15 @@ public class SmartBubbleAnimatedView extends View {
             return;
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.f15178i = ofFloat;
+        this.f15240i = ofFloat;
         ofFloat.addUpdateListener(new c());
-        this.f15178i.addListener(new d());
-        this.f15178i.setDuration(300L);
-        this.f15178i.start();
+        this.f15240i.addListener(new d());
+        this.f15240i.setDuration(300L);
+        this.f15240i.start();
     }
 
     public void g() {
-        this.f15177h = ValueAnimator.ofFloat(0.0f, 1.1f);
+        this.f15239h = ValueAnimator.ofFloat(0.0f, 1.1f);
         if (this.p) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams instanceof LinearLayout.LayoutParams) {
@@ -177,10 +177,10 @@ public class SmartBubbleAnimatedView extends View {
                 setLayoutParams(layoutParams);
             }
         }
-        this.f15177h.addUpdateListener(new a());
-        this.f15177h.setDuration(400L);
-        this.f15177h.start();
-        d.a.c.e.m.e.a().postDelayed(new b(), this.f15175f);
+        this.f15239h.addUpdateListener(new a());
+        this.f15239h.setDuration(400L);
+        this.f15239h.start();
+        d.a.c.e.m.e.a().postDelayed(new b(), this.f15237f);
     }
 
     public int getTipViewHeight() {
@@ -189,18 +189,18 @@ public class SmartBubbleAnimatedView extends View {
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        float height = ((1.0f - this.f15176g) * getHeight()) / 2.0f;
-        float width = (getWidth() / 2) + ((this.f15176g * getWidth()) / 2.0f);
-        float height2 = (getHeight() / 2) + ((this.f15176g * getHeight()) / 2.0f);
-        this.l.set(((1.0f - this.f15176g) * getWidth()) / 2.0f, height, width, height2);
+        float height = ((1.0f - this.f15238g) * getHeight()) / 2.0f;
+        float width = (getWidth() / 2) + ((this.f15238g * getWidth()) / 2.0f);
+        float height2 = (getHeight() / 2) + ((this.f15238g * getHeight()) / 2.0f);
+        this.l.set(((1.0f - this.f15238g) * getWidth()) / 2.0f, height, width, height2);
         float f2 = (height2 - height) / 2.0f;
         canvas.drawRoundRect(this.l, f2, f2, this.j);
         Paint paint = this.k;
-        String str = this.f15174e;
+        String str = this.f15236e;
         paint.getTextBounds(str, 0, str.length(), this.m);
         int width2 = this.m.width();
         int height3 = this.m.height();
-        String str2 = this.f15174e;
+        String str2 = this.f15236e;
         canvas.drawText(str2, 0, str2.length(), (getWidth() - width2) / 2, getHeight() - ((getHeight() - height3) / 2), this.k);
     }
 
@@ -214,8 +214,8 @@ public class SmartBubbleAnimatedView extends View {
 
     public SmartBubbleAnimatedView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15175f = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
-        this.f15176g = 0.0f;
+        this.f15237f = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+        this.f15238g = 0.0f;
         this.j = new Paint();
         this.k = new Paint();
         this.l = new RectF();
@@ -226,8 +226,8 @@ public class SmartBubbleAnimatedView extends View {
 
     public SmartBubbleAnimatedView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f15175f = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
-        this.f15176g = 0.0f;
+        this.f15237f = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+        this.f15238g = 0.0f;
         this.j = new Paint();
         this.k = new Paint();
         this.l = new RectF();

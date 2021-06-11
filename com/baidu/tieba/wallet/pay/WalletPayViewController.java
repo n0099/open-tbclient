@@ -96,7 +96,7 @@ public class WalletPayViewController {
 
         public void setData(PayChannelInfo payChannelInfo) {
             this.curChannel = payChannelInfo.channel;
-            this.iconImg.V(payChannelInfo.iconUrl, 10, false);
+            this.iconImg.U(payChannelInfo.iconUrl, 10, false);
             this.titleTv.setText(payChannelInfo.title);
             if (!StringUtils.isNull(payChannelInfo.prompt)) {
                 this.promptTv.setVisibility(0);

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.CheckRealName.CheckRealNameResIdl;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CheckRealNameSocketResponseMessage extends SocketResponsedMessage {
     public CheckRealNameSocketResponseMessage() {
         super(309456);

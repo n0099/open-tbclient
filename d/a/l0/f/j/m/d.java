@@ -22,15 +22,15 @@ public class d implements d.a.l0.h.t.c.d {
     public class a implements GamenowRecommendPopView.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameCloseGuidePopView.e f46875a;
+        public final /* synthetic */ GameCloseGuidePopView.e f50549a;
 
         public a(d dVar, GameCloseGuidePopView.e eVar) {
-            this.f46875a = eVar;
+            this.f50549a = eVar;
         }
 
         @Override // com.baidu.swan.game.guide.dialog.GamenowRecommendPopView.e
         public void a() {
-            GameCloseGuidePopView.e eVar = this.f46875a;
+            GameCloseGuidePopView.e eVar = this.f50549a;
             if (eVar == null) {
                 return;
             }
@@ -39,7 +39,7 @@ public class d implements d.a.l0.h.t.c.d {
     }
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     @Override // d.a.l0.h.t.c.d
@@ -51,7 +51,7 @@ public class d implements d.a.l0.h.t.c.d {
             return null;
         }
         String I = bVar.I();
-        if ((!TextUtils.equals(I, c.f46874a) && q0.F(context, I)) || (z = d.a.l0.f.j.b.o.z()) == null || (closeInfo = z.closeInfo) == null) {
+        if ((!TextUtils.equals(I, c.f50548a) && q0.F(context, I)) || (z = d.a.l0.f.j.b.o.z()) == null || (closeInfo = z.closeInfo) == null) {
             return null;
         }
         int i2 = closeInfo.type;

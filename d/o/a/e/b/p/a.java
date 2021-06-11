@@ -7,39 +7,39 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67510a;
+    public int f71296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67511b;
+    public long f71297b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f67512c;
+    public long f71298c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67513d;
+    public String f71299d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67514e = 0;
+    public int f71300e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f67515f;
+    public long f71301f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f67516g;
+    public int f71302g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f67517h;
+    public boolean f71303h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Notification f67518i;
+    public Notification f71304i;
 
     public a(int i2, String str) {
-        this.f67510a = i2;
-        this.f67513d = str;
+        this.f71296a = i2;
+        this.f71299d = str;
     }
 
     public int a() {
-        return this.f67510a;
+        return this.f71296a;
     }
 
     public void b(int i2, BaseException baseException, boolean z) {
@@ -47,28 +47,28 @@ public abstract class a {
     }
 
     public void c(int i2, BaseException baseException, boolean z, boolean z2) {
-        if (z2 || this.f67514e != i2) {
-            this.f67514e = i2;
+        if (z2 || this.f71300e != i2) {
+            this.f71300e = i2;
             g(baseException, z);
         }
     }
 
     public void d(long j) {
-        this.f67511b = j;
+        this.f71297b = j;
     }
 
     public void e(long j, long j2) {
-        this.f67511b = j;
-        this.f67512c = j2;
-        this.f67514e = 4;
+        this.f71297b = j;
+        this.f71298c = j2;
+        this.f71300e = 4;
         g(null, false);
     }
 
     public void f(Notification notification) {
-        if (this.f67510a == 0 || notification == null) {
+        if (this.f71296a == 0 || notification == null) {
             return;
         }
-        b.a().c(this.f67510a, this.f67514e, notification);
+        b.a().c(this.f71296a, this.f71300e, notification);
     }
 
     public abstract void g(BaseException baseException, boolean z);
@@ -77,50 +77,50 @@ public abstract class a {
         if (downloadInfo == null) {
             return;
         }
-        this.f67510a = downloadInfo.c0();
-        this.f67513d = downloadInfo.P0();
+        this.f71296a = downloadInfo.c0();
+        this.f71299d = downloadInfo.P0();
     }
 
     public void i(boolean z) {
-        this.f67517h = z;
+        this.f71303h = z;
     }
 
     public long j() {
-        return this.f67511b;
+        return this.f71297b;
     }
 
     public void k(long j) {
-        this.f67512c = j;
+        this.f71298c = j;
     }
 
     public long l() {
-        return this.f67512c;
+        return this.f71298c;
     }
 
     public String m() {
-        return this.f67513d;
+        return this.f71299d;
     }
 
     public int n() {
-        return this.f67514e;
+        return this.f71300e;
     }
 
     public long o() {
-        if (this.f67515f == 0) {
-            this.f67515f = System.currentTimeMillis();
+        if (this.f71301f == 0) {
+            this.f71301f = System.currentTimeMillis();
         }
-        return this.f67515f;
+        return this.f71301f;
     }
 
     public synchronized void p() {
-        this.f67516g++;
+        this.f71302g++;
     }
 
     public int q() {
-        return this.f67516g;
+        return this.f71302g;
     }
 
     public boolean r() {
-        return this.f67517h;
+        return this.f71303h;
     }
 }

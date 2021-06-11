@@ -3,15 +3,15 @@ package com.kwad.sdk.core.f.a;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import com.kwad.sdk.utils.u;
+import com.kwad.sdk.utils.w;
 /* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f32207a;
+    public Context f34242a;
 
     public h(Context context) {
-        this.f32207a = context;
+        this.f34242a = context;
     }
 
     public String a() {
@@ -19,18 +19,18 @@ public class h {
         Cursor cursor = null;
         try {
             try {
-                cursor = this.f32207a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                cursor = this.f34242a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
                 if (cursor != null && cursor.moveToNext()) {
                     str = cursor.getString(cursor.getColumnIndex("value"));
-                    com.kwad.sdk.core.d.a.c("VivoDeviceIDHelper", "getOAID oaid:" + str);
+                    com.kwad.sdk.core.d.a.b("VivoDeviceIDHelper", "getOAID oaid:" + str);
                 }
             } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.c("VivoDeviceIDHelper", "getOAID fail");
+                com.kwad.sdk.core.d.a.b("VivoDeviceIDHelper", "getOAID fail");
                 com.kwad.sdk.core.d.a.b(e2);
             }
             return str;
         } finally {
-            u.a(cursor);
+            w.a(cursor);
         }
     }
 }

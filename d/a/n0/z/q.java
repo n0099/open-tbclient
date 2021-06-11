@@ -20,31 +20,31 @@ import java.util.List;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f63548a;
+    public TbPageContext f67266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f63549b;
+    public Context f67267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.m0.r.s.j f63550c;
+    public d.a.m0.r.s.j f67268c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.m0.r.s.l f63551d;
+    public d.a.m0.r.s.l f67269d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.m0.r.s.a f63552e;
+    public d.a.m0.r.s.a f67270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public i f63553f;
+    public i f67271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CardPersonDynamicThreadData f63554g;
+    public CardPersonDynamicThreadData f67272g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<d.a.m0.r.s.h> f63555h;
+    public List<d.a.m0.r.s.h> f67273h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.m0.r.s.h f63556i;
+    public d.a.m0.r.s.h f67274i;
     public d.a.m0.r.s.h j;
     public d.a.m0.r.s.h k;
     public SetPrivacyModel l;
@@ -76,32 +76,32 @@ public class q {
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
             int i2;
-            if (q.this.f63554g == null) {
+            if (q.this.f67272g == null) {
                 return;
             }
             q.this.q();
             int i3 = 2;
-            if (q.this.f63554g.s == 1) {
+            if (q.this.f67272g.s == 1) {
                 i2 = 2;
             } else {
-                int i4 = q.this.f63554g.s;
+                int i4 = q.this.f67272g.s;
                 i2 = 1;
             }
-            if (q.this.f63554g == null || !q.this.f63554g.q) {
-                if (q.this.f63554g.m() != null) {
-                    q.this.o.i(q.this.f63554g.m().y1());
+            if (q.this.f67272g == null || !q.this.f67272g.q) {
+                if (q.this.f67272g.i() != null) {
+                    q.this.o.i(q.this.f67272g.i().z1());
                 }
-                i3 = (TbSingleton.getInstance().mCallFansTid == null || q.this.f63554g.m() == null || !TbSingleton.getInstance().mCallFansTid.equals(q.this.f63554g.m().y1())) ? 1 : 1;
+                i3 = (TbSingleton.getInstance().mCallFansTid == null || q.this.f67272g.i() == null || !TbSingleton.getInstance().mCallFansTid.equals(q.this.f67272g.i().z1())) ? 1 : 1;
                 q.this.o.c();
-                if (q.this.f63554g.m() != null) {
-                    q.this.o.e(i2, i3, q.this.f63554g.m().y1());
+                if (q.this.f67272g.i() != null) {
+                    q.this.o.e(i2, i3, q.this.f67272g.i().z1());
                     return;
                 }
                 return;
             }
-            q.this.f63548a.showToast(R.string.privacy_thread_can_not_use_call_fans);
-            if (q.this.f63554g.m() != null) {
-                q.this.o.e(i2, 3, q.this.f63554g.m().y1());
+            q.this.f67266a.showToast(R.string.privacy_thread_can_not_use_call_fans);
+            if (q.this.f67272g.i() != null) {
+                q.this.o.e(i2, 3, q.this.f67272g.i().z1());
             }
         }
     }
@@ -114,20 +114,20 @@ public class q {
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             if (!d.a.c.e.p.j.A()) {
-                d.a.c.e.p.l.L(q.this.f63549b, R.string.neterror);
+                d.a.c.e.p.l.L(q.this.f67267b, R.string.neterror);
                 return;
             }
-            if (q.this.f63554g.s != 1) {
-                if (q.this.f63554g.s == 3) {
+            if (q.this.f67272g.s != 1) {
+                if (q.this.f67272g.s == 3) {
                     TiebaStatic.log(new StatisticItem("c12600").param("obj_type", 1));
                 }
             } else {
                 TiebaStatic.log(new StatisticItem("c12599").param("obj_type", 3));
             }
             if (q.this.n) {
-                q.this.m.L(q.this.f63554g.r);
+                q.this.m.P(q.this.f67272g.r);
             }
-            q.this.m.N(q.this.f63554g.f14275e, q.this.f63554g.j, q.this.f63554g.f14276f, q.this.f63554g.f14277g, 0, 0, true, q.this.f63554g.r.V());
+            q.this.m.R(q.this.f67272g.f14332e, q.this.f67272g.j, q.this.f67272g.f14333f, q.this.f67272g.f14334g, 0, 0, true, q.this.f67272g.r.V());
             aVar.dismiss();
         }
     }
@@ -150,31 +150,31 @@ public class q {
 
         @Override // com.baidu.tieba.model.SetPrivacyModel.a
         public void onError(String str) {
-            d.a.c.e.p.l.M(q.this.f63549b, str);
+            d.a.c.e.p.l.M(q.this.f67267b, str);
         }
 
         @Override // com.baidu.tieba.model.SetPrivacyModel.a
         public void onSuccess() {
-            if (q.this.f63554g.q) {
-                q.this.f63554g.q = false;
-                d.a.c.e.p.l.L(q.this.f63549b, R.string.thread_has_open);
-                if (q.this.f63556i != null) {
-                    q.this.f63556i.n(q.this.f63549b.getString(R.string.set_thread_privacy));
+            if (q.this.f67272g.q) {
+                q.this.f67272g.q = false;
+                d.a.c.e.p.l.L(q.this.f67267b, R.string.thread_has_open);
+                if (q.this.f67274i != null) {
+                    q.this.f67274i.n(q.this.f67267b.getString(R.string.set_thread_privacy));
                 }
-                if (q.this.f63553f != null) {
-                    q.this.f63553f.a(false);
+                if (q.this.f67271f != null) {
+                    q.this.f67271f.a(false);
                     return;
                 }
                 return;
             }
-            q.this.f63554g.q = true;
-            if (q.this.f63556i != null) {
-                q.this.f63556i.n(q.this.f63549b.getString(R.string.set_thread_public_open));
+            q.this.f67272g.q = true;
+            if (q.this.f67274i != null) {
+                q.this.f67274i.n(q.this.f67267b.getString(R.string.set_thread_public_open));
             }
-            if (q.this.f63553f != null) {
-                q.this.f63553f.a(true);
+            if (q.this.f67271f != null) {
+                q.this.f67271f.a(true);
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016558, q.this.f63554g.f14276f));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016558, q.this.f67272g.f14333f));
         }
     }
 
@@ -186,25 +186,25 @@ public class q {
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
             if (!d.a.c.e.p.j.A()) {
-                d.a.c.e.p.l.L(q.this.f63549b, R.string.neterror);
+                d.a.c.e.p.l.L(q.this.f67267b, R.string.neterror);
                 return;
             }
-            if (q.this.f63554g.q) {
-                if (q.this.f63554g.s == 1) {
+            if (q.this.f67272g.q) {
+                if (q.this.f67272g.s == 1) {
                     TiebaStatic.log(new StatisticItem("c12599").param("obj_type", 2));
                 }
-            } else if (q.this.f63554g.s != 1) {
-                if (q.this.f63554g.s == 3) {
+            } else if (q.this.f67272g.s != 1) {
+                if (q.this.f67272g.s == 3) {
                     TiebaStatic.log(new StatisticItem("c12600").param("obj_type", 2));
                 }
             } else {
                 TiebaStatic.log(new StatisticItem("c12599").param("obj_type", 1));
             }
             if (q.this.l == null) {
-                q.this.l = new SetPrivacyModel(q.this.f63548a, q.this.f63554g);
+                q.this.l = new SetPrivacyModel(q.this.f67266a, q.this.f67272g);
             }
-            if (!q.this.l.y()) {
-                q.this.l.z(q.this.q);
+            if (!q.this.l.C()) {
+                q.this.l.D(q.this.q);
                 q.this.l.LoadData();
             }
             q.this.q();
@@ -219,12 +219,12 @@ public class q {
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
             if (!d.a.c.e.p.j.A()) {
-                d.a.c.e.p.l.L(q.this.f63549b, R.string.neterror);
+                d.a.c.e.p.l.L(q.this.f67267b, R.string.neterror);
                 return;
             }
-            if (q.this.f63554g != null && q.this.m != null) {
+            if (q.this.f67272g != null && q.this.m != null) {
                 q.this.p();
-                q.this.f63552e.show();
+                q.this.f67270e.show();
             }
             q.this.q();
         }
@@ -239,22 +239,22 @@ public class q {
         public void c(Object obj) {
             if (obj instanceof ForumManageModel.b) {
                 ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                if (bVar.f20827c == 0) {
-                    d.a.c.e.p.l.L(q.this.f63549b, R.string.delete_success);
-                    if (q.this.f63554g != null) {
-                        if (d.a.c.e.p.k.isEmpty(q.this.f63554g.I)) {
-                            if (d.a.c.e.p.k.isEmpty(q.this.f63554g.f14276f)) {
+                if (bVar.f20904c == 0) {
+                    d.a.c.e.p.l.L(q.this.f67267b, R.string.delete_success);
+                    if (q.this.f67272g != null) {
+                        if (d.a.c.e.p.k.isEmpty(q.this.f67272g.I)) {
+                            if (d.a.c.e.p.k.isEmpty(q.this.f67272g.f14333f)) {
                                 return;
                             }
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, q.this.f63554g.f14276f));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, q.this.f67272g.f14333f));
                             return;
                         }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, q.this.f63554g.I));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, q.this.f67272g.I));
                     }
-                } else if (!d.a.c.e.p.k.isEmpty(bVar.f20826b)) {
-                    d.a.c.e.p.l.M(q.this.f63549b, bVar.f20826b);
+                } else if (!d.a.c.e.p.k.isEmpty(bVar.f20903b)) {
+                    d.a.c.e.p.l.M(q.this.f67267b, bVar.f20903b);
                 } else {
-                    d.a.c.e.p.l.L(q.this.f63549b, R.string.delete_fail);
+                    d.a.c.e.p.l.L(q.this.f67267b, R.string.delete_fail);
                 }
             }
         }
@@ -269,11 +269,11 @@ public class q {
         if (tbPageContext == null) {
             return;
         }
-        this.f63548a = tbPageContext;
-        this.f63549b = tbPageContext.getPageActivity();
-        this.f63555h = new ArrayList();
-        this.f63551d = new d.a.m0.r.s.l(this.f63549b);
-        ForumManageModel forumManageModel = new ForumManageModel(this.f63548a);
+        this.f67266a = tbPageContext;
+        this.f67267b = tbPageContext.getPageActivity();
+        this.f67273h = new ArrayList();
+        this.f67269d = new d.a.m0.r.s.l(this.f67267b);
+        ForumManageModel forumManageModel = new ForumManageModel(this.f67266a);
         this.m = forumManageModel;
         forumManageModel.setLoadDataCallBack(this.t);
         this.o = new d.a.n0.y.a(tbPageContext);
@@ -281,24 +281,24 @@ public class q {
 
     public void n(CardPersonDynamicThreadData cardPersonDynamicThreadData, boolean z) {
         d.a.m0.r.s.h hVar;
-        this.f63554g = cardPersonDynamicThreadData;
-        if (cardPersonDynamicThreadData == null || (hVar = this.f63556i) == null) {
+        this.f67272g = cardPersonDynamicThreadData;
+        if (cardPersonDynamicThreadData == null || (hVar = this.f67274i) == null) {
             return;
         }
         if (cardPersonDynamicThreadData.q) {
-            hVar.n(this.f63549b.getString(R.string.set_thread_public_open));
+            hVar.n(this.f67267b.getString(R.string.set_thread_public_open));
         } else {
-            hVar.n(this.f63549b.getString(R.string.set_thread_privacy));
+            hVar.n(this.f67267b.getString(R.string.set_thread_privacy));
         }
-        this.f63556i.p(z);
+        this.f67274i.p(z);
         if (this.j != null) {
             if (TbSingleton.getInstance().mCanCallFans) {
-                this.j.n(this.f63549b.getString(R.string.call_fans));
+                this.j.n(this.f67267b.getString(R.string.call_fans));
             } else {
-                if (TbSingleton.getInstance().mCallFansTid != null && this.f63554g.m() != null && TbSingleton.getInstance().mCallFansTid.equals(this.f63554g.m().y1())) {
-                    this.j.n(this.f63549b.getString(R.string.have_called_fans));
+                if (TbSingleton.getInstance().mCallFansTid != null && this.f67272g.i() != null && TbSingleton.getInstance().mCallFansTid.equals(this.f67272g.i().z1())) {
+                    this.j.n(this.f67267b.getString(R.string.have_called_fans));
                 } else {
-                    this.j.n(this.f63549b.getString(R.string.call_fans));
+                    this.j.n(this.f67267b.getString(R.string.call_fans));
                 }
                 this.j.o(R.color.cp_cont_b_alpha33);
             }
@@ -307,74 +307,74 @@ public class q {
     }
 
     public void o() {
-        if (this.f63550c != null) {
+        if (this.f67268c != null) {
             return;
         }
-        d.a.m0.r.s.h hVar = new d.a.m0.r.s.h(this.f63551d);
-        this.f63556i = hVar;
+        d.a.m0.r.s.h hVar = new d.a.m0.r.s.h(this.f67269d);
+        this.f67274i = hVar;
         hVar.m(this.r);
         if (!this.n) {
-            this.f63555h.add(this.f63556i);
+            this.f67273h.add(this.f67274i);
         }
         if (TbSingleton.getInstance().mShowCallFans && !this.n) {
-            d.a.m0.r.s.h hVar2 = new d.a.m0.r.s.h(this.f63549b.getString(R.string.call_fans), this.f63551d);
+            d.a.m0.r.s.h hVar2 = new d.a.m0.r.s.h(this.f67267b.getString(R.string.call_fans), this.f67269d);
             this.j = hVar2;
             hVar2.m(this.p);
-            this.f63555h.add(this.j);
+            this.f67273h.add(this.j);
         }
-        d.a.m0.r.s.h hVar3 = new d.a.m0.r.s.h(this.f63549b.getString(R.string.delete), this.f63551d);
+        d.a.m0.r.s.h hVar3 = new d.a.m0.r.s.h(this.f67267b.getString(R.string.delete), this.f67269d);
         this.k = hVar3;
         hVar3.m(this.s);
-        this.f63555h.add(this.k);
-        this.f63551d.m(new a());
-        this.f63551d.k(this.f63555h);
-        this.f63550c = new d.a.m0.r.s.j(this.f63548a, this.f63551d);
+        this.f67273h.add(this.k);
+        this.f67269d.m(new a());
+        this.f67269d.k(this.f67273h);
+        this.f67268c = new d.a.m0.r.s.j(this.f67266a, this.f67269d);
     }
 
     public final void p() {
         a2 a2Var;
-        if (this.f63552e != null) {
+        if (this.f67270e != null) {
             return;
         }
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f63548a.getPageActivity());
-        this.f63552e = aVar;
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f67266a.getPageActivity());
+        this.f67270e = aVar;
         if (this.n) {
             aVar.setMessageId(R.string.del_dynamic_confirm);
         } else {
-            CardPersonDynamicThreadData cardPersonDynamicThreadData = this.f63554g;
-            if (cardPersonDynamicThreadData != null && (a2Var = cardPersonDynamicThreadData.r) != null && a2Var.X1()) {
-                this.f63552e.setMessageId(R.string.del_work_thread_confirm);
+            CardPersonDynamicThreadData cardPersonDynamicThreadData = this.f67272g;
+            if (cardPersonDynamicThreadData != null && (a2Var = cardPersonDynamicThreadData.r) != null && a2Var.Y1()) {
+                this.f67270e.setMessageId(R.string.del_work_thread_confirm);
             } else {
-                this.f63552e.setMessageId(R.string.del_thread_confirm);
+                this.f67270e.setMessageId(R.string.del_thread_confirm);
             }
         }
-        this.f63552e.setPositiveButton(R.string.dialog_ok, new c());
-        this.f63552e.setNegativeButton(R.string.dialog_cancel, new d(this));
-        this.f63552e.setCancelable(true);
-        this.f63552e.create(this.f63548a);
+        this.f67270e.setPositiveButton(R.string.dialog_ok, new c());
+        this.f67270e.setNegativeButton(R.string.dialog_cancel, new d(this));
+        this.f67270e.setCancelable(true);
+        this.f67270e.create(this.f67266a);
     }
 
     public void q() {
-        d.a.m0.r.s.j jVar = this.f63550c;
+        d.a.m0.r.s.j jVar = this.f67268c;
         if (jVar == null || !jVar.isShowing()) {
             return;
         }
-        this.f63550c.dismiss();
+        this.f67268c.dismiss();
     }
 
     public void r() {
-        d.a.m0.r.s.l lVar = this.f63551d;
+        d.a.m0.r.s.l lVar = this.f67269d;
         if (lVar != null) {
             lVar.j();
         }
-        d.a.m0.r.s.a aVar = this.f63552e;
+        d.a.m0.r.s.a aVar = this.f67270e;
         if (aVar != null) {
-            d.a.m0.s0.a.a(this.f63548a, aVar.getRealView());
+            d.a.m0.s0.a.a(this.f67266a, aVar.getRealView());
         }
     }
 
     public void s(i iVar) {
-        this.f63553f = iVar;
+        this.f67271f = iVar;
     }
 
     public void t(boolean z) {
@@ -382,7 +382,7 @@ public class q {
     }
 
     public void u() {
-        d.a.m0.r.s.j jVar = this.f63550c;
+        d.a.m0.r.s.j jVar = this.f67268c;
         if (jVar == null) {
             return;
         }

@@ -21,7 +21,7 @@ import d.a.m0.r.q.a2;
 import d.a.n0.z.b0;
 import d.a.n0.z.n;
 /* loaded from: classes4.dex */
-public class f extends d.a.c.j.e.a<d.a.n0.z.e0.k, d> {
+public class f extends d.a.c.k.e.a<d.a.n0.z.e0.k, d> {
     public TbPageContext<HotTopicActivity> m;
     public boolean n;
     public BdUniqueId o;
@@ -137,19 +137,19 @@ public class f extends d.a.c.j.e.a<d.a.n0.z.e0.k, d> {
         @Override // d.a.n0.z.b0
         /* renamed from: d */
         public void a(View view, d.a.n0.z.e0.k kVar) {
-            if (kVar == null || kVar.m() == null || StringUtils.isNull(kVar.m().y1()) || StringUtils.isNull(kVar.M())) {
+            if (kVar == null || kVar.i() == null || StringUtils.isNull(kVar.i().z1()) || StringUtils.isNull(kVar.M())) {
                 return;
             }
             String topicName = ((HotTopicActivity) f.this.m.getOrignalPage()).getTopicName();
             String hotTopicId = ((HotTopicActivity) f.this.m.getOrignalPage()).getHotTopicId();
-            a2 m = kVar.m();
-            m.d4(5);
+            a2 i2 = kVar.i();
+            i2.e4(5);
             if ("c10814".equals(kVar.M())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                TiebaStatic.log(new StatisticItem("c10814").param("tid", m.o0()).param("obj_name", topicName).param("topic_id", hotTopicId));
+                TiebaStatic.log(new StatisticItem("c10814").param("tid", i2.o0()).param("obj_name", topicName).param("topic_id", hotTopicId));
             } else if ("c10816".equals(kVar.M())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                TiebaStatic.log(new StatisticItem("c10816").param("post_id", m.y1()).param("obj_name", topicName).param("topic_id", hotTopicId));
+                TiebaStatic.log(new StatisticItem("c10816").param("post_id", i2.z1()).param("obj_name", topicName).param("topic_id", hotTopicId));
             }
             if (f.this.m == null || !(f.this.m.getOrignalPage() instanceof d.a.n0.d1.b.a)) {
                 return;
@@ -162,11 +162,11 @@ public class f extends d.a.c.j.e.a<d.a.n0.z.e0.k, d> {
     public class d extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public n f52478a;
+        public n f56167a;
 
         public d(f fVar, n nVar) {
-            super(nVar.l());
-            this.f52478a = nVar;
+            super(nVar.m());
+            this.f56167a = nVar;
         }
     }
 
@@ -181,15 +181,15 @@ public class f extends d.a.c.j.e.a<d.a.n0.z.e0.k, d> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public d P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public d Q(ViewGroup viewGroup) {
         n nVar = new n(this.m);
-        nVar.K(this.o);
-        nVar.L(this.q);
-        nVar.M(this.p);
-        nVar.P(false);
-        nVar.N(this.n);
+        nVar.L(this.o);
+        nVar.M(this.q);
+        nVar.N(this.p);
+        nVar.Q(false);
+        nVar.O(this.n);
         nVar.l = 0;
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = nVar.o;
         if (threadCommentAndPraiseInfoLayout != null) {
@@ -199,12 +199,12 @@ public class f extends d.a.c.j.e.a<d.a.n0.z.e0.k, d> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.z.e0.k kVar, d dVar) {
-        dVar.f52478a.m(kVar);
-        dVar.f52478a.o(this.r);
-        dVar.f52478a.R(!(y(i2 + 1) instanceof d.a.n0.d1.c.n));
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.z.e0.k kVar, d dVar) {
+        dVar.f56167a.n(kVar);
+        dVar.f56167a.p(this.r);
+        dVar.f56167a.S(!(z(i2 + 1) instanceof d.a.n0.d1.c.n));
         TbPageContext<HotTopicActivity> tbPageContext = this.m;
         if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof d.a.n0.d1.b.a)) {
             this.m.getOrignalPage().businessStatisticForTopic(kVar);

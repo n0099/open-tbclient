@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernOfflineViewHolder;
 import d.a.n0.z.b0;
 /* loaded from: classes4.dex */
-public class e extends d.a.c.j.e.a<d.a.n0.v.d.c.f.b.b, LiveTabConcernOfflineViewHolder> {
+public class e extends d.a.c.k.e.a<d.a.n0.v.d.c.f.b.b, LiveTabConcernOfflineViewHolder> {
     public TbPageContext m;
     public b0<d.a.n0.v.d.c.f.b.b> n;
 
@@ -26,7 +26,7 @@ public class e extends d.a.c.j.e.a<d.a.n0.v.d.c.f.b.b, LiveTabConcernOfflineView
         @Override // d.a.n0.z.b0
         /* renamed from: d */
         public void a(View view, d.a.n0.v.d.c.f.b.b bVar) {
-            e.this.f0(bVar);
+            e.this.g0(bVar);
         }
     }
 
@@ -36,11 +36,11 @@ public class e extends d.a.c.j.e.a<d.a.n0.v.d.c.f.b.b, LiveTabConcernOfflineView
         this.m = tbPageContext;
     }
 
-    public final void f0(d.a.n0.v.d.c.f.b.b bVar) {
+    public final void g0(d.a.n0.v.d.c.f.b.b bVar) {
         if (bVar == null) {
             return;
         }
-        String str = bVar.f61533e;
+        String str = bVar.f65246e;
         if (StringUtils.isNull(str) || d.a.c.e.m.b.f(str, 0L) == 0) {
             return;
         }
@@ -52,23 +52,23 @@ public class e extends d.a.c.j.e.a<d.a.n0.v.d.c.f.b.b, LiveTabConcernOfflineView
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public LiveTabConcernOfflineViewHolder P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public LiveTabConcernOfflineViewHolder Q(ViewGroup viewGroup) {
         d.a.n0.v.d.c.f.d.f fVar = new d.a.n0.v.d.c.f.d.f(this.m, viewGroup);
-        fVar.o(this.n);
+        fVar.p(this.n);
         return new LiveTabConcernOfflineViewHolder(fVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.v.d.c.f.b.b bVar, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.v.d.c.f.b.b bVar, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
         d.a.n0.v.d.c.f.d.f fVar;
-        if (liveTabConcernOfflineViewHolder == null || (fVar = liveTabConcernOfflineViewHolder.f13759a) == null) {
+        if (liveTabConcernOfflineViewHolder == null || (fVar = liveTabConcernOfflineViewHolder.f13824a) == null) {
             return null;
         }
-        fVar.m(bVar);
+        fVar.n(bVar);
         return liveTabConcernOfflineViewHolder.a();
     }
 }

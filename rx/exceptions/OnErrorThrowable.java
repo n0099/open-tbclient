@@ -6,22 +6,22 @@ import h.r.f;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnErrorThrowable extends RuntimeException {
     public static final long serialVersionUID = -569558213262703934L;
     public final boolean hasValue;
     public final Object value;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class OnNextValue extends RuntimeException {
         public static final long serialVersionUID = -3454462756050397899L;
         public final Object value;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static final class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final Set<Class<?>> f69058a = a();
+            public static final Set<Class<?>> f72367a = a();
 
             public static Set<Class<?>> a() {
                 HashSet hashSet = new HashSet();
@@ -53,7 +53,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return StringUtil.NULL_STRING;
             }
-            if (a.f69058a.contains(obj.getClass())) {
+            if (a.f72367a.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {

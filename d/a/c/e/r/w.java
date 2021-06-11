@@ -3,9 +3,9 @@ package d.a.c.e.r;
 public class w extends r {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f39002a;
+    public byte[] f42655a;
 
     public w(byte[] bArr) {
-        this.f39002a = bArr;
+        this.f42655a = bArr;
     }
 }

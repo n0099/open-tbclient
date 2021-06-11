@@ -16,23 +16,23 @@ import java.io.File;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class a extends j {
-    public static final boolean j = k.f43199a;
+    public static final boolean j = k.f46875a;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public b f47362g;
+    public b f51036g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.l0.h.f.k.a f47363h;
+    public d.a.l0.h.f.k.a f51037h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c<h> f47364i = new C1024a();
+    public c<h> f51038i = new C1080a();
 
     /* renamed from: d.a.l0.h.f.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1024a extends d.a.l0.n.f.b<h> {
-        public C1024a() {
+    public class C1080a extends d.a.l0.n.f.b<h> {
+        public C1080a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,7 +56,7 @@ public class a extends j {
             if (a.j) {
                 Log.e("ConsoleJsDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.f47362g.a(false);
+            a.this.f51036g.a(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,25 +67,25 @@ public class a extends j {
             if (a.j) {
                 Log.i("ConsoleJsDownload", "onDownloadFinish: " + hVar.toString());
             }
-            if (!j0.a(new File(hVar.f48006a), hVar.m)) {
+            if (!j0.a(new File(hVar.f51680a), hVar.m)) {
                 if (a.j) {
                     Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
                 }
-                a.this.f47362g.a(false);
+                a.this.f51036g.a(false);
                 return;
             }
-            File a2 = a.this.f47363h.a();
+            File a2 = a.this.f51037h.a();
             if (a2.exists()) {
                 d.i(a2);
             } else {
                 d.k(a2);
             }
-            boolean T = d.T(hVar.f48006a, a2.getAbsolutePath());
+            boolean T = d.T(hVar.f51680a, a2.getAbsolutePath());
             if (T) {
-                a.this.f47363h.b(hVar.j, hVar.f48014i);
+                a.this.f51037h.b(hVar.j, hVar.f51688i);
             }
-            d.j(hVar.f48006a);
-            a.this.f47362g.a(T);
+            d.j(hVar.f51680a);
+            a.this.f51036g.a(T);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -110,8 +110,8 @@ public class a extends j {
     }
 
     public a(@NonNull d.a.l0.h.f.k.a aVar, @NonNull b bVar) {
-        this.f47362g = bVar;
-        this.f47363h = aVar;
+        this.f51036g = bVar;
+        this.f51037h = aVar;
     }
 
     @Override // d.a.l0.n.f.g
@@ -120,7 +120,7 @@ public class a extends j {
         if (j) {
             Log.e("ConsoleJsDownload", "onFetchError: " + aVar.toString());
         }
-        this.f47362g.a(false);
+        this.f51036g.a(false);
     }
 
     @Override // d.a.l0.n.f.g
@@ -137,7 +137,7 @@ public class a extends j {
         if (j) {
             Log.i("ConsoleJsDownload", "onNoPackage");
         }
-        this.f47362g.a(false);
+        this.f51036g.a(false);
     }
 
     @Override // d.a.l0.n.f.g
@@ -150,6 +150,6 @@ public class a extends j {
 
     @Override // d.a.l0.n.f.g
     public c<h> w() {
-        return this.f47364i;
+        return this.f51038i;
     }
 }

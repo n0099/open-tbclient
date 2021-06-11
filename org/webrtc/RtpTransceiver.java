@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RtpTransceiver {
     public RtpReceiver cachedReceiver;
     public RtpSender cachedSender;
     public long nativeRtpTransceiver;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum RtpTransceiverDirection {
         SEND_RECV(0),
         SEND_ONLY(1),
@@ -40,7 +40,7 @@ public class RtpTransceiver {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class RtpTransceiverInit {
         public final RtpTransceiverDirection direction;
         public final List<String> streamIds;

@@ -2,97 +2,97 @@ package h.q;
 
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d<T> implements h.e<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.e<? super T> f68722e;
+    public final h.e<? super T> f71978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f68723f;
+    public boolean f71979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f68724g;
+    public volatile boolean f71980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f68725h;
+    public a f71981h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f68726a;
+        public Object[] f71982a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f68727b;
+        public int f71983b;
 
         public void a(Object obj) {
-            int i2 = this.f68727b;
-            Object[] objArr = this.f68726a;
+            int i2 = this.f71983b;
+            Object[] objArr = this.f71982a;
             if (objArr == null) {
                 objArr = new Object[16];
-                this.f68726a = objArr;
+                this.f71982a = objArr;
             } else if (i2 == objArr.length) {
                 Object[] objArr2 = new Object[(i2 >> 2) + i2];
                 System.arraycopy(objArr, 0, objArr2, 0, i2);
-                this.f68726a = objArr2;
+                this.f71982a = objArr2;
                 objArr = objArr2;
             }
             objArr[i2] = obj;
-            this.f68727b = i2 + 1;
+            this.f71983b = i2 + 1;
         }
     }
 
     public d(h.e<? super T> eVar) {
-        this.f68722e = eVar;
+        this.f71978e = eVar;
     }
 
     @Override // h.e
     public void onCompleted() {
-        if (this.f68724g) {
+        if (this.f71980g) {
             return;
         }
         synchronized (this) {
-            if (this.f68724g) {
+            if (this.f71980g) {
                 return;
             }
-            this.f68724g = true;
-            if (this.f68723f) {
-                a aVar = this.f68725h;
+            this.f71980g = true;
+            if (this.f71979f) {
+                a aVar = this.f71981h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f68725h = aVar;
+                    this.f71981h = aVar;
                 }
                 aVar.a(NotificationLite.b());
                 return;
             }
-            this.f68723f = true;
-            this.f68722e.onCompleted();
+            this.f71979f = true;
+            this.f71978e.onCompleted();
         }
     }
 
     @Override // h.e
     public void onError(Throwable th) {
         h.m.a.e(th);
-        if (this.f68724g) {
+        if (this.f71980g) {
             return;
         }
         synchronized (this) {
-            if (this.f68724g) {
+            if (this.f71980g) {
                 return;
             }
-            this.f68724g = true;
-            if (this.f68723f) {
-                a aVar = this.f68725h;
+            this.f71980g = true;
+            if (this.f71979f) {
+                a aVar = this.f71981h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f68725h = aVar;
+                    this.f71981h = aVar;
                 }
                 aVar.a(NotificationLite.c(th));
                 return;
             }
-            this.f68723f = true;
-            this.f68722e.onError(th);
+            this.f71979f = true;
+            this.f71978e.onError(th);
         }
     }
 
@@ -105,54 +105,54 @@ public class d<T> implements h.e<T> {
     */
     public void onNext(T t) {
         Object[] objArr;
-        if (this.f68724g) {
+        if (this.f71980g) {
             return;
         }
         synchronized (this) {
-            if (this.f68724g) {
+            if (this.f71980g) {
                 return;
             }
-            if (this.f68723f) {
-                a aVar = this.f68725h;
+            if (this.f71979f) {
+                a aVar = this.f71981h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f68725h = aVar;
+                    this.f71981h = aVar;
                 }
                 aVar.a(NotificationLite.h(t));
                 return;
             }
-            this.f68723f = true;
+            this.f71979f = true;
             try {
-                this.f68722e.onNext(t);
+                this.f71978e.onNext(t);
                 while (true) {
                     synchronized (this) {
-                        a aVar2 = this.f68725h;
+                        a aVar2 = this.f71981h;
                         if (aVar2 == null) {
-                            this.f68723f = false;
+                            this.f71979f = false;
                             return;
                         }
-                        this.f68725h = null;
-                        for (Object obj : aVar2.f68726a) {
+                        this.f71981h = null;
+                        for (Object obj : aVar2.f71982a) {
                             if (obj == null) {
                                 break;
                             }
                             try {
-                                if (NotificationLite.a(this.f68722e, obj)) {
-                                    this.f68724g = true;
+                                if (NotificationLite.a(this.f71978e, obj)) {
+                                    this.f71980g = true;
                                     return;
                                 }
                             } catch (Throwable th) {
-                                this.f68724g = true;
+                                this.f71980g = true;
                                 h.m.a.e(th);
-                                this.f68722e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                this.f71978e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
                                 return;
                             }
                         }
                     }
                 }
             } catch (Throwable th2) {
-                this.f68724g = true;
-                h.m.a.g(th2, this.f68722e, t);
+                this.f71980g = true;
+                h.m.a.g(th2, this.f71978e, t);
             }
         }
     }

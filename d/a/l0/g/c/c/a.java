@@ -5,7 +5,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends d.a.l0.g.f.a {
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public a() {
@@ -30,7 +30,7 @@ public class a extends d.a.l0.g.f.a {
         if (jSONObject.has("get_install_result")) {
             d.a.l0.g.c.e.a.s(jSONObject.optBoolean("get_install_result"));
         }
-        bVar.b(null);
+        bVar.a(null);
         return null;
     }
 }

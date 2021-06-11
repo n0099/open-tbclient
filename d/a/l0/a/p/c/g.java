@@ -1,11 +1,7 @@
 package d.a.l0.a.p.c;
-
-import androidx.annotation.NonNull;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class g implements d.a.l0.a.p.d.k {
-    @Override // d.a.l0.a.p.d.k
-    public String a(@NonNull String str, JSONObject jSONObject) {
-        return str;
+public class g implements d.a.l0.a.p.d.l {
+    @Override // d.a.l0.a.p.d.l
+    public void a(String str, d.a.l0.a.v1.c.f.c cVar) {
     }
 }

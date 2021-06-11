@@ -1,67 +1,47 @@
 package com.kwad.sdk.core.view;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
-public abstract class a extends FrameLayout {
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+/* loaded from: classes7.dex */
+public class a extends GradientDrawable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f32787a;
+    public Drawable f34894a;
 
-    public a(@NonNull Context context) {
-        super(context);
-        this.f32787a = new AtomicBoolean(true);
+    /* renamed from: b  reason: collision with root package name */
+    public Drawable f34895b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f34896c;
+
+    public void a(float f2) {
+        this.f34896c = f2;
+        invalidateSelf();
     }
 
-    public a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        this.f32787a = new AtomicBoolean(true);
-    }
-
-    private void c() {
-        if (this.f32787a.getAndSet(false)) {
-            com.kwad.sdk.core.d.a.c("BasePvView", "onViewAttached");
-            a();
+    @Override // android.graphics.drawable.GradientDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        if (this.f34896c == 0.0f) {
+            this.f34895b.setBounds(getBounds());
+            this.f34895b.draw(canvas);
+        } else {
+            if (this.f34894a.getBounds().width() != getBounds().width()) {
+                this.f34894a.setBounds(getBounds());
+            }
+            if (this.f34895b.getBounds().width() != getBounds().width()) {
+                this.f34895b.setBounds(getBounds());
+            }
+            canvas.save();
+            int width = (int) (getBounds().width() * this.f34896c);
+            canvas.clipRect(0, 0, width, getBounds().height());
+            this.f34894a.draw(canvas);
+            canvas.restore();
+            canvas.save();
+            canvas.clipRect(width, 0, getBounds().width(), getBounds().height());
+            this.f34895b.draw(canvas);
+            canvas.restore();
         }
-    }
-
-    private void d() {
-        if (this.f32787a.getAndSet(true)) {
-            return;
-        }
-        com.kwad.sdk.core.d.a.c("BasePvView", "onViewDetached");
-        b();
-    }
-
-    public abstract void a();
-
-    public abstract void b();
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        c();
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        d();
-    }
-
-    @Override // android.view.View
-    public void onFinishTemporaryDetach() {
-        super.onFinishTemporaryDetach();
-        c();
-    }
-
-    @Override // android.view.View
-    public void onStartTemporaryDetach() {
-        super.onStartTemporaryDetach();
-        d();
+        super.draw(canvas);
     }
 }

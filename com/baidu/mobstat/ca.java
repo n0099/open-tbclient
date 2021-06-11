@@ -18,31 +18,31 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class ca implements by {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<cd> f8738a;
+    public static final List<cd> f8800a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8739b;
+    public static int f8801b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f8740c;
+    public static boolean f8802c;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ boolean f8741h = !ca.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f8803h = !ca.class.desiredAssertionStatus();
 
     /* renamed from: d  reason: collision with root package name */
-    public final BlockingQueue<ByteBuffer> f8742d;
+    public final BlockingQueue<ByteBuffer> f8804d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<ByteBuffer> f8743e;
+    public final BlockingQueue<ByteBuffer> f8805e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SelectionKey f8744f;
+    public SelectionKey f8806f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteChannel f8745g;
+    public ByteChannel f8807g;
 
     /* renamed from: i  reason: collision with root package name */
-    public final cb f8746i;
+    public final cb f8808i;
     public cd l;
     public by.b m;
     public volatile boolean j = false;
@@ -57,19 +57,19 @@ public class ca implements by {
 
     static {
         ArrayList arrayList = new ArrayList(4);
-        f8738a = arrayList;
-        f8739b = 16384;
-        f8740c = false;
+        f8800a = arrayList;
+        f8801b = 16384;
+        f8802c = false;
         arrayList.add(new cf());
-        f8738a.add(new ce());
+        f8800a.add(new ce());
     }
 
     public ca(cb cbVar, cd cdVar) {
         this.l = null;
         if (cbVar != null && cdVar != null) {
-            this.f8742d = new LinkedBlockingQueue();
-            this.f8743e = new LinkedBlockingQueue();
-            this.f8746i = cbVar;
+            this.f8804d = new LinkedBlockingQueue();
+            this.f8805e = new LinkedBlockingQueue();
+            this.f8808i = cbVar;
             this.m = by.b.CLIENT;
             if (cdVar != null) {
                 this.l = cdVar.c();
@@ -108,7 +108,7 @@ public class ca implements by {
         }
         if (this.l == null && e(byteBuffer2) == cd.b.MATCHED) {
             try {
-                f(ByteBuffer.wrap(dc.a(this.f8746i.a(this))));
+                f(ByteBuffer.wrap(dc.a(this.f8808i.a(this))));
                 a(-3, "");
             } catch (ch unused) {
                 c(1006, "remote peer closed connection before flashpolicy could be transmitted", true);
@@ -126,14 +126,14 @@ public class ca implements by {
                 cz czVar = (cz) d2;
                 if (this.l.a(this.p, czVar) == cd.b.MATCHED) {
                     try {
-                        this.f8746i.a(this, this.p, czVar);
+                        this.f8808i.a(this, this.p, czVar);
                         a(czVar);
                         return true;
                     } catch (ch e3) {
                         b(e3.a(), e3.getMessage(), false);
                         return false;
                     } catch (RuntimeException e4) {
-                        this.f8746i.a(this, e4);
+                        this.f8808i.a(this, e4);
                         b(-1, e4.getMessage(), false);
                         return false;
                     }
@@ -149,7 +149,7 @@ public class ca implements by {
             int a2 = e2.a();
             if (a2 == 0) {
                 a2 = byteBuffer2.capacity() + 16;
-            } else if (!f8741h && e2.a() < byteBuffer2.remaining()) {
+            } else if (!f8803h && e2.a() < byteBuffer2.remaining()) {
                 throw new AssertionError();
             }
             ByteBuffer allocate2 = ByteBuffer.allocate(a2);
@@ -167,12 +167,12 @@ public class ca implements by {
     private void d(ByteBuffer byteBuffer) {
         try {
         } catch (ch e2) {
-            this.f8746i.a(this, e2);
+            this.f8808i.a(this, e2);
             a(e2);
             return;
         }
         for (cq cqVar : this.l.c(byteBuffer)) {
-            if (f8740c) {
+            if (f8802c) {
                 PrintStream printStream = System.out;
                 printStream.println("matched frame: " + cqVar);
             }
@@ -197,28 +197,28 @@ public class ca implements by {
                     b(i2, str, false);
                 }
             } else if (f2 == cq.a.PING) {
-                this.f8746i.b(this, cqVar);
+                this.f8808i.b(this, cqVar);
             } else if (f2 == cq.a.PONG) {
-                this.f8746i.c(this, cqVar);
+                this.f8808i.c(this, cqVar);
             } else {
                 if (d2 && f2 != cq.a.CONTINUOUS) {
                     if (this.n == null) {
                         if (f2 == cq.a.TEXT) {
                             try {
-                                this.f8746i.a(this, dc.a(cqVar.c()));
+                                this.f8808i.a(this, dc.a(cqVar.c()));
                             } catch (RuntimeException e3) {
-                                this.f8746i.a(this, e3);
+                                this.f8808i.a(this, e3);
                             }
                         } else if (f2 == cq.a.BINARY) {
                             try {
-                                this.f8746i.a(this, cqVar.c());
+                                this.f8808i.a(this, cqVar.c());
                             } catch (RuntimeException e4) {
-                                this.f8746i.a(this, e4);
+                                this.f8808i.a(this, e4);
                             }
                         } else {
                             throw new ch(1002, "non control or continious frame expected");
                         }
-                        this.f8746i.a(this, e2);
+                        this.f8808i.a(this, e2);
                         a(e2);
                         return;
                     }
@@ -257,9 +257,9 @@ public class ca implements by {
                     }
                 }
                 try {
-                    this.f8746i.a(this, cqVar);
+                    this.f8808i.a(this, cqVar);
                 } catch (RuntimeException e5) {
-                    this.f8746i.a(this, e5);
+                    this.f8808i.a(this, e5);
                 }
             }
         }
@@ -267,13 +267,13 @@ public class ca implements by {
 
     private cd.b e(ByteBuffer byteBuffer) throws cg {
         byteBuffer.mark();
-        if (byteBuffer.limit() > cd.f8759c.length) {
+        if (byteBuffer.limit() > cd.f8821c.length) {
             return cd.b.NOT_MATCHED;
         }
-        if (byteBuffer.limit() >= cd.f8759c.length) {
+        if (byteBuffer.limit() >= cd.f8821c.length) {
             int i2 = 0;
             while (byteBuffer.hasRemaining()) {
-                if (cd.f8759c[i2] != byteBuffer.get()) {
+                if (cd.f8821c[i2] != byteBuffer.get()) {
                     byteBuffer.reset();
                     return cd.b.NOT_MATCHED;
                 }
@@ -281,11 +281,11 @@ public class ca implements by {
             }
             return cd.b.MATCHED;
         }
-        throw new cg(cd.f8759c.length);
+        throw new cg(cd.f8821c.length);
     }
 
     private void f(ByteBuffer byteBuffer) {
-        if (f8740c) {
+        if (f8802c) {
             PrintStream printStream = System.out;
             StringBuilder sb = new StringBuilder();
             sb.append("write(");
@@ -295,15 +295,15 @@ public class ca implements by {
             sb.append("}");
             printStream.println(sb.toString());
         }
-        this.f8742d.add(byteBuffer);
-        this.f8746i.b(this);
+        this.f8804d.add(byteBuffer);
+        this.f8808i.b(this);
     }
 
     public void a(ByteBuffer byteBuffer) {
-        if (!f8741h && !byteBuffer.hasRemaining()) {
+        if (!f8803h && !byteBuffer.hasRemaining()) {
             throw new AssertionError();
         }
-        if (f8740c) {
+        if (f8802c) {
             PrintStream printStream = System.out;
             StringBuilder sb = new StringBuilder();
             sb.append("process(");
@@ -316,7 +316,7 @@ public class ca implements by {
         if (this.k != by.a.NOT_YET_CONNECTED) {
             d(byteBuffer);
         } else if (c(byteBuffer)) {
-            if (!f8741h && this.o.hasRemaining() == byteBuffer.hasRemaining() && byteBuffer.hasRemaining()) {
+            if (!f8803h && this.o.hasRemaining() == byteBuffer.hasRemaining() && byteBuffer.hasRemaining()) {
                 throw new AssertionError();
             }
             if (byteBuffer.hasRemaining()) {
@@ -325,7 +325,7 @@ public class ca implements by {
                 d(this.o);
             }
         }
-        if (!f8741h && !d() && !e() && byteBuffer.hasRemaining()) {
+        if (!f8803h && !d() && !e() && byteBuffer.hasRemaining()) {
             throw new AssertionError();
         }
     }
@@ -354,11 +354,11 @@ public class ca implements by {
         this.q = str;
         this.s = Boolean.valueOf(z);
         this.j = true;
-        this.f8746i.b(this);
+        this.f8808i.b(this);
         try {
-            this.f8746i.b(this, i2, str, z);
+            this.f8808i.b(this, i2, str, z);
         } catch (RuntimeException e2) {
-            this.f8746i.a(this, e2);
+            this.f8808i.a(this, e2);
         }
         if (this.l != null) {
             this.l.a();
@@ -382,27 +382,27 @@ public class ca implements by {
         if (this.k == by.a.CLOSED) {
             return;
         }
-        if (this.f8744f != null) {
-            this.f8744f.cancel();
+        if (this.f8806f != null) {
+            this.f8806f.cancel();
         }
-        if (this.f8745g != null) {
+        if (this.f8807g != null) {
             try {
-                this.f8745g.close();
+                this.f8807g.close();
             } catch (IOException e2) {
-                this.f8746i.a(this, e2);
+                this.f8808i.a(this, e2);
             }
         }
         try {
-            this.f8746i.a(this, i2, str, z);
+            this.f8808i.a(this, i2, str, z);
         } catch (RuntimeException e3) {
-            this.f8746i.a(this, e3);
+            this.f8808i.a(this, e3);
         }
         if (this.l != null) {
             this.l.a();
         }
         this.p = null;
         this.k = by.a.CLOSED;
-        this.f8742d.clear();
+        this.f8804d.clear();
     }
 
     public void b() {
@@ -454,7 +454,7 @@ public class ca implements by {
 
     @Override // com.baidu.mobstat.by
     public void a(cq cqVar) {
-        if (f8740c) {
+        if (f8802c) {
             PrintStream printStream = System.out;
             printStream.println("send frame: " + cqVar);
         }
@@ -462,22 +462,22 @@ public class ca implements by {
     }
 
     public void a(ct ctVar) throws cj {
-        if (!f8741h && this.k == by.a.CONNECTING) {
+        if (!f8803h && this.k == by.a.CONNECTING) {
             throw new AssertionError("shall only be called once");
         }
         this.p = this.l.a(ctVar);
         String a2 = ctVar.a();
         this.t = a2;
-        if (!f8741h && a2 == null) {
+        if (!f8803h && a2 == null) {
             throw new AssertionError();
         }
         try {
-            this.f8746i.a((by) this, this.p);
+            this.f8808i.a((by) this, this.p);
             a(this.l.a(this.p, this.m));
         } catch (ch unused) {
             throw new cj("Handshake data rejected by client.");
         } catch (RuntimeException e2) {
-            this.f8746i.a(this, e2);
+            this.f8808i.a(this, e2);
             throw new cj("rejected because of" + e2);
         }
     }
@@ -489,7 +489,7 @@ public class ca implements by {
         }
         if (aVar == by.a.OPEN) {
             if (i2 == 1006) {
-                if (!f8741h && z) {
+                if (!f8803h && z) {
                     throw new AssertionError();
                 }
                 this.k = by.a.CLOSING;
@@ -500,20 +500,20 @@ public class ca implements by {
                 try {
                     if (!z) {
                         try {
-                            this.f8746i.a(this, i2, str);
+                            this.f8808i.a(this, i2, str);
                         } catch (RuntimeException e2) {
-                            this.f8746i.a(this, e2);
+                            this.f8808i.a(this, e2);
                         }
                     }
                     a(new co(i2, str));
                 } catch (ch e3) {
-                    this.f8746i.a(this, e3);
+                    this.f8808i.a(this, e3);
                     b(1006, "generated frame is invalid", false);
                 }
             }
             b(i2, str, z);
         } else if (i2 == -3) {
-            if (!f8741h && !z) {
+            if (!f8803h && !z) {
                 throw new AssertionError();
             }
             b(-3, str, true);
@@ -534,21 +534,21 @@ public class ca implements by {
     }
 
     private void a(cx cxVar) {
-        if (f8740c) {
+        if (f8802c) {
             PrintStream printStream = System.out;
             printStream.println("open using draft: " + this.l.getClass().getSimpleName());
         }
         this.k = by.a.OPEN;
         try {
-            this.f8746i.a(this, cxVar);
+            this.f8808i.a(this, cxVar);
         } catch (RuntimeException e2) {
-            this.f8746i.a(this, e2);
+            this.f8808i.a(this, e2);
         }
     }
 
     @Override // com.baidu.mobstat.by
     public InetSocketAddress a() {
-        return this.f8746i.c(this);
+        return this.f8808i.c(this);
     }
 
     public boolean d() {
@@ -556,7 +556,7 @@ public class ca implements by {
     }
 
     public boolean c() {
-        if (!f8741h && this.k == by.a.OPEN && this.j) {
+        if (!f8803h && this.k == by.a.OPEN && this.j) {
             throw new AssertionError();
         }
         return this.k == by.a.OPEN;

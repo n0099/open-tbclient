@@ -10,54 +10,54 @@ import java.util.List;
 public class d {
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d f57754e;
+    public static volatile d f61443e;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<Integer> f57755a;
+    public ArrayList<Integer> f61444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f57756b;
+    public a f61445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f57757c;
+    public c f61446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<StatisticItem> f57758d;
+    public List<StatisticItem> f61447d;
 
     public d() {
         ArrayList<Integer> arrayList = new ArrayList<>();
-        this.f57755a = arrayList;
+        this.f61444a = arrayList;
         arrayList.add(1);
-        this.f57755a.add(2);
+        this.f61444a.add(2);
         c cVar = new c();
-        this.f57757c = cVar;
-        this.f57756b = new a(cVar, this.f57755a);
+        this.f61446c = cVar;
+        this.f61445b = new a(cVar, this.f61444a);
         g(d.a.m0.r.d0.b.j().k("key_abtest_channel", 0));
     }
 
     public static d c() {
-        if (f57754e == null) {
+        if (f61443e == null) {
             synchronized (c.class) {
-                if (f57754e == null) {
-                    f57754e = new d();
+                if (f61443e == null) {
+                    f61443e = new d();
                 }
             }
         }
-        return f57754e;
+        return f61443e;
     }
 
     public void a(StatisticItem statisticItem) {
         if (statisticItem == null) {
             return;
         }
-        if (this.f57758d == null) {
-            this.f57758d = new ArrayList();
+        if (this.f61447d == null) {
+            this.f61447d = new ArrayList();
         }
-        this.f57758d.add(statisticItem);
+        this.f61447d.add(statisticItem);
     }
 
     public int b(String str, int i2) {
-        a aVar = this.f57756b;
+        a aVar = this.f61445b;
         if (aVar == null) {
             return 0;
         }
@@ -66,27 +66,27 @@ public class d {
 
     public void d(String str) {
         c cVar;
-        if (k.isEmpty(str) || (cVar = this.f57757c) == null || !cVar.g()) {
+        if (k.isEmpty(str) || (cVar = this.f61446c) == null || !cVar.g()) {
             d.a.r0.a.a.d(str);
         }
     }
 
     public void e(String str) {
         c cVar;
-        if (k.isEmpty(str) || (cVar = this.f57757c) == null || !cVar.g()) {
+        if (k.isEmpty(str) || (cVar = this.f61446c) == null || !cVar.g()) {
             d.a.r0.a.a.e(str);
         }
     }
 
     public void f(String str) {
-        a aVar = this.f57756b;
+        a aVar = this.f61445b;
         if (aVar != null) {
             aVar.b(str);
         }
     }
 
     public void g(int i2) {
-        c cVar = this.f57757c;
+        c cVar = this.f61446c;
         if (cVar != null) {
             cVar.k(i2);
         }
@@ -94,11 +94,11 @@ public class d {
 
     public void h(String str, String str2) {
         c cVar;
-        if (ListUtils.isEmpty(this.f57758d) || (cVar = this.f57757c) == null || !cVar.g()) {
+        if (ListUtils.isEmpty(this.f61447d) || (cVar = this.f61446c) == null || !cVar.g()) {
             return;
         }
         int i2 = -1;
-        for (StatisticItem statisticItem : this.f57758d) {
+        for (StatisticItem statisticItem : this.f61447d) {
             if (statisticItem != null) {
                 if (statisticItem.getPosition() == 0) {
                     i(str, str2, statisticItem);
@@ -108,12 +108,12 @@ public class d {
                 }
             }
         }
-        this.f57758d.clear();
+        this.f61447d.clear();
     }
 
     public void i(String str, String str2, StatisticItem statisticItem) {
         c cVar;
-        if (statisticItem == null || (cVar = this.f57757c) == null || !cVar.g()) {
+        if (statisticItem == null || (cVar = this.f61446c) == null || !cVar.g()) {
             return;
         }
         HashMap hashMap = new HashMap();

@@ -9,46 +9,46 @@ import java.lang.reflect.Method;
 public class h extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public com.alipay.sdk.app.b f2012b;
+    public com.alipay.sdk.app.b f2025b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f2013c;
+    public WebView f2026c;
 
     public h(Activity activity) {
         super(activity);
         WebView webView = new WebView(activity);
-        this.f2013c = webView;
+        this.f2026c = webView;
         a(webView, activity);
-        addView(this.f2013c);
+        addView(this.f2026c);
         com.alipay.sdk.app.b bVar = new com.alipay.sdk.app.b(activity);
-        this.f2012b = bVar;
-        this.f2013c.setWebViewClient(bVar);
+        this.f2025b = bVar;
+        this.f2026c.setWebViewClient(bVar);
     }
 
     @Override // com.alipay.sdk.widget.g
     public void a() {
-        this.f2012b.a();
+        this.f2025b.a();
         removeAllViews();
     }
 
     @Override // com.alipay.sdk.widget.g
     public boolean b() {
-        if (this.f2013c.canGoBack()) {
-            if (this.f2012b.b()) {
+        if (this.f2026c.canGoBack()) {
+            if (this.f2025b.b()) {
                 com.alipay.sdk.app.k b2 = com.alipay.sdk.app.k.b(com.alipay.sdk.app.k.NETWORK_ERROR.a());
                 com.alipay.sdk.app.j.a(com.alipay.sdk.app.j.a(b2.a(), b2.b(), ""));
-                this.f2011a.finish();
+                this.f2024a.finish();
                 return true;
             }
             return true;
         }
         com.alipay.sdk.app.j.a(com.alipay.sdk.app.j.c());
-        this.f2011a.finish();
+        this.f2024a.finish();
         return true;
     }
 
     private void a(WebView webView, Context context) {
-        WebSettings settings = this.f2013c.getSettings();
+        WebSettings settings = this.f2026c.getSettings();
         settings.setUserAgentString(settings.getUserAgentString() + com.alipay.sdk.util.n.c(context));
         settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
         settings.setSupportMultipleWindows(true);
@@ -60,20 +60,20 @@ public class h extends g {
         settings.setTextSize(WebSettings.TextSize.NORMAL);
         settings.setDomStorageEnabled(true);
         settings.setCacheMode(1);
-        this.f2013c.resumeTimers();
-        this.f2013c.setVerticalScrollbarOverlay(true);
-        this.f2013c.setDownloadListener(new i(this));
+        this.f2026c.resumeTimers();
+        this.f2026c.setVerticalScrollbarOverlay(true);
+        this.f2026c.setDownloadListener(new i(this));
         try {
             try {
-                this.f2013c.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f2013c.removeJavascriptInterface("accessibility");
-                this.f2013c.removeJavascriptInterface("accessibilityTraversal");
+                this.f2026c.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f2026c.removeJavascriptInterface("accessibility");
+                this.f2026c.removeJavascriptInterface("accessibilityTraversal");
             } catch (Throwable unused) {
-                Method method = this.f2013c.getClass().getMethod("removeJavascriptInterface", new Class[0]);
+                Method method = this.f2026c.getClass().getMethod("removeJavascriptInterface", new Class[0]);
                 if (method != null) {
-                    method.invoke(this.f2013c, "searchBoxJavaBridge_");
-                    method.invoke(this.f2013c, "accessibility");
-                    method.invoke(this.f2013c, "accessibilityTraversal");
+                    method.invoke(this.f2026c, "searchBoxJavaBridge_");
+                    method.invoke(this.f2026c, "accessibility");
+                    method.invoke(this.f2026c, "accessibilityTraversal");
                 }
             }
         } catch (Throwable unused2) {
@@ -82,6 +82,6 @@ public class h extends g {
 
     @Override // com.alipay.sdk.widget.g
     public void a(String str) {
-        this.f2013c.loadUrl(str);
+        this.f2026c.loadUrl(str);
     }
 }

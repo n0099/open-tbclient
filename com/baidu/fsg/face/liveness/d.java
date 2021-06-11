@@ -29,35 +29,35 @@ public final class d {
     public static final String Z = "videoFileException";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5929a = "#startLiveness";
+    public static final String f5972a = "#startLiveness";
     public static final String aa = "videoFileTooLargeException";
     public static final String ab = "videoMediaRecordIdealBitrate";
     public static final String ac = "videoFileSize";
     public static final String ad = "videoFileUploadTimeout";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5930b = "@queryVideo";
+    public static final String f5973b = "@queryVideo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5931c = "enterLiveness";
+    public static final String f5974c = "enterLiveness";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5932d = "userSwitchSound";
+    public static final String f5975d = "userSwitchSound";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5933e = "@getPortrait";
+    public static final String f5976e = "@getPortrait";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5934f = "passLiveness";
+    public static final String f5977f = "passLiveness";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5935g = "faceDetected";
+    public static final String f5978g = "faceDetected";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5936h = "showBlink";
+    public static final String f5979h = "showBlink";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5937i = "detectBlink";
+    public static final String f5980i = "detectBlink";
     public static final String j = "showMouth";
     public static final String k = "detectMouth";
     public static final String l = "firstTimeOut";

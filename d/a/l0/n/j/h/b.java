@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f48127b;
+    public static volatile b f51801b;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f48128a = new a();
+    public a f51802a = new a();
 
     /* loaded from: classes3.dex */
     public static class a extends j {
@@ -23,29 +23,29 @@ public class b {
     }
 
     public static b c() {
-        if (f48127b == null) {
+        if (f51801b == null) {
             synchronized (b.class) {
-                if (f48127b == null) {
-                    f48127b = new b();
+                if (f51801b == null) {
+                    f51801b = new b();
                 }
             }
         }
-        return f48127b;
+        return f51801b;
     }
 
     public String a() {
-        return this.f48128a.getString("ceres_info", "0");
+        return this.f51802a.getString("ceres_info", "0");
     }
 
     public String b() {
-        return this.f48128a.getString("global_info", "0");
+        return this.f51802a.getString("global_info", "0");
     }
 
     public d.a.l0.n.j.h.a d(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
-        if (d.a.l0.n.c.f47984a) {
+        if (d.a.l0.n.c.f51658a) {
             Log.d(Node.TAG, "ceres info " + jSONObject.toString());
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
@@ -63,7 +63,7 @@ public class b {
         if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
             return null;
         }
-        this.f48128a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+        this.f51802a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
         return new d.a.l0.n.j.h.a(optJSONArray, optJSONObject3);
     }
 }

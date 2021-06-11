@@ -19,33 +19,33 @@ public class o {
     public class a implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicInteger f57318a;
+        public final /* synthetic */ AtomicInteger f61007a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f57319b;
+        public final /* synthetic */ List f61008b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f57320c;
+        public final /* synthetic */ c f61009c;
 
         public a(o oVar, AtomicInteger atomicInteger, List list, c cVar) {
-            this.f57318a = atomicInteger;
-            this.f57319b = list;
-            this.f57320c = cVar;
+            this.f61007a = atomicInteger;
+            this.f61008b = list;
+            this.f61009c = cVar;
         }
 
         @Override // d.a.n0.m0.o.d
         public void a(ImageUploadResult imageUploadResult) {
             ImageUploadResult.picInfo picinfo;
             ImageUploadResult.PicDetailedInfo picDetailedInfo;
-            this.f57318a.decrementAndGet();
+            this.f61007a.decrementAndGet();
             if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
-                this.f57319b.add(imageUploadResult.picInfo.bigPic.picUrl);
+                this.f61008b.add(imageUploadResult.picInfo.bigPic.picUrl);
             }
-            if (this.f57318a.get() == 0) {
-                if (!ListUtils.isEmpty(this.f57319b)) {
-                    this.f57320c.c(this.f57319b);
+            if (this.f61007a.get() == 0) {
+                if (!ListUtils.isEmpty(this.f61008b)) {
+                    this.f61009c.c(this.f61008b);
                 } else {
-                    this.f57320c.d();
+                    this.f61009c.d();
                 }
             }
         }
@@ -55,38 +55,38 @@ public class o {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageFileInfo f57321e;
+        public final /* synthetic */ ImageFileInfo f61010e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f57322f;
+        public final /* synthetic */ d f61011f;
 
         public b(o oVar, ImageFileInfo imageFileInfo, d dVar) {
-            this.f57321e = imageFileInfo;
-            this.f57322f = dVar;
+            this.f61010e = imageFileInfo;
+            this.f61011f = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String filePath = this.f57321e.getFilePath();
+            String filePath = this.f61010e.getFilePath();
             d.a.m0.b0.f fVar = new d.a.m0.b0.f("from_user_collect");
-            if (this.f57321e.isGif()) {
-                this.f57322f.a(fVar.k(filePath, true, false));
+            if (this.f61010e.isGif()) {
+                this.f61011f.a(fVar.k(filePath, true, false));
                 return;
             }
-            Bitmap b2 = d.a.n0.z1.g.b.b(this.f57321e);
+            Bitmap b2 = d.a.n0.z1.g.b.b(this.f61010e);
             if (b2 == null) {
-                this.f57322f.a(null);
+                this.f61011f.a(null);
                 return;
             }
             String saveFile = FileHelper.saveFile(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b2, 60);
             b2.recycle();
             if (TextUtils.isEmpty(saveFile)) {
-                this.f57322f.a(null);
+                this.f61011f.a(null);
                 return;
             }
             ImageUploadResult k = fVar.k(saveFile, false, false);
             FileHelper.deleteFile(new File(saveFile));
-            this.f57322f.a(k);
+            this.f61011f.a(k);
         }
     }
 

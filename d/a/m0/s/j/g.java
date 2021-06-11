@@ -21,31 +21,31 @@ public class g {
     public static g l;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50745a;
+    public int f54422a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50746b = 0;
+    public int f54423b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f50747c = false;
+    public boolean f54424c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f50748d = false;
+    public boolean f54425d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f50749e = null;
+    public List<String> f54426e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50750f = false;
+    public boolean f54427f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f50751g = new Object();
+    public final Object f54428g = new Object();
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f50752h = new ArrayList();
+    public List<String> f54429h = new ArrayList();
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f50753i = false;
+    public boolean f54430i = false;
     public BDHttpDnsResult j = null;
     public final d.a.c.e.r.g k = new a();
 
@@ -63,7 +63,7 @@ public class g {
             if ((i2 == 2 || i2 == 9) && j.z()) {
                 g.d(g.this);
                 if (UseHttpdnsSdkSwitch.isOn()) {
-                    if (g.this.f50752h == null || g.this.f50752h.isEmpty()) {
+                    if (g.this.f54429h == null || g.this.f54429h.isEmpty()) {
                         g.this.w();
                     } else {
                         g.this.a();
@@ -80,11 +80,11 @@ public class g {
                         stringBuffer.append(g.this.j.c());
                     }
                     d.a.c.c.e.c.i.a("RetryIpListManager", 0, 0, "retry_iplist", 0, stringBuffer.toString());
-                    if (g.this.f50745a >= 5) {
+                    if (g.this.f54422a >= 5) {
                         BdSocketLinkService.setAvailable(false);
                         g.this.B();
                     }
-                } else if (g.this.f50745a >= 5) {
+                } else if (g.this.f54422a >= 5) {
                     d.a.c.c.e.c.i.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist_" + d.a.c.c.e.c.h.d());
                     g.this.C();
                 }
@@ -122,8 +122,8 @@ public class g {
         @Override // d.a.c.e.r.g
         public void onOpen(Map<String, String> map) {
             if (UseHttpdnsSdkSwitch.isOn()) {
-                if (g.this.f50745a > 0) {
-                    g.this.f50753i = false;
+                if (g.this.f54422a > 0) {
+                    g.this.f54430i = false;
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("URL_");
                     stringBuffer.append(d.a.c.c.e.c.h.d());
@@ -137,12 +137,12 @@ public class g {
                     }
                     d.a.c.c.e.c.i.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, stringBuffer.toString());
                 }
-            } else if (g.this.f50745a >= 5) {
+            } else if (g.this.f54422a >= 5) {
                 d.a.c.c.e.c.i.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + d.a.c.c.e.c.h.d());
                 d.a.m0.s.j.a.f().l(d.a.c.c.e.c.h.d());
                 d.a.m0.s.j.a.f().k();
             }
-            g.this.f50745a = 0;
+            g.this.f54422a = 0;
         }
     }
 
@@ -154,13 +154,13 @@ public class g {
         @Override // com.baidu.bdhttpdns.BDHttpDns.a
         public void a(BDHttpDnsResult bDHttpDnsResult) {
             ArrayList<String> a2;
-            g.this.f50753i = false;
+            g.this.f54430i = false;
             g.this.j = bDHttpDnsResult;
             if (bDHttpDnsResult == null || (a2 = bDHttpDnsResult.a()) == null || a2.isEmpty()) {
                 return;
             }
-            synchronized (g.this.f50751g) {
-                g.this.f50752h = a2;
+            synchronized (g.this.f54428g) {
+                g.this.f54429h = a2;
             }
             g.this.a();
         }
@@ -170,20 +170,20 @@ public class g {
     public class c implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f50756a;
+        public final /* synthetic */ String f54433a;
 
         public c(String str) {
-            this.f50756a = str;
+            this.f54433a = str;
         }
 
         @Override // d.a.m0.s.j.a.b
         public void a() {
-            g.this.f50746b = 0;
-            g.this.f50749e = d.a.m0.s.j.a.f().g();
-            if (g.this.f50749e != null) {
-                g.this.A(this.f50756a);
+            g.this.f54423b = 0;
+            g.this.f54426e = d.a.m0.s.j.a.f().g();
+            if (g.this.f54426e != null) {
+                g.this.A(this.f54433a);
             } else {
-                g.this.f50750f = false;
+                g.this.f54427f = false;
             }
         }
     }
@@ -198,12 +198,12 @@ public class g {
 
             @Override // d.a.m0.s.j.a.b
             public void a() {
-                g.this.f50746b = 0;
-                g.this.f50749e = d.a.m0.s.j.a.f().g();
-                if (g.this.f50749e != null) {
+                g.this.f54423b = 0;
+                g.this.f54426e = d.a.m0.s.j.a.f().g();
+                if (g.this.f54426e != null) {
                     g.this.A("change ip to reconnect with DNS' failed.");
                 } else {
-                    g.this.f50750f = false;
+                    g.this.f54427f = false;
                 }
             }
         }
@@ -215,8 +215,8 @@ public class g {
         public void a(boolean z) {
             d.a.m0.s.j.b.e().a(z ? 2 : 1);
             if (z) {
-                g.this.f50749e = d.a.m0.s.j.a.f().g();
-                if (g.this.f50749e != null) {
+                g.this.f54426e = d.a.m0.s.j.a.f().g();
+                if (g.this.f54426e != null) {
                     g.this.A("change ip to reconnect with DNS' failed.");
                     return;
                 } else {
@@ -224,14 +224,14 @@ public class g {
                     return;
                 }
             }
-            g.this.f50750f = false;
+            g.this.f54427f = false;
             g.this.D();
         }
     }
 
     public static /* synthetic */ int d(g gVar) {
-        int i2 = gVar.f50745a;
-        gVar.f50745a = i2 + 1;
+        int i2 = gVar.f54422a;
+        gVar.f54422a = i2 + 1;
         return i2;
     }
 
@@ -286,35 +286,35 @@ public class g {
         } else if (u(x) == null) {
             D();
         } else {
-            this.f50750f = false;
+            this.f54427f = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
             d.a.c.c.e.c.h.h(x);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
-            this.f50747c = true;
-            this.f50746b++;
+            this.f54424c = true;
+            this.f54423b++;
         }
     }
 
     public final void B() {
         NoNetworkView.f();
-        this.f50746b = 0;
-        this.f50753i = false;
+        this.f54423b = 0;
+        this.f54430i = false;
     }
 
     public final void C() {
-        if (this.f50750f) {
+        if (this.f54427f) {
             return;
         }
-        this.f50750f = true;
-        if (this.f50747c) {
-            this.f50747c = false;
+        this.f54427f = true;
+        if (this.f54424c) {
+            this.f54424c = false;
             d.a.m0.s.j.b.e().d(TiebaIMConfig.url);
         }
         d.a.m0.s.j.b.e().b();
-        if (!this.f50748d) {
+        if (!this.f54425d) {
             new d.a.m0.s.j.d("www.baidu.com", new d());
-            this.f50748d = true;
+            this.f54425d = true;
             return;
         }
         A("change ip to reconnect with DNS' failed.");
@@ -322,16 +322,16 @@ public class g {
 
     public final void D() {
         NoNetworkView.f();
-        this.f50748d = false;
-        this.f50746b = 0;
-        this.f50750f = false;
-        this.f50747c = false;
+        this.f54425d = false;
+        this.f54423b = 0;
+        this.f54427f = false;
+        this.f54424c = false;
     }
 
     public final void a() {
-        synchronized (this.f50751g) {
-            if (this.f50752h != null && !this.f50752h.isEmpty()) {
-                String remove = this.f50752h.remove(0);
+        synchronized (this.f54428g) {
+            if (this.f54429h != null && !this.f54429h.isEmpty()) {
+                String remove = this.f54429h.remove(0);
                 if (!TextUtils.isEmpty(remove)) {
                     d.a.c.c.e.c.h.h("ws://" + remove + ":" + v(TiebaIMConfig.url));
                     BdSocketLinkService.init();
@@ -341,7 +341,7 @@ public class g {
     }
 
     public final void w() {
-        if (this.f50753i) {
+        if (this.f54430i) {
             return;
         }
         try {
@@ -350,7 +350,7 @@ public class g {
                 B();
                 return;
             }
-            this.f50753i = true;
+            this.f54430i = true;
             BDHttpDns.j(BdBaseApplication.getInst().getApplicationContext()).c(u, new b());
         } catch (Exception e2) {
             BdLog.e(e2);
@@ -359,11 +359,11 @@ public class g {
 
     public final String x() {
         int i2;
-        List<String> list = this.f50749e;
-        if (list == null || (i2 = this.f50746b) <= -1 || i2 >= list.size()) {
+        List<String> list = this.f54426e;
+        if (list == null || (i2 = this.f54423b) <= -1 || i2 >= list.size()) {
             return null;
         }
-        return d.a.m0.s.j.a.f().g().get(this.f50746b);
+        return d.a.m0.s.j.a.f().g().get(this.f54423b);
     }
 
     public void z() {

@@ -16,15 +16,15 @@ import d.a.c.e.p.l;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f49499a;
+    public static d f53173a;
 
     public static synchronized d c() {
         d dVar;
         synchronized (d.class) {
-            if (f49499a == null) {
-                f49499a = new d();
+            if (f53173a == null) {
+                f53173a = new d();
             }
-            dVar = f49499a;
+            dVar = f53173a;
         }
         return dVar;
     }

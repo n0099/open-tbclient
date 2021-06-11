@@ -7,83 +7,83 @@ import java.io.IOException;
 public class e extends MediaPlayer implements c {
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f49848d = new Object();
+    public static Object f53523d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static e f49849e;
+    public static e f53524e;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49850a = false;
+    public boolean f53525a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49851b = true;
+    public boolean f53526b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49852c = -1;
+    public int f53527c = -1;
 
     public static e i() {
-        if (f49849e == null) {
-            synchronized (f49848d) {
-                if (f49849e == null) {
-                    f49849e = new e();
+        if (f53524e == null) {
+            synchronized (f53523d) {
+                if (f53524e == null) {
+                    f53524e = new e();
                 }
             }
         }
-        return f49849e;
+        return f53524e;
     }
 
     @Override // d.a.m0.r.g0.c.c
     public void a() {
-        if (this.f49851b) {
+        if (this.f53526b) {
             return;
         }
         stop();
-        this.f49851b = true;
-        this.f49850a = false;
+        this.f53526b = true;
+        this.f53525a = false;
     }
 
     @Override // d.a.m0.r.g0.c.c
     public boolean b(String str) {
-        this.f49852c = -1;
-        if (!this.f49850a) {
-            this.f49851b = true;
+        this.f53527c = -1;
+        if (!this.f53525a) {
+            this.f53526b = true;
             reset();
             try {
                 setDataSource(str);
-                j(h.f38911b);
+                j(h.f42564b);
                 try {
                     prepare();
                 } catch (IOException e2) {
                     e2.printStackTrace();
-                    this.f49852c = 2;
+                    this.f53527c = 2;
                     return false;
                 } catch (IllegalStateException unused) {
-                    this.f49852c = 1;
+                    this.f53527c = 1;
                     return false;
                 }
             } catch (IOException unused2) {
-                this.f49852c = 2;
+                this.f53527c = 2;
                 return false;
             } catch (IllegalArgumentException unused3) {
-                this.f49852c = 0;
+                this.f53527c = 0;
                 return false;
             } catch (IllegalStateException unused4) {
-                this.f49852c = 1;
+                this.f53527c = 1;
                 return false;
             }
         }
-        this.f49850a = true;
+        this.f53525a = true;
         return true;
     }
 
     @Override // d.a.m0.r.g0.c.c
     public int c() {
-        return this.f49852c;
+        return this.f53527c;
     }
 
     @Override // d.a.m0.r.g0.c.c
     public boolean d() {
-        return this.f49850a;
+        return this.f53525a;
     }
 
     @Override // d.a.m0.r.g0.c.c
@@ -94,9 +94,9 @@ public class e extends MediaPlayer implements c {
     @Override // d.a.m0.r.g0.c.c
     public void f() {
         reset();
-        this.f49850a = false;
-        this.f49851b = true;
-        this.f49852c = -1;
+        this.f53525a = false;
+        this.f53526b = true;
+        this.f53527c = -1;
     }
 
     @Override // d.a.m0.r.g0.c.c
@@ -107,7 +107,7 @@ public class e extends MediaPlayer implements c {
     @Override // d.a.m0.r.g0.c.c
     public void h() {
         start();
-        this.f49851b = false;
+        this.f53526b = false;
     }
 
     public void j(int i2) {

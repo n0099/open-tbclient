@@ -9,10 +9,10 @@ import rx.subjects.PublishSubject;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f46830a;
+    public static volatile d f50504a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h.n.b f46831b = new a();
+    public static final h.n.b f50505b = new a();
 
     /* loaded from: classes3.dex */
     public static class a implements h.n.b<Pair<Runnable, String>> {
@@ -37,18 +37,18 @@ public final class c {
         @Override // h.n.f
         /* renamed from: a */
         public h.d<?> call(Pair<Runnable, String> pair) {
-            return h.h.g(pair).h(Schedulers.io()).f(c.f46831b).l();
+            return h.h.g(pair).h(Schedulers.io()).f(c.f50505b).l();
         }
     }
 
     /* renamed from: d.a.l0.f.i.r.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceExecutorC0987c extends Executor {
+    public interface InterfaceExecutorC1043c extends Executor {
         void execute(@NonNull Runnable runnable, @NonNull String str);
     }
 
     /* loaded from: classes3.dex */
-    public static class d extends h.t.c<Pair<Runnable, String>, Pair<Runnable, String>> implements InterfaceExecutorC0987c {
+    public static class d extends h.t.c<Pair<Runnable, String>, Pair<Runnable, String>> implements InterfaceExecutorC1043c {
         public d(h.t.d dVar) {
             super(dVar);
         }
@@ -58,22 +58,22 @@ public final class c {
             execute(runnable, "");
         }
 
-        @Override // d.a.l0.f.i.r.c.InterfaceExecutorC0987c
+        @Override // d.a.l0.f.i.r.c.InterfaceExecutorC1043c
         public void execute(@NonNull Runnable runnable, @NonNull String str) {
             onNext(Pair.create(runnable, c.c(str)));
         }
     }
 
-    public static InterfaceExecutorC0987c b() {
-        if (f46830a == null) {
+    public static InterfaceExecutorC1043c b() {
+        if (f50504a == null) {
             synchronized (c.class) {
-                if (f46830a == null) {
-                    f46830a = new d(PublishSubject.K());
-                    f46830a.s().g(new b()).x().y();
+                if (f50504a == null) {
+                    f50504a = new d(PublishSubject.K());
+                    f50504a.s().g(new b()).x().y();
                 }
             }
         }
-        return f46830a;
+        return f50504a;
     }
 
     public static String c(String str) {

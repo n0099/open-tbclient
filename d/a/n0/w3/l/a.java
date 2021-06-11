@@ -3,31 +3,31 @@ package d.a.n0.w3.l;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f62866a;
+    public boolean f66581a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62867b;
+    public String f66582b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62868c;
+    public String f66583c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f62869d;
+    public int f66584d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62870e;
+    public String f66585e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62871f;
+    public String f66586f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62872g;
+    public String f66587g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f62873h;
+    public String f66588h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f62874i;
+    public String f66589i;
     public String j;
     public long k;
     public int l;

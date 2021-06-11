@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k extends d.a.l0.a.h0.g.d {
-    public static final boolean D0 = d.a.l0.a.k.f43199a;
+    public static final boolean D0 = d.a.l0.a.k.f46875a;
     public String A0;
     public String B0;
     public boolean C0 = true;
@@ -72,18 +72,18 @@ public class k extends d.a.l0.a.h0.g.d {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.l0.a.l1.b f42100a;
+        public d.a.l0.a.l1.b f45776a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f42101b = new JSONObject();
+        public JSONObject f45777b = new JSONObject();
 
         public d(String str) {
-            this.f42100a = d.a.l0.a.l1.b.e(str, str);
+            this.f45776a = d.a.l0.a.l1.b.e(str, str);
         }
 
         public d a(boolean z) {
             try {
-                this.f42101b.put("should_check_domain", z);
+                this.f45777b.put("should_check_domain", z);
             } catch (JSONException e2) {
                 if (k.D0) {
                     e2.printStackTrace();
@@ -93,8 +93,8 @@ public class k extends d.a.l0.a.h0.g.d {
         }
 
         public void b() {
-            this.f42100a.f43358f = this.f42101b.toString();
-            k.Q2("default_webview", this.f42100a);
+            this.f45776a.f47034f = this.f45777b.toString();
+            k.Q2("default_webview", this.f45776a);
         }
     }
 
@@ -106,7 +106,7 @@ public class k extends d.a.l0.a.h0.g.d {
         }
         d.a.l0.a.e0.d.g("SwanAppWebViewFragment", "page closed! ");
         g.b h2 = W.h();
-        h2.n(g.f42078i, g.f42077h);
+        h2.n(g.f45754i, g.f45753h);
         h2.g();
         h2.a();
         return true;
@@ -197,9 +197,9 @@ public class k extends d.a.l0.a.h0.g.d {
             d.a.l0.a.e0.d.g("SwanAppWebViewFragment", "open page failed");
             return false;
         }
-        d.a.l0.a.e0.d.g("SwanAppWebViewFragment", "open page url=" + bVar.f43359g);
+        d.a.l0.a.e0.d.g("SwanAppWebViewFragment", "open page url=" + bVar.f47035g);
         g.b h2 = W.h();
-        h2.n(g.f42076g, g.f42078i);
+        h2.n(g.f45752g, g.f45754i);
         h2.k(str, bVar).b();
         return true;
     }
@@ -287,8 +287,8 @@ public class k extends d.a.l0.a.h0.g.d {
     public void S2(d.a.l0.a.l1.b bVar) {
         if (bVar != null) {
             Bundle bundle = new Bundle();
-            bundle.putString("url", bVar.f43359g);
-            bundle.putString("params", bVar.f43358f);
+            bundle.putString("url", bVar.f47035g);
+            bundle.putString("params", bVar.f47034f);
             j1(bundle);
         }
     }
@@ -305,7 +305,7 @@ public class k extends d.a.l0.a.h0.g.d {
 
     @Override // d.a.l0.a.h0.g.d
     public void e2() {
-        this.x0.V();
+        this.x0.U();
         N2();
         this.j0.q(d.a.l0.a.c1.a.H().a(), E1());
     }

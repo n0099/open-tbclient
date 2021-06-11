@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static File a(Context context, File file, String str, File file2) {
         com.kwai.sodler.lib.a.a("plugin.so", "--");

@@ -11,19 +11,19 @@ import d.a.l0.a.w1.k.b;
 public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f11037e;
+    public a f11099e;
 
     public SPSwitchFSPanelLinearLayout(Context context) {
         this(context, null);
     }
 
     public final void a() {
-        this.f11037e = new a(this);
+        this.f11099e = new a(this);
     }
 
     @Override // d.a.l0.a.w1.k.b
     public void onSoftInputShowing(boolean z) {
-        this.f11037e.a(z);
+        this.f11099e.a(z);
     }
 
     @Override // d.a.l0.a.w1.k.b

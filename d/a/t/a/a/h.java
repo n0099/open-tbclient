@@ -3,21 +3,21 @@ package d.a.t.a.a;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64543a;
+    public String f68261a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64544b;
+    public String f68262b;
 
     public h(String str, String str2, String str3) {
-        this.f64543a = str2;
-        this.f64544b = str3;
+        this.f68261a = str2;
+        this.f68262b = str3;
     }
 
     public String a() {
-        return this.f64544b;
+        return this.f68262b;
     }
 
     public String b() {
-        return this.f64543a;
+        return this.f68261a;
     }
 }

@@ -13,7 +13,7 @@ public class a {
                     return Integer.valueOf(intValue);
                 }
             } catch (Exception e2) {
-                if (c.f47984a) {
+                if (c.f51658a) {
                     Log.e("PriorityOptionHelper", e2.toString());
                     e2.printStackTrace();
                 }

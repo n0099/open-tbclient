@@ -10,7 +10,7 @@ import java.util.List;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f48494a = Arrays.asList("TAH-AN00", "TET-AN00");
+    public static final List<String> f52168a = Arrays.asList("TAH-AN00", "TET-AN00");
 
     public static int a(Activity activity) {
         double b2 = b(activity) * 0.5199999809265137d;
@@ -37,7 +37,7 @@ public class e {
         String str = Build.MANUFACTURER;
         String str2 = Build.MODEL;
         if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
-            for (String str3 : f48494a) {
+            for (String str3 : f52168a) {
                 if (str2.contains(str3)) {
                     return true;
                 }

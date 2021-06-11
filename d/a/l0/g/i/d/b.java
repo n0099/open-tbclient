@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class b extends d.a.l0.g.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47097c = k.f43199a;
+    public static final boolean f50771c = k.f46875a;
 
     public b() {
         super("ReservationGame");
@@ -25,7 +25,7 @@ public class b extends d.a.l0.g.f.a {
             bVar.onFail(202, "params may be error");
             return null;
         }
-        if (f47097c) {
+        if (f50771c) {
             Log.e("ReservationGameAction", "params is " + jSONObject.toString());
         }
         String optString = jSONObject.optString("apkId");
@@ -40,10 +40,10 @@ public class b extends d.a.l0.g.f.a {
             String string = h.a().getString("reservation_apk_ids", "");
             if (optInt == 1) {
                 d(string, optString);
-                bVar.b(null);
+                bVar.a(null);
             } else if (optInt == 2) {
                 if (b(string, optString)) {
-                    bVar.b(null);
+                    bVar.a(null);
                 } else {
                     bVar.onFail(31025, "reservation cancel fail");
                 }

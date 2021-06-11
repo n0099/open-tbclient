@@ -10,7 +10,7 @@ import android.view.SurfaceView;
 import org.webrtc.EglBase;
 import org.webrtc.EglRenderer;
 import org.webrtc.RendererCommon;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Callback, VideoSink, RendererCommon.RendererEvents {
     public static final String TAG = "SurfaceViewRenderer";
     public final SurfaceEglRenderer eglRenderer;

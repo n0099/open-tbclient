@@ -3,14 +3,14 @@ package com.alipay.sdk.widget;
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ j f2024a;
+    public final /* synthetic */ j f2037a;
 
     public k(j jVar) {
-        this.f2024a = jVar;
+        this.f2037a = jVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2024a.f2011a.finish();
+        this.f2037a.f2024a.finish();
     }
 }

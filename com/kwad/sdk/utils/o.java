@@ -11,7 +11,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o {
     public static <T> List<T> a(String str) {
         ArrayList arrayList = new ArrayList();
@@ -109,18 +109,13 @@ public class o {
         JSONArray jSONArray = new JSONArray();
         boolean z = false;
         for (Object obj : list) {
-            if (obj instanceof com.kwad.sdk.core.b) {
-                a(jSONArray, ((com.kwad.sdk.core.b) obj).toJson());
-            } else if ((obj instanceof String) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof JSONObject) || (obj instanceof JSONArray) || (obj instanceof Double) || (obj instanceof Boolean)) {
-                jSONArray.put(obj);
-            } else {
-                if (!(obj instanceof Float)) {
+            if (!(obj instanceof com.kwad.sdk.core.b)) {
+                if (!(obj instanceof String)) {
                     break;
                 }
-                try {
-                    jSONArray.put(((Float) obj).floatValue());
-                } catch (JSONException unused) {
-                }
+                jSONArray.put(obj);
+            } else {
+                a(jSONArray, ((com.kwad.sdk.core.b) obj).toJson());
             }
             z = true;
         }
@@ -130,29 +125,23 @@ public class o {
     }
 
     public static void a(JSONObject jSONObject, String str, JSONArray jSONArray) {
-        if (jSONArray != null && jSONObject != null && !TextUtils.isEmpty(str)) {
-            try {
-                jSONObject.put(str, jSONArray);
-            } catch (JSONException unused) {
-            }
+        try {
+            jSONObject.put(str, jSONArray);
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, JSONObject jSONObject2) {
-        if (jSONObject2 != null && jSONObject != null && !TextUtils.isEmpty(str)) {
-            try {
-                jSONObject.put(str, jSONObject2);
-            } catch (JSONException unused) {
-            }
+        try {
+            jSONObject.put(str, jSONObject2);
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, boolean z) {
-        if (jSONObject != null && !TextUtils.isEmpty(str)) {
-            try {
-                jSONObject.put(str, z);
-            } catch (JSONException unused) {
-            }
+        try {
+            jSONObject.put(str, z);
+        } catch (JSONException unused) {
         }
     }
 

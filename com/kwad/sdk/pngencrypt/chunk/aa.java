@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class aa extends PngChunk {
     public aa(String str, com.kwad.sdk.pngencrypt.k kVar) {
         super(str, kVar);
@@ -10,8 +10,8 @@ public abstract class aa extends PngChunk {
             return true;
         }
         if (obj != null && getClass() == obj.getClass()) {
-            String str = this.f33373a;
-            String str2 = ((aa) obj).f33373a;
+            String str = this.f36833a;
+            String str2 = ((aa) obj).f36833a;
             if (str == null) {
                 if (str2 != null) {
                     return false;
@@ -25,7 +25,7 @@ public abstract class aa extends PngChunk {
     }
 
     public int hashCode() {
-        String str = this.f33373a;
+        String str = this.f36833a;
         return 31 + (str == null ? 0 : str.hashCode());
     }
 }

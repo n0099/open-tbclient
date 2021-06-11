@@ -40,10 +40,10 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        t(imMessageCenterPojo, imMessageCenterShowItemData);
+        x(imMessageCenterPojo, imMessageCenterShowItemData);
     }
 
-    public void s(b bVar) {
+    public void w(b bVar) {
         ListIterator<ImMessageCenterShowItemData> listIterator = this.mList.listIterator();
         ArrayList arrayList = new ArrayList();
         while (listIterator.hasNext()) {
@@ -55,7 +55,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         asyncDeleteMsgList(arrayList, 2, bVar);
     }
 
-    public final void t(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    public final void x(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem == null) {
             return;

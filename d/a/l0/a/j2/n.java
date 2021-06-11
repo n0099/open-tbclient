@@ -14,36 +14,36 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43174a = d.a.l0.a.k.f43199a;
+    public static final boolean f46850a = d.a.l0.a.k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f43175b = false;
+    public static volatile boolean f46851b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<a> f43176c = new ArrayList();
+    public static final List<a> f46852c = new ArrayList();
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final d.a.l0.a.j2.p.c f43177a;
+        public final d.a.l0.a.j2.p.c f46853a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f43178b;
+        public JSONObject f46854b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f43179c;
+        public final long f46855c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f43180d;
+        public final String f46856d;
 
         public a(@NonNull d.a.l0.a.j2.p.c cVar, @NonNull String str) {
-            this.f43177a = cVar;
-            this.f43180d = str;
-            this.f43179c = cVar.l();
-            synchronized (n.f43176c) {
-                if (n.f43175b) {
-                    n.f43176c.add(this);
+            this.f46853a = cVar;
+            this.f46856d = str;
+            this.f46855c = cVar.l();
+            synchronized (n.f46852c) {
+                if (n.f46851b) {
+                    n.f46852c.add(this);
                 }
             }
         }
@@ -57,30 +57,30 @@ public class n {
                 return;
             }
             long g2 = f2.g();
-            synchronized (f43176c) {
-                if (f43174a) {
-                    Log.d("SwanReqStatisticManager", "size=" + f43176c.size());
+            synchronized (f46852c) {
+                if (f46850a) {
+                    Log.d("SwanReqStatisticManager", "size=" + f46852c.size());
                 }
-                f43175b = false;
+                f46851b = false;
                 JSONArray jSONArray = new JSONArray();
-                for (a aVar : f43176c) {
-                    if (aVar.f43179c <= g2) {
+                for (a aVar : f46852c) {
+                    if (aVar.f46855c <= g2) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("type", aVar.f43180d);
-                            if (aVar.f43177a != null) {
-                                aVar.f43177a.o(jSONObject);
+                            jSONObject.put("type", aVar.f46856d);
+                            if (aVar.f46853a != null) {
+                                aVar.f46853a.o(jSONObject);
                             }
-                            if (aVar.f43178b != null) {
-                                Iterator<String> keys = aVar.f43178b.keys();
+                            if (aVar.f46854b != null) {
+                                Iterator<String> keys = aVar.f46854b.keys();
                                 while (keys.hasNext()) {
                                     String next = keys.next();
-                                    jSONObject.put(next, aVar.f43178b.get(next));
+                                    jSONObject.put(next, aVar.f46854b.get(next));
                                 }
                             }
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
-                            if (f43174a) {
+                            if (f46850a) {
                                 Log.e("SwanReqStatisticManager", "appendRequestRecord", e2);
                             }
                         }
@@ -94,9 +94,9 @@ public class n {
     }
 
     public static void d() {
-        synchronized (f43176c) {
-            f43175b = true;
-            f43176c.clear();
+        synchronized (f46852c) {
+            f46851b = true;
+            f46852c.clear();
         }
     }
 }

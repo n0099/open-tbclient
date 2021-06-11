@@ -2,7 +2,7 @@ package d.a.n0.d1.a;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.d1.c.o;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,33 +10,33 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeListView f52456a;
+    public BdTypeListView f56145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f52457b;
+    public c f56146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f52458c;
+    public b f56147c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f52459d;
+    public k f56148d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.a.c.j.e.a> f52460e = new ArrayList();
+    public List<d.a.c.k.e.a> f56149e = new ArrayList();
 
     public a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         a(hotRanklistActivity, bdTypeListView);
     }
 
     public final void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
-        this.f52457b = new c(hotRanklistActivity, d.a.n0.d1.c.c.m);
-        this.f52458c = new b(hotRanklistActivity, d.a.n0.d1.c.b.j);
-        this.f52459d = new k(hotRanklistActivity, o.k);
-        this.f52460e.add(this.f52457b);
-        this.f52460e.add(this.f52458c);
-        this.f52460e.add(this.f52459d);
-        this.f52456a = bdTypeListView;
-        bdTypeListView.a(this.f52460e);
+        this.f56146b = new c(hotRanklistActivity, d.a.n0.d1.c.c.m);
+        this.f56147c = new b(hotRanklistActivity, d.a.n0.d1.c.b.j);
+        this.f56148d = new k(hotRanklistActivity, o.k);
+        this.f56149e.add(this.f56146b);
+        this.f56149e.add(this.f56147c);
+        this.f56149e.add(this.f56148d);
+        this.f56145a = bdTypeListView;
+        bdTypeListView.a(this.f56149e);
     }
 
     public void b(d.a.n0.d1.c.j jVar, String str) {
@@ -46,15 +46,15 @@ public class a {
         } else {
             arrayList = new ArrayList<>();
         }
-        k kVar = this.f52459d;
+        k kVar = this.f56148d;
         if (kVar != null) {
-            kVar.C0();
+            kVar.D0();
         }
-        c cVar = this.f52457b;
+        c cVar = this.f56146b;
         if (cVar != null) {
-            cVar.n0(str);
+            cVar.m0(str);
         }
-        BdTypeListView bdTypeListView = this.f52456a;
+        BdTypeListView bdTypeListView = this.f56145a;
         if (bdTypeListView != null) {
             bdTypeListView.setData(arrayList);
         }

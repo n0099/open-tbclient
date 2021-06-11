@@ -12,10 +12,10 @@ import d.a.n0.e3.k0.b;
 public class DragLayer extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f20800e;
+    public a f20877e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f20801f;
+    public b f20878f;
 
     public DragLayer(Context context) {
         super(context);
@@ -23,14 +23,14 @@ public class DragLayer extends FrameLayout {
     }
 
     public void a() {
-        b bVar = this.f20801f;
+        b bVar = this.f20878f;
         if (bVar != null) {
-            Bitmap bitmap = bVar.f54106b;
+            Bitmap bitmap = bVar.f57795b;
             if (bitmap != null) {
                 bitmap.recycle();
-                this.f20801f.f54106b = null;
+                this.f20878f.f57795b = null;
             }
-            this.f20801f = null;
+            this.f20878f = null;
         }
     }
 
@@ -40,19 +40,19 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        b bVar = this.f20801f;
-        if (bVar == null || !this.f20800e.f54101f) {
+        b bVar = this.f20878f;
+        if (bVar == null || !this.f20877e.f57790f) {
             return;
         }
         bVar.a(canvas);
     }
 
     public a getDragController() {
-        return this.f20800e;
+        return this.f20877e;
     }
 
     public b getDragObject() {
-        return this.f20801f;
+        return this.f20878f;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -68,20 +68,20 @@ public class DragLayer extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.f20800e.c(motionEvent);
+        return this.f20877e.c(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.f20800e.d(motionEvent);
+        return this.f20877e.d(motionEvent);
     }
 
     public void setDragController(a aVar) {
-        this.f20800e = aVar;
+        this.f20877e = aVar;
     }
 
     public void setDragObject(b bVar) {
-        this.f20801f = bVar;
+        this.f20878f = bVar;
         invalidate();
     }
 

@@ -5,26 +5,26 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61237a;
+    public String f64946a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61238b;
+    public String f64947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61239c;
+    public String f64948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61240d;
+    public String f64949d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f61241e;
+    public Map<String, String> f64950e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61242f;
+    public String f64951f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61243g;
+    public String f64952g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61244h;
+    public String f64953h;
 }

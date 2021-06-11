@@ -4,7 +4,7 @@ import h.o.a.c;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeAmb$Selection<T> extends AtomicReference<c<T>> {
     public final Collection<c<T>> ambSubscribers = new ConcurrentLinkedQueue();
 

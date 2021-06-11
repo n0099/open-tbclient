@@ -12,32 +12,32 @@ import java.lang.reflect.Modifier;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45273a = k.f43199a;
+    public static final boolean f48947a = k.f46875a;
 
     public static void a(int i2, String str, String str2, @Nullable Bundle bundle) {
         a b2 = b(str);
         if (b2 == null) {
-            if (!f45273a) {
+            if (!f48947a) {
                 c(i2, str2, null);
                 return;
             }
             throw new RuntimeException("Messenger创建代理类失败");
         }
-        if (f45273a) {
+        if (f48947a) {
             Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
         }
         if (bundle == null) {
             bundle = new Bundle();
         }
-        b2.f45269a = bundle;
-        b2.f45270b = i2;
-        b2.f45271c = str2;
+        b2.f48943a = bundle;
+        b2.f48944b = i2;
+        b2.f48945c = str2;
         b2.b(bundle);
     }
 
     public static a b(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
-            if (f45273a) {
+            if (f48947a) {
                 Log.e("MDelegate-Delegation", "create delegation with null delegate name");
             }
             return null;
@@ -45,7 +45,7 @@ public class b {
         try {
             Class<?> cls = Class.forName(str);
             if (cls == null) {
-                if (f45273a) {
+                if (f48947a) {
                     throw new RuntimeException("Messenger代理类不存在：" + str);
                 }
                 return null;
@@ -56,19 +56,19 @@ public class b {
                 declaredConstructor.setAccessible(true);
                 Object newInstance = declaredConstructor.newInstance(new Object[0]);
                 if (!(newInstance instanceof a)) {
-                    if (f45273a) {
+                    if (f48947a) {
                         throw new RuntimeException("Messenger代理类不是:" + a.class.getName());
                     }
                     return null;
                 }
                 return (a) newInstance;
             }
-            if (f45273a) {
+            if (f48947a) {
                 throw new RuntimeException("Messenger代理类不合法：" + str);
             }
             return null;
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e2) {
-            if (f45273a) {
+            if (f48947a) {
                 e2.printStackTrace();
                 throw new RuntimeException(e2);
             }
@@ -80,7 +80,7 @@ public class b {
         if (d.a.l0.a.v1.a.b.d.a.a(str)) {
             return;
         }
-        if (f45273a) {
+        if (f48947a) {
             Log.d("MDelegate-Delegation", "send result to client: " + i2 + " observer: " + str);
         }
         Bundle bundle2 = new Bundle();

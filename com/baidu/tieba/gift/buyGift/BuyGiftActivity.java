@@ -448,15 +448,15 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public class s implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f16009e;
+        public int f16071e;
 
         public s(int i2) {
-            this.f16009e = i2;
+            this.f16071e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int min = Math.min(this.f16009e, BuyGiftActivity.this.mPageInfos.size());
+            int min = Math.min(this.f16071e, BuyGiftActivity.this.mPageInfos.size());
             int i2 = 0;
             for (int i3 = 0; i3 < min; i3++) {
                 i2 += BuyGiftActivity.this.mPageInfos.get(i3);

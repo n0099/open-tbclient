@@ -19,6 +19,7 @@ import com.baidu.sapi2.callback.FillUsernameCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
 import com.baidu.sapi2.callback.IqiyiLoginCallback;
+import com.baidu.sapi2.callback.NetCallback;
 import com.baidu.sapi2.callback.OneKeyLoginCallback;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.callback.SsoHashCallback;
@@ -67,7 +68,6 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
@@ -172,7 +172,7 @@ public final class SapiAccountRepository {
             buildSapiParams.put("type", SocialType.IQIYI.getType() + "");
             buildSapiParams.put("act", "special");
             buildSapiParams.put("display", "native");
-            new HttpClientWrap().get(getDomainSSOStart(), ReqPriority.IMMEDIATE, buildSapiParams, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.10
+            new HttpClientWrap().get(getDomainSSOStart(), ReqPriority.IMMEDIATE, buildSapiParams, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.11
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                 public void onFailure(Throwable th, int i2, String str) {
                     iqiyiLoginResult.setResultCode(i2);
@@ -204,7 +204,7 @@ public final class SapiAccountRepository {
                             return;
                         } else {
                             SapiAccount responseToAccount = SapiAccountRepository.this.responseToAccount(parseOpenApiAuthorizedResult);
-                            responseToAccount.addSocialInfo(parseOpenApiAuthorizedResult.socialType, parseOpenApiAuthorizedResult.socialPortraitUrl);
+                            responseToAccount.addSocialInfo(parseOpenApiAuthorizedResult.socialType, parseOpenApiAuthorizedResult.socialPortraitUrl, parseOpenApiAuthorizedResult.socialNickname);
                             responseToAccount.putExtra("account_type", Integer.valueOf(parseOpenApiAuthorizedResult.accountType.getType()));
                             responseToAccount.addDispersionCertification(parseOpenApiAuthorizedResult.tplStokenMap);
                             responseToAccount.addIsGuestAccount(parseOpenApiAuthorizedResult.isGuestAccount);
@@ -230,7 +230,7 @@ public final class SapiAccountRepository {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String getUaInfo() {
-        return "tpl:" + this.configuration.tpl + ";android_sapi_v9.3.1";
+        return "tpl:" + this.configuration.tpl + ";android_sapi_v9.3.2.5";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -267,7 +267,7 @@ public final class SapiAccountRepository {
                 OneKeyLoginResult.secondJsCode = optString4;
                 oneKeyLoginCallback.available(oneKeyLoginResult);
             } else {
-                requestFirstJsCode(optString3, optString2, optString4, new OneKeyRequestJsCallback() { // from class: com.baidu.sapi2.SapiAccountRepository.17
+                requestFirstJsCode(optString3, optString2, optString4, new OneKeyRequestJsCallback() { // from class: com.baidu.sapi2.SapiAccountRepository.18
                     @Override // com.baidu.sapi2.SapiAccountRepository.OneKeyRequestJsCallback
                     public void failure(int i3, String str3) {
                         new OneKeyLoginSdkCall().preGetPhoneFail(oneKeyLoginCallback, i3, str3);
@@ -326,7 +326,7 @@ public final class SapiAccountRepository {
     }
 
     private void requestFirstJsCode(String str, final String str2, String str3, final OneKeyRequestJsCallback oneKeyRequestJsCallback) {
-        new HttpClientWrap().get(str, ReqPriority.IMMEDIATE, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.19
+        new HttpClientWrap().get(str, ReqPriority.IMMEDIATE, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.20
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i2, String str4) {
                 OneKeyRequestJsCallback oneKeyRequestJsCallback2 = oneKeyRequestJsCallback;
@@ -390,7 +390,7 @@ public final class SapiAccountRepository {
         buildSapiParams.put("clientfrom", "native");
         buildSapiParams.put("bduss", str);
         final FaceLoginStatusResult faceLoginStatusResult = new FaceLoginStatusResult();
-        new HttpClientWrap().post(SapiEnv.FACE_LOGIN_STATUS_CHECK, buildSapiParams, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.12
+        new HttpClientWrap().post(SapiEnv.FACE_LOGIN_STATUS_CHECK, buildSapiParams, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.13
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i2, String str2) {
                 faceLoginStatusResult.setResultCode(i2);
@@ -445,7 +445,7 @@ public final class SapiAccountRepository {
         httpHashMapWrap.put("mobile", str);
         httpHashMapWrap.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
         String oneKeyLoginAbilityUrl = getOneKeyLoginAbilityUrl();
-        new HttpClientWrap().get(oneKeyLoginAbilityUrl, ReqPriority.IMMEDIATE, httpHashMapWrap, ParamsUtil.buildNaCookie(oneKeyLoginAbilityUrl, this.configuration), getUaInfo(), i2, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.16
+        new HttpClientWrap().get(oneKeyLoginAbilityUrl, ReqPriority.IMMEDIATE, httpHashMapWrap, ParamsUtil.buildNaCookie(oneKeyLoginAbilityUrl, this.configuration), getUaInfo(), i2, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.17
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i3, String str2) {
                 String str3 = SapiAccountRepository.TAG;
@@ -471,7 +471,7 @@ public final class SapiAccountRepository {
             buildSapiParams.putAll(map);
         }
         final CheckUserFaceIdResult checkUserFaceIdResult = new CheckUserFaceIdResult();
-        new HttpClientWrap().post(SapiEnv.CHECK_USER_FACE_ID, buildSapiParams, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.11
+        new HttpClientWrap().post(SapiEnv.CHECK_USER_FACE_ID, buildSapiParams, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.12
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i2, String str2) {
                 checkUserFaceIdResult.setResultCode(i2);
@@ -555,7 +555,7 @@ public final class SapiAccountRepository {
         httpHashMapWrap.put("open_apikey", str2);
         httpHashMapWrap.put("time", System.currentTimeMillis() + "");
         final SapiResult sapiResult = new SapiResult();
-        new HttpClientWrap().post(SapiEnv.EXTEND_SYS_WEBVIEW_METHOD_CHECK, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.15
+        new HttpClientWrap().post(SapiEnv.EXTEND_SYS_WEBVIEW_METHOD_CHECK, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.16
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i2, String str3) {
                 sapiResult.setResultCode(i2);
@@ -611,7 +611,7 @@ public final class SapiAccountRepository {
         buildSapiParams.put("clientfrom", "native");
         buildSapiParams.put("bduss", str);
         final CheckUserFaceIdResult checkUserFaceIdResult = new CheckUserFaceIdResult();
-        new HttpClientWrap().post(SapiEnv.FACE_LOGIN_SWITCH_URI, buildSapiParams, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.13
+        new HttpClientWrap().post(SapiEnv.FACE_LOGIN_SWITCH_URI, buildSapiParams, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.14
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i2, String str3) {
                 checkUserFaceIdResult.setResultCode(i2);
@@ -676,7 +676,7 @@ public final class SapiAccountRepository {
             jSONObject.put("username", str2);
             jSONObject.put("key", sapiDataEncryptor.getAESKey());
             httpHashMapWrap.put(TableDefine.DB_TABLE_USERINFO, sapiDataEncryptor.encrypt("-----BEGIN CERTIFICATE-----\nMIIFKDCCBBCgAwIBAgIQaG9YabPddabIY+N5IoXttzANBgkqhkiG9w0BAQUFADCB\nvDELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL\nExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug\nYXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDE2MDQGA1UEAxMt\nVmVyaVNpZ24gQ2xhc3MgMyBJbnRlcm5hdGlvbmFsIFNlcnZlciBDQSAtIEczMB4X\nDTEwMTIwMzAwMDAwMFoXDTEyMTIwMjIzNTk1OVowga8xCzAJBgNVBAYTAkNOMRAw\nDgYDVQQIEwdCZWlqaW5nMRAwDgYDVQQHFAdCZWlqaW5nMTkwNwYDVQQKFDBCZWlK\naW5nIEJhaWR1IE5ldGNvbSBTY2llbmNlIFRlY2hub2xvZ3kgQ28uLCBMdGQxJTAj\nBgNVBAsUHHNlcnZpY2Ugb3BlcmF0aW9uIGRlcGFydG1lbnQxGjAYBgNVBAMUEW9w\nZW5hcGkuYmFpZHUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC68R1G\nWkkVvvjBOGKHOoyLxdtEcxBiVOGG8lvXTckB8jNrg4tihQzql+fJbr/X8V9MqQLw\nzzOyQViYlW+/GhC6u1jrP6t3Br0Wy8HyThDnvOAWyPFEawgbIywT20F41Iqayled\n/DQ/JCDWcNA7+xX56rqEcQd+6baNAiu9o962PwIDAQABo4IBszCCAa8wCQYDVR0T\nBAIwADALBgNVHQ8EBAMCBaAwQQYDVR0fBDowODA2oDSgMoYwaHR0cDovL1NWUklu\ndGwtRzMtY3JsLnZlcmlzaWduLmNvbS9TVlJJbnRsRzMuY3JsMEQGA1UdIAQ9MDsw\nOQYLYIZIAYb4RQEHFwMwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cudmVyaXNp\nZ24uY29tL3JwYTAoBgNVHSUEITAfBglghkgBhvhCBAEGCCsGAQUFBwMBBggrBgEF\nBQcDAjByBggrBgEFBQcBAQRmMGQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLnZl\ncmlzaWduLmNvbTA8BggrBgEFBQcwAoYwaHR0cDovL1NWUkludGwtRzMtYWlhLnZl\ncmlzaWduLmNvbS9TVlJJbnRsRzMuY2VyMG4GCCsGAQUFBwEMBGIwYKFeoFwwWjBY\nMFYWCWltYWdlL2dpZjAhMB8wBwYFKw4DAhoEFEtruSiWBgy70FI4mymsSweLIQUY\nMCYWJGh0dHA6Ly9sb2dvLnZlcmlzaWduLmNvbS92c2xvZ28xLmdpZjANBgkqhkiG\n9w0BAQUFAAOCAQEAgNIl8/QIKP4KWWWj6ltL6lVknoGlpUIoowvnv+57H7FdEYJb\n9zQewrAqoFkblB0mMiUEGdJOa7YxKKJialqz6KnlMrHQMAsB641BHLDESvLjuhio\nUsWmvBowIK92HQ2H9N01U8d1i5rTz5wwFK+Nvue/61tzCTTmbRgBuGPotQ/tcA+g\nYCNuEIHsJMbWiX9O3gflnMdRME7z9Hw9zMogt+lz7GudP/AO1K6sZ6VnQ931Gv1e\nIOmPCPfvO/Kw/aXSacoEWnMsy+qTIewVPT/MMgSaq9JewAQgLpMX+O5qqAJBYoDj\nxoZnHufGgOIKfNmSvYiHjDFJtP55PdEH21q+JA==\n-----END CERTIFICATE-----", jSONObject.toString()));
-            new HttpClientWrap().post(SapiEnv.FILL_UNAME, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.5
+            new HttpClientWrap().post(SapiEnv.FILL_UNAME, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.6
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                 public void onFailure(Throwable th, int i2, String str3) {
                     fillUsernameResult.setResultCode(i2);
@@ -744,7 +744,7 @@ public final class SapiAccountRepository {
     @SuppressLint({"NewApi"})
     public void generateSsoHash(final SsoHashCallback ssoHashCallback, final String str, final String str2) {
         SapiUtils.notNull(ssoHashCallback, "SsoHashCallback can't be null");
-        new AsyncTask<String, Void, Long>() { // from class: com.baidu.sapi2.SapiAccountRepository.14
+        new AsyncTask<String, Void, Long>() { // from class: com.baidu.sapi2.SapiAccountRepository.15
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.AsyncTask
             public Long doInBackground(String... strArr) {
@@ -829,7 +829,7 @@ public final class SapiAccountRepository {
         } else {
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
             httpHashMapWrap.put("username", str);
-            new HttpClientWrap().post(SapiEnv.GET_DYNAMIC_PWD_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.8
+            new HttpClientWrap().post(SapiEnv.GET_DYNAMIC_PWD_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.9
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                 public void onFailure(Throwable th, int i2, String str2) {
                     if (i2 == -203) {
@@ -898,7 +898,7 @@ public final class SapiAccountRepository {
         httpHashMapWrap.put("interflowPkgList", deleteCharAt.toString());
         httpHashMapWrap.put("currentAppPkg", str2);
         String shareV3AppUrl = getShareV3AppUrl();
-        new HttpClientWrap().post(shareV3AppUrl, httpHashMapWrap, ParamsUtil.buildNaCookie(shareV3AppUrl, this.configuration), getUaInfo(), new HttpHandlerWrap() { // from class: com.baidu.sapi2.SapiAccountRepository.20
+        new HttpClientWrap().post(shareV3AppUrl, httpHashMapWrap, ParamsUtil.buildNaCookie(shareV3AppUrl, this.configuration), getUaInfo(), new HttpHandlerWrap() { // from class: com.baidu.sapi2.SapiAccountRepository.21
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i2, String str4) {
                 Log.d(ShareUtils.TAG, "requestShareV3AppFromCloud fail responseBody=" + str4);
@@ -987,7 +987,7 @@ public final class SapiAccountRepository {
             }
             String str3 = list.get(0);
             for (int i2 = 1; i2 < list.size(); i2++) {
-                str3 = str3 + FieldBuilder.SE + list.get(i2);
+                str3 = str3 + "|" + list.get(i2);
             }
             if (TextUtils.isEmpty(str2)) {
                 getTplStokenResult.setResultCode(-305);
@@ -1002,7 +1002,7 @@ public final class SapiAccountRepository {
                 httpHashMapWrap.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, str2);
             }
             httpHashMapWrap.put("tpl_list", str3);
-            new HttpClientWrap().post(SapiEnv.GET_STOKEN_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.6
+            new HttpClientWrap().post(SapiEnv.GET_STOKEN_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.7
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                 public void onFailure(Throwable th, int i3, String str4) {
                     if (TextUtils.isEmpty(str2)) {
@@ -1096,36 +1096,18 @@ public final class SapiAccountRepository {
     public void getUserInfo(final GetUserInfoCallback getUserInfoCallback, String str) {
         SapiUtils.notNull(getUserInfoCallback, GetUserInfoCallback.class.getSimpleName() + " can't be null");
         SapiUtils.notEmpty(str, "bduss can't be empty");
-        final GetUserInfoResult getUserInfoResult = new GetUserInfoResult();
-        HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-        httpHashMapWrap.put("bduss", str);
         SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(str);
-        if (accountFromBduss != null && !TextUtils.isEmpty(accountFromBduss.ptoken)) {
-            httpHashMapWrap.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, accountFromBduss.ptoken);
-        }
-        String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_USER_INFO_URI);
-        if (!TextUtils.isEmpty(deviceInfo)) {
-            httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
-        }
-        new HttpClientWrap().post(SapiEnv.GET_USER_INFO_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.4
-            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        getUserInfo(str, accountFromBduss != null ? accountFromBduss.ptoken : null, new NetCallback() { // from class: com.baidu.sapi2.SapiAccountRepository.4
+            @Override // com.baidu.sapi2.callback.NetCallback
             public void onFailure(Throwable th, int i2, String str2) {
+                GetUserInfoResult getUserInfoResult = new GetUserInfoResult();
                 getUserInfoResult.setResultCode(i2);
                 getUserInfoCallback.onFailure(getUserInfoResult);
             }
 
-            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-            public void onFinish() {
-                getUserInfoCallback.onFinish();
-            }
-
-            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-            public void onStart() {
-                getUserInfoCallback.onStart();
-            }
-
-            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+            @Override // com.baidu.sapi2.callback.NetCallback
             public void onSuccess(int i2, String str2) {
+                GetUserInfoResult getUserInfoResult = new GetUserInfoResult();
                 int errorCode = SapiAccountRepository.this.getErrorCode(str2);
                 getUserInfoResult.setResultCode(errorCode);
                 if (errorCode != 0) {
@@ -1139,12 +1121,13 @@ public final class SapiAccountRepository {
                 }
                 try {
                     JSONObject jSONObject = new JSONObject(str2);
-                    getUserInfoResult.portraitSign = jSONObject.optString("portrait_tag");
-                    getUserInfoResult.isInitialPortrait = "0".equals(getUserInfoResult.portraitSign);
-                    String optString = jSONObject.optString("portrait");
-                    if (!TextUtils.isEmpty(optString)) {
-                        getUserInfoResult.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, getUserInfoResult.portraitSign);
-                        getUserInfoResult.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, getUserInfoResult.portraitSign);
+                    String optString = jSONObject.optString("portrait_tag");
+                    getUserInfoResult.portraitSign = optString;
+                    getUserInfoResult.isInitialPortrait = "0".equals(optString);
+                    String optString2 = jSONObject.optString("portrait");
+                    if (!TextUtils.isEmpty(optString2)) {
+                        getUserInfoResult.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString2, getUserInfoResult.portraitSign);
+                        getUserInfoResult.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString2, getUserInfoResult.portraitSign);
                     }
                     getUserInfoResult.username = jSONObject.optString("username");
                     getUserInfoResult.uid = jSONObject.optString(DpStatConstants.KEY_USER_ID);
@@ -1251,7 +1234,7 @@ public final class SapiAccountRepository {
         } else if (z && currentAccount == null) {
             getThroughServer(iqiyiLoginCallback, iqiyiLoginDTO, iqiyiLoginResult);
         } else {
-            SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.sapi2.SapiAccountRepository.9
+            SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.sapi2.SapiAccountRepository.10
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onFinish() {
                 }
@@ -1336,7 +1319,7 @@ public final class SapiAccountRepository {
         } catch (JSONException e2) {
             Log.e(e2);
         }
-        SapiCoreUtil.executeJsCode(SapiContext.getInstance().getOneKeyLoginJsCode(), OneKeyLoginResult.secondJsCode, jSONObject.toString(), this.configuration.context, new ExecuteJsCallback() { // from class: com.baidu.sapi2.SapiAccountRepository.18
+        SapiCoreUtil.executeJsCode(SapiContext.getInstance().getOneKeyLoginJsCode(), OneKeyLoginResult.secondJsCode, jSONObject.toString(), this.configuration.context, new ExecuteJsCallback() { // from class: com.baidu.sapi2.SapiAccountRepository.19
             @Override // com.baidu.sapi2.callback.inner.ExecuteJsCallback
             public void jsExecuteCompleted(String str3) {
                 JSONObject jSONObject2 = null;
@@ -1361,7 +1344,7 @@ public final class SapiAccountRepository {
                 }
                 httpHashMap.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
                 String loadOneKeyLoginUrl = SapiAccountRepository.this.getLoadOneKeyLoginUrl();
-                new HttpClientWrap().post(loadOneKeyLoginUrl, httpHashMap, ParamsUtil.buildNaCookie(loadOneKeyLoginUrl, SapiAccountRepository.this.configuration), SapiAccountRepository.this.getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.18.1
+                new HttpClientWrap().post(loadOneKeyLoginUrl, httpHashMap, ParamsUtil.buildNaCookie(loadOneKeyLoginUrl, SapiAccountRepository.this.configuration), SapiAccountRepository.this.getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.19.1
                     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                     public void onFailure(Throwable th, int i2, String str4) {
                         String str5 = SapiAccountRepository.TAG;
@@ -1451,7 +1434,7 @@ public final class SapiAccountRepository {
             httpHashMapWrap.put("openPlatformId", str2);
         }
         httpHashMapWrap.put("bduss", str);
-        new HttpClientWrap().post(SapiEnv.OAUTH_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.7
+        new HttpClientWrap().post(SapiEnv.OAUTH_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.8
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i2, String str3) {
                 String str4 = SapiAccountRepository.TAG;
@@ -1550,7 +1533,7 @@ public final class SapiAccountRepository {
             }
             httpHashMapWrap.put("app", SapiUtils.getAppName(this.configuration.context));
             httpHashMapWrap.put("pkg", this.configuration.context.getPackageName());
-            new HttpClientWrap().post(SapiEnv.CLOUND_SHARE_ACCOUNT, ReqPriority.IMMEDIATE, httpHashMapWrap, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.21
+            new HttpClientWrap().post(SapiEnv.CLOUND_SHARE_ACCOUNT, ReqPriority.IMMEDIATE, httpHashMapWrap, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.22
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                 public void onFailure(Throwable th, int i3, String str) {
                     SapiStatUtil.statSetCloudShareAccount(i2, 2);
@@ -1652,5 +1635,30 @@ public final class SapiAccountRepository {
                 }
             }, cookieBduss);
         }
+    }
+
+    public void getUserInfo(String str, String str2, final NetCallback netCallback) {
+        SapiUtils.notNull(netCallback, "callback can't be null");
+        SapiUtils.notEmpty(str, "bduss can't be empty");
+        HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+        httpHashMapWrap.put("bduss", str);
+        if (TextUtils.isEmpty(str2)) {
+            httpHashMapWrap.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, str2);
+        }
+        String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_USER_INFO_URI);
+        if (!TextUtils.isEmpty(deviceInfo)) {
+            httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
+        }
+        new HttpClientWrap().post(SapiEnv.GET_USER_INFO_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.5
+            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+            public void onFailure(Throwable th, int i2, String str3) {
+                netCallback.onFailure(th, i2, str3);
+            }
+
+            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+            public void onSuccess(int i2, String str3) {
+                netCallback.onSuccess(i2, str3);
+            }
+        });
     }
 }

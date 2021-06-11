@@ -18,36 +18,36 @@ import d.a.c.e.q.h;
 public class e implements d.a.n0.e3.p0.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c.e.q.f f39743a;
+    public d.a.c.e.q.f f43424a;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f39748f;
+    public TbPageContext<?> f43429f;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39745c = null;
+    public String f43426c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f39746d = null;
+    public g f43427d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f39747e = new c();
+    public Runnable f43428e = new c();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f39744b = new Handler();
+    public Handler f43425b = new Handler();
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f39749e;
+        public final /* synthetic */ String f43430e;
 
         public a(e eVar, String str) {
-            this.f39749e = str;
+            this.f43430e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.m0.r.g0.a.a(d.a.m0.r.g0.a.b(this.f39749e));
+            d.a.m0.r.g0.a.a(d.a.m0.r.g0.a.b(this.f43430e));
         }
     }
 
@@ -55,10 +55,10 @@ public class e implements d.a.n0.e3.p0.a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f39750e;
+        public final /* synthetic */ String f43431e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f39751f;
+        public final /* synthetic */ int f43432f;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -68,44 +68,44 @@ public class e implements d.a.n0.e3.p0.a {
             @Override // java.lang.Runnable
             public void run() {
                 e eVar = e.this;
-                eVar.f39743a.onShowErr(4, eVar.f39748f.getString(R.string.voice_error_file_md5));
-                h.f38910a = 1;
+                eVar.f43424a.onShowErr(4, eVar.f43429f.getString(R.string.voice_error_file_md5));
+                h.f42563a = 1;
             }
         }
 
         /* renamed from: d.a.f.a.a.e$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0524b implements Runnable {
+        public class RunnableC0580b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f39754e;
+            public final /* synthetic */ String f43435e;
 
-            public RunnableC0524b(String str) {
-                this.f39754e = str;
+            public RunnableC0580b(String str) {
+                this.f43435e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                h.f38910a = 1;
+                h.f42563a = 1;
                 b bVar = b.this;
-                e.this.f39743a.onSendVoice(this.f39754e, bVar.f39751f);
+                e.this.f43424a.onSendVoice(this.f43435e, bVar.f43432f);
             }
         }
 
         public b(String str, int i2) {
-            this.f39750e = str;
-            this.f39751f = i2;
+            this.f43431e = str;
+            this.f43432f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String str = d.a.m0.r.g0.b.b.c(d.a.m0.r.g0.a.d(this.f39750e)).f49820a;
-            if (e.this.f39744b != null) {
-                e.this.f39744b.removeCallbacks(e.this.f39747e);
+            String str = d.a.m0.r.g0.b.b.c(d.a.m0.r.g0.a.d(this.f43431e)).f53495a;
+            if (e.this.f43425b != null) {
+                e.this.f43425b.removeCallbacks(e.this.f43428e);
                 if (StringUtils.isNull(str)) {
-                    e.this.f39744b.post(new a());
+                    e.this.f43425b.post(new a());
                 } else {
-                    e.this.f39744b.post(new RunnableC0524b(str));
+                    e.this.f43425b.post(new RunnableC0580b(str));
                 }
             }
         }
@@ -118,8 +118,8 @@ public class e implements d.a.n0.e3.p0.a {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.c.e.q.f fVar = e.this.f39743a;
-            if (fVar == null || h.f38910a != 2) {
+            d.a.c.e.q.f fVar = e.this.f43424a;
+            if (fVar == null || h.f42563a != 2) {
                 return;
             }
             fVar.onStopingRecorder();
@@ -133,7 +133,7 @@ public class e implements d.a.n0.e3.p0.a {
 
         @Override // d.a.c.e.q.g
         public void a(int i2) {
-            d.a.c.e.q.f fVar = e.this.f39743a;
+            d.a.c.e.q.f fVar = e.this.f43424a;
             if (fVar == null) {
                 return;
             }
@@ -142,7 +142,7 @@ public class e implements d.a.n0.e3.p0.a {
 
         @Override // d.a.c.e.q.e
         public void b(int i2) {
-            d.a.c.e.q.f fVar = e.this.f39743a;
+            d.a.c.e.q.f fVar = e.this.f43424a;
             if (fVar == null) {
                 return;
             }
@@ -152,15 +152,15 @@ public class e implements d.a.n0.e3.p0.a {
         @Override // d.a.c.e.q.e
         public void c(String str, int i2) {
             e.this.o();
-            h.f38910a = 1;
-            if (e.this.f39745c != null && str != null) {
+            h.f42563a = 1;
+            if (e.this.f43426c != null && str != null) {
                 e eVar = e.this;
-                d.a.c.e.q.f fVar = eVar.f39743a;
+                d.a.c.e.q.f fVar = eVar.f43424a;
                 if (fVar == null) {
                     return;
                 }
                 if (i2 > 1000) {
-                    if (!str.endsWith(eVar.f39745c)) {
+                    if (!str.endsWith(eVar.f43426c)) {
                         FieldBuilder fieldBuilder = new FieldBuilder();
                         fieldBuilder.append("file", str);
                         fieldBuilder.append("dur", Integer.valueOf(i2));
@@ -168,8 +168,8 @@ public class e implements d.a.n0.e3.p0.a {
                         return;
                     }
                     e eVar2 = e.this;
-                    eVar2.m(eVar2.f39745c, (int) Math.round((i2 * 1.0d) / 1000.0d));
-                    e.this.f39745c = null;
+                    eVar2.m(eVar2.f43426c, (int) Math.round((i2 * 1.0d) / 1000.0d));
+                    e.this.f43426c = null;
                     return;
                 }
                 fVar.onShowErr(2, h.a(R.string.voice_record_short_tip));
@@ -187,7 +187,7 @@ public class e implements d.a.n0.e3.p0.a {
 
         @Override // d.a.c.e.q.g
         public void e() {
-            h.f38910a = 1;
+            h.f42563a = 1;
         }
 
         @Override // d.a.c.e.q.e
@@ -195,24 +195,24 @@ public class e implements d.a.n0.e3.p0.a {
             e.this.o();
             TiebaStatic.voiceError(i2, "RecoreCallback.error: " + str, "");
             e eVar = e.this;
-            if (eVar.f39743a == null) {
-                h.f38910a = 1;
+            if (eVar.f43424a == null) {
+                h.f42563a = 1;
             } else if (i2 == 7) {
-                if (eVar.f39745c == null) {
+                if (eVar.f43426c == null) {
                     TiebaStatic.voiceError(i2, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
                     return;
                 }
                 e eVar2 = e.this;
-                eVar2.m(eVar2.f39745c, d.a.c.e.q.d.f38909a / 1000);
-                e.this.f39745c = null;
+                eVar2.m(eVar2.f43426c, d.a.c.e.q.d.f42562a / 1000);
+                e.this.f43426c = null;
                 e eVar3 = e.this;
-                eVar3.f39743a.onShowErr(3, eVar3.f39748f.getString(R.string.voice_record_timeout_tip));
+                eVar3.f43424a.onShowErr(3, eVar3.f43429f.getString(R.string.voice_record_timeout_tip));
             } else {
-                h.f38910a = 1;
+                h.f42563a = 1;
                 if (i2 == 8) {
                     i2 = 2;
                 }
-                e.this.f39743a.onShowErr(i2, str);
+                e.this.f43424a.onShowErr(i2, str);
                 TiebaStatic.voiceError(i2, "RecoreCallback.err: " + str, "");
             }
         }
@@ -223,7 +223,7 @@ public class e implements d.a.n0.e3.p0.a {
     }
 
     static {
-        h.f38910a = 1;
+        h.f42563a = 1;
     }
 
     public static e n() {
@@ -234,11 +234,11 @@ public class e implements d.a.n0.e3.p0.a {
     public void a(String str) {
         stopRecord();
         q(false);
-        d.a.c.e.q.f fVar = this.f39743a;
+        d.a.c.e.q.f fVar = this.f43424a;
         if (fVar != null) {
             fVar.onDeletedVoice(str);
         }
-        Handler handler = this.f39744b;
+        Handler handler = this.f43425b;
         if (handler == null) {
             return;
         }
@@ -248,45 +248,45 @@ public class e implements d.a.n0.e3.p0.a {
     @Override // d.a.n0.e3.p0.a
     public boolean b(d.a.c.e.q.f fVar, int i2) {
         TbPageContext<?> tbPageContext;
-        if (fVar == null || (tbPageContext = this.f39748f) == null || !PermissionUtil.checkWriteExternalStorage(tbPageContext.getPageActivity())) {
+        if (fVar == null || (tbPageContext = this.f43429f) == null || !PermissionUtil.checkWriteExternalStorage(tbPageContext.getPageActivity())) {
             return false;
         }
-        this.f39743a = fVar;
+        this.f43424a = fVar;
         if (!FileHelper.checkSD()) {
             String sdErrorString = FileHelper.getSdErrorString();
             if (sdErrorString == null) {
                 sdErrorString = h.a(R.string.voice_error_sdcard);
             }
-            this.f39743a.onShowErr(0, sdErrorString);
+            this.f43424a.onShowErr(0, sdErrorString);
             return false;
         }
         q(true);
         String e2 = d.a.m0.r.g0.a.e();
-        this.f39745c = e2;
+        this.f43426c = e2;
         String c2 = d.a.m0.r.g0.a.c(e2);
-        if (this.f39746d == null) {
-            this.f39746d = new d(this, null);
+        if (this.f43427d == null) {
+            this.f43427d = new d(this, null);
         }
         d.a.f.a.a.a.g();
         o();
-        boolean f2 = d.a.f.a.a.a.f(c2, i2, this.f39746d);
+        boolean f2 = d.a.f.a.a.a.f(c2, i2, this.f43427d);
         if (f2) {
-            this.f39743a.onStartedRecorder(true);
-            h.f38910a = 2;
+            this.f43424a.onStartedRecorder(true);
+            h.f42563a = 2;
         } else {
-            h.f38910a = 1;
+            h.f42563a = 1;
             d.a.f.a.a.a.g();
             FieldBuilder fieldBuilder = new FieldBuilder();
             fieldBuilder.append("voiceType", Integer.valueOf(i2));
             TiebaStatic.voiceError(TbErrInfo.ERR_VOI_START, "onTouch-getBtnMsgsendVoice: user click too often", fieldBuilder.toString());
-            this.f39743a.onStartedRecorder(false);
+            this.f43424a.onStartedRecorder(false);
         }
         return f2;
     }
 
     @Override // d.a.n0.e3.p0.a
     public void c(TbPageContext<?> tbPageContext) {
-        this.f39748f = tbPageContext;
+        this.f43429f = tbPageContext;
     }
 
     @Override // d.a.n0.e3.p0.a
@@ -296,19 +296,19 @@ public class e implements d.a.n0.e3.p0.a {
 
     @Override // d.a.n0.e3.p0.a
     public void e(d.a.c.e.q.f fVar) {
-        this.f39743a = fVar;
+        this.f43424a = fVar;
     }
 
     @Override // d.a.n0.e3.p0.a
     public boolean f() {
-        return h.f38910a == 1;
+        return h.f42563a == 1;
     }
 
     public final void m(String str, int i2) {
         if (str == null || i2 < 1) {
             return;
         }
-        h.f38910a = 3;
+        h.f42563a = 3;
         new Thread(new b(str, i2)).start();
     }
 
@@ -326,25 +326,25 @@ public class e implements d.a.n0.e3.p0.a {
     @Override // d.a.n0.e3.p0.a
     public void release() {
         stopRecord();
-        TbPageContext<?> tbPageContext = this.f39748f;
+        TbPageContext<?> tbPageContext = this.f43429f;
         if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
-            MediaService.stopMy(this.f39748f.getPageActivity());
+            MediaService.stopMy(this.f43429f.getPageActivity());
         }
-        Handler handler = this.f39744b;
+        Handler handler = this.f43425b;
         if (handler != null) {
-            handler.removeCallbacks(this.f39747e);
+            handler.removeCallbacks(this.f43428e);
         }
-        this.f39748f = null;
-        this.f39743a = null;
-        this.f39744b = null;
+        this.f43429f = null;
+        this.f43424a = null;
+        this.f43425b = null;
     }
 
     @Override // d.a.n0.e3.p0.a
     public void stopRecord() {
         d.a.f.a.a.a.g();
-        Handler handler = this.f39744b;
+        Handler handler = this.f43425b;
         if (handler != null) {
-            handler.postDelayed(this.f39747e, 100L);
+            handler.postDelayed(this.f43428e, 100L);
         }
         o();
     }

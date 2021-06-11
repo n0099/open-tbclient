@@ -8,30 +8,30 @@ import d.a.l0.a.v2.q0;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f42167a;
+    public static volatile int f45843a;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f42168e;
+        public final /* synthetic */ int f45844e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42169f;
+        public final /* synthetic */ int f45845f;
 
         public a(int i2, int i3) {
-            this.f42168e = i2;
-            this.f42169f = i3;
+            this.f45844e = i2;
+            this.f45845f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.c(this.f42168e, this.f42169f);
+            e.c(this.f45844e, this.f45845f);
         }
     }
 
     public static boolean b() {
-        return f42167a < 2;
+        return f45843a < 2;
     }
 
     public static void c(@StringRes int i2, int i3) {
@@ -55,7 +55,7 @@ public class e {
     }
 
     public static void e() {
-        f42167a = 0;
+        f45843a = 0;
     }
 
     public static void f(@StringRes int i2) {
@@ -66,13 +66,13 @@ public class e {
 
     public static synchronized void g(@StringRes int i2, int i3) {
         synchronized (e.class) {
-            int i4 = f42167a;
+            int i4 = f45843a;
             if (i4 == 0) {
-                f42167a = 1;
+                f45843a = 1;
                 System.currentTimeMillis();
                 d(i2, i3);
             } else if (i4 == 1) {
-                f42167a = 2;
+                f45843a = 2;
                 d(i2, i3);
                 i.i("toast提示个数已达2个");
             }

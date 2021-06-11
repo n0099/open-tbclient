@@ -10,18 +10,18 @@ import java.util.List;
 public class ab extends PayBaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25116a;
+    public String f25219a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FeedbackDialog.c f25117b;
+    public FeedbackDialog.c f25220b;
 
     public ab(Context context) {
         super(context);
     }
 
     public void a(String str, FeedbackDialog.c cVar) {
-        this.f25116a = str;
-        this.f25117b = cVar;
+        this.f25219a = str;
+        this.f25220b = cVar;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -32,10 +32,10 @@ public class ab extends PayBaseBean<Object> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("trans_no", this.f25116a));
-        arrayList.add(new RestNameValuePair("score", "" + this.f25117b.f26052a));
-        FeedbackDialog.c cVar = this.f25117b;
-        arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f26053b : null)));
+        arrayList.add(new RestNameValuePair("trans_no", this.f25219a));
+        arrayList.add(new RestNameValuePair("score", "" + this.f25220b.f26155a));
+        FeedbackDialog.c cVar = this.f25220b;
+        arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f26156b : null)));
         return arrayList;
     }
 

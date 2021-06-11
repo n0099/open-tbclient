@@ -5,73 +5,73 @@ import android.util.Log;
 public class e implements d.a.l0.a.f1.f.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Integer f44529b = null;
+    public static Integer f48203b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Integer f44530c = null;
+    public static Integer f48204c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Integer f44531d = null;
+    public static Integer f48205d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Boolean f44532e = null;
+    public static Boolean f48206e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Integer f44533f = null;
+    public static Integer f48207f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Boolean f44534g = null;
+    public static Boolean f48208g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f44535h = -1;
+    public static int f48209h = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f44536i = -1;
+    public static int f48210i = -1;
     public static int j = -1;
     public static int k = -1;
     public static int l = -1;
 
     public static boolean a() {
-        if (f44532e == null) {
-            f44532e = Boolean.valueOf(h("swan_api_callback_opt"));
+        if (f48206e == null) {
+            f48206e = Boolean.valueOf(h("swan_api_callback_opt"));
         }
-        return f44532e.booleanValue();
+        return f48206e.booleanValue();
     }
 
     public static int b(String str) {
         d.a.l0.a.c1.a.Z().getSwitch(str, 0);
-        if (d.a.l0.a.f1.f.a.f41852a) {
+        if (d.a.l0.a.f1.f.a.f45528a) {
             Log.d("SwanPerformance", "packing[" + str + " = 0]");
         }
         return 0;
     }
 
     public static int c() {
-        if (f44530c == null) {
-            f44530c = Integer.valueOf(e() % 10000);
+        if (f48204c == null) {
+            f48204c = Integer.valueOf(e() % 10000);
         }
-        return f44530c.intValue();
+        return f48204c.intValue();
     }
 
     public static int d() {
-        if (f44531d == null) {
-            f44531d = Integer.valueOf(e() / 10000);
+        if (f48205d == null) {
+            f48205d = Integer.valueOf(e() / 10000);
         }
-        return f44531d.intValue();
+        return f48205d.intValue();
     }
 
     public static int e() {
-        if (f44529b == null) {
-            f44529b = Integer.valueOf(b("swan_launch_api_trigger"));
+        if (f48203b == null) {
+            f48203b = Integer.valueOf(b("swan_launch_api_trigger"));
         }
-        return f44529b.intValue();
+        return f48203b.intValue();
     }
 
     public static int f() {
-        if (f44536i == -1) {
-            f44536i = b("swan_idle_handler_opt");
+        if (f48210i == -1) {
+            f48210i = b("swan_idle_handler_opt");
         }
-        return f44536i;
+        return f48210i;
     }
 
     public static boolean g() {
@@ -83,10 +83,10 @@ public class e implements d.a.l0.a.f1.f.a {
     }
 
     public static int i() {
-        if (f44533f == null) {
-            f44533f = Integer.valueOf(b("swan_launch_thread_dispatch"));
+        if (f48207f == null) {
+            f48207f = Integer.valueOf(b("swan_launch_thread_dispatch"));
         }
-        return f44533f.intValue();
+        return f48207f.intValue();
     }
 
     public static boolean j() {
@@ -94,10 +94,10 @@ public class e implements d.a.l0.a.f1.f.a {
     }
 
     public static int k() {
-        if (f44535h == -1) {
-            f44535h = b("swan_optimize_launch_cpu");
+        if (f48209h == -1) {
+            f48209h = b("swan_optimize_launch_cpu");
         }
-        return f44535h;
+        return f48209h;
     }
 
     public static boolean l() {
@@ -108,10 +108,10 @@ public class e implements d.a.l0.a.f1.f.a {
     }
 
     public static boolean m() {
-        if (f44534g == null) {
-            f44534g = Boolean.valueOf(h("swan_js_thread_dispatch"));
+        if (f48208g == null) {
+            f48208g = Boolean.valueOf(h("swan_js_thread_dispatch"));
         }
-        return f44534g.booleanValue();
+        return f48208g.booleanValue();
     }
 
     public static boolean n() {

@@ -1,6 +1,6 @@
 package org.apache.http.message;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ParserCursor {
     public ParserCursor(int i2, int i3) {
         throw new RuntimeException("Stub!");

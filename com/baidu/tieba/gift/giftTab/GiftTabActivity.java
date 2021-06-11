@@ -66,15 +66,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f16026e;
+        public final /* synthetic */ d.a.m0.r.s.a f16088e;
 
         public a(d.a.m0.r.s.a aVar) {
-            this.f16026e = aVar;
+            this.f16088e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f16026e.dismiss();
+            this.f16088e.dismiss();
         }
     }
 
@@ -82,15 +82,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f16028e;
+        public final /* synthetic */ d.a.m0.r.s.a f16090e;
 
         public b(d.a.m0.r.s.a aVar) {
-            this.f16028e = aVar;
+            this.f16090e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f16028e.dismiss();
+            this.f16090e.dismiss();
         }
     }
 
@@ -98,15 +98,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f16030e;
+        public final /* synthetic */ d.a.m0.r.s.a f16092e;
 
         public c(d.a.m0.r.s.a aVar) {
-            this.f16030e = aVar;
+            this.f16092e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f16030e.dismiss();
+            this.f16092e.dismiss();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(GiftTabActivity.this.getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 17)));
         }
     }
@@ -115,15 +115,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f16032e;
+        public final /* synthetic */ d.a.m0.r.s.a f16094e;
 
         public d(d.a.m0.r.s.a aVar) {
-            this.f16032e = aVar;
+            this.f16094e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f16032e.dismiss();
+            this.f16094e.dismiss();
         }
     }
 
@@ -131,15 +131,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f16034e;
+        public final /* synthetic */ d.a.m0.r.s.a f16096e;
 
         public e(d.a.m0.r.s.a aVar) {
-            this.f16034e = aVar;
+            this.f16096e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f16034e.dismiss();
+            this.f16096e.dismiss();
             if (StringUtils.isNull(GiftTabActivity.this.addFreeUrl)) {
                 return;
             }
@@ -183,7 +183,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                         i0 i0Var = GiftTabActivity.this.sendGift;
                         GiftTabActivity giftTabActivity4 = GiftTabActivity.this;
                         i0Var.r = giftTabActivity4.accountType;
-                        giftTabActivity4.mSendGiftModel.t(GiftTabActivity.this.mView.C(), GiftTabActivity.this.mView.B(), GiftTabActivity.this.mFrom, GiftTabActivity.this.mToUserId, GiftTabActivity.this.mToUserName, GiftTabActivity.this.threadId, GiftTabActivity.this.postId);
+                        giftTabActivity4.mSendGiftModel.x(GiftTabActivity.this.mView.C(), GiftTabActivity.this.mView.B(), GiftTabActivity.this.mFrom, GiftTabActivity.this.mToUserId, GiftTabActivity.this.mToUserName, GiftTabActivity.this.threadId, GiftTabActivity.this.postId);
                     }
                 }
             } else if (view != GiftTabActivity.this.mView.s || StringUtils.isNull(GiftTabActivity.this.addFreeUrl)) {
@@ -327,7 +327,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            GiftTabActivity.this.mView.f16049i.setVisibility(0);
+            GiftTabActivity.this.mView.f16111i.setVisibility(0);
             GiftTabActivity.this.mModelController.o(GiftTabActivity.this.mFrom, GiftTabActivity.this.mToUserId);
             GiftTabActivity.this.mModelController.n(GiftTabActivity.this.mFrom);
             GiftTabActivity.this.mView.R();
@@ -363,16 +363,16 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     private void hideAnimation() {
-        this.mView.f16048h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+        this.mView.f16110h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
         alphaAnimation.setDuration(300L);
         alphaAnimation.setFillAfter(true);
-        this.mView.f16048h.startAnimation(alphaAnimation);
+        this.mView.f16110h.startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
         loadAnimation.setAnimationListener(new n());
-        this.mView.f16049i.startAnimation(loadAnimation);
+        this.mView.f16111i.startAnimation(loadAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -380,13 +380,13 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         if (i0Var == null || i2 <= 0) {
             return false;
         }
-        int i3 = i0Var.f50048f;
+        int i3 = i0Var.f53724f;
         if (i3 == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (currentTimeMillis < i0Var.f50050h) {
+            if (currentTimeMillis < i0Var.f53726h) {
                 new d.a.m0.r.f0.c().b(getResources().getString(R.string.gift_limit_time_not_start));
                 return false;
-            } else if (currentTimeMillis > i0Var.f50051i) {
+            } else if (currentTimeMillis > i0Var.f53727i) {
                 new d.a.m0.r.f0.c().b(getResources().getString(R.string.gift_limit_time_has_over));
                 return false;
             }
@@ -433,15 +433,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     private void showAnimation() {
-        this.mView.f16048h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+        this.mView.f16110h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
         alphaAnimation.setDuration(300L);
-        this.mView.f16048h.startAnimation(alphaAnimation);
+        this.mView.f16110h.startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
         loadAnimation.setAnimationListener(new m());
-        this.mView.f16049i.startAnimation(loadAnimation);
+        this.mView.f16111i.startAnimation(loadAnimation);
         this.mHasShowAnim = true;
     }
 
@@ -503,7 +503,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         this.mModelController.r(this.mFreeCountCallback);
         SendGiftModel sendGiftModel = new SendGiftModel(getPageContext());
         this.mSendGiftModel = sendGiftModel;
-        sendGiftModel.u(this.mGiftSendCallback);
+        sendGiftModel.y(this.mGiftSendCallback);
         registerListener(this.mSendGiftResultListener);
     }
 

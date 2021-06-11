@@ -56,40 +56,40 @@ public class c extends d.a.n0.z.b<d.a.n0.j2.e.d> {
         super(tbPageContext);
         this.v = 3;
         this.w = tbPageContext;
-        View l = l();
-        u();
-        this.u = l.findViewById(R.id.bottom_divider);
-        this.n = (TextView) l.findViewById(R.id.month_num);
-        this.m = (TextView) l.findViewById(R.id.day_num);
-        this.o = (TextView) l.findViewById(R.id.identity);
-        this.p = (TextView) l.findViewById(R.id.attention_str);
-        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) l.findViewById(R.id.header1);
+        View m = m();
+        v();
+        this.u = m.findViewById(R.id.bottom_divider);
+        this.n = (TextView) m.findViewById(R.id.month_num);
+        this.m = (TextView) m.findViewById(R.id.day_num);
+        this.o = (TextView) m.findViewById(R.id.identity);
+        this.p = (TextView) m.findViewById(R.id.attention_str);
+        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) m.findViewById(R.id.header1);
         this.q = clickableHeaderImageView;
         clickableHeaderImageView.setRadius(d.a.c.e.p.l.g(this.w.getPageActivity(), R.dimen.ds100));
         this.q.setAutoChangeStyle(true);
         this.q.setOnClickListener(this.x);
-        ClickableHeaderImageView clickableHeaderImageView2 = (ClickableHeaderImageView) l.findViewById(R.id.header2);
+        ClickableHeaderImageView clickableHeaderImageView2 = (ClickableHeaderImageView) m.findViewById(R.id.header2);
         this.r = clickableHeaderImageView2;
         clickableHeaderImageView2.setRadius(d.a.c.e.p.l.g(this.w.getPageActivity(), R.dimen.ds100));
         this.r.setAutoChangeStyle(true);
         this.r.setOnClickListener(this.x);
-        ClickableHeaderImageView clickableHeaderImageView3 = (ClickableHeaderImageView) l.findViewById(R.id.header3);
+        ClickableHeaderImageView clickableHeaderImageView3 = (ClickableHeaderImageView) m.findViewById(R.id.header3);
         this.s = clickableHeaderImageView3;
         clickableHeaderImageView3.setRadius(d.a.c.e.p.l.g(this.w.getPageActivity(), R.dimen.ds100));
         this.s.setAutoChangeStyle(true);
         this.s.setOnClickListener(this.x);
-        this.t = (TextView) l.findViewById(R.id.etc_person);
+        this.t = (TextView) m.findViewById(R.id.etc_person);
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.person_info_attention_card;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.v != i2) {
-            SkinManager.setBackgroundResource(l(), R.drawable.home_thread_card_item_bg);
+            SkinManager.setBackgroundResource(m(), R.drawable.home_thread_card_item_bg);
             SkinManager.setBackgroundColor(this.u, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0106);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0106);
@@ -104,33 +104,33 @@ public class c extends d.a.n0.z.b<d.a.n0.j2.e.d> {
     public void onClick(View view) {
     }
 
-    public final void u() {
+    public final void v() {
         this.x = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: v */
-    public void m(d.a.n0.j2.e.d dVar) {
+    /* renamed from: w */
+    public void n(d.a.n0.j2.e.d dVar) {
         if (dVar == null) {
-            if (l() != null) {
-                l().setVisibility(8);
+            if (m() != null) {
+                m().setVisibility(8);
                 return;
             }
             return;
         }
-        if (l() != null) {
-            l().setVisibility(0);
+        if (m() != null) {
+            m().setVisibility(0);
         }
-        this.y = dVar.f56395e;
-        this.m.setText(dVar.f56398h);
-        this.n.setText(dVar.f56397g);
-        this.m.setVisibility(dVar.f56396f ? 0 : 4);
-        this.n.setVisibility(dVar.f56396f ? 0 : 4);
-        if (dVar.f56395e) {
+        this.y = dVar.f60084e;
+        this.m.setText(dVar.f60087h);
+        this.n.setText(dVar.f60086g);
+        this.m.setVisibility(dVar.f60085f ? 0 : 4);
+        this.n.setVisibility(dVar.f60085f ? 0 : 4);
+        if (dVar.f60084e) {
             this.o.setText(this.w.getString(R.string.me));
         } else {
-            this.o.setText(StringHelper.getUserDescByGender(dVar.f56399i));
+            this.o.setText(StringHelper.getUserDescByGender(dVar.f60088i));
         }
         int count = ListUtils.getCount(dVar.j);
         if (count > 3) {
@@ -147,7 +147,7 @@ public class c extends d.a.n0.z.b<d.a.n0.j2.e.d> {
             } else {
                 this.s.setIsGod(false);
             }
-            this.s.V(dVar.j.get(2).getPortrait(), 12, false);
+            this.s.U(dVar.j.get(2).getPortrait(), 12, false);
         } else {
             this.s.setVisibility(8);
         }
@@ -159,7 +159,7 @@ public class c extends d.a.n0.z.b<d.a.n0.j2.e.d> {
             } else {
                 this.r.setIsGod(false);
             }
-            this.r.V(dVar.j.get(1).getPortrait(), 12, false);
+            this.r.U(dVar.j.get(1).getPortrait(), 12, false);
         } else {
             this.r.setVisibility(8);
         }
@@ -171,10 +171,10 @@ public class c extends d.a.n0.z.b<d.a.n0.j2.e.d> {
             } else {
                 this.q.setIsGod(false);
             }
-            this.q.V(dVar.j.get(0).getPortrait(), 12, false);
+            this.q.U(dVar.j.get(0).getPortrait(), 12, false);
         } else {
             this.q.setVisibility(8);
         }
-        n(this.w, TbadkCoreApplication.getInst().getSkinType());
+        o(this.w, TbadkCoreApplication.getInst().getSkinType());
     }
 }

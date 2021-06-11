@@ -12,48 +12,48 @@ import java.util.Set;
 public final class c implements d.a.l0.n.l.b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f48593c = false;
+    public static boolean f52267c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<b.a> f48594d = new HashSet();
+    public static final Set<b.a> f52268d = new HashSet();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48595a = 0;
+    public int f52269a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48596b;
+    public String f52270b;
 
     /* loaded from: classes3.dex */
     public class a implements WebKitFactory.WebkitInstallListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f48597a;
+        public final /* synthetic */ String f52271a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f48598b;
+        public final /* synthetic */ File f52272b;
 
         /* renamed from: d.a.l0.w.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC1094a implements Runnable {
-            public RunnableC1094a() {
+        public class RunnableC1150a implements Runnable {
+            public RunnableC1150a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 c cVar = c.this;
-                cVar.j(cVar.f48596b);
+                cVar.j(cVar.f52270b);
             }
         }
 
         public a(String str, File file) {
-            this.f48597a = str;
-            this.f48598b = file;
+            this.f52271a = str;
+            this.f52272b = file;
         }
 
         @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
         public void onInstallFinish(int i2, String str) {
-            if (d.A(this.f48597a, str)) {
-                synchronized (c.f48594d) {
+            if (d.A(this.f52271a, str)) {
+                synchronized (c.f52268d) {
                     c.this.i(new b(AppRuntime.getAppContext()).q());
                 }
                 return;
@@ -61,22 +61,22 @@ public final class c implements d.a.l0.n.l.b {
             if (c.e(c.this) <= 2) {
                 boolean z = true;
                 if (8 == i2) {
-                    c.this.f48596b = this.f48597a;
+                    c.this.f52270b = this.f52271a;
                 } else {
                     c cVar = c.this;
-                    cVar.f48596b = this.f48597a + File.pathSeparator + c.this.f48595a;
-                    if (d.f(this.f48598b, new File(c.this.f48596b)) != this.f48598b.length()) {
+                    cVar.f52270b = this.f52271a + File.pathSeparator + c.this.f52269a;
+                    if (d.f(this.f52272b, new File(c.this.f52270b)) != this.f52272b.length()) {
                         z = false;
                     }
                 }
-                if (z && d.a.l0.a.a2.d.i().postDelayed(new RunnableC1094a(), 1000L)) {
+                if (z && d.a.l0.a.a2.d.i().postDelayed(new RunnableC1150a(), 1000L)) {
                     return;
                 }
             }
             if (8 == i2) {
-                d.j(this.f48597a);
+                d.j(this.f52271a);
             }
-            synchronized (c.f48594d) {
+            synchronized (c.f52268d) {
                 c.this.i(false);
             }
         }
@@ -87,46 +87,46 @@ public final class c implements d.a.l0.n.l.b {
     }
 
     public static /* synthetic */ int e(c cVar) {
-        int i2 = cVar.f48595a + 1;
-        cVar.f48595a = i2;
+        int i2 = cVar.f52269a + 1;
+        cVar.f52269a = i2;
         return i2;
     }
 
     @Override // d.a.l0.n.l.b
     public void a(String str, b.a aVar) {
-        synchronized (f48594d) {
-            f48594d.add(aVar);
-            if (f48593c) {
+        synchronized (f52268d) {
+            f52268d.add(aVar);
+            if (f52267c) {
                 return;
             }
-            f48593c = true;
+            f52267c = true;
             j(str);
         }
     }
 
     public final void i(boolean z) {
-        synchronized (f48594d) {
-            for (b.a aVar : f48594d) {
+        synchronized (f52268d) {
+            for (b.a aVar : f52268d) {
                 if (aVar != null) {
                     aVar.a(z);
                 }
             }
-            f48594d.clear();
-            f48593c = false;
-            this.f48595a = 0;
+            f52268d.clear();
+            f52267c = false;
+            this.f52269a = 0;
         }
     }
 
     public final void j(String str) {
         if (TextUtils.isEmpty(str)) {
-            synchronized (f48594d) {
+            synchronized (f52268d) {
                 i(false);
             }
             return;
         }
         File file = new File(str);
         if (!file.isFile()) {
-            synchronized (f48594d) {
+            synchronized (f52268d) {
                 i(false);
             }
             return;

@@ -18,13 +18,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import d.a.c.e.l.d;
 import d.a.c.e.p.l;
-import d.a.m0.a.t;
+import d.a.m0.a.u;
 /* loaded from: classes5.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public ImageView mBgImage;
     public ImageView mCloseBtnImage;
     public NewUserRedPackageData mData;
-    public t mGetMoneyModel;
+    public u mGetMoneyModel;
     public View.OnClickListener mOnClickListener = new a();
     public RoundRelativeLayout mRoundCornerLayout;
 
@@ -57,13 +57,13 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     private void setData() {
-        d.a.c.j.d.a aVar;
+        d.a.c.k.d.a aVar;
         if (getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
         this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (aVar = (d.a.c.j.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (aVar = (d.a.c.k.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
         this.mBgImage.setImageBitmap(aVar.p());
@@ -110,6 +110,6 @@ public class NewUserRedPackageActivity extends BaseActivity {
         this.mCloseBtnImage.setOnClickListener(this.mOnClickListener);
         setData();
         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-        this.mGetMoneyModel = new t();
+        this.mGetMoneyModel = new u();
     }
 }

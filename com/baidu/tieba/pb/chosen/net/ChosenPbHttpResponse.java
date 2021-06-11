@@ -14,7 +14,7 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     public List<Post> postList;
     public ExcellentPbThreadInfo threadInfo;

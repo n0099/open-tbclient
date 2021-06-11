@@ -16,19 +16,19 @@ import d.a.m0.r.u.c;
 public class TextLineView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f19234e;
+    public Paint f19311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19235f;
+    public int f19312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19236g;
+    public int f19313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19237h;
+    public int f19314h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19238i;
+    public int f19315i;
     public int j;
     public RectF k;
     public int l;
@@ -53,15 +53,15 @@ public class TextLineView extends TextView {
     }
 
     public final void a() {
-        if (this.f19234e == null) {
-            this.f19234e = new Paint();
+        if (this.f19311e == null) {
+            this.f19311e = new Paint();
         }
-        this.f19234e.setAntiAlias(true);
-        this.f19234e.setStyle(Paint.Style.FILL);
+        this.f19311e.setAntiAlias(true);
+        this.f19311e.setStyle(Paint.Style.FILL);
         if (isSelected()) {
-            this.f19234e.setColor(SkinManager.getColor(R.color.transparent));
+            this.f19311e.setColor(SkinManager.getColor(R.color.transparent));
         } else {
-            this.f19234e.setColor(SkinManager.getColor(R.color.transparent));
+            this.f19311e.setColor(SkinManager.getColor(R.color.transparent));
         }
     }
 
@@ -81,11 +81,11 @@ public class TextLineView extends TextView {
         RectF rectF = this.k;
         int i2 = this.n;
         int i3 = this.m;
-        int i4 = this.f19237h;
-        rectF.set(i2 + 0, (i3 - i4) - this.f19235f, this.l - i2, i3 - i4);
+        int i4 = this.f19314h;
+        rectF.set(i2 + 0, (i3 - i4) - this.f19312f, this.l - i2, i3 - i4);
         RectF rectF2 = this.k;
         int i5 = this.o;
-        canvas.drawRoundRect(rectF2, i5, i5, this.f19234e);
+        canvas.drawRoundRect(rectF2, i5, i5, this.f19311e);
     }
 
     @Override // android.view.View
@@ -106,13 +106,13 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.TextLineView);
-        this.f19235f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_height, 0);
-        this.f19236g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_top_margin, 0);
-        this.f19237h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_bottom_margin, 0);
-        this.f19238i = obtainStyledAttributes.getColor(R$styleable.TextLineView_text_selected_color, SkinManager.getColor(R.color.CAM_X0105));
+        this.f19312f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_height, 0);
+        this.f19313g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_top_margin, 0);
+        this.f19314h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextLineView_bottom_line_bottom_margin, 0);
+        this.f19315i = obtainStyledAttributes.getColor(R$styleable.TextLineView_text_selected_color, SkinManager.getColor(R.color.CAM_X0105));
         obtainStyledAttributes.getColor(R$styleable.TextLineView_text_unselected_color, SkinManager.getColor(R.color.CAM_X0108));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f19236g + this.f19235f + this.f19237h);
-        setTextColor(this.f19238i);
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f19313g + this.f19312f + this.f19314h);
+        setTextColor(this.f19315i);
         this.j = l.g(context, R.dimen.ds56);
         this.k = new RectF();
         this.o = l.g(getContext(), R.dimen.ds4);

@@ -19,19 +19,19 @@ import d.a.m0.r.q.a2;
 public class PbNextVideoLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19494e;
+    public int f19571e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f19495f;
+    public TbImageView f19572f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19496g;
+    public TextView f19573g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19497h;
+    public TextView f19574h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f19498i;
+    public ImageView f19575i;
     public ProgressBar j;
     public boolean k;
     public boolean l;
@@ -59,7 +59,7 @@ public class PbNextVideoLayout extends RelativeLayout {
 
     public PbNextVideoLayout(Context context) {
         super(context);
-        this.f19494e = 50;
+        this.f19571e = 50;
         this.k = true;
         this.l = true;
         c(context);
@@ -67,32 +67,32 @@ public class PbNextVideoLayout extends RelativeLayout {
 
     public void b(boolean z, boolean z2) {
         getLayoutParams().height = l.g(getContext(), (!z2 || z) ? R.dimen.tbds156 : R.dimen.tbds267);
-        this.f19495f.getLayoutParams().width = l.g(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
-        this.f19497h.setTextSize(0, l.g(getContext(), (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
-        ((LinearLayout.LayoutParams) this.f19497h.getLayoutParams()).topMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
-        ((RelativeLayout.LayoutParams) this.f19498i.getLayoutParams()).topMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds20 : R.dimen.tbds42);
-        ((RelativeLayout.LayoutParams) this.f19498i.getLayoutParams()).rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds52);
-        this.f19494e = (!z2 || z) ? 50 : 25;
+        this.f19572f.getLayoutParams().width = l.g(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
+        this.f19574h.setTextSize(0, l.g(getContext(), (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
+        ((LinearLayout.LayoutParams) this.f19574h.getLayoutParams()).topMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
+        ((RelativeLayout.LayoutParams) this.f19575i.getLayoutParams()).topMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds20 : R.dimen.tbds42);
+        ((RelativeLayout.LayoutParams) this.f19575i.getLayoutParams()).rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds52);
+        this.f19571e = (!z2 || z) ? 50 : 25;
     }
 
     public final void c(Context context) {
         RelativeLayout.inflate(context, R.layout.pb_next_video_layout, this);
-        this.f19495f = (TbImageView) findViewById(R.id.pb_next_video_img);
-        this.f19496g = (TextView) findViewById(R.id.pb_next_video_txt);
-        this.f19497h = (TextView) findViewById(R.id.pb_next_video_title);
-        this.f19498i = (ImageView) findViewById(R.id.pb_next_video_close);
+        this.f19572f = (TbImageView) findViewById(R.id.pb_next_video_img);
+        this.f19573g = (TextView) findViewById(R.id.pb_next_video_txt);
+        this.f19574h = (TextView) findViewById(R.id.pb_next_video_title);
+        this.f19575i = (ImageView) findViewById(R.id.pb_next_video_close);
         this.j = (ProgressBar) findViewById(R.id.pb_next_video_progress_bar);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f19498i, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, null);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f19575i, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, null);
     }
 
     public final void d() {
         this.k = true;
-        this.f19496g.setText(R.string.pb_video_next_play);
+        this.f19573g.setText(R.string.pb_video_next_play);
         a aVar = this.m;
         if (aVar != null) {
             aVar.cancel();
         }
-        a aVar2 = new a(5000 - this.j.getProgress(), this.f19494e);
+        a aVar2 = new a(5000 - this.j.getProgress(), this.f19571e);
         this.m = aVar2;
         aVar2.start();
     }
@@ -103,17 +103,17 @@ public class PbNextVideoLayout extends RelativeLayout {
         if (aVar != null) {
             aVar.cancel();
         }
-        this.f19496g.setText(R.string.pb_video_next_video);
+        this.f19573g.setText(R.string.pb_video_next_video);
         this.j.setProgress(0);
     }
 
     public void setDate(a2 a2Var) {
-        if (a2Var == null || a2Var.w1() == null) {
+        if (a2Var == null || a2Var.x1() == null) {
             return;
         }
-        this.f19495f.V(a2Var.w1().thumbnail_url, 10, false);
-        this.f19496g.setText(R.string.pb_video_next_play);
-        this.f19497h.setText(a2Var.z1());
+        this.f19572f.U(a2Var.x1().thumbnail_url, 10, false);
+        this.f19573g.setText(R.string.pb_video_next_play);
+        this.f19574h.setText(a2Var.A1());
         this.j.setProgress(0);
     }
 
@@ -133,7 +133,7 @@ public class PbNextVideoLayout extends RelativeLayout {
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        this.f19498i.setOnClickListener(onClickListener);
+        this.f19575i.setOnClickListener(onClickListener);
     }
 
     @Override // android.view.View
@@ -157,7 +157,7 @@ public class PbNextVideoLayout extends RelativeLayout {
 
     public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19494e = 50;
+        this.f19571e = 50;
         this.k = true;
         this.l = true;
         c(context);
@@ -165,7 +165,7 @@ public class PbNextVideoLayout extends RelativeLayout {
 
     public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f19494e = 50;
+        this.f19571e = 50;
         this.k = true;
         this.l = true;
         c(context);

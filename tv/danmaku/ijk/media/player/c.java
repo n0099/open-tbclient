@@ -5,15 +5,15 @@ import android.graphics.Rect;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f69665a;
+    public Rect f73012a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f69666b;
+    public String f73013b;
 
     public c(Rect rect, String str) {
-        this.f69665a = null;
-        this.f69666b = null;
-        this.f69665a = rect;
-        this.f69666b = str;
+        this.f73012a = null;
+        this.f73013b = null;
+        this.f73012a = rect;
+        this.f73013b = str;
     }
 }

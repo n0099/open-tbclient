@@ -4,26 +4,26 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class attr {
-        public static final int cardBackgroundColor = 0x7f0400fa;
-        public static final int cardCornerRadius = 0x7f0400fb;
-        public static final int cardElevation = 0x7f0400fc;
-        public static final int cardMaxElevation = 0x7f0400fe;
-        public static final int cardPreventCornerOverlap = 0x7f0400ff;
-        public static final int cardUseCompatPadding = 0x7f040100;
-        public static final int cardViewStyle = 0x7f040101;
-        public static final int contentPadding = 0x7f040154;
-        public static final int contentPaddingBottom = 0x7f040155;
-        public static final int contentPaddingLeft = 0x7f040156;
-        public static final int contentPaddingRight = 0x7f040157;
-        public static final int contentPaddingTop = 0x7f040158;
+        public static final int cardBackgroundColor = 0x7f040100;
+        public static final int cardCornerRadius = 0x7f040101;
+        public static final int cardElevation = 0x7f040102;
+        public static final int cardMaxElevation = 0x7f040104;
+        public static final int cardPreventCornerOverlap = 0x7f040105;
+        public static final int cardUseCompatPadding = 0x7f040106;
+        public static final int cardViewStyle = 0x7f040107;
+        public static final int contentPadding = 0x7f04015a;
+        public static final int contentPaddingBottom = 0x7f04015c;
+        public static final int contentPaddingLeft = 0x7f04015d;
+        public static final int contentPaddingRight = 0x7f04015e;
+        public static final int contentPaddingTop = 0x7f040161;
     }
 
     /* loaded from: classes.dex */
     public static final class color {
-        public static final int cardview_dark_background = 0x7f0602f8;
-        public static final int cardview_light_background = 0x7f0602f9;
-        public static final int cardview_shadow_end_color = 0x7f0602fa;
-        public static final int cardview_shadow_start_color = 0x7f0602fb;
+        public static final int cardview_dark_background = 0x7f0602fb;
+        public static final int cardview_light_background = 0x7f0602fc;
+        public static final int cardview_shadow_end_color = 0x7f0602fd;
+        public static final int cardview_shadow_start_color = 0x7f0602fe;
     }
 
     /* loaded from: classes.dex */

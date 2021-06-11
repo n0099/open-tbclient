@@ -40,7 +40,7 @@ public final class ZipUtil {
         if (length >= 0) {
             long j = length - 65536;
             long j2 = j >= 0 ? j : 0L;
-            int reverseBytes = Integer.reverseBytes(ENDSIG);
+            int reverseBytes = Integer.reverseBytes(101010256);
             do {
                 randomAccessFile.seek(length);
                 if (randomAccessFile.readInt() == reverseBytes) {
@@ -61,7 +61,7 @@ public final class ZipUtil {
     }
 
     public static long getZipCrc(File file) throws IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7672a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7715a);
         try {
             return computeCrcOfCentralDir(randomAccessFile, findCentralDirectory(randomAccessFile));
         } finally {

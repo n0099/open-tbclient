@@ -6,35 +6,35 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f54463a;
+    public long f58152a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54464b;
+    public int f58153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f54465c = new ArrayList();
+    public List<b> f58154c = new ArrayList();
 
     public List<b> a() {
-        return this.f54465c;
+        return this.f58154c;
     }
 
     public long b() {
-        return this.f54463a;
+        return this.f58152a;
     }
 
     public boolean c() {
-        return this.f54464b == 1;
+        return this.f58153b == 1;
     }
 
     public void d(int i2) {
-        this.f54464b = i2;
+        this.f58153b = i2;
     }
 
     public void e(List<b> list) {
-        this.f54465c = list;
+        this.f58154c = list;
     }
 
     public void f(long j) {
-        this.f54463a = j;
+        this.f58152a = j;
     }
 }

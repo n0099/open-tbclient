@@ -21,26 +21,26 @@ import d.a.l0.h.z.d;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 /* loaded from: classes3.dex */
 public final class b extends EventTargetImpl {
-    public static final boolean y = k.f43199a;
+    public static final boolean y = k.f46875a;
     @V8JavascriptField
     public final String domain;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f47270e;
+    public c f50944e;
     @V8JavascriptField
     public d.a.l0.a.r0.a env;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f47271f;
+    public e f50945f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f47272g;
+    public d f50946g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.l0.h.z.b f47273h;
+    public d.a.l0.h.z.b f50947h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JsObject f47274i;
+    public JsObject f50948i;
     public d.a.l0.h.z.e j;
     public d.a.l0.h.u.a k;
     public d.a.l0.h.u.b l;
@@ -60,7 +60,7 @@ public final class b extends EventTargetImpl {
     public b(c cVar) {
         super(cVar);
         this.domain = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
-        this.f47274i = null;
+        this.f50948i = null;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -75,17 +75,17 @@ public final class b extends EventTargetImpl {
         this.v = null;
         this.w = null;
         this.x = null;
-        this.f47270e = cVar;
+        this.f50944e = cVar;
         this.env = new d.a.l0.a.r0.a();
         A();
     }
 
     public final void A() {
-        this.l = new d.a.l0.h.u.b(this.f47270e);
+        this.l = new d.a.l0.h.u.b(this.f50944e);
     }
 
     public void B(JsObject jsObject) {
-        this.f47274i = jsObject;
+        this.f50948i = jsObject;
     }
 
     @JavascriptInterface
@@ -95,10 +95,10 @@ public final class b extends EventTargetImpl {
 
     @JavascriptInterface
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
-        if (this.f47273h == null) {
-            this.f47273h = new d.a.l0.h.z.b(this.f47270e);
+        if (this.f50947h == null) {
+            this.f50947h = new d.a.l0.h.z.b(this.f50944e);
         }
-        this.f47273h.checkIsUserAdvisedToRest(jsObject);
+        this.f50947h.checkIsUserAdvisedToRest(jsObject);
     }
 
     @JavascriptInterface
@@ -108,60 +108,60 @@ public final class b extends EventTargetImpl {
 
     @JavascriptInterface
     public void clearStorageSync() {
-        d.a.l0.h.g0.f.d.a(this.f47270e, "clearStorageSync", "", z().a());
+        d.a.l0.h.g0.f.d.a(this.f50944e, "clearStorageSync", "", z().a());
     }
 
     @JavascriptInterface
     public d.a.l0.h.y.h.c connectSocket(JsObject jsObject) {
         if (this.p == null) {
-            this.p = new d.a.l0.h.y.h.a(this.f47270e);
+            this.p = new d.a.l0.h.y.h.a(this.f50944e);
         }
         return this.p.a(jsObject);
     }
 
     @JavascriptInterface
     public d.a.l0.h.a.e.d createBannerAd(JsObject jsObject) {
-        return new d.a.l0.h.a.e.a(this.f47270e, jsObject);
+        return new d.a.l0.h.a.e.a(this.f50944e, jsObject);
     }
 
     @JavascriptInterface
     public g createInnerAudioContext() {
-        return new g(this.f47270e);
+        return new g(this.f50944e);
     }
 
     @JavascriptInterface
     public RecommendButtonApiProxy createRecommendationButton(JsObject jsObject) {
-        return new RecommendButtonApiProxy(this.f47270e, jsObject);
+        return new RecommendButtonApiProxy(this.f50944e, jsObject);
     }
 
     @JavascriptInterface
     public d.a.l0.h.a.f.b createRewardedVideoAd(JsObject jsObject) {
         if (this.o == null) {
-            this.o = new d.a.l0.h.a.f.e(this.f47270e, jsObject);
+            this.o = new d.a.l0.h.a.f.e(this.f50944e, jsObject);
         }
         return this.o;
     }
 
     @JavascriptInterface
     public d.a.l0.h.k0.g createUDPSocket() {
-        return j.f47436c.b(this.f47270e);
+        return j.f51110c.b(this.f50944e);
     }
 
     @JavascriptInterface
     public d.a.l0.h.o0.d.b.b createUserInfoButton(JsObject jsObject) {
-        return new d.a.l0.h.o0.d.b.b(jsObject, this.f47270e);
+        return new d.a.l0.h.o0.d.b.b(jsObject, this.f50944e);
     }
 
     @JavascriptInterface
     public d.a.l0.h.y.d.b downloadFile(JsObject jsObject) {
         d.a.l0.a.y.b.a G = d.a.l0.a.y.b.a.G(jsObject);
-        d.a.l0.h.y.a d2 = d.a.l0.h.y.e.b.b().d(this.f47270e, G, 2);
+        d.a.l0.h.y.a d2 = d.a.l0.h.y.e.b.b().d(this.f50944e, G, 2);
         if (d2 instanceof d.a.l0.h.y.d.b) {
             d.a.l0.h.y.d.b bVar = (d.a.l0.h.y.d.b) d2;
             bVar.J(G);
             return bVar;
         }
-        d.a.l0.h.y.d.b bVar2 = new d.a.l0.h.y.d.b(this.f47270e, G);
+        d.a.l0.h.y.d.b bVar2 = new d.a.l0.h.y.d.b(this.f50944e, G);
         bVar2.start();
         return bVar2;
     }
@@ -169,7 +169,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void exit(JsObject jsObject) {
         if (y) {
-            this.f47270e.A().b("exit from java side.");
+            this.f50944e.A().b("exit from java side.");
         }
         if (jsObject == null) {
             return;
@@ -178,7 +178,7 @@ public final class b extends EventTargetImpl {
         d.a.l0.h.d.c.a e2 = d.a.l0.h.d.c.a.e(d.a.l0.a.y.b.a.G(jsObject));
         SwanAppActivity activity = d.a.l0.a.g1.f.V().getActivity();
         if (activity == null) {
-            bVar.errMsg = String.format("%s:%s", "exit", com.alipay.sdk.util.e.f1950a);
+            bVar.errMsg = String.format("%s:%s", "exit", com.alipay.sdk.util.e.f1963a);
             e2.b(bVar);
             return;
         }
@@ -190,7 +190,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void exitVoIPChat(JsObject jsObject) {
         if (this.x == null) {
-            this.x = d.a.l0.h.a0.b.f47120a.a();
+            this.x = d.a.l0.h.a0.b.f50794a.a();
         }
         this.x.d(jsObject);
     }
@@ -206,7 +206,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public d.a.l0.h.b.b getAntiAddiction() {
         if (this.v == null) {
-            this.v = new d.a.l0.h.b.b(this.f47270e);
+            this.v = new d.a.l0.h.b.b(this.f50944e);
         }
         return this.v;
     }
@@ -214,39 +214,39 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public d.a.l0.h.i.a getDownloadApp(JsObject jsObject) {
         if (this.w == null) {
-            this.w = new d.a.l0.h.i.a(this.f47270e, d.a.l0.a.y.b.a.G(jsObject));
+            this.w = new d.a.l0.h.i.a(this.f50944e, d.a.l0.a.y.b.a.G(jsObject));
         }
         return this.w;
     }
 
     @JavascriptInterface
     public String getEnvVariables() {
-        return d.a.l0.a.d1.b.b.a(this.f47270e);
+        return d.a.l0.a.d1.b.b.a(this.f50944e);
     }
 
     @JavascriptInterface
     public e getFileSystemManager() {
-        if (this.f47271f == null) {
-            this.f47271f = new e((d.a.l0.a.l0.a) this.f47270e);
+        if (this.f50945f == null) {
+            this.f50945f = new e((d.a.l0.a.l0.a) this.f50944e);
         }
-        return this.f47271f;
+        return this.f50945f;
     }
 
     @JavascriptInterface
     public d getOpenData() {
-        if (this.f47272g == null) {
-            this.f47272g = new d((d.a.l0.a.l0.a) this.f47270e);
+        if (this.f50946g == null) {
+            this.f50946g = new d((d.a.l0.a.l0.a) this.f50944e);
         }
-        return this.f47272g;
+        return this.f50946g;
     }
 
     @JavascriptInterface
     public d.a.l0.h.z.e getOpenDataContext() {
         if (this.j == null) {
-            d.a.l0.h.z.e eVar = new d.a.l0.h.z.e(this.f47270e);
+            d.a.l0.h.z.e eVar = new d.a.l0.h.z.e(this.f50944e);
             this.j = eVar;
-            eVar.canvas = this.f47274i;
-            this.f47274i = null;
+            eVar.canvas = this.f50948i;
+            this.f50948i = null;
         }
         return this.j;
     }
@@ -268,7 +268,7 @@ public final class b extends EventTargetImpl {
 
     @JavascriptInterface
     public Object getStorageSync(String str) {
-        return d.a.l0.h.g0.f.d.a(this.f47270e, "getStorageSync", str, z().c(str));
+        return d.a.l0.h.g0.f.d.a(this.f50944e, "getStorageSync", str, z().c(str));
     }
 
     @JavascriptInterface
@@ -292,7 +292,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public d.a.l0.h.d0.a getVideoRecorderManager() {
         if (this.r == null) {
-            this.r = new d.a.l0.h.d0.a(this.f47270e);
+            this.r = new d.a.l0.h.d0.a(this.f50944e);
         }
         return this.r;
     }
@@ -300,7 +300,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public d.a.l0.h.o0.h.a getWebViewManager() {
         if (this.u == null) {
-            this.u = new d.a.l0.h.o0.h.a(this.f47270e);
+            this.u = new d.a.l0.h.o0.h.a(this.f50944e);
         }
         return this.u;
     }
@@ -316,14 +316,14 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void joinVoIPChat(JsObject jsObject) {
         if (this.x == null) {
-            this.x = d.a.l0.h.a0.b.f47120a.a();
+            this.x = d.a.l0.h.a0.b.f50794a.a();
         }
         this.x.b(jsObject);
     }
 
     @JavascriptInterface
     public d.a.l0.h.i0.c loadSubpackage(JsObject jsObject) {
-        d.a.l0.h.i0.c cVar = new d.a.l0.h.i0.c(this.f47270e);
+        d.a.l0.h.i0.c cVar = new d.a.l0.h.i0.c(this.f50944e);
         cVar.G(jsObject);
         return cVar;
     }
@@ -339,7 +339,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void offVoIPChatInterrupted(JsObject jsObject) {
         if (this.x == null) {
-            this.x = d.a.l0.h.a0.b.f47120a.a();
+            this.x = d.a.l0.h.a0.b.f50794a.a();
         }
         this.x.a(jsObject);
     }
@@ -347,7 +347,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void offVoIPChatMembersChanged(JsObject jsObject) {
         if (this.x == null) {
-            this.x = d.a.l0.h.a0.b.f47120a.a();
+            this.x = d.a.l0.h.a0.b.f50794a.a();
         }
         this.x.g(jsObject);
     }
@@ -355,7 +355,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void offVoIPChatSpeakersChanged(JsObject jsObject) {
         if (this.x == null) {
-            this.x = d.a.l0.h.a0.b.f47120a.a();
+            this.x = d.a.l0.h.a0.b.f50794a.a();
         }
         this.x.i(jsObject);
     }
@@ -363,7 +363,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void onVoIPChatInterrupted(JsObject jsObject) {
         if (this.x == null) {
-            this.x = d.a.l0.h.a0.b.f47120a.a();
+            this.x = d.a.l0.h.a0.b.f50794a.a();
         }
         this.x.c(jsObject);
     }
@@ -371,7 +371,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void onVoIPChatMembersChanged(JsObject jsObject) {
         if (this.x == null) {
-            this.x = d.a.l0.h.a0.b.f47120a.a();
+            this.x = d.a.l0.h.a0.b.f50794a.a();
         }
         this.x.h(jsObject);
     }
@@ -379,14 +379,14 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void onVoIPChatSpeakersChanged(JsObject jsObject) {
         if (this.x == null) {
-            this.x = d.a.l0.h.a0.b.f47120a.a();
+            this.x = d.a.l0.h.a0.b.f50794a.a();
         }
         this.x.k(jsObject);
     }
 
     @JavascriptInterface
     public void openCustomerServiceConversation(JsObject jsObject) {
-        d.a.l0.h.g.a.a((b) this.f47270e.p(), jsObject);
+        d.a.l0.h.g.a.a((b) this.f50944e.p(), jsObject);
     }
 
     @JavascriptInterface
@@ -404,19 +404,19 @@ public final class b extends EventTargetImpl {
 
     @JavascriptInterface
     public void removeStorageSync(String str) {
-        d.a.l0.h.g0.f.d.a(this.f47270e, "removeStorageSync", str, z().e(str));
+        d.a.l0.h.g0.f.d.a(this.f50944e, "removeStorageSync", str, z().e(str));
     }
 
     @JavascriptInterface
     public d.a.l0.h.y.f.c request(JsObject jsObject) {
         d.a.l0.a.y.b.a G = d.a.l0.a.y.b.a.G(jsObject);
-        d.a.l0.h.y.a d2 = d.a.l0.h.y.e.b.b().d(this.f47270e, G, 1);
+        d.a.l0.h.y.a d2 = d.a.l0.h.y.e.b.b().d(this.f50944e, G, 1);
         if (d2 instanceof d.a.l0.h.y.f.c) {
             d.a.l0.h.y.f.c cVar = (d.a.l0.h.y.f.c) d2;
             cVar.J(G);
             return cVar;
         }
-        d.a.l0.h.y.f.c cVar2 = new d.a.l0.h.y.f.c(this.f47270e, G);
+        d.a.l0.h.y.f.c cVar2 = new d.a.l0.h.y.f.c(this.f50944e, G);
         cVar2.start();
         return cVar2;
     }
@@ -424,7 +424,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void setEnableDebug(JsObject jsObject) {
         if (this.q == null) {
-            this.q = new f(this.f47270e);
+            this.q = new f(this.f50944e);
         }
         this.q.i(jsObject);
     }
@@ -439,7 +439,7 @@ public final class b extends EventTargetImpl {
         if (s < 1 || s > 60) {
             return;
         }
-        this.f47270e.setPreferredFramesPerSecond(s);
+        this.f50944e.setPreferredFramesPerSecond(s);
     }
 
     @JavascriptInterface
@@ -449,7 +449,7 @@ public final class b extends EventTargetImpl {
 
     @JavascriptInterface
     public void setStorageSync(String str, JsSerializeValue jsSerializeValue) {
-        d.a.l0.h.g0.f.d.a(this.f47270e, "setStorageSync", str, z().f(str, jsSerializeValue));
+        d.a.l0.h.g0.f.d.a(this.f50944e, "setStorageSync", str, z().f(str, jsSerializeValue));
     }
 
     @JavascriptInterface
@@ -460,7 +460,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void showAddToDesktopGuide(JsObject jsObject) {
         if (this.s == null) {
-            this.s = new DesktopGuideApi(this.f47270e);
+            this.s = new DesktopGuideApi(this.f50944e);
         }
         this.s.v(jsObject);
     }
@@ -468,7 +468,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void showKeyboard(JsObject jsObject) {
         if (this.k == null) {
-            this.k = new d.a.l0.h.u.a(this.f47270e, this.l);
+            this.k = new d.a.l0.h.u.a(this.f50944e, this.l);
         }
         this.k.l(jsObject);
     }
@@ -484,14 +484,14 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void updateVoIPChatMuteConfig(JsObject jsObject) {
         if (this.x == null) {
-            this.x = d.a.l0.h.a0.b.f47120a.a();
+            this.x = d.a.l0.h.a0.b.f50794a.a();
         }
         this.x.e(jsObject);
     }
 
     @JavascriptInterface
     public d.a.l0.h.y.g.b uploadFile(JsObject jsObject) {
-        d.a.l0.h.y.g.b bVar = new d.a.l0.h.y.g.b(this.f47270e, d.a.l0.a.y.b.a.G(jsObject));
+        d.a.l0.h.y.g.b bVar = new d.a.l0.h.y.g.b(this.f50944e, d.a.l0.a.y.b.a.G(jsObject));
         bVar.start();
         return bVar;
     }
@@ -499,7 +499,7 @@ public final class b extends EventTargetImpl {
     @NonNull
     public final d.a.l0.h.g0.b z() {
         if (this.m == null) {
-            this.m = new d.a.l0.h.g0.b(this.f47270e);
+            this.m = new d.a.l0.h.g0.b(this.f50944e);
         }
         return this.m;
     }
@@ -519,7 +519,7 @@ public final class b extends EventTargetImpl {
 
     @JavascriptInterface
     public void setStorageSync(String str) {
-        d.a.l0.h.g0.f.d.a(this.f47270e, "setStorageSync", str, z().f(str, null));
+        d.a.l0.h.g0.f.d.a(this.f50944e, "setStorageSync", str, z().f(str, null));
     }
 
     @JavascriptInterface
@@ -543,7 +543,7 @@ public final class b extends EventTargetImpl {
     @JavascriptInterface
     public void showKeyboard() {
         if (this.k == null) {
-            this.k = new d.a.l0.h.u.a(this.f47270e, this.l);
+            this.k = new d.a.l0.h.u.a(this.f50944e, this.l);
         }
         this.k.l(null);
     }

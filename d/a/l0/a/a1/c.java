@@ -5,15 +5,15 @@ import d.a.l0.a.k;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40682a;
+    public static final boolean f44358a;
 
     static {
-        boolean z = k.f43199a;
-        f40682a = b("swan_js_error_verify", 0);
+        boolean z = k.f46875a;
+        f44358a = b("swan_js_error_verify", 0);
     }
 
     public static boolean a() {
-        return f40682a;
+        return f44358a;
     }
 
     public static boolean b(String str, int i2) {

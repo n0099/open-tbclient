@@ -7,11 +7,11 @@ import java.util.Map;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, b> f43276a;
+    public static final Map<String, b> f46952a;
 
     static {
-        boolean z = k.f43199a;
-        f43276a = new HashMap();
+        boolean z = k.f46875a;
+        f46952a = new HashMap();
     }
 
     public static b a() {
@@ -19,13 +19,13 @@ public final class h {
     }
 
     public static b b(String str) {
-        b bVar = f43276a.get(str);
+        b bVar = f46952a.get(str);
         if (bVar == null) {
             synchronized (h.class) {
-                bVar = f43276a.get(str);
+                bVar = f46952a.get(str);
                 if (bVar == null) {
                     bVar = new b(str);
-                    f43276a.put(str, bVar);
+                    f46952a.put(str, bVar);
                 }
             }
         }

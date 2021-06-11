@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public abstract class a implements v {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f63884b = AppConfig.isDebug();
+    public static final boolean f67602b = AppConfig.isDebug();
 
     /* renamed from: a  reason: collision with root package name */
-    public e0 f63885a = new e0();
+    public e0 f67603a = new e0();
 
     @Override // d.a.p0.v
     public boolean a(JSONObject jSONObject, boolean z) {
@@ -28,7 +28,7 @@ public abstract class a implements v {
 
     public boolean b(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean isUBCDebug = this.f63885a.isUBCDebug();
+        boolean isUBCDebug = this.f67603a.isUBCDebug();
         if (isUBCDebug) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
@@ -56,7 +56,7 @@ public abstract class a implements v {
             gZip[1] = LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2;
             c0 c2 = c(processUrl, gZip, hashMap);
             if (!c2.d()) {
-                if (f63884b) {
+                if (f67602b) {
                     Log.d("UploadManager", "postByteRequest, fail: " + c2.c());
                 } else {
                     b0.a().h(c2.c(), null);
@@ -67,15 +67,15 @@ public abstract class a implements v {
             try {
                 int i2 = new JSONObject(c2.b()).getInt("error");
                 if (i2 != 0) {
-                    if (f63884b) {
+                    if (f67602b) {
                         Log.d("UploadManager", "server error");
                     }
-                    if (!f63884b) {
+                    if (!f67602b) {
                         b0.a().j(i2);
                     }
                 }
             } catch (Exception e2) {
-                if (f63884b) {
+                if (f67602b) {
                     Log.d("UploadManager", "body tostring fail:" + e2.getMessage());
                 } else {
                     b0.a().i(Log.getStackTraceString(e2));
@@ -84,7 +84,7 @@ public abstract class a implements v {
             c2.a();
             return true;
         } catch (Exception e3) {
-            if (f63884b) {
+            if (f67602b) {
                 Log.d("UploadManager", "postByteRequest, Exception: ", e3);
             } else {
                 b0.a().h(null, Log.getStackTraceString(e3));

@@ -24,37 +24,37 @@ import java.util.List;
 public class PluginEditText extends EditText implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f23499a;
+    public String f23602a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23500b;
+    public boolean f23603b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<IEditTextPasteFilter> f23501c;
+    public List<IEditTextPasteFilter> f23604c;
     public boolean isAlwaysShow;
     public int off;
 
     public PluginEditText(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f23499a = getClass().getSimpleName();
+        this.f23602a = getClass().getSimpleName();
         this.isAlwaysShow = false;
-        this.f23500b = true;
-        this.f23501c = new ArrayList();
+        this.f23603b = true;
+        this.f23604c = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter == null || parseEditTextPasteFilter.size() <= 0) {
             return;
         }
-        this.f23501c.addAll(parseEditTextPasteFilter);
+        this.f23604c.addAll(parseEditTextPasteFilter);
     }
 
     public void addEditTextPasteFilter(IEditTextPasteFilter iEditTextPasteFilter) {
         if (iEditTextPasteFilter != null) {
-            this.f23501c.add(iEditTextPasteFilter);
+            this.f23604c.add(iEditTextPasteFilter);
         }
     }
 
     public List<IEditTextPasteFilter> getEditTextPasteFilters() {
-        return this.f23501c;
+        return this.f23604c;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -70,11 +70,11 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
     public boolean onTextContextMenuItem(int i2) {
         String str;
         if (i2 == 16908322) {
-            String applyEditTextPasteFilters = EditTextPasteFilterUtils.applyEditTextPasteFilters(getContext(), this.f23501c);
+            String applyEditTextPasteFilters = EditTextPasteFilterUtils.applyEditTextPasteFilters(getContext(), this.f23604c);
             try {
                 int selectionStart = getSelectionStart();
                 int selectionEnd = getSelectionEnd();
-                LogUtil.d(this.f23499a, "\tstart:" + selectionStart + "\tend:" + selectionEnd);
+                LogUtil.d(this.f23602a, "\tstart:" + selectionStart + "\tend:" + selectionEnd);
                 Editable editableText = getEditableText();
                 if (editableText != null) {
                     String obj = editableText.toString();
@@ -107,7 +107,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
                 }
                 return super.onTextContextMenuItem(i2);
             } catch (Exception e2) {
-                LogUtil.d(this.f23499a, e2.getMessage());
+                LogUtil.d(this.f23602a, e2.getMessage());
                 return super.onTextContextMenuItem(i2);
             }
         }
@@ -132,7 +132,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
                 Selection.setSelection(getEditableText(), this.off, offsetForHorizontal2);
             }
         }
-        if (this.f23500b) {
+        if (this.f23603b) {
             GlobalUtils.showInputMethod(getContext(), view);
         }
         return true;
@@ -153,20 +153,20 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
     }
 
     public void setShowSystemMethodFlag(boolean z) {
-        this.f23500b = z;
+        this.f23603b = z;
     }
 
     public PluginEditText(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23499a = getClass().getSimpleName();
+        this.f23602a = getClass().getSimpleName();
         this.isAlwaysShow = false;
-        this.f23500b = true;
-        this.f23501c = new ArrayList();
+        this.f23603b = true;
+        this.f23604c = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter == null || parseEditTextPasteFilter.size() <= 0) {
             return;
         }
-        this.f23501c.addAll(parseEditTextPasteFilter);
+        this.f23604c.addAll(parseEditTextPasteFilter);
     }
 
     public PluginEditText(Context context) {

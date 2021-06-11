@@ -10,33 +10,33 @@ import android.os.Bundle;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f54105a;
+    public Rect f57794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f54106b;
+    public Bitmap f57795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f54107c = new Rect();
+    public Rect f57796c = new Rect();
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f54108d;
+    public Context f57797d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bundle f54109e;
+    public Bundle f57798e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f54110f;
+    public boolean f57799f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54111g;
+    public boolean f57800g;
 
     public b(Context context) {
-        this.f54108d = context;
+        this.f57797d = context;
     }
 
     public void a(Canvas canvas) {
-        this.f54108d.getResources().getDisplayMetrics();
-        this.f54107c.set(0, 0, this.f54106b.getWidth(), this.f54106b.getHeight());
-        canvas.drawBitmap(this.f54106b, this.f54107c, this.f54105a, (Paint) null);
+        this.f57797d.getResources().getDisplayMetrics();
+        this.f57796c.set(0, 0, this.f57795b.getWidth(), this.f57795b.getHeight());
+        canvas.drawBitmap(this.f57795b, this.f57796c, this.f57794a, (Paint) null);
     }
 }

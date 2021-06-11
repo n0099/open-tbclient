@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseLegoCardView;
-import d.a.c.j.e.e;
+import d.a.c.k.e.e;
 import d.a.n0.k1.o.b;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,7 +104,7 @@ public class a extends e {
         this.x = z;
     }
 
-    @Override // d.a.c.j.e.e, android.widget.Adapter, d.a.c.j.e.o
+    @Override // d.a.c.k.e.e, android.widget.Adapter, d.a.c.k.e.o
     public int getCount() {
         if (this.o == 0 && this.p) {
             return 1;
@@ -112,21 +112,21 @@ public class a extends e {
         return this.o;
     }
 
-    @Override // d.a.c.j.e.e, android.widget.Adapter
+    @Override // d.a.c.k.e.e, android.widget.Adapter
     public long getItemId(int i2) {
         return i2;
     }
 
-    @Override // d.a.c.j.e.e, android.widget.BaseAdapter, android.widget.Adapter
+    @Override // d.a.c.k.e.e, android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i2) {
         ICardInfo x = x(i2);
         if (x != null) {
-            return d.a.n0.k1.o.e.f56638a.get(x.getAdapterType());
+            return d.a.n0.k1.o.e.f60327a.get(x.getAdapterType());
         }
         return 0;
     }
 
-    @Override // d.a.c.j.e.e, android.widget.Adapter
+    @Override // d.a.c.k.e.e, android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         if (this.p && A()) {
             return t();
@@ -136,18 +136,18 @@ public class a extends e {
         ICardInfo x = x(i2);
         BaseLegoCardView y = y(view, x);
         if (y != null) {
-            y.f17906e = this.w;
-            y.g(x);
+            y.f17982e = this.w;
+            y.i(x);
         }
         return y;
     }
 
-    @Override // d.a.c.j.e.e, android.widget.BaseAdapter, android.widget.Adapter
+    @Override // d.a.c.k.e.e, android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return d.a.n0.k1.o.e.f56638a.size() + 1;
+        return d.a.n0.k1.o.e.f60327a.size() + 1;
     }
 
-    @Override // d.a.c.j.e.e, android.widget.BaseAdapter, android.widget.Adapter
+    @Override // d.a.c.k.e.e, android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
         return this.o == 0;
     }
@@ -220,7 +220,7 @@ public class a extends e {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.e, android.widget.Adapter, d.a.c.j.e.o
+    @Override // d.a.c.k.e.e, android.widget.Adapter, d.a.c.k.e.o
     /* renamed from: z */
     public ICardInfo getItem(int i2) {
         return x(i2);

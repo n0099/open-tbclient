@@ -25,25 +25,25 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final byte[] f64335g = {77, 73, 78, 71};
+    public static final byte[] f68053g = {77, 73, 78, 71};
 
     /* renamed from: a  reason: collision with root package name */
-    public long f64336a;
+    public long f68054a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64337b;
+    public boolean f68055b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f64338c;
+    public Set<String> f68056c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64339d;
+    public String f68057d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f64340e;
+    public Context f68058e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64341f;
+    public int f68059f;
 
     public static boolean e(String str, Context context, JSONObject jSONObject, Set<String> set) {
         JSONArray jSONArray = jSONObject.getJSONArray("sigs");
@@ -86,38 +86,38 @@ public class a {
     public final void a(Bundle bundle, d.a.q.g.b.e.a aVar) {
         try {
             if (aVar == null) {
-                this.f64341f |= 16;
+                this.f68059f |= 16;
                 return;
             }
             String string = bundle.getString("helios_data");
             if (TextUtils.isEmpty(string)) {
-                this.f64341f |= 1;
+                this.f68059f |= 1;
                 return;
             }
             String string2 = bundle.getString("helios_sf");
             if (TextUtils.isEmpty(string2)) {
-                this.f64341f |= 2;
+                this.f68059f |= 2;
                 return;
             }
             byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
             for (int i2 = 0; i2 < decode.length; i2++) {
-                decode[i2] = (byte) (decode[i2] ^ f64335g[i2 % f64335g.length]);
+                decode[i2] = (byte) (decode[i2] ^ f68053g[i2 % f68053g.length]);
             }
             JSONObject jSONObject = new JSONObject(new String(decode));
             if (f(jSONObject)) {
                 HashSet hashSet = new HashSet();
-                this.f64338c = hashSet;
-                if (!e(this.f64339d, this.f64340e, jSONObject, hashSet)) {
-                    this.f64341f |= 4;
+                this.f68056c = hashSet;
+                if (!e(this.f68057d, this.f68058e, jSONObject, hashSet)) {
+                    this.f68059f |= 4;
                 } else if (!Arrays.equals(g.a(Base64.decode(string2, 0), aVar), f.b(decode))) {
-                    this.f64341f |= 8;
+                    this.f68059f |= 8;
                 } else {
-                    this.f64336a = jSONObject.getLong("priority");
-                    this.f64337b = true;
+                    this.f68054a = jSONObject.getLong("priority");
+                    this.f68055b = true;
                 }
             }
         } catch (Exception e2) {
-            this.f64341f |= 256;
+            this.f68059f |= 256;
             Log.getStackTraceString(e2);
         }
     }
@@ -127,9 +127,9 @@ public class a {
         ActivityInfo[] activityInfoArr;
         ActivityInfo activityInfo;
         Bundle bundle;
-        PackageManager packageManager = this.f64340e.getPackageManager();
+        PackageManager packageManager = this.f68058e.getPackageManager();
         try {
-            packageInfo = packageManager.getPackageInfo(this.f64339d, 2);
+            packageInfo = packageManager.getPackageInfo(this.f68057d, 2);
         } catch (PackageManager.NameNotFoundException unused) {
             packageInfo = null;
         }
@@ -151,16 +151,16 @@ public class a {
     }
 
     public void c(String str, Context context) {
-        this.f64339d = str;
-        this.f64340e = context;
+        this.f68057d = str;
+        this.f68058e = context;
     }
 
     public boolean d() {
-        return this.f64337b;
+        return this.f68055b;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x003d, code lost:
-        if (r10.equals(r9.f64339d) == false) goto L13;
+        if (r10.equals(r9.f68057d) == false) goto L13;
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0052, code lost:
         if (r0.startsWith(r10) != false) goto L14;
@@ -177,20 +177,20 @@ public class a {
         if (!optString.equals("") || a2 == 4) {
             if (a2 != 0) {
                 if (a2 == 1) {
-                    String str = this.f64339d;
+                    String str = this.f68057d;
                     if (str != null) {
                     }
-                    i2 = this.f64341f | 32;
-                    this.f64341f = i2;
+                    i2 = this.f68059f | 32;
+                    this.f68059f = i2;
                     return false;
                 } else if (a2 == 2) {
                     try {
-                        if (!Pattern.compile(optString).matcher(this.f64339d).matches()) {
-                            this.f64341f |= 32;
+                        if (!Pattern.compile(optString).matcher(this.f68057d).matches()) {
+                            this.f68059f |= 32;
                             return false;
                         }
                     } catch (Exception unused) {
-                        i2 = this.f64341f | 128;
+                        i2 = this.f68059f | 128;
                     }
                 } else if (a2 == 4) {
                     return true;
@@ -198,16 +198,16 @@ public class a {
                 return true;
             }
         }
-        i2 = this.f64341f | 64;
-        this.f64341f = i2;
+        i2 = this.f68059f | 64;
+        this.f68059f = i2;
         return false;
     }
 
     public long i() {
-        return this.f64336a;
+        return this.f68054a;
     }
 
     public Set<String> j() {
-        return this.f64338c;
+        return this.f68056c;
     }
 }

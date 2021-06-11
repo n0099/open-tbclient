@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class TbLiveVideoView extends BVideoView {
-    public Uri G;
-    public a H;
+    public Uri I;
+    public a J;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -43,13 +43,13 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     public Uri getVideoURI() {
-        return this.G;
+        return this.I;
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
     public void onBufferingUpdate(int i2) {
         super.onBufferingUpdate(i2);
-        a aVar = this.H;
+        a aVar = this.J;
         if (aVar != null) {
             aVar.onBufferingUpdate(i2);
         }
@@ -58,7 +58,7 @@ public class TbLiveVideoView extends BVideoView {
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
     public void onCompletion() {
         super.onCompletion();
-        a aVar = this.H;
+        a aVar = this.J;
         if (aVar != null) {
             aVar.onCompletion();
         }
@@ -66,7 +66,7 @@ public class TbLiveVideoView extends BVideoView {
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
     public boolean onError(int i2, int i3, Object obj) {
-        a aVar = this.H;
+        a aVar = this.J;
         if (aVar != null) {
             aVar.onError(i2, i3);
         }
@@ -75,7 +75,7 @@ public class TbLiveVideoView extends BVideoView {
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
     public boolean onInfo(int i2, int i3, Object obj) {
-        a aVar = this.H;
+        a aVar = this.J;
         if (aVar != null) {
             aVar.onInfo(i2, i3);
         }
@@ -85,7 +85,7 @@ public class TbLiveVideoView extends BVideoView {
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
     public void onPrepared() {
         super.onPrepared();
-        a aVar = this.H;
+        a aVar = this.J;
         if (aVar != null) {
             aVar.onPrepared();
         }
@@ -94,7 +94,7 @@ public class TbLiveVideoView extends BVideoView {
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
     public void onSeekComplete() {
         super.onSeekComplete();
-        a aVar = this.H;
+        a aVar = this.J;
         if (aVar != null) {
             aVar.onSeekComplete();
         }
@@ -103,7 +103,7 @@ public class TbLiveVideoView extends BVideoView {
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
     public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
         super.onVideoSizeChanged(i2, i3, i4, i5);
-        a aVar = this.H;
+        a aVar = this.J;
         if (aVar != null) {
             aVar.onVideoSizeChanged(i2, i3);
         }
@@ -115,13 +115,13 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     public void setPlayerCallback(a aVar) {
-        this.H = aVar;
+        this.J = aVar;
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setVideoURI(Uri uri) {
         super.setVideoURI(uri);
-        this.G = uri;
+        this.I = uri;
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
@@ -137,6 +137,6 @@ public class TbLiveVideoView extends BVideoView {
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setVideoURI(Uri uri, Map<String, String> map) {
         super.setVideoURI(uri, map);
-        this.G = uri;
+        this.I = uri;
     }
 }

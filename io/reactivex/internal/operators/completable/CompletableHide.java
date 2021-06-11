@@ -14,7 +14,7 @@ public final class CompletableHide extends Completable {
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68962d;
+        public Disposable f72271d;
 
         public HideCompletableObserver(CompletableObserver completableObserver) {
             this.actual = completableObserver;
@@ -22,13 +22,13 @@ public final class CompletableHide extends Completable {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68962d.dispose();
-            this.f68962d = DisposableHelper.DISPOSED;
+            this.f72271d.dispose();
+            this.f72271d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68962d.isDisposed();
+            return this.f72271d.isDisposed();
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
@@ -43,8 +43,8 @@ public final class CompletableHide extends Completable {
 
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68962d, disposable)) {
-                this.f68962d = disposable;
+            if (DisposableHelper.validate(this.f72271d, disposable)) {
+                this.f72271d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

@@ -11,7 +11,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.manager.ConnectivityMonitor;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     public static final String TAG = "ConnectivityMonitor";
     public final BroadcastReceiver connectivityReceiver = new BroadcastReceiver() { // from class: com.bumptech.glide.manager.DefaultConnectivityMonitor.1

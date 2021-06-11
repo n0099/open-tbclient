@@ -21,52 +21,52 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class k {
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile k f66949f;
+    public static volatile k f70735f;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f66954e;
+    public long f70740e;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<d.o.a.d.f.j> f66951b = new CopyOnWriteArrayList();
+    public final List<d.o.a.d.f.j> f70737b = new CopyOnWriteArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, d.o.a.d.f.j> f66952c = new ConcurrentHashMap();
+    public final Map<String, d.o.a.d.f.j> f70738c = new ConcurrentHashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public final CopyOnWriteArrayList<Object> f66953d = new CopyOnWriteArrayList<>();
+    public final CopyOnWriteArrayList<Object> f70739d = new CopyOnWriteArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f66950a = new Handler(Looper.getMainLooper());
+    public final Handler f70736a = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.a.a.c.d f66955e;
+        public final /* synthetic */ d.o.a.a.a.c.d f70741e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.a.a.c.b f66956f;
+        public final /* synthetic */ d.o.a.a.a.c.b f70742f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.a.a.c.c f66957g;
+        public final /* synthetic */ d.o.a.a.a.c.c f70743g;
 
         public a(d.o.a.a.a.c.d dVar, d.o.a.a.a.c.b bVar, d.o.a.a.a.c.c cVar) {
-            this.f66955e = dVar;
-            this.f66956f = bVar;
-            this.f66957g = cVar;
+            this.f70741e = dVar;
+            this.f70742f = bVar;
+            this.f70743g = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Iterator it = k.this.f66953d.iterator();
+            Iterator it = k.this.f70739d.iterator();
             while (it.hasNext()) {
                 Object next = it.next();
                 if (next instanceof d.o.a.a.a.c.a.a) {
-                    ((d.o.a.a.a.c.a.a) next).a(this.f66955e, this.f66956f, this.f66957g);
+                    ((d.o.a.a.a.c.a.a) next).a(this.f70741e, this.f70742f, this.f70743g);
                 } else if (next instanceof SoftReference) {
                     SoftReference softReference = (SoftReference) next;
                     if (softReference.get() instanceof d.o.a.a.a.c.a.a) {
-                        ((d.o.a.a.a.c.a.a) softReference.get()).a(this.f66955e, this.f66956f, this.f66957g);
+                        ((d.o.a.a.a.c.a.a) softReference.get()).a(this.f70741e, this.f70742f, this.f70743g);
                     }
                 }
             }
@@ -77,31 +77,31 @@ public class k {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f66959e;
+        public final /* synthetic */ DownloadInfo f70745e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BaseException f66960f;
+        public final /* synthetic */ BaseException f70746f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f66961g;
+        public final /* synthetic */ String f70747g;
 
         public b(DownloadInfo downloadInfo, BaseException baseException, String str) {
-            this.f66959e = downloadInfo;
-            this.f66960f = baseException;
-            this.f66961g = str;
+            this.f70745e = downloadInfo;
+            this.f70746f = baseException;
+            this.f70747g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Iterator it = k.this.f66953d.iterator();
+            Iterator it = k.this.f70739d.iterator();
             while (it.hasNext()) {
                 Object next = it.next();
                 if (next instanceof d.o.a.a.a.c.a.a) {
-                    ((d.o.a.a.a.c.a.a) next).a(this.f66959e, this.f66960f, this.f66961g);
+                    ((d.o.a.a.a.c.a.a) next).a(this.f70745e, this.f70746f, this.f70747g);
                 } else if (next instanceof SoftReference) {
                     SoftReference softReference = (SoftReference) next;
                     if (softReference.get() instanceof d.o.a.a.a.c.a.a) {
-                        ((d.o.a.a.a.c.a.a) softReference.get()).a(this.f66959e, this.f66960f, this.f66961g);
+                        ((d.o.a.a.a.c.a.a) softReference.get()).a(this.f70745e, this.f70746f, this.f70747g);
                     }
                 }
             }
@@ -112,27 +112,27 @@ public class k {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f66963e;
+        public final /* synthetic */ DownloadInfo f70749e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f66964f;
+        public final /* synthetic */ String f70750f;
 
         public c(DownloadInfo downloadInfo, String str) {
-            this.f66963e = downloadInfo;
-            this.f66964f = str;
+            this.f70749e = downloadInfo;
+            this.f70750f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Iterator it = k.this.f66953d.iterator();
+            Iterator it = k.this.f70739d.iterator();
             while (it.hasNext()) {
                 Object next = it.next();
                 if (next instanceof d.o.a.a.a.c.a.a) {
-                    ((d.o.a.a.a.c.a.a) next).a(this.f66963e, this.f66964f);
+                    ((d.o.a.a.a.c.a.a) next).a(this.f70749e, this.f70750f);
                 } else if (next instanceof SoftReference) {
                     SoftReference softReference = (SoftReference) next;
                     if (softReference.get() instanceof d.o.a.a.a.c.a.a) {
-                        ((d.o.a.a.a.c.a.a) softReference.get()).a(this.f66963e, this.f66964f);
+                        ((d.o.a.a.a.c.a.a) softReference.get()).a(this.f70749e, this.f70750f);
                     }
                 }
             }
@@ -143,27 +143,27 @@ public class k {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f66966e;
+        public final /* synthetic */ DownloadInfo f70752e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f66967f;
+        public final /* synthetic */ String f70753f;
 
         public d(DownloadInfo downloadInfo, String str) {
-            this.f66966e = downloadInfo;
-            this.f66967f = str;
+            this.f70752e = downloadInfo;
+            this.f70753f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Iterator it = k.this.f66953d.iterator();
+            Iterator it = k.this.f70739d.iterator();
             while (it.hasNext()) {
                 Object next = it.next();
                 if (next instanceof d.o.a.a.a.c.a.a) {
-                    ((d.o.a.a.a.c.a.a) next).b(this.f66966e, this.f66967f);
+                    ((d.o.a.a.a.c.a.a) next).b(this.f70752e, this.f70753f);
                 } else if (next instanceof SoftReference) {
                     SoftReference softReference = (SoftReference) next;
                     if (softReference.get() instanceof d.o.a.a.a.c.a.a) {
-                        ((d.o.a.a.a.c.a.a) softReference.get()).b(this.f66966e, this.f66967f);
+                        ((d.o.a.a.a.c.a.a) softReference.get()).b(this.f70752e, this.f70753f);
                     }
                 }
             }
@@ -174,23 +174,23 @@ public class k {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f66969e;
+        public final /* synthetic */ DownloadInfo f70755e;
 
         public e(DownloadInfo downloadInfo) {
-            this.f66969e = downloadInfo;
+            this.f70755e = downloadInfo;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Iterator it = k.this.f66953d.iterator();
+            Iterator it = k.this.f70739d.iterator();
             while (it.hasNext()) {
                 Object next = it.next();
                 if (next instanceof d.o.a.a.a.c.a.a) {
-                    ((d.o.a.a.a.c.a.a) next).a(this.f66969e);
+                    ((d.o.a.a.a.c.a.a) next).a(this.f70755e);
                 } else if (next instanceof SoftReference) {
                     SoftReference softReference = (SoftReference) next;
                     if (softReference.get() instanceof d.o.a.a.a.c.a.a) {
-                        ((d.o.a.a.a.c.a.a) softReference.get()).a(this.f66969e);
+                        ((d.o.a.a.a.c.a.a) softReference.get()).a(this.f70755e);
                     }
                 }
             }
@@ -200,13 +200,13 @@ public class k {
     /* loaded from: classes7.dex */
     public class f {
         public static void a() {
-            if (n.f66872c) {
+            if (n.f70658c) {
                 throw new RuntimeException();
             }
         }
 
         public static void b(long j, BaseException baseException) {
-            if (!n.f66872c) {
+            if (!n.f70658c) {
                 j.c.a().y(j, baseException);
                 return;
             }
@@ -214,7 +214,7 @@ public class k {
         }
 
         public static void c(Throwable th) {
-            if (!n.f66872c) {
+            if (!n.f70658c) {
                 th.printStackTrace();
                 return;
             }
@@ -223,20 +223,20 @@ public class k {
     }
 
     public static k b() {
-        if (f66949f == null) {
+        if (f70735f == null) {
             synchronized (k.class) {
-                if (f66949f == null) {
-                    f66949f = new k();
+                if (f70735f == null) {
+                    f70735f = new k();
                 }
             }
         }
-        return f66949f;
+        return f70735f;
     }
 
     public d.o.a.d.f.i a(String str) {
-        Map<String, d.o.a.d.f.j> map = this.f66952c;
+        Map<String, d.o.a.d.f.j> map = this.f70738c;
         if (map != null && map.size() != 0 && !TextUtils.isEmpty(str)) {
-            d.o.a.d.f.j jVar = this.f66952c.get(str);
+            d.o.a.d.f.j jVar = this.f70738c.get(str);
             if (jVar instanceof d.o.a.d.f.i) {
                 return (d.o.a.d.f.i) jVar;
             }
@@ -248,10 +248,10 @@ public class k {
         if (dVar == null || TextUtils.isEmpty(dVar.a())) {
             return;
         }
-        d.o.a.d.f.j jVar = this.f66952c.get(dVar.a());
+        d.o.a.d.f.j jVar = this.f70738c.get(dVar.a());
         if (jVar != null) {
             jVar.b(context).d(i2, eVar).b(dVar).a();
-        } else if (!this.f66951b.isEmpty()) {
+        } else if (!this.f70737b.isEmpty()) {
             o(context, i2, eVar, dVar);
         } else {
             r(context, i2, eVar, dVar);
@@ -261,37 +261,37 @@ public class k {
     public void e(d.o.a.a.a.c.a.a aVar) {
         if (aVar != null) {
             if (d.o.a.e.b.j.a.r().q("fix_listener_oom", false)) {
-                this.f66953d.add(new SoftReference(aVar));
+                this.f70739d.add(new SoftReference(aVar));
             } else {
-                this.f66953d.add(aVar);
+                this.f70739d.add(aVar);
             }
         }
     }
 
     public void f(d.o.a.a.a.c.d dVar, @Nullable d.o.a.a.a.c.b bVar, @Nullable d.o.a.a.a.c.c cVar) {
-        this.f66950a.post(new a(dVar, bVar, cVar));
+        this.f70736a.post(new a(dVar, bVar, cVar));
     }
 
     public void g(DownloadInfo downloadInfo) {
-        this.f66950a.post(new e(downloadInfo));
+        this.f70736a.post(new e(downloadInfo));
     }
 
     public void h(DownloadInfo downloadInfo, BaseException baseException, String str) {
-        this.f66950a.post(new b(downloadInfo, baseException, str));
+        this.f70736a.post(new b(downloadInfo, baseException, str));
     }
 
     public void i(DownloadInfo downloadInfo, String str) {
-        this.f66950a.post(new c(downloadInfo, str));
+        this.f70736a.post(new c(downloadInfo, str));
     }
 
     public void j(String str, int i2) {
         d.o.a.d.f.j jVar;
-        if (TextUtils.isEmpty(str) || (jVar = this.f66952c.get(str)) == null) {
+        if (TextUtils.isEmpty(str) || (jVar = this.f70738c.get(str)) == null) {
             return;
         }
         if (jVar.a(i2)) {
-            this.f66951b.add(jVar);
-            this.f66952c.remove(str);
+            this.f70737b.add(jVar);
+            this.f70738c.remove(str);
         }
         q();
     }
@@ -302,7 +302,7 @@ public class k {
 
     public void l(String str, long j, int i2, d.o.a.a.a.c.c cVar, d.o.a.a.a.c.b bVar, s sVar, d.o.a.a.a.a.n nVar) {
         d.o.a.d.f.j jVar;
-        if (TextUtils.isEmpty(str) || (jVar = this.f66952c.get(str)) == null) {
+        if (TextUtils.isEmpty(str) || (jVar = this.f70738c.get(str)) == null) {
             return;
         }
         jVar.a(j).a(cVar).e(bVar).f(sVar).c(nVar).b(i2);
@@ -310,37 +310,37 @@ public class k {
 
     public void m(String str, boolean z) {
         d.o.a.d.f.j jVar;
-        if (TextUtils.isEmpty(str) || (jVar = this.f66952c.get(str)) == null) {
+        if (TextUtils.isEmpty(str) || (jVar = this.f70738c.get(str)) == null) {
             return;
         }
         jVar.a(z);
     }
 
     public Handler n() {
-        return this.f66950a;
+        return this.f70736a;
     }
 
     public final synchronized void o(Context context, int i2, d.o.a.a.a.c.e eVar, d.o.a.a.a.c.d dVar) {
-        if (this.f66951b.size() <= 0) {
+        if (this.f70737b.size() <= 0) {
             r(context, i2, eVar, dVar);
         } else {
-            d.o.a.d.f.j remove = this.f66951b.remove(0);
+            d.o.a.d.f.j remove = this.f70737b.remove(0);
             remove.b(context).d(i2, eVar).b(dVar).a();
-            this.f66952c.put(dVar.a(), remove);
+            this.f70738c.put(dVar.a(), remove);
         }
     }
 
     public void p(DownloadInfo downloadInfo, String str) {
-        this.f66950a.post(new d(downloadInfo, str));
+        this.f70736a.post(new d(downloadInfo, str));
     }
 
     public final void q() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f66954e < 300000) {
+        if (currentTimeMillis - this.f70740e < 300000) {
             return;
         }
-        this.f66954e = currentTimeMillis;
-        if (this.f66951b.isEmpty()) {
+        this.f70740e = currentTimeMillis;
+        if (this.f70737b.isEmpty()) {
             return;
         }
         s();
@@ -355,13 +355,13 @@ public class k {
         iVar.d(i2, eVar);
         iVar.b(dVar);
         iVar.a();
-        this.f66952c.put(dVar.a(), iVar);
+        this.f70738c.put(dVar.a(), iVar);
     }
 
     public final void s() {
         long currentTimeMillis = System.currentTimeMillis();
         ArrayList arrayList = new ArrayList();
-        for (d.o.a.d.f.j jVar : this.f66951b) {
+        for (d.o.a.d.f.j jVar : this.f70737b) {
             if (!jVar.b() && currentTimeMillis - jVar.d() > 300000) {
                 jVar.g();
                 arrayList.add(jVar);
@@ -370,6 +370,6 @@ public class k {
         if (arrayList.isEmpty()) {
             return;
         }
-        this.f66951b.removeAll(arrayList);
+        this.f70737b.removeAll(arrayList);
     }
 }

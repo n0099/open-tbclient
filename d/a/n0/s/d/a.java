@@ -10,33 +10,33 @@ import java.util.List;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f60338c;
+    public static a f64027c;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<InterfaceC1586a> f60339a = new ArrayList();
+    public List<InterfaceC1642a> f64028a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d.a.m0.s.f.a> f60340b;
+    public List<d.a.m0.s.f.a> f64029b;
 
     /* renamed from: d.a.n0.s.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1586a {
+    public interface InterfaceC1642a {
         void e(List<d.a.m0.s.f.a> list);
     }
 
     public static synchronized a d() {
         a aVar;
         synchronized (a.class) {
-            if (f60338c == null) {
-                f60338c = new a();
+            if (f64027c == null) {
+                f64027c = new a();
             }
-            aVar = f60338c;
+            aVar = f64027c;
         }
         return aVar;
     }
 
     public void a(d.a.m0.s.f.a aVar) {
-        if (this.f60340b == null || aVar == null) {
+        if (this.f64029b == null || aVar == null) {
             return;
         }
         String a2 = aVar.a();
@@ -50,7 +50,7 @@ public class a {
         }
         boolean z = false;
         boolean z2 = false;
-        for (d.a.m0.s.f.a aVar2 : this.f60340b) {
+        for (d.a.m0.s.f.a aVar2 : this.f64029b) {
             if (f2.equals(aVar2.f())) {
                 z = true;
             }
@@ -64,15 +64,15 @@ public class a {
         if (!z2) {
             d.a.m0.s.f.a aVar3 = new d.a.m0.s.f.a();
             aVar3.k(a2);
-            this.f60340b.add(aVar3);
+            this.f64029b.add(aVar3);
         }
-        this.f60340b.add(aVar);
-        Collections.sort(this.f60340b, new ContactComparator());
+        this.f64029b.add(aVar);
+        Collections.sort(this.f64029b, new ContactComparator());
         e();
     }
 
     public void b(long j) {
-        List<d.a.m0.s.f.a> list = this.f60340b;
+        List<d.a.m0.s.f.a> list = this.f64029b;
         if (list == null) {
             return;
         }
@@ -85,52 +85,52 @@ public class a {
             d.a.m0.s.f.a next = it.next();
             if (next.e() == j) {
                 str = next.a();
-                this.f60340b.remove(next);
+                this.f64029b.remove(next);
                 break;
             }
         }
         if (str != null) {
             ArrayList arrayList = new ArrayList();
-            for (d.a.m0.s.f.a aVar : this.f60340b) {
+            for (d.a.m0.s.f.a aVar : this.f64029b) {
                 if (str.equals(aVar.a())) {
                     arrayList.add(aVar);
                 }
             }
             if (arrayList.size() <= 1) {
-                this.f60340b.removeAll(arrayList);
+                this.f64029b.removeAll(arrayList);
             }
         }
         e();
     }
 
     public List<d.a.m0.s.f.a> c() {
-        return this.f60340b;
+        return this.f64029b;
     }
 
     public final void e() {
-        for (InterfaceC1586a interfaceC1586a : this.f60339a) {
-            interfaceC1586a.e(this.f60340b);
+        for (InterfaceC1642a interfaceC1642a : this.f64028a) {
+            interfaceC1642a.e(this.f64029b);
         }
     }
 
-    public void f(InterfaceC1586a interfaceC1586a) {
-        if (interfaceC1586a == null || this.f60339a.contains(interfaceC1586a)) {
+    public void f(InterfaceC1642a interfaceC1642a) {
+        if (interfaceC1642a == null || this.f64028a.contains(interfaceC1642a)) {
             return;
         }
-        this.f60339a.add(interfaceC1586a);
+        this.f64028a.add(interfaceC1642a);
     }
 
     public void g(List<d.a.m0.s.f.a> list) {
-        this.f60340b = list;
+        this.f64029b = list;
         if (list != null) {
             Collections.sort(list, new ContactComparator());
         }
         e();
     }
 
-    public void h(InterfaceC1586a interfaceC1586a) {
-        if (interfaceC1586a != null) {
-            this.f60339a.remove(interfaceC1586a);
+    public void h(InterfaceC1642a interfaceC1642a) {
+        if (interfaceC1642a != null) {
+            this.f64028a.remove(interfaceC1642a);
         }
     }
 }

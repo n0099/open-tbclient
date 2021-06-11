@@ -20,19 +20,19 @@ public class a extends EventTargetImpl implements d, c.a {
     public String adUnitId;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47099e;
+    public String f50773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.l0.a.l0.c f47100f;
+    public d.a.l0.a.l0.c f50774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47101g;
+    public String f50775g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f47102h;
+    public boolean f50776h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.l0.f.i.i.b f47103i;
+    public d.a.l0.f.i.i.b f50777i;
     public f j;
     public boolean k;
     public Map<String, String> l;
@@ -43,8 +43,8 @@ public class a extends EventTargetImpl implements d, c.a {
 
     /* renamed from: d.a.l0.h.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1006a implements d.a.l0.f.i.i.f {
-        public C1006a() {
+    public class C1062a implements d.a.l0.f.i.i.f {
+        public C1062a() {
         }
 
         @Override // d.a.l0.f.i.i.f
@@ -54,7 +54,7 @@ public class a extends EventTargetImpl implements d, c.a {
                 d.a.l0.h.a.c.b(a.this.k ? "gdtbanner" : "banner", "success");
                 return;
             }
-            d.a.l0.h.a.c.c(a.this.k ? "gdtbanner" : "banner", "fail", str);
+            d.a.l0.h.a.c.c(a.this.k ? "gdtbanner" : "banner", com.baidu.pass.biometrics.face.liveness.b.b.g0, str);
         }
 
         @Override // d.a.l0.f.i.i.f
@@ -109,9 +109,9 @@ public class a extends EventTargetImpl implements d, c.a {
         @Override // java.lang.Runnable
         public void run() {
             JSEvent jSEvent = new JSEvent("error");
-            jSEvent.data = d.a.l0.h.a.e.b.a(a.this.f47101g);
+            jSEvent.data = d.a.l0.h.a.e.b.a(a.this.f50775g);
             a.this.dispatchEvent(jSEvent);
-            d.a.l0.f.i.q.b.k(a.this.l, a.this.f47101g);
+            d.a.l0.f.i.q.b.k(a.this.l, a.this.f50775g);
         }
     }
 
@@ -119,12 +119,12 @@ public class a extends EventTargetImpl implements d, c.a {
         super(cVar);
         this.style = null;
         this.l = new TreeMap();
-        this.n = new C1006a();
-        this.f47100f = cVar;
+        this.n = new C1062a();
+        this.f50774f = cVar;
         d.a.l0.a.y.b.a G = d.a.l0.a.y.b.a.G(jsObject);
         if (G != null) {
             this.adUnitId = G.C("adUnitId");
-            this.f47099e = G.C("appSid");
+            this.f50773e = G.C("appSid");
             d.a.l0.a.y.b.a x = G.x("style");
             if (x != null) {
                 this.style = new c(x);
@@ -133,22 +133,22 @@ public class a extends EventTargetImpl implements d, c.a {
         boolean e2 = i.e();
         this.k = e2;
         if (e2) {
-            this.f47099e = i.a();
+            this.f50773e = i.a();
             this.adUnitId = i.b();
         }
-        Map<String, String> a2 = d.a.l0.f.i.q.b.a("banner", "game", this.f47099e, this.adUnitId, this.k);
+        Map<String, String> a2 = d.a.l0.f.i.q.b.a("banner", "game", this.f50773e, this.adUnitId, this.k);
         this.l = a2;
         d.a.l0.f.i.q.b.m("loadApi", a2);
         if (D()) {
-            if (G != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f47099e) && this.style != null) {
+            if (G != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f50773e) && this.style != null) {
                 d.a.l0.h.a.a aVar = new d.a.l0.h.a.a();
                 this.j = aVar;
-                d.a.l0.f.i.i.b bVar = new d.a.l0.f.i.i.b(this.f47099e, this.adUnitId, this.n, aVar);
-                this.f47103i = bVar;
+                d.a.l0.f.i.i.b bVar = new d.a.l0.f.i.i.b(this.f50773e, this.adUnitId, this.n, aVar);
+                this.f50777i = bVar;
                 bVar.F(this.l);
                 c cVar2 = this.style;
                 if (cVar2 != null) {
-                    this.f47103i.E(cVar2.left, cVar2.top, cVar2.width, cVar2.height);
+                    this.f50777i.E(cVar2.left, cVar2.top, cVar2.width, cVar2.height);
                     this.style.b(this);
                 }
                 d.a.l0.h.a.c.b(this.k ? "gdtbanner" : "banner", null);
@@ -159,44 +159,44 @@ public class a extends EventTargetImpl implements d, c.a {
     }
 
     public final boolean D() {
-        if (TextUtils.isEmpty(this.f47101g)) {
+        if (TextUtils.isEmpty(this.f50775g)) {
             d.a.l0.h.m0.d A = d.a.l0.h.m0.d.A();
             if (!A.k()) {
                 if (!A.l()) {
                     if (A.t(this.adUnitId)) {
-                        this.f47101g = "3010011";
+                        this.f50775g = "3010011";
                     }
                 } else {
-                    this.f47101g = "3010013";
+                    this.f50775g = "3010013";
                 }
             } else {
-                this.f47101g = "3010012";
+                this.f50775g = "3010012";
             }
         }
-        if (TextUtils.isEmpty(this.f47101g)) {
+        if (TextUtils.isEmpty(this.f50775g)) {
             return true;
         }
-        this.f47100f.postOnJSThread(new b());
-        d.a.l0.h.a.c.c("banner", "reject", this.f47101g);
+        this.f50774f.postOnJSThread(new b());
+        d.a.l0.h.a.c.c("banner", "reject", this.f50775g);
         return false;
     }
 
     @JavascriptInterface
     public void destroy() {
-        this.f47102h = true;
+        this.f50776h = true;
         removeEventListener("error", null);
         removeEventListener("load", null);
         removeEventListener("resize", null);
-        d.a.l0.f.i.i.b bVar = this.f47103i;
+        d.a.l0.f.i.i.b bVar = this.f50777i;
         if (bVar != null) {
             bVar.y();
-            this.f47103i = null;
+            this.f50777i = null;
         }
     }
 
     @JavascriptInterface
     public void hide() {
-        d.a.l0.f.i.i.b bVar = this.f47103i;
+        d.a.l0.f.i.i.b bVar = this.f50777i;
         if (bVar != null) {
             bVar.B();
         }
@@ -205,7 +205,7 @@ public class a extends EventTargetImpl implements d, c.a {
     @Override // d.a.l0.h.a.e.c.a
     public void i(String str) {
         d.a.l0.f.i.i.b bVar;
-        if (this.f47102h || TextUtils.isEmpty(str) || str.equals("height") || this.style == null || (bVar = this.f47103i) == null) {
+        if (this.f50776h || TextUtils.isEmpty(str) || str.equals("height") || this.style == null || (bVar = this.f50777i) == null) {
             return;
         }
         bVar.H(str);
@@ -215,11 +215,11 @@ public class a extends EventTargetImpl implements d, c.a {
     public void showAd(JsObject jsObject) {
         d.a.l0.h.a.c.d(this.k ? "gdtbanner" : "banner");
         d.a.l0.f.i.q.b.m("showApi", this.l);
-        if (!D() || this.f47103i == null) {
+        if (!D() || this.f50777i == null) {
             return;
         }
         d.a.l0.h.m0.d.A().E();
         this.m = d.a.l0.h.a.f.d.d(d.a.l0.a.y.b.a.G(jsObject));
-        this.f47103i.G(jsObject);
+        this.f50777i.G(jsObject);
     }
 }

@@ -8,19 +8,19 @@ import java.io.StringWriter;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f64459a = 1000;
+    public static int f68177a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f64460b = true;
+    public static boolean f68178b = true;
 
     public static void a(String str) {
-        if (f64460b) {
+        if (f68178b) {
             c(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(String str) {
-        if (f64460b) {
+        if (f68178b) {
             c(5, "BaiDuAbSDK", str, null);
         }
     }
@@ -28,7 +28,7 @@ public final class i {
     public static void c(int i2, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
             int length = str2.length();
-            int i3 = f64459a;
+            int i3 = f68177a;
             if (length >= i3) {
                 if (i2 == 1) {
                     Log.v(str, str2.substring(0, i3));
@@ -77,13 +77,13 @@ public final class i {
     }
 
     public static void d(Throwable th) {
-        if (f64460b) {
+        if (f68178b) {
             c(2, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void e(Throwable th) {
-        if (f64460b) {
+        if (f68178b) {
             c(4, "BaiDuAbSDK", "", th);
         }
     }
@@ -137,6 +137,6 @@ public final class i {
     }
 
     public static void g(boolean z) {
-        f64460b = z;
+        f68178b = z;
     }
 }

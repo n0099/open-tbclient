@@ -14,7 +14,6 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import d.a.m0.z0.f0;
 import d.a.m0.z0.h0;
 import d.a.m0.z0.n;
@@ -29,18 +28,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class a extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f15497a;
+        public final /* synthetic */ Bitmap f15559a;
 
         public a(Bitmap bitmap) {
-            this.f15497a = bitmap;
+            this.f15559a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f15497a);
-            return GameShareCardActivity.this.generateShareItem(this.f15497a);
+            GameShareCardActivity.this.createWaterMark(this.f15559a);
+            return GameShareCardActivity.this.generateShareItem(this.f15559a);
         }
     }
 
@@ -61,18 +60,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class c extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f15500a;
+        public final /* synthetic */ Bitmap f15562a;
 
         public c(Bitmap bitmap) {
-            this.f15500a = bitmap;
+            this.f15562a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f15500a);
-            return GameShareCardActivity.this.generateShareItem(this.f15500a);
+            GameShareCardActivity.this.createWaterMark(this.f15562a);
+            return GameShareCardActivity.this.generateShareItem(this.f15562a);
         }
     }
 
@@ -93,18 +92,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class e extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f15503a;
+        public final /* synthetic */ Bitmap f15565a;
 
         public e(Bitmap bitmap) {
-            this.f15503a = bitmap;
+            this.f15565a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f15503a);
-            return GameShareCardActivity.this.generateShareItem(this.f15503a);
+            GameShareCardActivity.this.createWaterMark(this.f15565a);
+            return GameShareCardActivity.this.generateShareItem(this.f15565a);
         }
     }
 
@@ -125,18 +124,18 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
     public class g extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f15506a;
+        public final /* synthetic */ Bitmap f15568a;
 
         public g(Bitmap bitmap) {
-            this.f15506a = bitmap;
+            this.f15568a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            GameShareCardActivity.this.createWaterMark(this.f15506a);
-            return GameShareCardActivity.this.generateShareItem(this.f15506a);
+            GameShareCardActivity.this.createWaterMark(this.f15568a);
+            return GameShareCardActivity.this.generateShareItem(this.f15568a);
         }
     }
 
@@ -237,7 +236,7 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
         if (bitmap == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", "8").param("obj_type", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9));
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", "8").param("obj_type", "9"));
         h0.b(new e(bitmap), new f());
     }
 

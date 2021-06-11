@@ -11,19 +11,19 @@ import java.util.Iterator;
 public class TbRichTextData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13252e;
+    public int f13317e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpannableStringBuilder f13253f;
+    public SpannableStringBuilder f13318f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbRichTextImageInfo f13254g;
+    public TbRichTextImageInfo f13319g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<d> f13255h;
+    public ArrayList<d> f13320h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbRichTextVoiceInfo f13256i;
+    public TbRichTextVoiceInfo f13321i;
     public TbRichTextTextInfo j;
     public TbRichTextEmotionInfo k;
     public i l;
@@ -46,66 +46,88 @@ public class TbRichTextData extends OrmObject {
     }
 
     public TbRichTextData() {
-        this.f13252e = 0;
-        this.f13253f = null;
-        this.f13254g = null;
-        this.f13255h = null;
-        this.f13256i = null;
+        this.f13317e = 0;
+        this.f13318f = null;
+        this.f13319g = null;
+        this.f13320h = null;
+        this.f13321i = null;
         this.j = null;
         this.p = false;
-        this.q = b.f39015a;
+        this.q = b.f42668a;
     }
 
-    public SpannableStringBuilder A() {
-        return this.f13253f;
+    public int A() {
+        return this.q;
     }
 
-    public int B() {
+    public TbRichTextImageInfo B() {
+        if (this.f13317e != 8) {
+            return null;
+        }
+        return this.f13319g;
+    }
+
+    public TbRichTextLinkImageInfo C() {
+        if (this.f13317e != 1280) {
+            return null;
+        }
+        return this.m;
+    }
+
+    public TbRichTextMemeInfo D() {
+        return this.n;
+    }
+
+    public SpannableStringBuilder E() {
+        return this.f13318f;
+    }
+
+    public int F() {
         return this.o;
     }
 
-    public TbRichTextTextInfo C() {
-        if (this.f13252e != 1) {
+    public TbRichTextTextInfo G() {
+        if (this.f13317e != 1) {
             return null;
         }
         return this.j;
     }
 
-    public i D() {
-        if (this.f13252e != 32) {
+    public i H() {
+        if (this.f13317e != 32) {
             return null;
         }
         return this.l;
     }
 
-    public TbRichTextVoiceInfo E() {
-        int i2 = this.f13252e;
+    public TbRichTextVoiceInfo I() {
+        int i2 = this.f13317e;
         if (i2 == 512 || i2 == 768) {
-            return this.f13256i;
+            return this.f13321i;
         }
         return null;
     }
 
-    public boolean F() {
+    public boolean J() {
         return this.p;
     }
 
-    public void G(TbRichTextEmotionInfo tbRichTextEmotionInfo) {
-        if (this.f13252e != 17) {
+    public void K(TbRichTextEmotionInfo tbRichTextEmotionInfo) {
+        if (this.f13317e != 17) {
             return;
         }
         this.k = tbRichTextEmotionInfo;
     }
 
-    public void H(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
-        if (this.f13252e != 1281) {
+    public void L(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
+        if (this.f13317e != 1281) {
             return;
         }
         this.r = tbRichTextEvaluateItemInfo;
     }
 
-    public void I(int i2, int i3) {
-        ArrayList<d> arrayList = this.f13255h;
+    public void M(int i2, int i3) {
+        ArrayList<d> arrayList = this.f13320h;
         if (arrayList != null) {
             Iterator<d> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -114,143 +136,121 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public void J(boolean z) {
+    public void N(boolean z) {
         this.p = z;
     }
 
-    public void K(TbRichTextImageInfo tbRichTextImageInfo) {
-        if (this.f13252e != 8) {
+    public void O(TbRichTextImageInfo tbRichTextImageInfo) {
+        if (this.f13317e != 8) {
             return;
         }
-        this.f13254g = tbRichTextImageInfo;
+        this.f13319g = tbRichTextImageInfo;
     }
 
-    public void L(TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo) {
+    public void P(TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo) {
     }
 
-    public void M(TbRichTextLinkImageInfo tbRichTextLinkImageInfo) {
+    public void Q(TbRichTextLinkImageInfo tbRichTextLinkImageInfo) {
         this.m = tbRichTextLinkImageInfo;
     }
 
-    public void N(TbRichTextMemeInfo tbRichTextMemeInfo) {
-        if (this.f13252e != 20) {
+    public void R(TbRichTextMemeInfo tbRichTextMemeInfo) {
+        if (this.f13317e != 20) {
             return;
         }
         this.n = tbRichTextMemeInfo;
     }
 
-    public void O(int i2) {
+    public void S(int i2) {
         this.o = i2;
     }
 
-    public void P(i iVar) {
-        if (this.f13252e != 32) {
+    public void T(i iVar) {
+        if (this.f13317e != 32) {
             return;
         }
         this.l = iVar;
     }
 
-    public void Q(TbRichTextVoiceInfo tbRichTextVoiceInfo) {
-        int i2 = this.f13252e;
+    public void U(TbRichTextVoiceInfo tbRichTextVoiceInfo) {
+        int i2 = this.f13317e;
         if (i2 == 512 || i2 == 768) {
-            this.f13256i = tbRichTextVoiceInfo;
+            this.f13321i = tbRichTextVoiceInfo;
         }
     }
 
-    public void R(CharSequence charSequence) {
-        int i2 = this.f13252e;
+    public void V(CharSequence charSequence) {
+        int i2 = this.f13317e;
         if ((i2 == 1 || i2 == 768) && charSequence != null) {
-            if (this.f13253f == null) {
-                this.f13253f = new SpannableStringBuilder("");
+            if (this.f13318f == null) {
+                this.f13318f = new SpannableStringBuilder("");
             }
-            this.f13253f.replace(0, 0, charSequence);
-            this.j.charLength = this.f13253f.length();
+            this.f13318f.replace(0, 0, charSequence);
+            this.j.charLength = this.f13318f.length();
         }
     }
 
     public int getType() {
-        return this.f13252e;
-    }
-
-    public void s(CharSequence charSequence) {
-        int i2 = this.f13252e;
-        if ((i2 == 1 || i2 == 768) && charSequence != null) {
-            if (this.f13253f == null) {
-                this.f13253f = new SpannableStringBuilder("");
-            }
-            this.f13253f.append(charSequence);
-            this.j.charLength = this.f13253f.length();
-        }
+        return this.f13317e;
     }
 
     public void setVideoUrl(String str) {
-        if (this.f13252e != 32 || str == null) {
+        if (this.f13317e != 32 || str == null) {
             return;
         }
-        this.f13253f = new SpannableStringBuilder(str);
-    }
-
-    public ArrayList<d> t() {
-        if (this.f13255h == null) {
-            this.f13255h = new ArrayList<>();
-        }
-        return this.f13255h;
+        this.f13318f = new SpannableStringBuilder(str);
     }
 
     public String toString() {
         TbRichTextEmotionInfo tbRichTextEmotionInfo;
-        int i2 = this.f13252e;
+        int i2 = this.f13317e;
         if (i2 == 1) {
-            SpannableStringBuilder spannableStringBuilder = this.f13253f;
+            SpannableStringBuilder spannableStringBuilder = this.f13318f;
             return spannableStringBuilder != null ? spannableStringBuilder.toString() : "";
         } else if (i2 != 8) {
             return (i2 != 17 || (tbRichTextEmotionInfo = this.k) == null) ? "" : tbRichTextEmotionInfo.mGifInfo.mSharpText;
         } else {
-            TbRichTextImageInfo tbRichTextImageInfo = this.f13254g;
-            return tbRichTextImageInfo != null ? tbRichTextImageInfo.u() : "";
+            TbRichTextImageInfo tbRichTextImageInfo = this.f13319g;
+            return tbRichTextImageInfo != null ? tbRichTextImageInfo.y() : "";
         }
     }
 
-    public TbRichTextEmotionInfo u() {
+    public void w(CharSequence charSequence) {
+        int i2 = this.f13317e;
+        if ((i2 == 1 || i2 == 768) && charSequence != null) {
+            if (this.f13318f == null) {
+                this.f13318f = new SpannableStringBuilder("");
+            }
+            this.f13318f.append(charSequence);
+            this.j.charLength = this.f13318f.length();
+        }
+    }
+
+    public ArrayList<d> x() {
+        if (this.f13320h == null) {
+            this.f13320h = new ArrayList<>();
+        }
+        return this.f13320h;
+    }
+
+    public TbRichTextEmotionInfo y() {
         return this.k;
     }
 
-    public TbRichTextEvaluateItemInfo v() {
+    public TbRichTextEvaluateItemInfo z() {
         return this.r;
     }
 
-    public int w() {
-        return this.q;
-    }
-
-    public TbRichTextImageInfo x() {
-        if (this.f13252e != 8) {
-            return null;
-        }
-        return this.f13254g;
-    }
-
-    public TbRichTextLinkImageInfo y() {
-        if (this.f13252e != 1280) {
-            return null;
-        }
-        return this.m;
-    }
-
-    public TbRichTextMemeInfo z() {
-        return this.n;
-    }
-
     public TbRichTextData(int i2) {
-        this.f13252e = 0;
-        this.f13253f = null;
-        this.f13254g = null;
-        this.f13255h = null;
-        this.f13256i = null;
+        this.f13317e = 0;
+        this.f13318f = null;
+        this.f13319g = null;
+        this.f13320h = null;
+        this.f13321i = null;
         this.j = null;
         this.p = false;
-        this.q = b.f39015a;
-        this.f13252e = i2;
+        this.q = b.f42668a;
+        this.f13317e = i2;
         this.j = new TbRichTextTextInfo(this);
     }
 }

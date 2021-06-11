@@ -8,24 +8,24 @@ import javax.crypto.spec.SecretKeySpec;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1504a = "a";
+    public static final String f1517a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f1505b = "0000000000000000".getBytes();
+    public static byte[] f1518b = "0000000000000000".getBytes();
 
     /* renamed from: c  reason: collision with root package name */
-    public static byte[] f1506c = "vrf5g7h0tededwx3".getBytes();
+    public static byte[] f1519c = "vrf5g7h0tededwx3".getBytes();
 
     public static String a(String str, String str2) {
         try {
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f1505b);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f1518b);
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             byte[] bytes = str.getBytes("utf-8");
             cipher.init(1, secretKeySpec, ivParameterSpec);
             return e.a(cipher.doFinal(bytes));
         } catch (Throwable th) {
-            CtAuth.warn(f1504a, "encryptAesNew error", th);
+            CtAuth.warn(f1517a, "encryptAesNew error", th);
             return null;
         }
     }
@@ -45,20 +45,20 @@ public class a {
                     bArr[i2] = 0;
                 }
             }
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f1506c);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f1519c);
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             cipher.init(1, secretKeySpec, ivParameterSpec);
             return cipher.doFinal(bArr);
         } catch (Throwable th) {
-            CtAuth.warn(f1504a, "encrypt4Ux error", th);
+            CtAuth.warn(f1517a, "encrypt4Ux error", th);
             return null;
         }
     }
 
     public static String c(String str, String str2) {
         try {
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f1505b);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f1518b);
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(2, secretKeySpec, ivParameterSpec);
@@ -66,10 +66,10 @@ public class a {
             if (doFinal != null) {
                 return new String(doFinal);
             }
-            CtAuth.info(f1504a, "Aes decrypt result is empty");
+            CtAuth.info(f1517a, "Aes decrypt result is empty");
             return "";
         } catch (Throwable th) {
-            CtAuth.warn(f1504a, "decryptAesNew error", th);
+            CtAuth.warn(f1517a, "decryptAesNew error", th);
             return "";
         }
     }

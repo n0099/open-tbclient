@@ -3,10 +3,10 @@ package com.bun.miitmdid.supplier;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.google.android.material.internal.ManufacturerUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         UNSUPPORT(-1, "unsupport"),
         HUA_WEI(0, "HUAWEI"),

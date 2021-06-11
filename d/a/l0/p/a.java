@@ -3,15 +3,15 @@ package d.a.l0.p;
 public class a implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48317e;
+    public int f51991e;
 
     public a(int i2) {
-        this.f48317e = i2;
+        this.f51991e = i2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int i2 = this.f48317e;
+        int i2 = this.f51991e;
         if (i2 < 0) {
             return;
         }

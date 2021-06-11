@@ -7,19 +7,19 @@ import tbclient.GetAddressList.friendList;
 public class a implements TbCheckBox.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50656e = false;
+    public boolean f54333e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50657f;
+    public String f54334f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f50658g;
+    public long f54335g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50659h;
+    public int f54336h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f50660i;
+    public String f54337i;
     public String j;
     public String k;
     public b l;
@@ -35,7 +35,7 @@ public class a implements TbCheckBox.c {
 
     public String c() {
         StringBuilder sb = new StringBuilder(64);
-        String str = this.f50657f;
+        String str = this.f54334f;
         if (str != null) {
             sb.append(str);
         }
@@ -51,11 +51,11 @@ public class a implements TbCheckBox.c {
     }
 
     public long e() {
-        return this.f50658g;
+        return this.f54335g;
     }
 
     public String f() {
-        return this.f50657f;
+        return this.f54334f;
     }
 
     public String g() {
@@ -63,23 +63,23 @@ public class a implements TbCheckBox.c {
     }
 
     public String h() {
-        return this.f50660i;
+        return this.f54337i;
     }
 
     public int i() {
-        return this.f50659h;
+        return this.f54336h;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public boolean isChecked() {
-        return this.f50656e;
+        return this.f54333e;
     }
 
     public void j(friendList friendlist) {
         if (friendlist != null) {
-            this.f50657f = friendlist.user_name;
-            this.f50658g = friendlist.user_id.longValue();
-            this.f50660i = friendlist.portrait;
+            this.f54334f = friendlist.user_name;
+            this.f54335g = friendlist.user_id.longValue();
+            this.f54337i = friendlist.portrait;
             this.m = friendlist.name_show;
             this.j = friendlist.quanpin;
             LbsInfo lbsInfo = friendlist.location;
@@ -114,11 +114,11 @@ public class a implements TbCheckBox.c {
     }
 
     public void n(long j) {
-        this.f50658g = j;
+        this.f54335g = j;
     }
 
     public void o(String str) {
-        this.f50657f = str;
+        this.f54334f = str;
     }
 
     public void p(String str) {
@@ -126,15 +126,15 @@ public class a implements TbCheckBox.c {
     }
 
     public void q(String str) {
-        this.f50660i = str;
+        this.f54337i = str;
     }
 
     public void r(int i2) {
-        this.f50659h = i2;
+        this.f54336h = i2;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public void setChecked(boolean z) {
-        this.f50656e = z;
+        this.f54333e = z;
     }
 }

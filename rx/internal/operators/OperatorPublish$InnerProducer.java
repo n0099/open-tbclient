@@ -6,7 +6,7 @@ import h.j;
 import h.k;
 import h.o.a.r;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements f, k {
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long UNSUBSCRIBED = Long.MIN_VALUE;

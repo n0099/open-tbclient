@@ -2,7 +2,7 @@ package protobuf.CommitInviteMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_TOUIDS = "";
@@ -23,7 +23,7 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_DURATION = 0;
     public static final Long DEFAULT_RECORDID = 0L;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String content;
         public Integer duration;

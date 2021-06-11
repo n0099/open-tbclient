@@ -22,21 +22,21 @@ public class c {
         if (bVar == null) {
             return null;
         }
-        d.a.l0.a.h1.c.h.d dVar = bVar.f47881a;
-        if (dVar != null && dVar.n != null && dVar.f42676f != null) {
+        d.a.l0.a.h1.c.h.d dVar = bVar.f51555a;
+        if (dVar != null && dVar.n != null && dVar.f46352f != null) {
             Paint paint = new Paint();
             paint.setAntiAlias(true);
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setColor(dVar.n.f42683f);
-            paint.setTextSize(dVar.n.f42684g);
+            paint.setColor(dVar.n.f46359f);
+            paint.setTextSize(dVar.n.f46360g);
             d.c cVar2 = dVar.n;
-            float f2 = cVar2.f42686i;
+            float f2 = cVar2.f46362i;
             float f3 = cVar2.n;
             Paint paint2 = new Paint();
             paint2.setAntiAlias(true);
             paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint2.setColor(dVar.n.f42685h);
-            String str = dVar.n.f42682e;
+            paint2.setColor(dVar.n.f46361h);
+            String str = dVar.n.f46358e;
             float f4 = f2 * 2.0f;
             float measureText = paint.measureText(str) + f4;
             float f5 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f4;
@@ -67,8 +67,8 @@ public class c {
                 imageView.setImageBitmap(createBitmap);
                 BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
                 MarkerOptions markerOptions = new MarkerOptions();
-                d.a.l0.a.h1.c.h.c cVar4 = dVar.f42676f;
-                MarkerOptions zIndex = markerOptions.position(new LatLng(cVar4.f42673e, cVar4.f42674f)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
+                d.a.l0.a.h1.c.h.c cVar4 = dVar.f46352f;
+                MarkerOptions zIndex = markerOptions.position(new LatLng(cVar4.f46349e, cVar4.f46350f)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
                 d.a.l0.a.e0.d.g("map", "createLabel end");
                 return zIndex;
             }

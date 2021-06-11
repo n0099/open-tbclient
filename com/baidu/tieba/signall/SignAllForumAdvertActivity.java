@@ -23,13 +23,13 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public NavigationBar mNavigationBar;
 
     /* loaded from: classes5.dex */
-    public class a extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((a) aVar, str, i2);
             if (aVar == null) {
                 SignAllForumAdvertActivity.this.finish();
@@ -73,7 +73,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         this.mCloseBtn = (ImageView) findViewById(R.id.signallforum_advert_close);
         this.mAdvertPic.setDefaultBgResource(R.drawable.transparent_bg);
         d.h().m(this.mAdPic, 10, new a(), null);
-        this.mAdvertPic.V(this.mAdPic, 10, false);
+        this.mAdvertPic.U(this.mAdPic, 10, false);
         this.mAdvertPic.setOnClickListener(new b());
         this.mCloseBtn.setOnClickListener(new c());
     }

@@ -8,7 +8,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.mobstat.bm;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -20,35 +19,35 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f8820a = new f();
+    public static f f8882a = new f();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8821b = "";
+    public String f8883b = "";
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8822a;
+        public String f8884a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8823b;
+        public String f8885b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8824c;
+        public String f8886c;
 
         public a(String str, String str2, String str3) {
-            this.f8822a = str == null ? "" : str;
-            this.f8823b = str2 == null ? "" : str2;
-            this.f8824c = str3 == null ? "" : str3;
+            this.f8884a = str == null ? "" : str;
+            this.f8885b = str2 == null ? "" : str2;
+            this.f8886c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("n", this.f8822a);
-                jSONObject.put("v", this.f8823b);
-                jSONObject.put("w", this.f8824c);
+                jSONObject.put("n", this.f8884a);
+                jSONObject.put("v", this.f8885b);
+                jSONObject.put("w", this.f8886c);
                 return jSONObject;
             } catch (JSONException e2) {
                 bb.c().b(e2);
@@ -57,7 +56,7 @@ public class f {
         }
 
         public String b() {
-            return this.f8822a;
+            return this.f8884a;
         }
     }
 
@@ -122,8 +121,8 @@ public class f {
         }
         if (z) {
             String b2 = a2.get(0).b();
-            if (a(b2, this.f8821b)) {
-                this.f8821b = b2;
+            if (a(b2, this.f8883b)) {
+                this.f8883b = b2;
             }
         }
         a(context, a2, z);
@@ -137,7 +136,7 @@ public class f {
     }
 
     private boolean a(String str, String str2) {
-        return (TextUtils.isEmpty(str) || str.equals(this.f8821b)) ? false : true;
+        return (TextUtils.isEmpty(str) || str.equals(this.f8883b)) ? false : true;
     }
 
     private String a(Context context, String str) {
@@ -158,7 +157,7 @@ public class f {
     private void a(Context context, ArrayList<a> arrayList, boolean z) {
         String str;
         StringBuilder sb = new StringBuilder();
-        sb.append(System.currentTimeMillis() + FieldBuilder.SE);
+        sb.append(System.currentTimeMillis() + "|");
         sb.append(z ? 1 : 0);
         try {
             JSONArray jSONArray = new JSONArray();

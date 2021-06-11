@@ -10,19 +10,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d extends f {
-    public static final boolean x = k.f43199a;
+    public static final boolean x = k.f46875a;
     public static int y = 35;
     public boolean v = false;
     public JSONObject w;
 
     public d() {
-        this.f43187c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
+        this.f46863c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
     }
 
     @Override // d.a.l0.a.j2.p.f, d.a.l0.a.j2.p.e
     public JSONObject f() {
-        if (this.f43192h == null) {
-            this.f43192h = new JSONObject();
+        if (this.f46868h == null) {
+            this.f46868h = new JSONObject();
         }
         try {
             if (this.w != null) {
@@ -33,12 +33,12 @@ public class d extends f {
                     }
                 }
                 if (this.w.length() != 0) {
-                    this.f43192h.put("info", this.w);
+                    this.f46868h.put("info", this.w);
                 }
             }
             ExtensionCore M = d.a.l0.a.h0.u.g.N().M();
             if (M != null) {
-                this.f43192h.put("extension_ver", M.extensionCoreVersionName);
+                this.f46868h.put("extension_ver", M.extensionCoreVersionName);
             }
         } catch (JSONException e2) {
             if (x) {
@@ -65,7 +65,7 @@ public class d extends f {
     }
 
     public d m(String str) {
-        this.f43190f = str;
+        this.f46866f = str;
         return this;
     }
 
@@ -75,12 +75,12 @@ public class d extends f {
     }
 
     public d o(int i2) {
-        this.f43186b = String.valueOf(i2);
+        this.f46862b = String.valueOf(i2);
         return this;
     }
 
     public d p(@NonNull d.a.l0.a.q2.a aVar) {
-        this.f43186b = String.valueOf(aVar.a());
+        this.f46862b = String.valueOf(aVar.a());
         String sb = aVar.f().toString();
         if (!TextUtils.isEmpty(sb)) {
             l("detail", sb);
@@ -89,7 +89,7 @@ public class d extends f {
     }
 
     public d q(String str) {
-        this.f43185a = str;
+        this.f46861a = str;
         return this;
     }
 
@@ -98,10 +98,10 @@ public class d extends f {
             return this;
         }
         if (!TextUtils.isEmpty(eVar.T())) {
-            this.f43187c = eVar.T();
+            this.f46863c = eVar.T();
         }
         if (!TextUtils.isEmpty(eVar.H())) {
-            this.f43190f = eVar.H();
+            this.f46866f = eVar.H();
         }
         if (!TextUtils.isEmpty(eVar.W())) {
             this.p = eVar.W();
@@ -113,12 +113,12 @@ public class d extends f {
     }
 
     public d s(String str) {
-        this.f43191g = str;
+        this.f46867g = str;
         return this;
     }
 
     public d t(String str) {
-        this.f43187c = str;
+        this.f46863c = str;
         return this;
     }
 }

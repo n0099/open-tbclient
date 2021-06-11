@@ -17,16 +17,16 @@ import java.util.Iterator;
 public class d implements d.a.n0.d0.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public EnterForumModel f55923a;
+    public EnterForumModel f59612a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a f55924b;
+    public c.a f59613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final EnterForumModel.f f55925c = new a();
+    public final EnterForumModel.f f59614c = new a();
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.c.c.g.a f55926d = new b(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+    public d.a.c.c.g.a f59615d = new b(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
 
     /* loaded from: classes4.dex */
     public class a implements EnterForumModel.f {
@@ -36,15 +36,15 @@ public class d implements d.a.n0.d0.c {
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.f
         public void a(EnterForumModel.e eVar) {
             d.a.n0.j0.d.d dVar;
-            if (d.this.f55924b == null) {
+            if (d.this.f59613b == null) {
                 return;
             }
-            if (eVar == null || !eVar.f14499b || (dVar = eVar.f14501d) == null || dVar.e() == null) {
-                d.this.f55924b.a(null, false, 1, 0);
+            if (eVar == null || !eVar.f14556b || (dVar = eVar.f14558d) == null || dVar.e() == null) {
+                d.this.f59613b.a(null, false, 1, 0);
                 return;
             }
             ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-            ArrayList<f> b2 = eVar.f14501d.e().b();
+            ArrayList<f> b2 = eVar.f14558d.e().b();
             if (ListUtils.getCount(b2) > 0) {
                 Iterator<f> it = b2.iterator();
                 while (it.hasNext()) {
@@ -56,7 +56,7 @@ public class d implements d.a.n0.d0.c {
                     }
                 }
             }
-            d.this.f55924b.a(arrayList, true, 1, 0);
+            d.this.f59613b.a(arrayList, true, 1, 0);
         }
     }
 
@@ -69,36 +69,36 @@ public class d implements d.a.n0.d0.c {
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = responsedMessage instanceof forumRecommendSocketResponseMessage;
-            if ((z || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && d.this.f55923a.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if ((z || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && d.this.f59612a.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (z) {
-                    d.this.f55923a.J((forumRecommendSocketResponseMessage) responsedMessage);
+                    d.this.f59612a.N((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    d.this.f55923a.I((forumRecommendHttpResponseMessage) responsedMessage);
+                    d.this.f59612a.M((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
     }
 
     public d() {
-        this.f55923a = null;
+        this.f59612a = null;
         EnterForumModel enterForumModel = new EnterForumModel(null);
-        this.f55923a = enterForumModel;
-        enterForumModel.P(this.f55925c);
-        MessageManager.getInstance().registerListener(this.f55926d);
+        this.f59612a = enterForumModel;
+        enterForumModel.T(this.f59614c);
+        MessageManager.getInstance().registerListener(this.f59615d);
     }
 
     @Override // d.a.n0.d0.c
     public void a(c.a aVar) {
-        this.f55924b = aVar;
+        this.f59613b = aVar;
     }
 
     @Override // d.a.n0.d0.c
     public void b() {
         EnterForumModel enterForumModel;
-        if (this.f55924b == null || (enterForumModel = this.f55923a) == null) {
+        if (this.f59613b == null || (enterForumModel = this.f59612a) == null) {
             return;
         }
-        enterForumModel.D(true);
+        enterForumModel.H(true);
     }
 }

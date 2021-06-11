@@ -3,8 +3,8 @@ package com.alipay.security.mobile.module.http.model;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2080a = false;
+    public boolean f2093a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2081b = "";
+    public String f2094b = "";
 }

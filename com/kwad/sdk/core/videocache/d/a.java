@@ -8,11 +8,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.kwad.sdk.core.videocache.j;
 import com.kwad.sdk.core.videocache.n;
-/* loaded from: classes6.dex */
+import com.kwai.video.player.misc.IMediaFormat;
+/* loaded from: classes7.dex */
 public class a extends SQLiteOpenHelper implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f32722a = {"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
+    public static final String[] f34814a = {"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, IMediaFormat.KEY_MIME};
 
     public a(Context context) {
         super(context, "AndroidVideoCache.db", (SQLiteDatabase.CursorFactory) null, 1);
@@ -21,14 +22,14 @@ public class a extends SQLiteOpenHelper implements b {
 
     private ContentValues a(n nVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("url", nVar.f32768a);
-        contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f32769b));
-        contentValues.put("mime", nVar.f32770c);
+        contentValues.put("url", nVar.f34860a);
+        contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f34861b));
+        contentValues.put(IMediaFormat.KEY_MIME, nVar.f34862c);
         return contentValues;
     }
 
     private n a(Cursor cursor) {
-        return new n(cursor.getString(cursor.getColumnIndexOrThrow("url")), cursor.getLong(cursor.getColumnIndexOrThrow(CloudStabilityUBCUtils.KEY_LENGTH)), cursor.getString(cursor.getColumnIndexOrThrow("mime")));
+        return new n(cursor.getString(cursor.getColumnIndexOrThrow("url")), cursor.getLong(cursor.getColumnIndexOrThrow(CloudStabilityUBCUtils.KEY_LENGTH)), cursor.getString(cursor.getColumnIndexOrThrow(IMediaFormat.KEY_MIME)));
     }
 
     @Override // com.kwad.sdk.core.videocache.d.b
@@ -38,7 +39,7 @@ public class a extends SQLiteOpenHelper implements b {
         j.a(str);
         n nVar = null;
         try {
-            cursor = getReadableDatabase().query("SourceInfo", f32722a, "url=?", new String[]{str}, null, null, null);
+            cursor = getReadableDatabase().query("SourceInfo", f34814a, "url=?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {

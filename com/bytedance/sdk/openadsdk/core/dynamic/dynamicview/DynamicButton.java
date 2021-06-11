@@ -20,7 +20,7 @@ public class DynamicButton extends DynamicBaseWidgetImp {
     }
 
     private void f() {
-        this.p = ((this.f28027f - ((int) al.a(this.f28030i, this.j.e()))) / 2) - this.j.a();
+        this.p = ((this.f28130f - ((int) al.a(this.f28133i, this.j.e()))) / 2) - this.j.a();
         this.q = 0;
     }
 

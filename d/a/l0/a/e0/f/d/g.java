@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41422a = k.f43199a;
+    public static final boolean f45098a = k.f46875a;
 
     public static String d(JsObject jsObject) {
         if (jsObject == null) {
@@ -40,7 +40,7 @@ public class g {
         try {
             WebSocketManager.INSTANCE.close(C, r, C2);
         } catch (Exception e2) {
-            if (f41422a) {
+            if (f45098a) {
                 e2.printStackTrace();
             }
         }
@@ -72,7 +72,7 @@ public class g {
         try {
             jSONObject.put("taskId", connect.getTaskId());
         } catch (JSONException e2) {
-            if (f41422a) {
+            if (f45098a) {
                 e2.printStackTrace();
             }
         }
@@ -89,13 +89,13 @@ public class g {
             try {
                 jSONObject.put("errMsg", String.valueOf(obj));
             } catch (Exception e2) {
-                if (f41422a) {
+                if (f45098a) {
                     e2.printStackTrace();
                 }
             }
         }
         String jSONObject2 = jSONObject.toString();
-        if (f41422a) {
+        if (f45098a) {
             Log.d("WebSocketHelper", "getOnErrorParam - " + jSONObject2);
         }
         return jSONObject2;
@@ -115,12 +115,12 @@ public class g {
                 jSONObject.put("data", Base64.encodeToString(bArr, 2));
             }
         } catch (Exception e2) {
-            if (f41422a) {
+            if (f45098a) {
                 e2.printStackTrace();
             }
         }
         String jSONObject2 = jSONObject.toString();
-        if (f41422a) {
+        if (f45098a) {
             Log.d("WebSocketHelper", "getOnMessageParam - " + jSONObject2);
         }
         return jSONObject2;
@@ -135,12 +135,12 @@ public class g {
                 jSONObject2.put("data", jSONObject);
             }
         } catch (JSONException e2) {
-            if (f41422a) {
+            if (f45098a) {
                 e2.printStackTrace();
             }
         }
         String jSONObject3 = jSONObject2.toString();
-        if (f41422a) {
+        if (f45098a) {
             Log.d("WebSocketHelper", "getResultMsg - " + jSONObject3);
         }
         return jSONObject3;
@@ -184,7 +184,7 @@ public class g {
         try {
             WebSocketManager.INSTANCE.send(C, C2);
         } catch (Exception e2) {
-            if (f41422a) {
+            if (f45098a) {
                 e2.printStackTrace();
             }
         }
@@ -195,31 +195,31 @@ public class g {
     public static class a implements IWebSocketListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f41423e;
+        public final /* synthetic */ JsFunction f45099e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f41424f;
+        public final /* synthetic */ JsFunction f45100f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f41425g;
+        public final /* synthetic */ JsFunction f45101g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f41426h;
+        public final /* synthetic */ JsFunction f45102h;
 
         public a(JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, JsFunction jsFunction4) {
-            this.f41423e = jsFunction;
-            this.f41424f = jsFunction2;
-            this.f41425g = jsFunction3;
-            this.f41426h = jsFunction4;
+            this.f45099e = jsFunction;
+            this.f45100f = jsFunction2;
+            this.f45101g = jsFunction3;
+            this.f45102h = jsFunction4;
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onClose(JSONObject jSONObject) {
             String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
-            if (g.f41422a) {
+            if (g.f45098a) {
                 Log.d("WebSocketHelper", "onClose - " + jSONObject2);
             }
-            JsFunction jsFunction = this.f41425g;
+            JsFunction jsFunction = this.f45101g;
             if (jsFunction != null) {
                 jsFunction.call(jSONObject2);
             }
@@ -228,11 +228,11 @@ public class g {
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onError(Throwable th, JSONObject jSONObject) {
             String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
-            if (g.f41422a) {
+            if (g.f45098a) {
                 Log.d("WebSocketHelper", "onError throwable - " + th);
                 Log.d("WebSocketHelper", "onError jsonObject - " + jSONObject2);
             }
-            JsFunction jsFunction = this.f41426h;
+            JsFunction jsFunction = this.f45102h;
             if (jsFunction != null) {
                 jsFunction.call(g.g(th));
             }
@@ -240,7 +240,7 @@ public class g {
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onMessage(String str) {
-            JsFunction jsFunction = this.f41424f;
+            JsFunction jsFunction = this.f45100f;
             if (jsFunction != null) {
                 jsFunction.call(g.h(str));
             }
@@ -248,7 +248,7 @@ public class g {
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onOpen(Map<String, String> map) {
-            JsFunction jsFunction = this.f41423e;
+            JsFunction jsFunction = this.f45099e;
             if (jsFunction != null) {
                 jsFunction.call();
             }
@@ -256,7 +256,7 @@ public class g {
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onMessage(ByteBuffer byteBuffer) {
-            JsFunction jsFunction = this.f41424f;
+            JsFunction jsFunction = this.f45100f;
             if (jsFunction != null) {
                 jsFunction.call(g.h(byteBuffer));
             }

@@ -14,22 +14,22 @@ import java.net.UnknownHostException;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static t f30593a;
+    public static t f30684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConnectivityManager f30594b;
+    public final ConnectivityManager f30685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Network f30595c;
+    public Network f30686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConnectivityManager.NetworkCallback f30596d;
+    public ConnectivityManager.NetworkCallback f30687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30597e;
+    public boolean f30688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f30598f = false;
+    public volatile boolean f30689f = false;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -37,7 +37,7 @@ public class t {
     }
 
     public t(Context context) {
-        this.f30594b = (ConnectivityManager) context.getSystemService("connectivity");
+        this.f30685b = (ConnectivityManager) context.getSystemService("connectivity");
     }
 
     public static String c(String str) {
@@ -60,13 +60,13 @@ public class t {
     public void b() {
         try {
             if (Build.VERSION.SDK_INT < 21) {
-                this.f30598f = false;
-                this.f30594b.stopUsingNetworkFeature(0, "enableHIPRI");
+                this.f30689f = false;
+                this.f30685b.stopUsingNetworkFeature(0, "enableHIPRI");
             } else {
-                if (this.f30594b != null && this.f30596d != null) {
-                    this.f30594b.unregisterNetworkCallback(this.f30596d);
-                    this.f30596d = null;
-                    this.f30595c = null;
+                if (this.f30685b != null && this.f30687d != null) {
+                    this.f30685b.unregisterNetworkCallback(this.f30687d);
+                    this.f30687d = null;
+                    this.f30686c = null;
                 }
             }
         } catch (Exception e2) {
@@ -76,20 +76,20 @@ public class t {
 
     public boolean a() {
         if (Build.VERSION.SDK_INT >= 21) {
-            return this.f30595c != null;
+            return this.f30686c != null;
         }
-        return this.f30598f;
+        return this.f30689f;
     }
 
     public static t a(Context context) {
-        if (f30593a == null) {
+        if (f30684a == null) {
             synchronized (t.class) {
-                if (f30593a == null) {
-                    f30593a = new t(context);
+                if (f30684a == null) {
+                    f30684a = new t(context);
                 }
             }
         }
-        return f30593a;
+        return f30684a;
     }
 
     public static int b(String str) {
@@ -114,19 +114,19 @@ public class t {
         if (Build.VERSION.SDK_INT < 21) {
             return;
         }
-        Network network = this.f30595c;
-        if (network != null && !this.f30597e && (networkInfo = this.f30594b.getNetworkInfo(network)) != null && networkInfo.isAvailable()) {
+        Network network = this.f30686c;
+        if (network != null && !this.f30688e && (networkInfo = this.f30685b.getNetworkInfo(network)) != null && networkInfo.isAvailable()) {
             Log.e("HttpUtils", "reuse network: ");
-            aVar.a(this.f30595c);
+            aVar.a(this.f30686c);
             return;
         }
-        ConnectivityManager.NetworkCallback networkCallback = this.f30596d;
+        ConnectivityManager.NetworkCallback networkCallback = this.f30687d;
         if (networkCallback != null) {
             try {
-                this.f30594b.unregisterNetworkCallback(networkCallback);
+                this.f30685b.unregisterNetworkCallback(networkCallback);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                this.f30596d = null;
+                this.f30687d = null;
             }
             Log.e("HttpUtils", "clear: ");
         }
@@ -134,35 +134,43 @@ public class t {
         ConnectivityManager.NetworkCallback networkCallback2 = new ConnectivityManager.NetworkCallback() { // from class: com.cmic.sso.sdk.d.t.1
             @Override // android.net.ConnectivityManager.NetworkCallback
             public void onAvailable(Network network2) {
-                t.this.f30595c = network2;
+                t.this.f30686c = network2;
                 aVar.a(network2);
-                t.this.f30597e = false;
+                t.this.f30688e = false;
             }
 
             @Override // android.net.ConnectivityManager.NetworkCallback
             public void onLost(Network network2) {
-                t.this.f30597e = true;
+                t.this.f30688e = true;
             }
         };
-        this.f30596d = networkCallback2;
-        this.f30594b.requestNetwork(build, networkCallback2);
+        this.f30687d = networkCallback2;
+        this.f30685b.requestNetwork(build, networkCallback2);
     }
 
     public boolean a(String str) {
-        this.f30594b.startUsingNetworkFeature(0, "enableHIPRI");
+        this.f30685b.startUsingNetworkFeature(0, "enableHIPRI");
         for (int i2 = 0; i2 < 30; i2++) {
             try {
-                if (this.f30594b.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
+                if (this.f30685b.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
                     break;
                 }
                 Thread.sleep(1000L);
-            } catch (InterruptedException e2) {
-                com.cmic.sso.sdk.c.a.f30553a.add(e2);
+            } catch (InterruptedException unused) {
                 c.a("WifiNetworkUtils", "check hipri failed");
             }
         }
-        this.f30598f = this.f30594b.requestRouteToHost(5, b(c(str)));
-        c.a("WifiNetworkUtils", "切换数据网络结果 >>> " + this.f30598f);
-        return this.f30598f;
+        this.f30689f = this.f30685b.requestRouteToHost(5, b(c(str)));
+        c.a("WifiNetworkUtils", "切换数据网络结果 >>> " + this.f30689f);
+        return this.f30689f;
+    }
+
+    public String a(String str, int i2) {
+        try {
+            return (this.f30686c == null || Build.VERSION.SDK_INT < 21) ? "" : this.f30686c.getSocketFactory().createSocket(str, i2).getLocalAddress().getHostAddress();
+        } catch (Exception unused) {
+            c.a("WifiNetworkUtils", "获取eip失败");
+            return "";
+        }
     }
 }

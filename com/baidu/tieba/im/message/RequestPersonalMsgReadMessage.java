@@ -20,7 +20,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
     public Object encode() {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.groupId = d.a.n0.f1.s.a.f54696i;
+            builder.groupId = d.a.n0.f1.s.a.f58385i;
             builder.msgType = 22;
             builder.msgId = Long.valueOf(this.hasSentMsgId);
             builder.toUid = Long.valueOf(this.toUid);

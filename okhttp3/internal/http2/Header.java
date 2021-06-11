@@ -2,7 +2,7 @@ package okhttp3.internal.http2;
 
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Header {
     public final int hpackSize;
     public final ByteString name;

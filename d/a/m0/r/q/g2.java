@@ -6,34 +6,34 @@ import tbclient.BirthdayInfo;
 public class g2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f50034a;
+    public long f53710a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50035b;
+    public String f53711b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50036c;
+    public int f53712c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50037d;
+    public int f53713d;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f50034a = jSONObject.optLong("birthday_time", 0L);
-        this.f50037d = jSONObject.optInt("birthday_show_status", 0);
-        this.f50035b = jSONObject.optString("constellation", "");
-        this.f50036c = jSONObject.optInt("age", 0);
+        this.f53710a = jSONObject.optLong("birthday_time", 0L);
+        this.f53713d = jSONObject.optInt("birthday_show_status", 0);
+        this.f53711b = jSONObject.optString("constellation", "");
+        this.f53712c = jSONObject.optInt("age", 0);
     }
 
     public void b(BirthdayInfo birthdayInfo) {
         if (birthdayInfo == null) {
             return;
         }
-        this.f50034a = birthdayInfo.birthday_time.longValue();
-        this.f50037d = birthdayInfo.birthday_show_status.intValue();
-        this.f50035b = birthdayInfo.constellation;
-        this.f50036c = birthdayInfo.age.intValue();
+        this.f53710a = birthdayInfo.birthday_time.longValue();
+        this.f53713d = birthdayInfo.birthday_show_status.intValue();
+        this.f53711b = birthdayInfo.constellation;
+        this.f53712c = birthdayInfo.age.intValue();
     }
 }

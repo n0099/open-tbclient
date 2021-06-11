@@ -4,136 +4,117 @@ import android.os.SystemClock;
 import com.baidu.pass.ecommerce.common.request.BaseRequest;
 import com.cmic.sso.sdk.auth.AuthnHelper;
 import com.cmic.sso.sdk.b;
-import com.cmic.sso.sdk.b.b.a;
 import com.cmic.sso.sdk.b.b.e;
 import com.cmic.sso.sdk.b.b.f;
+import com.cmic.sso.sdk.b.b.h;
 import com.cmic.sso.sdk.d.i;
 import com.cmic.sso.sdk.d.j;
 import com.cmic.sso.sdk.d.k;
-import com.cmic.sso.sdk.d.m;
 import com.cmic.sso.sdk.d.n;
 import com.cmic.sso.sdk.d.p;
 import com.cmic.sso.sdk.d.q;
 import com.cmic.sso.sdk.d.r;
 import com.cmic.sso.sdk.d.s;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f30530a;
+    public static a f30624a;
 
     public static a a() {
-        if (f30530a == null) {
+        if (f30624a == null) {
             synchronized (a.class) {
-                if (f30530a == null) {
-                    f30530a = new a();
+                if (f30624a == null) {
+                    f30624a = new a();
                 }
             }
         }
-        return f30530a;
-    }
-
-    public void b(com.cmic.sso.sdk.a aVar, d dVar) {
-        int c2 = aVar.c("networktype");
-        com.cmic.sso.sdk.b.b.a aVar2 = new com.cmic.sso.sdk.b.b.a();
-        a.C0328a c0328a = new a.C0328a();
-        aVar2.f("0.1");
-        aVar2.i(aVar.b("phonescrip"));
-        aVar2.h(aVar.b("appid"));
-        aVar2.g(s.a());
-        aVar2.a(SystemClock.elapsedRealtime());
-        aVar2.c(p.a());
-        aVar2.d("6.0");
-        aVar2.e(aVar.b("userCapaid", "50"));
-        aVar2.a("0");
-        aVar2.b(aVar.b("sourceid"));
-        aVar2.k(aVar.b("authenticated_appid"));
-        aVar2.l(aVar.b("genTokenByAppid"));
-        aVar2.j(aVar2.m(aVar.b("appkey")));
-        c0328a.b(n.c());
-        c0328a.a(k.b("AID", ""));
-        c0328a.c(n.b());
-        c0328a.d(n.a());
-        c0328a.e(aVar.b("operatortype", ""));
-        c0328a.f("0");
-        c0328a.g(c2 + "");
-        c0328a.h(r.a(false));
-        c0328a.i(r.a(false, false));
-        c0328a.j(aVar.b("CLOSE_CERT_VERIFY", true) ? "0" : "1");
-        String f2 = q.f();
-        if (m.a()) {
-            c0328a.k("1");
-        } else {
-            c0328a.k("0");
-        }
-        aVar2.a(c0328a.a());
-        s.a(aVar, "getAuthToken");
-        aVar.a("interfaceVersion", "6.0");
-        a(new c(f2 + "/api/getAuthToken", aVar2, "POST", aVar.b("traceId")), dVar, aVar);
+        return f30624a;
     }
 
     public void a(boolean z, com.cmic.sso.sdk.a aVar, d dVar) {
         com.cmic.sso.sdk.b.b.b bVar = new com.cmic.sso.sdk.b.b.b();
-        bVar.a("1.0");
-        bVar.b("Android");
-        bVar.c(k.b("AID", ""));
-        bVar.d(z ? "1" : "0");
-        bVar.e(AuthnHelper.SDK_VERSION);
-        bVar.f(aVar.b("appid"));
-        bVar.g(bVar.c());
-        a(new c("https://config.cmpassport.com/client/uniConfig", bVar, "POST", aVar.b("traceId")), dVar, aVar);
+        bVar.b("1.0");
+        bVar.c("Android");
+        bVar.d(k.b("AID", ""));
+        bVar.e(z ? "1" : "0");
+        bVar.f(AuthnHelper.SDK_VERSION);
+        bVar.g(aVar.b("appid"));
+        bVar.h(bVar.w("iYm0HAnkxQtpvN44"));
+        a(new c("https://config2.cmpassport.com/client/uniConfig", bVar, "POST", aVar.b("traceId")), dVar, aVar);
     }
 
     public void a(com.cmic.sso.sdk.a aVar, d dVar) {
         String a2;
+        c bVar;
         int c2 = aVar.c("networktype");
-        String b2 = aVar.b("authtype", "");
-        e eVar = new e();
-        e.a aVar2 = new e.a();
-        aVar2.d("1.0");
-        aVar2.e(AuthnHelper.SDK_VERSION);
-        aVar2.f(aVar.b("appid"));
-        aVar2.g(b2);
-        aVar2.h(aVar.b("smskey", ""));
-        aVar2.i(aVar.b("imsi"));
-        aVar2.c(j.a().c());
-        aVar2.j(aVar.b("operatortype"));
-        aVar2.k(c2 + "");
-        aVar2.l(n.a());
-        aVar2.m(n.b());
-        aVar2.n(n.c());
-        aVar2.o("0");
-        aVar2.p(s.a());
-        aVar2.a(SystemClock.elapsedRealtime());
-        aVar2.q(p.a());
-        aVar2.r(aVar.b("apppackage"));
-        aVar2.s(aVar.b("appsign"));
-        eVar.a(aVar.a(b.a.f30458a));
-        if (aVar.b("use2048PublicKey", false)) {
-            com.cmic.sso.sdk.d.c.a(BaseRequest.TAG, "使用2对应的编码");
-            eVar.a("2");
-            a2 = i.a().b(aVar.a(b.a.f30458a));
+        h hVar = new h();
+        hVar.b("1.0");
+        hVar.c(AuthnHelper.SDK_VERSION);
+        hVar.d(aVar.b("appid"));
+        hVar.e(aVar.b(BaseStatisContent.IMSI));
+        hVar.f(aVar.b("operatortype"));
+        hVar.g(c2 + "");
+        hVar.h(n.a());
+        hVar.i(n.b());
+        hVar.j(n.c());
+        hVar.k("0");
+        hVar.l("1.0");
+        hVar.m(s.a());
+        hVar.n(p.a());
+        hVar.o(j.a().d());
+        hVar.q(aVar.b("apppackage"));
+        hVar.r(aVar.b("appsign"));
+        hVar.a_(k.b("AID", ""));
+        if (aVar.c("logintype") == 3) {
+            hVar.u("pre");
         } else {
-            a2 = i.a().a(aVar.a(b.a.f30458a));
+            hVar.y(aVar.b("userCapaid"));
+            if (aVar.c("logintype") == 1) {
+                hVar.y("200");
+            } else {
+                hVar.y("50");
+            }
+            hVar.u("authz");
         }
-        eVar.b(a2);
-        eVar.a(aVar2);
-        aVar.a("interfaceVersion", "6.0");
-        aVar.a("interfaceType", "getPrePhonescrip");
-        aVar.a("isCloseIpv4", q.b());
-        aVar.a("isCloseIpv6", q.c());
-        b bVar = new b(q.e() + "/rs/getPrePhonescrip", eVar, "POST", aVar.b("traceId"));
-        bVar.a("defendEOF", "1");
-        bVar.a("appid", aVar.b("appid", ""));
-        if (c2 == 3 && b2.equals("3")) {
-            bVar.a(true);
-            aVar.a("doNetworkSwitch", true);
+        s.a(aVar, "scripAndToken");
+        if (aVar.b("isCacheScrip", false)) {
+            hVar.s(r.a(false));
+            hVar.t(r.a(false, false));
+            hVar.x(aVar.b("phonescrip"));
+            hVar.p(hVar.w(aVar.b("appkey")));
+            bVar = new c(q.g() + "/rs/scripAndToken", hVar, "POST", aVar.b("traceId"));
+            bVar.a("defendEOF", "0");
         } else {
-            bVar.a(false);
-            aVar.a("doNetworkSwitch", false);
+            e eVar = new e();
+            eVar.a(aVar.a(b.a.f30569a));
+            eVar.a(hVar);
+            eVar.a(false);
+            aVar.a("isCloseIpv4", q.b());
+            aVar.a("isCloseIpv6", q.c());
+            String str = q.e() + "/rs/scripAndToken";
+            if (aVar.b("use2048PublicKey", false)) {
+                com.cmic.sso.sdk.d.c.a(BaseRequest.TAG, "使用2对应的编码");
+                eVar.b("2");
+                a2 = i.a().b(aVar.a(b.a.f30569a));
+            } else {
+                a2 = i.a().a(aVar.a(b.a.f30569a));
+            }
+            eVar.c(a2);
+            bVar = new b(str, eVar, "POST", aVar.b("traceId"));
+            bVar.a("defendEOF", "1");
+            if (c2 == 3) {
+                bVar.a(true);
+                aVar.a("doNetworkSwitch", true);
+            } else {
+                bVar.a(false);
+                aVar.a("doNetworkSwitch", false);
+            }
         }
+        bVar.a("interfaceVersion", "1.0");
         a(bVar, dVar, aVar);
     }
 
@@ -141,15 +122,15 @@ public class a {
         f fVar = new f();
         f.a aVar2 = new f.a();
         f.b bVar = new f.b();
-        bVar.d(s.a());
-        bVar.e(p.a());
-        bVar.a("2.0");
-        bVar.b(aVar.b("appid", ""));
-        bVar.c(bVar.f());
+        bVar.e(s.a());
+        bVar.f(p.a());
+        bVar.b("2.0");
+        bVar.c(aVar.b("appid", ""));
+        bVar.d(bVar.w(""));
         aVar2.a(jSONObject);
         fVar.a(aVar2);
         fVar.a(bVar);
-        a(new c(q.g(), fVar, "POST", aVar.b("traceId")), dVar, aVar);
+        a(new c(q.i(), fVar, "POST", aVar.b("traceId")), dVar, aVar);
     }
 
     private void a(final c cVar, final d dVar, final com.cmic.sso.sdk.a aVar) {
@@ -174,7 +155,8 @@ public class a {
                         }
                         s.b(aVar, string);
                         dVar.a(string, jSONObject.optString("desc"), jSONObject);
-                    } catch (Exception unused) {
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                         a(com.cmic.sso.sdk.b.d.a.a(102223));
                     }
                 }

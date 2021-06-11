@@ -3,28 +3,28 @@ package d.b.b.c2;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f64986f = {"https://toblog.ctobsnssdk.com", "https://tobapplog.ctobsnssdk.com"};
+    public static final String[] f68717f = {"https://toblog.ctobsnssdk.com", "https://tobapplog.ctobsnssdk.com"};
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f64987g = {"https://toblog.tobsnssdk.com", "https://tobapplog.tobsnssdk.com"};
+    public static final String[] f68718g = {"https://toblog.tobsnssdk.com", "https://tobapplog.tobsnssdk.com"};
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f64988h = {"https://toblog.itobsnssdk.com", "https://tobapplog.itobsnssdk.com"};
+    public static final String[] f68719h = {"https://toblog.itobsnssdk.com", "https://tobapplog.itobsnssdk.com"};
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64989a;
+    public String f68720a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64990b;
+    public String f68721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64991c;
+    public String f68722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64992d;
+    public String f68723d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f64993e;
+    public String[] f68724e;
 
     public a() {
         g();
@@ -45,46 +45,46 @@ public class a {
     }
 
     public String b() {
-        return this.f64989a;
+        return this.f68720a;
     }
 
     public String c() {
-        return this.f64990b;
+        return this.f68721b;
     }
 
     public String d() {
-        return this.f64991c;
+        return this.f68722c;
     }
 
     public String e() {
-        return this.f64992d;
+        return this.f68723d;
     }
 
     public String[] f() {
-        return this.f64993e;
+        return this.f68724e;
     }
 
     public final void g() {
-        this.f64989a = "https://toblog.ctobsnssdk.com/service/2/device_register_only/";
-        this.f64990b = "https://toblog.ctobsnssdk.com/service/2/app_alert_check/";
-        this.f64991c = "https://toblog.ctobsnssdk.com/service/2/log_settings/";
-        this.f64992d = "https://toblog.ctobsnssdk.com/service/2/abtest_config/";
-        this.f64993e = f64986f;
+        this.f68720a = "https://toblog.ctobsnssdk.com/service/2/device_register_only/";
+        this.f68721b = "https://toblog.ctobsnssdk.com/service/2/app_alert_check/";
+        this.f68722c = "https://toblog.ctobsnssdk.com/service/2/log_settings/";
+        this.f68723d = "https://toblog.ctobsnssdk.com/service/2/abtest_config/";
+        this.f68724e = f68717f;
     }
 
     public final void h() {
-        this.f64989a = "https://toblog.tobsnssdk.com/service/2/device_register_only/";
-        this.f64990b = "https://toblog.tobsnssdk.com/service/2/app_alert_check/";
-        this.f64991c = "https://toblog.tobsnssdk.com/service/2/log_settings/";
-        this.f64992d = "https://toblog.tobsnssdk.com/service/2/abtest_config/";
-        this.f64993e = f64987g;
+        this.f68720a = "https://toblog.tobsnssdk.com/service/2/device_register_only/";
+        this.f68721b = "https://toblog.tobsnssdk.com/service/2/app_alert_check/";
+        this.f68722c = "https://toblog.tobsnssdk.com/service/2/log_settings/";
+        this.f68723d = "https://toblog.tobsnssdk.com/service/2/abtest_config/";
+        this.f68724e = f68718g;
     }
 
     public final void i() {
-        this.f64989a = "https://toblog.itobsnssdk.com/service/2/device_register_only/";
-        this.f64990b = "https://toblog.itobsnssdk.com/service/2/app_alert_check/";
-        this.f64991c = "https://toblog.itobsnssdk.com/service/2/log_settings/";
-        this.f64992d = "https://toblog.itobsnssdk.com/service/2/abtest_config/";
-        this.f64993e = f64988h;
+        this.f68720a = "https://toblog.itobsnssdk.com/service/2/device_register_only/";
+        this.f68721b = "https://toblog.itobsnssdk.com/service/2/app_alert_check/";
+        this.f68722c = "https://toblog.itobsnssdk.com/service/2/log_settings/";
+        this.f68723d = "https://toblog.itobsnssdk.com/service/2/abtest_config/";
+        this.f68724e = f68719h;
     }
 }

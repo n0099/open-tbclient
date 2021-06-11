@@ -295,7 +295,7 @@ public class XAdRemoteCommonUtils {
         xAdRemoteDownloadAdInfo.mDownType = i2;
         xAdRemoteDownloadAdInfo.addExtraParam("pkgmd5", EncryptUtils.getMD5(xAdRemoteDownloadAdInfo.getOriginClickUrl()));
         new XAdRemoteDownloadAPKCommand(context.getApplicationContext(), xAdRemoteDownloadAdInfo).execute();
-        RemoteCommonUtils.getInstance().sendDownloadApkLog(context, SDKLogTypeConstants.TYPE_DL_DIALOG_CLICK, "downloadConfirm", xAdRemoteDownloadAdInfo);
+        RemoteCommonUtils.getInstance().sendDownloadApkLog(context, 1046, "downloadConfirm", xAdRemoteDownloadAdInfo);
     }
 
     public static void stateEvent(XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo, AdStateCode adStateCode) {

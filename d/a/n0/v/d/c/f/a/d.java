@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernNotificationViewHolder;
 import d.a.n0.z.b0;
 /* loaded from: classes4.dex */
-public class d extends d.a.c.j.e.a<d.a.n0.v.d.c.f.b.a, LiveTabConcernNotificationViewHolder> {
+public class d extends d.a.c.k.e.a<d.a.n0.v.d.c.f.b.a, LiveTabConcernNotificationViewHolder> {
     public TbPageContext m;
     public boolean n;
     public b0<d.a.n0.v.d.c.f.b.a> o;
@@ -39,31 +39,31 @@ public class d extends d.a.c.j.e.a<d.a.n0.v.d.c.f.b.a, LiveTabConcernNotificatio
     }
 
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.a.n0.v.d.c.f.b.a.f61532e);
+        super(tbPageContext.getPageActivity(), d.a.n0.v.d.c.f.b.a.f65245e);
         this.n = false;
         this.o = new a();
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public LiveTabConcernNotificationViewHolder P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public LiveTabConcernNotificationViewHolder Q(ViewGroup viewGroup) {
         d.a.n0.v.d.c.f.d.e eVar = new d.a.n0.v.d.c.f.d.e(this.m, viewGroup);
-        eVar.o(this.o);
+        eVar.p(this.o);
         return new LiveTabConcernNotificationViewHolder(eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: i0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.v.d.c.f.b.a aVar, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: j0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.v.d.c.f.b.a aVar, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
         d.a.n0.v.d.c.f.d.e eVar;
-        if (liveTabConcernNotificationViewHolder == null || (eVar = liveTabConcernNotificationViewHolder.f13758a) == null) {
+        if (liveTabConcernNotificationViewHolder == null || (eVar = liveTabConcernNotificationViewHolder.f13823a) == null) {
             return null;
         }
         this.n = false;
-        eVar.m(aVar);
+        eVar.n(aVar);
         return liveTabConcernNotificationViewHolder.a();
     }
 }

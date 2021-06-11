@@ -1,79 +1,103 @@
 package tv.athena.revenue.payui;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import androidx.annotation.Keep;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.AppPayServiceListener;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import d.r.b.a.a.f.d.d;
-import d.r.b.a.a.i.d.e;
-import d.r.b.a.a.i.d.h;
-import i.a.a.e.i.b;
-import i.a.a.e.i.c;
-import i.a.a.e.i.f;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipaySdkServiceProxy;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
+import com.yy.mobile.framework.revenuesdk.payapi.payservice.PayMethodProxyFactory;
+import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager;
+import i.a.a.e.k.b;
+import i.a.a.e.k.c;
+import i.a.a.e.k.d;
+import i.a.a.e.k.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import tv.athena.revenue.RevenueManager;
 import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.payui.activity.PayCommonWebActivity;
+import tv.athena.revenue.payui.controller.IYYPayListener;
+import tv.athena.revenue.payui.model.H5PayFlowModel;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayWayView;
 @Keep
 /* loaded from: classes8.dex */
-public class YYPayUIKit {
+public class YYPayUIKit implements c {
     public static final String TAG = "YYPayUiKit";
     public static Map<String, YYPayUIKit> mPayUIKitMap = new HashMap();
+    public Context mAppContext;
     public int mAppId;
-    public d.r.b.a.a.i.a mAppPayServiceListener;
-    public c mIYYPayController;
-    public i.a.a.e.i.a mModelProvider;
+    public AppPayServiceListener mAppPayServiceListener;
+    public b mIYYPayController;
+    public i.a.a.e.k.a mModelProvider;
     public PayUIKitConfig mPayUIKitConfig;
     public int mUserChannel;
-    public List<b> mYYPayListenerList = new ArrayList();
+    public List<IYYPayListener> mYYPayListener = new ArrayList();
 
     /* loaded from: classes8.dex */
-    public class a extends d.r.b.a.a.i.a {
+    public class a extends AppPayServiceListener {
         public a() {
         }
 
-        @Override // d.r.b.a.a.i.a, d.r.b.a.a.i.b
-        public void a(CurrencyChargeMessage currencyChargeMessage) {
-            super.a(currencyChargeMessage);
-            YYPayUIKit.this.notifyCurrencyChargeMessage(currencyChargeMessage);
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.AppPayServiceListener, com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
+        public void onCurrencyChargeMessage(CurrencyChargeMessage currencyChargeMessage) {
+            super.onCurrencyChargeMessage(currencyChargeMessage);
+            YYPayUIKit.this.notifyYYPayListener(currencyChargeMessage);
         }
     }
 
     public YYPayUIKit(String str) {
-        d.b(TAG, "YYPayUiKit construct mapKey:" + str);
+        RLog.debug(TAG, "YYPayUiKit construct mapKey:" + str);
+    }
+
+    public static synchronized void addLogDelegate(IRLogDelegate iRLogDelegate) {
+        synchronized (YYPayUIKit.class) {
+            RLog.info(TAG, "addLogDelegate");
+            RevenueManager.instance().addLogDelegate(iRLogDelegate);
+        }
     }
 
     public static synchronized YYPayUIKit createNewKitWithConfigure(int i2, int i3, PayUIKitConfig payUIKitConfig) {
         synchronized (YYPayUIKit.class) {
             String uIKitMapKey = getUIKitMapKey(i2, i3);
             if (mPayUIKitMap.containsKey(uIKitMapKey)) {
-                d.h(TAG, "createNewKitWithConfigure error mapKey:" + uIKitMapKey + " exits");
+                RLog.warn(TAG, "createNewKitWithConfigure error mapKey:" + uIKitMapKey + " exits");
                 return mPayUIKitMap.get(uIKitMapKey);
             }
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                i.a.a.e.j.c.d(payUIKitConfig.revenueConfig.isTestEnv());
+                i.a.a.e.l.b.e(payUIKitConfig.revenueConfig.isTestEnv());
                 YYPayUIKit yYPayUIKit = new YYPayUIKit(uIKitMapKey);
                 yYPayUIKit.initYYPayUIKit(i2, i3, payUIKitConfig.revenueConfig);
-                yYPayUIKit.setModelProvider(new i.a.a.e.i.d(payUIKitConfig.revenueConfig));
-                yYPayUIKit.setPayUIKitConfig(payUIKitConfig);
+                yYPayUIKit.mModelProvider = new d(payUIKitConfig.revenueConfig);
+                yYPayUIKit.mPayUIKitConfig = payUIKitConfig;
+                yYPayUIKit.mAppContext = payUIKitConfig.revenueConfig.getAppContext();
                 mPayUIKitMap.put(uIKitMapKey, yYPayUIKit);
-                d.f(TAG, "createNewKitWithConfigure success mapKey:" + uIKitMapKey);
+                RLog.info(TAG, "createNewKitWithConfigure success mapKey:" + uIKitMapKey + " config:" + payUIKitConfig.revenueConfig.toString());
+                H5PayManager.getInstance().setYYPayWebviewActClass(PayCommonWebActivity.class);
                 return yYPayUIKit;
             }
-            d.e(TAG, "createNewKitWithConfigure error revenueConfig null", new Object[0]);
+            RLog.error(TAG, "createNewKitWithConfigure error revenueConfig null", new Object[0]);
             return null;
         }
     }
 
-    private c getPayController() {
+    private b getPayController() {
         if (this.mIYYPayController == null) {
-            this.mIYYPayController = new f(this.mAppId, this.mUserChannel, this.mModelProvider, this.mPayUIKitConfig);
+            this.mIYYPayController = new g(this.mAppId, this.mUserChannel, this.mModelProvider, this);
         }
         return this.mIYYPayController;
     }
@@ -82,10 +106,10 @@ public class YYPayUIKit {
         String uIKitMapKey = getUIKitMapKey(i2, i3);
         YYPayUIKit yYPayUIKit = mPayUIKitMap.get(uIKitMapKey);
         if (yYPayUIKit == null) {
-            d.e(TAG, "getUIKit error payUIKit null mapKey:" + uIKitMapKey, new Object[0]);
+            RLog.error(TAG, "getUIKit error payUIKit null mapKey:" + uIKitMapKey, new Object[0]);
             return null;
         }
-        d.f(TAG, "getUIKit success mapKey:" + uIKitMapKey);
+        RLog.info(TAG, "getUIKit success mapKey:" + uIKitMapKey);
         return yYPayUIKit;
     }
 
@@ -97,112 +121,148 @@ public class YYPayUIKit {
         this.mAppId = i2;
         this.mUserChannel = i3;
         RevenueManager.instance().addRevenueConfig(middleRevenueConfig);
-        IAppPayService a2 = i.a.a.e.l.a.a(i2, i3);
+        IAppPayService a2 = i.a.a.e.n.a.a(i2, i3);
         if (a2 != null) {
             a aVar = new a();
             this.mAppPayServiceListener = aVar;
             a2.addPayListener(aVar);
             return;
         }
-        d.e(TAG, "initYYPayUIKit null appPayService", new Object[0]);
+        RLog.error(TAG, "initYYPayUIKit null appPayService", new Object[0]);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void notifyCurrencyChargeMessage(CurrencyChargeMessage currencyChargeMessage) {
-        for (int i2 = 0; i2 < this.mYYPayListenerList.size(); i2++) {
-            boolean a2 = this.mYYPayListenerList.get(i2).a(currencyChargeMessage);
-            d.b(TAG, "notifyCurrencyChargeMessage handleMessage:" + a2);
-        }
+    public static void setAlipaySdkProxy(IAlipaySdkServiceProxy iAlipaySdkServiceProxy) {
+        RLog.info(TAG, "setAlipaySdkProxy");
+        PayMethodProxyFactory.instance().addPayServiceProxyMap(PayType.ALI_PAY, iAlipaySdkServiceProxy);
     }
 
-    public static void setAlipaySdkProxy(d.r.b.a.a.i.d.c cVar) {
-        d.b(TAG, "setAlipaySdkProxy");
-        d.r.b.a.a.i.e.c.d().a(PayType.ALI_PAY, cVar);
+    public static void setDxmPaySdkProxy(IDxmSdkServiceProxy iDxmSdkServiceProxy) {
+        RLog.info(TAG, "setDxmPaySdkProxy");
+        PayMethodProxyFactory.instance().addPayServiceProxyMap(PayType.DXM_PAY, iDxmSdkServiceProxy);
     }
 
-    public static void setDxmPaySdkProxy(e eVar) {
-        d.b(TAG, "setDxmPaySdkProxy");
-        d.r.b.a.a.i.e.c.d().a(PayType.DXM_PAY, eVar);
+    public static void setWechatSdkProxy(IWechatSdkServiceProxy iWechatSdkServiceProxy) {
+        RLog.info(TAG, "setWechatSdkProxy");
+        PayMethodProxyFactory.instance().addPayServiceProxyMap(PayType.WECHAT_PAY, iWechatSdkServiceProxy);
     }
 
-    private void setModelProvider(i.a.a.e.i.a aVar) {
-        this.mModelProvider = aVar;
-    }
-
-    private void setPayUIKitConfig(PayUIKitConfig payUIKitConfig) {
-        this.mPayUIKitConfig = payUIKitConfig;
-    }
-
-    public static void setWechatSdkProxy(h hVar) {
-        d.b(TAG, "setWechatSdkProxy");
-        d.r.b.a.a.i.e.c.d().a(PayType.WECHAT_PAY, hVar);
-    }
-
-    public void addYYPayListener(b bVar) {
-        if (bVar == null) {
-            d.e(TAG, "addYYPayListener error listener null", new Object[0]);
+    public void addYYPayListener(IYYPayListener iYYPayListener) {
+        if (iYYPayListener == null) {
+            RLog.error(TAG, "addGlobalPayListener error listener null", new Object[0]);
         } else {
-            this.mYYPayListenerList.add(bVar);
+            this.mYYPayListener.add(iYYPayListener);
         }
     }
 
     public synchronized void destroy() {
+        RLog.info(TAG, "destroy()");
         String uIKitMapKey = getUIKitMapKey(this.mAppId, this.mUserChannel);
         if (!mPayUIKitMap.containsKey(uIKitMapKey)) {
-            d.e(TAG, "destroy error mapKey:" + uIKitMapKey + "not exits", new Object[0]);
+            RLog.error(TAG, "destroy error mapKey:" + uIKitMapKey + "not exits", new Object[0]);
             return;
         }
         release();
         if (this.mAppPayServiceListener != null) {
-            IAppPayService a2 = i.a.a.e.l.a.a(this.mAppId, this.mUserChannel);
+            IAppPayService a2 = i.a.a.e.n.a.a(this.mAppId, this.mUserChannel);
             if (a2 != null) {
                 a2.removePayListener(this.mAppPayServiceListener);
             }
             this.mAppPayServiceListener = null;
         }
         mPayUIKitMap.remove(uIKitMapKey);
+        this.mYYPayListener.clear();
         RevenueManager.instance().removeRevenueConfig(this.mAppId, this.mUserChannel);
     }
 
+    public H5PayFlowModel getH5PayFlowModel() {
+        b bVar = this.mIYYPayController;
+        if (bVar != null) {
+            return bVar.k();
+        }
+        return null;
+    }
+
+    @Override // i.a.a.e.k.c
     public PayUIKitConfig getPayUIKitConfig() {
         return this.mPayUIKitConfig;
+    }
+
+    @Override // i.a.a.e.k.c
+    public void notifyYYPayFailListener(int i2, String str, PayCallBackBean payCallBackBean) {
+        for (int i3 = 0; i3 < this.mYYPayListener.size(); i3++) {
+            this.mYYPayListener.get(i3).onFail(i2, str, payCallBackBean);
+            RLog.debug(TAG, "notifyGlobalPayListener onFail reason:" + str + " code:" + i2);
+        }
+    }
+
+    public void notifyYYPayListener(CurrencyChargeMessage currencyChargeMessage) {
+        if (currencyChargeMessage.status == 1) {
+            for (int i2 = 0; i2 < this.mYYPayListener.size(); i2++) {
+                this.mYYPayListener.get(i2).onSuccess(currencyChargeMessage);
+                RLog.debug(TAG, "notifyGlobalPayListener onSuccess message:" + currencyChargeMessage);
+            }
+            return;
+        }
+        String str = currencyChargeMessage.timeout ? "查询订单次数已用完" : "服务订单状态结果失败";
+        PayCallBackBean payCallBackBean = new PayCallBackBean();
+        payCallBackBean.setOrderId(currencyChargeMessage.orderId);
+        payCallBackBean.setAppClientExpand(currencyChargeMessage.appClientExpand);
+        notifyYYPayFailListener(currencyChargeMessage.status, str, payCallBackBean);
     }
 
     public void onWxPayResult(int i2, String str) {
         int i3 = this.mAppId;
         if (i3 == 0) {
-            d.e(TAG, "onWxPayResult error appid is 0", new Object[0]);
+            RLog.error(TAG, "onWxPayResult error appid is 0", new Object[0]);
             return;
         }
-        IAppPayService a2 = i.a.a.e.l.a.a(i3, this.mUserChannel);
+        IAppPayService a2 = i.a.a.e.n.a.a(i3, this.mUserChannel);
         if (a2 == null) {
-            d.e(TAG, "onWxPayResult error payService is null", new Object[0]);
+            RLog.error(TAG, "onWxPayResult error payService is null", new Object[0]);
         } else {
             a2.onWxPayResult(i2, str);
         }
     }
 
     public synchronized void release() {
-        d.b(TAG, "release mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel);
+        RLog.info(TAG, "release mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel);
+        sendLoginOutBroadcast();
         if (this.mIYYPayController != null) {
             this.mIYYPayController.clear();
             this.mIYYPayController = null;
         }
     }
 
-    public void removeYYPayListener(b bVar) {
-        if (bVar == null) {
-            d.e(TAG, "removeYYPayListener error listener null", new Object[0]);
+    public void removeYYPayListener(IYYPayListener iYYPayListener) {
+        if (iYYPayListener == null) {
+            RLog.error(TAG, "removeGlobalPayListener error listener null", new Object[0]);
         } else {
-            this.mYYPayListenerList.remove(bVar);
+            this.mYYPayListener.remove(iYYPayListener);
         }
     }
 
-    public void startPayDialog(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback iPayCallback) {
-        getPayController().e(activity, viewParams, iPayCallback);
+    public synchronized void sendLoginOutBroadcast() {
+        RLog.info(TAG, "sendLoginOutBroadcast() mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel);
+        if (this.mAppContext != null) {
+            LocalBroadcastManager.getInstance(this.mAppContext).sendBroadcast(new Intent("tv.athena.revenue.payui.login_out_action"));
+        } else {
+            RLog.error(TAG, "onDestory mAppContext null", new Object[0]);
+        }
+    }
+
+    public void startPayChannelDialog(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+        getPayController().e(activity, bVar, iPayCallback);
+    }
+
+    public void startPayDialog(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+        getPayController().f(activity, viewParams, iPayCallback);
     }
 
     public void startWalletActivity(Activity activity) {
         getPayController().d(activity);
+    }
+
+    public void startWalletActivity(Activity activity, IYYPayAmountView.ViewParams viewParams) {
+        getPayController().g(activity, viewParams);
     }
 }

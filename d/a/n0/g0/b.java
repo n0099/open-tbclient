@@ -7,14 +7,14 @@ import android.view.ScaleGestureDetector;
 public class b extends d.a.n0.g0.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public ScaleGestureDetector f54907h;
+    public ScaleGestureDetector f58596h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC1340b f54908i;
+    public InterfaceC1396b f58597i;
 
     /* renamed from: d.a.n0.g0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1340b {
+    public interface InterfaceC1396b {
         void a(boolean z);
     }
 
@@ -22,22 +22,22 @@ public class b extends d.a.n0.g0.a {
     public final class c extends ScaleGestureDetector.SimpleOnScaleGestureListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f54909e;
+        public boolean f58598e;
 
         public c() {
-            this.f54909e = false;
+            this.f58598e = false;
         }
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
         public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            if (scaleGestureDetector != null && b.this.f54908i != null) {
+            if (scaleGestureDetector != null && b.this.f58597i != null) {
                 float scaleFactor = scaleGestureDetector.getScaleFactor();
-                if (!this.f54909e && scaleFactor > 1.0f) {
-                    this.f54909e = true;
-                    b.this.f54908i.a(true);
-                } else if (!this.f54909e && scaleFactor > 0.0f && scaleFactor < 1.0f) {
-                    this.f54909e = true;
-                    b.this.f54908i.a(false);
+                if (!this.f58598e && scaleFactor > 1.0f) {
+                    this.f58598e = true;
+                    b.this.f58597i.a(true);
+                } else if (!this.f58598e && scaleFactor > 0.0f && scaleFactor < 1.0f) {
+                    this.f58598e = true;
+                    b.this.f58597i.a(false);
                 }
             }
             return true;
@@ -45,31 +45,31 @@ public class b extends d.a.n0.g0.a {
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
         public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-            this.f54909e = false;
+            this.f58598e = false;
             return true;
         }
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
         public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-            this.f54909e = true;
+            this.f58598e = true;
         }
     }
 
     public b(Context context) {
-        this.f54907h = new ScaleGestureDetector(context, new c());
+        this.f58596h = new ScaleGestureDetector(context, new c());
     }
 
     @Override // d.a.n0.g0.a
     public boolean c(MotionEvent motionEvent) {
         try {
-            this.f54907h.onTouchEvent(motionEvent);
+            this.f58596h.onTouchEvent(motionEvent);
             return super.c(motionEvent);
         } catch (Exception unused) {
             return false;
         }
     }
 
-    public void i(InterfaceC1340b interfaceC1340b) {
-        this.f54908i = interfaceC1340b;
+    public void i(InterfaceC1396b interfaceC1396b) {
+        this.f58597i = interfaceC1396b;
     }
 }

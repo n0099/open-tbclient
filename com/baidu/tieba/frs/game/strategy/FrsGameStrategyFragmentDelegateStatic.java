@@ -40,7 +40,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-            fragmentTabStructure.f49334a.setArguments(bundle);
+            fragmentTabStructure.f53008a.setArguments(bundle);
         }
     }
 
@@ -51,9 +51,9 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
     @Override // d.a.m0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f49334a = new FrsGameStrategyMainFragment();
-        cVar.f49338e = 3;
-        cVar.f49342i = c.k;
+        cVar.f53008a = new FrsGameStrategyMainFragment();
+        cVar.f53012e = 3;
+        cVar.f53016i = c.k;
         return cVar;
     }
 

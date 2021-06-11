@@ -14,7 +14,7 @@ import java.util.List;
 public class PersonCommonForumCardView extends FlowLayout {
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f19903i;
+    public Context f19980i;
     public List<f> j;
     public List<PersonCommonForumItemView> k;
     public b<PersonCommonForumItemView> l;
@@ -22,7 +22,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public PersonCommonForumCardView(Context context) {
         super(context);
         this.k = new ArrayList();
-        this.f19903i = context;
+        this.f19980i = context;
     }
 
     public final void i() {
@@ -33,7 +33,7 @@ public class PersonCommonForumCardView extends FlowLayout {
             if (fVar != null) {
                 PersonCommonForumItemView b2 = this.l.b();
                 b2.setData(fVar);
-                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f19903i) - l.g(this.f19903i, R.dimen.tbds88)) - l.g(this.f19903i, R.dimen.tbds96)) / 2, -2));
+                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f19980i) - l.g(this.f19980i, R.dimen.tbds88)) - l.g(this.f19980i, R.dimen.tbds96)) / 2, -2));
                 this.k.add(b2);
             }
         }

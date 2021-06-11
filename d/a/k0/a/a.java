@@ -12,13 +12,13 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
 
     /* renamed from: d.a.k0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class RunnableC0559a implements Runnable {
+    public static final class RunnableC0615a implements Runnable {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Callable f40553f;
+        public final /* synthetic */ Callable f44229f;
 
-        public RunnableC0559a(Callable callable) {
-            this.f40553f = callable;
+        public RunnableC0615a(Callable callable) {
+            this.f44229f = callable;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: d.a.k0.a.a */
@@ -26,7 +26,7 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
         @Override // java.lang.Runnable
         public final void run() {
             Map<String, ?> all;
-            SharedPreferences sharedPreferences = (SharedPreferences) this.f40553f.call();
+            SharedPreferences sharedPreferences = (SharedPreferences) this.f44229f.call();
             if (sharedPreferences == null || (all = sharedPreferences.getAll()) == null) {
                 return;
             }
@@ -143,6 +143,6 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     }
 
     public void z(Callable<SharedPreferences> callable) {
-        new Thread(new RunnableC0559a(callable), "SharedPreferences-import").start();
+        new Thread(new RunnableC0615a(callable), "SharedPreferences-import").start();
     }
 }

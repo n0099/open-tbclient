@@ -10,18 +10,18 @@ import com.sdk.base.module.manager.SDKManager;
 public class a<T> extends com.sdk.base.framework.d.a<T> {
     public a(Context context, com.sdk.base.framework.b.a<T> aVar, e eVar) {
         super(context, aVar, eVar);
-        if (!f.f35664d) {
-            this.f35671b = g.f35667b.a();
-            this.f35672c = g.f35666a.a();
+        if (!f.f39343d) {
+            this.f39350b = g.f39346b.a();
+            this.f39351c = g.f39345a.a();
             return;
         }
         String testHost = SDKManager.getTestHost();
         String statisticalTestHost = SDKManager.getStatisticalTestHost();
-        this.f35672c = c.b(statisticalTestHost).booleanValue() ? statisticalTestHost : g.f35666a.a();
+        this.f39351c = c.b(statisticalTestHost).booleanValue() ? statisticalTestHost : g.f39345a.a();
         if (c.b(testHost).booleanValue()) {
-            this.f35671b = testHost;
+            this.f39350b = testHost;
         } else {
-            this.f35671b = g.f35667b.a();
+            this.f39350b = g.f39346b.a();
         }
     }
 }

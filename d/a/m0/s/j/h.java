@@ -32,22 +32,22 @@ import java.util.Map;
 public class h {
 
     /* renamed from: f  reason: collision with root package name */
-    public static h f50760f;
+    public static h f54437f;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50761a;
+    public int f54438a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.c.c.e.c.k.a f50762b = null;
+    public d.a.c.c.e.c.k.a f54439b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public UpdateClientInfoMessage f50763c = null;
+    public UpdateClientInfoMessage f54440c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50764d = 0;
+    public int f54441d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a.c.c.e.c.k.a f50765e = new a();
+    public final d.a.c.c.e.c.k.a f54442e = new a();
 
     /* loaded from: classes3.dex */
     public class a implements d.a.c.c.e.c.k.a {
@@ -56,39 +56,39 @@ public class h {
 
         @Override // d.a.c.c.e.c.k.a
         public void a(String str) {
-            if (h.this.f50762b != null) {
-                h.this.f50762b.a(str);
+            if (h.this.f54439b != null) {
+                h.this.f54439b.a(str);
             }
         }
 
         @Override // d.a.c.c.e.c.k.a
         public boolean b(int i2, String str) {
             d.a.m0.c0.a.b(0, 2, 0, 0, 0);
-            if (h.this.f50762b != null) {
-                h.this.f50762b.b(i2, str);
+            if (h.this.f54439b != null) {
+                h.this.f54439b.b(i2, str);
             }
             return false;
         }
 
         @Override // d.a.c.c.e.c.k.a
         public void c(d.a.c.e.r.c cVar) {
-            if (h.this.f50762b != null) {
-                h.this.f50762b.c(cVar);
+            if (h.this.f54439b != null) {
+                h.this.f54439b.c(cVar);
             }
         }
 
         @Override // d.a.c.c.e.c.k.a
         public void d(k kVar) {
-            if (h.this.f50762b != null) {
-                h.this.f50762b.d(kVar);
+            if (h.this.f54439b != null) {
+                h.this.f54439b.d(kVar);
             }
         }
 
         @Override // d.a.c.c.e.c.k.a
         public void g(Map<String, String> map) {
             d.a.m0.c0.a.b(0, 1, 0, 0, 0);
-            if (h.this.f50762b != null) {
-                h.this.f50762b.g(map);
+            if (h.this.f54439b != null) {
+                h.this.f54439b.g(map);
             }
             d.a.c.c.e.c.i.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
             if (d.a.m0.m0.k.d().g() && h.b(h.this) < 10) {
@@ -96,8 +96,8 @@ public class h {
             }
             d.a.m0.c0.a.b(1001, 0, 0, 3, 0);
             h hVar = h.this;
-            hVar.f50763c = hVar.i();
-            MessageManager.getInstance().sendMessage(h.this.f50763c);
+            hVar.f54440c = hVar.i();
+            MessageManager.getInstance().sendMessage(h.this.f54440c);
         }
     }
 
@@ -127,11 +127,11 @@ public class h {
             }
             if (responseOnlineMessage.getError() != 0) {
                 h.this.o(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
-                d.a.c.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i2, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + h.this.f50761a);
+                d.a.c.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i2, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + h.this.f54438a);
                 return null;
             }
             h.this.m();
-            d.a.c.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i2, "online_succ", 0, "online succ. retry count-" + h.this.f50761a);
+            d.a.c.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i2, "online_succ", 0, "online succ. retry count-" + h.this.f54438a);
             return socketResponsedMessage;
         }
     }
@@ -141,22 +141,22 @@ public class h {
     }
 
     public static /* synthetic */ int b(h hVar) {
-        int i2 = hVar.f50764d + 1;
-        hVar.f50764d = i2;
+        int i2 = hVar.f54441d + 1;
+        hVar.f54441d = i2;
         return i2;
     }
 
     public static synchronized h j() {
         h hVar;
         synchronized (h.class) {
-            if (f50760f == null) {
+            if (f54437f == null) {
                 synchronized (h.class) {
-                    if (f50760f == null) {
-                        f50760f = new h();
+                    if (f54437f == null) {
+                        f54437f = new h();
                     }
                 }
             }
-            hVar = f50760f;
+            hVar = f54437f;
         }
         return hVar;
     }
@@ -223,7 +223,7 @@ public class h {
                 a.b d2 = d.a.m0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
                 String a2 = d.a.m0.r.l.e.a(TbadkCoreApplication.getCurrentAccountInfo());
                 if (d2 != null) {
-                    updateClientInfoMessage.setBduss(d2.f49863a, a2);
+                    updateClientInfoMessage.setBduss(d2.f53539a, a2);
                 } else {
                     updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss(), a2);
                 }
@@ -260,22 +260,22 @@ public class h {
     }
 
     public void k() {
-        MessageManager.getInstance().getSocketClient().G(this.f50765e);
+        MessageManager.getInstance().getSocketClient().G(this.f54442e);
     }
 
     public boolean l() {
-        return this.f50761a >= 5;
+        return this.f54438a >= 5;
     }
 
     public final void m() {
-        this.f50761a = 0;
+        this.f54438a = 0;
         MessageManager.getInstance().getSocketClient().I();
         NoNetworkView.f();
         BdSocketLinkService.stopReConnStrategy("online succ");
     }
 
     public void n() {
-        this.f50761a++;
+        this.f54438a++;
         if (l()) {
             BdSocketLinkService.setAvailable(false);
             NoNetworkView.f();
@@ -288,6 +288,6 @@ public class h {
     }
 
     public void p(d.a.c.c.e.c.k.a aVar) {
-        this.f50762b = aVar;
+        this.f54439b = aVar;
     }
 }

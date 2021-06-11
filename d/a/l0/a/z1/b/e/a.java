@@ -18,25 +18,25 @@ import java.util.List;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final View f46147a;
+    public final View f49821a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f46148b;
+    public Context f49822b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Resources f46149c;
+    public Resources f49823c;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.a.z1.b.e.c f46151e;
+    public d.a.l0.a.z1.b.e.c f49825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a f46152f;
+    public b.a f49826f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PopupWindow f46153g;
+    public PopupWindow f49827g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnKeyListener f46154h;
+    public View.OnKeyListener f49828h;
     public View j;
     public f l;
     public boolean k = true;
@@ -47,16 +47,16 @@ public abstract class a {
     public Runnable r = new e();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<d.a.l0.a.z1.b.e.b> f46150d = new ArrayList();
+    public List<d.a.l0.a.z1.b.e.b> f49824d = new ArrayList();
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46155i = -2;
+    public int f49829i = -2;
     public boolean q = d.a.l0.a.c1.a.H().a();
 
     /* renamed from: d.a.l0.a.z1.b.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0936a implements b.a {
-        public C0936a() {
+    public class C0992a implements b.a {
+        public C0992a() {
         }
 
         @Override // d.a.l0.a.z1.b.e.b.a
@@ -64,7 +64,7 @@ public abstract class a {
             if (bVar.f()) {
                 a.this.k(bVar.a());
             }
-            b.a aVar = a.this.f46152f;
+            b.a aVar = a.this.f49826f;
             if (aVar != null) {
                 aVar.a(bVar);
             }
@@ -81,7 +81,7 @@ public abstract class a {
             if (keyEvent.getAction() == 1) {
                 if (i2 == 4 || i2 == 82) {
                     a.this.j();
-                    View.OnKeyListener onKeyListener = a.this.f46154h;
+                    View.OnKeyListener onKeyListener = a.this.f49828h;
                     if (onKeyListener != null) {
                         onKeyListener.onKey(view, i2, keyEvent);
                     }
@@ -103,7 +103,7 @@ public abstract class a {
             if (a.this.m) {
                 a.this.h();
             }
-            d.a.l0.a.z1.b.e.c cVar = a.this.f46151e;
+            d.a.l0.a.z1.b.e.c cVar = a.this.f49825e;
             if (cVar != null) {
                 cVar.onDismissMenu();
             }
@@ -121,9 +121,9 @@ public abstract class a {
                 if (a.this.m) {
                     a.this.i(a.this.n);
                 }
-                a.this.u(a.this.f46153g);
+                a.this.u(a.this.f49827g);
             } catch (Exception e2) {
-                if (k.f43199a) {
+                if (k.f46875a) {
                     Log.w("PopupWindow", "Exception", e2);
                 }
             }
@@ -151,18 +151,18 @@ public abstract class a {
     }
 
     public a(View view) {
-        this.f46147a = view;
-        this.f46148b = view.getContext();
-        this.f46149c = this.f46147a.getResources();
-        o(this.f46148b);
+        this.f49821a = view;
+        this.f49822b = view.getContext();
+        this.f49823c = this.f49821a.getResources();
+        o(this.f49822b);
     }
 
     public d.a.l0.a.z1.b.e.b e(int i2, int i3) {
-        return f(i2, this.f46149c.getString(i3), null);
+        return f(i2, this.f49823c.getString(i3), null);
     }
 
     public d.a.l0.a.z1.b.e.b f(int i2, CharSequence charSequence, Drawable drawable) {
-        d.a.l0.a.z1.b.e.b bVar = new d.a.l0.a.z1.b.e.b(this.f46148b, i2, charSequence, drawable);
+        d.a.l0.a.z1.b.e.b bVar = new d.a.l0.a.z1.b.e.b(this.f49822b, i2, charSequence, drawable);
         g(bVar);
         return bVar;
     }
@@ -170,23 +170,23 @@ public abstract class a {
     public d.a.l0.a.z1.b.e.b g(d.a.l0.a.z1.b.e.b bVar) {
         bVar.g(this);
         if (this.k) {
-            bVar.h(new C0936a());
+            bVar.h(new C0992a());
         } else {
-            bVar.h(this.f46152f);
+            bVar.h(this.f49826f);
         }
-        this.f46150d.add(bVar);
+        this.f49824d.add(bVar);
         return bVar;
     }
 
     public final void h() {
-        View view = this.f46147a;
+        View view = this.f49821a;
         if (view != null) {
             ((ViewGroup) view.getRootView()).getOverlay().clear();
         }
     }
 
     public final void i(float f2) {
-        View view = this.f46147a;
+        View view = this.f49821a;
         if (view != null) {
             ViewGroup viewGroup = (ViewGroup) view.getRootView();
             ColorDrawable colorDrawable = new ColorDrawable(-16777216);
@@ -197,12 +197,12 @@ public abstract class a {
     }
 
     public void j() {
-        PopupWindow popupWindow = this.f46153g;
+        PopupWindow popupWindow = this.f49827g;
         if (popupWindow != null) {
             try {
                 popupWindow.dismiss();
             } catch (Exception e2) {
-                if (k.f43199a) {
+                if (k.f46875a) {
                     Log.w("PopupWindow", "Exception", e2);
                 }
             }
@@ -210,11 +210,11 @@ public abstract class a {
     }
 
     public void k(long j) {
-        View view = this.f46147a;
+        View view = this.f49821a;
         if (view != null) {
             view.removeCallbacks(this.r);
             if (j > 0) {
-                this.f46147a.postDelayed(this.r, j);
+                this.f49821a.postDelayed(this.r, j);
             } else {
                 j();
             }
@@ -226,7 +226,7 @@ public abstract class a {
     public abstract View m(Context context);
 
     public boolean n() {
-        PopupWindow popupWindow = this.f46153g;
+        PopupWindow popupWindow = this.f49827g;
         return popupWindow != null && popupWindow.isShowing();
     }
 
@@ -235,7 +235,7 @@ public abstract class a {
         this.j = m;
         m.setFocusable(true);
         this.j.setFocusableInTouchMode(true);
-        if (!(this.j instanceof g) && k.f43199a) {
+        if (!(this.j instanceof g) && k.f46875a) {
             throw new IllegalArgumentException("The view returned by getMenuView() MUST implement OnMenuSetChangedListener!");
         }
         this.j.setOnKeyListener(new b());
@@ -250,17 +250,17 @@ public abstract class a {
     }
 
     public void r(b.a aVar) {
-        this.f46152f = aVar;
+        this.f49826f = aVar;
     }
 
     public void s(int i2) {
-        this.f46155i = i2;
+        this.f49829i = i2;
     }
 
     public void t() {
         if (d.a.l0.a.c1.a.H().a() != this.q) {
-            o(this.f46148b);
-            this.f46153g = null;
+            o(this.f49822b);
+            this.f49827g = null;
         }
         v(true);
         this.q = d.a.l0.a.c1.a.H().a();
@@ -269,30 +269,30 @@ public abstract class a {
     public abstract void u(PopupWindow popupWindow);
 
     public final void v(boolean z) {
-        d.a.l0.a.z1.b.e.c cVar = this.f46151e;
+        d.a.l0.a.z1.b.e.c cVar = this.f49825e;
         if (cVar != null) {
             cVar.onShowMenu();
         }
-        w(this.f46150d);
-        l(this.j, this.f46150d);
+        w(this.f49824d);
+        l(this.j, this.f49824d);
         j();
-        if (this.f46153g == null) {
-            PopupWindow popupWindow = new PopupWindow(this.j, this.f46155i, -2, true);
-            this.f46153g = popupWindow;
+        if (this.f49827g == null) {
+            PopupWindow popupWindow = new PopupWindow(this.j, this.f49829i, -2, true);
+            this.f49827g = popupWindow;
             if (this.o) {
                 popupWindow.setAnimationStyle(this.p);
             }
             if (z) {
-                this.f46153g.setBackgroundDrawable(this.f46149c.getDrawable(d.a.l0.a.e.aiapps_pop_transparent_bg));
-                this.f46153g.setTouchable(true);
+                this.f49827g.setBackgroundDrawable(this.f49823c.getDrawable(d.a.l0.a.e.aiapps_pop_transparent_bg));
+                this.f49827g.setTouchable(true);
             } else {
-                this.f46153g.setTouchable(false);
+                this.f49827g.setTouchable(false);
             }
-            this.f46153g.setOnDismissListener(new c());
+            this.f49827g.setOnDismissListener(new c());
         }
-        View view = this.f46147a;
+        View view = this.f49821a;
         if (view == null) {
-            d.a.l0.a.z1.b.e.c cVar2 = this.f46151e;
+            d.a.l0.a.z1.b.e.c cVar2 = this.f49825e;
             if (cVar2 != null) {
                 cVar2.onDismissMenu();
                 return;

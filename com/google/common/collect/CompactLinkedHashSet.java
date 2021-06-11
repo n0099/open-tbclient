@@ -8,10 +8,10 @@ import java.util.Collections;
 public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
 
     /* renamed from: h  reason: collision with root package name */
-    public transient int[] f30965h;
+    public transient int[] f31056h;
 
     /* renamed from: i  reason: collision with root package name */
-    public transient int[] f30966i;
+    public transient int[] f31057i;
     public transient int j;
     public transient int k;
 
@@ -36,10 +36,10 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
         super.allocArrays();
         int length = this.elements.length;
         int[] iArr = new int[length];
-        this.f30965h = iArr;
-        this.f30966i = new int[length];
+        this.f31056h = iArr;
+        this.f31057i = new int[length];
         Arrays.fill(iArr, -1);
-        Arrays.fill(this.f30966i, -1);
+        Arrays.fill(this.f31057i, -1);
     }
 
     @Override // com.google.common.collect.CompactHashSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -49,8 +49,8 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
         }
         this.j = -2;
         this.k = -2;
-        Arrays.fill(this.f30965h, 0, size(), -1);
-        Arrays.fill(this.f30966i, 0, size(), -1);
+        Arrays.fill(this.f31056h, 0, size(), -1);
+        Arrays.fill(this.f31057i, 0, size(), -1);
         super.clear();
     }
 
@@ -61,7 +61,7 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
 
     @Override // com.google.common.collect.CompactHashSet
     public int getSuccessor(int i2) {
-        return this.f30966i[i2];
+        return this.f31057i[i2];
     }
 
     @Override // com.google.common.collect.CompactHashSet
@@ -79,11 +79,11 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
     }
 
     public final int j(int i2) {
-        return this.f30965h[i2];
+        return this.f31056h[i2];
     }
 
     public final void k(int i2, int i3) {
-        this.f30965h[i2] = i3;
+        this.f31056h[i2] = i3;
     }
 
     public final void l(int i2, int i3) {
@@ -100,7 +100,7 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
     }
 
     public final void m(int i2, int i3) {
-        this.f30966i[i2] = i3;
+        this.f31057i[i2] = i3;
     }
 
     @Override // com.google.common.collect.CompactHashSet
@@ -112,20 +112,20 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
             l(j(size), i2);
             l(i2, getSuccessor(size));
         }
-        this.f30965h[size] = -1;
-        this.f30966i[size] = -1;
+        this.f31056h[size] = -1;
+        this.f31057i[size] = -1;
     }
 
     @Override // com.google.common.collect.CompactHashSet
     public void resizeEntries(int i2) {
         super.resizeEntries(i2);
-        int[] iArr = this.f30965h;
+        int[] iArr = this.f31056h;
         int length = iArr.length;
-        this.f30965h = Arrays.copyOf(iArr, i2);
-        this.f30966i = Arrays.copyOf(this.f30966i, i2);
+        this.f31056h = Arrays.copyOf(iArr, i2);
+        this.f31057i = Arrays.copyOf(this.f31057i, i2);
         if (length < i2) {
-            Arrays.fill(this.f30965h, length, i2, -1);
-            Arrays.fill(this.f30966i, length, i2, -1);
+            Arrays.fill(this.f31056h, length, i2, -1);
+            Arrays.fill(this.f31057i, length, i2, -1);
         }
     }
 

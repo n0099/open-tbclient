@@ -20,9 +20,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f extends h<d> {
-    public static final boolean r = k.f43199a;
+    public static final boolean r = k.f46875a;
     public final Activity m;
-    public c.C0832c n;
+    public c.C0888c n;
     public c o = new c(Looper.getMainLooper(), this);
     public Bundle p;
     public String q;
@@ -67,11 +67,11 @@ public class f extends h<d> {
     public static class c extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<f> f41753a;
+        public WeakReference<f> f45429a;
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f fVar = this.f41753a.get();
+            f fVar = this.f45429a.get();
             if (fVar != null && message.what == 1) {
                 if (f.r) {
                     Log.d("LoginRequest", "handleMessage: timeout");
@@ -83,7 +83,7 @@ public class f extends h<d> {
 
         public c(Looper looper, f fVar) {
             super(looper);
-            this.f41753a = new WeakReference<>(fVar);
+            this.f45429a = new WeakReference<>(fVar);
         }
     }
 
@@ -91,20 +91,20 @@ public class f extends h<d> {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f41754a;
+        public final String f45430a;
 
         public String toString() {
-            return String.format("Result code(%s)", this.f41754a);
+            return String.format("Result code(%s)", this.f45430a);
         }
 
         public d(String str) {
-            this.f41754a = str == null ? "" : str;
+            this.f45430a = str == null ? "" : str;
         }
     }
 
-    public f(Activity activity, c.C0832c c0832c, Bundle bundle) {
+    public f(Activity activity, c.C0888c c0888c, Bundle bundle) {
         this.m = activity;
-        this.n = c0832c;
+        this.n = c0888c;
         if (bundle != null && bundle.containsKey("__plugin__")) {
             this.q = bundle.getString("__plugin__");
             bundle.remove("__plugin__");

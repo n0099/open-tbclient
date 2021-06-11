@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.ListUtils;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a2;
 import java.util.Iterator;
 import tbclient.ThreadInfo;
@@ -13,54 +13,54 @@ import tbclient.VideoInfo;
 public class b implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f63401e;
+    public String f67116e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f63402f;
+    public int f67117f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f63403g;
+    public int f67118g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f63404h;
+    public String f67119h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f63405i;
+    public int f67120i;
     public boolean j;
     public a2 k;
 
     public b(ThreadInfo threadInfo, boolean z) {
-        c(threadInfo);
+        b(threadInfo);
         this.j = z;
     }
 
-    public final void c(ThreadInfo threadInfo) {
+    public final void b(ThreadInfo threadInfo) {
         if (threadInfo == null) {
             return;
         }
         a2 a2Var = new a2();
         this.k = a2Var;
-        a2Var.U2(threadInfo);
-        this.f63401e = threadInfo.title;
-        this.f63402f = threadInfo.reply_num.intValue();
-        this.f63403g = threadInfo.agree_num.intValue();
+        a2Var.V2(threadInfo);
+        this.f67116e = threadInfo.title;
+        this.f67117f = threadInfo.reply_num.intValue();
+        this.f67118g = threadInfo.agree_num.intValue();
         if (!ListUtils.isEmpty(this.k.L0())) {
             Iterator<MediaData> it = this.k.L0().iterator();
             while (it.hasNext()) {
                 MediaData next = it.next();
                 if (next != null && next.getType() == 3) {
                     String picUrl = next.getPicUrl();
-                    this.f63404h = picUrl;
+                    this.f67119h = picUrl;
                     if (StringUtils.isNull(picUrl)) {
-                        this.f63404h = next.getSmallUrl();
+                        this.f67119h = next.getSmallUrl();
                     }
-                    if (StringUtils.isNull(this.f63404h)) {
-                        this.f63404h = next.getThumbnails_url();
+                    if (StringUtils.isNull(this.f67119h)) {
+                        this.f67119h = next.getThumbnails_url();
                     }
-                    if (StringUtils.isNull(this.f63404h)) {
-                        this.f63404h = next.getSrc_pic();
+                    if (StringUtils.isNull(this.f67119h)) {
+                        this.f67119h = next.getSrc_pic();
                     }
-                    if (!StringUtils.isNull(this.f63404h)) {
+                    if (!StringUtils.isNull(this.f67119h)) {
                         break;
                     }
                 }
@@ -68,12 +68,12 @@ public class b implements n {
         }
         VideoInfo videoInfo = threadInfo.video_info;
         if (videoInfo != null) {
-            this.f63405i = videoInfo.video_duration.intValue();
+            this.f67120i = videoInfo.video_duration.intValue();
         }
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        return a.f63399a;
+        return a.f67114a;
     }
 }

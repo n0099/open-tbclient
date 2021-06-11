@@ -8,48 +8,48 @@ import d.a.l0.a.k;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f45983c;
+    public static volatile b f49657c;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextWatcher f45984a;
+    public TextWatcher f49658a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanEditText f45985b;
+    public SwanEditText f49659b;
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public static b d() {
-        if (f45983c == null) {
+        if (f49657c == null) {
             synchronized (b.class) {
-                if (f45983c == null) {
-                    f45983c = new b();
+                if (f49657c == null) {
+                    f49657c = new b();
                 }
             }
         }
-        return f45983c;
+        return f49657c;
     }
 
     public SwanEditText a(Context context) {
         SwanEditText swanEditText = new SwanEditText(context);
-        this.f45985b = swanEditText;
+        this.f49659b = swanEditText;
         return swanEditText;
     }
 
     public void b() {
-        this.f45985b = null;
+        this.f49659b = null;
     }
 
     public SwanEditText c() {
-        return this.f45985b;
+        return this.f49659b;
     }
 
     public TextWatcher e() {
-        return this.f45984a;
+        return this.f49658a;
     }
 
     public void f(TextWatcher textWatcher) {
-        this.f45984a = textWatcher;
+        this.f49658a = textWatcher;
     }
 }

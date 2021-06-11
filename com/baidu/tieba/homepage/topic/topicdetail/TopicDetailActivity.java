@@ -21,9 +21,9 @@ import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
 import d.a.c.e.m.b;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
-import d.a.c.j.e.n;
-import d.a.m0.a.f;
-import d.a.m0.a.w;
+import d.a.c.k.e.n;
+import d.a.m0.a.g;
+import d.a.m0.a.x;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -33,7 +33,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.a.n0.b1.j.a.a {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.a.n0.b1.k.a.a {
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
     public long mCurPageNum = 1;
@@ -44,14 +44,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public long topicID;
 
     /* loaded from: classes4.dex */
-    public class a implements f.b {
+    public class a implements g.b {
         public a() {
         }
 
-        @Override // d.a.m0.a.f.b
+        @Override // d.a.m0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
-            if (hashMap != null && (hashMap.get(f.u) instanceof String)) {
-                String str = (String) hashMap.get(f.u);
+            if (hashMap != null && (hashMap.get(g.u) instanceof String)) {
+                String str = (String) hashMap.get(g.u);
                 if (StringUtils.isNull(str)) {
                     return;
                 }
@@ -67,7 +67,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         Map<String, String> paramPair = UrlManager.getParamPair(str);
         if (paramPair != null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-            w.b(statisticItem, paramPair);
+            x.b(statisticItem, paramPair);
             statisticItem.param("obj_locate", paramPair.get("obj_locate"));
             statisticItem.param("obj_type", 1);
             statisticItem.param("tid", paramPair.get("tid"));
@@ -115,7 +115,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         return "a024";
     }
 
-    @Override // d.a.n0.b1.j.a.a
+    @Override // d.a.n0.b1.k.a.a
     public void loadData() {
         int i2;
         String substring;
@@ -128,8 +128,8 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (intent.getParcelableExtra(IntentConfig.KEY_URI) != null) {
             Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
             String uri2 = uri.toString();
-            if (f.c(uri)) {
-                f.b().g(uri, new a());
+            if (g.c(uri)) {
+                g.b().g(uri, new a());
             } else if (!StringUtils.isNull(uri2) && uri2.startsWith("tbtopicdetail://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (StringUtils.isNull(decode)) {
@@ -165,14 +165,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             if (topicDetailView != null && topicDetailView.getEditor() != null) {
                 this.mTopicDetailView.getEditor().J(this.topicID);
             }
-            this.mTopicDetailModel.x(this.topicID);
+            this.mTopicDetailModel.B(this.topicID);
         }
     }
 
-    @Override // d.a.n0.b1.j.a.a
-    public void netCallback(int i2, d.a.n0.b1.j.a.c.a aVar) {
+    @Override // d.a.n0.b1.k.a.a
+    public void netCallback(int i2, d.a.n0.b1.k.a.c.a aVar) {
         this.mTopicDetailView.r();
-        if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f51936f)) {
+        if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f55625f)) {
             this.mTopicDetailView.s();
             this.mTopicDetailView.setData(aVar);
             return;
@@ -180,7 +180,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         this.mTopicDetailView.B(true);
     }
 
-    @Override // d.a.n0.b1.j.a.a
+    @Override // d.a.n0.b1.k.a.a
     public void netThreadCallback(int i2, boolean z, List<n> list) {
         this.mTopicDetailView.setNextData(i2, z, list);
     }
@@ -210,7 +210,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         setContentView(topicDetailView);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.mTopicDetailModel.z(this);
+        this.mTopicDetailModel.D(this);
         loadData();
         if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.a.c.a.b.f().h("MainTabActivity")) {
             this.mIsFromSchema = true;
@@ -241,6 +241,6 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         long j2 = this.mCurPageNum + 1;
         this.mCurPageNum = j2;
         this.mLastThreadId = j;
-        this.mTopicDetailModel.y(this.topicID, j2, j);
+        this.mTopicDetailModel.C(this.topicID, j2, j);
     }
 }

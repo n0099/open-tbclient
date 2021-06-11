@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumberPwdView.OnPwdChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public SixNumberPwdView f25796a;
+    public SixNumberPwdView f25899a;
     public String extraFromH5;
     public boolean isOpenHalfScreenPwdVerify = false;
     public TextView mErrorTip;
@@ -63,7 +63,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
     }
 
     public String getPwd() {
-        return this.f25796a.getPwd();
+        return this.f25899a.getPwd();
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
@@ -110,18 +110,18 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
         }
         this.mTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_tip"));
         this.mSubTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_sub_tip"));
-        this.f25796a = (SixNumberPwdView) findViewById(ResUtils.id(getActivity(), "pwd_input_box"));
+        this.f25899a = (SixNumberPwdView) findViewById(ResUtils.id(getActivity(), "pwd_input_box"));
         this.mErrorTip = (TextView) findViewById(ResUtils.id(getActivity(), "error_tip"));
         this.mForgetPasswd = findViewById(ResUtils.id(getActivity(), "forget_pwd"));
         hideErrorMsg();
         this.mRootView = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "root_view"));
         this.mScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
-        SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f25796a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
+        SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f25899a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
         this.mSafeEditText = safeKeyBoardEditText;
         safeKeyBoardEditText.initSafeKeyBoardParams(this.mRootView, this.mScrollView, safeKeyBoardEditText, false);
         this.mSafeEditText.setGap(20);
         this.mSafeEditText.setDisablePast(true);
-        this.f25796a.addSixNumberPwdChangedListenter(this);
+        this.f25899a.addSixNumberPwdChangedListenter(this);
         setSafeScrollView(this.mScrollView);
         this.mSafeEditText.requestFocus();
     }
@@ -149,7 +149,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
     }
 
     public void resetPwd() {
-        this.f25796a.resetPwd();
+        this.f25899a.resetPwd();
     }
 
     public void showErrorMsg(String str) {

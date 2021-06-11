@@ -49,6 +49,7 @@ import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import com.baidu.wallet.util.StatHelper;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -308,7 +309,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         IChannelPay iChannelPay = this.mChannelPay;
         if (iChannelPay != null) {
             if ((iChannelPay instanceof ChannelFastPay) && TextUtils.isEmpty(((ChannelFastPay) iChannelPay).getUrl(getPayContent))) {
-                GlobalUtils.toast(this, "支付失败");
+                GlobalUtils.toast(this, EventAlias.PayEventAlias.PAY_FAIL);
                 return;
             }
             if ((this.mChannelPay instanceof ChannelAliPay) && getPayContent.getPayData() != null && getPayContent.getPayData().isAliAuthPay()) {
@@ -393,7 +394,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                 iChannelPay2.payCancel();
             }
         } else {
-            string.equalsIgnoreCase(e.f1950a);
+            string.equalsIgnoreCase(e.f1963a);
         }
     }
 

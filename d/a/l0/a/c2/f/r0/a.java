@@ -16,21 +16,21 @@ public class a extends e {
 
     /* renamed from: d.a.l0.a.c2.f.r0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0591a implements d.a.l0.a.v2.e1.b<i<b.e>> {
+    public class C0647a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41254e;
+        public final /* synthetic */ CallbackHandler f44930e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f41255f;
+        public final /* synthetic */ d f44931f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.p.e.b f41256g;
+        public final /* synthetic */ d.a.l0.a.p.e.b f44932g;
 
-        public C0591a(CallbackHandler callbackHandler, d dVar, d.a.l0.a.p.e.b bVar) {
-            this.f41254e = callbackHandler;
-            this.f41255f = dVar;
-            this.f41256g = bVar;
+        public C0647a(CallbackHandler callbackHandler, d dVar, d.a.l0.a.p.e.b bVar) {
+            this.f44930e = callbackHandler;
+            this.f44931f = dVar;
+            this.f44932g = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,19 +38,19 @@ public class a extends e {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (!d.a.l0.a.e2.c.d.h(iVar)) {
-                d.a.l0.a.e2.c.d.p(iVar, this.f41254e, this.f41255f.f40848i);
-                this.f41255f.o = null;
+                d.a.l0.a.e2.c.d.p(iVar, this.f44930e, this.f44931f.f44524i);
+                this.f44931f.o = null;
             } else {
-                d dVar = this.f41255f;
+                d dVar = this.f44931f;
                 dVar.q = false;
-                a.this.m(this.f41254e, (SwanAppSlaveManager) this.f41256g, dVar);
+                a.this.m(this.f44930e, (SwanAppSlaveManager) this.f44932g, dVar);
             }
-            if (this.f41256g.y(this.f41255f)) {
+            if (this.f44932g.y(this.f44931f)) {
                 a.this.o();
                 return;
             }
             d.a.l0.a.e0.d.b("insertWebView", "insert webview widget fail");
-            this.f41254e.handleSchemeDispatchCallback(this.f41255f.f40848i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            this.f44930e.handleSchemeDispatchCallback(this.f44931f.f44524i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
         }
     }
 
@@ -60,7 +60,7 @@ public class a extends e {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("InsertWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         d h2 = d.h(unitedSchemeEntity);
@@ -73,14 +73,14 @@ public class a extends e {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else {
-            d.a.l0.a.p.e.b bVar = (d.a.l0.a.p.e.b) d.a.l0.a.g1.f.V().B(h2.f40846g);
+            d.a.l0.a.p.e.b bVar = (d.a.l0.a.p.e.b) d.a.l0.a.g1.f.V().B(h2.f44522g);
             if (bVar == null) {
                 d.a.l0.a.e0.d.b("insertWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             if (TextUtils.equals(h2.p, "quickPass")) {
-                eVar.T().g(context, "scope_webview_extra_operation", new C0591a(callbackHandler, h2, bVar));
+                eVar.T().g(context, "scope_webview_extra_operation", new C0647a(callbackHandler, h2, bVar));
             } else if (!bVar.y(h2)) {
                 d.a.l0.a.e0.d.b("insertWebView", "insert webview widget fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

@@ -10,7 +10,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioRecord {
     public static final long AUDIO_RECORD_THREAD_JOIN_TIMEOUT_MS = 2000;
     public static final int BITS_PER_SAMPLE = 16;
@@ -36,13 +36,13 @@ public class WebRtcAudioRecord {
     public byte[] emptyBytes;
     public final long nativeAudioRecord;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum AudioRecordStartErrorCode {
         AUDIO_RECORD_START_EXCEPTION,
         AUDIO_RECORD_START_STATE_MISMATCH
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AudioRecordThread extends Thread {
         public volatile boolean keepAlive;
 
@@ -95,7 +95,7 @@ public class WebRtcAudioRecord {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class AudioSamples {
         public final int audioFormat;
         public final int channelCount;
@@ -126,7 +126,7 @@ public class WebRtcAudioRecord {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface WebRtcAudioRecordErrorCallback {
         void onWebRtcAudioRecordError(String str);
 
@@ -135,7 +135,7 @@ public class WebRtcAudioRecord {
         void onWebRtcAudioRecordStartError(AudioRecordStartErrorCode audioRecordStartErrorCode, String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface WebRtcAudioRecordSamplesReadyCallback {
         void onWebRtcAudioRecordSamplesReady(AudioSamples audioSamples);
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
 import com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback;
+import com.baidu.searchbox.live.interfaces.callback.LiveLoadStatusCallback;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public interface IYYLiveNPSPlugin {
@@ -20,6 +21,10 @@ public interface IYYLiveNPSPlugin {
     void getLiveResourceSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback);
 
     boolean isAvailable();
+
+    boolean isLoaded();
+
+    void loadPlugin(@NonNull Context context, LiveLoadStatusCallback liveLoadStatusCallback);
 
     void onDiskClearCacheChange(long j, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
 

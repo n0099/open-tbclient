@@ -27,27 +27,27 @@ import java.util.Date;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f42115c = d.a.l0.a.k.f43199a;
+    public static final boolean f45791c = d.a.l0.a.k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42116a;
+    public Context f45792a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.a.h0.h.a f42117b;
+    public d.a.l0.a.h0.h.a f45793b;
 
     /* loaded from: classes2.dex */
     public class a implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f42118e;
+        public final /* synthetic */ s f45794e;
 
         public a(b bVar, s sVar) {
-            this.f42118e = sVar;
+            this.f45794e = sVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            s sVar = this.f42118e;
+            s sVar = this.f45794e;
             if (sVar != null) {
                 sVar.onCancel();
             }
@@ -56,18 +56,18 @@ public class b {
 
     /* renamed from: d.a.l0.a.h0.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class DialogInterface$OnClickListenerC0664b implements DialogInterface.OnClickListener {
+    public class DialogInterface$OnClickListenerC0720b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f42119e;
+        public final /* synthetic */ s f45795e;
 
-        public DialogInterface$OnClickListenerC0664b(b bVar, s sVar) {
-            this.f42119e = sVar;
+        public DialogInterface$OnClickListenerC0720b(b bVar, s sVar) {
+            this.f45795e = sVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            s sVar = this.f42119e;
+            s sVar = this.f45795e;
             if (sVar != null) {
                 sVar.b("");
             }
@@ -78,15 +78,15 @@ public class b {
     public class c implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f42120e;
+        public final /* synthetic */ s f45796e;
 
         public c(b bVar, s sVar) {
-            this.f42120e = sVar;
+            this.f45796e = sVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            s sVar = this.f42120e;
+            s sVar = this.f45796e;
             if (sVar != null) {
                 sVar.onCancel();
             }
@@ -97,15 +97,15 @@ public class b {
     public class d implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f42121e;
+        public final /* synthetic */ s f45797e;
 
         public d(b bVar, s sVar) {
-            this.f42121e = sVar;
+            this.f45797e = sVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            s sVar = this.f42121e;
+            s sVar = this.f45797e;
             if (sVar != null) {
                 sVar.onCancel();
             }
@@ -116,15 +116,15 @@ public class b {
     public class e implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f42122e;
+        public final /* synthetic */ s f45798e;
 
         public e(b bVar, s sVar) {
-            this.f42122e = sVar;
+            this.f45798e = sVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            s sVar = this.f42122e;
+            s sVar = this.f45798e;
             if (sVar != null) {
                 sVar.b("");
             }
@@ -135,15 +135,15 @@ public class b {
     public class f implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f42123e;
+        public final /* synthetic */ s f45799e;
 
         public f(b bVar, s sVar) {
-            this.f42123e = sVar;
+            this.f45799e = sVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            s sVar = this.f42123e;
+            s sVar = this.f45799e;
             if (sVar != null) {
                 sVar.onCancel();
             }
@@ -154,15 +154,15 @@ public class b {
     public class g implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f42124e;
+        public final /* synthetic */ s f45800e;
 
         public g(b bVar, s sVar) {
-            this.f42124e = sVar;
+            this.f45800e = sVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            s sVar = this.f42124e;
+            s sVar = this.f45800e;
             if (sVar != null) {
                 sVar.onCancel();
             }
@@ -173,21 +173,21 @@ public class b {
     public class h implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f42125e;
+        public final /* synthetic */ s f45801e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditText f42126f;
+        public final /* synthetic */ EditText f45802f;
 
         public h(b bVar, s sVar, EditText editText) {
-            this.f42125e = sVar;
-            this.f42126f = editText;
+            this.f45801e = sVar;
+            this.f45802f = editText;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            s sVar = this.f42125e;
+            s sVar = this.f45801e;
             if (sVar != null) {
-                sVar.b(this.f42126f.getText().toString());
+                sVar.b(this.f45802f.getText().toString());
             }
         }
     }
@@ -196,19 +196,19 @@ public class b {
     public class i implements a.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r f42127a;
+        public final /* synthetic */ r f45803a;
 
         public i(r rVar) {
-            this.f42127a = rVar;
+            this.f45803a = rVar;
         }
 
         @Override // d.a.l0.a.h0.h.a.f
         public void a(String str, String str2, String str3, String str4) {
-            r rVar = this.f42127a;
+            r rVar = this.f45803a;
             if (rVar != null) {
                 rVar.b(str3, str4);
             }
-            b.this.f42117b = null;
+            b.this.f45793b = null;
         }
     }
 
@@ -216,19 +216,19 @@ public class b {
     public class j implements a.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r f42129a;
+        public final /* synthetic */ r f45805a;
 
         public j(r rVar) {
-            this.f42129a = rVar;
+            this.f45805a = rVar;
         }
 
         @Override // d.a.l0.a.h0.h.a.e
         public void onCancel() {
-            r rVar = this.f42129a;
+            r rVar = this.f45805a;
             if (rVar != null) {
                 rVar.a();
             }
-            b.this.f42117b = null;
+            b.this.f45793b = null;
         }
     }
 
@@ -236,15 +236,15 @@ public class b {
     public class k implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SslErrorHandler f42131e;
+        public final /* synthetic */ SslErrorHandler f45807e;
 
         public k(b bVar, SslErrorHandler sslErrorHandler) {
-            this.f42131e = sslErrorHandler;
+            this.f45807e = sslErrorHandler;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            this.f42131e.cancel();
+            this.f45807e.cancel();
         }
     }
 
@@ -252,15 +252,15 @@ public class b {
     public class l implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t f42132a;
+        public final /* synthetic */ t f45808a;
 
         public l(b bVar, t tVar) {
-            this.f42132a = tVar;
+            this.f45808a = tVar;
         }
 
         @Override // d.a.l0.a.z1.b.b.b.c
         public void a(View view) {
-            t tVar = this.f42132a;
+            t tVar = this.f45808a;
             if (tVar != null) {
                 tVar.c();
             }
@@ -271,23 +271,23 @@ public class b {
     public class m implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t f42133a;
+        public final /* synthetic */ t f45809a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SslErrorHandler f42134b;
+        public final /* synthetic */ SslErrorHandler f45810b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SslError f42135c;
+        public final /* synthetic */ SslError f45811c;
 
         public m(t tVar, SslErrorHandler sslErrorHandler, SslError sslError) {
-            this.f42133a = tVar;
-            this.f42134b = sslErrorHandler;
-            this.f42135c = sslError;
+            this.f45809a = tVar;
+            this.f45810b = sslErrorHandler;
+            this.f45811c = sslError;
         }
 
         @Override // d.a.l0.a.z1.b.b.b.c
         public void a(View view) {
-            b.this.o(this.f42133a, this.f42134b, this.f42135c);
+            b.this.o(this.f45809a, this.f45810b, this.f45811c);
         }
     }
 
@@ -295,15 +295,15 @@ public class b {
     public class n implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t f42137a;
+        public final /* synthetic */ t f45813a;
 
         public n(b bVar, t tVar) {
-            this.f42137a = tVar;
+            this.f45813a = tVar;
         }
 
         @Override // d.a.l0.a.z1.b.b.b.c
         public void a(View view) {
-            t tVar = this.f42137a;
+            t tVar = this.f45813a;
             if (tVar != null) {
                 tVar.b();
             }
@@ -314,27 +314,27 @@ public class b {
     public class o implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public long[] f42138a = null;
+        public long[] f45814a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SslError f42139b;
+        public final /* synthetic */ SslError f45815b;
 
         public o(SslError sslError) {
-            this.f42139b = sslError;
+            this.f45815b = sslError;
         }
 
         @Override // d.a.l0.a.z1.b.b.b.c
         public void a(View view) {
-            if (this.f42138a == null) {
-                this.f42138a = new long[5];
+            if (this.f45814a == null) {
+                this.f45814a = new long[5];
             }
-            long[] jArr = this.f42138a;
+            long[] jArr = this.f45814a;
             System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
-            long[] jArr2 = this.f42138a;
+            long[] jArr2 = this.f45814a;
             jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
-            if (this.f42138a[0] >= SystemClock.uptimeMillis() - 3000) {
-                this.f42138a = null;
-                b.this.g(this.f42139b.toString());
+            if (this.f45814a[0] >= SystemClock.uptimeMillis() - 3000) {
+                this.f45814a = null;
+                b.this.g(this.f45815b.toString());
             }
         }
     }
@@ -343,15 +343,15 @@ public class b {
     public class p implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ t f42141e;
+        public final /* synthetic */ t f45817e;
 
         public p(b bVar, t tVar) {
-            this.f42141e = tVar;
+            this.f45817e = tVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            t tVar = this.f42141e;
+            t tVar = this.f45817e;
             if (tVar != null) {
                 tVar.a();
             }
@@ -362,15 +362,15 @@ public class b {
     public class q implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t f42142a;
+        public final /* synthetic */ t f45818a;
 
         public q(b bVar, t tVar) {
-            this.f42142a = tVar;
+            this.f45818a = tVar;
         }
 
         @Override // d.a.l0.a.z1.b.b.b.c
         public void a(View view) {
-            t tVar = this.f42142a;
+            t tVar = this.f45818a;
             if (tVar != null) {
                 tVar.a();
             }
@@ -403,7 +403,7 @@ public class b {
     }
 
     public b(Context context) {
-        this.f42116a = context;
+        this.f45792a = context;
     }
 
     public final void c(LinearLayout linearLayout, int i2) {
@@ -411,7 +411,7 @@ public class b {
     }
 
     public final void d(LinearLayout linearLayout, int i2, int i3) {
-        View inflate = LayoutInflater.from(this.f42116a).inflate(d.a.l0.a.g.aiapps_ssl_content_header, (ViewGroup) linearLayout, false);
+        View inflate = LayoutInflater.from(this.f45792a).inflate(d.a.l0.a.g.aiapps_ssl_content_header, (ViewGroup) linearLayout, false);
         TextView textView = (TextView) inflate.findViewById(d.a.l0.a.f.ssl_header_text);
         textView.setTextColor(inflate.getContext().getResources().getColor(d.a.l0.a.c.aiapps_safe_dialog_message));
         textView.setText(i2);
@@ -424,19 +424,19 @@ public class b {
     }
 
     public final boolean f() {
-        Context context = this.f42116a;
+        Context context = this.f45792a;
         return (context instanceof Activity) && !((Activity) context).isFinishing();
     }
 
     public void g(String str) {
-        ((ClipboardManager) this.f42116a.getSystemService("clipboard")).setText(str);
-        d.a.l0.a.z1.b.f.e.f(this.f42116a, d.a.l0.a.h.aiapps_ssl_copy_error).F();
+        ((ClipboardManager) this.f45792a.getSystemService("clipboard")).setText(str);
+        d.a.l0.a.z1.b.f.e.f(this.f45792a, d.a.l0.a.h.aiapps_ssl_copy_error).F();
     }
 
     public final d.a h(SslCertificate sslCertificate, SslError sslError) {
         View j2 = j(sslCertificate);
         LinearLayout linearLayout = (LinearLayout) j2.findViewById(d.a.l0.a.f.placeholder);
-        j2.findViewById(d.a.l0.a.f.ssl_divider).setBackgroundColor(this.f42116a.getResources().getColor(d.a.l0.a.c.aiapps_dialog_gray));
+        j2.findViewById(d.a.l0.a.f.ssl_divider).setBackgroundColor(this.f45792a.getResources().getColor(d.a.l0.a.c.aiapps_dialog_gray));
         if (sslError == null) {
             c(linearLayout, d.a.l0.a.h.aiapps_ssl_certificate_is_valid);
         } else {
@@ -462,19 +462,19 @@ public class b {
                 e(linearLayout, d.a.l0.a.h.aiapps_ssl_unknown);
             }
         }
-        d.a aVar = new d.a(this.f42116a);
+        d.a aVar = new d.a(this.f45792a);
         aVar.d0(d.a.l0.a.h.aiapps_ssl_certificate);
         aVar.c0(j2);
         return aVar;
     }
 
     public final String i(Date date) {
-        return date == null ? "" : DateFormat.getDateFormat(this.f42116a).format(date);
+        return date == null ? "" : DateFormat.getDateFormat(this.f45792a).format(date);
     }
 
     public final View j(SslCertificate sslCertificate) {
-        View inflate = LayoutInflater.from(this.f42116a).inflate(d.a.l0.a.g.aiapps_ssl_certificate, (ViewGroup) null);
-        int color = this.f42116a.getResources().getColor(d.a.l0.a.c.aiapps_safe_dialog_message);
+        View inflate = LayoutInflater.from(this.f45792a).inflate(d.a.l0.a.g.aiapps_ssl_certificate, (ViewGroup) null);
+        int color = this.f45792a.getResources().getColor(d.a.l0.a.c.aiapps_safe_dialog_message);
         ViewGroup viewGroup = (ViewGroup) inflate.findViewById(d.a.l0.a.f.body);
         for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
             View childAt = viewGroup.getChildAt(i2);
@@ -502,16 +502,16 @@ public class b {
     }
 
     public void k(r rVar, String str, String str2) {
-        d.a.l0.a.h0.h.a aVar = new d.a.l0.a.h0.h.a(this.f42116a, str, str2);
-        this.f42117b = aVar;
+        d.a.l0.a.h0.h.a aVar = new d.a.l0.a.h0.h.a(this.f45792a, str, str2);
+        this.f45793b = aVar;
         aVar.h(new i(rVar));
-        this.f42117b.g(new j(rVar));
-        this.f42117b.i();
+        this.f45793b.g(new j(rVar));
+        this.f45793b.i();
     }
 
     public boolean l(String str, String str2, s sVar) {
         if (!f()) {
-            if (f42115c) {
+            if (f45791c) {
                 Log.e("PageDialogsHandler", "can not showJsAlert");
             }
             if (sVar != null) {
@@ -519,10 +519,10 @@ public class b {
             }
             return false;
         }
-        h.a aVar = new h.a(this.f42116a);
+        h.a aVar = new h.a(this.f45792a);
         aVar.U(d.a.l0.a.h.aiapps_dialog_webcall_common_title);
         aVar.x(str2);
-        aVar.O(d.a.l0.a.h.aiapps_confirm, new DialogInterface$OnClickListenerC0664b(this, sVar));
+        aVar.O(d.a.l0.a.h.aiapps_confirm, new DialogInterface$OnClickListenerC0720b(this, sVar));
         aVar.K(new a(this, sVar));
         if (d.a.l0.a.c1.a.H().a()) {
             aVar.Y(false);
@@ -534,7 +534,7 @@ public class b {
 
     public boolean m(String str, String str2, s sVar) {
         if (!f()) {
-            if (f42115c) {
+            if (f45791c) {
                 Log.e("PageDialogsHandler", "can not showJsConfirm");
             }
             if (sVar != null) {
@@ -542,7 +542,7 @@ public class b {
             }
             return false;
         }
-        h.a aVar = new h.a(this.f42116a);
+        h.a aVar = new h.a(this.f45792a);
         aVar.U(d.a.l0.a.h.aiapps_dialog_webcall_common_title);
         aVar.x(str2);
         aVar.O(d.a.l0.a.h.aiapps_confirm, new e(this, sVar));
@@ -563,11 +563,11 @@ public class b {
             }
             return false;
         }
-        View inflate = LayoutInflater.from(this.f42116a).inflate(d.a.l0.a.g.aiapps_js_prompt, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.f45792a).inflate(d.a.l0.a.g.aiapps_js_prompt, (ViewGroup) null);
         EditText editText = (EditText) inflate.findViewById(d.a.l0.a.f.value);
         editText.setText(str3);
         ((TextView) inflate.findViewById(d.a.l0.a.f.message)).setText(str2);
-        h.a aVar = new h.a(this.f42116a);
+        h.a aVar = new h.a(this.f45792a);
         aVar.U(d.a.l0.a.h.aiapps_dialog_webcall_common_title);
         aVar.W(inflate);
         aVar.O(d.a.l0.a.h.aiapps_confirm, new h(this, sVar, editText));
@@ -591,7 +591,7 @@ public class b {
             return;
         }
         d.a h2 = h(certificate, sslError);
-        h2.a0(new b.a(this.f42116a.getText(d.a.l0.a.h.aiapps_confirm_text), d.a.l0.a.c.aiapps_safe_dialog_btn_black, new q(this, tVar)));
+        h2.a0(new b.a(this.f45792a.getText(d.a.l0.a.h.aiapps_confirm_text), d.a.l0.a.c.aiapps_safe_dialog_btn_black, new q(this, tVar)));
         h2.K(new p(this, tVar));
         h2.X();
     }
@@ -601,13 +601,13 @@ public class b {
             sslErrorHandler.cancel();
             return;
         }
-        c.C0665c c0665c = new c.C0665c(this.f42116a);
-        c0665c.g0(d.a.l0.a.h.aiapps_security_warning);
-        c0665c.f0(d.a.l0.a.h.aiapps_ssl_warnings_header, new o(sslError));
-        c0665c.a0(new b.a(this.f42116a.getText(d.a.l0.a.h.aiapps_ssl_continue), d.a.l0.a.c.aiapps_ssl_dialog_go_on_text_color, new n(this, tVar)));
-        c0665c.a0(new b.a(this.f42116a.getText(d.a.l0.a.h.aiapps_view_certificate), d.a.l0.a.c.aiapps_safe_dialog_btn_black, new m(tVar, sslErrorHandler, sslError)));
-        c0665c.a0(new b.a(this.f42116a.getText(d.a.l0.a.h.aiapps_ssl_go_back), d.a.l0.a.c.aiapps_safe_dialog_btn_black, new l(this, tVar)));
-        c0665c.K(new k(this, sslErrorHandler));
-        c0665c.X();
+        c.C0721c c0721c = new c.C0721c(this.f45792a);
+        c0721c.g0(d.a.l0.a.h.aiapps_security_warning);
+        c0721c.f0(d.a.l0.a.h.aiapps_ssl_warnings_header, new o(sslError));
+        c0721c.a0(new b.a(this.f45792a.getText(d.a.l0.a.h.aiapps_ssl_continue), d.a.l0.a.c.aiapps_ssl_dialog_go_on_text_color, new n(this, tVar)));
+        c0721c.a0(new b.a(this.f45792a.getText(d.a.l0.a.h.aiapps_view_certificate), d.a.l0.a.c.aiapps_safe_dialog_btn_black, new m(tVar, sslErrorHandler, sslError)));
+        c0721c.a0(new b.a(this.f45792a.getText(d.a.l0.a.h.aiapps_ssl_go_back), d.a.l0.a.c.aiapps_safe_dialog_btn_black, new l(this, tVar)));
+        c0721c.K(new k(this, sslErrorHandler));
+        c0721c.X();
     }
 }

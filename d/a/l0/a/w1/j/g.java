@@ -20,51 +20,51 @@ import d.a.l0.a.k;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45632a = k.f43199a;
+    public static final boolean f49306a = k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a implements d.a.l0.a.s1.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f45633a;
+        public final /* synthetic */ int f49307a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f45634b;
+        public final /* synthetic */ boolean f49308b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Activity f45635c;
+        public final /* synthetic */ Activity f49309c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.d.d.c f45636d;
+        public final /* synthetic */ d.a.l0.a.i1.d.d.c f49310d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f45637e;
+        public final /* synthetic */ Context f49311e;
 
         public a(int i2, boolean z, Activity activity, d.a.l0.a.i1.d.d.c cVar, Context context) {
-            this.f45633a = i2;
-            this.f45634b = z;
-            this.f45635c = activity;
-            this.f45636d = cVar;
-            this.f45637e = context;
+            this.f49307a = i2;
+            this.f49308b = z;
+            this.f49309c = activity;
+            this.f49310d = cVar;
+            this.f49311e = context;
         }
 
         @Override // d.a.l0.a.s1.f
         public void a(String str) {
             Bundle bundle = new Bundle();
             bundle.putString("swanAppId", d.a.l0.a.a2.e.V());
-            bundle.putInt("count", this.f45633a);
-            bundle.putBoolean("compressed", this.f45634b);
+            bundle.putInt("count", this.f49307a);
+            bundle.putBoolean("compressed", this.f49308b);
             bundle.putString("launchType", "Image");
             bundle.putString("swanTmpPath", d.a.l0.a.g1.f.V().I().k());
-            d.a.l0.a.i1.d.c.d.l(this.f45635c, bundle, this.f45636d);
+            d.a.l0.a.i1.d.c.d.l(this.f49309c, bundle, this.f49310d);
         }
 
         @Override // d.a.l0.a.s1.f
         public void b(int i2, String str) {
-            if (g.f45632a) {
+            if (g.f49306a) {
                 Log.i(ViewUtil.TAG, str + "");
             }
-            Toast.makeText(this.f45637e, str, 1).show();
+            Toast.makeText(this.f49311e, str, 1).show();
         }
     }
 
@@ -89,7 +89,7 @@ public class g {
     public static boolean c(Activity activity) {
         View b2 = b(activity.getWindow().getDecorView());
         if (b2 == null) {
-            if (f45632a) {
+            if (f49306a) {
                 Log.d(ViewUtil.TAG, "#isFitsSystemWindows#, getSPSRootLayout is NULL");
                 return false;
             }
@@ -114,7 +114,7 @@ public class g {
         if (view.getHeight() == i2) {
             return false;
         }
-        if (f45632a) {
+        if (f49306a) {
             Log.d(ViewUtil.TAG, "refreshHeight, originalHeight: " + view.getHeight() + ", aimHeight: " + i2);
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -124,7 +124,7 @@ public class g {
             layoutParams.height = i2;
             view.requestLayout();
         }
-        if (f45632a) {
+        if (f49306a) {
             Log.d(ViewUtil.TAG, "refreshHeight, newHeight: " + view.getHeight());
             return true;
         }

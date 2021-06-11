@@ -7,71 +7,71 @@ import java.util.List;
 public final class PolygonOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6967a;
+    public int f7010a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f6969c;
+    public Bundle f7012c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Stroke f6970d;
+    public Stroke f7013d;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<LatLng> f6972f;
+    public List<LatLng> f7015f;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6971e = -16777216;
+    public int f7014e = -16777216;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6968b = true;
+    public boolean f7011b = true;
 
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Polygon polygon = new Polygon();
-        polygon.A = this.f6968b;
-        polygon.z = this.f6967a;
-        polygon.B = this.f6969c;
-        List<LatLng> list = this.f6972f;
+        polygon.A = this.f7011b;
+        polygon.z = this.f7010a;
+        polygon.B = this.f7012c;
+        List<LatLng> list = this.f7015f;
         if (list == null || list.size() < 2) {
             throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
         }
-        polygon.f6966c = this.f6972f;
-        polygon.f6965b = this.f6971e;
-        polygon.f6964a = this.f6970d;
+        polygon.f7009c = this.f7015f;
+        polygon.f7008b = this.f7014e;
+        polygon.f7007a = this.f7013d;
         return polygon;
     }
 
     public PolygonOptions extraInfo(Bundle bundle) {
-        this.f6969c = bundle;
+        this.f7012c = bundle;
         return this;
     }
 
     public PolygonOptions fillColor(int i2) {
-        this.f6971e = i2;
+        this.f7014e = i2;
         return this;
     }
 
     public Bundle getExtraInfo() {
-        return this.f6969c;
+        return this.f7012c;
     }
 
     public int getFillColor() {
-        return this.f6971e;
+        return this.f7014e;
     }
 
     public List<LatLng> getPoints() {
-        return this.f6972f;
+        return this.f7015f;
     }
 
     public Stroke getStroke() {
-        return this.f6970d;
+        return this.f7013d;
     }
 
     public int getZIndex() {
-        return this.f6967a;
+        return this.f7010a;
     }
 
     public boolean isVisible() {
-        return this.f6968b;
+        return this.f7011b;
     }
 
     public PolygonOptions points(List<LatLng> list) {
@@ -90,7 +90,7 @@ public final class PolygonOptions extends OverlayOptions {
                     }
                     i2 = i3;
                 }
-                this.f6972f = list;
+                this.f7015f = list;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: points count can not less than three");
@@ -99,17 +99,17 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public PolygonOptions stroke(Stroke stroke) {
-        this.f6970d = stroke;
+        this.f7013d = stroke;
         return this;
     }
 
     public PolygonOptions visible(boolean z) {
-        this.f6968b = z;
+        this.f7011b = z;
         return this;
     }
 
     public PolygonOptions zIndex(int i2) {
-        this.f6967a = i2;
+        this.f7010a = i2;
         return this;
     }
 }

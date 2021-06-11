@@ -6,19 +6,19 @@ import d.a.w.b.f.d;
 public class c implements Cloneable, Comparable<c> {
 
     /* renamed from: e  reason: collision with root package name */
-    public EGLContext f64766e;
+    public EGLContext f68484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f64767f = new d();
+    public d f68485f = new d();
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.w.b.f.c f64768g = new d.a.w.b.f.c();
+    public d.a.w.b.f.c f68486g = new d.a.w.b.f.c();
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.w.b.f.a f64769h = new d.a.w.b.f.b();
+    public d.a.w.b.f.a f68487h = new d.a.w.b.f.b();
 
     /* renamed from: i  reason: collision with root package name */
-    public a f64770i = new a();
+    public a f68488i = new a();
     public boolean j = false;
     public d.a.w.b.e.c k = null;
     public b l = new b();
@@ -26,7 +26,7 @@ public class c implements Cloneable, Comparable<c> {
     public boolean n;
 
     public c(EGLContext eGLContext, int i2, boolean z) {
-        this.f64766e = eGLContext;
+        this.f68484e = eGLContext;
         this.m = i2;
         this.n = z;
     }
@@ -42,7 +42,7 @@ public class c implements Cloneable, Comparable<c> {
             cVar = null;
         }
         if (cVar != null) {
-            cVar.n(this.f64770i.clone());
+            cVar.n(this.f68488i.clone());
             cVar.q(this.l.clone());
         }
         return cVar;
@@ -56,7 +56,7 @@ public class c implements Cloneable, Comparable<c> {
     }
 
     public a d() {
-        return this.f64770i;
+        return this.f68488i;
     }
 
     public int e() {
@@ -64,11 +64,11 @@ public class c implements Cloneable, Comparable<c> {
     }
 
     public d.a.w.b.f.a f() {
-        return this.f64769h;
+        return this.f68487h;
     }
 
     public EGLContext g() {
-        return this.f64766e;
+        return this.f68484e;
     }
 
     public d.a.w.b.e.c h() {
@@ -80,11 +80,11 @@ public class c implements Cloneable, Comparable<c> {
     }
 
     public d.a.w.b.f.c j() {
-        return this.f64768g;
+        return this.f68486g;
     }
 
     public d k() {
-        return this.f64767f;
+        return this.f68485f;
     }
 
     public boolean l() {
@@ -96,11 +96,11 @@ public class c implements Cloneable, Comparable<c> {
     }
 
     public void n(a aVar) {
-        this.f64770i = aVar;
+        this.f68488i = aVar;
     }
 
     public void o(EGLContext eGLContext) {
-        this.f64766e = eGLContext;
+        this.f68484e = eGLContext;
     }
 
     public void p(d.a.w.b.e.c cVar) {
@@ -112,6 +112,6 @@ public class c implements Cloneable, Comparable<c> {
     }
 
     public void r(d dVar) {
-        this.f64767f = dVar;
+        this.f68485f = dVar;
     }
 }

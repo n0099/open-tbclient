@@ -90,7 +90,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         TextView textView = (TextView) findViewById(R.id.plugin_error_btn);
         this.btn = textView;
         textView.setOnClickListener(this);
-        this.resolveMsgView.setText(getString(R.string.plugin_error_tips, new Object[]{this.status.getErrorMsg(), this.status.t()}));
+        this.resolveMsgView.setText(getString(R.string.plugin_error_tips, new Object[]{this.status.getErrorMsg(), this.status.x()}));
         if (this.status.getErrorCode() != 5 && this.status.getErrorCode() != 1 && this.status.getErrorCode() != 100) {
             this.btn.setVisibility(8);
             return;

@@ -12,18 +12,18 @@ import org.json.JSONObject;
 public class b extends e {
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<e> f56635c;
+    public final List<e> f60324c;
 
     /* renamed from: d.a.n0.k1.o.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1410b {
+    public static class C1466b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f56636a = new b();
+        public static final b f60325a = new b();
     }
 
     public static b h() {
-        return C1410b.f56636a;
+        return C1466b.f60325a;
     }
 
     public static ICardInfo i(String str) {
@@ -73,7 +73,7 @@ public class b extends e {
 
     public final <T> d.a.n0.k1.o.l.e e(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i2) {
         d.a.n0.k1.o.l.e a2;
-        for (e eVar : this.f56635c) {
+        for (e eVar : this.f60324c) {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i2);
             } catch (Throwable th) {
@@ -91,7 +91,7 @@ public class b extends e {
     }
 
     public final ICardInfo f(JSONObject jSONObject, int i2) throws CardParseException {
-        for (e eVar : this.f56635c) {
+        for (e eVar : this.f60324c) {
             try {
                 ICardInfo b2 = eVar.b(jSONObject, i2);
                 if (b2 != null) {
@@ -106,10 +106,10 @@ public class b extends e {
     }
 
     public synchronized void g(e eVar) {
-        this.f56635c.add(eVar);
+        this.f60324c.add(eVar);
     }
 
     public b() {
-        this.f56635c = new ArrayList(4);
+        this.f60324c = new ArrayList(4);
     }
 }

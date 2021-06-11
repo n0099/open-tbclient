@@ -26,16 +26,16 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCard f17924e;
+        public final /* synthetic */ LPBigImgCard f18000e;
 
         public a(LPBigImgCard lPBigImgCard) {
-            this.f17924e = lPBigImgCard;
+            this.f18000e = lPBigImgCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f17924e.getBtnLink()});
-            x.p().m().c(this.f17924e.getsExtras(), LPBigImgCardView.this.f17906e);
+            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f18000e.getBtnLink()});
+            x.p().m().c(this.f18000e.getsExtras(), LPBigImgCardView.this.f17982e);
         }
     }
 
@@ -43,16 +43,16 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCard f17926e;
+        public final /* synthetic */ LPBigImgCard f18002e;
 
         public b(LPBigImgCard lPBigImgCard) {
-            this.f17926e = lPBigImgCard;
+            this.f18002e = lPBigImgCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f17926e.getBtnLink()});
-            x.p().m().c(this.f17926e.getsExtras(), LPBigImgCardView.this.f17906e);
+            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f18002e.getBtnLink()});
+            x.p().m().c(this.f18002e.getsExtras(), LPBigImgCardView.this.f17982e);
         }
     }
 
@@ -90,7 +90,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (!TextUtils.isEmpty(lPBigImgCard.getBtnImgUrl()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
             int btnHeight = lPBigImgCard.getBtnHeight();
             M(this.t, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
-            this.t.V(lPBigImgCard.getBtnImgUrl(), 17, false);
+            this.t.U(lPBigImgCard.getBtnImgUrl(), 17, false);
             int btnPosRatio = (int) ((i2 * lPBigImgCard.getBtnPosRatio()) - (btnHeight * 0.5d));
             if (btnPosRatio < 0) {
                 btnPosRatio = 0;
@@ -129,7 +129,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (lPBigImgCard.mHasShown) {
             return;
         }
-        x.p().m().d(lPBigImgCard.getShowExtra(), this.f17906e);
+        x.p().m().d(lPBigImgCard.getShowExtra(), this.f17982e);
         lPBigImgCard.mHasShown = true;
     }
 

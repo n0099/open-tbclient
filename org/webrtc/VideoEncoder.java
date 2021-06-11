@@ -3,10 +3,10 @@ package org.webrtc;
 import com.baidu.android.common.others.lang.StringUtil;
 import javax.annotation.Nullable;
 import org.webrtc.EncodedImage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface VideoEncoder {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class BitrateAllocation {
         public final int[][] bitratesBbs;
 
@@ -27,28 +27,28 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Callback {
         void onEncodedFrame(EncodedImage encodedImage, CodecSpecificInfo codecSpecificInfo);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CodecSpecificInfo {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CodecSpecificInfoH264 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CodecSpecificInfoVP8 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CodecSpecificInfoVP9 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class EncodeInfo {
         public final EncodedImage.FrameType[] frameTypes;
 
@@ -58,7 +58,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ScalingSettings {
         public static final ScalingSettings OFF = new ScalingSettings();
         @Nullable
@@ -101,7 +101,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Settings {
         public final boolean automaticResizeOn;
         public final int height;

@@ -27,39 +27,39 @@ public class y extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41277e;
+        public final /* synthetic */ CallbackHandler f44953e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41278f;
+        public final /* synthetic */ String f44954f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f41279g;
+        public final /* synthetic */ Context f44955g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f41280h;
+        public final /* synthetic */ File f44956h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f41281i;
+        public final /* synthetic */ UnitedSchemeEntity f44957i;
 
         /* renamed from: d.a.l0.a.c2.f.y$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0592a implements Runnable {
-            public RunnableC0592a() {
+        public class RunnableC0648a implements Runnable {
+            public RunnableC0648a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 a aVar = a.this;
-                y.this.p(aVar.f41279g, aVar.f41280h, aVar.f41281i, aVar.f41277e, aVar.f41278f);
+                y.this.p(aVar.f44955g, aVar.f44956h, aVar.f44957i, aVar.f44953e, aVar.f44954f);
             }
         }
 
         public a(CallbackHandler callbackHandler, String str, Context context, File file, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f41277e = callbackHandler;
-            this.f41278f = str;
-            this.f41279g = context;
-            this.f41280h = file;
-            this.f41281i = unitedSchemeEntity;
+            this.f44953e = callbackHandler;
+            this.f44954f = str;
+            this.f44955g = context;
+            this.f44956h = file;
+            this.f44957i = unitedSchemeEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,10 +68,10 @@ public class y extends a0 {
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
             if (!d.a.l0.a.e2.c.d.h(iVar)) {
                 d.a.l0.a.e0.d.g("SaveImage", "Permission denied");
-                d.a.l0.a.e2.c.d.p(iVar, this.f41277e, this.f41278f);
+                d.a.l0.a.e2.c.d.p(iVar, this.f44953e, this.f44954f);
                 return;
             }
-            d.a.l0.a.v2.q.j(new RunnableC0592a(), "SaveImageAction");
+            d.a.l0.a.v2.q.j(new RunnableC0648a(), "SaveImageAction");
         }
     }
 
@@ -79,46 +79,46 @@ public class y extends a0 {
     public class b implements d.a.l0.a.s1.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f41283a;
+        public final /* synthetic */ Context f44959a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f41284b;
+        public final /* synthetic */ File f44960b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41285c;
+        public final /* synthetic */ CallbackHandler f44961c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f41286d;
+        public final /* synthetic */ String f44962d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f41287e;
+        public final /* synthetic */ UnitedSchemeEntity f44963e;
 
         public b(Context context, File file, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f41283a = context;
-            this.f41284b = file;
-            this.f41285c = callbackHandler;
-            this.f41286d = str;
-            this.f41287e = unitedSchemeEntity;
+            this.f44959a = context;
+            this.f44960b = file;
+            this.f44961c = callbackHandler;
+            this.f44962d = str;
+            this.f44963e = unitedSchemeEntity;
         }
 
         @Override // d.a.l0.a.s1.f
         public void a(String str) {
             String str2;
-            boolean q = d.a.l0.a.v2.d.a() ? y.this.q(this.f41283a, this.f41284b) : y.this.r(this.f41283a, this.f41284b);
+            boolean q = d.a.l0.a.v2.d.a() ? y.this.q(this.f44959a, this.f44960b) : y.this.r(this.f44959a, this.f44960b);
             int i2 = q ? 0 : 1001;
             if (q) {
                 str2 = "save success";
             } else {
-                str2 = "can not save to album : " + this.f41284b;
+                str2 = "can not save to album : " + this.f44960b;
             }
             d.a.l0.a.e0.d.g("SaveImage", str2);
-            this.f41285c.handleSchemeDispatchCallback(this.f41286d, UnitedSchemeUtility.wrapCallbackParams(i2, str2).toString());
+            this.f44961c.handleSchemeDispatchCallback(this.f44962d, UnitedSchemeUtility.wrapCallbackParams(i2, str2).toString());
         }
 
         @Override // d.a.l0.a.s1.f
         public void b(int i2, String str) {
             d.a.l0.a.e0.d.g("SaveImage", str + "");
-            UnitedSchemeUtility.safeCallback(this.f41285c, this.f41287e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f41286d);
+            UnitedSchemeUtility.safeCallback(this.f44961c, this.f44963e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f44962d);
         }
     }
 
@@ -171,7 +171,7 @@ public class y extends a0 {
             } catch (SQLException e3) {
                 e = e3;
                 uri = uri;
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e.printStackTrace();
                     uri = uri;
                 }
@@ -214,7 +214,7 @@ public class y extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + n);
             return false;
         } catch (Exception e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
             d.a.l0.a.e0.d.b("SaveImage", "Illegal file_path");
@@ -257,7 +257,7 @@ public class y extends a0 {
         try {
             str = MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getPath(), file.getName(), "by aiapp");
         } catch (FileNotFoundException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
             str = null;
@@ -268,7 +268,7 @@ public class y extends a0 {
                 d.a.l0.a.v2.u.q(context, o);
             }
         }
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.i("SaveImageAction", "saveToAlbum : file = " + file);
             Log.i("SaveImageAction", "saveToAlbum : image = " + str);
         }

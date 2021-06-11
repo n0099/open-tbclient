@@ -26,19 +26,19 @@ import okhttp3.Response;
 public class c implements INetWork {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f59902a;
+    public String f63593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59903b = -1;
+    public int f63594b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59904c = -1;
+    public int f63595c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f59905d;
+    public HashMap<String, String> f63596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, Object> f59906e;
+    public Map<String, Object> f63597e;
 
     public final Map<String, String> a(Map<String, Object> map) {
         HashMap hashMap = new HashMap();
@@ -59,9 +59,9 @@ public class c implements INetWork {
     @Override // com.baidu.searchbox.live.interfaces.net.INetWork
     public void download(Object obj, String str, DownLoadCallback downLoadCallback) {
         Throwable th;
-        boolean startsWith = this.f59902a.startsWith("https://");
+        boolean startsWith = this.f63593a.startsWith("https://");
         GetRequest.GetRequestBuilder request = HttpManager.getDefault(TbadkCoreApplication.getInst()).getRequest();
-        request.url(this.f59902a).tag(this).addHeaders(this.f59905d).connectionTimeout(this.f59903b).readTimeout(this.f59904c);
+        request.url(this.f63593a).tag(this).addHeaders(this.f63596d).connectionTimeout(this.f63594b).readTimeout(this.f63595c);
         if (startsWith) {
             request.cookieManager(CookieManager.WEBKIT_COOKIES);
         }
@@ -183,7 +183,7 @@ public class c implements INetWork {
     public NetResponse getSync(Map<String, Object> map) {
         NetResponse netResponse = new NetResponse();
         try {
-            Response executeSync = HttpManager.getDefault(TbadkCoreApplication.getInst()).getRequest().url(this.f59902a).tag(this).addUrlParams(a(map)).addHeaders(this.f59905d).connectionTimeout(this.f59903b).readTimeout(this.f59904c).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
+            Response executeSync = HttpManager.getDefault(TbadkCoreApplication.getInst()).getRequest().url(this.f63593a).tag(this).addUrlParams(a(map)).addHeaders(this.f63596d).connectionTimeout(this.f63594b).readTimeout(this.f63595c).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
             try {
                 netResponse.responseCode = executeSync.code();
                 netResponse.decodedResponseStr = executeSync.body() != null ? executeSync.body().string() : null;
@@ -224,13 +224,13 @@ public class c implements INetWork {
 
     @Override // com.baidu.searchbox.live.interfaces.net.INetWork
     public NetResponse postSync(Map<String, Object> map) {
-        Map<String, Object> map2 = this.f59906e;
-        Boolean bool = (map2 == null || !(map2.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT) instanceof Boolean)) ? null : (Boolean) this.f59906e.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT);
-        Map<String, Object> map3 = this.f59906e;
-        Integer num = (map3 == null || !(map3.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM) instanceof Integer)) ? null : (Integer) this.f59906e.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM);
-        Map<String, Object> map4 = this.f59906e;
+        Map<String, Object> map2 = this.f63597e;
+        Boolean bool = (map2 == null || !(map2.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT) instanceof Boolean)) ? null : (Boolean) this.f63597e.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT);
+        Map<String, Object> map3 = this.f63597e;
+        Integer num = (map3 == null || !(map3.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM) instanceof Integer)) ? null : (Integer) this.f63597e.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM);
+        Map<String, Object> map4 = this.f63597e;
         if (map4 != null && (map4.get(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM) instanceof Integer)) {
-            Integer num2 = (Integer) this.f59906e.get(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM);
+            Integer num2 = (Integer) this.f63597e.get(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM);
         }
         NetResponse netResponse = new NetResponse();
         try {
@@ -241,7 +241,7 @@ public class c implements INetWork {
             if (num != null) {
                 postFormRequest.requestFrom(num.intValue());
             }
-            Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) postFormRequest.url(this.f59902a)).params(a(map)).addHeaders(this.f59905d)).connectionTimeout(this.f59903b)).readTimeout(this.f59904c)).cookieManager(CookieManager.WEBKIT_COOKIES)).build().executeSync();
+            Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) postFormRequest.url(this.f63593a)).params(a(map)).addHeaders(this.f63596d)).connectionTimeout(this.f63594b)).readTimeout(this.f63595c)).cookieManager(CookieManager.WEBKIT_COOKIES)).build().executeSync();
             try {
                 netResponse.responseCode = executeSync.code();
                 netResponse.decodedResponseStr = executeSync.body() != null ? executeSync.body().string() : null;
@@ -282,22 +282,22 @@ public class c implements INetWork {
 
     @Override // com.baidu.searchbox.live.interfaces.net.INetWork
     public void setConnectTimeout(int i2) {
-        this.f59903b = i2;
+        this.f63594b = i2;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.net.INetWork
     public void setExtra(Map<String, Object> map) {
-        this.f59906e = map;
+        this.f63597e = map;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.net.INetWork
     public void setHeaderData(HashMap<String, String> hashMap) {
-        this.f59905d = hashMap;
+        this.f63596d = hashMap;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.net.INetWork
     public void setReadTimeout(int i2) {
-        this.f59904c = i2;
+        this.f63595c = i2;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.net.INetWork
@@ -306,6 +306,6 @@ public class c implements INetWork {
 
     @Override // com.baidu.searchbox.live.interfaces.net.INetWork
     public void setUrl(String str) {
-        this.f59902a = str;
+        this.f63593a = str;
     }
 }

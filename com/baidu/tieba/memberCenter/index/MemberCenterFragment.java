@@ -29,19 +29,19 @@ import d.a.c.e.p.j;
 public class MemberCenterFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f18230e;
+    public NoNetworkView f18306e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f18231f;
+    public NavigationBar f18307f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18232g;
+    public View f18308g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f18233h;
+    public View f18309h;
 
     /* renamed from: i  reason: collision with root package name */
-    public QuickWebView f18234i;
+    public QuickWebView f18310i;
     public String j;
     public boolean k = false;
 
@@ -77,7 +77,7 @@ public class MemberCenterFragment extends BaseFragment {
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
         public void a(WebView webView, String str) {
-            MemberCenterFragment.this.K0();
+            MemberCenterFragment.this.N0();
         }
     }
 
@@ -89,9 +89,9 @@ public class MemberCenterFragment extends BaseFragment {
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
         public void onPageFinished(WebView webView, String str) {
             if (j.z()) {
-                MemberCenterFragment.this.K0();
+                MemberCenterFragment.this.N0();
             } else {
-                MemberCenterFragment.this.J0();
+                MemberCenterFragment.this.M0();
             }
         }
     }
@@ -103,7 +103,7 @@ public class MemberCenterFragment extends BaseFragment {
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
         public void a(WebView webView, int i2, String str, String str2) {
-            MemberCenterFragment.this.J0();
+            MemberCenterFragment.this.M0();
         }
     }
 
@@ -114,69 +114,69 @@ public class MemberCenterFragment extends BaseFragment {
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.i
         public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            MemberCenterFragment.this.J0();
+            MemberCenterFragment.this.M0();
         }
     }
 
-    public final void F0(String str) {
-        if (this.f18234i == null) {
+    public final void I0(String str) {
+        if (this.f18310i == null) {
             return;
         }
         if (j.A()) {
-            K0();
-            this.f18234i.loadUrl(str);
+            N0();
+            this.f18310i.loadUrl(str);
             return;
         }
-        J0();
+        M0();
     }
 
-    public void G0() {
-        NavigationBar navigationBar = (NavigationBar) this.f18232g.findViewById(R.id.view_navigation_bar);
-        this.f18231f = navigationBar;
+    public void J0() {
+        NavigationBar navigationBar = (NavigationBar) this.f18308g.findViewById(R.id.view_navigation_bar);
+        this.f18307f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f18231f.setTitleText(R.string.member_center);
-        SkinManager.setNavbarTitleColor(this.f18231f.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        if (this.f18231f.getBackImageView() != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18231f.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.f18307f.setTitleText(R.string.member_center);
+        SkinManager.setNavbarTitleColor(this.f18307f.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        if (this.f18307f.getBackImageView() != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18307f.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        this.f18231f.showBottomLine(false);
-    }
-
-    public final void H0() {
-        this.f18234i.setHorizontalScrollBarEnabled(false);
-        this.f18234i.requestDisallowInterceptTouchEvent(true);
-        this.f18234i.setOnLoadUrlListener(new a());
-        this.f18234i.setOnPageStartedListener(new b());
-        this.f18234i.setOnPageFinishedListener(new c());
-        this.f18234i.setOnReceivedErrorListener(new d());
-        this.f18234i.setOnReceivedSslErrorListener(new e());
-    }
-
-    public void I0(String str) {
-        this.j = str;
-    }
-
-    public final void J0() {
-        QuickWebView quickWebView = this.f18234i;
-        if (quickWebView == null || this.f18231f == null) {
-            return;
-        }
-        quickWebView.setVisibility(8);
-        this.f18231f.setVisibility(0);
-        showNetRefreshView(this.f18233h, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+        this.f18307f.showBottomLine(false);
     }
 
     public final void K0() {
-        if (this.f18234i == null || this.f18231f == null) {
+        this.f18310i.setHorizontalScrollBarEnabled(false);
+        this.f18310i.requestDisallowInterceptTouchEvent(true);
+        this.f18310i.setOnLoadUrlListener(new a());
+        this.f18310i.setOnPageStartedListener(new b());
+        this.f18310i.setOnPageFinishedListener(new c());
+        this.f18310i.setOnReceivedErrorListener(new d());
+        this.f18310i.setOnReceivedSslErrorListener(new e());
+    }
+
+    public void L0(String str) {
+        this.j = str;
+    }
+
+    public final void M0() {
+        QuickWebView quickWebView = this.f18310i;
+        if (quickWebView == null || this.f18307f == null) {
             return;
         }
-        hideNetRefreshView(this.f18233h);
-        this.f18234i.setVisibility(0);
-        this.f18231f.setVisibility(8);
+        quickWebView.setVisibility(8);
+        this.f18307f.setVisibility(0);
+        showNetRefreshView(this.f18309h, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+    }
+
+    public final void N0() {
+        if (this.f18310i == null || this.f18307f == null) {
+            return;
+        }
+        hideNetRefreshView(this.f18309h);
+        this.f18310i.setVisibility(0);
+        this.f18307f.setVisibility(8);
     }
 
     public void loadData() {
-        if (this.f18234i == null || this.k) {
+        if (this.f18310i == null || this.k) {
             return;
         }
         refresh();
@@ -189,15 +189,15 @@ public class MemberCenterFragment extends BaseFragment {
             return;
         }
         this.mSkinType = i2;
-        if (this.f18234i != null) {
+        if (this.f18310i != null) {
             if (StringUtils.isNull(this.j)) {
-                F0(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
+                I0(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
             } else {
-                F0(this.j);
+                I0(this.j);
             }
         }
-        this.f18231f.onChangeSkinType(getPageContext(), i2);
-        this.f18230e.c(getPageContext(), i2);
+        this.f18307f.onChangeSkinType(getPageContext(), i2);
+        this.f18306e.c(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -208,21 +208,21 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.index, (ViewGroup) null);
-        this.f18232g = inflate;
-        this.f18230e = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-        this.f18231f = (NavigationBar) this.f18232g.findViewById(R.id.view_navigation_bar);
-        G0();
-        this.f18233h = this.f18232g.findViewById(R.id.member_content_layout);
-        this.f18234i = (QuickWebView) this.f18232g.findViewById(R.id.webview);
-        H0();
+        this.f18308g = inflate;
+        this.f18306e = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        this.f18307f = (NavigationBar) this.f18308g.findViewById(R.id.view_navigation_bar);
+        J0();
+        this.f18309h = this.f18308g.findViewById(R.id.member_content_layout);
+        this.f18310i = (QuickWebView) this.f18308g.findViewById(R.id.webview);
+        K0();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TiebaStatic.log("c10387");
-        return this.f18232g;
+        return this.f18308g;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        QuickWebView quickWebView = this.f18234i;
+        QuickWebView quickWebView = this.f18310i;
         if (quickWebView != null) {
             quickWebView.destroy();
         }
@@ -237,7 +237,7 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.f18234i == null || this.k) {
+        if (this.f18310i == null || this.k) {
             return;
         }
         refresh();
@@ -251,9 +251,9 @@ public class MemberCenterFragment extends BaseFragment {
     public final void refresh() {
         this.k = true;
         if (StringUtils.isNull(this.j)) {
-            F0(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
+            I0(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
             return;
         }
-        F0(this.j);
+        I0(this.j);
     }
 }

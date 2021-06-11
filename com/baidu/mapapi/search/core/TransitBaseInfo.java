@@ -7,29 +7,29 @@ public class TransitBaseInfo implements Parcelable {
     public static final Parcelable.Creator<TransitBaseInfo> CREATOR = new o();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7182a;
+    public String f7225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7183b;
+    public String f7226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7184c;
+    public String f7227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7185d;
+    public String f7228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7186e;
+    public String f7229e;
 
     public TransitBaseInfo() {
     }
 
     public TransitBaseInfo(Parcel parcel) {
-        this.f7182a = parcel.readString();
-        this.f7183b = parcel.readString();
-        this.f7184c = parcel.readString();
-        this.f7185d = parcel.readString();
-        this.f7186e = parcel.readString();
+        this.f7225a = parcel.readString();
+        this.f7226b = parcel.readString();
+        this.f7227c = parcel.readString();
+        this.f7228d = parcel.readString();
+        this.f7229e = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -38,51 +38,51 @@ public class TransitBaseInfo implements Parcelable {
     }
 
     public String getArriveStation() {
-        return this.f7184c;
+        return this.f7227c;
     }
 
     public String getArriveTime() {
-        return this.f7186e;
+        return this.f7229e;
     }
 
     public String getDepartureStation() {
-        return this.f7183b;
+        return this.f7226b;
     }
 
     public String getDepartureTime() {
-        return this.f7185d;
+        return this.f7228d;
     }
 
     public String getName() {
-        return this.f7182a;
+        return this.f7225a;
     }
 
     public void setArriveStation(String str) {
-        this.f7184c = str;
+        this.f7227c = str;
     }
 
     public void setArriveTime(String str) {
-        this.f7186e = str;
+        this.f7229e = str;
     }
 
     public void setDepartureStation(String str) {
-        this.f7183b = str;
+        this.f7226b = str;
     }
 
     public void setDepartureTime(String str) {
-        this.f7185d = str;
+        this.f7228d = str;
     }
 
     public void setName(String str) {
-        this.f7182a = str;
+        this.f7225a = str;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f7182a);
-        parcel.writeString(this.f7183b);
-        parcel.writeString(this.f7184c);
-        parcel.writeString(this.f7185d);
-        parcel.writeString(this.f7186e);
+        parcel.writeString(this.f7225a);
+        parcel.writeString(this.f7226b);
+        parcel.writeString(this.f7227c);
+        parcel.writeString(this.f7228d);
+        parcel.writeString(this.f7229e);
     }
 }

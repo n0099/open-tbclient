@@ -13,6 +13,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
+import com.kwai.video.player.PlayerPostEvent;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class SelectImageHelper {
@@ -44,7 +45,7 @@ public class SelectImageHelper {
             Intent intent = new Intent();
             intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
             intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, 12002);
+            activity.startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_END);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -94,7 +95,7 @@ public class SelectImageHelper {
             if (CreateFile != null) {
                 Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                 intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
-                tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
+                tbPageContext.getPageActivity().startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_START);
             } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                 ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
             } else if (tbPageContext instanceof BaseFragmentActivity) {
@@ -126,7 +127,7 @@ public class SelectImageHelper {
                 if (z) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_START);
                 }
             }
             if (z) {

@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.net.URLEncoder;
 /* loaded from: classes3.dex */
 public class SingleSquareActivityConfig extends IntentConfig {
@@ -18,10 +17,10 @@ public class SingleSquareActivityConfig extends IntentConfig {
         StringBuilder sb = new StringBuilder();
         sb.append(PAGE_NAME);
         try {
-            sb.append(URLEncoder.encode(FieldBuilder.SE, "utf-8"));
+            sb.append(URLEncoder.encode("|", "utf-8"));
         } catch (Exception e2) {
             e2.printStackTrace();
-            sb.append(FieldBuilder.SE);
+            sb.append("|");
         }
         sb.append(str + "_" + str2);
         return sb.toString();

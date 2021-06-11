@@ -18,10 +18,10 @@ public class c extends d.a.l0.a.u.c.d {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f45155e;
+        public final /* synthetic */ Context f48829e;
 
         public a(c cVar, Context context) {
-            this.f45155e = context;
+            this.f48829e = context;
         }
 
         @Override // java.lang.Runnable
@@ -29,7 +29,7 @@ public class c extends d.a.l0.a.u.c.d {
             if (d.a.l0.a.z1.b.f.e.d()) {
                 return;
             }
-            d.a.l0.a.z1.b.f.e.f(this.f45155e, d.a.l0.a.h.clipboardapi_tip_content).F();
+            d.a.l0.a.z1.b.f.e.f(this.f48829e, d.a.l0.a.h.clipboardapi_tip_content).F();
         }
     }
 
@@ -39,19 +39,19 @@ public class c extends d.a.l0.a.u.c.d {
 
     @SuppressLint({"KotlinPropertyAccess"})
     public d.a.l0.a.u.h.b r() {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-ClipboardApi", "start get clipboard data");
         }
         JSONObject jSONObject = new JSONObject();
         try {
             CharSequence a2 = r0.b(i()).a();
             jSONObject.put("data", TextUtils.isEmpty(a2) ? "" : a2.toString());
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.i("Api-ClipboardApi", "getClipboardData:  " + jSONObject);
             }
             return new d.a.l0.a.u.h.b(0, jSONObject);
         } catch (JSONException e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e2.printStackTrace();
             }
             return new d.a.l0.a.u.h.b(1001, "JSONException");
@@ -61,13 +61,13 @@ public class c extends d.a.l0.a.u.c.d {
     @SuppressLint({"KotlinPropertyAccess"})
     public d.a.l0.a.u.h.b s(String str) {
         SwanAppActivity x;
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-ClipboardApi", "start set clipboard data");
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-ClipboardApi", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-ClipboardApi", "parse fail");
             }
             return bVar;

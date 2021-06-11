@@ -8,7 +8,7 @@ public class f extends g {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f28060a;
+    public static volatile f f28163a;
 
     public f(Context context) {
         super(context);
@@ -20,13 +20,13 @@ public class f extends g {
     }
 
     public static f a(Context context) {
-        if (f28060a == null) {
+        if (f28163a == null) {
             synchronized (f.class) {
-                if (f28060a == null) {
-                    f28060a = new f(context);
+                if (f28163a == null) {
+                    f28163a = new f(context);
                 }
             }
         }
-        return f28060a;
+        return f28163a;
     }
 }

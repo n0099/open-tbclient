@@ -5,6 +5,6 @@ import d.a.l0.h.b.a;
 public class c implements d.a.l0.h.t.c.a {
     @Override // d.a.l0.h.t.c.a
     public void a(a.d dVar) {
-        dVar.a("no impl");
+        dVar.onFail("no impl");
     }
 }

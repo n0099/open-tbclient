@@ -8,42 +8,41 @@ import android.media.AudioManager;
 import com.baidu.searchbox.player.event.VideoReceiver;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.lang.ref.WeakReference;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: b  reason: collision with root package name */
-    public f f29160b;
+    public f f29263b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f29161c;
+    public a f29264c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f29162d;
+    public Context f29265d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AudioManager f29163e;
+    public AudioManager f29266e;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29159a = -1;
+    public int f29262a = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f29164f = false;
+    public boolean f29267f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29165g = false;
+    public boolean f29268g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29166h = -1;
+    public int f29269h = -1;
 
     /* loaded from: classes6.dex */
     public static class a extends BroadcastReceiver {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<g> f29167a;
+        public WeakReference<g> f29270a;
 
         public a(g gVar) {
-            this.f29167a = new WeakReference<>(gVar);
+            this.f29270a = new WeakReference<>(gVar);
         }
 
         @Override // android.content.BroadcastReceiver
@@ -53,7 +52,7 @@ public class g {
             try {
                 if (VideoReceiver.ACTION_VOLUME_CHANGED.equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
                     u.b("VolumeChangeObserver", "媒体音量改变通.......");
-                    g gVar = this.f29167a.get();
+                    g gVar = this.f29270a.get();
                     if (gVar == null || (h2 = gVar.h()) == null || (g2 = gVar.g()) == gVar.a()) {
                         return;
                     }
@@ -69,21 +68,21 @@ public class g {
     }
 
     public g(Context context) {
-        this.f29162d = context;
-        this.f29163e = (AudioManager) context.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.f29265d = context;
+        this.f29266e = (AudioManager) context.getApplicationContext().getSystemService("audio");
     }
 
     public int a() {
-        return this.f29166h;
+        return this.f29269h;
     }
 
     public int b() {
-        return this.f29159a;
+        return this.f29262a;
     }
 
     public boolean c() {
-        if (this.f29165g) {
-            this.f29165g = false;
+        if (this.f29268g) {
+            this.f29268g = false;
             return true;
         }
         return false;
@@ -91,8 +90,8 @@ public class g {
 
     public int d() {
         try {
-            if (this.f29163e != null) {
-                return this.f29163e.getStreamMaxVolume(3);
+            if (this.f29266e != null) {
+                return this.f29266e.getStreamMaxVolume(3);
             }
             return 15;
         } catch (Throwable th) {
@@ -103,22 +102,22 @@ public class g {
 
     public void e() {
         try {
-            this.f29161c = new a(this);
+            this.f29264c = new a(this);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(VideoReceiver.ACTION_VOLUME_CHANGED);
-            this.f29162d.registerReceiver(this.f29161c, intentFilter);
-            this.f29164f = true;
+            this.f29265d.registerReceiver(this.f29264c, intentFilter);
+            this.f29267f = true;
         } catch (Throwable th) {
             u.a("VolumeChangeObserver", "registerReceiverError: ", th);
         }
     }
 
     public void f() {
-        if (this.f29164f) {
+        if (this.f29267f) {
             try {
-                this.f29162d.unregisterReceiver(this.f29161c);
-                this.f29160b = null;
-                this.f29164f = false;
+                this.f29265d.unregisterReceiver(this.f29264c);
+                this.f29263b = null;
+                this.f29267f = false;
             } catch (Throwable th) {
                 u.a("VolumeChangeObserver", "unregisterReceiverError: ", th);
             }
@@ -127,8 +126,8 @@ public class g {
 
     public int g() {
         try {
-            if (this.f29163e != null) {
-                return this.f29163e.getStreamVolume(3);
+            if (this.f29266e != null) {
+                return this.f29266e.getStreamVolume(3);
             }
             return -1;
         } catch (Throwable th) {
@@ -138,15 +137,15 @@ public class g {
     }
 
     public f h() {
-        return this.f29160b;
+        return this.f29263b;
     }
 
     public void a(int i2) {
-        this.f29166h = i2;
+        this.f29269h = i2;
     }
 
     public void b(int i2) {
-        this.f29159a = i2;
+        this.f29262a = i2;
     }
 
     public void a(boolean z) {
@@ -154,21 +153,21 @@ public class g {
     }
 
     public void a(boolean z, boolean z2) {
-        if (this.f29163e == null) {
+        if (this.f29266e == null) {
             return;
         }
         int i2 = 0;
         if (z) {
             int g2 = g();
             if (g2 != 0) {
-                this.f29159a = g2;
+                this.f29262a = g2;
             }
             u.b("VolumeChangeObserver", "mute set volume to 0");
-            this.f29163e.setStreamVolume(3, 0, 0);
-            this.f29165g = true;
+            this.f29266e.setStreamVolume(3, 0, 0);
+            this.f29268g = true;
             return;
         }
-        int i3 = this.f29159a;
+        int i3 = this.f29262a;
         if (i3 == 0) {
             i3 = d() / 15;
         } else {
@@ -178,19 +177,19 @@ public class g {
                 }
                 i3 = d() / 15;
             }
-            u.b("VolumeChangeObserver", "not mute set volume to " + i3 + " mLastVolume=" + this.f29159a);
-            this.f29159a = -1;
-            this.f29163e.setStreamVolume(3, i3, i2);
-            this.f29165g = true;
+            u.b("VolumeChangeObserver", "not mute set volume to " + i3 + " mLastVolume=" + this.f29262a);
+            this.f29262a = -1;
+            this.f29266e.setStreamVolume(3, i3, i2);
+            this.f29268g = true;
         }
         i2 = 1;
-        u.b("VolumeChangeObserver", "not mute set volume to " + i3 + " mLastVolume=" + this.f29159a);
-        this.f29159a = -1;
-        this.f29163e.setStreamVolume(3, i3, i2);
-        this.f29165g = true;
+        u.b("VolumeChangeObserver", "not mute set volume to " + i3 + " mLastVolume=" + this.f29262a);
+        this.f29262a = -1;
+        this.f29266e.setStreamVolume(3, i3, i2);
+        this.f29268g = true;
     }
 
     public void a(f fVar) {
-        this.f29160b = fVar;
+        this.f29263b = fVar;
     }
 }

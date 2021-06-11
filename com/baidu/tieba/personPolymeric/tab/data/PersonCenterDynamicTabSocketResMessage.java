@@ -42,7 +42,7 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
         for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
             if (threadInfo != null) {
                 a2 a2Var = new a2();
-                a2Var.U2(threadInfo);
+                a2Var.V2(threadInfo);
                 this.mThreadDataList.add(a2Var);
             }
         }

@@ -11,16 +11,16 @@ import com.baidu.tieba.R;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f52535a;
+    public TbPageContext<?> f56224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public OvalActionButton f52536b;
+    public OvalActionButton f56225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f52537c;
+    public String f56226c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52538d;
+    public String f56227d;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -34,25 +34,25 @@ public class c {
     }
 
     public c(OvalActionButton ovalActionButton, TbPageContext<?> tbPageContext) {
-        this.f52535a = tbPageContext;
-        this.f52536b = ovalActionButton;
+        this.f56224a = tbPageContext;
+        this.f56225b = ovalActionButton;
         ovalActionButton.setIsCircle(true);
-        this.f52536b.setHasShadow(false);
-        this.f52536b.setOnClickListener(new a());
+        this.f56225b.setHasShadow(false);
+        this.f56225b.setOnClickListener(new a());
     }
 
     public final void b() {
-        if (WriteActivityConfig.isAsyncWriting() || this.f52537c == null) {
+        if (WriteActivityConfig.isAsyncWriting() || this.f56226c == null) {
             return;
         }
-        WriteActivityConfig.newInstance(this.f52535a.getPageActivity()).setType(9).setForumId("0").setTopicId(String.valueOf(this.f52537c)).setFrom("topic_detail").setCallFrom("1").setTitle(StringUtils.isNull(this.f52538d) ? null : String.format(TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_write_name), this.f52538d)).send();
+        WriteActivityConfig.newInstance(this.f56224a.getPageActivity()).setType(9).setForumId("0").setTopicId(String.valueOf(this.f56226c)).setFrom("topic_detail").setCallFrom("1").setTitle(StringUtils.isNull(this.f56227d) ? null : String.format(TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_write_name), this.f56227d)).send();
     }
 
     public void c(String str) {
-        this.f52538d = str;
+        this.f56227d = str;
     }
 
     public void d(String str) {
-        this.f52537c = str;
+        this.f56226c = str;
     }
 }

@@ -7,7 +7,7 @@ import com.bumptech.glide.TransitionOptions;
 import com.bumptech.glide.request.transition.BitmapTransitionFactory;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.bumptech.glide.request.transition.TransitionFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class BitmapTransitionOptions extends TransitionOptions<BitmapTransitionOptions, Bitmap> {
     @NonNull
     public static BitmapTransitionOptions with(@NonNull TransitionFactory<Bitmap> transitionFactory) {

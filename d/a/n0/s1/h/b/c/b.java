@@ -11,42 +11,42 @@ import com.baidu.tieba.R;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f60651a;
+    public View f64342a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60652b;
+    public String f64343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f60653c;
+    public View f64344c;
 
     public View a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.tail_edit_color_item, (ViewGroup) null);
-        this.f60651a = inflate;
-        this.f60653c = inflate.findViewById(R.id.tail_edit_color_item_selected);
-        this.f60651a.setTag(this);
-        return this.f60651a;
+        this.f64342a = inflate;
+        this.f64344c = inflate.findViewById(R.id.tail_edit_color_item_selected);
+        this.f64342a.setTag(this);
+        return this.f64342a;
     }
 
     public String b() {
-        return this.f60652b;
+        return this.f64343b;
     }
 
     public void c(TbPageContext<?> tbPageContext) {
         tbPageContext.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().j(this.f60651a);
-        this.f60651a.setBackgroundColor(d.a.n0.s1.h.f.c.a(this.f60652b));
+        tbPageContext.getLayoutMode().j(this.f64342a);
+        this.f64342a.setBackgroundColor(d.a.n0.s1.h.f.c.a(this.f64343b));
     }
 
     public void d(String str) {
-        this.f60652b = str;
-        this.f60651a.setBackgroundColor(d.a.n0.s1.h.f.c.a(str));
+        this.f64343b = str;
+        this.f64342a.setBackgroundColor(d.a.n0.s1.h.f.c.a(str));
     }
 
     public void e(View.OnClickListener onClickListener) {
-        this.f60651a.setOnClickListener(onClickListener);
+        this.f64342a.setOnClickListener(onClickListener);
     }
 
     public void f(boolean z) {
-        this.f60653c.setVisibility(z ? 0 : 4);
+        this.f64344c.setVisibility(z ? 0 : 4);
     }
 }

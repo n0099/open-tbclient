@@ -12,10 +12,10 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import d.a.m0.e0.b;
 import d.a.m0.e0.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadDelegateStatic extends b {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public a(int i2) {
             super(i2);
@@ -32,7 +32,7 @@ public class ThreadDelegateStatic extends b {
                 if (aVar.b() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
                     return;
                 }
-                fragmentTabStructure.f49334a.setArguments(new Bundle());
+                fragmentTabStructure.f53008a.setArguments(new Bundle());
             }
         }
     }
@@ -46,9 +46,9 @@ public class ThreadDelegateStatic extends b {
     @Override // d.a.m0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f49334a = ThreadFragment.S0();
-        cVar.f49338e = 1;
-        cVar.f49335b = R.string.collect_thread;
+        cVar.f53008a = ThreadFragment.V0();
+        cVar.f53012e = 1;
+        cVar.f53009b = R.string.collect_thread;
         return cVar;
     }
 

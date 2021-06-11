@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a2;
 import d.a.n0.e.e.c;
 import d.a.n0.e.e.d;
@@ -45,10 +45,10 @@ public class FrsFeedAdStatic {
                 d.a.n0.e.b.d dVar = (d.a.n0.e.b.d) injectPlugin;
                 if (bVar.a() == 1) {
                     List list = (List) bVar.f();
-                    d.a.n0.e.b.b.e(dVar.d());
-                    for (BdUniqueId bdUniqueId : d.a.n0.e.b.b.f()) {
+                    d.a.n0.e.b.b.c(dVar.d());
+                    for (BdUniqueId bdUniqueId : d.a.n0.e.b.b.e()) {
                         d.a.n0.e.b.a aVar = new d.a.n0.e.b.a(uVar, bdUniqueId);
-                        aVar.e0(uVar.o());
+                        aVar.e0(uVar.p());
                         list.add(aVar);
                     }
                 } else if (bVar.a() == 2) {
@@ -84,8 +84,8 @@ public class FrsFeedAdStatic {
         for (d.a.n0.e.b.c cVar : list) {
             if (cVar.c() == 3) {
                 d.a.n0.e.b.b bVar = new d.a.n0.e.b.b();
-                bVar.k(cVar.a());
-                bVar.l(cVar.b());
+                bVar.i(cVar.a());
+                bVar.k(cVar.b());
                 arrayList.add(bVar);
             } else if (cVar.a() instanceof n) {
                 arrayList.add((n) cVar.a());
@@ -111,8 +111,8 @@ public class FrsFeedAdStatic {
             } else if (nVar instanceof d.a.n0.e.b.b) {
                 cVar.f(3);
                 d.a.n0.e.b.b bVar = (d.a.n0.e.b.b) nVar;
-                cVar.e(bVar.h());
-                cVar.d(bVar.c());
+                cVar.e(bVar.g());
+                cVar.d(bVar.b());
             } else {
                 cVar.f(4);
                 cVar.d(nVar);

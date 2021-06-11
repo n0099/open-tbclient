@@ -22,15 +22,15 @@ public class h extends d {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f42090e;
+        public final /* synthetic */ JSONObject f45766e;
 
         public a(JSONObject jSONObject) {
-            this.f42090e = jSONObject;
+            this.f45766e = jSONObject;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.l0.a.g1.f.V().v(new d.a.l0.a.t1.c.c.b(h.this.x0, this.f42090e.toString(), h.this.y0.optString("slaveId")).a());
+            d.a.l0.a.g1.f.V().v(new d.a.l0.a.t1.c.c.b(h.this.x0, this.f45766e.toString(), h.this.y0.optString("slaveId")).a());
             h.this.z0 = false;
         }
     }
@@ -70,7 +70,7 @@ public class h extends d {
             return false;
         }
         d.a.l0.a.t1.c.c.a aVar = new d.a.l0.a.t1.c.c.a(jSONObject.optString("componentId"));
-        aVar.f44761a = this.y0.optString("slaveId");
+        aVar.f48435a = this.y0.optString("slaveId");
         aVar.b();
         return false;
     }

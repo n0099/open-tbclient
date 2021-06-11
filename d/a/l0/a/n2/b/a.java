@@ -10,7 +10,6 @@ import d.a.l0.a.c2.e;
 import d.a.l0.a.c2.f.a0;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class a extends a0 {
     public a(e eVar) {
@@ -22,22 +21,22 @@ public class a extends a0 {
         if (eVar == null) {
             d.a.l0.a.e0.d.b("getMediaVolumeSync", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "getMediaVolumeSync --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             d.a.l0.a.e0.d.b("getMediaVolumeSync", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "getMediaVolumeSync --- illegal context");
             }
             return false;
         } else {
-            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
             if (audioManager == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "get AudioManager error");
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("SwanAppAction", "getMediaVolumeSync --- get AudioManager error");
                 }
                 return false;
@@ -46,7 +45,7 @@ public class a extends a0 {
             int streamVolume = audioManager.getStreamVolume(3);
             if (streamMaxVolume <= 0) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "max volume get 0");
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("SwanAppAction", "getMediaVolumeSync --- max volume get 0");
                 }
                 return false;
@@ -57,7 +56,7 @@ public class a extends a0 {
             } else if (d2 > 1.0d) {
                 d2 = 1.0d;
             }
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "getMediaVolumeSync: " + d2);
             }
             JSONObject jSONObject = new JSONObject();
@@ -67,7 +66,7 @@ public class a extends a0 {
                 return true;
             } catch (JSONException unused) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("SwanAppAction", "getMediaVolumeSync --- json exception");
                 }
                 return false;

@@ -3,11 +3,13 @@ package com.kwad.sdk.core;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
+import com.kwad.sdk.KsAdSDKImpl;
 import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.Iterator;
@@ -17,16 +19,16 @@ import java.util.List;
 public class NetworkMonitor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f31978a = false;
+    public static volatile boolean f34026a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<WeakReference<a>> f31979b;
+    public List<WeakReference<a>> f34027b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31980c;
+    public boolean f34028c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BroadcastReceiver f31981d;
+    public final BroadcastReceiver f34029d;
 
     /* loaded from: classes6.dex */
     public enum Holder {
@@ -55,9 +57,9 @@ public class NetworkMonitor {
     }
 
     public NetworkMonitor() {
-        this.f31979b = Collections.synchronizedList(new LinkedList());
-        this.f31980c = false;
-        this.f31981d = new BroadcastReceiver() { // from class: com.kwad.sdk.core.NetworkMonitor.1
+        this.f34027b = Collections.synchronizedList(new LinkedList());
+        this.f34028c = false;
+        this.f34029d = new BroadcastReceiver() { // from class: com.kwad.sdk.core.NetworkMonitor.1
             @Override // android.content.BroadcastReceiver
             public void onReceive(@NonNull Context context, Intent intent) {
                 ConnectivityManager connectivityManager;
@@ -88,10 +90,14 @@ public class NetworkMonitor {
         };
     }
 
+    public static NetworkMonitor a() {
+        return Holder.INSTANCE.getInstance();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void a(NetworkState networkState) {
         a aVar;
-        Iterator<WeakReference<a>> it = this.f31979b.iterator();
+        Iterator<WeakReference<a>> it = this.f34027b.iterator();
         while (it.hasNext()) {
             WeakReference<a> next = it.next();
             if (next == null || (aVar = next.get()) == null) {
@@ -100,5 +106,47 @@ public class NetworkMonitor {
                 aVar.a(networkState);
             }
         }
+    }
+
+    private synchronized void d() {
+        if (f34026a) {
+            return;
+        }
+        Context context = KsAdSDKImpl.get().getContext();
+        if (context == null) {
+            return;
+        }
+        context.getApplicationContext().registerReceiver(this.f34029d, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        f34026a = true;
+    }
+
+    public void a(@NonNull a aVar) {
+        d();
+        this.f34027b.add(new WeakReference<>(aVar));
+    }
+
+    public void b(a aVar) {
+        a aVar2;
+        if (aVar == null) {
+            return;
+        }
+        Iterator<WeakReference<a>> it = this.f34027b.iterator();
+        while (it.hasNext()) {
+            WeakReference<a> next = it.next();
+            if (next == null || (aVar2 = next.get()) == null) {
+                it.remove();
+            } else if (aVar == aVar2) {
+                it.remove();
+                return;
+            }
+        }
+    }
+
+    public boolean b() {
+        return !this.f34028c;
+    }
+
+    public void c() {
+        this.f34028c = true;
     }
 }

@@ -102,7 +102,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.addGroupView.j()) {
+        if (view == this.addGroupView.i()) {
             finish();
         } else if (view == this.addGroupView.l()) {
             TiebaStatic.log("add_group_searchbtn_click");

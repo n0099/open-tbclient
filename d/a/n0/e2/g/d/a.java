@@ -16,54 +16,54 @@ import d.a.c.e.p.l;
 import d.a.n0.e2.l.b.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.a.n0.e2.l.b.d> f52849e = new ArrayList();
+    public List<d.a.n0.e2.l.b.d> f56538e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f52850f;
+    public Context f56539f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52851g;
+    public int f56540g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52852h;
+    public int f56541h;
 
     /* renamed from: d.a.n0.e2.g.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1252a {
+    /* loaded from: classes5.dex */
+    public static class C1308a {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f52853a;
+        public TbImageView f56542a;
     }
 
     public a(Context context) {
-        this.f52851g = 0;
-        this.f52852h = 0;
-        this.f52850f = context;
-        this.f52851g = l.k(context) - (((int) context.getResources().getDimension(R.dimen.ds30)) * 2);
-        this.f52852h = context.getResources().getDimensionPixelSize(R.dimen.ds32);
+        this.f56540g = 0;
+        this.f56541h = 0;
+        this.f56539f = context;
+        this.f56540g = l.k(context) - (((int) context.getResources().getDimension(R.dimen.ds30)) * 2);
+        this.f56541h = context.getResources().getDimensionPixelSize(R.dimen.ds32);
     }
 
     public final View a(int i2, View view) {
-        C1252a c1252a;
-        if (view != null && (view.getTag() instanceof C1252a)) {
-            c1252a = (C1252a) view.getTag();
+        C1308a c1308a;
+        if (view != null && (view.getTag() instanceof C1308a)) {
+            c1308a = (C1308a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.f52850f).inflate(R.layout.chosen_pb_image_item, (ViewGroup) null);
-            c1252a = new C1252a();
-            c1252a.f52853a = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
-            view.setTag(c1252a);
+            view = LayoutInflater.from(this.f56539f).inflate(R.layout.chosen_pb_image_item, (ViewGroup) null);
+            c1308a = new C1308a();
+            c1308a.f56542a = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
+            view.setTag(c1308a);
         }
         d.a.n0.e2.l.b.d item = getItem(i2);
         if (item instanceof d.a.n0.e2.l.b.e) {
             d.a.n0.e2.l.b.e eVar = (d.a.n0.e2.l.b.e) item;
-            if (!StringUtils.isNull(eVar.f53670i) && !"1".equals(eVar.f53670i)) {
-                c1252a.f52853a.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c1252a.f52853a.getLayoutParams();
-                int i3 = this.f52851g;
+            if (!StringUtils.isNull(eVar.f57359i) && !"1".equals(eVar.f57359i)) {
+                c1308a.f56542a.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c1308a.f56542a.getLayoutParams();
+                int i3 = this.f56540g;
                 int c2 = eVar.c(i3);
                 if (layoutParams == null) {
                     layoutParams = new AbsListView.LayoutParams(i3, c2);
@@ -71,10 +71,10 @@ public class a extends BaseAdapter {
                     layoutParams.height = c2;
                     layoutParams.width = i3;
                 }
-                c1252a.f52853a.setLayoutParams(layoutParams);
-                c1252a.f52853a.V(eVar.d(), 17, false);
+                c1308a.f56542a.setLayoutParams(layoutParams);
+                c1308a.f56542a.U(eVar.d(), 17, false);
             } else {
-                c1252a.f52853a.setVisibility(8);
+                c1308a.f56542a.setVisibility(8);
             }
         }
         return view;
@@ -84,11 +84,11 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: b */
     public d.a.n0.e2.l.b.d getItem(int i2) {
-        List<d.a.n0.e2.l.b.d> list = this.f52849e;
+        List<d.a.n0.e2.l.b.d> list = this.f56538e;
         if (list != null && list.size() > 0) {
-            int size = this.f52849e.size();
+            int size = this.f56538e.size();
             if (i2 >= 0 && i2 < size) {
-                return this.f52849e.get(i2);
+                return this.f56538e.get(i2);
             }
         }
         return null;
@@ -99,11 +99,11 @@ public class a extends BaseAdapter {
         if (view instanceof TextView) {
             textView = (TextView) view;
         } else {
-            textView = new TextView(this.f52850f);
-            textView.setTextSize(0, this.f52850f.getResources().getDimensionPixelSize(R.dimen.fontsize32));
+            textView = new TextView(this.f56539f);
+            textView.setTextSize(0, this.f56539f.getResources().getDimensionPixelSize(R.dimen.fontsize32));
             textView.setLineSpacing(0.0f, 1.2f);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
-            int i3 = this.f52852h;
+            int i3 = this.f56541h;
             textView.setPadding(i3, 0, i3, 0);
         }
         d.a.n0.e2.l.b.d item = getItem(i2);
@@ -133,16 +133,16 @@ public class a extends BaseAdapter {
     }
 
     public void d(List<d.a.n0.e2.l.b.d> list) {
-        this.f52849e.clear();
+        this.f56538e.clear();
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.f52849e.addAll(list);
+        this.f56538e.addAll(list);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<d.a.n0.e2.l.b.d> list = this.f52849e;
+        List<d.a.n0.e2.l.b.d> list = this.f56538e;
         if (list == null) {
             return 0;
         }
@@ -156,10 +156,10 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i2) {
-        List<d.a.n0.e2.l.b.d> list = this.f52849e;
+        List<d.a.n0.e2.l.b.d> list = this.f56538e;
         if (list != null && list.size() > 0) {
-            if (i2 >= 0 && i2 < this.f52849e.size()) {
-                d.a.n0.e2.l.b.d dVar = this.f52849e.get(i2);
+            if (i2 >= 0 && i2 < this.f56538e.size()) {
+                d.a.n0.e2.l.b.d dVar = this.f56538e.get(i2);
                 if (dVar == null) {
                     return super.getItemViewType(i2);
                 }

@@ -1,66 +1,49 @@
 package d.a.n0.b1.d.f;
 
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ViewCommonUtil;
+import com.baidu.tbadk.core.util.ListUtils;
+import d.a.m0.s.c.y;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class a extends PopupWindow {
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f51515a;
+    public int f55108a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC1196a f51516b;
+    public final List<y> f55109b = new ArrayList();
 
-    /* renamed from: d.a.n0.b1.d.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1196a {
-        void a();
-    }
-
-    public a(TbPageContext tbPageContext, View view, int i2, int i3) {
-        super(view, i2, i3);
-        this.f51515a = tbPageContext;
-    }
-
-    public void a() {
-        super.dismiss();
-    }
-
-    public void b(InterfaceC1196a interfaceC1196a) {
-        this.f51516b = interfaceC1196a;
-    }
-
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
-        InterfaceC1196a interfaceC1196a = this.f51516b;
-        if (interfaceC1196a != null) {
-            interfaceC1196a.a();
-        } else {
-            super.dismiss();
+    public a() {
+        List<y> c2 = c();
+        if (ListUtils.isEmpty(c2)) {
+            return;
         }
+        this.f55109b.addAll(c2);
     }
 
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view) {
-        if (Build.VERSION.SDK_INT >= 24) {
-            Rect rect = new Rect();
-            view.getGlobalVisibleRect(rect);
-            setHeight(ViewCommonUtil.getScreenFullSize(this.f51515a.getPageActivity())[1] - rect.bottom);
-        }
-        super.showAsDropDown(view);
+    public int a() {
+        return this.f55108a;
     }
 
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i2, int i3) {
-        if (Build.VERSION.SDK_INT >= 24) {
-            Rect rect = new Rect();
-            view.getGlobalVisibleRect(rect);
-            setHeight(ViewCommonUtil.getScreenFullSize(this.f51515a.getPageActivity())[1] - rect.bottom);
+    public List<y> b() {
+        return this.f55109b;
+    }
+
+    public final List<y> c() {
+        ArrayList arrayList = new ArrayList();
+        try {
+            JSONArray jSONArray = new JSONArray(d.a.m0.r.d0.b.j().p("key_index_tab_info_list", "[]"));
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                y yVar = new y();
+                yVar.b(jSONArray.getJSONObject(i2));
+                if (!yVar.a()) {
+                    arrayList.add(yVar);
+                }
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        super.showAsDropDown(view, i2, i3);
+        return arrayList;
     }
 }

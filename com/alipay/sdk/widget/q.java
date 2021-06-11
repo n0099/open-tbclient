@@ -8,10 +8,10 @@ import com.alipay.sdk.widget.WebViewWindow;
 public class q implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WebViewWindow f2034a;
+    public final /* synthetic */ WebViewWindow f2047a;
 
     public q(WebViewWindow webViewWindow) {
-        this.f2034a = webViewWindow;
+        this.f2047a = webViewWindow;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,21 +20,21 @@ public class q implements View.OnClickListener {
         Handler handler;
         ImageView imageView;
         ImageView imageView2;
-        cVar = this.f2034a.f1996i;
+        cVar = this.f2047a.f2009i;
         if (cVar != null) {
             view.setEnabled(false);
-            handler = WebViewWindow.f1988f;
+            handler = WebViewWindow.f2001f;
             handler.postDelayed(new r(this, view), 256L);
-            imageView = this.f2034a.f1989a;
+            imageView = this.f2047a.f2002a;
             if (view != imageView) {
-                imageView2 = this.f2034a.f1991c;
+                imageView2 = this.f2047a.f2004c;
                 if (view == imageView2) {
-                    cVar.b(this.f2034a);
+                    cVar.b(this.f2047a);
                     return;
                 }
                 return;
             }
-            cVar.a(this.f2034a);
+            cVar.a(this.f2047a);
         }
     }
 }

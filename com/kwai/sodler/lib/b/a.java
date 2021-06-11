@@ -1,22 +1,22 @@
 package com.kwai.sodler.lib.b;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a implements Comparable<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34423a;
+    public String f37907a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34424b;
+    public String f37908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34425c;
+    public boolean f37909c;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(@NonNull a aVar) {
-        return aVar.f34424b.compareTo(this.f34424b);
+        return aVar.f37908b.compareTo(this.f37908b);
     }
 }

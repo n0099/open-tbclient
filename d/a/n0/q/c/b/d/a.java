@@ -18,39 +18,39 @@ import java.io.File;
 public class a extends d.a.n0.q.d.g.a<b, AdDownloadData> {
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionJudgePolicy f58196c;
+    public PermissionJudgePolicy f61887c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d f58197d;
+    public final d f61888d;
 
     /* renamed from: d.a.n0.q.c.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1473a {
+    public static /* synthetic */ class C1529a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f58198a;
+        public static final /* synthetic */ int[] f61889a;
 
         static {
             int[] iArr = new int[DownloadStatus.values().length];
-            f58198a = iArr;
+            f61889a = iArr;
             try {
                 iArr[DownloadStatus.STATUS_NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f58198a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 2;
+                f61889a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f58198a[DownloadStatus.STATUS_PAUSED.ordinal()] = 3;
+                f61889a[DownloadStatus.STATUS_PAUSED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f58198a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 4;
+                f61889a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f58198a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 5;
+                f61889a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -58,7 +58,7 @@ public class a extends d.a.n0.q.d.g.a<b, AdDownloadData> {
 
     public a(@NonNull b bVar, @NonNull AdDownloadData adDownloadData) {
         super(bVar, adDownloadData);
-        this.f58197d = new d(this, adDownloadData);
+        this.f61888d = new d(this, adDownloadData);
     }
 
     @Override // d.a.n0.q.d.g.a
@@ -68,7 +68,7 @@ public class a extends d.a.n0.q.d.g.a<b, AdDownloadData> {
             AdDownloadData c2 = c();
             long j = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(c2.adId(), 0L);
             c2.setContentLength(Math.max(c().getContentLength(), j));
-            this.f58197d.d(j);
+            this.f61888d.d(j);
         }
     }
 
@@ -85,17 +85,17 @@ public class a extends d.a.n0.q.d.g.a<b, AdDownloadData> {
         if (d() == null || !(d().getRealView().getContext() instanceof Activity) || d.a.n0.a.h().r()) {
             return true;
         }
-        if (this.f58196c == null) {
-            this.f58196c = new PermissionJudgePolicy();
+        if (this.f61887c == null) {
+            this.f61887c = new PermissionJudgePolicy();
         }
-        this.f58196c.clearRequestPermissionList();
-        this.f58196c.appendRequestPermission((Activity) d().getRealView().getContext(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-        return !this.f58196c.startRequestPermission((Activity) d().getRealView().getContext());
+        this.f61887c.clearRequestPermissionList();
+        this.f61887c.appendRequestPermission((Activity) d().getRealView().getContext(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+        return !this.f61887c.startRequestPermission((Activity) d().getRealView().getContext());
     }
 
     public void m() {
         i();
-        this.f58197d.a();
+        this.f61888d.a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -107,18 +107,18 @@ public class a extends d.a.n0.q.d.g.a<b, AdDownloadData> {
         }
         DownloadStatus currentState = adDownloadData.getCurrentState();
         DownloadCacheKey g2 = e.c().g(adDownloadData.adId());
-        int i2 = C1473a.f58198a[currentState.ordinal()];
+        int i2 = C1529a.f61889a[currentState.ordinal()];
         if (i2 == 1) {
             if (g2 != null && l()) {
                 e.c().l(g2, null);
-                this.f58197d.a();
+                this.f61888d.a();
             }
         } else if (i2 == 2) {
             e.c().e(adDownloadData.adId());
         } else if (i2 == 3) {
             if (l()) {
                 e.c().j(adDownloadData.adId());
-                this.f58197d.a();
+                this.f61888d.a();
             }
         } else if (i2 != 4) {
             if (i2 != 5) {

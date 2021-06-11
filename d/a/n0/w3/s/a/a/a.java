@@ -6,6 +6,7 @@ import android.webkit.WebView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
@@ -23,40 +24,40 @@ import d.a.n0.e3.q0.g;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final NewVcodeView f62932a;
+    public final NewVcodeView f66647a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final NewWriteModel f62933b;
+    public final NewWriteModel f66648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f62934c;
+    public boolean f66649c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PostWriteCallBackData f62935d;
+    public PostWriteCallBackData f66650d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final NewWriteModel.g f62936e;
+    public final NewWriteModel.g f66651e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewWriteModel.g f62937f;
+    public NewWriteModel.g f66652f;
 
     /* renamed from: d.a.n0.w3.s.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1719a implements NewWriteModel.g {
-        public C1719a() {
+    public class C1776a implements NewWriteModel.g {
+        public C1776a() {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, i0 i0Var, WriteData writeData, AntiData antiData) {
             String str;
             String str2;
-            if (a.this.f62932a == null) {
+            if (a.this.f66647a == null) {
                 return;
             }
-            a.this.f62932a.showPostThreadLoadingView(false);
+            a.this.f66647a.showPostThreadLoadingView(false);
             if (z) {
-                a.this.f62935d = postWriteCallBackData;
-                a.this.f62934c = true;
+                a.this.f66650d = postWriteCallBackData;
+                a.this.f66649c = true;
                 String str3 = null;
                 if (i0Var == null || i0Var.a() == null) {
                     str = null;
@@ -68,97 +69,97 @@ public class a implements b {
                     str = str4;
                     str3 = str5;
                 }
-                a.this.f62932a.runJsMethod("success", str3 + "," + str + "," + str2);
+                a.this.f66647a.runJsMethod("success", str3 + "," + str + "," + str2);
             } else if (postWriteCallBackData == null || postWriteCallBackData.getErrorCode() != 227001) {
-                if (a.this.f62937f != null) {
-                    a.this.f62937f.callback(false, postWriteCallBackData, i0Var, writeData, antiData);
+                if (a.this.f66652f != null) {
+                    a.this.f66652f.callback(false, postWriteCallBackData, i0Var, writeData, antiData);
                 }
             } else {
-                a.this.f62932a.getContext().setVisible(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.f62932a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                a.this.f66647a.getContext().setVisible(false);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.f66647a.getContext().getActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
             }
         }
     }
 
     public a(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
-        C1719a c1719a = new C1719a();
-        this.f62936e = c1719a;
-        this.f62932a = newVcodeView;
-        this.f62933b = newWriteModel;
-        newWriteModel.d0(c1719a);
+        C1776a c1776a = new C1776a();
+        this.f66651e = c1776a;
+        this.f66647a = newVcodeView;
+        this.f66648b = newWriteModel;
+        newWriteModel.h0(c1776a);
     }
 
     @Override // d.a.n0.w3.s.a.a.b
     public void a(boolean z) {
-        this.f62932a.setRatio(0.9433962f);
-        this.f62932a.showWebView(false);
-        this.f62932a.getWebView().loadUrl(TbConfig.SERVER_ADDRESS_WEB_VIEW + "n/captcha-drag");
+        this.f66647a.setRatio(0.9433962f);
+        this.f66647a.showWebView(false);
+        this.f66647a.getWebView().loadUrl(TbConfig.SERVER_ADDRESS_WEB_VIEW + "n/captcha-drag");
     }
 
     @Override // d.a.n0.w3.s.a.a.b
     public boolean b(WebView webView, String str) {
-        WriteData T;
+        WriteData X;
         String str2;
-        if (this.f62933b.T() == null || StringUtils.isNull(str) || (T = this.f62933b.T()) == null) {
+        if (this.f66648b.X() == null || StringUtils.isNull(str) || (X = this.f66648b.X()) == null) {
             return false;
         }
         if (str.contains("objc:loadReady")) {
-            if (T.getVcodeExtra() == null) {
+            if (X.getVcodeExtra() == null) {
                 return false;
             }
-            this.f62932a.runJsMethod("handleFreshCaptcha", "'" + T.getVcodeUrl() + "','" + T.getVcodeExtra().slideImg + "','" + T.getVcodeExtra().textImg + "'");
+            this.f66647a.runJsMethod("handleFreshCaptcha", "'" + X.getVcodeUrl() + "','" + X.getVcodeExtra().slideImg + "','" + X.getVcodeExtra().textImg + "'");
             return true;
         } else if (str.contains("objc:jsChangePosition")) {
             j(d.a.m0.a1.a.a(str));
             return true;
         } else if (str.contains("objc:finish")) {
-            if (T != null && T.getVideoReviewType() == 1) {
-                NewVcodeView newVcodeView = this.f62932a;
+            if (X != null && X.getVideoReviewType() == 1) {
+                NewVcodeView newVcodeView = this.f66647a;
                 newVcodeView.showToast(true, newVcodeView.getContext().getResources().getString(R.string.video_send_success_under_review));
-            } else if (T != null && T.getVideoReviewType() == 2) {
-                NewVcodeView newVcodeView2 = this.f62932a;
+            } else if (X != null && X.getVideoReviewType() == 2) {
+                NewVcodeView newVcodeView2 = this.f66647a;
                 newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(R.string.video_send_success));
             } else {
-                String string = this.f62932a.getContext().getResources().getString(R.string.send_success);
-                PostWriteCallBackData postWriteCallBackData = this.f62935d;
+                String string = this.f66647a.getContext().getResources().getString(R.string.send_success);
+                PostWriteCallBackData postWriteCallBackData = this.f66650d;
                 String str3 = null;
                 if (postWriteCallBackData != null) {
                     str3 = postWriteCallBackData.getPreMsg();
-                    str2 = this.f62935d.getColorMsg();
-                    string = this.f62935d.getErrorString();
+                    str2 = this.f66650d.getColorMsg();
+                    string = this.f66650d.getErrorString();
                 } else {
                     str2 = null;
                 }
-                if (T.getType() != 7) {
-                    g.b(this.f62932a.getContext().getActivity(), string, str3, str2);
+                if (X.getType() != 7) {
+                    g.b(this.f66647a.getContext().getActivity(), string, str3, str2);
                 }
             }
             Intent intent = new Intent();
             Bundle bundle = new Bundle();
-            bundle.putSerializable("post_write_callback_data", this.f62935d);
+            bundle.putSerializable("post_write_callback_data", this.f66650d);
             intent.putExtras(bundle);
-            BaseActivity context = this.f62932a.getContext();
-            this.f62932a.getContext();
+            BaseActivity context = this.f66647a.getContext();
+            this.f66647a.getContext();
             context.setResult(-1, intent);
-            this.f62932a.getContext().finish();
+            this.f66647a.getContext().finish();
             return true;
         } else if (!str.contains("objc:jumpToFeedback()") || WriteActivityConfig.isAsyncWriting()) {
             return false;
         } else {
-            WriteActivityConfig.newInstance(this.f62932a.getContext()).setType(0).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setIsVcodeFeedBack().send();
+            WriteActivityConfig.newInstance(this.f66647a.getContext()).setType(0).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setIsVcodeFeedBack().send();
             return true;
         }
     }
 
     @Override // d.a.n0.w3.s.a.a.b
     public void c(NewWriteModel.g gVar) {
-        this.f62937f = gVar;
+        this.f66652f = gVar;
     }
 
     @Override // d.a.n0.w3.s.a.a.b
     public void d() {
-        this.f62932a.showPostThreadLoadingView(false);
-        this.f62933b.cancelLoadData();
+        this.f66647a.showPostThreadLoadingView(false);
+        this.f66648b.cancelLoadData();
     }
 
     @Override // d.a.n0.w3.s.a.a.b
@@ -167,16 +168,16 @@ public class a implements b {
 
     public final void j(String str) {
         if (!l.D()) {
-            this.f62932a.getContext().showToast(R.string.neterror);
-            this.f62932a.getContext().finish();
+            this.f66647a.getContext().showToast(R.string.neterror);
+            this.f66647a.getContext().finish();
         } else if (!StringUtils.isNull(str)) {
-            this.f62932a.showPostThreadLoadingView(true);
-            this.f62933b.T().setVcode(str);
-            this.f62933b.T().setVcodeType("5");
-            this.f62933b.i0();
+            this.f66647a.showPostThreadLoadingView(true);
+            this.f66648b.X().setVcode(str);
+            this.f66648b.X().setVcodeType("5");
+            this.f66648b.m0();
         } else {
-            this.f62932a.getContext().showToast(R.string.neterror);
-            this.f62932a.getContext().finish();
+            this.f66647a.getContext().showToast(R.string.neterror);
+            this.f66647a.getContext().finish();
         }
     }
 
@@ -186,7 +187,7 @@ public class a implements b {
 
     @Override // d.a.n0.w3.s.a.a.b
     public void onPageFinished(WebView webView, String str) {
-        NewVcodeView newVcodeView = this.f62932a;
+        NewVcodeView newVcodeView = this.f66647a;
         if (newVcodeView != null) {
             newVcodeView.showWebViewDelay(1000);
         }

@@ -41,7 +41,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_UID = "uid";
     public static final String TAG = "SapiAccountManager";
     public static final int VERSION_CODE = 250;
-    public static final String VERSION_NAME = "9.3.1";
+    public static final String VERSION_NAME = "9.3.2.5";
     public static CheckUrlIsAvailableListener checkUrlIsAvailablelister;
     public static GlobalCallback globalCallback;
     public static SapiAccountManager instance;
@@ -83,7 +83,7 @@ public final class SapiAccountManager implements ISAccountManager {
             try {
                 Class.forName("com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager");
             } catch (Throwable unused3) {
-                CommonUtil.throwException("please import the package :pass-biometrics-face-*.aar and pass-biometrics-base-*.aar");
+                CommonUtil.throwException("please import the package :pass-module-face.aar");
             }
         }
         if (sapiConfiguration.loginShareStrategy() == LoginShareStrategy.DISABLED || globalCallback != null) {
@@ -227,13 +227,18 @@ public final class SapiAccountManager implements ISAccountManager {
         ShareLoginModel.getInstance().getShareModels(j, shareModelCallback);
     }
 
+    public String getTpl() {
+        SapiConfiguration sapiConfiguration2 = sapiConfiguration;
+        return sapiConfiguration2 == null ? "" : sapiConfiguration2.tpl;
+    }
+
     public List<ShareStorage.StorageModel> getV2ShareModelList() {
         return getV2ShareModelList("");
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
     public String getVersionName() {
-        return "9.3.1";
+        return "9.3.2.5";
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
@@ -243,6 +248,7 @@ public final class SapiAccountManager implements ISAccountManager {
 
     public synchronized void init(final SapiConfiguration sapiConfiguration2) {
         if (sapiConfiguration2 != null) {
+            new OneKeyLoginSdkCall().initOneKeyLoginSdk(sapiConfiguration2);
             if (sapiConfiguration == null) {
                 sapiConfiguration = sapiConfiguration2;
                 sapiAccountService = new SapiAccountService();
@@ -295,7 +301,6 @@ public final class SapiAccountManager implements ISAccountManager {
                             if (TextUtils.isEmpty(SapiUtils.getCookieBduss()) || TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
                                 SapiAccountManager.getInstance().getAccountService().webLogin(sapiConfiguration2.context);
                             }
-                            new OneKeyLoginSdkCall().initOneKeyLoginSdk(sapiConfiguration2);
                             Log.d("SDK_INIT", "end time=" + System.currentTimeMillis());
                         }
                     }));
@@ -332,7 +337,7 @@ public final class SapiAccountManager implements ISAccountManager {
         SapiContext.getInstance().removeLoginAccount(sapiAccount);
         new ShareCallPacking().asyncMarkLoginState(3);
         try {
-            new OpenBdussService(getSapiConfiguration(), "9.3.1").logout();
+            new OpenBdussService(getSapiConfiguration(), "9.3.2.5").logout();
         } catch (Throwable unused) {
         }
         if (currentAccount == null || TextUtils.isEmpty(sapiAccount.uid) || !sapiAccount.uid.equals(currentAccount.uid)) {

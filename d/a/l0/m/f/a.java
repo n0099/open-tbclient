@@ -6,12 +6,12 @@ import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes3.dex */
-public class a extends HttpCommonRequest<C1075a> {
+public class a extends HttpCommonRequest<C1131a> {
 
     /* renamed from: d.a.l0.m.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1075a extends HttpCommonRequestBuilder<C1075a> {
-        public C1075a(AbstractHttpManager abstractHttpManager) {
+    public static class C1131a extends HttpCommonRequestBuilder<C1131a> {
+        public C1131a(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);
         }
 
@@ -22,31 +22,31 @@ public class a extends HttpCommonRequest<C1075a> {
             return new a(this);
         }
 
-        public C1075a(a aVar) {
+        public C1131a(a aVar) {
             this(aVar, null);
         }
 
-        public C1075a(a aVar, AbstractHttpManager abstractHttpManager) {
+        public C1131a(a aVar, AbstractHttpManager abstractHttpManager) {
             super(aVar, abstractHttpManager);
         }
     }
 
-    public a(C1075a c1075a) {
-        super(c1075a);
+    public a(C1131a c1131a) {
+        super(c1131a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     /* renamed from: a */
-    public C1075a newBuilder() {
-        return new C1075a(this);
+    public C1131a newBuilder() {
+        return new C1131a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     /* renamed from: b */
-    public C1075a newBuilder(AbstractHttpManager abstractHttpManager) {
-        return new C1075a(this, abstractHttpManager);
+    public C1131a newBuilder(AbstractHttpManager abstractHttpManager) {
+        return new C1131a(this, abstractHttpManager);
     }
 
     @Override // com.baidu.searchbox.http.request.HttpRequest

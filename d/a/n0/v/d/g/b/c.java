@@ -3,14 +3,14 @@ package d.a.n0.v.d.g.b;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61789a;
+    public String f65504a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61790b;
+    public String f65505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61791c;
+    public String f65506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f61792d = false;
+    public boolean f65507d = false;
 }

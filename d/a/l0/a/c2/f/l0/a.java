@@ -30,7 +30,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
         g W = f.V().W();
@@ -86,12 +86,12 @@ public class a extends a0 {
             jSONObject.put(TipsConfigItem.TipConfigData.BOTTOM, L5);
             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
         }
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.e("GetMenuButtonBounding", wrapCallbackParams.toString());
         }
         return wrapCallbackParams;

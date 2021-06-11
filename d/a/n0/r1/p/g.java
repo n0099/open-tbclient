@@ -9,29 +9,29 @@ import java.util.HashMap;
 public class g {
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f59918c;
+    public static g f63609c;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f59919a = true;
+    public boolean f63610a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59920b;
+    public int f63611b;
 
     /* loaded from: classes3.dex */
     public class a implements CyberPlayerManager.InstallListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CyberPlayerManager.InstallListener f59921a;
+        public final /* synthetic */ CyberPlayerManager.InstallListener f63612a;
 
         public a(CyberPlayerManager.InstallListener installListener) {
-            this.f59921a = installListener;
+            this.f63612a = installListener;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
         public void onInstallError(int i2, int i3, String str) {
-            if (g.this.f59920b >= 3) {
-                g.this.f59920b = 0;
-                CyberPlayerManager.InstallListener installListener = this.f59921a;
+            if (g.this.f63611b >= 3) {
+                g.this.f63611b = 0;
+                CyberPlayerManager.InstallListener installListener = this.f63612a;
                 if (installListener != null) {
                     installListener.onInstallError(i2, i3, str);
                     return;
@@ -39,7 +39,7 @@ public class g {
                 return;
             }
             g.c(g.this);
-            g.this.g(this.f59921a);
+            g.this.g(this.f63612a);
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
@@ -48,9 +48,9 @@ public class g {
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
         public void onInstallSuccess(int i2, String str) {
-            g.this.f59920b = 0;
-            g.this.f59919a = true;
-            CyberPlayerManager.InstallListener installListener = this.f59921a;
+            g.this.f63611b = 0;
+            g.this.f63610a = true;
+            CyberPlayerManager.InstallListener installListener = this.f63612a;
             if (installListener != null) {
                 installListener.onInstallSuccess(i2, str);
             }
@@ -61,17 +61,17 @@ public class g {
     public class b implements CyberPlayerManager.InstallListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CyberPlayerManager.InstallListener f59923a;
+        public final /* synthetic */ CyberPlayerManager.InstallListener f63614a;
 
         public b(CyberPlayerManager.InstallListener installListener) {
-            this.f59923a = installListener;
+            this.f63614a = installListener;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
         public void onInstallError(int i2, int i3, String str) {
-            if (g.this.f59920b >= 3) {
-                g.this.f59920b = 0;
-                CyberPlayerManager.InstallListener installListener = this.f59923a;
+            if (g.this.f63611b >= 3) {
+                g.this.f63611b = 0;
+                CyberPlayerManager.InstallListener installListener = this.f63614a;
                 if (installListener != null) {
                     installListener.onInstallError(i2, i3, str);
                     return;
@@ -79,7 +79,7 @@ public class g {
                 return;
             }
             g.c(g.this);
-            g.this.g(this.f59923a);
+            g.this.g(this.f63614a);
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
@@ -88,9 +88,9 @@ public class g {
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
         public void onInstallSuccess(int i2, String str) {
-            g.this.f59920b = 0;
-            g.this.f59919a = true;
-            CyberPlayerManager.InstallListener installListener = this.f59923a;
+            g.this.f63611b = 0;
+            g.this.f63610a = true;
+            CyberPlayerManager.InstallListener installListener = this.f63614a;
             if (installListener != null) {
                 installListener.onInstallSuccess(i2, str);
             }
@@ -98,30 +98,30 @@ public class g {
     }
 
     public static /* synthetic */ int c(g gVar) {
-        int i2 = gVar.f59920b;
-        gVar.f59920b = i2 + 1;
+        int i2 = gVar.f63611b;
+        gVar.f63611b = i2 + 1;
         return i2;
     }
 
     public static g e() {
-        if (f59918c == null) {
+        if (f63609c == null) {
             i();
         }
-        return f59918c;
+        return f63609c;
     }
 
     public static synchronized void i() {
         synchronized (g.class) {
-            if (f59918c == null) {
-                f59918c = new g();
+            if (f63609c == null) {
+                f63609c = new g();
             }
         }
     }
 
     public boolean f() {
         boolean isCoreLoaded = CyberPlayerManager.isCoreLoaded(3);
-        if (isCoreLoaded && !this.f59919a) {
-            this.f59919a = true;
+        if (isCoreLoaded && !this.f63610a) {
+            this.f63610a = true;
         }
         return isCoreLoaded;
     }
@@ -131,7 +131,7 @@ public class g {
         if (CyberPlayerManager.isCoreLoaded(3)) {
             return;
         }
-        this.f59919a = false;
+        this.f63610a = false;
         String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
         File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
         if (cacheDir != null) {
@@ -152,7 +152,7 @@ public class g {
         if (CyberPlayerManager.isCoreLoaded(i2)) {
             return;
         }
-        this.f59919a = false;
+        this.f63610a = false;
         String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
         File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
         if (cacheDir != null) {

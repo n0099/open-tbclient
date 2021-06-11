@@ -11,7 +11,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FixedSizeDrawable extends Drawable {
     public final RectF bounds;
     public final Matrix matrix;
@@ -20,7 +20,7 @@ public class FixedSizeDrawable extends Drawable {
     public Drawable wrapped;
     public final RectF wrappedRect;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class State extends Drawable.ConstantState {
         public final int height;
         public final int width;

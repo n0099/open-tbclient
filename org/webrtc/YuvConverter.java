@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 import org.webrtc.GlGenericDrawer;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoFrame;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class YuvConverter {
     public static final String FRAGMENT_SHADER = "uniform vec2 xUnit;\nuniform vec4 coeffs;\n\nvoid main() {\n  gl_FragColor.r = coeffs.a + dot(coeffs.rgb,\n      sample(tc - 1.5 * xUnit).rgb);\n  gl_FragColor.g = coeffs.a + dot(coeffs.rgb,\n      sample(tc - 0.5 * xUnit).rgb);\n  gl_FragColor.b = coeffs.a + dot(coeffs.rgb,\n      sample(tc + 0.5 * xUnit).rgb);\n  gl_FragColor.a = coeffs.a + dot(coeffs.rgb,\n      sample(tc + 1.5 * xUnit).rgb);\n}\n";
     public final ThreadUtils.ThreadChecker threadChecker = new ThreadUtils.ThreadChecker();
@@ -14,7 +14,7 @@ public class YuvConverter {
     public final ShaderCallbacks shaderCallbacks = new ShaderCallbacks();
     public final GlGenericDrawer drawer = new GlGenericDrawer(FRAGMENT_SHADER, this.shaderCallbacks);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
         public float[] coeffs;
         public int coeffsLoc;

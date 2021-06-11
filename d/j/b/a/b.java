@@ -3,11 +3,11 @@ package d.j.b.a;
 import android.content.Context;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static String a(Context context) {
         d b2 = d.b();
-        return b2.c(context.getApplicationContext(), b2.f66396a);
+        return b2.c(context.getApplicationContext(), b2.f70182a);
     }
 
     public static final boolean b() {
@@ -27,16 +27,16 @@ public class b {
 
     public static String c(Context context) {
         d b2 = d.b();
-        return b2.c(context.getApplicationContext(), b2.f66397b);
+        return b2.c(context.getApplicationContext(), b2.f70183b);
     }
 
     public static String d(Context context) {
         d b2 = d.b();
-        return b2.c(context.getApplicationContext(), b2.f66399d);
+        return b2.c(context.getApplicationContext(), b2.f70185d);
     }
 
     public static String e(Context context) {
         d b2 = d.b();
-        return b2.c(context.getApplicationContext(), b2.f66398c);
+        return b2.c(context.getApplicationContext(), b2.f70184c);
     }
 }

@@ -26,7 +26,7 @@ public final class CompletablePeek extends Completable {
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68963d;
+        public Disposable f72272d;
 
         public CompletableObserverImplementation(CompletableObserver completableObserver) {
             this.actual = completableObserver;
@@ -40,7 +40,7 @@ public final class CompletablePeek extends Completable {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);
             }
-            this.f68963d.dispose();
+            this.f72272d.dispose();
         }
 
         public void doAfter() {
@@ -54,12 +54,12 @@ public final class CompletablePeek extends Completable {
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68963d.isDisposed();
+            return this.f72272d.isDisposed();
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
-            if (this.f68963d == DisposableHelper.DISPOSED) {
+            if (this.f72272d == DisposableHelper.DISPOSED) {
                 return;
             }
             try {
@@ -75,7 +75,7 @@ public final class CompletablePeek extends Completable {
 
         @Override // io.reactivex.CompletableObserver
         public void onError(Throwable th) {
-            if (this.f68963d == DisposableHelper.DISPOSED) {
+            if (this.f72272d == DisposableHelper.DISPOSED) {
                 RxJavaPlugins.onError(th);
                 return;
             }
@@ -94,14 +94,14 @@ public final class CompletablePeek extends Completable {
         public void onSubscribe(Disposable disposable) {
             try {
                 CompletablePeek.this.onSubscribe.accept(disposable);
-                if (DisposableHelper.validate(this.f68963d, disposable)) {
-                    this.f68963d = disposable;
+                if (DisposableHelper.validate(this.f72272d, disposable)) {
+                    this.f72272d = disposable;
                     this.actual.onSubscribe(this);
                 }
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 disposable.dispose();
-                this.f68963d = DisposableHelper.DISPOSED;
+                this.f72272d = DisposableHelper.DISPOSED;
                 EmptyDisposable.error(th, this.actual);
             }
         }

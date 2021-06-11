@@ -30,13 +30,13 @@ public abstract class AbstractExpandedDecoder {
                     if (extractNumericValueFromBitArray2 != 13) {
                         switch (GeneralAppIdDecoder.extractNumericValueFromBitArray(bitArray, 1, 7)) {
                             case 56:
-                                return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+                                return new AI013x0x1xDecoder(bitArray, "310", "11");
                             case 57:
-                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "11");
                             case 58:
-                                return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_JOININ_GROUP);
+                                return new AI013x0x1xDecoder(bitArray, "310", "13");
                             case 59:
-                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_JOININ_GROUP);
+                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "13");
                             case 60:
                                 return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_WPA_STATE);
                             case 61:

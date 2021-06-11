@@ -19,16 +19,16 @@ import java.util.List;
 public class k extends e implements d.a.n0.t1.a, b {
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f56375f;
+    public TbPageContext f60064f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f56376g;
+    public long f60065g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f56377h;
+    public boolean f60066h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f56378i;
+    public BdUniqueId f60067i;
     public g j;
     public p k;
     public PersonPolymericModel l;
@@ -41,17 +41,17 @@ public class k extends e implements d.a.n0.t1.a, b {
 
     public k(BaseFragment baseFragment, g gVar, BdUniqueId bdUniqueId, long j, boolean z) {
         super(z);
-        this.f56377h = true;
+        this.f60066h = true;
         this.q = 3;
         BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
         this.n = baseFragmentActivity;
-        this.f56375f = baseFragmentActivity.getPageContext();
-        this.f56376g = j;
+        this.f60064f = baseFragmentActivity.getPageContext();
+        this.f60065g = j;
         this.j = gVar;
-        this.f56378i = bdUniqueId;
-        this.o = gVar.f56339i;
-        this.p = new PersonPostModel(this.f56375f, bdUniqueId, null, this.f56325e, PersonPostModel.FROM_PERSON_POLYMERIC);
-        p pVar = new p(baseFragment, gVar, bdUniqueId, z, this.f56376g);
+        this.f60067i = bdUniqueId;
+        this.o = gVar.f60028i;
+        this.p = new PersonPostModel(this.f60064f, bdUniqueId, null, this.f60014e, PersonPostModel.FROM_PERSON_POLYMERIC);
+        p pVar = new p(baseFragment, gVar, bdUniqueId, z, this.f60065g);
         this.k = pVar;
         pVar.a0(this);
         f();
@@ -89,15 +89,15 @@ public class k extends e implements d.a.n0.t1.a, b {
         this.p.resetThreadPn();
         PersonPolymericModel personPolymericModel = this.l;
         if (personPolymericModel != null) {
-            personPolymericModel.G();
+            personPolymericModel.K();
         }
     }
 
     @Override // d.a.n0.t1.a
-    public void g() {
+    public void h() {
         g gVar = this.j;
         if (gVar != null) {
-            gVar.g();
+            gVar.h();
         }
     }
 
@@ -117,7 +117,7 @@ public class k extends e implements d.a.n0.t1.a, b {
     }
 
     public void l() {
-        MessageManager.getInstance().unRegisterListener(this.f56378i);
+        MessageManager.getInstance().unRegisterListener(this.f60067i);
         p pVar = this.k;
         if (pVar != null) {
             pVar.Y();
@@ -133,15 +133,15 @@ public class k extends e implements d.a.n0.t1.a, b {
     }
 
     public void m(boolean z) {
-        if (z && this.f56377h) {
+        if (z && this.f60066h) {
             loadData();
         }
     }
 
     public void n() {
-        if (TbadkCoreApplication.isLogin() && !this.f56325e && this.f56376g == TbadkCoreApplication.getCurrentAccountId()) {
-            this.f56325e = true;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f56375f.getPageActivity()).createNormalConfig(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
+        if (TbadkCoreApplication.isLogin() && !this.f60014e && this.f60065g == TbadkCoreApplication.getCurrentAccountId()) {
+            this.f60014e = true;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f60064f.getPageActivity()).createNormalConfig(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
             this.n.finish();
         }
     }
@@ -158,7 +158,7 @@ public class k extends e implements d.a.n0.t1.a, b {
         }
         this.m.o();
         if (aVar.e() != null && ((aVar.e().getHide_stat() == 1 && aVar.e().getBlock_stat() == 1) || (aVar.e().getHide_stat() == 1 && aVar.e().getBlock_stat() == 2))) {
-            this.m.u(this.f56325e);
+            this.m.u(this.f60014e);
             this.m.s(8);
             return;
         }
@@ -168,8 +168,8 @@ public class k extends e implements d.a.n0.t1.a, b {
         if (aVar.j() != null) {
             aVar.j().getSex();
         }
-        this.f56377h = false;
-        if (this.f56325e && aVar.j() != null) {
+        this.f60066h = false;
+        if (this.f60014e && aVar.j() != null) {
             aVar.j().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
             d.a.m0.z.b.a().e(aVar.j());
         }

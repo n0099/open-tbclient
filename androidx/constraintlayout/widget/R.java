@@ -65,20 +65,20 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class id {
-        public static final int bottom = 0x7f09045e;
-        public static final int end = 0x7f090a6c;
-        public static final int gone = 0x7f090e67;
-        public static final int invisible = 0x7f0910fb;
-        public static final int left = 0x7f0912fd;
-        public static final int packed = 0x7f0916c7;
-        public static final int parent = 0x7f0916cf;
-        public static final int percent = 0x7f09183e;
-        public static final int right = 0x7f091b73;
-        public static final int spread = 0x7f091e83;
-        public static final int spread_inside = 0x7f091e85;
-        public static final int start = 0x7f091ec0;
-        public static final int top = 0x7f0921d4;
-        public static final int wrap = 0x7f09272a;
+        public static final int bottom = 0x7f090461;
+        public static final int end = 0x7f090a6f;
+        public static final int gone = 0x7f090e6c;
+        public static final int invisible = 0x7f091100;
+        public static final int left = 0x7f091424;
+        public static final int packed = 0x7f0917ef;
+        public static final int parent = 0x7f0917f7;
+        public static final int percent = 0x7f091966;
+        public static final int right = 0x7f091c9b;
+        public static final int spread = 0x7f091fab;
+        public static final int spread_inside = 0x7f091fae;
+        public static final int start = 0x7f091fe9;
+        public static final int top = 0x7f0922fd;
+        public static final int wrap = 0x7f092858;
     }
 
     /* loaded from: classes.dex */

@@ -13,11 +13,11 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43587a = k.f43199a;
+    public static final boolean f47263a = k.f46875a;
 
     @Nullable
     public static Set<String> a(int i2, List<String> list) {
@@ -34,10 +34,10 @@ public class e {
             if (cVar.H() && z && list.contains(appId)) {
                 d.a.l0.a.v1.c.a e2 = d.a.l0.a.v1.c.a.e();
                 d.a.l0.a.v1.c.c cVar2 = new d.a.l0.a.v1.c.c(i2);
-                cVar2.b(cVar.f45331f);
+                cVar2.b(cVar.f49005f);
                 e2.h(cVar2);
                 hashSet.add(appId);
-                if (f43587a) {
+                if (f47263a) {
                     Log.i("PurgerUtils", "sent msg(" + i2 + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
                 }
             }
@@ -75,7 +75,7 @@ public class e {
                         if (z) {
                             if (set.contains(substring)) {
                             }
-                            if (f43587a) {
+                            if (f47263a) {
                                 Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
                             }
                             if (aVar == null) {
@@ -86,7 +86,7 @@ public class e {
                         } else {
                             if (!set.contains(substring)) {
                             }
-                            if (f43587a) {
+                            if (f47263a) {
                             }
                             if (aVar == null) {
                             }
@@ -132,7 +132,7 @@ public class e {
                                 if (set.contains(substring)) {
                                 }
                                 I = d.a.l0.t.d.I(file2);
-                                if (f43587a) {
+                                if (f47263a) {
                                     Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + I);
                                 }
                                 if (TextUtils.isEmpty(I)) {
@@ -142,7 +142,7 @@ public class e {
                                 if (!set.contains(substring)) {
                                 }
                                 I = d.a.l0.t.d.I(file2);
-                                if (f43587a) {
+                                if (f47263a) {
                                 }
                                 if (TextUtils.isEmpty(I)) {
                                 }

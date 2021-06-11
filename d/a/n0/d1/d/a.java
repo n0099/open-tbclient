@@ -17,8 +17,8 @@ public class a extends k<a2, CardViewHolder<x>> implements y {
 
     /* renamed from: d.a.n0.d1.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1239a extends b0<a2> {
-        public C1239a(a aVar) {
+    public class C1295a extends b0<a2> {
+        public C1295a(a aVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class a extends k<a2, CardViewHolder<x>> implements y {
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.x = new C1239a(this);
+        this.x = new C1295a(this);
         this.w = tbPageContext;
     }
 
@@ -40,18 +40,18 @@ public class a extends k<a2, CardViewHolder<x>> implements y {
     }
 
     @Override // d.a.n0.r0.k, d.a.n0.z.y
-    public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+    public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         if (tbPageContext != null) {
-            this.f39228e = tbPageContext.getPageActivity();
+            this.f42909e = tbPageContext.getPageActivity();
             this.w = tbPageContext;
-            this.f39232i = bdUniqueId;
+            this.f42913i = bdUniqueId;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: s0 */
-    public CardViewHolder<x> P(ViewGroup viewGroup) {
+    public CardViewHolder<x> Q(ViewGroup viewGroup) {
         return new CardViewHolder<>(new x(this.w, viewGroup));
     }
 
@@ -60,14 +60,14 @@ public class a extends k<a2, CardViewHolder<x>> implements y {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
     /* renamed from: t0 */
-    public View W(int i2, View view, ViewGroup viewGroup, a2 a2Var, CardViewHolder<x> cardViewHolder) {
+    public View X(int i2, View view, ViewGroup viewGroup, a2 a2Var, CardViewHolder<x> cardViewHolder) {
         if (cardViewHolder == null || cardViewHolder.b() == null) {
             return null;
         }
-        cardViewHolder.b().o(this.x);
-        cardViewHolder.b().m(a2Var);
+        cardViewHolder.b().p(this.x);
+        cardViewHolder.b().n(a2Var);
         return cardViewHolder.a();
     }
 }

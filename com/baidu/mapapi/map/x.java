@@ -12,10 +12,10 @@ import javax.microedition.khronos.opengles.GL10;
 public class x implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f7114a;
+    public final /* synthetic */ WearMapView f7157a;
 
     public x(WearMapView wearMapView) {
-        this.f7114a = wearMapView;
+        this.f7157a = wearMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -30,20 +30,20 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
         String format;
         TextView textView;
         TextView textView2;
-        jVar = this.f7114a.f7060f;
+        jVar = this.f7157a.f7103f;
         if (jVar != null) {
-            jVar2 = this.f7114a.f7060f;
+            jVar2 = this.f7157a.f7103f;
             if (jVar2.a() == null) {
                 return;
             }
-            jVar3 = this.f7114a.f7060f;
-            float f3 = jVar3.a().E().f7571a;
-            f2 = this.f7114a.A;
+            jVar3 = this.f7157a.f7103f;
+            float f3 = jVar3.a().E().f7614a;
+            f2 = this.f7157a.A;
             if (f2 != f3) {
                 sparseArray = WearMapView.x;
                 int intValue = ((Integer) sparseArray.get((int) f3)).intValue();
-                jVar4 = this.f7114a.f7060f;
-                imageView = this.f7114a.r;
+                jVar4 = this.f7157a.f7103f;
+                imageView = this.f7157a.r;
                 int i2 = ((int) (intValue / jVar4.a().E().m)) / 2;
                 imageView.setPadding(i2, 0, i2, 0);
                 Object[] objArr = new Object[1];
@@ -54,13 +54,13 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
                     objArr[0] = Integer.valueOf(intValue);
                     format = String.format(" %d米 ", objArr);
                 }
-                textView = this.f7114a.p;
+                textView = this.f7157a.p;
                 textView.setText(format);
-                textView2 = this.f7114a.q;
+                textView2 = this.f7157a.q;
                 textView2.setText(format);
-                this.f7114a.A = f3;
+                this.f7157a.A = f3;
             }
-            this.f7114a.requestLayout();
+            this.f7157a.requestLayout();
         }
     }
 

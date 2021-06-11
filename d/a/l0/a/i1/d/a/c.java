@@ -23,35 +23,35 @@ public class c extends a0 {
     public class a implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f42797a;
+        public final /* synthetic */ UnitedSchemeEntity f46473a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f42798b;
+        public final /* synthetic */ CallbackHandler f46474b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f42799c;
+        public final /* synthetic */ d.a.l0.a.a2.e f46475c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.d.c.f f42800d;
+        public final /* synthetic */ d.a.l0.a.i1.d.c.f f46476d;
 
         public a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar, d.a.l0.a.i1.d.c.f fVar) {
-            this.f42797a = unitedSchemeEntity;
-            this.f42798b = callbackHandler;
-            this.f42799c = eVar;
-            this.f42800d = fVar;
+            this.f46473a = unitedSchemeEntity;
+            this.f46474b = callbackHandler;
+            this.f46475c = eVar;
+            this.f46476d = fVar;
         }
 
         @Override // d.a.l0.a.s1.f
         public void a(String str) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", str + "");
             }
-            c.this.p(this.f42797a, this.f42798b, this.f42799c, this.f42800d);
+            c.this.p(this.f46473a, this.f46474b, this.f46475c, this.f46476d);
         }
 
         @Override // d.a.l0.a.s1.f
         public void b(int i2, String str) {
-            UnitedSchemeUtility.safeCallback(this.f42798b, this.f42797a, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f42800d.f42881c);
+            UnitedSchemeUtility.safeCallback(this.f46474b, this.f46473a, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f46476d.f46557c);
         }
     }
 
@@ -59,77 +59,77 @@ public class c extends a0 {
     public class b implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f42802a;
+        public final /* synthetic */ Context f46478a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f42803b;
+        public final /* synthetic */ UnitedSchemeEntity f46479b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f42804c;
+        public final /* synthetic */ CallbackHandler f46480c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f42805d;
+        public final /* synthetic */ d.a.l0.a.a2.e f46481d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.d.c.f f42806e;
+        public final /* synthetic */ d.a.l0.a.i1.d.c.f f46482e;
 
         public b(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar, d.a.l0.a.i1.d.c.f fVar) {
-            this.f42802a = context;
-            this.f42803b = unitedSchemeEntity;
-            this.f42804c = callbackHandler;
-            this.f42805d = eVar;
-            this.f42806e = fVar;
+            this.f46478a = context;
+            this.f46479b = unitedSchemeEntity;
+            this.f46480c = callbackHandler;
+            this.f46481d = eVar;
+            this.f46482e = fVar;
         }
 
         @Override // d.a.l0.a.s1.f
         public void a(String str) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", str + "");
             }
-            c.this.r(this.f42802a, this.f42803b, this.f42804c, this.f42805d, this.f42806e);
+            c.this.r(this.f46478a, this.f46479b, this.f46480c, this.f46481d, this.f46482e);
         }
 
         @Override // d.a.l0.a.s1.f
         public void b(int i2, String str) {
-            UnitedSchemeUtility.safeCallback(this.f42804c, this.f42803b, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f42806e.f42881c);
+            UnitedSchemeUtility.safeCallback(this.f46480c, this.f46479b, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f46482e.f46557c);
         }
     }
 
     /* renamed from: d.a.l0.a.i1.d.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0709c implements d.a.l0.a.i1.d.d.d {
+    public class C0765c implements d.a.l0.a.i1.d.d.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f42808a;
+        public final /* synthetic */ d.a.l0.a.a2.e f46484a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f42809b;
+        public final /* synthetic */ CallbackHandler f46485b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f42810c;
+        public final /* synthetic */ UnitedSchemeEntity f46486c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.d.c.f f42811d;
+        public final /* synthetic */ d.a.l0.a.i1.d.c.f f46487d;
 
-        public C0709c(c cVar, d.a.l0.a.a2.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, d.a.l0.a.i1.d.c.f fVar) {
-            this.f42808a = eVar;
-            this.f42809b = callbackHandler;
-            this.f42810c = unitedSchemeEntity;
-            this.f42811d = fVar;
+        public C0765c(c cVar, d.a.l0.a.a2.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, d.a.l0.a.i1.d.c.f fVar) {
+            this.f46484a = eVar;
+            this.f46485b = callbackHandler;
+            this.f46486c = unitedSchemeEntity;
+            this.f46487d = fVar;
         }
 
         @Override // d.a.l0.a.i1.d.d.d
         public void a(boolean z, String str, Object obj) {
             if (z && (obj instanceof ArrayList)) {
                 ArrayList arrayList = (ArrayList) obj;
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
                         Log.d("chooseVideo", "tempPath = " + ((MediaModel) it.next()).d());
                     }
                 }
                 d.a.l0.a.e0.d.g("chooseVideo", "choose success");
-                UnitedSchemeUtility.safeCallback(this.f42809b, this.f42810c, UnitedSchemeUtility.wrapCallbackParamsWithEncode(d.a.l0.a.i1.d.c.d.n(arrayList, this.f42808a), 0).toString(), this.f42811d.f42881c);
+                UnitedSchemeUtility.safeCallback(this.f46485b, this.f46486c, UnitedSchemeUtility.wrapCallbackParamsWithEncode(d.a.l0.a.i1.d.c.d.n(arrayList, this.f46484a), 0).toString(), this.f46487d.f46557c);
             }
             d.a.l0.a.i1.d.c.e.a();
         }
@@ -139,26 +139,26 @@ public class c extends a0 {
     public class d implements d.a.l0.a.i1.d.d.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.d.c.f f42812a;
+        public final /* synthetic */ d.a.l0.a.i1.d.c.f f46488a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f42813b;
+        public final /* synthetic */ d.a.l0.a.a2.e f46489b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.d.d.d f42814c;
+        public final /* synthetic */ d.a.l0.a.i1.d.d.d f46490c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f42815d;
+        public final /* synthetic */ CallbackHandler f46491d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f42816e;
+        public final /* synthetic */ UnitedSchemeEntity f46492e;
 
         public d(c cVar, d.a.l0.a.i1.d.c.f fVar, d.a.l0.a.a2.e eVar, d.a.l0.a.i1.d.d.d dVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f42812a = fVar;
-            this.f42813b = eVar;
-            this.f42814c = dVar;
-            this.f42815d = callbackHandler;
-            this.f42816e = unitedSchemeEntity;
+            this.f46488a = fVar;
+            this.f46489b = eVar;
+            this.f46490c = dVar;
+            this.f46491d = callbackHandler;
+            this.f46492e = unitedSchemeEntity;
         }
 
         @Override // d.a.l0.a.i1.d.d.b
@@ -167,15 +167,15 @@ public class c extends a0 {
             d.a.l0.a.i1.d.c.e.i(d.a.l0.a.i1.d.c.b.c(file));
             Bundle bundle = new Bundle();
             bundle.putString("swanTmpPath", d.a.l0.a.g1.f.V().I().k());
-            bundle.putBoolean("compressed", this.f42812a.f42880b);
-            bundle.putString("swanAppId", this.f42813b.f40749f);
+            bundle.putBoolean("compressed", this.f46488a.f46556b);
+            bundle.putString("swanAppId", this.f46489b.f44425f);
             bundle.putParcelableArrayList("mediaModels", d.a.l0.a.i1.d.c.e.e());
-            d.a.l0.a.i1.d.c.d.h(this.f42813b.x(), bundle, this.f42814c);
+            d.a.l0.a.i1.d.c.d.h(this.f46489b.x(), bundle, this.f46490c);
         }
 
         @Override // d.a.l0.a.i1.d.d.b
         public void b(String str) {
-            UnitedSchemeUtility.safeCallback(this.f42815d, this.f42816e, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.f42812a.f42881c);
+            UnitedSchemeUtility.safeCallback(this.f46491d, this.f46492e, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.f46488a.f46557c);
         }
     }
 
@@ -183,38 +183,38 @@ public class c extends a0 {
     public class e implements d.a.l0.a.i1.d.d.c {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f42817e;
+        public final /* synthetic */ CallbackHandler f46493e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f42818f;
+        public final /* synthetic */ UnitedSchemeEntity f46494f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.d.c.f f42819g;
+        public final /* synthetic */ d.a.l0.a.i1.d.c.f f46495g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f42820h;
+        public final /* synthetic */ d.a.l0.a.a2.e f46496h;
 
         public e(c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, d.a.l0.a.i1.d.c.f fVar, d.a.l0.a.a2.e eVar) {
-            this.f42817e = callbackHandler;
-            this.f42818f = unitedSchemeEntity;
-            this.f42819g = fVar;
-            this.f42820h = eVar;
+            this.f46493e = callbackHandler;
+            this.f46494f = unitedSchemeEntity;
+            this.f46495g = fVar;
+            this.f46496h = eVar;
         }
 
         @Override // d.a.l0.a.i1.d.d.c
         public void e(String str) {
             d.a.l0.a.e0.d.g("chooseVideo", str);
-            UnitedSchemeUtility.safeCallback(this.f42817e, this.f42818f, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), this.f42819g.f42881c);
+            UnitedSchemeUtility.safeCallback(this.f46493e, this.f46494f, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), this.f46495g.f46557c);
         }
 
         @Override // d.a.l0.a.i1.d.d.c
         public void f(List list) {
             if (list != null && list.size() > 0) {
                 d.a.l0.a.e0.d.g("chooseVideo", "choose success");
-                UnitedSchemeUtility.safeCallback(this.f42817e, this.f42818f, UnitedSchemeUtility.wrapCallbackParamsWithEncode(d.a.l0.a.i1.d.c.d.n(list, this.f42820h), 0).toString(), this.f42819g.f42881c);
+                UnitedSchemeUtility.safeCallback(this.f46493e, this.f46494f, UnitedSchemeUtility.wrapCallbackParamsWithEncode(d.a.l0.a.i1.d.c.d.n(list, this.f46496h), 0).toString(), this.f46495g.f46557c);
                 return;
             }
-            UnitedSchemeUtility.safeCallback(this.f42817e, this.f42818f, UnitedSchemeUtility.wrapCallbackParams(1002, "choose file list is error").toString(), this.f42819g.f42881c);
+            UnitedSchemeUtility.safeCallback(this.f46493e, this.f46494f, UnitedSchemeUtility.wrapCallbackParams(1002, "choose file list is error").toString(), this.f46495g.f46557c);
         }
     }
 
@@ -225,14 +225,14 @@ public class c extends a0 {
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
         if (eVar != null && eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
         }
         d.a.l0.a.i1.d.c.f a2 = d.a.l0.a.i1.d.c.f.a(UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity));
-        if (a2.f42879a == 2) {
+        if (a2.f46555a == 2) {
             q(context, unitedSchemeEntity, callbackHandler, eVar, a2);
         } else {
             o(context, unitedSchemeEntity, callbackHandler, eVar, a2);
@@ -246,8 +246,8 @@ public class c extends a0 {
     }
 
     public final void p(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar, d.a.l0.a.i1.d.c.f fVar) {
-        d dVar = new d(this, fVar, eVar, new C0709c(this, eVar, callbackHandler, unitedSchemeEntity, fVar), callbackHandler, unitedSchemeEntity);
-        d.a.l0.a.i1.d.c.b.e(eVar.x(), eVar.f40749f, fVar.f42883e, TextUtils.equals(fVar.f42882d, "front"), dVar);
+        d dVar = new d(this, fVar, eVar, new C0765c(this, eVar, callbackHandler, unitedSchemeEntity, fVar), callbackHandler, unitedSchemeEntity);
+        d.a.l0.a.i1.d.c.b.e(eVar.x(), eVar.f44425f, fVar.f46559e, TextUtils.equals(fVar.f46558d, "front"), dVar);
     }
 
     public final void q(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar, d.a.l0.a.i1.d.c.f fVar) {
@@ -257,13 +257,13 @@ public class c extends a0 {
     public final void r(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar, d.a.l0.a.i1.d.c.f fVar) {
         Bundle bundle = new Bundle();
         bundle.putString("launchType", "video");
-        bundle.putBoolean("isShowCamera", fVar.f42879a == 3);
-        bundle.putBoolean("isFrontCamera", TextUtils.equals(fVar.f42882d, "front"));
-        bundle.putInt("maxDuration", fVar.f42883e);
+        bundle.putBoolean("isShowCamera", fVar.f46555a == 3);
+        bundle.putBoolean("isFrontCamera", TextUtils.equals(fVar.f46558d, "front"));
+        bundle.putInt("maxDuration", fVar.f46559e);
         bundle.putInt("count", 1);
         bundle.putString("mode", "single");
-        bundle.putBoolean("compressed", fVar.f42880b);
-        bundle.putString("swanAppId", eVar.f40749f);
+        bundle.putBoolean("compressed", fVar.f46556b);
+        bundle.putString("swanAppId", eVar.f44425f);
         bundle.putString("swanTmpPath", d.a.l0.a.g1.f.V().I().k());
         d.a.l0.a.i1.d.c.d.l(context, bundle, new e(this, callbackHandler, unitedSchemeEntity, fVar, eVar));
     }

@@ -10,10 +10,10 @@ import java.util.UUID;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1571a = "cn.com.chinatelecom.gateway.lib.c.c";
+    public static final String f1584a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1572b = "";
+    public static String f1585b = "";
 
     public static String a() {
         String uuid = UUID.randomUUID().toString();
@@ -26,16 +26,16 @@ public class c {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f1572b)) {
+        if (TextUtils.isEmpty(f1585b)) {
             String b2 = b(context);
-            f1572b = b2;
+            f1585b = b2;
             if (TextUtils.isEmpty(b2)) {
                 String c2 = c(context);
-                f1572b = c2;
+                f1585b = c2;
                 a(context, c2);
             }
         }
-        return f1572b;
+        return f1585b;
     }
 
     public static String a(String str) {

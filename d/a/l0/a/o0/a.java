@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static void a(d.a.l0.a.h0.f.a aVar, d.a.l0.a.o0.d.a aVar2) {
         if (aVar == null || aVar2 == null) {

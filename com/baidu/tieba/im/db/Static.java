@@ -18,18 +18,18 @@ public class Static {
         public class C0185a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f17138a;
+            public final /* synthetic */ CustomResponsedMessage f17214a;
 
             public C0185a(a aVar, CustomResponsedMessage customResponsedMessage) {
-                this.f17138a = customResponsedMessage;
+                this.f17214a = customResponsedMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.m0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                if (this.f17138a.getData() instanceof String) {
-                    g.a((String) this.f17138a.getData());
+                if (this.f17214a.getData() instanceof String) {
+                    g.a((String) this.f17214a.getData());
                     return null;
                 }
                 return null;

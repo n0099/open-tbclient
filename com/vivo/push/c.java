@@ -7,10 +7,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class c implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f36567a;
+    public final /* synthetic */ b f40246a;
 
     public c(b bVar) {
-        this.f36567a = bVar;
+        this.f40246a = bVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -24,16 +24,16 @@ public final class c implements Handler.Callback {
         int i2 = message.what;
         if (i2 == 1) {
             com.vivo.push.util.p.a("AidlManager", "In connect, bind core service time out");
-            atomicInteger = this.f36567a.f36520f;
+            atomicInteger = this.f40246a.f40199f;
             if (atomicInteger.get() == 2) {
-                this.f36567a.a(1);
+                this.f40246a.a(1);
             }
         } else if (i2 == 2) {
-            atomicInteger2 = this.f36567a.f36520f;
+            atomicInteger2 = this.f40246a.f40199f;
             if (atomicInteger2.get() == 4) {
-                this.f36567a.e();
+                this.f40246a.e();
             }
-            this.f36567a.a(1);
+            this.f40246a.a(1);
         } else {
             com.vivo.push.util.p.b("AidlManager", "unknow msg what [" + message.what + "]");
         }

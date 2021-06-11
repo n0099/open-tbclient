@@ -5,16 +5,16 @@ import android.net.Uri;
 public final class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f36760a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
+    public static final Uri f40439a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Uri f36761b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
+    public static final Uri f40440b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f36762c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
+    public static final Uri f40441c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Uri f36763d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
+    public static final Uri f40442d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
 
     public static String a(int i2) {
         switch (i2) {

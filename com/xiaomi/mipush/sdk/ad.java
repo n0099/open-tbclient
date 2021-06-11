@@ -13,27 +13,27 @@ import com.xiaomi.push.ip;
 public class ad extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37225a;
+    public Context f40904a;
 
     public ad(Context context) {
-        this.f37225a = context;
+        this.f40904a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo171a() {
+    public String mo170a() {
         return "2";
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.xiaomi.push.service.aq a2 = com.xiaomi.push.service.aq.a(this.f37225a);
+        com.xiaomi.push.service.aq a2 = com.xiaomi.push.service.aq.a(this.f40904a);
         hx hxVar = new hx();
         hxVar.a(com.xiaomi.push.service.ar.a(a2, hl.MISC_CONFIG));
         hxVar.b(com.xiaomi.push.service.ar.a(a2, hl.PLUGIN_CONFIG));
         ie ieVar = new ie("-1", false);
         ieVar.c(hp.DailyCheckClientConfig.f506a);
         ieVar.a(ip.a(hxVar));
-        an.a(this.f37225a).a((an) ieVar, hf.Notification, (hs) null);
+        an.a(this.f40904a).a((an) ieVar, hf.Notification, (hs) null);
     }
 }

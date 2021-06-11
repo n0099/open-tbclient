@@ -26,16 +26,16 @@ import org.json.JSONObject;
 public class SDKInitBeanCallBack implements IBeanResponseCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f25005a = true;
+    public static volatile boolean f25108a = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f25006c;
+    public static int f25109c;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f25007b;
+    public Context f25110b;
 
     public SDKInitBeanCallBack(Context context) {
-        this.f25007b = context;
+        this.f25110b = context;
     }
 
     public static Map<String, Set<String>> a(String str) throws JSONException {
@@ -59,20 +59,20 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
     public void onBeanExecFailure(int i2, int i3, String str) {
-        if (f25005a) {
+        if (f25108a) {
             return;
         }
-        int i4 = f25006c + 1;
-        f25006c = i4;
+        int i4 = f25109c + 1;
+        f25109c = i4;
         if (i4 >= 3) {
             HashMap hashMap = new HashMap();
             hashMap.put("code", "1");
-            Tracker.send("OfflineFailOverOccur", hashMap, this.f25007b);
+            Tracker.send("OfflineFailOverOccur", hashMap, this.f25110b);
             LogUtil.d("WebViewCacheManager", "pollinit-连续三次失败关闭离线缓存");
             PollOfflineCacheSwitch.getInstance().updateCacheConfig(null);
-            SdkInitResponse.getInstance().updateOfflineCacheConfig(this.f25007b, null);
+            SdkInitResponse.getInstance().updateOfflineCacheConfig(this.f25110b, null);
             LogUtil.d("WebViewCacheManager", "pollinit-连续三次失败关闭多webview");
-            LocalRouter.getInstance(this.f25007b).route(this.f25007b, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_updateSettings").data("config", null), new RouterCallback() { // from class: com.baidu.wallet.paysdk.SDKInitBeanCallBack.1
+            LocalRouter.getInstance(this.f25110b).route(this.f25110b, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_updateSettings").data("config", null), new RouterCallback() { // from class: com.baidu.wallet.paysdk.SDKInitBeanCallBack.1
                 @Override // com.baidu.wallet.router.RouterCallback
                 public void onResult(int i5, HashMap hashMap2) {
                 }
@@ -83,11 +83,11 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
     public void onBeanExecSuccess(int i2, Object obj, String str) {
         boolean z;
-        if (!f25005a) {
-            f25006c = 0;
+        if (!f25108a) {
+            f25109c = 0;
             return;
         }
-        f25005a = false;
+        f25108a = false;
         if (obj instanceof SdkInitResponse) {
             SdkInitResponse sdkInitResponse = (SdkInitResponse) obj;
             if (!TextUtils.isEmpty(sdkInitResponse.domainConfig)) {
@@ -101,26 +101,26 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
                 if (z) {
                     if (DebugConfig.getInstance().isOnline()) {
                         DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.ONLINE, sdkInitResponse.domainConfig);
-                        SharedPreferencesUtils.setParam(this.f25007b.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, BeanConstants.DOMAIN_CONFIG_KEY, sdkInitResponse.domainConfig);
+                        SharedPreferencesUtils.setParam(this.f25110b.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, BeanConstants.DOMAIN_CONFIG_KEY, sdkInitResponse.domainConfig);
                     } else {
                         DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.QA, sdkInitResponse.domainConfig);
-                        SharedPreferencesUtils.setParam(this.f25007b.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_QA, BeanConstants.DOMAIN_CONFIG_KEY, sdkInitResponse.domainConfig);
+                        SharedPreferencesUtils.setParam(this.f25110b.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_QA, BeanConstants.DOMAIN_CONFIG_KEY, sdkInitResponse.domainConfig);
                     }
                 }
             }
             if (!TextUtils.isEmpty(sdkInitResponse.domainSwitch)) {
                 if (TextUtils.equals("1", sdkInitResponse.domainSwitch)) {
                     if (DebugConfig.getInstance().isOnline()) {
-                        SharedPreferencesUtils.setParam(this.f25007b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.TRUE);
+                        SharedPreferencesUtils.setParam(this.f25110b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.TRUE);
                     } else {
-                        SharedPreferencesUtils.setParam(this.f25007b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.TRUE);
+                        SharedPreferencesUtils.setParam(this.f25110b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.TRUE);
                     }
                     com.baidu.apollon.heartbeat.a.c().a(true);
                 } else {
                     if (DebugConfig.getInstance().isOnline()) {
-                        SharedPreferencesUtils.setParam(this.f25007b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE);
+                        SharedPreferencesUtils.setParam(this.f25110b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE);
                     } else {
-                        SharedPreferencesUtils.setParam(this.f25007b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE);
+                        SharedPreferencesUtils.setParam(this.f25110b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE);
                     }
                     com.baidu.apollon.heartbeat.a.c().a(false);
                 }

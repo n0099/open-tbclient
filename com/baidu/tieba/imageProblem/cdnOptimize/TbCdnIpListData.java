@@ -8,25 +8,25 @@ import org.json.JSONObject;
 public class TbCdnIpListData {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<ArrayList<String>> f17663e;
+    public ArrayList<ArrayList<String>> f17739e;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17659a = 0;
+    public int f17735a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17660b = null;
+    public String f17736b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f17661c = null;
+    public String f17737c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f17662d = null;
+    public String f17738d = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17664f = false;
+    public boolean f17740f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17665g = null;
+    public String f17741g = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -36,19 +36,19 @@ public class TbCdnIpListData {
         try {
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
             if (optJSONObject != null) {
-                this.f17659a = optJSONObject.optInt("errorno");
-                this.f17660b = optJSONObject.optString("errmsg");
+                this.f17735a = optJSONObject.optInt("errorno");
+                this.f17736b = optJSONObject.optString("errmsg");
             }
             if (1 == jSONObject.optInt("cdn_switch")) {
-                this.f17664f = true;
+                this.f17740f = true;
             } else {
-                this.f17664f = false;
+                this.f17740f = false;
             }
-            this.f17665g = jSONObject.optString("cdn_domain");
+            this.f17741g = jSONObject.optString("cdn_domain");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
             if (optJSONObject2 != null) {
-                this.f17661c = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                this.f17662d = optJSONObject2.optString("img_md5");
+                this.f17737c = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
+                this.f17738d = optJSONObject2.optString("img_md5");
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
             if (optJSONArray2 != null) {
@@ -71,7 +71,7 @@ public class TbCdnIpListData {
                     }
                 }
                 if (arrayList.size() > 0) {
-                    this.f17663e = arrayList;
+                    this.f17739e = arrayList;
                 }
             }
         } catch (Exception e2) {

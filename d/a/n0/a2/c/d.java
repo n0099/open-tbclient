@@ -5,13 +5,13 @@ import tbclient.RecommendForumInfo;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public RecommendForumInfo f51169a;
+    public RecommendForumInfo f54846a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f51170b;
+    public boolean f54847b;
 
     public d(RecommendForumInfo recommendForumInfo, boolean z) {
-        this.f51169a = recommendForumInfo;
-        this.f51170b = z;
+        this.f54846a = recommendForumInfo;
+        this.f54847b = z;
     }
 }

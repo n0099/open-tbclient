@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MemoryCacheAdapter implements MemoryCache {
     public MemoryCache.ResourceRemovedListener listener;
 

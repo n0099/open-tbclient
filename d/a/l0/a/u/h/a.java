@@ -6,10 +6,10 @@ public interface a {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f45237a = new b(202, "params parsed as JSONObject is null");
-
-    boolean a();
+    public static final a f48911a = new b(202, "params parsed as JSONObject is null");
 
     @NonNull
-    String b();
+    String a();
+
+    boolean isSuccess();
 }

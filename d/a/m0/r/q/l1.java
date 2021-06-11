@@ -5,20 +5,20 @@ import tbclient.RecomPostTopic;
 public class l1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50075a;
+    public String f53751a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50076b;
+    public String f53752b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f50077c;
+    public long f53753c;
 
     public void a(RecomPostTopic recomPostTopic) {
         if (recomPostTopic == null) {
             return;
         }
-        this.f50075a = recomPostTopic.recom_title;
-        this.f50076b = recomPostTopic.recom_topic;
-        this.f50077c = recomPostTopic.uniq_topicid.longValue();
+        this.f53751a = recomPostTopic.recom_title;
+        this.f53752b = recomPostTopic.recom_topic;
+        this.f53753c = recomPostTopic.uniq_topicid.longValue();
     }
 }

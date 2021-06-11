@@ -14,49 +14,49 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d> f57119e;
+    public List<d> f60808e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f57120f;
+    public TbPageContext<?> f60809f;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public HeadImageView f57121a;
+        public HeadImageView f60810a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f57122b;
+        public TextView f60811b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f57123c;
+        public View f60812c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f57124d;
+        public View f60813d;
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        this.f57120f = tbPageContext;
+        this.f60809f = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public d getItem(int i2) {
-        List<d> list = this.f57119e;
-        if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f57119e.size()) {
+        List<d> list = this.f60808e;
+        if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f60808e.size()) {
             return null;
         }
-        return this.f57119e.get(i2);
+        return this.f60808e.get(i2);
     }
 
     public void b(List<d> list) {
-        this.f57119e = list;
+        this.f60808e = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<d> list = this.f57119e;
+        List<d> list = this.f60808e;
         if (list != null) {
             return list.size();
         }
@@ -75,33 +75,33 @@ public class b extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.f57120f.getPageActivity()).inflate(R.layout.dressup_item_view, viewGroup, false);
+            view = LayoutInflater.from(this.f60809f.getPageActivity()).inflate(R.layout.dressup_item_view, viewGroup, false);
             aVar = new a();
             HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.dress_icon);
-            aVar.f57121a = headImageView;
+            aVar.f60810a = headImageView;
             headImageView.setDefaultResource(R.drawable.img_default_100);
-            aVar.f57121a.setDefaultBgResource(R.color.CAM_X0204);
-            aVar.f57122b = (TextView) view.findViewById(R.id.dress_desc_view);
-            aVar.f57123c = view.findViewById(R.id.tip_view);
-            aVar.f57124d = view.findViewById(R.id.divider_line);
+            aVar.f60810a.setDefaultBgResource(R.color.CAM_X0204);
+            aVar.f60811b = (TextView) view.findViewById(R.id.dress_desc_view);
+            aVar.f60812c = view.findViewById(R.id.tip_view);
+            aVar.f60813d = view.findViewById(R.id.divider_line);
             view.setTag(aVar);
         }
         if (item != null) {
-            aVar.f57121a.V(item.a(), 10, false);
-            aVar.f57122b.setText(item.b());
+            aVar.f60810a.U(item.a(), 10, false);
+            aVar.f60811b.setText(item.b());
             d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
             if (item.d() - j.l("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.c(), 0L) > 0) {
-                aVar.f57123c.setVisibility(0);
+                aVar.f60812c.setVisibility(0);
             } else {
-                aVar.f57123c.setVisibility(4);
+                aVar.f60812c.setVisibility(4);
             }
             if (i2 == getCount() - 1) {
-                aVar.f57124d.setVisibility(8);
+                aVar.f60813d.setVisibility(8);
             } else {
-                aVar.f57124d.setVisibility(0);
+                aVar.f60813d.setVisibility(0);
             }
         }
-        this.f57120f.getLayoutMode().j(view);
+        this.f60809f.getLayoutMode().j(view);
         return view;
     }
 }

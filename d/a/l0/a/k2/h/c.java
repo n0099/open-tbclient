@@ -16,15 +16,15 @@ import java.util.Set;
 public class c extends d.a.k0.a.a implements d.a.l0.t.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f43277e = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+    public static final String f46953e = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
 
     /* loaded from: classes3.dex */
     public static class a implements SwanKV.b {
         @Override // com.baidu.storage.swankv.SwanKV.b
         public void loadLibrary(@NonNull String str) {
             if (!q0.G() && "c++_shared".equals(str)) {
-                d.a.l0.a.h0.s.d.g(AppRuntime.getAppContext(), c.f43277e);
-                d.a.l0.a.h0.s.d.h("c++_shared", c.f43277e, false);
+                d.a.l0.a.h0.s.d.g(AppRuntime.getAppContext(), c.f46953e);
+                d.a.l0.a.h0.s.d.h("c++_shared", c.f46953e, false);
                 return;
             }
             SoLoader.load(d.a.l0.a.c1.a.b(), str);

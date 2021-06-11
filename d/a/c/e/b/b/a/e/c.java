@@ -6,29 +6,29 @@ import java.lang.reflect.Type;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Type[] f38496a;
+    public Type[] f42149a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Type f38497b;
+    public Type f42150b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f38498c;
+    public Class<?> f42151c;
 
     public c(Type type) {
-        this.f38496a = null;
-        this.f38497b = null;
-        this.f38498c = null;
+        this.f42149a = null;
+        this.f42150b = null;
+        this.f42151c = null;
         if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
-            this.f38496a = parameterizedType.getActualTypeArguments();
+            this.f42149a = parameterizedType.getActualTypeArguments();
             Type rawType = parameterizedType.getRawType();
-            this.f38497b = rawType;
-            Type[] typeArr = this.f38496a;
+            this.f42150b = rawType;
+            Type[] typeArr = this.f42149a;
             if (typeArr == null || typeArr.length <= 0) {
                 return;
             }
             try {
-                this.f38498c = (Class) rawType;
+                this.f42151c = (Class) rawType;
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -36,17 +36,17 @@ public class c {
             }
         }
         try {
-            this.f38498c = (Class) type;
+            this.f42151c = (Class) type;
         } catch (Exception e3) {
             e3.printStackTrace();
         }
     }
 
     public Class<?> a() {
-        return this.f38498c;
+        return this.f42151c;
     }
 
     public Type[] b() {
-        return this.f38496a;
+        return this.f42149a;
     }
 }

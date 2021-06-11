@@ -26,26 +26,26 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
         this.addLinkResponseData = new a();
         int optInt = jSONObject.optInt("errno", -1);
         this.errno = optInt;
-        this.addLinkResponseData.f62866a = optInt == 0;
+        this.addLinkResponseData.f66581a = optInt == 0;
         if (this.errno == 0) {
             this.errmsg = jSONObject.optString("errmsg");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
                 return;
             }
-            this.addLinkResponseData.f62867b = optJSONObject.optString("link_url");
-            this.addLinkResponseData.f62868c = optJSONObject.optString("link_url_code");
+            this.addLinkResponseData.f66582b = optJSONObject.optString("link_url");
+            this.addLinkResponseData.f66583c = optJSONObject.optString("link_url_code");
             JSONArray optJSONArray = optJSONObject.optJSONArray("link_content");
             if (optJSONArray == null || optJSONArray.length() == 0) {
                 return;
             }
             JSONObject jSONObject2 = (JSONObject) optJSONArray.get(0);
-            this.addLinkResponseData.f62869d = jSONObject2.optInt("link_type");
-            this.addLinkResponseData.f62870e = jSONObject2.optString("link_title");
-            this.addLinkResponseData.f62871f = jSONObject2.optString("link_abstract");
-            this.addLinkResponseData.f62872g = jSONObject2.optString("link_head_pic");
-            this.addLinkResponseData.f62873h = jSONObject2.optString("link_head_small_pic");
-            this.addLinkResponseData.f62874i = jSONObject2.optString("link_head_big_pic");
+            this.addLinkResponseData.f66584d = jSONObject2.optInt("link_type");
+            this.addLinkResponseData.f66585e = jSONObject2.optString("link_title");
+            this.addLinkResponseData.f66586f = jSONObject2.optString("link_abstract");
+            this.addLinkResponseData.f66587g = jSONObject2.optString("link_head_pic");
+            this.addLinkResponseData.f66588h = jSONObject2.optString("link_head_small_pic");
+            this.addLinkResponseData.f66589i = jSONObject2.optString("link_head_big_pic");
             this.addLinkResponseData.j = jSONObject2.optString("video_url");
             this.addLinkResponseData.l = jSONObject2.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
             this.addLinkResponseData.m = jSONObject2.optString("video_format");

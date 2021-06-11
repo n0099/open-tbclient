@@ -9,7 +9,7 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ThreadSafeClientConnManager implements ClientConnectionManager {
     public ClientConnectionOperator connOperator;
     public final AbstractConnPool connectionPool;

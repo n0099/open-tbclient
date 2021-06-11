@@ -1,42 +1,27 @@
 package com.kwad.sdk.core.c.a;
 
+import com.kwad.sdk.core.response.model.SdkConfigData;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ac implements com.kwad.sdk.core.c<com.kwad.sdk.core.response.model.a> {
+public class ac implements com.kwad.sdk.core.c<SdkConfigData.TemplateConfig> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(com.kwad.sdk.core.response.model.a aVar, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        aVar.f32610a = jSONObject.optInt("entryType");
-        aVar.f32611b = jSONObject.optString("sourceDesc");
-        aVar.f32612c = jSONObject.optInt("sourceDescPos", new Integer("1").intValue());
-        aVar.f32613d = jSONObject.optInt("likePos");
-        aVar.f32614e = jSONObject.optString("entryId");
-        aVar.f32615f = jSONObject.optString("entryTitle", new String("精彩短视频"));
-        aVar.f32616g = jSONObject.optInt("entryTitlePos", new Integer("1").intValue());
-        aVar.f32617h = jSONObject.optInt("videoDurationPos", new Integer("1").intValue());
-        aVar.f32618i = jSONObject.optInt("videoDescPos", new Integer("1").intValue());
-        aVar.j = jSONObject.optInt("commentsPos", new Integer("1").intValue());
+    public JSONObject a(SdkConfigData.TemplateConfig templateConfig) {
+        JSONObject jSONObject = new JSONObject();
+        com.kwad.sdk.utils.o.a(jSONObject, "h5Url", templateConfig.h5Url);
+        com.kwad.sdk.utils.o.a(jSONObject, "h5Version", templateConfig.h5Version);
+        com.kwad.sdk.utils.o.a(jSONObject, "h5Checksum", templateConfig.h5Checksum);
+        return jSONObject;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject b(com.kwad.sdk.core.response.model.a aVar, JSONObject jSONObject) {
+    public void a(SdkConfigData.TemplateConfig templateConfig, JSONObject jSONObject) {
         if (jSONObject == null) {
-            jSONObject = new JSONObject();
+            return;
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "entryType", aVar.f32610a);
-        com.kwad.sdk.utils.o.a(jSONObject, "sourceDesc", aVar.f32611b);
-        com.kwad.sdk.utils.o.a(jSONObject, "sourceDescPos", aVar.f32612c);
-        com.kwad.sdk.utils.o.a(jSONObject, "likePos", aVar.f32613d);
-        com.kwad.sdk.utils.o.a(jSONObject, "entryId", aVar.f32614e);
-        com.kwad.sdk.utils.o.a(jSONObject, "entryTitle", aVar.f32615f);
-        com.kwad.sdk.utils.o.a(jSONObject, "entryTitlePos", aVar.f32616g);
-        com.kwad.sdk.utils.o.a(jSONObject, "videoDurationPos", aVar.f32617h);
-        com.kwad.sdk.utils.o.a(jSONObject, "videoDescPos", aVar.f32618i);
-        com.kwad.sdk.utils.o.a(jSONObject, "commentsPos", aVar.j);
-        return jSONObject;
+        templateConfig.h5Url = jSONObject.optString("h5Url");
+        templateConfig.h5Version = jSONObject.optString("h5Version");
+        templateConfig.h5Checksum = jSONObject.optString("h5Checksum");
     }
 }

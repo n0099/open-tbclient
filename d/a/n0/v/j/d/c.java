@@ -12,39 +12,39 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: h  reason: collision with root package name */
-    public r f62059h;
+    public r f65774h;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f62057f = false;
+    public boolean f65772f = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaUserInfoData f62052a = new AlaUserInfoData();
+    public AlaUserInfoData f65767a = new AlaUserInfoData();
 
     /* renamed from: b  reason: collision with root package name */
-    public i f62053b = new i();
+    public i f65768b = new i();
 
     /* renamed from: c  reason: collision with root package name */
-    public q f62054c = new q();
+    public q f65769c = new q();
 
     /* renamed from: g  reason: collision with root package name */
-    public final a f62058g = new a();
+    public final a f65773g = new a();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<AlaLiveInfoData> f62055d = new ArrayList();
+    public List<AlaLiveInfoData> f65770d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<p> f62056e = new ArrayList();
+    public List<p> f65771e = new ArrayList();
 
     public a a() {
-        return this.f62058g;
+        return this.f65773g;
     }
 
     public AlaUserInfoData b() {
-        return this.f62052a;
+        return this.f65767a;
     }
 
     public boolean c() {
-        return this.f62057f;
+        return this.f65772f;
     }
 
     public void d(JSONObject jSONObject) {
@@ -55,27 +55,27 @@ public class c {
             JSONObject jSONObject2 = jSONObject.getJSONObject("data");
             JSONObject optJSONObject = jSONObject2.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.f62052a = (AlaUserInfoData) OrmObject.objectWithJson(optJSONObject, AlaUserInfoData.class);
+                this.f65767a = (AlaUserInfoData) OrmObject.objectWithJson(optJSONObject, AlaUserInfoData.class);
             }
             JSONArray optJSONArray = jSONObject2.optJSONArray("watch_list");
             for (int i2 = 0; optJSONArray != null && i2 < optJSONArray.length(); i2++) {
                 p pVar = new p();
                 pVar.a(optJSONArray.getJSONObject(i2));
-                this.f62056e.add(pVar);
+                this.f65771e.add(pVar);
             }
             JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
             for (int i3 = 0; optJSONArray2 != null && optJSONArray2.length() < i3; i3++) {
                 AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                 alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i3));
-                this.f62055d.add(alaLiveInfoData);
+                this.f65770d.add(alaLiveInfoData);
             }
-            this.f62053b.a(jSONObject2.optJSONObject(VodClient.PATH_MEDIA));
-            this.f62054c.parserJson(jSONObject2.optJSONObject("privacy_set"));
-            this.f62058g.parserJson(jSONObject2.optJSONObject("authority_info"));
+            this.f65768b.a(jSONObject2.optJSONObject(VodClient.PATH_MEDIA));
+            this.f65769c.parserJson(jSONObject2.optJSONObject("privacy_set"));
+            this.f65773g.parserJson(jSONObject2.optJSONObject("authority_info"));
             JSONObject optJSONObject2 = jSONObject2.optJSONObject("dating_room");
             if (optJSONObject2 != null) {
                 r rVar = new r();
-                this.f62059h = rVar;
+                this.f65774h = rVar;
                 rVar.a(optJSONObject2);
             }
         } catch (Exception e2) {
@@ -84,6 +84,6 @@ public class c {
     }
 
     public void e(boolean z) {
-        this.f62057f = z;
+        this.f65772f = z;
     }
 }

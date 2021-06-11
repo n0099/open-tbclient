@@ -8,7 +8,7 @@ import org.webrtc.NativeLibrary;
 import org.webrtc.PeerConnection;
 import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.LegacyAudioDeviceModule;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PeerConnectionFactory {
     public static final String TAG = "PeerConnectionFactory";
     public static final String TRIAL_ENABLED = "Enabled";
@@ -24,7 +24,7 @@ public class PeerConnectionFactory {
     public static Thread workerThread;
     public long nativeFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public AudioDecoderFactoryFactory audioDecoderFactoryFactory;
         @Nullable
@@ -108,7 +108,7 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class InitializationOptions {
         public final Context applicationContext;
         public final boolean enableInternalTracer;
@@ -120,7 +120,7 @@ public class PeerConnectionFactory {
         public final NativeLibraryLoader nativeLibraryLoader;
         public final String nativeLibraryName;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class Builder {
             public final Context applicationContext;
             public boolean enableInternalTracer;
@@ -182,7 +182,7 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Options {
         public static final int ADAPTER_TYPE_ANY = 32;
         public static final int ADAPTER_TYPE_CELLULAR = 4;

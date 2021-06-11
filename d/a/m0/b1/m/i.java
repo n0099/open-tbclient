@@ -6,77 +6,77 @@ import tbclient.PbContent;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49132a;
+    public String f52806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49133b;
+    public String f52807b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49134c;
+    public int f52808c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49135d;
+    public int f52809d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49136e;
+    public int f52810e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f49137f;
+    public String f52811f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49138g;
+    public int f52812g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49139h;
+    public int f52813h;
 
     public String a() {
-        return this.f49137f;
+        return this.f52811f;
     }
 
     public int b() {
-        return this.f49138g;
+        return this.f52812g;
     }
 
     public int c() {
-        return this.f49139h;
+        return this.f52813h;
     }
 
     public int d() {
-        return this.f49135d;
+        return this.f52809d;
     }
 
     public String e() {
-        return this.f49133b;
+        return this.f52807b;
     }
 
     public String f() {
-        return this.f49132a;
+        return this.f52806a;
     }
 
     public int g() {
-        return this.f49134c;
+        return this.f52808c;
     }
 
     public boolean h() {
-        return !StringUtils.isNull(this.f49132a) && this.f49134c > 0 && this.f49135d > 0;
+        return !StringUtils.isNull(this.f52806a) && this.f52808c > 0 && this.f52809d > 0;
     }
 
     public boolean i() {
-        return this.f49136e == 15;
+        return this.f52810e == 15;
     }
 
     public void j(PbContent pbContent) {
         if (pbContent == null) {
             return;
         }
-        this.f49132a = pbContent.link;
-        this.f49133b = pbContent.src;
-        this.f49134c = pbContent.width.intValue();
-        this.f49135d = pbContent.height.intValue();
-        this.f49136e = pbContent.e_type.intValue();
-        this.f49137f = pbContent.text;
-        this.f49138g = pbContent.during_time.intValue();
+        this.f52806a = pbContent.link;
+        this.f52807b = pbContent.src;
+        this.f52808c = pbContent.width.intValue();
+        this.f52809d = pbContent.height.intValue();
+        this.f52810e = pbContent.e_type.intValue();
+        this.f52811f = pbContent.text;
+        this.f52812g = pbContent.during_time.intValue();
         pbContent.count.intValue();
-        this.f49139h = pbContent.origin_size.intValue();
+        this.f52813h = pbContent.origin_size.intValue();
     }
 }

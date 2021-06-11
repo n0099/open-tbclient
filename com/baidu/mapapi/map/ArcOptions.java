@@ -6,86 +6,86 @@ import com.baidu.mapapi.model.LatLng;
 public final class ArcOptions extends OverlayOptions {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f6781d = "ArcOptions";
+    public static final String f6824d = "ArcOptions";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6782a;
+    public int f6825a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f6784c;
+    public Bundle f6827c;
 
     /* renamed from: g  reason: collision with root package name */
-    public LatLng f6787g;
+    public LatLng f6830g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LatLng f6788h;
+    public LatLng f6831h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LatLng f6789i;
+    public LatLng f6832i;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6785e = -16777216;
+    public int f6828e = -16777216;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6786f = 5;
+    public int f6829f = 5;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6783b = true;
+    public boolean f6826b = true;
 
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Arc arc = new Arc();
-        arc.A = this.f6783b;
-        arc.z = this.f6782a;
-        arc.B = this.f6784c;
-        arc.f6776a = this.f6785e;
-        arc.f6777b = this.f6786f;
-        arc.f6778c = this.f6787g;
-        arc.f6779d = this.f6788h;
-        arc.f6780e = this.f6789i;
+        arc.A = this.f6826b;
+        arc.z = this.f6825a;
+        arc.B = this.f6827c;
+        arc.f6819a = this.f6828e;
+        arc.f6820b = this.f6829f;
+        arc.f6821c = this.f6830g;
+        arc.f6822d = this.f6831h;
+        arc.f6823e = this.f6832i;
         return arc;
     }
 
     public ArcOptions color(int i2) {
-        this.f6785e = i2;
+        this.f6828e = i2;
         return this;
     }
 
     public ArcOptions extraInfo(Bundle bundle) {
-        this.f6784c = bundle;
+        this.f6827c = bundle;
         return this;
     }
 
     public int getColor() {
-        return this.f6785e;
+        return this.f6828e;
     }
 
     public LatLng getEndPoint() {
-        return this.f6789i;
+        return this.f6832i;
     }
 
     public Bundle getExtraInfo() {
-        return this.f6784c;
+        return this.f6827c;
     }
 
     public LatLng getMiddlePoint() {
-        return this.f6788h;
+        return this.f6831h;
     }
 
     public LatLng getStartPoint() {
-        return this.f6787g;
+        return this.f6830g;
     }
 
     public int getWidth() {
-        return this.f6786f;
+        return this.f6829f;
     }
 
     public int getZIndex() {
-        return this.f6782a;
+        return this.f6825a;
     }
 
     public boolean isVisible() {
-        return this.f6783b;
+        return this.f6826b;
     }
 
     public ArcOptions points(LatLng latLng, LatLng latLng2, LatLng latLng3) {
@@ -95,26 +95,26 @@ public final class ArcOptions extends OverlayOptions {
         if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
             throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
         }
-        this.f6787g = latLng;
-        this.f6788h = latLng2;
-        this.f6789i = latLng3;
+        this.f6830g = latLng;
+        this.f6831h = latLng2;
+        this.f6832i = latLng3;
         return this;
     }
 
     public ArcOptions visible(boolean z) {
-        this.f6783b = z;
+        this.f6826b = z;
         return this;
     }
 
     public ArcOptions width(int i2) {
         if (i2 > 0) {
-            this.f6786f = i2;
+            this.f6829f = i2;
         }
         return this;
     }
 
     public ArcOptions zIndex(int i2) {
-        this.f6782a = i2;
+        this.f6825a = i2;
         return this;
     }
 }

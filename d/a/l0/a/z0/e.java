@@ -36,7 +36,7 @@ public class e extends a0 {
         d.a.l0.a.c0.c.f.a aVar = (d.a.l0.a.c0.c.f.a) d.a.l0.a.c0.d.a.a(bVar);
         if (aVar == null) {
             d.a.l0.a.e0.d.b("updateInput", "input组件不存在");
-            d.a.l0.a.e0.d.b("SwanAppAction", "can't find input component:#" + bVar.f40845f);
+            d.a.l0.a.e0.d.b("SwanAppAction", "can't find input component:#" + bVar.f44521f);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
             return false;
         }

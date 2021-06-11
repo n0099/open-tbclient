@@ -20,19 +20,19 @@ import d.a.c.e.m.e;
 public class ScreenTopToast extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ShadowLinearLayout f21705e;
+    public ShadowLinearLayout f21808e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f21706f;
+    public TextView f21809f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21707g;
+    public TextView f21810g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f21708h;
+    public TBSpecificationBtn f21811h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f21709i;
+    public Animation f21812i;
     public Animation j;
     public Runnable k;
     public boolean l;
@@ -86,17 +86,17 @@ public class ScreenTopToast extends LinearLayout {
             setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-        this.f21705e = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
-        this.f21706f = (TextView) findViewById(R.id.screen_top_toast_title);
-        this.f21707g = (TextView) findViewById(R.id.screen_top_toast_content);
-        this.f21708h = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-        this.f21708h.setConfig(new d.a.m0.r.f0.m.a());
+        this.f21808e = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+        this.f21809f = (TextView) findViewById(R.id.screen_top_toast_title);
+        this.f21810g = (TextView) findViewById(R.id.screen_top_toast_content);
+        this.f21811h = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
+        this.f21811h.setConfig(new d.a.m0.r.f0.m.a());
         f();
         h();
     }
 
     public final void f() {
-        this.f21709i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.f21812i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
         Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
         this.j = loadAnimation;
         loadAnimation.setAnimationListener(new a());
@@ -108,10 +108,10 @@ public class ScreenTopToast extends LinearLayout {
     }
 
     public void h() {
-        SkinManager.setViewTextColor(this.f21706f, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f21707g, R.color.CAM_X0302);
-        this.f21708h.k();
-        this.f21705e.b();
+        SkinManager.setViewTextColor(this.f21809f, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f21810g, R.color.CAM_X0302);
+        this.f21811h.k();
+        this.f21808e.b();
     }
 
     public final void i() {
@@ -120,22 +120,22 @@ public class ScreenTopToast extends LinearLayout {
     }
 
     public ScreenTopToast j(View.OnClickListener onClickListener) {
-        this.f21708h.setOnClickListener(onClickListener);
+        this.f21811h.setOnClickListener(onClickListener);
         return this;
     }
 
     public ScreenTopToast k(String str) {
-        this.f21708h.setText(str);
+        this.f21811h.setText(str);
         return this;
     }
 
     public ScreenTopToast l(String str) {
-        this.f21707g.setText(str);
+        this.f21810g.setText(str);
         return this;
     }
 
     public ScreenTopToast m(String str) {
-        this.f21706f.setText(str);
+        this.f21809f.setText(str);
         return this;
     }
 
@@ -147,12 +147,12 @@ public class ScreenTopToast extends LinearLayout {
             ((ViewGroup) getParent()).removeView(this);
         }
         i();
-        if (TextUtils.isEmpty(this.f21707g.getText())) {
-            this.f21707g.setVisibility(8);
+        if (TextUtils.isEmpty(this.f21810g.getText())) {
+            this.f21810g.setVisibility(8);
         }
         viewGroup.addView(this, -1, -2);
         this.l = true;
-        startAnimation(this.f21709i);
+        startAnimation(this.f21812i);
         e.a().postDelayed(this.k, 5000L);
     }
 

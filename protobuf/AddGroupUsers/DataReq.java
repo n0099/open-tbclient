@@ -2,7 +2,7 @@ package protobuf.AddGroupUsers;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_USERIDS = "";
     @ProtoField(tag = 5, type = Message.Datatype.INT32)
@@ -26,7 +26,7 @@ public final class DataReq extends Message {
     public static final Long DEFAULT_INVITEUSERID = 0L;
     public static final Integer DEFAULT_JOINTYPE = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer decision;
         public Long groupId;

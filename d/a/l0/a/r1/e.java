@@ -12,7 +12,7 @@ import java.util.Locale;
 public class e implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44435e = k.f43199a;
+    public static final boolean f48109e = k.f46875a;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.l0.a.v2.e1.b
@@ -25,11 +25,11 @@ public class e implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
     public void b(HybridUbcFlow hybridUbcFlow) {
         long e2;
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
-        if (hybridUbcFlow == null || hybridUbcFlow.f10980f.isEmpty() || !f44435e || i2 == null) {
+        if (hybridUbcFlow == null || hybridUbcFlow.f11042f.isEmpty() || !f48109e || i2 == null) {
             return;
         }
         HybridUbcFlow.SubmitStrategy h2 = hybridUbcFlow.h();
-        String str = hybridUbcFlow.f10978d.contains("fe_route_start") ? "fe_route_start" : "na_first_receive_action";
+        String str = hybridUbcFlow.f11040d.contains("fe_route_start") ? "fe_route_start" : "na_first_receive_action";
         int i3 = 2;
         char c2 = 1;
         char c3 = 0;
@@ -47,20 +47,20 @@ public class e implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
         if (TextUtils.isEmpty(O)) {
             O = "";
         }
-        Log.i("RouteReporter", "\n\n  小程序路由性能报告: " + O + " appID: " + (!TextUtils.isEmpty(i2.f40749f) ? i2.f40749f : "") + " launchId ：" + (i2.N() != null ? i2.N().V() : "") + " speedLog\n");
+        Log.i("RouteReporter", "\n\n  小程序路由性能报告: " + O + " appID: " + (!TextUtils.isEmpty(i2.f44425f) ? i2.f44425f : "") + " launchId ：" + (i2.N() != null ? i2.N().V() : "") + " speedLog\n");
         StringBuilder sb = new StringBuilder();
         for (int i4 = 0; i4 < 100; i4++) {
             sb.append("&");
         }
         Log.i("RouteReporter", String.format("Delta [%s]  Cost Src  Total Action", sb.toString()));
-        long g2 = hybridUbcFlow.f10980f.get(0).g();
-        Iterator<UbcFlowEvent> it = hybridUbcFlow.f10980f.iterator();
+        long g2 = hybridUbcFlow.f11042f.get(0).g();
+        Iterator<UbcFlowEvent> it = hybridUbcFlow.f11042f.iterator();
         long j = 0;
         long j2 = 0;
         while (it.hasNext()) {
             UbcFlowEvent next = it.next();
             String[] strArr = new String[i3];
-            strArr[c3] = next.f10989a;
+            strArr[c3] = next.f11051a;
             strArr[c2] = str;
             long e3 = hybridUbcFlow.e(strArr);
             boolean z = e3 < j;
@@ -101,7 +101,7 @@ public class e implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
             sb2.append(String.format(Locale.getDefault(), " %5d", Long.valueOf(e3)));
             sb2.append(String.format("  %s", next.f()));
             sb2.append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(next.g() - g2)));
-            sb2.append(next.f10989a);
+            sb2.append(next.f11051a);
             if (next.b()) {
                 sb2.append("(LocalRecord)");
             }
@@ -112,7 +112,7 @@ public class e implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
             c3 = 0;
             j = 0;
         }
-        Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.f10980f.size());
+        Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.f11042f.size());
         StringBuilder sb3 = new StringBuilder();
         sb3.append("\n\n小程序路由总时长：========> " + e2);
         String optString = hybridUbcFlow.k().optString("type");

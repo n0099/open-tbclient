@@ -24,7 +24,7 @@ import d.a.m0.r.s.a;
 public class PushDialogStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Wire f20067a = new Wire(new Class[0]);
+    public static Wire f20144a = new Wire(new Class[0]);
 
     /* loaded from: classes5.dex */
     public static class a implements CustomMessageTask.CustomRunnable {
@@ -42,10 +42,10 @@ public class PushDialogStatic {
         public class a implements a.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContextSupport f20068e;
+            public final /* synthetic */ TbPageContextSupport f20145e;
 
             public a(b bVar, TbPageContextSupport tbPageContextSupport) {
-                this.f20068e = tbPageContextSupport;
+                this.f20145e = tbPageContextSupport;
             }
 
             @Override // d.a.m0.r.s.a.e
@@ -53,10 +53,10 @@ public class PushDialogStatic {
                 aVar.dismiss();
                 Intent intent = new Intent();
                 intent.setAction("miui.intent.action.APP_PERM_EDITOR_PRIVATE");
-                intent.putExtra("extra_pkgname", this.f20068e.getPageContext().getPageActivity().getPackageName());
+                intent.putExtra("extra_pkgname", this.f20145e.getPageContext().getPageActivity().getPackageName());
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 try {
-                    this.f20068e.getPageContext().getPageActivity().startActivity(intent);
+                    this.f20145e.getPageContext().getPageActivity().startActivity(intent);
                 } catch (Exception unused) {
                 }
             }
@@ -64,13 +64,13 @@ public class PushDialogStatic {
 
         /* renamed from: com.baidu.tieba.pushdialog.PushDialogStatic$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0210b implements a.e {
+        public class C0212b implements a.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContextSupport f20069e;
+            public final /* synthetic */ TbPageContextSupport f20146e;
 
-            public C0210b(b bVar, TbPageContextSupport tbPageContextSupport) {
-                this.f20069e = tbPageContextSupport;
+            public C0212b(b bVar, TbPageContextSupport tbPageContextSupport) {
+                this.f20146e = tbPageContextSupport;
             }
 
             @Override // d.a.m0.r.s.a.e
@@ -80,7 +80,7 @@ public class PushDialogStatic {
                 intent.setAction("com.iqoo.secure.PERMISSION_MANAGER");
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 try {
-                    this.f20069e.getPageContext().getPageActivity().startActivity(intent);
+                    this.f20146e.getPageContext().getPageActivity().startActivity(intent);
                 } catch (Exception unused) {
                 }
             }
@@ -110,7 +110,7 @@ public class PushDialogStatic {
                             eVar = new a(this, tbPageContextSupport);
                             i2 = R.string.push_dialog_guide_content_miui;
                         } else if (d.a.n0.p2.b.b()) {
-                            eVar = new C0210b(this, tbPageContextSupport);
+                            eVar = new C0212b(this, tbPageContextSupport);
                             i2 = R.string.push_dialog_guide_content_vivo;
                         } else {
                             eVar = null;

@@ -9,10 +9,10 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements Comparator<File> {
         public a() {
         }
@@ -63,7 +63,7 @@ public class d {
             }
             d(file);
             if (file.lastModified() < currentTimeMillis) {
-                com.kwad.sdk.core.d.a.d("Files", String.format("Last modified date %s is not set for file %s", new Date(file.lastModified()), file.getAbsolutePath()));
+                com.kwad.sdk.core.d.a.c("Files", String.format("Last modified date %s is not set for file %s", new Date(file.lastModified()), file.getAbsolutePath()));
             }
         }
     }

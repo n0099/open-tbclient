@@ -6,7 +6,7 @@ public class c {
     @Inject(force = false)
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.e0.a.b.d<a> f41940a;
+    public d.a.e0.a.b.d<a> f45616a;
 
     public c() {
         a();
@@ -14,7 +14,7 @@ public class c {
 
     public void a() {
         d.a.e0.a.b.b b2 = d.a.e0.a.b.b.b();
-        this.f41940a = b2;
+        this.f45616a = b2;
         b2.a(new b());
     }
 }

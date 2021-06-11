@@ -9,16 +9,16 @@ import java.net.Socket;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f50743a = false;
+    public boolean f54420a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50744b = 0;
+    public int f54421b = 0;
 
     public void a(String str) {
         int lastIndexOf;
         String str2;
-        this.f50743a = false;
-        this.f50744b = 0;
+        this.f54420a = false;
+        this.f54421b = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -51,7 +51,7 @@ public class f {
                         if (socket.isConnected()) {
                             i2++;
                             i3 = (int) (i3 + (System.currentTimeMillis() - currentTimeMillis));
-                            this.f50743a = true;
+                            this.f54420a = true;
                         }
                         socket.close();
                     } catch (Exception e4) {
@@ -71,15 +71,15 @@ public class f {
                     throw th;
                 }
             }
-            if (!this.f50743a || i2 <= 0) {
+            if (!this.f54420a || i2 <= 0) {
                 return;
             }
-            this.f50744b = i3 / i2;
+            this.f54421b = i3 / i2;
         }
     }
 
     public int b() {
-        return this.f50744b;
+        return this.f54421b;
     }
 
     public final int c() {
@@ -91,6 +91,6 @@ public class f {
     }
 
     public boolean d() {
-        return this.f50743a;
+        return this.f54420a;
     }
 }

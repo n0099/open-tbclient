@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import org.webrtc.VideoDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoDecoderWrapper {
     @CalledByNative
     public static VideoDecoder.Callback createDecoderCallback(final long j) {

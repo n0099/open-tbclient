@@ -7,16 +7,16 @@ import org.json.JSONObject;
 public class v extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65114e;
+    public final Context f68845e;
 
     public v(Context context) {
         super(true, false);
-        this.f65114e = context;
+        this.f68845e = context;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
-        j.f(jSONObject, "sim_region", ((TelephonyManager) this.f65114e.getSystemService("phone")).getSimCountryIso());
+        j.f(jSONObject, "sim_region", ((TelephonyManager) this.f68845e.getSystemService("phone")).getSimCountryIso());
         return true;
     }
 }

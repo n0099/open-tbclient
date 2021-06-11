@@ -22,10 +22,10 @@ import d.a.m0.e0.d;
 public class ImMessageCenterDelegateStatic extends d.a.m0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f17454a;
+    public MessageRedDotView f17530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f17455b;
+    public CustomMessageListener f17531b;
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -77,23 +77,23 @@ public class ImMessageCenterDelegateStatic extends d.a.m0.e0.b {
     }
 
     public final void b(boolean z, int i2) {
-        MessageRedDotView messageRedDotView = this.f17454a;
+        MessageRedDotView messageRedDotView = this.f17530a;
         if (messageRedDotView == null) {
             return;
         }
         if (z) {
             messageRedDotView.setThreeDotMode(2);
-            this.f17454a.f(i2);
-            this.f17454a.setVisibility(0);
+            this.f17530a.f(i2);
+            this.f17530a.setVisibility(0);
             if (TbSingleton.getInstance().isShowVivoBadge()) {
-                c(this.f17454a.getContext(), i2);
+                c(this.f17530a.getContext(), i2);
                 return;
             }
             return;
         }
         messageRedDotView.setVisibility(8);
         if (TbSingleton.getInstance().isShowVivoBadge()) {
-            c(this.f17454a.getContext(), 0);
+            c(this.f17530a.getContext(), 0);
         }
     }
 
@@ -110,28 +110,28 @@ public class ImMessageCenterDelegateStatic extends d.a.m0.e0.b {
     @Override // d.a.m0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f49334a = new MessageCenterFragment();
-        cVar.f49338e = 3;
-        cVar.f49335b = R.string.my_message;
-        cVar.f49339f = R.raw.lottie_tab_msg;
-        cVar.f49342i = c.l;
-        cVar.f49341h = d.a.m0.e0.e.c.d().c("message");
+        cVar.f53008a = new MessageCenterFragment();
+        cVar.f53012e = 3;
+        cVar.f53009b = R.string.my_message;
+        cVar.f53013f = R.raw.lottie_tab_msg;
+        cVar.f53016i = c.l;
+        cVar.f53015h = d.a.m0.e0.e.c.d().c("message");
         return cVar;
     }
 
     @Override // d.a.m0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.f17454a = new MessageRedDotView(context);
+        this.f17530a = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
         TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
-        aVar.f12872f = tbFragmentTabIndicator;
-        aVar.f12867a = this.f17454a;
-        aVar.f12868b = true;
+        aVar.f12937f = tbFragmentTabIndicator;
+        aVar.f12932a = this.f17530a;
+        aVar.f12933b = true;
         tbFragmentTabIndicator.b("msg", aVar);
-        this.f17454a.setVisibility(4);
+        this.f17530a.setVisibility(4);
         if (!TbSingleton.getInstance().isShowVivoBadge()) {
-            c(this.f17454a.getContext(), 0);
+            c(this.f17530a.getContext(), 0);
         }
         return this.mIndicator;
     }
@@ -143,13 +143,13 @@ public class ImMessageCenterDelegateStatic extends d.a.m0.e0.b {
 
     @Override // d.a.m0.e0.b
     public void onAdd() {
-        this.f17455b = new b(2921002);
-        MessageManager.getInstance().registerListener(this.f17455b);
+        this.f17531b = new b(2921002);
+        MessageManager.getInstance().registerListener(this.f17531b);
     }
 
     @Override // d.a.m0.e0.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.f17455b);
+        MessageManager.getInstance().unRegisterListener(this.f17531b);
     }
 }

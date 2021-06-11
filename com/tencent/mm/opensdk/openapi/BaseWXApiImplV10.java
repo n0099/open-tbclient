@@ -631,12 +631,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
             this.appId = str;
         }
         Log.d("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
-        a.C0459a c0459a = new a.C0459a();
-        c0459a.f36293a = "com.tencent.mm";
-        c0459a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-        c0459a.content = "weixin://registerapp?appid=" + this.appId;
-        c0459a.f36294b = j;
-        return a.a(this.context, c0459a);
+        a.C0510a c0510a = new a.C0510a();
+        c0510a.f39972a = "com.tencent.mm";
+        c0510a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+        c0510a.content = "weixin://registerapp?appid=" + this.appId;
+        c0510a.f39973b = j;
+        return a.a(this.context, c0510a);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:115:0x020a  */
@@ -822,10 +822,10 @@ public class BaseWXApiImplV10 implements IWXAPI {
             return;
         }
         Log.d("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
-        a.C0459a c0459a = new a.C0459a();
-        c0459a.f36293a = "com.tencent.mm";
-        c0459a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-        c0459a.content = "weixin://unregisterapp?appid=" + this.appId;
-        a.a(this.context, c0459a);
+        a.C0510a c0510a = new a.C0510a();
+        c0510a.f39972a = "com.tencent.mm";
+        c0510a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+        c0510a.content = "weixin://unregisterapp?appid=" + this.appId;
+        a.a(this.context, c0510a);
     }
 }

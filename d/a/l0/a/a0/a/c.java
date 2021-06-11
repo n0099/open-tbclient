@@ -15,28 +15,28 @@ public class c extends d.a.l0.a.a0.a.a {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a0.b.c f40573e;
+        public final /* synthetic */ d.a.l0.a.a0.b.c f44249e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CanvasView f40574f;
+        public final /* synthetic */ CanvasView f44250f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f40575g;
+        public final /* synthetic */ CallbackHandler f44251g;
 
         public a(c cVar, d.a.l0.a.a0.b.c cVar2, CanvasView canvasView, CallbackHandler callbackHandler) {
-            this.f40573e = cVar2;
-            this.f40574f = canvasView;
-            this.f40575g = callbackHandler;
+            this.f44249e = cVar2;
+            this.f44250f = canvasView;
+            this.f44251g = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            JSONObject i2 = this.f40573e.i(this.f40574f);
-            String str = this.f40573e.f40848i;
+            JSONObject i2 = this.f44249e.i(this.f44250f);
+            String str = this.f44249e.f44524i;
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f40575g.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i2, 0).toString());
+            this.f44251g.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i2, 0).toString());
         }
     }
 
@@ -53,10 +53,10 @@ public class c extends d.a.l0.a.a0.a.a {
             unitedSchemeEntity.result = l(201);
             return false;
         }
-        if (TextUtils.isEmpty(m.f40846g) && (J = d.a.l0.a.g1.f.V().J()) != null) {
-            m.f40846g = J.g3();
+        if (TextUtils.isEmpty(m.f44522g) && (J = d.a.l0.a.g1.f.V().J()) != null) {
+            m.f44522g = J.g3();
         }
-        if (!TextUtils.isEmpty(m.f40846g) && !TextUtils.isEmpty(m.f40845f)) {
+        if (!TextUtils.isEmpty(m.f44522g) && !TextUtils.isEmpty(m.f44521f)) {
             CanvasView a2 = d.a.l0.a.c0.c.d.b.a.a(m);
             if (a2 == null) {
                 d.a.l0.a.e0.d.b("SwanAppCanvas", "CanvasGetImageData canvas view is null");
@@ -67,7 +67,7 @@ public class c extends d.a.l0.a.a0.a.a {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
-        d.a.l0.a.e0.d.b("SwanAppCanvas", "CanvasGetImageData slave id = " + m.f40846g + " ; canvas id = " + m.f40845f);
+        d.a.l0.a.e0.d.b("SwanAppCanvas", "CanvasGetImageData slave id = " + m.f44522g + " ; canvas id = " + m.f44521f);
         unitedSchemeEntity.result = l(201);
         return false;
     }

@@ -8,7 +8,7 @@ import d.a.l0.a.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class a {
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public WeakReference<Activity> mActivityRef;
     public CallbackHandler mCallbackHandler;
     public Context mContext;

@@ -1,15 +1,15 @@
 package h.q;
 
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h.e<Object> f68716a = new C1937a();
+    public static final h.e<Object> f71972a = new C1986a();
 
     /* renamed from: h.q.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1937a implements h.e<Object> {
+    /* loaded from: classes8.dex */
+    public static class C1986a implements h.e<Object> {
         @Override // h.e
         public final void onCompleted() {
         }
@@ -25,6 +25,6 @@ public final class a {
     }
 
     public static <T> h.e<T> a() {
-        return (h.e<T>) f68716a;
+        return (h.e<T>) f71972a;
     }
 }

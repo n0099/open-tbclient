@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a2;
 import d.a.n0.z.e0.j;
 import d.a.n0.z.e0.k;
@@ -25,16 +25,16 @@ import tbclient.ThreadInfo;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeRecyclerView f53126a;
+    public BdTypeRecyclerView f56815a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.e2.k.c.b f53127b;
+    public d.a.n0.e2.k.c.b f56816b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.n0.g0.a f53128c;
+    public d.a.n0.g0.a f56817c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnTouchListener f53129d;
+    public View.OnTouchListener f56818d;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnTouchListener {
@@ -43,8 +43,8 @@ public class g {
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (g.this.f53128c != null) {
-                g.this.f53128c.c(motionEvent);
+            if (g.this.f56817c != null) {
+                g.this.f56817c.c(motionEvent);
                 return false;
             }
             return false;
@@ -77,11 +77,11 @@ public class g {
 
     public g(BdTypeRecyclerView bdTypeRecyclerView, d.a.n0.e2.k.c.b bVar) {
         a aVar = new a();
-        this.f53129d = aVar;
-        this.f53126a = bdTypeRecyclerView;
-        this.f53127b = bVar;
+        this.f56818d = aVar;
+        this.f56815a = bdTypeRecyclerView;
+        this.f56816b = bVar;
         bdTypeRecyclerView.setOnTouchListener(aVar);
-        this.f53128c = new d.a.n0.g0.a();
+        this.f56817c = new d.a.n0.g0.a();
     }
 
     public final void b(List<ThreadInfo> list, List<n> list2, String str) {
@@ -91,15 +91,15 @@ public class g {
             ThreadInfo threadInfo = list.get(i3);
             if (threadInfo != null) {
                 a2 a2Var2 = new a2();
-                a2Var2.C2 = i3 + 1;
-                a2Var2.U2(threadInfo);
+                a2Var2.E2 = i3 + 1;
+                a2Var2.V2(threadInfo);
                 if (a2Var2.h0() != null) {
                     a2Var2.h0().j = str;
                 }
-                if ((k.i0(a2Var2) || l.d0(a2Var2)) && a2Var2.getType() != a2.l3) {
+                if ((k.i0(a2Var2) || l.d0(a2Var2)) && a2Var2.getType() != a2.o3) {
                     k d2 = d(a2Var2);
-                    if (d2 != null && (a2Var = d2.f63459e) != null && a2Var.h0() != null && !StringUtils.isNull(a2Var.h0().f50158b)) {
-                        d2.l = a2Var2.y1();
+                    if (d2 != null && (a2Var = d2.f67177e) != null && a2Var.h0() != null && !StringUtils.isNull(a2Var.h0().f53834b)) {
+                        d2.l = a2Var2.z1();
                         d2.position = i2;
                         f(d2);
                         list2.add(d2);
@@ -107,14 +107,14 @@ public class g {
                     int[] p0 = a2Var2.p0();
                     d.a.n0.z.e0.b c2 = c(a2Var2);
                     if (c2 != null) {
-                        c2.l = a2Var2.y1();
+                        c2.l = a2Var2.z1();
                         c2.position = i2;
                         if (c2 instanceof k) {
-                            if (a2Var2.Z2() == 1) {
+                            if (a2Var2.a3() == 1) {
                                 h(c2);
                                 c2.o = p0[0];
                                 c2.p = p0[1];
-                            } else if (a2Var2.Z2() >= 2) {
+                            } else if (a2Var2.a3() >= 2) {
                                 g(c2);
                             } else {
                                 i(c2);
@@ -124,18 +124,18 @@ public class g {
                         }
                     }
                     if (c2 != null && c2.isValid()) {
-                        c2.f63459e.L1();
-                        if (!a2Var2.B2() && a2Var2.T() != null) {
+                        c2.f67177e.M1();
+                        if (!a2Var2.C2() && a2Var2.T() != null) {
                             String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), a2Var2.T().getName_show());
                             SpannableString spannableString = new SpannableString(format);
                             spannableString.setSpan(new b(this, 16, a2Var2.T().getUserId(), c2), 0, format.length() - 1, 33);
-                            c2.f63459e.M1(spannableString);
+                            c2.f67177e.N1(spannableString);
                         }
                         list2.add(c2);
                     }
                     k d3 = d(a2Var2);
                     if (d3 != null) {
-                        d3.l = a2Var2.y1();
+                        d3.l = a2Var2.z1();
                         d3.position = i2;
                         e(d3);
                     }
@@ -154,12 +154,12 @@ public class g {
         }
         if (k.i0(a2Var)) {
             k kVar = new k();
-            a2Var.h2();
-            a2Var.v2();
-            if (!a2Var.h2() && !a2Var.v2()) {
-                a2Var.c2();
+            a2Var.i2();
+            a2Var.w2();
+            if (!a2Var.i2() && !a2Var.w2()) {
+                a2Var.d2();
             }
-            kVar.f63459e = a2Var;
+            kVar.f67177e = a2Var;
             return kVar;
         } else if (l.d0(a2Var)) {
             return new l(a2Var);
@@ -170,10 +170,10 @@ public class g {
 
     public final k d(a2 a2Var) {
         k kVar = new k();
-        kVar.f63459e = a2Var;
-        a2Var.h2();
-        if (!a2Var.h2()) {
-            a2Var.c2();
+        kVar.f67177e = a2Var;
+        a2Var.i2();
+        if (!a2Var.i2()) {
+            a2Var.d2();
         }
         return kVar;
     }
@@ -222,6 +222,6 @@ public class g {
         List<ThreadInfo> F = eVar.F();
         LinkedList linkedList = new LinkedList();
         b(F, linkedList, first_class);
-        this.f53127b.e(linkedList);
+        this.f56816b.e(linkedList);
     }
 }

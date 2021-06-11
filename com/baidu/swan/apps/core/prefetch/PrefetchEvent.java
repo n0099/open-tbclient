@@ -78,29 +78,29 @@ public class PrefetchEvent extends SwanAppIPCData {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public PrefetchEvent f10737a = new PrefetchEvent();
+        public PrefetchEvent f10799a = new PrefetchEvent();
 
         public b a(@NonNull String str) {
-            this.f10737a.appId = str;
+            this.f10799a.appId = str;
             return this;
         }
 
         public PrefetchEvent b() {
-            return this.f10737a;
+            return this.f10799a;
         }
 
         public b c(@NonNull String str) {
-            this.f10737a.scene = str;
+            this.f10799a.scene = str;
             return this;
         }
 
         public b d(@NonNull String str) {
-            this.f10737a.schema = str;
+            this.f10799a.schema = str;
             return this;
         }
 
         public b e(String str) {
-            this.f10737a.state = str;
+            this.f10799a.state = str;
             return this;
         }
     }
@@ -112,21 +112,21 @@ public class PrefetchEvent extends SwanAppIPCData {
         }
 
         public Map<String, String> h() {
-            return this.f43912c;
+            return this.f47588c;
         }
 
         public boolean i() {
-            return TextUtils.equals(this.f43905a, PrefetchEvent.MODULE);
+            return TextUtils.equals(this.f47581a, PrefetchEvent.MODULE);
         }
 
         @NonNull
         public String toString() {
-            Map<String, String> map = this.f43912c;
+            Map<String, String> map = this.f47588c;
             if (map == null || map.size() <= 0) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            Set<Map.Entry<String, String>> entrySet = this.f43912c.entrySet();
+            Set<Map.Entry<String, String>> entrySet = this.f47588c.entrySet();
             int size = entrySet.size();
             int i2 = 0;
             for (Map.Entry<String, String> entry : entrySet) {
@@ -177,7 +177,7 @@ public class PrefetchEvent extends SwanAppIPCData {
             prefetchEvent.schema = Q.L().W();
             prefetchEvent.pageUrl = d.a.l0.a.c2.f.p0.c.c(f.V(), Q.L(), Q.F());
             prefetchEvent.appConfig = Q.F().m;
-            prefetchEvent.appPath = e.C0561e.i(Q.getAppId(), Q.Z()).getPath() + File.separator;
+            prefetchEvent.appPath = e.C0617e.i(Q.getAppId(), Q.Z()).getPath() + File.separator;
             prefetchEvent.pageType = Q.F().g(prefetchEvent.pageUrl);
             prefetchEvent.rootPath = d.a.l0.a.h0.u.a.c(Q, prefetchEvent.pageUrl);
             prefetchEvent.isT7Available = g.N().f0();
@@ -220,7 +220,7 @@ public class PrefetchEvent extends SwanAppIPCData {
         if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
             hashMap.put("pageUrl", prefetchEvent.pageUrl);
             j.a(prefetchEvent.pageUrl, hashMap);
-        } else if (k.f43199a) {
+        } else if (k.f46875a) {
             Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
         }
         return new c(hashMap, str);

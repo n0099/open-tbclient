@@ -6,7 +6,7 @@ import android.text.TextUtils;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f8654a = new b();
+    public static b f8716a = new b();
 
     public synchronized void a(Context context) {
         String o = bw.o(context);

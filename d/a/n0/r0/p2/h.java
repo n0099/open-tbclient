@@ -8,9 +8,9 @@ public interface h {
 
     void d(List<BaseCardInfo> list, boolean z, boolean z2);
 
-    void m0(g gVar);
-
-    void n();
+    void o();
 
     void onLoadFail();
+
+    void p0(g gVar);
 }

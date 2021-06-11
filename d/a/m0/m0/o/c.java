@@ -7,44 +7,44 @@ import android.view.Choreographer;
 public class c implements Choreographer.FrameCallback {
 
     /* renamed from: f  reason: collision with root package name */
-    public long f49579f;
+    public long f53254f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f49580g;
+    public long f53255g;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f49578e = 0;
+    public long f53253e = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49581h = 0;
+    public int f53256h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49582i = -1;
+    public int f53257i = -1;
     public boolean j = false;
 
     public final void a(long j) {
-        long j2 = this.f49580g;
+        long j2 = this.f53255g;
         if (j2 <= 0) {
             return;
         }
         long j3 = j - j2;
-        if (j3 <= 0 || this.f49582i > 0) {
+        if (j3 <= 0 || this.f53257i > 0) {
             return;
         }
-        this.f49582i = (int) (60 - ((this.f49581h * 1000) / j3));
+        this.f53257i = (int) (60 - ((this.f53256h * 1000) / j3));
     }
 
     public int b() {
-        return this.f49582i;
+        return this.f53257i;
     }
 
     public void c() {
         long currentTimeMillis = System.currentTimeMillis();
-        this.f49580g = currentTimeMillis;
-        this.f49579f = currentTimeMillis + 1000;
-        this.f49578e = 0L;
-        this.f49581h = 0;
-        this.f49582i = -1;
+        this.f53255g = currentTimeMillis;
+        this.f53254f = currentTimeMillis + 1000;
+        this.f53253e = 0L;
+        this.f53256h = 0;
+        this.f53257i = -1;
         this.j = false;
         Choreographer.getInstance().postFrameCallback(this);
     }
@@ -53,27 +53,27 @@ public class c implements Choreographer.FrameCallback {
         this.j = true;
         Choreographer.getInstance().removeFrameCallback(this);
         a(System.currentTimeMillis());
-        this.f49581h = 0;
-        this.f49580g = 0L;
+        this.f53256h = 0;
+        this.f53255g = 0L;
     }
 
     @Override // android.view.Choreographer.FrameCallback
     public void doFrame(long j) {
-        long j2 = this.f49578e;
+        long j2 = this.f53253e;
         if (j2 != 0) {
             long j3 = (j - j2) / 1000000;
             if (j3 > 16 && j3 < 960) {
-                this.f49581h = (int) (this.f49581h + (j3 / 16));
+                this.f53256h = (int) (this.f53256h + (j3 / 16));
             }
         }
-        this.f49578e = j;
+        this.f53253e = j;
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis < this.f49579f && !this.j) {
+        if (currentTimeMillis < this.f53254f && !this.j) {
             Choreographer.getInstance().postFrameCallback(this);
             return;
         }
         a(currentTimeMillis);
-        this.f49581h = 0;
-        this.f49580g = 0L;
+        this.f53256h = 0;
+        this.f53255g = 0L;
     }
 }

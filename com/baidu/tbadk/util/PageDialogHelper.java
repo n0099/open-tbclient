@@ -3,6 +3,7 @@ package com.baidu.tbadk.util;
 import android.app.Activity;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* loaded from: classes3.dex */
 public class PageDialogHelper {
 
@@ -17,7 +18,7 @@ public class PageDialogHelper {
         WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         attributes.x = 0;
-        attributes.height = displayMetrics.heightPixels - 400;
+        attributes.height = displayMetrics.heightPixels + ErrorCode.ARGS_ERROR;
         attributes.width = -1;
         attributes.y = 0;
         attributes.gravity = 80;

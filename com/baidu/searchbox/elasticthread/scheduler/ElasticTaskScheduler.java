@@ -80,7 +80,7 @@ public class ElasticTaskScheduler {
         this.mDredgeManager.onRecordEnd();
         this.mQueueManager.onRecordEnd();
         this.mSerialManager.onRecordEnd();
-        if (this.mStatisticRecorder.getRecordElapseTime() > StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+        if (this.mStatisticRecorder.getRecordElapseTime() > 30000) {
             this.mStatisticRecorder.uploadData();
         }
     }

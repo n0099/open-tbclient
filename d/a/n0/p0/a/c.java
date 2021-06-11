@@ -3,7 +3,7 @@ package d.a.n0.p0.a;
 public class c implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f57941a;
+    public String f61632a;
 
     @Override // d.a.n0.p0.a.i
     public int a() {
@@ -11,10 +11,10 @@ public class c implements i {
     }
 
     public String b() {
-        return this.f57941a;
+        return this.f61632a;
     }
 
     public void c(String str) {
-        this.f57941a = str;
+        this.f61632a = str;
     }
 }

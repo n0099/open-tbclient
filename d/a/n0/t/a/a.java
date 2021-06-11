@@ -28,18 +28,18 @@ import java.lang.ref.WeakReference;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f60762a = null;
+    public e f64453a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60763b = null;
+    public String f64454b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<SplashAdView> f60764c;
+    public WeakReference<SplashAdView> f64455c;
 
     /* renamed from: d.a.n0.t.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1605a implements CustomMessageTask.CustomRunnable<m> {
-        public C1605a() {
+    public class C1661a implements CustomMessageTask.CustomRunnable<m> {
+        public C1661a() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -58,10 +58,10 @@ public class a {
     public class b implements d.a.n0.t.a.g.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f60766a;
+        public final /* synthetic */ SplashAdView f64457a;
 
         public b(SplashAdView splashAdView) {
-            this.f60766a = splashAdView;
+            this.f64457a = splashAdView;
         }
 
         @Override // d.a.n0.t.a.g.a
@@ -83,18 +83,18 @@ public class a {
         @Override // d.a.n0.t.a.g.a
         public void d() {
             d.a.n0.t.a.f.b entryInfoData;
-            SplashAdView splashAdView = (SplashAdView) a.this.f60764c.get();
+            SplashAdView splashAdView = (SplashAdView) a.this.f64455c.get();
             if (splashAdView != null) {
-                a.this.f60763b = this.f60766a.g();
+                a.this.f64454b = this.f64457a.g();
                 a aVar = a.this;
-                aVar.h(aVar.f60763b);
+                aVar.h(aVar.f64454b);
             }
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_SHOW);
             if (splashAdView != null && (entryInfoData = splashAdView.getEntryInfoData()) != null) {
                 if (entryInfoData.d()) {
-                    statisticItem.param("obj_source", entryInfoData.f60806e);
+                    statisticItem.param("obj_source", entryInfoData.f64497e);
                 } else {
-                    statisticItem.param("obj_source", entryInfoData.f60803b);
+                    statisticItem.param("obj_source", entryInfoData.f64494b);
                 }
             }
             TiebaStatic.log(statisticItem);
@@ -131,21 +131,21 @@ public class a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f60768a;
+        public final WeakReference<CountDownTextView> f64459a;
 
-        public /* synthetic */ e(CountDownTextView countDownTextView, C1605a c1605a) {
+        public /* synthetic */ e(CountDownTextView countDownTextView, C1661a c1661a) {
             this(countDownTextView);
         }
 
         public void a(String str) {
-            CountDownTextView countDownTextView = this.f60768a.get();
+            CountDownTextView countDownTextView = this.f64459a.get();
             if (countDownTextView != null) {
                 countDownTextView.d(str, 0);
             }
         }
 
         public e(CountDownTextView countDownTextView) {
-            this.f60768a = new WeakReference<>(countDownTextView);
+            this.f64459a = new WeakReference<>(countDownTextView);
         }
     }
 
@@ -159,7 +159,7 @@ public class a {
         int b2 = mVar.b();
         SplashAdView splashAdView = new SplashAdView(mVar.c(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
         splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a2));
-        this.f60764c = new WeakReference<>(splashAdView);
+        this.f64455c = new WeakReference<>(splashAdView);
         splashAdView.setBCAdCallBack(new b(splashAdView));
         try {
             z = splashAdView.f();
@@ -178,8 +178,8 @@ public class a {
                 int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.ds106);
                 int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.ds52);
                 CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
-                this.f60762a = new e(countDownTextView, null);
-                String str = this.f60763b;
+                this.f64453a = new e(countDownTextView, null);
+                String str = this.f64454b;
                 if (TextUtils.isEmpty(str)) {
                     str = pageActivity.getResources().getString(R.string.skip);
                 }
@@ -232,15 +232,15 @@ public class a {
     }
 
     public void g() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new C1605a());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new C1661a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public final void h(String str) {
-        if (this.f60762a == null || TextUtils.isEmpty(str)) {
+        if (this.f64453a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f60762a.a(str);
+        this.f64453a.a(str);
     }
 }

@@ -16,10 +16,10 @@ import java.io.IOException;
 public class BitmapDescriptorFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f6810a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f6853a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f6811b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+    public static final String f6854b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
 
     public static BitmapDescriptor fromAsset(String str) {
         Context context = BMapManager.getContext();
@@ -29,7 +29,7 @@ public class BitmapDescriptorFactory {
         try {
             Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
             BitmapDescriptor fromBitmap = fromBitmap(a2);
-            if (!f6810a && a2 == null) {
+            if (!f6853a && a2 == null) {
                 throw new AssertionError();
             }
             a2.recycle();
@@ -110,13 +110,13 @@ public class BitmapDescriptorFactory {
             }
         } catch (FileNotFoundException e2) {
             e = e2;
-            str2 = f6811b;
+            str2 = f6854b;
             str3 = "FileNotFoundException happened";
             Log.e(str2, str3, e);
             return null;
         } catch (IOException e3) {
             e = e3;
-            str2 = f6811b;
+            str2 = f6854b;
             str3 = "IOException happened";
             Log.e(str2, str3, e);
             return null;
@@ -146,13 +146,13 @@ public class BitmapDescriptorFactory {
             }
         } catch (FileNotFoundException e2) {
             e = e2;
-            str2 = f6811b;
+            str2 = f6854b;
             str3 = "FileNotFoundException happened";
             Log.e(str2, str3, e);
             return null;
         } catch (IOException e3) {
             e = e3;
-            str2 = f6811b;
+            str2 = f6854b;
             str3 = "IOException happened";
             Log.e(str2, str3, e);
             return null;
@@ -235,7 +235,7 @@ public class BitmapDescriptorFactory {
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache == null) {
-            Log.e(f6811b, "Get bitmap failed");
+            Log.e(f6854b, "Get bitmap failed");
             return null;
         }
         if (i2 <= 0) {

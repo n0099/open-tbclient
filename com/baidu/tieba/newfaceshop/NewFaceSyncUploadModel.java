@@ -30,7 +30,7 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void s(String str) {
+    public void w(String str) {
         long currentTimeMillis = System.currentTimeMillis();
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP);
         httpMessage.addParam("package_ids", str);

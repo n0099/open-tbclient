@@ -9,38 +9,38 @@ import java.util.List;
 public class d extends d.a.m0.w.p.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f55664f = new d();
+    public static d f59353f = new d();
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<d.a.m0.w.p.c> f55665e;
+    public LinkedList<d.a.m0.w.p.c> f59354e;
 
     public static synchronized d f() {
         d dVar;
         synchronized (d.class) {
-            dVar = f55664f;
+            dVar = f59353f;
         }
         return dVar;
     }
 
     @Override // d.a.m0.w.p.a
-    public void b(a.InterfaceC1167a interfaceC1167a) {
-        LinkedList<d.a.m0.w.p.c> linkedList = this.f55665e;
+    public void b(a.InterfaceC1223a interfaceC1223a) {
+        LinkedList<d.a.m0.w.p.c> linkedList = this.f59354e;
         if (linkedList != null && !linkedList.isEmpty()) {
-            Iterator<d.a.m0.w.p.c> it = this.f55665e.iterator();
+            Iterator<d.a.m0.w.p.c> it = this.f59354e.iterator();
             while (it.hasNext()) {
                 d.a.m0.w.p.c next = it.next();
-                if (interfaceC1167a != null) {
-                    interfaceC1167a.a(next);
+                if (interfaceC1223a != null) {
+                    interfaceC1223a.a(next);
                 }
             }
             return;
         }
-        this.f55665e = new LinkedList<>();
+        this.f59354e = new LinkedList<>();
         if (TbFaceManager.e().h() > 0) {
             c cVar = new c();
-            this.f55665e.add(cVar);
-            if (interfaceC1167a != null) {
-                interfaceC1167a.a(cVar);
+            this.f59354e.add(cVar);
+            if (interfaceC1223a != null) {
+                interfaceC1223a.a(cVar);
             }
         }
     }
@@ -55,11 +55,11 @@ public class d extends d.a.m0.w.p.a {
     }
 
     public List<d.a.m0.w.p.c> e() {
-        return this.f55665e;
+        return this.f59354e;
     }
 
     public boolean g() {
-        LinkedList<d.a.m0.w.p.c> linkedList = this.f55665e;
+        LinkedList<d.a.m0.w.p.c> linkedList = this.f59354e;
         return linkedList == null || linkedList.size() == 0;
     }
 }

@@ -5,25 +5,25 @@ import com.baidu.swan.apps.performance.HybridUbcFlow;
 public class a extends f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.a.l0.a.y0.k.f.a f45896a = new d.a.l0.a.y0.k.f.a();
+    public final d.a.l0.a.y0.k.f.a f49570a = new d.a.l0.a.y0.k.f.a();
 
     public a(String str) {
     }
 
     @Override // d.a.l0.a.y0.k.f.c.f, d.a.l0.a.y0.k.f.c.e
     public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
-        if (this.f45896a.f()) {
-            this.f45896a.k();
+        if (this.f49570a.f()) {
+            this.f49570a.k();
             d.a.l0.a.y0.k.f.b.f();
             return;
         }
-        this.f45896a.g("fmpArrived", z ? "1" : "0");
+        this.f49570a.g("fmpArrived", z ? "1" : "0");
     }
 
     public void d() {
-        this.f45896a.c();
-        if (this.f45896a.e("fmpArrived")) {
-            this.f45896a.k();
+        this.f49570a.c();
+        if (this.f49570a.e("fmpArrived")) {
+            this.f49570a.k();
             d.a.l0.a.y0.k.f.b.f();
         }
     }

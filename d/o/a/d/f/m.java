@@ -18,8 +18,8 @@ public class m {
     }
 
     public static d.o.a.a.a.d.e c(d.o.a.a.a.d.e eVar) {
-        if (eVar != null && d((int) eVar.f66591a)) {
-            eVar.f66594d = b((int) eVar.f66591a, eVar.f66594d, eVar.f66593c);
+        if (eVar != null && d((int) eVar.f70377a)) {
+            eVar.f70380d = b((int) eVar.f70377a, eVar.f70380d, eVar.f70379c);
         }
         return eVar;
     }

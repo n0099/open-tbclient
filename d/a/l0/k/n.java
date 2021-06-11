@@ -12,13 +12,13 @@ import org.json.JSONObject;
 public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f47947g;
+    public Context f51621g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47948h;
+    public int f51622h;
 
     /* renamed from: i  reason: collision with root package name */
-    public p f47949i;
+    public p f51623i;
     public List<o> j;
     public e m;
     public d.a.l0.k.r.b n;
@@ -28,10 +28,10 @@ public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
     public boolean r;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47945e = false;
+    public boolean f51619e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47946f = 0;
+    public int f51620f = 0;
     public List<o> k = new ArrayList();
     public List<List<o>> l = new ArrayList();
     public int s = -1;
@@ -61,21 +61,21 @@ public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
         if (i2 < 0) {
             return;
         }
-        this.f47947g = context;
-        this.f47948h = i2;
+        this.f51621g = context;
+        this.f51622h = i2;
         this.q = bVar;
         List<o> b2 = q.b(i2);
         this.j = b2;
-        this.q.c(this.f47948h, b2);
-        this.q.d(this.f47948h, this.j);
-        p pVar = new p(this.f47947g, view, aVar);
-        this.f47949i = pVar;
+        this.q.c(this.f51622h, b2);
+        this.q.d(this.f51622h, this.j);
+        p pVar = new p(this.f51621g, view, aVar);
+        this.f51623i = pVar;
         pVar.L(new a());
     }
 
     @Override // d.a.l0.k.r.b
     public boolean a(o oVar) {
-        if (o(oVar) && !this.f47945e) {
+        if (o(oVar) && !this.f51619e) {
             e(true);
         }
         d.a.l0.k.r.b bVar = this.n;
@@ -125,7 +125,7 @@ public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
     }
 
     public void e(boolean z) {
-        this.f47949i.Y(z);
+        this.f51623i.Y(z);
         b bVar = this.p;
         if (bVar != null) {
             bVar.a(this, false);
@@ -145,12 +145,12 @@ public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
     }
 
     public boolean g() {
-        p pVar = this.f47949i;
+        p pVar = this.f51623i;
         return pVar != null && pVar.x();
     }
 
     public void h() {
-        p pVar = this.f47949i;
+        p pVar = this.f51623i;
         if (pVar != null) {
             pVar.a0();
         }
@@ -180,7 +180,7 @@ public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
     }
 
     public void k(int i2) {
-        this.f47949i.b0(i2);
+        this.f51623i.b0(i2);
     }
 
     public void l(e eVar) {
@@ -188,7 +188,7 @@ public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
     }
 
     public void m(int i2) {
-        this.f47946f = i2;
+        this.f51620f = i2;
     }
 
     public void n(boolean z) {
@@ -223,11 +223,11 @@ public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
         }
         d.a.l0.k.b bVar = this.q;
         if (bVar != null) {
-            bVar.b(this.f47948h, this.j);
+            bVar.b(this.f51622h, this.j);
         }
         u(z, i2);
         s();
-        this.f47949i.d0(this.l, view, z2, this.f47946f);
+        this.f51623i.c0(this.l, view, z2, this.f51620f);
         b bVar2 = this.p;
         if (bVar2 != null) {
             bVar2.a(this, true);
@@ -240,11 +240,11 @@ public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
         if (size > 0 && size <= 5) {
             this.l.add(this.k);
         } else if (size > 5 && size <= 10) {
-            int i2 = this.f47945e ? 5 : this.s;
+            int i2 = this.f51619e ? 5 : this.s;
             this.l.add(this.k.subList(0, i2));
             this.l.add(this.k.subList(i2, size));
         } else if (size > 10) {
-            int ceil = this.f47945e ? (int) Math.ceil(size / 2.0f) : this.s;
+            int ceil = this.f51619e ? (int) Math.ceil(size / 2.0f) : this.s;
             this.l.add(this.k.subList(0, ceil));
             this.l.add(this.k.subList(ceil, size));
         }
@@ -290,7 +290,7 @@ public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
         i(39);
         i(42);
         i(9);
-        if (!this.f47945e) {
+        if (!this.f51619e) {
             this.s = this.k.size() - 1;
         }
         i(37);
@@ -336,7 +336,7 @@ public class n implements e, d.a.l0.k.r.b, View.OnKeyListener {
     public void x(boolean z) {
         w(f(5), z);
         s();
-        this.f47949i.X();
+        this.f51623i.X();
         h();
     }
 }

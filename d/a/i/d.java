@@ -71,7 +71,7 @@ public class d extends d.a.i.a<d.a.m0.r.q.a> {
     /* renamed from: q */
     public void a(d.a.m0.r.q.a aVar) {
         this.l = aVar;
-        this.j.setData(aVar.m());
+        this.j.setData(aVar.i());
     }
 
     public void r(boolean z) {

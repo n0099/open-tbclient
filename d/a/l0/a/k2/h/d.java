@@ -21,38 +21,38 @@ import java.util.concurrent.CopyOnWriteArraySet;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43278a = k.f43199a;
+    public static final boolean f46954a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Set<String> f43279b = new CopyOnWriteArraySet();
+    public static Set<String> f46955b = new CopyOnWriteArraySet();
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f43280c = 0;
+    public static int f46956c = 0;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43281e;
+        public final /* synthetic */ String f46957e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f43282f;
+        public final /* synthetic */ int f46958f;
 
         public a(String str, int i2) {
-            this.f43281e = str;
-            this.f43282f = i2;
+            this.f46957e = str;
+            this.f46958f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             c.b bVar = new c.b(10010);
-            bVar.l(String.valueOf(d.f43280c));
-            bVar.k(this.f43281e);
-            bVar.j(String.valueOf(this.f43282f));
+            bVar.l(String.valueOf(d.f46956c));
+            bVar.k(this.f46957e);
+            bVar.j(String.valueOf(this.f46958f));
             bVar.h(d.a.l0.a.a2.e.V());
             bVar.m();
-            if (this.f43282f == 3) {
-                int unused = d.f43280c = 0;
+            if (this.f46958f == 3) {
+                int unused = d.f46956c = 0;
             }
         }
     }
@@ -66,7 +66,7 @@ public class d {
         @Override // d.a.l0.d.i.a
         /* renamed from: b */
         public void a(@NonNull Pair<String, File> pair) {
-            if (d.f43279b != null && pair.first != null && d.f43279b.contains(pair.first)) {
+            if (d.f46955b != null && pair.first != null && d.f46955b.contains(pair.first)) {
                 new d.a.l0.a.k2.h.c(d.a.l0.a.c1.a.b(), pair.first).f();
                 return;
             }
@@ -81,37 +81,37 @@ public class d {
     public class c implements Callable<SharedPreferences> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.k2.h.c f43283e;
+        public final /* synthetic */ d.a.l0.a.k2.h.c f46959e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f43284f;
+        public final /* synthetic */ long f46960f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f43285g;
+        public final /* synthetic */ Context f46961g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f43286h;
+        public final /* synthetic */ String f46962h;
 
         public c(d.a.l0.a.k2.h.c cVar, long j, Context context, String str) {
-            this.f43283e = cVar;
-            this.f43284f = j;
-            this.f43285g = context;
-            this.f43286h = str;
+            this.f46959e = cVar;
+            this.f46960f = j;
+            this.f46961g = context;
+            this.f46962h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public SharedPreferences call() throws Exception {
-            if (this.f43283e.setCustomMeta(this.f43284f | 1)) {
-                String l = d.this.l(this.f43285g, this.f43286h);
-                if (d.f43278a) {
-                    Log.i("SwanExtensionApiImpl", String.format("customMeta=%d, name=%s, spName=%s", Long.valueOf(this.f43284f), this.f43286h, l));
+            if (this.f46959e.setCustomMeta(this.f46960f | 1)) {
+                String l = d.this.l(this.f46961g, this.f46962h);
+                if (d.f46954a) {
+                    Log.i("SwanExtensionApiImpl", String.format("customMeta=%d, name=%s, spName=%s", Long.valueOf(this.f46960f), this.f46962h, l));
                 }
                 if (l == null) {
                     return null;
                 }
-                return this.f43285g.getSharedPreferences(l, 0);
+                return this.f46961g.getSharedPreferences(l, 0);
             }
             return null;
         }
@@ -119,10 +119,10 @@ public class d {
 
     /* renamed from: d.a.l0.a.k2.h.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0730d {
+    public static class C0786d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f43288a = new d(null);
+        public static final d f46964a = new d(null);
     }
 
     public /* synthetic */ d(a aVar) {
@@ -135,7 +135,7 @@ public class d {
     }
 
     public static d j() {
-        return C0730d.f43288a;
+        return C0786d.f46964a;
     }
 
     public final d.a.l0.t.b f(String str) {
@@ -156,17 +156,17 @@ public class d {
     public d.a.l0.t.b k(Context context, String str, boolean z) {
         try {
             d.a.l0.a.k2.h.c cVar = new d.a.l0.a.k2.h.c(context, str, z ? 2 : 1);
-            f43279b.add(str);
+            f46955b.add(str);
             m(context, str, cVar);
-            if (f43280c > 0) {
+            if (f46956c > 0) {
                 i(3, str);
             }
             return cVar;
         } catch (NoClassDefFoundError | UnsatisfiedLinkError e2) {
-            if (f43278a) {
+            if (f46954a) {
                 Log.e("SwanExtensionApiImpl", "getSharedPrefsImpl", e2);
             }
-            f43280c++;
+            f46956c++;
             i(2, str);
             return f(str);
         }

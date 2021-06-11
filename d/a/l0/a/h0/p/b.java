@@ -23,25 +23,25 @@ import java.io.File;
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f42514b = k.f43199a;
+    public static final boolean f46190b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42515a;
+    public boolean f46191a;
 
     /* renamed from: d.a.l0.a.h0.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0695b {
+    public static class C0751b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f42516a = new b();
+        public static final b f46192a = new b();
     }
 
     public static b c() {
-        return C0695b.f42516a;
+        return C0751b.f46192a;
     }
 
     public final void a(@NonNull SwanAppConfigData swanAppConfigData) {
-        if (f42514b) {
+        if (f46190b) {
             Log.d("AppLaunchMessenger", "afterLaunchEventSent: start");
         }
         d.g(swanAppConfigData);
@@ -69,11 +69,11 @@ public final class b {
         Bundle P;
         boolean E;
         d.a.l0.a.h0.u.d dVar;
-        if (f42514b) {
+        if (f46190b) {
             Log.d("AppLaunchMessenger", "dispatchLaunchEvent");
             Log.d("SwanPrelink", "start dispatch launch event");
         }
-        if (this.f42515a) {
+        if (this.f46191a) {
             if (z) {
                 d.a.l0.a.h0.u.b.c(14);
             }
@@ -85,20 +85,20 @@ public final class b {
         String c2 = c.c(f.V(), bVar2, swanAppConfigData);
         String g2 = swanAppConfigData.g(c2);
         d.a.l0.a.h0.u.a aVar2 = new d.a.l0.a.h0.u.a();
-        aVar2.f42601a = swanAppConfigData.m;
-        if (gVar != null && !TextUtils.isEmpty(gVar.f40691a)) {
-            aVar2.f42602b = gVar.f40691a;
+        aVar2.f46277a = swanAppConfigData.m;
+        if (gVar != null && !TextUtils.isEmpty(gVar.f44367a)) {
+            aVar2.f46278b = gVar.f44367a;
         } else {
-            aVar2.f42602b = e.C0561e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
+            aVar2.f46278b = e.C0617e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
         }
-        aVar2.f42603c = bVar.b();
-        aVar2.f42604d = c2;
-        aVar2.f42606f = String.valueOf(d.a.l0.a.e0.a.a());
-        aVar2.f42607g = d.a.l0.a.h0.u.a.c(d.a.l0.a.a2.e.i(), c2);
-        aVar2.f42609i = g2;
-        if (!f42514b && !f.V().O()) {
+        aVar2.f46279c = bVar.b();
+        aVar2.f46280d = c2;
+        aVar2.f46282f = String.valueOf(d.a.l0.a.e0.a.a());
+        aVar2.f46283g = d.a.l0.a.h0.u.a.c(d.a.l0.a.a2.e.i(), c2);
+        aVar2.f46285i = g2;
+        if (!f46190b && !f.V().O()) {
             z2 = false;
-            aVar2.f42608h = z2;
+            aVar2.f46284h = z2;
             aVar2.j = bVar.L();
             aVar2.l = d.a.l0.a.h0.u.e.b();
             G = d.a.l0.a.u1.a.a.G();
@@ -109,10 +109,10 @@ public final class b {
             if (P != null) {
                 String string = P.getString(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
                 if (!TextUtils.isEmpty(string)) {
-                    aVar2.f42605e = string;
+                    aVar2.f46281e = string;
                 }
             }
-            if (f42514b) {
+            if (f46190b) {
                 Log.d("AppLaunchMessenger", aVar2.toString());
             }
             h.o().C(new UbcFlowEvent("master_dispatch_start"));
@@ -130,18 +130,18 @@ public final class b {
             }
             d.a.l0.a.a2.n.g e2 = f.V().e(j.b(o0.f(c2)));
             dVar = new d.a.l0.a.h0.u.d();
-            if (gVar == null && !TextUtils.isEmpty(gVar.f40691a)) {
-                dVar.f42612a = gVar.f40691a;
+            if (gVar == null && !TextUtils.isEmpty(gVar.f44367a)) {
+                dVar.f46288a = gVar.f44367a;
             } else {
-                dVar.f42612a = e.C0561e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
+                dVar.f46288a = e.C0617e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
             }
-            dVar.f42613b = c2;
-            dVar.f42615d = e2.f40798g;
-            dVar.f42614c = g2;
-            dVar.k = aVar2.f42607g;
-            dVar.f42616e = String.valueOf(bVar2.l0());
-            dVar.f42618g = z2;
-            dVar.f42620i = bVar.L();
+            dVar.f46289b = c2;
+            dVar.f46291d = e2.f44474g;
+            dVar.f46290c = g2;
+            dVar.k = aVar2.f46283g;
+            dVar.f46292e = String.valueOf(bVar2.l0());
+            dVar.f46294g = z2;
+            dVar.f46296i = bVar.L();
             dVar.m = true;
             if (G) {
                 dVar.j = d.a.l0.a.e0.f.b.d();
@@ -151,7 +151,7 @@ public final class b {
             } else if (o0) {
                 d.a.l0.a.e0.f.d.d.e().f("pageready");
             }
-            if (f42514b) {
+            if (f46190b) {
                 Log.d("AppLaunchMessenger", dVar.toString());
             }
             h.o().C(new UbcFlowEvent("slave_dispatch_start"));
@@ -161,21 +161,21 @@ public final class b {
             bVar.u().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, c2);
             bVar.S(c2);
             g.N().I0(bVar.b(), d.a.l0.a.h0.u.d.a(dVar));
-            d.a.l0.a.j2.e.F(bVar.b(), dVar.f42613b);
-            if (f42514b) {
-                Log.d("AppLaunchMessenger", "app path: " + aVar2.f42602b);
+            d.a.l0.a.j2.e.F(bVar.b(), dVar.f46289b);
+            if (f46190b) {
+                Log.d("AppLaunchMessenger", "app path: " + aVar2.f46278b);
                 Log.d("AppLaunchMessenger", "webviewId: " + bVar.b());
                 Log.d("AppLaunchMessenger", "pageUrl: " + c2);
-                Log.d("AppLaunchMessenger", "pagePath: " + dVar.f42613b);
-                Log.d("AppLaunchMessenger", "onReachBottomDistance: " + dVar.f42615d);
-                Log.d("AppLaunchMessenger", "sConsole:" + dVar.f42616e);
+                Log.d("AppLaunchMessenger", "pagePath: " + dVar.f46289b);
+                Log.d("AppLaunchMessenger", "onReachBottomDistance: " + dVar.f46291d);
+                Log.d("AppLaunchMessenger", "sConsole:" + dVar.f46292e);
             }
             a(swanAppConfigData);
-            this.f42515a = true;
+            this.f46191a = true;
             e();
         }
         z2 = true;
-        aVar2.f42608h = z2;
+        aVar2.f46284h = z2;
         aVar2.j = bVar.L();
         aVar2.l = d.a.l0.a.h0.u.e.b();
         G = d.a.l0.a.u1.a.a.G();
@@ -184,7 +184,7 @@ public final class b {
         P = bVar2.P();
         if (P != null) {
         }
-        if (f42514b) {
+        if (f46190b) {
         }
         h.o().C(new UbcFlowEvent("master_dispatch_start"));
         d.a.l0.a.i2.a.d().i("master_dispatch_start");
@@ -199,20 +199,20 @@ public final class b {
         dVar = new d.a.l0.a.h0.u.d();
         if (gVar == null) {
         }
-        dVar.f42612a = e.C0561e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
-        dVar.f42613b = c2;
-        dVar.f42615d = e22.f40798g;
-        dVar.f42614c = g2;
-        dVar.k = aVar2.f42607g;
-        dVar.f42616e = String.valueOf(bVar2.l0());
-        dVar.f42618g = z2;
-        dVar.f42620i = bVar.L();
+        dVar.f46288a = e.C0617e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
+        dVar.f46289b = c2;
+        dVar.f46291d = e22.f44474g;
+        dVar.f46290c = g2;
+        dVar.k = aVar2.f46283g;
+        dVar.f46292e = String.valueOf(bVar2.l0());
+        dVar.f46294g = z2;
+        dVar.f46296i = bVar.L();
         dVar.m = true;
         if (G) {
         }
         if (!E) {
         }
-        if (f42514b) {
+        if (f46190b) {
         }
         h.o().C(new UbcFlowEvent("slave_dispatch_start"));
         d.a.l0.a.i2.a.d().i("slave_dispatch_start");
@@ -221,16 +221,16 @@ public final class b {
         bVar.u().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, c2);
         bVar.S(c2);
         g.N().I0(bVar.b(), d.a.l0.a.h0.u.d.a(dVar));
-        d.a.l0.a.j2.e.F(bVar.b(), dVar.f42613b);
-        if (f42514b) {
+        d.a.l0.a.j2.e.F(bVar.b(), dVar.f46289b);
+        if (f46190b) {
         }
         a(swanAppConfigData);
-        this.f42515a = true;
+        this.f46191a = true;
         e();
     }
 
     public synchronized void d() {
-        this.f42515a = false;
+        this.f46191a = false;
     }
 
     public final void e() {
@@ -249,6 +249,6 @@ public final class b {
     }
 
     public b() {
-        this.f42515a = false;
+        this.f46191a = false;
     }
 }

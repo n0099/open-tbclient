@@ -16,6 +16,7 @@ import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import com.kwai.video.player.PlayerPostEvent;
 import d.a.c.e.p.l;
 import d.a.m0.w.e;
 import d.a.m0.w.m;
@@ -26,109 +27,109 @@ import java.util.ArrayList;
 public class c extends d.a.m0.w.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f55481a;
+    public String f59170a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55482b;
+    public String f59171b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f55483c = false;
+    public boolean f59172c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f55484d;
+    public boolean f59173d;
 
     /* loaded from: classes4.dex */
     public class a implements d.a.m0.w.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f55485e;
+        public final /* synthetic */ b f59174e;
 
         public a(b bVar) {
-            this.f55485e = bVar;
+            this.f59174e = bVar;
         }
 
         @Override // d.a.m0.w.b
         public void onAction(d.a.m0.w.a aVar) {
             int size;
-            b bVar = this.f55485e;
+            b bVar = this.f59174e;
             if (bVar == null || bVar.a() == null || aVar == null) {
                 return;
             }
-            int i2 = aVar.f50841a;
+            int i2 = aVar.f54518a;
             if (i2 == 4) {
-                this.f55485e.m0(aVar.f50843c.toString());
-                Object obj = aVar.f50843c;
+                this.f59174e.m0(aVar.f54520c.toString());
+                Object obj = aVar.f54520c;
                 if (obj instanceof SpanGroupManager) {
-                    this.f55485e.q0((SpanGroupManager) obj);
+                    this.f59174e.q0((SpanGroupManager) obj);
                 }
-                c.this.f55483c = false;
+                c.this.f59172c = false;
             } else if (i2 == 18) {
-                if (aVar.f50843c != null) {
-                    this.f55485e.Q();
+                if (aVar.f54520c != null) {
+                    this.f59174e.Q();
                     return;
                 }
-                int t = this.f55485e.t();
+                int t = this.f59174e.t();
                 if (t == 0) {
-                    this.f55485e.J();
+                    this.f59174e.J();
                 } else if (t != 2) {
                 } else {
-                    this.f55485e.A();
+                    this.f59174e.A();
                 }
             } else if (i2 == 20) {
-                this.f55485e.a().A(new d.a.m0.w.a(2, 7, null));
+                this.f59174e.a().A(new d.a.m0.w.a(2, 7, null));
                 d.a.n0.e3.m0.b.a().f(true);
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             } else if (i2 == 32) {
-                this.f55485e.a().A(new d.a.m0.w.a(1, 11, null));
+                this.f59174e.a().A(new d.a.m0.w.a(1, 11, null));
             } else if (i2 == 36) {
-                if (c.this.i(this.f55485e.r(), 11040)) {
-                    this.f55485e.Z();
+                if (c.this.i(this.f59174e.r(), 11040)) {
+                    this.f59174e.Z();
                 }
             } else if (i2 == 7) {
                 l.L(TbadkCoreApplication.getInst().getContext(), R.string.over_limit_tip);
-                c.this.f55483c = true;
+                c.this.f59172c = true;
             } else if (i2 == 8) {
-                if (c.this.i(this.f55485e.r(), 11001)) {
-                    this.f55485e.L(null, null);
+                if (c.this.i(this.f59174e.r(), 11001)) {
+                    this.f59174e.L(null, null);
                 }
             } else if (i2 == 10) {
-                Object obj2 = aVar.f50843c;
+                Object obj2 = aVar.f54520c;
                 if (obj2 instanceof VoiceData$VoiceModel) {
-                    this.f55485e.t0((VoiceData$VoiceModel) obj2);
-                    this.f55485e.z(true, null);
+                    this.f59174e.t0((VoiceData$VoiceModel) obj2);
+                    this.f59174e.z(true, null);
                 }
             } else if (i2 != 11) {
                 switch (i2) {
                     case 14:
-                        AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.f55485e.r().getPageActivity(), this.f55485e.y().toJsonString(), true, true);
-                        if (!StringUtils.isNull(c.this.f55482b, true)) {
-                            albumFloatActivityConfig.getIntent().putExtra("forum_id", c.this.f55482b);
+                        AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.f59174e.r().getPageActivity(), this.f59174e.y().toJsonString(), true, true);
+                        if (!StringUtils.isNull(c.this.f59171b, true)) {
+                            albumFloatActivityConfig.getIntent().putExtra("forum_id", c.this.f59171b);
                         }
-                        albumFloatActivityConfig.setRequestCode(12002);
+                        albumFloatActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
                         if (d.a.m0.w.w.a.a().b() == 1) {
                             albumFloatActivityConfig.setRequestFrom(2);
-                            if (this.f55485e.y() != null) {
-                                this.f55485e.y().setMaxImagesAllowed(1);
+                            if (this.f59174e.y() != null) {
+                                this.f59174e.y().setMaxImagesAllowed(1);
                             }
-                        } else if (this.f55485e.y() != null) {
-                            this.f55485e.y().setMaxImagesAllowed(9);
+                        } else if (this.f59174e.y() != null) {
+                            this.f59174e.y().setMaxImagesAllowed(9);
                         }
-                        l.x(this.f55485e.r().getPageActivity(), this.f55485e.r().getPageActivity().getCurrentFocus());
+                        l.x(this.f59174e.r().getPageActivity(), this.f59174e.r().getPageActivity().getCurrentFocus());
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
                         return;
                     case 15:
-                        int intValue = ((Integer) aVar.f50843c).intValue();
-                        if (this.f55485e.y() != null && this.f55485e.y().getChosedFiles() != null && (size = this.f55485e.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f55485e.r().getPageActivity(), 12012, this.f55485e.y(), intValue)));
+                        int intValue = ((Integer) aVar.f54520c).intValue();
+                        if (this.f59174e.y() != null && this.f59174e.y().getChosedFiles() != null && (size = this.f59174e.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f59174e.r().getPageActivity(), 12012, this.f59174e.y(), intValue)));
                             return;
                         }
                         return;
                     case 16:
-                        if (c.this.f55483c) {
+                        if (c.this.f59172c) {
                             l.L(TbadkCoreApplication.getInst().getContext(), R.string.over_limit_tip);
                         }
-                        if (c.this.i(this.f55485e.r(), 11025)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.f55485e.r().getPageActivity(), 12004, true)));
+                        if (c.this.i(this.f59174e.r(), 11025)) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.f59174e.r().getPageActivity(), 12004, true)));
                             return;
                         }
                         return;
@@ -136,7 +137,7 @@ public class c extends d.a.m0.w.c {
                         return;
                 }
             } else {
-                this.f55485e.t0(null);
+                this.f59174e.t0(null);
             }
         }
     }
@@ -145,7 +146,7 @@ public class c extends d.a.m0.w.c {
     public e b(Context context) {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setBarMaxLauCount(5);
-        editorTools.setBarLauncherType(this.f55484d ? 2 : 3);
+        editorTools.setBarLauncherType(this.f59173d ? 2 : 3);
         editorTools.setBackgroundColorId(0);
         editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
         editorTools.setDeskBackgroundColorId(R.color.CAM_X0207);
@@ -180,7 +181,7 @@ public class c extends d.a.m0.w.c {
         CustomResponsedMessage runTask;
         m mVar;
         EditorTools a2 = eVar.a();
-        if (d.a.n0.e3.p0.c.a() && u.a(this.f55481a, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
+        if (d.a.n0.e3.p0.c.a() && u.a(this.f59170a, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
             mVar.j = 2;
             a2.d(mVar);
         }
@@ -189,13 +190,13 @@ public class c extends d.a.m0.w.c {
         a2.h(arrayList);
         m n = a2.n(5);
         if (n != null) {
-            n.f(!this.f55484d);
-            n.j = this.f55484d ? 1 : 3;
+            n.f(!this.f59173d);
+            n.j = this.f59173d ? 1 : 3;
         }
         d.a.m0.w.o.a aVar = new d.a.m0.w.o.a(a2.getContext(), 4);
-        aVar.f50853g = false;
+        aVar.f54530g = false;
         a2.d(aVar);
-        if (!this.f55484d) {
+        if (!this.f59173d) {
             a2.d(new d.a.m0.w.r.d(a2.getContext(), 1));
             CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), m.class);
             if (runTask2 != null && runTask2.getData() != null) {
@@ -226,7 +227,7 @@ public class c extends d.a.m0.w.c {
     }
 
     public void j(String str, String str2) {
-        this.f55481a = str;
-        this.f55482b = str2;
+        this.f59170a = str;
+        this.f59171b = str2;
     }
 }

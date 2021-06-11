@@ -15,31 +15,31 @@ public final class g {
     public static final /* synthetic */ boolean l = !g.class.desiredAssertionStatus();
 
     /* renamed from: b  reason: collision with root package name */
-    public long f65410b;
+    public long f69141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f65411c;
+    public final int f69142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final e f65412d;
+    public final e f69143d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.b.c.a.b.a.h.a> f65413e;
+    public List<d.b.c.a.b.a.h.a> f69144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f65414f;
+    public boolean f69145f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final b f65415g;
+    public final b f69146g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a f65416h;
+    public final a f69147h;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f65409a = 0;
+    public long f69140a = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c f65417i = new c();
+    public final c f69148i = new c();
     public final c j = new c();
     public com.bytedance.sdk.a.b.a.e.b k = null;
 
@@ -47,16 +47,16 @@ public final class g {
     public final class a implements p {
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ boolean f65418i = !g.class.desiredAssertionStatus();
+        public static final /* synthetic */ boolean f69149i = !g.class.desiredAssertionStatus();
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.b.c.a.a.c f65419e = new d.b.c.a.a.c();
+        public final d.b.c.a.a.c f69150e = new d.b.c.a.a.c();
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f65420f;
+        public boolean f69151f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f65421g;
+        public boolean f69152g;
 
         public a() {
         }
@@ -68,11 +68,11 @@ public final class g {
 
         @Override // d.b.c.a.a.p
         public void b(d.b.c.a.a.c cVar, long j) throws IOException {
-            if (!f65418i && Thread.holdsLock(g.this)) {
+            if (!f69149i && Thread.holdsLock(g.this)) {
                 throw new AssertionError();
             }
-            this.f65419e.b(cVar, j);
-            while (this.f65419e.v() >= 16384) {
+            this.f69150e.b(cVar, j);
+            while (this.f69150e.v() >= 16384) {
                 c(false);
             }
         }
@@ -81,17 +81,17 @@ public final class g {
             long min;
             synchronized (g.this) {
                 g.this.j.l();
-                while (g.this.f65410b <= 0 && !this.f65421g && !this.f65420f && g.this.k == null) {
+                while (g.this.f69141b <= 0 && !this.f69152g && !this.f69151f && g.this.k == null) {
                     g.this.s();
                 }
                 g.this.j.u();
                 g.this.r();
-                min = Math.min(g.this.f65410b, this.f65419e.v());
-                g.this.f65410b -= min;
+                min = Math.min(g.this.f69141b, this.f69150e.v());
+                g.this.f69141b -= min;
             }
             g.this.j.l();
             try {
-                g.this.f65412d.v(g.this.f65411c, z && min == this.f65419e.v(), this.f65419e, min);
+                g.this.f69143d.v(g.this.f69142c, z && min == this.f69150e.v(), this.f69150e, min);
             } finally {
                 g.this.j.u();
             }
@@ -99,42 +99,42 @@ public final class g {
 
         @Override // d.b.c.a.a.p, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (!f65418i && Thread.holdsLock(g.this)) {
+            if (!f69149i && Thread.holdsLock(g.this)) {
                 throw new AssertionError();
             }
             synchronized (g.this) {
-                if (this.f65420f) {
+                if (this.f69151f) {
                     return;
                 }
-                if (!g.this.f65416h.f65421g) {
-                    if (this.f65419e.v() > 0) {
-                        while (this.f65419e.v() > 0) {
+                if (!g.this.f69147h.f69152g) {
+                    if (this.f69150e.v() > 0) {
+                        while (this.f69150e.v() > 0) {
                             c(true);
                         }
                     } else {
                         g gVar = g.this;
-                        gVar.f65412d.v(gVar.f65411c, true, null, 0L);
+                        gVar.f69143d.v(gVar.f69142c, true, null, 0L);
                     }
                 }
                 synchronized (g.this) {
-                    this.f65420f = true;
+                    this.f69151f = true;
                 }
-                g.this.f65412d.C();
+                g.this.f69143d.C();
                 g.this.q();
             }
         }
 
         @Override // d.b.c.a.a.p, java.io.Flushable
         public void flush() throws IOException {
-            if (!f65418i && Thread.holdsLock(g.this)) {
+            if (!f69149i && Thread.holdsLock(g.this)) {
                 throw new AssertionError();
             }
             synchronized (g.this) {
                 g.this.r();
             }
-            while (this.f65419e.v() > 0) {
+            while (this.f69150e.v() > 0) {
                 c(false);
-                g.this.f65412d.C();
+                g.this.f69143d.C();
             }
         }
     }
@@ -170,25 +170,25 @@ public final class g {
             throw new NullPointerException("connection == null");
         }
         if (list != null) {
-            this.f65411c = i2;
-            this.f65412d = eVar;
-            this.f65410b = eVar.r.i();
-            this.f65415g = new b(eVar.q.i());
+            this.f69142c = i2;
+            this.f69143d = eVar;
+            this.f69141b = eVar.r.i();
+            this.f69146g = new b(eVar.q.i());
             a aVar = new a();
-            this.f65416h = aVar;
-            this.f65415g.f65427i = z2;
-            aVar.f65421g = z;
+            this.f69147h = aVar;
+            this.f69146g.f69158i = z2;
+            aVar.f69152g = z;
             return;
         }
         throw new NullPointerException("requestHeaders == null");
     }
 
     public int a() {
-        return this.f65411c;
+        return this.f69142c;
     }
 
     public void b(long j) {
-        this.f65410b += j;
+        this.f69141b += j;
         if (j > 0) {
             notifyAll();
         }
@@ -198,12 +198,12 @@ public final class g {
         if (!l && Thread.holdsLock(this)) {
             throw new AssertionError();
         }
-        this.f65415g.c(eVar, i2);
+        this.f69146g.c(eVar, i2);
     }
 
     public void d(com.bytedance.sdk.a.b.a.e.b bVar) throws IOException {
         if (k(bVar)) {
-            this.f65412d.D(this.f65411c, bVar);
+            this.f69143d.D(this.f69142c, bVar);
         }
     }
 
@@ -214,28 +214,28 @@ public final class g {
         }
         synchronized (this) {
             z = true;
-            this.f65414f = true;
-            if (this.f65413e == null) {
-                this.f65413e = list;
+            this.f69145f = true;
+            if (this.f69144e == null) {
+                this.f69144e = list;
                 z = g();
                 notifyAll();
             } else {
                 ArrayList arrayList = new ArrayList();
-                arrayList.addAll(this.f65413e);
+                arrayList.addAll(this.f69144e);
                 arrayList.add(null);
                 arrayList.addAll(list);
-                this.f65413e = arrayList;
+                this.f69144e = arrayList;
             }
         }
         if (z) {
             return;
         }
-        this.f65412d.A(this.f65411c);
+        this.f69143d.A(this.f69142c);
     }
 
     public void f(com.bytedance.sdk.a.b.a.e.b bVar) {
         if (k(bVar)) {
-            this.f65412d.s(this.f65411c, bVar);
+            this.f69143d.s(this.f69142c, bVar);
         }
     }
 
@@ -243,8 +243,8 @@ public final class g {
         if (this.k != null) {
             return false;
         }
-        if ((this.f65415g.f65427i || this.f65415g.f65426h) && (this.f65416h.f65421g || this.f65416h.f65420f)) {
-            if (this.f65414f) {
+        if ((this.f69146g.f69158i || this.f69146g.f69157h) && (this.f69147h.f69152g || this.f69147h.f69151f)) {
+            if (this.f69145f) {
                 return false;
             }
         }
@@ -259,20 +259,20 @@ public final class g {
     }
 
     public boolean i() {
-        return this.f65412d.f65355e == ((this.f65411c & 1) == 1);
+        return this.f69143d.f69086e == ((this.f69142c & 1) == 1);
     }
 
     public synchronized List<d.b.c.a.b.a.h.a> j() throws IOException {
         List<d.b.c.a.b.a.h.a> list;
         if (i()) {
-            this.f65417i.l();
-            while (this.f65413e == null && this.k == null) {
+            this.f69148i.l();
+            while (this.f69144e == null && this.k == null) {
                 s();
             }
-            this.f65417i.u();
-            list = this.f65413e;
+            this.f69148i.u();
+            list = this.f69144e;
             if (list != null) {
-                this.f65413e = null;
+                this.f69144e = null;
             } else {
                 throw new o(this.k);
             }
@@ -288,12 +288,12 @@ public final class g {
                 if (this.k != null) {
                     return false;
                 }
-                if (this.f65415g.f65427i && this.f65416h.f65421g) {
+                if (this.f69146g.f69158i && this.f69147h.f69152g) {
                     return false;
                 }
                 this.k = bVar;
                 notifyAll();
-                this.f65412d.A(this.f65411c);
+                this.f69143d.A(this.f69142c);
                 return true;
             }
         }
@@ -301,7 +301,7 @@ public final class g {
     }
 
     public r l() {
-        return this.f65417i;
+        return this.f69148i;
     }
 
     public r m() {
@@ -309,16 +309,16 @@ public final class g {
     }
 
     public q n() {
-        return this.f65415g;
+        return this.f69146g;
     }
 
     public p o() {
         synchronized (this) {
-            if (!this.f65414f && !i()) {
+            if (!this.f69145f && !i()) {
                 throw new IllegalStateException("reply before requesting the sink");
             }
         }
-        return this.f65416h;
+        return this.f69147h;
     }
 
     public void p() {
@@ -327,14 +327,14 @@ public final class g {
             throw new AssertionError();
         }
         synchronized (this) {
-            this.f65415g.f65427i = true;
+            this.f69146g.f69158i = true;
             g2 = g();
             notifyAll();
         }
         if (g2) {
             return;
         }
-        this.f65412d.A(this.f65411c);
+        this.f69143d.A(this.f69142c);
     }
 
     public void q() throws IOException {
@@ -344,21 +344,21 @@ public final class g {
             throw new AssertionError();
         }
         synchronized (this) {
-            z = !this.f65415g.f65427i && this.f65415g.f65426h && (this.f65416h.f65421g || this.f65416h.f65420f);
+            z = !this.f69146g.f69158i && this.f69146g.f69157h && (this.f69147h.f69152g || this.f69147h.f69151f);
             g2 = g();
         }
         if (z) {
             d(com.bytedance.sdk.a.b.a.e.b.CANCEL);
         } else if (g2) {
         } else {
-            this.f65412d.A(this.f65411c);
+            this.f69143d.A(this.f69142c);
         }
     }
 
     public void r() throws IOException {
-        a aVar = this.f65416h;
-        if (!aVar.f65420f) {
-            if (!aVar.f65421g) {
+        a aVar = this.f69147h;
+        if (!aVar.f69151f) {
+            if (!aVar.f69152g) {
                 if (this.k != null) {
                     throw new o(this.k);
                 }
@@ -382,22 +382,22 @@ public final class g {
         public static final /* synthetic */ boolean k = !g.class.desiredAssertionStatus();
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.b.c.a.a.c f65423e = new d.b.c.a.a.c();
+        public final d.b.c.a.a.c f69154e = new d.b.c.a.a.c();
 
         /* renamed from: f  reason: collision with root package name */
-        public final d.b.c.a.a.c f65424f = new d.b.c.a.a.c();
+        public final d.b.c.a.a.c f69155f = new d.b.c.a.a.c();
 
         /* renamed from: g  reason: collision with root package name */
-        public final long f65425g;
+        public final long f69156g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f65426h;
+        public boolean f69157h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f65427i;
+        public boolean f69158i;
 
         public b(long j) {
-            this.f65425g = j;
+            this.f69156g = j;
         }
 
         @Override // d.b.c.a.a.q
@@ -406,20 +406,20 @@ public final class g {
                 synchronized (g.this) {
                     n();
                     o();
-                    if (this.f65424f.v() == 0) {
+                    if (this.f69155f.v() == 0) {
                         return -1L;
                     }
-                    long a2 = this.f65424f.a(cVar, Math.min(j, this.f65424f.v()));
-                    g.this.f65409a += a2;
-                    if (g.this.f65409a >= g.this.f65412d.q.i() / 2) {
-                        g.this.f65412d.q(g.this.f65411c, g.this.f65409a);
-                        g.this.f65409a = 0L;
+                    long a2 = this.f69155f.a(cVar, Math.min(j, this.f69155f.v()));
+                    g.this.f69140a += a2;
+                    if (g.this.f69140a >= g.this.f69143d.q.i() / 2) {
+                        g.this.f69143d.q(g.this.f69142c, g.this.f69140a);
+                        g.this.f69140a = 0L;
                     }
-                    synchronized (g.this.f65412d) {
-                        g.this.f65412d.o += a2;
-                        if (g.this.f65412d.o >= g.this.f65412d.q.i() / 2) {
-                            g.this.f65412d.q(0, g.this.f65412d.o);
-                            g.this.f65412d.o = 0L;
+                    synchronized (g.this.f69143d) {
+                        g.this.f69143d.o += a2;
+                        if (g.this.f69143d.o >= g.this.f69143d.q.i() / 2) {
+                            g.this.f69143d.q(0, g.this.f69143d.o);
+                            g.this.f69143d.o = 0L;
                         }
                     }
                     return a2;
@@ -437,9 +437,9 @@ public final class g {
             }
             while (j > 0) {
                 synchronized (g.this) {
-                    z = this.f65427i;
+                    z = this.f69158i;
                     z2 = true;
-                    z3 = this.f65424f.v() + j > this.f65425g;
+                    z3 = this.f69155f.v() + j > this.f69156g;
                 }
                 if (z3) {
                     eVar.g(j);
@@ -449,14 +449,14 @@ public final class g {
                     eVar.g(j);
                     return;
                 } else {
-                    long a2 = eVar.a(this.f65423e, j);
+                    long a2 = eVar.a(this.f69154e, j);
                     if (a2 != -1) {
                         j -= a2;
                         synchronized (g.this) {
-                            if (this.f65424f.v() != 0) {
+                            if (this.f69155f.v() != 0) {
                                 z2 = false;
                             }
-                            this.f65424f.l(this.f65423e);
+                            this.f69155f.l(this.f69154e);
                             if (z2) {
                                 g.this.notifyAll();
                             }
@@ -471,26 +471,26 @@ public final class g {
         @Override // d.b.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             synchronized (g.this) {
-                this.f65426h = true;
-                this.f65424f.L();
+                this.f69157h = true;
+                this.f69155f.L();
                 g.this.notifyAll();
             }
             g.this.q();
         }
 
         public final void n() throws IOException {
-            g.this.f65417i.l();
-            while (this.f65424f.v() == 0 && !this.f65427i && !this.f65426h && g.this.k == null) {
+            g.this.f69148i.l();
+            while (this.f69155f.v() == 0 && !this.f69158i && !this.f69157h && g.this.k == null) {
                 try {
                     g.this.s();
                 } finally {
-                    g.this.f65417i.u();
+                    g.this.f69148i.u();
                 }
             }
         }
 
         public final void o() throws IOException {
-            if (!this.f65426h) {
+            if (!this.f69157h) {
                 if (g.this.k != null) {
                     throw new o(g.this.k);
                 }
@@ -501,7 +501,7 @@ public final class g {
 
         @Override // d.b.c.a.a.q
         public r a() {
-            return g.this.f65417i;
+            return g.this.f69148i;
         }
     }
 }

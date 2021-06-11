@@ -8,31 +8,31 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48408a;
+    public String f52082a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48409b;
+    public int f52083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f48410c;
+    public String f52084c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f48411d;
+    public JSONObject f52085d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f48412e;
+    public long f52086e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f48413f;
+    public long f52087f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48414g;
+    public int f52088g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48415h;
+    public String f52089h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48416i;
+    public String f52090i;
     public String j;
     public JSONArray k;
     public boolean l = false;
@@ -41,8 +41,8 @@ public class k {
     }
 
     public void a() {
-        if (d.g().a(this.f48408a)) {
-            this.f48416i = e.h().h();
+        if (d.g().a(this.f52082a)) {
+            this.f52090i = e.h().h();
         }
     }
 
@@ -58,9 +58,9 @@ public class k {
     }
 
     public k(String str, int i2, String str2, int i3, boolean z) {
-        this.f48408a = str;
-        this.f48409b = i2;
-        this.f48410c = str2;
-        this.f48414g = i3;
+        this.f52082a = str;
+        this.f52083b = i2;
+        this.f52084c = str2;
+        this.f52088g = i3;
     }
 }

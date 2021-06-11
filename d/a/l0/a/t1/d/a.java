@@ -7,10 +7,10 @@ import d.a.l0.a.k;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44789a = k.f43199a;
+    public static final boolean f48463a = k.f46875a;
 
     public static void a(String str) {
-        if (!f44789a || TextUtils.isEmpty(str)) {
+        if (!f48463a || TextUtils.isEmpty(str)) {
             return;
         }
         d.g("Module-Plugin", str);

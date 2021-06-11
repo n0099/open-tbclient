@@ -21,63 +21,63 @@ import d.a.l0.a.v2.q0;
 public class b extends PopupWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public SwanAppActivity f45994a;
+    public SwanAppActivity f49668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EditText f45995b;
+    public EditText f49669b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f45996c;
+    public String[] f49670c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45997d;
+    public int f49671d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f45998e;
+    public d f49672e;
 
     /* loaded from: classes3.dex */
     public class a implements AdapterView.OnItemClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f45999e;
+        public final /* synthetic */ int f49673e;
 
         public a(int i2) {
-            this.f45999e = i2;
+            this.f49673e = i2;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            int selectionStart = b.this.f45995b.getSelectionStart();
-            Editable text = b.this.f45995b.getText();
+            int selectionStart = b.this.f49669b.getSelectionStart();
+            Editable text = b.this.f49669b.getText();
             if (i2 == 11) {
                 if (selectionStart <= 0 || text == null || text.length() <= 0) {
                     return;
                 }
                 int i3 = selectionStart - 1;
                 text.delete(i3, selectionStart);
-                b.this.f45995b.setText(text);
-                b.this.f45995b.setSelection(i3);
+                b.this.f49669b.setText(text);
+                b.this.f49669b.setSelection(i3);
                 return;
             }
             int length = text.length();
-            int i4 = this.f45999e;
+            int i4 = this.f49673e;
             if (length < i4 || i4 < 0) {
-                text.insert(selectionStart, b.this.f45996c[i2]);
-                b.this.f45995b.setText(text);
-                b.this.f45995b.setSelection(selectionStart + b.this.f45996c[i2].length());
+                text.insert(selectionStart, b.this.f49670c[i2]);
+                b.this.f49669b.setText(text);
+                b.this.f49669b.setSelection(selectionStart + b.this.f49670c[i2].length());
             }
         }
     }
 
     /* renamed from: d.a.l0.a.z0.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0929b implements Runnable {
+    public class RunnableC0985b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GridView f46001e;
+        public final /* synthetic */ GridView f49675e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdapterView.OnItemClickListener f46002f;
+        public final /* synthetic */ AdapterView.OnItemClickListener f49676f;
 
         /* renamed from: d.a.l0.a.z0.f.b$b$a */
         /* loaded from: classes3.dex */
@@ -88,29 +88,29 @@ public class b extends PopupWindow {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                RunnableC0929b runnableC0929b = RunnableC0929b.this;
-                runnableC0929b.f46002f.onItemClick(runnableC0929b.f46001e, view, intValue, intValue);
+                RunnableC0985b runnableC0985b = RunnableC0985b.this;
+                runnableC0985b.f49676f.onItemClick(runnableC0985b.f49675e, view, intValue, intValue);
             }
         }
 
-        public RunnableC0929b(b bVar, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
-            this.f46001e = gridView;
-            this.f46002f = onItemClickListener;
+        public RunnableC0985b(b bVar, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
+            this.f49675e = gridView;
+            this.f49676f = onItemClickListener;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int childCount = this.f46001e.getChildCount();
+            int childCount = this.f49675e.getChildCount();
             if (childCount > 0) {
-                this.f46001e.setClickable(false);
+                this.f49675e.setClickable(false);
                 for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = this.f46001e.getChildAt(i2);
+                    View childAt = this.f49675e.getChildAt(i2);
                     childAt.setTag(Integer.valueOf(i2));
                     childAt.setOnClickListener(new a());
                 }
                 return;
             }
-            this.f46001e.setOnItemClickListener(this.f46002f);
+            this.f49675e.setOnItemClickListener(this.f49676f);
         }
     }
 
@@ -122,7 +122,7 @@ public class b extends PopupWindow {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b.this.dismiss();
-            b.this.f45995b.clearFocus();
+            b.this.f49669b.clearFocus();
         }
     }
 
@@ -135,7 +135,7 @@ public class b extends PopupWindow {
 
     public b(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i2, int i3) {
         super(swanAppActivity);
-        this.f45996c = new String[12];
+        this.f49670c = new String[12];
         c(i2);
         d(swanAppActivity, editText, i3);
     }
@@ -144,58 +144,58 @@ public class b extends PopupWindow {
         int i3 = 0;
         while (i3 < 9) {
             int i4 = i3 + 1;
-            this.f45996c[i3] = String.valueOf(i4);
+            this.f49670c[i3] = String.valueOf(i4);
             i3 = i4;
         }
         if (i2 == 1) {
-            this.f45996c[9] = "X";
+            this.f49670c[9] = "X";
         } else if (i2 == 0) {
-            this.f45996c[9] = "";
+            this.f49670c[9] = "";
         } else if (i2 == 2) {
-            this.f45996c[9] = ".";
+            this.f49670c[9] = ".";
         }
-        this.f45996c[10] = "0";
+        this.f49670c[10] = "0";
     }
 
     public final void d(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i2) {
-        this.f45994a = swanAppActivity;
-        this.f45995b = editText;
+        this.f49668a = swanAppActivity;
+        this.f49669b = editText;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(g.aiapps_keyboard_layout, (ViewGroup) null);
-        this.f45997d = swanAppActivity.getResources().getDimensionPixelOffset(d.a.l0.a.d.aiapps_keyboard_total_height);
+        this.f49671d = swanAppActivity.getResources().getDimensionPixelOffset(d.a.l0.a.d.aiapps_keyboard_total_height);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         GridView gridView = (GridView) linearLayout.findViewById(f.keyboard_grid_view);
-        gridView.setAdapter((ListAdapter) new d.a.l0.a.z0.f.a(swanAppActivity, this.f45996c));
-        q0.X(new RunnableC0929b(this, gridView, new a(i2)));
+        gridView.setAdapter((ListAdapter) new d.a.l0.a.z0.f.a(swanAppActivity, this.f49670c));
+        q0.X(new RunnableC0985b(this, gridView, new a(i2)));
         ImageView imageView = (ImageView) linearLayout.findViewById(f.close_btn);
         imageView.setOnClickListener(new c());
         imageView.setClickable(true);
         setContentView(linearLayout);
         setWidth(-1);
-        setHeight(this.f45997d);
+        setHeight(this.f49671d);
         setBackgroundDrawable(new BitmapDrawable());
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
         super.dismiss();
-        d dVar = this.f45998e;
+        d dVar = this.f49672e;
         if (dVar != null) {
             dVar.a();
         }
     }
 
     public void e(@NonNull d dVar) {
-        this.f45998e = dVar;
+        this.f49672e = dVar;
     }
 
     public void f() {
         if (isShowing()) {
             return;
         }
-        showAtLocation(this.f45994a.getWindow().getDecorView(), 80, 0, 0);
-        d dVar = this.f45998e;
+        showAtLocation(this.f49668a.getWindow().getDecorView(), 80, 0, 0);
+        d dVar = this.f49672e;
         if (dVar != null) {
-            dVar.b(this.f45997d);
+            dVar.b(this.f49671d);
         }
     }
 }

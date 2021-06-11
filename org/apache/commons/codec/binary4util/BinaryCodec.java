@@ -4,7 +4,7 @@ import org.apache.commons.base.BinaryDecoder;
 import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public static final int BIT_0 = 1;
     public static final int BIT_1 = 2;

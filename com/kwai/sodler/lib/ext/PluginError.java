@@ -1,5 +1,5 @@
 package com.kwai.sodler.lib.ext;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class PluginError extends Exception {
     public static final int ERROR_INS_CAPACITY = 3005;
     public static final int ERROR_INS_INSTALL = 3004;
@@ -27,14 +27,14 @@ public abstract class PluginError extends Exception {
     public static final int ERROR_UPD_REQUEST = 2006;
     public final int mCode;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class CancelError extends PluginError {
         public CancelError(int i2) {
             super("Operation was canceled.", i2);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class InstallError extends PluginError {
         public InstallError(String str, int i2) {
             super(str, i2);
@@ -45,7 +45,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class LoadError extends PluginError {
         public LoadError(String str, int i2) {
             super(str, i2);
@@ -57,7 +57,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class NotWifiDownloadError extends PluginError {
         public NotWifiDownloadError(String str, int i2) {
             super(str, i2);
@@ -69,14 +69,14 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class RetryError extends PluginError {
         public RetryError() {
             super("Reach max retry.", 1001);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class UpdateError extends PluginError {
         public UpdateError(String str, int i2) {
             super(str, i2);

@@ -10,16 +10,16 @@ public class LoadHistoryMessage extends CustomMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17276a;
+        public String f17352a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17277b;
+        public String f17353b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f17278c;
+        public int f17354c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f17279d;
+        public String f17355d;
     }
 
     public LoadHistoryMessage(int i2, a aVar) {

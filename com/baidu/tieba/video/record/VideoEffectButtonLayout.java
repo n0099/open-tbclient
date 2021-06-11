@@ -8,24 +8,24 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.a.n0.r3.m.i;
+import d.a.n0.r3.l.i;
 /* loaded from: classes5.dex */
 public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, i.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f21375e;
+    public ImageView f21453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f21376f;
+    public ImageView f21454f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f21377g;
+    public ImageView f21455g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f21378h;
+    public ImageView f21456h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f21379i;
+    public LinearLayout f21457i;
     public LinearLayout j;
     public LinearLayout k;
     public LinearLayout l;
@@ -48,29 +48,29 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         b();
     }
 
-    @Override // d.a.n0.r3.m.i.b
+    @Override // d.a.n0.r3.l.i.b
     public void a(int i2) {
         if (i2 == 1) {
-            this.f21375e.setImageResource(R.drawable.icon_video_music);
+            this.f21453e.setImageResource(R.drawable.icon_video_music);
         } else {
-            this.f21375e.setImageResource(R.drawable.icon_video_music_disable);
+            this.f21453e.setImageResource(R.drawable.icon_video_music_disable);
         }
     }
 
     public final void b() {
         LinearLayout.inflate(getContext(), R.layout.layout_video_effect_button, this);
-        this.f21379i = (LinearLayout) findViewById(R.id.layout_music);
+        this.f21457i = (LinearLayout) findViewById(R.id.layout_music);
         this.j = (LinearLayout) findViewById(R.id.layout_sticker);
         this.k = (LinearLayout) findViewById(R.id.layout_beauty);
         this.l = (LinearLayout) findViewById(R.id.layout_filter);
-        this.f21375e = (ImageView) findViewById(R.id.img_music);
-        this.f21376f = (ImageView) findViewById(R.id.img_sticker);
-        this.f21377g = (ImageView) findViewById(R.id.img_beauty);
-        this.f21378h = (ImageView) findViewById(R.id.img_filter);
-        this.f21375e.setOnClickListener(this);
-        this.f21376f.setOnClickListener(this);
-        this.f21377g.setOnClickListener(this);
-        this.f21378h.setOnClickListener(this);
+        this.f21453e = (ImageView) findViewById(R.id.img_music);
+        this.f21454f = (ImageView) findViewById(R.id.img_sticker);
+        this.f21455g = (ImageView) findViewById(R.id.img_beauty);
+        this.f21456h = (ImageView) findViewById(R.id.img_filter);
+        this.f21453e.setOnClickListener(this);
+        this.f21454f.setOnClickListener(this);
+        this.f21455g.setOnClickListener(this);
+        this.f21456h.setOnClickListener(this);
     }
 
     public void c() {
@@ -106,20 +106,20 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     public void setViewChoosed(int i2, boolean z) {
         if (i2 == 0) {
-            this.f21375e.setSelected(z);
+            this.f21453e.setSelected(z);
         } else if (i2 == 1) {
-            this.f21376f.setSelected(z);
+            this.f21454f.setSelected(z);
         } else if (i2 == 2) {
-            this.f21377g.setSelected(z);
+            this.f21455g.setSelected(z);
         } else if (i2 != 3) {
         } else {
-            this.f21378h.setSelected(z);
+            this.f21456h.setSelected(z);
         }
     }
 
     public void setViewVisibility(int i2, int i3) {
         if (i2 == 0) {
-            this.f21379i.setVisibility(i3);
+            this.f21457i.setVisibility(i3);
         } else if (i2 == 1) {
             this.j.setVisibility(i3);
         } else if (i2 == 2) {

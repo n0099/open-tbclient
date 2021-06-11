@@ -6,7 +6,7 @@ import org.apache.http.ProtocolException;
 import org.apache.http.client.RedirectHandler;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultRedirectHandler implements RedirectHandler {
     public DefaultRedirectHandler() {
         throw new RuntimeException("Stub!");

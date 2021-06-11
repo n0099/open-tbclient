@@ -6,43 +6,43 @@ import java.util.HashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f36235a;
+    public static b f39914a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ boolean f36236d = !b.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f39915d = !b.class.desiredAssertionStatus();
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f36237e = 0;
+    public static int f39916e = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, a> f36238b = new HashMap<>();
+    public HashMap<String, a> f39917b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f36239c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    public final String f39918c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public IUiListener f36240a;
+        public IUiListener f39919a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.tencent.connect.auth.a f36241b;
+        public com.tencent.connect.auth.a f39920b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f36242c;
+        public String f39921c;
     }
 
     public static b a() {
-        if (f36235a == null) {
-            f36235a = new b();
+        if (f39914a == null) {
+            f39914a = new b();
         }
-        return f36235a;
+        return f39914a;
     }
 
     public static int b() {
-        int i2 = f36237e + 1;
-        f36237e = i2;
+        int i2 = f39916e + 1;
+        f39916e = i2;
         return i2;
     }
 
@@ -60,7 +60,7 @@ public class b {
     public String a(a aVar) {
         int b2 = b();
         try {
-            HashMap<String, a> hashMap = this.f36238b;
+            HashMap<String, a> hashMap = this.f39917b;
             hashMap.put("" + b2, aVar);
         } catch (Throwable th) {
             th.printStackTrace();

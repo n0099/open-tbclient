@@ -1,158 +1,96 @@
 package d.a.n0.b1.c;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.homepage.concern.message.ConcernNetModel;
-import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
-import tbclient.Personalized.DataRes;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import d.a.m0.r.q.a2;
+import java.util.List;
+import tbclient.DiscoverHotForum;
+import tbclient.DiscoverTabCard;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class c {
+    public static void a(a2 a2Var, int i2) {
+        TiebaStatic.log(i2 != 1 ? null : d.a.n0.d3.a.n("c13692", a2Var, 3));
+    }
 
-    /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<BaseFragmentActivity> f51414a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f51415b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public RecPersonalizePageModel f51416c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ConcernNetModel f51417d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public d f51418e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public RecPersonalizePageModel.b f51419f = new a();
-
-    /* renamed from: g  reason: collision with root package name */
-    public ConcernNetModel.d f51420g = new b();
-
-    /* renamed from: h  reason: collision with root package name */
-    public ConcernNetModel.c f51421h = new C1190c();
-
-    /* loaded from: classes4.dex */
-    public class a implements RecPersonalizePageModel.b {
-        public a() {
+    public static void b(View view, d.a.m0.r.q.a aVar, int i2) {
+        if (view == null || aVar == null || aVar.i() == null || StringUtils.isNull(aVar.i().z1())) {
+            return;
         }
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
+        a2 i3 = aVar.i();
+        if (i3.i2()) {
+            statisticItem.param("obj_type", 4);
+        } else if (i3.u1) {
+            statisticItem.param("obj_type", 5);
+        } else if (i3.R1()) {
+            statisticItem.param("obj_type", 6);
+        } else if (i3.S1()) {
+            statisticItem.param("obj_type", 7);
+        } else if (i3.U1()) {
+            statisticItem.param("obj_type", 8);
+        } else if (i3.T1()) {
+            statisticItem.param("obj_type", 9);
+        } else if (i3.getType() == a2.M2) {
+            statisticItem.param("obj_type", 1);
+        } else if (i3.D2()) {
+            statisticItem.param("obj_type", 2);
+        }
+        statisticItem.param("obj_locate", i2);
+        statisticItem.param("tid", aVar.i().z1());
+        statisticItem.param("fid", aVar.i().c0());
+        statisticItem.param("obj_source", 1);
+        if (aVar instanceof d.a.n0.z.e0.b) {
+            statisticItem.param("obj_param1", ((d.a.n0.z.e0.b) aVar).P() ? 2 : 1);
+        }
+        if (aVar.i().T() != null) {
+            statisticItem.param("uid", aVar.i().T().getUserId());
+        }
+        if (i3.V() != null) {
+            statisticItem.param("obj_id", i3.V().oriUgcNid);
+        } else {
+            statisticItem.param("obj_id", i3.z1());
+        }
+        if (aVar.i().s1() != null) {
+            int calculateLiveType = YYLiveUtil.calculateLiveType(aVar.i().s1());
+            if (aVar.i().s1().mYyExtData != null) {
+                TiebaStaticHelper.addYYParam(statisticItem, aVar.i().s1().mYyExtData);
+            }
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
+        }
+        TiebaStatic.log(statisticItem);
+        a(i3, i2);
+    }
 
-        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.b
-        public void a(int i2, String str) {
-            if (c.this.f51418e != null) {
-                c.this.f51418e.c("", str, i2, false, 1);
+    public static boolean c(DiscoverHotForum.Builder builder, long j, boolean z) {
+        if (j != 0 && builder != null) {
+            List<DiscoverTabCard> list = builder.tab_list;
+            if (ListUtils.isEmpty(list)) {
+                return false;
+            }
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                DiscoverTabCard.Builder builder2 = new DiscoverTabCard.Builder(list.get(i2));
+                List<RecommendForumInfo> list2 = builder2.forum_list;
+                if (!ListUtils.isEmpty(list2)) {
+                    for (int i3 = 0; i3 < list2.size(); i3++) {
+                        RecommendForumInfo.Builder builder3 = new RecommendForumInfo.Builder(list2.get(i3));
+                        if (builder3.forum_id.longValue() == j && builder3.is_like.intValue() != z) {
+                            builder3.is_like = Integer.valueOf(z ? 1 : 0);
+                            list2.set(i3, builder3.build(true));
+                            list.set(i2, builder2.build(true));
+                            return true;
+                        }
+                    }
+                    continue;
+                }
             }
         }
-
-        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.b
-        public void b(DataRes dataRes, boolean z, boolean z2) {
-            if (c.this.f51418e != null) {
-                c.this.f51418e.b(dataRes, z, z2);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements ConcernNetModel.d {
-        public b() {
-        }
-
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.d
-        public void a(int i2, String str) {
-            if (c.this.f51418e != null) {
-                c.this.f51418e.c("", str, i2, false, 0);
-            }
-        }
-
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.d
-        public void b(tbclient.Userlike.DataRes dataRes, boolean z) {
-            if (c.this.f51418e != null) {
-                c.this.f51418e.d(dataRes, z);
-            }
-        }
-    }
-
-    /* renamed from: d.a.n0.b1.c.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1190c implements ConcernNetModel.c {
-        public C1190c() {
-        }
-
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.c
-        public void a(boolean z) {
-            if (c.this.f51418e != null) {
-                c.this.f51418e.a(z);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface d {
-        void a(boolean z);
-
-        void b(DataRes dataRes, boolean z, boolean z2);
-
-        void c(String str, String str2, int i2, boolean z, int i3);
-
-        void d(tbclient.Userlike.DataRes dataRes, boolean z);
-
-        void e(boolean z, d.a.n0.b1.h.a.a aVar, boolean z2, String str, String str2, boolean z3);
-    }
-
-    public c(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
-        this.f51414a = tbPageContext;
-        this.f51415b = bdUniqueId;
-        RecPersonalizePageModel recPersonalizePageModel = new RecPersonalizePageModel(tbPageContext, bdUniqueId);
-        this.f51416c = recPersonalizePageModel;
-        recPersonalizePageModel.C(this.f51419f);
-        ConcernNetModel concernNetModel = new ConcernNetModel(tbPageContext, bdUniqueId);
-        this.f51417d = concernNetModel;
-        concernNetModel.A(this.f51420g);
-        this.f51417d.z(this.f51421h);
-    }
-
-    public void b(boolean z) {
-        ConcernNetModel concernNetModel = this.f51417d;
-        if (concernNetModel != null) {
-            concernNetModel.v(z);
-        }
-    }
-
-    public TbPageContext<BaseFragmentActivity> c() {
-        return this.f51414a;
-    }
-
-    public d.a.n0.k1.s.a d() {
-        return null;
-    }
-
-    public d e() {
-        return this.f51418e;
-    }
-
-    public BdUniqueId f() {
-        return this.f51415b;
-    }
-
-    public void g(String str, d.a.m0.z0.c cVar) {
-        ConcernNetModel concernNetModel = this.f51417d;
-        if (concernNetModel != null) {
-            concernNetModel.w(str, cVar);
-        }
-    }
-
-    public void h(int i2, int i3, d.a.m0.z0.c cVar, int i4, int i5) {
-        RecPersonalizePageModel recPersonalizePageModel = this.f51416c;
-        if (recPersonalizePageModel != null) {
-            recPersonalizePageModel.v(i2, i3, cVar, i4, i5);
-        }
-    }
-
-    public void i(d.a.n0.k1.s.a aVar) {
-    }
-
-    public void j(d dVar) {
-        this.f51418e = dVar;
+        return false;
     }
 }

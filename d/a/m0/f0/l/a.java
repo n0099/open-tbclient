@@ -13,7 +13,7 @@ public class a implements b<AgreeEvent> {
     public boolean onEvent(AgreeEvent agreeEvent) {
         if (agreeEvent != null && agreeEvent.agreeData != null) {
             e eVar = new e();
-            eVar.f53997b = agreeEvent.agreeData;
+            eVar.f57686b = agreeEvent.agreeData;
             String str = agreeEvent.agreeExtra;
             if (AgreeEvent.IS_THREAD.equals(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, eVar));

@@ -15,10 +15,10 @@ import d.a.n0.z.b0;
 public class d extends a {
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f53241f;
+    public LinearLayout f56930f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f53242g;
+    public TextView f56931g;
 
     public d(TbPageContext tbPageContext, int i2) {
         super(tbPageContext);
@@ -26,30 +26,30 @@ public class d extends a {
 
     @Override // d.a.n0.e2.k.e.d1.a
     public View a() {
-        LinearLayout linearLayout = (LinearLayout) this.f53225a.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
-        this.f53241f = linearLayout;
-        this.f53242g = (TextView) linearLayout.findViewById(R.id.text);
-        return this.f53241f;
+        LinearLayout linearLayout = (LinearLayout) this.f56914a.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
+        this.f56930f = linearLayout;
+        this.f56931g = (TextView) linearLayout.findViewById(R.id.text);
+        return this.f56930f;
     }
 
     @Override // d.a.n0.e2.k.e.d1.a
     public void b(TbPageContext tbPageContext, int i2) {
-        if (this.f53229e != i2) {
-            this.f53229e = i2;
-            SkinManager.setBackgroundColor(this.f53241f, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f53242g, R.color.CAM_X0105);
+        if (this.f56918e != i2) {
+            this.f56918e = i2;
+            SkinManager.setBackgroundColor(this.f56930f, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.f56931g, R.color.CAM_X0105);
         }
     }
 
     @Override // d.a.n0.e2.k.e.d1.a
     public void c(OriginalThreadInfo originalThreadInfo) {
-        this.f53242g.setText(new SpannableString(originalThreadInfo.f12039g));
-        SkinManager.setViewTextColor(this.f53242g, R.color.CAM_X0105);
+        this.f56931g.setText(new SpannableString(originalThreadInfo.f12101g));
+        SkinManager.setViewTextColor(this.f56931g, R.color.CAM_X0105);
     }
 
     @Override // d.a.n0.e2.k.e.d1.a
-    public void d(a.InterfaceC0542a interfaceC0542a) {
-        super.d(interfaceC0542a);
+    public void d(a.InterfaceC0598a interfaceC0598a) {
+        super.d(interfaceC0598a);
     }
 
     @Override // d.a.n0.e2.k.e.d1.a

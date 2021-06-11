@@ -10,43 +10,43 @@ import java.util.Arrays;
 public class b implements Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f8034a = !b.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f8096a = !b.class.desiredAssertionStatus();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ObjectStreamField[] f8035b = {new ObjectStreamField("bits", long[].class)};
+    public static final ObjectStreamField[] f8097b = {new ObjectStreamField("bits", long[].class)};
 
     /* renamed from: c  reason: collision with root package name */
-    public long[] f8036c;
+    public long[] f8098c;
 
     /* renamed from: d  reason: collision with root package name */
-    public transient int f8037d;
+    public transient int f8099d;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient boolean f8038e;
+    public transient boolean f8100e;
 
     public b() {
-        this.f8037d = 0;
-        this.f8038e = false;
+        this.f8099d = 0;
+        this.f8100e = false;
         g(64);
-        this.f8038e = false;
+        this.f8100e = false;
     }
 
     public b(int i2) {
-        this.f8037d = 0;
-        this.f8038e = false;
+        this.f8099d = 0;
+        this.f8100e = false;
         if (i2 >= 0) {
             g(i2);
-            this.f8038e = true;
+            this.f8100e = true;
             return;
         }
         throw new NegativeArraySizeException("nbits < 0: " + i2);
     }
 
     public b(long[] jArr) {
-        this.f8037d = 0;
-        this.f8038e = false;
-        this.f8036c = jArr;
-        this.f8037d = jArr.length;
+        this.f8099d = 0;
+        this.f8100e = false;
+        this.f8098c = jArr;
+        this.f8099d = jArr.length;
         d();
     }
 
@@ -61,17 +61,17 @@ public class b implements Serializable, Cloneable {
     private void d() {
         int i2;
         int i3;
-        if (!f8034a && (i3 = this.f8037d) != 0 && this.f8036c[i3 - 1] == 0) {
+        if (!f8096a && (i3 = this.f8099d) != 0 && this.f8098c[i3 - 1] == 0) {
             throw new AssertionError();
         }
-        if (!f8034a && ((i2 = this.f8037d) < 0 || i2 > this.f8036c.length)) {
+        if (!f8096a && ((i2 = this.f8099d) < 0 || i2 > this.f8098c.length)) {
             throw new AssertionError();
         }
-        if (f8034a) {
+        if (f8096a) {
             return;
         }
-        int i4 = this.f8037d;
-        long[] jArr = this.f8036c;
+        int i4 = this.f8099d;
+        long[] jArr = this.f8098c;
         if (i4 != jArr.length && jArr[i4] != 0) {
             throw new AssertionError();
         }
@@ -89,11 +89,11 @@ public class b implements Serializable, Cloneable {
     }
 
     private void e() {
-        int i2 = this.f8037d - 1;
-        while (i2 >= 0 && this.f8036c[i2] == 0) {
+        int i2 = this.f8099d - 1;
+        while (i2 >= 0 && this.f8098c[i2] == 0) {
             i2--;
         }
-        this.f8037d = i2 + 1;
+        this.f8099d = i2 + 1;
     }
 
     public static int f(int i2) {
@@ -101,31 +101,31 @@ public class b implements Serializable, Cloneable {
     }
 
     private void f() {
-        int i2 = this.f8037d;
-        long[] jArr = this.f8036c;
+        int i2 = this.f8099d;
+        long[] jArr = this.f8098c;
         if (i2 != jArr.length) {
-            this.f8036c = Arrays.copyOf(jArr, i2);
+            this.f8098c = Arrays.copyOf(jArr, i2);
             d();
         }
     }
 
     private void g(int i2) {
-        this.f8036c = new long[f(i2 - 1) + 1];
+        this.f8098c = new long[f(i2 - 1) + 1];
     }
 
     private void h(int i2) {
-        long[] jArr = this.f8036c;
+        long[] jArr = this.f8098c;
         if (jArr.length < i2) {
-            this.f8036c = Arrays.copyOf(this.f8036c, Math.max(jArr.length * 2, i2));
-            this.f8038e = false;
+            this.f8098c = Arrays.copyOf(this.f8098c, Math.max(jArr.length * 2, i2));
+            this.f8100e = false;
         }
     }
 
     private void i(int i2) {
         int i3 = i2 + 1;
-        if (this.f8037d < i3) {
+        if (this.f8099d < i3) {
             h(i3);
-            this.f8037d = i3;
+            this.f8099d = i3;
         }
     }
 
@@ -135,7 +135,7 @@ public class b implements Serializable, Cloneable {
         }
         int f2 = f(i2);
         i(f2);
-        long[] jArr = this.f8036c;
+        long[] jArr = this.f8098c;
         jArr[f2] = jArr[f2] | (1 << i2);
         d();
     }
@@ -151,19 +151,19 @@ public class b implements Serializable, Cloneable {
         long j = (-1) << i2;
         long j2 = (-1) >>> (-i3);
         if (f2 == f3) {
-            long[] jArr = this.f8036c;
+            long[] jArr = this.f8098c;
             jArr[f2] = (j2 & j) | jArr[f2];
         } else {
-            long[] jArr2 = this.f8036c;
+            long[] jArr2 = this.f8098c;
             jArr2[f2] = j | jArr2[f2];
             while (true) {
                 f2++;
                 if (f2 >= f3) {
                     break;
                 }
-                this.f8036c[f2] = -1;
+                this.f8098c[f2] = -1;
             }
-            long[] jArr3 = this.f8036c;
+            long[] jArr3 = this.f8098c;
             jArr3[f3] = j2 | jArr3[f3];
         }
         d();
@@ -190,50 +190,50 @@ public class b implements Serializable, Cloneable {
             return;
         }
         while (true) {
-            int i2 = this.f8037d;
-            if (i2 <= bVar.f8037d) {
+            int i2 = this.f8099d;
+            if (i2 <= bVar.f8099d) {
                 break;
             }
-            long[] jArr = this.f8036c;
+            long[] jArr = this.f8098c;
             int i3 = i2 - 1;
-            this.f8037d = i3;
+            this.f8099d = i3;
             jArr[i3] = 0;
         }
-        for (int i4 = 0; i4 < this.f8037d; i4++) {
-            long[] jArr2 = this.f8036c;
-            jArr2[i4] = jArr2[i4] & bVar.f8036c[i4];
+        for (int i4 = 0; i4 < this.f8099d; i4++) {
+            long[] jArr2 = this.f8098c;
+            jArr2[i4] = jArr2[i4] & bVar.f8098c[i4];
         }
         e();
         d();
     }
 
     public byte[] a() {
-        int i2 = this.f8037d;
+        int i2 = this.f8099d;
         if (i2 == 0) {
             return new byte[0];
         }
         int i3 = i2 - 1;
         int i4 = i3 * 8;
-        for (long j = this.f8036c[i3]; j != 0; j >>>= 8) {
+        for (long j = this.f8098c[i3]; j != 0; j >>>= 8) {
             i4++;
         }
         byte[] bArr = new byte[i4];
         ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN);
         for (int i5 = 0; i5 < i3; i5++) {
-            order.putLong(this.f8036c[i5]);
+            order.putLong(this.f8098c[i5]);
         }
-        for (long j2 = this.f8036c[i3]; j2 != 0; j2 >>>= 8) {
+        for (long j2 = this.f8098c[i3]; j2 != 0; j2 >>>= 8) {
             order.put((byte) (255 & j2));
         }
         return bArr;
     }
 
     public int b() {
-        int i2 = this.f8037d;
+        int i2 = this.f8099d;
         if (i2 == 0) {
             return 0;
         }
-        return ((i2 - 1) * 64) + (64 - Long.numberOfLeadingZeros(this.f8036c[i2 - 1]));
+        return ((i2 - 1) * 64) + (64 - Long.numberOfLeadingZeros(this.f8098c[i2 - 1]));
     }
 
     public void b(int i2) {
@@ -241,10 +241,10 @@ public class b implements Serializable, Cloneable {
             throw new IndexOutOfBoundsException("bitIndex < 0: " + i2);
         }
         int f2 = f(i2);
-        if (f2 >= this.f8037d) {
+        if (f2 >= this.f8099d) {
             return;
         }
-        long[] jArr = this.f8036c;
+        long[] jArr = this.f8098c;
         jArr[f2] = jArr[f2] & (~(1 << i2));
         e();
         d();
@@ -253,28 +253,28 @@ public class b implements Serializable, Cloneable {
     public void b(int i2, int i3) {
         int f2;
         d(i2, i3);
-        if (i2 != i3 && (f2 = f(i2)) < this.f8037d) {
+        if (i2 != i3 && (f2 = f(i2)) < this.f8099d) {
             int f3 = f(i3 - 1);
-            if (f3 >= this.f8037d) {
+            if (f3 >= this.f8099d) {
                 i3 = b();
-                f3 = this.f8037d - 1;
+                f3 = this.f8099d - 1;
             }
             long j = (-1) << i2;
             long j2 = (-1) >>> (-i3);
             if (f2 == f3) {
-                long[] jArr = this.f8036c;
+                long[] jArr = this.f8098c;
                 jArr[f2] = (~(j2 & j)) & jArr[f2];
             } else {
-                long[] jArr2 = this.f8036c;
+                long[] jArr2 = this.f8098c;
                 jArr2[f2] = (~j) & jArr2[f2];
                 while (true) {
                     f2++;
                     if (f2 >= f3) {
                         break;
                     }
-                    this.f8036c[f2] = 0;
+                    this.f8098c[f2] = 0;
                 }
-                long[] jArr3 = this.f8036c;
+                long[] jArr3 = this.f8098c;
                 jArr3[f3] = (~j2) & jArr3[f3];
             }
             e();
@@ -286,27 +286,27 @@ public class b implements Serializable, Cloneable {
         if (this == bVar) {
             return;
         }
-        int min = Math.min(this.f8037d, bVar.f8037d);
-        int i2 = this.f8037d;
-        int i3 = bVar.f8037d;
+        int min = Math.min(this.f8099d, bVar.f8099d);
+        int i2 = this.f8099d;
+        int i3 = bVar.f8099d;
         if (i2 < i3) {
             h(i3);
-            this.f8037d = bVar.f8037d;
+            this.f8099d = bVar.f8099d;
         }
         for (int i4 = 0; i4 < min; i4++) {
-            long[] jArr = this.f8036c;
-            jArr[i4] = jArr[i4] | bVar.f8036c[i4];
+            long[] jArr = this.f8098c;
+            jArr[i4] = jArr[i4] | bVar.f8098c[i4];
         }
-        if (min < bVar.f8037d) {
-            System.arraycopy(bVar.f8036c, min, this.f8036c, min, this.f8037d - min);
+        if (min < bVar.f8099d) {
+            System.arraycopy(bVar.f8098c, min, this.f8098c, min, this.f8099d - min);
         }
         d();
     }
 
     public int c() {
         int i2 = 0;
-        for (int i3 = 0; i3 < this.f8037d; i3++) {
-            i2 += Long.bitCount(this.f8036c[i3]);
+        for (int i3 = 0; i3 < this.f8099d; i3++) {
+            i2 += Long.bitCount(this.f8098c[i3]);
         }
         return i2;
     }
@@ -335,42 +335,42 @@ public class b implements Serializable, Cloneable {
             if (i5 >= i4) {
                 break;
             }
-            long[] jArr = bVar.f8036c;
-            long[] jArr2 = this.f8036c;
+            long[] jArr = bVar.f8098c;
+            long[] jArr2 = this.f8098c;
             jArr[i5] = z ? jArr2[f3] : (jArr2[f3] >>> i2) | (jArr2[f3 + 1] << (-i2));
             i5++;
             f3++;
         }
         long j2 = (-1) >>> (-i3);
-        long[] jArr3 = bVar.f8036c;
+        long[] jArr3 = bVar.f8098c;
         if (((i3 - 1) & 63) < i7) {
-            long[] jArr4 = this.f8036c;
+            long[] jArr4 = this.f8098c;
             j = ((jArr4[f3 + 1] & j2) << (-i2)) | (jArr4[f3] >>> i2);
         } else {
-            j = (this.f8036c[f3] & j2) >>> i2;
+            j = (this.f8098c[f3] & j2) >>> i2;
         }
         jArr3[i4] = j;
-        bVar.f8037d = f2;
+        bVar.f8099d = f2;
         bVar.e();
         bVar.d();
         return bVar;
     }
 
     public void c(b bVar) {
-        int min = Math.min(this.f8037d, bVar.f8037d);
-        int i2 = this.f8037d;
-        int i3 = bVar.f8037d;
+        int min = Math.min(this.f8099d, bVar.f8099d);
+        int i2 = this.f8099d;
+        int i3 = bVar.f8099d;
         if (i2 < i3) {
             h(i3);
-            this.f8037d = bVar.f8037d;
+            this.f8099d = bVar.f8099d;
         }
         for (int i4 = 0; i4 < min; i4++) {
-            long[] jArr = this.f8036c;
-            jArr[i4] = jArr[i4] ^ bVar.f8036c[i4];
+            long[] jArr = this.f8098c;
+            jArr[i4] = jArr[i4] ^ bVar.f8098c[i4];
         }
-        int i5 = bVar.f8037d;
+        int i5 = bVar.f8099d;
         if (min < i5) {
-            System.arraycopy(bVar.f8036c, min, this.f8036c, min, i5 - min);
+            System.arraycopy(bVar.f8098c, min, this.f8098c, min, i5 - min);
         }
         e();
         d();
@@ -380,18 +380,18 @@ public class b implements Serializable, Cloneable {
         if (i2 >= 0) {
             d();
             int f2 = f(i2);
-            return f2 < this.f8037d && (this.f8036c[f2] & (1 << i2)) != 0;
+            return f2 < this.f8099d && (this.f8098c[f2] & (1 << i2)) != 0;
         }
         throw new IndexOutOfBoundsException("bitIndex < 0: " + i2);
     }
 
     public Object clone() {
-        if (!this.f8038e) {
+        if (!this.f8100e) {
             f();
         }
         try {
             b bVar = (b) super.clone();
-            bVar.f8036c = (long[]) this.f8036c.clone();
+            bVar.f8098c = (long[]) this.f8098c.clone();
             bVar.d();
             return bVar;
         } catch (CloneNotSupportedException unused) {
@@ -405,24 +405,24 @@ public class b implements Serializable, Cloneable {
         }
         d();
         int f2 = f(i2);
-        if (f2 >= this.f8037d) {
+        if (f2 >= this.f8099d) {
             return -1;
         }
-        long j = this.f8036c[f2] & ((-1) << i2);
+        long j = this.f8098c[f2] & ((-1) << i2);
         while (j == 0) {
             f2++;
-            if (f2 == this.f8037d) {
+            if (f2 == this.f8099d) {
                 return -1;
             }
-            j = this.f8036c[f2];
+            j = this.f8098c[f2];
         }
         return (f2 * 64) + Long.numberOfTrailingZeros(j);
     }
 
     public void d(b bVar) {
-        for (int min = Math.min(this.f8037d, bVar.f8037d) - 1; min >= 0; min--) {
-            long[] jArr = this.f8036c;
-            jArr[min] = jArr[min] & (~bVar.f8036c[min]);
+        for (int min = Math.min(this.f8099d, bVar.f8099d) - 1; min >= 0; min--) {
+            long[] jArr = this.f8098c;
+            jArr[min] = jArr[min] & (~bVar.f8098c[min]);
         }
         e();
         d();
@@ -434,17 +434,17 @@ public class b implements Serializable, Cloneable {
         }
         d();
         int f2 = f(i2);
-        if (f2 >= this.f8037d) {
+        if (f2 >= this.f8099d) {
             return i2;
         }
-        long j = (~this.f8036c[f2]) & ((-1) << i2);
+        long j = (~this.f8098c[f2]) & ((-1) << i2);
         while (j == 0) {
             f2++;
-            int i3 = this.f8037d;
+            int i3 = this.f8099d;
             if (f2 == i3) {
                 return i3 * 64;
             }
-            j = ~this.f8036c[f2];
+            j = ~this.f8098c[f2];
         }
         return (f2 * 64) + Long.numberOfTrailingZeros(j);
     }
@@ -457,11 +457,11 @@ public class b implements Serializable, Cloneable {
             b bVar = (b) obj;
             d();
             bVar.d();
-            if (this.f8037d != bVar.f8037d) {
+            if (this.f8099d != bVar.f8099d) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.f8037d; i2++) {
-                if (this.f8036c[i2] != bVar.f8036c[i2]) {
+            for (int i2 = 0; i2 < this.f8099d; i2++) {
+                if (this.f8098c[i2] != bVar.f8098c[i2]) {
                     return false;
                 }
             }
@@ -471,20 +471,20 @@ public class b implements Serializable, Cloneable {
     }
 
     public int hashCode() {
-        int i2 = this.f8037d;
+        int i2 = this.f8099d;
         long j = 1234;
         while (true) {
             i2--;
             if (i2 < 0) {
                 return (int) ((j >> 32) ^ j);
             }
-            j ^= this.f8036c[i2] * (i2 + 1);
+            j ^= this.f8098c[i2] * (i2 + 1);
         }
     }
 
     public String toString() {
         d();
-        int i2 = this.f8037d;
+        int i2 = this.f8099d;
         StringBuilder sb = new StringBuilder(((i2 > 128 ? c() : i2 * 64) * 6) + 2);
         sb.append('{');
         int d2 = d(0);

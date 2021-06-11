@@ -39,10 +39,10 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             } else if (i2 == 4 && keyEvent.getAction() == 1) {
                 if (PluginDownloadActivity.this.mDialog.l.getVisibility() == 0) {
                     PluginDownloadActivity.this.mDialog.l.setVisibility(8);
-                    PluginDownloadActivity.this.mDialog.f19991e.setVisibility(0);
+                    PluginDownloadActivity.this.mDialog.f20068e.setVisibility(0);
                 } else {
                     PluginDownloadActivity.this.mDialog.l.setVisibility(0);
-                    PluginDownloadActivity.this.mDialog.f19991e.setVisibility(8);
+                    PluginDownloadActivity.this.mDialog.f20068e.setVisibility(8);
                 }
                 return true;
             } else {
@@ -67,19 +67,19 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
     public class c extends Dialog {
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearLayout f19991e;
+        public LinearLayout f20068e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f19992f;
+        public TextView f20069f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f19993g;
+        public TextView f20070g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f19994h;
+        public TextView f20071h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f19995i;
+        public TextView f20072i;
         public TextView j;
         public TextView k;
         public LinearLayout l;
@@ -108,13 +108,13 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.l.setVisibility(8);
-                c.this.f19991e.setVisibility(0);
+                c.this.f20068e.setVisibility(0);
             }
         }
 
         /* renamed from: com.baidu.tieba.pluginCenter.PluginDownloadActivity$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0209c implements View.OnClickListener {
+        public class View$OnClickListenerC0211c implements View.OnClickListener {
 
             /* renamed from: com.baidu.tieba.pluginCenter.PluginDownloadActivity$c$c$a */
             /* loaded from: classes5.dex */
@@ -169,15 +169,15 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                 }
             }
 
-            public View$OnClickListenerC0209c() {
+            public View$OnClickListenerC0211c() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (j.z()) {
                     PluginDownloadActivity.this.mStarting = true;
-                    c.this.f19994h.setVisibility(8);
-                    c.this.f19995i.setVisibility(8);
+                    c.this.f20071h.setVisibility(8);
+                    c.this.f20072i.setVisibility(8);
                     c.this.j.setVisibility(0);
                     PluginPackageManager.O().x0(PluginDownloadActivity.this.mPluginConfig, new a());
                     return;
@@ -211,14 +211,14 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             findViewById(R.id.warning).setVisibility(8);
             findViewById(R.id.incremental_button).setVisibility(8);
             findViewById(R.id.incremental_size).setVisibility(8);
-            this.f19991e = (LinearLayout) findViewById(R.id.down_dialog);
+            this.f20068e = (LinearLayout) findViewById(R.id.down_dialog);
             this.o = (TextView) findViewById(R.id.update_tip);
-            this.f19992f = (TextView) findViewById(R.id.newversion);
-            this.f19993g = (TextView) findViewById(R.id.desc);
+            this.f20069f = (TextView) findViewById(R.id.newversion);
+            this.f20070g = (TextView) findViewById(R.id.desc);
             TextView textView = (TextView) findViewById(R.id.update_button);
-            this.f19994h = textView;
+            this.f20071h = textView;
             textView.setText(PluginDownloadActivity.this.getPageContext().getString(R.string.install_app));
-            this.f19995i = (TextView) findViewById(R.id.update_cancel);
+            this.f20072i = (TextView) findViewById(R.id.update_cancel);
             this.j = (TextView) findViewById(R.id.downloading);
             TextView textView2 = (TextView) findViewById(R.id.otherApp);
             this.p = textView2;
@@ -236,15 +236,15 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             }
             if (PluginDownloadActivity.this.mPluginConfig.newest != null) {
                 if (TextUtils.isEmpty(PluginDownloadActivity.this.mPluginConfig.newest.version)) {
-                    this.f19992f.setText("");
+                    this.f20069f.setText("");
                 } else {
-                    TextView textView3 = this.f19992f;
+                    TextView textView3 = this.f20069f;
                     textView3.setText("版本：" + PluginDownloadActivity.this.mPluginConfig.newest.version);
                 }
                 if (!TextUtils.isEmpty(PluginDownloadActivity.this.mPluginConfig.newest.change_log)) {
-                    this.f19993g.setText(PluginDownloadActivity.this.mPluginConfig.newest.change_log);
+                    this.f20070g.setText(PluginDownloadActivity.this.mPluginConfig.newest.change_log);
                 } else {
-                    this.f19993g.setText("");
+                    this.f20070g.setText("");
                 }
                 String valueOf = String.valueOf(PluginDownloadActivity.this.mPluginConfig.newest.size / 1024);
                 if (valueOf != null && !"".equals(valueOf)) {
@@ -255,12 +255,12 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                     this.k.setVisibility(8);
                 }
             } else {
-                this.f19992f.setText("");
-                this.f19993g.setText("");
+                this.f20069f.setText("");
+                this.f20070g.setText("");
                 this.k.setText("");
             }
-            this.f19994h.setOnClickListener(new View$OnClickListenerC0209c());
-            this.f19995i.setOnClickListener(new d());
+            this.f20071h.setOnClickListener(new View$OnClickListenerC0211c());
+            this.f20072i.setOnClickListener(new d());
         }
     }
 

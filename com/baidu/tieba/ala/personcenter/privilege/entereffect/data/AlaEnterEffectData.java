@@ -4,8 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
 import com.baidu.ala.gift.AlaDynamicGiftZip;
+import com.yy.gslbsdk.db.ResultTB;
 import d.a.c.e.m.b;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -43,7 +44,7 @@ public class AlaEnterEffectData implements Serializable, n {
     public int type;
     public int use_status;
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return TYPE_ENTER_EFFECT_DATA;
     }
@@ -69,7 +70,7 @@ public class AlaEnterEffectData implements Serializable, n {
         this.content_first = jSONObject.optString("content_first");
         this.content_last = jSONObject.optString("content_last");
         this.effect_range_name = jSONObject.optString("effect_range_name");
-        this.end_time = jSONObject.optLong("end_time");
+        this.end_time = jSONObject.optLong(ResultTB.ENDTIME);
         this.begin_time = jSONObject.optLong("begin_time");
         this.categoryType = jSONObject.optInt("effect_type");
         this.obtain_way = jSONObject.optString("obtain_way");

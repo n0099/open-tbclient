@@ -19,18 +19,18 @@ public final class a {
         if (c.a(str2).booleanValue()) {
             dataInfo = new DataInfo();
             dataInfo.putData("accessCode", str);
-            str3 = aVar2.f35671b;
+            str3 = aVar2.f39350b;
             a2 = aVar2.a();
-            jVar = j.f35622b;
+            jVar = j.f39301b;
             i2 = 0;
             str4 = "/api/netm/v1.0/qhbt";
         } else {
             dataInfo = new DataInfo();
             dataInfo.putData("accessCode", str);
             dataInfo.putData("mobile", str2);
-            str3 = aVar2.f35671b;
+            str3 = aVar2.f39350b;
             a2 = aVar2.a();
-            jVar = j.f35622b;
+            jVar = j.f39301b;
             i2 = 0;
             str4 = "/api/netm/v1.0/qhbv";
         }

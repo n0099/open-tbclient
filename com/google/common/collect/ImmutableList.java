@@ -25,10 +25,10 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
     public static class ReverseImmutableList<E> extends ImmutableList<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableList<E> f31018e;
+        public final transient ImmutableList<E> f31109e;
 
         public ReverseImmutableList(ImmutableList<E> immutableList) {
-            this.f31018e = immutableList;
+            this.f31109e = immutableList;
         }
 
         public final int a(int i2) {
@@ -41,18 +41,18 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
         @Override // com.google.common.collect.ImmutableList, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return this.f31018e.contains(obj);
+            return this.f31109e.contains(obj);
         }
 
         @Override // java.util.List
         public E get(int i2) {
             n.n(i2, size());
-            return this.f31018e.get(a(i2));
+            return this.f31109e.get(a(i2));
         }
 
         @Override // com.google.common.collect.ImmutableList, java.util.List
         public int indexOf(Object obj) {
-            int lastIndexOf = this.f31018e.lastIndexOf(obj);
+            int lastIndexOf = this.f31109e.lastIndexOf(obj);
             if (lastIndexOf >= 0) {
                 return a(lastIndexOf);
             }
@@ -61,7 +61,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
         @Override // com.google.common.collect.ImmutableCollection
         public boolean isPartialView() {
-            return this.f31018e.isPartialView();
+            return this.f31109e.isPartialView();
         }
 
         @Override // com.google.common.collect.ImmutableList, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
@@ -71,7 +71,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
         @Override // com.google.common.collect.ImmutableList, java.util.List
         public int lastIndexOf(Object obj) {
-            int indexOf = this.f31018e.indexOf(obj);
+            int indexOf = this.f31109e.indexOf(obj);
             if (indexOf >= 0) {
                 return a(indexOf);
             }
@@ -85,12 +85,12 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
         @Override // com.google.common.collect.ImmutableList
         public ImmutableList<E> reverse() {
-            return this.f31018e;
+            return this.f31109e;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
         public int size() {
-            return this.f31018e.size();
+            return this.f31109e.size();
         }
 
         @Override // com.google.common.collect.ImmutableList, java.util.List
@@ -102,7 +102,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         @Override // com.google.common.collect.ImmutableList, java.util.List
         public ImmutableList<E> subList(int i2, int i3) {
             n.v(i2, i3, size());
-            return this.f31018e.subList(b(i3), b(i2)).reverse();
+            return this.f31109e.subList(b(i3), b(i2)).reverse();
         }
     }
 
@@ -211,8 +211,8 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         }
 
         public ImmutableList<E> j() {
-            this.f31014c = true;
-            return ImmutableList.asImmutableList(this.f31012a, this.f31013b);
+            this.f31105c = true;
+            return ImmutableList.asImmutableList(this.f31103a, this.f31104b);
         }
 
         public a(int i2) {
@@ -224,16 +224,16 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
     public static class b<E> extends d.g.c.c.a<E> {
 
         /* renamed from: g  reason: collision with root package name */
-        public final ImmutableList<E> f31019g;
+        public final ImmutableList<E> f31110g;
 
         public b(ImmutableList<E> immutableList, int i2) {
             super(immutableList.size(), i2);
-            this.f31019g = immutableList;
+            this.f31110g = immutableList;
         }
 
         @Override // d.g.c.c.a
         public E a(int i2) {
-            return this.f31019g.get(i2);
+            return this.f31110g.get(i2);
         }
     }
 

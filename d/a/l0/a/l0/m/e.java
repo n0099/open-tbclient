@@ -10,28 +10,28 @@ import d.a.l0.a.e2.c.i;
 import d.a.l0.a.e2.c.j.b;
 import d.a.l0.a.k;
 import d.a.l0.a.s1.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements PermissionProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43336a = k.f43199a;
+    public static final boolean f47012a = k.f46875a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43337e;
+        public final /* synthetic */ String f47013e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43338f;
+        public final /* synthetic */ String f47014f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PermissionListener f43339g;
+        public final /* synthetic */ PermissionListener f47015g;
 
         public a(String str, String str2, PermissionListener permissionListener) {
-            this.f43337e = str;
-            this.f43338f = str2;
-            this.f43339g = permissionListener;
+            this.f47013e = str;
+            this.f47014f = str2;
+            this.f47015g = permissionListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,35 +39,35 @@ public class e implements PermissionProxy {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                e.this.b(this.f43337e, this.f43338f, this.f43339g);
+                e.this.b(this.f47013e, this.f47014f, this.f47015g);
             } else {
-                this.f43339g.onPermissionResult(this.f43337e, 2);
+                this.f47015g.onPermissionResult(this.f47013e, 2);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PermissionListener f43341a;
+        public final /* synthetic */ PermissionListener f47017a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f43342b;
+        public final /* synthetic */ String f47018b;
 
         public b(e eVar, PermissionListener permissionListener, String str) {
-            this.f43341a = permissionListener;
-            this.f43342b = str;
+            this.f47017a = permissionListener;
+            this.f47018b = str;
         }
 
         @Override // d.a.l0.a.s1.f
         public void a(String str) {
-            this.f43341a.onPermissionResult(this.f43342b, 0);
+            this.f47017a.onPermissionResult(this.f47018b, 0);
         }
 
         @Override // d.a.l0.a.s1.f
         public void b(int i2, String str) {
-            this.f43341a.onPermissionResult(this.f43342b, 1);
+            this.f47017a.onPermissionResult(this.f47018b, 1);
         }
     }
 
@@ -100,11 +100,11 @@ public class e implements PermissionProxy {
 
     @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
     public void requestPermission(String str, PermissionListener permissionListener) {
-        if (f43336a) {
+        if (f47012a) {
             Log.d("V8PermissionDelegate", "requestPermission : " + str);
         }
         if (permissionListener == null) {
-            if (f43336a) {
+            if (f47012a) {
                 Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
                 return;
             }

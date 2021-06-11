@@ -16,7 +16,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FrameSequenceDrawable extends Drawable implements Animatable, Runnable {
     public static final long DEFAULT_DELAY_MS = 100;
     public static final int LOOP_DEFAULT = 3;
@@ -71,14 +71,14 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         Bitmap a(int i2, int i3);
 
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(FrameSequenceDrawable frameSequenceDrawable);
     }
@@ -213,11 +213,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     private void scheduleDecodeLocked() {
         this.mState = 1;
         this.mNextFrameToDecode = (this.mNextFrameToDecode + 1) % this.mFrameSequence.getFrameCount();
-        Handler handler = sDecodingThreadHandler;
-        if (handler != null) {
-            handler.removeCallbacks(this.mDecodeRunnable);
-            sDecodingThreadHandler.post(this.mDecodeRunnable);
-        }
+        sDecodingThreadHandler.post(this.mDecodeRunnable);
     }
 
     public void destroy() {
@@ -274,7 +270,6 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                 if (z) {
                     scheduleDecodeLocked();
                 } else {
-                    unscheduleSelf(this.mFinishedCallbackRunnable);
                     scheduleSelf(this.mFinishedCallbackRunnable, 0L);
                 }
             }

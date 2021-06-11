@@ -8,7 +8,7 @@ public class a extends JSEvent {
 
     /* renamed from: d.a.l0.h.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1022a {
+    public static class C1078a {
         @V8JavascriptField
         public String cmd;
         @V8JavascriptField
@@ -20,12 +20,12 @@ public class a extends JSEvent {
     }
 
     public static a a(JSONObject jSONObject) {
-        C1022a c1022a = new C1022a();
+        C1078a c1078a = new C1078a();
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        c1022a.type = jSONObject.optString("type");
-        c1022a.cmd = jSONObject.optString("cmd");
-        return new a(c1022a);
+        c1078a.type = jSONObject.optString("type");
+        c1078a.cmd = jSONObject.optString("cmd");
+        return new a(c1078a);
     }
 }

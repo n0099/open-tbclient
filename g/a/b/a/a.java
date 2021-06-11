@@ -1,5 +1,5 @@
 package g.a.b.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static Object a(boolean z) {
         return new Boolean(z);

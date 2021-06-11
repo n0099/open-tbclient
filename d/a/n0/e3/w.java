@@ -13,34 +13,34 @@ import org.json.JSONObject;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54237a;
+    public int f57926a;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54240d;
+    public int f57929d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54241e;
+    public int f57930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54242f;
+    public String f57931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54243g;
+    public String f57932g;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f54245i;
+    public String f57934i;
     public BlockPopInfoData j;
     public int k;
     public String l;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<FeedForumData> f54244h = new ArrayList();
+    public List<FeedForumData> f57933h = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54238b = 0;
+    public int f57927b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f54239c = 0;
+    public int f57928c = 0;
 
     public w() {
         t("");
@@ -54,11 +54,11 @@ public class w {
     }
 
     public String b() {
-        return this.f54245i;
+        return this.f57934i;
     }
 
     public int c() {
-        return this.f54240d;
+        return this.f57929d;
     }
 
     public int d() {
@@ -70,38 +70,38 @@ public class w {
     }
 
     public List<FeedForumData> f() {
-        return this.f54244h;
+        return this.f57933h;
     }
 
     public String g() {
-        return this.f54242f;
+        return this.f57931f;
     }
 
     public String h() {
-        return this.f54243g;
+        return this.f57932g;
     }
 
     public int i() {
-        return this.f54241e;
+        return this.f57930e;
     }
 
     public int j() {
-        return this.f54238b;
+        return this.f57927b;
     }
 
     public int k() {
-        return this.f54239c;
+        return this.f57928c;
     }
 
     public int l() {
-        return this.f54237a;
+        return this.f57926a;
     }
 
     public final void m(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f54245i = jSONObject.optString("block_dealurl");
+        this.f57934i = jSONObject.optString("block_dealurl");
         String optString = jSONObject.optString("block_content");
         if (StringUtils.isNull(optString)) {
             return;
@@ -109,7 +109,7 @@ public class w {
         BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
         this.j = blockPopInfoData;
         blockPopInfoData.block_info = optString;
-        blockPopInfoData.ahead_url = this.f54245i;
+        blockPopInfoData.ahead_url = this.f57934i;
         blockPopInfoData.ahead_info = jSONObject.optString("block_confirm");
         this.j.ok_info = jSONObject.optString("block_cancel");
     }
@@ -127,7 +127,7 @@ public class w {
                 feedForumData.setReason(jSONObject.optString("reason"));
                 feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                 feedForumData.setPos(jSONObject.optInt(IAdRequestParam.POS, 0));
-                this.f54244h.add(feedForumData);
+                this.f57933h.add(feedForumData);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return;
@@ -153,8 +153,8 @@ public class w {
         }
         try {
             jSONObject.optInt("is_black", 0);
-            this.f54238b = jSONObject.optInt("like_num", 0);
-            this.f54239c = jSONObject.optInt("level_id", 0);
+            this.f57927b = jSONObject.optInt("like_num", 0);
+            this.f57928c = jSONObject.optInt("level_id", 0);
             v(jSONObject.optInt("is_like", 0));
             t(jSONObject.optString("level_name", ""));
             u(jSONObject.optInt("levelup_score", 0));
@@ -170,28 +170,28 @@ public class w {
     }
 
     public void r(int i2) {
-        this.f54240d = i2;
+        this.f57929d = i2;
     }
 
     public void s(String str) {
-        this.f54242f = str;
+        this.f57931f = str;
     }
 
     public void t(String str) {
-        this.f54243g = str;
+        this.f57932g = str;
     }
 
     public void u(int i2) {
-        this.f54241e = i2;
+        this.f57930e = i2;
     }
 
     public void v(int i2) {
-        this.f54237a = i2;
+        this.f57926a = i2;
     }
 
     public void w(int i2) {
         if (i2 >= 0) {
-            this.f54239c = i2;
+            this.f57928c = i2;
         }
     }
 }

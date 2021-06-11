@@ -9,34 +9,34 @@ import d.a.c.e.n.m.j;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38769a;
+    public String f42422a;
     public String o;
     public String r;
     public j v;
 
     /* renamed from: b  reason: collision with root package name */
-    public StringBuffer f38770b = new StringBuffer();
+    public StringBuffer f42423b = new StringBuffer();
 
     /* renamed from: c  reason: collision with root package name */
-    public StringBuffer f38771c = new StringBuffer();
+    public StringBuffer f42424c = new StringBuffer();
 
     /* renamed from: d  reason: collision with root package name */
-    public StringBuffer f38772d = new StringBuffer();
+    public StringBuffer f42425d = new StringBuffer();
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38773e = 0;
+    public int f42426e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38774f = 0;
+    public int f42427f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38775g = 0;
+    public int f42428g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f38776h = 0;
+    public long f42429h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f38777i = 0;
+    public long f42430i = 0;
     public long j = 0;
     public long k = 0;
     public long l = 0;
@@ -92,7 +92,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f38769a = str;
+        this.f42422a = str;
     }
 
     public void J(boolean z) {
@@ -110,9 +110,9 @@ public class a {
     public synchronized void a(d.a.c.e.n.a aVar) {
         if (aVar != null) {
             try {
-                this.f38770b.append(aVar.toString());
-                this.f38770b.append(Part.CRLF);
-                this.f38773e++;
+                this.f42423b.append(aVar.toString());
+                this.f42423b.append(Part.CRLF);
+                this.f42426e++;
             } catch (Exception e2) {
                 BdLog.e(e2);
             } catch (OutOfMemoryError e3) {
@@ -122,15 +122,15 @@ public class a {
         if (this.v != null) {
             this.v.a(this);
         }
-        this.f38776h = System.currentTimeMillis();
+        this.f42429h = System.currentTimeMillis();
     }
 
     public synchronized void b(d.a.c.e.n.a aVar) {
         if (aVar != null) {
             try {
-                this.f38771c.append(aVar.toString());
-                this.f38771c.append(Part.CRLF);
-                this.f38774f++;
+                this.f42424c.append(aVar.toString());
+                this.f42424c.append(Part.CRLF);
+                this.f42427f++;
             } catch (Exception e2) {
                 BdLog.e(e2);
             } catch (OutOfMemoryError e3) {
@@ -140,16 +140,16 @@ public class a {
         if (this.v != null) {
             this.v.a(this);
         }
-        this.f38777i = System.currentTimeMillis();
+        this.f42430i = System.currentTimeMillis();
     }
 
     public synchronized void c(d.a.c.e.n.a aVar) {
         if (aVar != null) {
             try {
                 if (aVar.f() != null) {
-                    this.f38772d.append(aVar.f().c().toString());
-                    this.f38772d.append(Part.CRLF);
-                    this.f38775g++;
+                    this.f42425d.append(aVar.f().c().toString());
+                    this.f42425d.append(Part.CRLF);
+                    this.f42428g++;
                 }
             } catch (Exception e2) {
                 BdLog.e(e2);
@@ -164,20 +164,20 @@ public class a {
     }
 
     public synchronized void d() {
-        this.f38770b = new StringBuffer();
-        this.f38773e = 0;
+        this.f42423b = new StringBuffer();
+        this.f42426e = 0;
         this.l = 0L;
     }
 
     public synchronized void e() {
-        this.f38771c = new StringBuffer();
-        this.f38774f = 0;
+        this.f42424c = new StringBuffer();
+        this.f42427f = 0;
         this.m = 0L;
     }
 
     public synchronized void f() {
-        this.f38772d = new StringBuffer();
-        this.f38775g = 0;
+        this.f42425d = new StringBuffer();
+        this.f42428g = 0;
         this.n = 0L;
     }
 
@@ -186,11 +186,11 @@ public class a {
     }
 
     public long i() {
-        return this.f38776h;
+        return this.f42429h;
     }
 
     public long j() {
-        return this.f38777i;
+        return this.f42430i;
     }
 
     public long k() {
@@ -198,19 +198,19 @@ public class a {
     }
 
     public int l() {
-        return this.f38775g;
+        return this.f42428g;
     }
 
     public int m() {
-        return this.f38773e;
+        return this.f42426e;
     }
 
     public int n() {
-        return this.f38774f;
+        return this.f42427f;
     }
 
     public String o() {
-        return this.f38769a;
+        return this.f42422a;
     }
 
     public String p() {
@@ -260,14 +260,14 @@ public class a {
     }
 
     public StringBuffer x() {
-        return this.f38770b;
+        return this.f42423b;
     }
 
     public StringBuffer y() {
-        return this.f38771c;
+        return this.f42424c;
     }
 
     public StringBuffer z() {
-        return this.f38772d;
+        return this.f42425d;
     }
 }

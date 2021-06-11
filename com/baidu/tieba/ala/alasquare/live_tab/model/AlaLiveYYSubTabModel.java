@@ -14,7 +14,7 @@ import com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
 import com.baidu.webkit.internal.ETAG;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.v.d.c.e.j;
 import d.a.n0.v.d.c.g.d;
 import java.util.List;
@@ -22,16 +22,16 @@ import java.util.List;
 public class AlaLiveYYSubTabModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f13740e;
+    public TbPageContext f13805e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13741f;
+    public boolean f13806f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13742g;
+    public boolean f13807g;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f13744i;
+    public d f13809i;
     public long j;
     public int k;
     public String l;
@@ -41,7 +41,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public HttpMessageListener p = new a(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f13743h = BdUniqueId.gen();
+    public BdUniqueId f13808h = BdUniqueId.gen();
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -52,31 +52,31 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveYYSubTabModel.this.f13743h) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveYYSubTabModel.this.f13808h) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
                     if (AlaLiveYYSubTabModel.this.o != null) {
-                        AlaLiveYYSubTabModel.this.o.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveYYSubTabModel.this.f13742g);
+                        AlaLiveYYSubTabModel.this.o.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveYYSubTabModel.this.f13807g);
                     }
                 } else {
                     j jVar = alaTabLiveResponsedMessage.tabAllLiveInfo;
-                    if (AlaLiveYYSubTabModel.this.f13742g) {
-                        AlaLiveYYSubTabModel.this.f13744i.a(jVar);
+                    if (AlaLiveYYSubTabModel.this.f13807g) {
+                        AlaLiveYYSubTabModel.this.f13809i.a(jVar);
                     } else {
-                        AlaLiveTabFragment.K0(AlaLiveYYSubTabModel.this.k);
-                        if (AlaLiveYYSubTabModel.this.f13744i != null) {
-                            AlaLiveYYSubTabModel.this.f13744i.b();
+                        AlaLiveTabFragment.N0(AlaLiveYYSubTabModel.this.k);
+                        if (AlaLiveYYSubTabModel.this.f13809i != null) {
+                            AlaLiveYYSubTabModel.this.f13809i.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = AlaLiveYYSubTabModel.this;
-                        alaLiveYYSubTabModel.f13744i = new d(jVar, alaLiveYYSubTabModel.l, AlaLiveYYSubTabModel.this.m);
+                        alaLiveYYSubTabModel.f13809i = new d(jVar, alaLiveYYSubTabModel.l, AlaLiveYYSubTabModel.this.m);
                     }
                     AlaLiveYYSubTabModel alaLiveYYSubTabModel2 = AlaLiveYYSubTabModel.this;
-                    alaLiveYYSubTabModel2.f13741f = alaLiveYYSubTabModel2.f13744i.f();
+                    alaLiveYYSubTabModel2.f13806f = alaLiveYYSubTabModel2.f13809i.f();
                     if (AlaLiveYYSubTabModel.this.o != null) {
-                        AlaLiveYYSubTabModel.this.o.a(AlaLiveYYSubTabModel.this.f13741f, AlaLiveYYSubTabModel.this.f13744i.d());
+                        AlaLiveYYSubTabModel.this.o.a(AlaLiveYYSubTabModel.this.f13806f, AlaLiveYYSubTabModel.this.f13809i.d());
                     }
                 }
-                AlaLiveYYSubTabModel.this.f13742g = false;
+                AlaLiveYYSubTabModel.this.f13807g = false;
             }
         }
     }
@@ -89,35 +89,12 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     }
 
     public AlaLiveYYSubTabModel(TbPageContext tbPageContext, b bVar, int i2) {
-        this.f13740e = tbPageContext;
+        this.f13805e = tbPageContext;
         this.o = bVar;
         this.k = i2;
     }
 
-    public boolean D() {
-        d dVar = this.f13744i;
-        return (dVar == null || ListUtils.isEmpty(dVar.d())) ? false : true;
-    }
-
-    public void E() {
-        if (!this.f13741f || this.f13742g) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.j >= this.n * 30 * 1000) {
-            this.j = currentTimeMillis;
-        }
-        this.f13742g = true;
-        G(1, AlaLiveTabFragment.L0(this.k) - 1);
-    }
-
-    public void F() {
-        this.j = System.currentTimeMillis();
-        this.f13742g = false;
-        G(0, AlaLiveTabFragment.L0(this.k));
-    }
-
-    public final void G(int i2, int i3) {
+    public final void H(int i2, int i3) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
         httpMessage.addParam("tab_id", this.k);
         String str = "N";
@@ -133,17 +110,17 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             }
         }
         httpMessage.addParam("network", str);
-        httpMessage.addParam("ua_str", l.k(this.f13740e.getPageActivity()) + "_" + l.i(this.f13740e.getPageActivity()) + "_android_" + TbConfig.getVersion());
+        httpMessage.addParam("ua_str", l.k(this.f13805e.getPageActivity()) + "_" + l.i(this.f13805e.getPageActivity()) + "_android_" + TbConfig.getVersion());
         httpMessage.addParam(ETAG.KEY_STATISTICS_SEESIONID, this.j);
         httpMessage.addParam("refresh_type", i2);
         httpMessage.addParam("big_refresh_count", i3);
         httpMessage.addParam("fid", this.l);
         httpMessage.addParam("fname", this.m);
-        httpMessage.setTag(this.f13743h);
+        httpMessage.setTag(this.f13808h);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void H(String str, String str2) {
+    public void I(String str, String str2) {
         this.l = str;
         this.m = str2;
     }
@@ -151,6 +128,11 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         return false;
+    }
+
+    public boolean b() {
+        d dVar = this.f13809i;
+        return (dVar == null || ListUtils.isEmpty(dVar.d())) ? false : true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -162,7 +144,25 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.p);
     }
 
+    public void loadMore() {
+        if (!this.f13806f || this.f13807g) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.j >= this.n * 30 * 1000) {
+            this.j = currentTimeMillis;
+        }
+        this.f13807g = true;
+        H(1, AlaLiveTabFragment.O0(this.k) - 1);
+    }
+
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.p);
+    }
+
+    public void refresh() {
+        this.j = System.currentTimeMillis();
+        this.f13807g = false;
+        H(0, AlaLiveTabFragment.O0(this.k));
     }
 }

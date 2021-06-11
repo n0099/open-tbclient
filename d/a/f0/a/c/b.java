@@ -10,10 +10,10 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39772a;
+    public Context f43453a;
 
     public b(Context context) {
-        this.f39772a = context;
+        this.f43453a = context;
     }
 
     public Bitmap a(String str, d.a.f0.a.e.a aVar) {
@@ -21,7 +21,7 @@ public class b {
         if (a2 != null && a2.exists() && a2.isFile()) {
             return BitmapFactory.decodeFile(a2.getAbsolutePath());
         }
-        return MaterialLoader.k(this.f39772a).i(str, aVar);
+        return MaterialLoader.k(this.f43453a).i(str, aVar);
     }
 
     public String b(String str, MaterialLoader.MaterialCacheType materialCacheType) {
@@ -30,14 +30,14 @@ public class b {
             if (a2 != null && a2.exists() && a2.isFile()) {
                 return a2.getAbsolutePath();
             }
-            return MaterialLoader.k(this.f39772a).m(str, materialCacheType);
+            return MaterialLoader.k(this.f43453a).m(str, materialCacheType);
         } catch (Throwable unused) {
             return null;
         }
     }
 
     public boolean c(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        return MaterialLoader.k(this.f39772a).o(str, materialCacheType) || d(str);
+        return MaterialLoader.k(this.f43453a).o(str, materialCacheType) || d(str);
     }
 
     public final boolean d(String str) {

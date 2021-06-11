@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 public class c extends ReplacementSpan {
 
     /* renamed from: i  reason: collision with root package name */
-    public Drawable f49765i;
+    public Drawable f53440i;
     public Drawable j;
     public int k;
     public int l;
@@ -25,16 +25,16 @@ public class c extends ReplacementSpan {
     public boolean s;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49761e = R.drawable.icon_pure_evaluation_star24_n;
+    public int f53436e = R.drawable.icon_pure_evaluation_star24_n;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49762f = R.color.CAM_X0112;
+    public int f53437f = R.color.CAM_X0112;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49763g = R.drawable.icon_pure_evaluation_star24_n;
+    public int f53438g = R.drawable.icon_pure_evaluation_star24_n;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49764h = R.color.CAM_X0305;
+    public int f53439h = R.color.CAM_X0305;
     public int q = 5;
 
     public c(int i2, int i3, int i4, int i5, int i6, boolean z) {
@@ -47,8 +47,8 @@ public class c extends ReplacementSpan {
     }
 
     public final void a() {
-        this.f49765i = SvgManager.getInstance().getPureDrawable(this.f49761e, this.f49762f, null);
-        this.j = SvgManager.getInstance().getPureDrawable(this.f49763g, this.f49764h, null);
+        this.f53440i = SvgManager.getInstance().getPureDrawable(this.f53436e, this.f53437f, null);
+        this.j = SvgManager.getInstance().getPureDrawable(this.f53438g, this.f53439h, null);
     }
 
     @Override // android.text.style.ReplacementSpan
@@ -80,10 +80,10 @@ public class c extends ReplacementSpan {
             i9++;
         }
         while (i7 < this.q) {
-            Drawable drawable2 = this.f49765i;
+            Drawable drawable2 = this.f53440i;
             int i11 = this.l;
             drawable2.setBounds(i8, max, i8 + i11, i11 + max);
-            this.f49765i.draw(canvas);
+            this.f53440i.draw(canvas);
             i8 += this.k + this.l;
             i7++;
         }

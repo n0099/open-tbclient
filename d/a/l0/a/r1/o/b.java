@@ -13,13 +13,13 @@ import java.util.Locale;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f44547a;
+    public boolean f48221a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f44548b;
+    public boolean f48222b;
 
     public void a() {
-        this.f44547a = true;
+        this.f48221a = true;
     }
 
     public final ViewGroup b() {
@@ -32,12 +32,12 @@ public class b {
             return viewGroup2;
         }
         ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.Q().x()).inflate(g.swan_app_startup_window, viewGroup);
-        this.f44548b = true;
+        this.f48222b = true;
         return viewGroup3;
     }
 
     public void c() {
-        if (this.f44548b) {
+        if (this.f48222b) {
             d();
         }
     }
@@ -51,11 +51,11 @@ public class b {
         if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
             ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
         }
-        this.f44548b = false;
+        this.f48222b = false;
     }
 
     public void e() {
-        this.f44547a = false;
+        this.f48221a = false;
         c();
         k();
     }
@@ -78,7 +78,7 @@ public class b {
 
     public final void j(int i2, long j, String str, String str2) {
         ViewGroup b2;
-        if (this.f44547a || (b2 = b()) == null) {
+        if (this.f48221a || (b2 = b()) == null) {
             return;
         }
         TextView textView = (TextView) b2.findViewById(i2);
@@ -87,7 +87,7 @@ public class b {
     }
 
     public void k() {
-        if (this.f44548b) {
+        if (this.f48222b) {
             return;
         }
         b();
@@ -95,7 +95,7 @@ public class b {
 
     public void l(long j, long j2) {
         ViewGroup b2;
-        if (this.f44547a || (b2 = b()) == null) {
+        if (this.f48221a || (b2 = b()) == null) {
             return;
         }
         ((TextView) b2.findViewById(f.sum)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));

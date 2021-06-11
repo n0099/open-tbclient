@@ -12,24 +12,24 @@ import org.json.JSONObject;
 public class a implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44428e = k.f43199a;
+    public static final boolean f48102e = k.f46875a;
 
     public final JSONObject a(HybridUbcFlow hybridUbcFlow) throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (hybridUbcFlow != null && !hybridUbcFlow.f10980f.isEmpty()) {
+        if (hybridUbcFlow != null && !hybridUbcFlow.f11042f.isEmpty()) {
             jSONObject.put("flowId", hybridUbcFlow.j());
             JSONArray jSONArray = new JSONArray();
-            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f10980f) {
-                if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.f10989a)) {
-                    if (f44428e) {
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f11042f) {
+                if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.f11051a)) {
+                    if (f48102e) {
                         Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
                     }
-                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.f10989a).put("timestamp", ubcFlowEvent.g()));
+                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.f11051a).put("timestamp", ubcFlowEvent.g()));
                 }
             }
             jSONObject.put("data", jSONArray);
         }
-        if (f44428e) {
+        if (f48102e) {
             Log.i("FlowJarToH5Reporter", "buildJoMsg: joMsg=" + jSONObject);
         }
         return jSONObject;
@@ -39,15 +39,15 @@ public class a implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
     @Override // d.a.l0.a.v2.e1.b
     /* renamed from: b */
     public void onCallback(HybridUbcFlow hybridUbcFlow) {
-        if (f44428e) {
+        if (f48102e) {
             Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
         }
         if (d.a.l0.a.g1.f.V().Z()) {
-            if (f44428e || d.a.l0.a.g1.f.V().O()) {
+            if (f48102e || d.a.l0.a.g1.f.V().O()) {
                 try {
                     j.e().c(a(hybridUbcFlow));
                 } catch (JSONException e2) {
-                    if (f44428e) {
+                    if (f48102e) {
                         e2.printStackTrace();
                     }
                 }

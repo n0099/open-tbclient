@@ -20,13 +20,13 @@ import org.json.JSONObject;
 public class TrustSubjectManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.C1788a f6262a;
+    public a.C1846a f6305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f6263b;
+    public Context f6306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TrustSubject f6264c;
+    public TrustSubject f6307c;
 
     /* loaded from: classes2.dex */
     public static class IntegrationException extends RuntimeException {
@@ -47,10 +47,10 @@ public class TrustSubjectManager {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f6265a;
+        public Context f6308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.q.g.d.a f6266b;
+        public d.a.q.g.d.a f6309b;
     }
 
     /* loaded from: classes2.dex */
@@ -61,27 +61,27 @@ public class TrustSubjectManager {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6267a = 0;
+        public int f6310a = 0;
     }
 
     /* loaded from: classes2.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<TrustSubject> f6268a;
+        public List<TrustSubject> f6311a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TrustSubject f6269b;
+        public TrustSubject f6312b;
     }
 
     /* loaded from: classes2.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<String> f6270a;
+        public List<String> f6313a;
 
         public e(List<String> list) {
-            this.f6270a = list;
+            this.f6313a = list;
         }
 
         public static e a(TrustSubject trustSubject) {
@@ -104,7 +104,7 @@ public class TrustSubjectManager {
         }
 
         public List<String> b() {
-            return this.f6270a;
+            return this.f6313a;
         }
     }
 
@@ -112,10 +112,10 @@ public class TrustSubjectManager {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public Set<String> f6271a;
+        public Set<String> f6314a;
 
         public f(Set<String> set) {
-            this.f6271a = set;
+            this.f6314a = set;
         }
 
         public static f a(TrustSubject trustSubject) {
@@ -138,7 +138,7 @@ public class TrustSubjectManager {
         }
 
         public Set<String> b() {
-            return this.f6271a;
+            return this.f6314a;
         }
     }
 
@@ -160,7 +160,7 @@ public class TrustSubjectManager {
     }
 
     public final d.a.q.g.b.e.a a() {
-        return d.a.q.g.b.c.a(d.a.q.j.a.a.f64326a, d.a.q.j.a.a.f64327b);
+        return d.a.q.g.b.c.a(d.a.q.j.a.a.f68044a, d.a.q.j.a.a.f68045b);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:87:0x011a A[SYNTHETIC] */
@@ -172,16 +172,16 @@ public class TrustSubjectManager {
         boolean z;
         TrustSubject trustSubject;
         d dVar = new d();
-        List<ResolveInfo> queryBroadcastReceivers = this.f6263b.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.HELIOS"), 0);
+        List<ResolveInfo> queryBroadcastReceivers = this.f6306b.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.HELIOS"), 0);
         ArrayList arrayList = new ArrayList();
         HashSet hashSet = new HashSet();
         ArrayList arrayList2 = new ArrayList();
         if (queryBroadcastReceivers != null) {
             for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                if (resolveInfo.activityInfo.packageName.equals(this.f6264c.f6247a)) {
-                    trustSubject = this.f6264c;
+                if (resolveInfo.activityInfo.packageName.equals(this.f6307c.f6290a)) {
+                    trustSubject = this.f6307c;
                 } else {
-                    TrustSubject trustSubject2 = new TrustSubject(resolveInfo.activityInfo.packageName, this.f6263b, this.f6262a);
+                    TrustSubject trustSubject2 = new TrustSubject(resolveInfo.activityInfo.packageName, this.f6306b, this.f6305a);
                     trustSubject2.v();
                     trustSubject = trustSubject2;
                 }
@@ -202,7 +202,7 @@ public class TrustSubjectManager {
             }
         }
         TrustSubject trustSubject3 = null;
-        Collections.sort(arrayList, TrustSubject.f6246h);
+        Collections.sort(arrayList, TrustSubject.f6289h);
         Iterator it = arrayList.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -245,11 +245,11 @@ public class TrustSubjectManager {
         if (trustSubject3 != null) {
             e(arrayList3, trustSubject3);
         }
-        Collections.sort(arrayList3, TrustSubject.f6245g);
-        dVar.f6268a = arrayList3;
+        Collections.sort(arrayList3, TrustSubject.f6288g);
+        dVar.f6311a = arrayList3;
         if (trustSubject3 != null) {
             trustSubject3.i();
-            dVar.f6269b = trustSubject3;
+            dVar.f6312b = trustSubject3;
         }
         return dVar;
     }
@@ -258,9 +258,9 @@ public class TrustSubjectManager {
         File[] listFiles;
         HashMap hashMap = new HashMap();
         for (TrustSubject trustSubject : list) {
-            hashMap.put(trustSubject.f6247a, trustSubject);
+            hashMap.put(trustSubject.f6290a, trustSubject);
         }
-        File b2 = this.f6262a.b();
+        File b2 = this.f6305a.b();
         if (b2 == null || (listFiles = b2.listFiles(new TrustSubject.d())) == null) {
             return;
         }
@@ -296,9 +296,9 @@ public class TrustSubjectManager {
     }
 
     public void f(a aVar) {
-        this.f6263b = aVar.f6265a;
-        a.C1788a f2 = aVar.f6266b.d().f("tz");
-        this.f6262a = f2;
+        this.f6306b = aVar.f6308a;
+        a.C1846a f2 = aVar.f6309b.d().f("tz");
+        this.f6305a = f2;
         f2.a();
     }
 
@@ -314,10 +314,10 @@ public class TrustSubjectManager {
         TrustSubject trustSubject;
         boolean z;
         d dVar = new d();
-        TrustSubject trustSubject2 = this.f6264c;
+        TrustSubject trustSubject2 = this.f6307c;
         if (trustSubject2.r()) {
             HashMap hashMap = new HashMap();
-            hashMap.put(trustSubject2.f6247a, trustSubject2);
+            hashMap.put(trustSubject2.f6290a, trustSubject2);
             HashSet hashSet = new HashSet();
             long j = 3;
             long j2 = 1;
@@ -346,7 +346,7 @@ public class TrustSubjectManager {
                     }
                     String next = it.next();
                     if (!hashMap.containsKey(next)) {
-                        TrustSubject trustSubject5 = trustSubject2.f6247a.equals(next) ? trustSubject2 : new TrustSubject(next, this.f6263b, this.f6262a);
+                        TrustSubject trustSubject5 = trustSubject2.f6290a.equals(next) ? trustSubject2 : new TrustSubject(next, this.f6306b, this.f6305a);
                         hashMap.put(next, trustSubject5);
                         if (trustSubject5.s()) {
                             trustSubject5.v();
@@ -372,7 +372,7 @@ public class TrustSubjectManager {
                     }
                 }
                 long j3 = j2;
-                Collections.sort(arrayList2, TrustSubject.f6246h);
+                Collections.sort(arrayList2, TrustSubject.f6289h);
                 Iterator it2 = arrayList2.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
@@ -420,11 +420,11 @@ public class TrustSubjectManager {
             if (trustSubject3 != null) {
                 e(arrayList3, trustSubject3);
             }
-            Collections.sort(arrayList3, TrustSubject.f6245g);
-            dVar.f6268a = arrayList3;
+            Collections.sort(arrayList3, TrustSubject.f6288g);
+            dVar.f6311a = arrayList3;
             if (trustSubject3 != null) {
                 trustSubject3.i();
-                dVar.f6269b = trustSubject3;
+                dVar.f6312b = trustSubject3;
             }
             return dVar;
         }
@@ -432,7 +432,7 @@ public class TrustSubjectManager {
     }
 
     public final void h() {
-        TrustSubject trustSubject = new TrustSubject(this.f6263b.getPackageName(), this.f6263b, this.f6262a);
+        TrustSubject trustSubject = new TrustSubject(this.f6306b.getPackageName(), this.f6306b, this.f6305a);
         trustSubject.v();
         boolean u = trustSubject.u();
         boolean z = false;
@@ -455,7 +455,7 @@ public class TrustSubjectManager {
         }
         trustSubject.q();
         trustSubject.w();
-        this.f6264c = trustSubject;
+        this.f6307c = trustSubject;
     }
 
     public void i(b bVar) {
@@ -464,7 +464,7 @@ public class TrustSubjectManager {
 
     public d j(c cVar) {
         d.a.q.g.b.e.a a2 = a();
-        int i2 = cVar.f6267a;
+        int i2 = cVar.f6310a;
         if (i2 == 1) {
             return b(a2);
         }
@@ -472,7 +472,7 @@ public class TrustSubjectManager {
             return g(a2);
         }
         d b2 = b(a2);
-        List<TrustSubject> list = b2.f6268a;
+        List<TrustSubject> list = b2.f6311a;
         return (list == null || list.size() == 0) ? g(a2) : b2;
     }
 }

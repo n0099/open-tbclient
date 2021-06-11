@@ -19,7 +19,7 @@ public class b extends a0 {
             return false;
         }
         eVar.U().g().edit().clear().apply();
-        d.a.l0.a.q2.d.f44235h.b();
+        d.a.l0.a.q2.d.f47909h.b();
         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
         return true;
     }

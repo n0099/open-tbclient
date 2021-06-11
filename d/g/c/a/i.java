@@ -7,23 +7,23 @@ import java.util.Iterator;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f66230a;
+    public final String f69961a;
 
     /* loaded from: classes6.dex */
     public class a extends i {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f66231b;
+        public final /* synthetic */ String f69962b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i iVar, String str) {
             super(iVar, null);
-            this.f66231b = str;
+            this.f69962b = str;
         }
 
         @Override // d.g.c.a.i
         public CharSequence h(Object obj) {
-            return obj == null ? this.f66231b : i.this.h(obj);
+            return obj == null ? this.f69962b : i.this.h(obj);
         }
 
         @Override // d.g.c.a.i
@@ -49,7 +49,7 @@ public class i {
         if (it.hasNext()) {
             a2.append(h(it.next()));
             while (it.hasNext()) {
-                a2.append(this.f66230a);
+                a2.append(this.f69961a);
                 a2.append(h(it.next()));
             }
         }
@@ -91,10 +91,10 @@ public class i {
 
     public i(String str) {
         n.p(str);
-        this.f66230a = str;
+        this.f69961a = str;
     }
 
     public i(i iVar) {
-        this.f66230a = iVar.f66230a;
+        this.f69961a = iVar.f69961a;
     }
 }

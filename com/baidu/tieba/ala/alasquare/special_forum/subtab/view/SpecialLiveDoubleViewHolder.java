@@ -6,10 +6,10 @@ import d.a.n0.v.d.f.e.a.b;
 public class SpecialLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f13894a;
+    public b f13951a;
 
     public SpecialLiveDoubleViewHolder(b bVar) {
-        super(bVar.l());
-        this.f13894a = bVar;
+        super(bVar.m());
+        this.f13951a = bVar;
     }
 }

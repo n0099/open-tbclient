@@ -17,10 +17,10 @@ import d.a.n0.w3.g;
 public class d extends d.a.n0.w3.g {
 
     /* renamed from: h  reason: collision with root package name */
-    public ValueAnimator f62721h;
+    public ValueAnimator f66436h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ValueAnimator f62722i;
+    public ValueAnimator f66437i;
     public float j;
     public float k;
     public ValueAnimator l;
@@ -57,15 +57,15 @@ public class d extends d.a.n0.w3.g {
             d.this.v.g();
             d.this.u.C.setTranslationY(0.0f);
             d dVar3 = d.this;
-            dVar3.f62760e = 2;
-            g.a aVar = dVar3.f62759d;
+            dVar3.f66475e = 2;
+            g.a aVar = dVar3.f66474d;
             if (aVar != null) {
                 aVar.a(2);
             }
             d.this.u.q.setClickable(true);
             d.this.u.n.setClickable(true);
             d.this.u.k.setClickable(true);
-            d.this.u.f62695h.setClickable(true);
+            d.this.u.f66410h.setClickable(true);
             d.this.u.s.setClickable(true);
             d.this.u.v.setClickable(true);
             d.this.u.y.setClickable(true);
@@ -80,7 +80,7 @@ public class d extends d.a.n0.w3.g {
             d.this.u.q.setClickable(false);
             d.this.u.n.setClickable(false);
             d.this.u.k.setClickable(false);
-            d.this.u.f62695h.setClickable(false);
+            d.this.u.f66410h.setClickable(false);
             d.this.u.s.setClickable(false);
             d.this.u.v.setClickable(false);
             d.this.u.y.setClickable(false);
@@ -119,7 +119,7 @@ public class d extends d.a.n0.w3.g {
             d.this.u.q.setClickable(true);
             d.this.u.n.setClickable(true);
             d.this.u.k.setClickable(true);
-            d.this.u.f62695h.setClickable(true);
+            d.this.u.f66410h.setClickable(true);
             d.this.u.s.setClickable(true);
             d.this.u.v.setClickable(true);
             d.this.u.y.setClickable(true);
@@ -134,7 +134,7 @@ public class d extends d.a.n0.w3.g {
             d.this.u.q.setClickable(false);
             d.this.u.n.setClickable(false);
             d.this.u.k.setClickable(false);
-            d.this.u.f62695h.setClickable(false);
+            d.this.u.f66410h.setClickable(false);
             d.this.u.s.setClickable(false);
             d.this.u.v.setClickable(false);
             d.this.u.y.setClickable(false);
@@ -143,29 +143,29 @@ public class d extends d.a.n0.w3.g {
 
     /* renamed from: d.a.n0.w3.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC1710d implements Runnable {
-        public RunnableC1710d() {
+    public class RunnableC1767d implements Runnable {
+        public RunnableC1767d() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d dVar = d.this;
-            if (dVar.f62761f != null && dVar.j == 0.0f && d.this.k == 0.0f) {
-                d.this.u.B.getGlobalVisibleRect(d.this.f62762g);
+            if (dVar.f66476f != null && dVar.j == 0.0f && d.this.k == 0.0f) {
+                d.this.u.B.getGlobalVisibleRect(d.this.f66477g);
                 d dVar2 = d.this;
-                dVar2.j = dVar2.f62761f.centerX() - d.this.f62762g.centerX();
+                dVar2.j = dVar2.f66476f.centerX() - d.this.f66477g.centerX();
                 d dVar3 = d.this;
-                dVar3.k = dVar3.f62761f.centerY() - d.this.f62762g.centerY();
+                dVar3.k = dVar3.f66476f.centerY() - d.this.f66477g.centerY();
             }
             d.this.u.B.setVisibility(0);
             d.this.u.B.setTranslationX(d.this.j);
             d.this.u.B.setTranslationY(d.this.k);
             d dVar4 = d.this;
-            View view = dVar4.f62758c;
+            View view = dVar4.f66473c;
             if (view instanceof OvalActionButton) {
                 ((OvalActionButton) view).b(dVar4.u.B);
             }
-            d.this.f62721h.start();
+            d.this.f66436h.start();
         }
     }
 
@@ -210,10 +210,10 @@ public class d extends d.a.n0.w3.g {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            View view = d.this.f62758c;
+            View view = d.this.f66473c;
             if (view != null) {
                 view.setVisibility(4);
-                d.this.f62758c.setAlpha(0.0f);
+                d.this.f66473c.setAlpha(0.0f);
             }
             d.this.u.B.setEndIcon(R.drawable.icon_pure_frs_issue24, d.this.t, "webp");
         }
@@ -273,8 +273,8 @@ public class d extends d.a.n0.w3.g {
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             if (valueAnimator.isRunning()) {
                 d.this.u.C.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                d.this.u.f62692e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                d.this.u.f62693f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                d.this.u.f66407e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                d.this.u.f66408f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -292,8 +292,8 @@ public class d extends d.a.n0.w3.g {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             d.this.u.C.setAlpha(1.0f);
-            d.this.u.f62692e.setAlpha(1.0f);
-            d.this.u.f62693f.setAlpha(1.0f);
+            d.this.u.f66407e.setAlpha(1.0f);
+            d.this.u.f66408f.setAlpha(1.0f);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -313,8 +313,8 @@ public class d extends d.a.n0.w3.g {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             if (valueAnimator.isRunning()) {
-                d.this.u.f62692e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                d.this.u.f62693f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                d.this.u.f66407e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                d.this.u.f66408f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -331,8 +331,8 @@ public class d extends d.a.n0.w3.g {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            d.this.u.f62692e.setAlpha(0.0f);
-            d.this.u.f62693f.setAlpha(0.0f);
+            d.this.u.f66407e.setAlpha(0.0f);
+            d.this.u.f66408f.setAlpha(0.0f);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -361,7 +361,7 @@ public class d extends d.a.n0.w3.g {
         super(context, cVar);
         d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X009);
         this.u = cVar;
-        this.t = d.a.c.e.p.l.g(this.f62756a, R.dimen.tbds0);
+        this.t = d.a.c.e.p.l.g(this.f66471a, R.dimen.tbds0);
         x();
     }
 
@@ -377,11 +377,11 @@ public class d extends d.a.n0.w3.g {
 
     @Override // d.a.n0.w3.g
     public void g() {
-        if (this.f62760e != 4) {
+        if (this.f66475e != 4) {
             return;
         }
-        this.f62760e = 1;
-        g.a aVar = this.f62759d;
+        this.f66475e = 1;
+        g.a aVar = this.f66474d;
         if (aVar != null) {
             aVar.a(1);
         }
@@ -394,45 +394,45 @@ public class d extends d.a.n0.w3.g {
 
     @Override // d.a.n0.w3.g
     public void h() {
-        if (this.f62760e != 2) {
+        if (this.f66475e != 2) {
             return;
         }
-        this.f62760e = 3;
-        g.a aVar = this.f62759d;
+        this.f66475e = 3;
+        g.a aVar = this.f66474d;
         if (aVar != null) {
             aVar.a(3);
         }
         v();
         this.m.start();
-        this.f62722i.start();
+        this.f66437i.start();
         this.p.start();
     }
 
     public final void v() {
-        this.f62721h.cancel();
-        this.f62722i.cancel();
+        this.f66436h.cancel();
+        this.f66437i.cancel();
         this.m.cancel();
         this.l.cancel();
     }
 
     public final void w() {
-        this.u.B.post(new RunnableC1710d());
+        this.u.B.post(new RunnableC1767d());
     }
 
     public final void x() {
         this.n = new AnimatorSet();
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.f62721h = ofFloat;
+        this.f66436h = ofFloat;
         ofFloat.setDuration(450L);
-        this.f62721h.setInterpolator(new OvershootInterpolator());
-        this.f62721h.addUpdateListener(new e());
-        this.f62721h.addListener(new f());
+        this.f66436h.setInterpolator(new OvershootInterpolator());
+        this.f66436h.addUpdateListener(new e());
+        this.f66436h.addListener(new f());
         ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.f62722i = ofFloat2;
+        this.f66437i = ofFloat2;
         ofFloat2.setDuration(450L);
-        this.f62722i.setInterpolator(new AccelerateInterpolator());
-        this.f62722i.addUpdateListener(new g());
-        this.f62722i.addListener(new h());
+        this.f66437i.setInterpolator(new AccelerateInterpolator());
+        this.f66437i.addUpdateListener(new g());
+        this.f66437i.addListener(new h());
         ValueAnimator ofFloat3 = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.l = ofFloat3;
         ofFloat3.setDuration(416L);
@@ -454,7 +454,7 @@ public class d extends d.a.n0.w3.g {
         this.p.addUpdateListener(new b());
         this.p.addListener(new c());
         this.u.j.setVisibility(0);
-        this.u.f62694g.setVisibility(0);
+        this.u.f66409g.setVisibility(0);
         this.u.m.setVisibility(0);
         this.u.p.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
         this.u.s.setVisibility(0);
@@ -468,28 +468,28 @@ public class d extends d.a.n0.w3.g {
     }
 
     public final void y() {
-        View view = this.f62758c;
+        View view = this.f66473c;
         if (view != null) {
             view.setVisibility(0);
         }
-        this.f62760e = 4;
+        this.f66475e = 4;
         v();
         z(8);
         this.u.B.setVisibility(4);
-        View view2 = this.f62758c;
+        View view2 = this.f66473c;
         if (view2 != null) {
             view2.setVisibility(0);
-            this.f62758c.setAlpha(1.0f);
+            this.f66473c.setAlpha(1.0f);
         }
-        g.a aVar = this.f62759d;
+        g.a aVar = this.f66474d;
         if (aVar != null) {
-            aVar.a(this.f62760e);
+            aVar.a(this.f66475e);
         }
     }
 
     public final void z(int i2) {
-        this.u.f62693f.setVisibility(i2);
-        this.u.f62692e.setVisibility(i2);
+        this.u.f66408f.setVisibility(i2);
+        this.u.f66407e.setVisibility(i2);
         this.u.C.setVisibility(i2);
     }
 }

@@ -12,19 +12,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SplashAdFacade {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SplashAdFacade f2102e = new SplashAdFacade();
+    public static final SplashAdFacade f2115e = new SplashAdFacade();
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f2103a;
+    public volatile boolean f2116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.d0.b.a f2104b;
+    public d.a.d0.b.a f2117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2105c;
+    public long f2118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f2106d;
+    public final Handler f2119d;
 
     /* loaded from: classes.dex */
     public enum AdLoadState {
@@ -38,20 +38,20 @@ public class SplashAdFacade {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f2107e;
+        public final /* synthetic */ int f2120e;
 
         public a(int i2) {
-            this.f2107e = i2;
+            this.f2120e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f2107e != 1 || ((float) (System.currentTimeMillis() - SplashAdFacade.this.f2105c)) >= g.c() * 60000.0f) {
-                if (SplashAdFacade.this.f2104b == null) {
-                    SplashAdFacade.this.f2104b = new d.a.d0.b.a();
+            if (this.f2120e != 1 || ((float) (System.currentTimeMillis() - SplashAdFacade.this.f2118c)) >= g.c() * 60000.0f) {
+                if (SplashAdFacade.this.f2117b == null) {
+                    SplashAdFacade.this.f2117b = new d.a.d0.b.a();
                 }
-                SplashAdFacade.this.f2104b.l(d.a.d0.a.b.a.f39590a.get());
-                SplashAdFacade.this.f2105c = System.currentTimeMillis();
+                SplashAdFacade.this.f2117b.l(d.a.d0.a.b.a.f43271a.get());
+                SplashAdFacade.this.f2118c = System.currentTimeMillis();
             }
         }
     }
@@ -66,13 +66,13 @@ public class SplashAdFacade {
     public SplashAdFacade() {
         AdLoadState adLoadState = AdLoadState.INIT;
         AdLoadState adLoadState2 = AdLoadState.INIT;
-        this.f2103a = false;
+        this.f2116a = false;
         new AtomicInteger(0);
-        this.f2106d = new Handler(Looper.myLooper());
+        this.f2119d = new Handler(Looper.myLooper());
     }
 
     public static SplashAdFacade e() {
-        return f2102e;
+        return f2115e;
     }
 
     public void f(d.a.d0.a.b.a aVar) {
@@ -80,7 +80,7 @@ public class SplashAdFacade {
             Log.e("SplashAdFacade", "appContext is null ,init failed");
             return;
         }
-        d.a.d0.a.b.a.f39590a.set(aVar);
+        d.a.d0.a.b.a.f43271a.set(aVar);
         aVar.o().registerActivityLifecycleCallbacks(new f());
         new BDAdConfig.Builder().setAppName(aVar.u()).setAppsid(aVar.r()).build(aVar.o()).init();
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
@@ -90,13 +90,13 @@ public class SplashAdFacade {
     }
 
     public boolean g() {
-        return this.f2103a;
+        return this.f2116a;
     }
 
     public void h(int i2) {
-        if (d.a.d0.a.b.a.f39590a.get() == null) {
+        if (d.a.d0.a.b.a.f43271a.get() == null) {
             return;
         }
-        this.f2106d.postDelayed(new a(i2), 5000L);
+        this.f2119d.postDelayed(new a(i2), 5000L);
     }
 }

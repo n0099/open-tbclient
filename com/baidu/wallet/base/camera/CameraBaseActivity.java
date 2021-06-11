@@ -26,7 +26,6 @@ import com.baidu.apollon.statusbar.ImmersiveStatusBarManager;
 import com.baidu.apollon.statusbar.StatusBarUtils;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.wallet.base.camera.internal.CameraCtrl;
 import com.baidu.wallet.base.camera.internal.d;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
@@ -109,7 +108,7 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
     public Camera.AutoFocusCallback autoFocusCallback = new Camera.AutoFocusCallback() { // from class: com.baidu.wallet.base.camera.CameraBaseActivity.7
 
         /* renamed from: b  reason: collision with root package name */
-        public int f23129b;
+        public int f23232b;
 
         @Override // android.hardware.Camera.AutoFocusCallback
         public void onAutoFocus(boolean z, Camera camera) {
@@ -122,12 +121,12 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
             }
             com.baidu.wallet.base.camera.internal.b d2 = cameraBaseActivity.mPreviewCb.d();
             if (z) {
-                this.f23129b = 0;
+                this.f23232b = 0;
                 CameraBaseActivity.this.takePictureWithoutAutoFocus(d2);
                 return;
             }
-            int i2 = this.f23129b + 1;
-            this.f23129b = i2;
+            int i2 = this.f23232b + 1;
+            this.f23232b = i2;
             if (i2 <= 1) {
                 d2.a(CameraBaseActivity.this.autoFocusCallback, DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
             } else {
@@ -140,18 +139,18 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
     public class b implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f23140b;
+        public boolean f23243b;
 
         public b() {
         }
 
         public void a(boolean z) {
-            this.f23140b = z;
+            this.f23243b = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CameraBaseActivity.this.updateFlashLightUi(this.f23140b);
+            CameraBaseActivity.this.updateFlashLightUi(this.f23243b);
         }
     }
 
@@ -159,15 +158,15 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
     public static class c extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<CameraBaseActivity> f23141a;
+        public WeakReference<CameraBaseActivity> f23244a;
 
         public c(CameraBaseActivity cameraBaseActivity) {
-            this.f23141a = new WeakReference<>(cameraBaseActivity);
+            this.f23244a = new WeakReference<>(cameraBaseActivity);
         }
 
         private boolean a() {
             a[] aVarArr;
-            CameraBaseActivity cameraBaseActivity = this.f23141a.get();
+            CameraBaseActivity cameraBaseActivity = this.f23244a.get();
             if (cameraBaseActivity == null) {
                 return false;
             }
@@ -183,7 +182,7 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            CameraBaseActivity cameraBaseActivity = this.f23141a.get();
+            CameraBaseActivity cameraBaseActivity = this.f23244a.get();
             if (cameraBaseActivity == null) {
                 return;
             }
@@ -406,7 +405,7 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
     @Override // com.baidu.wallet.base.camera.internal.c
     public boolean initCamera(int i2, int i3, int i4, int i5) {
         String str = Tag;
-        LogUtil.i(str, "initCamera(" + i2 + FieldBuilder.SE + i3 + FieldBuilder.SE + i4 + FieldBuilder.SE + i5 + SmallTailInfo.EMOTION_SUFFIX);
+        LogUtil.i(str, "initCamera(" + i2 + "|" + i3 + "|" + i4 + "|" + i5 + SmallTailInfo.EMOTION_SUFFIX);
         OnCameraChangeListener onCameraChangeListener = this.mOnCameraChange;
         if (onCameraChangeListener != null) {
             onCameraChangeListener.onCameraOpen();
@@ -755,59 +754,59 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
     public class a implements Runnable {
 
         /* renamed from: c  reason: collision with root package name */
-        public byte[] f23133c;
+        public byte[] f23236c;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f23135e;
+        public int f23238e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f23136f;
+        public int f23239f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Rect f23137g;
+        public Rect f23240g;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f23132b = a.class.getSimpleName();
+        public final String f23235b = a.class.getSimpleName();
 
         /* renamed from: d  reason: collision with root package name */
-        public byte[] f23134d = null;
+        public byte[] f23237d = null;
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicBoolean f23138h = new AtomicBoolean(false);
+        public final AtomicBoolean f23241h = new AtomicBoolean(false);
 
         public a() {
         }
 
         public void a(byte[] bArr, int i2, int i3, Rect rect) {
-            this.f23133c = bArr;
-            this.f23135e = i2;
-            this.f23136f = i3;
-            this.f23137g = rect;
+            this.f23236c = bArr;
+            this.f23238e = i2;
+            this.f23239f = i3;
+            this.f23240g = rect;
             int recycledBufSize = CameraBaseActivity.this.mImageProcessor.getRecycledBufSize(rect.width(), rect.height());
-            byte[] bArr2 = this.f23134d;
+            byte[] bArr2 = this.f23237d;
             if (bArr2 == null || bArr2.length != recycledBufSize) {
-                this.f23134d = new byte[recycledBufSize];
+                this.f23237d = new byte[recycledBufSize];
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (CameraBaseActivity.this.mDone.get()) {
-                this.f23138h.set(false);
-            } else if (!this.f23138h.compareAndSet(false, true)) {
-                LogUtil.e(this.f23132b, "internal error", null);
+                this.f23241h.set(false);
+            } else if (!this.f23241h.compareAndSet(false, true)) {
+                LogUtil.e(this.f23235b, "internal error", null);
             } else {
-                Object[] processImage = CameraBaseActivity.this.mImageProcessor.processImage(this.f23133c, this.f23135e, this.f23136f, this.f23137g, this.f23134d);
+                Object[] processImage = CameraBaseActivity.this.mImageProcessor.processImage(this.f23236c, this.f23238e, this.f23239f, this.f23240g, this.f23237d);
                 if (processImage != null && CameraBaseActivity.this.mDone.compareAndSet(false, true)) {
                     CameraBaseActivity.this.pauseCamera();
                     CameraBaseActivity.this.onProcessImageOk(processImage);
                 }
-                this.f23138h.set(false);
+                this.f23241h.set(false);
             }
         }
 
         public boolean a() {
-            return this.f23138h.get();
+            return this.f23241h.get();
         }
     }
 }

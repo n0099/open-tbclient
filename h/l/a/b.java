@@ -1,14 +1,14 @@
 package h.l.a;
 
 import h.g;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f68433a = new b();
+    public static final b f71689a = new b();
 
     public static b a() {
-        return f68433a;
+        return f71689a;
     }
 
     public g b() {

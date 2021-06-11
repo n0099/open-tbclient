@@ -9,31 +9,31 @@ public class a {
     public static final a q = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f51100a = new AtomicBoolean(false);
+    public AtomicBoolean f54777a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51101b;
+    public int f54778b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51102c;
+    public int f54779c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51103d;
+    public int f54780d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51104e;
+    public String f54781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51105f;
+    public int f54782f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51106g;
+    public int f54783g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51107h;
+    public int f54784h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51108i;
+    public int f54785i;
     public int j;
     public int k;
     public int l;
@@ -59,19 +59,19 @@ public class a {
     }
 
     public int d() {
-        return this.f51105f;
+        return this.f54782f;
     }
 
     public int e() {
-        return this.f51107h;
+        return this.f54784h;
     }
 
     public int f() {
-        return this.f51106g;
+        return this.f54783g;
     }
 
     public String g() {
-        return this.f51104e;
+        return this.f54781e;
     }
 
     public int i() {
@@ -111,7 +111,7 @@ public class a {
     }
 
     public boolean r() {
-        return this.f51108i == 1;
+        return this.f54785i == 1;
     }
 
     public boolean s() {
@@ -127,24 +127,24 @@ public class a {
     }
 
     public boolean v() {
-        return this.f51101b == 1;
+        return this.f54778b == 1;
     }
 
     public void w(JSONObject jSONObject) {
-        boolean z = this.f51100a.get();
+        boolean z = this.f54777a.get();
         if (jSONObject == null || z) {
             return;
         }
-        this.f51100a.set(true);
+        this.f54777a.set(true);
         jSONObject.optInt("tieba_landing_page_type_switch", -1);
-        this.f51101b = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
-        this.f51102c = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
-        this.f51103d = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
-        this.f51104e = jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
-        this.f51105f = jSONObject.optInt("tieba_follow_up_expire_time", 7);
-        this.f51106g = jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
-        this.f51107h = jSONObject.optInt("tieba_follow_up_gap_time", 5);
-        this.f51108i = jSONObject.optInt("tieba_12.4_download_path", 0);
+        this.f54778b = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+        this.f54779c = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
+        this.f54780d = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
+        this.f54781e = jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
+        this.f54782f = jSONObject.optInt("tieba_follow_up_expire_time", 7);
+        this.f54783g = jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
+        this.f54784h = jSONObject.optInt("tieba_follow_up_gap_time", 5);
+        this.f54785i = jSONObject.optInt("tieba_12.4_download_path", 0);
         this.j = jSONObject.optInt("tieba_video_ad_jump_switch", 0);
         this.k = jSONObject.optInt("tieba_lazy_launch_switch", 0);
         this.l = jSONObject.optInt("tieba_lazy_launch_internal", 0);
@@ -165,10 +165,10 @@ public class a {
     }
 
     public boolean x() {
-        return this.f51103d == 1;
+        return this.f54780d == 1;
     }
 
     public boolean y() {
-        return this.f51102c == 1;
+        return this.f54779c == 1;
     }
 }

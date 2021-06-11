@@ -2,14 +2,13 @@ package d.a.l0.a.i1.g;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import d.a.l0.a.a2.e;
 import d.a.l0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends d.a.l0.a.c0.b.b {
-    public static final boolean N = k.f43199a;
+    public static final boolean N = k.f46875a;
     public boolean A;
     public boolean B;
     public String C;
@@ -81,8 +80,8 @@ public class c extends d.a.l0.a.c0.b.b {
             cVar2.A = jSONObject.optBoolean("danmuBtn", cVar.A);
             cVar2.t = jSONObject.optBoolean("loop", cVar.t);
             cVar2.B = jSONObject.optBoolean("controls", cVar.B);
-            cVar2.C = l(jSONObject.optString(UserAccountActionItem.KEY_SRC, cVar.C));
-            cVar2.M = !d.a.l0.a.k2.b.E(jSONObject.optString(UserAccountActionItem.KEY_SRC, cVar.C));
+            cVar2.C = l(jSONObject.optString("src", cVar.C));
+            cVar2.M = !d.a.l0.a.k2.b.E(jSONObject.optString("src", cVar.C));
             cVar2.E = jSONObject.optBoolean("showPlayBtn", cVar.E);
             cVar2.F = jSONObject.optBoolean("showMuteBtn", cVar.F);
             cVar2.G = jSONObject.optBoolean("showCenterPlayBtn", cVar.G);

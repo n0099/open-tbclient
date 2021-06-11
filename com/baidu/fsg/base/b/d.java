@@ -5,27 +5,27 @@ import com.baidu.fsg.base.b.a;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ long f5094a;
+    public final /* synthetic */ long f5137a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a.c f5095b;
+    public final /* synthetic */ a.c f5138b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f5096c;
+    public final /* synthetic */ a f5139c;
 
     public d(a aVar, long j, a.c cVar) {
-        this.f5096c = aVar;
-        this.f5094a = j;
-        this.f5095b = cVar;
+        this.f5139c = aVar;
+        this.f5137a = j;
+        this.f5138b = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            Thread.sleep(this.f5094a);
+            Thread.sleep(this.f5137a);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
-        this.f5096c.d(this.f5095b);
+        this.f5139c.d(this.f5138b);
     }
 }

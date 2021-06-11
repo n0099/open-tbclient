@@ -12,10 +12,10 @@ import java.io.File;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f2059a = new d();
+    public static d f2072a = new d();
 
     public static d a() {
-        return f2059a;
+        return f2072a;
     }
 
     public static String a(String str, String str2) {

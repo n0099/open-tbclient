@@ -22,19 +22,19 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     public static final String TOPIC_SELECT_KEY = "topic_select_user";
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<HotTopicSelectActivity> f16939e;
+    public TbPageContext<HotTopicSelectActivity> f17015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f16940f;
+    public final c f17016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16941g;
+    public boolean f17017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16942h;
+    public boolean f17018h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.c.c.g.a f16943i;
+    public d.a.c.c.g.a f17019i;
     public CustomMessageListener j;
     public String k;
     public long l;
@@ -55,21 +55,21 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
                 int resultStatus = hotSelectCacheResponseMessage.getResultStatus();
                 if (resultStatus == 1) {
                     HotTopicSelectModel hotTopicSelectModel = HotTopicSelectModel.this;
-                    hotTopicSelectModel.A(hotTopicSelectModel.f16941g, customResponsedMessage);
+                    hotTopicSelectModel.E(hotTopicSelectModel.f17017g, customResponsedMessage);
                     return;
                 } else if (resultStatus == 2) {
-                    HotTopicSelectModel.this.f16940f.onHotSelectDataNoSearchSuccess(hotSelectCacheResponseMessage.mUserData, hotSelectCacheResponseMessage.mBangData);
+                    HotTopicSelectModel.this.f17016f.onHotSelectDataNoSearchSuccess(hotSelectCacheResponseMessage.mUserData, hotSelectCacheResponseMessage.mBangData);
                     return;
                 } else if (resultStatus != 3) {
                     return;
                 } else {
                     HotTopicSelectModel hotTopicSelectModel2 = HotTopicSelectModel.this;
-                    hotTopicSelectModel2.A(hotTopicSelectModel2.f16941g, customResponsedMessage);
+                    hotTopicSelectModel2.E(hotTopicSelectModel2.f17017g, customResponsedMessage);
                     return;
                 }
             }
             HotTopicSelectModel hotTopicSelectModel3 = HotTopicSelectModel.this;
-            hotTopicSelectModel3.A(hotTopicSelectModel3.f16941g, customResponsedMessage);
+            hotTopicSelectModel3.E(hotTopicSelectModel3.f17017g, customResponsedMessage);
         }
     }
 
@@ -81,29 +81,29 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            HotTopicSelectModel.this.f16942h = false;
+            HotTopicSelectModel.this.f17018h = false;
             boolean z = responsedMessage instanceof HotSelectSocketResponseMessage;
             if (!z && !(responsedMessage instanceof HotSelectHttpResponseMessage)) {
                 HotTopicSelectModel hotTopicSelectModel = HotTopicSelectModel.this;
-                hotTopicSelectModel.A(hotTopicSelectModel.f16941g, responsedMessage);
+                hotTopicSelectModel.E(hotTopicSelectModel.f17017g, responsedMessage);
             } else if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof HotTopicSelectNetMessage)) {
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof HotSelectHttpResponseMessage) {
                         HotSelectHttpResponseMessage hotSelectHttpResponseMessage = (HotSelectHttpResponseMessage) responsedMessage;
-                        if (HotTopicSelectModel.this.f16941g) {
-                            HotTopicSelectModel.this.f16940f.onHotSelectDataSearchSuccess(hotSelectHttpResponseMessage.getSugTopic());
+                        if (HotTopicSelectModel.this.f17017g) {
+                            HotTopicSelectModel.this.f17016f.onHotSelectDataSearchSuccess(hotSelectHttpResponseMessage.getSugTopic());
                             return;
                         } else {
-                            HotTopicSelectModel.this.f16940f.onHotSelectDataNoSearchSuccess(hotSelectHttpResponseMessage.getUserHisTopic(), hotSelectHttpResponseMessage.getBangTopic());
+                            HotTopicSelectModel.this.f17016f.onHotSelectDataNoSearchSuccess(hotSelectHttpResponseMessage.getUserHisTopic(), hotSelectHttpResponseMessage.getBangTopic());
                             return;
                         }
                     } else if (z) {
                         HotSelectSocketResponseMessage hotSelectSocketResponseMessage = (HotSelectSocketResponseMessage) responsedMessage;
-                        if (HotTopicSelectModel.this.f16941g) {
-                            HotTopicSelectModel.this.f16940f.onHotSelectDataSearchSuccess(hotSelectSocketResponseMessage.getSugTopic());
+                        if (HotTopicSelectModel.this.f17017g) {
+                            HotTopicSelectModel.this.f17016f.onHotSelectDataSearchSuccess(hotSelectSocketResponseMessage.getSugTopic());
                             return;
                         } else {
-                            HotTopicSelectModel.this.f16940f.onHotSelectDataNoSearchSuccess(hotSelectSocketResponseMessage.getUserHisTopic(), hotSelectSocketResponseMessage.getBangTopic());
+                            HotTopicSelectModel.this.f17016f.onHotSelectDataNoSearchSuccess(hotSelectSocketResponseMessage.getUserHisTopic(), hotSelectSocketResponseMessage.getBangTopic());
                             return;
                         }
                     } else {
@@ -111,10 +111,10 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
                     }
                 }
                 HotTopicSelectModel hotTopicSelectModel2 = HotTopicSelectModel.this;
-                hotTopicSelectModel2.A(hotTopicSelectModel2.f16941g, responsedMessage);
+                hotTopicSelectModel2.E(hotTopicSelectModel2.f17017g, responsedMessage);
             } else {
                 HotTopicSelectModel hotTopicSelectModel3 = HotTopicSelectModel.this;
-                hotTopicSelectModel3.A(hotTopicSelectModel3.f16941g, responsedMessage);
+                hotTopicSelectModel3.E(hotTopicSelectModel3.f17017g, responsedMessage);
             }
         }
     }
@@ -132,32 +132,54 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
 
     public HotTopicSelectModel(TbPageContext tbPageContext, c cVar) {
         super(tbPageContext);
-        this.f16941g = false;
-        this.f16942h = false;
+        this.f17017g = false;
+        this.f17018h = false;
         this.l = 0L;
         this.m = "";
         this.n = "";
-        w(cVar, "HotSelectCallBack is NullPointerException");
-        w(tbPageContext, "HotTopicSelectActivity is  NullPointerException");
-        this.f16939e = tbPageContext;
-        this.f16940f = cVar;
+        A(cVar, "HotSelectCallBack is NullPointerException");
+        A(tbPageContext, "HotTopicSelectActivity is  NullPointerException");
+        this.f17015e = tbPageContext;
+        this.f17016f = cVar;
     }
 
-    public final void A(boolean z, ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage == null || TextUtils.isEmpty(responsedMessage.getErrorString())) {
-            if (z) {
-                this.f16940f.onHotSelectDataSearchFailed("");
-            } else {
-                this.f16940f.onHotSelectDataNoSearchFailed(this.f16939e.getString(R.string.neterror));
-            }
-        } else if (z) {
-            this.f16940f.onHotSelectDataSearchFailed("");
-        } else {
-            this.f16940f.onHotSelectDataNoSearchFailed(responsedMessage.getErrorString());
+    public final void A(Object obj, String str) {
+        if (obj == null) {
+            throw new NullPointerException(str);
         }
     }
 
-    public void B(Intent intent) {
+    public void B() {
+        sendMessage(new HotSelectCacheReqMessage());
+    }
+
+    public String C() {
+        return this.k;
+    }
+
+    public final HotTopicSelectNetMessage D() {
+        HotTopicSelectNetMessage hotTopicSelectNetMessage = new HotTopicSelectNetMessage();
+        hotTopicSelectNetMessage.setFid(this.l);
+        hotTopicSelectNetMessage.setFirstDir(this.m);
+        hotTopicSelectNetMessage.setSecondDir(this.n);
+        return hotTopicSelectNetMessage;
+    }
+
+    public final void E(boolean z, ResponsedMessage<?> responsedMessage) {
+        if (responsedMessage == null || TextUtils.isEmpty(responsedMessage.getErrorString())) {
+            if (z) {
+                this.f17016f.onHotSelectDataSearchFailed("");
+            } else {
+                this.f17016f.onHotSelectDataNoSearchFailed(this.f17015e.getString(R.string.neterror));
+            }
+        } else if (z) {
+            this.f17016f.onHotSelectDataSearchFailed("");
+        } else {
+            this.f17016f.onHotSelectDataNoSearchFailed(responsedMessage.getErrorString());
+        }
+    }
+
+    public void F(Intent intent) {
         if (intent == null) {
             return;
         }
@@ -167,51 +189,51 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         this.n = intent.getStringExtra(IntentConfig.FORUM_SECOND_DIR);
     }
 
-    public final void C() {
+    public final void G() {
         this.j = new a(2016491);
         d.a.n0.e3.d0.a.b(2016491, d.a.n0.e1.a.class);
         registerListener(this.j);
     }
 
-    public final void D() {
-        this.f16943i = new b(CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
+    public final void H() {
+        this.f17019i = new b(CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
         d.a.n0.e3.d0.a.h(309416, HotSelectSocketResponseMessage.class, false, false);
         d.a.n0.e3.d0.a.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
-        registerListener(this.f16943i);
+        registerListener(this.f17019i);
     }
 
-    public void E() {
-        D();
-        C();
+    public void I() {
+        H();
+        G();
     }
 
-    public void F() {
+    public void J() {
         this.k = "";
-        this.f16941g = false;
+        this.f17017g = false;
         if (!j.z()) {
-            x();
-        } else if (this.f16942h) {
+            B();
+        } else if (this.f17018h) {
         } else {
-            this.f16942h = true;
-            sendMessage(z());
+            this.f17018h = true;
+            sendMessage(D());
         }
     }
 
-    public void G(String str) {
+    public void K(String str) {
         this.k = str;
-        this.f16941g = true;
+        this.f17017g = true;
         if (!j.z()) {
-            this.f16940f.onHotSelectDataSearchFailed("");
-        } else if (this.f16942h) {
+            this.f17016f.onHotSelectDataSearchFailed("");
+        } else if (this.f17018h) {
         } else {
-            this.f16942h = true;
-            HotTopicSelectNetMessage z = z();
-            z.setPrefix(str);
-            sendMessage(z);
+            this.f17018h = true;
+            HotTopicSelectNetMessage D = D();
+            D.setPrefix(str);
+            sendMessage(D);
         }
     }
 
-    public void H(String str) {
+    public void L(String str) {
         this.k = str;
     }
 
@@ -226,32 +248,10 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.f16943i);
+        MessageManager.getInstance().unRegisterListener(this.f17019i);
         MessageManager.getInstance().unRegisterListener(this.j);
         MessageManager.getInstance().unRegisterTask(309416);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT);
         MessageManager.getInstance().unRegisterTask(2016491);
-    }
-
-    public final void w(Object obj, String str) {
-        if (obj == null) {
-            throw new NullPointerException(str);
-        }
-    }
-
-    public void x() {
-        sendMessage(new HotSelectCacheReqMessage());
-    }
-
-    public String y() {
-        return this.k;
-    }
-
-    public final HotTopicSelectNetMessage z() {
-        HotTopicSelectNetMessage hotTopicSelectNetMessage = new HotTopicSelectNetMessage();
-        hotTopicSelectNetMessage.setFid(this.l);
-        hotTopicSelectNetMessage.setFirstDir(this.m);
-        hotTopicSelectNetMessage.setSecondDir(this.n);
-        return hotTopicSelectNetMessage;
     }
 }

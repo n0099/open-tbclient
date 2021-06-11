@@ -48,25 +48,25 @@ import java.util.Map;
 public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ImageViewerActivity f55449a;
+    public final ImageViewerActivity f59138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MultiImageView f55450b;
+    public MultiImageView f59139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionJudgePolicy f55451c;
+    public PermissionJudgePolicy f59140c;
 
     /* renamed from: d  reason: collision with root package name */
-    public C1361j f55452d;
+    public C1417j f59141d;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.m3.c f55454f;
+    public d.a.n0.m3.c f59143f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.m0.r.s.j f55455g;
+    public d.a.m0.r.s.j f59144g;
 
     /* renamed from: h  reason: collision with root package name */
-    public l f55456h;
+    public l f59145h;
     public d.a.m0.r.s.h j;
     public d.a.m0.r.s.h k;
     public d.a.m0.r.s.h l;
@@ -76,10 +76,10 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     public d.a.n0.h1.h p;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55453e = null;
+    public String f59142e = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<d.a.m0.r.s.h> f55457i = null;
+    public List<d.a.m0.r.s.h> f59146i = null;
     public CustomMessageListener q = new a(2921403);
     public l.d r = new c();
     public l.d s = new d();
@@ -99,15 +99,15 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             q qVar;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof q) || j.this.f55449a.isFinishing() || (qVar = (q) customResponsedMessage.getData()) == null) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof q) || j.this.f59138a.isFinishing() || (qVar = (q) customResponsedMessage.getData()) == null) {
                 return;
             }
-            qVar.f54038c = null;
-            if (TextUtils.isEmpty(qVar.f54040e) || TextUtils.isEmpty(qVar.f54037b) || !qVar.f54037b.equals(j.this.f55453e)) {
+            qVar.f57727c = null;
+            if (TextUtils.isEmpty(qVar.f57729e) || TextUtils.isEmpty(qVar.f57726b) || !qVar.f57726b.equals(j.this.f59142e)) {
                 return;
             }
-            j.this.f55450b.setCurrentImageQRInfo(qVar.f54040e);
-            j.this.s(qVar.f54040e);
+            j.this.f59139b.setCurrentImageQRInfo(qVar.f57729e);
+            j.this.s(qVar.f57729e);
         }
     }
 
@@ -129,7 +129,7 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
 
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
-            j.this.f55450b.m(j.this.f55449a.calCurrentIndex());
+            j.this.f59139b.m(j.this.f59138a.calCurrentIndex());
             j.this.u();
         }
     }
@@ -141,7 +141,7 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
 
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
-            d.a.n0.h1.f.a(j.this.f55449a.getPageContext().getPageActivity(), j.this.f55450b.getCurrentImageUrl());
+            d.a.n0.h1.f.a(j.this.f59138a.getPageContext().getPageActivity(), j.this.f59139b.getCurrentImageUrl());
             j.this.u();
             j.this.r(1);
         }
@@ -154,12 +154,12 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
 
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
-            String currentImageUrl = j.this.f55450b.getCurrentImageUrl();
+            String currentImageUrl = j.this.f59139b.getCurrentImageUrl();
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, currentImageUrl));
             } else {
-                Intent intent = new Intent(d.a.m0.a0.d.f48813a);
-                intent.putExtra(d.a.m0.a0.d.f48814b, currentImageUrl);
+                Intent intent = new Intent(d.a.m0.a0.d.f52487a);
+                intent.putExtra(d.a.m0.a0.d.f52488b, currentImageUrl);
                 TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
             j.this.u();
@@ -174,13 +174,13 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
 
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
-            Activity pageActivity = j.this.f55449a.getPageContext().getPageActivity();
-            if (j.this.f55451c == null) {
-                j.this.f55451c = new PermissionJudgePolicy();
+            Activity pageActivity = j.this.f59138a.getPageContext().getPageActivity();
+            if (j.this.f59140c == null) {
+                j.this.f59140c = new PermissionJudgePolicy();
             }
-            j.this.f55451c.clearRequestPermissionList();
-            j.this.f55451c.appendRequestPermission(pageActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-            if (j.this.f55451c.startRequestPermission(pageActivity)) {
+            j.this.f59140c.clearRequestPermissionList();
+            j.this.f59140c.appendRequestPermission(pageActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            if (j.this.f59140c.startRequestPermission(pageActivity)) {
                 return;
             }
             j.this.C();
@@ -210,19 +210,19 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public class a implements c.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f55466a;
+            public final /* synthetic */ String f59155a;
 
             /* renamed from: d.a.n0.h1.j$h$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C1360a implements a.e {
-                public C1360a() {
+            public class C1416a implements a.e {
+                public C1416a() {
                 }
 
                 @Override // d.a.m0.r.s.a.e
                 public void onClick(d.a.m0.r.s.a aVar) {
                     aVar.dismiss();
                     a aVar2 = a.this;
-                    j.this.z(aVar2.f55466a);
+                    j.this.z(aVar2.f59155a);
                 }
             }
 
@@ -249,43 +249,43 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             }
 
             public a(String str) {
-                this.f55466a = str;
+                this.f59155a = str;
             }
 
             @Override // d.a.n0.m3.c.a
             public void a() {
-                d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(j.this.f55449a.getPageContext().getPageActivity());
+                d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(j.this.f59138a.getPageContext().getPageActivity());
                 aVar.setTitle((String) null);
                 aVar.setMessageShowCenter(true);
                 aVar.setMessage(j.this.t(R.string.qr_url_risk_forbid));
                 aVar.setPositiveButton(j.this.t(R.string.qr_url_risk_forbid_button), new c(this));
                 aVar.setCancelable(false);
                 aVar.setCanceledOnTouchOutside(false);
-                aVar.create(j.this.f55449a.getPageContext()).show();
+                aVar.create(j.this.f59138a.getPageContext()).show();
             }
 
             @Override // d.a.n0.m3.c.a
             public void b() {
-                d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(j.this.f55449a.getPageContext().getPageActivity());
+                d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(j.this.f59138a.getPageContext().getPageActivity());
                 aVar.setTitleShowCenter(true);
                 aVar.setTitle(j.this.t(R.string.qr_url_jump_external_title));
                 aVar.setMessageShowCenter(true);
                 aVar.setMessage(j.this.t(R.string.qr_url_jump_external_message));
-                aVar.setPositiveButton(j.this.t(R.string.confirm), new C1360a());
+                aVar.setPositiveButton(j.this.t(R.string.confirm), new C1416a());
                 aVar.setNegativeButton(j.this.t(R.string.cancel), new b(this));
                 aVar.setCancelable(false);
                 aVar.setCanceledOnTouchOutside(false);
-                aVar.create(j.this.f55449a.getPageContext()).show();
+                aVar.create(j.this.f59138a.getPageContext()).show();
             }
 
             @Override // d.a.n0.m3.c.a
             public void c() {
-                j.this.z(this.f55466a);
+                j.this.z(this.f59155a);
             }
 
             @Override // d.a.n0.m3.c.a
             public void onError(String str) {
-                d.a.c.e.p.l.M(j.this.f55449a.getPageContext().getPageActivity(), j.this.t(R.string.qr_scan_error));
+                d.a.c.e.p.l.M(j.this.f59138a.getPageContext().getPageActivity(), j.this.t(R.string.qr_scan_error));
             }
         }
 
@@ -294,20 +294,20 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
 
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
-            String currentImageQRInfo = j.this.f55450b.getCurrentImageQRInfo();
+            String currentImageQRInfo = j.this.f59139b.getCurrentImageQRInfo();
             if (TextUtils.isEmpty(currentImageQRInfo) || "qr_none".equals(currentImageQRInfo)) {
                 return;
             }
             if (!d.a.c.e.p.l.D()) {
-                d.a.c.e.p.l.M(j.this.f55449a.getPageContext().getPageActivity(), j.this.t(R.string.network_not_available));
+                d.a.c.e.p.l.M(j.this.f59138a.getPageContext().getPageActivity(), j.this.t(R.string.network_not_available));
                 return;
             }
-            if (j.this.f55454f != null && !j.this.f55454f.isCancelled()) {
-                j.this.f55454f.cancel();
+            if (j.this.f59143f != null && !j.this.f59143f.isCancelled()) {
+                j.this.f59143f.cancel();
             }
-            j.this.f55454f = new d.a.n0.m3.c(currentImageQRInfo, new a(currentImageQRInfo));
-            j.this.f55454f.setPriority(3);
-            j.this.f55454f.execute(new String[0]);
+            j.this.f59143f = new d.a.n0.m3.c(currentImageQRInfo, new a(currentImageQRInfo));
+            j.this.f59143f.setPriority(3);
+            j.this.f59143f.execute(new String[0]);
             j.this.u();
             j.this.r(5);
         }
@@ -322,7 +322,7 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public void onClick(View view) {
             UrlDragImageView currentUrlDragImageView;
             String str;
-            if (j.this.f55450b == null || (currentUrlDragImageView = j.this.f55450b.getCurrentUrlDragImageView()) == null) {
+            if (j.this.f59139b == null || (currentUrlDragImageView = j.this.f59139b.getCurrentUrlDragImageView()) == null) {
                 return;
             }
             ImageUrlData imageUrlData = currentUrlDragImageView.getmAssistUrlData();
@@ -334,7 +334,7 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                 str = "";
             }
             if (TextUtils.isEmpty(str2)) {
-                str2 = j.this.f55450b.getCurrentImageUrl();
+                str2 = j.this.f59139b.getCurrentImageUrl();
                 str = TbMd5.getNameMd5FromUrl(str2);
             }
             ShareItem shareItem = new ShareItem();
@@ -360,28 +360,28 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                 shareItem.A = bundle;
             }
             new Bundle().putInt("obj_locate", 13);
-            new d.a.m0.s.g.g(j.this.f55449a, null).m(shareItem);
+            new d.a.m0.s.g.g(j.this.f59138a, null).m(shareItem);
         }
     }
 
     /* renamed from: d.a.n0.h1.j$j  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1361j extends BdAsyncTask<String, Integer, String> {
+    public class C1417j extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f55470a;
+        public String f59159a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f55471b;
+        public byte[] f59160b;
 
-        public C1361j(String str, byte[] bArr) {
-            this.f55470a = str;
-            this.f55471b = bArr;
+        public C1417j(String str, byte[] bArr) {
+            this.f59159a = str;
+            this.f59160b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            j.this.f55452d = null;
+            j.this.f59141d = null;
             super.cancel(true);
         }
 
@@ -390,8 +390,8 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public String doInBackground(String... strArr) {
             byte[] bArr;
             String nameMd5FromUrl;
-            Map<String, ImageUrlData> assistUrls = j.this.f55449a.getAssistUrls();
-            if (this.f55470a != null && assistUrls != null) {
+            Map<String, ImageUrlData> assistUrls = j.this.f59138a.getAssistUrls();
+            if (this.f59159a != null && assistUrls != null) {
                 ImageUrlData imageUrlData = null;
                 Iterator<Map.Entry<String, ImageUrlData>> it = assistUrls.entrySet().iterator();
                 while (true) {
@@ -399,7 +399,7 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                         break;
                     }
                     Map.Entry<String, ImageUrlData> next = it.next();
-                    if (next != null && next.getKey() != null && next.getValue() != null && next.getKey().contains(this.f55470a)) {
+                    if (next != null && next.getKey() != null && next.getValue() != null && next.getKey().contains(this.f59159a)) {
                         imageUrlData = next.getValue();
                         break;
                     }
@@ -407,14 +407,14 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                 if (imageUrlData != null) {
                     String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + StorageFile.getInstance().getDirectoryName(nameMd5FromUrl) + "/" + TbMd5.getNameMd5FromUrl(imageUrlData.originalUrl);
                     int[] imageFileWH = FileHelper.getImageFileWH(str);
-                    if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && FileHelper.copyImageFile(str, this.f55470a, j.this.f55449a.getPageContext().getPageActivity()) == 0) {
-                        return j.this.f55449a.getPageContext().getString(R.string.save_image_to_album);
+                    if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && FileHelper.copyImageFile(str, this.f59159a, j.this.f59138a.getPageContext().getPageActivity()) == 0) {
+                        return j.this.f59138a.getPageContext().getString(R.string.save_image_to_album);
                     }
                 }
             }
-            String str2 = this.f55470a;
-            if (str2 != null && (bArr = this.f55471b) != null) {
-                int saveImageFileByUser = FileHelper.saveImageFileByUser(str2, bArr, j.this.f55449a.getPageContext().getPageActivity());
+            String str2 = this.f59159a;
+            if (str2 != null && (bArr = this.f59160b) != null) {
+                int saveImageFileByUser = FileHelper.saveImageFileByUser(str2, bArr, j.this.f59138a.getPageContext().getPageActivity());
                 if (saveImageFileByUser == -2) {
                     return FileHelper.getSdErrorString();
                 }
@@ -428,32 +428,32 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C1361j) str);
+            super.onPostExecute((C1417j) str);
             if (!d.a.m0.b.d.w() || j.this.t(R.string.save_fail).equals(str)) {
-                j.this.f55449a.showToast(str);
+                j.this.f59138a.showToast(str);
             } else if (j.this.p != null) {
-                j.this.p.g(j.this.f55450b, j.this.f55450b.getBottomHeight(), j.this.x);
+                j.this.p.g(j.this.f59139b, j.this.f59139b.getBottomHeight(), j.this.x);
             }
-            j.this.f55452d = null;
+            j.this.f59141d = null;
         }
     }
 
     public j(@Nullable ImageViewerActivity imageViewerActivity) {
-        this.f55449a = imageViewerActivity;
+        this.f59138a = imageViewerActivity;
         imageViewerActivity.registerListener(this.q);
         this.p = new d.a.n0.h1.h(imageViewerActivity);
     }
 
     public void A() {
-        C1361j c1361j = this.f55452d;
-        if (c1361j != null) {
-            c1361j.cancel();
-            this.f55452d = null;
+        C1417j c1417j = this.f59141d;
+        if (c1417j != null) {
+            c1417j.cancel();
+            this.f59141d = null;
         }
-        d.a.n0.m3.c cVar = this.f55454f;
+        d.a.n0.m3.c cVar = this.f59143f;
         if (cVar != null) {
             cVar.cancel();
-            this.f55454f = null;
+            this.f59143f = null;
         }
         d.a.n0.h1.h hVar = this.p;
         if (hVar != null) {
@@ -462,15 +462,15 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     }
 
     public void B() {
-        this.f55453e = null;
+        this.f59142e = null;
     }
 
     public final void C() {
         try {
-            C1361j c1361j = new C1361j(this.f55450b.getCurrentImageUrl(), this.f55450b.getCurrentImageData());
-            this.f55452d = c1361j;
-            c1361j.execute(new String[0]);
-            if (ImageViewerConfig.FROM_DISCOVER_BEAUTY.equals(this.f55449a.getFrom())) {
+            C1417j c1417j = new C1417j(this.f59139b.getCurrentImageUrl(), this.f59139b.getCurrentImageData());
+            this.f59141d = c1417j;
+            c1417j.execute(new String[0]);
+            if (ImageViewerConfig.FROM_DISCOVER_BEAUTY.equals(this.f59138a.getFrom())) {
                 TiebaStatic.log("c12173");
             }
         } catch (Exception unused) {
@@ -478,61 +478,61 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     }
 
     public void D() {
-        this.f55457i.clear();
-        String o = this.f55450b.o(this.f55449a.calCurrentIndex());
+        this.f59146i.clear();
+        String o = this.f59139b.o(this.f59138a.calCurrentIndex());
         if (o != null) {
-            d.a.m0.r.s.h hVar = new d.a.m0.r.s.h(o, this.f55456h);
+            d.a.m0.r.s.h hVar = new d.a.m0.r.s.h(o, this.f59145h);
             this.j = hVar;
             hVar.m(this.r);
-            this.f55457i.add(this.j);
+            this.f59146i.add(this.j);
         }
-        d.a.m0.r.s.h hVar2 = new d.a.m0.r.s.h(t(R.string.save_to_local), this.f55456h);
+        d.a.m0.r.s.h hVar2 = new d.a.m0.r.s.h(t(R.string.save_to_local), this.f59145h);
         this.l = hVar2;
         hVar2.m(this.u);
-        this.f55457i.add(this.l);
-        ImageViewerActivity imageViewerActivity = this.f55449a;
+        this.f59146i.add(this.l);
+        ImageViewerActivity imageViewerActivity = this.f59138a;
         if (imageViewerActivity != null && !imageViewerActivity.isIsBJHThread()) {
-            d.a.m0.r.s.h hVar3 = new d.a.m0.r.s.h(t(R.string.save_to_emotion), this.f55456h);
+            d.a.m0.r.s.h hVar3 = new d.a.m0.r.s.h(t(R.string.save_to_emotion), this.f59145h);
             this.m = hVar3;
             hVar3.m(this.t);
-            this.f55457i.add(this.m);
+            this.f59146i.add(this.m);
         }
-        d.a.m0.r.s.h hVar4 = new d.a.m0.r.s.h(t(R.string.identify_image), this.f55456h);
+        d.a.m0.r.s.h hVar4 = new d.a.m0.r.s.h(t(R.string.identify_image), this.f59145h);
         this.k = hVar4;
         hVar4.m(this.s);
-        this.f55457i.add(this.k);
-        String currentImageQRInfo = this.f55450b.getCurrentImageQRInfo();
+        this.f59146i.add(this.k);
+        String currentImageQRInfo = this.f59139b.getCurrentImageQRInfo();
         if (!TextUtils.isEmpty(currentImageQRInfo) && !currentImageQRInfo.equals("qr_none")) {
-            d.a.m0.r.s.h hVar5 = new d.a.m0.r.s.h(t(R.string.image_qr_code), this.f55456h);
+            d.a.m0.r.s.h hVar5 = new d.a.m0.r.s.h(t(R.string.image_qr_code), this.f59145h);
             this.o = hVar5;
             hVar5.m(this.w);
-            this.f55457i.add(this.o);
+            this.f59146i.add(this.o);
         }
-        d.a.m0.r.s.h hVar6 = new d.a.m0.r.s.h(t(R.string.image_share), this.f55456h);
+        d.a.m0.r.s.h hVar6 = new d.a.m0.r.s.h(t(R.string.image_share), this.f59145h);
         this.n = hVar6;
         hVar6.m(this.v);
-        this.f55457i.add(this.n);
-        this.f55456h.m(new b());
-        this.f55456h.k(this.f55457i);
+        this.f59146i.add(this.n);
+        this.f59145h.m(new b());
+        this.f59145h.k(this.f59146i);
     }
 
     public void E() {
-        if (this.f55455g == null || this.f55449a.isFinishing()) {
+        if (this.f59144g == null || this.f59138a.isFinishing()) {
             return;
         }
-        this.f55455g.l();
+        this.f59144g.l();
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.c
     public void a() {
-        String currentImageUrl = this.f55450b.getCurrentImageUrl();
+        String currentImageUrl = this.f59139b.getCurrentImageUrl();
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, currentImageUrl));
-        } else if (FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.f55449a.getPageContext(), null)) {
+        } else if (FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.f59138a.getPageContext(), null)) {
             return;
         } else {
-            Intent intent = new Intent(d.a.m0.a0.d.f48813a);
-            intent.putExtra(d.a.m0.a0.d.f48814b, currentImageUrl);
+            Intent intent = new Intent(d.a.m0.a0.d.f52487a);
+            intent.putExtra(d.a.m0.a0.d.f52488b, currentImageUrl);
             TbadkCoreApplication.getInst().sendBroadcast(intent);
         }
         r(2);
@@ -540,13 +540,13 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
 
     @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.b
     public void onSave() {
-        Activity pageActivity = this.f55449a.getPageContext().getPageActivity();
-        if (this.f55451c == null) {
-            this.f55451c = new PermissionJudgePolicy();
+        Activity pageActivity = this.f59138a.getPageContext().getPageActivity();
+        if (this.f59140c == null) {
+            this.f59140c = new PermissionJudgePolicy();
         }
-        this.f55451c.clearRequestPermissionList();
-        this.f55451c.appendRequestPermission(pageActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-        if (this.f55451c.startRequestPermission(pageActivity)) {
+        this.f59140c.clearRequestPermissionList();
+        this.f59140c.appendRequestPermission(pageActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+        if (this.f59140c.startRequestPermission(pageActivity)) {
             return;
         }
         C();
@@ -556,23 +556,23 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     }
 
     public final void r(int i2) {
-        TiebaStatic.log(new StatisticItem("c13270").param("uid", this.f55449a.getUserId()).param("obj_type", i2));
+        TiebaStatic.log(new StatisticItem("c13270").param("uid", this.f59138a.getUserId()).param("obj_type", i2));
     }
 
     public void s(String str) {
         int i2;
-        if (this.f55455g == null || this.f55449a.isFinishing() || !this.f55455g.isShowing() || TextUtils.isEmpty(str) || "qr_none".equals(str)) {
+        if (this.f59144g == null || this.f59138a.isFinishing() || !this.f59144g.isShowing() || TextUtils.isEmpty(str) || "qr_none".equals(str)) {
             return;
         }
-        d.a.m0.r.s.h hVar = new d.a.m0.r.s.h(t(R.string.image_qr_code), this.f55456h);
+        d.a.m0.r.s.h hVar = new d.a.m0.r.s.h(t(R.string.image_qr_code), this.f59145h);
         this.o = hVar;
         hVar.m(this.w);
         boolean z = false;
         int i3 = 0;
         while (true) {
-            if (i3 < this.f55457i.size()) {
-                if (this.k != null && this.f55457i.get(i3) == this.k && (i2 = i3 + 1) <= this.f55457i.size()) {
-                    this.f55457i.add(i2, this.o);
+            if (i3 < this.f59146i.size()) {
+                if (this.k != null && this.f59146i.get(i3) == this.k && (i2 = i3 + 1) <= this.f59146i.size()) {
+                    this.f59146i.add(i2, this.o);
                     z = true;
                     break;
                 }
@@ -582,33 +582,33 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             }
         }
         if (!z) {
-            this.f55457i.add(this.o);
+            this.f59146i.add(this.o);
         }
-        this.f55456h.k(this.f55457i);
+        this.f59145h.k(this.f59146i);
     }
 
     public final String t(int i2) {
-        return this.f55449a.getString(i2);
+        return this.f59138a.getString(i2);
     }
 
     public void u() {
-        d.a.m0.r.s.j jVar = this.f55455g;
+        d.a.m0.r.s.j jVar = this.f59144g;
         if (jVar == null || !jVar.isShowing()) {
             return;
         }
-        this.f55455g.dismiss();
+        this.f59144g.dismiss();
     }
 
     public void v(@Nullable MultiImageView multiImageView) {
-        this.f55450b = multiImageView;
-        if (this.f55455g == null) {
-            this.f55456h = new l(this.f55449a);
+        this.f59139b = multiImageView;
+        if (this.f59144g == null) {
+            this.f59145h = new l(this.f59138a);
         }
-        if (this.f55457i == null) {
-            this.f55457i = new ArrayList();
+        if (this.f59146i == null) {
+            this.f59146i = new ArrayList();
         }
         D();
-        this.f55455g = new d.a.m0.r.s.j(this.f55449a.getPageContext(), this.f55456h);
+        this.f59144g = new d.a.m0.r.s.j(this.f59138a.getPageContext(), this.f59145h);
     }
 
     public void w(View view) {
@@ -620,21 +620,21 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                 return;
             }
             q qVar = new q();
-            qVar.f54036a = 0;
-            qVar.f54038c = imageBitmap;
-            String currentImageUrl = this.f55450b.getCurrentImageUrl();
+            qVar.f57725a = 0;
+            qVar.f57727c = imageBitmap;
+            String currentImageUrl = this.f59139b.getCurrentImageUrl();
             if (!TextUtils.isEmpty(currentImageUrl)) {
-                qVar.f54037b = String.valueOf(System.currentTimeMillis()) + TbMd5.getNameMd5FromUrl(currentImageUrl);
+                qVar.f57726b = String.valueOf(System.currentTimeMillis()) + TbMd5.getNameMd5FromUrl(currentImageUrl);
             } else {
-                qVar.f54037b = String.valueOf(BdUniqueId.gen().getId());
+                qVar.f57726b = String.valueOf(BdUniqueId.gen().getId());
             }
-            this.f55453e = qVar.f54037b;
-            this.f55449a.sendMessage(new CustomMessage(2921403, qVar));
+            this.f59142e = qVar.f57726b;
+            this.f59138a.sendMessage(new CustomMessage(2921403, qVar));
         }
     }
 
     public void x() {
-        l lVar = this.f55456h;
+        l lVar = this.f59145h;
         if (lVar != null) {
             lVar.j();
         }
@@ -643,7 +643,7 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     public void y() {
         UrlDragImageView currentUrlDragImageView;
         String str;
-        MultiImageView multiImageView = this.f55450b;
+        MultiImageView multiImageView = this.f59139b;
         if (multiImageView == null || (currentUrlDragImageView = multiImageView.getCurrentUrlDragImageView()) == null) {
             return;
         }
@@ -656,7 +656,7 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             str = "";
         }
         if (TextUtils.isEmpty(str2)) {
-            str2 = this.f55450b.getCurrentImageUrl();
+            str2 = this.f59139b.getCurrentImageUrl();
             str = TbMd5.getNameMd5FromUrl(str2);
         }
         ShareItem shareItem = new ShareItem();
@@ -681,13 +681,13 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         }
         shareItem.j = true;
         shareItem.E = 23;
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f55449a, shareItem, false);
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f59138a, shareItem, false);
         if (d.a.m0.b.d.v()) {
             shareDialogConfig.isImageViewerDialog = true;
-            shareDialogConfig.originImgText = this.f55450b.o(this.f55449a.calCurrentIndex());
-            ImageViewerActivity imageViewerActivity = this.f55449a;
+            shareDialogConfig.originImgText = this.f59139b.o(this.f59138a.calCurrentIndex());
+            ImageViewerActivity imageViewerActivity = this.f59138a;
             shareDialogConfig.showAddEmotion = (imageViewerActivity == null || imageViewerActivity.isIsBJHThread()) ? false : true;
-            String currentImageQRInfo = this.f55450b.getCurrentImageQRInfo();
+            String currentImageQRInfo = this.f59139b.getCurrentImageQRInfo();
             if (!TextUtils.isEmpty(currentImageQRInfo) && !currentImageQRInfo.equals("qr_none")) {
                 z = true;
             }
@@ -699,10 +699,10 @@ public class j implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             shareDialogConfig.qrCodeClickListener = this.w;
             shareDialogConfig.onWeChatEmotionShareListener = this.x;
         }
-        this.f55449a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        this.f59138a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
     public final void z(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f55449a.getPageContext().getPageActivity(), null, str, false)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f59138a.getPageContext().getPageActivity(), null, str, false)));
     }
 }

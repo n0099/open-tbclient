@@ -5,64 +5,64 @@ import android.util.Log;
 public class m {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f63988f = l.f63987a & true;
+    public static final boolean f67706f = l.f67705a & true;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f63989g = "ControlData";
+    public static String f67707g = "ControlData";
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f63990a;
+    public final String f67708a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f63991b;
+    public final int f67709b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f63992c;
+    public final int f67710c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f63993d;
+    public long f67711d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f63994e;
+    public int f67712e;
 
     public m(String str, int i2, int i3) {
-        this.f63990a = str;
-        this.f63991b = i2;
-        this.f63992c = i3;
+        this.f67708a = str;
+        this.f67709b = i2;
+        this.f67710c = i3;
     }
 
     public String a() {
-        return this.f63990a;
+        return this.f67708a;
     }
 
     public boolean b() {
-        if (this.f63991b != 0 && this.f63992c != 0) {
+        if (this.f67709b != 0 && this.f67710c != 0) {
             Long valueOf = Long.valueOf(System.currentTimeMillis());
-            if (f63988f) {
-                Log.d(f63989g, "id " + this.f63990a + " mLimitUnit " + this.f63991b + " mLimitCnt " + this.f63992c + "mCount =  " + this.f63994e + " duration " + ((valueOf.longValue() - this.f63993d) / 1000));
+            if (f67706f) {
+                Log.d(f67707g, "id " + this.f67708a + " mLimitUnit " + this.f67709b + " mLimitCnt " + this.f67710c + "mCount =  " + this.f67712e + " duration " + ((valueOf.longValue() - this.f67711d) / 1000));
             }
-            if (this.f63993d != 0 && (valueOf.longValue() - this.f63993d) / 1000 <= this.f63991b && this.f63994e >= this.f63992c) {
-                if (f63988f) {
-                    Log.d(f63989g, "control");
+            if (this.f67711d != 0 && (valueOf.longValue() - this.f67711d) / 1000 <= this.f67709b && this.f67712e >= this.f67710c) {
+                if (f67706f) {
+                    Log.d(f67707g, "control");
                 }
                 return true;
             }
-            if (this.f63993d == 0) {
-                this.f63993d = valueOf.longValue();
-            } else if ((valueOf.longValue() - this.f63993d) / 1000 > this.f63991b) {
-                this.f63993d = valueOf.longValue();
-                this.f63994e = 0;
-                if (f63988f) {
-                    Log.d(f63989g, "reset");
+            if (this.f67711d == 0) {
+                this.f67711d = valueOf.longValue();
+            } else if ((valueOf.longValue() - this.f67711d) / 1000 > this.f67709b) {
+                this.f67711d = valueOf.longValue();
+                this.f67712e = 0;
+                if (f67706f) {
+                    Log.d(f67707g, "reset");
                 }
             }
-            this.f63994e++;
+            this.f67712e++;
         }
         return false;
     }
 
     public boolean c() {
-        int i2 = this.f63994e;
-        return i2 != 0 && i2 == this.f63992c;
+        int i2 = this.f67712e;
+        return i2 != 0 && i2 == this.f67710c;
     }
 }

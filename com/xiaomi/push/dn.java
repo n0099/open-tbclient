@@ -10,7 +10,7 @@ import com.xiaomi.push.ai;
 public class dn {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile dn f37443a;
+    public static volatile dn f41122a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f237a;
@@ -24,14 +24,14 @@ public class dn {
     }
 
     public static dn a(Context context) {
-        if (f37443a == null) {
+        if (f41122a == null) {
             synchronized (dn.class) {
-                if (f37443a == null) {
-                    f37443a = new dn(context);
+                if (f41122a == null) {
+                    f41122a = new dn(context);
                 }
             }
         }
-        return f37443a;
+        return f41122a;
     }
 
     private void a(com.xiaomi.push.service.aq aqVar, ai aiVar, boolean z) {
@@ -40,7 +40,7 @@ public class dn {
             if (z) {
                 aiVar.a((ai.a) dsVar, a(aqVar.a(hk.UploadFrequency.a(), 86400)));
             } else {
-                aiVar.m129a((ai.a) dsVar);
+                aiVar.m128a((ai.a) dsVar);
             }
         }
     }
@@ -88,7 +88,7 @@ public class dn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m234a() {
+    public void m233a() {
         ai.a(this.f237a).a(new Cdo(this));
     }
 }

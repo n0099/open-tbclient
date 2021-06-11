@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Comparator<File> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -80,15 +80,15 @@ public class k {
     public static void c() {
         if (d.a.l0.a.k2.g.h.a().getBoolean("swan_game_data_migration", true)) {
             d.a.l0.a.k2.g.h.a().putBoolean("swan_game_data_migration", false);
-            if (d.a.l0.a.b1.a.f40804a) {
+            if (d.a.l0.a.b1.a.f44480a) {
                 Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
             }
             a();
-            if (d.a.l0.a.b1.a.f40804a) {
+            if (d.a.l0.a.b1.a.f44480a) {
                 Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
             }
             b();
-            if (d.a.l0.a.b1.a.f40804a) {
+            if (d.a.l0.a.b1.a.f44480a) {
                 Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
             }
         }

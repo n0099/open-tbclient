@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.a.n0.v.j.d.o;
 /* loaded from: classes4.dex */
-public class l extends d.a.c.j.e.a<o, CardViewHolder<d.a.n0.v.j.h.a>> {
+public class l extends d.a.c.k.e.a<o, CardViewHolder<d.a.n0.v.j.h.a>> {
     public TbPageContext m;
     public d.a.n0.v.j.e.a n;
 
@@ -21,55 +21,55 @@ public class l extends d.a.c.j.e.a<o, CardViewHolder<d.a.n0.v.j.h.a>> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f62035e;
+        public final /* synthetic */ o f65750e;
 
         public a(o oVar) {
-            this.f62035e = oVar;
+            this.f65750e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            l.this.g0(this.f62035e);
+            l.this.h0(this.f65750e);
         }
     }
 
     public l(TbPageContext tbPageContext, d.a.n0.v.j.e.a aVar) {
-        super(tbPageContext.getPageActivity(), o.f62070f);
+        super(tbPageContext.getPageActivity(), o.f65785f);
         this.m = tbPageContext;
         this.n = aVar;
     }
 
-    public final void f0(o oVar, d.a.n0.v.j.h.a aVar) {
-        d.a.n0.v.j.d.c h2 = oVar.h();
-        if (h2 == null || h2.b() == null) {
+    public final void g0(o oVar, d.a.n0.v.j.h.a aVar) {
+        d.a.n0.v.j.d.c c2 = oVar.c();
+        if (c2 == null || c2.b() == null) {
             return;
         }
-        aVar.x(0);
-        aVar.y(this.f39228e.getResources().getString(R.string.ala_person_live_real_authen));
-        int i2 = h2.b().certify_status;
+        aVar.y(0);
+        aVar.z(this.f42909e.getResources().getString(R.string.ala_person_live_real_authen));
+        int i2 = c2.b().certify_status;
         if (i2 == 0) {
-            aVar.v(this.f39228e.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
-            aVar.w(0);
+            aVar.w(this.f42909e.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
+            aVar.x(0);
         } else if (1 == i2) {
-            aVar.v(this.f39228e.getResources().getString(R.string.ala_person_live_real_authen_in_review));
-            aVar.w(4);
+            aVar.w(this.f42909e.getResources().getString(R.string.ala_person_live_real_authen_in_review));
+            aVar.x(4);
         } else if (2 == i2) {
-            aVar.v(this.f39228e.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
-            aVar.w(4);
+            aVar.w(this.f42909e.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
+            aVar.x(4);
         } else if (3 == i2) {
-            aVar.v(this.f39228e.getResources().getString(R.string.ala_person_live_real_authen_denied));
-            aVar.w(0);
+            aVar.w(this.f42909e.getResources().getString(R.string.ala_person_live_real_authen_denied));
+            aVar.x(0);
         }
-        aVar.n(this.m, TbadkCoreApplication.getInst().getSkinType());
+        aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final void g0(o oVar) {
+    public final void h0(o oVar) {
         AlaUserInfoData b2;
         int i2;
-        if (oVar == null || oVar.h() == null || oVar.h().b() == null || 1 == (i2 = (b2 = oVar.h().b()).certify_status) || 2 == i2) {
+        if (oVar == null || oVar.c() == null || oVar.c().b() == null || 1 == (i2 = (b2 = oVar.c().b()).certify_status) || 2 == i2) {
             return;
         }
-        Context context = this.f39228e;
+        Context context = this.f42909e;
         String str = b2.user_id;
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b2.certify_status + "")));
         d.a.n0.v.j.e.a aVar = this.n;
@@ -79,21 +79,21 @@ public class l extends d.a.c.j.e.a<o, CardViewHolder<d.a.n0.v.j.h.a>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public CardViewHolder<d.a.n0.v.j.h.a> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public CardViewHolder<d.a.n0.v.j.h.a> Q(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.a.n0.v.j.h.a(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: i0 */
-    public View W(int i2, View view, ViewGroup viewGroup, o oVar, CardViewHolder<d.a.n0.v.j.h.a> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: j0 */
+    public View X(int i2, View view, ViewGroup viewGroup, o oVar, CardViewHolder<d.a.n0.v.j.h.a> cardViewHolder) {
         if (cardViewHolder.b() == null) {
             return null;
         }
-        f0(oVar, cardViewHolder.b());
-        cardViewHolder.b().l().setOnClickListener(new a(oVar));
-        return cardViewHolder.b().l();
+        g0(oVar, cardViewHolder.b());
+        cardViewHolder.b().m().setOnClickListener(new a(oVar));
+        return cardViewHolder.b().m();
     }
 }

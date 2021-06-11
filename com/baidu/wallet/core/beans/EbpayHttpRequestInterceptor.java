@@ -17,22 +17,22 @@ import org.json.JSONObject;
 public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23848a = "EbpayClientHttpRequestInterceptor";
+    public static final String f23951a = "EbpayClientHttpRequestInterceptor";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23849b = "wims";
+    public static final String f23952b = "wims";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f23850c = "wloc";
+    public static final String f23953c = "wloc";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f23851d = "wssn";
+    public static final String f23954d = "wssn";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f23852e = "cuid_1";
+    public static final String f23955e = "cuid_1";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f23853f = "wmip";
+    public static final String f23956f = "wmip";
 
     private void a(StringBuffer stringBuffer) {
         stringBuffer.append("BDUSS=");

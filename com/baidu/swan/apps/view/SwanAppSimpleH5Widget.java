@@ -54,7 +54,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         super(context);
         Y0(new SimpleWebViewClient());
         X0(new SimpleWebChromeClient());
-        this.f10704f.setOnWebViewHookHandler(this);
+        this.f10766f.setOnWebViewHookHandler(this);
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget

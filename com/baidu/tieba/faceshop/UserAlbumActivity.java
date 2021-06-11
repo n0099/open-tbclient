@@ -46,7 +46,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     public List<ImageFileInfo> mImageList = new ArrayList();
     public List<ImageFileInfo> mAllImageList = new ArrayList();
     public LinkedHashMap<String, ImageFileInfo> mChooseList = new LinkedHashMap<>();
-    public String mAlbumId = d.a.m0.e.a.f49299f;
+    public String mAlbumId = d.a.m0.e.a.f52973f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -134,7 +134,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 UserAlbumActivity.this.mAllImageList.addAll(list2);
                 UserAlbumActivity.this.mImageList.addAll(list2);
                 UserAlbumActivity.this.mAddData = new d.a.m0.e.a();
-                UserAlbumActivity.this.mAddData.h(d.a.m0.e.a.f49299f);
+                UserAlbumActivity.this.mAddData.h(d.a.m0.e.a.f52973f);
                 d.a.m0.e.a aVar = UserAlbumActivity.this.mAddData;
                 aVar.i(list2.size() + "");
                 UserAlbumActivity.this.mAddData.l(UserAlbumActivity.this.getPageContext().getString(R.string.album_all));
@@ -157,7 +157,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         }
 
         @Override // d.a.m0.a0.b
-        public void a(d.a.c.j.d.a aVar, String str, boolean z) {
+        public void a(d.a.c.k.d.a aVar, String str, boolean z) {
             TbImageView tbImageView = (TbImageView) UserAlbumActivity.this.mGridView.findViewWithTag(str);
             if (tbImageView == null || aVar == null) {
                 return;
@@ -227,7 +227,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     private void loadAlbumData() {
-        this.mLoadModel.i(d.a.m0.e.a.f49299f, new d());
+        this.mLoadModel.i(d.a.m0.e.a.f52973f, new d());
     }
 
     private void refreshImages() {

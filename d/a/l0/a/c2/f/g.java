@@ -27,19 +27,19 @@ public class g extends a0 {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f41020e;
+        public final /* synthetic */ JSONObject f44696e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41021f;
+        public final /* synthetic */ String f44697f;
 
         public a(JSONObject jSONObject, String str) {
-            this.f41020e = jSONObject;
-            this.f41021f = str;
+            this.f44696e = jSONObject;
+            this.f44697f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g.this.o(this.f41020e, this.f41021f);
+            g.this.o(this.f44696e, this.f44697f);
         }
     }
 
@@ -47,29 +47,29 @@ public class g extends a0 {
     public class b implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f41023e;
+        public final /* synthetic */ UnitedSchemeEntity f44699e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41024f;
+        public final /* synthetic */ CallbackHandler f44700f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f41025g;
+        public final /* synthetic */ JSONArray f44701g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f41026h;
+        public final /* synthetic */ String f44702h;
 
         public b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONArray jSONArray, String str) {
-            this.f41023e = unitedSchemeEntity;
-            this.f41024f = callbackHandler;
-            this.f41025g = jSONArray;
-            this.f41026h = str;
+            this.f44699e = unitedSchemeEntity;
+            this.f44700f = callbackHandler;
+            this.f44701g = jSONArray;
+            this.f44702h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
-            g.this.m(iVar, this.f41023e, this.f41024f, this.f41025g, this.f41026h);
+            g.this.m(iVar, this.f44699e, this.f44700f, this.f44701g, this.f44702h);
         }
     }
 
@@ -77,24 +77,24 @@ public class g extends a0 {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f41028e;
+        public final /* synthetic */ List f44704e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41029f;
+        public final /* synthetic */ String f44705f;
 
         public c(g gVar, List list, String str) {
-            this.f41028e = list;
-            this.f41029f = str;
+            this.f44704e = list;
+            this.f44705f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            List<String> h2 = d.a.l0.a.h0.m.p.a.h(this.f41028e);
+            List<String> h2 = d.a.l0.a.h0.m.p.a.h(this.f44704e);
             if (h2.isEmpty()) {
                 return;
             }
             d.a.l0.n.i.m.b bVar = new d.a.l0.n.i.m.b((Collection<String>) h2, (d.a.l0.n.o.a) t0.b());
-            bVar.e(this.f41029f);
+            bVar.e(this.f44705f);
             bVar.d("1");
             d.a.l0.a.h0.m.d dVar = new d.a.l0.a.h0.m.d();
             dVar.K(5);
@@ -193,7 +193,7 @@ public class g extends a0 {
                                     arrayList2.add(o0.n(next, parse, false));
                                 }
                             } catch (Exception e2) {
-                                if (a0.f40949b) {
+                                if (a0.f44625b) {
                                     e2.printStackTrace();
                                 }
                             }

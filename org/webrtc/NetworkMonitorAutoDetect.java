@@ -23,7 +23,7 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public static final long INVALID_NET_ID = -1;
     public static final String TAG = "NetworkMonitorAutoDetect";
@@ -41,7 +41,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public WifiManagerDelegate wifiManagerDelegate;
     public String wifiSSID;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum ConnectionType {
         CONNECTION_UNKNOWN,
         CONNECTION_ETHERNET,
@@ -55,7 +55,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         CONNECTION_NONE
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ConnectivityManagerDelegate {
         @Nullable
         public final ConnectivityManager connectivityManager;
@@ -209,7 +209,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class IPAddress {
         public final byte[] address;
 
@@ -223,7 +223,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NetworkInformation {
         public final long handle;
         public final IPAddress[] ipAddresses;
@@ -265,7 +265,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NetworkState {
         public final boolean connected;
         public final int subtype;
@@ -302,7 +302,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Observer {
         void onConnectionTypeChanged(ConnectionType connectionType);
 
@@ -312,7 +312,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     }
 
     @SuppressLint({"NewApi"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class SimpleNetworkCallback extends ConnectivityManager.NetworkCallback {
         public SimpleNetworkCallback() {
         }
@@ -354,7 +354,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class WifiDirectManagerDelegate extends BroadcastReceiver {
         public static final int WIFI_P2P_NETWORK_HANDLE = 0;
         public final Context context;
@@ -416,7 +416,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class WifiManagerDelegate {
         @Nullable
         public final Context context;

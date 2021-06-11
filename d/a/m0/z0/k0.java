@@ -44,13 +44,13 @@ import java.util.Random;
 public class k0 implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f51045g = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + File.separator + "tieba" + File.separator + "oom" + File.separator;
+    public static final String f54722g = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + File.separator + "tieba" + File.separator + "oom" + File.separator;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Thread.UncaughtExceptionHandler f51046e = Thread.getDefaultUncaughtExceptionHandler();
+    public final Thread.UncaughtExceptionHandler f54723e = Thread.getDefaultUncaughtExceptionHandler();
 
     /* renamed from: f  reason: collision with root package name */
-    public ExceptionData f51047f = null;
+    public ExceptionData f54724f = null;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x003e */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0006 */
@@ -209,11 +209,11 @@ public class k0 implements Thread.UncaughtExceptionHandler {
 
     public final void c() {
         try {
-            File file = new File(f51045g);
+            File file = new File(f54722g);
             if (!file.exists()) {
                 file.mkdir();
             }
-            Debug.dumpHprofData(f51045g + System.currentTimeMillis());
+            Debug.dumpHprofData(f54722g + System.currentTimeMillis());
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
@@ -224,18 +224,18 @@ public class k0 implements Thread.UncaughtExceptionHandler {
     }
 
     public final void g() {
-        if (this.f51047f == null) {
+        if (this.f54724f == null) {
             return;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016301, this.f51047f));
-        Map<String, String> map = this.f51047f.appendInfo;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016301, this.f54724f));
+        Map<String, String> map = this.f54724f.appendInfo;
         if (map != null) {
             for (String str : map.keySet()) {
                 StringBuilder sb = new StringBuilder();
-                ExceptionData exceptionData = this.f51047f;
+                ExceptionData exceptionData = this.f54724f;
                 sb.append(exceptionData.info);
                 sb.append("\n");
-                sb.append(this.f51047f.appendInfo.get(str));
+                sb.append(this.f54724f.appendInfo.get(str));
                 exceptionData.info = sb.toString();
             }
         }
@@ -300,16 +300,16 @@ public class k0 implements Thread.UncaughtExceptionHandler {
                 sb.append((th.getMessage() + d("cat proc/" + Process.myPid() + "/status")) + "\n===========================\n");
                 sb.append(d("cat proc/" + Process.myPid() + "/maps"));
                 Exception exc = new Exception(sb.toString());
-                this.f51047f = new ExceptionData();
+                this.f54724f = new ExceptionData();
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
                     printStream = new PrintStream(byteArrayOutputStream);
                     try {
                         exc.printStackTrace(printStream);
-                        this.f51047f.info = new String(byteArrayOutputStream.toByteArray());
-                        this.f51047f.mExcep = exc;
+                        this.f54724f.info = new String(byteArrayOutputStream.toByteArray());
+                        this.f54724f.mExcep = exc;
                         k(thread, exc);
-                        this.f51047f = null;
+                        this.f54724f = null;
                     } catch (Exception unused) {
                     } catch (Throwable th2) {
                         th = th2;
@@ -350,20 +350,20 @@ public class k0 implements Thread.UncaughtExceptionHandler {
                     th.printStackTrace(printStream2);
                     byte[] byteArray = b2.toByteArray();
                     ExceptionData exceptionData = new ExceptionData();
-                    this.f51047f = exceptionData;
+                    this.f54724f = exceptionData;
                     if (z) {
                         exceptionData.info = th.getMessage();
                     } else {
                         exceptionData.info = new String(byteArray);
-                        this.f51047f.mExcep = th;
+                        this.f54724f.mExcep = th;
                     }
                     g();
                     if (!z) {
                         k(thread, th);
                     }
-                    SwitchManager.getInstance().crash(this.f51047f.info);
-                    if (!TextUtils.isEmpty(this.f51047f.info)) {
-                        BdLog.e(this.f51047f.info);
+                    SwitchManager.getInstance().crash(this.f54724f.info);
+                    if (!TextUtils.isEmpty(this.f54724f.info)) {
+                        BdLog.e(this.f54724f.info);
                     }
                     BdLog.e("hourCrash = " + i2);
                     if (i2 >= e()) {
@@ -381,7 +381,7 @@ public class k0 implements Thread.UncaughtExceptionHandler {
                         return;
                     }
                     if (TbConfig.getDebugSwitch()) {
-                        uncaughtExceptionHandler2 = this.f51046e;
+                        uncaughtExceptionHandler2 = this.f54723e;
                     }
                     Process.killProcess(Process.myPid());
                 } catch (Throwable th5) {
@@ -390,7 +390,7 @@ public class k0 implements Thread.UncaughtExceptionHandler {
                     d.a.c.e.p.m.f(printStream3);
                     d.a.c.e.p.m.f(b2);
                     if (!z) {
-                        if (TbConfig.getDebugSwitch() && (uncaughtExceptionHandler = this.f51046e) != null) {
+                        if (TbConfig.getDebugSwitch() && (uncaughtExceptionHandler = this.f54723e) != null) {
                             uncaughtExceptionHandler.uncaughtException(thread, th);
                         } else {
                             Process.killProcess(Process.myPid());
@@ -409,7 +409,7 @@ public class k0 implements Thread.UncaughtExceptionHandler {
                 return;
             }
             if (TbConfig.getDebugSwitch()) {
-                uncaughtExceptionHandler2 = this.f51046e;
+                uncaughtExceptionHandler2 = this.f54723e;
             }
             Process.killProcess(Process.myPid());
         } catch (Throwable th7) {
@@ -418,14 +418,14 @@ public class k0 implements Thread.UncaughtExceptionHandler {
     }
 
     public final void k(Thread thread, Throwable th) {
-        if (this.f51047f == null) {
+        if (this.f54724f == null) {
             return;
         }
         l(thread, th, TbConfig.getDebugSwitch() ? TbConfig.FATAL_ERROR_DEBUG_FILE : TbConfig.FATAL_ERROR_FILE);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:41:0x0197, code lost:
-        if (r11.f51047f.info.contains("java.lang.NoClassDefFoundError") != false) goto L54;
+        if (r11.f54724f.info.contains("java.lang.NoClassDefFoundError") != false) goto L54;
      */
     /* JADX WARN: Removed duplicated region for block: B:57:0x0240 A[Catch: all -> 0x0346, Exception -> 0x0349, LOOP:2: B:57:0x0240->B:62:0x025e, LOOP_START, PHI: r7 
       PHI: (r7v4 int) = (r7v0 int), (r7v5 int) binds: [B:56:0x023e, B:62:0x025e] A[DONT_GENERATE, DONT_INLINE], TryCatch #2 {all -> 0x0346, blocks: (B:11:0x0043, B:13:0x009f, B:14:0x00a8, B:15:0x00e8, B:17:0x00ee, B:19:0x00f8, B:20:0x0104, B:22:0x010a, B:25:0x0113, B:27:0x0135, B:29:0x015c, B:32:0x016d, B:30:0x0162, B:31:0x0168, B:34:0x0173, B:36:0x017b, B:38:0x0181, B:40:0x018d, B:42:0x0199, B:44:0x01a3, B:45:0x01c5, B:47:0x01cb, B:50:0x01d4, B:52:0x021d, B:51:0x0218, B:55:0x0228, B:57:0x0240, B:59:0x0246, B:61:0x0250, B:62:0x025e, B:63:0x0261, B:65:0x028f, B:66:0x02af, B:68:0x02ba, B:70:0x02c6, B:72:0x02d2, B:74:0x02f8, B:76:0x02fc, B:78:0x0302, B:79:0x030a, B:80:0x0329, B:84:0x0330, B:85:0x0337), top: B:106:0x0043 }] */
@@ -439,7 +439,7 @@ public class k0 implements Thread.UncaughtExceptionHandler {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         Object obj;
         byte[] f2;
-        if (this.f51047f == null) {
+        if (this.f54724f == null) {
             return;
         }
         FileWriter fileWriter = null;
@@ -504,8 +504,8 @@ public class k0 implements Thread.UncaughtExceptionHandler {
                             StringBuilder sb2 = new StringBuilder();
                             String str2 = "";
                             int i2 = 0;
-                            if (this.f51047f.info != null) {
-                                if (!this.f51047f.info.contains("java.lang.ClassNotFoundException")) {
+                            if (this.f54724f.info != null) {
+                                if (!this.f54724f.info.contains("java.lang.ClassNotFoundException")) {
                                 }
                                 try {
                                     PluginSettings l = d.a.c.h.j.g.d.k().l();
@@ -553,12 +553,12 @@ public class k0 implements Thread.UncaughtExceptionHandler {
                                         }
                                     }
                                 }
-                                String str3 = this.f51047f.info + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + d.a.c.a.b.f().c();
+                                String str3 = this.f54724f.info + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + d.a.c.a.b.f().c();
                                 if (z) {
                                     str3 = str3 + "\n--PluginSettings--" + sb2.toString() + "\n--PluginTrace--" + str2;
                                 }
                                 a(fileWriter2, "error", str3);
-                                if (this.f51047f.info != null && this.f51047f.info.contains("java.lang.ArrayIndexOutOfBoundsException: src.length=8192 srcPos=1 dst.length=8192 dstPos=0 length=-1")) {
+                                if (this.f54724f.info != null && this.f54724f.info.contains("java.lang.ArrayIndexOutOfBoundsException: src.length=8192 srcPos=1 dst.length=8192 dstPos=0 length=-1")) {
                                     int nextInt = new Random().nextInt(100);
                                     try {
                                         Field declaredField = thread.getClass().getDeclaredField("this$0");
@@ -594,11 +594,11 @@ public class k0 implements Thread.UncaughtExceptionHandler {
                             int myPid2 = Process.myPid();
                             if (runningAppProcesses != null) {
                             }
-                            String str32 = this.f51047f.info + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + d.a.c.a.b.f().c();
+                            String str32 = this.f54724f.info + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + d.a.c.a.b.f().c();
                             if (z) {
                             }
                             a(fileWriter2, "error", str32);
-                            if (this.f51047f.info != null) {
+                            if (this.f54724f.info != null) {
                                 int nextInt2 = new Random().nextInt(100);
                                 Field declaredField3 = thread.getClass().getDeclaredField("this$0");
                                 declaredField3.setAccessible(true);

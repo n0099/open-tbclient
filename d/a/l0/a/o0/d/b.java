@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f43912c;
+    public final Map<String, String> f47588c;
 
     public b(@NonNull String str) {
         this(str, null);
@@ -19,7 +19,7 @@ public class b extends a {
     @Override // d.a.l0.a.o0.d.a
     public String f(String str) {
         StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, String> entry : this.f43912c.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f47588c.entrySet()) {
             sb.append(d.a.l0.a.o0.a.c(str, entry.getKey(), entry.getValue()));
         }
         return sb.toString();
@@ -28,11 +28,11 @@ public class b extends a {
     public JSONObject g() {
         JSONObject jSONObject = new JSONObject();
         try {
-            for (Map.Entry<String, String> entry : this.f43912c.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f47588c.entrySet()) {
                 jSONObject.put(entry.getKey(), entry.getValue());
             }
         } catch (JSONException e2) {
-            if (a.f43904b) {
+            if (a.f47580b) {
                 e2.printStackTrace();
             }
         }
@@ -41,8 +41,8 @@ public class b extends a {
 
     public b(@NonNull String str, @Nullable Map<String, String> map) {
         HashMap hashMap = new HashMap();
-        this.f43912c = hashMap;
-        this.f43905a = str;
+        this.f47588c = hashMap;
+        this.f47581a = str;
         if (map != null) {
             hashMap.putAll(map);
         }

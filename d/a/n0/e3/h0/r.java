@@ -3,24 +3,24 @@ package d.a.n0.e3.h0;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54041a;
+    public int f57730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54042b;
+    public String f57731b;
 
     public int a() {
-        return this.f54041a;
+        return this.f57730a;
     }
 
     public String b() {
-        return this.f54042b;
+        return this.f57731b;
     }
 
     public void c(int i2) {
-        this.f54041a = i2;
+        this.f57730a = i2;
     }
 
     public void d(String str) {
-        this.f54042b = str;
+        this.f57731b = str;
     }
 }

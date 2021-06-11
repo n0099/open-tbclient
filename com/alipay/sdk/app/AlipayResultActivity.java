@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class AlipayResultActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f1733a = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<String, a> f1746a = new ConcurrentHashMap<>();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,12 +21,12 @@ public class AlipayResultActivity extends Activity {
     }
 
     private void a(String str, Bundle bundle) {
-        a remove = f1733a.remove(str);
+        a remove = f1746a.remove(str);
         if (remove == null) {
             return;
         }
         try {
-            remove.a(bundle.getInt("endCode"), bundle.getString(l.f1975b), bundle.getString("result"));
+            remove.a(bundle.getInt("endCode"), bundle.getString(l.f1988b), bundle.getString("result"));
         } finally {
             finish();
         }

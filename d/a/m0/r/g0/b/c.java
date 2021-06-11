@@ -23,14 +23,14 @@ public class c implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(diskFileOperate);
-            bVar.f38695a = diskCancelWorker;
+            bVar.f42348a = diskCancelWorker;
         }
         diskFileOperate.call();
         if (diskFileOperate.isSuccess()) {
             String desPath = diskFileOperate.getDesPath();
             a aVar = new a();
-            aVar.f49820a = str;
-            aVar.f49821b = desPath;
+            aVar.f53495a = str;
+            aVar.f53496b = desPath;
             return aVar;
         }
         return null;
@@ -53,7 +53,7 @@ public class c implements e<a> {
         a aVar = new a();
         WebClient webClient = new WebClient();
         if (bVar != null) {
-            bVar.f38695a = webClient;
+            bVar.f42348a = webClient;
         }
         String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
         if (!TextUtils.isEmpty(valueOf)) {
@@ -61,12 +61,12 @@ public class c implements e<a> {
         }
         byte[] downloadCommonBytes = webClient.downloadCommonBytes(str4);
         if (!webClient.IsRequestSuccess()) {
-            aVar.f49822c = 3;
-            aVar.f49823d = h.a(R.string.neterror);
+            aVar.f53497c = 3;
+            aVar.f53498d = h.a(R.string.neterror);
             return aVar;
         } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
-            aVar.f49822c = 4;
-            aVar.f49823d = h.a(R.string.voice_cache_error_no_file);
+            aVar.f53497c = 4;
+            aVar.f53498d = h.a(R.string.voice_cache_error_no_file);
             return aVar;
         } else {
             if (str == null) {
@@ -81,7 +81,7 @@ public class c implements e<a> {
                 if (bVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                     diskCancelWorker.setOperate(diskFileOperate);
-                    bVar.f38695a = diskCancelWorker;
+                    bVar.f42348a = diskCancelWorker;
                 }
                 diskFileOperate.call();
                 if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
@@ -92,11 +92,11 @@ public class c implements e<a> {
                 }
             }
             if (i4 == 0) {
-                aVar.f49821b = str3;
-                aVar.f49820a = str;
+                aVar.f53496b = str3;
+                aVar.f53495a = str;
             } else {
-                aVar.f49822c = i4;
-                aVar.f49823d = a.a(i4);
+                aVar.f53497c = i4;
+                aVar.f53498d = a.a(i4);
             }
             return aVar;
         }

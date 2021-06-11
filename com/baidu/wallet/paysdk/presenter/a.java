@@ -22,13 +22,13 @@ import com.baidu.wallet.util.StatHelper;
 public class a implements View.OnClickListener, e {
 
     /* renamed from: a  reason: collision with root package name */
-    public AuthorizeSignActivity f25382a;
+    public AuthorizeSignActivity f25485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25383b = 1;
+    public int f25486b = 1;
 
     public a(AuthorizeSignActivity authorizeSignActivity) {
-        this.f25382a = authorizeSignActivity;
+        this.f25485a = authorizeSignActivity;
     }
 
     private void h() {
@@ -36,7 +36,7 @@ public class a implements View.OnClickListener, e {
         StatHelper.cachePayType(0);
         StatHelper.cachePayWay(4);
         if (PayDataCache.getInstance().hasMobilePwd()) {
-            PasswordController.getPassWordInstance().checkPwd(this.f25382a.getActivity(), BeanConstants.FROM_BIND_PAY, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.presenter.a.2
+            PasswordController.getPassWordInstance().checkPwd(this.f25485a.getActivity(), BeanConstants.FROM_BIND_PAY, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.presenter.a.2
                 @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
                 public void onFail(int i2, String str) {
                     PayRequestCache.getInstance().removeBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
@@ -45,30 +45,30 @@ public class a implements View.OnClickListener, e {
                 @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
                 public void onSucceed(String str) {
                     PayRequestCache.getInstance().removeBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
-                    BaiduPay.getInstance().bindCardAuth(a.this.f25382a.getActivity(), false);
+                    BaiduPay.getInstance().bindCardAuth(a.this.f25485a.getActivity(), false);
                     StatisticManager.onEventWithValue(StatServiceEvent.EVENT_AuthorizePay_ClickNext, StatServiceEvent.VALUE_AuthorizePay_ClickNext_NewCard);
                 }
             });
             return;
         }
-        BaiduPay.getInstance().bindCardAuth(this.f25382a.getActivity(), false);
+        BaiduPay.getInstance().bindCardAuth(this.f25485a.getActivity(), false);
         StatisticManager.onEventWithValue(StatServiceEvent.EVENT_AuthorizePay_ClickNext, StatServiceEvent.VALUE_AuthorizePay_ClickNext_NewCard);
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.e
     public void a() {
-        AuthorizeSignActivity authorizeSignActivity = this.f25382a;
+        AuthorizeSignActivity authorizeSignActivity = this.f25485a;
         if (authorizeSignActivity == null) {
             return;
         }
         authorizeSignActivity.initCardList();
-        this.f25382a.setSelectCardListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.presenter.a.1
+        this.f25485a.setSelectCardListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.presenter.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.wallet.paysdk.a.b.a(a.this.f25382a.getActivity(), null);
+                com.baidu.wallet.paysdk.a.b.a(a.this.f25485a.getActivity(), null);
             }
         });
-        this.f25382a.initNextButton(this);
+        this.f25485a.initNextButton(this);
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.e
@@ -77,19 +77,19 @@ public class a implements View.OnClickListener, e {
 
     @Override // com.baidu.wallet.paysdk.presenter.e
     public void b() {
-        AuthorizeSignActivity authorizeSignActivity = this.f25382a;
+        AuthorizeSignActivity authorizeSignActivity = this.f25485a;
         if (authorizeSignActivity == null) {
             return;
         }
         authorizeSignActivity.updateProtocolFields();
-        this.f25382a.updateNextButton();
-        AuthorizeSignActivity authorizeSignActivity2 = this.f25382a;
+        this.f25485a.updateNextButton();
+        AuthorizeSignActivity authorizeSignActivity2 = this.f25485a;
         authorizeSignActivity2.updateSelBankInfo(authorizeSignActivity2.getPayRequest().mBondCard);
-        DirectPayContentResponse payResponse = this.f25382a.getPayResponse();
+        DirectPayContentResponse payResponse = this.f25485a.getPayResponse();
         if (payResponse == null || payResponse.authorize == null || !f()) {
             return;
         }
-        this.f25382a.updateHintText(payResponse.authorize.extra.fee_tip);
+        this.f25485a.updateHintText(payResponse.authorize.extra.fee_tip);
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.e
@@ -111,20 +111,20 @@ public class a implements View.OnClickListener, e {
     public boolean f() {
         Authorize authorize;
         Authorize.Extra extra;
-        DirectPayContentResponse payResponse = this.f25382a.getPayResponse();
+        DirectPayContentResponse payResponse = this.f25485a.getPayResponse();
         return (payResponse == null || (authorize = payResponse.authorize) == null || (extra = authorize.extra) == null || TextUtils.isEmpty(extra.fee_tip)) ? false : true;
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.e
     public int g() {
-        return this.f25383b;
+        return this.f25486b;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f25382a != null && view.getId() == ResUtils.id(this.f25382a.getApplicationContext(), "sign_next_btn")) {
-            PayRequest payRequest = this.f25382a.getPayRequest();
-            CardData.BondCard selectedCard = this.f25382a.getSelectedCard();
+        if (this.f25485a != null && view.getId() == ResUtils.id(this.f25485a.getApplicationContext(), "sign_next_btn")) {
+            PayRequest payRequest = this.f25485a.getPayRequest();
+            CardData.BondCard selectedCard = this.f25485a.getSelectedCard();
             StatHelper.cacheHasPwd(PayDataCache.getInstance().hasMobilePwd());
             StatHelper.cachePayType(0);
             StatHelper.cachePayWay(3);
@@ -137,7 +137,7 @@ public class a implements View.OnClickListener, e {
                 if (payRequest != null) {
                     payRequest.mBondCard = selectedCard;
                 }
-                BaiduPay.getInstance().directAuth(this.f25382a.getActivity(), selectedCard);
+                BaiduPay.getInstance().directAuth(this.f25485a.getActivity(), selectedCard);
                 StatisticManager.onEventWithValue(StatServiceEvent.EVENT_AuthorizePay_ClickNext, StatServiceEvent.VALUE_AuthorizePay_ClickNext_BoundCard);
             } else {
                 if (payRequest != null) {
@@ -150,7 +150,7 @@ public class a implements View.OnClickListener, e {
 
     private void a(final CardData.BondCard bondCard) {
         if (PayDataCache.getInstance().hasMobilePwd()) {
-            PasswordController.getPassWordInstance().checkPwd(this.f25382a.getActivity(), BeanConstants.FROM_COMPLETE_PAY, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.presenter.a.3
+            PasswordController.getPassWordInstance().checkPwd(this.f25485a.getActivity(), BeanConstants.FROM_COMPLETE_PAY, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.presenter.a.3
                 @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
                 public void onFail(int i2, String str) {
                     PayRequestCache.getInstance().removeBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
@@ -159,13 +159,13 @@ public class a implements View.OnClickListener, e {
                 @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
                 public void onSucceed(String str) {
                     PayRequestCache.getInstance().removeBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
-                    BaiduPay.getInstance().completeCardAuth(a.this.f25382a.getActivity(), bondCard);
+                    BaiduPay.getInstance().completeCardAuth(a.this.f25485a.getActivity(), bondCard);
                     StatisticManager.onEventWithValue(StatServiceEvent.EVENT_AuthorizePay_ClickNext, StatServiceEvent.VALUE_AuthorizePay_ClickNext_CompleteCard);
                 }
             });
             return;
         }
-        BaiduPay.getInstance().completeCardAuth(this.f25382a.getActivity(), bondCard);
+        BaiduPay.getInstance().completeCardAuth(this.f25485a.getActivity(), bondCard);
         StatisticManager.onEventWithValue(StatServiceEvent.EVENT_AuthorizePay_ClickNext, StatServiceEvent.VALUE_AuthorizePay_ClickNext_CompleteCard);
     }
 }

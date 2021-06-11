@@ -21,42 +21,42 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Animation f56778a;
+    public Animation f60467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Animation f56779b;
+    public Animation f60468b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f56780c;
+    public View f60469c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f56781d;
+    public ViewGroup f60470d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InterfaceC1414c f56782e;
+    public InterfaceC1470c f60471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.k1.q.b f56783f;
+    public d.a.n0.k1.q.b f60472f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56784g = false;
+    public boolean f60473g = false;
 
     /* loaded from: classes4.dex */
     public class a implements AdapterView.OnItemClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f56785e;
+        public final /* synthetic */ Context f60474e;
 
         public a(Context context) {
-            this.f56785e = context;
+            this.f60474e = context;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            e item = c.this.f56783f.getItem(i2);
+            e item = c.this.f60472f.getItem(i2);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
-            c.this.f(this.f56785e);
+            c.this.f(this.f60474e);
         }
     }
 
@@ -67,26 +67,26 @@ public class c {
 
         @Override // d.a.c.e.m.d, android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            c.this.f56784g = false;
-            if (c.this.f56782e != null) {
-                c.this.f56782e.a();
+            c.this.f60473g = false;
+            if (c.this.f60471e != null) {
+                c.this.f60471e.a();
             }
-            c.this.f56781d.removeView(c.this.f56780c);
+            c.this.f60470d.removeView(c.this.f60469c);
         }
     }
 
     /* renamed from: d.a.n0.k1.q.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1414c {
+    public interface InterfaceC1470c {
         void a();
     }
 
     public c(ViewGroup viewGroup) {
-        this.f56781d = viewGroup;
+        this.f60470d = viewGroup;
     }
 
     public void f(Context context) {
-        View view = this.f56780c;
+        View view = this.f60469c;
         if (view != null) {
             view.startAnimation(i(context));
         }
@@ -97,53 +97,53 @@ public class c {
         GridView gridView = (GridView) inflate.findViewById(R.id.scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
         d.a.n0.k1.q.b bVar = new d.a.n0.k1.q.b(context, i2);
-        this.f56783f = bVar;
+        this.f60472f = bVar;
         bVar.b(list);
-        gridView.setAdapter((ListAdapter) this.f56783f);
+        gridView.setAdapter((ListAdapter) this.f60472f);
         gridView.setOnItemClickListener(new a(context));
         return inflate;
     }
 
     public final Animation h(Context context) {
-        if (this.f56778a == null) {
-            this.f56778a = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
+        if (this.f60467a == null) {
+            this.f60467a = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
         }
-        return this.f56778a;
+        return this.f60467a;
     }
 
     public final Animation i(Context context) {
-        if (this.f56779b == null) {
-            this.f56779b = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
+        if (this.f60468b == null) {
+            this.f60468b = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
         }
-        this.f56779b.setAnimationListener(new b());
-        return this.f56779b;
+        this.f60468b.setAnimationListener(new b());
+        return this.f60468b;
     }
 
     public boolean j() {
-        return this.f56784g;
+        return this.f60473g;
     }
 
     public void k(int i2) {
-        SkinManager.setBackgroundColor(this.f56780c, R.color.CAM_X0111);
-        d.a.n0.k1.q.b bVar = this.f56783f;
+        SkinManager.setBackgroundColor(this.f60469c, R.color.CAM_X0111);
+        d.a.n0.k1.q.b bVar = this.f60472f;
         if (bVar != null) {
             bVar.notifyDataSetChanged();
         }
     }
 
-    public void l(InterfaceC1414c interfaceC1414c) {
-        this.f56782e = interfaceC1414c;
+    public void l(InterfaceC1470c interfaceC1470c) {
+        this.f60471e = interfaceC1470c;
     }
 
     public void m(Context context, List<e> list, int i2) {
-        if (this.f56784g) {
+        if (this.f60473g) {
             return;
         }
-        this.f56784g = true;
+        this.f60473g = true;
         View g2 = g(context, list, i2);
-        this.f56780c = g2;
-        this.f56781d.addView(g2);
-        SkinManager.setBackgroundColor(this.f56780c, R.color.CAM_X0111);
-        this.f56780c.startAnimation(h(context));
+        this.f60469c = g2;
+        this.f60470d.addView(g2);
+        SkinManager.setBackgroundColor(this.f60469c, R.color.CAM_X0111);
+        this.f60469c.startAnimation(h(context));
     }
 }

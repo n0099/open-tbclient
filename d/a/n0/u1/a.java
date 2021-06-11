@@ -1,5 +1,5 @@
 package d.a.n0.u1;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static String a(Throwable th) {
         if (th == null) {

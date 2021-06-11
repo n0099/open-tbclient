@@ -20,11 +20,11 @@ import java.util.Locale;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41869a = k.f43199a;
+    public static final boolean f45545a = k.f46875a;
 
     /* renamed from: d.a.l0.a.f1.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0636a implements d.a.l0.a.v2.e1.b<PMSAppInfo> {
+    public static class C0692a implements d.a.l0.a.v2.e1.b<PMSAppInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
@@ -54,7 +54,7 @@ public class a {
     }
 
     public static void a(@NonNull Bundle bundle) {
-        if (f41869a) {
+        if (f45545a) {
             Log.i("SwanAppLaunchUtils", "asyncUpdatePkg: swanAsyncUpdate -> 异步更新小程序包 开始");
         }
         String string = bundle.getString("mAppId");
@@ -69,12 +69,12 @@ public class a {
         if (bundle.containsKey("pms_update_expect_pkg_ver")) {
             cVar.o(bundle.getLong("pms_update_expect_pkg_ver"));
         }
-        if (f41869a) {
+        if (f45545a) {
             Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i2), Long.valueOf(cVar.h())));
         }
         cVar.d("4");
         b bVar = new b(string);
-        bVar.b0(new C0636a());
+        bVar.b0(new C0692a());
         bVar.K(3);
         d.a.l0.n.b.b(cVar, bVar);
     }
@@ -86,7 +86,7 @@ public class a {
             if (j == 0 || bundle == null || pMSAppInfo.appCategory == 1) {
                 return false;
             }
-            File i2 = e.C0561e.i(pMSAppInfo.appId, String.valueOf(j));
+            File i2 = e.C0617e.i(pMSAppInfo.appId, String.valueOf(j));
             if (i2.exists()) {
                 String string = bundle.getString("mPage");
                 if (TextUtils.isEmpty(string)) {
@@ -116,7 +116,7 @@ public class a {
                         }
                         lastIndexOf2 = g2.lastIndexOf(File.separator);
                     }
-                    if (f41869a) {
+                    if (f45545a) {
                         Log.d("SwanAppLaunchUtils", "isInDependentPkg=" + z + ", pagePath=" + g2);
                     }
                     if (z && !TextUtils.isEmpty(g2)) {
@@ -165,7 +165,7 @@ public class a {
                     }
                     return false;
                 }
-                return d.a.l0.a.a1.e.z(e.C0561e.i(pMSAppInfo.appId, String.valueOf(j)));
+                return d.a.l0.a.a1.e.z(e.C0617e.i(pMSAppInfo.appId, String.valueOf(j)));
             }
         }
         return false;

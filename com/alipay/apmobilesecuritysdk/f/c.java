@@ -6,10 +6,10 @@ import java.util.LinkedList;
 public final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f1710a;
+    public final /* synthetic */ b f1723a;
 
     public c(b bVar) {
-        this.f1710a = bVar;
+        this.f1723a = bVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:5:0x000e */
@@ -24,9 +24,9 @@ public final class c implements Runnable {
         try {
             Process.setThreadPriority(0);
             while (!linkedList.isEmpty()) {
-                linkedList2 = this.f1710a.f1709c;
+                linkedList2 = this.f1723a.f1722c;
                 Runnable runnable = (Runnable) linkedList2.get(0);
-                linkedList3 = this.f1710a.f1709c;
+                linkedList3 = this.f1723a.f1722c;
                 linkedList3.remove(0);
                 if (runnable != null) {
                     runnable.run();
@@ -34,9 +34,9 @@ public final class c implements Runnable {
             }
         } catch (Exception unused) {
         } catch (Throwable th) {
-            this.f1710a.f1708b = null;
+            this.f1723a.f1721b = null;
             throw th;
         }
-        this.f1710a.f1708b = null;
+        this.f1723a.f1721b = null;
     }
 }

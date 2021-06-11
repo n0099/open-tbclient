@@ -28,7 +28,7 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length; i3++) {
                     a aVar = new a();
                     aVar.a(optJSONArray.getJSONObject(i3));
-                    if (aVar.f57759a != 0) {
+                    if (aVar.f61448a != 0) {
                         this.fansList.add(aVar);
                     }
                 }

@@ -7,19 +7,6 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b implements AdHttpProxy<Response> {
-    private c b(Response response) {
-        c cVar = new c();
-        if (response != null) {
-            try {
-                cVar.f32392a = response.code();
-                cVar.f32393b = "";
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-            }
-        }
-        return cVar;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy
     /* renamed from: a */
@@ -27,8 +14,8 @@ public class b implements AdHttpProxy<Response> {
         c cVar = new c();
         if (response != null) {
             try {
-                cVar.f32392a = response.code();
-                cVar.f32393b = com.kwad.sdk.core.network.a.b.a(response);
+                cVar.f34494a = response.code();
+                cVar.f34495b = com.kwad.sdk.core.network.a.b.a(response);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -39,11 +26,6 @@ public class b implements AdHttpProxy<Response> {
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy
     public c doGet(String str, Map<String, String> map) {
         return parseResponse(com.kwad.sdk.core.network.a.b.a(str, map));
-    }
-
-    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public c doGetWithoutResponse(String str, Map<String, String> map) {
-        return b(com.kwad.sdk.core.network.a.b.a(str, map));
     }
 
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy

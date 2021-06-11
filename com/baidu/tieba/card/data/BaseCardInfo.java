@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.d.j;
 import d.a.d.k;
 /* loaded from: classes4.dex */
@@ -26,7 +26,7 @@ public abstract class BaseCardInfo implements n, k {
         return this.trigger;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return null;
     }

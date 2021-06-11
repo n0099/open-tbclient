@@ -34,33 +34,33 @@ public interface o {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f43980a;
+        public static final /* synthetic */ int[] f47654a;
 
         static {
             int[] iArr = new int[DownloadParams.SwanAppDownloadType.values().length];
-            f43980a = iArr;
+            f47654a = iArr;
             try {
                 iArr[DownloadParams.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f43980a[DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
+                f47654a[DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f43980a[DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
+                f47654a[DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f43980a[DownloadParams.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
+                f47654a[DownloadParams.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f43980a[DownloadParams.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 5;
+                f47654a[DownloadParams.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f43980a[DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 6;
+                f47654a[DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -68,43 +68,43 @@ public interface o {
 
     /* loaded from: classes2.dex */
     public static class b implements o {
-        public static final boolean j = d.a.l0.a.k.f43199a;
+        public static final boolean j = d.a.l0.a.k.f46875a;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f43981a;
+        public String f47655a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f43982b;
+        public c f47656b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f43983c;
+        public String f47657c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f43984d;
+        public String f47658d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f43985e;
+        public String f47659e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f43986f;
+        public String f47660f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f43987g;
+        public String f47661g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Context f43988h;
+        public Context f47662h;
 
         /* renamed from: i  reason: collision with root package name */
-        public CallbackHandler f43989i;
+        public CallbackHandler f47663i;
 
         /* loaded from: classes2.dex */
         public class a implements d.a.l0.f.i.k.f.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DownloadParams.SwanAppDownloadType f43990a;
+            public final /* synthetic */ DownloadParams.SwanAppDownloadType f47664a;
 
             public a(DownloadParams.SwanAppDownloadType swanAppDownloadType) {
-                this.f43990a = swanAppDownloadType;
+                this.f47664a = swanAppDownloadType;
             }
 
             @Override // d.a.l0.f.i.k.f.a
@@ -126,7 +126,7 @@ public interface o {
                 if (b.j) {
                     Log.d("SwanAdDownloadImpl", "onStateChange   onStateChange:" + downloadState + ", onProgressChange:" + i2);
                 }
-                switch (a.f43980a[this.f43990a.ordinal()]) {
+                switch (a.f47654a[this.f47664a.ordinal()]) {
                     case 1:
                         b.this.u(downloadState, String.valueOf(i2));
                         return;
@@ -176,40 +176,40 @@ public interface o {
 
         /* renamed from: d.a.l0.a.p.d.o$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0789b implements d.a.l0.a.s1.f {
+        public class C0845b implements d.a.l0.a.s1.f {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f43992a;
+            public final /* synthetic */ String f47666a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f43993b;
+            public final /* synthetic */ String f47667b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f43994c;
+            public final /* synthetic */ String f47668c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ boolean f43995d;
+            public final /* synthetic */ boolean f47669d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f43996e;
+            public final /* synthetic */ Context f47670e;
 
-            public C0789b(b bVar, String str, String str2, String str3, boolean z, Context context) {
-                this.f43992a = str;
-                this.f43993b = str2;
-                this.f43994c = str3;
-                this.f43995d = z;
-                this.f43996e = context;
+            public C0845b(b bVar, String str, String str2, String str3, boolean z, Context context) {
+                this.f47666a = str;
+                this.f47667b = str2;
+                this.f47668c = str3;
+                this.f47669d = z;
+                this.f47670e = context;
             }
 
             @Override // d.a.l0.a.s1.f
             public void a(String str) {
-                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.f43992a));
-                String str2 = this.f43992a;
+                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.f47666a));
+                String str2 = this.f47666a;
                 request.setDestinationInExternalPublicDir("", str2.substring(str2.lastIndexOf("/") + 1));
-                if (!TextUtils.isEmpty(this.f43993b) && !TextUtils.isEmpty(this.f43994c)) {
+                if (!TextUtils.isEmpty(this.f47667b) && !TextUtils.isEmpty(this.f47668c)) {
                     request.setNotificationVisibility(1);
-                    request.setTitle(this.f43993b);
-                    request.setDescription(this.f43994c);
+                    request.setTitle(this.f47667b);
+                    request.setDescription(this.f47668c);
                     request.setVisibleInDownloadsUi(true);
                     request.allowScanningByMediaScanner();
                     request.setMimeType("application/vnd.android.package-archive");
@@ -217,10 +217,10 @@ public interface o {
                 DownloadManager downloadManager = (DownloadManager) AppRuntime.getAppContext().getSystemService("download");
                 if (downloadManager != null) {
                     downloadManager.enqueue(request);
-                    if (this.f43995d) {
+                    if (this.f47669d) {
                         return;
                     }
-                    d.a.l0.a.v2.f.g(this.f43996e, new Intent("android.intent.action.VIEW_DOWNLOADS"));
+                    d.a.l0.a.v2.f.g(this.f47670e, new Intent("android.intent.action.VIEW_DOWNLOADS"));
                 }
             }
 
@@ -239,14 +239,14 @@ public interface o {
 
         @Override // d.a.l0.a.p.d.o
         public boolean c(@NonNull Context context, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull JSONObject jSONObject, @NonNull CallbackHandler callbackHandler) {
-            this.f43988h = context;
-            this.f43989i = callbackHandler;
-            this.f43986f = jSONObject.optString("cb");
-            this.f43987g = jSONObject.optString("onProgressUpdate");
-            this.f43983c = jSONObject.optString("url");
-            this.f43984d = jSONObject.optString("name");
-            this.f43985e = String.valueOf(this.f43983c.hashCode());
-            if (!TextUtils.isEmpty(this.f43986f) && !TextUtils.isEmpty(this.f43983c)) {
+            this.f47662h = context;
+            this.f47663i = callbackHandler;
+            this.f47660f = jSONObject.optString("cb");
+            this.f47661g = jSONObject.optString("onProgressUpdate");
+            this.f47657c = jSONObject.optString("url");
+            this.f47658d = jSONObject.optString("name");
+            this.f47659e = String.valueOf(this.f47657c.hashCode());
+            if (!TextUtils.isEmpty(this.f47660f) && !TextUtils.isEmpty(this.f47657c)) {
                 if (swanAppDownloadType == SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP) {
                     x();
                 }
@@ -318,17 +318,17 @@ public interface o {
                 d.a.l0.a.z1.b.f.e.g(AppRuntime.getAppContext(), "download url is empty");
                 return false;
             }
-            d.a.l0.a.s1.e.e(StorageUtils.EXTERNAL_STORAGE_PERMISSION, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 3, context, new C0789b(this, optString, optString2, optString3, optBoolean, context));
+            d.a.l0.a.s1.e.e(StorageUtils.EXTERNAL_STORAGE_PERMISSION, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 3, context, new C0845b(this, optString, optString2, optString3, optBoolean, context));
             return true;
         }
 
         public final void r() {
-            this.f43989i.handleSchemeDispatchCallback(this.f43987g, l(DownloadState.DOWNLOAD_FAILED, "0", this.f43985e));
-            this.f43989i.handleSchemeDispatchCallback(this.f43986f, n(true, null));
-            String str = this.f43981a;
+            this.f47663i.handleSchemeDispatchCallback(this.f47661g, l(DownloadState.DOWNLOAD_FAILED, "0", this.f47659e));
+            this.f47663i.handleSchemeDispatchCallback(this.f47660f, n(true, null));
+            String str = this.f47655a;
             if (str != null) {
-                this.f43989i.handleSchemeDispatchCallback(str, n(false, "onStopped"));
-                this.f43981a = null;
+                this.f47663i.handleSchemeDispatchCallback(str, n(false, "onStopped"));
+                this.f47655a = null;
             }
         }
 
@@ -337,36 +337,36 @@ public interface o {
                 Log.d("SwanAdDownloadImpl", "handleInstallApp");
             }
             String concat = new File(d.a.l0.a.o.h.a.n()).getAbsolutePath().concat("/");
-            String concat2 = concat.concat(this.f43985e + ".apk");
+            String concat2 = concat.concat(this.f47659e + ".apk");
             if (new File(concat2).exists()) {
                 x();
                 if (d.a.l0.f.i.r.g.c(concat2, false)) {
                     return;
                 }
-                this.f43989i.handleSchemeDispatchCallback(this.f43986f, n(false, "install apk error"));
+                this.f47663i.handleSchemeDispatchCallback(this.f47660f, n(false, "install apk error"));
                 return;
             }
-            this.f43989i.handleSchemeDispatchCallback(this.f43986f, n(false, "Apk Not Found"));
+            this.f47663i.handleSchemeDispatchCallback(this.f47660f, n(false, "Apk Not Found"));
         }
 
         public final void t(@NonNull String str) {
-            this.f43989i.handleSchemeDispatchCallback(this.f43987g, l(DownloadState.DOWNLOAD_PAUSED, str, this.f43985e));
-            this.f43989i.handleSchemeDispatchCallback(this.f43986f, n(true, null));
-            String str2 = this.f43981a;
+            this.f47663i.handleSchemeDispatchCallback(this.f47661g, l(DownloadState.DOWNLOAD_PAUSED, str, this.f47659e));
+            this.f47663i.handleSchemeDispatchCallback(this.f47660f, n(true, null));
+            String str2 = this.f47655a;
             if (str2 != null) {
-                this.f43989i.handleSchemeDispatchCallback(str2, n(false, MissionEvent.MESSAGE_PAUSE));
-                this.f43981a = null;
+                this.f47663i.handleSchemeDispatchCallback(str2, n(false, MissionEvent.MESSAGE_PAUSE));
+                this.f47655a = null;
             }
         }
 
         public final void u(@NonNull DownloadState downloadState, @NonNull String str) {
-            this.f43989i.handleSchemeDispatchCallback(this.f43987g, l(downloadState, str, this.f43985e));
+            this.f47663i.handleSchemeDispatchCallback(this.f47661g, l(downloadState, str, this.f47659e));
             if (downloadState == DownloadState.DOWNLOADED && "-1".equals(str)) {
-                this.f43989i.handleSchemeDispatchCallback(this.f43986f, m(downloadState, str, this.f43985e, DownloadState.DELETED.value()));
+                this.f47663i.handleSchemeDispatchCallback(this.f47660f, m(downloadState, str, this.f47659e, DownloadState.DELETED.value()));
             } else if (TextUtils.equals(str, "100")) {
-                this.f43989i.handleSchemeDispatchCallback(this.f43986f, l(DownloadState.DOWNLOADED, str, this.f43985e));
+                this.f47663i.handleSchemeDispatchCallback(this.f47660f, l(DownloadState.DOWNLOADED, str, this.f47659e));
             } else {
-                this.f43989i.handleSchemeDispatchCallback(this.f43986f, l(downloadState, str, this.f43985e));
+                this.f47663i.handleSchemeDispatchCallback(this.f47660f, l(downloadState, str, this.f47659e));
             }
         }
 
@@ -377,29 +377,29 @@ public interface o {
         }
 
         public final void w(@NonNull DownloadState downloadState, @NonNull String str) {
-            this.f43981a = this.f43986f;
-            this.f43989i.handleSchemeDispatchCallback(this.f43987g, l(downloadState, str, this.f43985e));
+            this.f47655a = this.f47660f;
+            this.f47663i.handleSchemeDispatchCallback(this.f47661g, l(downloadState, str, this.f47659e));
             if (downloadState == DownloadState.DOWNLOADED) {
-                this.f43989i.handleSchemeDispatchCallback(this.f43986f, n(true, "onSuccess"));
-                this.f43981a = null;
+                this.f47663i.handleSchemeDispatchCallback(this.f47660f, n(true, "onSuccess"));
+                this.f47655a = null;
             }
         }
 
         public final void x() {
-            if (this.f43982b == null) {
-                this.f43982b = new c(this, null);
+            if (this.f47656b == null) {
+                this.f47656b = new c(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
                 intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
-                this.f43988h.registerReceiver(this.f43982b, intentFilter);
+                this.f47662h.registerReceiver(this.f47656b, intentFilter);
             }
         }
 
         public void y() {
-            c cVar = this.f43982b;
+            c cVar = this.f47656b;
             if (cVar != null) {
-                this.f43988h.unregisterReceiver(cVar);
-                this.f43982b = null;
+                this.f47662h.unregisterReceiver(cVar);
+                this.f47656b = null;
             }
         }
 
@@ -416,9 +416,9 @@ public interface o {
                 if (intent == null || intent.getData() == null || !PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
                     return;
                 }
-                if (TextUtils.equals(b.this.f43984d, intent.getData().getSchemeSpecificPart())) {
+                if (TextUtils.equals(b.this.f47658d, intent.getData().getSchemeSpecificPart())) {
                     b bVar = b.this;
-                    bVar.f43989i.handleSchemeDispatchCallback(bVar.f43986f, bVar.n(true, null));
+                    bVar.f47663i.handleSchemeDispatchCallback(bVar.f47660f, bVar.n(true, null));
                     b.this.y();
                 }
             }

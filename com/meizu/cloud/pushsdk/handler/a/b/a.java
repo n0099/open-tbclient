@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,21 +23,21 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f34917a;
+    public int f38596a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34918b;
+    public int f38597b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34919c;
+    public int f38598c;
 
     public a() {
     }
 
     public a(Parcel parcel) {
-        this.f34917a = parcel.readInt();
-        this.f34918b = parcel.readInt();
-        this.f34919c = parcel.readInt();
+        this.f38596a = parcel.readInt();
+        this.f38597b = parcel.readInt();
+        this.f38598c = parcel.readInt();
     }
 
     public static a a(JSONObject jSONObject) {
@@ -65,19 +65,19 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.f34917a;
+        return this.f38596a;
     }
 
     public void a(int i2) {
-        this.f34917a = i2;
+        this.f38596a = i2;
     }
 
     public void b(int i2) {
-        this.f34918b = i2;
+        this.f38597b = i2;
     }
 
     public void c(int i2) {
-        this.f34919c = i2;
+        this.f38598c = i2;
     }
 
     @Override // android.os.Parcelable
@@ -86,13 +86,13 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.f34917a + ", cached=" + this.f34918b + ", cacheNum=" + this.f34919c + '}';
+        return "Control{pushType=" + this.f38596a + ", cached=" + this.f38597b + ", cacheNum=" + this.f38598c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f34917a);
-        parcel.writeInt(this.f34918b);
-        parcel.writeInt(this.f34919c);
+        parcel.writeInt(this.f38596a);
+        parcel.writeInt(this.f38597b);
+        parcel.writeInt(this.f38598c);
     }
 }

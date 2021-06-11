@@ -6,22 +6,22 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.l0.c f47696a;
+    public d.a.l0.a.l0.c f51370a;
 
     public b(d.a.l0.a.l0.c cVar) {
-        this.f47696a = cVar;
+        this.f51370a = cVar;
     }
 
     public final void a(String str, String str2) {
-        d.a.l0.a.l0.c cVar = this.f47696a;
-        if (cVar == null || cVar.p() == null || !this.f47696a.p().hasEventListener(str2)) {
+        d.a.l0.a.l0.c cVar = this.f51370a;
+        if (cVar == null || cVar.p() == null || !this.f51370a.p().hasEventListener(str2)) {
             return;
         }
         d.a.l0.h.u.d.a aVar = new d.a.l0.h.u.d.a();
         aVar.value = str;
         JSEvent jSEvent = new JSEvent(str2);
         jSEvent.data = aVar;
-        this.f47696a.p().dispatchEvent(jSEvent);
+        this.f51370a.p().dispatchEvent(jSEvent);
     }
 
     public void b(String str) {

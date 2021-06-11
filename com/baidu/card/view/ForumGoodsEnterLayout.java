@@ -15,16 +15,16 @@ import d.a.m0.r.q.a2;
 public class ForumGoodsEnterLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f4384e;
+    public Context f4403e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThreadForumEnterGoodsButton f4385f;
+    public ThreadForumEnterGoodsButton f4404f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f4386g;
+    public View.OnClickListener f4405g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4387h;
+    public int f4406h;
 
     public ForumGoodsEnterLayout(Context context) {
         super(context);
@@ -32,32 +32,32 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     }
 
     public final void a(Context context) {
-        this.f4384e = context;
-        this.f4385f = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
+        this.f4403e = context;
+        this.f4404f = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
     }
 
     public final boolean b(a aVar) {
-        return (aVar == null || aVar.m() == null || !aVar.m().C2() || aVar.m().w1() == null) ? false : true;
+        return (aVar == null || aVar.i() == null || !aVar.i().D2() || aVar.i().x1() == null) ? false : true;
     }
 
     public final boolean c(a aVar) {
-        return (aVar == null || aVar.m() == null || aVar.m().P0() == null || aVar.m().P0().getOptions() == null || aVar.m().P0().getOptions().size() <= 0) ? false : true;
+        return (aVar == null || aVar.i() == null || aVar.i().P0() == null || aVar.i().P0().getOptions() == null || aVar.i().P0().getOptions().size() <= 0) ? false : true;
     }
 
     public void d(TbPageContext tbPageContext, int i2) {
-        this.f4385f.e();
+        this.f4404f.e();
     }
 
     public void setData(a aVar) {
         boolean z;
-        a2 m = aVar.m();
-        if (c(aVar) || b(aVar) || aVar.m() == null || !aVar.m().d2() || this.f4387h == 3) {
+        a2 i2 = aVar.i();
+        if (c(aVar) || b(aVar) || aVar.i() == null || !aVar.i().e2() || this.f4406h == 3) {
             z = false;
         } else {
-            this.f4385f.setVisibility(0);
-            this.f4385f.setFrom(2);
-            this.f4385f.a(m);
-            this.f4385f.setAfterClickListener(this.f4386g);
+            this.f4404f.setVisibility(0);
+            this.f4404f.setFrom(2);
+            this.f4404f.a(i2);
+            this.f4404f.setAfterClickListener(this.f4405g);
             z = true;
         }
         setVisibility(z ? 0 : 8);
@@ -67,11 +67,11 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     }
 
     public void setFrstype(int i2) {
-        this.f4387h = i2;
+        this.f4406h = i2;
     }
 
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
-        this.f4386g = onClickListener;
+        this.f4405g = onClickListener;
     }
 
     public void setSourceForPb(int i2) {

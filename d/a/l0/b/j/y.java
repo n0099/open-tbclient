@@ -18,7 +18,7 @@ import java.util.SimpleTimeZone;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46267a = d.a.l0.a.k.f43199a;
+    public static final boolean f49941a = d.a.l0.a.k.f46875a;
 
     public static String a(String str, String str2) {
         return b(str, HttpRequest.BDUSS, str2);
@@ -70,7 +70,7 @@ public class y {
     public static void g(Context context, String str, List<String> list) {
         String a2;
         if (list == null) {
-            if (f46267a) {
+            if (f49941a) {
                 Log.w("SwanAppCookieUtils", "bduss domains is invalid");
                 return;
             }
@@ -103,7 +103,7 @@ public class y {
     public static void j(Context context, String str, List<String> list) {
         String d2;
         if (list == null) {
-            if (f46267a) {
+            if (f49941a) {
                 Log.w("SwanAppCookieUtils", "ptoken domains is invalid");
                 return;
             }

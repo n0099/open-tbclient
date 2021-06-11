@@ -7,18 +7,18 @@ import java.util.ArrayList;
 public class a implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDns.a f39867e;
+    public final /* synthetic */ BDHttpDns.a f43548e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ ArrayList f39868f;
+    public final /* synthetic */ ArrayList f43549f;
 
     public a(BDHttpDns bDHttpDns, BDHttpDns.a aVar, ArrayList arrayList) {
-        this.f39867e = aVar;
-        this.f39868f = arrayList;
+        this.f43548e = aVar;
+        this.f43549f = arrayList;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f39867e.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f39868f, null));
+        this.f43548e.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f43549f, null));
     }
 }

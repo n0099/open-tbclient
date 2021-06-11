@@ -3,30 +3,30 @@ package d.a.c.e.b.b.a.b;
 public class k implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f38459a;
+    public long f42112a;
 
     public k(long j) {
-        this.f38459a = j;
+        this.f42112a = j;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
-        return Long.valueOf(this.f38459a);
+        return Long.valueOf(this.f42112a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
-        return Long.valueOf(this.f38459a);
+        return Long.valueOf(this.f42112a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
-        return Long.valueOf(this.f38459a);
+        return Long.valueOf(this.f42112a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object d(d.a.c.e.b.b.a.e.c cVar) {
-        return Long.valueOf(this.f38459a);
+        return Long.valueOf(this.f42112a);
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -36,6 +36,6 @@ public class k implements h {
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object f(d.a.c.e.b.b.a.e.c cVar) {
-        return Long.valueOf(this.f38459a);
+        return Long.valueOf(this.f42112a);
     }
 }

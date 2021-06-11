@@ -1,5 +1,5 @@
 package org.json.alipay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class JSONException extends Exception {
     public Throwable cause;
 

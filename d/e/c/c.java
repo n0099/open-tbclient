@@ -6,34 +6,34 @@ import com.faceunity.gles.Texture2dProgram;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Drawable2d f66122a = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);
+    public final Drawable2d f69853a = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);
 
     /* renamed from: b  reason: collision with root package name */
-    public Texture2dProgram f66123b;
+    public Texture2dProgram f69854b;
 
     public c(Texture2dProgram texture2dProgram) {
-        this.f66123b = texture2dProgram;
+        this.f69854b = texture2dProgram;
     }
 
     public int a() {
-        return this.f66123b.a();
+        return this.f69854b.a();
     }
 
     public void b(int i2, float[] fArr) {
-        Texture2dProgram texture2dProgram = this.f66123b;
+        Texture2dProgram texture2dProgram = this.f69854b;
         if (texture2dProgram == null) {
             return;
         }
-        texture2dProgram.b(d.f66124a, this.f66122a.d(), 0, this.f66122a.e(), this.f66122a.a(), this.f66122a.f(), fArr, this.f66122a.b(), i2, this.f66122a.c());
+        texture2dProgram.b(d.f69855a, this.f69853a.d(), 0, this.f69853a.e(), this.f69853a.a(), this.f69853a.f(), fArr, this.f69853a.b(), i2, this.f69853a.c());
     }
 
     public void c(boolean z) {
-        Texture2dProgram texture2dProgram = this.f66123b;
+        Texture2dProgram texture2dProgram = this.f69854b;
         if (texture2dProgram != null) {
             if (z) {
                 texture2dProgram.c();
             }
-            this.f66123b = null;
+            this.f69854b = null;
         }
     }
 }

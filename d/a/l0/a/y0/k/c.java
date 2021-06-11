@@ -9,16 +9,16 @@ import d.a.l0.a.k;
 public class c implements ZeusPluginFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45881a;
+    public String f49555a;
 
     public c(@NonNull String str) {
-        this.f45881a = str;
+        this.f49555a = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        d.a.l0.a.y0.k.g.a c2 = d.a.l0.a.c1.a.z().c(invoker, this.f45881a);
-        if (k.f43199a) {
+        d.a.l0.a.y0.k.g.a c2 = d.a.l0.a.c1.a.z().c(invoker, this.f49555a);
+        if (k.f46875a) {
             Log.i("【InlineLiveFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline live「Hash:" + c2.hashCode() + "」");
         }
         d.a.l0.a.u.e.o.k.e().b(c2);

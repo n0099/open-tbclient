@@ -14,132 +14,111 @@ import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.live.mode.LiveInfo;
 import com.kwad.sdk.utils.ag;
+import com.kwai.player.debuginfo.model.AppLiveQosDebugInfo;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.Serializable;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ReportAction extends d {
-    public static int Y;
-    public String A;
-    public String B;
+    public int A;
+    public int B;
     public int C;
-    public long D;
-    public String E;
-    public int F;
-    public int G;
+    public int D;
+    public int E;
+    public long F;
+    public long G;
     public String H;
-    public String I;
-    public JSONObject J;
+    public int I;
+    public long J;
     public long K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
+    public long L;
+    public JSONObject M;
+    public JSONObject N;
+    public long O;
     public int P;
-    public long Q;
-    public JSONArray R;
-    public boolean S;
-    public String T;
-    public int U;
-    public int V;
-    public int W;
-    public String X;
-    public long Z;
-    public int aA;
-    public JSONArray aB;
-    public JSONArray aC;
-    public String aD;
-    public String aE;
-    public String aF;
-    public long aG;
-    public long aH;
-    public int aI;
-    public String aJ;
-    public a aK;
-    public int aL;
-    public String aM;
-    public long aN;
-    public String aO;
-    public String aP;
-    public long aQ;
-    public int aR;
-    public int aS;
-    public int aT;
-    public JSONArray aU;
-    public LiveLogInfo aV;
-    public JSONArray aW;
-    public long aa;
-    public JSONArray ab;
-    public long ac;
-    public String ad;
+    public int Q;
+    public long R;
+    public long S;
+    public long T;
+    public long U;
+    public long V;
+    public long W;
+    public long X;
+    public int Y;
+    public int Z;
+    public JSONArray aA;
+    public String aa;
+    public long ab;
+    public int ac;
+    public int ad;
     public int ae;
-    public long af;
-    public long ag;
-    public long ah;
-    public JSONObject ai;
-    public JSONObject aj;
+    public JSONArray af;
+    public JSONArray ag;
+    public String ah;
+    public String ai;
+    public String aj;
     public long ak;
-    public int al;
+    public long al;
     public int am;
-    public long an;
-    public long ao;
-    public long ap;
-    public long aq;
+    public String an;
+    public a ao;
+    public int ap;
+    public String aq;
     public long ar;
-    public long as;
-    public long at;
-    public int au;
+    public String as;
+    public String at;
+    public long au;
     public int av;
-    public String aw;
-    public long ax;
-    public int ay;
-    public int az;
+    public int aw;
+    public int ax;
+    public JSONArray ay;
+    public LiveLogInfo az;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32526b;
+    public long f34615b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f32527c;
+    public long f34616c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f32528d;
+    public long f34617d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f32529e;
+    public long f34618e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f32530f;
+    public long f34619f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f32531g;
+    public long f34620g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f32532h;
+    public long f34621h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32533i;
+    public String f34622i;
     public int j;
-    public int k;
-    public int l;
-    public URLPackage m;
-    public URLPackage n;
-    public String o;
+    public URLPackage k;
+    public URLPackage l;
+    public int m;
+    public int n;
+    public int o;
     public int p;
-    public int q;
-    public long r;
+    public String q;
+    public String r;
     public long s;
-    public int t;
-    public String u;
+    public String t;
+    public int u;
     public int v;
-    public long w;
-    public int x;
-    public int y;
-    public int z;
+    public String w;
+    public String x;
+    public JSONObject y;
+    public long z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class LiveLogInfo implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 4898843925487388950L;
         public String expTag;
@@ -165,19 +144,19 @@ public class ReportAction extends d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f32534a;
+        public int f34623a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f32535b;
+        public int f34624b;
 
         public static a a() {
             a aVar = new a();
-            aVar.f32534a = b.f32536a;
-            aVar.f32535b = b.f32537b;
+            aVar.f34623a = b.f34625a;
+            aVar.f34624b = b.f34626b;
             return aVar;
         }
 
@@ -186,8 +165,8 @@ public class ReportAction extends d {
                 return;
             }
             try {
-                this.f32534a = jSONObject.optInt("posIdWidth");
-                this.f32535b = jSONObject.optInt("posIdHeight");
+                this.f34623a = jSONObject.optInt("posIdWidth");
+                this.f34624b = jSONObject.optInt("posIdHeight");
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -196,237 +175,207 @@ public class ReportAction extends d {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "posIdWidth", this.f32534a);
-            com.kwad.sdk.utils.o.a(jSONObject, "posIdHeight", this.f32535b);
+            com.kwad.sdk.utils.o.a(jSONObject, "posIdWidth", this.f34623a);
+            com.kwad.sdk.utils.o.a(jSONObject, "posIdHeight", this.f34624b);
             return jSONObject;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f32536a;
+        public static int f34625a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f32537b;
+        public static int f34626b;
+
+        public static void a(int i2) {
+            f34625a = i2;
+        }
+
+        public static void b(int i2) {
+            f34626b = i2;
+        }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v27, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v23, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     public ReportAction(@NonNull com.kwad.sdk.core.report.a aVar) {
         AdTemplate adTemplate;
         long b2;
-        this.ae = -1;
-        this.al = 0;
-        this.am = 0;
-        this.f32531g = -1L;
-        this.au = 0;
-        this.av = 0;
-        this.l = -1;
-        this.t = -1;
-        this.aA = 0;
-        this.u = "";
-        this.w = -1L;
-        this.x = -1;
-        this.aV = new LiveLogInfo();
-        this.G = -1;
-        this.O = -1;
-        this.P = -1;
-        this.Q = 0L;
-        this.U = 0;
-        this.V = -1;
-        this.W = 0;
-        this.aL = 3;
-        this.U = Y;
-        this.ag = aVar.f32540c;
-        this.f32583a = UUID.randomUUID().toString();
-        this.ac = System.currentTimeMillis();
-        this.ad = m.b();
-        this.f32526b = m.c();
-        this.af = m.e();
-        this.ao = aVar.a();
-        this.aq = aVar.f32541d;
-        this.ar = aVar.f32542e;
-        this.as = aVar.f32543f;
-        this.at = aVar.f32544g;
-        this.f32528d = aVar.f32546i;
-        this.f32529e = aVar.l;
-        this.f32530f = aVar.m;
-        this.f32531g = aVar.n;
-        this.f32532h = aVar.j;
-        this.au = aVar.o;
-        this.l = aVar.q;
-        this.o = aVar.r;
-        this.p = aVar.s;
-        this.q = aVar.t;
-        this.r = aVar.u;
-        this.s = aVar.v;
-        this.av = aVar.p;
-        this.ay = aVar.w;
-        this.az = aVar.x;
-        this.t = aVar.y;
-        this.aA = aVar.z;
-        this.aB = aVar.A;
-        this.aC = aVar.B;
-        this.aD = aVar.C;
-        this.u = aVar.D;
-        this.aI = aVar.I;
-        this.aF = aVar.F;
-        this.aG = aVar.G;
-        this.aH = aVar.H;
-        this.f32527c = aVar.f32545h;
-        this.f32533i = aVar.J;
-        this.j = aVar.P;
-        this.aU = aVar.T;
-        this.E = aVar.X;
-        this.I = aVar.Y;
-        this.G = aVar.aa;
-        this.F = aVar.Z;
-        this.K = aVar.ab;
-        this.aW = aVar.U;
-        this.J = aVar.V;
-        this.N = aVar.ae;
-        this.O = aVar.af;
-        this.P = aVar.ag;
-        this.H = aVar.ac;
-        SceneImpl sceneImpl = aVar.f32539b;
-        if (sceneImpl != null || ((adTemplate = aVar.f32538a) != null && (sceneImpl = adTemplate.mAdScene) != null)) {
-            this.ak = sceneImpl.getPosId();
-            this.m = sceneImpl.getUrlPackage();
-            this.ae = sceneImpl.getAdStyle();
+        this.I = -1;
+        this.P = 0;
+        this.Q = 0;
+        this.f34620g = -1L;
+        this.Y = 0;
+        this.Z = 0;
+        this.ae = 0;
+        this.n = -1;
+        this.az = new LiveLogInfo();
+        this.v = -1;
+        this.D = -1;
+        this.E = -1;
+        this.F = 0L;
+        this.ap = 3;
+        this.K = aVar.f34629c;
+        this.f34674a = UUID.randomUUID().toString();
+        this.G = System.currentTimeMillis();
+        this.H = m.b();
+        this.f34615b = m.c();
+        this.J = m.f();
+        this.S = aVar.a();
+        this.U = aVar.f34630d;
+        this.V = aVar.f34631e;
+        this.W = aVar.f34632f;
+        this.X = aVar.f34633g;
+        this.f34617d = aVar.f34635i;
+        this.f34618e = aVar.l;
+        this.f34619f = aVar.m;
+        this.f34620g = aVar.n;
+        this.f34621h = aVar.j;
+        this.Y = aVar.o;
+        this.Z = aVar.p;
+        this.ac = aVar.q;
+        this.ad = aVar.r;
+        this.ae = aVar.s;
+        this.af = aVar.t;
+        this.ag = aVar.u;
+        this.ah = aVar.v;
+        this.am = aVar.A;
+        this.aj = aVar.x;
+        this.ak = aVar.y;
+        this.al = aVar.z;
+        this.f34616c = aVar.f34634h;
+        this.f34622i = aVar.B;
+        this.j = aVar.G;
+        this.ay = aVar.J;
+        this.t = aVar.N;
+        this.x = aVar.O;
+        this.v = aVar.Q;
+        this.u = aVar.P;
+        this.z = aVar.R;
+        this.aA = aVar.K;
+        this.y = aVar.L;
+        this.C = aVar.U;
+        this.D = aVar.V;
+        this.E = aVar.W;
+        this.w = aVar.S;
+        SceneImpl sceneImpl = aVar.f34628b;
+        if (sceneImpl != null || ((adTemplate = aVar.f34627a) != null && (sceneImpl = adTemplate.mAdScene) != null)) {
+            this.O = sceneImpl.getPosId();
+            this.k = sceneImpl.getUrlPackage();
+            this.I = sceneImpl.getAdStyle();
         }
-        AdTemplate adTemplate2 = aVar.f32538a;
+        AdTemplate adTemplate2 = aVar.f34627a;
         if (adTemplate2 != null) {
-            this.ah = com.kwad.sdk.core.response.b.c.d(adTemplate2);
-            String e2 = com.kwad.sdk.core.response.b.c.e(adTemplate2);
-            if (!TextUtils.isEmpty(e2)) {
+            this.L = com.kwad.sdk.core.response.b.c.g(adTemplate2);
+            String h2 = com.kwad.sdk.core.response.b.c.h(adTemplate2);
+            if (!TextUtils.isEmpty(h2)) {
                 try {
-                    this.ai = new JSONObject(e2);
+                    this.M = new JSONObject(h2);
+                } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.b(e2);
+                }
+            }
+            String i2 = com.kwad.sdk.core.response.b.c.i(adTemplate2);
+            if (!TextUtils.isEmpty(i2)) {
+                try {
+                    this.N = new JSONObject(i2);
                 } catch (Exception e3) {
                     com.kwad.sdk.core.d.a.b(e3);
                 }
             }
-            String f2 = com.kwad.sdk.core.response.b.c.f(adTemplate2);
-            if (!TextUtils.isEmpty(f2)) {
-                try {
-                    this.aj = new JSONObject(f2);
-                } catch (Exception e4) {
-                    com.kwad.sdk.core.d.a.b(e4);
-                }
-            }
-            this.ak = com.kwad.sdk.core.response.b.c.b(adTemplate2);
-            this.al = com.kwad.sdk.core.response.b.c.c(adTemplate2);
-            int i2 = adTemplate2.realShowType;
-            this.am = i2;
-            if (i2 == 1) {
-                this.an = com.kwad.sdk.core.response.b.d.d(adTemplate2.photoInfo);
-                this.ap = com.kwad.sdk.core.response.b.d.c(adTemplate2.photoInfo).longValue();
-                this.ax = com.kwad.sdk.core.response.b.d.f(adTemplate2.photoInfo);
-                this.aJ = com.kwad.sdk.core.response.b.d.e(adTemplate2.photoInfo);
-                this.aM = com.kwad.sdk.core.response.b.d.h(adTemplate2.photoInfo);
-                this.aN = com.kwad.sdk.core.response.b.d.g(adTemplate2.photoInfo);
-                this.aO = com.kwad.sdk.core.response.b.d.i(adTemplate2.photoInfo);
-                this.aQ = com.kwad.sdk.core.response.b.d.j(adTemplate2.photoInfo);
-                this.aP = com.kwad.sdk.core.response.b.d.k(adTemplate2.photoInfo);
+            this.O = com.kwad.sdk.core.response.b.c.e(adTemplate2);
+            this.P = com.kwad.sdk.core.response.b.c.f(adTemplate2);
+            int i3 = adTemplate2.realShowType;
+            this.Q = i3;
+            if (i3 == 1) {
+                this.R = com.kwad.sdk.core.response.b.d.k(adTemplate2.photoInfo);
+                this.T = com.kwad.sdk.core.response.b.d.c(adTemplate2.photoInfo).longValue();
+                this.ab = com.kwad.sdk.core.response.b.d.o(adTemplate2.photoInfo);
+                this.an = com.kwad.sdk.core.response.b.d.l(adTemplate2.photoInfo);
+                this.aq = com.kwad.sdk.core.response.b.d.A(adTemplate2.photoInfo);
+                this.ar = com.kwad.sdk.core.response.b.d.z(adTemplate2.photoInfo);
+                this.as = com.kwad.sdk.core.response.b.d.B(adTemplate2.photoInfo);
+                this.au = com.kwad.sdk.core.response.b.d.I(adTemplate2.photoInfo);
+                this.at = com.kwad.sdk.core.response.b.d.J(adTemplate2.photoInfo);
                 PreloadData preloadData = adTemplate2.mPreloadData;
-                this.aT = preloadData != null ? preloadData.isPreload : 0;
+                this.ax = preloadData != null ? preloadData.isPreload : 0;
             } else {
-                if (i2 == 2) {
-                    AdInfo g2 = com.kwad.sdk.core.response.b.c.g(adTemplate2);
-                    this.an = com.kwad.sdk.core.response.b.a.i(g2);
-                    this.D = g2.adBaseInfo.creativeId;
-                    this.ap = com.kwad.sdk.core.response.b.a.b(g2) * 1000;
-                    b2 = g2.advertiserInfo.userId;
-                } else if (i2 == 4) {
-                    LiveInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate2);
-                    this.aV.liveStreamId = com.kwad.sdk.live.mode.a.a(j);
-                    this.aV.expTag = com.kwad.sdk.live.mode.a.c(j);
-                    b2 = com.kwad.sdk.live.mode.a.b(j);
+                if (i3 == 2) {
+                    AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate2);
+                    this.R = com.kwad.sdk.core.response.b.a.k(j);
+                    this.s = j.adBaseInfo.creativeId;
+                    this.T = com.kwad.sdk.core.response.b.a.b(j) * 1000;
+                    b2 = j.advertiserInfo.userId;
+                } else if (i3 == 4) {
+                    LiveInfo A = com.kwad.sdk.core.response.b.c.A(adTemplate2);
+                    this.az.liveStreamId = com.kwad.sdk.live.mode.a.a(A);
+                    this.az.expTag = com.kwad.sdk.live.mode.a.c(A);
+                    b2 = com.kwad.sdk.live.mode.a.b(A);
                 }
-                this.ax = b2;
+                this.ab = b2;
             }
-            this.v = adTemplate2.mMediaPlayerType;
-            this.aS = adTemplate2.mIsLeftSlipStatus;
-            this.z = adTemplate2.mPhotoResponseType;
+            this.m = adTemplate2.mMediaPlayerType;
+            this.aw = adTemplate2.mIsLeftSlipStatus;
+            this.p = adTemplate2.mPhotoResponseType;
             PageInfo pageInfo = adTemplate2.mPageInfo;
             if (pageInfo != null) {
-                this.L = pageInfo.pageType;
+                this.A = pageInfo.pageType;
             }
-            this.k = com.kwad.sdk.core.response.b.c.h(adTemplate2).baseInfo.contentSourceType;
         }
-        long j2 = aVar.K;
+        long j2 = aVar.C;
         if (j2 != -1) {
-            this.aQ = j2;
+            this.au = j2;
         }
-        long j3 = aVar.M;
-        if (j3 != -1) {
-            this.w = j3;
+        if (!TextUtils.isEmpty(aVar.D)) {
+            this.at = aVar.D;
         }
-        if (!TextUtils.isEmpty(aVar.L)) {
-            this.aP = aVar.L;
+        int i4 = aVar.E;
+        if (i4 != -1) {
+            this.n = i4;
         }
-        int i3 = aVar.N;
-        if (i3 != -1) {
-            this.x = i3;
+        this.av = aVar.F;
+        this.q = aVar.H;
+        this.r = aVar.I;
+        this.ao = a.a();
+        this.o = aVar.M;
+        this.B = aVar.T;
+        if (!TextUtils.isEmpty(aVar.w)) {
+            this.ai = aVar.w;
         }
-        this.aR = aVar.O;
-        this.A = aVar.Q;
-        this.B = aVar.R;
-        this.C = aVar.S;
-        this.aK = a.a();
-        this.y = aVar.W;
-        this.M = aVar.ad;
-        if (!TextUtils.isEmpty(aVar.E)) {
-            this.aE = aVar.E;
-        }
-        SceneImpl sceneImpl2 = aVar.f32539b;
+        SceneImpl sceneImpl2 = aVar.f34628b;
         if (sceneImpl2 == null && adTemplate2 != null) {
             sceneImpl2 = adTemplate2.mAdScene;
         }
         if (sceneImpl2 != null) {
-            this.ak = sceneImpl2.getPosId();
-            this.m = sceneImpl2.getUrlPackage();
+            this.O = sceneImpl2.getPosId();
+            this.k = sceneImpl2.getUrlPackage();
         }
-        if (this.m != null) {
-            EntryPackage b3 = com.kwad.sdk.core.scene.a.a().b(this.m.identity);
-            this.aw = b3.entryPageSource;
-            this.aE = b3.entryId;
-            this.n = com.kwad.sdk.core.scene.a.a().a(this.m.identity);
+        if (this.k != null) {
+            EntryPackage b3 = com.kwad.sdk.core.scene.a.a().b(this.k.identity);
+            this.aa = b3.entryPageSource;
+            this.ai = b3.entryId;
+            this.l = com.kwad.sdk.core.scene.a.a().a(this.k.identity);
         }
-        this.Q = aVar.k;
-        this.R = aVar.ah;
-        this.S = aVar.ai;
-        this.T = aVar.ak;
-        this.W = aVar.al;
-        this.Z = aVar.am;
-        this.aa = aVar.an;
-        this.ab = aVar.ao;
-        this.X = aVar.ap;
-        this.V = aVar.aj;
+        this.F = aVar.k;
     }
 
     public ReportAction(String str) {
-        this.ae = -1;
-        this.al = 0;
-        this.am = 0;
-        this.f32531g = -1L;
-        this.au = 0;
-        this.av = 0;
-        this.l = -1;
-        this.t = -1;
-        this.aA = 0;
-        this.u = "";
-        this.w = -1L;
-        this.x = -1;
-        this.aV = new LiveLogInfo();
-        this.G = -1;
-        this.O = -1;
-        this.P = -1;
-        this.Q = 0L;
-        this.U = 0;
-        this.V = -1;
-        this.W = 0;
+        this.I = -1;
+        this.P = 0;
+        this.Q = 0;
+        this.f34620g = -1L;
+        this.Y = 0;
+        this.Z = 0;
+        this.ae = 0;
+        this.n = -1;
+        this.az = new LiveLogInfo();
+        this.v = -1;
+        this.D = -1;
+        this.E = -1;
+        this.F = 0L;
         try {
             a(new JSONObject(str));
         } catch (JSONException e2) {
@@ -445,131 +394,108 @@ public class ReportAction extends d {
             return;
         }
         try {
-            this.aL = 3;
-            this.U = jSONObject.optInt("viewModeType");
-            this.ag = jSONObject.optLong(LightInvokerImpl.VOICE_ACTIONTYPE);
-            this.ac = jSONObject.optLong("timestamp");
+            this.ap = 3;
+            this.K = jSONObject.optLong(LightInvokerImpl.VOICE_ACTIONTYPE);
+            this.G = jSONObject.optLong("timestamp");
             if (jSONObject.has("sessionId")) {
-                this.ad = jSONObject.optString("sessionId");
+                this.H = jSONObject.optString("sessionId");
             }
-            this.f32526b = jSONObject.optLong(IAdRequestParam.SEQ);
-            this.af = jSONObject.optLong("listId");
-            this.ao = jSONObject.optLong("position");
-            this.aE = jSONObject.optString("entryId");
-            this.aF = jSONObject.optString("pushUrl");
-            this.aq = jSONObject.optLong("effectivePlayDuration");
-            this.ar = jSONObject.optLong("playDuration");
-            this.as = jSONObject.optLong("startDuration");
-            this.at = jSONObject.optLong("stayDuration");
-            this.f32528d = jSONObject.optLong("blockDuration");
-            this.f32529e = jSONObject.optLong("intervalDuration");
-            this.f32530f = jSONObject.optLong("allIntervalDuration");
-            this.f32531g = jSONObject.optLong("flowSdk", -1L);
-            this.f32532h = jSONObject.optInt("blockTimes");
-            this.au = jSONObject.optInt("enterType");
-            this.l = jSONObject.optInt("playerControlledType", -1);
-            this.o = jSONObject.optString("photoSize");
-            this.av = jSONObject.optInt("leaveType");
-            this.ay = jSONObject.optInt("likeStatus");
-            this.p = jSONObject.optInt("playEnd");
-            this.q = jSONObject.optInt("dragProgressType");
-            this.r = jSONObject.optInt("dragProgressPhotoDuration");
-            this.s = jSONObject.optInt("dragProgressVideoTime");
-            this.az = jSONObject.optInt("likeType");
-            this.t = jSONObject.optInt("reportType");
-            this.aA = jSONObject.optInt("shareResult");
-            this.f32527c = jSONObject.optInt("stayLength");
+            this.f34615b = jSONObject.optLong(IAdRequestParam.SEQ);
+            this.J = jSONObject.optLong("listId");
+            this.S = jSONObject.optLong("position");
+            this.ai = jSONObject.optString("entryId");
+            this.aj = jSONObject.optString("pushUrl");
+            this.U = jSONObject.optLong("effectivePlayDuration");
+            this.V = jSONObject.optLong("playDuration");
+            this.W = jSONObject.optLong("startDuration");
+            this.X = jSONObject.optLong("stayDuration");
+            this.f34617d = jSONObject.optLong(AppLiveQosDebugInfo.LiveQosDebugInfo_blockDuration);
+            this.f34618e = jSONObject.optLong("intervalDuration");
+            this.f34619f = jSONObject.optLong("allIntervalDuration");
+            this.f34620g = jSONObject.optLong("flowSdk", -1L);
+            this.f34621h = jSONObject.optInt("blockTimes");
+            this.Y = jSONObject.optInt("enterType");
+            this.Z = jSONObject.optInt("leaveType");
+            this.ac = jSONObject.optInt("likeStatus");
+            this.ad = jSONObject.optInt("likeType");
+            this.ae = jSONObject.optInt("shareResult");
+            this.f34616c = jSONObject.optInt("stayLength");
             if (jSONObject.has("appInstalled")) {
-                this.aB = jSONObject.optJSONArray("appInstalled");
+                this.af = jSONObject.optJSONArray("appInstalled");
             }
             if (jSONObject.has("appUninstalled")) {
-                this.aC = jSONObject.optJSONArray("appUninstalled");
+                this.ag = jSONObject.optJSONArray("appUninstalled");
             }
             if (jSONObject.has("coverUrl")) {
-                this.aD = jSONObject.optString("coverUrl");
+                this.ah = jSONObject.optString("coverUrl");
             }
-            if (jSONObject.has("videoCurrentUrl")) {
-                this.u = jSONObject.optString("videoCurrentUrl");
-            }
-            this.ah = jSONObject.optLong("llsid");
-            this.ai = jSONObject.optJSONObject("extra");
-            this.aj = jSONObject.optJSONObject("impAdExtra");
-            this.ak = jSONObject.optLong("posId");
-            this.ae = jSONObject.optInt("adStyle", -1);
-            this.al = jSONObject.optInt("contentType");
-            this.am = jSONObject.optInt("realShowType");
-            this.an = jSONObject.optLong("photoId");
-            this.ap = jSONObject.optLong("photoDuration");
-            this.ax = jSONObject.optLong(URLPackage.KEY_AUTHOR_ID);
-            this.aw = jSONObject.optString("entryPageSource");
+            this.L = jSONObject.optLong("llsid");
+            this.M = jSONObject.optJSONObject("extra");
+            this.N = jSONObject.optJSONObject("impAdExtra");
+            this.O = jSONObject.optLong("posId");
+            this.I = jSONObject.optInt("adStyle", -1);
+            this.P = jSONObject.optInt("contentType");
+            this.Q = jSONObject.optInt("realShowType");
+            this.R = jSONObject.optLong("photoId");
+            this.T = jSONObject.optLong("photoDuration");
+            this.ab = jSONObject.optLong(URLPackage.KEY_AUTHOR_ID);
+            this.aa = jSONObject.optString("entryPageSource");
             if (jSONObject.has("urlPackage")) {
                 URLPackage uRLPackage = new URLPackage();
-                this.m = uRLPackage;
+                this.k = uRLPackage;
                 uRLPackage.parseJson(jSONObject.optJSONObject("urlPackage"));
             }
             if (jSONObject.has("referURLPackage")) {
                 URLPackage uRLPackage2 = new URLPackage();
-                this.n = uRLPackage2;
+                this.l = uRLPackage2;
                 uRLPackage2.parseJson(jSONObject.optJSONObject("referURLPackage"));
             }
-            this.aG = jSONObject.optLong("commentId");
-            this.aH = jSONObject.optLong("seenCount");
-            this.aI = jSONObject.optInt(PushConstants.CLICK_TYPE);
+            this.ak = jSONObject.optLong("commentId");
+            this.al = jSONObject.optLong("seenCount");
+            this.am = jSONObject.optInt(PushConstants.CLICK_TYPE);
             if (jSONObject.has("recoExt")) {
-                this.aJ = jSONObject.optString("recoExt");
+                this.an = jSONObject.optString("recoExt");
             }
             if (jSONObject.has("clientExt")) {
                 a aVar = new a();
-                this.aK = aVar;
+                this.ao = aVar;
                 aVar.a(jSONObject.optJSONObject("clientExt"));
             }
-            this.v = jSONObject.optInt("playerType");
-            this.f32533i = jSONObject.optString("tabName");
-            this.aM = jSONObject.optString("tubeName");
-            this.aN = jSONObject.optLong(URLPackage.KEY_TUBE_ID);
-            this.aO = jSONObject.optString("episodeName");
-            this.aQ = jSONObject.optLong(URLPackage.KEY_TREND_ID);
-            this.aP = jSONObject.optString("trendName");
-            this.w = jSONObject.optLong("relatedFromPhotoId", -1L);
-            this.aT = jSONObject.optInt("preloadType");
+            this.m = jSONObject.optInt("playerType");
+            this.f34622i = jSONObject.optString("tabName");
+            this.aq = jSONObject.optString("tubeName");
+            this.ar = jSONObject.optLong(URLPackage.KEY_TUBE_ID);
+            this.as = jSONObject.optString("episodeName");
+            this.au = jSONObject.optLong(URLPackage.KEY_TREND_ID);
+            this.at = jSONObject.optString("trendName");
+            this.ax = jSONObject.optInt("preloadType");
             if (jSONObject.has("preloadPhotoList")) {
-                this.aU = jSONObject.optJSONArray("preloadPhotoList");
+                this.ay = jSONObject.optJSONArray("preloadPhotoList");
             }
-            this.aR = jSONObject.optInt("closeType");
-            this.x = jSONObject.optInt("hotCompType", -1);
+            this.av = jSONObject.optInt("closeType");
+            this.n = jSONObject.optInt("hotCompType", -1);
             this.j = jSONObject.optInt("nextPageType");
-            this.k = jSONObject.optInt("contentSourceType");
-            this.aV.parseJson(jSONObject.optJSONObject("liveLogInfo"));
-            this.A = jSONObject.optString("failUrl");
-            this.B = jSONObject.optString("errorMsg");
-            this.C = jSONObject.optInt("errorCode");
-            this.D = jSONObject.optLong("creativeId");
-            this.aS = jSONObject.optInt("isLeftSlipStatus");
-            this.z = jSONObject.optInt("photoResponseType");
-            this.y = jSONObject.optInt("refreshType");
-            this.E = jSONObject.optString("moduleName");
-            this.I = jSONObject.optString("componentPosition");
-            this.G = jSONObject.optInt("num");
-            this.F = jSONObject.optInt("state");
-            this.aW = jSONObject.optJSONArray("appRunningInfoList");
-            this.K = jSONObject.optLong(com.kwad.sdk.api.loader.ReportAction.KEY_DOWNLOAD_DURATION);
-            this.L = jSONObject.optInt("pageType");
-            this.M = jSONObject.optInt("guideTimes");
-            this.N = jSONObject.optInt("speedLimitStatus");
-            this.O = jSONObject.optInt("speedLimitThreshold");
-            this.P = jSONObject.optInt("currentRealDownloadSpeed");
-            this.J = jSONObject.optJSONObject("appExt");
-            this.H = jSONObject.optString("cacheFailedReason");
-            this.Q = jSONObject.optLong("timeSpend");
-            this.R = jSONObject.optJSONArray("sdkPlatform");
-            this.S = jSONObject.optBoolean("isKsUnion");
-            this.T = jSONObject.optString("trackMethodName");
-            this.W = jSONObject.optInt("playAgainControlledType", 0);
-            this.Z = jSONObject.optLong("loadingDuration");
-            this.aa = jSONObject.optLong("loadingDurationLimt");
-            this.ab = jSONObject.optJSONArray("appAuthorityInfoList");
-            this.X = jSONObject.optString("mediaShareStr");
-            this.V = jSONObject.optInt("playerTypeInfo", -1);
+            this.az.parseJson(jSONObject.optJSONObject("liveLogInfo"));
+            this.q = jSONObject.optString("failUrl");
+            this.r = jSONObject.optString("errorMsg");
+            this.s = jSONObject.optLong("creativeId");
+            this.aw = jSONObject.optInt("isLeftSlipStatus");
+            this.p = jSONObject.optInt("photoResponseType");
+            this.o = jSONObject.optInt("refreshType");
+            this.t = jSONObject.optString("moduleName");
+            this.x = jSONObject.optString("componentPosition");
+            this.v = jSONObject.optInt("num");
+            this.u = jSONObject.optInt("state");
+            this.aA = jSONObject.optJSONArray("appRunningInfoList");
+            this.z = jSONObject.optLong(com.kwad.sdk.api.loader.ReportAction.KEY_DOWNLOAD_DURATION);
+            this.A = jSONObject.optInt("pageType");
+            this.B = jSONObject.optInt("guideTimes");
+            this.C = jSONObject.optInt("speedLimitStatus");
+            this.D = jSONObject.optInt("speedLimitThreshold");
+            this.E = jSONObject.optInt("currentRealDownloadSpeed");
+            this.y = jSONObject.optJSONObject("appExt");
+            this.w = jSONObject.optString("cacheFailedReason");
+            this.F = jSONObject.optLong("timeSpend");
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
@@ -578,182 +504,136 @@ public class ReportAction extends d {
     @Override // com.kwad.sdk.core.report.d, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = super.toJson();
-        com.kwad.sdk.utils.o.a(json, "uiType", this.aL);
-        com.kwad.sdk.utils.o.a(json, "timestamp", this.ac);
-        com.kwad.sdk.utils.o.a(json, "sessionId", this.ad);
-        com.kwad.sdk.utils.o.a(json, IAdRequestParam.SEQ, this.f32526b);
-        com.kwad.sdk.utils.o.a(json, "listId", this.af);
-        com.kwad.sdk.utils.o.a(json, "position", this.ao);
-        com.kwad.sdk.utils.o.a(json, "entryId", this.aE);
-        com.kwad.sdk.utils.o.a(json, "pushUrl", this.aF);
-        com.kwad.sdk.utils.o.a(json, "viewModeType", this.U);
-        com.kwad.sdk.utils.o.a(json, LightInvokerImpl.VOICE_ACTIONTYPE, this.ag);
-        com.kwad.sdk.utils.o.a(json, "llsid", this.ah);
-        JSONObject jSONObject = this.ai;
+        com.kwad.sdk.utils.o.a(json, "uiType", this.ap);
+        com.kwad.sdk.utils.o.a(json, "timestamp", this.G);
+        com.kwad.sdk.utils.o.a(json, "sessionId", this.H);
+        com.kwad.sdk.utils.o.a(json, IAdRequestParam.SEQ, this.f34615b);
+        com.kwad.sdk.utils.o.a(json, "listId", this.J);
+        com.kwad.sdk.utils.o.a(json, "position", this.S);
+        com.kwad.sdk.utils.o.a(json, "entryId", this.ai);
+        com.kwad.sdk.utils.o.a(json, "pushUrl", this.aj);
+        com.kwad.sdk.utils.o.a(json, LightInvokerImpl.VOICE_ACTIONTYPE, this.K);
+        com.kwad.sdk.utils.o.a(json, "llsid", this.L);
+        JSONObject jSONObject = this.M;
         if (jSONObject != null) {
             com.kwad.sdk.utils.o.a(json, "extra", jSONObject);
         }
-        JSONObject jSONObject2 = this.aj;
+        JSONObject jSONObject2 = this.N;
         if (jSONObject2 != null) {
             com.kwad.sdk.utils.o.a(json, "impAdExtra", jSONObject2);
         }
-        com.kwad.sdk.utils.o.a(json, "posId", this.ak);
-        int i2 = this.ae;
+        com.kwad.sdk.utils.o.a(json, "posId", this.O);
+        int i2 = this.I;
         if (i2 > 0) {
             com.kwad.sdk.utils.o.a(json, "adStyle", i2);
         }
-        com.kwad.sdk.utils.o.a(json, "contentType", this.al);
-        com.kwad.sdk.utils.o.a(json, "realShowType", this.am);
-        com.kwad.sdk.utils.o.a(json, "photoId", this.an);
-        com.kwad.sdk.utils.o.a(json, "photoDuration", this.ap);
-        com.kwad.sdk.utils.o.a(json, "startDuration", this.as);
-        com.kwad.sdk.utils.o.a(json, "playDuration", this.ar);
-        com.kwad.sdk.utils.o.a(json, "stayDuration", this.at);
-        com.kwad.sdk.utils.o.a(json, "intervalDuration", this.f32529e);
-        com.kwad.sdk.utils.o.a(json, "allIntervalDuration", this.f32530f);
-        com.kwad.sdk.utils.o.a(json, "flowSdk", this.f32531g);
-        com.kwad.sdk.utils.o.a(json, "effectivePlayDuration", this.aq);
-        com.kwad.sdk.utils.o.a(json, "blockDuration", this.f32528d);
-        com.kwad.sdk.utils.o.a(json, "blockTimes", this.f32532h);
-        com.kwad.sdk.utils.o.a(json, "enterType", this.au);
-        com.kwad.sdk.utils.o.a(json, "leaveType", this.av);
-        com.kwad.sdk.utils.o.a(json, "entryPageSource", this.aw);
-        int i3 = this.t;
-        if (i3 != -1) {
-            com.kwad.sdk.utils.o.a(json, "reportType", i3);
-        }
-        int i4 = this.l;
-        if (i4 != -1) {
-            com.kwad.sdk.utils.o.a(json, "playerControlledType", i4);
-        }
-        URLPackage uRLPackage = this.m;
+        com.kwad.sdk.utils.o.a(json, "contentType", this.P);
+        com.kwad.sdk.utils.o.a(json, "realShowType", this.Q);
+        com.kwad.sdk.utils.o.a(json, "photoId", this.R);
+        com.kwad.sdk.utils.o.a(json, "photoDuration", this.T);
+        com.kwad.sdk.utils.o.a(json, "startDuration", this.W);
+        com.kwad.sdk.utils.o.a(json, "playDuration", this.V);
+        com.kwad.sdk.utils.o.a(json, "stayDuration", this.X);
+        com.kwad.sdk.utils.o.a(json, "intervalDuration", this.f34618e);
+        com.kwad.sdk.utils.o.a(json, "allIntervalDuration", this.f34619f);
+        com.kwad.sdk.utils.o.a(json, "flowSdk", this.f34620g);
+        com.kwad.sdk.utils.o.a(json, "effectivePlayDuration", this.U);
+        com.kwad.sdk.utils.o.a(json, AppLiveQosDebugInfo.LiveQosDebugInfo_blockDuration, this.f34617d);
+        com.kwad.sdk.utils.o.a(json, "blockTimes", this.f34621h);
+        com.kwad.sdk.utils.o.a(json, "enterType", this.Y);
+        com.kwad.sdk.utils.o.a(json, "leaveType", this.Z);
+        com.kwad.sdk.utils.o.a(json, "entryPageSource", this.aa);
+        URLPackage uRLPackage = this.k;
         if (uRLPackage != null) {
             com.kwad.sdk.utils.o.a(json, "urlPackage", uRLPackage.toJson());
         }
-        URLPackage uRLPackage2 = this.n;
+        URLPackage uRLPackage2 = this.l;
         if (uRLPackage2 != null) {
             com.kwad.sdk.utils.o.a(json, "referURLPackage", uRLPackage2.toJson());
         }
-        com.kwad.sdk.utils.o.a(json, "stayLength", this.f32527c);
-        com.kwad.sdk.utils.o.a(json, URLPackage.KEY_AUTHOR_ID, this.ax);
-        com.kwad.sdk.utils.o.a(json, "likeStatus", this.ay);
-        com.kwad.sdk.utils.o.a(json, "playEnd", this.p);
-        com.kwad.sdk.utils.o.a(json, "dragProgressType", this.q);
-        com.kwad.sdk.utils.o.a(json, "dragProgressPhotoDuration", this.r);
-        com.kwad.sdk.utils.o.a(json, "dragProgressVideoTime", this.s);
-        com.kwad.sdk.utils.o.a(json, "likeType", this.az);
-        com.kwad.sdk.utils.o.a(json, "shareResult", this.aA);
-        JSONArray jSONArray = this.aB;
+        com.kwad.sdk.utils.o.a(json, "stayLength", this.f34616c);
+        com.kwad.sdk.utils.o.a(json, URLPackage.KEY_AUTHOR_ID, this.ab);
+        com.kwad.sdk.utils.o.a(json, "likeStatus", this.ac);
+        com.kwad.sdk.utils.o.a(json, "likeType", this.ad);
+        com.kwad.sdk.utils.o.a(json, "shareResult", this.ae);
+        JSONArray jSONArray = this.af;
         if (jSONArray != null) {
             com.kwad.sdk.utils.o.a(json, "appInstalled", jSONArray);
         }
-        JSONArray jSONArray2 = this.aC;
+        JSONArray jSONArray2 = this.ag;
         if (jSONArray2 != null) {
             com.kwad.sdk.utils.o.a(json, "appUninstalled", jSONArray2);
         }
-        if (!ag.a(this.A)) {
-            com.kwad.sdk.utils.o.a(json, "failUrl", this.A);
+        if (!ag.a(this.q)) {
+            com.kwad.sdk.utils.o.a(json, "failUrl", this.q);
         }
-        if (!ag.a(this.o)) {
-            com.kwad.sdk.utils.o.a(json, "photoSize", this.o);
+        if (!ag.a(this.r)) {
+            com.kwad.sdk.utils.o.a(json, "errorMsg", this.r);
         }
-        if (!ag.a(this.B)) {
-            com.kwad.sdk.utils.o.a(json, "errorMsg", this.B);
+        if (!ag.a(this.t)) {
+            com.kwad.sdk.utils.o.a(json, "moduleName", this.t);
         }
-        com.kwad.sdk.utils.o.a(json, "errorCode", this.C);
-        if (!ag.a(this.E)) {
-            com.kwad.sdk.utils.o.a(json, "moduleName", this.E);
+        if (!ag.a(this.x)) {
+            com.kwad.sdk.utils.o.a(json, "componentPosition", this.x);
         }
-        if (!ag.a(this.I)) {
-            com.kwad.sdk.utils.o.a(json, "componentPosition", this.I);
+        int i3 = this.v;
+        if (i3 > 0) {
+            com.kwad.sdk.utils.o.a(json, "num", i3);
         }
-        int i5 = this.G;
-        if (i5 > 0) {
-            com.kwad.sdk.utils.o.a(json, "num", i5);
+        int i4 = this.u;
+        if (i4 != 0) {
+            com.kwad.sdk.utils.o.a(json, "state", i4);
         }
-        int i6 = this.F;
-        if (i6 != 0) {
-            com.kwad.sdk.utils.o.a(json, "state", i6);
+        if (!ag.a(this.w)) {
+            com.kwad.sdk.utils.o.a(json, "cacheFailedReason", this.w);
         }
-        if (!ag.a(this.H)) {
-            com.kwad.sdk.utils.o.a(json, "cacheFailedReason", this.H);
-        }
-        com.kwad.sdk.utils.o.a(json, "coverUrl", this.aD);
-        if (!ag.a(this.u)) {
-            com.kwad.sdk.utils.o.a(json, "videoCurrentUrl", this.u);
-        }
-        com.kwad.sdk.utils.o.a(json, "commentId", this.aG);
-        com.kwad.sdk.utils.o.a(json, "seenCount", this.aH);
-        com.kwad.sdk.utils.o.a(json, PushConstants.CLICK_TYPE, this.aI);
-        com.kwad.sdk.utils.o.a(json, "recoExt", this.aJ);
-        a aVar = this.aK;
+        com.kwad.sdk.utils.o.a(json, "coverUrl", this.ah);
+        com.kwad.sdk.utils.o.a(json, "commentId", this.ak);
+        com.kwad.sdk.utils.o.a(json, "seenCount", this.al);
+        com.kwad.sdk.utils.o.a(json, PushConstants.CLICK_TYPE, this.am);
+        com.kwad.sdk.utils.o.a(json, "recoExt", this.an);
+        a aVar = this.ao;
         if (aVar != null) {
             com.kwad.sdk.utils.o.a(json, "clientExt", aVar);
         }
-        com.kwad.sdk.utils.o.a(json, "playerType", this.v);
-        com.kwad.sdk.utils.o.a(json, "tabName", this.f32533i);
-        com.kwad.sdk.utils.o.a(json, "tubeName", this.aM);
-        com.kwad.sdk.utils.o.a(json, URLPackage.KEY_TUBE_ID, this.aN);
-        com.kwad.sdk.utils.o.a(json, "episodeName", this.aO);
-        com.kwad.sdk.utils.o.a(json, URLPackage.KEY_TREND_ID, this.aQ);
-        com.kwad.sdk.utils.o.a(json, "trendName", this.aP);
-        long j = this.w;
-        if (j != -1) {
-            com.kwad.sdk.utils.o.a(json, "relatedFromPhotoId", j);
-        }
-        com.kwad.sdk.utils.o.a(json, "preloadType", this.aT);
-        JSONArray jSONArray3 = this.aU;
+        com.kwad.sdk.utils.o.a(json, "playerType", this.m);
+        com.kwad.sdk.utils.o.a(json, "tabName", this.f34622i);
+        com.kwad.sdk.utils.o.a(json, "tubeName", this.aq);
+        com.kwad.sdk.utils.o.a(json, URLPackage.KEY_TUBE_ID, this.ar);
+        com.kwad.sdk.utils.o.a(json, "episodeName", this.as);
+        com.kwad.sdk.utils.o.a(json, URLPackage.KEY_TREND_ID, this.au);
+        com.kwad.sdk.utils.o.a(json, "trendName", this.at);
+        com.kwad.sdk.utils.o.a(json, "preloadType", this.ax);
+        JSONArray jSONArray3 = this.ay;
         if (jSONArray3 != null && jSONArray3.length() > 0) {
-            com.kwad.sdk.utils.o.a(json, "preloadPhotoList", this.aU);
+            com.kwad.sdk.utils.o.a(json, "preloadPhotoList", this.ay);
         }
-        int i7 = this.x;
-        if (i7 != -1) {
-            com.kwad.sdk.utils.o.a(json, "hotCompType", i7);
+        int i5 = this.n;
+        if (i5 != -1) {
+            com.kwad.sdk.utils.o.a(json, "hotCompType", i5);
         }
-        com.kwad.sdk.utils.o.a(json, "closeType", this.aR);
+        com.kwad.sdk.utils.o.a(json, "closeType", this.av);
         com.kwad.sdk.utils.o.a(json, "nextPageType", this.j);
-        com.kwad.sdk.utils.o.a(json, "contentSourceType", this.k);
-        com.kwad.sdk.utils.o.a(json, "liveLogInfo", this.aV);
-        com.kwad.sdk.utils.o.a(json, "creativeId", this.D);
-        com.kwad.sdk.utils.o.a(json, "isLeftSlipStatus", this.aS);
-        com.kwad.sdk.utils.o.a(json, "photoResponseType", this.z);
-        com.kwad.sdk.utils.o.a(json, "refreshType", this.y);
-        com.kwad.sdk.utils.o.a(json, "appRunningInfoList", this.aW);
-        JSONObject jSONObject3 = this.J;
+        com.kwad.sdk.utils.o.a(json, "liveLogInfo", this.az);
+        com.kwad.sdk.utils.o.a(json, "creativeId", this.s);
+        com.kwad.sdk.utils.o.a(json, "isLeftSlipStatus", this.aw);
+        com.kwad.sdk.utils.o.a(json, "photoResponseType", this.p);
+        com.kwad.sdk.utils.o.a(json, "refreshType", this.o);
+        com.kwad.sdk.utils.o.a(json, "appRunningInfoList", this.aA);
+        JSONObject jSONObject3 = this.y;
         if (jSONObject3 != null) {
             com.kwad.sdk.utils.o.a(json, "appExt", jSONObject3);
         }
-        com.kwad.sdk.utils.o.a(json, com.kwad.sdk.api.loader.ReportAction.KEY_DOWNLOAD_DURATION, this.K);
-        com.kwad.sdk.utils.o.a(json, "pageType", this.L);
-        com.kwad.sdk.utils.o.a(json, "guideTimes", this.M);
-        com.kwad.sdk.utils.o.a(json, "speedLimitStatus", this.N);
-        com.kwad.sdk.utils.o.a(json, "speedLimitThreshold", this.O);
-        com.kwad.sdk.utils.o.a(json, "currentRealDownloadSpeed", this.P);
-        long j2 = this.Q;
-        if (j2 > 0) {
-            com.kwad.sdk.utils.o.a(json, "timeSpend", j2);
+        com.kwad.sdk.utils.o.a(json, com.kwad.sdk.api.loader.ReportAction.KEY_DOWNLOAD_DURATION, this.z);
+        com.kwad.sdk.utils.o.a(json, "pageType", this.A);
+        com.kwad.sdk.utils.o.a(json, "guideTimes", this.B);
+        com.kwad.sdk.utils.o.a(json, "speedLimitStatus", this.C);
+        com.kwad.sdk.utils.o.a(json, "speedLimitThreshold", this.D);
+        com.kwad.sdk.utils.o.a(json, "currentRealDownloadSpeed", this.E);
+        long j = this.F;
+        if (j > 0) {
+            com.kwad.sdk.utils.o.a(json, "timeSpend", j);
         }
-        JSONArray jSONArray4 = this.R;
-        if (jSONArray4 != null) {
-            com.kwad.sdk.utils.o.a(json, "sdkPlatform", jSONArray4);
-        }
-        com.kwad.sdk.utils.o.a(json, "isKsUnion", this.S);
-        com.kwad.sdk.utils.o.a(json, "trackMethodName", this.T);
-        com.kwad.sdk.utils.o.a(json, "playAgainControlledType", this.W);
-        long j3 = this.Z;
-        if (j3 > 0) {
-            com.kwad.sdk.utils.o.a(json, "loadingDuration", j3);
-        }
-        long j4 = this.aa;
-        if (j4 > 0) {
-            com.kwad.sdk.utils.o.a(json, "loadingDurationLimt", j4);
-        }
-        JSONArray jSONArray5 = this.ab;
-        if (jSONArray5 != null) {
-            com.kwad.sdk.utils.o.a(json, "appAuthorityInfoList", jSONArray5);
-        }
-        com.kwad.sdk.utils.o.a(json, "mediaShareStr", this.X);
-        com.kwad.sdk.utils.o.a(json, "playerTypeInfo", this.V);
         return json;
     }
 
@@ -761,124 +641,92 @@ public class ReportAction extends d {
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("[actionType:");
-        stringBuffer.append(this.ag);
-        stringBuffer.append(",viewModeType:");
-        stringBuffer.append(this.U);
+        stringBuffer.append(this.K);
         stringBuffer.append(",moduleName:");
-        stringBuffer.append(this.E);
+        stringBuffer.append(this.t);
         stringBuffer.append(",componentPosition:");
-        stringBuffer.append(this.I);
+        stringBuffer.append(this.x);
         stringBuffer.append(",tubeId:");
-        stringBuffer.append(this.aN);
-        stringBuffer.append(",entryId:");
-        stringBuffer.append(this.aE);
-        stringBuffer.append(",blockDuration:");
-        stringBuffer.append(this.f32528d);
-        stringBuffer.append(",blockTimes:");
-        stringBuffer.append(this.f32532h);
-        stringBuffer.append(",intervalDuration:");
-        stringBuffer.append(this.f32529e);
-        stringBuffer.append(",allIntervalDuration:");
-        stringBuffer.append(this.f32530f);
-        stringBuffer.append(",flowSdk:");
-        stringBuffer.append(this.f32531g);
-        stringBuffer.append(",playEnd:");
-        stringBuffer.append(this.p);
-        stringBuffer.append(",dragProgressType:");
-        stringBuffer.append(this.q);
-        stringBuffer.append(",dragProgressPhotoDuration:");
-        stringBuffer.append(this.r);
-        stringBuffer.append(",dragProgressVideoTime:");
-        stringBuffer.append(this.s);
-        stringBuffer.append(",contentSourceType:");
-        stringBuffer.append(this.k);
-        stringBuffer.append(",trendId:");
-        stringBuffer.append(this.aQ);
-        stringBuffer.append(",trendName:");
-        stringBuffer.append(this.aP);
-        stringBuffer.append(",tubeName:");
-        stringBuffer.append(this.aM);
-        stringBuffer.append(",episodeName:");
-        stringBuffer.append(this.aO);
-        stringBuffer.append(",seq:");
-        stringBuffer.append(this.f32526b);
-        stringBuffer.append(",extra:");
-        stringBuffer.append(this.ai);
-        stringBuffer.append(",impAdExtra:");
-        stringBuffer.append(this.aj);
-        stringBuffer.append(",actionId:");
-        stringBuffer.append(this.f32583a);
-        stringBuffer.append(",position:");
-        stringBuffer.append(this.ao);
-        stringBuffer.append(",contentType:");
-        stringBuffer.append(this.al);
-        stringBuffer.append(",playerType:");
-        stringBuffer.append(this.v);
-        stringBuffer.append(",preloadType:");
-        stringBuffer.append(this.aT);
-        stringBuffer.append(",realShowType:");
-        stringBuffer.append(this.am);
-        stringBuffer.append(",photoDuration:");
-        stringBuffer.append(this.ap);
-        stringBuffer.append(",startDuration:");
-        stringBuffer.append(this.as);
-        stringBuffer.append(",playDuration:");
         stringBuffer.append(this.ar);
-        stringBuffer.append(",stayDuration:");
-        stringBuffer.append(this.at);
-        stringBuffer.append(",enterType:");
+        stringBuffer.append(",entryId:");
+        stringBuffer.append(this.ai);
+        stringBuffer.append(",blockDuration:");
+        stringBuffer.append(this.f34617d);
+        stringBuffer.append(",blockTimes:");
+        stringBuffer.append(this.f34621h);
+        stringBuffer.append(",intervalDuration:");
+        stringBuffer.append(this.f34618e);
+        stringBuffer.append(",allIntervalDuration:");
+        stringBuffer.append(this.f34619f);
+        stringBuffer.append(",flowSdk:");
+        stringBuffer.append(this.f34620g);
+        stringBuffer.append(",trendId:");
         stringBuffer.append(this.au);
+        stringBuffer.append(",trendName:");
+        stringBuffer.append(this.at);
+        stringBuffer.append(",tubeName:");
+        stringBuffer.append(this.aq);
+        stringBuffer.append(",episodeName:");
+        stringBuffer.append(this.as);
+        stringBuffer.append(",seq:");
+        stringBuffer.append(this.f34615b);
+        stringBuffer.append(",extra:");
+        stringBuffer.append(this.M);
+        stringBuffer.append(",impAdExtra:");
+        stringBuffer.append(this.N);
+        stringBuffer.append(",actionId:");
+        stringBuffer.append(this.f34674a);
+        stringBuffer.append(",position:");
+        stringBuffer.append(this.S);
+        stringBuffer.append(",contentType:");
+        stringBuffer.append(this.P);
+        stringBuffer.append(",playerType:");
+        stringBuffer.append(this.m);
+        stringBuffer.append(",preloadType:");
+        stringBuffer.append(this.ax);
+        stringBuffer.append(",realShowType:");
+        stringBuffer.append(this.Q);
+        stringBuffer.append(",photoDuration:");
+        stringBuffer.append(this.T);
+        stringBuffer.append(",startDuration:");
+        stringBuffer.append(this.W);
+        stringBuffer.append(",playDuration:");
+        stringBuffer.append(this.V);
+        stringBuffer.append(",stayDuration:");
+        stringBuffer.append(this.X);
+        stringBuffer.append(",enterType:");
+        stringBuffer.append(this.Y);
         stringBuffer.append(",entryPageSource:");
-        stringBuffer.append(this.aw);
+        stringBuffer.append(this.aa);
         stringBuffer.append(",stayLength:");
-        stringBuffer.append(this.f32527c);
-        if (this.x != -1) {
+        stringBuffer.append(this.f34616c);
+        if (this.n != -1) {
             stringBuffer.append(",hotCompType:");
-            stringBuffer.append(this.x);
+            stringBuffer.append(this.n);
         }
-        if (this.l != -1) {
-            stringBuffer.append(",playerControlledType:");
-            stringBuffer.append(this.l);
-        }
-        if (this.t != -1) {
-            stringBuffer.append(",reportType:");
-            stringBuffer.append(this.t);
-        }
-        if (this.m != null) {
+        if (this.k != null) {
             stringBuffer.append(",urlPackage:");
-            stringBuffer.append(this.m.page);
+            stringBuffer.append(this.k.page);
         }
-        if (this.n != null) {
+        if (this.l != null) {
             stringBuffer.append(",referPage:");
-            stringBuffer.append(this.n.page);
+            stringBuffer.append(this.l.page);
         }
-        if (this.G > -1) {
+        if (this.v > -1) {
             stringBuffer.append(",num:");
-            stringBuffer.append(this.G);
+            stringBuffer.append(this.v);
         }
-        if (this.F != 0) {
+        if (this.u != 0) {
             stringBuffer.append(",state:");
-            stringBuffer.append(this.F);
-        }
-        if (this.J != null) {
-            stringBuffer.append(",appExt:");
-            stringBuffer.append(this.J);
-        }
-        if (this.Q > 0) {
-            stringBuffer.append(",timeSpend:");
-            stringBuffer.append(this.Q);
-        }
-        if (!ag.a(this.u)) {
-            stringBuffer.append(",videoCurrentUrl:");
             stringBuffer.append(this.u);
         }
-        if (!ag.a(this.o)) {
-            stringBuffer.append(",photoSize:");
-            stringBuffer.append(this.o);
+        if (this.y != null) {
+            stringBuffer.append(",appExt:");
+            stringBuffer.append(this.y);
         }
-        if (this.w != -1) {
-            stringBuffer.append(",relatedFromPhotoId:");
-            stringBuffer.append(this.w);
+        if (this.F > 0) {
+            stringBuffer.append(",timeSpend:");
+            stringBuffer.append(this.F);
         }
         stringBuffer.append("]");
         return stringBuffer.toString();

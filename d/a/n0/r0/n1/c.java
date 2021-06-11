@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a2;
 import d.a.n0.r0.n2.k;
 import d.a.n0.r0.o2.h;
@@ -26,7 +26,7 @@ public class c implements d.a.n0.r0.n1.e.b {
         Iterator<n> it = threadList.iterator();
         while (it.hasNext()) {
             n next = it.next();
-            if (next.getType() == a2.I2) {
+            if (next.getType() == a2.L2) {
                 arrayList.add(next);
             }
         }

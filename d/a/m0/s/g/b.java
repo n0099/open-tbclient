@@ -14,16 +14,16 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1156b f50669a;
+    public InterfaceC1212b f54346a;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f50670a;
+        public final /* synthetic */ ShareItem f54347a;
 
         public a(ShareItem shareItem) {
-            this.f50670a = shareItem;
+            this.f54347a = shareItem;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class b {
             NetWork netWork = new NetWork();
             netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
             if (shareItem.y == 4) {
-                netWork.addPostData("forum_id", this.f50670a.J);
+                netWork.addPostData("forum_id", this.f54347a.J);
                 netWork.addPostData("type", "2");
             } else {
                 netWork.addPostData("thread_id", str2);
@@ -66,15 +66,15 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ShareItem shareItem) {
             super.onPostExecute(shareItem);
-            if (b.this.f50669a != null) {
-                b.this.f50669a.a(shareItem);
+            if (b.this.f54346a != null) {
+                b.this.f54346a.a(shareItem);
             }
         }
     }
 
     /* renamed from: d.a.m0.s.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1156b {
+    public interface InterfaceC1212b {
         void a(ShareItem shareItem);
     }
 
@@ -82,7 +82,7 @@ public class b {
         new a(shareItem).execute(shareItem);
     }
 
-    public void c(InterfaceC1156b interfaceC1156b) {
-        this.f50669a = interfaceC1156b;
+    public void c(InterfaceC1212b interfaceC1212b) {
+        this.f54346a = interfaceC1212b;
     }
 }

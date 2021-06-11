@@ -8,16 +8,16 @@ import tbclient.Hottopic.UserInfo;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<l> f52580a;
+    public List<l> f56269a;
 
     public void a(JoinUser joinUser) {
         joinUser.join_user_num.longValue();
-        this.f52580a = new ArrayList();
+        this.f56269a = new ArrayList();
         for (UserInfo userInfo : joinUser.join_user) {
             if (userInfo != null) {
                 l lVar = new l();
                 lVar.a(userInfo);
-                this.f52580a.add(lVar);
+                this.f56269a.add(lVar);
             }
         }
     }

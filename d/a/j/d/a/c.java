@@ -1,18 +1,18 @@
 package d.a.j.d.a;
 
 import java.security.SecureRandom;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SecureRandom f40162b = new SecureRandom();
+    public static final SecureRandom f43843b = new SecureRandom();
 
     /* renamed from: a  reason: collision with root package name */
-    public e f40163a;
+    public e f43844a;
 
     public c() {
-        this.f40163a = null;
-        this.f40163a = new e(new b(), 16);
+        this.f43844a = null;
+        this.f43844a = new e(new b(), 16);
     }
 
     public static byte[] c(byte[] bArr, byte[] bArr2, byte[] bArr3) {
@@ -28,12 +28,12 @@ public class c {
     }
 
     public void a(int i2, byte[] bArr, byte[] bArr2) {
-        this.f40163a.c(i2, bArr, bArr2, f40162b);
+        this.f43844a.c(i2, bArr, bArr2, f43843b);
     }
 
     public final byte[] b(byte[] bArr) {
         if (bArr != null) {
-            return this.f40163a.e(bArr, 0, bArr.length);
+            return this.f43844a.e(bArr, 0, bArr.length);
         }
         throw new IllegalArgumentException("Null input buffer");
     }

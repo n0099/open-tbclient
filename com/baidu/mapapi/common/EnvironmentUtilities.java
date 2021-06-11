@@ -8,32 +8,32 @@ import java.io.File;
 public class EnvironmentUtilities {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6745a;
+    public static String f6788a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6746b;
+    public static String f6789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f6747c;
+    public static String f6790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6748d;
+    public static int f6791d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f6749e;
+    public static int f6792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6750f;
+    public static int f6793f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static h f6751g;
+    public static h f6794g;
 
     public static String getAppCachePath() {
-        return f6746b;
+        return f6789b;
     }
 
     public static String getAppSDCardPath() {
-        String str = f6745a + "/BaiduMapSDKNew";
+        String str = f6788a + "/BaiduMapSDKNew";
         if (str.length() != 0) {
             File file = new File(str);
             if (!file.exists()) {
@@ -44,47 +44,47 @@ public class EnvironmentUtilities {
     }
 
     public static String getAppSecondCachePath() {
-        return f6747c;
+        return f6790c;
     }
 
     public static int getDomTmpStgMax() {
-        return f6749e;
+        return f6792e;
     }
 
     public static int getItsTmpStgMax() {
-        return f6750f;
+        return f6793f;
     }
 
     public static int getMapTmpStgMax() {
-        return f6748d;
+        return f6791d;
     }
 
     public static String getSDCardPath() {
-        return f6745a;
+        return f6788a;
     }
 
     public static void initAppDirectory(Context context) {
         String c2;
-        if (f6751g == null) {
+        if (f6794g == null) {
             h a2 = h.a();
-            f6751g = a2;
+            f6794g = a2;
             a2.a(context);
         }
-        String str = f6745a;
+        String str = f6788a;
         if (str == null || str.length() <= 0) {
-            f6745a = f6751g.b().a();
-            c2 = f6751g.b().c();
+            f6788a = f6794g.b().a();
+            c2 = f6794g.b().c();
         } else {
-            c2 = f6745a + File.separator + "BaiduMapSDKNew" + File.separator + SapiOptions.KEY_CACHE;
+            c2 = f6788a + File.separator + "BaiduMapSDKNew" + File.separator + SapiOptions.KEY_CACHE;
         }
-        f6746b = c2;
-        f6747c = f6751g.b().d();
-        f6748d = 20971520;
-        f6749e = 52428800;
-        f6750f = 5242880;
+        f6789b = c2;
+        f6790c = f6794g.b().d();
+        f6791d = 20971520;
+        f6792e = 52428800;
+        f6793f = 5242880;
     }
 
     public static void setSDCardPath(String str) {
-        f6745a = str;
+        f6788a = str;
     }
 }

@@ -1,11 +1,11 @@
 package com.kwad.sdk.core.download;
 
 import com.ksad.download.DownloadTask;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.t;
 /* loaded from: classes6.dex */
 public class b extends com.ksad.download.c {
     private String g(DownloadTask downloadTask) {
-        return r.a(downloadTask.getUrl());
+        return t.a(downloadTask.getUrl());
     }
 
     @Override // com.ksad.download.c

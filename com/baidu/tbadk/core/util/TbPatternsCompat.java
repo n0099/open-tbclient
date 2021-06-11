@@ -57,7 +57,7 @@ public final class TbPatternsCompat {
         StringBuilder sb3 = new StringBuilder();
         sb3.append("(");
         sb3.append(WEB_URL_WITH_PROTOCOL);
-        sb3.append(FieldBuilder.SE);
+        sb3.append("|");
         sb3.append(WEB_URL_WITHOUT_PROTOCOL);
         sb3.append(SmallTailInfo.EMOTION_SUFFIX);
         AUTOLINK_WEB_URL = Pattern.compile(sb3.toString());

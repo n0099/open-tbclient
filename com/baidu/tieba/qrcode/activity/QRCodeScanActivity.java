@@ -32,6 +32,7 @@ import com.baidu.tieba.qrcode.lib.zxing.ZXingView;
 import com.baidu.tieba.qrcode.view.ArrowView;
 import com.baidu.tieba.qrcode.view.ScanLoadingView;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import com.kwai.video.player.PlayerPostEvent;
 import d.a.c.e.p.l;
 import d.a.m0.r.s.a;
 /* loaded from: classes5.dex */
@@ -54,16 +55,16 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20087e;
+        public final /* synthetic */ String f20164e;
 
         public a(String str) {
-            this.f20087e = str;
+            this.f20164e = str;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            QRCodeScanActivity.this.mQRCodeScanPresenter.j(this.f20087e);
+            QRCodeScanActivity.this.mQRCodeScanPresenter.j(this.f20164e);
         }
     }
 
@@ -95,15 +96,15 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public class d implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlbumActivityConfig f20091a;
+        public final /* synthetic */ AlbumActivityConfig f20168a;
 
         public d(AlbumActivityConfig albumActivityConfig) {
-            this.f20091a = albumActivityConfig;
+            this.f20168a = albumActivityConfig;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f20091a));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f20168a));
         }
     }
 
@@ -127,17 +128,17 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public class f implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20094e;
+        public final /* synthetic */ String f20171e;
 
         public f(String str) {
-            this.f20094e = str;
+            this.f20171e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.a.c.e.m.g.d(QRCodeScanActivity.this.mGalleryTipPopupWindow, QRCodeScanActivity.this);
             if (QRCodeScanActivity.this.mQRCodeScanPresenter != null) {
-                QRCodeScanActivity.this.mQRCodeScanPresenter.b(this.f20094e);
+                QRCodeScanActivity.this.mQRCodeScanPresenter.b(this.f20171e);
             }
         }
     }
@@ -146,10 +147,10 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f20096e;
+        public final /* synthetic */ View f20173e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrowView f20097f;
+        public final /* synthetic */ ArrowView f20174f;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
@@ -166,26 +167,26 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
 
         public g(View view, ArrowView arrowView) {
-            this.f20096e = view;
-            this.f20097f = arrowView;
+            this.f20173e = view;
+            this.f20174f = arrowView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int[] iArr = new int[2];
-            this.f20096e.getLocationOnScreen(iArr);
+            this.f20173e.getLocationOnScreen(iArr);
             int i2 = iArr[0];
-            int measuredHeight = (iArr[1] + this.f20096e.getMeasuredHeight()) - l.g(QRCodeScanActivity.this, R.dimen.tbds12);
+            int measuredHeight = (iArr[1] + this.f20173e.getMeasuredHeight()) - l.g(QRCodeScanActivity.this, R.dimen.tbds12);
             int k = l.k(QRCodeScanActivity.this);
-            if (i2 <= 0 || k <= 0 || k <= i2 || !(this.f20096e.getParent() instanceof View)) {
+            if (i2 <= 0 || k <= 0 || k <= i2 || !(this.f20173e.getParent() instanceof View)) {
                 return;
             }
-            int abs = (((k - Math.abs(((View) this.f20096e.getParent()).getLeft())) - (this.f20096e.getMeasuredWidth() / 2)) - l.g(QRCodeScanActivity.this, R.dimen.tbds17)) - (l.g(QRCodeScanActivity.this, R.dimen.tbds26) / 2);
-            if (this.f20097f.getLayoutParams() == null || !(this.f20097f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            int abs = (((k - Math.abs(((View) this.f20173e.getParent()).getLeft())) - (this.f20173e.getMeasuredWidth() / 2)) - l.g(QRCodeScanActivity.this, R.dimen.tbds17)) - (l.g(QRCodeScanActivity.this, R.dimen.tbds26) / 2);
+            if (this.f20174f.getLayoutParams() == null || !(this.f20174f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
                 return;
             }
-            ((ViewGroup.MarginLayoutParams) this.f20097f.getLayoutParams()).rightMargin = abs;
-            d.a.c.e.m.g.m(QRCodeScanActivity.this.mGalleryTipPopupWindow, this.f20096e, 0, i2, measuredHeight);
+            ((ViewGroup.MarginLayoutParams) this.f20174f.getLayoutParams()).rightMargin = abs;
+            d.a.c.e.m.g.m(QRCodeScanActivity.this.mGalleryTipPopupWindow, this.f20173e, 0, i2, measuredHeight);
             d.a.c.e.m.e.a().postDelayed(new a(), 3000L);
         }
     }
@@ -242,7 +243,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         } else if (view == this.mGalleryButton) {
             this.writeImagesInfo.setFromQRCode(true);
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getPageContext().getPageActivity(), this.writeImagesInfo.toJsonString());
-            albumActivityConfig.setRequestCode(12002);
+            albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
             if (requestPermission(this, albumActivityConfig)) {
                 return;
             }
@@ -371,7 +372,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         tbImageView.setRadius(l.g(this, R.dimen.tbds5));
         tbImageView.setConrers(15);
         SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.qr_tip), R.color.CAM_X0106);
-        tbImageView.V(str, 36, false);
+        tbImageView.U(str, 36, false);
         inflate.setOnClickListener(new f(str2));
         inflate.measure(0, 0);
         PopupWindow popupWindow2 = new PopupWindow(getPageContext().getPageActivity());

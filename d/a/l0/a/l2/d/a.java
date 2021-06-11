@@ -14,14 +14,14 @@ import java.io.File;
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f43402b = k.f43199a;
+    public static final boolean f47078b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f43403a;
+    public final String f47079a;
 
     public a(@NonNull Context context, String str) {
         super(context.getApplicationContext(), b(str), (SQLiteDatabase.CursorFactory) null, 1);
-        this.f43403a = str;
+        this.f47079a = str;
     }
 
     public static String a() {
@@ -51,8 +51,8 @@ public class a extends SQLiteOpenHelper {
                 }
             } catch (Exception e3) {
                 e2 = e3;
-                d.h("SwanCookieDBHelper", "getRead fail mAppId =" + this.f43403a + ";" + Log.getStackTraceString(e2));
-                if (f43402b) {
+                d.h("SwanCookieDBHelper", "getRead fail mAppId =" + this.f47079a + ";" + Log.getStackTraceString(e2));
+                if (f47078b) {
                     throw new RuntimeException(e2);
                 }
                 return sQLiteDatabase;
@@ -78,8 +78,8 @@ public class a extends SQLiteOpenHelper {
                 }
             } catch (Exception e3) {
                 e2 = e3;
-                d.h("SwanCookieDBHelper", "getWrite fail mAppId =" + this.f43403a + ";" + Log.getStackTraceString(e2));
-                if (f43402b) {
+                d.h("SwanCookieDBHelper", "getWrite fail mAppId =" + this.f47079a + ";" + Log.getStackTraceString(e2));
+                if (f47078b) {
                     throw new RuntimeException(e2);
                 }
                 return sQLiteDatabase;
@@ -93,7 +93,7 @@ public class a extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        if (f43402b) {
+        if (f47078b) {
             Log.d("SwanCookieDBHelper", MissionEvent.MESSAGE_CREATE);
         }
         try {
@@ -105,7 +105,7 @@ public class a extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
-        if (f43402b) {
+        if (f47078b) {
             Log.d("SwanCookieDBHelper", "oldVersion = " + i2 + ";newVersion=" + i3);
         }
     }

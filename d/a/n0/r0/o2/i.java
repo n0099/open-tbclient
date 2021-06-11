@@ -18,19 +18,19 @@ import java.util.ArrayList;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public NEGFeedBackView f59279a;
+    public NEGFeedBackView f62970a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f59280b;
+    public TbPageContext f62971b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f59281c;
+    public ViewGroup f62972c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f59282d;
+    public BdUniqueId f62973d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NEGFeedBackView.b f59283e = new a(this);
+    public NEGFeedBackView.b f62974e = new a(this);
 
     /* loaded from: classes4.dex */
     public class a implements NEGFeedBackView.b {
@@ -63,73 +63,73 @@ public class i {
     }
 
     public i(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        this.f59280b = tbPageContext;
-        this.f59281c = viewGroup;
+        this.f62971b = tbPageContext;
+        this.f62972c = viewGroup;
     }
 
     public void a(a2 a2Var) {
-        if (a2Var == null || this.f59280b == null || this.f59281c == null) {
+        if (a2Var == null || this.f62971b == null || this.f62972c == null) {
             return;
         }
         int i2 = 0;
         boolean z = (a2Var.T() == null || a2Var.T().getUserId() == null || !a2Var.T().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-        if (a2Var.w2() && a2Var.b0() != null && !z) {
-            if (this.f59279a == null) {
-                NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.f59280b);
-                this.f59279a = nEGFeedBackView;
-                nEGFeedBackView.setUniqueId(this.f59282d);
-                this.f59279a.setId(R.id.negative_feedback_view);
-                this.f59279a.setDefaultReasonArray(new String[]{this.f59280b.getString(R.string.bad_quality), "", ""});
-                this.f59279a.setEventCallback(this.f59283e);
-                this.f59279a.l(this.f59281c, d.a.c.e.p.l.g(this.f59280b.getPageActivity(), R.dimen.tbds120), 0);
-                this.f59279a.q();
+        if (a2Var.x2() && a2Var.b0() != null && !z) {
+            if (this.f62970a == null) {
+                NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.f62971b);
+                this.f62970a = nEGFeedBackView;
+                nEGFeedBackView.setUniqueId(this.f62973d);
+                this.f62970a.setId(R.id.negative_feedback_view);
+                this.f62970a.setDefaultReasonArray(new String[]{this.f62971b.getString(R.string.bad_quality), "", ""});
+                this.f62970a.setEventCallback(this.f62974e);
+                this.f62970a.l(this.f62972c, d.a.c.e.p.l.g(this.f62971b.getPageActivity(), R.dimen.tbds120), 0);
+                this.f62970a.q();
             }
-            if (this.f59279a.getVisibility() != 0) {
-                this.f59279a.setVisibility(0);
+            if (this.f62970a.getVisibility() != 0) {
+                this.f62970a.setVisibility(0);
             }
             v0 v0Var = new v0();
-            v0Var.n(a2Var.y1());
+            v0Var.n(a2Var.z1());
             v0Var.k(a2Var.c0());
             v0Var.m(a2Var.M0());
             v0Var.j(a2Var.b0());
-            v0Var.f50147g = a2Var.f1;
-            this.f59279a.setData(v0Var);
+            v0Var.f53823g = a2Var.g1;
+            this.f62970a.setData(v0Var);
         } else {
-            NEGFeedBackView nEGFeedBackView2 = this.f59279a;
+            NEGFeedBackView nEGFeedBackView2 = this.f62970a;
             if (nEGFeedBackView2 != null && nEGFeedBackView2.getVisibility() != 8) {
-                this.f59279a.setVisibility(8);
+                this.f62970a.setVisibility(8);
             }
-            i2 = d.a.c.e.p.l.g(this.f59280b.getPageActivity(), R.dimen.ds32);
+            i2 = d.a.c.e.p.l.g(this.f62971b.getPageActivity(), R.dimen.ds32);
         }
-        if (this.f59281c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f59281c.getLayoutParams();
+        if (this.f62972c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62972c.getLayoutParams();
             layoutParams.rightMargin = i2;
-            this.f59281c.setLayoutParams(layoutParams);
+            this.f62972c.setLayoutParams(layoutParams);
         }
-        if (this.f59281c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f59281c.getLayoutParams();
+        if (this.f62972c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f62972c.getLayoutParams();
             layoutParams2.rightMargin = i2;
-            this.f59281c.setLayoutParams(layoutParams2);
+            this.f62972c.setLayoutParams(layoutParams2);
         }
-        NEGFeedBackView nEGFeedBackView3 = this.f59279a;
+        NEGFeedBackView nEGFeedBackView3 = this.f62970a;
         if (nEGFeedBackView3 != null) {
             nEGFeedBackView3.o();
         }
     }
 
     public boolean b() {
-        NEGFeedBackView nEGFeedBackView = this.f59279a;
+        NEGFeedBackView nEGFeedBackView = this.f62970a;
         return nEGFeedBackView != null && nEGFeedBackView.getVisibility() == 0;
     }
 
     public void c() {
-        NEGFeedBackView nEGFeedBackView = this.f59279a;
+        NEGFeedBackView nEGFeedBackView = this.f62970a;
         if (nEGFeedBackView != null) {
             nEGFeedBackView.q();
         }
     }
 
     public void d(BdUniqueId bdUniqueId) {
-        this.f59282d = bdUniqueId;
+        this.f62973d = bdUniqueId;
     }
 }

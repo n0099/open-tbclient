@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.TbMd5;
 import d.a.c.e.a.d;
 import d.a.c.e.l.b;
 import d.a.c.e.l.e;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class EmotionShareLoaderProc implements e<EmotionShare> {

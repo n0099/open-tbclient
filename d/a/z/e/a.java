@@ -24,32 +24,32 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f64902f = "nps" + File.separator + "manifest";
+    public static final String f68633f = "nps" + File.separator + "manifest";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f64903g = new a();
+    public static final a f68634g = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f64904a = new HashMap();
+    public Map<String, String> f68635a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<Integer, Integer> f64905b = new HashMap();
+    public Map<Integer, Integer> f68636b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f64906c = new HashMap();
+    public Map<String, Integer> f68637c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, Integer> f64907d = new HashMap();
+    public Map<String, Integer> f68638d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f64908e = false;
+    public boolean f68639e = false;
 
     public static a b() {
-        return f64903g;
+        return f68634g;
     }
 
     public int a(String str) {
-        Integer num = this.f64907d.get(str);
+        Integer num = this.f68638d.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -58,8 +58,8 @@ public class a {
 
     public int c(String str) {
         g();
-        if (this.f64906c.containsKey(str)) {
-            return this.f64906c.get(str).intValue();
+        if (this.f68637c.containsKey(str)) {
+            return this.f68637c.get(str).intValue();
         }
         return -1;
     }
@@ -67,10 +67,10 @@ public class a {
     public List<BundleInfo> d() {
         g();
         ArrayList arrayList = new ArrayList();
-        for (String str : this.f64906c.keySet()) {
+        for (String str : this.f68637c.keySet()) {
             BundleInfo bundleInfo = new BundleInfo();
             bundleInfo.setPackageName(str);
-            bundleInfo.setMinVersion(this.f64906c.get(str).intValue());
+            bundleInfo.setMinVersion(this.f68637c.get(str).intValue());
             arrayList.add(bundleInfo);
         }
         return arrayList;
@@ -78,7 +78,7 @@ public class a {
 
     public String e(String str) {
         g();
-        return this.f64904a.get(str);
+        return this.f68635a.get(str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0063, code lost:
@@ -88,13 +88,13 @@ public class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized boolean f() {
-        if (this.f64908e) {
+        if (this.f68639e) {
             return true;
         }
         InputStream inputStream = null;
         try {
             AssetManager assets = ContextHolder.getApplicationContext().getAssets();
-            inputStream = assets.open(f64902f + File.separator + "manifest.json");
+            inputStream = assets.open(f68633f + File.separator + "manifest.json");
             StringBuilder sb = new StringBuilder();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, Xml.Encoding.UTF_8.toString()), 8192);
             while (true) {
@@ -104,23 +104,23 @@ public class a {
                 }
                 sb.append(readLine);
             }
-            h(new JSONArray(sb.toString()), this.f64906c, this.f64904a, this.f64905b, this.f64907d);
+            h(new JSONArray(sb.toString()), this.f68637c, this.f68635a, this.f68636b, this.f68638d);
         } catch (IOException unused) {
             if (inputStream != null) {
                 try {
                     inputStream.close();
                 } catch (IOException unused2) {
-                    this.f64908e = true;
+                    this.f68639e = true;
                     return true;
                 }
             }
-            this.f64908e = true;
+            this.f68639e = true;
             return true;
         } catch (JSONException unused3) {
             if (inputStream != null) {
                 inputStream.close();
             }
-            this.f64908e = true;
+            this.f68639e = true;
             return true;
         } catch (Throwable th) {
             if (inputStream != null) {
@@ -134,7 +134,7 @@ public class a {
     }
 
     public final synchronized boolean g() {
-        if (this.f64908e) {
+        if (this.f68639e) {
             return true;
         }
         f();

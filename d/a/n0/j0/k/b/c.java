@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.a.n0.z.b0;
 /* loaded from: classes4.dex */
-public class c extends d.a.c.j.e.a<d.a.n0.j0.k.c.d, CardViewHolder<d.a.n0.j0.k.d.c>> {
+public class c extends d.a.c.k.e.a<d.a.n0.j0.k.c.d, CardViewHolder<d.a.n0.j0.k.d.c>> {
     public TbPageContext<?> m;
     public b0 n;
 
@@ -18,27 +18,27 @@ public class c extends d.a.c.j.e.a<d.a.n0.j0.k.c.d, CardViewHolder<d.a.n0.j0.k.d
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public CardViewHolder<d.a.n0.j0.k.d.c> P(ViewGroup viewGroup) {
+    public CardViewHolder<d.a.n0.j0.k.d.c> Q(ViewGroup viewGroup) {
         d.a.n0.j0.k.d.c cVar = new d.a.n0.j0.k.d.c(this.m);
-        cVar.p(this.f39232i);
+        cVar.q(this.f42913i);
         return new CardViewHolder<>(cVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.j0.k.c.d dVar, CardViewHolder<d.a.n0.j0.k.d.c> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.j0.k.c.d dVar, CardViewHolder<d.a.n0.j0.k.d.c> cardViewHolder) {
         if (dVar == null || cardViewHolder == null || cardViewHolder.b() == null) {
             return null;
         }
         if (viewGroup instanceof BdTypeRecyclerView) {
-            cardViewHolder.b().u(dVar.needTopMargin);
+            cardViewHolder.b().v(dVar.needTopMargin);
         }
-        cardViewHolder.b().m(dVar);
+        cardViewHolder.b().n(dVar);
         if (this.n != null) {
-            cardViewHolder.b().o(this.n);
+            cardViewHolder.b().p(this.n);
         }
         return cardViewHolder.a();
     }

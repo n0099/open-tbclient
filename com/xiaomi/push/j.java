@@ -8,7 +8,6 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Looper;
 import android.os.Parcel;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -19,18 +18,18 @@ public final class j {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f37971a;
+        public final String f41650a;
 
         /* renamed from: a  reason: collision with other field name */
         public final boolean f809a;
 
         public a(String str, boolean z) {
-            this.f37971a = str;
+            this.f41650a = str;
             this.f809a = z;
         }
 
         public String a() {
-            return this.f37971a;
+            return this.f41650a;
         }
     }
 
@@ -38,14 +37,14 @@ public final class j {
     public static final class b implements ServiceConnection {
 
         /* renamed from: a  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f37972a;
+        public final LinkedBlockingQueue<IBinder> f41651a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f810a;
 
         public b() {
             this.f810a = false;
-            this.f37972a = new LinkedBlockingQueue<>(1);
+            this.f41651a = new LinkedBlockingQueue<>(1);
         }
 
         public IBinder a() {
@@ -53,13 +52,13 @@ public final class j {
                 throw new IllegalStateException();
             }
             this.f810a = true;
-            return this.f37972a.poll(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, TimeUnit.MILLISECONDS);
+            return this.f41651a.poll(30000L, TimeUnit.MILLISECONDS);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                this.f37972a.put(iBinder);
+                this.f41651a.put(iBinder);
             } catch (InterruptedException unused) {
             }
         }
@@ -73,10 +72,10 @@ public final class j {
     public static final class c implements IInterface {
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f37973a;
+        public IBinder f41652a;
 
         public c(IBinder iBinder) {
-            this.f37973a = iBinder;
+            this.f41652a = iBinder;
         }
 
         public String a() {
@@ -84,7 +83,7 @@ public final class j {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
-                this.f37973a.transact(1, obtain, obtain2, 0);
+                this.f41652a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -95,7 +94,7 @@ public final class j {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f37973a;
+            return this.f41652a;
         }
     }
 

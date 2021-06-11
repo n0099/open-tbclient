@@ -8,24 +8,24 @@ import java.io.IOException;
 public class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.c.b.f.a f29411a;
+    public d.b.c.b.f.a f29514a;
 
     public d() {
         d.b.c.b.f.a a2 = com.bytedance.sdk.openadsdk.i.e.a();
-        this.f29411a = a2;
+        this.f29514a = a2;
         if (a2 == null) {
-            this.f29411a = new l();
+            this.f29514a = new l();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.b
     public a a(f fVar) throws IOException, VAdError {
-        Request<?> eVar = new e(fVar.f29412a, fVar.f29413b);
-        if (fVar.f29414c != -1) {
+        Request<?> eVar = new e(fVar.f29515a, fVar.f29516b);
+        if (fVar.f29517c != -1) {
             d.b.c.b.d.g gVar = new d.b.c.b.d.g();
-            gVar.b((int) fVar.f29414c);
+            gVar.b((int) fVar.f29517c);
             eVar.setRetryPolicy(gVar);
         }
-        return new g(this.f29411a.a(eVar, fVar.f29416e), fVar);
+        return new g(this.f29514a.a(eVar, fVar.f29519e), fVar);
     }
 }

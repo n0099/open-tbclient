@@ -18,19 +18,19 @@ import d.a.c.e.p.j;
 public class e implements d.a.n0.j2.d.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.n0.n2.n.a f55742a;
+    public d.a.n0.n2.n.a f59431a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f55743b;
+    public TbPageContext f59432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f55744c;
+    public BdUniqueId f59433c;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55746e = 0;
+    public int f59435e = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f55745d = new a(CmdConfigHttp.SET_PRIVATE_CMD);
+    public HttpMessageListener f59434d = new a(CmdConfigHttp.SET_PRIVATE_CMD);
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -41,21 +41,21 @@ public class e implements d.a.n0.j2.d.c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage().getTag() != e.this.f55744c) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage().getTag() != e.this.f59433c) {
                 return;
             }
             if (!httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) {
-                if (e.this.f55743b == null || StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                if (e.this.f59432b == null || StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     return;
                 }
-                e.this.f55743b.showToast(httpResponsedMessage.getErrorString());
+                e.this.f59432b.showToast(httpResponsedMessage.getErrorString());
                 return;
             }
-            if (e.this.f55743b != null) {
-                e.this.f55743b.showToast(R.string.privacy_setting_toast);
+            if (e.this.f59432b != null) {
+                e.this.f59432b.showToast(R.string.privacy_setting_toast);
             }
-            e.this.f55746e = 1;
-            e.this.f55742a.e();
+            e.this.f59435e = 1;
+            e.this.f59431a.e();
         }
     }
 
@@ -69,32 +69,32 @@ public class e implements d.a.n0.j2.d.c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int intValue;
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921065 || customResponsedMessage.getData() == null || e.this.f55746e == (intValue = ((Integer) customResponsedMessage.getData()).intValue())) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921065 || customResponsedMessage.getData() == null || e.this.f59435e == (intValue = ((Integer) customResponsedMessage.getData()).intValue())) {
                 return;
             }
-            e.this.f55746e = intValue;
+            e.this.f59435e = intValue;
             if (intValue != 1) {
                 return;
             }
-            e.this.f55742a.e();
+            e.this.f59431a.e();
         }
     }
 
     public e(TbPageContext tbPageContext, d.a.n0.n2.n.a aVar, BdUniqueId bdUniqueId) {
-        this.f55743b = tbPageContext;
-        this.f55742a = aVar;
-        this.f55744c = bdUniqueId;
+        this.f59432b = tbPageContext;
+        this.f59431a = aVar;
+        this.f59433c = bdUniqueId;
         b bVar = new b(2921065);
-        this.f55745d.setTag(this.f55744c);
-        bVar.setTag(this.f55744c);
-        MessageManager.getInstance().registerListener(this.f55745d);
+        this.f59434d.setTag(this.f59433c);
+        bVar.setTag(this.f59433c);
+        MessageManager.getInstance().registerListener(this.f59434d);
         MessageManager.getInstance().registerListener(bVar);
     }
 
     @Override // d.a.n0.j2.d.c
     public void a() {
         if (!j.z()) {
-            TbPageContext tbPageContext = this.f55743b;
+            TbPageContext tbPageContext = this.f59432b;
             if (tbPageContext != null) {
                 tbPageContext.showToast(R.string.neterror);
                 return;
@@ -104,7 +104,7 @@ public class e implements d.a.n0.j2.d.c {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
         httpMessage.addParam("opt", "post");
         httpMessage.addParam("val", String.valueOf(1));
-        httpMessage.setTag(this.f55744c);
+        httpMessage.setTag(this.f59433c);
         MessageManager.getInstance().sendMessage(httpMessage);
         TiebaStatic.log(new StatisticItem("c12515").param("obj_locate", 1));
     }

@@ -35,17 +35,17 @@ public class p extends PopupWindow implements View.OnClickListener {
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f47960e;
+        public final /* synthetic */ View f51634e;
 
         public a(View view) {
-            this.f47960e = view;
+            this.f51634e = view;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            p.this.Y.a(this.f47960e.getHeight());
-            p.this.e0();
-            this.f47960e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            p.this.Y.a(this.f51634e.getHeight());
+            p.this.d0();
+            this.f51634e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
         }
     }
 
@@ -142,12 +142,12 @@ public class p extends PopupWindow implements View.OnClickListener {
         this.c0 = i2;
     }
 
-    public void d0(List<List<o>> list, View view, boolean z, int i2) {
+    public void c0(List<List<o>> list, View view, boolean z, int i2) {
         this.Y.h(list, view, z, i2);
-        f0();
+        e0();
     }
 
-    public void e0() {
+    public void d0() {
         this.U.setAlpha(0.0f);
         MainMenuView mainMenuView = this.Y;
         mainMenuView.setTranslationY(mainMenuView.getHeight());
@@ -161,7 +161,7 @@ public class p extends PopupWindow implements View.OnClickListener {
         animatorSet.start();
     }
 
-    public final void f0() {
+    public final void e0() {
         if (x()) {
             return;
         }
@@ -185,7 +185,7 @@ public class p extends PopupWindow implements View.OnClickListener {
         if (contentView.getHeight() == 0) {
             contentView.getViewTreeObserver().addOnGlobalLayoutListener(new a(contentView));
         } else {
-            e0();
+            d0();
         }
     }
 

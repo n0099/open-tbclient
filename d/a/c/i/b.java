@@ -6,6 +6,7 @@ import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.pms.IPmsContext;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.searchbox.pms.statistic.StatisticCallback;
+import d.a.c.j.g;
 import java.util.Collections;
 import java.util.List;
 @Singleton
@@ -42,6 +43,7 @@ public class b implements IPmsContext {
         requestParams.setRunNode(str2);
         if ("0".equals(str)) {
             requestParams.addChannel(d.a.c.g.c.d().c());
+            requestParams.addChannel(new g());
         }
         return requestParams;
     }

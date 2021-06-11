@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class m extends d.a.l0.a.v1.a.a.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f43173f = d.a.l0.a.k.f43199a;
+    public static final boolean f46849f = d.a.l0.a.k.f46875a;
 
     public static boolean e(@Nullable String str) {
         return TextUtils.isEmpty(str) || TextUtils.equals("0", str);
@@ -58,7 +58,7 @@ public class m extends d.a.l0.a.v1.a.a.a {
                     jSONObject2.put("reportExtInfo", jSONObject);
                 }
             } catch (JSONException e2) {
-                if (f43173f) {
+                if (f46849f) {
                     e2.printStackTrace();
                 }
             }
@@ -82,7 +82,7 @@ public class m extends d.a.l0.a.v1.a.a.a {
         try {
             jSONObject = new JSONObject(str);
         } catch (JSONException e2) {
-            if (f43173f) {
+            if (f46849f) {
                 Log.e("VersionBusinessUbc", "execCall: ", e2);
             }
             e2.printStackTrace();
@@ -97,7 +97,7 @@ public class m extends d.a.l0.a.v1.a.a.a {
                 e3.printStackTrace();
             }
         }
-        if (f43173f) {
+        if (f46849f) {
             Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
         }
         c.b bVar = new c.b(10002);

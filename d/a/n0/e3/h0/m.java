@@ -6,32 +6,32 @@ import java.util.HashMap;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f54023a;
+    public Context f57712a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54024b;
+    public String f57713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap f54025c;
+    public HashMap f57714c;
 
     public m(Context context, String str, HashMap hashMap) {
-        this.f54023a = null;
-        this.f54024b = null;
-        this.f54025c = null;
-        this.f54023a = context;
-        this.f54024b = str;
-        this.f54025c = hashMap;
+        this.f57712a = null;
+        this.f57713b = null;
+        this.f57714c = null;
+        this.f57712a = context;
+        this.f57713b = str;
+        this.f57714c = hashMap;
     }
 
     public Context a() {
-        return this.f54023a;
+        return this.f57712a;
     }
 
     public String b() {
-        return this.f54024b;
+        return this.f57713b;
     }
 
     public HashMap c() {
-        return this.f54025c;
+        return this.f57714c;
     }
 }

@@ -15,51 +15,51 @@ import com.baidu.tieba.R;
 import d.a.c.e.p.l;
 import d.a.n0.y1.e.c;
 /* loaded from: classes4.dex */
-public class b extends d.a.c.j.e.a<c, a> {
+public class b extends d.a.c.k.e.a<c, a> {
 
     /* loaded from: classes4.dex */
     public static class a extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f63357a;
+        public int f67072a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f63358b;
+        public TextView f67073b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f63359c;
+        public View f67074c;
 
         public a(View view, TextView textView, View view2) {
             super(view);
-            this.f63357a = 3;
-            this.f63358b = textView;
-            this.f63359c = view2;
+            this.f67072a = 3;
+            this.f67073b = textView;
+            this.f67074c = view2;
         }
 
         public void b(c cVar) {
             if (cVar != null) {
-                this.f63358b.setText(cVar.f63406e);
-                this.f63359c.setVisibility(cVar.f63407f ? 0 : 8);
+                this.f67073b.setText(cVar.f67121e);
+                this.f67074c.setVisibility(cVar.f67122f ? 0 : 8);
             }
         }
 
         public void c(int i2) {
-            if (this.f63357a != i2) {
-                SkinManager.setViewTextColor(this.f63358b, R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(this.f63359c, R.color.CAM_X0204);
-                this.f63357a = i2;
+            if (this.f67072a != i2) {
+                SkinManager.setViewTextColor(this.f67073b, R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(this.f67074c, R.color.CAM_X0204);
+                this.f67072a = i2;
             }
         }
     }
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.a.n0.y1.e.a.f63400b);
+        super(tbPageContext.getPageActivity(), d.a.n0.y1.e.a.f67115b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public a P(ViewGroup viewGroup) {
+    public a Q(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
         linearLayout.setOrientation(1);
         linearLayout.setPadding(l.g(viewGroup.getContext(), R.dimen.tbds44), 0, l.g(viewGroup.getContext(), R.dimen.tbds44), l.g(viewGroup.getContext(), R.dimen.tbds12));
@@ -81,9 +81,9 @@ public class b extends d.a.c.j.e.a<c, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, c cVar, a aVar) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, c cVar, a aVar) {
         if (cVar == null || aVar == null) {
             return null;
         }

@@ -11,80 +11,80 @@ import d.a.c.e.p.l;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f38689a = new b();
+    public static b f42342a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f38690b = new Object();
+    public static final Object f42343b = new Object();
 
     /* loaded from: classes.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public f f38691a;
+        public f f42344a;
 
         /* renamed from: b  reason: collision with root package name */
-        public f f38692b;
+        public f f42345b;
 
         /* renamed from: c  reason: collision with root package name */
-        public f f38693c;
+        public f f42346c;
 
         /* renamed from: d  reason: collision with root package name */
-        public f f38694d;
+        public f f42347d;
 
         public b() {
-            this.f38691a = new f();
-            this.f38692b = new f();
-            this.f38693c = new f();
-            this.f38694d = new f();
+            this.f42344a = new f();
+            this.f42345b = new f();
+            this.f42346c = new f();
+            this.f42347d = new f();
         }
 
         public int a() {
-            return this.f38691a.f38716g + this.f38692b.f38716g + this.f38693c.f38716g + this.f38694d.f38716g;
+            return this.f42344a.f42369g + this.f42345b.f42369g + this.f42346c.f42369g + this.f42347d.f42369g;
         }
 
         public boolean b() {
-            return this.f38693c.f38716g > 0;
+            return this.f42346c.f42369g > 0;
         }
 
         public boolean c() {
-            return this.f38692b.f38716g > 0;
+            return this.f42345b.f42369g > 0;
         }
 
         public boolean d() {
-            return this.f38691a.f38716g > 0;
+            return this.f42344a.f42369g > 0;
         }
 
         public boolean e() {
-            return this.f38694d.f38716g > 0;
+            return this.f42347d.f42369g > 0;
         }
 
         public void f() {
-            this.f38691a.a();
-            this.f38692b.a();
-            this.f38693c.a();
-            this.f38694d.a();
+            this.f42344a.a();
+            this.f42345b.a();
+            this.f42346c.a();
+            this.f42347d.a();
         }
     }
 
     public static f a() {
         if (j.H()) {
-            return f38689a.f38694d;
+            return f42342a.f42347d;
         }
         if (j.v()) {
-            return f38689a.f38693c;
+            return f42342a.f42346c;
         }
         if (j.u()) {
-            return f38689a.f38692b;
+            return f42342a.f42345b;
         }
-        return f38689a.f38691a;
+        return f42342a.f42344a;
     }
 
     public static String b(int i2) {
-        return 1 == i2 ? "2G" : 2 == i2 ? g.f3966b : 3 == i2 ? "4G" : 4 == i2 ? "5G" : 5 == i2 ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "N";
+        return 1 == i2 ? "2G" : 2 == i2 ? g.f3985b : 3 == i2 ? "4G" : 4 == i2 ? "5G" : 5 == i2 ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "N";
     }
 
     public static void c(boolean z, long j) {
-        synchronized (f38690b) {
+        synchronized (f42343b) {
             f a2 = a();
             if (z) {
                 a2.l++;
@@ -115,31 +115,31 @@ public class a {
     }
 
     public static void f(boolean z, long j) {
-        synchronized (f38690b) {
+        synchronized (f42343b) {
             f a2 = a();
-            a2.f38713d++;
+            a2.f42366d++;
             if (z) {
-                a2.f38714e++;
-                a2.f38715f += j;
+                a2.f42367e++;
+                a2.f42368f += j;
             }
         }
     }
 
     public static void g() {
-        if (f38689a.a() > 10) {
-            if (f38689a.e()) {
-                h(f38689a.f38694d, 5);
+        if (f42342a.a() > 10) {
+            if (f42342a.e()) {
+                h(f42342a.f42347d, 5);
             }
-            if (f38689a.b()) {
-                h(f38689a.f38693c, 3);
+            if (f42342a.b()) {
+                h(f42342a.f42346c, 3);
             }
-            if (f38689a.c()) {
-                h(f38689a.f38692b, 2);
+            if (f42342a.c()) {
+                h(f42342a.f42345b, 2);
             }
-            if (f38689a.d()) {
-                h(f38689a.f38691a, 1);
+            if (f42342a.d()) {
+                h(f42342a.f42344a, 1);
             }
-            f38689a.f();
+            f42342a.f();
         }
     }
 
@@ -147,15 +147,15 @@ public class a {
         if (fVar != null && BdBaseApplication.getInst().isSmallFlow()) {
             d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
             statsItem.b("action", "imgStat");
-            statsItem.b("memoryCount", String.valueOf(fVar.f38710a));
-            statsItem.b("memorySucCount", String.valueOf(fVar.f38711b));
-            statsItem.b("memoryTime", String.valueOf(fVar.f38712c));
-            statsItem.b("localCount", String.valueOf(fVar.f38713d));
-            statsItem.b("localSucCount", String.valueOf(fVar.f38714e));
-            statsItem.b("localTime", String.valueOf(fVar.f38715f));
-            statsItem.b("netCount", String.valueOf(fVar.f38716g));
-            statsItem.b("netSucCount", String.valueOf(fVar.f38717h));
-            statsItem.b("netTime", String.valueOf(fVar.f38718i));
+            statsItem.b("memoryCount", String.valueOf(fVar.f42363a));
+            statsItem.b("memorySucCount", String.valueOf(fVar.f42364b));
+            statsItem.b("memoryTime", String.valueOf(fVar.f42365c));
+            statsItem.b("localCount", String.valueOf(fVar.f42366d));
+            statsItem.b("localSucCount", String.valueOf(fVar.f42367e));
+            statsItem.b("localTime", String.valueOf(fVar.f42368f));
+            statsItem.b("netCount", String.valueOf(fVar.f42369g));
+            statsItem.b("netSucCount", String.valueOf(fVar.f42370h));
+            statsItem.b("netTime", String.valueOf(fVar.f42371i));
             statsItem.b("taskCount", String.valueOf(fVar.j));
             statsItem.b("taskTime", String.valueOf(fVar.k));
             statsItem.b("decodeCount", String.valueOf(fVar.l));
@@ -181,16 +181,16 @@ public class a {
 
     public static void i(boolean z, long j) {
         f a2 = a();
-        a2.f38710a++;
+        a2.f42363a++;
         if (z) {
-            a2.f38711b++;
-            a2.f38712c += j;
+            a2.f42364b++;
+            a2.f42365c += j;
         }
     }
 
     public static void j(boolean z, String str, d.a.c.e.j.a.d dVar, long j, long j2) {
         if (l.D()) {
-            synchronized (f38690b) {
+            synchronized (f42343b) {
                 boolean n = n(str);
                 boolean z2 = false;
                 if (dVar != null && !StringUtils.isNull(dVar.k)) {
@@ -206,13 +206,13 @@ public class a {
                 if (n && z2) {
                     a2.y++;
                 }
-                a2.f38716g++;
+                a2.f42369g++;
                 if (z) {
-                    a2.f38717h++;
-                    a2.f38718i += j;
+                    a2.f42370h++;
+                    a2.f42371i += j;
                     a2.z += j2;
                 }
-                if (f38689a.a() > 100) {
+                if (f42342a.a() > 100) {
                     g();
                 }
             }
@@ -220,7 +220,7 @@ public class a {
     }
 
     public static void k(boolean z, long j) {
-        synchronized (f38690b) {
+        synchronized (f42343b) {
             f a2 = a();
             if (z) {
                 a2.p++;
@@ -238,7 +238,7 @@ public class a {
     }
 
     public static void m(boolean z, long j) {
-        synchronized (f38690b) {
+        synchronized (f42343b) {
             f a2 = a();
             if (z) {
                 a2.j++;

@@ -20,11 +20,11 @@ import org.json.JSONObject;
 public class c extends n {
 
     /* renamed from: c  reason: collision with root package name */
-    public l f50399c;
+    public l f54075c;
 
     public c(l lVar) {
         super(lVar);
-        this.f50399c = lVar;
+        this.f54075c = lVar;
     }
 
     @Override // d.a.m0.r.y.n
@@ -66,7 +66,7 @@ public class c extends n {
         bVar.F(true);
         bVar.w(concurrentHashMap);
         bVar.H(true);
-        d(new CustomMessage(2010000, bVar.v(this.f50399c.f())));
+        d(new CustomMessage(2010000, bVar.v(this.f54075c.f())));
     }
 
     @o("selectPhotos")

@@ -7,7 +7,7 @@ import d.a.n0.c1.b.c;
 public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnClickListener f16729a;
+    public View.OnClickListener f16805a;
 
     public ItemViewHolder(View view) {
         super(view);
@@ -20,6 +20,6 @@ public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
     public abstract void d(int i2);
 
     public void e(View.OnClickListener onClickListener) {
-        this.f16729a = onClickListener;
+        this.f16805a = onClickListener;
     }
 }

@@ -3,37 +3,36 @@ package com.baidu.location.e;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.android.bbalbs.common.util.CommonParam;
-import com.tencent.connect.common.Constants;
 /* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f6676e;
+    public static String f6719e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f6677f;
+    public static String f6720f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f6678g;
+    public static String f6721g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f6679h;
+    public static String f6722h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f6680i;
+    public static int f6723i;
     public static b j;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6681a = null;
+    public String f6724a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6682b = null;
+    public String f6725b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6683c = null;
+    public String f6726c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6684d = null;
+    public String f6727d = null;
     public boolean k = false;
 
     public b() {
@@ -67,15 +66,15 @@ public class b {
         stringBuffer.append("&sdk=");
         stringBuffer.append(7.93f);
         if (z) {
-            if (k.f6725g.equals("all")) {
+            if (k.f6768g.equals("all")) {
                 stringBuffer.append("&addr=allj");
             }
-            if (k.f6727i) {
+            if (k.f6770i) {
                 stringBuffer.append("&adtp=n2");
             }
-            if (k.f6726h || k.k || k.l || k.j) {
+            if (k.f6769h || k.k || k.l || k.j) {
                 stringBuffer.append("&sema=");
-                if (k.f6726h) {
+                if (k.f6769h) {
                     stringBuffer.append("aptag|");
                 }
                 if (k.j) {
@@ -101,18 +100,18 @@ public class b {
                 stringBuffer.append(j2);
             }
         }
-        if (this.f6683c != null) {
+        if (this.f6726c != null) {
             stringBuffer.append("&cu=");
-            stringBuffer.append(this.f6683c);
-            String str3 = this.f6681a;
-            str2 = (str3 == null || str3.equals("NULL") || this.f6683c.contains(new StringBuffer(this.f6681a).reverse().toString())) ? "&Aim=" : "&Aim=";
-            if (this.f6682b != null) {
+            stringBuffer.append(this.f6726c);
+            String str3 = this.f6724a;
+            str2 = (str3 == null || str3.equals("NULL") || this.f6726c.contains(new StringBuffer(this.f6724a).reverse().toString())) ? "&Aim=" : "&Aim=";
+            if (this.f6725b != null) {
                 stringBuffer.append("&snd=");
-                stringBuffer.append(this.f6682b);
+                stringBuffer.append(this.f6725b);
             }
-            if (this.f6684d != null) {
+            if (this.f6727d != null) {
                 stringBuffer.append("&Aid=");
-                stringBuffer.append(this.f6684d);
+                stringBuffer.append(this.f6727d);
             }
             stringBuffer.append("&fw=");
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -125,7 +124,7 @@ public class b {
                 stringBuffer.append(c2);
             }
             stringBuffer.append("&resid=");
-            stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
+            stringBuffer.append("12");
             stringBuffer.append("&os=A");
             stringBuffer.append(Build.VERSION.SDK_INT);
             if (z) {
@@ -140,10 +139,10 @@ public class b {
         }
         str2 = "&im=";
         stringBuffer.append(str2);
-        stringBuffer.append(this.f6681a);
-        if (this.f6682b != null) {
+        stringBuffer.append(this.f6724a);
+        if (this.f6725b != null) {
         }
-        if (this.f6684d != null) {
+        if (this.f6727d != null) {
         }
         stringBuffer.append("&fw=");
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -154,7 +153,7 @@ public class b {
         if (c2 != null) {
         }
         stringBuffer.append("&resid=");
-        stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
+        stringBuffer.append("12");
         stringBuffer.append("&os=A");
         stringBuffer.append(Build.VERSION.SDK_INT);
         if (z) {
@@ -167,21 +166,21 @@ public class b {
             return;
         }
         try {
-            this.f6683c = CommonParam.getCUID(context);
+            this.f6726c = CommonParam.getCUID(context);
         } catch (Exception unused) {
-            this.f6683c = null;
+            this.f6726c = null;
         }
         try {
-            f6676e = context.getPackageName();
+            f6719e = context.getPackageName();
         } catch (Exception unused2) {
-            f6676e = null;
+            f6719e = null;
         }
-        k.o = "" + this.f6683c;
+        k.o = "" + this.f6726c;
         this.k = true;
     }
 
     public void a(String str, String str2) {
-        f6677f = str;
-        f6676e = str2;
+        f6720f = str;
+        f6719e = str2;
     }
 }

@@ -29,7 +29,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
             BubbleListActivity bubbleListActivity = BubbleListActivity.this;
             bubbleListActivity.hideLoadingView(bubbleListActivity.mView.c());
             if (i2 == 0) {
-                BubbleListActivity.this.mView.i(eVar, list, BubbleListActivity.this.mModel.H());
+                BubbleListActivity.this.mView.i(eVar, list, BubbleListActivity.this.mModel.L());
                 return;
             }
             BubbleListActivity.this.showToast(str);
@@ -45,7 +45,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             if (BubbleListActivity.this.mModel != null) {
-                BubbleListActivity.this.mModel.s();
+                BubbleListActivity.this.mModel.w();
             }
         }
     }
@@ -72,7 +72,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
+            pageStayDurationItem.f53110a = true;
         }
         return pageStayDurationItem;
     }
@@ -91,7 +91,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         super.onCreate(bundle);
         BubbleListModel bubbleListModel = new BubbleListModel(this);
         this.mModel = bubbleListModel;
-        bubbleListModel.J(this.mCallback);
+        bubbleListModel.N(this.mCallback);
         d.a.n0.k3.f.a.a aVar = new d.a.n0.k3.f.a.a(getPageContext());
         this.mItemController = aVar;
         d.a.n0.k3.f.c.b bVar = new d.a.n0.k3.f.c.b(this, aVar);

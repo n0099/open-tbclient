@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.chatmessage.messages.DuPaBManualMsg;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -190,7 +189,7 @@ public class QuickReply implements Parcelable {
             quickReply.setTimeStamp(jSONObject.getLong("ts"));
             quickReply.setRefreshTime(jSONObject.getLong("menu_refresh_ts"));
             quickReply.setMenuName(jSONObject.getString("name"));
-            quickReply.setPaName(jSONObject.optString(UserAccountActionItem.KEY_SRC));
+            quickReply.setPaName(jSONObject.optString("src"));
             JSONArray jSONArray = jSONObject.getJSONArray("button_list");
             ArrayList<ReplyContent> arrayList = new ArrayList<>();
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {

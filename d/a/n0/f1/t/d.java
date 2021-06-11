@@ -14,33 +14,33 @@ import d.a.m0.z0.n;
 public class d extends d.a.n0.f1.t.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f54755b = new d();
+    public static d f58444b = new d();
 
     /* loaded from: classes4.dex */
     public class a extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialSettingItemData f54756a;
+        public final /* synthetic */ OfficialSettingItemData f58445a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54757b;
+        public final /* synthetic */ String f58446b;
 
         public a(OfficialSettingItemData officialSettingItemData, String str) {
-            this.f54756a = officialSettingItemData;
-            this.f54757b = str;
+            this.f58445a = officialSettingItemData;
+            this.f58446b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            d.this.b().g(this.f54757b, OrmObject.jsonStrWithObject(this.f54756a));
+            d.this.b().g(this.f58446b, OrmObject.jsonStrWithObject(this.f58445a));
             return null;
         }
     }
 
     public static d j() {
-        return f54755b;
+        return f58444b;
     }
 
     @Override // d.a.n0.f1.t.a
@@ -60,8 +60,8 @@ public class d extends d.a.n0.f1.t.a {
             l<String> b2 = b();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.f54739a) {
-                this.f54739a.put(str, officialSettingItemData);
+            synchronized (this.f58428a) {
+                this.f58428a.put(str, officialSettingItemData);
             }
             b2.g(str, jsonStrWithObject);
         } else if (TbConfig.getDebugSwitch()) {
@@ -79,8 +79,8 @@ public class d extends d.a.n0.f1.t.a {
         String toUid = officialSettingItemData.getToUid();
         if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
             String str = myUid + "@" + toUid;
-            synchronized (this.f54739a) {
-                this.f54739a.put(str, officialSettingItemData);
+            synchronized (this.f58428a) {
+                this.f58428a.put(str, officialSettingItemData);
             }
             h0.c(new a(officialSettingItemData, str), nVar);
         } else if (TbConfig.getDebugSwitch()) {
@@ -97,8 +97,8 @@ public class d extends d.a.n0.f1.t.a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.f54739a) {
-            ChatSetting chatSetting = this.f54739a.get(str3);
+        synchronized (this.f58428a) {
+            ChatSetting chatSetting = this.f58428a.get(str3);
             if (chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
                 officialSettingItemData = (OfficialSettingItemData) chatSetting;
             }

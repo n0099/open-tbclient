@@ -14,9 +14,9 @@ import android.view.ViewParent;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import androidx.annotation.ColorInt;
-import com.kwad.sdk.utils.an;
+import com.kwad.sdk.utils.ao;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ScaleAnimSeekBar extends View {
     public boolean A;
     public boolean B;
@@ -36,31 +36,31 @@ public class ScaleAnimSeekBar extends View {
     public boolean P;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f32774a;
+    public Paint f34881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32775b;
+    public int f34882b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32776c;
+    public int f34883c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32777d;
+    public int f34884d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32778e;
+    public int f34885e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f32779f;
+    public int f34886f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f32780g;
+    public int f34887g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32781h;
+    public int f34888h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f32782i;
+    public int f34889i;
     public boolean j;
     public int k;
     public int l;
@@ -79,7 +79,7 @@ public class ScaleAnimSeekBar extends View {
     public Drawable y;
     public boolean z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(ScaleAnimSeekBar scaleAnimSeekBar);
 
@@ -98,7 +98,7 @@ public class ScaleAnimSeekBar extends View {
 
     public ScaleAnimSeekBar(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f32780g = 100;
+        this.f34887g = 100;
         this.j = false;
         this.y = null;
         this.z = false;
@@ -116,14 +116,14 @@ public class ScaleAnimSeekBar extends View {
 
     private float a(int i2) {
         int i3 = this.k;
-        int i4 = this.f32779f;
-        return ((i3 * (i2 - i4)) / (this.f32780g - i4)) - (i3 / 2.0f);
+        int i4 = this.f34886f;
+        return ((i3 * (i2 - i4)) / (this.f34887g - i4)) - (i3 / 2.0f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f2) {
         Rect rect = this.x;
-        int i2 = this.f32778e;
+        int i2 = this.f34885e;
         rect.left = (int) (f2 - i2);
         rect.right = (int) (i2 + f2);
         this.v.right = (int) f2;
@@ -136,13 +136,13 @@ public class ScaleAnimSeekBar extends View {
         }
         this.k = this.F ? (int) (i2 - ((this.O * 2) * (this.L - this.K))) : i2 - (this.O * 2);
         Rect rect = this.u;
-        int i4 = -this.f32782i;
+        int i4 = -this.f34889i;
         rect.top = i4;
         rect.bottom = -i4;
         rect.left = (this.j ? -i2 : -this.k) / 2;
         this.u.right = this.j ? i2 / 2 : this.k / 2;
         Rect rect2 = this.v;
-        int i5 = -this.f32782i;
+        int i5 = -this.f34889i;
         rect2.top = i5;
         rect2.bottom = -i5;
         rect2.left = (this.j ? -i2 : -this.k) / 2;
@@ -150,14 +150,14 @@ public class ScaleAnimSeekBar extends View {
         int i6 = this.k;
         rect3.right = (-i6) / 2;
         Rect rect4 = this.w;
-        rect4.top = -this.f32782i;
+        rect4.top = -this.f34889i;
         rect4.bottom = -rect3.top;
         rect4.left = (this.j ? -i2 : -i6) / 2;
         Rect rect5 = this.w;
         int i7 = this.k;
         rect5.right = (-i7) / 2;
         Rect rect6 = this.x;
-        int i8 = this.f32778e;
+        int i8 = this.f34885e;
         rect6.top = -i8;
         rect6.bottom = i8;
         rect6.left = ((-i7) / 2) - i8;
@@ -172,26 +172,26 @@ public class ScaleAnimSeekBar extends View {
             a(context);
         }
         Paint paint = new Paint();
-        this.f32774a = paint;
+        this.f34881a = paint;
         paint.setStyle(Paint.Style.FILL);
-        this.f32774a.setAntiAlias(true);
+        this.f34881a.setAntiAlias(true);
         GradientDrawable gradientDrawable = new GradientDrawable();
         this.r = gradientDrawable;
         gradientDrawable.setShape(0);
-        this.r.setColor(this.f32775b);
+        this.r.setColor(this.f34882b);
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         this.s = gradientDrawable2;
         gradientDrawable2.setShape(0);
-        this.s.setColor(this.f32776c);
+        this.s.setColor(this.f34883c);
         GradientDrawable gradientDrawable3 = new GradientDrawable();
         this.t = gradientDrawable3;
         gradientDrawable3.setShape(0);
-        this.t.setColor(this.f32777d);
+        this.t.setColor(this.f34884d);
         this.u = new Rect();
         this.v = new Rect();
         this.x = new Rect();
         this.w = new Rect();
-        this.m = this.f32779f;
+        this.m = this.f34886f;
     }
 
     private void a(Canvas canvas) {
@@ -201,8 +201,8 @@ public class ScaleAnimSeekBar extends View {
             drawable.setBounds(this.x);
             this.y.draw(canvas);
         } else {
-            this.f32774a.setColor(this.f32776c);
-            canvas.drawCircle(this.x.centerX(), this.x.centerY(), (this.x.width() * this.K) / 2.0f, this.f32774a);
+            this.f34881a.setColor(this.f34883c);
+            canvas.drawCircle(this.x.centerX(), this.x.centerY(), (this.x.width() * this.K) / 2.0f, this.f34881a);
         }
         canvas.restore();
     }
@@ -216,7 +216,7 @@ public class ScaleAnimSeekBar extends View {
         rect2.left = rect.left;
         rect2.right = rect.right;
         gradientDrawable.setBounds(rect2);
-        gradientDrawable.setCornerRadius(this.f32781h * this.M);
+        gradientDrawable.setCornerRadius(this.f34888h * this.M);
         gradientDrawable.draw(canvas);
         canvas.restore();
     }
@@ -285,7 +285,7 @@ public class ScaleAnimSeekBar extends View {
     /* JADX INFO: Access modifiers changed from: private */
     public int b(int i2) {
         int i3 = this.k;
-        return i2 > i3 / 2 ? this.f32780g : i2 < (-i3) / 2 ? this.f32779f : Math.round(((i2 + (i3 / 2.0f)) * (this.f32780g - this.f32779f)) / i3) + this.f32779f;
+        return i2 > i3 / 2 ? this.f34887g : i2 < (-i3) / 2 ? this.f34886f : Math.round(((i2 + (i3 / 2.0f)) * (this.f34887g - this.f34886f)) / i3) + this.f34886f;
     }
 
     private void b(boolean z) {
@@ -367,8 +367,8 @@ public class ScaleAnimSeekBar extends View {
     }
 
     public void a(int i2, boolean z, boolean z2) {
-        int i3 = this.f32779f;
-        if (i2 <= i3 || i2 >= (i3 = this.f32780g)) {
+        int i3 = this.f34886f;
+        if (i2 <= i3 || i2 >= (i3 = this.f34887g)) {
             i2 = i3;
         }
         a(z, i2);
@@ -387,18 +387,18 @@ public class ScaleAnimSeekBar extends View {
 
     public void a(Context context) {
         this.F = true;
-        this.O = an.a(context, 10.0f);
-        this.f32778e = an.a(context, 3.0f);
-        this.l = an.a(context, 20.0f);
+        this.O = ao.a(context, 10.0f);
+        this.f34885e = ao.a(context, 3.0f);
+        this.l = ao.a(context, 20.0f);
         this.y = null;
         this.G = false;
-        this.f32782i = an.a(context, 0.3f);
-        this.f32781h = an.a(context, 1.0f);
-        this.f32775b = 654311423;
-        this.f32776c = -1;
-        this.f32777d = 1090519039;
-        this.f32779f = 0;
-        this.f32780g = 100;
+        this.f34889i = ao.a(context, 0.3f);
+        this.f34888h = ao.a(context, 1.0f);
+        this.f34882b = 654311423;
+        this.f34883c = -1;
+        this.f34884d = 1090519039;
+        this.f34886f = 0;
+        this.f34887g = 100;
         this.j = false;
     }
 
@@ -407,8 +407,12 @@ public class ScaleAnimSeekBar extends View {
         b(z);
     }
 
+    public boolean a() {
+        return (this.A || this.z) ? false : true;
+    }
+
     public int getMaxProgress() {
-        return this.f32780g;
+        return this.f34887g;
     }
 
     public int getProgress() {
@@ -420,7 +424,7 @@ public class ScaleAnimSeekBar extends View {
     }
 
     public int getProgressX() {
-        return (int) (getX() + (this.f32778e * this.L));
+        return (int) (getX() + (this.f34885e * this.L));
     }
 
     public int getSecondaryProgress() {
@@ -518,11 +522,11 @@ public class ScaleAnimSeekBar extends View {
     }
 
     public void setMaxProgress(int i2) {
-        this.f32780g = i2;
+        this.f34887g = i2;
     }
 
     public void setMinProgress(int i2) {
-        this.f32779f = i2;
+        this.f34886f = i2;
         if (this.m < i2) {
             this.m = i2;
         }
@@ -537,18 +541,18 @@ public class ScaleAnimSeekBar extends View {
     }
 
     public void setProgressBackgroundColor(@ColorInt int i2) {
-        this.f32775b = i2;
+        this.f34882b = i2;
         this.r.setColor(i2);
     }
 
     public void setProgressColor(@ColorInt int i2) {
-        this.f32776c = i2;
+        this.f34883c = i2;
         this.s.setColor(i2);
     }
 
     public void setSecondaryProgress(int i2) {
-        int i3 = this.f32779f;
-        if (i2 <= i3 || i2 >= (i3 = this.f32780g)) {
+        int i3 = this.f34886f;
+        if (i2 <= i3 || i2 >= (i3 = this.f34887g)) {
             i2 = i3;
         }
         this.o = i2;
@@ -557,7 +561,7 @@ public class ScaleAnimSeekBar extends View {
     }
 
     public void setSecondaryProgressColor(@ColorInt int i2) {
-        this.f32777d = i2;
+        this.f34884d = i2;
         this.t.setColor(i2);
     }
 

@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public class e extends b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f41001e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    public static final String f44677e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f41002f = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    public static final String f44678f = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(d.a.l0.a.c2.e eVar) {
         super(eVar, "/swanAPI/getFavor");
@@ -57,9 +57,9 @@ public class e extends b {
             jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
             jSONObject.put("payProtected", swanFavorItemData.getPayProtected());
             if (swanFavorItemData.getAppFrameType() == 1) {
-                str = String.format(f41002f, swanFavorItemData.getAppKey());
+                str = String.format(f44678f, swanFavorItemData.getAppKey());
             } else {
-                str = f41001e + swanFavorItemData.getAppKey() + "\"}";
+                str = f44677e + swanFavorItemData.getAppKey() + "\"}";
             }
             jSONObject.put("scheme", str);
         } catch (JSONException e2) {

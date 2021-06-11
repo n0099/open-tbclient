@@ -3,14 +3,14 @@ package d.c.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65987a;
+    public int f69718a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f65988b;
+    public long f69719b;
 
     public a(boolean z, long j, int i2) {
-        this.f65988b = j;
-        this.f65987a = i2;
+        this.f69719b = j;
+        this.f69718a = i2;
     }
 
     public static a b(String str, int i2, int i3) {
@@ -49,10 +49,10 @@ public class a {
     }
 
     public int a() {
-        return this.f65987a;
+        return this.f69718a;
     }
 
     public int c() {
-        return (int) this.f65988b;
+        return (int) this.f69719b;
     }
 }

@@ -3,37 +3,37 @@ package h.l.b;
 import android.os.Looper;
 import h.g;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final AtomicReference<a> f68434b = new AtomicReference<>();
+    public static final AtomicReference<a> f71690b = new AtomicReference<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f68435a;
+    public final g f71691a;
 
     public a() {
         g b2 = h.l.a.a.a().b().b();
         if (b2 != null) {
-            this.f68435a = b2;
+            this.f71691a = b2;
         } else {
-            this.f68435a = new b(Looper.getMainLooper());
+            this.f71691a = new b(Looper.getMainLooper());
         }
     }
 
     public static a a() {
         a aVar;
         do {
-            a aVar2 = f68434b.get();
+            a aVar2 = f71690b.get();
             if (aVar2 != null) {
                 return aVar2;
             }
             aVar = new a();
-        } while (!f68434b.compareAndSet(null, aVar));
+        } while (!f71690b.compareAndSet(null, aVar));
         return aVar;
     }
 
     public static g b() {
-        return a().f68435a;
+        return a().f71691a;
     }
 }

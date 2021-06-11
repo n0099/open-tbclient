@@ -17,33 +17,33 @@ import java.util.List;
 public abstract class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f61666e;
+    public TbPageContext f65380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f61667f;
+    public Context f65381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<d.a.n0.v.d.e.b.b> f61668g = new ArrayList();
+    public List<d.a.n0.v.d.e.b.b> f65382g = new ArrayList();
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61669h;
+    public int f65383h;
 
     public a(TbPageContext tbPageContext) {
-        this.f61666e = tbPageContext;
-        this.f61667f = tbPageContext.getPageActivity();
+        this.f65380e = tbPageContext;
+        this.f65381f = tbPageContext.getPageActivity();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public d.a.n0.v.d.e.b.b getItem(int i2) {
-        return this.f61668g.get(i2);
+        return this.f65382g.get(i2);
     }
 
     public void b(TbPageContext<?> tbPageContext, a2 a2Var, String str) {
         String str2;
         boolean z;
-        if (tbPageContext == null || a2Var == null || a2Var.T() == null || a2Var.r1() == null) {
+        if (tbPageContext == null || a2Var == null || a2Var.T() == null || a2Var.s1() == null) {
             return;
         }
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -56,7 +56,7 @@ public abstract class a extends BaseAdapter {
             z = false;
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(a2Var.r1());
+        alaLiveInfoCoreData.fillWithInfoData(a2Var.s1());
         alaLiveInfoCoreData.userName = a2Var.T().getUserName();
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
     }
@@ -65,14 +65,14 @@ public abstract class a extends BaseAdapter {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f61668g.clear();
-        this.f61668g.addAll(list);
+        this.f65382g.clear();
+        this.f65382g.addAll(list);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f61668g.size();
+        return this.f65382g.size();
     }
 
     @Override // android.widget.Adapter

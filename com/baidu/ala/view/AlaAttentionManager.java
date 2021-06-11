@@ -116,13 +116,13 @@ public class AlaAttentionManager {
             super.onPostExecute((AttentionAsyncTask) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.f12574a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
-                aVar.f12575b = this.mNetwork.getErrorString();
-                aVar.f12577d = this.isAttention;
-                aVar.f12576c = this.toUid;
-                aVar.f12579f = this.isGod;
+                aVar.f12636a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
+                aVar.f12637b = this.mNetwork.getErrorString();
+                aVar.f12639d = this.isAttention;
+                aVar.f12638c = this.toUid;
+                aVar.f12641f = this.isGod;
                 aVar.b(str, this.showToastAfterAttentionSuc);
-                aVar.f12580g = this.mNetwork.getNetContext().getResponse();
+                aVar.f12642g = this.mNetwork.getNetContext().getResponse();
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                 updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
@@ -220,15 +220,15 @@ public class AlaAttentionManager {
     }
 
     public boolean checkIsForbidden(UpdateAttentionMessage.a aVar, final f<?> fVar, boolean z) {
-        if (aVar != null && aVar.f12581h != null && aVar.f12580g != null && fVar != null && fVar.getPageActivity() != null) {
-            int i2 = aVar.f12580g.mServerErrorCode;
+        if (aVar != null && aVar.f12643h != null && aVar.f12642g != null && fVar != null && fVar.getPageActivity() != null) {
+            int i2 = aVar.f12642g.mServerErrorCode;
             if (!(i2 == 3250001 || i2 == 3250002 || i2 == 3250003 || i2 == 3250004)) {
                 return false;
             }
-            if (aVar.f12582i) {
+            if (aVar.f12644i) {
                 return true;
             }
-            JSONObject optJSONObject = aVar.f12581h.optJSONObject("info");
+            JSONObject optJSONObject = aVar.f12643h.optJSONObject("info");
             if (optJSONObject == null) {
                 return false;
             }
@@ -237,7 +237,7 @@ public class AlaAttentionManager {
             String optString3 = optJSONObject.optString("block_confirm");
             String optString4 = optJSONObject.optString("block_cancel");
             if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
-                aVar.f12582i = true;
+                aVar.f12644i = true;
                 a aVar2 = new a(fVar.getPageActivity());
                 aVar2.setAutoNight(z);
                 aVar2.setMessage(optString);

@@ -3,35 +3,35 @@ package d.a.l0.a.l0;
 import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile e f43305c;
+    public static volatile e f46981c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Lock f43306a = new ReentrantLock();
+    public final Lock f46982a = new ReentrantLock();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<i> f43307b = new ArrayList<>();
+    public ArrayList<i> f46983b = new ArrayList<>();
 
     public static e i() {
-        if (f43305c == null) {
+        if (f46981c == null) {
             synchronized (e.class) {
-                if (f43305c == null) {
-                    f43305c = new e();
+                if (f46981c == null) {
+                    f46981c = new e();
                 }
             }
         }
-        return f43305c;
+        return f46981c;
     }
 
     public final Object[] a() {
         try {
-            this.f43306a.lock();
-            return this.f43307b.size() > 0 ? this.f43307b.toArray() : null;
+            this.f46982a.lock();
+            return this.f46983b.size() > 0 ? this.f46983b.toArray() : null;
         } finally {
-            this.f43306a.unlock();
+            this.f46982a.unlock();
         }
     }
 

@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class a extends d.a.l0.a.u.e.d.a implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a.InterfaceC0836a> f47542a = new ArrayList<>();
+    public ArrayList<a.InterfaceC0892a> f51216a = new ArrayList<>();
 
     @Nullable
     public static a d() {
@@ -31,25 +31,25 @@ public class a extends d.a.l0.a.u.e.d.a implements i {
     }
 
     @Override // d.a.l0.a.u.e.d.a
-    public synchronized void b(a.InterfaceC0836a interfaceC0836a) {
-        if (!this.f47542a.contains(interfaceC0836a)) {
-            this.f47542a.add(interfaceC0836a);
+    public synchronized void b(a.InterfaceC0892a interfaceC0892a) {
+        if (!this.f51216a.contains(interfaceC0892a)) {
+            this.f51216a.add(interfaceC0892a);
         }
     }
 
     @Override // d.a.l0.a.u.e.d.a
     public synchronized void c(int i2) {
-        Iterator<a.InterfaceC0836a> it = this.f47542a.iterator();
+        Iterator<a.InterfaceC0892a> it = this.f51216a.iterator();
         while (it.hasNext()) {
             it.next().b(i2);
         }
     }
 
     public synchronized void e() {
-        Iterator<a.InterfaceC0836a> it = this.f47542a.iterator();
+        Iterator<a.InterfaceC0892a> it = this.f51216a.iterator();
         while (it.hasNext()) {
             it.next().a();
         }
-        this.f47542a.clear();
+        this.f51216a.clear();
     }
 }

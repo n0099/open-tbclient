@@ -32,41 +32,41 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
     public static a k;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f46715a;
+    public long f50389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f46716b;
+    public ExecutorService f50390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ConcurrentHashMap<String, Object> f46717c;
+    public final ConcurrentHashMap<String, Object> f50391c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<DownloadInfo> f46718d;
+    public final List<DownloadInfo> f50392d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f46719e;
+    public final Context f50393e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f46720f;
+    public final e f50394f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.l0.f.i.k.f.b f46721g;
+    public final d.a.l0.f.i.k.f.b f50395g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.a.l0.f.i.k.c.a f46722h;
+    public final d.a.l0.f.i.k.c.a f50396h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ConcurrentHashMap<Uri, BroadcastReceiver> f46723i = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<Uri, BroadcastReceiver> f50397i = new ConcurrentHashMap<>();
     public ConcurrentHashMap<Uri, Timer> j = new ConcurrentHashMap<>();
 
     /* renamed from: d.a.l0.f.i.k.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0979a extends BroadcastReceiver {
+    public class C1035a extends BroadcastReceiver {
         public final /* synthetic */ d val$listener;
         public final /* synthetic */ String val$packageName;
         public final /* synthetic */ Uri val$uri;
 
-        public C0979a(String str, d dVar, Uri uri) {
+        public C1035a(String str, d dVar, Uri uri) {
             this.val$packageName = str;
             this.val$listener = dVar;
             this.val$uri = uri;
@@ -87,24 +87,24 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
     public class b extends TimerTask {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f46724e;
+        public final /* synthetic */ d f50398e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f46725f;
+        public final /* synthetic */ Context f50399f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Uri f46726g;
+        public final /* synthetic */ Uri f50400g;
 
         public b(d dVar, Context context, Uri uri) {
-            this.f46724e = dVar;
-            this.f46725f = context;
-            this.f46726g = uri;
+            this.f50398e = dVar;
+            this.f50399f = context;
+            this.f50400g = uri;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            this.f46724e.a(Boolean.FALSE);
-            a.this.l(this.f46725f, this.f46726g);
+            this.f50398e.a(Boolean.FALSE);
+            a.this.l(this.f50399f, this.f50400g);
         }
     }
 
@@ -112,19 +112,19 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
     public class c extends TimerTask {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Timer f46728e;
+        public final /* synthetic */ Timer f50402e;
 
         public c(Timer timer) {
-            this.f46728e = timer;
+            this.f50402e = timer;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            for (Map.Entry entry : a.this.f46723i.entrySet()) {
+            for (Map.Entry entry : a.this.f50397i.entrySet()) {
                 a aVar = a.this;
-                aVar.l(aVar.f46719e, (Uri) entry.getKey());
+                aVar.l(aVar.f50393e, (Uri) entry.getKey());
             }
-            this.f46728e.cancel();
+            this.f50402e.cancel();
         }
     }
 
@@ -135,22 +135,22 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
     }
 
     public a(Context context, d.a.l0.f.i.k.c.a aVar) {
-        this.f46719e = context;
+        this.f50393e = context;
         if (aVar == null) {
-            this.f46722h = new d.a.l0.f.i.k.c.a();
+            this.f50396h = new d.a.l0.f.i.k.c.a();
         } else {
-            this.f46722h = aVar;
+            this.f50396h = aVar;
         }
-        if (this.f46722h.a() == null) {
-            this.f46721g = new d.a.l0.f.i.k.e.a(context, this.f46722h);
+        if (this.f50396h.a() == null) {
+            this.f50395g = new d.a.l0.f.i.k.e.a(context, this.f50396h);
         } else {
-            this.f46721g = this.f46722h.a();
+            this.f50395g = this.f50396h.a();
         }
-        this.f46718d = new ArrayList();
-        this.f46717c = new ConcurrentHashMap<>();
-        this.f46721g.b();
-        this.f46716b = Executors.newFixedThreadPool(this.f46722h.b());
-        this.f46720f = new d.a.l0.f.i.k.d.b(this.f46721g);
+        this.f50392d = new ArrayList();
+        this.f50391c = new ConcurrentHashMap<>();
+        this.f50395g.b();
+        this.f50390b = Executors.newFixedThreadPool(this.f50396h.b());
+        this.f50394f = new d.a.l0.f.i.k.d.b(this.f50395g);
     }
 
     public static synchronized d.a.l0.f.i.k.f.d m(Context context, d.a.l0.f.i.k.c.a aVar) {
@@ -177,16 +177,16 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
             return;
         }
         downloadInfo.setStatus(DownloadState.DELETED.value());
-        this.f46717c.remove(downloadInfo.getId());
-        this.f46718d.remove(downloadInfo);
-        this.f46721g.d(downloadInfo);
-        this.f46720f.b(downloadInfo);
+        this.f50391c.remove(downloadInfo.getId());
+        this.f50392d.remove(downloadInfo);
+        this.f50395g.d(downloadInfo);
+        this.f50394f.b(downloadInfo);
         new File(downloadInfo.getPath()).delete();
     }
 
     @Override // d.a.l0.f.i.k.f.d
     public synchronized void c(DownloadInfo downloadInfo) {
-        this.f46718d.add(downloadInfo);
+        this.f50392d.add(downloadInfo);
         p(downloadInfo);
     }
 
@@ -200,12 +200,12 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
     @Override // d.a.l0.f.i.k.f.d
     public synchronized void destroy() {
         k();
-        if (this.f46721g != null) {
-            this.f46721g.close();
+        if (this.f50395g != null) {
+            this.f50395g.close();
         }
-        if (this.f46716b != null) {
-            this.f46716b.shutdownNow();
-            this.f46716b = null;
+        if (this.f50390b != null) {
+            this.f50390b.shutdownNow();
+            this.f50390b = null;
         }
         k = null;
     }
@@ -213,8 +213,8 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
     @Override // d.a.l0.f.i.k.d.c.a
     public synchronized void e(DownloadInfo downloadInfo) {
         g.c(downloadInfo.getPath(), false);
-        this.f46717c.remove(downloadInfo.getId());
-        this.f46718d.remove(downloadInfo);
+        this.f50391c.remove(downloadInfo.getId());
+        this.f50392d.remove(downloadInfo);
         q();
     }
 
@@ -228,11 +228,11 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-        C0979a c0979a = new C0979a(str, dVar, uri);
-        appContext.registerReceiver(c0979a, intentFilter);
+        C1035a c1035a = new C1035a(str, dVar, uri);
+        appContext.registerReceiver(c1035a, intentFilter);
         Timer timer = new Timer();
         timer.schedule(new b(dVar, appContext, uri), 60000L);
-        this.f46723i.put(uri, c0979a);
+        this.f50397i.put(uri, c1035a);
         this.j.put(uri, timer);
     }
 
@@ -240,7 +240,7 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
     public synchronized DownloadInfo g(String str) {
         DownloadInfo downloadInfo;
         downloadInfo = null;
-        Iterator<DownloadInfo> it = this.f46718d.iterator();
+        Iterator<DownloadInfo> it = this.f50392d.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -252,7 +252,7 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
             }
         }
         if (downloadInfo == null) {
-            downloadInfo = this.f46721g.c(str);
+            downloadInfo = this.f50395g.c(str);
         }
         return downloadInfo;
     }
@@ -263,7 +263,7 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
     }
 
     public final void l(Context context, Uri uri) {
-        BroadcastReceiver remove = this.f46723i.remove(uri);
+        BroadcastReceiver remove = this.f50397i.remove(uri);
         if (remove != null) {
             context.unregisterReceiver(remove);
         }
@@ -274,8 +274,8 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
     }
 
     public synchronized boolean n() {
-        if (System.currentTimeMillis() - this.f46715a > 500) {
-            this.f46715a = System.currentTimeMillis();
+        if (System.currentTimeMillis() - this.f50389a > 500) {
+            this.f50389a = System.currentTimeMillis();
             return true;
         }
         return false;
@@ -283,26 +283,26 @@ public final class a implements d.a.l0.f.i.k.f.d, c.a {
 
     public final void o(DownloadInfo downloadInfo) {
         downloadInfo.setStatus(DownloadState.DOWNLOAD_PAUSED.value());
-        this.f46717c.remove(downloadInfo.getId());
-        this.f46720f.b(downloadInfo);
+        this.f50391c.remove(downloadInfo.getId());
+        this.f50394f.b(downloadInfo);
         q();
     }
 
     public final void p(DownloadInfo downloadInfo) {
-        if (this.f46717c.size() >= this.f46722h.b()) {
+        if (this.f50391c.size() >= this.f50396h.b()) {
             downloadInfo.setStatus(DownloadState.WAIT.value());
-            this.f46720f.b(downloadInfo);
+            this.f50394f.b(downloadInfo);
             return;
         }
-        d.a.l0.f.i.k.d.c cVar = new d.a.l0.f.i.k.d.c(this.f46716b, this.f46720f, downloadInfo, this);
-        this.f46717c.put(downloadInfo.getId(), cVar);
+        d.a.l0.f.i.k.d.c cVar = new d.a.l0.f.i.k.d.c(this.f50390b, this.f50394f, downloadInfo, this);
+        this.f50391c.put(downloadInfo.getId(), cVar);
         downloadInfo.setStatus(DownloadState.PREPARE_DOWNLOAD.value());
-        this.f46720f.b(downloadInfo);
+        this.f50394f.b(downloadInfo);
         cVar.c();
     }
 
     public final void q() {
-        for (DownloadInfo downloadInfo : this.f46718d) {
+        for (DownloadInfo downloadInfo : this.f50392d) {
             if (downloadInfo.getStatus() == DownloadState.WAIT.value()) {
                 p(downloadInfo);
                 return;

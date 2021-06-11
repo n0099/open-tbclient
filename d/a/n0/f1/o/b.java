@@ -5,28 +5,28 @@ import d.a.c.c.j.e;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f54660b;
+    public static b f58349b;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f54661a;
+    public e f58350a;
 
     public b() {
-        this.f54661a = null;
-        this.f54661a = new e(1000, 1000, 1000);
+        this.f58350a = null;
+        this.f58350a = new e(1000, 1000, 1000);
     }
 
     public static b a() {
-        if (f54660b == null) {
+        if (f58349b == null) {
             synchronized (b.class) {
-                if (f54660b == null) {
-                    f54660b = new b();
+                if (f58349b == null) {
+                    f58349b = new b();
                 }
             }
         }
-        return f54660b;
+        return f58349b;
     }
 
     public e b() {
-        return this.f54661a;
+        return this.f58350a;
     }
 }

@@ -87,7 +87,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
             if (payData != null) {
                 String str2 = payData.params;
                 if (payData.isBaifubaoAuthPay()) {
-                    hashMap.put(BaiduPay.PAY_FROM, BaiduPay.PAY_FROM_AUTHORIZE);
+                    hashMap.put("pay_from", BaiduPay.PAY_FROM_AUTHORIZE);
                 }
                 str = str2;
             } else {

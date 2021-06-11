@@ -21,13 +21,13 @@ import java.util.List;
 public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends BaseAdapter implements t {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<D> f49406e;
+    public List<D> f53080e;
 
     /* renamed from: h  reason: collision with root package name */
-    public final TbPageContext<?> f49409h;
+    public final TbPageContext<?> f53083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public S f49410i;
+    public S f53084i;
     public final ViewEventCenter j;
     public NoDataView l;
     public FrameLayout m;
@@ -37,23 +37,23 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
     public FrameLayout.LayoutParams q;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<H> f49407f = new ArrayList();
+    public final List<H> f53081f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<H> f49408g = new SparseArray<>();
+    public final SparseArray<H> f53082g = new SparseArray<>();
     public boolean k = true;
 
     public c(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        this.f49409h = tbPageContext;
+        this.f53083h = tbPageContext;
         this.j = viewEventCenter;
     }
 
     public View a() {
         if (this.m == null) {
-            this.m = new FrameLayout(this.f49409h.getPageActivity());
+            this.m = new FrameLayout(this.f53083h.getPageActivity());
         }
         if (this.l == null) {
-            this.l = NoDataViewFactory.a(this.f49409h.getPageActivity(), this.m, this.o, this.n, this.p);
+            this.l = NoDataViewFactory.a(this.f53083h.getPageActivity(), this.m, this.o, this.n, this.p);
         }
         this.l.setVisibility(0);
         FrameLayout.LayoutParams layoutParams = this.q;
@@ -61,7 +61,7 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
             this.l.setLayoutParams(layoutParams);
         }
         this.m.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-        this.l.f(this.f49409h, TbadkCoreApplication.getInst().getSkinType());
+        this.l.f(this.f53083h, TbadkCoreApplication.getInst().getSkinType());
         return this.m;
     }
 
@@ -76,7 +76,7 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
     }
 
     public int c() {
-        List<D> list = this.f49406e;
+        List<D> list = this.f53080e;
         if (list == null) {
             return 0;
         }
@@ -84,23 +84,23 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
     }
 
     public List<D> d() {
-        if (this.f49406e == null) {
+        if (this.f53080e == null) {
             return new ArrayList();
         }
-        return new ArrayList(this.f49406e);
+        return new ArrayList(this.f53080e);
     }
 
     public boolean e() {
-        List<D> list = this.f49406e;
+        List<D> list = this.f53080e;
         return list != null && list.size() == 0;
     }
 
     public final View f(View view, int i2, Class<?> cls, int i3) {
         H g2 = g(view, cls, i3);
-        if (this.f49408g.indexOfValue(g2) >= 0) {
-            this.f49408g.remove(g2.n());
+        if (this.f53082g.indexOfValue(g2) >= 0) {
+            this.f53082g.remove(g2.n());
         }
-        this.f49408g.put(i2, g2);
+        this.f53082g.put(i2, g2);
         m(g2, i2);
         return g2.g();
     }
@@ -109,12 +109,12 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
         if (view != null && view.getTag() != null) {
             return (H) view.getTag();
         }
-        View inflate = this.f49409h.getPageActivity().getLayoutInflater().inflate(i2, (ViewGroup) null);
+        View inflate = this.f53083h.getPageActivity().getLayoutInflater().inflate(i2, (ViewGroup) null);
         try {
-            H h2 = (H) cls.getConstructor(TbPageContext.class, View.class, ViewEventCenter.class).newInstance(this.f49409h, inflate, this.j);
-            h2.onChangeSkinType(this.f49409h, TbadkCoreApplication.getInst().getSkinType());
+            H h2 = (H) cls.getConstructor(TbPageContext.class, View.class, ViewEventCenter.class).newInstance(this.f53083h, inflate, this.j);
+            h2.onChangeSkinType(this.f53083h, TbadkCoreApplication.getInst().getSkinType());
             inflate.setTag(h2);
-            this.f49407f.add(h2);
+            this.f53081f.add(h2);
             return h2;
         } catch (IllegalAccessException e2) {
             throw new RuntimeException(e2);
@@ -133,29 +133,29 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<D> list = this.f49406e;
+        List<D> list = this.f53080e;
         if (list == null) {
             return 0;
         }
         if (list.size() == 0 && this.k) {
             return 1;
         }
-        return this.f49406e.size();
+        return this.f53080e.size();
     }
 
     @Override // android.widget.Adapter
     public D getItem(int i2) {
-        List<D> list = this.f49406e;
-        if (list != null && list.size() != 0 && i2 >= 0 && i2 < this.f49406e.size()) {
-            return this.f49406e.get(i2);
+        List<D> list = this.f53080e;
+        if (list != null && list.size() != 0 && i2 >= 0 && i2 < this.f53080e.size()) {
+            return this.f53080e.get(i2);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i2) {
-        List<D> list = this.f49406e;
-        if (list != null && list.size() != 0 && i2 >= 0 && i2 < this.f49406e.size()) {
+        List<D> list = this.f53080e;
+        if (list != null && list.size() != 0 && i2 >= 0 && i2 < this.f53080e.size()) {
             return i2;
         }
         return 0L;
@@ -163,7 +163,7 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
 
     public void h(D d2) {
         List<D> list;
-        if (d2 == null || (list = this.f49406e) == null) {
+        if (d2 == null || (list = this.f53080e) == null) {
             return;
         }
         list.remove(d2);
@@ -172,10 +172,10 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
 
     public void i(List<D> list) {
         if (list != null) {
-            if (this.f49406e == null) {
-                this.f49406e = new ArrayList();
+            if (this.f53080e == null) {
+                this.f53080e = new ArrayList();
             }
-            this.f49406e.addAll(list);
+            this.f53080e.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -203,12 +203,12 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
 
     public void l(List<D> list) {
         if (list != null) {
-            if (this.f49406e == null) {
-                this.f49406e = new ArrayList();
+            if (this.f53080e == null) {
+                this.f53080e = new ArrayList();
             }
-            this.f49406e.clear();
-            this.f49406e.addAll(list);
-            this.f49408g.clear();
+            this.f53080e.clear();
+            this.f53080e.addAll(list);
+            this.f53082g.clear();
         }
     }
 
@@ -216,14 +216,14 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
         D item = getItem(i2);
         if (item != null) {
             h2.j = i2;
-            h2.l(item, this.f49410i);
+            h2.l(item, this.f53084i);
         }
     }
 
     public void n(D d2) {
         List<D> list;
         H h2;
-        if (d2 == null || (list = this.f49406e) == null || !list.contains(d2) || (h2 = this.f49408g.get(this.f49406e.indexOf(d2))) == null) {
+        if (d2 == null || (list = this.f53080e) == null || !list.contains(d2) || (h2 = this.f53082g.get(this.f53080e.indexOf(d2))) == null) {
             return;
         }
         h2.k(d2);
@@ -231,16 +231,16 @@ public abstract class c<D, S extends d.a.m0.g0.d.b, H extends a<D, S>> extends B
 
     @Override // d.a.n0.e3.t
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
-        int size = this.f49407f.size();
+        int size = this.f53081f.size();
         for (int i3 = 0; i3 < size; i3++) {
-            H h2 = this.f49407f.get(i3);
+            H h2 = this.f53081f.get(i3);
             if (h2 != null) {
                 h2.onChangeSkinType(tbPageContext, i2);
             }
         }
         NoDataView noDataView = this.l;
         if (noDataView != null) {
-            noDataView.f(this.f49409h, i2);
+            noDataView.f(this.f53083h, i2);
             return true;
         }
         return true;

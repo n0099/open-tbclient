@@ -11,43 +11,43 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f2732a;
+    public Context f2751a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2733b;
+    public String f2752b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2734c;
+    public String f2753c;
 
     public b(Context context) {
-        this.f2732a = context;
+        this.f2751a = context;
     }
 
     public boolean a() {
         b.c cVar;
-        String a2 = new File(this.f2734c).exists() ? a.a(this.f2732a, this.f2734c) : a.a();
+        String a2 = new File(this.f2753c).exists() ? a.a(this.f2751a, this.f2753c) : a.a();
         if (!TextUtils.isEmpty(a2)) {
             try {
                 byte[] decode = Base64.decode(a2.getBytes(), 2);
                 if (decode != null && decode.length > 0) {
-                    this.f2733b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
+                    this.f2752b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
                 }
             } catch (Exception e2) {
                 e = e2;
-                cVar = new b.c(this.f2732a);
+                cVar = new b.c(this.f2751a);
                 cVar.a(Log.getStackTraceString(e)).a();
-                return !TextUtils.isEmpty(this.f2733b);
+                return !TextUtils.isEmpty(this.f2752b);
             } catch (UnsatisfiedLinkError e3) {
                 e = e3;
-                cVar = new b.c(this.f2732a);
+                cVar = new b.c(this.f2751a);
                 cVar.a(Log.getStackTraceString(e)).a();
-                return !TextUtils.isEmpty(this.f2733b);
+                return !TextUtils.isEmpty(this.f2752b);
             }
         }
-        return !TextUtils.isEmpty(this.f2733b);
+        return !TextUtils.isEmpty(this.f2752b);
     }
 
     public boolean a(Context context, String str) {
-        return a.a(context, this.f2734c, str);
+        return a.a(context, this.f2753c, str);
     }
 }

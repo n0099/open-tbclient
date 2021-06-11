@@ -19,24 +19,24 @@ import d.a.m0.w.m;
 public class DLauncher extends RelativeLayout implements h {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12732e;
+    public int f12797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12733f;
+    public TextView f12798f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12734g;
+    public TextView f12799g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12735h;
+    public int f12800h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12736i;
+    public String f12801i;
     public m j;
 
     public DLauncher(Context context, m mVar) {
         super(context);
-        this.f12735h = 0;
+        this.f12800h = 0;
         if (mVar == null) {
             return;
         }
@@ -46,40 +46,40 @@ public class DLauncher extends RelativeLayout implements h {
         layoutParams.topMargin = getResources().getDimensionPixelOffset(R.dimen.M_H_X008);
         layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        this.f12733f = new EMTextView(context);
-        setName(mVar.f50848b);
+        this.f12798f = new EMTextView(context);
+        setName(mVar.f54525b);
         setIcon();
-        setToolId(mVar.f50849c);
-        this.f12733f.setGravity(17);
-        c d2 = c.d(this.f12733f);
+        setToolId(mVar.f54526c);
+        this.f12798f.setGravity(17);
+        c d2 = c.d(this.f12798f);
         d2.w(R.dimen.T_X09);
         d2.s(R.color.CAM_X0106);
         context.getResources().getDimensionPixelSize(R.dimen.ds12);
-        addView(this.f12733f, layoutParams);
+        addView(this.f12798f, layoutParams);
     }
 
     public final void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f12736i = str;
-        if (this.f12734g == null) {
+        this.f12801i = str;
+        if (this.f12799g == null) {
             TextView textView = new TextView(getContext());
-            this.f12734g = textView;
+            this.f12799g = textView;
             addView(textView, new RelativeLayout.LayoutParams(-2, -2));
         }
-        SkinManager.setViewTextColor(this.f12734g, R.color.common_color_10225, 1, this.f12735h);
-        this.f12734g.setGravity(17);
+        SkinManager.setViewTextColor(this.f12799g, R.color.common_color_10225, 1, this.f12800h);
+        this.f12799g.setGravity(17);
         if (!str.equals(" ")) {
-            this.f12734g.setTextSize(1, 10.0f);
-            this.f12734g.setText(str);
-            SkinManager.setBackgroundResource(this.f12734g, R.drawable.icon_news_head_prompt_one, this.f12735h);
+            this.f12799g.setTextSize(1, 10.0f);
+            this.f12799g.setText(str);
+            SkinManager.setBackgroundResource(this.f12799g, R.drawable.icon_news_head_prompt_one, this.f12800h);
             return;
         }
-        this.f12734g.setWidth(0);
-        this.f12734g.setHeight(0);
-        this.f12734g.setText("");
-        SkinManager.setBackgroundResource(this.f12734g, R.drawable.icon_news_down_bar_one, this.f12735h);
+        this.f12799g.setWidth(0);
+        this.f12799g.setHeight(0);
+        this.f12799g.setText("");
+        SkinManager.setBackgroundResource(this.f12799g, R.drawable.icon_news_down_bar_one, this.f12800h);
     }
 
     @Override // d.a.m0.w.h
@@ -89,7 +89,7 @@ public class DLauncher extends RelativeLayout implements h {
 
     public void c(String str) {
         a(str);
-        this.f12734g.setVisibility(0);
+        this.f12799g.setVisibility(0);
     }
 
     @Override // d.a.m0.w.h
@@ -97,20 +97,20 @@ public class DLauncher extends RelativeLayout implements h {
     }
 
     public void f() {
-        this.f12736i = null;
-        TextView textView = this.f12734g;
+        this.f12801i = null;
+        TextView textView = this.f12799g;
         if (textView != null) {
             textView.setVisibility(8);
         }
     }
 
     public String getText() {
-        return this.f12736i;
+        return this.f12801i;
     }
 
     @Override // d.a.m0.w.h
     public int getToolId() {
-        return this.f12732e;
+        return this.f12797e;
     }
 
     @Override // d.a.m0.w.h
@@ -120,10 +120,10 @@ public class DLauncher extends RelativeLayout implements h {
 
     @Override // d.a.m0.w.b
     public void onAction(a aVar) {
-        if (aVar == null || aVar.f50841a != 2) {
+        if (aVar == null || aVar.f54518a != 2) {
             return;
         }
-        Object obj = aVar.f50843c;
+        Object obj = aVar.f54520c;
         if (obj == null) {
             f();
         } else if (obj instanceof String) {
@@ -133,38 +133,38 @@ public class DLauncher extends RelativeLayout implements h {
 
     @Override // d.a.m0.w.h
     public void onChangeSkinType(int i2) {
-        this.f12735h = i2;
+        this.f12800h = i2;
         if (isEnabled()) {
             SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i2);
         }
-        c.d(this.f12733f).s(R.color.CAM_X0106);
+        c.d(this.f12798f).s(R.color.CAM_X0106);
         if (this.j == null) {
             return;
         }
         setIcon();
-        TextView textView = this.f12734g;
+        TextView textView = this.f12799g;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.common_color_10225, 1, i2);
-            if (!TextUtils.isEmpty(this.f12734g.getText())) {
-                SkinManager.setBackgroundResource(this.f12734g, R.drawable.icon_news_head_prompt_one, i2);
+            if (!TextUtils.isEmpty(this.f12799g.getText())) {
+                SkinManager.setBackgroundResource(this.f12799g, R.drawable.icon_news_head_prompt_one, i2);
             } else {
-                SkinManager.setBackgroundResource(this.f12734g, R.drawable.icon_news_down_bar_one, i2);
+                SkinManager.setBackgroundResource(this.f12799g, R.drawable.icon_news_down_bar_one, i2);
             }
-            this.f12734g.setPadding(0, 0, 0, 0);
+            this.f12799g.setPadding(0, 0, 0, 0);
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         super.onLayout(z, i2, i3, i4, i5);
-        if (this.f12734g != null) {
+        if (this.f12799g != null) {
             if (getVisibility() == 0) {
-                int right = this.f12733f.getRight() - (this.f12734g.getMeasuredWidth() / 2);
-                int top = this.f12733f.getTop() - (this.f12734g.getMeasuredHeight() / 2);
-                this.f12734g.layout(right, top, this.f12734g.getMeasuredWidth() + right, this.f12734g.getMeasuredHeight() + top);
+                int right = this.f12798f.getRight() - (this.f12799g.getMeasuredWidth() / 2);
+                int top = this.f12798f.getTop() - (this.f12799g.getMeasuredHeight() / 2);
+                this.f12799g.layout(right, top, this.f12799g.getMeasuredWidth() + right, this.f12799g.getMeasuredHeight() + top);
                 return;
             }
-            this.f12734g.layout(0, 0, 0, 0);
+            this.f12799g.layout(0, 0, 0, 0);
         }
     }
 
@@ -172,13 +172,13 @@ public class DLauncher extends RelativeLayout implements h {
     public void setEnabled(boolean z) {
         super.setEnabled(z);
         if (z) {
-            this.f12733f.setAlpha(1.0f);
-            this.f12733f.setEnabled(z);
+            this.f12798f.setAlpha(1.0f);
+            this.f12798f.setEnabled(z);
             setPressed(true);
             SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, TbadkCoreApplication.getInst().getSkinType());
         } else {
-            this.f12733f.setAlpha(0.33f);
-            this.f12733f.setEnabled(false);
+            this.f12798f.setAlpha(0.33f);
+            this.f12798f.setEnabled(false);
             setPressed(false);
             setBackground(null);
         }
@@ -188,37 +188,37 @@ public class DLauncher extends RelativeLayout implements h {
     public void setIcon() {
         Drawable drawable;
         m mVar = this.j;
-        int i2 = mVar.f50852f;
+        int i2 = mVar.f54529f;
         if (i2 <= 0) {
-            i2 = mVar.f50850d;
+            i2 = mVar.f54527d;
         }
-        if (TextUtils.isEmpty(this.f12733f.getText())) {
-            if (this.j.f50853g) {
-                this.f12733f.setBackgroundDrawable(SvgManager.getInstance().getSeletableDrawableForEditorTools(i2, this.j.f50851e, this.f12735h));
+        if (TextUtils.isEmpty(this.f12798f.getText())) {
+            if (this.j.f54530g) {
+                this.f12798f.setBackgroundDrawable(SvgManager.getInstance().getSeletableDrawableForEditorTools(i2, this.j.f54528e, this.f12800h));
                 return;
             } else {
-                SkinManager.setBackgroundResource(this.f12733f, i2, this.f12735h);
+                SkinManager.setBackgroundResource(this.f12798f, i2, this.f12800h);
                 return;
             }
         }
-        if (this.j.f50853g) {
-            drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i2, this.j.f50851e, this.f12735h);
+        if (this.j.f54530g) {
+            drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i2, this.j.f54528e, this.f12800h);
         } else {
-            drawable = SkinManager.getDrawable(this.f12735h, i2);
+            drawable = SkinManager.getDrawable(this.f12800h, i2);
         }
         if (drawable != null) {
             drawable.setBounds(0, 0, getResources().getDimensionPixelSize(R.dimen.tbds165), getResources().getDimensionPixelSize(R.dimen.tbds165));
-            this.f12733f.setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.M_H_X002));
-            this.f12733f.setCompoundDrawables(null, drawable, null, null);
+            this.f12798f.setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.M_H_X002));
+            this.f12798f.setCompoundDrawables(null, drawable, null, null);
         }
     }
 
     @Override // d.a.m0.w.h
     public void setName(String str) {
-        this.f12733f.setText(str);
+        this.f12798f.setText(str);
     }
 
     public void setToolId(int i2) {
-        this.f12732e = i2;
+        this.f12797e = i2;
     }
 }

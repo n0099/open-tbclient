@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<k> f50468a = new ArrayList();
+    public List<k> f54144a = new ArrayList();
 
     public void a(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
@@ -21,7 +21,7 @@ public class j {
             if (jSONObject2 != null) {
                 k kVar = new k();
                 kVar.a(jSONObject2);
-                this.f50468a.add(kVar);
+                this.f54144a.add(kVar);
             }
         }
     }

@@ -8,6 +8,7 @@ import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.webkit.internal.ETAG;
+import com.yy.gslbsdk.db.ResultTB;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -178,7 +179,7 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
         this.charm_count = jSONObject.optInt("charm_count");
         this.flower_count = jSONObject.optInt("flower_count");
         this.start_time = jSONObject.optInt("start_time");
-        this.end_time = jSONObject.optInt("end_time");
+        this.end_time = jSONObject.optInt(ResultTB.ENDTIME);
         this.location = jSONObject.optString("location");
         this.channel_id = jSONObject.optLong("channel_id");
         this.channel_name = jSONObject.optString("channel_name");

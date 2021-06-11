@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public final class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f36630a;
+    public final /* synthetic */ LocalAliasTagsManager f40309a;
 
     public g(LocalAliasTagsManager localAliasTagsManager) {
-        this.f36630a = localAliasTagsManager;
+        this.f40309a = localAliasTagsManager;
     }
 
     @Override // java.lang.Runnable
@@ -20,7 +20,7 @@ public final class g implements Runnable {
         boolean z;
         ISubscribeAppTagManager iSubscribeAppTagManager;
         ISubscribeAppTagManager iSubscribeAppTagManager2;
-        iSubscribeAppAliasManager = this.f36630a.mSubscribeAppAliasManager;
+        iSubscribeAppAliasManager = this.f40309a.mSubscribeAppAliasManager;
         SubscribeAppInfo retrySubscribeAppInfo = iSubscribeAppAliasManager.getRetrySubscribeAppInfo();
         boolean z2 = true;
         if (retrySubscribeAppInfo != null) {
@@ -38,7 +38,7 @@ public final class g implements Runnable {
         } else {
             z = false;
         }
-        iSubscribeAppTagManager = this.f36630a.mSubscribeAppTagManager;
+        iSubscribeAppTagManager = this.f40309a.mSubscribeAppTagManager;
         ArrayList<String> retrySubscribeAppInfo2 = iSubscribeAppTagManager.getRetrySubscribeAppInfo();
         if (retrySubscribeAppInfo2 != null && retrySubscribeAppInfo2.size() > 0) {
             if (z) {
@@ -53,7 +53,7 @@ public final class g implements Runnable {
             p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, retrySubscribeAppInfo2);
             z = z2;
         }
-        iSubscribeAppTagManager2 = this.f36630a.mSubscribeAppTagManager;
+        iSubscribeAppTagManager2 = this.f40309a.mSubscribeAppTagManager;
         ArrayList<String> retryUnsubscribeAppInfo = iSubscribeAppTagManager2.getRetryUnsubscribeAppInfo();
         if (retryUnsubscribeAppInfo == null || retryUnsubscribeAppInfo.size() <= 0) {
             return;

@@ -1,20 +1,18 @@
 package com.kwad.sdk.core.response.model;
 
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.kwad.sdk.core.b.d;
 import com.kwad.sdk.core.b.e;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final int DEFAULT_REQUEST_INTERVAL = 3600;
     public static final int DEFAULT_SPLASH_TIME_OUT = 5000;
     public static final long serialVersionUID = -7796837168148055391L;
     public JSONObject abConfig;
-    public JSONObject appConfig;
     public long requestInterval = 3600;
     public TemplateConfig templateConfig = new TemplateConfig();
     public TemplateConfig splashConfig = new TemplateConfig();
@@ -22,7 +20,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     public TemplateConfig rewardMiddleEndcardConfig = new TemplateConfig();
     public TemplateConfigMap templateConfigMap = new TemplateConfigMap();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class TemplateConfig extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -6943205584670122269L;
         public String h5Checksum;
@@ -30,7 +28,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
         public String h5Version;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class TemplateConfigMap extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -6512236636350788192L;
         public TemplateConfig downloadPopWindowConfig;
@@ -55,9 +53,6 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
             JSONObject optJSONObject = jSONObject2.optJSONObject("abConfig");
             this.abConfig = optJSONObject;
             com.kwad.sdk.core.config.b.a(optJSONObject);
-            JSONObject optJSONObject2 = jSONObject2.optJSONObject(PrefetchEvent.EVENT_KEY_APP_CONFIG);
-            this.appConfig = optJSONObject2;
-            com.kwad.sdk.core.config.b.a(optJSONObject2);
             this.templateConfig.parseJson(jSONObject2.optJSONObject("templateConfig"));
             this.splashConfig.parseJson(jSONObject2.optJSONObject("splashConfig"));
             this.rewardMiniCardConfig.parseJson(jSONObject2.optJSONObject("rewardMiniCardConfig"));
@@ -73,7 +68,6 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
         JSONObject json = super.toJson();
         o.a(json, "requestInterval", this.requestInterval);
         o.a(json, "abConfig", this.abConfig);
-        o.a(json, PrefetchEvent.EVENT_KEY_APP_CONFIG, this.appConfig);
         o.a(json, "templateConfig", this.templateConfig);
         o.a(json, "splashConfig", this.splashConfig);
         o.a(json, "rewardMiniCardConfig", this.rewardMiniCardConfig);

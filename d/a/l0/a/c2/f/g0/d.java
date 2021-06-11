@@ -25,43 +25,43 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f41033d = "SwanAppPageForbidden";
+    public static String f44709d = "SwanAppPageForbidden";
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f41034e = k.f43199a;
+    public static boolean f44710e = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f41035a;
+    public boolean f44711a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<JSONObject> f41036b;
+    public List<JSONObject> f44712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41037c;
+    public String f44713c;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f41038e;
+        public final /* synthetic */ g f44714e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41039f;
+        public final /* synthetic */ String f44715f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f41040g;
+        public final /* synthetic */ e f44716g;
 
         public a(d dVar, g gVar, String str, e eVar) {
-            this.f41038e = gVar;
-            this.f41039f = str;
-            this.f41040g = eVar;
+            this.f44714e = gVar;
+            this.f44715f = str;
+            this.f44716g = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g.b i2 = this.f41038e.i(this.f41039f);
-            i2.n(g.f42076g, g.f42078i);
-            i2.j(this.f41040g);
+            g.b i2 = this.f44714e.i(this.f44715f);
+            i2.n(g.f45752g, g.f45754i);
+            i2.j(this.f44716g);
             i2.b();
         }
     }
@@ -70,7 +70,7 @@ public class d {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f41041a = new d(null);
+        public static final d f44717a = new d(null);
     }
 
     public /* synthetic */ d(a aVar) {
@@ -78,20 +78,20 @@ public class d {
     }
 
     public static d b() {
-        return b.f41041a;
+        return b.f44717a;
     }
 
     public boolean a(d.a.l0.a.l1.b bVar) {
         if (bVar != null && d.a.l0.a.v.a.e(d.a.l0.a.a2.d.g().r().N())) {
-            if (!this.f41035a) {
+            if (!this.f44711a) {
                 j();
             }
-            List<JSONObject> list = this.f41036b;
+            List<JSONObject> list = this.f44712b;
             if (list == null || list.isEmpty()) {
                 return false;
             }
-            if (f41034e) {
-                Log.d(f41033d, "ForbiddenPage Check");
+            if (f44710e) {
+                Log.d(f44709d, "ForbiddenPage Check");
             }
             return g(bVar);
         }
@@ -103,7 +103,7 @@ public class d {
     }
 
     public String d() {
-        return this.f41037c;
+        return this.f44713c;
     }
 
     public final String e(String str) {
@@ -130,8 +130,8 @@ public class d {
         if (bVar == null) {
             return false;
         }
-        String str = bVar.f43357e;
-        String str2 = bVar.f43360h;
+        String str = bVar.f47033e;
+        String str2 = bVar.f47036h;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             if (str.startsWith("/")) {
                 str = str.substring(1);
@@ -139,7 +139,7 @@ public class d {
             if (str2.startsWith("/")) {
                 str2 = str2.substring(1);
             }
-            List<JSONObject> list = this.f41036b;
+            List<JSONObject> list = this.f44712b;
             if (list == null) {
                 return false;
             }
@@ -154,11 +154,11 @@ public class d {
                         if (optInt != 2) {
                             if (optInt == 3 && !jSONObject.isNull("query")) {
                                 String optString2 = jSONObject.optString("query");
-                                if (TextUtils.isEmpty(bVar.f43358f)) {
+                                if (TextUtils.isEmpty(bVar.f47034f)) {
                                     return false;
                                 }
                                 List<String> c2 = o0.c(optString2);
-                                String[] split = bVar.f43358f.split("&");
+                                String[] split = bVar.f47034f.split("&");
                                 if (split == null || split.length == 0 || c2 == null || c2.isEmpty()) {
                                     return false;
                                 }
@@ -170,11 +170,11 @@ public class d {
                             continue;
                         } else {
                             String optString3 = jSONObject.optString("query");
-                            if (TextUtils.isEmpty(bVar.f43358f)) {
+                            if (TextUtils.isEmpty(bVar.f47034f)) {
                                 return false;
                             }
                             List<String> c3 = o0.c(optString3);
-                            String[] split2 = bVar.f43358f.split("&");
+                            String[] split2 = bVar.f47034f.split("&");
                             if (split2 == null || split2.length == 0 || c3 == null || c3.isEmpty() || split2.length != c3.size()) {
                                 return false;
                             }
@@ -194,8 +194,8 @@ public class d {
         if (bVar == null) {
             return false;
         }
-        String str = bVar.f43360h;
-        if (TextUtils.isEmpty(str) || (list = this.f41036b) == null) {
+        String str = bVar.f47036h;
+        if (TextUtils.isEmpty(str) || (list = this.f44712b) == null) {
             return false;
         }
         for (JSONObject jSONObject : list) {
@@ -217,8 +217,8 @@ public class d {
         } else {
             c2 = d.a.l0.a.l1.b.c(bVar);
         }
-        if (f41034e) {
-            String str2 = f41033d;
+        if (f44710e) {
+            String str2 = f44709d;
             Log.d(str2, "jump from " + str + " ; path = " + c2);
         }
         d.a.l0.a.a2.e r = d.a.l0.a.a2.d.g().r();
@@ -228,7 +228,7 @@ public class d {
         forbiddenInfo.appKey = r.D();
         forbiddenInfo.appTitle = L.K();
         forbiddenInfo.forbiddenReason = d();
-        forbiddenInfo.forbiddenInformation = this.f41037c;
+        forbiddenInfo.forbiddenInformation = this.f44713c;
         forbiddenInfo.launchSource = L.T();
         forbiddenInfo.launchPath = c2;
         forbiddenInfo.enableSlidingFlag = 0;
@@ -243,40 +243,40 @@ public class d {
             return;
         }
         String string = a2.getString(c(D), null);
-        if (f41034e) {
-            String str = f41033d;
-            Log.d(str, "readData, appKey = " + D + " ; tips = " + this.f41037c + " ; page = " + string);
+        if (f44710e) {
+            String str = f44709d;
+            Log.d(str, "readData, appKey = " + D + " ; tips = " + this.f44713c + " ; page = " + string);
         }
         if (TextUtils.isEmpty(string)) {
-            this.f41036b = null;
+            this.f44712b = null;
         } else {
             JSONArray e2 = w.e(string);
             if (e2 == null) {
                 return;
             }
             int length = e2.length();
-            this.f41036b = new ArrayList();
+            this.f44712b = new ArrayList();
             for (int i2 = 0; i2 < length; i2++) {
                 JSONObject optJSONObject = e2.optJSONObject(i2);
                 if (optJSONObject != null) {
-                    this.f41036b.add(optJSONObject);
+                    this.f44712b.add(optJSONObject);
                 }
             }
-            this.f41037c = a2.getString(e(D), null);
+            this.f44713c = a2.getString(e(D), null);
         }
-        this.f41035a = true;
+        this.f44711a = true;
     }
 
     public void k() {
-        if (f41034e) {
-            Log.d(f41033d, "releaseData");
+        if (f44710e) {
+            Log.d(f44709d, "releaseData");
         }
-        this.f41035a = false;
-        this.f41037c = null;
-        List<JSONObject> list = this.f41036b;
+        this.f44711a = false;
+        this.f44713c = null;
+        List<JSONObject> list = this.f44712b;
         if (list != null) {
             list.clear();
-            this.f41036b = null;
+            this.f44712b = null;
         }
     }
 
@@ -318,8 +318,8 @@ public class d {
             String jSONArray2 = jSONArray.toString();
             if (optJSONObject != null) {
                 h.a().edit().putString(c2, jSONArray2).putString(e2, str).apply();
-                if (f41034e) {
-                    String str3 = f41033d;
+                if (f44710e) {
+                    String str3 = f44709d;
                     Log.d(str3, "writeDataSwanKv, appKey = " + str2 + " ; tips = " + str);
                 }
                 m(str2);
@@ -328,13 +328,13 @@ public class d {
             return;
         }
         h.a().edit().remove(c2).remove(e2).apply();
-        if (f41034e) {
-            String str4 = f41033d;
+        if (f44710e) {
+            String str4 = f44709d;
             Log.d(str4, "writeDataSwanKv, but list is null, appKey = " + str2 + " ; tips = " + str);
         }
     }
 
     public d() {
-        this.f41035a = false;
+        this.f44711a = false;
     }
 }

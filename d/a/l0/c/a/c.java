@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class c implements d.a.l0.a.p.d.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46453a = k.f43199a;
+    public static final boolean f50127a = k.f46875a;
 
     @Override // d.a.l0.a.p.d.d
     public void d(byte[] bArr) {
@@ -50,7 +50,7 @@ public class c implements d.a.l0.a.p.d.d {
         }
         String optString = optJSONObject.optString(LightappConstants.ACCESS_WALLET_SERVICE_PARAM_SERVICE);
         if (TextUtils.isEmpty(optString)) {
-            if (f46453a) {
+            if (f50127a) {
                 Log.d("BdtlsImpl", "onFailure: serviceId is invalid");
             }
             if (bVar != null) {

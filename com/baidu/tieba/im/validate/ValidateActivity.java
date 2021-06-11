@@ -60,7 +60,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
             if (ValidateActivity.this.isWaitNetResponse) {
                 return;
             }
-            ValidateActivity.this.valiateView.j(false);
+            ValidateActivity.this.valiateView.k(false);
         }
     }
 
@@ -73,12 +73,12 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         @Override // d.a.m0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
-            ValidateActivity.this.valiateView.h(ValidateModel.convertToValidateItemDataList(linkedList));
+            ValidateActivity.this.valiateView.i(ValidateModel.convertToValidateItemDataList(linkedList));
             if (linkedList != null) {
                 ValidateActivity.this.offset += linkedList.size();
             }
             if (!ValidateActivity.this.isWaitNetResponse) {
-                ValidateActivity.this.valiateView.j(false);
+                ValidateActivity.this.valiateView.k(false);
             }
             ValidateActivity.this.isLoading = false;
         }
@@ -112,7 +112,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
             if (i2 != 0) {
                 return;
             }
-            ValidateActivity.this.valiateView.j(true);
+            ValidateActivity.this.valiateView.k(true);
             ValidateActivity validateActivity = ValidateActivity.this;
             validateActivity.processDel(validateActivity.pendingToDel);
         }
@@ -127,7 +127,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            ValidateActivity.this.valiateView.j(false);
+            ValidateActivity.this.valiateView.k(false);
             ValidateActivity.this.isWaitNetResponse = false;
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage)) {
                 int cmd = socketResponsedMessage.getCmd();
@@ -229,7 +229,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         registerListener(103111, this.mListener);
         registerListener(202004, this.mListener);
         registerListener(this.mCustomListener);
-        this.valiateView.j(true);
+        this.valiateView.k(true);
         ValidateModel.requestValidateDataCountFromDB(this.getDataCountCallBack);
     }
 
@@ -257,7 +257,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         } else {
             try {
                 validateItemData.setShown(true);
-                this.valiateView.j(true);
+                this.valiateView.k(true);
                 RequestAddGroupUserMessage requestAddGroupUserMessage = new RequestAddGroupUserMessage();
                 requestAddGroupUserMessage.setInviterUserId(validateItemData.getInviterUserId());
                 requestAddGroupUserMessage.setJoinType(validateItemData.getJoinType());
@@ -289,7 +289,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
             if (f2 == 0) {
                 return;
             }
-            this.valiateView.j(true);
+            this.valiateView.k(true);
             RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
             requestDelSystemMessage.setGroupId(f2);
             long parseLong = Long.parseLong(validateItemData.getNotice_id());

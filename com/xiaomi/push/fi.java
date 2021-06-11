@@ -3,22 +3,22 @@ package com.xiaomi.push;
 public class fi extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fh f37583a;
+    public final /* synthetic */ fh f41262a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fi(fh fhVar, String str) {
         super(str);
-        this.f37583a = fhVar;
+        this.f41262a = fhVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         fc fcVar;
         try {
-            fcVar = this.f37583a.f37582a;
-            fcVar.m298a();
+            fcVar = this.f41262a.f41261a;
+            fcVar.m297a();
         } catch (Exception e2) {
-            this.f37583a.c(9, e2);
+            this.f41262a.c(9, e2);
         }
     }
 }

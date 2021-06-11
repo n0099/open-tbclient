@@ -75,10 +75,10 @@ public class SyncLoginService extends BdBaseService {
     public class b extends BdAsyncTask<String, Integer, d> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20340a;
+        public NetWork f20417a;
 
         public b() {
-            this.f20340a = null;
+            this.f20417a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,42 +88,42 @@ public class SyncLoginService extends BdBaseService {
             d dVar = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
-                this.f20340a = netWork;
+                this.f20417a = netWork;
                 netWork.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-                this.f20340a.addPostData("_phone_screen", stringBuffer.toString());
-                this.f20340a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
-                this.f20340a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-                this.f20340a.addPostData("scr_dip", String.valueOf(l.h(TbadkCoreApplication.getInst().getApp())));
+                this.f20417a.addPostData("_phone_screen", stringBuffer.toString());
+                this.f20417a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
+                this.f20417a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
+                this.f20417a.addPostData("scr_dip", String.valueOf(l.h(TbadkCoreApplication.getInst().getApp())));
                 String str = "0";
                 if (d.a.m0.s.d.d.d().e() > 0) {
-                    this.f20340a.addPostData("_msg_status", "0");
+                    this.f20417a.addPostData("_msg_status", "0");
                 } else {
-                    this.f20340a.addPostData("_msg_status", "1");
+                    this.f20417a.addPostData("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
                 if (activeVersion != null) {
                     if (activeVersion.length() >= 1) {
                         str = activeVersion;
                     }
-                    this.f20340a.addPostData("_active", str);
+                    this.f20417a.addPostData("_active", str);
                 }
-                this.f20340a.addPostData("_pic_quality", String.valueOf(k.c().e()));
+                this.f20417a.addPostData("_pic_quality", String.valueOf(k.c().e()));
                 if (SyncLoginService.mStatistics != null) {
-                    this.f20340a.addPostData("_msg_type", SyncLoginService.mStatistics);
+                    this.f20417a.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.f20340a.addPostData(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
+                this.f20417a.addPostData(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
                 int versionCode = TbadkCoreApplication.getInst().getVersionCode();
-                NetWork netWork2 = this.f20340a;
+                NetWork netWork2 = this.f20417a;
                 netWork2.addPostData("versioncode", versionCode + "");
-                this.f20340a.addPostData("signmd5", TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.f20340a.addPostData(PackageTable.MD5, n.a());
-                String postNetData = this.f20340a.postNetData();
-                if (this.f20340a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f20417a.addPostData("signmd5", TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.f20417a.addPostData(PackageTable.MD5, n.a());
+                String postNetData = this.f20417a.postNetData();
+                if (this.f20417a.getNetContext().getResponse().isRequestSuccess()) {
                     d dVar2 = new d();
                     try {
                         dVar2.a(postNetData);
@@ -153,7 +153,7 @@ public class SyncLoginService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
-            NetWork netWork = this.f20340a;
+            NetWork netWork = this.f20417a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }

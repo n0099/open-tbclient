@@ -6,10 +6,10 @@ import d.a.n0.v.d.c.f.d.e;
 public class LiveTabConcernNotificationViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f13758a;
+    public e f13823a;
 
     public LiveTabConcernNotificationViewHolder(e eVar) {
-        super(eVar.l());
-        this.f13758a = eVar;
+        super(eVar.m());
+        this.f13823a = eVar;
     }
 }

@@ -13,46 +13,46 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f62145a;
+    public TbPageContext f65860a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f62146b;
+    public b f65861b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdAsyncTask f62147c;
+    public BdAsyncTask f65862c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f62148d;
+    public HttpMessageListener f65863d;
 
     /* renamed from: d.a.n0.v.j.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1675a extends HttpMessageListener {
+    public class C1732a extends HttpMessageListener {
 
         /* renamed from: d.a.n0.v.j.g.d.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1676a extends BdAsyncTask {
+        public class C1733a extends BdAsyncTask {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f62150a;
+            public final /* synthetic */ List f65865a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ HttpResponsedMessage f62151b;
+            public final /* synthetic */ HttpResponsedMessage f65866b;
 
-            public C1676a(List list, HttpResponsedMessage httpResponsedMessage) {
-                this.f62150a = list;
-                this.f62151b = httpResponsedMessage;
+            public C1733a(List list, HttpResponsedMessage httpResponsedMessage) {
+                this.f65865a = list;
+                this.f65866b = httpResponsedMessage;
             }
 
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Object doInBackground(Object[] objArr) {
                 AlaDynamicGift alaDynamicGift;
-                for (n nVar : this.f62150a) {
+                for (n nVar : this.f65865a) {
                     if (nVar instanceof AlaEnterEffectData) {
                         AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) nVar;
                         if (alaEnterEffectData.type == 1 && (alaDynamicGift = alaEnterEffectData.gift) != null && alaDynamicGift.giftZip != null) {
@@ -70,17 +70,17 @@ public class a {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public void onCancelled() {
                 super.onCancelled();
-                a.this.f62146b.a((AlaGetEnterEffectResponsedMessage) this.f62151b);
+                a.this.f65861b.a((AlaGetEnterEffectResponsedMessage) this.f65866b);
             }
 
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public void onPostExecute(Object obj) {
                 super.onPostExecute(obj);
-                a.this.f62146b.a((AlaGetEnterEffectResponsedMessage) this.f62151b);
+                a.this.f65861b.a((AlaGetEnterEffectResponsedMessage) this.f65866b);
             }
         }
 
-        public C1675a(int i2) {
+        public C1732a(int i2) {
             super(i2);
         }
 
@@ -91,10 +91,10 @@ public class a {
                 AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage = (AlaGetEnterEffectResponsedMessage) httpResponsedMessage;
                 List<n> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
                 if (ListUtils.isEmpty(effectList)) {
-                    a.this.f62146b.a(alaGetEnterEffectResponsedMessage);
+                    a.this.f65861b.a(alaGetEnterEffectResponsedMessage);
                     return;
                 }
-                a.this.f62147c = new C1676a(effectList, httpResponsedMessage).execute(new Object[0]);
+                a.this.f65862c = new C1733a(effectList, httpResponsedMessage).execute(new Object[0]);
             }
         }
     }
@@ -105,15 +105,15 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, b bVar) {
-        C1675a c1675a = new C1675a(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
-        this.f62148d = c1675a;
-        this.f62145a = tbPageContext;
-        this.f62146b = bVar;
-        tbPageContext.registerListener(c1675a);
+        C1732a c1732a = new C1732a(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+        this.f65863d = c1732a;
+        this.f65860a = tbPageContext;
+        this.f65861b = bVar;
+        tbPageContext.registerListener(c1732a);
     }
 
     public void c() {
-        BdAsyncTask bdAsyncTask = this.f62147c;
+        BdAsyncTask bdAsyncTask = this.f65862c;
         if (bdAsyncTask != null) {
             bdAsyncTask.cancel();
         }
@@ -122,6 +122,6 @@ public class a {
     public void d() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-        this.f62145a.sendMessage(httpMessage);
+        this.f65860a.sendMessage(httpMessage);
     }
 }

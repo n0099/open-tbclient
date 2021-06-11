@@ -13,88 +13,89 @@ import org.apache.http.protocol.HTTP;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30537a;
+    public String f30631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30538b;
+    public final String f30632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f30539c;
+    public final Map<String, String> f30633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30540d;
+    public final String f30634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30541e;
+    public boolean f30635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30542f;
+    public final String f30636f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Network f30543g;
+    public Network f30637g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f30544h;
+    public long f30638h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30545i;
+    public final String f30639i;
     public int j;
-    public g k;
+    public final g k;
 
     public c(String str, Map<String, String> map, g gVar, String str2, String str3) {
-        this.f30541e = false;
-        this.f30538b = str;
+        this.f30635e = false;
+        this.f30632b = str;
         this.k = gVar;
-        this.f30539c = map == null ? new HashMap<>() : map;
-        this.f30537a = gVar == null ? "" : gVar.b().toString();
-        this.f30540d = str2;
-        this.f30542f = str3;
-        this.f30545i = gVar != null ? gVar.a() : "";
+        this.f30633c = map == null ? new HashMap<>() : map;
+        this.f30631a = gVar == null ? "" : gVar.b().toString();
+        this.f30634d = str2;
+        this.f30636f = str3;
+        this.f30639i = gVar != null ? gVar.a() : "";
         l();
     }
 
     private void l() {
-        this.f30539c.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
-        this.f30539c.put("Content-Type", "application/json");
-        this.f30539c.put("traceId", this.f30542f);
-        this.f30539c.put("appid", this.f30545i);
-        this.f30539c.put(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
+        this.f30633c.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
+        this.f30633c.put("Content-Type", "application/json");
+        this.f30633c.put("CMCC-EncryptType", "STD");
+        this.f30633c.put("traceId", this.f30636f);
+        this.f30633c.put("appid", this.f30639i);
+        this.f30633c.put(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
     }
 
     public void a(String str, String str2) {
-        this.f30539c.put(str, str2);
+        this.f30633c.put(str, str2);
     }
 
     public boolean b() {
-        return this.f30541e;
+        return this.f30635e;
     }
 
     public Map<String, String> c() {
-        return this.f30539c;
+        return this.f30633c;
     }
 
     public String d() {
-        return this.f30537a;
+        return this.f30631a;
     }
 
     public String e() {
-        return this.f30540d;
+        return this.f30634d;
     }
 
     public String f() {
-        return this.f30542f;
+        return this.f30636f;
     }
 
     public boolean g() {
-        return !e.a(this.f30542f) || this.f30538b.contains("logReport") || this.f30538b.contains("uniConfig");
+        return !e.a(this.f30636f) || this.f30632b.contains("logReport") || this.f30632b.contains("uniConfig");
     }
 
     public Network h() {
-        return this.f30543g;
+        return this.f30637g;
     }
 
     public long i() {
-        return this.f30544h;
+        return this.f30638h;
     }
 
     public boolean j() {
@@ -108,19 +109,19 @@ public class c {
     }
 
     public String a() {
-        return this.f30538b;
+        return this.f30632b;
     }
 
     public void a(boolean z) {
-        this.f30541e = z;
+        this.f30635e = z;
     }
 
     public void a(Network network) {
-        this.f30543g = network;
+        this.f30637g = network;
     }
 
     public void a(long j) {
-        this.f30544h = j;
+        this.f30638h = j;
     }
 
     public c(String str, g gVar, String str2, String str3) {

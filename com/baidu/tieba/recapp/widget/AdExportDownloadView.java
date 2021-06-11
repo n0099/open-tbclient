@@ -8,14 +8,14 @@ import androidx.annotation.Nullable;
 import d.a.n0.t2.d0.a;
 /* loaded from: classes5.dex */
 public class AdExportDownloadView extends ApkDownloadView {
-    public a.InterfaceC1619a l;
+    public a.InterfaceC1675a l;
 
     public AdExportDownloadView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
     }
 
     @Nullable
-    public a.InterfaceC1619a getRegisterListener() {
+    public a.InterfaceC1675a getRegisterListener() {
         return this.l;
     }
 
@@ -35,8 +35,8 @@ public class AdExportDownloadView extends ApkDownloadView {
         setTextColorInitSkin(i2);
     }
 
-    public void setRegisterListener(@Nullable a.InterfaceC1619a interfaceC1619a) {
-        this.l = interfaceC1619a;
+    public void setRegisterListener(@Nullable a.InterfaceC1675a interfaceC1675a) {
+        this.l = interfaceC1675a;
     }
 
     public AdExportDownloadView(Context context, AttributeSet attributeSet) {

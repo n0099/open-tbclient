@@ -6,10 +6,10 @@ import android.text.TextUtils;
 public final class b implements d.q.a.a.a.b.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f67567e;
+    public Context f71353e;
 
     public b(Context context) {
-        this.f67567e = context;
+        this.f71353e = context;
     }
 
     @Override // d.q.a.a.a.b.b
@@ -30,13 +30,13 @@ public final class b implements d.q.a.a.a.b.b {
 
     @Override // d.q.a.a.a.b.b
     public final String b() {
-        String d2 = a.a(this.f67567e).d();
+        String d2 = a.a(this.f71353e).d();
         return TextUtils.isEmpty(d2) ? "" : d2;
     }
 
     @Override // d.q.a.a.a.b.b
     public final boolean c() {
-        return a.a(this.f67567e).c();
+        return a.a(this.f71353e).c();
     }
 
     @Override // d.q.a.a.a.b.b

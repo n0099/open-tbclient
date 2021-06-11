@@ -9,18 +9,18 @@ import com.baidu.tieba.themeCenter.background.DressItemData;
 public class g extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f57023e;
+    public TbPageContext<?> f60712e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f57024f;
+    public h f60713f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DressItemData f57025g;
+    public DressItemData f60714g;
 
     public g(TbPageContext<?> tbPageContext, DressItemData dressItemData) {
-        this.f57023e = tbPageContext;
-        this.f57025g = dressItemData;
-        this.f57024f = new h(tbPageContext);
+        this.f60712e = tbPageContext;
+        this.f60714g = dressItemData;
+        this.f60713f = new h(tbPageContext);
     }
 
     @Override // android.widget.Adapter
@@ -40,8 +40,8 @@ public class g extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
-        this.f57024f.d(this.f57025g);
-        this.f57023e.getLayoutMode().j(this.f57024f.a());
-        return this.f57024f.a();
+        this.f60713f.d(this.f60714g);
+        this.f60712e.getLayoutMode().j(this.f60713f.a());
+        return this.f60713f.a();
     }
 }

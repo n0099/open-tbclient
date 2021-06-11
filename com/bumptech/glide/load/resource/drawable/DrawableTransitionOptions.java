@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.TransitionOptions;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.bumptech.glide.request.transition.TransitionFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class DrawableTransitionOptions extends TransitionOptions<DrawableTransitionOptions, Drawable> {
     @NonNull
     public static DrawableTransitionOptions with(@NonNull TransitionFactory<Drawable> transitionFactory) {

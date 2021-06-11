@@ -5,22 +5,22 @@ import com.google.common.cache.LongAddables;
 public final class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f66248a = LongAddables.a();
+    public final g f69979a = LongAddables.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f66249b = LongAddables.a();
+    public final g f69980b = LongAddables.a();
 
     /* renamed from: c  reason: collision with root package name */
-    public final g f66250c = LongAddables.a();
+    public final g f69981c = LongAddables.a();
 
     /* renamed from: d  reason: collision with root package name */
-    public final g f66251d = LongAddables.a();
+    public final g f69982d = LongAddables.a();
 
     /* renamed from: e  reason: collision with root package name */
-    public final g f66252e = LongAddables.a();
+    public final g f69983e = LongAddables.a();
 
     /* renamed from: f  reason: collision with root package name */
-    public final g f66253f = LongAddables.a();
+    public final g f69984f = LongAddables.a();
 
     public static long h(long j) {
         if (j >= 0) {
@@ -31,43 +31,43 @@ public final class a implements b {
 
     @Override // d.g.c.b.b
     public void a(int i2) {
-        this.f66248a.add(i2);
+        this.f69979a.add(i2);
     }
 
     @Override // d.g.c.b.b
     public void b() {
-        this.f66253f.increment();
+        this.f69984f.increment();
     }
 
     @Override // d.g.c.b.b
     public void c(long j) {
-        this.f66250c.increment();
-        this.f66252e.add(j);
+        this.f69981c.increment();
+        this.f69983e.add(j);
     }
 
     @Override // d.g.c.b.b
     public void d(int i2) {
-        this.f66249b.add(i2);
+        this.f69980b.add(i2);
     }
 
     @Override // d.g.c.b.b
     public void e(long j) {
-        this.f66251d.increment();
-        this.f66252e.add(j);
+        this.f69982d.increment();
+        this.f69983e.add(j);
     }
 
     @Override // d.g.c.b.b
     public d f() {
-        return new d(h(this.f66248a.sum()), h(this.f66249b.sum()), h(this.f66250c.sum()), h(this.f66251d.sum()), h(this.f66252e.sum()), h(this.f66253f.sum()));
+        return new d(h(this.f69979a.sum()), h(this.f69980b.sum()), h(this.f69981c.sum()), h(this.f69982d.sum()), h(this.f69983e.sum()), h(this.f69984f.sum()));
     }
 
     public void g(b bVar) {
         d f2 = bVar.f();
-        this.f66248a.add(f2.b());
-        this.f66249b.add(f2.e());
-        this.f66250c.add(f2.d());
-        this.f66251d.add(f2.c());
-        this.f66252e.add(f2.f());
-        this.f66253f.add(f2.a());
+        this.f69979a.add(f2.b());
+        this.f69980b.add(f2.e());
+        this.f69981c.add(f2.d());
+        this.f69982d.add(f2.c());
+        this.f69983e.add(f2.f());
+        this.f69984f.add(f2.a());
     }
 }

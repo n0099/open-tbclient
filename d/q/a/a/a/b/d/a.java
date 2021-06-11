@@ -9,35 +9,35 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f67549a;
+    public Context f71335a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.c.a f67550b;
+    public com.yxcorp.kuaishou.addfp.a.b.c.a f71336b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f67551c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f71337c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f67552d = new CountDownLatch(1);
+    public CountDownLatch f71338d = new CountDownLatch(1);
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f67553e = new b(this);
+    public ServiceConnection f71339e = new b(this);
 
     public a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
-        this.f67549a = null;
+        this.f71335a = null;
         try {
-            this.f67549a = context;
-            this.f67551c = bVar;
+            this.f71335a = context;
+            this.f71337c = bVar;
             Intent intent = new Intent();
             intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-            if (!this.f67549a.bindService(intent, this.f67553e, 1)) {
+            if (!this.f71335a.bindService(intent, this.f71339e, 1)) {
                 d(false);
                 d.q.a.a.c.b.b.e("bindService Failed!");
                 return;
             }
             d.q.a.a.c.b.b.e("bindService Successful!");
-            this.f67552d.await(2000L, TimeUnit.MILLISECONDS);
-            if (this.f67550b != null) {
+            this.f71338d.await(2000L, TimeUnit.MILLISECONDS);
+            if (this.f71336b != null) {
                 d(true);
             } else {
                 d(false);
@@ -50,8 +50,8 @@ public final class a {
 
     public final String b() {
         try {
-            if (this.f67550b != null) {
-                return this.f67550b.a();
+            if (this.f71336b != null) {
+                return this.f71336b.a();
             }
             return null;
         } catch (Throwable th) {
@@ -63,9 +63,9 @@ public final class a {
     public final void d(boolean z) {
         try {
             if (z) {
-                this.f67551c.a(this.f67550b);
+                this.f71337c.a(this.f71336b);
             } else {
-                this.f67551c.e();
+                this.f71337c.e();
             }
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
@@ -74,8 +74,8 @@ public final class a {
 
     public final String e() {
         try {
-            if (this.f67550b != null) {
-                return this.f67550b.b();
+            if (this.f71336b != null) {
+                return this.f71336b.b();
             }
             return null;
         } catch (Throwable th) {
@@ -86,10 +86,10 @@ public final class a {
 
     public final boolean f() {
         try {
-            if (this.f67550b == null) {
+            if (this.f71336b == null) {
                 return false;
             }
-            return this.f67550b.c();
+            return this.f71336b.c();
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
             return false;
@@ -97,14 +97,14 @@ public final class a {
     }
 
     public final String g() {
-        String packageName = this.f67549a.getPackageName();
+        String packageName = this.f71335a.getPackageName();
         if (packageName == null || packageName.equals("")) {
             d.q.a.a.c.b.b.e("empty pkg");
             return null;
         }
         try {
-            if (this.f67550b != null) {
-                return this.f67550b.a(packageName);
+            if (this.f71336b != null) {
+                return this.f71336b.a(packageName);
             }
             return null;
         } catch (Throwable th) {
@@ -114,14 +114,14 @@ public final class a {
     }
 
     public final String h() {
-        String packageName = this.f67549a.getPackageName();
+        String packageName = this.f71335a.getPackageName();
         if (packageName == null || packageName.equals("")) {
             d.q.a.a.c.b.b.e("empty pkg");
             return null;
         }
         try {
-            if (this.f67550b != null) {
-                return this.f67550b.b(packageName);
+            if (this.f71336b != null) {
+                return this.f71336b.b(packageName);
             }
             return null;
         } catch (Throwable th) {
@@ -132,11 +132,11 @@ public final class a {
 
     public final void i() {
         try {
-            this.f67549a.unbindService(this.f67553e);
+            this.f71335a.unbindService(this.f71339e);
             d.q.a.a.c.b.b.e("unBind Service");
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
         }
-        this.f67550b = null;
+        this.f71336b = null;
     }
 }

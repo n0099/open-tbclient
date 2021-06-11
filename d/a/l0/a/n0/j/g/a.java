@@ -8,25 +8,25 @@ import d.a.l0.a.v2.q;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements b, d.a.l0.a.n0.j.d.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public g f43628a = new g();
+    public g f47304a = new g();
 
     /* renamed from: b  reason: collision with root package name */
-    public l f43629b = d.a.l0.a.c1.b.m();
+    public l f47305b = d.a.l0.a.c1.b.m();
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile d.a.l0.a.n0.j.d.a[] f43630c = {new d.a.l0.a.n0.j.d.e(), new d.a.l0.a.n0.j.d.c(), new d.a.l0.a.n0.j.d.b(), new d.a.l0.a.n0.j.d.d()};
+    public volatile d.a.l0.a.n0.j.d.a[] f47306c = {new d.a.l0.a.n0.j.d.e(), new d.a.l0.a.n0.j.d.c(), new d.a.l0.a.n0.j.d.b(), new d.a.l0.a.n0.j.d.d()};
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.l0.a.n0.j.f.a f43631d;
+    public d.a.l0.a.n0.j.f.a f47307d;
 
     /* renamed from: d.a.l0.a.n0.j.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class RunnableC0760a implements Runnable {
-        public RunnableC0760a() {
+    /* loaded from: classes3.dex */
+    public class RunnableC0816a implements Runnable {
+        public RunnableC0816a() {
         }
 
         @Override // java.lang.Runnable
@@ -36,7 +36,7 @@ public class a implements b, d.a.l0.a.n0.j.d.a {
     }
 
     public a(@NonNull d.a.l0.a.n0.j.f.a aVar) {
-        this.f43631d = aVar;
+        this.f47307d = aVar;
     }
 
     @Override // d.a.l0.a.n0.j.d.a
@@ -44,7 +44,7 @@ public class a implements b, d.a.l0.a.n0.j.d.a {
         ArraySet<String> arraySet;
         d.a.l0.a.e0.d.h("RecoveryPolicy", "renameAllPlatformFiles start");
         arraySet = new ArraySet<>();
-        for (d.a.l0.a.n0.j.d.a aVar : this.f43630c) {
+        for (d.a.l0.a.n0.j.d.a aVar : this.f47306c) {
             arraySet.addAll((ArraySet<? extends String>) aVar.a());
         }
         d.a.l0.a.e0.d.h("RecoveryPolicy", "renameAllPlatformFiles end");
@@ -53,7 +53,7 @@ public class a implements b, d.a.l0.a.n0.j.d.a {
 
     @Override // d.a.l0.a.n0.j.g.b
     public void b() {
-        q.j(new RunnableC0760a(), "performRecovery");
+        q.j(new RunnableC0816a(), "performRecovery");
     }
 
     public void c(ArraySet<String> arraySet) {
@@ -83,6 +83,6 @@ public class a implements b, d.a.l0.a.n0.j.d.a {
             return;
         }
         d.a.l0.a.e0.d.h("RecoveryPolicy", "resetAccredit appIds=" + collection);
-        this.f43628a.g(new ArrayList(collection));
+        this.f47304a.g(new ArrayList(collection));
     }
 }

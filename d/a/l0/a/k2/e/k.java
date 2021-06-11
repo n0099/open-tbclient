@@ -25,7 +25,7 @@ public class k extends a0 {
                 return false;
             }
             String M = d.a.l0.a.k2.b.M(optParamsAsJo.optString("tempFilePath"), eVar.getAppId());
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SaveFileAction", "——> handle: tempFileUrl " + optParamsAsJo.optString("tempFilePath"));
                 Log.d("SaveFileAction", "——> handle: tempFilePath " + M);
             }
@@ -35,7 +35,7 @@ public class k extends a0 {
                 return false;
             }
             int a2 = eVar.U().a(M);
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SaveFileAction", "——> handle: statusCode " + a2);
             }
             if (a2 > 2000) {
@@ -52,7 +52,7 @@ public class k extends a0 {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("savedFilePath", d.a.l0.a.k2.b.J(o, d.a.l0.a.a2.e.V()));
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + o + " update saveFilePath " + jSONObject.get("savedFilePath"));
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));

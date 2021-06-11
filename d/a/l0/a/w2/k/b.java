@@ -5,41 +5,41 @@ import androidx.annotation.NonNull;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f45735a = 0;
+    public int f49409a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45736b;
+    public int f49410b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45737c;
+    public int f49411c;
 
     @NonNull
     public b a(int i2) {
-        this.f45735a = i2 | this.f45735a;
+        this.f49409a = i2 | this.f49409a;
         return this;
     }
 
     public int b() {
-        return this.f45736b;
+        return this.f49410b;
     }
 
     public int c() {
-        return this.f45737c;
+        return this.f49411c;
     }
 
     public boolean d() {
-        return (this.f45735a & 1) == 1;
+        return (this.f49409a & 1) == 1;
     }
 
     public void e(int i2) {
-        this.f45735a = (~i2) & this.f45735a;
+        this.f49409a = (~i2) & this.f49409a;
     }
 
     public void f(int i2) {
-        this.f45736b = i2;
+        this.f49410b = i2;
     }
 
     public void g(int i2) {
-        this.f45737c = i2;
+        this.f49411c = i2;
     }
 }

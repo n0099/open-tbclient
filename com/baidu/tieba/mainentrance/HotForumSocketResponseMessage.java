@@ -67,7 +67,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         if (hotForumResIdl.data.hot_search != null) {
             HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
             this.mSearchInfo = hotSearchInfoData;
-            hotSearchInfoData.u(hotForumResIdl.data.hot_search);
+            hotSearchInfoData.y(hotForumResIdl.data.hot_search);
         }
         if (hotForumResIdl.data.hot_topic != null) {
             this.mTopicInfoList = new ArrayList();

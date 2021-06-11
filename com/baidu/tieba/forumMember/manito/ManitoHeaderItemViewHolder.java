@@ -8,14 +8,14 @@ import com.baidu.tieba.R;
 public class ManitoHeaderItemViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f14954a;
+    public TextView f15011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14955b;
+    public int f15012b;
 
     public ManitoHeaderItemViewHolder(View view) {
         super(view);
-        this.f14955b = 3;
-        this.f14954a = (TextView) view.findViewById(R.id.manito_header_title);
+        this.f15012b = 3;
+        this.f15011a = (TextView) view.findViewById(R.id.manito_header_title);
     }
 }

@@ -1,477 +1,803 @@
 package d.a.n0.r3.l;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.hardware.Camera;
+import android.net.Uri;
+import android.opengl.GLSurfaceView;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TbMd5;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.MotionEvent;
+import android.view.SurfaceView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import com.alibaba.fastjson.asm.Label;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.rtc.PeerConnectionClient;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.video.meida.MultiAudioMixer;
-import com.coremedia.iso.boxes.Container;
-import com.facebook.imageutils.JfifUtil;
-import com.googlecode.mp4parser.FileDataSourceImpl;
-import com.googlecode.mp4parser.authoring.Movie;
-import com.googlecode.mp4parser.authoring.Track;
-import com.googlecode.mp4parser.authoring.builder.DefaultMp4Builder;
-import com.googlecode.mp4parser.authoring.container.mp4.MovieCreator;
-import com.googlecode.mp4parser.authoring.tracks.AACTrackImpl;
-import com.googlecode.mp4parser.authoring.tracks.AppendTrack;
-import com.googlecode.mp4parser.authoring.tracks.CroppedTrack;
+import com.baidu.tieba.service.AsInstallService;
+import com.baidu.tieba.video.record.GLVideoPreviewView;
+import com.baidu.tieba.video.record.RecordVideoActivity;
+import com.baidu.tieba.video.record.StickerItem;
+import com.baidu.tieba.video.record.VideoPreviewView;
+import d.a.m0.r.s.a;
 import d.a.n0.r3.l.g;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileChannel;
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
+import kotlinx.coroutines.DebugKt;
 /* loaded from: classes5.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile h f60223a;
+    public RecordVideoActivity f63943a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Bitmap f63944b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public j f63945c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Camera f63946d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f63947e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f63948f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public FrameLayout f63949g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f63950h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f63951i;
+    public List<String> j;
+    public boolean k;
+    public int l = -1;
+    public int m = 0;
+    public Camera.Parameters n = null;
+    public d.a.n0.r3.l.g o;
+    public SurfaceView p;
+    public List<String> q;
+    public String r;
+    public k s;
+    public d.a.n0.r3.l.b t;
+    public d.a.n0.u1.g u;
+    public Handler v;
+    public GLVideoPreviewView.b w;
+    public GLVideoPreviewView.b x;
+    public l y;
 
     /* loaded from: classes5.dex */
-    public class a implements MultiAudioMixer.c {
-
-        /* renamed from: a  reason: collision with root package name */
-        public FileOutputStream f60224a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f60225b;
-
-        public a(h hVar, String str) throws FileNotFoundException {
-            this.f60225b = str;
-            this.f60224a = new FileOutputStream(this.f60225b);
+    public class a extends Handler {
+        public a() {
         }
 
-        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
-        public void a(byte[] bArr) throws IOException {
-            FileOutputStream fileOutputStream = this.f60224a;
-            if (fileOutputStream != null) {
-                fileOutputStream.write(bArr);
-            }
-        }
-
-        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
-        public void b() {
-            try {
-                if (this.f60224a != null) {
-                    this.f60224a.close();
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            String string;
+            int i2 = message.what;
+            if (i2 == 1) {
+                h.this.K();
+            } else if (i2 != 2) {
+                if (i2 == 3 && h.this.f63943a != null) {
+                    d.a.c.e.p.l.L(h.this.f63943a, R.string.disallow_audio_record_permission);
+                    if (h.this.u != null) {
+                        h.this.u.b(2, h.this.f63943a.getResources().getString(R.string.disallow_audio_record_permission));
+                    }
+                    h.this.f63943a.finish();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-
-        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
-        public void c(int i2) {
-            try {
-                if (this.f60224a != null) {
-                    this.f60224a.close();
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public h() {
-        g.g();
-    }
-
-    public static h e() {
-        if (f60223a == null) {
-            synchronized (h.class) {
-                if (f60223a == null) {
-                    f60223a = new h();
-                }
-            }
-        }
-        return f60223a;
-    }
-
-    public final void a(long j, long j2, List<Track> list, List<Track> list2) throws Exception {
-        Movie movie = new Movie();
-        long j3 = 0;
-        while (j > j3) {
-            long j4 = j - j3;
-            if (j4 >= j2) {
-                movie.addTrack(new AppendTrack((Track[]) list.toArray(new Track[list.size()])));
-                j3 += j2;
-            } else {
-                double d2 = j4 / 1000;
-                double d3 = 0.0d;
-                boolean z = false;
-                for (Track track : list) {
-                    if (track.getSyncSamples() != null && track.getSyncSamples().length > 0) {
-                        if (!z) {
-                            d3 = d(track, d3, false);
-                            d2 = d(track, d2, true);
-                            z = true;
+            } else if (h.this.f63943a != null) {
+                if (!"OD103".equals(Build.MODEL)) {
+                    d.a.c.e.p.l.L(h.this.f63943a, R.string.disallow_camera_permission);
+                    if (h.this.u != null) {
+                        Object obj = message.obj;
+                        if (!(obj instanceof String)) {
+                            string = h.this.f63943a.getResources().getString(R.string.disallow_camera_permission);
                         } else {
-                            throw new RuntimeException("The startTime has already been corrected by another track with SyncSample. Not Supported.");
+                            string = (String) obj;
                         }
+                        h.this.u.b(1, string);
                     }
+                    h.this.f63943a.finish();
+                    return;
                 }
-                for (Track track2 : list) {
-                    long j5 = -1;
-                    long j6 = -1;
-                    int i2 = 0;
-                    long j7 = 0;
-                    double d4 = -1.0d;
-                    double d5 = 0.0d;
-                    while (i2 < track2.getSampleDurations().length) {
-                        long j8 = j3;
-                        long j9 = track2.getSampleDurations()[i2];
-                        int i3 = (d5 > d4 ? 1 : (d5 == d4 ? 0 : -1));
-                        if (i3 > 0 && d5 <= d3) {
-                            j5 = j7;
-                        }
-                        if (i3 > 0 && d5 <= d2) {
-                            j6 = j7;
-                        }
-                        j7++;
-                        i2++;
-                        d4 = d5;
-                        d3 = d3;
-                        d5 = (j9 / track2.getTrackMetaData().getTimescale()) + d5;
-                        j3 = j8;
-                    }
-                    movie.addTrack(new CroppedTrack(track2, j5, j6));
-                    d3 = d3;
-                }
-                j3 += j4;
-            }
-        }
-        for (Track track3 : movie.getTracks()) {
-            if (track3.getHandler().equals("soun")) {
-                list2.add(track3);
+                h hVar = h.this;
+                hVar.x(hVar.f63943a);
             }
         }
     }
 
-    public final long b(String str, List<Track> list) {
-        try {
-            long j = 0;
-            for (Track track : MovieCreator.build(str).getTracks()) {
-                if (track.getHandler().equals("soun")) {
-                    list.add(track);
-                    j += (track.getDuration() * 1000) / track.getTrackMetaData().getTimescale();
-                }
-            }
-            return j;
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return -1L;
+    /* loaded from: classes5.dex */
+    public class b implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Activity f63953e;
+
+        public b(h hVar, Activity activity) {
+            this.f63953e = activity;
+        }
+
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
+            aVar.dismiss();
+            this.f63953e.finish();
         }
     }
 
-    public final e c(String str, List<Track> list, List<Track> list2) {
-        if (TextUtils.isEmpty(str)) {
-            return new e(-1L, 1, TbadkCoreApplication.getInst().getString(R.string.illegal_argument));
+    /* loaded from: classes5.dex */
+    public class c implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Activity f63954e;
+
+        public c(h hVar, Activity activity) {
+            this.f63954e = activity;
         }
-        if (!new File(str).exists()) {
-            return new e(-1L, 2, TbadkCoreApplication.getInst().getString(R.string.file_not_exist));
-        }
-        long j = 0;
-        try {
-            for (Track track : MovieCreator.build(str).getTracks()) {
-                if (list2 != null && track.getHandler().equals("soun")) {
-                    list2.add(track);
-                }
-                if (track.getHandler().equals("vide")) {
-                    list.add(track);
-                    j += (track.getDuration() * 1000) / track.getTrackMetaData().getTimescale();
-                }
-            }
-            return new e(j, 0, "");
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return new e(-1L, 3, d.a.n0.u1.a.a(e2));
+
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
+            aVar.dismiss();
+            Intent intent = new Intent();
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+            intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.f63954e.getPackageName(), null));
+            this.f63954e.startActivity(intent);
+            this.f63954e.finish();
         }
     }
 
-    public final double d(Track track, double d2, boolean z) {
-        int length = track.getSyncSamples().length;
-        double[] dArr = new double[length];
-        int i2 = 0;
-        double d3 = 0.0d;
-        long j = 0;
-        double d4 = 0.0d;
-        for (int i3 = 0; i3 < track.getSampleDurations().length; i3++) {
-            long j2 = track.getSampleDurations()[i3];
-            j++;
-            if (Arrays.binarySearch(track.getSyncSamples(), j) >= 0) {
-                dArr[Arrays.binarySearch(track.getSyncSamples(), j)] = d4;
+    /* loaded from: classes5.dex */
+    public class d implements GLVideoPreviewView.b {
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ boolean f63956e;
+
+            public a(boolean z) {
+                this.f63956e = z;
             }
-            d4 += j2 / track.getTrackMetaData().getTimescale();
-        }
-        while (i2 < length) {
-            double d5 = dArr[i2];
-            if (d5 > d2) {
-                return z ? d5 : d3;
+
+            @Override // java.lang.Runnable
+            public void run() {
+                h.this.w.onFaceIdentifyState(this.f63956e);
             }
-            i2++;
-            d3 = d5;
         }
-        return dArr[length - 1];
+
+        public d() {
+        }
+
+        @Override // com.baidu.tieba.video.record.GLVideoPreviewView.b
+        public void onFaceIdentifyState(boolean z) {
+            if (h.this.w != null) {
+                d.a.c.e.m.e.a().post(new a(z));
+            }
+        }
     }
 
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    public boolean f(String str, String str2, String... strArr) {
-        ?? r2 = 0;
-        if (strArr != null) {
-            int i2 = 2;
-            if (strArr.length >= 2) {
-                String str3 = str2 + "temp_" + System.currentTimeMillis();
-                File[] fileArr = new File[strArr.length];
-                try {
-                    g.a d2 = g.d(strArr[0]);
-                    if (d2 == null) {
-                        return false;
-                    }
-                    g.a aVar = new g.a();
-                    char c2 = 1;
-                    int i3 = 0;
-                    boolean z = true;
-                    while (i3 < strArr.length) {
-                        if (i3 != 0) {
-                            aVar = g.d(strArr[i3]);
-                            if (aVar == null) {
-                                return r2;
-                            }
-                            g.a[] aVarArr = new g.a[i2];
-                            aVarArr[r2] = d2;
-                            aVarArr[c2] = aVar;
-                            z = g.h(aVarArr);
-                        }
-                        String str4 = str2 + "temp_" + i3 + "_" + System.currentTimeMillis();
-                        if (new b(strArr[i3]).a(str4, z, d2, aVar) != null) {
-                            if (!z && i3 != 0 && aVar.c()) {
-                                String str5 = str2 + "resample_" + System.currentTimeMillis();
-                                long currentTimeMillis = System.currentTimeMillis();
-                                boolean i4 = g.i(str4, str5, aVar.f60219a, d2.f60219a);
-                                BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                                if (i4) {
-                                    str4 = str5;
-                                }
-                            }
-                            fileArr[i3] = new File(str4);
-                        }
-                        i3++;
-                        r2 = 0;
-                        i2 = 2;
-                        c2 = 1;
-                    }
-                    MultiAudioMixer a2 = MultiAudioMixer.a();
-                    try {
-                        a2.d(new a(this, str3));
-                        a2.b(fileArr);
-                        d a3 = d.a(str3);
-                        a3.d(d2.f60219a);
-                        a3.c(d2.f60220b);
-                        a3.b(str);
-                        return true;
-                    } catch (Exception e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        return false;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                }
-            }
+    /* loaded from: classes5.dex */
+    public class e implements Runnable {
+        public e() {
         }
-        return false;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            h.this.A();
+        }
     }
 
-    public i g(String str, String str2) {
-        int i2;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            long currentTimeMillis = System.currentTimeMillis();
-            File file = new File(str2);
-            file.mkdirs();
-            if (file.exists()) {
-                file.delete();
-            }
-            LinkedList linkedList = new LinkedList();
-            try {
-                e c2 = c(str, linkedList, null);
-                if (c2.f60212a == -1) {
-                    if (c2.f60213b == 1) {
-                        i2 = 218;
-                    } else {
-                        i2 = c2.f60213b == 2 ? 219 : 220;
-                    }
-                    return new i(i2, c2.f60214c);
-                }
-                BdLog.e("mixingVideoByAudio videoTracks = " + linkedList.size());
-                j(str2, linkedList, null);
-                return new i(0, "");
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return new i(221, d.a.n0.u1.a.a(e2));
-            } finally {
-                BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
-            }
+    /* loaded from: classes5.dex */
+    public class f implements Runnable {
+        public f() {
         }
-        return new i(217, TbadkCoreApplication.getInst().getString(R.string.illegal_argument));
+
+        @Override // java.lang.Runnable
+        public void run() {
+            h.this.A();
+        }
     }
 
-    public i h(String str, String str2, String str3, boolean z) {
-        String str4;
-        LinkedList linkedList;
-        int i2;
-        i iVar;
-        StringBuilder sb;
-        int i3;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            long currentTimeMillis = System.currentTimeMillis();
-            String str5 = d.a.n0.r3.c.f59995c + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
-            new File(str5).mkdirs();
-            File file = new File(str3);
-            file.mkdirs();
-            if (file.exists()) {
-                file.delete();
+    /* loaded from: classes5.dex */
+    public class g implements a.e {
+        public g() {
+        }
+
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
+            aVar.dismiss();
+            if (h.this.f63943a != null) {
+                h.this.f63943a.finish();
             }
-            LinkedList linkedList2 = new LinkedList();
-            LinkedList linkedList3 = new LinkedList();
-            LinkedList linkedList4 = new LinkedList();
-            LinkedList linkedList5 = new LinkedList();
-            try {
-                e c2 = c(str, linkedList2, linkedList3);
-                long j = c2.f60212a;
-                if (j == -1) {
-                    if (c2.f60213b == 1) {
-                        i3 = Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST;
-                    } else {
-                        i3 = c2.f60213b == 2 ? 211 : 212;
-                    }
-                    iVar = new i(i3, c2.f60214c);
-                    FileHelper.deleteFileOrDir(new File(str5));
-                    sb = new StringBuilder();
-                } else {
-                    long b2 = b(str2, linkedList4);
-                    if (b2 == -1) {
-                        if (c2.f60213b == 1) {
-                            i2 = 213;
-                        } else {
-                            i2 = c2.f60213b == 2 ? 214 : JfifUtil.MARKER_RST7;
-                        }
-                        iVar = new i(i2, c2.f60214c);
-                        FileHelper.deleteFileOrDir(new File(str5));
-                        sb = new StringBuilder();
-                    } else {
-                        try {
-                            a(j, b2, linkedList4, linkedList5);
-                            if (!z || linkedList3.size() <= 0 || Build.VERSION.SDK_INT < 16) {
-                                linkedList = linkedList3;
-                            } else {
-                                String str6 = str5 + "temp_" + System.currentTimeMillis();
-                                j(str6, null, linkedList5);
-                                String str7 = str5 + "temp_" + System.currentTimeMillis();
-                                linkedList = linkedList3;
-                                j(str7, null, linkedList);
-                                String str8 = str5 + "temp_" + System.currentTimeMillis() + ".acc";
-                                if (f(str8, str5, str6, str7)) {
-                                    AACTrackImpl aACTrackImpl = new AACTrackImpl(new FileDataSourceImpl(str8));
-                                    linkedList5.clear();
-                                    linkedList5.add(aACTrackImpl);
-                                }
-                                BdLog.e("mixingVideoByAudio mixing cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                            }
-                            BdLog.e("mixingVideoByAudio audioTracks = " + linkedList.size() + " musicTracks = " + linkedList5.size() + " videoTracks = " + linkedList2.size());
-                            j(str3, linkedList2, linkedList5);
-                            i iVar2 = new i(0, "");
-                            FileHelper.deleteFileOrDir(new File(str5));
-                            BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                            return iVar2;
-                        } catch (Exception e2) {
-                            e = e2;
-                            str4 = "mixingVideoByAudio cost = ";
-                            try {
-                                e.printStackTrace();
-                                i iVar3 = new i(JfifUtil.MARKER_SOI, d.a.n0.u1.a.a(e));
-                                FileHelper.deleteFileOrDir(new File(str5));
-                                BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
-                                return iVar3;
-                            } catch (Throwable th) {
-                                th = th;
-                                FileHelper.deleteFileOrDir(new File(str5));
-                                BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            str4 = "mixingVideoByAudio cost = ";
-                            FileHelper.deleteFileOrDir(new File(str5));
-                            BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
-                            throw th;
-                        }
-                    }
-                }
-                sb.append("mixingVideoByAudio cost = ");
-                sb.append(System.currentTimeMillis() - currentTimeMillis);
-                BdLog.e(sb.toString());
-                return iVar;
-            } catch (Exception e3) {
-                e = e3;
-                str4 = "mixingVideoByAudio cost = ";
-            } catch (Throwable th3) {
-                th = th3;
-                str4 = "mixingVideoByAudio cost = ";
+        }
+    }
+
+    /* renamed from: d.a.n0.r3.l.h$h  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public class C1638h implements a.e {
+        public C1638h(h hVar) {
+        }
+
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
+            aVar.dismiss();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class i implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ g.a f63961e;
+
+        public i(g.a aVar) {
+            this.f63961e = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (h.this.o != null) {
+                h.this.o.c(this.f63961e);
             }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class j extends View {
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f63963e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f63964f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public Bitmap f63965g;
+
+        public j(h hVar, Context context, int i2, int i3, Bitmap bitmap) {
+            super(context);
+            this.f63963e = i2;
+            this.f63964f = i3;
+            this.f63965g = bitmap;
+        }
+
+        @Override // android.view.View
+        public void onDraw(Canvas canvas) {
+            canvas.drawBitmap(this.f63965g, this.f63963e, this.f63964f, (Paint) null);
+            super.onDraw(canvas);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface k {
+        void a();
+    }
+
+    /* loaded from: classes5.dex */
+    public interface l {
+        void onSurfaceViewLayoutChange(int i2, int i3);
+    }
+
+    public h(RecordVideoActivity recordVideoActivity) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, d.a.n0.u1.k.class);
+        d.a.n0.u1.k kVar = runTask != null ? (d.a.n0.u1.k) runTask.getData() : null;
+        if (kVar != null) {
+            this.u = kVar.get();
+        }
+        this.v = new a();
+        this.x = new d();
+        this.f63943a = recordVideoActivity;
+        s();
+        this.f63944b = BitmapFactory.decodeResource(recordVideoActivity.getResources(), R.drawable.box_recorder_focus);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        recordVideoActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        this.f63947e = displayMetrics.widthPixels;
+        this.f63948f = displayMetrics.heightPixels;
+        this.f63949g = this.f63943a.getSurfaceContainer();
+        if (Build.VERSION.SDK_INT >= 18) {
+            GLVideoPreviewView gLVideoPreviewView = new GLVideoPreviewView(recordVideoActivity, this);
+            this.p = gLVideoPreviewView;
+            this.o = gLVideoPreviewView;
+            gLVideoPreviewView.setFaceIdentifyStateListener(this.x);
         } else {
-            return new i(209, TbadkCoreApplication.getInst().getString(R.string.illegal_argument));
+            VideoPreviewView videoPreviewView = new VideoPreviewView(recordVideoActivity, this);
+            this.p = videoPreviewView;
+            this.o = videoPreviewView;
+        }
+        if (recordVideoActivity == null || recordVideoActivity.getSurfaceContainer() == null) {
+            return;
+        }
+        recordVideoActivity.getSurfaceContainer().addView(this.p, new FrameLayout.LayoutParams(-1, -1));
+    }
+
+    public final void A() {
+        j jVar;
+        if (this.f63949g == null || (jVar = this.f63945c) == null || jVar.getParent() == null) {
+            return;
+        }
+        this.f63949g.removeView(this.f63945c);
+    }
+
+    public void B(d.a.n0.r3.a aVar) {
+        SurfaceView surfaceView = this.p;
+        if (surfaceView instanceof GLVideoPreviewView) {
+            ((GLVideoPreviewView) surfaceView).setBeautyLevel(aVar);
         }
     }
 
-    public i i(List<String> list, String str, boolean z) {
-        if (list != null && !TextUtils.isEmpty(str)) {
-            long currentTimeMillis = System.currentTimeMillis();
-            File file = new File(str);
-            file.mkdirs();
-            if (file.exists()) {
-                file.delete();
-            }
-            LinkedList linkedList = new LinkedList();
-            LinkedList linkedList2 = new LinkedList();
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                try {
-                    e c2 = c(list.get(i2), linkedList, z ? linkedList2 : null);
-                    if (c2.f60212a != -1) {
-                        long j = c2.f60212a;
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return new i(11, d.a.n0.u1.a.a(e2));
+    public void C(boolean z) {
+        try {
+            if (!d.a.n0.r3.l.a.f(z)) {
+                z = !z;
+                if (!d.a.n0.r3.l.a.f(z)) {
+                    J();
+                    return;
                 }
             }
-            j(str, linkedList, linkedList2);
-            BdLog.e("mixingVideoByVideo videoList length = " + list.size() + " cost = " + (System.currentTimeMillis() - currentTimeMillis));
-            return new i(0, "");
+            int c2 = d.a.n0.r3.l.a.c(z);
+            this.l = c2;
+            if (-1 != c2) {
+                t();
+                this.t = new d.a.n0.r3.l.b(this.f63946d);
+                this.k = z;
+                return;
+            }
+            J();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            J();
+            d.a.n0.u1.g gVar = this.u;
+            if (gVar != null) {
+                gVar.b(8, d.a.n0.u1.a.a(e2));
+            }
         }
-        return new i(10, TbadkCoreApplication.getInst().getString(R.string.illegal_argument));
     }
 
-    public final void j(String str, List<Track> list, List<Track> list2) throws IOException {
-        Movie movie = new Movie();
-        if (list2 != null && list2.size() > 0) {
-            movie.addTrack(new AppendTrack((Track[]) list2.toArray(new Track[list2.size()])));
+    public void D(GLVideoPreviewView.b bVar) {
+        if (bVar != null) {
+            this.w = bVar;
         }
-        if (list != null && list.size() > 0) {
-            movie.addTrack(new AppendTrack((Track[]) list.toArray(new Track[list.size()])));
+    }
+
+    public void E(String str) {
+        SurfaceView surfaceView = this.p;
+        if (surfaceView instanceof GLVideoPreviewView) {
+            ((GLVideoPreviewView) surfaceView).setFilter(str);
         }
-        Container build = new DefaultMp4Builder().build(movie);
-        FileChannel channel = new RandomAccessFile(String.format(str, new Object[0]), "rw").getChannel();
-        build.writeContainer(channel);
-        channel.close();
+    }
+
+    public void F(k kVar) {
+        this.s = kVar;
+    }
+
+    public final void G() {
+        int i2 = Integer.MAX_VALUE;
+        int[] iArr = null;
+        int i3 = Integer.MAX_VALUE;
+        for (int[] iArr2 : this.n.getSupportedPreviewFpsRange()) {
+            if (Math.abs(20000 - iArr2[1]) <= i2 && Math.abs(15000 - iArr2[0]) <= i3) {
+                i2 = Math.abs(20000 - iArr2[1]);
+                i3 = Math.abs(15000 - iArr2[0]);
+                iArr = iArr2;
+            }
+        }
+        this.n.setPreviewFpsRange(iArr[0], iArr[1]);
+    }
+
+    public void H(StickerItem stickerItem) {
+        SurfaceView surfaceView = this.p;
+        if (surfaceView instanceof GLVideoPreviewView) {
+            ((GLVideoPreviewView) surfaceView).setSticker(stickerItem);
+        }
+    }
+
+    public void I(l lVar) {
+        if (lVar != null) {
+            this.y = lVar;
+        }
+    }
+
+    public final void J() {
+        RecordVideoActivity recordVideoActivity = this.f63943a;
+        if (recordVideoActivity == null) {
+            return;
+        }
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(recordVideoActivity.getPageContext().getPageActivity());
+        aVar.setMessageId(R.string.video_quit_confirm);
+        aVar.setPositiveButton(R.string.dialog_ok, new g());
+        aVar.setNegativeButton(R.string.dialog_cancel, new C1638h(this));
+        aVar.setCancelable(true);
+        aVar.create(this.f63943a.getPageContext());
+        aVar.show();
+    }
+
+    public void K() {
+        this.o.a(this.f63946d);
+    }
+
+    public void L() {
+        this.o.d(this.f63946d);
+    }
+
+    public void M() {
+        this.o.e(this.f63946d);
+    }
+
+    public void N(g.a aVar) {
+        d.a.n0.r3.l.g gVar = this.o;
+        if (gVar instanceof GLSurfaceView) {
+            this.v.postDelayed(new i(aVar), 500L);
+        } else {
+            gVar.c(aVar);
+        }
+    }
+
+    public final void O(int i2, int i3) {
+        try {
+            this.f63946d.cancelAutoFocus();
+            if (this.j.contains(DebugKt.DEBUG_PROPERTY_VALUE_AUTO)) {
+                Camera.Parameters parameters = this.f63946d.getParameters();
+                this.n = parameters;
+                parameters.setFocusMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
+            }
+            this.f63946d.setParameters(this.n);
+            this.f63946d.autoFocus(null);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            d.a.n0.u1.g gVar = this.u;
+            if (gVar != null) {
+                gVar.b(9, d.a.n0.u1.a.a(e2));
+            }
+        }
+    }
+
+    public void f() {
+        SurfaceView surfaceView = this.p;
+        if (surfaceView != null && (surfaceView instanceof GLVideoPreviewView)) {
+            GLVideoPreviewView gLVideoPreviewView = (GLVideoPreviewView) surfaceView;
+            gLVideoPreviewView.setIsChangingCamera(true);
+            z();
+            gLVideoPreviewView.t();
+            int i2 = this.m == 0 ? 1 : 0;
+            this.m = i2;
+            C(i2 == 1);
+            gLVideoPreviewView.u();
+            gLVideoPreviewView.setIsChangingCamera(false);
+            return;
+        }
+        SurfaceView surfaceView2 = this.p;
+        if (surfaceView2 == null || !(surfaceView2 instanceof VideoPreviewView)) {
+            return;
+        }
+        ((VideoPreviewView) surfaceView2).b(this.f63946d);
+        z();
+        int i3 = this.m == 0 ? 1 : 0;
+        this.m = i3;
+        C(i3 == 1);
+        K();
+    }
+
+    public String g() {
+        File file = new File(d.a.n0.r3.c.f63686c);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        String str = d.a.n0.r3.c.f63686c + "f_" + System.currentTimeMillis() + ".mp4";
+        this.r = str;
+        return str;
+    }
+
+    public void h() {
+        List<String> list = this.q;
+        if (list == null || list.size() == 0) {
+            return;
+        }
+        List<String> list2 = this.q;
+        String remove = list2.remove(list2.size() - 1);
+        if (TextUtils.isEmpty(remove)) {
+            return;
+        }
+        File file = new File(remove);
+        if (file.exists()) {
+            file.delete();
+        }
+    }
+
+    public void i() {
+        try {
+            if (this.f63946d == null) {
+                return;
+            }
+            if (this.n == null) {
+                this.n = this.f63946d.getParameters();
+            }
+            if (DebugKt.DEBUG_PROPERTY_VALUE_OFF.equals(this.n.getFlashMode())) {
+                this.n.setFlashMode("torch");
+            } else {
+                this.n.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_OFF);
+            }
+            this.f63946d.setParameters(this.n);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            d.a.n0.u1.g gVar = this.u;
+            if (gVar != null) {
+                gVar.b(7, d.a.n0.u1.a.a(e2));
+            }
+        }
+    }
+
+    public boolean j() {
+        return this.l == 0;
+    }
+
+    public d.a.n0.r3.l.b k() {
+        return this.t;
+    }
+
+    public boolean l() {
+        try {
+            if (this.f63946d == null) {
+                return false;
+            }
+            if (this.n == null) {
+                this.n = this.f63946d.getParameters();
+            }
+            return !DebugKt.DEBUG_PROPERTY_VALUE_OFF.equals(this.n.getFlashMode());
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            d.a.n0.u1.g gVar = this.u;
+            if (gVar != null) {
+                gVar.b(7, d.a.n0.u1.a.a(e2));
+            }
+            return false;
+        }
+    }
+
+    public boolean m() {
+        return this.m == 1;
+    }
+
+    public Handler n() {
+        return this.v;
+    }
+
+    public String o() {
+        if (this.q == null) {
+            this.q = new ArrayList();
+        }
+        File file = new File(d.a.n0.r3.c.f63686c);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        String str = d.a.n0.r3.c.f63686c + "rec_tmp_" + System.currentTimeMillis() + ".mp4";
+        this.q.add(str);
+        return str;
+    }
+
+    public int p(Context context) {
+        int i2 = 0;
+        if (context == null) {
+            return 0;
+        }
+        try {
+            Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            Class.forName("android.view.Display").getMethod("getRealMetrics", DisplayMetrics.class).invoke(defaultDisplay, displayMetrics);
+            i2 = displayMetrics.heightPixels;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        return i2 == 0 ? d.a.c.e.p.l.i(context) : i2;
+    }
+
+    public d.a.n0.r3.l.g q() {
+        return this.o;
+    }
+
+    public boolean r(MotionEvent motionEvent, ViewParent viewParent) {
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            int x = (int) motionEvent.getX();
+            int y = (int) motionEvent.getY();
+            if (y > this.f63948f || x < d.a.c.e.p.l.g(this.f63943a, R.dimen.ds60)) {
+                return true;
+            }
+            int width = this.f63944b.getWidth();
+            int height = this.f63944b.getHeight();
+            int i2 = width / 2;
+            int a2 = d.a.n0.r3.l.a.a(x, i2, this.f63947e - i2);
+            int i3 = height / 2;
+            int a3 = d.a.n0.r3.l.a.a(y, i3, this.f63948f - i3);
+            if (viewParent != null && (viewParent instanceof FrameLayout)) {
+                if (this.f63949g == null) {
+                    this.f63949g = (FrameLayout) viewParent;
+                }
+                int i4 = 0;
+                while (true) {
+                    if (i4 >= this.f63949g.getChildCount()) {
+                        break;
+                    } else if (this.f63945c == this.f63949g.getChildAt(i4)) {
+                        this.f63949g.removeViewAt(i4);
+                        break;
+                    } else {
+                        i4++;
+                    }
+                }
+                j jVar = new j(this, this.f63943a, a2 - i2, a3 - i3, this.f63944b);
+                this.f63945c = jVar;
+                this.f63949g.addView(jVar, new ViewGroup.LayoutParams(-2, -2));
+                O(a2, a3);
+            }
+        } else if (action == 1) {
+            this.v.postDelayed(new f(), 800L);
+        }
+        return true;
+    }
+
+    public final void s() {
+        this.f63950h = PeerConnectionClient.HD_VIDEO_HEIGHT;
+        this.f63951i = TbConfig.HEAD_IMG_SIZE;
+    }
+
+    public final void t() {
+        try {
+            Camera open = Camera.open(this.l);
+            this.f63946d = open;
+            this.n = open.getParameters();
+            y();
+        } catch (RuntimeException e2) {
+            e2.printStackTrace();
+            Message obtainMessage = this.v.obtainMessage();
+            obtainMessage.what = 2;
+            obtainMessage.obj = d.a.n0.u1.a.a(e2);
+            this.v.sendMessageDelayed(obtainMessage, 1000L);
+        }
+    }
+
+    public void u() {
+        z();
+        this.o.b(this.f63946d);
+        SurfaceView surfaceView = this.p;
+        if (surfaceView == null || !(surfaceView instanceof GLVideoPreviewView)) {
+            return;
+        }
+        ((GLVideoPreviewView) surfaceView).onPause();
+    }
+
+    public void v() {
+        C(this.m == 1);
+        SurfaceView surfaceView = this.p;
+        if (surfaceView != null && (surfaceView instanceof GLVideoPreviewView)) {
+            ((GLVideoPreviewView) surfaceView).onResume();
+        }
+        SurfaceView surfaceView2 = this.p;
+        if (surfaceView2 != null && (surfaceView2 instanceof VideoPreviewView)) {
+            ((VideoPreviewView) surfaceView2).h();
+        }
+        if (d.a.n0.r3.l.c.b()) {
+            return;
+        }
+        this.v.sendEmptyMessageDelayed(3, 1000L);
+    }
+
+    public boolean w(MotionEvent motionEvent, ViewParent viewParent) {
+        if (this.s != null && motionEvent.getAction() == 0) {
+            this.s.a();
+        }
+        int pointerCount = motionEvent.getPointerCount();
+        if (pointerCount == 1) {
+            return r(motionEvent, viewParent);
+        }
+        if (pointerCount >= 2) {
+            this.v.postDelayed(new e(), 100L);
+        }
+        return true;
+    }
+
+    public void x(Activity activity) {
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(activity);
+        aVar.setCanceledOnTouchOutside(false);
+        aVar.setTitle(R.string.request_permission_default_title);
+        aVar.setMessageId(R.string.request_permission_camera);
+        aVar.setPositiveButton(R.string.isopen, new c(this, activity)).setNegativeButton(R.string.cancel, new b(this, activity)).create(d.a.c.a.j.a(activity));
+        aVar.show();
+    }
+
+    public void y() {
+        RecordVideoActivity recordVideoActivity;
+        if (this.f63946d == null && (recordVideoActivity = this.f63943a) != null) {
+            recordVideoActivity.finish();
+            return;
+        }
+        int k2 = d.a.c.e.p.l.k(this.f63943a.getPageContext().getPageActivity());
+        int p = p(this.f63943a.getPageContext().getPageActivity());
+        if (DeviceInfoUtil.isHuaWeiP40()) {
+            p = this.f63948f;
+        }
+        float f2 = p;
+        float f3 = k2;
+        Camera.Size d2 = d.a.n0.r3.l.a.d(this.f63946d, PeerConnectionClient.HD_VIDEO_HEIGHT, (int) (((float) PeerConnectionClient.HD_VIDEO_HEIGHT) * ((f2 * 1.0f) / f3)));
+        if (d2 != null) {
+            int i2 = d2.width;
+            this.f63950h = i2;
+            int i3 = d2.height;
+            this.f63951i = i3;
+            this.n.setPreviewSize(i2, i3);
+            d.a.n0.r3.l.g gVar = this.o;
+            if (gVar != null) {
+                gVar.setPreviewSize(this.f63950h, this.f63951i);
+            }
+        }
+        this.n.setPreviewFormat(17);
+        G();
+        this.f63946d.setDisplayOrientation(d.a.n0.r3.l.a.b(this.f63943a, this.l));
+        List<String> supportedFocusModes = this.n.getSupportedFocusModes();
+        this.j = supportedFocusModes;
+        if (supportedFocusModes != null) {
+            if ((Build.MODEL.startsWith("GT-I950") || Build.MODEL.endsWith("SCH-I959") || Build.MODEL.endsWith("MEIZU MX3")) && this.j.contains("continuous-picture")) {
+                this.n.setFocusMode("continuous-picture");
+            } else if (this.j.contains("continuous-video")) {
+                this.n.setFocusMode("continuous-video");
+            }
+        }
+        this.f63946d.setParameters(this.n);
+        RecordVideoActivity recordVideoActivity2 = this.f63943a;
+        if (recordVideoActivity2 == null || recordVideoActivity2.getSurfaceContainer() == null) {
+            return;
+        }
+        float f4 = (this.f63951i * 1.0f) / this.f63950h;
+        if ((f3 * 1.0f) / f2 > f4) {
+            p = (int) (f3 / f4);
+        } else {
+            k2 = (int) (f2 * f4);
+        }
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.p.getLayoutParams();
+        layoutParams.width = k2;
+        layoutParams.height = p;
+        this.p.setLayoutParams(layoutParams);
+        this.p.invalidate();
+        l lVar = this.y;
+        if (lVar != null) {
+            lVar.onSurfaceViewLayoutChange(layoutParams.width, layoutParams.height);
+        }
+    }
+
+    public final void z() {
+        Camera camera = this.f63946d;
+        if (camera != null) {
+            try {
+                camera.stopPreview();
+                this.f63946d.setPreviewCallback(null);
+                this.f63946d.setPreviewTexture(null);
+                this.f63946d.release();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                d.a.n0.u1.g gVar = this.u;
+                if (gVar != null) {
+                    gVar.b(6, d.a.n0.u1.a.a(e2));
+                }
+            }
+            this.f63946d = null;
+        }
     }
 }

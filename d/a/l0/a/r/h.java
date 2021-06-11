@@ -13,13 +13,13 @@ import okio.Source;
 public class h extends RequestBody {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44263b = k.f43199a;
+    public static final boolean f47937b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f44264a;
+    public final File f47938a;
 
     public h(File file) {
-        this.f44264a = file;
+        this.f47938a = file;
     }
 
     public static String a(String str) {
@@ -37,23 +37,23 @@ public class h extends RequestBody {
                             try {
                                 mediaMetadataRetriever.release();
                             } catch (Exception e2) {
-                                if (f44263b) {
+                                if (f47937b) {
                                     e2.printStackTrace();
                                 }
                             }
                         } catch (Exception e3) {
-                            if (f44263b) {
+                            if (f47937b) {
                                 e3.printStackTrace();
                             }
                         }
                     } catch (Exception e4) {
-                        if (f44263b) {
+                        if (f47937b) {
                             e4.printStackTrace();
                         }
                         return "image/jpeg";
                     }
                 } catch (Exception e5) {
-                    if (f44263b) {
+                    if (f47937b) {
                         e5.printStackTrace();
                     }
                     return "image/jpeg";
@@ -70,7 +70,7 @@ public class h extends RequestBody {
                 try {
                     mediaMetadataRetriever.release();
                 } catch (Exception e6) {
-                    if (f44263b) {
+                    if (f47937b) {
                         e6.printStackTrace();
                     }
                 }
@@ -82,19 +82,19 @@ public class h extends RequestBody {
 
     @Override // okhttp3.RequestBody
     public long contentLength() {
-        return this.f44264a.length();
+        return this.f47938a.length();
     }
 
     @Override // okhttp3.RequestBody
     public MediaType contentType() {
-        return MediaType.parse(a(this.f44264a.getPath()));
+        return MediaType.parse(a(this.f47938a.getPath()));
     }
 
     @Override // okhttp3.RequestBody
     public void writeTo(BufferedSink bufferedSink) throws IOException {
         Source source = null;
         try {
-            source = Okio.source(this.f44264a);
+            source = Okio.source(this.f47938a);
             while (source.read(bufferedSink.buffer(), 2048L) != -1) {
                 bufferedSink.flush();
             }

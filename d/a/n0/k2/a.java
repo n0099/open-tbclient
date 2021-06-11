@@ -5,14 +5,14 @@ import android.view.View;
 public class a implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f56813e;
+    public View f60502e;
 
     @Override // java.lang.Runnable
     public void run() {
-        View view = this.f56813e;
+        View view = this.f60502e;
         if (view == null || !(view.getTag() instanceof e)) {
             return;
         }
-        ((e) this.f56813e.getTag()).startPlay();
+        ((e) this.f60502e.getTag()).startPlay();
     }
 }

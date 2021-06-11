@@ -6,7 +6,7 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BrowserCompatSpec extends CookieSpecBase {
     public static final String[] DATE_PATTERNS = null;
 

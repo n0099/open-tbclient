@@ -8,28 +8,28 @@ import java.util.List;
 public class e implements AbsListView.OnScrollListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f56170e;
+    public b f59859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56171f = 0;
+    public int f59860f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f56172g;
+    public c f59861g;
 
     /* loaded from: classes4.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d> f56173a;
+        public List<d> f59862a;
 
         public final int b(b bVar) {
             if (bVar == null) {
                 return 0;
             }
-            for (d dVar : this.f56173a) {
-                for (d dVar2 : bVar.f56173a) {
-                    if (dVar.f56174a == dVar2.f56174a) {
-                        return dVar.f56175b - dVar2.f56175b;
+            for (d dVar : this.f59862a) {
+                for (d dVar2 : bVar.f59862a) {
+                    if (dVar.f59863a == dVar2.f59863a) {
+                        return dVar.f59864b - dVar2.f59864b;
                     }
                 }
             }
@@ -37,12 +37,12 @@ public class e implements AbsListView.OnScrollListener {
         }
 
         public b(e eVar, AbsListView absListView, int i2) {
-            this.f56173a = new ArrayList();
+            this.f59862a = new ArrayList();
             int childCount = absListView.getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
                 View childAt = absListView.getChildAt(i3);
                 if (childAt != null) {
-                    this.f56173a.add(new d(childAt, i2 + i3));
+                    this.f59862a.add(new d(childAt, i2 + i3));
                 }
             }
         }
@@ -57,20 +57,20 @@ public class e implements AbsListView.OnScrollListener {
     public class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f56174a;
+        public int f59863a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56175b;
+        public int f59864b;
 
         public d(e eVar, View view, int i2) {
-            this.f56174a = i2;
-            this.f56175b = view.getTop();
+            this.f59863a = i2;
+            this.f59864b = view.getTop();
             view.getBottom();
         }
     }
 
     public void a(c cVar) {
-        this.f56172g = cVar;
+        this.f59861g = cVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -81,32 +81,32 @@ public class e implements AbsListView.OnScrollListener {
             return;
         }
         if (i2 == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-            int i5 = this.f56171f;
-            if (i5 != 0 && (cVar = this.f56172g) != null) {
+            int i5 = this.f59860f;
+            if (i5 != 0 && (cVar = this.f59861g) != null) {
                 cVar.a(absListView, 0, -i5);
             }
-            this.f56171f = 0;
-            this.f56170e = null;
+            this.f59860f = 0;
+            this.f59859e = null;
             return;
         }
         b bVar = new b(absListView, i2);
-        b bVar2 = this.f56170e;
+        b bVar2 = this.f59859e;
         if (bVar2 != null) {
             int b2 = bVar2.b(bVar);
-            this.f56170e = bVar;
-            int i6 = this.f56171f + b2;
-            this.f56171f = i6;
-            c cVar2 = this.f56172g;
+            this.f59859e = bVar;
+            int i6 = this.f59860f + b2;
+            this.f59860f = i6;
+            c cVar2 = this.f59861g;
             if (cVar2 != null) {
                 cVar2.a(absListView, i6, b2);
                 return;
             }
             return;
         }
-        this.f56170e = bVar;
+        this.f59859e = bVar;
         int paddingTop = absListView.getPaddingTop() - childAt.getTop();
-        this.f56171f = paddingTop;
-        c cVar3 = this.f56172g;
+        this.f59860f = paddingTop;
+        c cVar3 = this.f59861g;
         if (cVar3 != null) {
             cVar3.a(absListView, paddingTop, 0);
         }

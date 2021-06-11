@@ -7,7 +7,7 @@ import h.n.b;
 import h.p.a;
 import h.q.f;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.a<T> {
     public final b<? super k> connection;
     public final int numberOfSubscribers;

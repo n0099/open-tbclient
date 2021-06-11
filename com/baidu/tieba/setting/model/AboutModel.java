@@ -24,22 +24,22 @@ import d.a.m0.s.e.e;
 public class AboutModel extends BdBaseModel<AboutActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20384e;
+    public b f20461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f20385f;
+    public Context f20462f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f20386g;
+    public final boolean f20463g;
 
     /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<String, Integer, e> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20387a;
+        public NetWork f20464a;
 
         public b() {
-            this.f20387a = null;
+            this.f20464a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,35 +49,35 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
             e eVar = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
-                this.f20387a = netWork;
+                this.f20464a = netWork;
                 netWork.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-                this.f20387a.addPostData("_phone_screen", stringBuffer.toString());
+                this.f20464a.addPostData("_phone_screen", stringBuffer.toString());
                 if (d.d().e() > 0) {
-                    this.f20387a.addPostData("_msg_status", "0");
+                    this.f20464a.addPostData("_msg_status", "0");
                 } else {
-                    this.f20387a.addPostData("_msg_status", "1");
+                    this.f20464a.addPostData("_msg_status", "1");
                 }
-                if (AboutModel.this.f20386g) {
-                    this.f20387a.addPostData("reversion_return", "1");
+                if (AboutModel.this.f20463g) {
+                    this.f20464a.addPostData("reversion_return", "1");
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.f20387a.addPostData(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
+                this.f20464a.addPostData(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
                 int versionCode = TbadkCoreApplication.getInst().getVersionCode();
-                NetWork netWork2 = this.f20387a;
+                NetWork netWork2 = this.f20464a;
                 netWork2.addPostData("versioncode", versionCode + "");
-                this.f20387a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.f20387a.addPostData(PackageTable.MD5, UtilHelper.getTiebaApkMd5());
-                String postNetData = this.f20387a.postNetData();
-                if (this.f20387a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f20464a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.f20464a.addPostData(PackageTable.MD5, UtilHelper.getTiebaApkMd5());
+                String postNetData = this.f20464a.postNetData();
+                if (this.f20464a.getNetContext().getResponse().isRequestSuccess()) {
                     e eVar2 = new e();
                     try {
-                        eVar2.y(postNetData);
+                        eVar2.z(postNetData);
                         if (TbadkCoreApplication.getClientId() == null && eVar2.i().a() != null && eVar2.i().a().length() > 0) {
-                            TbadkCoreApplication.saveClientId(AboutModel.this.f20385f, eVar2.i().a());
+                            TbadkCoreApplication.saveClientId(AboutModel.this.f20462f, eVar2.i().a());
                             TbadkCoreApplication.setClientId(eVar2.i().a());
                         }
                         k0 t = eVar2.t();
@@ -110,14 +110,14 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
             if (eVar != null && eVar.e() != null) {
                 TbadkCoreApplication.getInst().setAdAdSense(eVar.e());
             }
-            AboutModel.this.f20384e = null;
+            AboutModel.this.f20461e = null;
             AboutModel.this.mLoadDataCallBack.c(eVar);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AboutModel.this.f20384e = null;
-            NetWork netWork = this.f20387a;
+            AboutModel.this.f20461e = null;
+            NetWork netWork = this.f20464a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -132,9 +132,17 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
     public AboutModel(BaseActivity baseActivity, d.a.c.a.e eVar) {
         super(baseActivity.getPageContext());
-        this.f20385f = baseActivity.getPageContext().getPageActivity();
+        this.f20462f = baseActivity.getPageContext().getPageActivity();
         this.mLoadDataCallBack = eVar;
-        this.f20386g = false;
+        this.f20463g = false;
+    }
+
+    public void A() {
+        if (this.f20461e == null) {
+            this.f20461e = new b();
+        }
+        this.f20461e.setPriority(3);
+        this.f20461e.execute(new String[0]);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -144,19 +152,11 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        b bVar = this.f20384e;
+        b bVar = this.f20461e;
         if (bVar != null) {
             bVar.cancel();
             return false;
         }
         return false;
-    }
-
-    public void w() {
-        if (this.f20384e == null) {
-            this.f20384e = new b();
-        }
-        this.f20384e.setPriority(3);
-        this.f20384e.execute(new String[0]);
     }
 }

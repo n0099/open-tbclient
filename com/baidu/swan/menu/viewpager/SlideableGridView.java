@@ -14,19 +14,19 @@ import d.a.l0.k.h;
 public class SlideableGridView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f11834e;
+    public b f11896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f11835f;
+    public a f11897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11836g;
+    public int f11898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11837h;
+    public int f11899h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11838i;
+    public int f11900i;
     public int j;
     public ViewPager k;
     public PointPageIndicator l;
@@ -51,29 +51,29 @@ public class SlideableGridView extends LinearLayout {
     public class b extends PagerAdapterImpl {
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f11839c;
+        public Context f11901c;
 
         public b(Context context) {
-            this.f11839c = context;
+            this.f11901c = context;
         }
 
         @Override // com.baidu.swan.menu.viewpager.PagerAdapterImpl
-        public void b(View view, int i2) {
-            ((GridPageView) view).a(SlideableGridView.this.f11835f.a(i2), i2);
+        public void a(View view, int i2) {
+            ((GridPageView) view).a(SlideableGridView.this.f11897f.a(i2), i2);
         }
 
         @Override // com.baidu.swan.menu.viewpager.PagerAdapterImpl
-        public View c(ViewGroup viewGroup, int i2) {
-            GridPageView gridPageView = new GridPageView(this.f11839c);
-            gridPageView.setGridItemAdapter(SlideableGridView.this.f11835f);
+        public View b(ViewGroup viewGroup, int i2) {
+            GridPageView gridPageView = new GridPageView(this.f11901c);
+            gridPageView.setGridItemAdapter(SlideableGridView.this.f11897f);
             SlideableGridView slideableGridView = SlideableGridView.this;
-            gridPageView.setPadding(slideableGridView.f11836g, slideableGridView.f11838i, slideableGridView.f11837h, slideableGridView.j);
+            gridPageView.setPadding(slideableGridView.f11898g, slideableGridView.f11900i, slideableGridView.f11899h, slideableGridView.j);
             return gridPageView;
         }
 
         @Override // com.baidu.swan.menu.viewpager.PagerAdapterImpl, androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            a aVar = SlideableGridView.this.f11835f;
+            a aVar = SlideableGridView.this.f11897f;
             if (aVar != null) {
                 return aVar.c();
             }
@@ -120,7 +120,7 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public void c() {
-        a aVar = this.f11835f;
+        a aVar = this.f11897f;
         int c2 = aVar == null ? 0 : aVar.c();
         boolean z = c2 > 1;
         int i2 = !z ? this.m[0] : this.m[1];
@@ -146,7 +146,7 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public a getGridItemAdapter() {
-        return this.f11835f;
+        return this.f11897f;
     }
 
     public PointPageIndicator getPageindicator() {
@@ -181,20 +181,20 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public void setGridItemAdapter(a aVar) {
-        this.f11835f = aVar;
+        this.f11897f = aVar;
         if (aVar != null) {
             aVar.f(this);
-            b bVar = this.f11834e;
+            b bVar = this.f11896e;
             if (bVar == null) {
                 b bVar2 = new b(getContext());
-                this.f11834e = bVar2;
+                this.f11896e = bVar2;
                 this.k.setAdapter(bVar2);
             } else {
                 bVar.notifyDataSetChanged();
             }
             this.l.c(aVar.c());
         } else {
-            b bVar3 = this.f11834e;
+            b bVar3 = this.f11896e;
             if (bVar3 != null) {
                 bVar3.notifyDataSetChanged();
             }
@@ -203,9 +203,9 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public void setGridViewPading(int i2, int i3, int i4, int i5) {
-        this.f11836g = i2;
-        this.f11837h = i4;
-        this.f11838i = i3;
+        this.f11898g = i2;
+        this.f11899h = i4;
+        this.f11900i = i3;
         this.j = i5;
     }
 

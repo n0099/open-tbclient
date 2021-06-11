@@ -49,13 +49,13 @@ public class c extends d.a.n0.z.b<d.a.n0.b3.f.b> {
         public void c(Object obj) {
             c.this.y = false;
             if (c.this.w.getErrorCode() == 22) {
-                l.M(c.this.f63441f.getPageActivity(), c.this.f63441f.getString(R.string.had_liked_forum));
+                l.M(c.this.f67159f.getPageActivity(), c.this.f67159f.getString(R.string.had_liked_forum));
             } else if (obj == null) {
             } else {
                 if (c.this.w.getErrorCode() != 0) {
-                    l.M(c.this.f63441f.getPageActivity(), c.this.w.getErrorString());
+                    l.M(c.this.f67159f.getPageActivity(), c.this.w.getErrorString());
                 } else {
-                    c.this.y(true);
+                    c.this.z(true);
                 }
             }
         }
@@ -74,7 +74,7 @@ public class c extends d.a.n0.z.b<d.a.n0.b3.f.b> {
         @Override // d.a.n0.e3.f0.a
         public void b(String str, long j) {
             c.this.y = false;
-            c.this.y(false);
+            c.this.z(false);
         }
     }
 
@@ -83,29 +83,52 @@ public class c extends d.a.n0.z.b<d.a.n0.b3.f.b> {
         this.y = false;
         this.t = TbadkCoreApplication.getInst().getString(R.string.forum_member_num);
         this.u = TbadkCoreApplication.getInst().getString(R.string.forum_post_num);
-        View l = l();
-        this.m = l;
-        this.n = (BarImageView) l.findViewById(R.id.bar_image);
-        this.o = (TextView) l.findViewById(R.id.bar_name);
-        this.p = (TextView) l.findViewById(R.id.desc);
-        this.q = (TextView) l.findViewById(R.id.member_text);
-        this.r = (TextView) l.findViewById(R.id.post_text);
-        this.s = (TBSpecificationBtn) l.findViewById(R.id.forum_like_button);
+        View m = m();
+        this.m = m;
+        this.n = (BarImageView) m.findViewById(R.id.bar_image);
+        this.o = (TextView) m.findViewById(R.id.bar_name);
+        this.p = (TextView) m.findViewById(R.id.desc);
+        this.q = (TextView) m.findViewById(R.id.member_text);
+        this.r = (TextView) m.findViewById(R.id.post_text);
+        this.s = (TBSpecificationBtn) m.findViewById(R.id.forum_like_button);
+    }
+
+    public final void A(String str) {
+        if (k.isEmpty(str)) {
+            if (this.p.getVisibility() != 8) {
+                this.p.setVisibility(8);
+                if (this.o.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f67159f.getPageActivity(), R.dimen.tbds47);
+                    this.o.requestLayout();
+                    return;
+                }
+                return;
+            }
+            return;
+        }
+        if (this.p.getVisibility() != 0) {
+            this.p.setVisibility(0);
+            if (this.o.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f67159f.getPageActivity(), R.dimen.tbds24);
+                this.o.requestLayout();
+            }
+        }
+        this.p.setText(str);
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.square_forum_item_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.q, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0109);
         this.s.k();
-        SkinManager.setBackgroundColor(l(), R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(m(), R.color.CAM_X0205);
     }
 
     @Override // android.view.View.OnClickListener
@@ -115,14 +138,14 @@ public class c extends d.a.n0.z.b<d.a.n0.b3.f.b> {
             return;
         }
         if (this.m == view) {
-            w();
-            b0<T> b0Var = this.f63444i;
+            x();
+            b0<T> b0Var = this.f67162i;
             if (b0Var != 0) {
                 b0Var.a(view, this.v);
             }
         } else if (this.s == view) {
-            if (this.f63441f.getPageActivity() instanceof ForumSquareActivity) {
-                String f2 = ((ForumSquareActivity) this.f63441f.getPageActivity()).getDelegate().f();
+            if (this.f67159f.getPageActivity() instanceof ForumSquareActivity) {
+                String f2 = ((ForumSquareActivity) this.f67159f.getPageActivity()).getDelegate().f();
                 if (!"推荐".equals(f2)) {
                     statisticItem = new StatisticItem("c13653");
                     statisticItem.param(TiebaStatic.Params.RESOURCE_ID, f2);
@@ -131,39 +154,15 @@ public class c extends d.a.n0.z.b<d.a.n0.b3.f.b> {
                     statisticItem.param("obj_locate", 3);
                 }
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("fid", this.v.f52113e);
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, this.v.u() ? 2 : 1);
+                statisticItem.param("fid", this.v.f55802e);
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, this.v.q() ? 2 : 1);
                 TiebaStatic.log(statisticItem);
             }
-            if (this.v.u()) {
-                v();
+            if (this.v.q()) {
+                w();
             } else {
-                u();
+                v();
             }
-        }
-    }
-
-    public final void u() {
-        if (this.y) {
-            return;
-        }
-        if (!l.D()) {
-            UtilHelper.showToast(this.f63441f.getPageActivity(), this.f63441f.getString(R.string.neterror));
-            return;
-        }
-        d.a.n0.b3.f.b bVar = this.v;
-        if (bVar == null || StringUtils.isNull(bVar.m()) || this.v.l() <= 0 || !ViewHelper.checkUpIsLogin(this.f63441f.getPageActivity())) {
-            return;
-        }
-        if (this.w == null) {
-            LikeModel likeModel = new LikeModel(this.f63441f);
-            this.w = likeModel;
-            likeModel.setLoadDataCallBack(new a());
-        }
-        if (k.isForumName(this.v.m())) {
-            this.y = true;
-            this.w.E();
-            this.w.H(this.v.m(), String.valueOf(this.v.l()));
         }
     }
 
@@ -172,11 +171,35 @@ public class c extends d.a.n0.z.b<d.a.n0.b3.f.b> {
             return;
         }
         if (!l.D()) {
-            UtilHelper.showToast(this.f63441f.getPageActivity(), this.f63441f.getString(R.string.neterror));
+            UtilHelper.showToast(this.f67159f.getPageActivity(), this.f67159f.getString(R.string.neterror));
             return;
         }
         d.a.n0.b3.f.b bVar = this.v;
-        if (bVar == null || StringUtils.isNull(bVar.m()) || this.v.l() <= 0 || !ViewHelper.checkUpIsLogin(this.f63441f.getPageActivity())) {
+        if (bVar == null || StringUtils.isNull(bVar.i()) || this.v.g() <= 0 || !ViewHelper.checkUpIsLogin(this.f67159f.getPageActivity())) {
+            return;
+        }
+        if (this.w == null) {
+            LikeModel likeModel = new LikeModel(this.f67159f);
+            this.w = likeModel;
+            likeModel.setLoadDataCallBack(new a());
+        }
+        if (k.isForumName(this.v.i())) {
+            this.y = true;
+            this.w.I();
+            this.w.L(this.v.i(), String.valueOf(this.v.g()));
+        }
+    }
+
+    public final void w() {
+        if (this.y) {
+            return;
+        }
+        if (!l.D()) {
+            UtilHelper.showToast(this.f67159f.getPageActivity(), this.f67159f.getString(R.string.neterror));
+            return;
+        }
+        d.a.n0.b3.f.b bVar = this.v;
+        if (bVar == null || StringUtils.isNull(bVar.i()) || this.v.g() <= 0 || !ViewHelper.checkUpIsLogin(this.f67159f.getPageActivity())) {
             return;
         }
         if (this.x == null) {
@@ -185,24 +208,24 @@ public class c extends d.a.n0.z.b<d.a.n0.b3.f.b> {
             f0Var.b(new b());
         }
         this.y = true;
-        this.x.c(this.v.m(), this.v.l());
+        this.x.c(this.v.i(), this.v.g());
     }
 
-    public final void w() {
+    public final void x() {
         d.a.n0.b3.f.b bVar = this.v;
         if (bVar == null) {
             return;
         }
-        String m = bVar.m();
-        if (k.isForumName(m)) {
-            this.f63441f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f63441f.getPageActivity()).createNormalCfg(m, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
+        String i2 = bVar.i();
+        if (k.isForumName(i2)) {
+            this.f67159f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f67159f.getPageActivity()).createNormalCfg(i2, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: x */
-    public void m(d.a.n0.b3.f.b bVar) {
+    /* renamed from: y */
+    public void n(d.a.n0.b3.f.b bVar) {
         if (bVar == null) {
             return;
         }
@@ -212,22 +235,22 @@ public class c extends d.a.n0.z.b<d.a.n0.b3.f.b> {
         this.n.setShowInnerBorder(true);
         this.n.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         this.n.setStrokeColorResId(R.color.CAM_X0401);
-        this.n.V(bVar.h(), 10, false);
-        String m = bVar.m();
-        if (k.isEmpty(m)) {
-            m = "";
+        this.n.U(bVar.c(), 10, false);
+        String i2 = bVar.i();
+        if (k.isEmpty(i2)) {
+            i2 = "";
         }
-        this.o.setText(m);
-        this.q.setText(this.t + " " + StringHelper.numberUniformFormatExtra(bVar.p()));
-        this.r.setText(this.u + " " + StringHelper.numberUniformFormatExtra((long) bVar.t()));
-        z(bVar.s());
-        y(this.v.u());
+        this.o.setText(i2);
+        this.q.setText(this.t + " " + StringHelper.numberUniformFormatExtra(bVar.k()));
+        this.r.setText(this.u + " " + StringHelper.numberUniformFormatExtra((long) bVar.p()));
+        A(bVar.o());
+        z(this.v.q());
         this.m.setOnClickListener(this);
         this.s.setOnClickListener(this);
-        n(this.f63441f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f67159f, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void y(boolean z) {
+    public void z(boolean z) {
         if (!z) {
             d.a.m0.r.f0.m.b bVar = new d.a.m0.r.f0.m.b();
             bVar.q(R.color.CAM_X0302);
@@ -240,28 +263,5 @@ public class c extends d.a.n0.z.b<d.a.n0.b3.f.b> {
             this.s.setText(TbadkCoreApplication.getInst().getString(R.string.forum_isLiked));
         }
         this.v.w(z);
-    }
-
-    public final void z(String str) {
-        if (k.isEmpty(str)) {
-            if (this.p.getVisibility() != 8) {
-                this.p.setVisibility(8);
-                if (this.o.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f63441f.getPageActivity(), R.dimen.tbds47);
-                    this.o.requestLayout();
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        if (this.p.getVisibility() != 0) {
-            this.p.setVisibility(0);
-            if (this.o.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f63441f.getPageActivity(), R.dimen.tbds24);
-                this.o.requestLayout();
-            }
-        }
-        this.p.setText(str);
     }
 }

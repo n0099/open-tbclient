@@ -17,20 +17,20 @@ import java.util.Arrays;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f35432a;
+    public final File f39111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f35433b;
+    public final File f39112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35434c;
+    public String f39113c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35435d;
+    public int f39114d;
 
     public a(File file, File file2) {
-        this.f35432a = file;
-        this.f35433b = file2;
+        this.f39111a = file;
+        this.f39112b = file2;
     }
 
     public static boolean a(Context context, File file, File file2) {
@@ -87,18 +87,18 @@ public class a {
     public boolean a() {
         boolean z;
         try {
-            if (this.f35433b.exists() && this.f35432a.exists()) {
-                String[] split = StringUtil.readAll(this.f35433b).split("#####");
+            if (this.f39112b.exists() && this.f39111a.exists()) {
+                String[] split = StringUtil.readAll(this.f39112b).split("#####");
                 if (split.length == 2) {
                     String str = split[1];
                     int parseInteger = StringUtil.parseInteger(split[0], 0);
                     com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-                    File file = this.f35432a;
+                    File file = this.f39111a;
                     if (file != null && file.exists()) {
                         z = a2.b(str, Md5Util.encode(file));
                         if (z) {
-                            this.f35434c = str;
-                            this.f35435d = parseInteger;
+                            this.f39113c = str;
+                            this.f39114d = parseInteger;
                             return true;
                         }
                     }
@@ -118,14 +118,14 @@ public class a {
         if (file == null || file2 == null) {
             return false;
         }
-        return (file.equals(this.f35432a) || FileUtil.renameTo(this.f35432a, file)) && (file2.equals(this.f35433b) || FileUtil.renameTo(this.f35433b, file2));
+        return (file.equals(this.f39111a) || FileUtil.renameTo(this.f39111a, file)) && (file2.equals(this.f39112b) || FileUtil.renameTo(this.f39112b, file2));
     }
 
     public int b() {
-        return this.f35435d;
+        return this.f39114d;
     }
 
     public String c() {
-        return this.f35434c;
+        return this.f39113c;
     }
 }

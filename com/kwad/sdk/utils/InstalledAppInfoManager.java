@@ -17,10 +17,10 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class InstalledAppInfoManager {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class AppPackageInfo implements Serializable {
         public static final long serialVersionUID = -324393456884895874L;
         public String appName;
@@ -55,11 +55,8 @@ public class InstalledAppInfoManager {
 
     @NonNull
     public static JSONArray a(Context context) {
-        if (com.kwad.sdk.core.config.c.a(16L)) {
-            return new JSONArray();
-        }
         Map<String, AppPackageInfo> b2 = b(context);
-        b2.putAll(b(context, com.kwad.sdk.core.config.c.e()));
+        b2.putAll(b(context, com.kwad.sdk.core.config.c.n()));
         return a(b2);
     }
 

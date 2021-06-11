@@ -3,8 +3,8 @@ package d.a.n0.s1.f;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f60531a;
+    public int f64222a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60532b;
+    public String f64223b;
 }

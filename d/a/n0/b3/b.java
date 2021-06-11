@@ -24,7 +24,7 @@ import com.baidu.tieba.enterForum.view.ForumHeaderView;
 import com.baidu.tieba.square.adapter.LeftAdapter;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.d0.g;
 import d.a.m0.d0.h;
 import java.util.List;
@@ -32,31 +32,31 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f52081a;
+    public Context f55770a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f52082b;
+    public View f55771b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f52083c;
+    public RelativeLayout f55772c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ForumHeaderView f52084d;
+    public ForumHeaderView f55773d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f52085e;
+    public NavigationBar f55774e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f52086f;
+    public TextView f55775f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f52087g;
+    public View f55776g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.b3.k.b f52088h;
+    public d.a.n0.b3.k.b f55777h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f52089i;
+    public RelativeLayout f55778i;
     public g j;
     public h k;
     public NoDataView l;
@@ -81,39 +81,39 @@ public class b {
     }
 
     public b(Context context, TbPageContext tbPageContext) {
-        this.f52081a = context;
+        this.f55770a = context;
         this.n = tbPageContext;
-        this.f52082b = LayoutInflater.from(context).inflate(R.layout.forum_square_activity, (ViewGroup) null);
+        this.f55771b = LayoutInflater.from(context).inflate(R.layout.forum_square_activity, (ViewGroup) null);
         k();
         j();
     }
 
     public void A(String str) {
-        ForumHeaderView forumHeaderView = this.f52084d;
+        ForumHeaderView forumHeaderView = this.f55773d;
         if (forumHeaderView != null) {
             forumHeaderView.setSearchHint(str);
         }
     }
 
     public void B(String str) {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.x(str);
         }
     }
 
     public void C(boolean z) {
-        this.f52087g.setVisibility(z ? 0 : 8);
+        this.f55776g.setVisibility(z ? 0 : 8);
     }
 
     public void D() {
         g();
         h();
         i();
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.y(true);
-            this.f52088h.w(8);
+            this.f55777h.w(8);
         }
     }
 
@@ -141,12 +141,12 @@ public class b {
             return;
         }
         if (this.j == null) {
-            g gVar = new g(this.f52081a);
+            g gVar = new g(this.f55770a);
             this.j = gVar;
-            gVar.q(l.g(this.f52081a, R.dimen.ds250));
+            gVar.q(l.g(this.f55770a, R.dimen.ds250));
         }
         this.j.onChangeSkinType();
-        this.j.attachView(this.f52089i, z);
+        this.j.attachView(this.f55778i, z);
     }
 
     public void H(boolean z) {
@@ -154,11 +154,11 @@ public class b {
             return;
         }
         if (this.k == null) {
-            h hVar = new h(this.f52081a, this.m);
+            h hVar = new h(this.f55770a, this.m);
             this.k = hVar;
-            hVar.j(l.g(this.f52081a, R.dimen.ds250));
+            hVar.j(l.g(this.f55770a, R.dimen.ds250));
         }
-        this.k.attachView(this.f52089i, z);
+        this.k.attachView(this.f55778i, z);
         this.k.o();
     }
 
@@ -166,7 +166,7 @@ public class b {
         g();
         i();
         H(true);
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.s(8);
         }
@@ -176,23 +176,23 @@ public class b {
         g();
         h();
         i();
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.f();
-            this.f52088h.s(0);
+            this.f55777h.s(0);
         }
     }
 
     public void a(int i2) {
-        ForumHeaderView forumHeaderView = this.f52084d;
+        ForumHeaderView forumHeaderView = this.f55773d;
         if (forumHeaderView != null) {
             forumHeaderView.b();
         }
-        NavigationBar navigationBar = this.f52085e;
-        if (navigationBar != null && this.f52081a != null) {
+        NavigationBar navigationBar = this.f55774e;
+        if (navigationBar != null && this.f55770a != null) {
             navigationBar.onChangeSkinType(this.n, i2);
         }
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.m(i2);
         }
@@ -205,38 +205,38 @@ public class b {
             hVar.onChangeSkinType();
         }
         NoDataView noDataView = this.l;
-        if (noDataView != null && this.f52081a != null) {
+        if (noDataView != null && this.f55770a != null) {
             noDataView.setSubTitleTextColor(R.color.CAM_X0105);
             this.l.f(this.n, i2);
         }
-        SkinManager.setViewTextColor(this.f52086f, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundColor(this.f52082b, R.color.CAM_X0205);
-        SkinManager.setBackgroundColor(this.f52083c, R.color.CAM_X0207);
-        SkinManager.setBackgroundColor(this.f52085e, R.color.CAM_X0207, i2);
+        SkinManager.setViewTextColor(this.f55775f, R.color.CAM_X0105, 1);
+        SkinManager.setBackgroundColor(this.f55771b, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.f55772c, R.color.CAM_X0207);
+        SkinManager.setBackgroundColor(this.f55774e, R.color.CAM_X0207, i2);
     }
 
     public void b() {
-        this.f52085e.setVisibility(8);
-        this.f52084d.setVisibility(8);
-        this.f52083c.setVisibility(8);
-        ((LinearLayout.LayoutParams) this.f52089i.getLayoutParams()).bottomMargin = l.g(this.n.getPageActivity(), R.dimen.tbds22);
+        this.f55774e.setVisibility(8);
+        this.f55773d.setVisibility(8);
+        this.f55772c.setVisibility(8);
+        ((LinearLayout.LayoutParams) this.f55778i.getLayoutParams()).bottomMargin = l.g(this.n.getPageActivity(), R.dimen.tbds22);
     }
 
     public Pair<Integer, Integer> c() {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         return bVar != null ? bVar.c() : new Pair<>(0, 0);
     }
 
     public View d() {
-        return this.f52082b;
+        return this.f55771b;
     }
 
     public String e() {
-        return this.f52088h.d();
+        return this.f55777h.d();
     }
 
     public void f() {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.e();
         }
@@ -245,7 +245,7 @@ public class b {
     public void g() {
         g gVar = this.j;
         if (gVar != null) {
-            gVar.dettachView(this.f52089i);
+            gVar.dettachView(this.f55778i);
             this.j = null;
         }
     }
@@ -253,7 +253,7 @@ public class b {
     public void h() {
         h hVar = this.k;
         if (hVar != null) {
-            hVar.dettachView(this.f52089i);
+            hVar.dettachView(this.f55778i);
             this.k = null;
         }
     }
@@ -270,22 +270,22 @@ public class b {
     }
 
     public final void k() {
-        NavigationBar navigationBar = (NavigationBar) this.f52082b.findViewById(R.id.navigation_bar);
-        this.f52085e = navigationBar;
+        NavigationBar navigationBar = (NavigationBar) this.f55771b.findViewById(R.id.navigation_bar);
+        this.f55774e = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f52085e.setCenterTextTitle(this.f52081a.getString(R.string.forum_square));
-        View addCustomView = this.f52085e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
-        this.f52087g = addCustomView;
+        this.f55774e.setCenterTextTitle(this.f55770a.getString(R.string.forum_square));
+        View addCustomView = this.f55774e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
+        this.f55776g = addCustomView;
         TextView textView = (TextView) addCustomView.findViewById(R.id.right_textview);
-        this.f52086f = textView;
-        textView.setText(this.f52081a.getString(R.string.forum_square_create_bar));
-        this.f52083c = (RelativeLayout) this.f52082b.findViewById(R.id.forum_header_serch_container);
-        ForumHeaderView forumHeaderView = (ForumHeaderView) this.f52082b.findViewById(R.id.forum_header_serch_view);
-        this.f52084d = forumHeaderView;
+        this.f55775f = textView;
+        textView.setText(this.f55770a.getString(R.string.forum_square_create_bar));
+        this.f55772c = (RelativeLayout) this.f55771b.findViewById(R.id.forum_header_serch_container);
+        ForumHeaderView forumHeaderView = (ForumHeaderView) this.f55771b.findViewById(R.id.forum_header_serch_view);
+        this.f55773d = forumHeaderView;
         forumHeaderView.setFrom(1);
-        this.f52084d.setSearchHint(TbSingleton.getInstance().getHotSearch());
-        this.f52088h = new d.a.n0.b3.k.b(this.n, this.f52082b);
-        this.f52089i = (RelativeLayout) this.f52082b.findViewById(R.id.layout_container);
+        this.f55773d.setSearchHint(TbSingleton.getInstance().getHotSearch());
+        this.f55777h = new d.a.n0.b3.k.b(this.n, this.f55771b);
+        this.f55778i = (RelativeLayout) this.f55771b.findViewById(R.id.layout_container);
         a(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -306,70 +306,70 @@ public class b {
     }
 
     public void n() {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.j();
         }
     }
 
     public void o() {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.k();
         }
     }
 
     public void p() {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.l();
         }
     }
 
     public void q(int i2, int i3) {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.n(i2, i3);
         }
     }
 
     public void r(String str, List<String> list, boolean z) {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.o(str, list, z);
         }
     }
 
     public void s(List<n> list) {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.p(list);
         }
     }
 
     public void t(List<n> list, int i2) {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.q(list, i2);
         }
     }
 
     public void u() {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.r();
         }
     }
 
     public void v(View.OnClickListener onClickListener) {
-        TextView textView = this.f52086f;
+        TextView textView = this.f55775f;
         if (textView != null) {
             textView.setOnClickListener(onClickListener);
         }
     }
 
     public void w(LeftAdapter.b bVar) {
-        d.a.n0.b3.k.b bVar2 = this.f52088h;
+        d.a.n0.b3.k.b bVar2 = this.f55777h;
         if (bVar2 != null) {
             bVar2.t(bVar);
         }
@@ -380,14 +380,14 @@ public class b {
     }
 
     public void y(RecyclerView.OnScrollListener onScrollListener) {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.u(onScrollListener);
         }
     }
 
     public void z(BdListView.p pVar) {
-        d.a.n0.b3.k.b bVar = this.f52088h;
+        d.a.n0.b3.k.b bVar = this.f55777h;
         if (bVar != null) {
             bVar.v(pVar);
         }

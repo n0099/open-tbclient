@@ -32,7 +32,13 @@ public class c implements d.a.l0.f.i.m.b.b {
     @Override // d.a.l0.f.i.m.b.b
     public String getAppId() {
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
-        return i2 != null ? i2.f40749f : "";
+        return i2 != null ? i2.f44425f : "";
+    }
+
+    @Override // d.a.l0.f.i.m.b.b
+    public String getAppKey() {
+        d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
+        return i2 != null ? i2.D() : "";
     }
 
     @Override // d.a.l0.f.i.m.b.b
@@ -104,13 +110,7 @@ public class c implements d.a.l0.f.i.m.b.b {
     }
 
     @Override // d.a.l0.f.i.m.b.b
-    public String v() {
-        d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
-        return i2 != null ? i2.D() : "";
-    }
-
-    @Override // d.a.l0.f.i.m.b.b
-    public boolean w(View view) {
+    public boolean v(View view) {
         if (d.a.l0.a.g1.f.V().getActivity() != null) {
             return f0.q(d.a.l0.a.g1.f.V().getActivity(), view);
         }

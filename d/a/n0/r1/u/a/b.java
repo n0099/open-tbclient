@@ -9,9 +9,9 @@ public class b implements ThirdPartAliRechargeService {
     @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
     public String aliRecharge(Activity activity, String str, boolean z) {
         d.a.m0.d.a aVar = new d.a.m0.d.a();
-        aVar.f49259a = activity;
-        aVar.f49260b = str;
-        aVar.f49261c = z;
+        aVar.f52933a = activity;
+        aVar.f52934b = str;
+        aVar.f52935c = z;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, aVar);
         return runTask == null ? "" : (String) runTask.getData();
     }

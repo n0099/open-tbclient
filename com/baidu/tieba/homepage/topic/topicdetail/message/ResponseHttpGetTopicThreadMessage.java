@@ -4,8 +4,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.c.j.e.n;
-import d.a.n0.b1.j.a.c.c;
+import d.a.c.k.e.n;
+import d.a.n0.b1.k.a.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicThread.DataRes;
@@ -49,7 +49,7 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
             if (topicThread != null) {
                 c cVar = new c();
-                cVar.l(topicThread);
+                cVar.g(topicThread);
                 this.mDataList.add(cVar);
             }
         }

@@ -5,29 +5,29 @@ import java.util.List;
 public class b0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f53936a;
+    public String f57625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53937b;
+    public String f57626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53938c;
+    public String f57627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53939d;
+    public String f57628d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53940e;
+    public String f57629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c0 f53941f;
+    public c0 f57630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53942g;
+    public String f57631g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53943h;
+    public int f57632h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<String> f53944i;
+    public List<String> f57633i;
 }

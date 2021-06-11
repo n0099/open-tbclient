@@ -12,31 +12,31 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f41694a;
+    public JSONObject f45370a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41695b;
+    public final String f45371b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f41696c;
+    public boolean f45372c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f41697d;
+    public boolean f45373d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41698e = "";
+    public String f45374e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41699f = "";
+    public String f45375f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f41700g = "";
+    public String f45376g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f41701h = new ArrayList();
+    public List<String> f45377h = new ArrayList();
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<String> f41702i = new ArrayList();
+    public final List<String> f45378i = new ArrayList();
     public int j = -1;
     public String k = "";
     public String l = "";
@@ -52,37 +52,37 @@ public class f {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f41703a;
+        public String f45379a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41704b;
+        public String f45380b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f41705c;
+        public String f45381c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f41706d;
+        public String f45382d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f41707e;
+        public String f45383e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONArray f41708f;
+        public JSONArray f45384f;
     }
 
     public f(String str) {
-        this.f41695b = str;
+        this.f45371b = str;
     }
 
     public static f d(String str, JSONObject jSONObject) {
         f fVar = new f(str);
-        fVar.f41694a = jSONObject;
-        fVar.f41696c = jSONObject.optBoolean("permit", false);
-        fVar.f41697d = jSONObject.optBoolean("forbidden", true);
-        fVar.f41698e = jSONObject.optString("grade");
+        fVar.f45370a = jSONObject;
+        fVar.f45372c = jSONObject.optBoolean("permit", false);
+        fVar.f45373d = jSONObject.optBoolean("forbidden", true);
+        fVar.f45374e = jSONObject.optString("grade");
         fVar.k = jSONObject.optString("type", "");
-        fVar.f41699f = jSONObject.optString("name", "");
-        fVar.f41700g = jSONObject.optString("short_name", "");
+        fVar.f45375f = jSONObject.optString("name", "");
+        fVar.f45376g = jSONObject.optString("short_name", "");
         jSONObject.optString("description", "");
         fVar.j = jSONObject.optInt("tip_status", -1);
         fVar.l = jSONObject.optString("explain", "");
@@ -91,14 +91,14 @@ public class f {
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
-                fVar.f41702i.add(optJSONArray.optString(i2));
+                fVar.f45378i.add(optJSONArray.optString(i2));
             }
         }
         JSONArray optJSONArray2 = jSONObject.optJSONArray(Message.RULE);
         if (optJSONArray2 != null) {
             int length2 = optJSONArray2.length();
             for (int i3 = 0; i3 < length2; i3++) {
-                fVar.f41701h.add(optJSONArray2.optString(i3));
+                fVar.f45377h.add(optJSONArray2.optString(i3));
             }
         }
         fVar.o = jSONObject.optJSONObject("other");
@@ -140,14 +140,14 @@ public class f {
         }
         a aVar = new a();
         this.n = aVar;
-        aVar.f41703a = this.o.optString("detail_text");
-        this.n.f41705c = this.o.optString("detail_url");
-        this.n.f41704b = this.o.optString("text_color");
-        this.n.f41706d = this.o.optString("keyword");
-        this.n.f41707e = this.o.optString("key_color");
+        aVar.f45379a = this.o.optString("detail_text");
+        this.n.f45381c = this.o.optString("detail_url");
+        this.n.f45380b = this.o.optString("text_color");
+        this.n.f45382d = this.o.optString("keyword");
+        this.n.f45383e = this.o.optString("key_color");
         JSONObject optJSONObject = this.o.optJSONObject("developer_agreements");
         if (optJSONObject != null) {
-            this.n.f41708f = optJSONObject.optJSONArray("details");
+            this.n.f45384f = optJSONObject.optJSONArray("details");
         }
     }
 
@@ -156,6 +156,6 @@ public class f {
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.f41695b, Integer.valueOf(this.j));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.f45371b, Integer.valueOf(this.j));
     }
 }

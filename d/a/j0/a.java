@@ -8,17 +8,17 @@ import d.a.j0.l.k;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f40248a;
+    public static volatile a f43929a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40249b;
+    public static String f43930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40250c;
+    public static String f43931c;
 
     /* renamed from: d.a.j0.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0549a {
+    public interface InterfaceC0605a {
         void onFinish(String str);
     }
 
@@ -26,17 +26,17 @@ public class a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f40251e;
+        public final /* synthetic */ Context f43932e;
 
         public b(Context context) {
-            this.f40251e = context;
+            this.f43932e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                a.this.e(this.f40251e);
-                d.a.j0.e.c.i().d(this.f40251e);
+                a.this.e(this.f43932e);
+                d.a.j0.e.c.j().d(this.f43932e);
             } catch (Throwable th) {
                 d.a.j0.l.c.d(th);
             }
@@ -47,24 +47,24 @@ public class a {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f40253e;
+        public final /* synthetic */ Context f43934e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f40254f;
+        public final /* synthetic */ long f43935f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0549a f40255g;
+        public final /* synthetic */ InterfaceC0605a f43936g;
 
-        public c(a aVar, Context context, long j, InterfaceC0549a interfaceC0549a) {
-            this.f40253e = context;
-            this.f40254f = j;
-            this.f40255g = interfaceC0549a;
+        public c(a aVar, Context context, long j, InterfaceC0605a interfaceC0605a) {
+            this.f43934e = context;
+            this.f43935f = j;
+            this.f43936g = interfaceC0605a;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                d.a.j0.e.c.i().e(this.f40253e, 0, null, this.f40254f, this.f40255g);
+                d.a.j0.e.c.j().e(this.f43934e, 0, null, this.f43935f, this.f43936g);
             } catch (Throwable th) {
                 d.a.j0.l.c.d(th);
             }
@@ -75,24 +75,24 @@ public class a {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f40256e;
+        public final /* synthetic */ Context f43937e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f40257f;
+        public final /* synthetic */ long f43938f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0549a f40258g;
+        public final /* synthetic */ InterfaceC0605a f43939g;
 
-        public d(a aVar, Context context, long j, InterfaceC0549a interfaceC0549a) {
-            this.f40256e = context;
-            this.f40257f = j;
-            this.f40258g = interfaceC0549a;
+        public d(a aVar, Context context, long j, InterfaceC0605a interfaceC0605a) {
+            this.f43937e = context;
+            this.f43938f = j;
+            this.f43939g = interfaceC0605a;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                d.a.j0.e.c.i().f(this.f40256e, this.f40257f, this.f40258g);
+                d.a.j0.e.c.j().f(this.f43937e, this.f43938f, this.f43939g);
             } catch (Throwable th) {
                 d.a.j0.l.c.d(th);
             }
@@ -103,24 +103,24 @@ public class a {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f40259e;
+        public final /* synthetic */ Context f43940e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f40260f;
+        public final /* synthetic */ long f43941f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0549a f40261g;
+        public final /* synthetic */ InterfaceC0605a f43942g;
 
-        public e(a aVar, Context context, long j, InterfaceC0549a interfaceC0549a) {
-            this.f40259e = context;
-            this.f40260f = j;
-            this.f40261g = interfaceC0549a;
+        public e(a aVar, Context context, long j, InterfaceC0605a interfaceC0605a) {
+            this.f43940e = context;
+            this.f43941f = j;
+            this.f43942g = interfaceC0605a;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                d.a.j0.e.c.i().k(this.f40259e, this.f40260f, this.f40261g);
+                d.a.j0.e.c.j().l(this.f43940e, this.f43941f, this.f43942g);
             } catch (Throwable th) {
                 d.a.j0.l.c.d(th);
             }
@@ -128,18 +128,18 @@ public class a {
     }
 
     public static a c() {
-        if (f40248a == null) {
+        if (f43929a == null) {
             synchronized (a.class) {
-                if (f40248a == null) {
-                    f40248a = new a();
+                if (f43929a == null) {
+                    f43929a = new a();
                 }
             }
         }
-        return f40248a;
+        return f43929a;
     }
 
     public String b(Context context) {
-        int intValue = ((Integer) k.b(context).second).intValue();
+        int intValue = ((Integer) k.d(context).second).intValue();
         if (intValue == 1) {
             return OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE;
         }
@@ -154,8 +154,8 @@ public class a {
 
     public synchronized void d(Context context, String str, String str2) {
         try {
-            f40249b = str;
-            f40250c = str2;
+            f43930b = str;
+            f43931c = str2;
             d.a.j0.k.b.a().post(new b(context));
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
@@ -163,29 +163,29 @@ public class a {
     }
 
     public final void e(Context context) {
-        String i0 = d.a.j0.b.a.g(context).i0();
-        if (TextUtils.isEmpty(i0)) {
+        String l0 = d.a.j0.b.a.h(context).l0();
+        if (TextUtils.isEmpty(l0)) {
             return;
         }
-        String[] split = i0.split("_");
+        String[] split = l0.split("_");
         if (split.length != 2) {
-            d.a.j0.b.a.g(context).i();
+            d.a.j0.b.a.h(context).j();
         }
-        f40249b = split[0];
-        f40250c = split[1];
+        f43930b = split[0];
+        f43931c = split[1];
     }
 
-    public void f(Context context, long j, InterfaceC0549a interfaceC0549a) {
+    public void f(Context context, long j, InterfaceC0605a interfaceC0605a) {
         try {
-            d.a.j0.k.b.a().post(new d(this, context, j, interfaceC0549a));
+            d.a.j0.k.b.a().post(new d(this, context, j, interfaceC0605a));
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
         }
     }
 
-    public void g(Context context, long j, InterfaceC0549a interfaceC0549a) {
+    public void g(Context context, long j, InterfaceC0605a interfaceC0605a) {
         try {
-            d.a.j0.k.b.a().post(new c(this, context, j, interfaceC0549a));
+            d.a.j0.k.b.a().post(new c(this, context, j, interfaceC0605a));
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
         }
@@ -193,15 +193,15 @@ public class a {
 
     public void h(Context context, boolean z) {
         try {
-            d.a.j0.b.a.g(context).P(z);
+            d.a.j0.b.a.h(context).R(z);
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
         }
     }
 
-    public void i(Context context, long j, InterfaceC0549a interfaceC0549a) {
+    public void i(Context context, long j, InterfaceC0605a interfaceC0605a) {
         try {
-            d.a.j0.k.b.a().post(new e(this, context, j, interfaceC0549a));
+            d.a.j0.k.b.a().post(new e(this, context, j, interfaceC0605a));
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
         }

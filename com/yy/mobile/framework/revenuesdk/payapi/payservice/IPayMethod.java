@@ -1,14 +1,20 @@
 package com.yy.mobile.framework.revenuesdk.payapi.payservice;
 
 import android.app.Activity;
+import androidx.annotation.NonNull;
+import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.SkuDetailInfo;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface IPayMethod {
 
     /* loaded from: classes7.dex */
     public enum Status {
-        OK(0, "支付成功"),
+        OK(0, EventAlias.PayEventAlias.PAY_SUCCESS),
         NOT_SUPPORT(-101, "当前不支持该种支付方式"),
         ERROR(-102, "支付错误"),
         UNKNOWN(-103, "未知错误");
@@ -46,11 +52,33 @@ public interface IPayMethod {
         }
     }
 
+    void appHasReturnToForegroud();
+
+    void clearHangPayJob(Activity activity, int i2, IResult<PurchaseInfo> iResult);
+
+    boolean doHangJob(@NonNull PurchaseInfo purchaseInfo, IResult<String> iResult);
+
+    boolean hasHangPayJobs(Activity activity, IResult<List<PurchaseInfo>> iResult);
+
+    boolean hasHangSubscribeJobs(Activity activity, IResult<List<PurchaseInfo>> iResult);
+
     boolean isPayingStatus();
 
     boolean isSupported(Activity activity);
 
     void onWxPayResult(int i2, String str);
 
+    boolean queryHistoryPurchaseByProductId(String str, IResult<PurchaseInfo> iResult);
+
+    boolean queryHistoryPurchaseBySkuType(@NonNull Activity activity, String str, IResult<List<PurchaseInfo>> iResult);
+
+    boolean querySkuDetails(Activity activity, List<String> list, String str, IResult<List<SkuDetailInfo>> iResult);
+
+    void requestPay(Activity activity, long j, ProductInfo productInfo, String str, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+
     void requestPay(Activity activity, long j, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+
+    void requestSubscription(Activity activity, long j, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+
+    void updateSubscription(Activity activity, long j, String str, String str2, int i2, String str3, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
 }

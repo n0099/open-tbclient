@@ -10,16 +10,16 @@ import com.google.android.material.appbar.AppBarLayout;
 public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
 
     /* renamed from: a  reason: collision with root package name */
-    public AppBarLayout f2465a;
+    public AppBarLayout f2484a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AppBarLayout.OnOffsetChangedListener f2466b;
+    public AppBarLayout.OnOffsetChangedListener f2485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2467c;
+    public boolean f2486c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f2468d;
+    public boolean f2487d;
 
     /* loaded from: classes.dex */
     public class a implements AppBarLayout.OnOffsetChangedListener {
@@ -32,10 +32,10 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
                 return;
             }
             if (Math.abs(i2) < appBarLayout.getTotalScrollRange()) {
-                AppBarLayoutStickyBehavior.this.f2467c = false;
-            } else if (AppBarLayoutStickyBehavior.this.f2467c) {
+                AppBarLayoutStickyBehavior.this.f2486c = false;
+            } else if (AppBarLayoutStickyBehavior.this.f2486c) {
             } else {
-                AppBarLayoutStickyBehavior.this.f2467c = true;
+                AppBarLayoutStickyBehavior.this.f2486c = true;
                 appBarLayout.setActivated(false);
                 appBarLayout.setExpanded(false, false);
             }
@@ -43,8 +43,8 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     }
 
     public AppBarLayoutStickyBehavior() {
-        this.f2467c = false;
-        this.f2468d = false;
+        this.f2486c = false;
+        this.f2487d = false;
     }
 
     public void expandedAppBarLayout(AppBarLayout appBarLayout) {
@@ -52,53 +52,53 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     }
 
     public boolean isSticky() {
-        return this.f2467c;
+        return this.f2486c;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
         AppBarLayout.OnOffsetChangedListener onOffsetChangedListener;
         super.onAttachedToLayoutParams(layoutParams);
-        AppBarLayout appBarLayout = this.f2465a;
-        if (appBarLayout == null || (onOffsetChangedListener = this.f2466b) == null || this.f2468d) {
+        AppBarLayout appBarLayout = this.f2484a;
+        if (appBarLayout == null || (onOffsetChangedListener = this.f2485b) == null || this.f2487d) {
             return;
         }
         appBarLayout.addOnOffsetChangedListener(onOffsetChangedListener);
-        this.f2468d = true;
+        this.f2487d = true;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onDetachedFromLayoutParams() {
         AppBarLayout.OnOffsetChangedListener onOffsetChangedListener;
         super.onDetachedFromLayoutParams();
-        AppBarLayout appBarLayout = this.f2465a;
-        if (appBarLayout == null || (onOffsetChangedListener = this.f2466b) == null || !this.f2468d) {
+        AppBarLayout appBarLayout = this.f2484a;
+        if (appBarLayout == null || (onOffsetChangedListener = this.f2485b) == null || !this.f2487d) {
             return;
         }
         appBarLayout.removeOnOffsetChangedListener(onOffsetChangedListener);
-        this.f2468d = false;
+        this.f2487d = false;
     }
 
     public void expandedAppBarLayout(AppBarLayout appBarLayout, boolean z) {
         appBarLayout.setActivated(true);
         appBarLayout.setExpanded(true, z);
-        this.f2467c = false;
+        this.f2486c = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, com.google.android.material.appbar.ViewOffsetBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i2) {
         AppBarLayout.OnOffsetChangedListener onOffsetChangedListener;
-        if (this.f2465a == null) {
-            this.f2465a = appBarLayout;
+        if (this.f2484a == null) {
+            this.f2484a = appBarLayout;
         }
-        if (this.f2466b == null) {
-            this.f2466b = new a();
+        if (this.f2485b == null) {
+            this.f2485b = new a();
         }
-        AppBarLayout appBarLayout2 = this.f2465a;
-        if (appBarLayout2 != null && (onOffsetChangedListener = this.f2466b) != null && !this.f2468d) {
+        AppBarLayout appBarLayout2 = this.f2484a;
+        if (appBarLayout2 != null && (onOffsetChangedListener = this.f2485b) != null && !this.f2487d) {
             appBarLayout2.addOnOffsetChangedListener(onOffsetChangedListener);
-            this.f2468d = true;
+            this.f2487d = true;
         }
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i2);
     }
@@ -106,7 +106,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onNestedFling(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, float f2, float f3, boolean z) {
-        if (this.f2467c) {
+        if (this.f2486c) {
             return false;
         }
         return super.onNestedFling(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, f2, f3, z);
@@ -115,7 +115,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onNestedPreFling(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, float f2, float f3) {
-        if (this.f2467c) {
+        if (this.f2486c) {
             return false;
         }
         return super.onNestedPreFling(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, f2, f3);
@@ -124,7 +124,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i2, int i3, int[] iArr) {
-        if (this.f2467c) {
+        if (this.f2486c) {
             return;
         }
         super.onNestedPreScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, i2, i3, iArr);
@@ -133,7 +133,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i2, int i3, int i4, int i5) {
-        if (this.f2467c) {
+        if (this.f2486c) {
             return;
         }
         super.onNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, i2, i3, i4, i5);
@@ -142,7 +142,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, View view2, int i2) {
-        if (this.f2467c) {
+        if (this.f2486c) {
             return false;
         }
         return super.onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, view2, i2);
@@ -150,7 +150,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
 
     public AppBarLayoutStickyBehavior(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2467c = false;
-        this.f2468d = false;
+        this.f2486c = false;
+        this.f2487d = false;
     }
 }

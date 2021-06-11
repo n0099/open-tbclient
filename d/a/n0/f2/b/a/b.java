@@ -1,40 +1,41 @@
 package d.a.n0.f2.b.a;
 
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54815a;
+    public int f58504a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54816b;
+    public int f58505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f54817c;
+    public byte[] f58506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54818d;
+    public int f58507d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54819e;
+    public int f58508e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54820f;
+    public int f58509f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54821g;
+    public int f58510g;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f54823i;
+    public int f58512i;
     public int p;
     public int q;
     public int r;
     public int v;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54822h = 12;
+    public int f58511h = 12;
     public int j = 4096;
     public int[] k = new int[5003];
     public int[] l = new int[5003];
@@ -43,14 +44,14 @@ public class b {
     public boolean o = false;
     public int s = 0;
     public int t = 0;
-    public int[] u = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535};
+    public int[] u = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, RevenueServerConst.GetUserCouponStoreResponse, 4095, 8191, 16383, 32767, 65535};
     public byte[] w = new byte[256];
 
     public b(int i2, int i3, byte[] bArr, int i4) {
-        this.f54815a = i2;
-        this.f54816b = i3;
-        this.f54817c = bArr;
-        this.f54818d = Math.max(2, i4);
+        this.f58504a = i2;
+        this.f58505b = i3;
+        this.f58506c = bArr;
+        this.f58507d = Math.max(2, i4);
     }
 
     public final int a(int i2) {
@@ -87,8 +88,8 @@ public class b {
         this.p = i2;
         int i3 = 0;
         this.o = false;
-        this.f54821g = i2;
-        this.f54823i = a(i2);
+        this.f58510g = i2;
+        this.f58512i = a(i2);
         int i4 = 1 << (i2 - 1);
         this.q = i4;
         this.r = i4 + 1;
@@ -105,7 +106,7 @@ public class b {
         while (true) {
             int h3 = h();
             if (h3 != -1) {
-                int i8 = (h3 << this.f54822h) + h2;
+                int i8 = (h3 << this.f58511h) + h2;
                 int i9 = (h3 << i6) ^ h2;
                 int[] iArr2 = this.k;
                 if (iArr2[i9] == i8) {
@@ -149,10 +150,10 @@ public class b {
     }
 
     public void f(OutputStream outputStream) throws IOException {
-        outputStream.write(this.f54818d);
-        this.f54819e = this.f54815a * this.f54816b;
-        this.f54820f = 0;
-        e(this.f54818d + 1, outputStream);
+        outputStream.write(this.f58507d);
+        this.f58508e = this.f58504a * this.f58505b;
+        this.f58509f = 0;
+        e(this.f58507d + 1, outputStream);
         outputStream.write(0);
     }
 
@@ -166,14 +167,14 @@ public class b {
     }
 
     public final int h() {
-        int i2 = this.f54819e;
+        int i2 = this.f58508e;
         if (i2 == 0) {
             return -1;
         }
-        this.f54819e = i2 - 1;
-        byte[] bArr = this.f54817c;
-        int i3 = this.f54820f;
-        this.f54820f = i3 + 1;
+        this.f58508e = i2 - 1;
+        byte[] bArr = this.f58506c;
+        int i3 = this.f58509f;
+        this.f58509f = i3 + 1;
         return bArr[i3] & 255;
     }
 
@@ -188,25 +189,25 @@ public class b {
         } else {
             this.s = i2;
         }
-        this.t += this.f54821g;
+        this.t += this.f58510g;
         while (this.t >= 8) {
             b((byte) (this.s & 255), outputStream);
             this.s >>= 8;
             this.t -= 8;
         }
-        if (this.n > this.f54823i || this.o) {
+        if (this.n > this.f58512i || this.o) {
             if (this.o) {
                 int i6 = this.p;
-                this.f54821g = i6;
-                this.f54823i = a(i6);
+                this.f58510g = i6;
+                this.f58512i = a(i6);
                 this.o = false;
             } else {
-                int i7 = this.f54821g + 1;
-                this.f54821g = i7;
-                if (i7 == this.f54822h) {
-                    this.f54823i = this.j;
+                int i7 = this.f58510g + 1;
+                this.f58510g = i7;
+                if (i7 == this.f58511h) {
+                    this.f58512i = this.j;
                 } else {
-                    this.f54823i = a(i7);
+                    this.f58512i = a(i7);
                 }
             }
         }

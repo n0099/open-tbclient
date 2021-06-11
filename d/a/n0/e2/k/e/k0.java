@@ -32,21 +32,21 @@ public class k0 extends o<i0, PbPageNewsInfoHolder> {
         this.t = new a();
     }
 
-    @Override // d.a.n0.e2.k.e.o, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        i0(i2, view, viewGroup, (i0) obj, (PbPageNewsInfoHolder) viewHolder);
+    @Override // d.a.n0.e2.k.e.o, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        j0(i2, view, viewGroup, (i0) obj, (PbPageNewsInfoHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public PbPageNewsInfoHolder P(ViewGroup viewGroup) {
-        return new PbPageNewsInfoHolder(this.n.getPageContext(), LayoutInflater.from(this.f39228e).inflate(R.layout.pb_page_news, viewGroup, false), this.t);
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public PbPageNewsInfoHolder Q(ViewGroup viewGroup) {
+        return new PbPageNewsInfoHolder(this.n.getPageContext(), LayoutInflater.from(this.f42909e).inflate(R.layout.pb_page_news, viewGroup, false), this.t);
     }
 
-    public View i0(int i2, View view, ViewGroup viewGroup, i0 i0Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {
-        super.W(i2, view, viewGroup, i0Var, pbPageNewsInfoHolder);
+    public View j0(int i2, View view, ViewGroup viewGroup, i0 i0Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {
+        super.X(i2, view, viewGroup, i0Var, pbPageNewsInfoHolder);
         if (i0Var == null) {
             return view;
         }
@@ -57,7 +57,7 @@ public class k0 extends o<i0, PbPageNewsInfoHolder> {
         return view;
     }
 
-    public void s(d.a.n0.e2.h.e eVar) {
+    public void t(d.a.n0.e2.h.e eVar) {
         this.s = eVar;
     }
 }

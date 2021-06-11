@@ -6,72 +6,72 @@ import d.a.n0.f1.l.c.a;
 public class b implements d.a.m0.g0.b.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f54616e;
+    public boolean f58305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C1318a f54617f;
+    public a.C1374a f58306f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.f1.h.o.a f54618g;
+    public d.a.n0.f1.h.o.a f58307g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f54619h;
+    public long f58308h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f54620i;
+    public int f58309i;
 
-    public static b a(ChatMessage chatMessage, a.C1318a c1318a) {
+    public static b a(ChatMessage chatMessage, a.C1374a c1374a) {
         b bVar = new b();
         if (chatMessage == null) {
             return bVar;
         }
-        c1318a.f54614h /= 100;
-        bVar.p(chatMessage.getReadCountPv());
-        bVar.n(c1318a);
-        bVar.j(chatMessage.getTime());
+        c1374a.f58303h /= 100;
+        bVar.o(chatMessage.getReadCountPv());
+        bVar.m(c1374a);
+        bVar.i(chatMessage.getTime());
         if (chatMessage.getObjContent() instanceof d.a.n0.f1.h.o.a) {
-            bVar.m((d.a.n0.f1.h.o.a) chatMessage.getObjContent());
+            bVar.k((d.a.n0.f1.h.o.a) chatMessage.getObjContent());
         }
         return bVar;
     }
 
     public long b() {
-        return this.f54619h;
+        return this.f58308h;
     }
 
-    public d.a.n0.f1.h.o.a d() {
-        return this.f54618g;
+    public d.a.n0.f1.h.o.a c() {
+        return this.f58307g;
     }
 
-    public a.C1318a e() {
-        return this.f54617f;
+    public a.C1374a d() {
+        return this.f58306f;
     }
 
-    public int g() {
-        return this.f54620i;
+    public int f() {
+        return this.f58309i;
     }
 
-    public boolean h() {
-        return this.f54616e;
+    public boolean g() {
+        return this.f58305e;
     }
 
-    public void j(long j) {
-        this.f54619h = j;
+    public void i(long j) {
+        this.f58308h = j;
     }
 
-    public void l(boolean z) {
-        this.f54616e = z;
+    public void j(boolean z) {
+        this.f58305e = z;
     }
 
-    public void m(d.a.n0.f1.h.o.a aVar) {
-        this.f54618g = aVar;
+    public void k(d.a.n0.f1.h.o.a aVar) {
+        this.f58307g = aVar;
     }
 
-    public void n(a.C1318a c1318a) {
-        this.f54617f = c1318a;
+    public void m(a.C1374a c1374a) {
+        this.f58306f = c1374a;
     }
 
-    public void p(int i2) {
-        this.f54620i = i2;
+    public void o(int i2) {
+        this.f58309i = i2;
     }
 }

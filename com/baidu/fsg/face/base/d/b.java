@@ -5,14 +5,14 @@ import android.graphics.Rect;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f5544a;
+    public Rect f5587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f5545b;
+    public Rect f5588b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f5546c;
+    public int f5589c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f5547d;
+    public int f5590d;
 }

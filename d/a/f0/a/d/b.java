@@ -30,7 +30,7 @@ public class b extends d.a.f0.a.d.a {
         @Override // d.a.f0.a.e.a
         public void onLoadingComplete(String str, View view, Bitmap bitmap) {
             b bVar = b.this;
-            bVar.P(MaterialLoader.k(bVar.f39788a).l(str));
+            bVar.P(MaterialLoader.k(bVar.f43469a).l(str));
         }
 
         @Override // d.a.f0.a.e.a
@@ -40,8 +40,8 @@ public class b extends d.a.f0.a.d.a {
 
     /* renamed from: d.a.f0.a.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0531b implements d.a.f0.a.f.d {
-        public C0531b(b bVar) {
+    public class C0587b implements d.a.f0.a.f.d {
+        public C0587b(b bVar) {
         }
 
         @Override // d.a.f0.a.f.d
@@ -94,10 +94,10 @@ public class b extends d.a.f0.a.d.a {
             return;
         }
         try {
-            if (!this.f39796i.c(this.u, MaterialLoader.MaterialCacheType.VIDEO)) {
-                MaterialLoader.k(this.f39788a).f(this.u, new a());
+            if (!this.f43477i.c(this.u, MaterialLoader.MaterialCacheType.VIDEO)) {
+                MaterialLoader.k(this.f43469a).f(this.u, new a());
             } else {
-                P(this.f39796i.b(this.u, MaterialLoader.MaterialCacheType.VIDEO));
+                P(this.f43477i.b(this.u, MaterialLoader.MaterialCacheType.VIDEO));
             }
         } catch (Throwable unused) {
             D("gif渲染失败");
@@ -144,8 +144,8 @@ public class b extends d.a.f0.a.d.a {
 
     @Override // d.a.f0.a.d.a
     public void y() {
-        if (this.f39789b != 2) {
-            GifAnimView gifAnimView = new GifAnimView(this.f39788a, new C0531b(this));
+        if (this.f43470b != 2) {
+            GifAnimView gifAnimView = new GifAnimView(this.f43469a, new C0587b(this));
             this.O = gifAnimView;
             gifAnimView.setGifImage(this.N);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
@@ -160,7 +160,7 @@ public class b extends d.a.f0.a.d.a {
             super.y();
             return;
         }
-        this.f39793f.a("XGifAdContainer: ad state is stopped, so can not show ad");
+        this.f43474f.a("XGifAdContainer: ad state is stopped, so can not show ad");
     }
 
     @Override // d.a.f0.a.d.a

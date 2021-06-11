@@ -20,11 +20,11 @@ public class FrsSchoolRecommendAdapter extends k<q1, FrsSchoolRecommendViewHolde
     public class FrsSchoolRecommendViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public d f15143a;
+        public d f15200a;
 
         public FrsSchoolRecommendViewHolder(FrsSchoolRecommendAdapter frsSchoolRecommendAdapter, d dVar) {
-            super(dVar.l());
-            this.f15143a = dVar;
+            super(dVar.m());
+            this.f15200a = dVar;
         }
     }
 
@@ -33,40 +33,40 @@ public class FrsSchoolRecommendAdapter extends k<q1, FrsSchoolRecommendViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: s0 */
-    public FrsSchoolRecommendViewHolder P(ViewGroup viewGroup) {
-        this.w = new d(this.o, this.f39232i);
+    public FrsSchoolRecommendViewHolder Q(ViewGroup viewGroup) {
+        this.w = new d(this.o, this.f42913i);
         return new FrsSchoolRecommendViewHolder(this, this.w);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
     /* renamed from: t0 */
-    public View W(int i2, View view, ViewGroup viewGroup, q1 q1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
-        super.W(i2, view, viewGroup, q1Var, frsSchoolRecommendViewHolder);
-        this.w = frsSchoolRecommendViewHolder.f15143a;
-        ArrayList<r1> C4 = q1Var.C4();
-        if (C4.size() <= 0) {
+    public View X(int i2, View view, ViewGroup viewGroup, q1 q1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
+        super.X(i2, view, viewGroup, q1Var, frsSchoolRecommendViewHolder);
+        this.w = frsSchoolRecommendViewHolder.f15200a;
+        ArrayList<r1> D4 = q1Var.D4();
+        if (D4.size() <= 0) {
             return null;
         }
         y yVar = new y();
         yVar.showTopDivider = true;
-        yVar.mGroupTitle = q1Var.z1();
-        for (int i3 = 0; i3 != C4.size(); i3++) {
-            r1 r1Var = C4.get(i3);
+        yVar.mGroupTitle = q1Var.A1();
+        for (int i3 = 0; i3 != D4.size(); i3++) {
+            r1 r1Var = D4.get(i3);
             if (r1Var != null) {
                 a1 a1Var = new a1();
-                a1Var.f58366a.setUserId(r1Var.d());
-                a1Var.f58366a.setUserName(r1Var.e());
-                a1Var.f58366a.setPortrait(r1Var.c());
-                a1Var.f58366a.getGodUserData().setIsLike(r1Var.b() == 1);
-                a1Var.f58366a.getGodUserData().setIntro(r1Var.a());
-                yVar.h(a1Var);
+                a1Var.f62057a.setUserId(r1Var.d());
+                a1Var.f62057a.setUserName(r1Var.e());
+                a1Var.f62057a.setPortrait(r1Var.c());
+                a1Var.f62057a.getGodUserData().setIsLike(r1Var.b() == 1);
+                a1Var.f62057a.getGodUserData().setIntro(r1Var.a());
+                yVar.c(a1Var);
             }
         }
-        this.w.n(this.o, this.r);
-        frsSchoolRecommendViewHolder.f15143a.m(yVar);
+        this.w.o(this.o, this.r);
+        frsSchoolRecommendViewHolder.f15200a.n(yVar);
         return frsSchoolRecommendViewHolder.a();
     }
 }

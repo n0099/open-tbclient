@@ -26,32 +26,32 @@ public class a extends a0 {
 
     /* renamed from: d.a.l0.a.i1.f.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0714a implements d.a.l0.a.v2.e1.b<i<b.e>> {
+    public class C0770a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f42926e;
+        public final /* synthetic */ CallbackHandler f46602e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f42927f;
+        public final /* synthetic */ UnitedSchemeEntity f46603f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.f.b f42928g;
+        public final /* synthetic */ d.a.l0.a.i1.f.b f46604g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f42929h;
+        public final /* synthetic */ String f46605h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Context f42930i;
+        public final /* synthetic */ Context f46606i;
         public final /* synthetic */ d.a.l0.a.i1.f.a j;
         public final /* synthetic */ String k;
         public final /* synthetic */ e l;
 
-        public C0714a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, d.a.l0.a.i1.f.b bVar, String str, Context context, d.a.l0.a.i1.f.a aVar, String str2, e eVar) {
-            this.f42926e = callbackHandler;
-            this.f42927f = unitedSchemeEntity;
-            this.f42928g = bVar;
-            this.f42929h = str;
-            this.f42930i = context;
+        public C0770a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, d.a.l0.a.i1.f.b bVar, String str, Context context, d.a.l0.a.i1.f.a aVar, String str2, e eVar) {
+            this.f46602e = callbackHandler;
+            this.f46603f = unitedSchemeEntity;
+            this.f46604g = bVar;
+            this.f46605h = str;
+            this.f46606i = context;
             this.j = aVar;
             this.k = str2;
             this.l = eVar;
@@ -62,14 +62,14 @@ public class a extends a0 {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (!d.h(iVar)) {
-                d.o(iVar, this.f42926e, this.f42927f);
+                d.o(iVar, this.f46602e, this.f46603f);
                 int b2 = iVar == null ? 10001 : iVar.b();
-                a.this.o(this.f42928g, b2, d.f(b2));
-            } else if (d.a.l0.a.i1.f.e.a.k().q(this.f42929h)) {
-                a.this.o(this.f42928g, 2001, "error execute time");
+                a.this.o(this.f46604g, b2, d.f(b2));
+            } else if (d.a.l0.a.i1.f.e.a.k().q(this.f46605h)) {
+                a.this.o(this.f46604g, 2001, "error execute time");
                 d.a.l0.a.e0.d.b(BundleOpProvider.METHOD_BUNDLE_RECORD, "error execute time");
             } else {
-                a.this.r(this.f42930i, this.f42927f, this.f42926e, this.f42929h, this.j, this.f42928g, this.k, this.l.f40749f);
+                a.this.r(this.f46606i, this.f46603f, this.f46602e, this.f46605h, this.j, this.f46604g, this.k, this.l.f44425f);
             }
         }
     }
@@ -78,55 +78,55 @@ public class a extends a0 {
     public class b implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f42931a;
+        public final /* synthetic */ CallbackHandler f46607a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f42932b;
+        public final /* synthetic */ UnitedSchemeEntity f46608b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f42933c;
+        public final /* synthetic */ String f46609c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Context f42934d;
+        public final /* synthetic */ Context f46610d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.f.a f42935e;
+        public final /* synthetic */ d.a.l0.a.i1.f.a f46611e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.f.b f42936f;
+        public final /* synthetic */ d.a.l0.a.i1.f.b f46612f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f42937g;
+        public final /* synthetic */ String f46613g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f42938h;
+        public final /* synthetic */ String f46614h;
 
         public b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, Context context, d.a.l0.a.i1.f.a aVar, d.a.l0.a.i1.f.b bVar, String str2, String str3) {
-            this.f42931a = callbackHandler;
-            this.f42932b = unitedSchemeEntity;
-            this.f42933c = str;
-            this.f42934d = context;
-            this.f42935e = aVar;
-            this.f42936f = bVar;
-            this.f42937g = str2;
-            this.f42938h = str3;
+            this.f46607a = callbackHandler;
+            this.f46608b = unitedSchemeEntity;
+            this.f46609c = str;
+            this.f46610d = context;
+            this.f46611e = aVar;
+            this.f46612f = bVar;
+            this.f46613g = str2;
+            this.f46614h = str3;
         }
 
         @Override // d.a.l0.a.s1.f
         public void a(String str) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("AudioRecordAction", str + "");
             }
-            a.this.p(this.f42931a, this.f42932b, this.f42933c, this.f42934d, this.f42935e, this.f42936f, this.f42937g, this.f42938h);
+            a.this.p(this.f46607a, this.f46608b, this.f46609c, this.f46610d, this.f46611e, this.f46612f, this.f46613g, this.f46614h);
         }
 
         @Override // d.a.l0.a.s1.f
         public void b(int i2, String str) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("AudioRecordAction", str + "");
             }
             d.a.l0.a.e0.d.b(BundleOpProvider.METHOD_BUNDLE_RECORD, str);
-            a.this.o(this.f42936f, 10005, "system deny");
+            a.this.o(this.f46612f, 10005, "system deny");
         }
     }
 
@@ -136,7 +136,7 @@ public class a extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("AudioRecordAction", "handle entity: " + unitedSchemeEntity.toString());
             return false;
         }
@@ -145,19 +145,19 @@ public class a extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("AudioRecordAction", "handleSubAction subAction: " + str);
         }
         if (eVar == null) {
             d.a.l0.a.e0.d.b(BundleOpProvider.METHOD_BUNDLE_RECORD, "param is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("AudioRecordAction", "record --- illegal swanApp");
             }
             return false;
         }
         if (eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("AudioRecordAction", "AudioRecordAction does not supported when app is invisible.");
             }
             char c2 = 65535;
@@ -177,10 +177,10 @@ public class a extends a0 {
                 return false;
             }
         }
-        if (TextUtils.isEmpty(eVar.f40749f)) {
+        if (TextUtils.isEmpty(eVar.f44425f)) {
             d.a.l0.a.e0.d.b(BundleOpProvider.METHOD_BUNDLE_RECORD, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none swanApp id");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("AudioRecordAction", "record --- none swanApp id");
             }
             return false;
@@ -203,8 +203,8 @@ public class a extends a0 {
                 unitedSchemeEntity.result = c3;
                 return false;
             }
-            d.a.l0.a.i1.f.b a3 = d.a.l0.a.i1.f.b.a(callbackHandler, unitedSchemeEntity, a2.f42916g, d.a.l0.a.i1.f.e.a.k().i());
-            String x = d.a.l0.a.k2.b.x(eVar.f40749f);
+            d.a.l0.a.i1.f.b a3 = d.a.l0.a.i1.f.b.a(callbackHandler, unitedSchemeEntity, a2.f46592g, d.a.l0.a.i1.f.e.a.k().i());
+            String x = d.a.l0.a.k2.b.x(eVar.f44425f);
             if (TextUtils.isEmpty(x)) {
                 d.a.l0.a.e0.d.b(BundleOpProvider.METHOD_BUNDLE_RECORD, "none tmp path");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -214,8 +214,8 @@ public class a extends a0 {
                 d.a.l0.a.e0.d.b(BundleOpProvider.METHOD_BUNDLE_RECORD, "handle action, but context is not Activity");
                 return false;
             } else {
-                eVar.T().g(context, PermissionProxy.SCOPE_ID_RECORD, new C0714a(callbackHandler, unitedSchemeEntity, a3, str, context, a2, x, eVar));
-                if (a0.f40949b) {
+                eVar.T().g(context, PermissionProxy.SCOPE_ID_RECORD, new C0770a(callbackHandler, unitedSchemeEntity, a3, str, context, a2, x, eVar));
+                if (a0.f44625b) {
                     Log.d("AudioRecordAction", "subAction is : " + str);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -227,7 +227,7 @@ public class a extends a0 {
     }
 
     public final void o(d.a.l0.a.i1.f.b bVar, int i2, String str) {
-        if (bVar != null && !TextUtils.isEmpty(d.a.l0.a.i1.f.b.f42922h)) {
+        if (bVar != null && !TextUtils.isEmpty(d.a.l0.a.i1.f.b.f46598h)) {
             bVar.d(i2, str);
             return;
         }
@@ -299,7 +299,7 @@ public class a extends a0 {
             try {
                 return new JSONObject(str);
             } catch (JSONException e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("AudioRecordAction", Log.getStackTraceString(e2));
                 }
             }

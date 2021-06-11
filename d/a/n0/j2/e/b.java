@@ -7,19 +7,19 @@ public class b extends BaseCardInfo {
     public static final BdUniqueId p = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f56388e;
+    public boolean f60077e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56389f;
+    public int f60078f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56390g;
+    public boolean f60079g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f56391h;
+    public String f60080h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f56392i;
+    public String f60081i;
     public long j;
     public String k;
     public String l;
@@ -27,7 +27,7 @@ public class b extends BaseCardInfo {
     public int n;
     public int o;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         return p;
     }

@@ -17,7 +17,7 @@ import d.a.l0.a.k;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40946a = k.f43199a;
+    public static final boolean f44622a = k.f46875a;
 
     public static e a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         e eVar = new e();
@@ -96,7 +96,7 @@ public final class a {
         eVar.b(new d.a.l0.a.c2.f.j0.d(eVar));
         eVar.b(new d.a.l0.a.c2.f.j0.a(eVar));
         eVar.b(new r(eVar));
-        if (f40946a) {
+        if (f44622a) {
             eVar.b(new d.a.l0.a.c2.f.q0.a(eVar));
             eVar.b(new d.a.l0.a.e0.g.c(eVar));
         }

@@ -36,6 +36,6 @@ public class h implements d.a.l0.d.a {
 
     @Override // d.a.l0.d.a
     public boolean isDebug() {
-        return d.a.l0.a.k.f43199a;
+        return d.a.l0.a.k.f46875a;
     }
 }

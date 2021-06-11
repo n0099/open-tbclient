@@ -5,10 +5,10 @@ import d.a.l0.f.i.k.f.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f46714a;
+    public b f50388a;
 
     public b a() {
-        return this.f46714a;
+        return this.f50388a;
     }
 
     public int b() {

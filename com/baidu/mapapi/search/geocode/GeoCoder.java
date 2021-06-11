@@ -6,10 +6,10 @@ import com.baidu.mapapi.search.core.l;
 public class GeoCoder extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.core.b.d f7203a = new com.baidu.platform.core.b.a();
+    public com.baidu.platform.core.b.d f7246a = new com.baidu.platform.core.b.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7204b;
+    public boolean f7247b;
 
     public static GeoCoder newInstance() {
         BMapManager.init();
@@ -17,16 +17,16 @@ public class GeoCoder extends l {
     }
 
     public void destroy() {
-        if (this.f7204b) {
+        if (this.f7247b) {
             return;
         }
-        this.f7204b = true;
-        this.f7203a.a();
+        this.f7247b = true;
+        this.f7246a.a();
         BMapManager.destroy();
     }
 
     public boolean geocode(GeoCodeOption geoCodeOption) {
-        com.baidu.platform.core.b.d dVar = this.f7203a;
+        com.baidu.platform.core.b.d dVar = this.f7246a;
         if (dVar != null) {
             if (geoCodeOption == null || geoCodeOption.mAddress == null || geoCodeOption.mCity == null) {
                 throw new IllegalArgumentException("BDMapSDKException: option or address or city can not be null");
@@ -37,17 +37,17 @@ public class GeoCoder extends l {
     }
 
     public boolean reverseGeoCode(ReverseGeoCodeOption reverseGeoCodeOption) {
-        if (this.f7203a != null) {
+        if (this.f7246a != null) {
             if (reverseGeoCodeOption == null || reverseGeoCodeOption.getLocation() == null) {
                 throw new IllegalArgumentException("BDMapSDKException: option or mLocation can not be null");
             }
-            return this.f7203a.a(reverseGeoCodeOption);
+            return this.f7246a.a(reverseGeoCodeOption);
         }
         throw new IllegalStateException("BDMapSDKException: GeoCoder is null, please call newInstance() first.");
     }
 
     public void setOnGetGeoCodeResultListener(OnGetGeoCoderResultListener onGetGeoCoderResultListener) {
-        com.baidu.platform.core.b.d dVar = this.f7203a;
+        com.baidu.platform.core.b.d dVar = this.f7246a;
         if (dVar == null) {
             throw new IllegalStateException("BDMapSDKException: GeoCoder is null, please call newInstance() first.");
         }

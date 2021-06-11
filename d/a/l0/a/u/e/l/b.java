@@ -35,31 +35,31 @@ public class b extends d.a.l0.a.u.c.d {
     public class a extends d.a.l0.a.u.c.c {
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f45120d;
+        public final /* synthetic */ JSONObject f48794d;
 
         /* renamed from: d.a.l0.a.u.e.l.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0860a implements d.a.l0.a.v2.e1.b<i<JSONObject>> {
+        public class C0916a implements d.a.l0.a.v2.e1.b<i<JSONObject>> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.b f45122e;
+            public final /* synthetic */ c.b f48796e;
 
-            public C0860a(a aVar, c.b bVar) {
-                this.f45122e = bVar;
+            public C0916a(a aVar, c.b bVar) {
+                this.f48796e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.l0.a.v2.e1.b
             /* renamed from: a */
             public void onCallback(i<JSONObject> iVar) {
-                if (iVar.c() && iVar.f41736a != null) {
-                    this.f45122e.a(new d.a.l0.a.u.h.b(0, iVar.f41736a));
+                if (iVar.c() && iVar.f45412a != null) {
+                    this.f48796e.a(new d.a.l0.a.u.h.b(0, iVar.f45412a));
                     d.a.l0.a.a2.e r = d.a.l0.a.a2.d.g().r();
-                    r.T().B(h.a(r), iVar.f41736a.toString());
+                    r.T().B(h.a(r), iVar.f45412a.toString());
                     d.a.l0.a.e0.d.g("Api-Setting", "getSwanId success");
                     return;
                 }
-                this.f45122e.a(new d.a.l0.a.u.h.b(10001, "getSwanId failed: internal_error"));
+                this.f48796e.a(new d.a.l0.a.u.h.b(10001, "getSwanId failed: internal_error"));
                 d.a.l0.a.e0.d.b("Api-Setting", "getSwanId failed: internal_error");
             }
         }
@@ -67,20 +67,20 @@ public class b extends d.a.l0.a.u.c.d {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(String str, JSONObject jSONObject) {
             super(str);
-            this.f45120d = jSONObject;
+            this.f48794d = jSONObject;
         }
 
         @Override // d.a.l0.a.u.c.c
         @NonNull
         public d.a.l0.a.u.h.b d(@NonNull JSONObject jSONObject, @NonNull c.b bVar) {
-            if (d.a.l0.a.r1.l.b.j() && b.this.w(this.f45120d)) {
-                bVar.a(new d.a.l0.a.u.h.b(0, this.f45120d));
+            if (d.a.l0.a.r1.l.b.j() && b.this.w(this.f48794d)) {
+                bVar.a(new d.a.l0.a.u.h.b(0, this.f48794d));
                 return new d.a.l0.a.u.h.b(0);
             }
             d.a.l0.a.e0.d.g("Api-Setting", "getSwanId start");
             if (SwanAppNetworkUtils.i(b.this.i())) {
                 d.a.l0.a.e2.c.j.e e2 = d.a.l0.a.a2.d.g().y().a().b().e(b.this.i());
-                e2.p(new C0860a(this, bVar));
+                e2.p(new C0916a(this, bVar));
                 e2.a();
                 return new d.a.l0.a.u.h.b(0);
             }
@@ -91,13 +91,13 @@ public class b extends d.a.l0.a.u.c.d {
         @Override // d.a.l0.a.u.c.c
         @NonNull
         public d.a.l0.a.u.h.b e(@NonNull JSONObject jSONObject) {
-            return new d.a.l0.a.u.h.b(0, this.f45120d);
+            return new d.a.l0.a.u.h.b(0, this.f48794d);
         }
 
         @Override // d.a.l0.a.u.c.c
         public boolean i() {
             if (d.a.l0.a.r1.l.b.j()) {
-                return b.this.w(this.f45120d);
+                return b.this.w(this.f48794d);
             }
             return false;
         }
@@ -105,8 +105,8 @@ public class b extends d.a.l0.a.u.c.d {
 
     /* renamed from: d.a.l0.a.u.e.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0861b implements d.b {
-        public C0861b() {
+    public class C0917b implements d.b {
+        public C0917b() {
         }
 
         @Override // d.a.l0.a.u.c.d.b
@@ -123,14 +123,14 @@ public class b extends d.a.l0.a.u.c.d {
     public static class c implements d.a.l0.a.v2.e1.b<Map<String, d.a.l0.a.e2.c.f>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45124e;
+        public final /* synthetic */ CallbackHandler f48798e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45125f;
+        public final /* synthetic */ String f48799f;
 
         public c(CallbackHandler callbackHandler, String str) {
-            this.f45124e = callbackHandler;
-            this.f45125f = str;
+            this.f48798e = callbackHandler;
+            this.f48799f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -138,7 +138,7 @@ public class b extends d.a.l0.a.u.c.d {
         /* renamed from: a */
         public void onCallback(Map<String, d.a.l0.a.e2.c.f> map) {
             if (map == null) {
-                this.f45124e.handleSchemeDispatchCallback(this.f45125f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f48798e.handleSchemeDispatchCallback(this.f48799f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 return;
             }
             try {
@@ -146,13 +146,13 @@ public class b extends d.a.l0.a.u.c.d {
                 for (Map.Entry<String, d.a.l0.a.e2.c.f> entry : map.entrySet()) {
                     String key = entry.getKey();
                     d.a.l0.a.e2.c.f value = entry.getValue();
-                    if (!TextUtils.isEmpty(key) && value != null && value.b() && !value.f41697d && TextUtils.equals("2", value.f41698e)) {
+                    if (!TextUtils.isEmpty(key) && value != null && value.b() && !value.f45373d && TextUtils.equals("2", value.f45374e)) {
                         jSONObject.put(key, value.a() ? "1" : "0");
                     }
                 }
-                this.f45124e.handleSchemeDispatchCallback(this.f45125f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                this.f48798e.handleSchemeDispatchCallback(this.f48799f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             } catch (JSONException unused) {
-                this.f45124e.handleSchemeDispatchCallback(this.f45125f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f48798e.handleSchemeDispatchCallback(this.f48799f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }
@@ -161,14 +161,14 @@ public class b extends d.a.l0.a.u.c.d {
     public class d implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.d.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45126e;
+        public final /* synthetic */ String f48800e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45127f;
+        public final /* synthetic */ String f48801f;
 
         public d(String str, String str2) {
-            this.f45126e = str;
-            this.f45127f = str2;
+            this.f48800e = str;
+            this.f48801f = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,17 +178,17 @@ public class b extends d.a.l0.a.u.c.d {
             d.a.l0.a.u.h.b bVar;
             d.a.l0.a.e0.d.a("OpenData", "onOpenDataCallback:: ", aVar);
             if (aVar.F()) {
-                bVar = new d.a.l0.a.u.h.b(0, aVar.f41771g);
-                k.N(this.f45126e, "success");
+                bVar = new d.a.l0.a.u.h.b(0, aVar.f45447g);
+                k.N(this.f48800e, "success");
             } else {
                 int a2 = (int) aVar.j.a();
                 String f2 = d.a.l0.a.e2.c.d.f(a2);
                 d.a.l0.a.u.h.b bVar2 = new d.a.l0.a.u.h.b(a2, f2);
-                d.a.l0.a.c1.b.j().c(b.this.a().h(), bVar2.b());
-                k.O(this.f45126e, "fail", f2);
+                d.a.l0.a.c1.b.j().c(b.this.a().h(), bVar2.a());
+                k.O(this.f48800e, com.baidu.pass.biometrics.face.liveness.b.b.g0, f2);
                 bVar = bVar2;
             }
-            b.this.d(this.f45127f, bVar);
+            b.this.d(this.f48801f, bVar);
         }
     }
 
@@ -196,22 +196,22 @@ public class b extends d.a.l0.a.u.c.d {
     public class e implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45129e;
+        public final /* synthetic */ String f48803e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45130f;
+        public final /* synthetic */ String f48804f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45131g;
+        public final /* synthetic */ String f48805g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f45132h;
+        public final /* synthetic */ String f48806h;
 
         public e(String str, String str2, String str3, String str4) {
-            this.f45129e = str;
-            this.f45130f = str2;
-            this.f45131g = str3;
-            this.f45132h = str4;
+            this.f48803e = str;
+            this.f48804f = str2;
+            this.f48805g = str3;
+            this.f48806h = str4;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -219,14 +219,14 @@ public class b extends d.a.l0.a.u.c.d {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                if (d.a.l0.a.u.c.d.f44812c) {
+                if (d.a.l0.a.u.c.d.f48486c) {
                     d.a.l0.a.e0.d.h("Api-Setting", "onCallback: has permission scope_userinfo_api");
                 }
-                b.this.y(this.f45129e, this.f45130f, this.f45131g, this.f45132h);
+                b.this.y(this.f48803e, this.f48804f, this.f48805g, this.f48806h);
                 return;
             }
             d.a.l0.a.e0.d.h("Api-Setting", "onCallback: no permission scope_userinfo_api");
-            b.this.d(this.f45130f, new d.a.l0.a.u.h.b(402));
+            b.this.d(this.f48804f, new d.a.l0.a.u.h.b(402));
         }
     }
 
@@ -234,38 +234,38 @@ public class b extends d.a.l0.a.u.c.d {
     public class f implements d.a.l0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45134e;
+        public final /* synthetic */ String f48808e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45135f;
+        public final /* synthetic */ String f48809f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45136g;
+        public final /* synthetic */ String f48810g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Activity f45137h;
+        public final /* synthetic */ Activity f48811h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f45138i;
+        public final /* synthetic */ String f48812i;
 
         public f(String str, String str2, String str3, Activity activity, String str4) {
-            this.f45134e = str;
-            this.f45135f = str2;
-            this.f45136g = str3;
-            this.f45137h = activity;
-            this.f45138i = str4;
+            this.f48808e = str;
+            this.f48809f = str2;
+            this.f48810g = str3;
+            this.f48811h = activity;
+            this.f48812i = str4;
         }
 
         @Override // d.a.l0.a.m.a
         public void onResult(int i2) {
             if (i2 != 0) {
-                k.M("fail", 3, this.f45134e);
-                k.O(this.f45135f, "fail", "login failed");
-                b.this.d(this.f45136g, new d.a.l0.a.u.h.b(10004, "user not logged in"));
+                k.M(com.baidu.pass.biometrics.face.liveness.b.b.g0, 3, this.f48808e);
+                k.O(this.f48809f, com.baidu.pass.biometrics.face.liveness.b.b.g0, "login failed");
+                b.this.d(this.f48810g, new d.a.l0.a.u.h.b(10004, "user not logged in"));
                 return;
             }
-            k.M("success", 3, this.f45134e);
-            b.this.E(false, this.f45136g, this.f45137h, this.f45138i, "snsapi_userinfo", this.f45135f);
+            k.M("success", 3, this.f48808e);
+            b.this.E(false, this.f48810g, this.f48811h, this.f48812i, "snsapi_userinfo", this.f48809f);
         }
     }
 
@@ -273,40 +273,40 @@ public class b extends d.a.l0.a.u.c.d {
     public class g implements d.a.l0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45139e;
+        public final /* synthetic */ String f48813e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45140f;
+        public final /* synthetic */ String f48814f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45141g;
+        public final /* synthetic */ String f48815g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f45142h;
+        public final /* synthetic */ boolean f48816h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Activity f45143i;
+        public final /* synthetic */ Activity f48817i;
         public final /* synthetic */ String j;
 
         public g(String str, String str2, String str3, boolean z, Activity activity, String str4) {
-            this.f45139e = str;
-            this.f45140f = str2;
-            this.f45141g = str3;
-            this.f45142h = z;
-            this.f45143i = activity;
+            this.f48813e = str;
+            this.f48814f = str2;
+            this.f48815g = str3;
+            this.f48816h = z;
+            this.f48817i = activity;
             this.j = str4;
         }
 
         @Override // d.a.l0.a.m.a
         public void onResult(int i2) {
             if (i2 != 0) {
-                k.M("fail", 3, this.f45139e);
-                k.O(this.f45140f, "fail", "result code = " + i2);
-                b.this.d(this.f45141g, new d.a.l0.a.u.h.b(10004, "user not logged in"));
+                k.M(com.baidu.pass.biometrics.face.liveness.b.b.g0, 3, this.f48813e);
+                k.O(this.f48814f, com.baidu.pass.biometrics.face.liveness.b.b.g0, "result code = " + i2);
+                b.this.d(this.f48815g, new d.a.l0.a.u.h.b(10004, "user not logged in"));
                 return;
             }
-            k.M("success", 3, this.f45139e);
-            b.this.E(this.f45142h, this.f45141g, this.f45143i, this.j, "snsapi_userinfo", this.f45140f);
+            k.M("success", 3, this.f48813e);
+            b.this.E(this.f48816h, this.f48815g, this.f48817i, this.j, "snsapi_userinfo", this.f48814f);
         }
     }
 
@@ -385,7 +385,7 @@ public class b extends d.a.l0.a.u.c.d {
             SwanAppActivity activity = d.a.l0.a.g1.f.V().getActivity();
             String showBy = activity != null ? activity.getShowBy() : "sys";
             String str3 = TextUtils.isEmpty(showBy) ? "sys" : showBy;
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-Setting", "showBy: " + str3);
             }
             jSONObject.put("showBy", str3);
@@ -394,14 +394,14 @@ public class b extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b A(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Setting", "start request");
         }
-        return j(str, true, new C0861b());
+        return j(str, true, new C0917b());
     }
 
     public d.a.l0.a.u.h.b B() {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Setting", "start get slave id sync");
         }
         String containerId = a().g().getContainerId();
@@ -413,7 +413,7 @@ public class b extends d.a.l0.a.u.c.d {
             jSONObject.put("slaveId", containerId);
             return new d.a.l0.a.u.h.b(0, jSONObject);
         } catch (JSONException e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-Setting", Log.getStackTraceString(e2));
             }
             return new d.a.l0.a.u.h.b(1001);
@@ -426,7 +426,7 @@ public class b extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b D(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Setting", "start get user info");
         }
         d.a.l0.a.p.b.a.h j = d.a.l0.a.c1.b.j();
@@ -452,13 +452,13 @@ public class b extends d.a.l0.a.u.c.d {
             String optString = m.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 j.c(h2, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
-                k.O(str2, "fail", "empty cb");
+                k.O(str2, com.baidu.pass.biometrics.face.liveness.b.b.g0, "empty cb");
                 return new d.a.l0.a.u.h.b(201, "empty cb");
             }
             SwanAppActivity x = r.x();
             if (x == null) {
                 j.c(h2, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString());
-                k.O(str2, "fail", "the context is not an activity");
+                k.O(str2, com.baidu.pass.biometrics.face.liveness.b.b.g0, "the context is not an activity");
                 return new d.a.l0.a.u.h.b(1001, "the context is not an activity");
             }
             String optString2 = m.optString("invokeFrom");
@@ -535,7 +535,7 @@ public class b extends d.a.l0.a.u.c.d {
                 return new d.a.l0.a.u.h.b(1001);
             }
         }
-        if (d.a.l0.a.u.c.d.f44812c && d2 != null) {
+        if (d.a.l0.a.u.c.d.f48486c && d2 != null) {
             Log.d("Api-Setting", "data: " + d2.toString());
         }
         return new d.a.l0.a.u.h.b(0, d2);

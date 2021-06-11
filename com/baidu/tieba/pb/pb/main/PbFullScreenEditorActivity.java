@@ -50,6 +50,7 @@ import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import com.kwai.video.player.PlayerPostEvent;
 import d.a.c.e.p.l;
 import d.a.m0.w.m;
 import d.a.m0.w.n;
@@ -161,7 +162,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
     public class e extends GestureDetector.SimpleOnGestureListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int[] f19044e = new int[2];
+        public int[] f19121e = new int[2];
 
         public e() {
         }
@@ -176,9 +177,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         public boolean onSingleTapUp(MotionEvent motionEvent) {
             WholeDisplayGridView wholeDisplayGridView;
             if (motionEvent != null && (wholeDisplayGridView = PbFullScreenEditorActivity.this.mImgsGridView) != null) {
-                wholeDisplayGridView.getLocationInWindow(this.f19044e);
-                int x = ((int) motionEvent.getX()) - this.f19044e[0];
-                int y = ((int) motionEvent.getY()) - this.f19044e[1];
+                wholeDisplayGridView.getLocationInWindow(this.f19121e);
+                int x = ((int) motionEvent.getX()) - this.f19121e[0];
+                int y = ((int) motionEvent.getY()) - this.f19121e[1];
                 if (x >= 0 && x < wholeDisplayGridView.getWidth() && y >= 0 && y < wholeDisplayGridView.getHeight() && wholeDisplayGridView.pointToPosition(x, y) == -1) {
                     PbFullScreenEditorActivity.this.mEditorTools.q();
                     PbFullScreenEditorActivity.this.mEditorTools.y();
@@ -230,15 +231,15 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
     public class i implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19049e;
+        public final /* synthetic */ String f19126e;
 
         public i(String str) {
-            this.f19049e = str;
+            this.f19126e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbFullScreenEditorActivity.this.showToast(this.f19049e);
+            PbFullScreenEditorActivity.this.showToast(this.f19126e);
         }
     }
 
@@ -522,7 +523,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         if (aVar == null) {
             return;
         }
-        int i2 = aVar.f50841a;
+        int i2 = aVar.f54518a;
         if (i2 == 3) {
             d.a.n0.l0.b.a(this.mEditContent);
         } else if (i2 == 14) {
@@ -533,7 +534,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
             if (threadData != null && !TextUtils.isEmpty(threadData.getForumId())) {
                 albumFloatActivityConfig.getIntent().putExtra("forum_id", this.mThreadData.getForumId());
             }
-            albumFloatActivityConfig.setRequestCode(12002);
+            albumFloatActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
             if (d.a.m0.w.w.a.a().b() == 1) {
                 albumFloatActivityConfig.setRequestFrom(2);
             }
@@ -546,12 +547,12 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 deleteVoice();
                 return;
             }
-            Object obj = aVar.f50843c;
+            Object obj = aVar.f54520c;
             if (obj instanceof VoiceData$VoiceModel) {
                 addVoice((VoiceData$VoiceModel) obj);
             }
         } else {
-            Object obj2 = aVar.f50843c;
+            Object obj2 = aVar.f54520c;
             if (obj2 instanceof d.a.m0.s.c.v) {
                 d.a.m0.s.c.v vVar = (d.a.m0.s.c.v) obj2;
                 if (vVar.f() != EmotionGroupType.BIG_EMOTION && vVar.f() != EmotionGroupType.USER_COLLECT) {

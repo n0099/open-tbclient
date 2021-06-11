@@ -63,4 +63,16 @@ public class ProfileGuideConfigItem extends a<ProfileGuideConfig> {
         profileGuideConfig.parseJson(optJSONObject);
         a((ProfileGuideConfigItem) profileGuideConfig);
     }
+
+    public long d() {
+        return b().appearTime;
+    }
+
+    public int e() {
+        return b().showInterval;
+    }
+
+    public int f() {
+        return b().showCount;
+    }
 }

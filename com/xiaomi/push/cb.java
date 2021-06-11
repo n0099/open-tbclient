@@ -9,14 +9,14 @@ import java.util.List;
 public class cb extends cg.b<Long> {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f37379a;
+    public long f41058a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f169a;
 
     public cb(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i2, String str6) {
         super(str, list, str2, strArr, str3, str4, str5, i2);
-        this.f37379a = 0L;
+        this.f41058a = 0L;
         this.f169a = str6;
     }
 
@@ -35,7 +35,7 @@ public class cb extends cg.b<Long> {
 
     @Override // com.xiaomi.push.cg.b, com.xiaomi.push.cg.a
     public Object a() {
-        return Long.valueOf(this.f37379a);
+        return Long.valueOf(this.f41058a);
     }
 
     @Override // com.xiaomi.push.cg.b
@@ -43,6 +43,6 @@ public class cb extends cg.b<Long> {
         if (context == null || list == null || list.size() <= 0) {
             return;
         }
-        this.f37379a = list.get(0).longValue();
+        this.f41058a = list.get(0).longValue();
     }
 }

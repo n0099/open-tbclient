@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CircleCrop extends BitmapTransformation {
     public static final String ID = "com.bumptech.glide.load.resource.bitmap.CircleCrop.1";
     public static final byte[] ID_BYTES = ID.getBytes(Key.CHARSET);

@@ -19,16 +19,16 @@ import java.util.List;
 public class e0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public PbModel f53274a;
+    public PbModel f56963a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f53275b;
+    public b f56964b;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.a.c.c.g.a f53277d = new a(CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
+    public final d.a.c.c.g.a f56966d = new a(CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
 
     /* renamed from: c  reason: collision with root package name */
-    public final BdUniqueId f53276c = BdUniqueId.gen();
+    public final BdUniqueId f56965c = BdUniqueId.gen();
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
@@ -41,17 +41,17 @@ public class e0 {
             if (responsedMessage == null) {
                 return;
             }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == e0.this.f53276c) {
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == e0.this.f56965c) {
                 if (responsedMessage instanceof LookMoreHttpResMessage) {
                     LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
                     List<PostData> data = lookMoreHttpResMessage.getData();
                     String errorString = lookMoreHttpResMessage.getErrorString();
                     int error = lookMoreHttpResMessage.getError();
                     if (error != 0) {
-                        e0.this.f53275b.a(error, errorString, "");
+                        e0.this.f56964b.a(error, errorString, "");
                     } else if (ListUtils.isEmpty(data)) {
                     } else {
-                        e0.this.f53275b.onSuccess(data);
+                        e0.this.f56964b.onSuccess(data);
                     }
                 } else if (responsedMessage instanceof LookMoreSocketResMessage) {
                     LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
@@ -59,9 +59,9 @@ public class e0 {
                     String errorString2 = lookMoreSocketResMessage.getErrorString();
                     int error2 = lookMoreSocketResMessage.getError();
                     if (error2 != 0) {
-                        e0.this.f53275b.a(error2, errorString2, "");
+                        e0.this.f56964b.a(error2, errorString2, "");
                     } else if (data2 != null) {
-                        e0.this.f53275b.onSuccess(data2);
+                        e0.this.f56964b.onSuccess(data2);
                     }
                 }
             }
@@ -76,33 +76,33 @@ public class e0 {
     }
 
     public e0(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
-        this.f53274a = pbModel;
+        this.f56963a = pbModel;
         e();
-        this.f53277d.setTag(baseFragmentActivity.getUniqueId());
-        MessageManager.getInstance().registerListener(this.f53277d);
-        this.f53275b = null;
+        this.f56966d.setTag(baseFragmentActivity.getUniqueId());
+        MessageManager.getInstance().registerListener(this.f56966d);
+        this.f56964b = null;
     }
 
     public void c(List<Long> list) {
-        PbModel pbModel = this.f53274a;
-        if (pbModel == null || pbModel.y0() == null) {
+        PbModel pbModel = this.f56963a;
+        if (pbModel == null || pbModel.C0() == null) {
             return;
         }
         int k = d.a.c.e.p.l.k(TbadkCoreApplication.getInst());
         int i2 = d.a.c.e.p.l.i(TbadkCoreApplication.getInst());
         LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-        lookMoreReqMessage.setKz(Long.valueOf(d.a.c.e.m.b.f(this.f53274a.f19095e, 0L)));
+        lookMoreReqMessage.setKz(Long.valueOf(d.a.c.e.m.b.f(this.f56963a.f19172e, 0L)));
         lookMoreReqMessage.setPost_id(list);
-        lookMoreReqMessage.setSt_type(d.a.c.e.m.b.d(this.f53274a.mStType, 0));
+        lookMoreReqMessage.setSt_type(d.a.c.e.m.b.d(this.f56963a.mStType, 0));
         lookMoreReqMessage.setWith_floor(1);
         lookMoreReqMessage.setScr_w(k);
         lookMoreReqMessage.setScr_h(i2);
-        lookMoreReqMessage.setTag(this.f53276c);
+        lookMoreReqMessage.setTag(this.f56965c);
         MessageManager.getInstance().sendMessage(lookMoreReqMessage);
     }
 
     public void d() {
-        MessageManager.getInstance().unRegisterListener(this.f53277d);
+        MessageManager.getInstance().unRegisterListener(this.f56966d);
     }
 
     public final void e() {
@@ -113,6 +113,6 @@ public class e0 {
     }
 
     public void f(b bVar) {
-        this.f53275b = bVar;
+        this.f56964b = bVar;
     }
 }

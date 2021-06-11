@@ -20,19 +20,19 @@ public final class e extends n implements Runnable {
     public static final boolean y;
 
     /* renamed from: e  reason: collision with root package name */
-    public final m f48194e;
+    public final m f51868e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f48195f;
+    public d f51869f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f48196g;
+    public d f51870g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48197h;
+    public int f51871h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f48198i;
+    public int f51872i;
     public int j;
     public int k;
     public int l;
@@ -53,15 +53,15 @@ public final class e extends n implements Runnable {
     public class a implements o.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Fragment f48199a;
+        public final /* synthetic */ Fragment f51873a;
 
         public a(e eVar, Fragment fragment) {
-            this.f48199a = fragment;
+            this.f51873a = fragment;
         }
 
         @Override // d.a.l0.o.a.a.o.f
         public View getView() {
-            return this.f48199a.b0();
+            return this.f51873a.b0();
         }
     }
 
@@ -69,43 +69,43 @@ public final class e extends n implements Runnable {
     public class b implements ViewTreeObserver.OnPreDrawListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f48200e;
+        public final /* synthetic */ View f51874e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f48201f;
+        public final /* synthetic */ Object f51875f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f48202g;
+        public final /* synthetic */ ArrayList f51876g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ C1081e f48203h;
+        public final /* synthetic */ C1137e f51877h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ boolean f48204i;
+        public final /* synthetic */ boolean f51878i;
         public final /* synthetic */ Fragment j;
         public final /* synthetic */ Fragment k;
 
-        public b(View view, Object obj, ArrayList arrayList, C1081e c1081e, boolean z, Fragment fragment, Fragment fragment2) {
-            this.f48200e = view;
-            this.f48201f = obj;
-            this.f48202g = arrayList;
-            this.f48203h = c1081e;
-            this.f48204i = z;
+        public b(View view, Object obj, ArrayList arrayList, C1137e c1137e, boolean z, Fragment fragment, Fragment fragment2) {
+            this.f51874e = view;
+            this.f51875f = obj;
+            this.f51876g = arrayList;
+            this.f51877h = c1137e;
+            this.f51878i = z;
             this.j = fragment;
             this.k = fragment2;
         }
 
         @Override // android.view.ViewTreeObserver.OnPreDrawListener
         public boolean onPreDraw() {
-            this.f48200e.getViewTreeObserver().removeOnPreDrawListener(this);
-            Object obj = this.f48201f;
+            this.f51874e.getViewTreeObserver().removeOnPreDrawListener(this);
+            Object obj = this.f51875f;
             if (obj != null) {
-                o.s(obj, this.f48202g);
-                this.f48202g.clear();
-                d.a.l0.o.a.c.a H = e.this.H(this.f48203h, this.f48204i, this.j);
-                o.v(this.f48201f, this.f48203h.f48222d, H, this.f48202g);
-                e.this.O(H, this.f48203h);
-                e.this.s(this.f48203h, this.j, this.k, this.f48204i, H);
+                o.s(obj, this.f51876g);
+                this.f51876g.clear();
+                d.a.l0.o.a.c.a H = e.this.H(this.f51877h, this.f51878i, this.j);
+                o.v(this.f51875f, this.f51877h.f51896d, H, this.f51876g);
+                e.this.O(H, this.f51877h);
+                e.this.s(this.f51877h, this.j, this.k, this.f51878i, H);
                 return true;
             }
             return true;
@@ -116,28 +116,28 @@ public final class e extends n implements Runnable {
     public class c implements ViewTreeObserver.OnPreDrawListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f48205e;
+        public final /* synthetic */ View f51879e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ C1081e f48206f;
+        public final /* synthetic */ C1137e f51880f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48207g;
+        public final /* synthetic */ int f51881g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Object f48208h;
+        public final /* synthetic */ Object f51882h;
 
-        public c(View view, C1081e c1081e, int i2, Object obj) {
-            this.f48205e = view;
-            this.f48206f = c1081e;
-            this.f48207g = i2;
-            this.f48208h = obj;
+        public c(View view, C1137e c1137e, int i2, Object obj) {
+            this.f51879e = view;
+            this.f51880f = c1137e;
+            this.f51881g = i2;
+            this.f51882h = obj;
         }
 
         @Override // android.view.ViewTreeObserver.OnPreDrawListener
         public boolean onPreDraw() {
-            this.f48205e.getViewTreeObserver().removeOnPreDrawListener(this);
-            e.this.A(this.f48206f, this.f48207g, this.f48208h);
+            this.f51879e.getViewTreeObserver().removeOnPreDrawListener(this);
+            e.this.A(this.f51880f, this.f51881g, this.f51882h);
             return true;
         }
     }
@@ -146,50 +146,50 @@ public final class e extends n implements Runnable {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public d f48210a;
+        public d f51884a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d f48211b;
+        public d f51885b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f48212c;
+        public int f51886c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Fragment f48213d;
+        public Fragment f51887d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f48214e;
+        public int f51888e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f48215f;
+        public int f51889f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f48216g;
+        public int f51890g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f48217h;
+        public int f51891h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ArrayList<Fragment> f48218i;
+        public ArrayList<Fragment> f51892i;
     }
 
     /* renamed from: d.a.l0.o.a.a.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1081e {
+    public class C1137e {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.l0.o.a.c.a<String, String> f48219a = new d.a.l0.o.a.c.a<>();
+        public d.a.l0.o.a.c.a<String, String> f51893a = new d.a.l0.o.a.c.a<>();
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<View> f48220b = new ArrayList<>();
+        public ArrayList<View> f51894b = new ArrayList<>();
 
         /* renamed from: c  reason: collision with root package name */
-        public o.e f48221c = new o.e();
+        public o.e f51895c = new o.e();
 
         /* renamed from: d  reason: collision with root package name */
-        public View f48222d;
+        public View f51896d;
 
-        public C1081e(e eVar) {
+        public C1137e(e eVar) {
         }
     }
 
@@ -198,7 +198,7 @@ public final class e extends n implements Runnable {
     }
 
     public e(m mVar) {
-        this.f48194e = mVar;
+        this.f51868e = mVar;
     }
 
     public static Object C(Fragment fragment, boolean z) {
@@ -245,7 +245,7 @@ public final class e extends n implements Runnable {
 
     public static void P(SparseArray<Fragment> sparseArray, Fragment fragment) {
         int i2;
-        if (fragment == null || (i2 = fragment.B) == 0 || fragment.q0() || !fragment.n0() || fragment.b0() == null || sparseArray.get(i2) != null) {
+        if (fragment == null || (i2 = fragment.B) == 0 || fragment.p0() || !fragment.l0() || fragment.b0() == null || sparseArray.get(i2) != null) {
             return;
         }
         sparseArray.put(i2, fragment);
@@ -264,10 +264,10 @@ public final class e extends n implements Runnable {
         aVar.put(str, str2);
     }
 
-    public static void T(C1081e c1081e, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
+    public static void T(C1137e c1137e, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
         if (arrayList != null) {
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                R(c1081e.f48219a, arrayList.get(i2), arrayList2.get(i2));
+                R(c1137e.f51893a, arrayList.get(i2), arrayList2.get(i2));
             }
         }
     }
@@ -276,35 +276,35 @@ public final class e extends n implements Runnable {
         return obj != null ? o.g(obj, fragment.b0(), arrayList, aVar, view) : obj;
     }
 
-    public final void A(C1081e c1081e, int i2, Object obj) {
-        if (this.f48194e.f48236e != null) {
-            for (int i3 = 0; i3 < this.f48194e.f48236e.size(); i3++) {
-                Fragment fragment = this.f48194e.f48236e.get(i3);
+    public final void A(C1137e c1137e, int i2, Object obj) {
+        if (this.f51868e.f51910e != null) {
+            for (int i3 = 0; i3 < this.f51868e.f51910e.size(); i3++) {
+                Fragment fragment = this.f51868e.f51910e.get(i3);
                 View view = fragment.M;
                 if (view != null && fragment.L != null && fragment.B == i2) {
                     if (fragment.D) {
-                        if (!c1081e.f48220b.contains(view)) {
+                        if (!c1137e.f51894b.contains(view)) {
                             o.l(obj, fragment.M, true);
-                            c1081e.f48220b.add(fragment.M);
+                            c1137e.f51894b.add(fragment.M);
                         }
                     } else {
                         o.l(obj, view, false);
-                        c1081e.f48220b.remove(fragment.M);
+                        c1137e.f51894b.remove(fragment.M);
                     }
                 }
             }
         }
     }
 
-    public final void B(View view, C1081e c1081e, int i2, Object obj) {
-        view.getViewTreeObserver().addOnPreDrawListener(new c(view, c1081e, i2, obj));
+    public final void B(View view, C1137e c1137e, int i2, Object obj) {
+        view.getViewTreeObserver().addOnPreDrawListener(new c(view, c1137e, i2, obj));
     }
 
     public String E() {
         return this.p;
     }
 
-    public final d.a.l0.o.a.c.a<String, View> G(C1081e c1081e, Fragment fragment, boolean z) {
+    public final d.a.l0.o.a.c.a<String, View> G(C1137e c1137e, Fragment fragment, boolean z) {
         d.a.l0.o.a.c.a<String, View> aVar = new d.a.l0.o.a.c.a<>();
         View b0 = fragment.b0();
         if (b0 == null || this.w == null) {
@@ -318,26 +318,26 @@ public final class e extends n implements Runnable {
         return aVar;
     }
 
-    public final d.a.l0.o.a.c.a<String, View> H(C1081e c1081e, boolean z, Fragment fragment) {
-        d.a.l0.o.a.c.a<String, View> G = G(c1081e, fragment, z);
+    public final d.a.l0.o.a.c.a<String, View> H(C1137e c1137e, boolean z, Fragment fragment) {
+        d.a.l0.o.a.c.a<String, View> G = G(c1137e, fragment, z);
         if (z) {
             SharedElementCallback sharedElementCallback = fragment.c0;
             if (sharedElementCallback != null) {
                 sharedElementCallback.onMapSharedElements(this.x, G);
             }
-            M(c1081e, G, true);
+            M(c1137e, G, true);
         } else {
             SharedElementCallback sharedElementCallback2 = fragment.b0;
             if (sharedElementCallback2 != null) {
                 sharedElementCallback2.onMapSharedElements(this.x, G);
             }
-            S(c1081e, G, true);
+            S(c1137e, G, true);
         }
         return G;
     }
 
-    public C1081e I(boolean z, C1081e c1081e, SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
-        C1081e c1081e2 = null;
+    public C1137e I(boolean z, C1137e c1137e, SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
+        C1137e c1137e2 = null;
         if (m.x) {
             Log.v("FragmentManager", "popFromBackStack: " + this);
             d.a.l0.o.a.c.d dVar = new d.a.l0.o.a.c.d("FragmentManager");
@@ -347,90 +347,90 @@ public final class e extends n implements Runnable {
             u(dVar);
         }
         if (y) {
-            if (c1081e == null) {
+            if (c1137e == null) {
                 if (sparseArray.size() != 0 || sparseArray2.size() != 0) {
-                    c1081e = o(sparseArray, sparseArray2, true);
+                    c1137e = o(sparseArray, sparseArray2, true);
                 }
             } else if (!z) {
-                T(c1081e, this.x, this.w);
+                T(c1137e, this.x, this.w);
             }
         }
         p(-1);
-        int i2 = c1081e != null ? 0 : this.n;
-        int i3 = c1081e != null ? 0 : this.m;
-        for (d dVar2 = this.f48196g; dVar2 != null; dVar2 = dVar2.f48211b) {
-            int i4 = c1081e != null ? 0 : dVar2.f48216g;
-            int i5 = c1081e != null ? 0 : dVar2.f48217h;
-            switch (dVar2.f48212c) {
+        int i2 = c1137e != null ? 0 : this.n;
+        int i3 = c1137e != null ? 0 : this.m;
+        for (d dVar2 = this.f51870g; dVar2 != null; dVar2 = dVar2.f51885b) {
+            int i4 = c1137e != null ? 0 : dVar2.f51890g;
+            int i5 = c1137e != null ? 0 : dVar2.f51891h;
+            switch (dVar2.f51886c) {
                 case 1:
-                    Fragment fragment = dVar2.f48213d;
+                    Fragment fragment = dVar2.f51887d;
                     fragment.K = i5;
-                    this.f48194e.Z(fragment, m.d0(i3), i2);
+                    this.f51868e.Z(fragment, m.d0(i3), i2);
                     break;
                 case 2:
-                    Fragment fragment2 = dVar2.f48213d;
+                    Fragment fragment2 = dVar2.f51887d;
                     if (fragment2 != null) {
                         fragment2.K = i5;
-                        this.f48194e.Z(fragment2, m.d0(i3), i2);
+                        this.f51868e.Z(fragment2, m.d0(i3), i2);
                     }
-                    if (dVar2.f48218i != null) {
-                        for (int i6 = 0; i6 < dVar2.f48218i.size(); i6++) {
-                            Fragment fragment3 = dVar2.f48218i.get(i6);
+                    if (dVar2.f51892i != null) {
+                        for (int i6 = 0; i6 < dVar2.f51892i.size(); i6++) {
+                            Fragment fragment3 = dVar2.f51892i.get(i6);
                             fragment3.K = i4;
-                            this.f48194e.h(fragment3, false);
+                            this.f51868e.h(fragment3, false);
                         }
                         break;
                     } else {
                         break;
                     }
                 case 3:
-                    Fragment fragment4 = dVar2.f48213d;
+                    Fragment fragment4 = dVar2.f51887d;
                     fragment4.K = i4;
-                    this.f48194e.h(fragment4, false);
+                    this.f51868e.h(fragment4, false);
                     break;
                 case 4:
-                    Fragment fragment5 = dVar2.f48213d;
+                    Fragment fragment5 = dVar2.f51887d;
                     fragment5.K = i4;
-                    this.f48194e.k0(fragment5, m.d0(i3), i2);
+                    this.f51868e.k0(fragment5, m.d0(i3), i2);
                     break;
                 case 5:
-                    Fragment fragment6 = dVar2.f48213d;
+                    Fragment fragment6 = dVar2.f51887d;
                     fragment6.K = i5;
-                    this.f48194e.K(fragment6, m.d0(i3), i2);
+                    this.f51868e.K(fragment6, m.d0(i3), i2);
                     break;
                 case 6:
-                    Fragment fragment7 = dVar2.f48213d;
+                    Fragment fragment7 = dVar2.f51887d;
                     fragment7.K = i4;
-                    this.f48194e.k(fragment7, m.d0(i3), i2);
+                    this.f51868e.k(fragment7, m.d0(i3), i2);
                     break;
                 case 7:
-                    Fragment fragment8 = dVar2.f48213d;
+                    Fragment fragment8 = dVar2.f51887d;
                     fragment8.K = i4;
-                    this.f48194e.m(fragment8, m.d0(i3), i2);
+                    this.f51868e.m(fragment8, m.d0(i3), i2);
                     break;
                 default:
-                    throw new IllegalArgumentException("Unknown cmd: " + dVar2.f48212c);
+                    throw new IllegalArgumentException("Unknown cmd: " + dVar2.f51886c);
             }
         }
         if (z) {
-            m mVar = this.f48194e;
+            m mVar = this.f51868e;
             mVar.R(mVar.l, m.d0(i3), i2, true);
         } else {
-            c1081e2 = c1081e;
+            c1137e2 = c1137e;
         }
         int i7 = this.r;
         if (i7 >= 0) {
-            this.f48194e.H(i7);
+            this.f51868e.H(i7);
             this.r = -1;
         }
-        return c1081e2;
+        return c1137e2;
     }
 
-    public final void J(C1081e c1081e, View view, Object obj, Fragment fragment, Fragment fragment2, boolean z, ArrayList<View> arrayList) {
-        view.getViewTreeObserver().addOnPreDrawListener(new b(view, obj, arrayList, c1081e, z, fragment, fragment2));
+    public final void J(C1137e c1137e, View view, Object obj, Fragment fragment, Fragment fragment2, boolean z, ArrayList<View> arrayList) {
+        view.getViewTreeObserver().addOnPreDrawListener(new b(view, obj, arrayList, c1137e, z, fragment, fragment2));
     }
 
-    public final d.a.l0.o.a.c.a<String, View> L(C1081e c1081e, Fragment fragment, boolean z) {
+    public final d.a.l0.o.a.c.a<String, View> L(C1137e c1137e, Fragment fragment, boolean z) {
         d.a.l0.o.a.c.a<String, View> aVar = new d.a.l0.o.a.c.a<>();
         if (this.w != null) {
             o.m(aVar, fragment.b0());
@@ -445,18 +445,18 @@ public final class e extends n implements Runnable {
             if (sharedElementCallback != null) {
                 sharedElementCallback.onMapSharedElements(this.x, aVar);
             }
-            M(c1081e, aVar, false);
+            M(c1137e, aVar, false);
         } else {
             SharedElementCallback sharedElementCallback2 = fragment.c0;
             if (sharedElementCallback2 != null) {
                 sharedElementCallback2.onMapSharedElements(this.x, aVar);
             }
-            S(c1081e, aVar, false);
+            S(c1137e, aVar, false);
         }
         return aVar;
     }
 
-    public final void M(C1081e c1081e, d.a.l0.o.a.c.a<String, View> aVar, boolean z) {
+    public final void M(C1137e c1137e, d.a.l0.o.a.c.a<String, View> aVar, boolean z) {
         ArrayList<String> arrayList = this.x;
         int size = arrayList == null ? 0 : arrayList.size();
         for (int i2 = 0; i2 < size; i2++) {
@@ -465,28 +465,28 @@ public final class e extends n implements Runnable {
             if (view != null) {
                 String o = o.o(view);
                 if (z) {
-                    R(c1081e.f48219a, str, o);
+                    R(c1137e.f51893a, str, o);
                 } else {
-                    R(c1081e.f48219a, o, str);
+                    R(c1137e.f51893a, o, str);
                 }
             }
         }
     }
 
     public n N(int i2, int i3, int i4, int i5) {
-        this.f48198i = i2;
+        this.f51872i = i2;
         this.j = i3;
         this.k = i4;
         this.l = i5;
         return this;
     }
 
-    public final void O(d.a.l0.o.a.c.a<String, View> aVar, C1081e c1081e) {
+    public final void O(d.a.l0.o.a.c.a<String, View> aVar, C1137e c1137e) {
         View view;
         if (this.x == null || aVar.isEmpty() || (view = aVar.get(this.x.get(0))) == null) {
             return;
         }
-        c1081e.f48221c.f48265a = view;
+        c1137e.f51895c.f51939a = view;
     }
 
     public final void Q(SparseArray<Fragment> sparseArray, Fragment fragment) {
@@ -497,15 +497,15 @@ public final class e extends n implements Runnable {
         sparseArray.put(i2, fragment);
     }
 
-    public final void S(C1081e c1081e, d.a.l0.o.a.c.a<String, View> aVar, boolean z) {
+    public final void S(C1137e c1137e, d.a.l0.o.a.c.a<String, View> aVar, boolean z) {
         int size = aVar.size();
         for (int i2 = 0; i2 < size; i2++) {
             String h2 = aVar.h(i2);
             String o = o.o(aVar.k(i2));
             if (z) {
-                R(c1081e.f48219a, h2, o);
+                R(c1137e.f51893a, h2, o);
             } else {
-                R(c1081e.f48219a, o, h2);
+                R(c1137e.f51893a, o, h2);
             }
         }
     }
@@ -541,8 +541,8 @@ public final class e extends n implements Runnable {
     @Override // d.a.l0.o.a.a.n
     public n f(Fragment fragment) {
         d dVar = new d();
-        dVar.f48212c = 4;
-        dVar.f48213d = fragment;
+        dVar.f51886c = 4;
+        dVar.f51887d = fragment;
         n(dVar);
         return this;
     }
@@ -550,8 +550,8 @@ public final class e extends n implements Runnable {
     @Override // d.a.l0.o.a.a.n
     public n g(Fragment fragment) {
         d dVar = new d();
-        dVar.f48212c = 3;
-        dVar.f48213d = fragment;
+        dVar.f51886c = 3;
+        dVar.f51887d = fragment;
         n(dVar);
         return this;
     }
@@ -565,46 +565,46 @@ public final class e extends n implements Runnable {
     @Override // d.a.l0.o.a.a.n
     public n i(Fragment fragment) {
         d dVar = new d();
-        dVar.f48212c = 5;
-        dVar.f48213d = fragment;
+        dVar.f51886c = 5;
+        dVar.f51887d = fragment;
         n(dVar);
         return this;
     }
 
     public void n(d dVar) {
-        if (this.f48195f == null) {
-            this.f48196g = dVar;
-            this.f48195f = dVar;
+        if (this.f51869f == null) {
+            this.f51870g = dVar;
+            this.f51869f = dVar;
         } else {
-            d dVar2 = this.f48196g;
-            dVar.f48211b = dVar2;
-            dVar2.f48210a = dVar;
-            this.f48196g = dVar;
+            d dVar2 = this.f51870g;
+            dVar.f51885b = dVar2;
+            dVar2.f51884a = dVar;
+            this.f51870g = dVar;
         }
-        dVar.f48214e = this.f48198i;
-        dVar.f48215f = this.j;
-        dVar.f48216g = this.k;
-        dVar.f48217h = this.l;
-        this.f48197h++;
+        dVar.f51888e = this.f51872i;
+        dVar.f51889f = this.j;
+        dVar.f51890g = this.k;
+        dVar.f51891h = this.l;
+        this.f51871h++;
     }
 
-    public final C1081e o(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2, boolean z) {
-        C1081e c1081e = new C1081e(this);
-        c1081e.f48222d = new View(this.f48194e.m.h());
+    public final C1137e o(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2, boolean z) {
+        C1137e c1137e = new C1137e(this);
+        c1137e.f51896d = new View(this.f51868e.m.h());
         boolean z2 = false;
         for (int i2 = 0; i2 < sparseArray.size(); i2++) {
-            if (w(sparseArray.keyAt(i2), c1081e, z, sparseArray, sparseArray2)) {
+            if (w(sparseArray.keyAt(i2), c1137e, z, sparseArray, sparseArray2)) {
                 z2 = true;
             }
         }
         for (int i3 = 0; i3 < sparseArray2.size(); i3++) {
             int keyAt = sparseArray2.keyAt(i3);
-            if (sparseArray.get(keyAt) == null && w(keyAt, c1081e, z, sparseArray, sparseArray2)) {
+            if (sparseArray.get(keyAt) == null && w(keyAt, c1137e, z, sparseArray, sparseArray2)) {
                 z2 = true;
             }
         }
         if (z2) {
-            return c1081e;
+            return c1137e;
         }
         return null;
     }
@@ -614,18 +614,18 @@ public final class e extends n implements Runnable {
             if (m.x) {
                 Log.v("FragmentManager", "Bump nesting in " + this + " by " + i2);
             }
-            for (d dVar = this.f48195f; dVar != null; dVar = dVar.f48210a) {
-                Fragment fragment = dVar.f48213d;
+            for (d dVar = this.f51869f; dVar != null; dVar = dVar.f51884a) {
+                Fragment fragment = dVar.f51887d;
                 if (fragment != null) {
                     fragment.v += i2;
                     if (m.x) {
-                        Log.v("FragmentManager", "Bump nesting of " + dVar.f48213d + " to " + dVar.f48213d.v);
+                        Log.v("FragmentManager", "Bump nesting of " + dVar.f51887d + " to " + dVar.f51887d.v);
                     }
                 }
-                ArrayList<Fragment> arrayList = dVar.f48218i;
+                ArrayList<Fragment> arrayList = dVar.f51892i;
                 if (arrayList != null) {
                     for (int size = arrayList.size() - 1; size >= 0; size--) {
-                        Fragment fragment2 = dVar.f48218i.get(size);
+                        Fragment fragment2 = dVar.f51892i.get(size);
                         fragment2.v += i2;
                         if (m.x) {
                             Log.v("FragmentManager", "Bump nesting of " + fragment2 + " to " + fragment2.v);
@@ -637,35 +637,35 @@ public final class e extends n implements Runnable {
     }
 
     public void q(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
-        if (this.f48194e.n.b()) {
-            for (d dVar = this.f48195f; dVar != null; dVar = dVar.f48210a) {
-                switch (dVar.f48212c) {
+        if (this.f51868e.n.b()) {
+            for (d dVar = this.f51869f; dVar != null; dVar = dVar.f51884a) {
+                switch (dVar.f51886c) {
                     case 1:
-                        P(sparseArray, dVar.f48213d);
+                        P(sparseArray, dVar.f51887d);
                         break;
                     case 2:
-                        ArrayList<Fragment> arrayList = dVar.f48218i;
+                        ArrayList<Fragment> arrayList = dVar.f51892i;
                         if (arrayList != null) {
                             for (int size = arrayList.size() - 1; size >= 0; size--) {
-                                Q(sparseArray2, dVar.f48218i.get(size));
+                                Q(sparseArray2, dVar.f51892i.get(size));
                             }
                         }
-                        P(sparseArray, dVar.f48213d);
+                        P(sparseArray, dVar.f51887d);
                         break;
                     case 3:
-                        Q(sparseArray2, dVar.f48213d);
+                        Q(sparseArray2, dVar.f51887d);
                         break;
                     case 4:
-                        Q(sparseArray2, dVar.f48213d);
+                        Q(sparseArray2, dVar.f51887d);
                         break;
                     case 5:
-                        P(sparseArray, dVar.f48213d);
+                        P(sparseArray, dVar.f51887d);
                         break;
                     case 6:
-                        Q(sparseArray2, dVar.f48213d);
+                        Q(sparseArray2, dVar.f51887d);
                         break;
                     case 7:
-                        P(sparseArray, dVar.f48213d);
+                        P(sparseArray, dVar.f51887d);
                         break;
                 }
             }
@@ -673,17 +673,17 @@ public final class e extends n implements Runnable {
     }
 
     public final void r(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
-        if (this.f48194e.n.b()) {
-            for (d dVar = this.f48195f; dVar != null; dVar = dVar.f48210a) {
-                switch (dVar.f48212c) {
+        if (this.f51868e.n.b()) {
+            for (d dVar = this.f51869f; dVar != null; dVar = dVar.f51884a) {
+                switch (dVar.f51886c) {
                     case 1:
-                        Q(sparseArray2, dVar.f48213d);
+                        Q(sparseArray2, dVar.f51887d);
                         break;
                     case 2:
-                        Fragment fragment = dVar.f48213d;
-                        if (this.f48194e.f48236e != null) {
-                            for (int i2 = 0; i2 < this.f48194e.f48236e.size(); i2++) {
-                                Fragment fragment2 = this.f48194e.f48236e.get(i2);
+                        Fragment fragment = dVar.f51887d;
+                        if (this.f51868e.f51910e != null) {
+                            for (int i2 = 0; i2 < this.f51868e.f51910e.size(); i2++) {
+                                Fragment fragment2 = this.f51868e.f51910e.get(i2);
                                 if (fragment == null || fragment2.B == fragment.B) {
                                     if (fragment2 == fragment) {
                                         fragment = null;
@@ -696,19 +696,19 @@ public final class e extends n implements Runnable {
                         Q(sparseArray2, fragment);
                         break;
                     case 3:
-                        P(sparseArray, dVar.f48213d);
+                        P(sparseArray, dVar.f51887d);
                         break;
                     case 4:
-                        P(sparseArray, dVar.f48213d);
+                        P(sparseArray, dVar.f51887d);
                         break;
                     case 5:
-                        Q(sparseArray2, dVar.f48213d);
+                        Q(sparseArray2, dVar.f51887d);
                         break;
                     case 6:
-                        P(sparseArray, dVar.f48213d);
+                        P(sparseArray, dVar.f51887d);
                         break;
                     case 7:
-                        Q(sparseArray2, dVar.f48213d);
+                        Q(sparseArray2, dVar.f51887d);
                         break;
                 }
             }
@@ -717,7 +717,7 @@ public final class e extends n implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        C1081e c1081e;
+        C1137e c1137e;
         if (m.x) {
             Log.v("FragmentManager", "Run: " + this);
         }
@@ -729,39 +729,39 @@ public final class e extends n implements Runnable {
             SparseArray<Fragment> sparseArray = new SparseArray<>();
             SparseArray<Fragment> sparseArray2 = new SparseArray<>();
             r(sparseArray, sparseArray2);
-            c1081e = o(sparseArray, sparseArray2, false);
+            c1137e = o(sparseArray, sparseArray2, false);
         } else {
-            c1081e = null;
+            c1137e = null;
         }
-        int i2 = c1081e != null ? 0 : this.n;
-        int i3 = c1081e != null ? 0 : this.m;
-        for (d dVar = this.f48195f; dVar != null; dVar = dVar.f48210a) {
-            int i4 = c1081e != null ? 0 : dVar.f48214e;
-            int i5 = c1081e != null ? 0 : dVar.f48215f;
-            switch (dVar.f48212c) {
+        int i2 = c1137e != null ? 0 : this.n;
+        int i3 = c1137e != null ? 0 : this.m;
+        for (d dVar = this.f51869f; dVar != null; dVar = dVar.f51884a) {
+            int i4 = c1137e != null ? 0 : dVar.f51888e;
+            int i5 = c1137e != null ? 0 : dVar.f51889f;
+            switch (dVar.f51886c) {
                 case 1:
-                    Fragment fragment = dVar.f48213d;
+                    Fragment fragment = dVar.f51887d;
                     fragment.K = i4;
-                    this.f48194e.h(fragment, false);
+                    this.f51868e.h(fragment, false);
                     continue;
                 case 2:
-                    Fragment fragment2 = dVar.f48213d;
+                    Fragment fragment2 = dVar.f51887d;
                     int i6 = fragment2.B;
-                    if (this.f48194e.f48236e != null) {
-                        for (int i7 = 0; i7 < this.f48194e.f48236e.size(); i7++) {
-                            Fragment fragment3 = this.f48194e.f48236e.get(i7);
+                    if (this.f51868e.f51910e != null) {
+                        for (int i7 = 0; i7 < this.f51868e.f51910e.size(); i7++) {
+                            Fragment fragment3 = this.f51868e.f51910e.get(i7);
                             if (m.x) {
                                 Log.v("FragmentManager", "OP_REPLACE: adding=" + fragment2 + " old=" + fragment3);
                             }
                             if (fragment3.B == i6) {
                                 if (fragment3 == fragment2) {
-                                    dVar.f48213d = null;
+                                    dVar.f51887d = null;
                                     fragment2 = null;
                                 } else {
-                                    if (dVar.f48218i == null) {
-                                        dVar.f48218i = new ArrayList<>();
+                                    if (dVar.f51892i == null) {
+                                        dVar.f51892i = new ArrayList<>();
                                     }
-                                    dVar.f48218i.add(fragment3);
+                                    dVar.f51892i.add(fragment3);
                                     fragment3.K = i5;
                                     if (this.o) {
                                         fragment3.v++;
@@ -769,54 +769,54 @@ public final class e extends n implements Runnable {
                                             Log.v("FragmentManager", "Bump nesting of " + fragment3 + " to " + fragment3.v);
                                         }
                                     }
-                                    this.f48194e.Z(fragment3, i3, i2);
+                                    this.f51868e.Z(fragment3, i3, i2);
                                 }
                             }
                         }
                     }
                     if (fragment2 != null) {
                         fragment2.K = i4;
-                        this.f48194e.h(fragment2, false);
+                        this.f51868e.h(fragment2, false);
                         continue;
                     }
                     break;
                 case 3:
-                    Fragment fragment4 = dVar.f48213d;
+                    Fragment fragment4 = dVar.f51887d;
                     fragment4.K = i5;
-                    this.f48194e.Z(fragment4, i3, i2);
+                    this.f51868e.Z(fragment4, i3, i2);
                     break;
                 case 4:
-                    Fragment fragment5 = dVar.f48213d;
+                    Fragment fragment5 = dVar.f51887d;
                     fragment5.K = i5;
-                    this.f48194e.K(fragment5, i3, i2);
+                    this.f51868e.K(fragment5, i3, i2);
                     break;
                 case 5:
-                    Fragment fragment6 = dVar.f48213d;
+                    Fragment fragment6 = dVar.f51887d;
                     fragment6.K = i4;
-                    this.f48194e.k0(fragment6, i3, i2);
+                    this.f51868e.k0(fragment6, i3, i2);
                     break;
                 case 6:
-                    Fragment fragment7 = dVar.f48213d;
+                    Fragment fragment7 = dVar.f51887d;
                     fragment7.K = i5;
-                    this.f48194e.m(fragment7, i3, i2);
+                    this.f51868e.m(fragment7, i3, i2);
                     break;
                 case 7:
-                    Fragment fragment8 = dVar.f48213d;
+                    Fragment fragment8 = dVar.f51887d;
                     fragment8.K = i4;
-                    this.f48194e.k(fragment8, i3, i2);
+                    this.f51868e.k(fragment8, i3, i2);
                     break;
                 default:
-                    throw new IllegalArgumentException("Unknown cmd: " + dVar.f48212c);
+                    throw new IllegalArgumentException("Unknown cmd: " + dVar.f51886c);
             }
         }
-        m mVar = this.f48194e;
+        m mVar = this.f51868e;
         mVar.R(mVar.l, i3, i2, true);
         if (this.o) {
-            this.f48194e.g(this);
+            this.f51868e.g(this);
         }
     }
 
-    public final void s(C1081e c1081e, Fragment fragment, Fragment fragment2, boolean z, d.a.l0.o.a.c.a<String, View> aVar) {
+    public final void s(C1137e c1137e, Fragment fragment, Fragment fragment2, boolean z, d.a.l0.o.a.c.a<String, View> aVar) {
         SharedElementCallback sharedElementCallback = z ? fragment2.b0 : fragment.b0;
         if (sharedElementCallback != null) {
             sharedElementCallback.onSharedElementEnd(new ArrayList(aVar.keySet()), new ArrayList(aVar.values()), null);
@@ -861,24 +861,24 @@ public final class e extends n implements Runnable {
             }
             this.q = true;
             if (this.o) {
-                this.r = this.f48194e.i(this);
+                this.r = this.f51868e.i(this);
             } else {
                 this.r = -1;
             }
-            this.f48194e.D(this, z);
+            this.f51868e.D(this, z);
             return this.r;
         }
         throw new IllegalStateException("commit already called");
     }
 
-    public final boolean w(int i2, C1081e c1081e, boolean z, SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
+    public final boolean w(int i2, C1137e c1137e, boolean z, SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
         Object obj;
         Object obj2;
         d.a.l0.o.a.c.a<String, View> aVar;
         boolean z2;
         Object obj3;
         View view;
-        ViewGroup viewGroup = (ViewGroup) this.f48194e.n.a(i2);
+        ViewGroup viewGroup = (ViewGroup) this.f51868e.n.a(i2);
         if (viewGroup == null) {
             return false;
         }
@@ -890,7 +890,7 @@ public final class e extends n implements Runnable {
         ArrayList<View> arrayList = new ArrayList<>();
         Object obj4 = null;
         if (F != null) {
-            d.a.l0.o.a.c.a<String, View> L = L(c1081e, fragment2, z);
+            d.a.l0.o.a.c.a<String, View> L = L(c1137e, fragment2, z);
             if (L.isEmpty()) {
                 aVar = null;
                 obj = D;
@@ -902,7 +902,7 @@ public final class e extends n implements Runnable {
                 }
                 obj = D;
                 obj2 = C;
-                J(c1081e, viewGroup, F, fragment, fragment2, z, arrayList);
+                J(c1137e, viewGroup, F, fragment, fragment2, z, arrayList);
                 obj4 = F;
                 aVar = L;
             }
@@ -916,7 +916,7 @@ public final class e extends n implements Runnable {
             return false;
         }
         ArrayList arrayList2 = new ArrayList();
-        Object t = t(obj, fragment2, arrayList2, aVar, c1081e.f48222d);
+        Object t = t(obj, fragment2, arrayList2, aVar, c1137e.f51896d);
         ArrayList<String> arrayList3 = this.x;
         if (arrayList3 != null && aVar != null && (view = aVar.get(arrayList3.get(0))) != null) {
             if (t != null) {
@@ -939,12 +939,12 @@ public final class e extends n implements Runnable {
         Object r = o.r(obj2, t, obj4, z2);
         if (r != null) {
             obj3 = r;
-            o.d(obj2, obj4, viewGroup, aVar2, c1081e.f48222d, c1081e.f48221c, c1081e.f48219a, arrayList4, aVar, aVar3, arrayList);
-            B(viewGroup, c1081e, i2, obj3);
-            o.l(obj3, c1081e.f48222d, true);
-            A(c1081e, i2, obj3);
+            o.d(obj2, obj4, viewGroup, aVar2, c1137e.f51896d, c1137e.f51895c, c1137e.f51893a, arrayList4, aVar, aVar3, arrayList);
+            B(viewGroup, c1137e, i2, obj3);
+            o.l(obj3, c1137e.f51896d, true);
+            A(c1137e, i2, obj3);
             o.e(viewGroup, obj3);
-            o.i(viewGroup, c1081e.f48222d, obj2, arrayList4, t, arrayList2, obj4, arrayList, obj3, c1081e.f48220b, aVar3);
+            o.i(viewGroup, c1137e.f51896d, obj2, arrayList4, t, arrayList2, obj4, arrayList, obj3, c1137e.f51894b, aVar3);
         } else {
             obj3 = r;
         }
@@ -952,7 +952,7 @@ public final class e extends n implements Runnable {
     }
 
     public final void x(int i2, Fragment fragment, String str, int i3) {
-        fragment.w = this.f48194e;
+        fragment.w = this.f51868e;
         if (str != null) {
             String str2 = fragment.C;
             if (str2 != null && !str.equals(str2)) {
@@ -969,8 +969,8 @@ public final class e extends n implements Runnable {
             fragment.B = i2;
         }
         d dVar = new d();
-        dVar.f48212c = i3;
-        dVar.f48213d = fragment;
+        dVar.f51886c = i3;
+        dVar.f51887d = fragment;
         n(dVar);
     }
 
@@ -995,10 +995,10 @@ public final class e extends n implements Runnable {
                 printWriter.print(" mTransitionStyle=#");
                 printWriter.println(Integer.toHexString(this.n));
             }
-            if (this.f48198i != 0 || this.j != 0) {
+            if (this.f51872i != 0 || this.j != 0) {
                 printWriter.print(str);
                 printWriter.print("mEnterAnim=#");
-                printWriter.print(Integer.toHexString(this.f48198i));
+                printWriter.print(Integer.toHexString(this.f51872i));
                 printWriter.print(" mExitAnim=#");
                 printWriter.println(Integer.toHexString(this.j));
             }
@@ -1024,14 +1024,14 @@ public final class e extends n implements Runnable {
                 printWriter.println(this.v);
             }
         }
-        if (this.f48195f != null) {
+        if (this.f51869f != null) {
             printWriter.print(str);
             printWriter.println("Operations:");
             String str3 = str + "    ";
-            d dVar = this.f48195f;
+            d dVar = this.f51869f;
             int i2 = 0;
             while (dVar != null) {
-                switch (dVar.f48212c) {
+                switch (dVar.f51886c) {
                     case 0:
                         str2 = "NULL";
                         break;
@@ -1057,7 +1057,7 @@ public final class e extends n implements Runnable {
                         str2 = "ATTACH";
                         break;
                     default:
-                        str2 = "cmd=" + dVar.f48212c;
+                        str2 = "cmd=" + dVar.f51886c;
                         break;
                 }
                 printWriter.print(str);
@@ -1066,28 +1066,28 @@ public final class e extends n implements Runnable {
                 printWriter.print(": ");
                 printWriter.print(str2);
                 printWriter.print(" ");
-                printWriter.println(dVar.f48213d);
+                printWriter.println(dVar.f51887d);
                 if (z) {
-                    if (dVar.f48214e != 0 || dVar.f48215f != 0) {
+                    if (dVar.f51888e != 0 || dVar.f51889f != 0) {
                         printWriter.print(str);
                         printWriter.print("enterAnim=#");
-                        printWriter.print(Integer.toHexString(dVar.f48214e));
+                        printWriter.print(Integer.toHexString(dVar.f51888e));
                         printWriter.print(" exitAnim=#");
-                        printWriter.println(Integer.toHexString(dVar.f48215f));
+                        printWriter.println(Integer.toHexString(dVar.f51889f));
                     }
-                    if (dVar.f48216g != 0 || dVar.f48217h != 0) {
+                    if (dVar.f51890g != 0 || dVar.f51891h != 0) {
                         printWriter.print(str);
                         printWriter.print("popEnterAnim=#");
-                        printWriter.print(Integer.toHexString(dVar.f48216g));
+                        printWriter.print(Integer.toHexString(dVar.f51890g));
                         printWriter.print(" popExitAnim=#");
-                        printWriter.println(Integer.toHexString(dVar.f48217h));
+                        printWriter.println(Integer.toHexString(dVar.f51891h));
                     }
                 }
-                ArrayList<Fragment> arrayList = dVar.f48218i;
+                ArrayList<Fragment> arrayList = dVar.f51892i;
                 if (arrayList != null && arrayList.size() > 0) {
-                    for (int i3 = 0; i3 < dVar.f48218i.size(); i3++) {
+                    for (int i3 = 0; i3 < dVar.f51892i.size(); i3++) {
                         printWriter.print(str3);
-                        if (dVar.f48218i.size() == 1) {
+                        if (dVar.f51892i.size() == 1) {
                             printWriter.print("Removed: ");
                         } else {
                             if (i3 == 0) {
@@ -1098,10 +1098,10 @@ public final class e extends n implements Runnable {
                             printWriter.print(i3);
                             printWriter.print(": ");
                         }
-                        printWriter.println(dVar.f48218i.get(i3));
+                        printWriter.println(dVar.f51892i.get(i3));
                     }
                 }
-                dVar = dVar.f48210a;
+                dVar = dVar.f51884a;
                 i2++;
             }
         }

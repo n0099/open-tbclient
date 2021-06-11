@@ -35,21 +35,21 @@ import java.util.List;
 public class n0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45432a = d.a.l0.a.k.f43199a;
+    public static final boolean f49106a = d.a.l0.a.k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f45433b;
+    public static DisplayMetrics f49107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DisplayMetrics f45434c;
+    public static final DisplayMetrics f49108c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float f45435d;
+    public static final float f49109d;
 
     static {
         DisplayMetrics displayMetrics = d.a.l0.a.c1.a.b().getResources().getDisplayMetrics();
-        f45434c = displayMetrics;
-        f45435d = displayMetrics.density;
+        f49108c = displayMetrics;
+        f49109d = displayMetrics.density;
     }
 
     @UiThread
@@ -66,7 +66,7 @@ public class n0 {
     }
 
     public static void B(Context context) {
-        if (f45433b == null) {
+        if (f49107b == null) {
             Application b2 = d.a.l0.a.c1.a.b();
             if (b2 != null) {
                 context = b2;
@@ -74,7 +74,7 @@ public class n0 {
             if (context == null) {
                 return;
             }
-            f45433b = context.getResources().getDisplayMetrics();
+            f49107b = context.getResources().getDisplayMetrics();
         }
     }
 
@@ -103,7 +103,7 @@ public class n0 {
     }
 
     public static boolean E(@NonNull d.a.l0.a.a2.n.g gVar, Context context) {
-        return d.a.l0.a.w2.d.b.f45658i && (TextUtils.equals(gVar.j, SchedulerSupport.CUSTOM) || !f0.h(context));
+        return d.a.l0.a.w2.d.b.f49332i && (TextUtils.equals(gVar.j, SchedulerSupport.CUSTOM) || !f0.h(context));
     }
 
     public static boolean F() {
@@ -154,14 +154,14 @@ public class n0 {
     }
 
     public static void a(Activity activity) {
-        if (activity == null || !d.a.l0.a.w2.d.b.f45658i) {
+        if (activity == null || !d.a.l0.a.w2.d.b.f49332i) {
             return;
         }
         new d.a.l0.a.w2.d.b(activity).n(-1, false, true, true);
     }
 
     public static void b(Activity activity) {
-        if (activity == null || !d.a.l0.a.w2.d.b.f45658i) {
+        if (activity == null || !d.a.l0.a.w2.d.b.f49332i) {
             return;
         }
         new d.a.l0.a.w2.d.b(activity).n(-1, true, false, true);
@@ -204,7 +204,7 @@ public class n0 {
                         i5 += appContext.getResources().getDimensionPixelSize(d.a.l0.a.d.aiapps_bottom_tab_shadow_height);
                     } catch (Resources.NotFoundException e2) {
                         e = e2;
-                        if (f45432a) {
+                        if (f49106a) {
                             e.printStackTrace();
                         }
                         if (TextUtils.isEmpty(str)) {
@@ -217,14 +217,14 @@ public class n0 {
                         }
                         if (z2) {
                         }
-                        if (f45432a) {
+                        if (f49106a) {
                         }
                         return Math.max(r9, 0);
                     }
                 } catch (Resources.NotFoundException e3) {
                     e = e3;
                     i5 = 0;
-                    if (f45432a) {
+                    if (f49106a) {
                     }
                     if (TextUtils.isEmpty(str)) {
                     }
@@ -236,7 +236,7 @@ public class n0 {
                     }
                     if (z2) {
                     }
-                    if (f45432a) {
+                    if (f49106a) {
                     }
                     return Math.max(r9, 0);
                 }
@@ -244,7 +244,7 @@ public class n0 {
                 e = e4;
                 i4 = 0;
                 i5 = 0;
-                if (f45432a) {
+                if (f49106a) {
                 }
                 if (TextUtils.isEmpty(str)) {
                 }
@@ -256,7 +256,7 @@ public class n0 {
                 }
                 if (z2) {
                 }
-                if (f45432a) {
+                if (f49106a) {
                 }
                 return Math.max(r9, 0);
             }
@@ -272,7 +272,7 @@ public class n0 {
                 return i2;
             }
             b.a L = Q.L();
-            d.a.l0.a.a2.n.g d2 = d.a.l0.a.g1.f.V().d(b2, s, e.C0561e.i(L.H(), L.u1()).getPath() + File.separator);
+            d.a.l0.a.a2.n.g d2 = d.a.l0.a.g1.f.V().d(b2, s, e.C0617e.i(L.H(), L.u1()).getPath() + File.separator);
             if (d.a.l0.a.a2.n.g.f(d2)) {
                 z3 = true;
                 z4 = E(d2, appContext);
@@ -281,7 +281,7 @@ public class n0 {
                 z4 = false;
             }
             z = q0.E(b2);
-            z2 = d2.f40797f;
+            z2 = d2.f44473f;
         } else {
             z = false;
             z2 = false;
@@ -298,7 +298,7 @@ public class n0 {
         if (z2) {
             i6 -= (int) (h(50.0f) + 0.5f);
         }
-        if (f45432a) {
+        if (f49106a) {
             int e6 = f0.e(appContext);
             int c2 = g0.c();
             Log.d("SwanAppUIUtils", "screenHeight:" + i2 + ",notchHeight:" + e6 + ",navHeight:" + c2 + ",preGuessWebViewHeight:" + i6 + ",pageUrl:" + str + ",hasTab:" + z + ",bottomBarHeight:" + i5 + ",isTransparentBar:" + z3 + ",actionBarHeight:" + i4 + ",isOccupyStatusBar:" + z4 + ",statusBarHeight:" + i3 + ",canPullToRefresh:" + z2);
@@ -308,7 +308,7 @@ public class n0 {
 
     public static Pair<Integer, Integer> e(String str) {
         Pair<Integer, Integer> y;
-        long currentTimeMillis = f45432a ? System.currentTimeMillis() : 0L;
+        long currentTimeMillis = f49106a ? System.currentTimeMillis() : 0L;
         if (d.a.l0.a.a2.d.g().x() == null) {
             y = (Pair) d.a.l0.a.f1.c.b.c().b("screenSize");
             if (y == null) {
@@ -319,7 +319,7 @@ public class n0 {
         }
         int intValue = ((Integer) y.first).intValue();
         int d2 = d(((Integer) y.second).intValue(), str);
-        if (f45432a) {
+        if (f49106a) {
             Log.d("SwanAppUIUtils", "preGuessWebViewSize cost - " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
         }
         return new Pair<>(Integer.valueOf(intValue), Integer.valueOf(d2));
@@ -363,7 +363,7 @@ public class n0 {
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.a.l0.a.d.aiapps_bottom_tab_shadow_height);
             return dimensionPixelSize > 0 ? i2 + dimensionPixelSize : i2;
         } catch (Resources.NotFoundException e2) {
-            if (f45432a) {
+            if (f49106a) {
                 e2.printStackTrace();
                 return i2;
             }
@@ -373,7 +373,7 @@ public class n0 {
 
     public static float l(Context context) {
         B(d.a.l0.a.c1.a.b());
-        DisplayMetrics displayMetrics = f45433b;
+        DisplayMetrics displayMetrics = f49107b;
         if (displayMetrics != null) {
             return displayMetrics.density;
         }
@@ -382,7 +382,7 @@ public class n0 {
 
     public static int m(Context context) {
         B(d.a.l0.a.c1.a.b());
-        DisplayMetrics displayMetrics = f45433b;
+        DisplayMetrics displayMetrics = f49107b;
         if (displayMetrics != null) {
             return displayMetrics.densityDpi;
         }
@@ -391,7 +391,7 @@ public class n0 {
 
     public static int n(Context context) {
         B(d.a.l0.a.c1.a.b());
-        DisplayMetrics displayMetrics = f45433b;
+        DisplayMetrics displayMetrics = f49107b;
         if (displayMetrics != null) {
             return displayMetrics.heightPixels;
         }
@@ -400,7 +400,7 @@ public class n0 {
 
     public static int o(@Nullable Context context) {
         B(d.a.l0.a.c1.a.b());
-        DisplayMetrics displayMetrics = f45433b;
+        DisplayMetrics displayMetrics = f49107b;
         if (displayMetrics != null) {
             return displayMetrics.widthPixels;
         }
@@ -426,7 +426,7 @@ public class n0 {
                 }
                 findViewById.setDrawingCacheEnabled(false);
             } catch (NullPointerException | OutOfMemoryError e2) {
-                if (f45432a) {
+                if (f49106a) {
                     e2.printStackTrace();
                 }
             }
@@ -468,7 +468,7 @@ public class n0 {
             } catch (Exception unused) {
             }
         }
-        return i2 == 0 ? (int) (f45435d * 25.0f) : i2;
+        return i2 == 0 ? (int) (f49109d * 25.0f) : i2;
     }
 
     public static int v(Context context) {
@@ -483,7 +483,7 @@ public class n0 {
         try {
             i2 = context.getResources().getDimensionPixelSize(d.a.l0.a.d.aiapps_normal_base_action_bar_height);
         } catch (Resources.NotFoundException e2) {
-            if (f45432a) {
+            if (f49106a) {
                 e2.printStackTrace();
             }
             i2 = 0;

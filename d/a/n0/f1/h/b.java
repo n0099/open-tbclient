@@ -3,10 +3,10 @@ package d.a.n0.f1.h;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f54471a = new b();
+    public static b f58160a = new b();
 
     public static b a() {
-        return f54471a;
+        return f58160a;
     }
 
     public synchronized void b() {

@@ -11,38 +11,38 @@ import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class c<T extends BasicPushStatus> {
 
     /* renamed from: d  reason: collision with root package name */
-    public ScheduledExecutorService f35015d;
+    public ScheduledExecutorService f38694d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f35016e;
+    public Context f38695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35017f;
+    public String f38696f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35018g;
+    public String f38697g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35019h;
+    public String f38698h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile String f35020i;
+    public volatile String f38699i;
     public com.meizu.cloud.pushsdk.platform.a.a j;
     public boolean k = true;
     public boolean l = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35014a = null;
+    public String f38693a = null;
 
     public c(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
-        this.f35015d = scheduledExecutorService;
-        this.f35016e = context;
-        this.f35017f = str;
-        this.f35018g = str2;
+        this.f38694d = scheduledExecutorService;
+        this.f38695e = context;
+        this.f38696f = str;
+        this.f38697g = str2;
         this.j = aVar;
     }
 
@@ -56,7 +56,7 @@ public abstract class c<T extends BasicPushStatus> {
     }
 
     private boolean h() {
-        return this.l && !this.f35016e.getPackageName().equals(this.f35014a);
+        return this.l && !this.f38695e.getPackageName().equals(this.f38693a);
     }
 
     public String a(Context context, String str) {
@@ -72,26 +72,26 @@ public abstract class c<T extends BasicPushStatus> {
                     ResolveInfo next = it.next();
                     if ("com.meizu.cloud".equals(next.serviceInfo.packageName)) {
                         ServiceInfo serviceInfo = next.serviceInfo;
-                        this.f35014a = serviceInfo.packageName;
+                        this.f38693a = serviceInfo.packageName;
                         str2 = serviceInfo.name;
                         break;
                     }
                 }
                 if (TextUtils.isEmpty(str2) && queryIntentServices.size() > 0) {
-                    this.f35014a = queryIntentServices.get(0).serviceInfo.packageName;
+                    this.f38693a = queryIntentServices.get(0).serviceInfo.packageName;
                     str2 = queryIntentServices.get(0).serviceInfo.name;
                 }
             }
         }
-        d.j.a.a.a.d("Strategy", "current process packageName " + this.f35014a);
+        d.j.a.a.a.d("Strategy", "current process packageName " + this.f38693a);
         return str2;
     }
 
     public void a(Intent intent) {
         try {
-            intent.setPackage(this.f35014a);
+            intent.setPackage(this.f38693a);
             intent.setAction(PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION);
-            this.f35016e.startService(intent);
+            this.f38695e.startService(intent);
         } catch (Exception e2) {
             d.j.a.a.a.b("Strategy", "start RemoteService error " + e2.getMessage());
         }
@@ -108,17 +108,17 @@ public abstract class c<T extends BasicPushStatus> {
     public abstract T b();
 
     public void b(String str) {
-        this.f35017f = str;
+        this.f38696f = str;
     }
 
     public abstract Intent c();
 
     public void c(String str) {
-        this.f35018g = str;
+        this.f38697g = str;
     }
 
     public void d(String str) {
-        this.f35019h = str;
+        this.f38698h = str;
     }
 
     public Intent[] d() {
@@ -132,7 +132,7 @@ public abstract class c<T extends BasicPushStatus> {
     public abstract int g();
 
     public boolean k() {
-        return this.l && this.k && !TextUtils.isEmpty(a(this.f35016e, PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION));
+        return this.l && this.k && !TextUtils.isEmpty(a(this.f38695e, PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION));
     }
 
     public boolean l() {
@@ -140,7 +140,7 @@ public abstract class c<T extends BasicPushStatus> {
     }
 
     public boolean m() {
-        ScheduledExecutorService scheduledExecutorService = this.f35015d;
+        ScheduledExecutorService scheduledExecutorService = this.f38694d;
         if (scheduledExecutorService != null) {
             scheduledExecutorService.execute(new Runnable() { // from class: com.meizu.cloud.pushsdk.platform.b.c.1
                 @Override // java.lang.Runnable
@@ -184,7 +184,7 @@ public abstract class c<T extends BasicPushStatus> {
                         a(intent);
                     }
                 }
-                MzSystemUtils.sendMessageFromBroadcast(this.f35016e, new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"), null, this.f35016e.getPackageName());
+                MzSystemUtils.sendMessageFromBroadcast(this.f38695e, new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"), null, this.f38695e.getPackageName());
             } else {
                 t = e();
                 d.j.a.a.a.d("Strategy", "real response status " + t);
@@ -199,7 +199,7 @@ public abstract class c<T extends BasicPushStatus> {
                         if (TextUtils.isEmpty(code)) {
                             code = "0";
                         }
-                        if (BasicPushStatus.SUCCESS_CODE.equals(t.getCode())) {
+                        if ("200".equals(t.getCode())) {
                             a((c<T>) t);
                         }
                         int intValue = Integer.valueOf(code).intValue();
@@ -224,10 +224,10 @@ public abstract class c<T extends BasicPushStatus> {
     }
 
     public String o() {
-        if (TextUtils.isEmpty(this.f35020i)) {
-            this.f35020i = MzSystemUtils.getDeviceId(this.f35016e);
-            d.j.a.a.a.b("Strategy", "deviceId " + this.f35020i);
+        if (TextUtils.isEmpty(this.f38699i)) {
+            this.f38699i = MzSystemUtils.getDeviceId(this.f38695e);
+            d.j.a.a.a.b("Strategy", "deviceId " + this.f38699i);
         }
-        return this.f35020i;
+        return this.f38699i;
     }
 }

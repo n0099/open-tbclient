@@ -22,26 +22,26 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d extends d.a.j.b.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f40132f;
+    public Context f43813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f40133g;
+    public g f43814g;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class a implements Comparable<a> {
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String[] f40134f = {"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
+        public static final String[] f43815f = {"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f40135e;
+        public final int f43816e;
 
         public a(int i2) {
-            this.f40135e = i2;
+            this.f43816e = i2;
         }
 
         public static a b(byte b2, boolean z) {
@@ -60,36 +60,36 @@ public class d extends d.a.j.b.a {
         @Override // java.lang.Comparable
         /* renamed from: a */
         public int compareTo(a aVar) {
-            return this.f40135e - aVar.f40135e;
+            return this.f43816e - aVar.f43816e;
         }
 
         public String d() {
-            return f40134f[this.f40135e];
+            return f43815f[this.f43816e];
         }
 
         public byte e() {
-            return (byte) this.f40135e;
+            return (byte) this.f43816e;
         }
 
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            return obj != null && a.class == obj.getClass() && this.f40135e == ((a) obj).f40135e;
+            return obj != null && a.class == obj.getClass() && this.f43816e == ((a) obj).f43816e;
         }
 
         public int hashCode() {
-            return this.f40135e;
+            return this.f43816e;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<a, Integer> f40136a = new HashMap();
+        public Map<a, Integer> f43817a = new HashMap();
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         public class a implements Comparator<Map.Entry<a, Integer>> {
             public a(b bVar) {
             }
@@ -104,7 +104,7 @@ public class d extends d.a.j.b.a {
         }
 
         public List<a> a() {
-            ArrayList arrayList = new ArrayList(this.f40136a.entrySet());
+            ArrayList arrayList = new ArrayList(this.f43817a.entrySet());
             Collections.sort(arrayList, new a(this));
             ArrayList arrayList2 = new ArrayList(6);
             int min = Math.min(6, arrayList.size());
@@ -118,31 +118,31 @@ public class d extends d.a.j.b.a {
         }
 
         public void b(a aVar) {
-            Integer num = this.f40136a.get(aVar);
-            this.f40136a.put(aVar, num == null ? 1 : Integer.valueOf(num.intValue() + 1));
+            Integer num = this.f43817a.get(aVar);
+            this.f43817a.put(aVar, num == null ? 1 : Integer.valueOf(num.intValue() + 1));
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40137a;
+        public int f43818a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a[] f40138b;
+        public a[] f43819b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40139c;
+        public int f43820c;
 
         public c(d dVar) {
-            this.f40137a = 33;
-            this.f40138b = new a[33];
+            this.f43818a = 33;
+            this.f43819b = new a[33];
         }
 
         public c(d dVar, byte[] bArr) {
-            this.f40137a = 33;
-            this.f40138b = new a[33];
+            this.f43818a = 33;
+            this.f43819b = new a[33];
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
@@ -155,33 +155,33 @@ public class d extends d.a.j.b.a {
         }
 
         public int a() {
-            return this.f40139c;
+            return this.f43820c;
         }
 
         public a b(int i2) {
-            if (i2 < this.f40139c) {
-                return this.f40138b[i2];
+            if (i2 < this.f43820c) {
+                return this.f43819b[i2];
             }
-            throw new IndexOutOfBoundsException("idx " + i2 + " size " + this.f40139c);
+            throw new IndexOutOfBoundsException("idx " + i2 + " size " + this.f43820c);
         }
 
         public void c(a aVar) {
-            d(this.f40139c + 1);
-            a[] aVarArr = this.f40138b;
-            int i2 = this.f40139c;
-            this.f40139c = i2 + 1;
+            d(this.f43820c + 1);
+            a[] aVarArr = this.f43819b;
+            int i2 = this.f43820c;
+            this.f43820c = i2 + 1;
             aVarArr[i2] = aVar;
         }
 
         public final void d(int i2) {
-            a[] aVarArr = this.f40138b;
+            a[] aVarArr = this.f43819b;
             if (i2 - aVarArr.length > 0) {
                 int length = aVarArr.length;
                 int i3 = length + (length >> 1);
                 if (i3 - i2 >= 0) {
                     i2 = i3;
                 }
-                this.f40138b = (a[]) Arrays.copyOf(this.f40138b, i2);
+                this.f43819b = (a[]) Arrays.copyOf(this.f43819b, i2);
             }
         }
 
@@ -190,7 +190,7 @@ public class d extends d.a.j.b.a {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int i3 = 0;
             while (true) {
-                i2 = this.f40139c;
+                i2 = this.f43820c;
                 if (i3 >= i2 / 2) {
                     break;
                 }
@@ -206,72 +206,72 @@ public class d extends d.a.j.b.a {
     }
 
     /* renamed from: d.a.j.b.d$d  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0547d {
+    /* loaded from: classes2.dex */
+    public static class C0603d {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<b> f40140a = new ArrayList();
+        public List<b> f43821a = new ArrayList();
 
         /* renamed from: d.a.j.b.d$d$a */
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         public class a implements Comparator<b> {
-            public a(C0547d c0547d) {
+            public a(C0603d c0603d) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(b bVar, b bVar2) {
-                return bVar.f40141a - bVar2.f40141a;
+                return bVar.f43822a - bVar2.f43822a;
             }
         }
 
         /* renamed from: d.a.j.b.d$d$b */
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         public static class b {
 
             /* renamed from: a  reason: collision with root package name */
-            public int f40141a;
+            public int f43822a;
 
             /* renamed from: b  reason: collision with root package name */
-            public a f40142b;
+            public a f43823b;
 
             public b(a aVar) {
-                this.f40142b = aVar;
+                this.f43823b = aVar;
             }
 
             public void b() {
-                this.f40141a++;
+                this.f43822a++;
             }
         }
 
         public List<b> a() {
-            ArrayList arrayList = new ArrayList(this.f40140a);
+            ArrayList arrayList = new ArrayList(this.f43821a);
             Collections.sort(arrayList, new a(this));
             return arrayList;
         }
 
         public void b(a aVar) {
-            this.f40140a.add(new b(aVar));
+            this.f43821a.add(new b(aVar));
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f40143a;
+        public byte[] f43824a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte f40144b;
+        public byte f43825b;
 
         /* renamed from: c  reason: collision with root package name */
-        public byte[] f40145c;
+        public byte[] f43826c;
 
         public e(byte[] bArr, byte b2, byte[] bArr2) {
-            this.f40143a = bArr;
-            this.f40144b = b2;
-            this.f40145c = bArr2;
+            this.f43824a = bArr;
+            this.f43825b = b2;
+            this.f43826c = bArr2;
         }
 
         public static e a(l.a aVar) {
@@ -288,48 +288,48 @@ public class d extends d.a.j.b.a {
 
         public l.a b() {
             try {
-                return l.e(f.c.a(this.f40143a, "", true), new String(new byte[]{this.f40144b}, "UTF-8"), this.f40145c != null ? new String(this.f40145c, "UTF-8") : null);
+                return l.e(f.c.a(this.f43824a, "", true), new String(new byte[]{this.f43825b}, "UTF-8"), this.f43826c != null ? new String(this.f43826c, "UTF-8") : null);
             } catch (Exception unused) {
                 return null;
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40146a;
+        public int f43827a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40147b;
+        public int f43828b;
 
         public String toString() {
             return "";
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public Method f40148a;
+        public Method f43829a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f40149b;
+        public Method f43830b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f40150c;
+        public Method f43831c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Method f40151d;
+        public Method f43832d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Method f40152e;
+        public Method f43833e;
 
         public int a(Context context, Uri uri, int i2, int i3, int i4) {
             try {
-                return ((Integer) this.f40148a.invoke(context, uri, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))).intValue();
+                return ((Integer) this.f43829a.invoke(context, uri, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))).intValue();
             } catch (Exception e2) {
                 throw new i.a(e2);
             }
@@ -337,18 +337,18 @@ public class d extends d.a.j.b.a {
 
         public void b() {
             try {
-                this.f40148a = i.b(Context.class, i.a(d.a.j.a.c.d()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
-                this.f40149b = i.b(Context.class, i.a(d.a.j.a.c.e()), new Class[]{String.class, Uri.class, Integer.TYPE});
-                this.f40150c = i.b(ContentResolver.class, i.a(d.a.j.a.c.f()), new Class[]{Uri.class, Integer.TYPE});
-                this.f40151d = i.b(Context.class, i.a(d.a.j.a.c.g()), new Class[]{Uri.class, Integer.TYPE});
-                this.f40152e = i.b(ContentResolver.class, i.a(d.a.j.a.c.h()), new Class[]{Uri.class, Integer.TYPE});
+                this.f43829a = i.b(Context.class, i.a(d.a.j.a.c.d()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
+                this.f43830b = i.b(Context.class, i.a(d.a.j.a.c.e()), new Class[]{String.class, Uri.class, Integer.TYPE});
+                this.f43831c = i.b(ContentResolver.class, i.a(d.a.j.a.c.f()), new Class[]{Uri.class, Integer.TYPE});
+                this.f43832d = i.b(Context.class, i.a(d.a.j.a.c.g()), new Class[]{Uri.class, Integer.TYPE});
+                this.f43833e = i.b(ContentResolver.class, i.a(d.a.j.a.c.h()), new Class[]{Uri.class, Integer.TYPE});
             } catch (Exception unused) {
             }
         }
 
         public void c(ContentResolver contentResolver, Uri uri, int i2) {
             try {
-                this.f40150c.invoke(contentResolver, uri, Integer.valueOf(i2));
+                this.f43831c.invoke(contentResolver, uri, Integer.valueOf(i2));
             } catch (Exception e2) {
                 throw new i.a(e2);
             }
@@ -356,7 +356,7 @@ public class d extends d.a.j.b.a {
 
         public void d(Context context, Uri uri, int i2) {
             try {
-                this.f40151d.invoke(context, uri, Integer.valueOf(i2));
+                this.f43832d.invoke(context, uri, Integer.valueOf(i2));
             } catch (Exception e2) {
                 throw new i.a(e2);
             }
@@ -364,7 +364,7 @@ public class d extends d.a.j.b.a {
 
         public void e(Context context, String str, Uri uri, int i2) {
             try {
-                this.f40149b.invoke(context, str, uri, Integer.valueOf(i2));
+                this.f43830b.invoke(context, str, uri, Integer.valueOf(i2));
             } catch (Exception e2) {
                 throw new i.a(e2);
             }
@@ -372,7 +372,7 @@ public class d extends d.a.j.b.a {
 
         public void f(ContentResolver contentResolver, Uri uri, int i2) {
             try {
-                this.f40152e.invoke(contentResolver, uri, Integer.valueOf(i2));
+                this.f43833e.invoke(contentResolver, uri, Integer.valueOf(i2));
             } catch (Exception e2) {
                 throw new i.a(e2);
             }
@@ -382,7 +382,7 @@ public class d extends d.a.j.b.a {
     public d() {
         super("upc", 9000000L);
         g gVar = new g();
-        this.f40133g = gVar;
+        this.f43814g = gVar;
         gVar.b();
     }
 
@@ -408,10 +408,10 @@ public class d extends d.a.j.b.a {
     public a.f a(a.e eVar, l.a aVar) {
         e a2;
         if (Build.VERSION.SDK_INT >= 26 && (a2 = e.a(aVar)) != null) {
-            c cVar = new c(this, a2.f40143a);
-            cVar.c(a.b(a2.f40144b, false));
-            cVar.c(a.b(a2.f40144b, true));
-            byte[] bArr = a2.f40145c;
+            c cVar = new c(this, a2.f43824a);
+            cVar.c(a.b(a2.f43825b, false));
+            cVar.c(a.b(a2.f43825b, true));
+            byte[] bArr = a2.f43826c;
             if (bArr != null) {
                 for (byte b2 : bArr) {
                     cVar.c(a.b(b2, false));
@@ -448,7 +448,7 @@ public class d extends d.a.j.b.a {
             return a.h.d();
         }
         try {
-            i2 = this.f40132f.getPackageManager().getPackageUid(str, 0);
+            i2 = this.f43813f.getPackageManager().getPackageUid(str, 0);
         } catch (PackageManager.NameNotFoundException unused) {
             i2 = -1;
         }
@@ -457,20 +457,20 @@ public class d extends d.a.j.b.a {
         }
         f fVar = new f();
         c cVar = new c(this);
-        C0547d c0547d = new C0547d();
-        C0547d c0547d2 = new C0547d();
+        C0603d c0603d = new C0603d();
+        C0603d c0603d2 = new C0603d();
         for (int i3 = 0; i3 < 16; i3++) {
             a c2 = a.c(i3);
             if (q(str, c2, i2)) {
-                c0547d.b(c2);
+                c0603d.b(c2);
             } else {
-                c0547d2.b(c2);
+                c0603d2.b(c2);
             }
         }
         for (int i4 = 0; i4 < 32; i4++) {
-            a g2 = g(str, i4, c0547d.a(), i2, fVar);
+            a g2 = g(str, i4, c0603d.a(), i2, fVar);
             if (g2 == null) {
-                g2 = g(str, i4, c0547d2.a(), i2, fVar);
+                g2 = g(str, i4, c0603d2.a(), i2, fVar);
             }
             if (g2 == null) {
                 return a.h.d();
@@ -513,9 +513,9 @@ public class d extends d.a.j.b.a {
             for (int i9 = 34; i8 < i9; i9 = 34) {
                 int i10 = i8;
                 c cVar4 = cVar3;
-                a g3 = g(str, i8, c0547d.a(), i2, fVar);
+                a g3 = g(str, i8, c0603d.a(), i2, fVar);
                 if (g3 == null) {
-                    g3 = g(str, i10, c0547d2.a(), i2, fVar);
+                    g3 = g(str, i10, c0603d2.a(), i2, fVar);
                 }
                 if (g3 == null) {
                     return a.h.d();
@@ -532,9 +532,9 @@ public class d extends d.a.j.b.a {
         if (z) {
             c cVar5 = new c(this);
             for (int i11 = 34; i11 < 94; i11++) {
-                a g4 = g(str, i11, c0547d.a(), i2, fVar);
+                a g4 = g(str, i11, c0603d.a(), i2, fVar);
                 if (g4 == null) {
-                    g4 = g(str, i11, c0547d2.a(), i2, fVar);
+                    g4 = g(str, i11, c0603d2.a(), i2, fVar);
                 }
                 if (g4 == null) {
                     break;
@@ -550,14 +550,14 @@ public class d extends d.a.j.b.a {
 
     @Override // d.a.j.b.a
     public void e(a.d dVar) {
-        this.f40132f = this.f40106a.f40110a;
+        this.f43813f = this.f43787a.f43791a;
     }
 
-    public final a g(String str, int i2, List<C0547d.b> list, int i3, f fVar) {
-        for (C0547d.b bVar : list) {
-            if (p(str, i2, bVar.f40142b, i3, fVar)) {
+    public final a g(String str, int i2, List<C0603d.b> list, int i3, f fVar) {
+        for (C0603d.b bVar : list) {
+            if (p(str, i2, bVar.f43823b, i3, fVar)) {
                 bVar.b();
-                return bVar.f40142b;
+                return bVar.f43823b;
             }
         }
         return null;
@@ -572,26 +572,26 @@ public class d extends d.a.j.b.a {
     }
 
     public final void j(UriMatcher uriMatcher) {
-        uriMatcher.addURI(t(this.f40132f.getPackageName()), "dat/v1/*/*", 1);
-        uriMatcher.addURI(t(this.f40132f.getPackageName()), "dic/v1/*", 2);
+        uriMatcher.addURI(t(this.f43813f.getPackageName()), "dat/v1/*/*", 1);
+        uriMatcher.addURI(t(this.f43813f.getPackageName()), "dic/v1/*", 2);
     }
 
     public final boolean k(int i2, a aVar) {
         if (Build.VERSION.SDK_INT < 26) {
             return false;
         }
-        return l(Uri.parse(h(this.f40132f.getPackageName(), i2, aVar)));
+        return l(Uri.parse(h(this.f43813f.getPackageName(), i2, aVar)));
     }
 
     public final boolean l(Uri uri) {
         if (Build.VERSION.SDK_INT < 26) {
             return false;
         }
-        Context context = this.f40132f;
+        Context context = this.f43813f;
         ContentResolver contentResolver = context.getContentResolver();
         try {
-            this.f40133g.e(context, context.getPackageName(), uri, 65);
-            this.f40133g.c(contentResolver, uri, 1);
+            this.f43814g.e(context, context.getPackageName(), uri, 65);
+            this.f43814g.c(contentResolver, uri, 1);
             return true;
         } catch (Exception unused) {
             return false;
@@ -602,11 +602,11 @@ public class d extends d.a.j.b.a {
         if (Build.VERSION.SDK_INT < 26) {
             return false;
         }
-        Context context = this.f40132f;
+        Context context = this.f43813f;
         ContentResolver contentResolver = context.getContentResolver();
         try {
-            this.f40133g.d(context, uri, i2);
-            this.f40133g.f(contentResolver, uri, i2);
+            this.f43814g.d(context, uri, i2);
+            this.f43814g.f(contentResolver, uri, i2);
             return true;
         } catch (Exception unused) {
             return false;
@@ -617,7 +617,7 @@ public class d extends d.a.j.b.a {
         if (Build.VERSION.SDK_INT < 26) {
             return false;
         }
-        return l(Uri.parse(i(this.f40132f.getPackageName(), aVar)));
+        return l(Uri.parse(i(this.f43813f.getPackageName(), aVar)));
     }
 
     public final boolean o(c cVar, List<a> list) {
@@ -626,7 +626,7 @@ public class d extends d.a.j.b.a {
         if (Build.VERSION.SDK_INT < 26) {
             return false;
         }
-        ContentResolver contentResolver = this.f40132f.getContentResolver();
+        ContentResolver contentResolver = this.f43813f.getContentResolver();
         UriMatcher uriMatcher = new UriMatcher(-1);
         j(uriMatcher);
         List<UriPermission> persistedUriPermissions = contentResolver.getPersistedUriPermissions();
@@ -674,13 +674,13 @@ public class d extends d.a.j.b.a {
         }
         int a2 = cVar.a();
         for (int i3 = 0; i3 < a2; i3++) {
-            if (!p(this.f40132f.getPackageName(), i3, cVar.b(i3), Process.myUid(), null)) {
+            if (!p(this.f43813f.getPackageName(), i3, cVar.b(i3), Process.myUid(), null)) {
                 return true;
             }
         }
         int size = list.size();
         for (int i4 = 0; i4 < size; i4++) {
-            if (!q(this.f40132f.getPackageName(), list.get(i4), Process.myUid())) {
+            if (!q(this.f43813f.getPackageName(), list.get(i4), Process.myUid())) {
                 return true;
             }
         }
@@ -698,7 +698,7 @@ public class d extends d.a.j.b.a {
             }
             if (fVar != null) {
                 try {
-                    fVar.f40146a++;
+                    fVar.f43827a++;
                 } catch (Throwable unused) {
                     try {
                         Thread.sleep(5L);
@@ -707,14 +707,14 @@ public class d extends d.a.j.b.a {
                     i5++;
                 }
             }
-            i4 = this.f40133g.a(this.f40132f, parse, 0, i3, 1);
+            i4 = this.f43814g.a(this.f43813f, parse, 0, i3, 1);
             break;
         }
         if (i4 == 0) {
             return true;
         }
         if (fVar != null) {
-            fVar.f40147b++;
+            fVar.f43828b++;
         }
         return false;
     }
@@ -729,7 +729,7 @@ public class d extends d.a.j.b.a {
                 break;
             }
             try {
-                i3 = this.f40133g.a(this.f40132f, parse, 0, i2, 1);
+                i3 = this.f43814g.a(this.f43813f, parse, 0, i2, 1);
                 break;
             } catch (Throwable unused) {
                 try {

@@ -21,35 +21,35 @@ import java.util.Date;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f60739c;
+    public static a f64430c;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f60740a = 0;
+    public int f64431a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f60741b;
+    public e f64432b;
 
     /* renamed from: d.a.n0.s2.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1602a implements h.g {
+    public class C1658a implements h.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f60742a;
+        public final /* synthetic */ TbPageContext f64433a;
 
-        public C1602a(TbPageContext tbPageContext) {
-            this.f60742a = tbPageContext;
+        public C1658a(TbPageContext tbPageContext) {
+            this.f64433a = tbPageContext;
         }
 
         @Override // d.a.n0.v3.h.g
         public void onClick(int i2) {
-            if (a.this.f60741b == null) {
+            if (a.this.f64432b == null) {
                 return;
             }
-            a.this.f60741b.dismiss();
-            a.this.f60741b = null;
-            a.this.f60740a = i2;
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", a.this.f60740a));
-            a.this.o(this.f60742a);
+            a.this.f64432b.dismiss();
+            a.this.f64432b = null;
+            a.this.f64431a = i2;
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", a.this.f64431a));
+            a.this.o(this.f64433a);
         }
     }
 
@@ -57,25 +57,25 @@ public class a {
     public class b implements h.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f60744a;
+        public final /* synthetic */ TbPageContext f64435a;
 
         public b(TbPageContext tbPageContext) {
-            this.f60744a = tbPageContext;
+            this.f64435a = tbPageContext;
         }
 
         @Override // d.a.n0.v3.h.e
         public void onClick() {
-            if (a.this.f60741b == null) {
+            if (a.this.f64432b == null) {
                 return;
             }
-            a.this.f60741b.dismiss();
-            a.this.f60741b = null;
-            if (a.this.f60740a == 1 || a.this.f60740a == 2) {
-                a.this.h(this.f60744a);
+            a.this.f64432b.dismiss();
+            a.this.f64432b = null;
+            if (a.this.f64431a == 1 || a.this.f64431a == 2) {
+                a.this.h(this.f64435a);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_FEEDBACK));
                 return;
             }
-            a.this.i(this.f60744a);
+            a.this.i(this.f64435a);
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_SCORE));
         }
     }
@@ -87,12 +87,12 @@ public class a {
 
         @Override // d.a.n0.v3.h.d
         public void onClick() {
-            if (a.this.f60741b == null) {
+            if (a.this.f64432b == null) {
                 return;
             }
-            a.this.f60741b.dismiss();
-            a.this.f60741b = null;
-            if (a.this.f60740a != 1 && a.this.f60740a != 2) {
+            a.this.f64432b.dismiss();
+            a.this.f64432b = null;
+            if (a.this.f64431a != 1 && a.this.f64431a != 2) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_CANCEL));
             } else {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_CANCEL));
@@ -101,14 +101,14 @@ public class a {
     }
 
     public static a g() {
-        if (f60739c == null) {
+        if (f64430c == null) {
             synchronized (a.class) {
-                if (f60739c == null) {
-                    f60739c = new a();
+                if (f64430c == null) {
+                    f64430c = new a();
                 }
             }
         }
-        return f60739c;
+        return f64430c;
     }
 
     public final void h(TbPageContext tbPageContext) {
@@ -208,11 +208,11 @@ public class a {
         hVar.w(0, g2, 0, g4);
         hVar.q(0, 0, 0, g3);
         hVar.p(true);
-        hVar.v(new C1602a(tbPageContext));
+        hVar.v(new C1658a(tbPageContext));
         e eVar = new e(tbPageContext.getContext(), hVar.j());
-        this.f60741b = eVar;
+        this.f64432b = eVar;
         eVar.a(0.7f);
-        g.j(this.f60741b, tbPageContext);
+        g.j(this.f64432b, tbPageContext);
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_DIALOG_SHOW));
     }
 
@@ -222,7 +222,7 @@ public class a {
             return;
         }
         h hVar = new h(tbPageContext.getContext());
-        int i2 = this.f60740a;
+        int i2 = this.f64431a;
         if (i2 != 1 && i2 != 2) {
             hVar.y(tbPageContext.getContext().getString(R.string.go_shop_give_me_comment));
             cVar = new h.c(tbPageContext.getContext().getString(R.string.go_score), hVar);
@@ -232,7 +232,7 @@ public class a {
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(cVar);
-        hVar.r(this.f60740a);
+        hVar.r(this.f64431a);
         hVar.s(0);
         hVar.o(0);
         hVar.p(false);
@@ -245,10 +245,10 @@ public class a {
         hVar.u(new c());
         hVar.t(arrayList);
         e eVar = new e(tbPageContext.getContext(), hVar.j());
-        this.f60741b = eVar;
+        this.f64432b = eVar;
         eVar.a(0.7f);
-        g.j(this.f60741b, tbPageContext);
-        int i3 = this.f60740a;
+        g.j(this.f64432b, tbPageContext);
+        int i3 = this.f64431a;
         if (i3 != 1 && i3 != 2) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_DIALOG_SHOW));
         } else {

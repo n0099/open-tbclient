@@ -32,55 +32,55 @@ import d.a.n0.r0.r;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f58412a;
+    public FrameLayout f62103a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f58413b;
+    public TextView f62104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f58414c;
+    public ImageView f62105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d1 f58415d;
+    public d1 f62106d;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsFragment f58418g;
+    public FrsFragment f62109g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58419h;
+    public int f62110h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f58420i;
+    public String f62111i;
     public AlaLiveInfoCoreData j;
     public AlaLiveInfoListCoreData k;
     public d.a.n0.r0.c2.c l;
     public int m;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58416e = true;
-    public c.b n = new C1490a();
+    public boolean f62107e = true;
+    public c.b n = new C1546a();
     public Runnable o = new b();
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58417f = n();
+    public int f62108f = n();
 
     /* renamed from: d.a.n0.r0.c2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1490a implements c.b {
-        public C1490a() {
+    public class C1546a implements c.b {
+        public C1546a() {
         }
 
         @Override // d.a.n0.r0.c2.c.b
         public void a(FrsLiveTipResponseMessage frsLiveTipResponseMessage) {
             if (frsLiveTipResponseMessage != null) {
-                a.this.f58419h = frsLiveTipResponseMessage.remindType;
-                a.this.f58420i = frsLiveTipResponseMessage.remindText;
+                a.this.f62110h = frsLiveTipResponseMessage.remindType;
+                a.this.f62111i = frsLiveTipResponseMessage.remindText;
                 a.this.j = frsLiveTipResponseMessage.infoCoreData;
                 a.this.k = frsLiveTipResponseMessage.listCoreData;
-                if (a.this.f58415d != null) {
-                    a.this.f58415d.f();
+                if (a.this.f62106d != null) {
+                    a.this.f62106d.f();
                 }
-                if (a.this.f58419h == 0) {
+                if (a.this.f62110h == 0) {
                     return;
                 }
                 a.this.y();
@@ -135,27 +135,27 @@ public class a {
     }
 
     public a(FrsFragment frsFragment, int i2) {
-        this.f58418g = frsFragment;
+        this.f62109g = frsFragment;
         this.m = i2;
     }
 
     public final void k() {
-        this.f58417f++;
-        d.a.m0.r.d0.b.j().v("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f58417f);
+        this.f62108f++;
+        d.a.m0.r.d0.b.j().v("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f62108f);
     }
 
     public void l() {
-        FrsFragment frsFragment = this.f58418g;
+        FrsFragment frsFragment = this.f62109g;
         if (frsFragment == null) {
             return;
         }
-        frsFragment.y2().b(49);
+        frsFragment.B2().b(49);
     }
 
     public final void m() {
-        this.f58417f = 0;
+        this.f62108f = 0;
         d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
-        j.v("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f58417f);
+        j.v("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f62108f);
     }
 
     public final int n() {
@@ -178,34 +178,34 @@ public class a {
     }
 
     public final void q(Context context) {
-        if (context != null && this.f58412a == null) {
+        if (context != null && this.f62103a == null) {
             FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.frs_hot_live_tip, (ViewGroup) null);
-            this.f58412a = frameLayout;
+            this.f62103a = frameLayout;
             frameLayout.setOnClickListener(new c());
-            this.f58413b = (TextView) this.f58412a.findViewById(R.id.frs_hot_live_tip_content);
-            ImageView imageView = (ImageView) this.f58412a.findViewById(R.id.frs_hot_live_tip_close);
-            this.f58414c = imageView;
+            this.f62104b = (TextView) this.f62103a.findViewById(R.id.frs_hot_live_tip_content);
+            ImageView imageView = (ImageView) this.f62103a.findViewById(R.id.frs_hot_live_tip_close);
+            this.f62105c = imageView;
             imageView.setOnClickListener(new d());
             s();
         }
     }
 
     public final boolean r() {
-        return this.f58416e;
+        return this.f62107e;
     }
 
     public final void s() {
-        SkinManager.setBackgroundResource(this.f58412a, R.drawable.bg_frs_hot_live_tip_selector);
-        SkinManager.setViewTextColor(this.f58413b, R.color.CAM_X0101);
-        SkinManager.setImageResource(this.f58414c, R.drawable.icon_home_card_close_white);
-        this.f58413b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow_more_white), (Drawable) null);
+        SkinManager.setBackgroundResource(this.f62103a, R.drawable.bg_frs_hot_live_tip_selector);
+        SkinManager.setViewTextColor(this.f62104b, R.color.CAM_X0101);
+        SkinManager.setImageResource(this.f62105c, R.drawable.icon_home_card_close_white);
+        this.f62104b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow_more_white), (Drawable) null);
     }
 
     public final void t() {
-        if (this.f58419h == 2) {
+        if (this.f62110h == 2) {
             k();
         }
-        d1 d1Var = this.f58415d;
+        d1 d1Var = this.f62106d;
         if (d1Var != null) {
             d1Var.d();
         }
@@ -215,14 +215,14 @@ public class a {
         FrsFragment frsFragment;
         String str;
         m();
-        if (this.j == null || (frsFragment = this.f58418g) == null || !frsFragment.isAdded()) {
+        if (this.j == null || (frsFragment = this.f62109g) == null || !frsFragment.isAdded()) {
             return;
         }
         boolean equals = TextUtils.equals(p(), String.valueOf(this.j.userID));
-        int i2 = this.f58419h;
+        int i2 = this.f62110h;
         if (i2 == 1) {
             TiebaStatic.log(new StatisticItem("c12540"));
-            d1 d1Var = this.f58415d;
+            d1 d1Var = this.f62106d;
             if (d1Var != null) {
                 d1Var.d();
             }
@@ -233,10 +233,10 @@ public class a {
         } else {
             str = "";
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f58418g.getPageContext().getPageActivity(), this.j, this.k, str, p(), equals, null, null)));
-        if (this.f58418g.g0().getForum().isGameForumType()) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f62109g.getPageContext().getPageActivity(), this.j, this.k, str, p(), equals, null, null)));
+        if (this.f62109g.j0().getForum().isGameForumType()) {
             CustomMessage customMessage = new CustomMessage(2001622);
-            customMessage.setTag(this.f58418g.getBaseFragmentActivity().getUniqueId());
+            customMessage.setTag(this.f62109g.getBaseFragmentActivity().getUniqueId());
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001622);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -246,7 +246,7 @@ public class a {
     }
 
     public void v() {
-        d1 d1Var = this.f58415d;
+        d1 d1Var = this.f62106d;
         if (d1Var != null) {
             d1Var.f();
         }
@@ -258,15 +258,15 @@ public class a {
     }
 
     public void w() {
-        FrsFragment frsFragment = this.f58418g;
+        FrsFragment frsFragment = this.f62109g;
         if (frsFragment == null || !frsFragment.isAdded()) {
             return;
         }
         if (System.currentTimeMillis() - o() < 1800000) {
             return;
         }
-        if (this.f58418g.M2() && r()) {
-            this.f58416e = false;
+        if (this.f62109g.P2() && r()) {
+            this.f62107e = false;
             return;
         }
         if (this.l == null) {
@@ -283,14 +283,14 @@ public class a {
     }
 
     public void y() {
-        if (StringUtils.isNull(this.f58420i) || this.j == null) {
+        if (StringUtils.isNull(this.f62111i) || this.j == null) {
             return;
         }
-        if (this.f58419h != 2 || n() < 3) {
-            q(this.f58418g.getPageContext().getPageActivity());
-            TextView textView = this.f58413b;
+        if (this.f62110h != 2 || n() < 3) {
+            q(this.f62109g.getPageContext().getPageActivity());
+            TextView textView = this.f62104b;
             if (textView != null) {
-                textView.setText(this.f58420i);
+                textView.setText(this.f62111i);
             }
             s();
             z();
@@ -299,21 +299,21 @@ public class a {
     }
 
     public final void z() {
-        r y0;
+        r B0;
         FrameLayout frameLayout;
-        FrsFragment frsFragment = this.f58418g;
-        if (frsFragment == null || (y0 = frsFragment.y0()) == null || y0.Z() == null || (frameLayout = (FrameLayout) y0.S()) == null) {
+        FrsFragment frsFragment = this.f62109g;
+        if (frsFragment == null || (B0 = frsFragment.B0()) == null || B0.Z() == null || (frameLayout = (FrameLayout) B0.S()) == null) {
             return;
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.g(TbadkCoreApplication.getInst(), R.dimen.ds56));
-        if (this.f58415d == null) {
-            this.f58415d = new d1();
+        if (this.f62106d == null) {
+            this.f62106d = new d1();
         }
-        int i2 = this.f58419h;
+        int i2 = this.f62110h;
         if (i2 == 2) {
-            this.f58415d.h(this.f58412a, frameLayout, layoutParams, 5000);
+            this.f62106d.h(this.f62103a, frameLayout, layoutParams, 5000);
         } else if (i2 == 1) {
-            this.f58415d.g(this.f58412a, frameLayout, layoutParams);
+            this.f62106d.g(this.f62103a, frameLayout, layoutParams);
             TiebaStatic.log(new StatisticItem("c12539"));
         }
     }

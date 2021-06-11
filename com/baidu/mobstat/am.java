@@ -15,7 +15,6 @@ import android.webkit.WebView;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.mobstat.aj;
 import com.baidu.mobstat.ak;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.tencent.connect.common.Constants;
 import java.net.URI;
@@ -29,28 +28,28 @@ public class am {
     public static final am B = new am();
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8502a;
+    public Context f8564a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ak f8503b;
+    public ak f8565b;
 
     /* renamed from: c  reason: collision with root package name */
-    public aj f8504c;
+    public aj f8566c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f8505d;
+    public Activity f8567d;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f8507f;
+    public Handler f8569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HandlerThread f8508g;
+    public HandlerThread f8570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f8509h;
+    public Handler f8571h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HandlerThread f8510i;
+    public HandlerThread f8572i;
     public volatile boolean j;
     public volatile boolean k;
     public volatile boolean l;
@@ -101,7 +100,7 @@ public class am {
     public Object G = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public an f8506e = new an();
+    public an f8568e = new an();
 
     /* loaded from: classes2.dex */
     public class a extends Handler {
@@ -156,11 +155,11 @@ public class am {
 
         @Override // com.baidu.mobstat.aj.a
         public void a(String str) {
-            Message obtainMessage = am.this.f8507f.obtainMessage(24);
+            Message obtainMessage = am.this.f8569f.obtainMessage(24);
             Bundle bundle = new Bundle();
             bundle.putString("autoconfig.key", str);
             obtainMessage.setData(bundle);
-            am.this.f8507f.sendMessage(obtainMessage);
+            am.this.f8569f.sendMessage(obtainMessage);
         }
     }
 
@@ -184,13 +183,13 @@ public class am {
 
     public am() {
         HandlerThread handlerThread = new HandlerThread("crawlerThread");
-        this.f8510i = handlerThread;
+        this.f8572i = handlerThread;
         handlerThread.start();
-        this.f8509h = new c(this.f8510i.getLooper());
+        this.f8571h = new c(this.f8572i.getLooper());
         HandlerThread handlerThread2 = new HandlerThread("downloadThread");
-        this.f8508g = handlerThread2;
+        this.f8570g = handlerThread2;
         handlerThread2.start();
-        this.f8507f = new a(this.f8508g.getLooper());
+        this.f8569f = new a(this.f8570g.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -198,7 +197,7 @@ public class am {
         this.j = true;
         if (p() && this.j) {
             this.C.sendMessage(this.C.obtainMessage(32));
-            this.f8509h.sendMessage(this.f8509h.obtainMessage(2));
+            this.f8571h.sendMessage(this.f8571h.obtainMessage(2));
         }
     }
 
@@ -207,10 +206,10 @@ public class am {
         if (this.k) {
             return;
         }
-        boolean a2 = bg.a(this.f8502a, this.v, 0, true);
+        boolean a2 = bg.a(this.f8564a, this.v, 0, true);
         this.k = true;
         if (a2) {
-            this.p = bo.a(this.f8502a, "mtj_vizParser.js");
+            this.p = bo.a(this.f8564a, "mtj_vizParser.js");
         }
     }
 
@@ -219,10 +218,10 @@ public class am {
         if (this.l) {
             return;
         }
-        boolean a2 = bg.a(this.f8502a, this.v, 1, true);
+        boolean a2 = bg.a(this.f8564a, this.v, 1, true);
         this.l = true;
         if (a2) {
-            this.q = bo.a(this.f8502a, "mtj_autoTracker.js");
+            this.q = bo.a(this.f8564a, "mtj_autoTracker.js");
         }
     }
 
@@ -231,7 +230,7 @@ public class am {
         if (this.m) {
             return;
         }
-        boolean a2 = bg.a(this.f8502a, this.v, 2, true);
+        boolean a2 = bg.a(this.f8564a, this.v, 2, true);
         this.m = true;
         if (a2) {
             this.C.sendMessage(this.C.obtainMessage(34));
@@ -246,7 +245,7 @@ public class am {
             bc.c().a("autotrace: connect established, no need to duplicate connect");
             return;
         }
-        String a2 = a(this.f8502a);
+        String a2 = a(this.f8564a);
         if (bd.c().b()) {
             String str = HttpRetryStatistic.RETRY_URL;
             if (!TextUtils.isEmpty(a2)) {
@@ -255,13 +254,13 @@ public class am {
             bd.c().a(str);
         }
         try {
-            this.f8504c = new aj(URI.create(a2), new b());
+            this.f8566c = new aj(URI.create(a2), new b());
         } catch (Exception unused) {
         }
     }
 
     private boolean p() {
-        aj ajVar = this.f8504c;
+        aj ajVar = this.f8566c;
         return ajVar != null && ajVar.b();
     }
 
@@ -270,7 +269,7 @@ public class am {
     }
 
     private String r() {
-        Activity activity = this.f8505d;
+        Activity activity = this.f8567d;
         if (activity != null) {
             return activity.getClass().getName();
         }
@@ -280,46 +279,46 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         if (p() && this.j) {
-            JSONObject a2 = a(this.f8506e.a(this.f8505d));
+            JSONObject a2 = a(this.f8568e.a(this.f8567d));
             if (a2 != null) {
                 if (bd.c().b()) {
                     bd c2 = bd.c();
                     c2.a("doSendSnapshot:" + a2.toString());
                 }
                 try {
-                    this.f8504c.a(a2);
+                    this.f8566c.a(a2);
                 } catch (Exception unused) {
                 }
             }
-            this.f8509h.sendMessageDelayed(this.f8509h.obtainMessage(2), 2000L);
+            this.f8571h.sendMessageDelayed(this.f8571h.obtainMessage(2), 2000L);
         }
     }
 
     private void t() {
-        if (bw.s(this.f8502a) && !this.m) {
+        if (bw.s(this.f8564a) && !this.m) {
             if (this.u == 0) {
-                this.u = bq.a().p(this.f8502a);
+                this.u = bq.a().p(this.f8564a);
             }
             if (System.currentTimeMillis() - this.u > 86400000) {
-                this.f8507f.sendMessage(this.f8507f.obtainMessage(23));
+                this.f8569f.sendMessage(this.f8569f.obtainMessage(23));
             }
         }
     }
 
     private void u() {
-        if (bw.s(this.f8502a) && !this.l) {
+        if (bw.s(this.f8564a) && !this.l) {
             if (!this.n) {
-                this.q = bo.a(this.f8502a, "mtj_autoTracker.js");
+                this.q = bo.a(this.f8564a, "mtj_autoTracker.js");
                 this.n = true;
             }
             if (this.s == 0) {
-                this.s = bq.a().n(this.f8502a);
-                this.t = bq.a().o(this.f8502a);
+                this.s = bq.a().n(this.f8564a);
+                this.t = bq.a().o(this.f8564a);
             }
             if (!(this.n && TextUtils.isEmpty(this.q)) && System.currentTimeMillis() - this.s <= this.t) {
                 return;
             }
-            this.f8507f.sendMessage(this.f8507f.obtainMessage(22));
+            this.f8569f.sendMessage(this.f8569f.obtainMessage(22));
         }
     }
 
@@ -352,7 +351,7 @@ public class am {
             if (!TextUtils.isEmpty(g2)) {
                 launchInfo.setRefererPkgName(g2);
             }
-            BDStatCore.instance().autoTrackLaunchInfo(this.f8502a, launchInfo, true);
+            BDStatCore.instance().autoTrackLaunchInfo(this.f8564a, launchInfo, true);
         } else {
             LaunchInfo launchInfo2 = new LaunchInfo();
             if (booleanExtra) {
@@ -362,7 +361,7 @@ public class am {
             if (!TextUtils.isEmpty(g3)) {
                 launchInfo2.setRefererPkgName(g3);
             }
-            BDStatCore.instance().autoTrackLaunchInfo(this.f8502a, launchInfo2, false);
+            BDStatCore.instance().autoTrackLaunchInfo(this.f8564a, launchInfo2, false);
         }
         this.E = false;
     }
@@ -372,7 +371,7 @@ public class am {
             bd.c().a("installConnectionTracker");
         }
         ak akVar = new ak(this.D);
-        this.f8503b = akVar;
+        this.f8565b = akVar;
         akVar.a(activity);
     }
 
@@ -380,10 +379,10 @@ public class am {
         if (bd.c().b()) {
             bd.c().a("uninstallConnectionTracker");
         }
-        ak akVar = this.f8503b;
+        ak akVar = this.f8565b;
         if (akVar != null) {
             akVar.b();
-            this.f8503b = null;
+            this.f8565b = null;
         }
     }
 
@@ -397,7 +396,7 @@ public class am {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        this.r = bo.a(this.f8502a, "mtj_auto.config");
+        this.r = bo.a(this.f8564a, "mtj_auto.config");
         c(this.r);
         av.b(this.r);
         ar.a(this.r);
@@ -410,11 +409,11 @@ public class am {
         }
         bc.c().a("autotrace: gesture success");
         a(0);
-        if (!bw.s(this.f8502a)) {
+        if (!bw.s(this.f8564a)) {
             bc.c().a("autotrace: network invalid, failed to connect to circle server");
             return;
         }
-        this.f8509h.sendMessage(this.f8509h.obtainMessage(1));
+        this.f8571h.sendMessage(this.f8571h.obtainMessage(1));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -422,20 +421,20 @@ public class am {
         if (this.k) {
             return;
         }
-        this.f8507f.sendMessage(this.f8507f.obtainMessage(21));
+        this.f8569f.sendMessage(this.f8569f.obtainMessage(21));
     }
 
     public void b(Activity activity) {
         Intent intent;
         if (q()) {
-            this.f8502a = activity.getApplicationContext();
+            this.f8564a = activity.getApplicationContext();
             if (activity != null && (intent = activity.getIntent()) != null && a(activity, intent)) {
                 a().i();
             }
-            if (this.f8505d != null) {
+            if (this.f8567d != null) {
                 c();
             }
-            this.f8505d = activity;
+            this.f8567d = activity;
             d(activity);
             v();
             t();
@@ -449,7 +448,7 @@ public class am {
 
     public void c(Activity activity) {
         if (q()) {
-            this.f8505d = null;
+            this.f8567d = null;
             b(activity, false);
             f();
             a(activity, false);
@@ -470,10 +469,10 @@ public class am {
 
     public JSONArray e() {
         synchronized (this.G) {
-            if (this.f8502a == null) {
+            if (this.f8564a == null) {
                 return new JSONArray();
             }
-            String a2 = bo.a(this.f8502a, "trace_circle.data");
+            String a2 = bo.a(this.f8564a, "trace_circle.data");
             JSONArray jSONArray = null;
             try {
                 if (!TextUtils.isEmpty(a2)) {
@@ -486,7 +485,7 @@ public class am {
             }
             JSONArray jSONArray2 = new JSONArray();
             this.F = jSONArray2;
-            bo.a(this.f8502a, "trace_circle.data", jSONArray2.toString(), false);
+            bo.a(this.f8564a, "trace_circle.data", jSONArray2.toString(), false);
             return jSONArray;
         }
     }
@@ -523,7 +522,7 @@ public class am {
     }
 
     public void c() {
-        Activity activity = this.f8505d;
+        Activity activity = this.f8567d;
         if (activity == null) {
             return;
         }
@@ -534,7 +533,7 @@ public class am {
         if (blVar == null) {
             return;
         }
-        blVar.a(this.f8505d, webView, str, a(this.y, r()), true);
+        blVar.a(this.f8567d, webView, str, a(this.y, r()), true);
     }
 
     private void c(String str) {
@@ -565,7 +564,7 @@ public class am {
     }
 
     public void b() {
-        Activity activity = this.f8505d;
+        Activity activity = this.f8567d;
         if (activity == null) {
             return;
         }
@@ -576,7 +575,7 @@ public class am {
     public void b(boolean z) {
         this.j = false;
         an.b();
-        this.f8509h.removeMessages(2);
+        this.f8571h.removeMessages(2);
         this.C.sendMessage(this.C.obtainMessage(33));
     }
 
@@ -593,28 +592,28 @@ public class am {
 
     public void d() {
         if (p()) {
-            this.f8504c.a();
+            this.f8566c.a();
         }
     }
 
     public void a(WebView webView, String str, bl blVar) {
         if (TextUtils.isEmpty(this.p)) {
-            this.p = bo.a(this.f8502a, "mtj_vizParser.js");
+            this.p = bo.a(this.f8564a, "mtj_vizParser.js");
         }
         b(webView, this.p, blVar);
         if (TextUtils.isEmpty(this.q)) {
-            this.q = bo.a(this.f8502a, "mtj_autoTracker.js");
+            this.q = bo.a(this.f8564a, "mtj_autoTracker.js");
         }
         c(webView, this.q, blVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        if (this.f8502a == null || TextUtils.isEmpty(str)) {
+        if (this.f8564a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        bq.a().c(this.f8502a, System.currentTimeMillis());
-        bo.a(this.f8502a, "mtj_auto.config", str, false);
+        bq.a().c(this.f8564a, System.currentTimeMillis());
+        bo.a(this.f8564a, "mtj_auto.config", str, false);
         this.C.sendMessage(this.C.obtainMessage(34));
     }
 
@@ -731,21 +730,21 @@ public class am {
 
     public void a(int i2, String str) {
         synchronized (this.G) {
-            if (this.f8502a == null) {
+            if (this.f8564a == null) {
                 return;
             }
             if (str == null) {
                 str = "";
             }
             long currentTimeMillis = System.currentTimeMillis();
-            boolean s = bw.s(this.f8502a);
+            boolean s = bw.s(this.f8564a);
             StringBuilder sb = new StringBuilder();
             sb.append(s ? 1 : 0);
-            sb.append(FieldBuilder.SE);
+            sb.append("|");
             sb.append(str);
             String sb2 = sb.toString();
             this.F.put(i2 + "_" + currentTimeMillis + "_" + sb2);
-            bo.a(this.f8502a, "trace_circle.data", this.F.toString(), false);
+            bo.a(this.f8564a, "trace_circle.data", this.F.toString(), false);
         }
     }
 }

@@ -10,17 +10,17 @@ import java.util.TreeSet;
 public abstract class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f43490c = k.f43199a;
+    public static final boolean f47166c = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f43491a = 1.0d;
+    public double f47167a = 1.0d;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<Integer> f43492b;
+    public Set<Integer> f47168b;
 
     /* renamed from: d.a.l0.a.m1.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0743a {
+    public static class C0799a {
         public static a a(String str) {
             return b(str, 0.5d);
         }
@@ -76,15 +76,15 @@ public abstract class a {
     }
 
     public void c(int i2) {
-        Set<Integer> set = this.f43492b;
+        Set<Integer> set = this.f47168b;
         if (set == null) {
-            this.f43492b = new TreeSet();
+            this.f47168b = new TreeSet();
         } else {
             set.clear();
         }
-        if (f43490c) {
+        if (f47166c) {
             Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i2)));
         }
-        this.f43492b.add(Integer.valueOf(i2));
+        this.f47168b.add(Integer.valueOf(i2));
     }
 }

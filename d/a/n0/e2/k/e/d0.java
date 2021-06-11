@@ -80,8 +80,8 @@ public class d0 extends d.a.m0.r.s.j {
             return;
         }
         PostData postData = (PostData) sparseArray.get(R.id.tag_clip_board);
-        if (postData.r() != null) {
-            boolean z2 = postData.r().hasAgree;
+        if (postData.q() != null) {
+            boolean z2 = postData.q().hasAgree;
             int s = postData.s();
             if (z2 && s == 5) {
                 tbPageContext = this.A;
@@ -388,7 +388,7 @@ public class d0 extends d.a.m0.r.s.j {
                 z3 = ((Boolean) sparseArray.get(R.id.tag_richtext_emotion)).booleanValue();
                 if (this.A.getPageActivity() instanceof NewSubPbActivity) {
                     NewSubPbActivity newSubPbActivity = (NewSubPbActivity) this.A.getPageActivity();
-                    if (z3 && newSubPbActivity.getSubPbModel() != null && newSubPbActivity.getSubPbModel().T() != null && newSubPbActivity.getSubPbModel().T().l() != null && !newSubPbActivity.getSubPbModel().T().l().U1()) {
+                    if (z3 && newSubPbActivity.getSubPbModel() != null && newSubPbActivity.getSubPbModel().X() != null && newSubPbActivity.getSubPbModel().X().l() != null && !newSubPbActivity.getSubPbModel().X().l().V1()) {
                         z3 = true;
                     }
                 }
@@ -430,8 +430,8 @@ public class d0 extends d.a.m0.r.s.j {
                         E().setText(R.string.action_share);
                         B().setVisibility(0);
                     }
-                    if (postData.r() != null) {
-                        boolean z4 = postData.r().hasAgree;
+                    if (postData.q() != null) {
+                        boolean z4 = postData.q().hasAgree;
                         int s = postData.s();
                         if (z4 && s == 5) {
                             tbPageContext = this.A;
@@ -526,7 +526,7 @@ public class d0 extends d.a.m0.r.s.j {
 
     public View x(int i2) {
         View findViewById;
-        View view = this.f50269g;
+        View view = this.f53945g;
         if (view != null && (view instanceof ViewGroup) && (findViewById = view.findViewById(R.id.content_view)) != null && (findViewById instanceof ViewGroup)) {
             ViewGroup viewGroup = (ViewGroup) findViewById;
             int childCount = viewGroup.getChildCount();

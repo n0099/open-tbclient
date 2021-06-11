@@ -5,7 +5,7 @@ import org.apache.commons.codec.BinaryEncoder;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Base64 implements BinaryEncoder, BinaryDecoder {
     public Base64() {
         throw new RuntimeException("Stub!");

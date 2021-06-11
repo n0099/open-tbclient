@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import org.webrtc.VideoEncoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoEncoderFallback extends WrappedNativeVideoEncoder {
     public final VideoEncoder fallback;
     public final VideoEncoder primary;

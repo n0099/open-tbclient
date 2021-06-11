@@ -9,24 +9,24 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f55367a = "";
+    public String f59056a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f55368b;
+    public HashMap<String, String> f59057b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f55369c;
+    public boolean f59058c;
 
     public String a() {
-        return this.f55367a;
+        return this.f59056a;
     }
 
     public HashMap<String, String> b() {
-        return this.f55368b;
+        return this.f59057b;
     }
 
     public boolean c() {
-        return this.f55369c;
+        return this.f59058c;
     }
 
     public void d(JSONObject jSONObject) {
@@ -35,20 +35,20 @@ public class a {
         if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject("hotmonitor")) == null) {
             return;
         }
-        this.f55367a = optJSONObject.optString("link");
-        this.f55369c = optJSONObject.optInt("open", 0) == 1;
+        this.f59056a = optJSONObject.optString("link");
+        this.f59058c = optJSONObject.optInt("open", 0) == 1;
         JSONArray optJSONArray = optJSONObject.optJSONArray("config");
         if (optJSONArray == null || optJSONArray.length() == 0) {
             return;
         }
-        this.f55368b = new HashMap<>();
+        this.f59057b = new HashMap<>();
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
             if (optJSONObject3 != null) {
                 String optString = optJSONObject3.optString("event");
                 String optString2 = optJSONObject3.optString(Message.RULE);
                 if (!k.isEmpty(optString) && !k.isEmpty(optString2)) {
-                    this.f55368b.put(optString, optString2);
+                    this.f59057b.put(optString, optString2);
                 }
             }
         }

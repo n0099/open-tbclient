@@ -12,25 +12,25 @@ import d.a.l0.a.v1.c.f.d;
 public final class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45298b = k.f43199a;
+    public static final boolean f48972b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f45299a;
+    public c f48973a;
 
     /* renamed from: d.a.l0.a.v1.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0878a implements Runnable {
+    public class RunnableC0934a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v1.c.c f45300e;
+        public final /* synthetic */ d.a.l0.a.v1.c.c f48974e;
 
-        public RunnableC0878a(d.a.l0.a.v1.c.c cVar) {
-            this.f45300e = cVar;
+        public RunnableC0934a(d.a.l0.a.v1.c.c cVar) {
+            this.f48974e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.g(this.f45300e);
+            a.this.g(this.f48974e);
         }
     }
 
@@ -38,7 +38,7 @@ public final class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f45302a = new a();
+        public static a f48976a = new a();
     }
 
     /* loaded from: classes3.dex */
@@ -53,31 +53,31 @@ public final class a {
     }
 
     public static a e() {
-        return b.f45302a;
+        return b.f48976a;
     }
 
     public static void f(String str) {
-        if (f45298b) {
+        if (f48972b) {
             Log.i("SwanAppMessenger", str);
         }
     }
 
     public void b(String str) {
-        c cVar = this.f45299a;
+        c cVar = this.f48973a;
         if (cVar != null) {
             cVar.d(str);
         }
     }
 
     public void c() {
-        c cVar = this.f45299a;
+        c cVar = this.f48973a;
         if (cVar != null) {
             cVar.a();
         }
     }
 
     public void d(String str) {
-        c cVar = this.f45299a;
+        c cVar = this.f48973a;
         if (cVar != null) {
             cVar.c(str);
         }
@@ -89,13 +89,13 @@ public final class a {
             f("send: return by process check");
             return;
         }
-        if (this.f45299a == null) {
-            this.f45299a = isMainProcess ? new d() : new d.a.l0.a.v1.c.e.b();
+        if (this.f48973a == null) {
+            this.f48973a = isMainProcess ? new d() : new d.a.l0.a.v1.c.e.b();
         }
-        f("send: sender=" + this.f45299a);
-        this.f45299a.a();
-        this.f45299a.b(cVar);
-        this.f45299a.a();
+        f("send: sender=" + this.f48973a);
+        this.f48973a.a();
+        this.f48973a.b(cVar);
+        this.f48973a.a();
     }
 
     public void h(@NonNull d.a.l0.a.v1.c.c cVar) {
@@ -106,10 +106,10 @@ public final class a {
             return;
         }
         Handler i4 = d.a.l0.a.a2.d.i();
-        RunnableC0878a runnableC0878a = new RunnableC0878a(cVar);
+        RunnableC0934a runnableC0934a = new RunnableC0934a(cVar);
         if (i3 < 0) {
             i2 = 0;
         }
-        i4.postDelayed(runnableC0878a, i2);
+        i4.postDelayed(runnableC0934a, i2);
     }
 }

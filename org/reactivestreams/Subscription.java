@@ -1,5 +1,5 @@
 package org.reactivestreams;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface Subscription {
     void cancel();
 

@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<d.a.n0.n1.k.a> f57663a = new ArrayList();
+    public static final List<d.a.n0.n1.k.a> f61352a = new ArrayList();
 
     public static void a(Context context) {
         d.a.n0.r1.a.j().C(context, "");
@@ -162,15 +162,15 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         if (aVar != null) {
             try {
-                if (!TextUtils.isEmpty(aVar.f57685a)) {
-                    jSONObject.put("callback", aVar.f57685a);
+                if (!TextUtils.isEmpty(aVar.f61374a)) {
+                    jSONObject.put("callback", aVar.f61374a);
                     if (aVar2 != null) {
-                        f57663a.add(aVar2);
+                        f61352a.add(aVar2);
                     }
                 }
-                jSONObject.put("isTranslucent", aVar.f57686b);
-                if (!TextUtils.isEmpty(aVar.f57687c)) {
-                    jSONObject.put("from", aVar.f57687c);
+                jSONObject.put("isTranslucent", aVar.f61375b);
+                if (!TextUtils.isEmpty(aVar.f61376c)) {
+                    jSONObject.put("from", aVar.f61376c);
                 }
             } catch (JSONException unused) {
             }
@@ -239,10 +239,10 @@ public class a {
     }
 
     public static void o(JSONObject jSONObject) {
-        for (int i2 = 0; i2 < f57663a.size(); i2++) {
-            f57663a.get(i2).onCallback(jSONObject);
+        for (int i2 = 0; i2 < f61352a.size(); i2++) {
+            f61352a.get(i2).onCallback(jSONObject);
         }
-        f57663a.clear();
+        f61352a.clear();
     }
 
     public static void p(String str, boolean z) {

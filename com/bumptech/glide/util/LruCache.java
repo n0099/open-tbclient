@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LruCache<T, Y> {
     public final Map<T, Y> cache = new LinkedHashMap(100, 0.75f, true);
     public long currentSize;

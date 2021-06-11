@@ -6,43 +6,43 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 public class k1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50063a;
+    public String f53739a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50064b;
+    public String f53740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50065c;
+    public String f53741c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50066d;
+    public String f53742d;
 
     public void a(Intent intent) {
         if (intent == null) {
             return;
         }
-        this.f50063a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
-        this.f50064b = intent.getStringExtra("recom_source");
-        this.f50065c = intent.getStringExtra("recom_abtag");
-        this.f50066d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
+        this.f53739a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
+        this.f53740b = intent.getStringExtra("recom_source");
+        this.f53741c = intent.getStringExtra("recom_abtag");
+        this.f53742d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
     }
 
     public void b(a2 a2Var) {
         if (a2Var == null) {
             return;
         }
-        this.f50063a = a2Var.T0;
-        this.f50064b = a2Var.S0;
-        this.f50065c = a2Var.U0;
-        this.f50066d = a2Var.V0;
+        this.f53739a = a2Var.U0;
+        this.f53740b = a2Var.T0;
+        this.f53741c = a2Var.V0;
+        this.f53742d = a2Var.W0;
     }
 
     public void c(Intent intent) {
         if (intent != null) {
-            intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.f50063a);
-            intent.putExtra("recom_source", this.f50064b);
-            intent.putExtra("recom_abtag", this.f50065c);
-            intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.f50066d);
+            intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.f53739a);
+            intent.putExtra("recom_source", this.f53740b);
+            intent.putExtra("recom_abtag", this.f53741c);
+            intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.f53742d);
         }
     }
 
@@ -50,9 +50,9 @@ public class k1 {
         if (oVar == null) {
             return;
         }
-        oVar.f56904g = this.f50063a;
-        oVar.f56903f = this.f50064b;
-        oVar.l = this.f50065c;
-        oVar.o = this.f50066d;
+        oVar.f60593g = this.f53739a;
+        oVar.f60592f = this.f53740b;
+        oVar.l = this.f53741c;
+        oVar.o = this.f53742d;
     }
 }

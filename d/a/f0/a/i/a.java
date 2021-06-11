@@ -4,7 +4,7 @@ public interface a {
 
     /* renamed from: d.a.f0.a.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0535a {
+    public interface InterfaceC0591a {
         void onDestroyed();
     }
 

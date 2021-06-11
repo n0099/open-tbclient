@@ -6,7 +6,7 @@ import android.annotation.TargetApi;
 public abstract class c implements a<c> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40456e;
+    public int f44135e;
 
     public c() {
         this(5);
@@ -16,7 +16,7 @@ public abstract class c implements a<c> {
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(c cVar) {
-        return cVar.f40456e - this.f40456e;
+        return cVar.f44135e - this.f44135e;
     }
 
     public abstract void b();
@@ -27,6 +27,6 @@ public abstract class c implements a<c> {
     }
 
     public c(int i2) {
-        this.f40456e = i2;
+        this.f44135e = i2;
     }
 }

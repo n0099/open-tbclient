@@ -111,7 +111,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public boolean checkIsAppAdvert() {
         d.a.n0.t2.f0.b.b bVar = this.downloadInfo;
-        return (bVar == null || TextUtils.isEmpty(bVar.f61061a) || TextUtils.isEmpty(this.downloadInfo.f61062b)) ? false : true;
+        return (bVar == null || TextUtils.isEmpty(bVar.f64753a) || TextUtils.isEmpty(this.downloadInfo.f64754b)) ? false : true;
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
@@ -134,7 +134,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (dVar == null) {
             return -1L;
         }
-        return dVar.f61070a;
+        return dVar.f64762a;
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
@@ -148,7 +148,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (aVar == null) {
             return this.scheme;
         }
-        return aVar.f61060c;
+        return aVar.f64752c;
     }
 
     @Nullable
@@ -157,7 +157,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (aVar == null) {
             return null;
         }
-        return aVar.f61059b;
+        return aVar.f64751b;
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
@@ -167,11 +167,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (bVar == null) {
             return "";
         }
-        if (!TextUtils.isEmpty(bVar.f61063c)) {
-            return this.downloadInfo.f61063c;
+        if (!TextUtils.isEmpty(bVar.f64755c)) {
+            return this.downloadInfo.f64755c;
         }
-        if (!TextUtils.isEmpty(this.downloadInfo.f61061a)) {
-            return this.downloadInfo.f61061a;
+        if (!TextUtils.isEmpty(this.downloadInfo.f64753a)) {
+            return this.downloadInfo.f64753a;
         }
         return this.adId;
     }
@@ -182,7 +182,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (bVar == null) {
             return null;
         }
-        return bVar.f61063c;
+        return bVar.f64755c;
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
@@ -191,7 +191,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (advertAppInfo == null) {
             return null;
         }
-        return advertAppInfo.N3;
+        return advertAppInfo.Q3;
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
@@ -214,16 +214,16 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (cVar == null) {
             return 1.0d;
         }
-        return cVar.f61066b;
+        return cVar.f64758b;
     }
 
     @Nullable
     public String getPicUrl() {
         d.a.n0.t2.f0.b.c cVar = this.picInfo;
-        if (cVar == null || d.a.n0.k1.o.k.a.e(cVar.f61067c)) {
+        if (cVar == null || d.a.n0.k1.o.k.a.e(cVar.f64759c)) {
             return null;
         }
-        return (String) d.a.n0.k1.o.k.a.d(this.picInfo.f61067c, 0);
+        return (String) d.a.n0.k1.o.k.a.d(this.picInfo.f64759c, 0);
     }
 
     public int getPosition() {
@@ -235,7 +235,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (dVar == null) {
             return -1;
         }
-        return dVar.f61072c;
+        return dVar.f64764c;
     }
 
     @Override // d.a.n0.t2.e0.a
@@ -251,7 +251,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (dVar == null) {
             return -1;
         }
-        return dVar.f61071b;
+        return dVar.f64763b;
     }
 
     @Override // d.a.n0.t2.e0.a
@@ -264,7 +264,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (dVar == null) {
             return System.currentTimeMillis();
         }
-        return dVar.f61073d;
+        return dVar.f64765d;
     }
 
     @Override // d.a.n0.t2.e0.a
@@ -277,7 +277,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (bVar == null) {
             return true;
         }
-        return bVar.f61064d;
+        return bVar.f64756d;
     }
 
     public boolean isNeedResize() {
@@ -285,14 +285,14 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (cVar == null) {
             return false;
         }
-        return cVar.f61065a;
+        return cVar.f64757a;
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public boolean isNoPicAd() {
         d.a.n0.t2.f0.b.c cVar;
         int i2 = this.goodsStyle;
-        return ((i2 != 2 && i2 != 6 && i2 != 8) || (cVar = this.picInfo) == null || d.a.n0.k1.o.k.a.e(cVar.f61067c)) ? false : true;
+        return ((i2 != 2 && i2 != 6 && i2 != 8) || (cVar = this.picInfo) == null || d.a.n0.k1.o.k.a.e(cVar.f64759c)) ? false : true;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
@@ -332,7 +332,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         this.appInfo = advertAppInfo;
         updataThreadData(advertAppInfo);
         f fVar = this.tailFrame;
-        if (fVar.f61085i) {
+        if (fVar.f64777i) {
             return;
         }
         fVar.a(this.appInfo, this);
@@ -343,11 +343,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (a2Var == null || (dVar = this.threadInfo) == null) {
             return;
         }
-        a2Var.T3(dVar.f61073d / 1000);
-        a2Var.c4(this.threadInfo.f61072c);
-        a2Var.o3(this.threadInfo.f61070a);
-        a2Var.h4(this.threadInfo.f61071b);
-        a2Var.q4(this.threadTitle);
+        a2Var.U3(dVar.f64765d / 1000);
+        a2Var.d4(this.threadInfo.f64764c);
+        a2Var.p3(this.threadInfo.f64762a);
+        a2Var.i4(this.threadInfo.f64763b);
+        a2Var.r4(this.threadTitle);
         a2Var.T().setName_show(this.userName);
         a2Var.T().setPortrait(this.userImage);
     }

@@ -28,31 +28,31 @@ public class XiaoyingUtil {
     public static class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f12917e;
+        public final /* synthetic */ Context f12982e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f12918f;
+        public final /* synthetic */ String f12983f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f12919g;
+        public final /* synthetic */ int f12984g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f12920h;
+        public final /* synthetic */ int f12985h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f12921i;
+        public final /* synthetic */ String f12986i;
 
         public a(Context context, String str, int i2, int i3, String str2) {
-            this.f12917e = context;
-            this.f12918f = str;
-            this.f12919g = i2;
-            this.f12920h = i3;
-            this.f12921i = str2;
+            this.f12982e = context;
+            this.f12983f = str;
+            this.f12984g = i2;
+            this.f12985h = i3;
+            this.f12986i = str2;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f12917e, this.f12918f, this.f12919g, this.f12920h, this.f12921i)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f12982e, this.f12983f, this.f12984g, this.f12985h, this.f12986i)));
             aVar.dismiss();
         }
     }
@@ -69,19 +69,19 @@ public class XiaoyingUtil {
     public static class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f12922e;
+        public final /* synthetic */ Activity f12987e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f12923f;
+        public final /* synthetic */ TbPageContext f12988f;
 
         public c(Activity activity, TbPageContext tbPageContext) {
-            this.f12922e = activity;
-            this.f12923f = tbPageContext;
+            this.f12987e = activity;
+            this.f12988f = tbPageContext;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f12923f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f12922e, XiaoyingUtil.PKG_NAME_VIDEO)));
+            this.f12988f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f12987e, XiaoyingUtil.PKG_NAME_VIDEO)));
             aVar.dismiss();
         }
     }

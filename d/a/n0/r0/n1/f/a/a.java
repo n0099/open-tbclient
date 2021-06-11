@@ -24,34 +24,34 @@ import tbclient.FrsTabInfo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f59086a;
+    public View f62777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragment f59087b;
+    public BaseFragment f62778b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f59088c;
+    public TextView f62779c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrsTabSortSwitchButton f59089d;
+    public FrsTabSortSwitchButton f62780d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f59090e;
+    public int f62781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f59091f;
+    public String f62782f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsTabSortSwitchButton.e f59092g = new C1519a();
+    public FrsTabSortSwitchButton.e f62783g = new C1575a();
 
     /* renamed from: d.a.n0.r0.n1.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1519a implements FrsTabSortSwitchButton.e {
-        public C1519a() {
+    public class C1575a implements FrsTabSortSwitchButton.e {
+        public C1575a() {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:23:0x0074, code lost:
-            if (((com.baidu.tieba.frs.commontab.FrsCommonTabFragment) r3.f59093a.f59087b).P0() != null) goto L16;
+            if (((com.baidu.tieba.frs.commontab.FrsCommonTabFragment) r3.f62784a.f62778b).S0() != null) goto L16;
          */
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
         /*
@@ -61,37 +61,37 @@ public class a {
             boolean z = false;
             if (!d.a.n0.r0.b.e().g() && !d.a.n0.r0.a.h().j()) {
                 if (!j.A()) {
-                    a.this.f59087b.showToast(R.string.neterror);
+                    a.this.f62778b.showToast(R.string.neterror);
                     return false;
                 }
-                if (a.this.f59087b instanceof FrsNewAreaFragment) {
-                    if (((FrsNewAreaFragment) a.this.f59087b).m1() == null || ((FrsNewAreaFragment) a.this.f59087b).i1() == null) {
+                if (a.this.f62778b instanceof FrsNewAreaFragment) {
+                    if (((FrsNewAreaFragment) a.this.f62778b).p1() == null || ((FrsNewAreaFragment) a.this.f62778b).l1() == null) {
                         return false;
                     }
-                } else if (a.this.f59087b instanceof FrsCommonTabFragment) {
-                    if (((FrsCommonTabFragment) a.this.f59087b).Q0() != null) {
+                } else if (a.this.f62778b instanceof FrsCommonTabFragment) {
+                    if (((FrsCommonTabFragment) a.this.f62778b).T0() != null) {
                     }
                 }
                 z = true;
-                if (a.this.f59090e == i2) {
+                if (a.this.f62781e == i2) {
                     return true;
                 }
-                a.this.f59090e = i2;
-                if (a.this.f59090e != 7) {
+                a.this.f62781e = i2;
+                if (a.this.f62781e != 7) {
                     c0.c();
                     e.a();
                 } else {
                     e.b();
                 }
-                if (a.this.f59087b instanceof FrsNewAreaFragment) {
-                    ((FrsNewAreaFragment) a.this.f59087b).m1().I(a.this.f59089d.v(a.this.f59090e));
+                if (a.this.f62778b instanceof FrsNewAreaFragment) {
+                    ((FrsNewAreaFragment) a.this.f62778b).p1().M(a.this.f62780d.v(a.this.f62781e));
                     if (d.n()) {
-                        d.a.m0.b.g.a.f(a.this.f59089d.v(a.this.f59090e));
+                        d.a.m0.b.g.a.f(a.this.f62780d.v(a.this.f62781e));
                     }
-                    ((FrsNewAreaFragment) a.this.f59087b).i1().L();
+                    ((FrsNewAreaFragment) a.this.f62778b).l1().L();
                 } else {
-                    ((FrsCommonTabFragment) a.this.f59087b).Y0(k.d(a.this.f59089d.v(a.this.f59090e)));
-                    ((FrsCommonTabFragment) a.this.f59087b).P0().w(true);
+                    ((FrsCommonTabFragment) a.this.f62778b).b1(k.d(a.this.f62780d.v(a.this.f62781e)));
+                    ((FrsCommonTabFragment) a.this.f62778b).S0().w(true);
                 }
                 a.this.f();
             }
@@ -100,52 +100,52 @@ public class a {
     }
 
     public a(BaseFragment baseFragment, RelativeLayout relativeLayout) {
-        this.f59090e = -1;
+        this.f62781e = -1;
         if (baseFragment == null || relativeLayout == null) {
             return;
         }
-        this.f59087b = baseFragment;
+        this.f62778b = baseFragment;
         View inflate = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-        this.f59086a = inflate;
+        this.f62777a = inflate;
         inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-        this.f59088c = (TextView) this.f59086a.findViewById(R.id.sort_tab_sort_name);
-        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.f59086a.findViewById(R.id.sort_tab_switch_btn);
-        this.f59089d = frsTabSortSwitchButton;
-        frsTabSortSwitchButton.setOnSwitchChangeListener(this.f59092g);
-        this.f59090e = this.f59089d.getState();
+        this.f62779c = (TextView) this.f62777a.findViewById(R.id.sort_tab_sort_name);
+        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.f62777a.findViewById(R.id.sort_tab_switch_btn);
+        this.f62780d = frsTabSortSwitchButton;
+        frsTabSortSwitchButton.setOnSwitchChangeListener(this.f62783g);
+        this.f62781e = this.f62780d.getState();
         h();
     }
 
     public final void f() {
         StatisticItem statisticItem = new StatisticItem("c11437");
-        statisticItem.param("obj_type", this.f59089d.v(this.f59090e));
-        statisticItem.param("fid", this.f59091f);
+        statisticItem.param("obj_type", this.f62780d.v(this.f62781e));
+        statisticItem.param("fid", this.f62782f);
         TiebaStatic.log(statisticItem);
     }
 
     public void g(int i2) {
-        if (this.f59089d != null) {
-            this.f59089d.s(k.f(i2));
-            this.f59090e = this.f59089d.getState();
+        if (this.f62780d != null) {
+            this.f62780d.s(k.f(i2));
+            this.f62781e = this.f62780d.getState();
         }
     }
 
     public void h() {
-        FrsTabSortSwitchButton frsTabSortSwitchButton = this.f59089d;
+        FrsTabSortSwitchButton frsTabSortSwitchButton = this.f62780d;
         if (frsTabSortSwitchButton != null) {
             frsTabSortSwitchButton.C();
         }
-        SkinManager.setViewTextColor(this.f59088c, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f62779c, R.color.CAM_X0105);
     }
 
     public void i(List<FrsTabInfo> list) {
-        FrsTabSortSwitchButton frsTabSortSwitchButton = this.f59089d;
+        FrsTabSortSwitchButton frsTabSortSwitchButton = this.f62780d;
         if (frsTabSortSwitchButton != null) {
             frsTabSortSwitchButton.setData(list);
         }
     }
 
     public void j(String str) {
-        this.f59091f = str;
+        this.f62782f = str;
     }
 }

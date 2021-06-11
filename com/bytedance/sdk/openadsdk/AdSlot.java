@@ -18,31 +18,31 @@ public class AdSlot {
     public static final int TYPE_STREAM = 6;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26924a;
+    public String f27027a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26925b;
+    public int f27028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26926c;
+    public int f27029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f26927d;
+    public float f27030d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f26928e;
+    public float f27031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26929f;
+    public int f27032f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f26930g;
+    public boolean f27033g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26931h;
+    public boolean f27034h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26932i;
+    public String f27035i;
     public int j;
     public String k;
     public String l;
@@ -63,10 +63,10 @@ public class AdSlot {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26933a;
+        public String f27036a;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f26941i;
+        public String f27044i;
         public int l;
         public String m;
         public int n;
@@ -80,48 +80,48 @@ public class AdSlot {
         public String w;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f26934b = 640;
+        public int f27037b = 640;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f26935c = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+        public int f27038c = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f26936d = true;
+        public boolean f27039d = true;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f26937e = false;
+        public boolean f27040e = false;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f26938f = 1;
+        public int f27041f = 1;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f26939g = "";
+        public String f27042g = "";
 
         /* renamed from: h  reason: collision with root package name */
-        public int f26940h = 0;
+        public int f27043h = 0;
         public String j = "defaultUser";
         public int k = 2;
         public boolean q = true;
 
         public AdSlot build() {
             AdSlot adSlot = new AdSlot();
-            adSlot.f26924a = this.f26933a;
-            adSlot.f26929f = this.f26938f;
-            adSlot.f26930g = this.f26936d;
-            adSlot.f26931h = this.f26937e;
-            adSlot.f26925b = this.f26934b;
-            adSlot.f26926c = this.f26935c;
+            adSlot.f27027a = this.f27036a;
+            adSlot.f27032f = this.f27041f;
+            adSlot.f27033g = this.f27039d;
+            adSlot.f27034h = this.f27040e;
+            adSlot.f27028b = this.f27037b;
+            adSlot.f27029c = this.f27038c;
             float f2 = this.o;
             if (f2 <= 0.0f) {
-                adSlot.f26927d = this.f26934b;
-                adSlot.f26928e = this.f26935c;
+                adSlot.f27030d = this.f27037b;
+                adSlot.f27031e = this.f27038c;
             } else {
-                adSlot.f26927d = f2;
-                adSlot.f26928e = this.p;
+                adSlot.f27030d = f2;
+                adSlot.f27031e = this.p;
             }
-            adSlot.f26932i = this.f26939g;
-            adSlot.j = this.f26940h;
-            adSlot.k = this.f26941i;
+            adSlot.f27035i = this.f27042g;
+            adSlot.j = this.f27043h;
+            adSlot.k = this.f27044i;
             adSlot.l = this.j;
             adSlot.m = this.k;
             adSlot.o = this.l;
@@ -146,7 +146,7 @@ public class AdSlot {
                 u.c(TTAdConstant.TAG, "setAdCount: adCount must less than or equal to 20 ");
                 i2 = 20;
             }
-            this.f26938f = i2;
+            this.f27041f = i2;
             return this;
         }
 
@@ -166,7 +166,7 @@ public class AdSlot {
         }
 
         public Builder setCodeId(String str) {
-            this.f26933a = str;
+            this.f27036a = str;
             return this;
         }
 
@@ -192,8 +192,8 @@ public class AdSlot {
         }
 
         public Builder setImageAcceptedSize(int i2, int i3) {
-            this.f26934b = i2;
-            this.f26935c = i3;
+            this.f27037b = i2;
+            this.f27038c = i3;
             return this;
         }
 
@@ -203,7 +203,7 @@ public class AdSlot {
         }
 
         public Builder setMediaExtra(String str) {
-            this.f26941i = str;
+            this.f27044i = str;
             return this;
         }
 
@@ -240,7 +240,7 @@ public class AdSlot {
         }
 
         public Builder supportRenderControl() {
-            this.f26937e = true;
+            this.f27040e = true;
             return this;
         }
 
@@ -265,7 +265,7 @@ public class AdSlot {
     }
 
     public int getAdCount() {
-        return this.f26929f;
+        return this.f27032f;
     }
 
     public String getAdId() {
@@ -285,7 +285,7 @@ public class AdSlot {
     }
 
     public String getCodeId() {
-        return this.f26924a;
+        return this.f27027a;
     }
 
     public String getCreativeId() {
@@ -297,11 +297,11 @@ public class AdSlot {
     }
 
     public float getExpressViewAcceptedHeight() {
-        return this.f26928e;
+        return this.f27031e;
     }
 
     public float getExpressViewAcceptedWidth() {
-        return this.f26927d;
+        return this.f27030d;
     }
 
     public int[] getExternalABVid() {
@@ -313,11 +313,11 @@ public class AdSlot {
     }
 
     public int getImgAcceptedHeight() {
-        return this.f26926c;
+        return this.f27029c;
     }
 
     public int getImgAcceptedWidth() {
-        return this.f26925b;
+        return this.f27028b;
     }
 
     public String getMediaExtra() {
@@ -342,7 +342,7 @@ public class AdSlot {
     }
 
     public String getRewardName() {
-        return this.f26932i;
+        return this.f27035i;
     }
 
     public String getUserID() {
@@ -354,15 +354,15 @@ public class AdSlot {
     }
 
     public boolean isSupportDeepLink() {
-        return this.f26930g;
+        return this.f27033g;
     }
 
     public boolean isSupportRenderConrol() {
-        return this.f26931h;
+        return this.f27034h;
     }
 
     public void setAdCount(int i2) {
-        this.f26929f = i2;
+        this.f27032f = i2;
     }
 
     public void setDurationSlotType(int i2) {
@@ -380,16 +380,16 @@ public class AdSlot {
     public JSONObject toJsonObj() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("mCodeId", this.f26924a);
+            jSONObject.put("mCodeId", this.f27027a);
             jSONObject.put("mIsAutoPlay", this.q);
-            jSONObject.put("mImgAcceptedWidth", this.f26925b);
-            jSONObject.put("mImgAcceptedHeight", this.f26926c);
-            jSONObject.put("mExpressViewAcceptedWidth", this.f26927d);
-            jSONObject.put("mExpressViewAcceptedHeight", this.f26928e);
-            jSONObject.put("mAdCount", this.f26929f);
-            jSONObject.put("mSupportDeepLink", this.f26930g);
-            jSONObject.put("mSupportRenderControl", this.f26931h);
-            jSONObject.put("mRewardName", this.f26932i);
+            jSONObject.put("mImgAcceptedWidth", this.f27028b);
+            jSONObject.put("mImgAcceptedHeight", this.f27029c);
+            jSONObject.put("mExpressViewAcceptedWidth", this.f27030d);
+            jSONObject.put("mExpressViewAcceptedHeight", this.f27031e);
+            jSONObject.put("mAdCount", this.f27032f);
+            jSONObject.put("mSupportDeepLink", this.f27033g);
+            jSONObject.put("mSupportRenderControl", this.f27034h);
+            jSONObject.put("mRewardName", this.f27035i);
             jSONObject.put("mRewardAmount", this.j);
             jSONObject.put("mMediaExtra", this.k);
             jSONObject.put("mUserID", this.l);
@@ -407,7 +407,7 @@ public class AdSlot {
     }
 
     public String toString() {
-        return "AdSlot{mCodeId='" + this.f26924a + "', mImgAcceptedWidth=" + this.f26925b + ", mImgAcceptedHeight=" + this.f26926c + ", mExpressViewAcceptedWidth=" + this.f26927d + ", mExpressViewAcceptedHeight=" + this.f26928e + ", mAdCount=" + this.f26929f + ", mSupportDeepLink=" + this.f26930g + ", mSupportRenderControl=" + this.f26931h + ", mRewardName='" + this.f26932i + "', mRewardAmount=" + this.j + ", mMediaExtra='" + this.k + "', mUserID='" + this.l + "', mOrientation=" + this.m + ", mNativeAdType=" + this.o + ", mIsAutoPlay=" + this.q + ", mPrimeRit" + this.u + ", mAdloadSeq" + this.t + ", mAdId" + this.w + ", mCreativeId" + this.x + '}';
+        return "AdSlot{mCodeId='" + this.f27027a + "', mImgAcceptedWidth=" + this.f27028b + ", mImgAcceptedHeight=" + this.f27029c + ", mExpressViewAcceptedWidth=" + this.f27030d + ", mExpressViewAcceptedHeight=" + this.f27031e + ", mAdCount=" + this.f27032f + ", mSupportDeepLink=" + this.f27033g + ", mSupportRenderControl=" + this.f27034h + ", mRewardName='" + this.f27035i + "', mRewardAmount=" + this.j + ", mMediaExtra='" + this.k + "', mUserID='" + this.l + "', mOrientation=" + this.m + ", mNativeAdType=" + this.o + ", mIsAutoPlay=" + this.q + ", mPrimeRit" + this.u + ", mAdloadSeq" + this.t + ", mAdId" + this.w + ", mCreativeId" + this.x + '}';
     }
 
     public AdSlot() {

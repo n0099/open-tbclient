@@ -5,12 +5,10 @@ import com.baidu.apollon.beans.BeanResponseBase;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.core.beans.BeanRequestBase;
 import com.baidu.wallet.core.beans.NetworkBean;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
-import com.tencent.connect.common.Constants;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
@@ -404,6 +402,6 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
     }
 
     public static String getCardRequestType(int i2) {
-        return i2 == 1 ? Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE : i2 == 0 ? "2" : i2 == 2 ? "3" : (i2 == 3 || i2 == 4) ? PayRequestCache.getInstance().isPaying() ? "5" : "4" : i2 == 5 ? "6" : i2 == 6 ? "8" : (i2 == 7 || i2 == 8) ? HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9 : "";
+        return i2 == 1 ? "11" : i2 == 0 ? "2" : i2 == 2 ? "3" : (i2 == 3 || i2 == 4) ? PayRequestCache.getInstance().isPaying() ? "5" : "4" : i2 == 5 ? "6" : i2 == 6 ? "8" : (i2 == 7 || i2 == 8) ? "9" : "";
     }
 }

@@ -10,23 +10,23 @@ import java.util.HashMap;
 public class a<T> extends c {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f46492d = null;
+    public String f50166d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f46493e = null;
+    public String f50167e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.c f46494f = null;
+    public a.c f50168f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46495g;
+    public String f50169g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46496h;
+    public int f50170h;
 
     @Override // d.a.l0.c.a.k.c
     public String b() {
-        return this.f46495g;
+        return this.f50169g;
     }
 
     @Override // d.a.l0.c.a.k.c
@@ -41,34 +41,34 @@ public class a<T> extends c {
     public void h(byte[] bArr) {
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
-        if (this.f46504a) {
+        if (this.f50178a) {
             hashMap.put("Bdtls", TextUtils.equals(b(), "GET") ? Base64.encodeToString(bArr, 2) : "Bdtls");
         } else {
             hashMap.put("Bdtls-Downgrade", "1");
         }
-        this.f46494f.a(hashMap, bArr, this.f46492d);
+        this.f50168f.a(hashMap, bArr, this.f50166d);
     }
 
     public void j() {
-        k(this.f46492d, this.f46493e, this.f46494f);
+        k(this.f50166d, this.f50167e, this.f50168f);
     }
 
     public void k(String str, String str2, a.c cVar) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f46492d = str;
-        this.f46493e = str2;
-        this.f46494f = cVar;
+        this.f50166d = str;
+        this.f50167e = str2;
+        this.f50168f = cVar;
         if (str2 == null) {
-            this.f46495g = "GET";
+            this.f50169g = "GET";
         } else {
-            this.f46495g = "POST";
+            this.f50169g = "POST";
         }
-        if (d.a.l0.c.a.a.f46449a) {
+        if (d.a.l0.c.a.a.f50123a) {
             Log.d("BDTLS", "requestPost url=" + str);
             Log.d("BDTLS", "requestPost body=" + str2);
         }
-        a(this.f46493e);
+        a(this.f50167e);
     }
 }

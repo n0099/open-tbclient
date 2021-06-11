@@ -9,11 +9,11 @@ import d.a.l0.f.i.c;
 public class AdScrollView extends ScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11527e;
+    public int f11589e;
 
     public AdScrollView(Context context) {
         super(context);
-        this.f11527e = -1;
+        this.f11589e = -1;
     }
 
     private int getLimitHeight() {
@@ -35,7 +35,7 @@ public class AdScrollView extends ScrollView {
         super.onMeasure(i2, i3);
         int size = View.MeasureSpec.getSize(i3);
         int size2 = View.MeasureSpec.getSize(i2);
-        int i4 = this.f11527e;
+        int i4 = this.f11589e;
         if (i4 > 0) {
             size = Math.min(size, i4);
         }
@@ -55,16 +55,16 @@ public class AdScrollView extends ScrollView {
     }
 
     public void setMaxHeight(int i2) {
-        this.f11527e = i2;
+        this.f11589e = i2;
     }
 
     public AdScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11527e = -1;
+        this.f11589e = -1;
     }
 
     public AdScrollView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11527e = -1;
+        this.f11589e = -1;
     }
 }

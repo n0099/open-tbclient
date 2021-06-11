@@ -8,13 +8,13 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41373a = "__localDebug__" + File.separator + "master.js";
+    public static final String f45049a = "__localDebug__" + File.separator + "master.js";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f41374b = "__localDebug__" + File.separator + "main.js";
+    public static final String f45050b = "__localDebug__" + File.separator + "main.js";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f41375c = "__localDebug__" + File.separator + "slave.js";
+    public static final String f45051c = "__localDebug__" + File.separator + "slave.js";
 
     public static e.g a(d.a.l0.a.f1.e.b bVar) {
         File d2 = d();
@@ -24,9 +24,9 @@ public class b {
         e.g gVar = new e.g();
         File file = new File(d2, "app.json");
         SwanAppConfigData b2 = d.a.l0.a.a2.n.d.b(d2.getAbsolutePath());
-        gVar.f40691a = d2.getPath() + File.separator;
-        gVar.f40692b = b2;
-        d.a.l0.a.e0.d.h("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.f40691a);
+        gVar.f44367a = d2.getPath() + File.separator;
+        gVar.f44368b = b2;
+        d.a.l0.a.e0.d.h("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.f44367a);
         return gVar;
     }
 
@@ -51,10 +51,10 @@ public class b {
     }
 
     public static String e() {
-        return d() + File.separator + f41373a;
+        return d() + File.separator + f45049a;
     }
 
     public static String f() {
-        return d() + File.separator + f41375c;
+        return d() + File.separator + f45051c;
     }
 }

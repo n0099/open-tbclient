@@ -12,19 +12,19 @@ public class b {
     public static class a implements LayoutInflater.Factory {
 
         /* renamed from: e  reason: collision with root package name */
-        public final e f48313e;
+        public final e f51987e;
 
         public a(e eVar) {
-            this.f48313e = eVar;
+            this.f51987e = eVar;
         }
 
         @Override // android.view.LayoutInflater.Factory
         public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            return this.f48313e.onCreateView(null, str, context, attributeSet);
+            return this.f51987e.onCreateView(null, str, context, attributeSet);
         }
 
         public String toString() {
-            return getClass().getName() + StringUtil.ARRAY_START + this.f48313e + "}";
+            return getClass().getName() + StringUtil.ARRAY_START + this.f51987e + "}";
         }
     }
 

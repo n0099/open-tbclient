@@ -3,17 +3,17 @@ package d.a.n0.f0;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f54291a;
+    public static f f57980a;
 
     public static final f a() {
-        if (f54291a == null) {
+        if (f57980a == null) {
             synchronized (f.class) {
-                if (f54291a == null) {
-                    f54291a = new f();
+                if (f57980a == null) {
+                    f57980a = new f();
                 }
             }
         }
-        return f54291a;
+        return f57980a;
     }
 
     public boolean b(String str) {

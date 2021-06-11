@@ -32,7 +32,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.m0.a.w;
+import d.a.m0.a.x;
 import d.a.m0.r.q.a2;
 import java.util.Iterator;
 import java.util.Map;
@@ -84,16 +84,16 @@ public class m {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
                     k(decode);
                 }
-                gVar.f59151a = matcher.group(2);
+                gVar.f62842a = matcher.group(2);
             } else {
                 k(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf < 0 || (i2 = indexOf + 3) > decode.length()) {
                     return null;
                 }
-                gVar.f59151a = decode.substring(i2);
+                gVar.f62842a = decode.substring(i2);
                 try {
-                    gVar.f59152b = uri.getQueryParameter("from");
+                    gVar.f62843b = uri.getQueryParameter("from");
                 } catch (Exception e2) {
                     BdLog.e(e2);
                 }
@@ -130,28 +130,28 @@ public class m {
         }
         String str = null;
         String valueOf = String.valueOf(a2Var.c0());
-        OriginalForumInfo originalForumInfo = a2Var.D1;
+        OriginalForumInfo originalForumInfo = a2Var.E1;
         if (originalForumInfo != null) {
             valueOf = originalForumInfo.id;
             str = valueOf;
         }
         if (a2Var.B0() > 0 && d.a.n0.e3.n0.e.c()) {
-            createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(a2Var.y1(), String.valueOf(a2Var.B0()), false, true, "frs_page");
+            createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(a2Var.z1(), String.valueOf(a2Var.B0()), false, true, "frs_page");
         } else {
-            createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(a2Var, frsFragment.g(), "frs_page", 18003, true, false, z);
+            createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(a2Var, frsFragment.h(), "frs_page", 18003, true, false, z);
         }
         if (i2 == 4) {
             createFromThreadCfg.setVideo_source("floor5");
         } else {
             createFromThreadCfg.setVideo_source("frs");
         }
-        createFromThreadCfg.setFromSmartFrs(a2Var.w2());
+        createFromThreadCfg.setFromSmartFrs(a2Var.x2());
         createFromThreadCfg.setSmartFrsPosition(i2);
         createFromThreadCfg.setForumId(valueOf);
         createFromThreadCfg.setFromForumId(str);
         createFromThreadCfg.setStartFrom(3);
         createFromThreadCfg.setFrom("from_frs");
-        if (a2Var.g2() && createFromThreadCfg.getIntent() != null) {
+        if (a2Var.h2() && createFromThreadCfg.getIntent() != null) {
             createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
         }
         if (TbSingleton.getInstance().isPbPreloadSwitchOn() && j(a2Var)) {
@@ -165,14 +165,14 @@ public class m {
         if (frsFragment == null || a2Var == null || str == null) {
             return;
         }
-        if (!(a2Var == null || a2Var.P1())) {
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(a2Var, frsFragment.g(), "frs_page", 18003, true, true, z);
+        if (!(a2Var == null || a2Var.Q1())) {
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(a2Var, frsFragment.h(), "frs_page", 18003, true, true, z);
             createFromThreadCfg.setVideo_source("frs");
             createFromThreadCfg.setStartFrom(3);
             frsFragment.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
             return;
         }
-        PbActivityConfig createFromThreadCfg2 = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(a2Var, frsFragment.g(), "frs_page", 18003, true, false, z);
+        PbActivityConfig createFromThreadCfg2 = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(a2Var, frsFragment.h(), "frs_page", 18003, true, false, z);
         createFromThreadCfg2.setVideo_source("frs");
         createFromThreadCfg2.setStartFrom(3);
         frsFragment.sendMessage(new CustomMessage(2004001, createFromThreadCfg2));
@@ -182,7 +182,7 @@ public class m {
         if (frsFragment == null || a2Var == null || str == null) {
             return;
         }
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(a2Var, frsFragment.g(), "frs_page", 18003, false, false, z);
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(a2Var, frsFragment.h(), "frs_page", 18003, false, false, z);
         createFromThreadCfg.setVideo_source("frs");
         createFromThreadCfg.setStartFrom(3);
         frsFragment.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
@@ -221,11 +221,11 @@ public class m {
     }
 
     public static boolean j(a2 a2Var) {
-        if (a2Var == null || a2Var.t1) {
+        if (a2Var == null || a2Var.u1) {
             return false;
         }
         int i2 = a2Var.Z;
-        return i2 == 0 || i2 == 11 || i2 == 40 || a2Var.B2();
+        return i2 == 0 || i2 == 11 || i2 == 40 || a2Var.C2();
     }
 
     public static void k(String str) {
@@ -235,7 +235,7 @@ public class m {
         Map<String, String> paramPair = UrlManager.getParamPair(str);
         if (paramPair != null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-            w.b(statisticItem, paramPair);
+            x.b(statisticItem, paramPair);
             statisticItem.param("obj_locate", paramPair.get("obj_locate"));
             statisticItem.param("obj_type", 1);
             statisticItem.param("fname", paramPair.get(TiebaStatic.Params.H5_FORUM_NAME));

@@ -17,27 +17,27 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
     public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsLiveNormalCardView f13964a;
+        public AlaGameFrsLiveNormalCardView f14021a;
 
         public AlaGameFrsNormalViewHolder(AlaGameFrsLiveNormalCardView alaGameFrsLiveNormalCardView) {
-            super(alaGameFrsLiveNormalCardView.l());
-            this.f13964a = alaGameFrsLiveNormalCardView;
+            super(alaGameFrsLiveNormalCardView.m());
+            this.f14021a = alaGameFrsLiveNormalCardView;
         }
     }
 
     public AlaGameFrsLiveNormalCardView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.m = tbPageContext;
-        s();
+        t();
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.ala_sub_list_game_live;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         d.a.n0.v.e.d.b bVar = this.n;
         if (bVar != null) {
             bVar.e(tbPageContext, i2);
@@ -48,24 +48,24 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
     public void onClick(View view) {
     }
 
-    public final void s() {
+    public final void t() {
         this.n = new d.a.n0.v.e.d.b(this.m);
-        ((ViewGroup) l()).addView(this.n.c());
+        ((ViewGroup) m()).addView(this.n.c());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(c cVar) {
+    /* renamed from: u */
+    public void n(c cVar) {
         a2 a2Var;
         d.a.n0.v.e.d.b bVar;
-        if (cVar == null || (a2Var = cVar.f61871e) == null || (bVar = this.n) == null) {
+        if (cVar == null || (a2Var = cVar.f65586e) == null || (bVar = this.n) == null) {
             return;
         }
         bVar.d(a2Var);
     }
 
-    public void u(d.a.n0.v.c cVar) {
+    public void v(d.a.n0.v.c cVar) {
         d.a.n0.v.e.d.b bVar = this.n;
         if (bVar != null) {
             bVar.g(cVar);

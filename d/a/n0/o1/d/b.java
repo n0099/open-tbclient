@@ -8,8 +8,8 @@ import d.a.m0.w.m;
 public class b extends m {
     public b(Context context, int i2) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_location), 7, i2);
-        this.f50850d = R.drawable.icon_pure_more_location40_svg;
-        this.f50853g = true;
+        this.f54527d = R.drawable.icon_pure_more_location40_svg;
+        this.f54530g = true;
         this.n = new int[]{18};
     }
 }

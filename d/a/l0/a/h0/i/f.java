@@ -13,15 +13,15 @@ public class f {
     public static class a implements SwanAppNetworkUtils.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f42170a;
+        public final /* synthetic */ String f45846a;
 
         public a(String str) {
-            this.f42170a = str;
+            this.f45846a = str;
         }
 
         @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
         public void onResult(int i2) {
-            f.b(this.f42170a, i2);
+            f.b(this.f45846a, i2);
         }
     }
 
@@ -34,7 +34,7 @@ public class f {
     }
 
     public static void c(String str, g gVar) {
-        f(str, gVar.e(), gVar.g(), gVar.f42172b, gVar.f42173c.size(), gVar.f42174d.size(), gVar.a());
+        f(str, gVar.e(), gVar.g(), gVar.f45848b, gVar.f45849c.size(), gVar.f45850d.size(), gVar.a());
     }
 
     public static void d(String str, String str2) {
@@ -47,8 +47,8 @@ public class f {
 
     public static void f(String str, String str2, @Nullable String str3, int i2, int i3, int i4, long j) {
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43185a = "swan";
-        eVar.f43186b = str;
+        eVar.f46861a = "swan";
+        eVar.f46862b = str;
         eVar.a("appid", d.a.l0.a.a2.d.g().getAppId());
         eVar.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
         if (!TextUtils.isEmpty(str3)) {

@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class GlideException extends Exception {
     public static final StackTraceElement[] EMPTY_ELEMENTS = new StackTraceElement[0];
     public static final long serialVersionUID = 1;
@@ -170,7 +170,7 @@ public final class GlideException extends Exception {
         appendCauses(getCauses(), new IndentedAppendable(appendable));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class IndentedAppendable implements Appendable {
         public static final String EMPTY_SEQUENCE = "";
         public static final String INDENT = "  ";

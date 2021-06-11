@@ -39,19 +39,19 @@ import d.a.m0.z0.h0;
 public class OfficialNotificationFragment extends BaseFragment implements NoNetworkView.b, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f17577e;
+    public TbPageContext f17653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.g1.b.q.b f17578f;
+    public d.a.n0.g1.b.q.b f17654f;
 
     /* renamed from: g  reason: collision with root package name */
-    public OfficialNotificationListModel f17579g;
+    public OfficialNotificationListModel f17655g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17580h;
+    public String f17656h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f17581i = new a(2001332);
+    public CustomMessageListener f17657i = new a(2001332);
     public e j = new c();
     public h k = new d();
 
@@ -68,7 +68,7 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
                 return;
             }
             f.a aVar = (f.a) customResponsedMessage.getData();
-            f.a(OfficialNotificationFragment.this.getPageContext().getPageActivity(), OfficialNotificationFragment.this.k, aVar.f49129a, aVar.f49130b, aVar.f49131c);
+            f.a(OfficialNotificationFragment.this.getPageContext().getPageActivity(), OfficialNotificationFragment.this.k, aVar.f52803a, aVar.f52804b, aVar.f52805c);
         }
     }
 
@@ -76,17 +76,17 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
     public class b extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserData f17583a;
+        public final /* synthetic */ UserData f17659a;
 
         public b(UserData userData) {
-            this.f17583a = userData;
+            this.f17659a = userData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            d.a.n0.f1.t.d.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.f17583a);
+            d.a.n0.f1.t.d.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.f17659a);
             return null;
         }
     }
@@ -98,17 +98,17 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
 
         @Override // d.a.c.a.e
         public void c(Object obj) {
-            if (OfficialNotificationFragment.this.f17579g == null || OfficialNotificationFragment.this.f17578f == null || k.isEmpty(OfficialNotificationFragment.this.f17580h) || OfficialNotificationFragment.this.f17579g.getUser() == null || !StringHelper.equals(OfficialNotificationFragment.this.f17580h, OfficialNotificationFragment.this.f17579g.getUser().getUserId())) {
+            if (OfficialNotificationFragment.this.f17655g == null || OfficialNotificationFragment.this.f17654f == null || k.isEmpty(OfficialNotificationFragment.this.f17656h) || OfficialNotificationFragment.this.f17655g.getUser() == null || !StringHelper.equals(OfficialNotificationFragment.this.f17656h, OfficialNotificationFragment.this.f17655g.getUser().getUserId())) {
                 return;
             }
-            int loadDataMode = OfficialNotificationFragment.this.f17579g.getLoadDataMode();
+            int loadDataMode = OfficialNotificationFragment.this.f17655g.getLoadDataMode();
             if (loadDataMode == 1) {
-                OfficialNotificationFragment.this.f17578f.l(OfficialNotificationFragment.this.f17579g.getData());
+                OfficialNotificationFragment.this.f17654f.l(OfficialNotificationFragment.this.f17655g.getData());
             } else if (loadDataMode == 2) {
-                OfficialNotificationFragment.this.f17578f.n(OfficialNotificationFragment.this.f17579g.getData());
+                OfficialNotificationFragment.this.f17654f.n(OfficialNotificationFragment.this.f17655g.getData());
             } else if (loadDataMode != 3) {
             } else {
-                OfficialNotificationFragment.this.f17578f.k(OfficialNotificationFragment.this.f17579g.getData());
+                OfficialNotificationFragment.this.f17654f.k(OfficialNotificationFragment.this.f17655g.getData());
             }
         }
     }
@@ -188,71 +188,71 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         }
     }
 
-    public boolean G0() {
-        OfficialNotificationListModel officialNotificationListModel = this.f17579g;
+    public boolean J0() {
+        OfficialNotificationListModel officialNotificationListModel = this.f17655g;
         if (officialNotificationListModel == null || officialNotificationListModel.getData() == null) {
             return true;
         }
-        return this.f17579g.getData().getIsNewAdd();
+        return this.f17655g.getData().getIsNewAdd();
     }
 
-    public boolean H0(Bundle bundle) {
-        this.f17580h = d.a.m0.s.d.b.g0().D();
-        OfficialNotificationListModel officialNotificationListModel = new OfficialNotificationListModel(this.f17577e);
-        this.f17579g = officialNotificationListModel;
+    public boolean K0(Bundle bundle) {
+        this.f17656h = d.a.m0.s.d.b.g0().D();
+        OfficialNotificationListModel officialNotificationListModel = new OfficialNotificationListModel(this.f17653e);
+        this.f17655g = officialNotificationListModel;
         officialNotificationListModel.setLoadDataCallBack(this.j);
         if (bundle != null) {
-            J0(bundle);
+            M0(bundle);
             return true;
         }
-        I0();
+        L0();
         return true;
     }
 
-    public void I0() {
-        OfficialNotificationListModel officialNotificationListModel = this.f17579g;
+    public void L0() {
+        OfficialNotificationListModel officialNotificationListModel = this.f17655g;
         if (officialNotificationListModel == null) {
             return;
         }
         officialNotificationListModel.setIsAcceptNotify(true);
-        L0();
+        O0();
     }
 
-    public void J0(Bundle bundle) {
-        OfficialNotificationListModel officialNotificationListModel = this.f17579g;
+    public void M0(Bundle bundle) {
+        OfficialNotificationListModel officialNotificationListModel = this.f17655g;
         if (officialNotificationListModel == null) {
             return;
         }
         officialNotificationListModel.setIsAcceptNotify(true);
-        M0(bundle);
+        P0(bundle);
     }
 
-    public void K0() {
-        OfficialNotificationListModel officialNotificationListModel = this.f17579g;
+    public void N0() {
+        OfficialNotificationListModel officialNotificationListModel = this.f17655g;
         if (officialNotificationListModel != null) {
             officialNotificationListModel.loadPrepage();
         }
     }
 
-    public void L0() {
-        if (k.isEmpty(this.f17580h) || this.f17577e == null || this.f17579g == null) {
+    public void O0() {
+        if (k.isEmpty(this.f17656h) || this.f17653e == null || this.f17655g == null) {
             return;
         }
-        UserData userData = new UserData(Long.parseLong(this.f17580h), this.f17577e.getString(R.string.system_message), null, 0);
-        N0(userData);
-        this.f17579g.setUser(userData);
+        UserData userData = new UserData(Long.parseLong(this.f17656h), this.f17653e.getString(R.string.system_message), null, 0);
+        Q0(userData);
+        this.f17655g.setUser(userData);
     }
 
-    public void M0(Bundle bundle) {
+    public void P0(Bundle bundle) {
         if (bundle == null || bundle.getString("user") == null) {
             return;
         }
         UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
-        N0(userData);
-        this.f17579g.setUser(userData);
+        Q0(userData);
+        this.f17655g.setUser(userData);
     }
 
-    public void N0(UserData userData) {
+    public void Q0(UserData userData) {
         h0.c(new b(userData), null);
     }
 
@@ -263,7 +263,7 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.a.n0.g1.b.q.b bVar = this.f17578f;
+        d.a.n0.g1.b.q.b bVar = this.f17654f;
         if (bVar != null) {
             bVar.j();
         }
@@ -273,48 +273,48 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
     public void onClick(View view) {
         super.onClick(view);
         int id = view.getId();
-        if ((id == R.id.iv_head || id == R.id.tv_user_name) && !k.isEmpty(this.f17580h)) {
+        if ((id == R.id.iv_head || id == R.id.tv_user_name) && !k.isEmpty(this.f17656h)) {
             TiebaStatic.log("c12938");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RecommendDetailActivityConfig(getPageContext().getPageActivity(), null, Long.parseLong(this.f17580h))));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RecommendDetailActivityConfig(getPageContext().getPageActivity(), null, Long.parseLong(this.f17656h))));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f17577e = getPageContext();
-        H0(bundle);
+        this.f17653e = getPageContext();
+        K0(bundle);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        d.a.n0.g1.b.q.b bVar = new d.a.n0.g1.b.q.b(this.f17577e, this, viewGroup);
-        this.f17578f = bVar;
-        OfficialNotificationListModel officialNotificationListModel = this.f17579g;
+        d.a.n0.g1.b.q.b bVar = new d.a.n0.g1.b.q.b(this.f17653e, this, viewGroup);
+        this.f17654f = bVar;
+        OfficialNotificationListModel officialNotificationListModel = this.f17655g;
         if (officialNotificationListModel != null) {
             bVar.f(officialNotificationListModel.getData());
-            this.f17579g.loadFirst(null);
+            this.f17655g.loadFirst(null);
         }
-        return this.f17578f.i();
+        return this.f17654f.i();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.f17579g.onDestroy();
-        this.f17579g.setLoadDataCallBack(null);
+        this.f17655g.onDestroy();
+        this.f17655g.setLoadDataCallBack(null);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        MessageManager.getInstance().unRegisterListener(this.f17581i);
+        MessageManager.getInstance().unRegisterListener(this.f17657i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        registerListener(this.f17581i);
+        registerListener(this.f17657i);
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.searchbox.config;
 
 import androidx.annotation.NonNull;
 import com.baidu.down.manage.DownloadConstants;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.config.AppConfig;
 /* loaded from: classes2.dex */
@@ -156,11 +157,11 @@ public final class HostConfig {
     }
 
     public static String getUrlPrivacyPolicy() {
-        return String.format("%s/common/agreement/privacy.html", "https://s.bdstatic.com");
+        return String.format("%s/common/agreement/privacy.html", SapiWebView.BROWSE_MODE_AGREEMENT_HOST);
     }
 
     public static String getUrlServiceProtocal() {
-        return String.format("%s/common/agreement/android.html", "https://s.bdstatic.com");
+        return String.format("%s/common/agreement/android.html", SapiWebView.BROWSE_MODE_AGREEMENT_HOST);
     }
 
     public static String getUserQrcodeHost() {

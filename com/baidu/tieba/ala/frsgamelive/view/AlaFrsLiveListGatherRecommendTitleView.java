@@ -19,27 +19,27 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.n0.v.e.b.b> {
     /* loaded from: classes4.dex */
     public static class AlaFrsLiveListGatherRecommendTitleViewHolder extends TypeAdapter.ViewHolder {
         public AlaFrsLiveListGatherRecommendTitleViewHolder(AlaFrsLiveListGatherRecommendTitleView alaFrsLiveListGatherRecommendTitleView) {
-            super(alaFrsLiveListGatherRecommendTitleView.l());
+            super(alaFrsLiveListGatherRecommendTitleView.m());
         }
     }
 
     public AlaFrsLiveListGatherRecommendTitleView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.q = 3;
-        View l = l();
-        this.m = l.findViewById(R.id.frs_game_live_recommand_line1);
-        this.n = (TextView) l.findViewById(R.id.frs_game_live_recommand3);
-        this.o = l.findViewById(R.id.frs_game_live_recommand_line2);
-        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        View m = m();
+        this.m = m.findViewById(R.id.frs_game_live_recommand_line1);
+        this.n = (TextView) m.findViewById(R.id.frs_game_live_recommand3);
+        this.o = m.findViewById(R.id.frs_game_live_recommand_line2);
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.ala_frs_game_live_recommend_title_view;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.q != i2) {
             SkinManager.setBackgroundResource(this.m, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
@@ -54,8 +54,8 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.n0.v.e.b.b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(d.a.n0.v.e.b.b bVar) {
-        n(this.p, TbadkCoreApplication.getInst().getSkinType());
+    /* renamed from: t */
+    public void n(d.a.n0.v.e.b.b bVar) {
+        o(this.p, TbadkCoreApplication.getInst().getSkinType());
     }
 }

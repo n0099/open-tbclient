@@ -15,15 +15,15 @@ public class c extends a0 {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f40950e;
+        public final /* synthetic */ SwanAppActivity f44626e;
 
         public a(c cVar, SwanAppActivity swanAppActivity) {
-            this.f40950e = swanAppActivity;
+            this.f44626e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e0.a(this.f40950e);
+            e0.a(this.f44626e);
         }
     }
 

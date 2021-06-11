@@ -6,7 +6,7 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 public class b0<T extends BaseCardInfo> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f63445a;
+    public Object f67163a;
 
     public void a(View view, T t) {
     }

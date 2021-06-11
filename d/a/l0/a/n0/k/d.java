@@ -6,66 +6,66 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<String> f43650a = new HashSet();
+    public final Set<String> f47326a = new HashSet();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, a<Boolean>> f43651b = new HashMap();
+    public final Map<String, a<Boolean>> f47327b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, a<b>> f43652c = new HashMap();
+    public final Map<String, a<b>> f47328c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public a<Exception> f43653d = new a<>();
+    public a<Exception> f47329d = new a<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Set<d.a.l0.a.v2.e1.b<T>> f43654a = new HashSet();
+        public Set<d.a.l0.a.v2.e1.b<T>> f47330a = new HashSet();
 
         public void a(T t) {
-            for (d.a.l0.a.v2.e1.b<T> bVar : this.f43654a) {
+            for (d.a.l0.a.v2.e1.b<T> bVar : this.f47330a) {
                 bVar.onCallback(t);
             }
         }
 
         public void b() {
-            this.f43654a.clear();
+            this.f47330a.clear();
         }
 
         public void c(d.a.l0.a.v2.e1.b<T> bVar) {
             if (bVar != null) {
-                this.f43654a.add(bVar);
+                this.f47330a.add(bVar);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f43655a;
+        public final long f47331a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f43656b;
+        public final long f47332b;
 
         public b(long j, long j2) {
-            this.f43655a = j;
-            this.f43656b = j2;
+            this.f47331a = j;
+            this.f47332b = j2;
             int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
         }
 
         public boolean a() {
-            return this.f43656b > 0;
+            return this.f47332b > 0;
         }
     }
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public static <T> a<T> i(Map<String, a<T>> map, String str) {
@@ -79,33 +79,33 @@ public class d {
     }
 
     public HashSet<String> a() {
-        return new HashSet<>(this.f43650a);
+        return new HashSet<>(this.f47326a);
     }
 
     public void b(Exception exc) {
-        this.f43653d.a(exc);
-        this.f43653d.b();
+        this.f47329d.a(exc);
+        this.f47329d.b();
     }
 
     public void c(String str, boolean z) {
-        a i2 = i(this.f43651b, str);
+        a i2 = i(this.f47327b, str);
         i2.a(Boolean.valueOf(z));
         i2.b();
     }
 
     public void d(String str, b bVar) {
         if (bVar == null || bVar.a()) {
-            i(this.f43652c, str).a(bVar);
+            i(this.f47328c, str).a(bVar);
         }
     }
 
     public d e(d.a.l0.a.v2.e1.b<Exception> bVar) {
-        this.f43653d.c(bVar);
+        this.f47329d.c(bVar);
         return this;
     }
 
     public d f(String... strArr) {
-        this.f43650a.addAll(Arrays.asList(strArr));
+        this.f47326a.addAll(Arrays.asList(strArr));
         return this;
     }
 
@@ -116,7 +116,7 @@ public class d {
     }
 
     public d h(String str, d.a.l0.a.v2.e1.b<Boolean> bVar) {
-        g(this.f43651b, str, bVar);
+        g(this.f47327b, str, bVar);
         return this;
     }
 }

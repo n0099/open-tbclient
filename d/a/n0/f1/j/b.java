@@ -17,28 +17,28 @@ import java.util.Date;
 public class b extends d.a.c.a.c<UpdatesActivity> {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f54560b;
+    public View f58249b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HeadImageView f54561c;
+    public HeadImageView f58250c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f54562d;
+    public TextView f58251d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f54563e;
+    public TextView f58252e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f54564f;
+    public TextView f58253f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f54565g;
+    public TextView f58254g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f54566h;
+    public ImageView f58255h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f54567i;
+    public RelativeLayout f58256i;
     public RelativeLayout j;
     public UpdatesActivity k;
     public UpdatesItemData l;
@@ -55,16 +55,16 @@ public class b extends d.a.c.a.c<UpdatesActivity> {
 
     /* renamed from: d.a.n0.f1.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1315b implements View.OnClickListener {
-        public View$OnClickListenerC1315b() {
+    public class View$OnClickListenerC1371b implements View.OnClickListener {
+        public View$OnClickListenerC1371b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (b.this.k.isEditMode()) {
-                b.this.f54566h.performClick();
+                b.this.f58255h.performClick();
             } else {
-                b.this.k.onItemViewClick(b.this.f54560b, 101, 0, 0L, b.this.l);
+                b.this.k.onItemViewClick(b.this.f58249b, 101, 0, 0L, b.this.l);
             }
         }
     }
@@ -76,7 +76,7 @@ public class b extends d.a.c.a.c<UpdatesActivity> {
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            b.this.k.onItemViewLongClick(b.this.f54560b, 200, 0, 0L, b.this.l);
+            b.this.k.onItemViewLongClick(b.this.f58249b, 200, 0, 0L, b.this.l);
             return true;
         }
     }
@@ -88,7 +88,7 @@ public class b extends d.a.c.a.c<UpdatesActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.k.onItemViewClick(b.this.f54560b, 101, 0, 0L, b.this.l);
+            b.this.k.onItemViewClick(b.this.f58249b, 101, 0, 0L, b.this.l);
         }
     }
 
@@ -99,7 +99,7 @@ public class b extends d.a.c.a.c<UpdatesActivity> {
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            b.this.k.onItemViewLongClick(b.this.f54560b, 200, 0, 0L, b.this.l);
+            b.this.k.onItemViewLongClick(b.this.f58249b, 200, 0, 0L, b.this.l);
             return true;
         }
     }
@@ -123,26 +123,26 @@ public class b extends d.a.c.a.c<UpdatesActivity> {
     }
 
     public void k() {
-        View findViewById = this.f38300a.findViewById(R.id.root_view);
-        this.f54560b = findViewById;
-        this.f54561c = (HeadImageView) findViewById.findViewById(R.id.iv_head);
-        this.f54562d = (TextView) this.f54560b.findViewById(R.id.tv_group_name);
-        this.f54563e = (TextView) this.f54560b.findViewById(R.id.tv_content);
-        this.f54564f = (TextView) this.f54560b.findViewById(R.id.tv_title);
-        this.f54565g = (TextView) this.f54560b.findViewById(R.id.tv_time);
-        this.f54566h = (ImageView) this.f54560b.findViewById(R.id.cb_select);
-        this.f54567i = (RelativeLayout) this.f54560b.findViewById(R.id.layout_body);
-        this.j = (RelativeLayout) this.f54560b.findViewById(R.id.layout_title);
-        this.f54561c.setOnClickListener(new a(this));
-        this.f54567i.setClickable(true);
-        this.f54567i.setLongClickable(true);
+        View findViewById = this.f41953a.findViewById(R.id.root_view);
+        this.f58249b = findViewById;
+        this.f58250c = (HeadImageView) findViewById.findViewById(R.id.iv_head);
+        this.f58251d = (TextView) this.f58249b.findViewById(R.id.tv_group_name);
+        this.f58252e = (TextView) this.f58249b.findViewById(R.id.tv_content);
+        this.f58253f = (TextView) this.f58249b.findViewById(R.id.tv_title);
+        this.f58254g = (TextView) this.f58249b.findViewById(R.id.tv_time);
+        this.f58255h = (ImageView) this.f58249b.findViewById(R.id.cb_select);
+        this.f58256i = (RelativeLayout) this.f58249b.findViewById(R.id.layout_body);
+        this.j = (RelativeLayout) this.f58249b.findViewById(R.id.layout_title);
+        this.f58250c.setOnClickListener(new a(this));
+        this.f58256i.setClickable(true);
+        this.f58256i.setLongClickable(true);
         this.j.setClickable(true);
         this.j.setLongClickable(true);
-        this.f54567i.setOnClickListener(new View$OnClickListenerC1315b());
-        this.f54567i.setOnLongClickListener(new c());
+        this.f58256i.setOnClickListener(new View$OnClickListenerC1371b());
+        this.f58256i.setOnLongClickListener(new c());
         this.j.setOnClickListener(new d());
         this.j.setOnLongClickListener(new e());
-        this.f54566h.setOnClickListener(new f());
+        this.f58255h.setOnClickListener(new f());
     }
 
     public void l(UpdatesItemData updatesItemData) {
@@ -159,49 +159,49 @@ public class b extends d.a.c.a.c<UpdatesActivity> {
             return;
         }
         if (this.k.isEditMode()) {
-            this.f54566h.setVisibility(0);
+            this.f58255h.setVisibility(0);
         } else {
-            this.f54566h.setVisibility(8);
-            this.f54567i.setSelected(false);
+            this.f58255h.setVisibility(8);
+            this.f58256i.setSelected(false);
         }
         String groupHeadUrl = this.l.getGroupHeadUrl();
         if (!TextUtils.isEmpty(groupHeadUrl)) {
-            this.f54561c.setTag(groupHeadUrl);
-            this.f54561c.V(groupHeadUrl, 10, false);
+            this.f58250c.setTag(groupHeadUrl);
+            this.f58250c.U(groupHeadUrl, 10, false);
         } else {
-            this.f54561c.setTag(null);
+            this.f58250c.setTag(null);
         }
-        this.f54561c.setClickable(false);
+        this.f58250c.setClickable(false);
         if (!TextUtils.isEmpty(this.l.getTitle())) {
-            this.f54564f.setText(this.l.getTitle());
+            this.f58253f.setText(this.l.getTitle());
         } else {
-            this.f54564f.setText(this.k.getPageContext().getString(R.string.inform));
+            this.f58253f.setText(this.k.getPageContext().getString(R.string.inform));
         }
         Date date = new Date();
         date.setTime(this.l.getTime());
-        this.f54565g.setText(StringHelper.GetPostTimeString(date));
+        this.f58254g.setText(StringHelper.GetPostTimeString(date));
         if (!TextUtils.isEmpty(this.l.getContent())) {
-            this.f54563e.setText(this.l.getContent());
+            this.f58252e.setText(this.l.getContent());
         } else {
-            this.f54563e.setText("");
+            this.f58252e.setText("");
         }
         if (!TextUtils.isEmpty(this.l.getGroupName())) {
-            this.f54562d.setText(this.l.getGroupName());
+            this.f58251d.setText(this.l.getGroupName());
         } else {
-            this.f54562d.setText("");
+            this.f58251d.setText("");
         }
-        int paddingLeft = this.f54567i.getPaddingLeft();
-        int paddingTop = this.f54567i.getPaddingTop();
-        int paddingRight = this.f54567i.getPaddingRight();
-        int paddingBottom = this.f54567i.getPaddingBottom();
+        int paddingLeft = this.f58256i.getPaddingLeft();
+        int paddingTop = this.f58256i.getPaddingTop();
+        int paddingRight = this.f58256i.getPaddingRight();
+        int paddingBottom = this.f58256i.getPaddingBottom();
         this.k.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        this.k.getLayoutMode().j(this.f38300a);
-        this.f54566h.setSelected(this.l.isSelected());
+        this.k.getLayoutMode().j(this.f41953a);
+        this.f58255h.setSelected(this.l.isSelected());
         if (this.l.isSelected() && this.k.isEditMode()) {
-            SkinManager.setBackgroundResource(this.f54567i, R.drawable.bg_information_down_s);
+            SkinManager.setBackgroundResource(this.f58256i, R.drawable.bg_information_down_s);
         } else {
-            SkinManager.setBackgroundResource(this.f54567i, R.drawable.selector_group_updates_bottom_bg);
+            SkinManager.setBackgroundResource(this.f58256i, R.drawable.selector_group_updates_bottom_bg);
         }
-        this.f54567i.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+        this.f58256i.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
     }
 }

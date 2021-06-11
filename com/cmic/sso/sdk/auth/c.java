@@ -20,6 +20,17 @@ public class c {
         return jSONObject;
     }
 
+    public static JSONObject b(String str, String str2) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, str);
+            jSONObject.put("desc", str2);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        return jSONObject;
+    }
+
     public static JSONObject a(String str, com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {
         String b2;
         String[] strArr = {FileUtils.UNKNOW, "移动", "联通", "电信"};
@@ -54,40 +65,37 @@ public class c {
 
     public static JSONObject a(String str, String str2, com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {
         String str3;
-        String str4 = "0";
+        String str4;
+        String str5;
+        String str6 = "0";
         JSONObject jSONObject2 = new JSONObject();
         try {
-            int intValue = Integer.valueOf(aVar.b("authtype", "0")).intValue();
+            int parseInt = Integer.parseInt(aVar.b("authType", "0"));
             int c2 = aVar.c("networktype");
-            if (intValue == 2) {
-                str4 = "7";
-                str3 = "短信验证码";
-            } else if (intValue != 3) {
-                if (intValue != 4) {
-                    str3 = "其他";
+            if (parseInt == 3) {
+                if (c2 == 3) {
+                    str4 = "WIFI下网关鉴权";
+                    str5 = "1";
                 } else {
-                    str4 = "3";
-                    str3 = "短信上行";
+                    str4 = "网关鉴权";
+                    str5 = "2";
                 }
-            } else if (c2 == 3) {
-                str3 = "WIFI下网关鉴权";
-                str4 = "1";
+                String str7 = str5;
+                str3 = str4;
+                str6 = str7;
             } else {
-                str3 = "网关鉴权";
-                str4 = "2";
+                str3 = "其他";
             }
             jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, str);
-            StringBuilder sb = new StringBuilder();
-            sb.append(str4);
-            sb.append("");
-            jSONObject2.put("authType", sb.toString());
+            jSONObject2.put("authType", str6);
             jSONObject2.put("authTypeDes", str3);
             if ("103000".equals(str)) {
-                if (1 == aVar.b("logintype", 0)) {
+                if (1 == aVar.c("logintype")) {
                     jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, aVar.b(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID));
                     jSONObject2.put("securityphone", aVar.b("securityphone"));
                 }
                 jSONObject2.put("token", jSONObject.optString("token"));
+                jSONObject2.put("tokenExpiresIn", jSONObject.optString("tokenExpiresIn"));
             } else {
                 jSONObject2.put("desc", str2);
             }

@@ -33,30 +33,30 @@ import org.json.JSONObject;
 public class a implements d.a.l0.a.u2.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46617a = k.f43199a;
+    public static final boolean f50291a = k.f46875a;
 
     /* renamed from: d.a.l0.e.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0973a extends ResponseCallback<JSONObject> {
+    public class C1029a extends ResponseCallback<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0873a f46618a;
+        public final /* synthetic */ a.InterfaceC0929a f50292a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46619b;
+        public final /* synthetic */ String f50293b;
 
-        public C0973a(a aVar, a.InterfaceC0873a interfaceC0873a, String str) {
-            this.f46618a = interfaceC0873a;
-            this.f46619b = str;
+        public C1029a(a aVar, a.InterfaceC0929a interfaceC0929a, String str) {
+            this.f50292a = interfaceC0929a;
+            this.f50293b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
-            a.InterfaceC0873a interfaceC0873a = this.f46618a;
-            if (interfaceC0873a != null) {
-                interfaceC0873a.c(jSONObject, this.f46619b);
+            a.InterfaceC0929a interfaceC0929a = this.f50292a;
+            if (interfaceC0929a != null) {
+                interfaceC0929a.c(jSONObject, this.f50293b);
             }
         }
 
@@ -74,9 +74,9 @@ public class a implements d.a.l0.a.u2.a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            a.InterfaceC0873a interfaceC0873a = this.f46618a;
-            if (interfaceC0873a != null) {
-                interfaceC0873a.c(null, null);
+            a.InterfaceC0929a interfaceC0929a = this.f50292a;
+            if (interfaceC0929a != null) {
+                interfaceC0929a.c(null, null);
             }
         }
     }
@@ -95,9 +95,9 @@ public class a implements d.a.l0.a.u2.a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("oname_list", jSONArray);
-            return RequestBody.create(d.a.l0.a.n1.f.f43693a, jSONObject.toString());
+            return RequestBody.create(d.a.l0.a.n1.f.f47369a, jSONObject.toString());
         } catch (JSONException e2) {
-            if (f46617a) {
+            if (f50291a) {
                 e2.printStackTrace();
                 return null;
             }
@@ -115,7 +115,7 @@ public class a implements d.a.l0.a.u2.a {
         if (time >= 1) {
             long j2 = j - time;
             h.a().putLong("server_time_delta", j2);
-            if (f46617a) {
+            if (f50291a) {
                 Log.i("getServerTimeDelta", "deltaTime sDate:" + parse + "  sTime:" + time + "   diff:" + j2);
             }
         }
@@ -124,20 +124,20 @@ public class a implements d.a.l0.a.u2.a {
     @Override // d.a.l0.a.u2.a
     public boolean a(String str, d.a.l0.a.j1.d.a aVar) {
         PutObjectResponse putObject;
-        if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.f43084a) && !TextUtils.isEmpty(aVar.f43085b) && !TextUtils.isEmpty(aVar.f43086c) && !TextUtils.isEmpty(aVar.f43089f)) {
+        if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.f46760a) && !TextUtils.isEmpty(aVar.f46761b) && !TextUtils.isEmpty(aVar.f46762c) && !TextUtils.isEmpty(aVar.f46765f)) {
             try {
                 BosClientConfiguration bosClientConfiguration = new BosClientConfiguration();
-                bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(aVar.f43084a, aVar.f43085b, aVar.f43086c));
+                bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(aVar.f46760a, aVar.f46761b, aVar.f46762c));
                 bosClientConfiguration.setEndpoint("bj.bcebos.com");
                 BosClient bosClient = new BosClient(bosClientConfiguration);
                 File file = new File(str);
-                if (file.exists() && (putObject = bosClient.putObject(new PutObjectRequest(aVar.f43087d, aVar.f43089f, file))) != null) {
+                if (file.exists() && (putObject = bosClient.putObject(new PutObjectRequest(aVar.f46763d, aVar.f46765f, file))) != null) {
                     if (!TextUtils.isEmpty(putObject.getETag())) {
                         return true;
                     }
                 }
             } catch (Exception e2) {
-                if (f46617a) {
+                if (f50291a) {
                     e2.printStackTrace();
                 }
             }
@@ -146,14 +146,14 @@ public class a implements d.a.l0.a.u2.a {
     }
 
     @Override // d.a.l0.a.u2.a
-    public void b(Context context, String str, a.InterfaceC0873a interfaceC0873a) {
+    public void b(Context context, String str, a.InterfaceC0929a interfaceC0929a) {
         if (context == null || TextUtils.isEmpty(str)) {
             return;
         }
         String v = c.v(d.a.l0.a.c1.a.n().e());
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
-        for (Map.Entry<String, String> entry : d.a.l0.a.d0.b.b().f41308d.entrySet()) {
+        for (Map.Entry<String, String> entry : d.a.l0.a.d0.b.b().f44984d.entrySet()) {
             v = o0.a(v, entry.getKey(), entry.getValue());
         }
         String c2 = c(d(context), str.substring(str.lastIndexOf(".")));
@@ -161,12 +161,12 @@ public class a implements d.a.l0.a.u2.a {
         if (e2 == null) {
             return;
         }
-        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(v, e2, new C0973a(this, interfaceC0873a, c2));
+        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(v, e2, new C1029a(this, interfaceC0929a, c2));
         if (d.a.l0.m.e.a.g().c()) {
-            aVar.f47974f = true;
+            aVar.f51648f = true;
         }
-        aVar.f47975g = false;
-        aVar.f47971c = hashMap;
+        aVar.f51649g = false;
+        aVar.f51645c = hashMap;
         d.a.l0.m.e.a.g().e(aVar);
     }
 }

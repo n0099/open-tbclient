@@ -11,7 +11,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d extends d.a.l0.j.k.a<d.a.l0.a.h1.c.b> {
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public static d e() {
@@ -27,14 +27,14 @@ public class d extends d.a.l0.j.k.a<d.a.l0.a.h1.c.b> {
 
     public final boolean f(Context context, d.a.l0.a.h1.c.b bVar, d.a.l0.a.h1.b bVar2, d.a.l0.a.a2.e eVar) {
         d.a.l0.a.e0.d.g("map", "IncludePointsAction start");
-        d.a.l0.a.p.e.d B = d.a.l0.a.g1.f.V().B(bVar.f40846g);
+        d.a.l0.a.p.e.d B = d.a.l0.a.g1.f.V().B(bVar.f44522g);
         if (!(B instanceof d.a.l0.a.p.e.b)) {
             d.a.l0.a.e0.d.b("map", "WebViewManager is null");
             return false;
         }
-        d.a.l0.j.n.c d2 = d.a.l0.j.c.b().c((d.a.l0.a.p.e.b) B).d(bVar.f40845f);
+        d.a.l0.j.n.c d2 = d.a.l0.j.c.b().c((d.a.l0.a.p.e.b) B).d(bVar.f44521f);
         if (d2 == null) {
-            d.a.l0.a.e0.d.b("map", "can not find map by id " + bVar.f40845f);
+            d.a.l0.a.e0.d.b("map", "can not find map by id " + bVar.f44521f);
             return false;
         }
         d.a.l0.a.e0.d.g("map", "IncludePointsAction end");
@@ -50,7 +50,7 @@ public class d extends d.a.l0.j.k.a<d.a.l0.a.h1.c.b> {
         Iterator<d.a.l0.a.h1.c.h.c> it = bVar.D.iterator();
         while (it.hasNext()) {
             d.a.l0.a.h1.c.h.c next = it.next();
-            builder.include(new LatLng(next.f42673e, next.f42674f));
+            builder.include(new LatLng(next.f46349e, next.f46350f));
         }
         LatLngBounds build = builder.build();
         int[] iArr = bVar.E;

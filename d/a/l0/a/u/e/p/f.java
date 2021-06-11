@@ -36,7 +36,7 @@ public class f extends d.a.l0.a.u.c.d {
         JSONObject jSONObject2 = new JSONObject();
         jSONObject2.put("city", h2.k);
         jSONObject2.put("cityCode", h2.l);
-        jSONObject2.put("country", h2.f41135i);
+        jSONObject2.put("country", h2.f44811i);
         jSONObject2.put("district", h2.n);
         jSONObject2.put("province", h2.m);
         jSONObject2.put("street", h2.o);
@@ -88,7 +88,7 @@ public class f extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b v() {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-SystemInfo", "start get common sys info sync");
         }
         JSONObject d2 = d.a.l0.a.r1.k.g.a.c().d("getCommonSysInfoSync");
@@ -128,18 +128,18 @@ public class f extends d.a.l0.a.u.c.d {
             r(context, a2);
             t(context, a2, y);
         } catch (JSONException e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e2.printStackTrace();
             }
         }
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.i("Api-SystemInfo-aiapp", "getSystemInfo:  " + a2);
         }
         return a2;
     }
 
     public d.a.l0.a.u.h.b y() {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-SystemInfo", "start get system info");
         }
         JSONObject d2 = d.a.l0.a.r1.k.g.a.c().d("getSystemInfo");
@@ -155,7 +155,7 @@ public class f extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b z() {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-SystemInfo", "start get system info sync");
         }
         JSONObject d2 = d.a.l0.a.r1.k.g.a.c().d("getSystemInfoSync");

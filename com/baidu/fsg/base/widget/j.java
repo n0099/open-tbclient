@@ -5,20 +5,20 @@ import android.os.Handler;
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardUtil f5456a;
+    public final /* synthetic */ SafeKeyBoardUtil f5499a;
 
     public j(SafeKeyBoardUtil safeKeyBoardUtil) {
-        this.f5456a = safeKeyBoardUtil;
+        this.f5499a = safeKeyBoardUtil;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         SafeScrollView safeScrollView;
-        SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f5456a.mPopupWindow;
+        SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f5499a.mPopupWindow;
         if (safeKeyBoardPopupWindow != null && safeKeyBoardPopupWindow.isShowing()) {
-            safeScrollView = this.f5456a.f5432e;
+            safeScrollView = this.f5499a.f5475e;
             if (safeScrollView.hasWindowFocus()) {
-                this.f5456a.a();
+                this.f5499a.a();
                 return;
             }
         }

@@ -11,10 +11,10 @@ import d.a.l0.a.y0.k.f.c.f;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f45894a;
+    public static final e f49568a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f45895b;
+    public static volatile e f49569b;
 
     /* loaded from: classes3.dex */
     public static class a implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
@@ -28,8 +28,8 @@ public class b {
 
     static {
         f fVar = new f();
-        f45894a = fVar;
-        f45895b = fVar;
+        f49568a = fVar;
+        f49569b = fVar;
     }
 
     public static void a() {
@@ -38,7 +38,7 @@ public class b {
 
     @NonNull
     public static e b() {
-        return f45895b;
+        return f49569b;
     }
 
     public static void c(int i2) {
@@ -65,10 +65,10 @@ public class b {
     }
 
     public static void f() {
-        g(f45894a);
+        g(f49568a);
     }
 
     public static void g(@NonNull e eVar) {
-        f45895b = eVar;
+        f49569b = eVar;
     }
 }

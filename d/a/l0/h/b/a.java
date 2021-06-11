@@ -4,23 +4,23 @@ public class a {
 
     /* renamed from: d.a.l0.h.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1008a implements d {
+    public static class C1064a implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f47121a;
+        public final /* synthetic */ d f50795a;
 
-        public C1008a(d dVar) {
-            this.f47121a = dVar;
+        public C1064a(d dVar) {
+            this.f50795a = dVar;
         }
 
         @Override // d.a.l0.h.b.a.d
-        public void a(String str) {
-            this.f47121a.a(str);
+        public void onFail(String str) {
+            this.f50795a.onFail(str);
         }
 
         @Override // d.a.l0.h.b.a.d
         public void onSuccess() {
-            this.f47121a.onSuccess();
+            this.f50795a.onSuccess();
         }
     }
 
@@ -28,18 +28,18 @@ public class a {
     public static class b implements d.a.l0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f47122e;
+        public final /* synthetic */ d f50796e;
 
         public b(d dVar) {
-            this.f47122e = dVar;
+            this.f50796e = dVar;
         }
 
         @Override // d.a.l0.a.m.a
         public void onResult(int i2) {
             if (i2 == 0) {
-                this.f47122e.onSuccess();
+                this.f50796e.onSuccess();
             } else {
-                this.f47122e.a("login error");
+                this.f50796e.onFail("login error");
             }
         }
     }
@@ -48,43 +48,43 @@ public class a {
     public static class c implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f47123a;
+        public final /* synthetic */ d f50797a;
 
         /* renamed from: d.a.l0.h.b.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1009a implements d {
-            public C1009a() {
+        public class C1065a implements d {
+            public C1065a() {
             }
 
             @Override // d.a.l0.h.b.a.d
-            public void a(String str) {
-                c.this.f47123a.a(str);
+            public void onFail(String str) {
+                c.this.f50797a.onFail(str);
             }
 
             @Override // d.a.l0.h.b.a.d
             public void onSuccess() {
-                c.this.f47123a.onSuccess();
+                c.this.f50797a.onSuccess();
             }
         }
 
         public c(d dVar) {
-            this.f47123a = dVar;
+            this.f50797a = dVar;
         }
 
         @Override // d.a.l0.h.b.a.d
-        public void a(String str) {
-            this.f47123a.a(str);
+        public void onFail(String str) {
+            this.f50797a.onFail(str);
         }
 
         @Override // d.a.l0.h.b.a.d
         public void onSuccess() {
-            a.b(new C1009a());
+            a.b(new C1065a());
         }
     }
 
     /* loaded from: classes3.dex */
     public interface d {
-        void a(String str);
+        void onFail(String str);
 
         void onSuccess();
     }
@@ -98,7 +98,7 @@ public class a {
     }
 
     public static void b(d dVar) {
-        d.a.l0.h.t.a.a().a(new C1008a(dVar));
+        d.a.l0.h.t.a.a().a(new C1064a(dVar));
     }
 
     public static void c(d dVar) {
@@ -106,7 +106,7 @@ public class a {
         if (Q != null && Q.x() != null) {
             a(Q, new c(dVar));
         } else {
-            dVar.a("SwanApp is null or SwanActivity is null");
+            dVar.onFail("SwanApp is null or SwanActivity is null");
         }
     }
 }

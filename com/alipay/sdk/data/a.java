@@ -13,31 +13,31 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1842a = 3500;
+    public static final int f1855a = 3500;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1843b = "https://h5.m.taobao.com/mlapp/olist.html";
+    public static final String f1856b = "https://h5.m.taobao.com/mlapp/olist.html";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f1844c = 10;
+    public static final int f1857c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f1845d = true;
+    public static final boolean f1858d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f1846e = true;
+    public static final boolean f1859e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f1847f = 1000;
+    public static final int f1860f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f1848g = 20000;
+    public static final int f1861g = 20000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1849h = "alipay_cashier_dynamic_config";
+    public static final String f1862h = "alipay_cashier_dynamic_config";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f1850i = "timeout";
+    public static final String f1863i = "timeout";
     public static final String j = "st_sdk_config";
     public static final String k = "tbreturl";
     public static final String l = "launchAppSwitch";
@@ -47,12 +47,12 @@ public final class a {
     public static final String p = "intercept_batch";
     public static a x;
     public int r = 3500;
-    public String s = f1843b;
+    public String s = f1856b;
     public int t = 10;
     public boolean u = true;
     public boolean v = true;
     public boolean q = false;
-    public List<C0015a> w = null;
+    public List<C0016a> w = null;
 
     public static a g() {
         if (x == null) {
@@ -64,7 +64,7 @@ public final class a {
     }
 
     private void h() {
-        a(j.b(com.alipay.sdk.sys.b.a().b(), f1849h, null));
+        a(j.b(com.alipay.sdk.sys.b.a().b(), f1862h, null));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,10 +74,10 @@ public final class a {
             jSONObject.put("timeout", a());
             jSONObject.put(k, d());
             jSONObject.put(m, e());
-            jSONObject.put(l, C0015a.a(f()));
+            jSONObject.put(l, C0016a.a(f()));
             jSONObject.put(o, b());
             jSONObject.put(p, c());
-            j.a(com.alipay.sdk.sys.b.a().b(), f1849h, jSONObject.toString());
+            j.a(com.alipay.sdk.sys.b.a().b(), f1862h, jSONObject.toString());
         } catch (Exception e2) {
             com.alipay.sdk.util.c.a(e2);
         }
@@ -99,7 +99,7 @@ public final class a {
         return this.t;
     }
 
-    public List<C0015a> f() {
+    public List<C0016a> f() {
         return this.w;
     }
 
@@ -112,13 +112,13 @@ public final class a {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject(j);
             if (optJSONObject != null) {
                 this.r = optJSONObject.optInt("timeout", 3500);
-                this.s = optJSONObject.optString(k, f1843b).trim();
+                this.s = optJSONObject.optString(k, f1856b).trim();
                 this.t = optJSONObject.optInt(m, 10);
-                this.w = C0015a.a(optJSONObject.optJSONArray(l));
+                this.w = C0016a.a(optJSONObject.optJSONArray(l));
                 this.u = optJSONObject.optBoolean(o, true);
                 this.v = optJSONObject.optBoolean(p, true);
             } else {
-                com.alipay.sdk.util.c.d(com.alipay.sdk.net.a.f1877a, "config is null");
+                com.alipay.sdk.util.c.d(com.alipay.sdk.net.a.f1890a, "config is null");
             }
         } catch (Throwable th) {
             com.alipay.sdk.util.c.a(th);
@@ -127,42 +127,42 @@ public final class a {
 
     /* renamed from: com.alipay.sdk.data.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0015a {
+    public static final class C0016a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f1851a;
+        public final String f1864a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f1852b;
+        public final int f1865b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f1853c;
+        public final String f1866c;
 
-        public C0015a(String str, int i2, String str2) {
-            this.f1851a = str;
-            this.f1852b = i2;
-            this.f1853c = str2;
+        public C0016a(String str, int i2, String str2) {
+            this.f1864a = str;
+            this.f1865b = i2;
+            this.f1866c = str2;
         }
 
-        public static C0015a a(JSONObject jSONObject) {
+        public static C0016a a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return null;
             }
-            return new C0015a(jSONObject.optString(Config.PACKAGE_NAME), jSONObject.optInt("v", 0), jSONObject.optString("pk"));
+            return new C0016a(jSONObject.optString(Config.PACKAGE_NAME), jSONObject.optInt("v", 0), jSONObject.optString("pk"));
         }
 
         public String toString() {
             return String.valueOf(a(this));
         }
 
-        public static List<C0015a> a(JSONArray jSONArray) {
+        public static List<C0016a> a(JSONArray jSONArray) {
             if (jSONArray == null) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
-                C0015a a2 = a(jSONArray.optJSONObject(i2));
+                C0016a a2 = a(jSONArray.optJSONObject(i2));
                 if (a2 != null) {
                     arrayList.add(a2);
                 }
@@ -170,25 +170,25 @@ public final class a {
             return arrayList;
         }
 
-        public static JSONObject a(C0015a c0015a) {
-            if (c0015a == null) {
+        public static JSONObject a(C0016a c0016a) {
+            if (c0016a == null) {
                 return null;
             }
             try {
-                return new JSONObject().put(Config.PACKAGE_NAME, c0015a.f1851a).put("v", c0015a.f1852b).put("pk", c0015a.f1853c);
+                return new JSONObject().put(Config.PACKAGE_NAME, c0016a.f1864a).put("v", c0016a.f1865b).put("pk", c0016a.f1866c);
             } catch (JSONException e2) {
                 com.alipay.sdk.util.c.a(e2);
                 return null;
             }
         }
 
-        public static JSONArray a(List<C0015a> list) {
+        public static JSONArray a(List<C0016a> list) {
             if (list == null) {
                 return null;
             }
             JSONArray jSONArray = new JSONArray();
-            for (C0015a c0015a : list) {
-                jSONArray.put(a(c0015a));
+            for (C0016a c0016a : list) {
+                jSONArray.put(a(c0016a));
             }
             return jSONArray;
         }
@@ -215,9 +215,9 @@ public final class a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.r = jSONObject.optInt("timeout", 3500);
-            this.s = jSONObject.optString(k, f1843b).trim();
+            this.s = jSONObject.optString(k, f1856b).trim();
             this.t = jSONObject.optInt(m, 10);
-            this.w = C0015a.a(jSONObject.optJSONArray(l));
+            this.w = C0016a.a(jSONObject.optJSONArray(l));
             this.u = jSONObject.optBoolean(o, true);
             this.v = jSONObject.optBoolean(p, true);
         } catch (Throwable th) {

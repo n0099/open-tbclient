@@ -17,23 +17,23 @@ import org.apache.http.cookie.ClientCookie;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43397a = k.f43199a;
+    public static final boolean f47073a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f43398b = 6;
+    public static final int f47074b = 6;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f43399c = 8;
+    public static final int f47075c = 8;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f43400d = Sets.newHashSet("https", "http", "wss");
+    public static final Set<String> f47076d = Sets.newHashSet("https", "http", "wss");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f43401e;
+    public static final String[] f47077e;
 
     static {
         String[] strArr = {"ac", "co", "com", Config.EVENT_PATH_MAPPING, "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
-        f43401e = strArr;
+        f47077e = strArr;
         Arrays.sort(strArr);
     }
 
@@ -41,7 +41,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : f43400d) {
+        for (String str2 : f47076d) {
             if (str.startsWith(str2)) {
                 return true;
             }
@@ -68,10 +68,10 @@ public class c {
                     sb.append(';');
                     sb.append(' ');
                 }
-                sb.append(aVar.f43381c);
-                if (aVar.f43382d != null) {
-                    sb.append(com.alipay.sdk.encrypt.a.f1873h);
-                    sb.append(aVar.f43382d);
+                sb.append(aVar.f47057c);
+                if (aVar.f47058d != null) {
+                    sb.append(com.alipay.sdk.encrypt.a.f1886h);
+                    sb.append(aVar.f47058d);
                 }
             }
         }
@@ -132,20 +132,20 @@ public class c {
                 return i2 + 1;
             } else {
                 int i4 = i3 - i2;
-                int i5 = f43398b;
+                int i5 = f47074b;
                 if (i4 >= i5 && str.substring(i2, i5 + i2).equalsIgnoreCase(ClientCookie.SECURE_ATTR)) {
-                    int i6 = f43398b + i2;
+                    int i6 = f47074b + i2;
                     if (i6 == i3) {
-                        aVar.f43384f = true;
+                        aVar.f47060f = true;
                         return i6;
                     } else if (str.charAt(i6) == ';' || str.charAt(i6) == '=' || str.charAt(i6) == ',') {
-                        aVar.f43384f = true;
+                        aVar.f47060f = true;
                         i2 = c(str, i6, i3);
                     }
                 }
-                int i7 = f43399c;
+                int i7 = f47075c;
                 if (i4 >= i7 && str.substring(i2, i7 + i2).equalsIgnoreCase("httponly")) {
-                    int i8 = f43399c + i2;
+                    int i8 = f47075c + i2;
                     if (i8 == i3) {
                         return i8;
                     }
@@ -172,7 +172,7 @@ public class c {
     }
 
     public static ArrayList<a> g(String str, String str2, String str3) {
-        if (f43397a) {
+        if (f47073a) {
             Log.d("SwanCookieParser", "parseCookie: host=" + str + "; path=" + str2 + "; cookieString=" + str3);
         }
         ArrayList<a> arrayList = new ArrayList<>();
@@ -185,9 +185,9 @@ public class c {
                 } else {
                     a aVar = new a(str, str2);
                     i2 = f(aVar, str3, h(aVar, str3, i2, length), length, str);
-                    if (!TextUtils.isEmpty(aVar.f43379a) && !TextUtils.isEmpty(aVar.f43381c) && aVar.f43382d != null) {
+                    if (!TextUtils.isEmpty(aVar.f47055a) && !TextUtils.isEmpty(aVar.f47057c) && aVar.f47058d != null) {
                         arrayList.add(aVar);
-                        if (f43397a) {
+                        if (f47073a) {
                             Log.d("SwanCookieParser", "parseCookies result: " + aVar.toString());
                         }
                     }
@@ -202,10 +202,10 @@ public class c {
             int indexOf = str.indexOf(59, i2);
             int indexOf2 = str.indexOf(61, i2);
             if (indexOf > indexOf2 && indexOf2 != -1) {
-                aVar.f43381c = str.substring(i2, indexOf2);
+                aVar.f47057c = str.substring(i2, indexOf2);
                 int i4 = indexOf2 + 1;
                 if (str.charAt(i4) == '\"' && (i2 = str.indexOf(34, indexOf2 + 2)) == -1) {
-                    aVar.f43379a = null;
+                    aVar.f47055a = null;
                     return i3;
                 }
                 int indexOf3 = str.indexOf(59, i2);
@@ -213,17 +213,17 @@ public class c {
                     i3 = indexOf3;
                 }
                 if (i4 != i3 && i3 >= indexOf2) {
-                    aVar.f43382d = str.substring(i4, i3);
+                    aVar.f47058d = str.substring(i4, i3);
                 } else {
-                    aVar.f43382d = "";
+                    aVar.f47058d = "";
                 }
                 return i3;
             }
             if (indexOf != -1) {
                 i3 = indexOf;
             }
-            aVar.f43381c = str.substring(i2, i3);
-            aVar.f43382d = null;
+            aVar.f47057c = str.substring(i2, i3);
+            aVar.f47058d = null;
         }
         return i3;
     }
@@ -277,11 +277,11 @@ public class c {
         }
         int lastIndexOf = str.lastIndexOf(46);
         if (lastIndexOf <= 0) {
-            aVar.f43379a = null;
+            aVar.f47055a = null;
             return;
         }
         if (d.a.l0.a.l2.f.b.b(str.startsWith(".") ? str.substring(1) : str)) {
-            aVar.f43379a = null;
+            aVar.f47055a = null;
             return;
         }
         String lowerCase = str.toLowerCase();
@@ -290,37 +290,37 @@ public class c {
             lastIndexOf++;
         }
         if (!str2.endsWith(lowerCase.substring(1))) {
-            aVar.f43379a = null;
+            aVar.f47055a = null;
             return;
         }
         int length = lowerCase.length();
         int length2 = str2.length();
         if (length2 > length - 1 && str2.charAt(length2 - length) != '.') {
-            aVar.f43379a = null;
+            aVar.f47055a = null;
             return;
         }
         if (length == lastIndexOf + 3 && length >= 6 && length <= 8) {
-            if (Arrays.binarySearch(f43401e, lowerCase.substring(1, lastIndexOf)) >= 0) {
-                aVar.f43379a = null;
+            if (Arrays.binarySearch(f47077e, lowerCase.substring(1, lastIndexOf)) >= 0) {
+                aVar.f47055a = null;
                 return;
             }
         }
-        aVar.f43379a = lowerCase;
+        aVar.f47055a = lowerCase;
     }
 
     public static void k(@NonNull a aVar, @NonNull String str) {
-        if (f43397a) {
+        if (f47073a) {
             Log.d("SwanCookieParser", "setExpires value: " + str);
         }
-        if (aVar.f43383e != -1) {
+        if (aVar.f47059e != -1) {
             return;
         }
         long e2 = d.a.l0.a.l2.f.a.e(str);
-        if (f43397a) {
+        if (f47073a) {
             Log.d("SwanCookieParser", "setExpires result: " + e2);
         }
         if (e2 != -1) {
-            aVar.f43383e = e2;
+            aVar.f47059e = e2;
         }
     }
 
@@ -329,9 +329,9 @@ public class c {
             long currentTimeMillis = System.currentTimeMillis();
             long parseLong = Long.parseLong(str);
             Long.signum(parseLong);
-            aVar.f43383e = currentTimeMillis + (parseLong * 1000);
+            aVar.f47059e = currentTimeMillis + (parseLong * 1000);
         } catch (NumberFormatException unused) {
-            if (f43397a) {
+            if (f47073a) {
                 Log.e("SwanCookieParser", "illegal max-age: " + str);
             }
         }
@@ -341,7 +341,7 @@ public class c {
         if (TextUtils.isEmpty(str) || str.charAt(0) != '/') {
             return;
         }
-        aVar.f43380b = str;
+        aVar.f47056b = str;
     }
 
     public static int n(@NonNull String str, String str2, int i2, int i3) {

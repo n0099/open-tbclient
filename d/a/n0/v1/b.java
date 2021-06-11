@@ -26,38 +26,38 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Method f62288a;
+    public static Method f66003a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements FileFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f62289a;
+        public final /* synthetic */ String f66004a;
 
         public a(String str) {
-            this.f62289a = str;
+            this.f66004a = str;
         }
 
         @Override // java.io.FileFilter
         public boolean accept(File file) {
-            return !file.getName().startsWith(this.f62289a);
+            return !file.getName().startsWith(this.f66004a);
         }
     }
 
     static {
         try {
-            f62288a = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            f66003a = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException unused) {
-            f62288a = null;
+            f66003a = null;
         }
     }
 
     public static void a(SharedPreferences.Editor editor) {
-        Method method = f62288a;
+        Method method = f66003a;
         if (method != null) {
             try {
                 method.invoke(editor, new Object[0]);
@@ -136,8 +136,8 @@ public final class b {
                 list = i(context, file2, file);
             } catch (IOException e2) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e2);
-                if (context instanceof c.InterfaceC1687c) {
-                    ((c.InterfaceC1687c) context).getSplash().j();
+                if (context instanceof c.InterfaceC1744c) {
+                    ((c.InterfaceC1744c) context).getSplash().j();
                 }
                 k = k(file2, file);
                 m(context, e(file2), f2, k.size() + 1);
@@ -146,8 +146,8 @@ public final class b {
             return list;
         }
         Log.i("MultiDex", "Detected that extraction must be performed.");
-        if (context instanceof c.InterfaceC1687c) {
-            ((c.InterfaceC1687c) context).getSplash().j();
+        if (context instanceof c.InterfaceC1744c) {
+            ((c.InterfaceC1744c) context).getSplash().j();
         }
         k = k(file2, file);
         m(context, e(file2), f2, k.size() + 1);
@@ -220,7 +220,7 @@ public final class b {
                     z = n(file3);
                     StringBuilder sb = new StringBuilder();
                     sb.append("Extraction ");
-                    sb.append(z ? "success" : e.f1950a);
+                    sb.append(z ? "success" : e.f1963a);
                     sb.append(" - length ");
                     sb.append(file3.getAbsolutePath());
                     sb.append(": ");

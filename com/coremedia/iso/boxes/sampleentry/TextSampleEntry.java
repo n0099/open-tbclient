@@ -144,7 +144,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
     }
 
     public boolean isWriteTextVertically() {
-        return (this.displayFlags & PlaybackStateCompat.ACTION_PREPARE_FROM_URI) == PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
+        return (this.displayFlags & 131072) == 131072;
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -237,7 +237,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
 
     public void setWriteTextVertically(boolean z) {
         if (z) {
-            this.displayFlags |= PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
+            this.displayFlags |= 131072;
         } else {
             this.displayFlags &= -131073;
         }

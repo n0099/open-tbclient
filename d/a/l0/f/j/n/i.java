@@ -5,10 +5,10 @@ import com.alipay.sdk.util.l;
 public class i implements d.a.l0.f.j.p.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f46932a;
+    public f f50606a;
 
     public i(f fVar) {
-        this.f46932a = fVar;
+        this.f50606a = fVar;
     }
 
     @Override // d.a.l0.f.j.p.a
@@ -17,12 +17,12 @@ public class i implements d.a.l0.f.j.p.a {
     }
 
     public final void b(d.a.l0.f.j.q.a aVar) {
-        this.f46932a.f45272d.clear();
+        this.f50606a.f48946d.clear();
         if (aVar != null) {
-            this.f46932a.f45272d.putString("functionType", aVar.a());
-            this.f46932a.f45272d.putString("resultData", aVar.b());
-            this.f46932a.f45272d.putInt(l.f1974a, aVar.c());
+            this.f50606a.f48946d.putString("functionType", aVar.a());
+            this.f50606a.f48946d.putString("resultData", aVar.b());
+            this.f50606a.f48946d.putInt(l.f1987a, aVar.c());
         }
-        this.f46932a.c();
+        this.f50606a.c();
     }
 }

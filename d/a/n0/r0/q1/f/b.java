@@ -21,31 +21,31 @@ import d.a.n0.w3.i;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f59454a;
+    public Context f63145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f59455b;
+    public View f63146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f59456c;
+    public View f63147c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f59457d;
+    public View f63148d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f59458e;
+    public TextView f63149e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f59459f;
+    public TextView f63150f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f59460g;
+    public TextView f63151g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f59461h;
+    public ImageView f63152h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EditText f59462i;
+    public EditText f63153i;
     public SpanGroupEditText j;
     public View.OnClickListener k;
     public e l;
@@ -58,12 +58,12 @@ public class b {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            d.a.n0.r0.q1.f.a.R(b.this.f59458e, editable.toString().length(), 30);
+            d.a.n0.r0.q1.f.a.R(b.this.f63149e, editable.toString().length(), 30);
             if (b.this.l != null) {
                 b.this.l.a();
             }
             if (b.this.m) {
-                d.a.m0.r.u.c.d(b.this.f59462i).s(R.color.CAM_X0105);
+                d.a.m0.r.u.c.d(b.this.f63153i).s(R.color.CAM_X0105);
                 d.a.m0.r.u.c.d(b.this.j).s(R.color.CAM_X0105);
                 b.this.m = false;
             }
@@ -80,12 +80,12 @@ public class b {
 
     /* renamed from: d.a.n0.r0.q1.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1541b implements TextWatcher {
+    public class C1597b implements TextWatcher {
 
         /* renamed from: d.a.n0.r0.q1.f.b$b$a */
         /* loaded from: classes4.dex */
         public class a implements View.OnTouchListener {
-            public a(C1541b c1541b) {
+            public a(C1597b c1597b) {
             }
 
             @Override // android.view.View.OnTouchListener
@@ -101,17 +101,17 @@ public class b {
             }
         }
 
-        public C1541b() {
+        public C1597b() {
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            d.a.n0.r0.q1.f.a.R(b.this.f59460g, editable.toString().length(), 1000);
+            d.a.n0.r0.q1.f.a.R(b.this.f63151g, editable.toString().length(), 1000);
             if (b.this.l != null) {
                 b.this.l.a();
             }
             if (b.this.m) {
-                d.a.m0.r.u.c.d(b.this.f59462i).s(R.color.CAM_X0105);
+                d.a.m0.r.u.c.d(b.this.f63153i).s(R.color.CAM_X0105);
                 d.a.m0.r.u.c.d(b.this.j).s(R.color.CAM_X0105);
                 b.this.m = false;
             }
@@ -138,7 +138,7 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            l.K(b.this.f59454a, b.this.f59462i);
+            l.K(b.this.f63145a, b.this.f63153i);
         }
     }
 
@@ -149,7 +149,7 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            l.K(b.this.f59454a, b.this.j);
+            l.K(b.this.f63145a, b.this.j);
         }
     }
 
@@ -159,7 +159,7 @@ public class b {
     }
 
     public b(Context context) {
-        this.f59454a = context;
+        this.f63145a = context;
         n();
     }
 
@@ -168,24 +168,24 @@ public class b {
     }
 
     public final void j() {
-        if (this.f59455b != null) {
-            d.a.m0.r.u.c.d(this.f59456c).f(R.color.CAM_X0204);
-            d.a.m0.r.u.c.d(this.f59457d).f(R.color.CAM_X0210);
-            d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f59459f);
+        if (this.f63146b != null) {
+            d.a.m0.r.u.c.d(this.f63147c).f(R.color.CAM_X0204);
+            d.a.m0.r.u.c.d(this.f63148d).f(R.color.CAM_X0210);
+            d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f63150f);
             d2.s(R.color.CAM_X0107);
             d2.x(R.string.F_X02);
-            d.a.m0.r.u.c.d(this.f59458e).s(R.color.CAM_X0111);
-            this.f59461h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_edit_delete16, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
+            d.a.m0.r.u.c.d(this.f63149e).s(R.color.CAM_X0111);
+            this.f63152h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_edit_delete16, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
             this.j.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f59462i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f59462i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
+            this.f63153i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f63153i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                i.e(this.f59462i, R.drawable.edittext_cursor);
+                i.e(this.f63153i, R.drawable.edittext_cursor);
                 i.e(this.j, R.drawable.edittext_cursor);
                 return;
             }
-            i.e(this.f59462i, R.drawable.edittext_cursor_1);
+            i.e(this.f63153i, R.drawable.edittext_cursor_1);
             i.e(this.j, R.drawable.edittext_cursor_1);
         }
     }
@@ -195,36 +195,36 @@ public class b {
     }
 
     public EditText l() {
-        return this.f59462i;
+        return this.f63153i;
     }
 
     public View m() {
-        return this.f59455b;
+        return this.f63146b;
     }
 
     public final void n() {
-        View inflate = LayoutInflater.from(this.f59454a).inflate(R.layout.forum_rule_edit_item, (ViewGroup) null);
-        this.f59455b = inflate;
-        this.f59456c = inflate.findViewById(R.id.item_divider);
-        this.f59459f = (TextView) this.f59455b.findViewById(R.id.item_title_index);
-        this.f59461h = (ImageView) this.f59455b.findViewById(R.id.item_del);
-        this.f59462i = (EditText) this.f59455b.findViewById(R.id.item_title);
-        this.f59458e = (TextView) this.f59455b.findViewById(R.id.item_title_number);
-        this.f59457d = this.f59455b.findViewById(R.id.titile_divider);
-        this.j = (SpanGroupEditText) this.f59455b.findViewById(R.id.item_content);
-        this.f59460g = (TextView) this.f59455b.findViewById(R.id.item_content_number);
-        d.a.n0.r0.q1.f.a.R(this.f59458e, 0, 30);
-        d.a.n0.r0.q1.f.a.R(this.f59460g, 0, 1000);
-        this.f59462i.addTextChangedListener(new a());
-        this.j.addTextChangedListener(new C1541b());
-        this.f59462i.setOnClickListener(new c());
+        View inflate = LayoutInflater.from(this.f63145a).inflate(R.layout.forum_rule_edit_item, (ViewGroup) null);
+        this.f63146b = inflate;
+        this.f63147c = inflate.findViewById(R.id.item_divider);
+        this.f63150f = (TextView) this.f63146b.findViewById(R.id.item_title_index);
+        this.f63152h = (ImageView) this.f63146b.findViewById(R.id.item_del);
+        this.f63153i = (EditText) this.f63146b.findViewById(R.id.item_title);
+        this.f63149e = (TextView) this.f63146b.findViewById(R.id.item_title_number);
+        this.f63148d = this.f63146b.findViewById(R.id.titile_divider);
+        this.j = (SpanGroupEditText) this.f63146b.findViewById(R.id.item_content);
+        this.f63151g = (TextView) this.f63146b.findViewById(R.id.item_content_number);
+        d.a.n0.r0.q1.f.a.R(this.f63149e, 0, 30);
+        d.a.n0.r0.q1.f.a.R(this.f63151g, 0, 1000);
+        this.f63153i.addTextChangedListener(new a());
+        this.j.addTextChangedListener(new C1597b());
+        this.f63153i.setOnClickListener(new c());
         this.j.setOnClickListener(new d());
         j();
     }
 
     public void o(View.OnClickListener onClickListener) {
         this.k = onClickListener;
-        this.f59461h.setOnClickListener(onClickListener);
+        this.f63152h.setOnClickListener(onClickListener);
     }
 
     public void p(e eVar) {
@@ -232,7 +232,7 @@ public class b {
     }
 
     public void q(boolean z) {
-        ImageView imageView = this.f59461h;
+        ImageView imageView = this.f63152h;
         if (imageView != null) {
             if (z) {
                 imageView.setVisibility(0);
@@ -248,17 +248,17 @@ public class b {
 
     public void s(int i2) {
         Context context;
-        EditText editText = this.f59462i;
-        if (editText == null || (context = this.f59454a) == null) {
+        EditText editText = this.f63153i;
+        if (editText == null || (context = this.f63145a) == null) {
             return;
         }
         editText.setHint(String.format(context.getString(R.string.forum_rule_item_title_hint), i(i2)));
     }
 
     public void t(int i2) {
-        TextView textView = this.f59459f;
+        TextView textView = this.f63150f;
         if (textView != null) {
-            textView.setText(String.format(this.f59454a.getString(R.string.forum_rule_title_index), i(i2)));
+            textView.setText(String.format(this.f63145a.getString(R.string.forum_rule_title_index), i(i2)));
         }
     }
 }

@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f30468a;
+    public b f30579a;
 
     @Override // com.cmic.sso.sdk.b.a.b
     public void a(final com.cmic.sso.sdk.b.c.c cVar, final com.cmic.sso.sdk.b.d.c cVar2, final com.cmic.sso.sdk.a aVar) {
@@ -23,11 +23,11 @@ public class d implements b {
             a2.a(new t.a() { // from class: com.cmic.sso.sdk.b.a.d.1
 
                 /* renamed from: e  reason: collision with root package name */
-                public AtomicBoolean f30473e = new AtomicBoolean(false);
+                public final AtomicBoolean f30584e = new AtomicBoolean(false);
 
                 @Override // com.cmic.sso.sdk.d.t.a
                 public void a(final Network network) {
-                    if (this.f30473e.getAndSet(true) || network == null) {
+                    if (this.f30584e.getAndSet(true) || network == null) {
                         return;
                     }
                     o.a(new o.a(null, aVar) { // from class: com.cmic.sso.sdk.b.a.d.1.1
@@ -41,6 +41,12 @@ public class d implements b {
                     });
                 }
             });
+            return;
+        }
+        String b2 = aVar.b("operatortype", "0");
+        if (!"1".equals(b2) && !"0".equals(b2)) {
+            com.cmic.sso.sdk.d.c.a("WifiChangeInterceptor", "异网低版本不支持wifi切换");
+            cVar2.a(com.cmic.sso.sdk.b.d.a.a(102508));
         } else if (a2.a(cVar.a())) {
             com.cmic.sso.sdk.d.c.b("WifiChangeInterceptor", "切换网络成功");
             b(cVar, cVar2, aVar);
@@ -51,7 +57,7 @@ public class d implements b {
     }
 
     public void b(com.cmic.sso.sdk.b.c.c cVar, final com.cmic.sso.sdk.b.d.c cVar2, com.cmic.sso.sdk.a aVar) {
-        b bVar = this.f30468a;
+        b bVar = this.f30579a;
         if (bVar != null) {
             bVar.a(cVar, new com.cmic.sso.sdk.b.d.c() { // from class: com.cmic.sso.sdk.b.a.d.2
                 @Override // com.cmic.sso.sdk.b.d.c
@@ -68,6 +74,6 @@ public class d implements b {
     }
 
     public void a(b bVar) {
-        this.f30468a = bVar;
+        this.f30579a = bVar;
     }
 }

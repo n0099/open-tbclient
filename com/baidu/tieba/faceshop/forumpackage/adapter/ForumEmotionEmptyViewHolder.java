@@ -12,27 +12,27 @@ import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
 public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumEmotionEmptyView f14875a;
+    public ForumEmotionEmptyView f14932a;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.m0.z.b.b f14876e;
+        public final /* synthetic */ d.a.n0.m0.z.b.b f14933e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.m0.z.a.a f14877f;
+        public final /* synthetic */ d.a.n0.m0.z.a.a f14934f;
 
         public a(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, d.a.n0.m0.z.b.b bVar, d.a.n0.m0.z.a.a aVar) {
-            this.f14876e = bVar;
-            this.f14877f = aVar;
+            this.f14933e = bVar;
+            this.f14934f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.n0.m0.z.b.b bVar = this.f14876e;
+            d.a.n0.m0.z.b.b bVar = this.f14933e;
             bVar.c(!bVar.b());
-            d.a.n0.m0.z.a.a aVar = this.f14877f;
+            d.a.n0.m0.z.a.a aVar = this.f14934f;
             if (aVar != null) {
                 aVar.b();
             }
@@ -43,23 +43,23 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.m0.z.b.b f14878e;
+        public final /* synthetic */ d.a.n0.m0.z.b.b f14935e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.m0.z.a.a f14879f;
+        public final /* synthetic */ d.a.n0.m0.z.a.a f14936f;
 
         public b(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, d.a.n0.m0.z.b.b bVar, d.a.n0.m0.z.a.a aVar) {
-            this.f14878e = bVar;
-            this.f14879f = aVar;
+            this.f14935e = bVar;
+            this.f14936f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f14878e.c(false);
-            this.f14878e.d(0);
-            d.a.n0.m0.z.a.a aVar = this.f14879f;
+            this.f14935e.c(false);
+            this.f14935e.d(0);
+            d.a.n0.m0.z.a.a aVar = this.f14936f;
             if (aVar != null) {
-                aVar.a(this.f14878e.a());
+                aVar.a(this.f14935e.a());
             }
         }
     }
@@ -68,38 +68,38 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.m0.z.b.b f14880e;
+        public final /* synthetic */ d.a.n0.m0.z.b.b f14937e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.m0.z.a.a f14881f;
+        public final /* synthetic */ d.a.n0.m0.z.a.a f14938f;
 
         public c(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, d.a.n0.m0.z.b.b bVar, d.a.n0.m0.z.a.a aVar) {
-            this.f14880e = bVar;
-            this.f14881f = aVar;
+            this.f14937e = bVar;
+            this.f14938f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f14880e.c(false);
-            this.f14880e.d(1);
-            d.a.n0.m0.z.a.a aVar = this.f14881f;
+            this.f14937e.c(false);
+            this.f14937e.d(1);
+            d.a.n0.m0.z.a.a aVar = this.f14938f;
             if (aVar != null) {
-                aVar.a(this.f14880e.a());
+                aVar.a(this.f14937e.a());
             }
         }
     }
 
     public ForumEmotionEmptyViewHolder(TbPageContext tbPageContext, View view) {
         super(view);
-        this.f14875a = (ForumEmotionEmptyView) view;
+        this.f14932a = (ForumEmotionEmptyView) view;
     }
 
     public final void b(d.a.n0.m0.z.b.b bVar, d.a.n0.m0.z.a.a aVar) {
         String string;
-        ViewGroup filterDropDownView = this.f14875a.getFilterDropDownView();
+        ViewGroup filterDropDownView = this.f14932a.getFilterDropDownView();
         if (bVar != null) {
-            Resources resources = this.f14875a.getResources();
-            TextView filterView = this.f14875a.getFilterView();
+            Resources resources = this.f14932a.getResources();
+            TextView filterView = this.f14932a.getFilterView();
             filterDropDownView.setVisibility(0);
             if (bVar.a() == 0) {
                 string = resources.getString(R.string.forum_emotion_filter_all_bar);

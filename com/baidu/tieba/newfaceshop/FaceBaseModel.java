@@ -12,15 +12,15 @@ public abstract class FaceBaseModel extends BdBaseModel {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Message f18514e;
+        public final /* synthetic */ Message f18590e;
 
         public a(Message message) {
-            this.f18514e = message;
+            this.f18590e = message;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            FaceBaseModel.this.sendMessage(this.f18514e);
+            FaceBaseModel.this.sendMessage(this.f18590e);
         }
     }
 

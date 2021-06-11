@@ -7,7 +7,7 @@ import tbclient.UserRankPresentInfo;
 public class e0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a> f50002a;
+    public ArrayList<a> f53678a;
 
     /* loaded from: classes3.dex */
     public class a {
@@ -26,9 +26,9 @@ public class e0 {
             return;
         }
         String str = forumPresentInfo.content;
-        this.f50002a = new ArrayList<>();
+        this.f53678a = new ArrayList<>();
         for (int i2 = 0; i2 < forumPresentInfo.user_list.size(); i2++) {
-            this.f50002a.add(new a(this, forumPresentInfo.user_list.get(i2)));
+            this.f53678a.add(new a(this, forumPresentInfo.user_list.get(i2)));
         }
     }
 }

@@ -14,7 +14,7 @@ public class b extends e {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("RemoveWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         d h2 = d.h(unitedSchemeEntity);
@@ -23,7 +23,7 @@ public class b extends e {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return true;
         }
-        d.a.l0.a.p.e.b bVar = (d.a.l0.a.p.e.b) d.a.l0.a.g1.f.V().B(h2.f40846g);
+        d.a.l0.a.p.e.b bVar = (d.a.l0.a.p.e.b) d.a.l0.a.g1.f.V().B(h2.f44522g);
         if (bVar == null) {
             d.a.l0.a.e0.d.b("removeWebView", "viewManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

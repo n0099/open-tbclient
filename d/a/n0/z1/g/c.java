@@ -12,13 +12,13 @@ import java.io.ObjectOutputStream;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f63648a = d.a.n0.z1.c.f63608c + "draft/";
+    public static final String f67366a = d.a.n0.z1.c.f67326c + "draft/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f63649b = f63648a + "upload_draft";
+    public static final String f67367b = f67366a + "upload_draft";
 
     public static void a() {
-        File file = new File(f63649b);
+        File file = new File(f67367b);
         if (file.exists()) {
             file.delete();
         }
@@ -32,7 +32,7 @@ public class c {
     public static FaceGroupDraft b() {
         FaceGroupDraft faceGroupDraft;
         ObjectInputStream objectInputStream;
-        File file = new File(f63649b);
+        File file = new File(f67367b);
         ?? r2 = 0;
         r2 = null;
         r2 = null;
@@ -104,12 +104,12 @@ public class c {
         ObjectOutputStream objectOutputStream = null;
         try {
             try {
-                File file = new File(f63648a);
+                File file = new File(f67366a);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
                 a();
-                ObjectOutputStream objectOutputStream2 = new ObjectOutputStream(new FileOutputStream(f63649b));
+                ObjectOutputStream objectOutputStream2 = new ObjectOutputStream(new FileOutputStream(f67367b));
                 try {
                     objectOutputStream2.writeObject(faceGroupDraft);
                     d.a.c.e.m.a.d(objectOutputStream2);

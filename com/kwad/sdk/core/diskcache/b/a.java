@@ -12,28 +12,28 @@ import java.io.IOException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f32089a;
+    public static a f34127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.diskcache.a.a f32090b;
+    public com.kwad.sdk.core.diskcache.a.a f34128b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f32091c;
+    public Context f34129c;
 
     public static a a() {
-        if (f32089a == null) {
+        if (f34127a == null) {
             synchronized (a.class) {
-                if (f32089a == null) {
-                    f32089a = new a();
+                if (f34127a == null) {
+                    f34127a = new a();
                 }
             }
         }
-        return f32089a;
+        return f34127a;
     }
 
     private boolean d() {
-        if (this.f32090b == null) {
-            com.kwad.sdk.core.d.a.e("DiskCache", "diskLruCache should be init before use");
+        if (this.f34128b == null) {
+            com.kwad.sdk.core.d.a.d("DiskCache", "diskLruCache should be init before use");
             return true;
         }
         return false;
@@ -41,15 +41,15 @@ public class a {
 
     @SuppressLint({"MissingPermission"})
     public void a(b bVar) {
-        if (this.f32090b != null) {
+        if (this.f34128b != null) {
             return;
         }
         try {
-            this.f32091c = bVar.f32092a;
-            if (!bVar.f32095d.exists()) {
-                bVar.f32095d.mkdirs();
+            this.f34129c = bVar.f34130a;
+            if (!bVar.f34133d.exists()) {
+                bVar.f34133d.mkdirs();
             }
-            this.f32090b = com.kwad.sdk.core.diskcache.a.a.a(bVar.f32095d, bVar.f32093b, 1, bVar.f32094c * 1024 * 1024);
+            this.f34128b = com.kwad.sdk.core.diskcache.a.a.a(bVar.f34133d, bVar.f34131b, 1, bVar.f34132c * 1024 * 1024);
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
@@ -59,21 +59,21 @@ public class a {
         if (d() || TextUtils.isEmpty(str)) {
             return;
         }
-        c.a(this.f32090b, str, d.a(str));
+        c.a(this.f34128b, str, d.a(str));
     }
 
     public boolean a(String str, c.a aVar) {
         File b2;
-        return (d() || TextUtils.isEmpty(str) || !c.a(this.f32090b, str, d.a(str), aVar) || (b2 = b(str)) == null || !b2.exists()) ? false : true;
+        return (d() || TextUtils.isEmpty(str) || !c.a(this.f34128b, str, d.a(str), aVar) || (b2 = b(str)) == null || !b2.exists()) ? false : true;
     }
 
     public boolean a(String str, @NonNull String str2, c.a aVar) {
         File b2;
-        return (d() || TextUtils.isEmpty(str) || !c.a(this.f32090b, str, d.a(str2), aVar) || (b2 = b(str2)) == null || !b2.exists()) ? false : true;
+        return (d() || TextUtils.isEmpty(str) || !c.a(this.f34128b, str, d.a(str2), aVar) || (b2 = b(str2)) == null || !b2.exists()) ? false : true;
     }
 
     public File b() {
-        return this.f32090b.a();
+        return this.f34128b.a();
     }
 
     @Nullable
@@ -86,7 +86,7 @@ public class a {
 
     public void c() {
         try {
-            this.f32090b.c();
+            this.f34128b.c();
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
@@ -95,7 +95,7 @@ public class a {
     public boolean c(String str) {
         try {
             d.a(str, "cacheKey is not allowed empty");
-            return this.f32090b.b(d.a(str));
+            return this.f34128b.b(d.a(str));
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.a(e2);
             return false;

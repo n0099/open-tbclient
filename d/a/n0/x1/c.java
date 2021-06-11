@@ -5,7 +5,7 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static void a(String str) {
         if (StringUtils.isNull(str)) {

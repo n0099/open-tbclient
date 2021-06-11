@@ -15,19 +15,19 @@ import d.a.c.e.m.g;
 public class d extends Dialog implements a {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55784e;
+    public Context f59473e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55785f;
+    public TextView f59474f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55786g;
+    public TextView f59475g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f55787h;
+    public View f59476h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f55788i;
+    public View f59477i;
     public InterestFrsData.Tag j;
     public c k;
     public GridView l;
@@ -35,7 +35,7 @@ public class d extends Dialog implements a {
 
     public d(Context context, int i2) {
         super(context, i2);
-        this.f55784e = context;
+        this.f59473e = context;
         e();
     }
 
@@ -53,8 +53,8 @@ public class d extends Dialog implements a {
     public void c(InterestFrsData.Tag tag) {
         this.j = tag;
         if (tag != null) {
-            this.f55785f.setText(tag.getBname());
-            this.f55786g.setText(tag.getBdesc());
+            this.f59474f.setText(tag.getBname());
+            this.f59475g.setText(tag.getBdesc());
             this.k.a(tag.getCard_list());
         }
     }
@@ -66,30 +66,30 @@ public class d extends Dialog implements a {
     }
 
     public final void e() {
-        this.f55788i = View.inflate(this.f55784e, R.layout.new_user_img_box, null);
-        this.k = new c(this.f55784e);
+        this.f59477i = View.inflate(this.f59473e, R.layout.new_user_img_box, null);
+        this.k = new c(this.f59473e);
         setCanceledOnTouchOutside(true);
-        this.m = (LinearLayout) this.f55788i.findViewById(R.id.box_close_layout);
-        GridView gridView = (GridView) this.f55788i.findViewById(R.id.layout_content);
+        this.m = (LinearLayout) this.f59477i.findViewById(R.id.box_close_layout);
+        GridView gridView = (GridView) this.f59477i.findViewById(R.id.layout_content);
         this.l = gridView;
         gridView.setAdapter((ListAdapter) this.k);
         this.l.setSelector(R.color.common_color_10022);
-        setContentView(this.f55788i);
-        this.f55785f = (TextView) this.f55788i.findViewById(R.id.prompt_title);
-        this.f55786g = (TextView) this.f55788i.findViewById(R.id.prompt_sub_title);
-        View findViewById = this.f55788i.findViewById(R.id.view_layout);
-        this.f55787h = findViewById;
-        findViewById.setBackgroundDrawable(this.f55784e.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
+        setContentView(this.f59477i);
+        this.f59474f = (TextView) this.f59477i.findViewById(R.id.prompt_title);
+        this.f59475g = (TextView) this.f59477i.findViewById(R.id.prompt_sub_title);
+        View findViewById = this.f59477i.findViewById(R.id.view_layout);
+        this.f59476h = findViewById;
+        findViewById.setBackgroundDrawable(this.f59473e.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
     }
 
     @Override // d.a.n0.i3.a
     public View getRootView() {
-        return this.f55788i;
+        return this.f59477i;
     }
 
     @Override // android.app.Dialog, d.a.n0.i3.a
     public void hide() {
-        Context context = this.f55784e;
+        Context context = this.f59473e;
         if (context instanceof Activity) {
             g.a(this, (Activity) context);
         } else {

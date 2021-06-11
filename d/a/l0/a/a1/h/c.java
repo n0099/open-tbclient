@@ -18,16 +18,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class c extends HandlerThread {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f40722h = k.f43199a;
+    public static final boolean f44398h = k.f46875a;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownLatch f40723e;
+    public CountDownLatch f44399e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f40724f;
+    public File f44400f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicInteger f40725g;
+    public AtomicInteger f44401g;
 
     /* loaded from: classes3.dex */
     public class a extends Handler {
@@ -40,24 +40,24 @@ public class c extends HandlerThread {
             int i2 = message.what;
             if (i2 != 100) {
                 if (i2 == 200) {
-                    if (c.this.f40723e != null) {
-                        c.this.f40723e.countDown();
+                    if (c.this.f44399e != null) {
+                        c.this.f44399e.countDown();
                     }
                     c.this.quit();
                     return;
                 }
                 return;
             }
-            C0563c c0563c = (C0563c) message.obj;
-            File file = new File(c.this.f40724f, c0563c.f40728a);
+            C0619c c0619c = (C0619c) message.obj;
+            File file = new File(c.this.f44400f, c0619c.f44404a);
             d.k(file.getParentFile());
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
-                fileOutputStream.write(c0563c.f40729b);
+                fileOutputStream.write(c0619c.f44405b);
                 fileOutputStream.close();
             } catch (Exception e2) {
-                if (c.this.f40725g != null) {
-                    c.this.f40725g.incrementAndGet();
+                if (c.this.f44401g != null) {
+                    c.this.f44401g.incrementAndGet();
                 }
                 d.a.l0.a.e0.d.i("FileOutputThread", "write file fail - " + file.getAbsolutePath(), e2);
             }
@@ -75,25 +75,25 @@ public class c extends HandlerThread {
             int i2 = message.what;
             if (i2 != 100) {
                 if (i2 == 200) {
-                    if (c.this.f40723e != null) {
-                        c.this.f40723e.countDown();
+                    if (c.this.f44399e != null) {
+                        c.this.f44399e.countDown();
                     }
                     c.this.quit();
                     return;
                 }
                 return;
             }
-            C0563c c0563c = (C0563c) message.obj;
-            File file = new File(c.this.f40724f, c0563c.f40728a);
+            C0619c c0619c = (C0619c) message.obj;
+            File file = new File(c.this.f44400f, c0619c.f44404a);
             try {
                 if (d.a.l0.a.a1.c.a()) {
-                    c.this.i(c0563c, file);
+                    c.this.i(c0619c, file);
                 } else {
-                    c.this.h(c0563c, file);
+                    c.this.h(c0619c, file);
                 }
             } catch (Exception e2) {
-                if (c.this.f40725g != null) {
-                    c.this.f40725g.incrementAndGet();
+                if (c.this.f44401g != null) {
+                    c.this.f44401g.incrementAndGet();
                 }
                 d.a.l0.a.e0.d.i("FileOutputThread", "write file fail - " + file.getAbsolutePath(), e2);
             }
@@ -102,13 +102,13 @@ public class c extends HandlerThread {
 
     /* renamed from: d.a.l0.a.a1.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0563c {
+    public static class C0619c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40728a;
+        public String f44404a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f40729b;
+        public byte[] f44405b;
     }
 
     public c(String str, File file, CountDownLatch countDownLatch, AtomicInteger atomicInteger) {
@@ -131,7 +131,7 @@ public class c extends HandlerThread {
         File g2 = g(str);
         boolean z2 = g2 != null;
         if (!z2) {
-            g2 = new File(this.f40724f, str);
+            g2 = new File(this.f44400f, str);
         }
         if (!g2.exists()) {
             g2.getParentFile().mkdirs();
@@ -143,23 +143,23 @@ public class c extends HandlerThread {
         fileOutputStream.write(bArr);
         d.d(fileOutputStream);
         if (z2) {
-            File file = new File(this.f40724f, str);
-            long currentTimeMillis = f40722h ? System.currentTimeMillis() : 0L;
+            File file = new File(this.f44400f, str);
+            long currentTimeMillis = f44398h ? System.currentTimeMillis() : 0L;
             if (file.exists()) {
                 if (file.length() == g2.length()) {
-                    if (f40722h) {
+                    if (f44398h) {
                         Log.w("FileOutputThread", "target file already exist, no need to rename - " + file.getAbsolutePath());
                     }
                     d.K(g2);
                     return true;
                 }
-                if (f40722h) {
+                if (f44398h) {
                     Log.w("FileOutputThread", "target file already exist, but size not same - " + file.getAbsolutePath());
                 }
                 d.K(file);
             }
             z = (g2.renameTo(file) || file.exists()) ? true : true;
-            if (f40722h) {
+            if (f44398h) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 Log.d("FileOutputThread", "delete and rename file cost - " + (currentTimeMillis2 - currentTimeMillis));
             }
@@ -176,7 +176,7 @@ public class c extends HandlerThread {
         String str2 = str + "_" + System.nanoTime();
         String str3 = str2;
         for (int i2 = 0; i2 < 100; i2++) {
-            File file = new File(this.f40724f, str3);
+            File file = new File(this.f44400f, str3);
             if (!file.exists()) {
                 return file;
             }
@@ -185,7 +185,7 @@ public class c extends HandlerThread {
         return null;
     }
 
-    public void h(@NonNull C0563c c0563c, @NonNull File file) throws IOException {
+    public void h(@NonNull C0619c c0619c, @NonNull File file) throws IOException {
         if (!file.exists()) {
             file.getParentFile().mkdirs();
             if (!file.createNewFile()) {
@@ -193,15 +193,15 @@ public class c extends HandlerThread {
             }
         }
         FileOutputStream fileOutputStream = new FileOutputStream(file);
-        fileOutputStream.write(c0563c.f40729b);
+        fileOutputStream.write(c0619c.f44405b);
         d.d(fileOutputStream);
     }
 
-    public void i(@NonNull C0563c c0563c, @NonNull File file) throws IOException {
-        if (f(c0563c.f40729b, c0563c.f40728a)) {
+    public void i(@NonNull C0619c c0619c, @NonNull File file) throws IOException {
+        if (f(c0619c.f44405b, c0619c.f44404a)) {
             return;
         }
-        AtomicInteger atomicInteger = this.f40725g;
+        AtomicInteger atomicInteger = this.f44401g;
         if (atomicInteger != null) {
             atomicInteger.incrementAndGet();
         }
@@ -210,8 +210,8 @@ public class c extends HandlerThread {
 
     public c(String str, int i2, File file, CountDownLatch countDownLatch, AtomicInteger atomicInteger) {
         super(str, i2);
-        this.f40724f = file;
-        this.f40723e = countDownLatch;
-        this.f40725g = atomicInteger;
+        this.f44400f = file;
+        this.f44399e = countDownLatch;
+        this.f44401g = atomicInteger;
     }
 }

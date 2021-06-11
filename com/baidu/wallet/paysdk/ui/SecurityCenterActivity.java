@@ -60,31 +60,31 @@ import java.util.Map;
 public class SecurityCenterActivity extends PayBaseBeanActivity implements View.OnClickListener, BaiduPay.IBindCardCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f25873a;
+    public int f25976a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f25874b;
+    public LinearLayout f25977b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f25875c;
+    public RelativeLayout f25978c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f25876d;
+    public RelativeLayout f25979d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f25877e;
+    public RelativeLayout f25980e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f25878f;
+    public RelativeLayout f25981f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f25879g;
+    public RelativeLayout f25982g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f25880h;
+    public TextView f25983h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f25881i;
+    public RelativeLayout f25984i;
     public TextView j;
     public RelativeLayout k;
     public RelativeLayout l;
@@ -260,7 +260,7 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     public void onClick(View view) {
         AuthStateResponse.AccountInfo accountInfo;
         AuthStateResponse.SignPay signPay;
-        if (view.getId() == this.f25881i.getId()) {
+        if (view.getId() == this.f25984i.getId()) {
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_SECURITY_CLICK_ITEM, "NFC");
             LocalRouter.getInstance(this.mAct).route(this.mAct, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_NFC).action("nfcsetting").data("withAnim", Boolean.FALSE.toString()), new RouterCallback() { // from class: com.baidu.wallet.paysdk.ui.SecurityCenterActivity.3
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -304,7 +304,7 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
                 }));
             } else if (f() && view.getId() == ResUtils.id(getActivity(), "security_protection_layout")) {
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_SECURITY_CLICK_ITEM, "WeiShi");
-                int i2 = this.f25873a;
+                int i2 = this.f25976a;
                 if (i2 == 1) {
                     WalletGlobalUtils.safeShowDialog(this, 3, getText(ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_message_install")).toString());
                 } else if (i2 == 2) {
@@ -430,7 +430,7 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
             promptDialog.setCancelable(true);
             int string = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_message_install");
             int string2 = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_install");
-            if (2 == this.f25873a) {
+            if (2 == this.f25976a) {
                 string = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_message_update");
                 string2 = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_update");
             }
@@ -478,28 +478,28 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
 
     private void b() {
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_pay_setting"));
-        this.f25875c = relativeLayout;
+        this.f25978c = relativeLayout;
         relativeLayout.setOnClickListener(this);
-        this.f25874b = (LinearLayout) findViewById(ResUtils.id(getActivity(), "security_item_layout"));
+        this.f25977b = (LinearLayout) findViewById(ResUtils.id(getActivity(), "security_item_layout"));
         RelativeLayout relativeLayout2 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_mobile_pwd_layout"));
-        this.f25876d = relativeLayout2;
+        this.f25979d = relativeLayout2;
         relativeLayout2.setOnClickListener(this);
         RelativeLayout relativeLayout3 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_sign_state_layout"));
-        this.f25877e = relativeLayout3;
+        this.f25980e = relativeLayout3;
         relativeLayout3.setOnClickListener(this);
         RelativeLayout relativeLayout4 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_account_info_layout"));
-        this.f25878f = relativeLayout4;
+        this.f25981f = relativeLayout4;
         relativeLayout4.setOnClickListener(this);
         RelativeLayout relativeLayout5 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_protection_layout"));
-        this.f25879g = relativeLayout5;
+        this.f25982g = relativeLayout5;
         relativeLayout5.setOnClickListener(this);
-        this.f25880h = (TextView) findViewById(ResUtils.id(getActivity(), "security_protection_status"));
+        this.f25983h = (TextView) findViewById(ResUtils.id(getActivity(), "security_protection_status"));
         RelativeLayout relativeLayout6 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_auth_layout"));
         this.t = relativeLayout6;
         relativeLayout6.setOnClickListener(this);
         this.s = (TextView) findViewById(ResUtils.id(getActivity(), "security_auth_status"));
         RelativeLayout relativeLayout7 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "nfc_setting_layout"));
-        this.f25881i = relativeLayout7;
+        this.f25984i = relativeLayout7;
         relativeLayout7.setOnClickListener(this);
         this.j = (TextView) findViewById(ResUtils.id(getActivity(), "nfc_setting_status"));
         RelativeLayout relativeLayout8 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_tips_layout"));
@@ -540,17 +540,17 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     }
 
     private void c() {
-        this.f25875c.setVisibility(0);
-        this.f25874b.setVisibility(0);
-        this.f25876d.setVisibility(0);
+        this.f25978c.setVisibility(0);
+        this.f25977b.setVisibility(0);
+        this.f25979d.setVisibility(0);
         this.k.setVisibility(0);
         this.l.setVisibility(0);
         this.m.setVisibility(0);
         boolean f2 = f();
-        this.f25879g.setVisibility(f2 ? 0 : 8);
+        this.f25982g.setVisibility(f2 ? 0 : 8);
         findViewById(ResUtils.id(getActivity(), "security_protection_inner_divider")).setVisibility(f2 ? 0 : 8);
         boolean isWalletNFCSurport = NFCUtil.getInstance().isWalletNFCSurport(getActivity());
-        this.f25881i.setVisibility(isWalletNFCSurport ? 0 : 8);
+        this.f25984i.setVisibility(isWalletNFCSurport ? 0 : 8);
         findViewById(ResUtils.id(getActivity(), "nfc_setting_divider")).setVisibility(isWalletNFCSurport ? 0 : 8);
     }
 
@@ -564,11 +564,11 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
 
     private void a() {
         int e2 = e();
-        this.f25873a = e2;
+        this.f25976a = e2;
         if (3 == e2) {
-            this.f25880h.setText(ResUtils.string(getActivity(), "bd_wallet_enabled"));
+            this.f25983h.setText(ResUtils.string(getActivity(), "bd_wallet_enabled"));
         } else {
-            this.f25880h.setText(ResUtils.string(getActivity(), "bd_wallet_disabled"));
+            this.f25983h.setText(ResUtils.string(getActivity(), "bd_wallet_disabled"));
         }
     }
 
@@ -586,20 +586,20 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     }
 
     private void a(boolean z) {
-        if (this.f25877e == null) {
+        if (this.f25980e == null) {
             return;
         }
         int i2 = z ? 0 : 8;
         this.n.setVisibility(i2);
-        this.f25877e.setVisibility(i2);
+        this.f25980e.setVisibility(i2);
     }
 
     private void b(boolean z) {
-        if (this.f25878f == null) {
+        if (this.f25981f == null) {
             return;
         }
         int i2 = z ? 0 : 8;
         this.o.setVisibility(i2);
-        this.f25878f.setVisibility(i2);
+        this.f25981f.setVisibility(i2);
     }
 }

@@ -10,13 +10,13 @@ import java.util.Date;
 public class j extends i {
 
     /* renamed from: g  reason: collision with root package name */
-    public BdTimePicker f46134g;
+    public BdTimePicker f49808g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46135h;
+    public int f49809h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46136i;
+    public int f49810i;
     public boolean j;
     public boolean k;
     public Date l;
@@ -26,19 +26,19 @@ public class j extends i {
     public static class a extends i.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public Date f46137e;
+        public Date f49811e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Date f46138f;
+        public Date f49812f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Date f46139g;
+        public Date f49813g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f46140h;
+        public String f49814h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f46141i;
+        public boolean f49815i;
 
         public a(Context context) {
             super(context);
@@ -47,18 +47,18 @@ public class j extends i {
         @Override // d.a.l0.a.z1.b.b.i.a
         public i a() {
             j jVar = (j) super.a();
-            jVar.j(this.f46140h);
-            jVar.h(this.f46141i);
-            Date date = this.f46139g;
+            jVar.j(this.f49814h);
+            jVar.h(this.f49815i);
+            Date date = this.f49813g;
             if (date != null) {
                 jVar.k(date.getHours());
-                jVar.l(this.f46139g.getMinutes());
+                jVar.l(this.f49813g.getMinutes());
             }
-            Date date2 = this.f46137e;
+            Date date2 = this.f49811e;
             if (date2 != null) {
                 jVar.m(date2);
             }
-            Date date3 = this.f46138f;
+            Date date3 = this.f49812f;
             if (date3 != null) {
                 jVar.i(date3);
             }
@@ -71,27 +71,27 @@ public class j extends i {
         }
 
         public a l(boolean z) {
-            this.f46141i = z;
+            this.f49815i = z;
             return this;
         }
 
         public a m(Date date) {
-            this.f46138f = date;
+            this.f49812f = date;
             return this;
         }
 
         public a n(String str) {
-            this.f46140h = str;
+            this.f49814h = str;
             return this;
         }
 
         public a o(Date date) {
-            this.f46139g = date;
+            this.f49813g = date;
             return this;
         }
 
         public a p(Date date) {
-            this.f46137e = date;
+            this.f49811e = date;
             return this;
         }
     }
@@ -102,25 +102,25 @@ public class j extends i {
     }
 
     public final void e() {
-        this.f46134g = new BdTimePicker(getContext());
+        this.f49808g = new BdTimePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
-        this.f46134g.setLayoutParams(layoutParams);
-        this.f46134g.setScrollCycle(true);
-        this.f46134g.setStartDate(this.l);
-        this.f46134g.setmEndDate(this.m);
-        this.f46134g.setHour(this.f46135h);
-        this.f46134g.setMinute(this.f46136i);
-        this.f46134g.l();
-        this.f46134g.setDisabled(this.k);
+        this.f49808g.setLayoutParams(layoutParams);
+        this.f49808g.setScrollCycle(true);
+        this.f49808g.setStartDate(this.l);
+        this.f49808g.setmEndDate(this.m);
+        this.f49808g.setHour(this.f49809h);
+        this.f49808g.setMinute(this.f49810i);
+        this.f49808g.l();
+        this.f49808g.setDisabled(this.k);
     }
 
     public int f() {
-        return this.f46134g.getHour();
+        return this.f49808g.getHour();
     }
 
     public int g() {
-        return this.f46134g.getMinute();
+        return this.f49808g.getMinute();
     }
 
     public void h(boolean z) {
@@ -135,11 +135,11 @@ public class j extends i {
     }
 
     public void k(int i2) {
-        this.f46135h = i2;
+        this.f49809h = i2;
     }
 
     public void l(int i2) {
-        this.f46136i = i2;
+        this.f49810i = i2;
     }
 
     public void m(Date date) {
@@ -152,18 +152,18 @@ public class j extends i {
             getWindow().addFlags(4718592);
         }
         e();
-        b().j(this.f46134g);
+        b().j(this.f49808g);
     }
 
     @Override // d.a.l0.a.z1.b.b.c, android.app.Dialog
     public void show() {
-        BdTimePicker bdTimePicker = this.f46134g;
+        BdTimePicker bdTimePicker = this.f49808g;
         if (bdTimePicker != null) {
-            if (this.f46135h != bdTimePicker.getHour()) {
-                this.f46134g.setHour(this.f46135h);
+            if (this.f49809h != bdTimePicker.getHour()) {
+                this.f49808g.setHour(this.f49809h);
             }
-            if (this.f46136i != this.f46134g.getMinute()) {
-                this.f46134g.setMinute(this.f46136i);
+            if (this.f49810i != this.f49808g.getMinute()) {
+                this.f49808g.setMinute(this.f49810i);
             }
         }
         super.show();

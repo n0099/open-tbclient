@@ -3,17 +3,17 @@ package d.a.c.e.n.h;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f38778a;
+    public long f42431a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38779b;
+    public String f42432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f38780c;
+    public long f42433c;
 
     public d(String str, long j, long j2) {
-        this.f38779b = str;
-        this.f38778a = j;
-        this.f38780c = j2;
+        this.f42432b = str;
+        this.f42431a = j;
+        this.f42433c = j2;
     }
 }

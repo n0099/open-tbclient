@@ -9,11 +9,11 @@ public class t0 implements d.a.l0.n.o.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final t0 f45481a = new t0();
+        public static final t0 f49155a = new t0();
     }
 
     public static t0 b() {
-        return b.f45481a;
+        return b.f49155a;
     }
 
     @Override // d.a.l0.n.o.a

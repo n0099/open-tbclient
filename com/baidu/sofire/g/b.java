@@ -5,7 +5,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.app.NotificationCompat;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
 /* loaded from: classes2.dex */
@@ -25,7 +24,7 @@ public final class b {
             PendingIntent service = PendingIntent.getService(context, 1001, intent, 134217728);
             long j = 600000;
             if (i2 == 0) {
-                j = StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
+                j = 30000;
             } else if (i2 == 1) {
                 j = 180000;
             } else if (i2 == 2) {

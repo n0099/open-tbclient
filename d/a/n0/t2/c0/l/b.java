@@ -6,31 +6,31 @@ import androidx.annotation.Nullable;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f60971a;
+    public String f64663a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60972b;
+    public String f64664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60973c;
+    public long f64665c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60974d;
+    public int f64666d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f60975e;
+    public long f64667e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60976f;
+    public String f64668f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f60977g;
+    public String f64669g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60978h;
+    public int f64670h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f60979i;
+    public String f64671i;
     public String j;
     public String k;
 
@@ -40,12 +40,12 @@ public class b {
         }
         if (obj instanceof b) {
             b bVar = (b) obj;
-            return TextUtils.equals(this.f60971a, bVar.f60971a) && TextUtils.equals(this.f60972b, bVar.f60972b);
+            return TextUtils.equals(this.f64663a, bVar.f64663a) && TextUtils.equals(this.f64664b, bVar.f64664b);
         }
         return false;
     }
 
     public int hashCode() {
-        return (this.f60971a + this.f60972b).hashCode();
+        return (this.f64663a + this.f64664b).hashCode();
     }
 }

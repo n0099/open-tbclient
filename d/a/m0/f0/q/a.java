@@ -1,31 +1,77 @@
 package d.a.m0.f0.q;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import d.a.m0.a.c;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.mutiprocess.location.LocationEvent;
+import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tieba.tbadkCore.location.LocationSocketRequestMessage;
+import com.baidu.tieba.tbadkCore.location.LocationSocketResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import d.a.c.c.g.c;
 import d.a.m0.f0.b;
+import d.a.m0.f0.h;
 /* loaded from: classes3.dex */
-public class a implements b<MissionEvent> {
+public class a implements b<LocationEvent> {
+
+    /* renamed from: a  reason: collision with root package name */
+    public c f53064a = new C1179a(this, 303017, true);
+
+    /* renamed from: d.a.m0.f0.q.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class C1179a extends c {
+        public C1179a(a aVar, int i2, boolean z) {
+            super(i2, z);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            LocationData locationData;
+            if (socketResponsedMessage == null) {
+                return;
+            }
+            LocationEvent locationEvent = new LocationEvent();
+            locationEvent.setType(1);
+            locationEvent.eventType = 1;
+            locationEvent.errorCode = socketResponsedMessage.getError();
+            locationEvent.errorMsg = socketResponsedMessage.getErrorString();
+            if (socketResponsedMessage instanceof LocationSocketResponsedMessage) {
+                locationEvent.locationData = ((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData();
+            }
+            if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
+                LocationModel.A(locationData);
+                d.a.n0.e3.m0.b.a().g(System.currentTimeMillis());
+                d.a.n0.e3.m0.b.a().e(locationEvent.locationData);
+            }
+            h.i(locationEvent);
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.m0.f0.b
     /* renamed from: a */
-    public boolean onEvent(MissionEvent missionEvent) {
-        if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            int i2 = missionEvent.pageId;
-            int i3 = missionEvent.pageType;
-            long j = missionEvent.tid;
-            String str = missionEvent.actionType;
-            if (MissionEvent.MESSAGE_RESUME.equals(str)) {
-                c.y().K(i2, j);
-                c.y().P(i3, j);
-            } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-                c.y().E();
-            } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-                c.y().F();
-            } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-                c.y().K(i2, j);
-            }
-            return true;
+    public boolean onEvent(LocationEvent locationEvent) {
+        if (locationEvent == null) {
+            return false;
+        }
+        if (locationEvent.getType() == 3) {
+            MessageManager.getInstance().unRegisterListener(this.f53064a);
+            MessageManager.getInstance().registerListener(this.f53064a);
+            LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
+            locationSocketRequestMessage.setLat(locationEvent.lat);
+            locationSocketRequestMessage.setLng(locationEvent.lng);
+            MessageManager.getInstance().sendMessage(locationSocketRequestMessage);
+        } else if (locationEvent.eventType == 1) {
+            LocationSocketResponsedMessage locationSocketResponsedMessage = new LocationSocketResponsedMessage();
+            locationSocketResponsedMessage.setError(locationEvent.errorCode);
+            locationSocketResponsedMessage.setErrorString(locationEvent.errorMsg);
+            locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
+            MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
+        } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
+            d.a.n0.e3.m0.b.a().e(locationEvent.locationData);
+        } else {
+            MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
         }
         return false;
     }

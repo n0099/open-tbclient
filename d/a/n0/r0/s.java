@@ -19,33 +19,33 @@ public class s extends k<t, FrsNoListItemViewHolder> {
         this.w = (d.a.c.e.p.l.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
     }
 
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         t0(i2, view, viewGroup, (t) obj, (FrsNoListItemViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: s0 */
-    public FrsNoListItemViewHolder P(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f39228e).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
-        ViewGroup.LayoutParams t = t(viewGroup);
-        t.width = -1;
-        t.height = this.w;
-        inflate.setLayoutParams(t);
+    public FrsNoListItemViewHolder Q(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.f42909e).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
+        ViewGroup.LayoutParams u = u(viewGroup);
+        u.width = -1;
+        u.height = this.w;
+        inflate.setLayoutParams(u);
         return new FrsNoListItemViewHolder(inflate, viewGroup);
     }
 
     public View t0(int i2, View view, ViewGroup viewGroup, t tVar, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        super.W(i2, view, viewGroup, tVar, frsNoListItemViewHolder);
-        if (tVar.c() == 6) {
-            frsNoListItemViewHolder.f15124d.setText(R.string.attention_no_post_tip);
+        super.X(i2, view, viewGroup, tVar, frsNoListItemViewHolder);
+        if (tVar.b() == 6) {
+            frsNoListItemViewHolder.f15181d.setText(R.string.attention_no_post_tip);
         } else {
-            frsNoListItemViewHolder.f15124d.setText(R.string.no_data_common_txt);
+            frsNoListItemViewHolder.f15181d.setText(R.string.no_data_common_txt);
         }
-        SkinManager.setViewTextColor(frsNoListItemViewHolder.f15124d, R.color.CAM_X0107, 1);
-        SkinManager.setImageResource(frsNoListItemViewHolder.f15125e, R.drawable.new_pic_emotion_06);
+        SkinManager.setViewTextColor(frsNoListItemViewHolder.f15181d, R.color.CAM_X0107, 1);
+        SkinManager.setImageResource(frsNoListItemViewHolder.f15182e, R.drawable.new_pic_emotion_06);
         return view;
     }
 }

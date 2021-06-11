@@ -4,7 +4,7 @@ import h.f;
 import h.j;
 import h.m.a;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;

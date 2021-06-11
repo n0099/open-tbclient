@@ -1,27 +1,27 @@
 package d.a.j.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40093a;
+    public int f43774a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40094b;
+    public int f43775b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40095c;
+    public int f43776c;
 
     public int a() {
-        return this.f40094b;
+        return this.f43775b;
     }
 
     public abstract com.baidu.cesium.a.b b(byte[] bArr, int i2, int i3);
 
     public int c() {
-        return this.f40093a;
+        return this.f43774a;
     }
 
     public int d() {
-        return this.f40095c;
+        return this.f43776c;
     }
 }

@@ -8,10 +8,10 @@ import com.baidu.wallet.base.widget.CustomerServiceMenu;
 public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g f7828a;
+    public final /* synthetic */ g f7871a;
 
     public h(g gVar) {
-        this.f7828a = gVar;
+        this.f7871a = gVar;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
@@ -19,17 +19,17 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar;
         g.b bVar2;
         g.b bVar3;
-        bVar = this.f7828a.j;
+        bVar = this.f7871a.j;
         Message obtainMessage = bVar.obtainMessage();
         obtainMessage.what = CustomerServiceMenu.TRANSFER_RECORD;
         obtainMessage.obj = aVar;
-        bVar2 = this.f7828a.j;
+        bVar2 = this.f7871a.j;
         if (bVar2 != null) {
-            bVar3 = this.f7828a.j;
+            bVar3 = this.f7871a.j;
             bVar3.sendMessage(obtainMessage);
         }
         if (c.a.SERVER_ERROR == aVar || c.a.NETWORK_ERROR == aVar || c.a.INNER_ERROR == aVar) {
-            g.b(this.f7828a);
+            g.b(this.f7871a);
         }
     }
 
@@ -38,15 +38,15 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar;
         g.b bVar2;
         g.b bVar3;
-        bVar = this.f7828a.j;
+        bVar = this.f7871a.j;
         Message obtainMessage = bVar.obtainMessage();
         obtainMessage.what = 100000;
         obtainMessage.obj = str;
-        bVar2 = this.f7828a.j;
+        bVar2 = this.f7871a.j;
         if (bVar2 != null) {
-            bVar3 = this.f7828a.j;
+            bVar3 = this.f7871a.j;
             bVar3.sendMessage(obtainMessage);
         }
-        this.f7828a.k = 0;
+        this.f7871a.k = 0;
     }
 }

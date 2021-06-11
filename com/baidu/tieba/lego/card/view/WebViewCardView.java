@@ -116,7 +116,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         this.t.setWebChromeClient(new a());
         this.t.setOnTouchListener(new b());
         this.t.setOnLoadUrlListener(new c());
-        k(this.m.getUniqueId());
+        c(this.m.getUniqueId());
         this.s.addView(this.t);
     }
 
@@ -170,7 +170,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.a.n0.k1.o.l.e
-    public void k(BdUniqueId bdUniqueId) {
+    public void c(BdUniqueId bdUniqueId) {
         if (bdUniqueId == null) {
             return;
         }

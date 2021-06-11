@@ -50,13 +50,13 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
         public void onCancel() {
             Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login cancel");
             FacebookSSOLoginActivity facebookSSOLoginActivity = FacebookSSOLoginActivity.this;
-            facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f9728g);
+            facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f9790g);
         }
 
         public void onError(FacebookException facebookException) {
             Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login error");
             FacebookSSOLoginActivity facebookSSOLoginActivity = FacebookSSOLoginActivity.this;
-            facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f9728g);
+            facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f9790g);
         }
     }
 

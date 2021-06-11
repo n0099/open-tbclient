@@ -38,16 +38,16 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f17458e;
+        public final /* synthetic */ boolean f17534e;
 
         public a(boolean z) {
-            this.f17458e = z;
+            this.f17534e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             PersonalTalkSettingActivity.this.mView.e(null);
-            PersonalTalkSettingActivity.this.mView.b(!this.f17458e);
+            PersonalTalkSettingActivity.this.mView.b(!this.f17534e);
             PersonalTalkSettingActivity.this.mView.e(PersonalTalkSettingActivity.this);
         }
     }
@@ -157,15 +157,15 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f17468e;
+        public final /* synthetic */ d.a.m0.r.s.a f17544e;
 
         public h(d.a.m0.r.s.a aVar) {
-            this.f17468e = aVar;
+            this.f17544e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f17468e.dismiss();
+            this.f17544e.dismiss();
         }
     }
 
@@ -193,16 +193,16 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public class j extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f17471a;
+        public final /* synthetic */ boolean f17547a;
 
         public j(boolean z) {
-            this.f17471a = z;
+            this.f17547a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (!this.f17471a) {
+            if (!this.f17547a) {
                 d.a.n0.f1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(PersonalTalkSettingActivity.this.userId), false);
                 return null;
             }

@@ -18,18 +18,18 @@ public class b extends k<e0, FrsU9ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: s0 */
-    public FrsU9ViewHolder P(ViewGroup viewGroup) {
-        Log.e("Adapter", "Frs U9 Context:" + this.f39228e + "   Resource:" + this.f39228e.getResources() + "  Asset:" + this.f39228e.getResources().getAssets());
-        return new FrsU9ViewHolder(this.o, LayoutInflater.from(this.f39228e).inflate(R.layout.u9_info_layout, (ViewGroup) null, true), this.f39232i);
+    public FrsU9ViewHolder Q(ViewGroup viewGroup) {
+        Log.e("Adapter", "Frs U9 Context:" + this.f42909e + "   Resource:" + this.f42909e.getResources() + "  Asset:" + this.f42909e.getResources().getAssets());
+        return new FrsU9ViewHolder(this.o, LayoutInflater.from(this.f42909e).inflate(R.layout.u9_info_layout, (ViewGroup) null, true), this.f42913i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
     /* renamed from: t0 */
-    public View W(int i2, View view, ViewGroup viewGroup, e0 e0Var, FrsU9ViewHolder frsU9ViewHolder) {
-        super.W(i2, view, viewGroup, e0Var, frsU9ViewHolder);
+    public View X(int i2, View view, ViewGroup viewGroup, e0 e0Var, FrsU9ViewHolder frsU9ViewHolder) {
+        super.X(i2, view, viewGroup, e0Var, frsU9ViewHolder);
         if (e0Var == null || frsU9ViewHolder == null) {
             return null;
         }

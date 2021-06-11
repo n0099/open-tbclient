@@ -9,7 +9,7 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     @Nullable
@@ -20,7 +20,7 @@ public class a {
             return null;
         }
         String d2 = bVar.d();
-        String str = bVar.f40846g;
+        String str = bVar.f44522g;
         if (TextUtils.isEmpty(str)) {
             d.b("Component-Finder", "find a null " + d2 + " : slaveId is empty");
             return null;
@@ -30,10 +30,10 @@ public class a {
             d.b("Component-Finder", "find a null " + d2 + " : null component context");
             return null;
         }
-        String str2 = bVar.f40845f;
+        String str2 = bVar.f44521f;
         if (TextUtils.isEmpty(str2)) {
             d.l("Component-Finder", "find " + d2 + " with a empty componentId");
-            List<d.a.l0.a.c0.b.a> list = d3.a().f40913c.get(bVar.f40844e);
+            List<d.a.l0.a.c0.b.a> list = d3.a().f44589c.get(bVar.f44520e);
             if (list == null) {
                 d.b("Component-Finder", "find a null " + d2 + " with a empty componentId: fallbackComponents are null ");
                 return null;
@@ -45,7 +45,7 @@ public class a {
                 c2 = (C) list.get(0);
             }
         } else {
-            c2 = (C) d3.a().f40912b.get(str2);
+            c2 = (C) d3.a().f44588b.get(str2);
         }
         if (c2 == null) {
             d.b("Component-Finder", "find a null " + d2 + " : not exist");
@@ -64,7 +64,7 @@ public class a {
             d.b("Component-Finder", "find a null " + str2 + " : null component context");
             return null;
         }
-        C c2 = (C) d2.a().f40912b.get(str2);
+        C c2 = (C) d2.a().f44588b.get(str2);
         if (c2 == null) {
             d.b("Component-Finder", "find a null " + str2 + " : not exist");
             return null;
@@ -78,7 +78,7 @@ public class a {
             d.a.l0.a.c0.g.a.a("Component-Finder", "find component context with a null model");
             return null;
         }
-        return d(bVar.f40846g);
+        return d(bVar.f44522g);
     }
 
     @Nullable

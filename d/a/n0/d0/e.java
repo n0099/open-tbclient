@@ -19,22 +19,22 @@ import d.a.c.e.p.l;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext f52420c;
+    public TbPageContext f56109c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f52421d;
+    public View f56110d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f52422e;
+    public boolean f56111e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52423f;
+    public String f56112f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f52424g;
+    public String f56113g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f52425h;
+    public boolean f56114h;
     public int r;
     public int s;
     public int t;
@@ -43,13 +43,13 @@ public class e {
     public boolean y;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f52418a = null;
+    public Handler f56107a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.c.e.g.c f52419b = null;
+    public d.a.c.e.g.c f56108b = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f52426i = R.drawable.pic_sign_tip;
+    public int f56115i = R.drawable.pic_sign_tip;
     public int j = 0;
     public boolean k = false;
     public int l = 1;
@@ -78,8 +78,8 @@ public class e {
 
         /* renamed from: d.a.n0.d0.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1236a implements d.a.c.e.g.b {
-            public C1236a() {
+        public class C1292a implements d.a.c.e.g.b {
+            public C1292a() {
             }
 
             @Override // d.a.c.e.g.b
@@ -96,8 +96,8 @@ public class e {
             public View c(LayoutInflater layoutInflater) {
                 Drawable drawable;
                 int i2;
-                TextView textView = new TextView(e.this.f52420c.getPageActivity());
-                textView.setText(e.this.f52423f);
+                TextView textView = new TextView(e.this.f56109c.getPageActivity());
+                textView.setText(e.this.f56112f);
                 if (e.this.G != 0) {
                     textView.setGravity(e.this.G);
                 } else {
@@ -111,12 +111,12 @@ public class e {
                 if (e.this.F != 0) {
                     textView.setTextSize(0, e.this.F);
                 } else {
-                    textView.setTextSize(0, e.this.f52420c.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                    textView.setTextSize(0, e.this.f56109c.getResources().getDimensionPixelSize(R.dimen.fontsize28));
                 }
                 if (e.this.B != 0) {
                     textView.setHeight(e.this.B);
                 } else {
-                    textView.setHeight(e.this.f52420c.getResources().getDimensionPixelSize(R.dimen.ds76));
+                    textView.setHeight(e.this.f56109c.getResources().getDimensionPixelSize(R.dimen.ds76));
                 }
                 if (e.this.C != 0) {
                     textView.setWidth(e.this.C);
@@ -142,7 +142,7 @@ public class e {
                     textView.setCompoundDrawablePadding(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds16));
                     textView.setCompoundDrawables(drawable, null, null, null);
                 }
-                SkinManager.setBackgroundResource(textView, e.this.f52426i);
+                SkinManager.setBackgroundResource(textView, e.this.f56115i);
                 if (e.this.x != null) {
                     textView.setOnClickListener(e.this.x);
                 }
@@ -165,22 +165,22 @@ public class e {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.f52419b == null && !StringUtils.isNull(e.this.f52423f)) {
+            if (e.this.f56108b == null && !StringUtils.isNull(e.this.f56112f)) {
                 if (!e.this.y || e.this.H()) {
                     d.a.c.e.g.d dVar = new d.a.c.e.g.d();
-                    dVar.j(e.this.f52421d);
+                    dVar.j(e.this.f56110d);
                     dVar.c(0);
                     dVar.i(true);
                     dVar.h(true);
-                    dVar.a(new C1236a());
-                    e.this.f52419b = dVar.b();
-                    e.this.f52419b.k(false);
-                    e.this.f52419b.l(e.this.z);
-                    e.this.f52419b.n(e.this.f52420c.getPageActivity(), e.this.o);
-                    e.this.f52422e = true;
+                    dVar.a(new C1292a());
+                    e.this.f56108b = dVar.b();
+                    e.this.f56108b.l(false);
+                    e.this.f56108b.m(e.this.z);
+                    e.this.f56108b.o(e.this.f56109c.getPageActivity(), e.this.o);
+                    e.this.f56111e = true;
                     e.this.K();
-                    e.this.f52425h = true;
-                    e.this.f52418a.postDelayed(e.this.K, e.this.n);
+                    e.this.f56114h = true;
+                    e.this.f56107a.postDelayed(e.this.K, e.this.n);
                 }
             }
         }
@@ -202,42 +202,42 @@ public class e {
         this.s = 0;
         this.t = 0;
         this.u = 0;
-        this.f52420c = tbPageContext;
-        this.f52421d = view;
+        this.f56109c = tbPageContext;
+        this.f56110d = view;
         this.r = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.s = this.f52420c.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.t = this.f52420c.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.u = this.f52420c.getResources().getDimensionPixelSize(R.dimen.ds10);
+        this.s = this.f56109c.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.t = this.f56109c.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.u = this.f56109c.getResources().getDimensionPixelSize(R.dimen.ds10);
     }
 
     public boolean H() {
-        View view = this.f52421d;
-        return view != null && view.getVisibility() == 0 && ((double) this.f52421d.getAlpha()) >= 0.4d;
+        View view = this.f56110d;
+        return view != null && view.getVisibility() == 0 && ((double) this.f56110d.getAlpha()) >= 0.4d;
     }
 
     public void I() {
-        d.a.c.e.g.c cVar = this.f52419b;
+        d.a.c.e.g.c cVar = this.f56108b;
         if (cVar != null) {
             cVar.d();
-            this.f52419b = null;
+            this.f56108b = null;
         }
-        Handler handler = this.f52418a;
+        Handler handler = this.f56107a;
         if (handler != null) {
             handler.removeCallbacks(this.J);
-            this.f52418a.removeCallbacks(this.K);
+            this.f56107a.removeCallbacks(this.K);
         }
-        this.f52425h = false;
+        this.f56114h = false;
     }
 
     public boolean J() {
-        return this.f52425h;
+        return this.f56114h;
     }
 
     public final void K() {
         if (this.k) {
             return;
         }
-        d.a.m0.r.d0.b.j().v(this.f52424g, this.j + 1);
+        d.a.m0.r.d0.b.j().v(this.f56113g, this.j + 1);
     }
 
     public void L(int i2) {
@@ -259,7 +259,7 @@ public class e {
     }
 
     public void P(@DimenRes int i2) {
-        this.B = this.f52420c.getResources().getDimensionPixelSize(i2);
+        this.B = this.f56109c.getResources().getDimensionPixelSize(i2);
     }
 
     public void Q(boolean z) {
@@ -326,7 +326,7 @@ public class e {
     }
 
     public void e0(@DimenRes int i2) {
-        this.F = this.f52420c.getResources().getDimensionPixelSize(i2);
+        this.F = this.f56109c.getResources().getDimensionPixelSize(i2);
     }
 
     public void f0(int i2) {
@@ -335,7 +335,7 @@ public class e {
 
     public void g0(int i2) {
         if (i2 > 0) {
-            this.f52426i = i2;
+            this.f56115i = i2;
         }
     }
 
@@ -344,7 +344,7 @@ public class e {
     }
 
     public void i0(@DimenRes int i2) {
-        this.C = this.f52420c.getResources().getDimensionPixelSize(i2);
+        this.C = this.f56109c.getResources().getDimensionPixelSize(i2);
     }
 
     public void j0(int i2) {
@@ -359,11 +359,11 @@ public class e {
         if (StringUtils.isNull(str)) {
             return;
         }
-        this.f52423f = str;
-        if (this.f52418a == null) {
-            this.f52418a = new Handler();
+        this.f56112f = str;
+        if (this.f56107a == null) {
+            this.f56107a = new Handler();
         }
-        this.f52418a.postDelayed(this.J, this.m);
+        this.f56107a.postDelayed(this.J, this.m);
     }
 
     public void m0(String str, String str2) {
@@ -376,23 +376,23 @@ public class e {
 
     public boolean o0(String str, String str2, boolean z, boolean z2) {
         View view;
-        if (this.f52422e || StringUtils.isNull(str) || StringUtils.isNull(str2) || (view = this.f52421d) == null || view.getVisibility() != 0) {
+        if (this.f56111e || StringUtils.isNull(str) || StringUtils.isNull(str2) || (view = this.f56110d) == null || view.getVisibility() != 0) {
             return false;
         }
-        this.f52423f = str;
-        this.f52424g = str2;
+        this.f56112f = str;
+        this.f56113g = str2;
         this.k = z2;
         int k = d.a.m0.r.d0.b.j().k(str2, 0);
         this.j = k;
         if (k < this.l || this.k) {
             if (z) {
                 K();
-                this.f52422e = true;
+                this.f56111e = true;
             }
-            if (this.f52418a == null) {
-                this.f52418a = new Handler();
+            if (this.f56107a == null) {
+                this.f56107a = new Handler();
             }
-            this.f52418a.postDelayed(this.J, this.m);
+            this.f56107a.postDelayed(this.J, this.m);
             return true;
         }
         return false;

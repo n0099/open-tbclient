@@ -5,9 +5,9 @@ import android.text.TextUtils;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f48489a = b.g().getString("openstat_switch", "1");
+    public static String f52163a = b.g().getString("openstat_switch", "1");
 
     public static boolean a() {
-        return TextUtils.equals(f48489a, "1");
+        return TextUtils.equals(f52163a, "1");
     }
 }

@@ -16,19 +16,19 @@ public abstract class b implements d.a.l0.a.l1.a, Cloneable {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40844e;
+    public String f44520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40845f = "";
+    public String f44521f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40846g = "";
+    public String f44522g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f40847h = "";
+    public String f44523h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public String f40848i = "";
+    public String f44524i = "";
     public boolean j = false;
     public boolean k = false;
     @Nullable
@@ -36,14 +36,14 @@ public abstract class b implements d.a.l0.a.l1.a, Cloneable {
     public String m;
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public b(@NonNull String str, @NonNull String str2) {
-        this.f40844e = "unknown";
+        this.f44520e = "unknown";
         this.m = "id";
         if (!TextUtils.isEmpty(str)) {
-            this.f40844e = str;
+            this.f44520e = str;
         } else {
             d.a.l0.a.c0.g.a.a("Component-Model-Base", "component type is empty");
         }
@@ -62,27 +62,27 @@ public abstract class b implements d.a.l0.a.l1.a, Cloneable {
         }
         if (!TextUtils.equals(this.m, "ARCameraId")) {
             String optString = jSONObject.optString("componentId");
-            this.f40845f = optString;
+            this.f44521f = optString;
             if (TextUtils.isEmpty(optString)) {
-                this.f40845f = jSONObject.optString(this.m);
+                this.f44521f = jSONObject.optString(this.m);
             }
         } else {
             String optString2 = jSONObject.optString(this.m);
-            this.f40845f = optString2;
+            this.f44521f = optString2;
             if (TextUtils.isEmpty(optString2)) {
-                this.f40845f = jSONObject.optString("componentId");
+                this.f44521f = jSONObject.optString("componentId");
             }
         }
-        if (TextUtils.isEmpty(this.f40845f)) {
-            d.b("Component-Model-Base", this.f40844e + " component componentId is empty");
+        if (TextUtils.isEmpty(this.f44521f)) {
+            d.b("Component-Model-Base", this.f44520e + " component componentId is empty");
         }
         String optString3 = jSONObject.optString("slaveId");
-        this.f40846g = optString3;
+        this.f44522g = optString3;
         if (TextUtils.isEmpty(optString3)) {
-            d.b("Component-Model-Base", this.f40844e + " component slaveId is empty");
+            d.b("Component-Model-Base", this.f44520e + " component slaveId is empty");
         }
-        this.f40847h = jSONObject.optString("parentId");
-        this.f40848i = jSONObject.optString("cb");
+        this.f44523h = jSONObject.optString("parentId");
+        this.f44524i = jSONObject.optString("cb");
         this.j = jSONObject.optBoolean("hide", false);
         this.k = TextUtils.equals(jSONObject.optString("gesture"), "1");
         f(jSONObject);
@@ -122,9 +122,9 @@ public abstract class b implements d.a.l0.a.l1.a, Cloneable {
     public final String d() {
         StringBuilder sb = new StringBuilder();
         sb.append("【");
-        sb.append(this.f40844e);
+        sb.append(this.f44520e);
         sb.append("#");
-        sb.append(TextUtils.isEmpty(this.f40845f) ? "" : this.f40845f);
+        sb.append(TextUtils.isEmpty(this.f44521f) ? "" : this.f44521f);
         sb.append("】");
         return sb.toString();
     }
@@ -135,27 +135,27 @@ public abstract class b implements d.a.l0.a.l1.a, Cloneable {
         }
         if (!TextUtils.equals(this.m, "ARCameraId")) {
             String optString = jSONObject.optString("componentId");
-            this.f40845f = optString;
+            this.f44521f = optString;
             if (TextUtils.isEmpty(optString)) {
-                this.f40845f = jSONObject.optString(this.m, bVar.f40845f);
+                this.f44521f = jSONObject.optString(this.m, bVar.f44521f);
             }
         } else {
             String optString2 = jSONObject.optString(this.m);
-            this.f40845f = optString2;
+            this.f44521f = optString2;
             if (TextUtils.isEmpty(optString2)) {
-                this.f40845f = jSONObject.optString("componentId", bVar.f40845f);
+                this.f44521f = jSONObject.optString("componentId", bVar.f44521f);
             }
         }
-        if (TextUtils.isEmpty(this.f40845f)) {
-            d.b("Component-Model-Base", this.f40844e + " component componentId is empty");
+        if (TextUtils.isEmpty(this.f44521f)) {
+            d.b("Component-Model-Base", this.f44520e + " component componentId is empty");
         }
-        String optString3 = jSONObject.optString("slaveId", bVar.f40846g);
-        this.f40846g = optString3;
+        String optString3 = jSONObject.optString("slaveId", bVar.f44522g);
+        this.f44522g = optString3;
         if (TextUtils.isEmpty(optString3)) {
-            d.b("Component-Model-Base", this.f40844e + " component slaveId is empty");
+            d.b("Component-Model-Base", this.f44520e + " component slaveId is empty");
         }
-        this.f40847h = jSONObject.optString("parentId", bVar.f40847h);
-        this.f40848i = jSONObject.optString("cb", bVar.f40848i);
+        this.f44523h = jSONObject.optString("parentId", bVar.f44523h);
+        this.f44524i = jSONObject.optString("cb", bVar.f44524i);
         this.j = jSONObject.optBoolean("hide", bVar.j);
         this.k = TextUtils.equals(jSONObject.optString("gesture", bVar.k ? "1" : "0"), "1");
         d.a.l0.a.l1.e.a.a aVar = bVar.l;
@@ -181,27 +181,27 @@ public abstract class b implements d.a.l0.a.l1.a, Cloneable {
     public void g(JSONObject jSONObject) {
         if (!TextUtils.equals(this.m, "ARCameraId")) {
             String optString = jSONObject.optString("componentId");
-            this.f40845f = optString;
+            this.f44521f = optString;
             if (TextUtils.isEmpty(optString)) {
-                this.f40845f = jSONObject.optString(this.m, this.f40845f);
+                this.f44521f = jSONObject.optString(this.m, this.f44521f);
             }
         } else {
             String optString2 = jSONObject.optString(this.m);
-            this.f40845f = optString2;
+            this.f44521f = optString2;
             if (TextUtils.isEmpty(optString2)) {
-                this.f40845f = jSONObject.optString("componentId", this.f40845f);
+                this.f44521f = jSONObject.optString("componentId", this.f44521f);
             }
         }
-        if (TextUtils.isEmpty(this.f40845f)) {
-            d.b("Component-Model-Base", this.f40844e + " component componentId is empty");
+        if (TextUtils.isEmpty(this.f44521f)) {
+            d.b("Component-Model-Base", this.f44520e + " component componentId is empty");
         }
-        String optString3 = jSONObject.optString("slaveId", this.f40846g);
-        this.f40846g = optString3;
+        String optString3 = jSONObject.optString("slaveId", this.f44522g);
+        this.f44522g = optString3;
         if (TextUtils.isEmpty(optString3)) {
-            d.b("Component-Model-Base", this.f40844e + " component slaveId is empty");
+            d.b("Component-Model-Base", this.f44520e + " component slaveId is empty");
         }
-        this.f40847h = jSONObject.optString("parentId", this.f40847h);
-        this.f40848i = jSONObject.optString("cb", this.f40848i);
+        this.f44523h = jSONObject.optString("parentId", this.f44523h);
+        this.f44524i = jSONObject.optString("cb", this.f44524i);
         this.j = jSONObject.optBoolean("hide", this.j);
         this.k = TextUtils.equals(jSONObject.optString("gesture", this.k ? "1" : "0"), "1");
         f(jSONObject);
@@ -210,10 +210,10 @@ public abstract class b implements d.a.l0.a.l1.a, Cloneable {
     @Override // d.a.l0.a.l1.a
     public boolean isValid() {
         d.a.l0.a.l1.e.a.a aVar;
-        return (TextUtils.isEmpty(this.f40845f) || TextUtils.isEmpty(this.f40846g) || (aVar = this.l) == null || !aVar.i()) ? false : true;
+        return (TextUtils.isEmpty(this.f44521f) || TextUtils.isEmpty(this.f44522g) || (aVar = this.l) == null || !aVar.i()) ? false : true;
     }
 
     public String toString() {
-        return "SwanAppBaseComponentModel{componentType='" + this.f40844e + "', componentId='" + this.f40845f + "', slaveId='" + this.f40846g + "', parentId='" + this.f40847h + "', callback='" + this.f40848i + "', hidden=" + this.j + ", gesture=" + this.k + ", position=" + this.l + ", mComponentIdKey='" + this.m + "'}";
+        return "SwanAppBaseComponentModel{componentType='" + this.f44520e + "', componentId='" + this.f44521f + "', slaveId='" + this.f44522g + "', parentId='" + this.f44523h + "', callback='" + this.f44524i + "', hidden=" + this.j + ", gesture=" + this.k + ", position=" + this.l + ", mComponentIdKey='" + this.m + "'}";
     }
 }

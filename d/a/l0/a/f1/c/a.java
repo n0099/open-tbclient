@@ -15,7 +15,7 @@ public class a implements d.a.l0.a.f1.f.a {
         }
         long currentTimeMillis = System.currentTimeMillis();
         SwanAppConfigData b2 = d.b(file.getAbsolutePath());
-        if (d.a.l0.a.f1.f.a.f41852a) {
+        if (d.a.l0.a.f1.f.a.f45528a) {
             long currentTimeMillis2 = System.currentTimeMillis();
             StringBuilder sb = new StringBuilder();
             sb.append("buildAppJsonConfig cost = ");
@@ -40,7 +40,7 @@ public class a implements d.a.l0.a.f1.f.a {
                 swanAppConfigData = a(file);
             }
             b.c().d(file.getAbsolutePath(), swanAppConfigData);
-        } else if (d.a.l0.a.f1.f.a.f41852a) {
+        } else if (d.a.l0.a.f1.f.a.f45528a) {
             Log.d("SwanPerformance", "adopt cached app.json");
         }
         return swanAppConfigData;

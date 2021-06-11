@@ -3,68 +3,68 @@ package d.a.n0.f1.g;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f54452a;
+    public long f58141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54453b;
+    public String f58142b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54454c;
+    public String f58143c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54455d;
+    public String f58144d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54456e;
+    public int f58145e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54457f;
+    public int f58146f;
 
     public String a() {
-        return this.f54455d;
+        return this.f58144d;
     }
 
     public long b() {
-        return this.f54452a;
+        return this.f58141a;
     }
 
     public int c() {
-        return this.f54457f;
+        return this.f58146f;
     }
 
     public String d() {
-        return this.f54453b;
+        return this.f58142b;
     }
 
     public String e() {
-        return this.f54454c;
+        return this.f58143c;
     }
 
     public int f() {
-        return this.f54456e;
+        return this.f58145e;
     }
 
     public void g(String str) {
-        this.f54455d = str;
+        this.f58144d = str;
     }
 
     public void h(long j) {
-        this.f54452a = j;
+        this.f58141a = j;
     }
 
     public void i(int i2) {
-        this.f54457f = i2;
+        this.f58146f = i2;
     }
 
     public void j(String str) {
-        this.f54453b = str;
+        this.f58142b = str;
     }
 
     public void k(String str) {
-        this.f54454c = str;
+        this.f58143c = str;
     }
 
     public void l(int i2) {
-        this.f54456e = i2;
+        this.f58145e = i2;
     }
 }

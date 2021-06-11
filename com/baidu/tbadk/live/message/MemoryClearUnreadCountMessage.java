@@ -8,14 +8,14 @@ public class MemoryClearUnreadCountMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12855a;
+        public String f12920a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12856b;
+        public int f12921b;
 
         public a(String str, int i2) {
-            this.f12855a = str;
-            this.f12856b = i2;
+            this.f12920a = str;
+            this.f12921b = i2;
         }
     }
 

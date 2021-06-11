@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import d.a.l0.a.a2.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends d.a.l0.a.v1.a.a.a {
     @Override // d.a.l0.a.v1.a.a.a
     public void b(@NonNull Bundle bundle) {

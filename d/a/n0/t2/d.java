@@ -10,18 +10,18 @@ import java.util.concurrent.TimeUnit;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f61026a = TimeUnit.DAYS.toMillis(1);
+    public static final long f64718a = TimeUnit.DAYS.toMillis(1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f61027b;
+    public static final long f64719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f61028c;
+    public static final long f64720c;
 
     static {
         TimeUnit.HOURS.toMillis(1L);
-        f61027b = TimeUnit.MINUTES.toMillis(1L);
-        f61028c = TimeUnit.SECONDS.toMillis(1L);
+        f64719b = TimeUnit.MINUTES.toMillis(1L);
+        f64720c = TimeUnit.SECONDS.toMillis(1L);
     }
 
     public static int a(@NonNull String str) {
@@ -63,11 +63,11 @@ public class d {
     }
 
     public static boolean e(long j, long j2, int i2) {
-        return j - j2 > ((long) i2) * f61027b;
+        return j - j2 > ((long) i2) * f64719b;
     }
 
     public static boolean f(long j, long j2) {
-        long j3 = f61026a;
+        long j3 = f64718a;
         return j / j3 == j2 / j3;
     }
 

@@ -8,22 +8,22 @@ import org.json.JSONObject;
 public class DownloadParams {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11534a;
+    public String f11596a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11535b;
+    public String f11597b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11536c;
+    public String f11598c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11537d;
+    public String f11599d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11538e;
+    public String f11600e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11539f;
+    public long f11601f;
 
     /* loaded from: classes3.dex */
     public enum SwanAppDownloadType {
@@ -58,26 +58,26 @@ public class DownloadParams {
     }
 
     public DownloadParams(String str, String str2) {
-        this.f11534a = str;
-        this.f11535b = str2;
+        this.f11596a = str;
+        this.f11597b = str2;
     }
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("url", this.f11534a);
-            jSONObject.put("name", this.f11535b);
-            jSONObject.put("userAgent", this.f11536c);
-            jSONObject.put("contentDisposition", this.f11537d);
-            jSONObject.put("mimeType", this.f11538e);
-            jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.f11539f);
+            jSONObject.put("url", this.f11596a);
+            jSONObject.put("name", this.f11597b);
+            jSONObject.put("userAgent", this.f11598c);
+            jSONObject.put("contentDisposition", this.f11599d);
+            jSONObject.put("mimeType", this.f11600e);
+            jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.f11601f);
         } catch (JSONException unused) {
         }
         return jSONObject;
     }
 
     public DownloadParams(String str, String str2, String str3) {
-        this.f11534a = str;
-        this.f11535b = str2;
+        this.f11596a = str;
+        this.f11597b = str2;
     }
 }

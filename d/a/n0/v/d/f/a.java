@@ -13,19 +13,19 @@ import d.a.m0.e0.c;
 public class a extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public SpecialLiveFragment f61710a;
+    public SpecialLiveFragment f65424a;
 
     public a(String str, String str2) {
-        this.f61710a = SpecialLiveFragment.F1(str, str2);
-        getFragmentTabStructure().f49334a = this.f61710a;
+        this.f65424a = SpecialLiveFragment.H1(str, str2);
+        getFragmentTabStructure().f53008a = this.f65424a;
     }
 
     @Override // d.a.m0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f49338e = 4;
-        cVar.f49335b = R.string.ala_live;
-        cVar.f49342i = c.k;
+        cVar.f53012e = 4;
+        cVar.f53009b = R.string.ala_live;
+        cVar.f53016i = c.k;
         return cVar;
     }
 

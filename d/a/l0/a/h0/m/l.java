@@ -13,16 +13,16 @@ import java.util.ArrayList;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public abstract class l extends j {
-    public static final boolean n = d.a.l0.a.k.f43199a;
+    public static final boolean n = d.a.l0.a.k.f46875a;
 
     /* renamed from: g  reason: collision with root package name */
-    public h.j<? super d.a.l0.n.h.d> f42371g;
+    public h.j<? super d.a.l0.n.h.d> f46047g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h.j<? super d.a.l0.n.h.b> f42372h;
+    public h.j<? super d.a.l0.n.h.b> f46048h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.l0.n.o.f f42373i;
+    public d.a.l0.n.o.f f46049i;
     public d.a.l0.a.v2.e1.b<Exception> j;
     public d.a.l0.n.f.c<d.a.l0.n.h.d> k;
     public d.a.l0.n.f.c<d.a.l0.n.h.b> l;
@@ -52,17 +52,17 @@ public abstract class l extends j {
         public void e(d.a.l0.n.h.d dVar, d.a.l0.n.h.a aVar) {
             super.e(dVar, aVar);
             d.a.l0.a.e0.d.h("UpdateCoreCallback", "onDownloadError:" + aVar);
-            l.this.f42373i.j(dVar);
+            l.this.f46049i.j(dVar);
             d.a.l0.a.q2.a aVar2 = new d.a.l0.a.q2.a();
             aVar2.j(13L);
-            aVar2.h(aVar.f48002a);
+            aVar2.h(aVar.f51676a);
             aVar2.c("Framework包下载失败");
             aVar2.e(aVar.toString());
-            if (l.this.f42371g != null) {
-                l.this.f42371g.onError(new PkgDownloadError(dVar, aVar2));
+            if (l.this.f46047g != null) {
+                l.this.f46047g.onError(new PkgDownloadError(dVar, aVar2));
             }
             d.a.l0.a.h0.m.c.c().a(dVar, l.this.U(), aVar2);
-            d.a.l0.t.d.j(dVar.f48006a);
+            d.a.l0.t.d.j(dVar.f51680a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,22 +70,22 @@ public abstract class l extends j {
         /* renamed from: p */
         public void i(d.a.l0.n.h.d dVar) {
             super.i(dVar);
-            d.a.l0.a.e0.d.h("UpdateCoreCallback", "onFileDownloaded: " + dVar.f48014i);
+            d.a.l0.a.e0.d.h("UpdateCoreCallback", "onFileDownloaded: " + dVar.f51688i);
             d.a.l0.a.q2.a b0 = l.this.b0(dVar);
             if (b0 == null) {
-                l.this.f42373i.k(dVar);
-                if (l.this.f42371g != null) {
-                    l.this.f42371g.onNext(dVar);
-                    l.this.f42371g.onCompleted();
+                l.this.f46049i.k(dVar);
+                if (l.this.f46047g != null) {
+                    l.this.f46047g.onNext(dVar);
+                    l.this.f46047g.onCompleted();
                 }
                 d.a.l0.n.g.a.h().l(dVar);
                 d.a.l0.a.h0.m.c.c().b(dVar, l.this.U());
                 w0.a();
                 return;
             }
-            l.this.f42373i.j(dVar);
-            if (l.this.f42371g != null) {
-                l.this.f42371g.onError(new PkgDownloadError(dVar, b0));
+            l.this.f46049i.j(dVar);
+            if (l.this.f46047g != null) {
+                l.this.f46047g.onError(new PkgDownloadError(dVar, b0));
             }
             d.a.l0.a.h0.m.c.c().a(dVar, l.this.U(), b0);
         }
@@ -134,17 +134,17 @@ public abstract class l extends j {
         public void e(d.a.l0.n.h.b bVar, d.a.l0.n.h.a aVar) {
             super.e(bVar, aVar);
             d.a.l0.a.e0.d.h("UpdateCoreCallback", "onDownloadError:" + aVar);
-            l.this.f42373i.j(bVar);
+            l.this.f46049i.j(bVar);
             d.a.l0.a.q2.a aVar2 = new d.a.l0.a.q2.a();
             aVar2.j(14L);
-            aVar2.h(aVar.f48002a);
+            aVar2.h(aVar.f51676a);
             aVar2.c("Extension下载失败");
             aVar2.e(aVar.toString());
-            if (l.this.f42372h != null) {
-                l.this.f42372h.onError(new PkgDownloadError(bVar, aVar2));
+            if (l.this.f46048h != null) {
+                l.this.f46048h.onError(new PkgDownloadError(bVar, aVar2));
             }
             d.a.l0.a.h0.m.c.c().a(bVar, l.this.U(), aVar2);
-            d.a.l0.t.d.j(bVar.f48006a);
+            d.a.l0.t.d.j(bVar.f51680a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -152,21 +152,21 @@ public abstract class l extends j {
         /* renamed from: p */
         public void i(d.a.l0.n.h.b bVar) {
             super.i(bVar);
-            d.a.l0.a.e0.d.h("UpdateCoreCallback", "onFileDownloaded: " + bVar.f48014i);
+            d.a.l0.a.e0.d.h("UpdateCoreCallback", "onFileDownloaded: " + bVar.f51688i);
             d.a.l0.a.q2.a a0 = l.this.a0(bVar);
             if (a0 == null) {
-                l.this.f42373i.k(bVar);
-                if (l.this.f42372h != null) {
-                    l.this.f42372h.onNext(bVar);
-                    l.this.f42372h.onCompleted();
+                l.this.f46049i.k(bVar);
+                if (l.this.f46048h != null) {
+                    l.this.f46048h.onNext(bVar);
+                    l.this.f46048h.onCompleted();
                 }
                 d.a.l0.n.g.a.h().l(bVar);
                 d.a.l0.a.h0.m.c.c().b(bVar, l.this.U());
                 return;
             }
-            l.this.f42373i.j(bVar);
-            if (l.this.f42372h != null) {
-                l.this.f42372h.onError(new PkgDownloadError(bVar, a0));
+            l.this.f46049i.j(bVar);
+            if (l.this.f46048h != null) {
+                l.this.f46048h.onError(new PkgDownloadError(bVar, a0));
             }
             d.a.l0.a.h0.m.c.c().a(bVar, l.this.U(), a0);
         }
@@ -192,57 +192,57 @@ public abstract class l extends j {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements c.InterfaceC0676c {
+    public class c implements c.InterfaceC0732c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.n.h.d f42376a;
+        public final /* synthetic */ d.a.l0.n.h.d f46052a;
 
         public c(d.a.l0.n.h.d dVar) {
-            this.f42376a = dVar;
+            this.f46052a = dVar;
         }
 
-        @Override // d.a.l0.a.h0.m.c.InterfaceC0676c
+        @Override // d.a.l0.a.h0.m.c.InterfaceC0732c
         public void a(PMSDownloadType pMSDownloadType) {
-            l.this.f42373i.k(this.f42376a);
-            if (l.this.f42371g != null) {
-                l.this.f42371g.onNext(this.f42376a);
-                l.this.f42371g.onCompleted();
+            l.this.f46049i.k(this.f46052a);
+            if (l.this.f46047g != null) {
+                l.this.f46047g.onNext(this.f46052a);
+                l.this.f46047g.onCompleted();
             }
         }
 
-        @Override // d.a.l0.a.h0.m.c.InterfaceC0676c
+        @Override // d.a.l0.a.h0.m.c.InterfaceC0732c
         public void b(PMSDownloadType pMSDownloadType, d.a.l0.a.q2.a aVar) {
-            l.this.f42373i.j(this.f42376a);
-            if (l.this.f42371g != null) {
-                l.this.f42371g.onError(new PkgDownloadError(this.f42376a, aVar));
+            l.this.f46049i.j(this.f46052a);
+            if (l.this.f46047g != null) {
+                l.this.f46047g.onError(new PkgDownloadError(this.f46052a, aVar));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class d implements c.InterfaceC0676c {
+    public class d implements c.InterfaceC0732c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.n.h.b f42378a;
+        public final /* synthetic */ d.a.l0.n.h.b f46054a;
 
         public d(d.a.l0.n.h.b bVar) {
-            this.f42378a = bVar;
+            this.f46054a = bVar;
         }
 
-        @Override // d.a.l0.a.h0.m.c.InterfaceC0676c
+        @Override // d.a.l0.a.h0.m.c.InterfaceC0732c
         public void a(PMSDownloadType pMSDownloadType) {
-            l.this.f42373i.k(this.f42378a);
-            if (l.this.f42372h != null) {
-                l.this.f42372h.onNext(this.f42378a);
-                l.this.f42372h.onCompleted();
+            l.this.f46049i.k(this.f46054a);
+            if (l.this.f46048h != null) {
+                l.this.f46048h.onNext(this.f46054a);
+                l.this.f46048h.onCompleted();
             }
         }
 
-        @Override // d.a.l0.a.h0.m.c.InterfaceC0676c
+        @Override // d.a.l0.a.h0.m.c.InterfaceC0732c
         public void b(PMSDownloadType pMSDownloadType, d.a.l0.a.q2.a aVar) {
-            l.this.f42373i.j(this.f42378a);
-            if (l.this.f42372h != null) {
-                l.this.f42372h.onError(new PkgDownloadError(this.f42378a, aVar));
+            l.this.f46049i.j(this.f46054a);
+            if (l.this.f46048h != null) {
+                l.this.f46048h.onError(new PkgDownloadError(this.f46054a, aVar));
             }
         }
     }
@@ -256,7 +256,7 @@ public abstract class l extends j {
         @Override // h.n.b
         /* renamed from: a */
         public void call(h.j<? super d.a.l0.n.h.d> jVar) {
-            l.this.f42371g = jVar;
+            l.this.f46047g = jVar;
         }
     }
 
@@ -269,7 +269,7 @@ public abstract class l extends j {
         @Override // h.n.b
         /* renamed from: a */
         public void call(h.j<? super d.a.l0.n.h.b> jVar) {
-            l.this.f42372h = jVar;
+            l.this.f46048h = jVar;
         }
     }
 
@@ -282,7 +282,7 @@ public abstract class l extends j {
         @Override // h.e
         /* renamed from: b */
         public void onNext(d.a.l0.n.h.e eVar) {
-            d.a.l0.a.e0.d.h("UpdateCoreCallback", "单个包下载、业务层处理完成：" + eVar.f48014i);
+            d.a.l0.a.e0.d.h("UpdateCoreCallback", "单个包下载、业务层处理完成：" + eVar.f51688i);
         }
 
         @Override // h.e
@@ -306,7 +306,7 @@ public abstract class l extends j {
     public void B(d.a.l0.n.h.a aVar) {
         super.B(aVar);
         d.a.l0.a.e0.d.h("UpdateCoreCallback", "onFetchError: " + aVar.toString());
-        if (aVar.f48002a == 1010) {
+        if (aVar.f51676a == 1010) {
             d0();
             return;
         }
@@ -334,7 +334,7 @@ public abstract class l extends j {
         if (fVar == null) {
             return;
         }
-        this.f42373i = fVar;
+        this.f46049i = fVar;
         if (fVar.i()) {
             return;
         }
@@ -358,10 +358,10 @@ public abstract class l extends j {
 
     public final void Y() {
         ArrayList arrayList = new ArrayList();
-        if (this.f42373i.c()) {
+        if (this.f46049i.c()) {
             arrayList.add(h.d.b(new e()));
         }
-        if (this.f42373i.b()) {
+        if (this.f46049i.b()) {
             arrayList.add(h.d.b(new f()));
         }
         if (arrayList.isEmpty()) {

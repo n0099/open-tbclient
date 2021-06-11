@@ -59,6 +59,7 @@ public abstract class NetMessage {
             HttpMessage httpMessage = new HttpMessage(this.httpCmd, this.tag);
             this.mHttpMessage = httpMessage;
             httpMessage.setExtra(this);
+            this.mHttpMessage.setSelf(this);
             this.mHttpMessage.setClientLogID(this.clientLogID);
             this.mHttpMessage.addParam("data", encode(true));
             this.mHttpMessage.addHeader(HTTP_HEADER_KEY, "protobuf");
@@ -88,6 +89,7 @@ public abstract class NetMessage {
             this.mSocketMessage = socketMessage;
             socketMessage.setData(encode(false));
             this.mSocketMessage.setExtra(this);
+            this.mSocketMessage.setSelf(this);
             this.mSocketMessage.setExtraData(encodeExtraDataInBackGround());
             this.mSocketMessage.setClientLogID(this.clientLogID);
         }

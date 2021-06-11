@@ -14,7 +14,7 @@ public class d extends d.a.l0.n.j.a {
         if (jSONObject == null) {
             return;
         }
-        if (d.a.l0.n.c.f47984a) {
+        if (d.a.l0.n.c.f51658a) {
             Log.d("CommonNodeProcessor", WebGLImageLoader.DATA_URL + jSONObject);
         }
         f.b().e(jSONObject.optJSONObject("tipmsgs"));
@@ -24,7 +24,7 @@ public class d extends d.a.l0.n.j.a {
         e.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
         n.b().d(jSONObject.optJSONObject("tts"));
         o.e(jSONObject.optJSONObject("update_expire_time"));
-        if (l.f48154a) {
+        if (l.f51828a) {
             c(jSONObject);
         }
         g.a().c(jSONObject.optJSONObject("local_debug"));
@@ -39,7 +39,7 @@ public class d extends d.a.l0.n.j.a {
         if (optJSONObject != null) {
             long optLong = optJSONObject.optLong("errno");
             if (optLong != 0) {
-                if (d.a.l0.n.c.f47984a) {
+                if (d.a.l0.n.c.f51658a) {
                     Log.d("CommonNodeProcessor", "heartbeat error:" + optLong);
                     return;
                 }
@@ -49,7 +49,7 @@ public class d extends d.a.l0.n.j.a {
             d.a.l0.t.b j = b2 != null ? b2.j() : null;
             String optString = optJSONObject.optString("version");
             if (!TextUtils.isEmpty(optString)) {
-                l.f48155b = optString;
+                l.f51829b = optString;
                 if (j != null) {
                     j.putString("key_h2_heart_beat_version", optString);
                 }
@@ -68,10 +68,10 @@ public class d extends d.a.l0.n.j.a {
                         }
                     }
                 } else {
-                    l.f48154a = false;
+                    l.f51828a = false;
                 }
             }
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 Log.d("CommonNodeProcessor", "heartBeatVersion=" + optString + ", data=" + optJSONObject2);
             }
         }

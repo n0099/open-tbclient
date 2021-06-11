@@ -5,11 +5,11 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.load.ResourceEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ResourceEncoderRegistry {
     public final List<Entry<?>> encoders = new ArrayList();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class Entry<T> {
         public final ResourceEncoder<T> encoder;
         public final Class<T> resourceClass;

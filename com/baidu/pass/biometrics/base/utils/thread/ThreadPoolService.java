@@ -13,31 +13,31 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ThreadPoolService {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f9006c = Runtime.getRuntime().availableProcessors();
+    public static final int f9068c = Runtime.getRuntime().availableProcessors();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ThreadFactory f9007d = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
+    public static final ThreadFactory f9069d = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f9012a = new AtomicInteger(1);
+        public final AtomicInteger f9074a = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "pass_face_thread # " + this.f9012a.getAndIncrement());
+            return new Thread(runnable, "pass_face_thread # " + this.f9074a.getAndIncrement());
         }
     };
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f9008e = 0;
+    public static final int f9070e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f9009f = 1;
+    public static final int f9071f = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f9010a;
+    public ThreadPoolExecutor f9072a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f9011b;
+    public Handler f9073b;
 
     /* loaded from: classes2.dex */
     public static class SingletonContainer {
@@ -49,15 +49,15 @@ public class ThreadPoolService {
     }
 
     public void run(TPRunnable tPRunnable) {
-        this.f9010a.submit(tPRunnable);
+        this.f9072a.submit(tPRunnable);
     }
 
     public void runInUiThread(TPRunnable tPRunnable) {
-        this.f9011b.sendMessage(this.f9011b.obtainMessage(0, tPRunnable));
+        this.f9073b.sendMessage(this.f9073b.obtainMessage(0, tPRunnable));
     }
 
     public ThreadPoolService() {
-        this.f9011b = new Handler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
+        this.f9073b = new Handler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 int i2 = message.what;
@@ -65,12 +65,12 @@ public class ThreadPoolService {
                     ((TPRunnable) message.obj).run();
                 } else if (i2 != 1) {
                 } else {
-                    ThreadPoolService.this.f9010a.submit(((TPRunnable) message.obj).runable);
+                    ThreadPoolService.this.f9072a.submit(((TPRunnable) message.obj).runable);
                 }
             }
         };
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Math.max(2, Math.min(f9006c - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f9007d);
-        this.f9010a = threadPoolExecutor;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Math.max(2, Math.min(f9068c - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f9069d);
+        this.f9072a = threadPoolExecutor;
         if (Build.VERSION.SDK_INT >= 9) {
             threadPoolExecutor.allowCoreThreadTimeOut(true);
         }

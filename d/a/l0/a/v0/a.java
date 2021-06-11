@@ -10,26 +10,26 @@ import d.a.l0.a.z1.b.b.h;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f45255b;
+    public static volatile a f48929b;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45256a;
+    public String f48930a;
 
     /* renamed from: d.a.l0.a.v0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class DialogInterface$OnClickListenerC0874a implements DialogInterface.OnClickListener {
+    public class DialogInterface$OnClickListenerC0930a implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.h0.j.b f45257e;
+        public final /* synthetic */ d.a.l0.a.h0.j.b f48931e;
 
-        public DialogInterface$OnClickListenerC0874a(a aVar, d.a.l0.a.h0.j.b bVar) {
-            this.f45257e = bVar;
+        public DialogInterface$OnClickListenerC0930a(a aVar, d.a.l0.a.h0.j.b bVar) {
+            this.f48931e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             k.e(QueryResponse.Options.CANCEL);
-            this.f45257e.a(Boolean.FALSE);
+            this.f48931e.a(Boolean.FALSE);
         }
     }
 
@@ -37,16 +37,16 @@ public class a {
     public class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.h0.j.b f45258e;
+        public final /* synthetic */ d.a.l0.a.h0.j.b f48932e;
 
         public b(a aVar, d.a.l0.a.h0.j.b bVar) {
-            this.f45258e = bVar;
+            this.f48932e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             k.e("confirm");
-            this.f45258e.a(Boolean.TRUE);
+            this.f48932e.a(Boolean.TRUE);
         }
     }
 
@@ -62,36 +62,36 @@ public class a {
     }
 
     public static a b() {
-        if (f45255b == null) {
+        if (f48929b == null) {
             synchronized (a.class) {
-                if (f45255b == null) {
-                    f45255b = new a();
+                if (f48929b == null) {
+                    f48929b = new a();
                 }
             }
         }
-        return f45255b;
+        return f48929b;
     }
 
     public static void d() {
-        if (f45255b == null) {
+        if (f48929b == null) {
             return;
         }
-        if (f45255b.f45256a != null) {
-            f45255b.f45256a = null;
+        if (f48929b.f48930a != null) {
+            f48929b.f48930a = null;
         }
-        f45255b = null;
+        f48929b = null;
     }
 
     public String a() {
-        return this.f45256a;
+        return this.f48930a;
     }
 
     public boolean c() {
-        return !TextUtils.isEmpty(this.f45256a);
+        return !TextUtils.isEmpty(this.f48930a);
     }
 
     public void e(String str) {
-        this.f45256a = str;
+        this.f48930a = str;
     }
 
     public void f(Activity activity, d.a.l0.a.h0.j.b<Boolean> bVar) {
@@ -104,7 +104,7 @@ public class a {
         aVar.n(new d.a.l0.a.w2.h.a());
         aVar.m(true);
         aVar.Q(d.a.l0.a.c.aiapps_modal_confirm_color);
-        aVar.O(d.a.l0.a.h.aiapps_cancel, new DialogInterface$OnClickListenerC0874a(this, bVar));
+        aVar.O(d.a.l0.a.h.aiapps_cancel, new DialogInterface$OnClickListenerC0930a(this, bVar));
         aVar.B(d.a.l0.a.h.aiapps_confirm, new b(this, bVar));
         aVar.N(new c(this));
         aVar.X();

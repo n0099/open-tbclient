@@ -9,14 +9,14 @@ import com.baidu.tieba.R;
 public class NoDataItemViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f2376a;
+    public TextView f2395a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f2377b;
+    public ImageView f2396b;
 
     public NoDataItemViewHolder(View view) {
         super(view);
-        this.f2376a = (TextView) view.findViewById(R.id.no_data_text);
-        this.f2377b = (ImageView) view.findViewById(R.id.no_data_image);
+        this.f2395a = (TextView) view.findViewById(R.id.no_data_text);
+        this.f2396b = (ImageView) view.findViewById(R.id.no_data_image);
     }
 }

@@ -23,6 +23,7 @@ public class MainTabActivityConfig extends IntentConfig {
     public static final String PUSH_FOLLOW_UP_ACTION = "follow_up_action";
     public static final String TARGET_SCHEME = "target_scheme";
     public static final String VIDEOTHREAD_ON_SQUARE_ID = "videothread_on_square_id";
+    public static boolean VIDEO_CHANNEL_TAB_AVAILABLE = true;
 
     public MainTabActivityConfig(Context context) {
         super(context);

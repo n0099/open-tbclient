@@ -23,34 +23,34 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f45583d = k.f43199a;
+    public static final boolean f49257d = k.f46875a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static b f45584e;
+    public static b f49258e;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f45585a;
+    public Bitmap f49259a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, c> f45586b = new HashMap<>();
+    public HashMap<String, c> f49260b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f45587c = new ArrayList();
+    public List<String> f49261c = new ArrayList();
 
     public static b c() {
-        if (f45584e == null) {
+        if (f49258e == null) {
             synchronized (b.class) {
-                if (f45584e == null) {
-                    f45584e = new b();
+                if (f49258e == null) {
+                    f49258e = new b();
                 }
             }
         }
-        return f45584e;
+        return f49258e;
     }
 
     public Bitmap a(String str) {
         c cVar;
-        HashMap<String, c> hashMap = this.f45586b;
+        HashMap<String, c> hashMap = this.f49260b;
         if (hashMap == null || (cVar = hashMap.get(str)) == null) {
             return null;
         }
@@ -58,27 +58,27 @@ public class b {
     }
 
     public List<String> b() {
-        return this.f45587c;
+        return this.f49261c;
     }
 
     public Bitmap d() {
-        return this.f45585a;
+        return this.f49259a;
     }
 
     public boolean e() {
-        List<String> list = this.f45587c;
+        List<String> list = this.f49261c;
         return list != null && list.size() > 0;
     }
 
     public void f(String str) {
-        if (f45583d) {
+        if (f49257d) {
             Log.d("EmojiInfoManager", "get emoji info from " + str);
         }
         File file = new File(str);
         if (file.exists() && file.isDirectory()) {
             String D = d.a.l0.t.d.D(new File(str + File.separator + "emoji.json"));
             if (TextUtils.isEmpty(D)) {
-                if (f45583d) {
+                if (f49257d) {
                     Log.d("EmojiInfoManager", "读取emoji配置文件失败");
                     return;
                 }
@@ -95,11 +95,11 @@ public class b {
                 }
                 String optString = optJSONObject.optString("package_icon");
                 if (!TextUtils.isEmpty(optString)) {
-                    this.f45585a = BitmapFactory.decodeFile(str + File.separator + optString);
+                    this.f49259a = BitmapFactory.decodeFile(str + File.separator + optString);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
-                this.f45587c.clear();
-                this.f45586b.clear();
+                this.f49261c.clear();
+                this.f49260b.clear();
                 if (optJSONArray2 != null) {
                     int length = optJSONArray2.length();
                     for (int i2 = 0; i2 < length; i2++) {
@@ -109,22 +109,22 @@ public class b {
                         String optString4 = jSONObject.optString("icon");
                         Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + optString4);
                         if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
-                            this.f45587c.add(optString3);
-                            this.f45586b.put(optString3, new c(optString2, optString3, decodeFile));
+                            this.f49261c.add(optString3);
+                            this.f49260b.put(optString3, new c(optString2, optString3, decodeFile));
                         }
                     }
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-        } else if (f45583d) {
+        } else if (f49257d) {
             Log.d("EmojiInfoManager", "文件路径错误");
         }
     }
 
     public SpannableString g(Context context, CharSequence charSequence, TextView textView) {
         Object aVar;
-        if (f45583d) {
+        if (f49257d) {
             Log.d("EmojiInfoManager", "parseEmotion in UI thread, use cache");
         }
         SpannableString spannableString = new SpannableString(charSequence);

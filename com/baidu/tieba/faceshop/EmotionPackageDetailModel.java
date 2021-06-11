@@ -15,19 +15,19 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class EmotionPackageDetailModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d f14651e;
+    public d f14708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f14652f;
+    public e f14709f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f14653g = new a(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
+    public final HttpMessageListener f14710g = new a(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
 
     /* renamed from: h  reason: collision with root package name */
-    public final HttpMessageListener f14654h = new b(CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
+    public final HttpMessageListener f14711h = new b(CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
 
     /* renamed from: i  reason: collision with root package name */
-    public final HttpMessageListener f14655i = new c(CmdConfigHttp.CMD_VOTE_EMOTION);
+    public final HttpMessageListener f14712i = new c(CmdConfigHttp.CMD_VOTE_EMOTION);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -57,13 +57,13 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003347 || EmotionPackageDetailModel.this.f14651e == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003347 || EmotionPackageDetailModel.this.f14708e == null) {
                 return;
             }
             if (httpResponsedMessage.getError() == 0) {
-                EmotionPackageDetailModel.this.f14651e.onResult(true);
+                EmotionPackageDetailModel.this.f14708e.onResult(true);
             } else {
-                EmotionPackageDetailModel.this.f14651e.onResult(false);
+                EmotionPackageDetailModel.this.f14708e.onResult(false);
             }
         }
     }
@@ -77,10 +77,10 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003358 || EmotionPackageDetailModel.this.f14652f == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003358 || EmotionPackageDetailModel.this.f14709f == null) {
                 return;
             }
-            EmotionPackageDetailModel.this.f14652f.a(httpResponsedMessage);
+            EmotionPackageDetailModel.this.f14709f.a(httpResponsedMessage);
         }
     }
 
@@ -106,11 +106,40 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         tbHttpMessageTask3.setIsNeedTbs(true);
         tbHttpMessageTask3.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask3);
-        this.f14653g.setTag(getUniqueId());
-        this.f14653g.setSelfListener(true);
-        registerListener(this.f14653g);
-        registerListener(this.f14654h);
-        registerListener(this.f14655i);
+        this.f14710g.setTag(getUniqueId());
+        this.f14710g.setSelfListener(true);
+        registerListener(this.f14710g);
+        registerListener(this.f14711h);
+        registerListener(this.f14712i);
+    }
+
+    public void B(int i2, d dVar) {
+        if (i2 < 0) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
+        httpMessage.addParam("package_id", i2);
+        sendMessage(httpMessage);
+        this.f14708e = dVar;
+    }
+
+    public void C(int i2) {
+        if (i2 < 0) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
+        httpMessage.addParam("id", i2);
+        sendMessage(httpMessage);
+    }
+
+    public void D(int i2, e eVar) {
+        if (i2 < 0) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VOTE_EMOTION);
+        httpMessage.addParam(IntentConfig.PKG_ID, i2);
+        sendMessage(httpMessage);
+        this.f14709f = eVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -120,41 +149,12 @@ public class EmotionPackageDetailModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f14653g);
+        MessageManager.getInstance().unRegisterListener(this.f14710g);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
-        MessageManager.getInstance().unRegisterListener(this.f14654h);
+        MessageManager.getInstance().unRegisterListener(this.f14711h);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VOTE_EMOTION);
-        MessageManager.getInstance().unRegisterListener(this.f14655i);
+        MessageManager.getInstance().unRegisterListener(this.f14712i);
         return true;
-    }
-
-    public void x(int i2, d dVar) {
-        if (i2 < 0) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
-        httpMessage.addParam("package_id", i2);
-        sendMessage(httpMessage);
-        this.f14651e = dVar;
-    }
-
-    public void y(int i2) {
-        if (i2 < 0) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
-        httpMessage.addParam("id", i2);
-        sendMessage(httpMessage);
-    }
-
-    public void z(int i2, e eVar) {
-        if (i2 < 0) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VOTE_EMOTION);
-        httpMessage.addParam(IntentConfig.PKG_ID, i2);
-        sendMessage(httpMessage);
-        this.f14652f = eVar;
     }
 }

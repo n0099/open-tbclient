@@ -7,10 +7,10 @@ import java.util.NoSuchElementException;
 public abstract class AbstractIterator<T> implements Iterator<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public State f30785e = State.NOT_READY;
+    public State f30876e = State.NOT_READY;
 
     /* renamed from: f  reason: collision with root package name */
-    public T f30786f;
+    public T f30877f;
 
     /* loaded from: classes6.dex */
     public enum State {
@@ -24,17 +24,17 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30787a;
+        public static final /* synthetic */ int[] f30878a;
 
         static {
             int[] iArr = new int[State.values().length];
-            f30787a = iArr;
+            f30878a = iArr;
             try {
                 iArr[State.READY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30787a[State.DONE.ordinal()] = 2;
+                f30878a[State.DONE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -43,15 +43,15 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
     public abstract T a();
 
     public final T b() {
-        this.f30785e = State.DONE;
+        this.f30876e = State.DONE;
         return null;
     }
 
     public final boolean c() {
-        this.f30785e = State.FAILED;
-        this.f30786f = a();
-        if (this.f30785e != State.DONE) {
-            this.f30785e = State.READY;
+        this.f30876e = State.FAILED;
+        this.f30877f = a();
+        if (this.f30876e != State.DONE) {
+            this.f30876e = State.READY;
             return true;
         }
         return false;
@@ -59,8 +59,8 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public final boolean hasNext() {
-        n.w(this.f30785e != State.FAILED);
-        int i2 = a.f30787a[this.f30785e.ordinal()];
+        n.w(this.f30876e != State.FAILED);
+        int i2 = a.f30878a[this.f30876e.ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 return c();
@@ -73,9 +73,9 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public final T next() {
         if (hasNext()) {
-            this.f30785e = State.NOT_READY;
-            T t = this.f30786f;
-            this.f30786f = null;
+            this.f30876e = State.NOT_READY;
+            T t = this.f30877f;
+            this.f30877f = null;
             return t;
         }
         throw new NoSuchElementException();

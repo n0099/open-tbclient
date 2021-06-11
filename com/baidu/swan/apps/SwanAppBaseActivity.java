@@ -15,7 +15,7 @@ import d.a.l0.a.v1.c.c;
 import d.a.l0.a.v2.q0;
 /* loaded from: classes2.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final String TAG = "SwanAppBaseActivity";
     public g mPermissionHandler;
     public b mSkinDecorator = null;

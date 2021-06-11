@@ -16,60 +16,60 @@ import org.json.JSONObject;
 public class b extends d.a.l0.h.z.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.a.l0.c f47769b;
+    public d.a.l0.a.l0.c f51443b;
 
     /* loaded from: classes3.dex */
     public class a extends ResponseCallback<d.a.l0.h.z.g.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.z.g.c f47770a;
+        public final /* synthetic */ d.a.l0.h.z.g.c f51444a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47771b;
+        public final /* synthetic */ d.a.l0.a.y.b.a f51445b;
 
         /* renamed from: d.a.l0.h.z.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC1060a implements Runnable {
+        public class RunnableC1116a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.a.l0.h.z.g.a f47773e;
+            public final /* synthetic */ d.a.l0.h.z.g.a f51447e;
 
-            public RunnableC1060a(d.a.l0.h.z.g.a aVar) {
-                this.f47773e = aVar;
+            public RunnableC1116a(d.a.l0.h.z.g.a aVar) {
+                this.f51447e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.l0.h.m0.c.a(a.this.f47771b, true, this.f47773e);
+                d.a.l0.h.m0.c.a(a.this.f51445b, true, this.f51447e);
             }
         }
 
         /* renamed from: d.a.l0.h.z.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC1061b implements Runnable {
-            public RunnableC1061b() {
+        public class RunnableC1117b implements Runnable {
+            public RunnableC1117b() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 a aVar = a.this;
-                d.a.l0.h.m0.c.a(aVar.f47771b, false, aVar.f47770a);
+                d.a.l0.h.m0.c.a(aVar.f51445b, false, aVar.f51444a);
             }
         }
 
         public a(d.a.l0.h.z.g.c cVar, d.a.l0.a.y.b.a aVar) {
-            this.f47770a = cVar;
-            this.f47771b = aVar;
+            this.f51444a = cVar;
+            this.f51445b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(d.a.l0.h.z.g.a aVar, int i2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("CheckAdvisedToRestApi", "on success");
             }
-            b.this.f47769b.post(new RunnableC1060a(aVar));
+            b.this.f51443b.post(new RunnableC1116a(aVar));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,16 +81,16 @@ public class b extends d.a.l0.h.z.a {
                 return null;
             }
             String string = body.string();
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("CheckAdvisedToRestApi", "parse response: " + string);
             }
             JSONObject jSONObject = new JSONObject(string);
             String optString = jSONObject.optString("errno");
             if (!TextUtils.equals(optString, "0")) {
-                if (d.a.l0.h.z.a.f47768a) {
+                if (d.a.l0.h.z.a.f51442a) {
                     Log.d("CheckAdvisedToRestApi", "errno = " + optString);
                 }
-                d.a.l0.h.z.g.c cVar = this.f47770a;
+                d.a.l0.h.z.g.c cVar = this.f51444a;
                 cVar.errNo = optString;
                 cVar.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", jSONObject.optString("errmsg"));
                 return null;
@@ -105,26 +105,26 @@ public class b extends d.a.l0.h.z.a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.e("CheckAdvisedToRestApi", "on fail");
             }
-            if (TextUtils.isEmpty(this.f47770a.errMsg)) {
-                d.a.l0.h.z.g.c cVar = this.f47770a;
+            if (TextUtils.isEmpty(this.f51444a.errMsg)) {
+                d.a.l0.h.z.g.c cVar = this.f51444a;
                 cVar.errNo = "100";
                 cVar.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
             }
-            b.this.f47769b.post(new RunnableC1061b());
+            b.this.f51443b.post(new RunnableC1117b());
         }
     }
 
     public b(@NonNull d.a.l0.a.l0.c cVar) {
-        this.f47769b = cVar;
+        this.f51443b = cVar;
     }
 
     @JavascriptInterface
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
         d.a.l0.a.y.b.a G = d.a.l0.a.y.b.a.G(jsObject);
-        if (G == null || this.f47769b == null) {
+        if (G == null || this.f51443b == null) {
             return;
         }
         d.a.l0.h.z.g.c cVar = new d.a.l0.h.z.g.c();
@@ -135,13 +135,13 @@ public class b extends d.a.l0.h.z.a {
                 jSONObject.put("ma_id", d.a.l0.a.a2.e.V());
                 jSONObject.put("todayPlayedTime", String.valueOf(d2));
             } catch (JSONException e2) {
-                if (d.a.l0.h.z.a.f47768a) {
+                if (d.a.l0.h.z.a.f51442a) {
                     e2.printStackTrace();
                 }
             }
             a(d.a.l0.h.t.a.b().e(), jSONObject.toString(), new a(cVar, G));
         } catch (JSTypeMismatchException e3) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 e3.printStackTrace();
             }
             cVar.errNo = FontParser.sFontWeightDefault;

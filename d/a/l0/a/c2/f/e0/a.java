@@ -26,7 +26,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("backgroundColor", optParamsAsJo.toString());
         }
         g W = f.V().W();

@@ -9,25 +9,25 @@ import android.view.animation.Interpolator;
 public class e {
 
     /* renamed from: f  reason: collision with root package name */
-    public static float f52330f = 8.0f;
+    public static float f56019f = 8.0f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static float f52331g = 1.0f / n(1.0f);
+    public static float f56020g = 1.0f / n(1.0f);
 
     /* renamed from: a  reason: collision with root package name */
-    public int f52332a;
+    public int f56021a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f52333b;
+    public final a f56022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f52334c;
+    public final a f56023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Interpolator f52335d;
+    public Interpolator f56024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f52336e;
+    public final boolean f56025e;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -36,31 +36,31 @@ public class e {
         public static final float[] r = new float[101];
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52337a;
+        public int f56026a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f52338b;
+        public int f56027b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f52339c;
+        public int f56028c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f52340d;
+        public int f56029d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f52341e;
+        public float f56030e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f52342f;
+        public float f56031f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f52343g;
+        public long f56032g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f52344h;
+        public int f56033h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f52345i;
+        public int f56034i;
         public int j;
         public int l;
         public float o;
@@ -142,7 +142,7 @@ public class e {
                 int i6 = i5 + 1;
                 float[] fArr = r;
                 float f3 = fArr[i5];
-                this.f52344h = (int) (this.f52344h * (f3 + (((abs - f2) / ((i6 / 100.0f) - f2)) * (fArr[i6] - f3))));
+                this.f56033h = (int) (this.f56033h * (f3 + (((abs - f2) / ((i6 / 100.0f) - f2)) * (fArr[i6] - f3))));
             }
         }
 
@@ -153,17 +153,17 @@ public class e {
                     return false;
                 }
                 if (i2 == 2) {
-                    this.f52343g += this.f52344h;
-                    x(this.f52339c, this.f52337a, 0);
+                    this.f56032g += this.f56033h;
+                    x(this.f56028c, this.f56026a, 0);
                 }
-            } else if (this.f52344h >= this.f52345i) {
+            } else if (this.f56033h >= this.f56034i) {
                 return false;
             } else {
-                this.f52337a = this.f52339c;
-                int i3 = (int) this.f52341e;
-                this.f52340d = i3;
-                this.f52342f = m(i3);
-                this.f52343g += this.f52344h;
+                this.f56026a = this.f56028c;
+                int i3 = (int) this.f56030e;
+                this.f56029d = i3;
+                this.f56031f = m(i3);
+                this.f56032g += this.f56033h;
                 r();
             }
             y();
@@ -171,50 +171,50 @@ public class e {
         }
 
         public void j() {
-            this.f52338b = this.f52339c;
+            this.f56027b = this.f56028c;
             this.k = true;
         }
 
         public final void k(int i2, int i3, int i4) {
-            float f2 = this.f52342f;
-            float sqrt = (float) Math.sqrt((((((i4 * i4) / 2.0f) / Math.abs(f2)) + Math.abs(i3 - i2)) * 2.0d) / Math.abs(this.f52342f));
-            this.f52343g -= (int) ((sqrt - ((-i4) / f2)) * 1000.0f);
-            this.f52337a = i3;
-            this.f52340d = (int) ((-this.f52342f) * sqrt);
+            float f2 = this.f56031f;
+            float sqrt = (float) Math.sqrt((((((i4 * i4) / 2.0f) / Math.abs(f2)) + Math.abs(i3 - i2)) * 2.0d) / Math.abs(this.f56031f));
+            this.f56032g -= (int) ((sqrt - ((-i4) / f2)) * 1000.0f);
+            this.f56026a = i3;
+            this.f56029d = (int) ((-this.f56031f) * sqrt);
         }
 
         public void l(int i2, int i3, int i4, int i5, int i6) {
             float f2;
             this.l = i6;
             this.k = false;
-            this.f52340d = i3;
-            this.f52341e = i3;
-            this.f52345i = 0;
-            this.f52344h = 0;
-            this.f52343g = AnimationUtils.currentAnimationTimeMillis();
-            this.f52337a = i2;
-            this.f52338b = i2;
+            this.f56029d = i3;
+            this.f56030e = i3;
+            this.f56034i = 0;
+            this.f56033h = 0;
+            this.f56032g = AnimationUtils.currentAnimationTimeMillis();
+            this.f56026a = i2;
+            this.f56027b = i2;
             if (i2 <= i5 && i2 >= i4) {
                 this.n = 0;
                 double d2 = 0.0d;
                 if (i3 != 0) {
                     int p2 = p(i3);
-                    this.f52345i = p2;
-                    this.f52344h = p2;
+                    this.f56034i = p2;
+                    this.f56033h = p2;
                     d2 = o(i3);
                 }
                 int signum = (int) (d2 * Math.signum(f2));
                 this.j = signum;
                 int i7 = i2 + signum;
-                this.f52339c = i7;
+                this.f56028c = i7;
                 if (i7 < i4) {
-                    h(this.f52337a, i7, i4);
-                    this.f52339c = i4;
+                    h(this.f56026a, i7, i4);
+                    this.f56028c = i4;
                 }
-                int i8 = this.f52339c;
+                int i8 = this.f56028c;
                 if (i8 > i5) {
-                    h(this.f52337a, i8, i5);
-                    this.f52339c = i5;
+                    h(this.f56026a, i8, i5);
+                    this.f56028c = i5;
                     return;
                 }
                 return;
@@ -239,30 +239,30 @@ public class e {
         public void q(int i2, int i3, int i4) {
             if (this.n == 0) {
                 this.l = i4;
-                this.f52343g = AnimationUtils.currentAnimationTimeMillis();
-                u(i2, i3, i3, (int) this.f52341e);
+                this.f56032g = AnimationUtils.currentAnimationTimeMillis();
+                u(i2, i3, i3, (int) this.f56030e);
             }
         }
 
         public final void r() {
-            int i2 = this.f52340d;
-            float abs = (i2 * i2) / (Math.abs(this.f52342f) * 2.0f);
-            float signum = Math.signum(this.f52340d);
+            int i2 = this.f56029d;
+            float abs = (i2 * i2) / (Math.abs(this.f56031f) * 2.0f);
+            float signum = Math.signum(this.f56029d);
             int i3 = this.l;
             if (abs > i3) {
                 float f2 = -signum;
-                int i4 = this.f52340d;
-                this.f52342f = ((f2 * i4) * i4) / (i3 * 2.0f);
+                int i4 = this.f56029d;
+                this.f56031f = ((f2 * i4) * i4) / (i3 * 2.0f);
                 abs = i3;
             }
             this.l = (int) abs;
             this.n = 2;
-            int i5 = this.f52337a;
-            if (this.f52340d <= 0) {
+            int i5 = this.f56026a;
+            if (this.f56029d <= 0) {
                 abs = -abs;
             }
-            this.f52339c = i5 + ((int) abs);
-            this.f52344h = -((int) ((this.f52340d * 1000.0f) / this.f52342f));
+            this.f56028c = i5 + ((int) abs);
+            this.f56033h = -((int) ((this.f56029d * 1000.0f) / this.f56031f));
         }
 
         public void s(float f2) {
@@ -271,11 +271,11 @@ public class e {
 
         public boolean t(int i2, int i3, int i4) {
             this.k = true;
-            this.f52339c = i2;
-            this.f52337a = i2;
-            this.f52340d = 0;
-            this.f52343g = AnimationUtils.currentAnimationTimeMillis();
-            this.f52344h = 0;
+            this.f56028c = i2;
+            this.f56026a = i2;
+            this.f56029d = 0;
+            this.f56032g = AnimationUtils.currentAnimationTimeMillis();
+            this.f56033h = 0;
             if (i2 < i3) {
                 x(i2, i3, 0);
             } else if (i2 > i4) {
@@ -303,43 +303,43 @@ public class e {
         }
 
         public final void v(int i2, int i3, int i4) {
-            this.f52342f = m(i4 == 0 ? i2 - i3 : i4);
+            this.f56031f = m(i4 == 0 ? i2 - i3 : i4);
             k(i2, i3, i4);
             r();
         }
 
         public void w(int i2, int i3, int i4) {
             this.k = false;
-            this.f52337a = i2;
-            this.f52339c = i2 + i3;
-            this.f52343g = AnimationUtils.currentAnimationTimeMillis();
-            this.f52344h = i4;
-            this.f52342f = 0.0f;
-            this.f52340d = 0;
+            this.f56026a = i2;
+            this.f56028c = i2 + i3;
+            this.f56032g = AnimationUtils.currentAnimationTimeMillis();
+            this.f56033h = i4;
+            this.f56031f = 0.0f;
+            this.f56029d = 0;
         }
 
         public final void x(int i2, int i3, int i4) {
             this.k = false;
             this.n = 1;
-            this.f52337a = i2;
-            this.f52339c = i3;
+            this.f56026a = i2;
+            this.f56028c = i3;
             int i5 = i2 - i3;
-            this.f52342f = m(i5);
-            this.f52340d = -i5;
+            this.f56031f = m(i5);
+            this.f56029d = -i5;
             this.l = Math.abs(i5);
-            this.f52344h = (int) (Math.sqrt((i5 * (-2.0d)) / this.f52342f) * 1000.0d);
+            this.f56033h = (int) (Math.sqrt((i5 * (-2.0d)) / this.f56031f) * 1000.0d);
         }
 
         public boolean y() {
-            long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.f52343g;
-            int i2 = this.f52344h;
+            long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.f56032g;
+            int i2 = this.f56033h;
             if (currentAnimationTimeMillis > i2) {
                 return false;
             }
             double d2 = 0.0d;
             int i3 = this.n;
             if (i3 == 0) {
-                float f2 = ((float) currentAnimationTimeMillis) / this.f52345i;
+                float f2 = ((float) currentAnimationTimeMillis) / this.f56034i;
                 int i4 = (int) (f2 * 100.0f);
                 float f3 = 1.0f;
                 float f4 = 0.0f;
@@ -352,29 +352,29 @@ public class e {
                     f3 = f6 + ((f2 - f5) * f4);
                 }
                 int i6 = this.j;
-                this.f52341e = ((f4 * i6) / this.f52345i) * 1000.0f;
+                this.f56030e = ((f4 * i6) / this.f56034i) * 1000.0f;
                 d2 = f3 * i6;
             } else if (i3 == 1) {
                 float f7 = ((float) currentAnimationTimeMillis) / i2;
                 float f8 = f7 * f7;
-                float signum = Math.signum(this.f52340d);
+                float signum = Math.signum(this.f56029d);
                 int i7 = this.l;
-                this.f52341e = signum * i7 * 6.0f * ((-f7) + f8);
+                this.f56030e = signum * i7 * 6.0f * ((-f7) + f8);
                 d2 = i7 * signum * ((3.0f * f8) - ((2.0f * f7) * f8));
             } else if (i3 == 2) {
                 float f9 = ((float) currentAnimationTimeMillis) / 1000.0f;
-                int i8 = this.f52340d;
-                float f10 = this.f52342f;
-                this.f52341e = i8 + (f10 * f9);
+                int i8 = this.f56029d;
+                float f10 = this.f56031f;
+                this.f56030e = i8 + (f10 * f9);
                 d2 = (i8 * f9) + (((f10 * f9) * f9) / 2.0f);
             }
-            this.f52338b = this.f52337a + ((int) Math.round(d2));
+            this.f56027b = this.f56026a + ((int) Math.round(d2));
             return true;
         }
 
         public void z(float f2) {
-            int i2 = this.f52337a;
-            this.f52338b = i2 + Math.round(f2 * (this.f52339c - i2));
+            int i2 = this.f56026a;
+            this.f56027b = i2 + Math.round(f2 * (this.f56028c - i2));
         }
     }
 
@@ -384,18 +384,18 @@ public class e {
 
     public static float n(float f2) {
         float exp;
-        float f3 = f2 * f52330f;
+        float f3 = f2 * f56019f;
         if (f3 < 1.0f) {
             exp = f3 - (1.0f - ((float) Math.exp(-f3)));
         } else {
             exp = ((1.0f - ((float) Math.exp(1.0f - f3))) * 0.63212055f) + 0.36787945f;
         }
-        return exp * f52331g;
+        return exp * f56020g;
     }
 
     public void a() {
-        this.f52333b.j();
-        this.f52334c.j();
+        this.f56022b.j();
+        this.f56023c.j();
     }
 
     public boolean b() {
@@ -403,29 +403,29 @@ public class e {
         if (g()) {
             return false;
         }
-        int i2 = this.f52332a;
+        int i2 = this.f56021a;
         if (i2 == 0) {
-            long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.f52333b.f52343g;
-            int i3 = this.f52333b.f52344h;
+            long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.f56022b.f56032g;
+            int i3 = this.f56022b.f56033h;
             if (currentAnimationTimeMillis < i3) {
                 float f2 = ((float) currentAnimationTimeMillis) / i3;
-                Interpolator interpolator = this.f52335d;
+                Interpolator interpolator = this.f56024d;
                 if (interpolator == null) {
                     interpolation = n(f2);
                 } else {
                     interpolation = interpolator.getInterpolation(f2);
                 }
-                this.f52333b.z(interpolation);
-                this.f52334c.z(interpolation);
+                this.f56022b.z(interpolation);
+                this.f56023c.z(interpolation);
             } else {
                 a();
             }
         } else if (i2 == 1) {
-            if (!this.f52333b.k && !this.f52333b.y() && !this.f52333b.i()) {
-                this.f52333b.j();
+            if (!this.f56022b.k && !this.f56022b.y() && !this.f56022b.i()) {
+                this.f56022b.j();
             }
-            if (!this.f52334c.k && !this.f52334c.y() && !this.f52334c.i()) {
-                this.f52334c.j();
+            if (!this.f56023c.k && !this.f56023c.y() && !this.f56023c.i()) {
+                this.f56023c.j();
             }
         }
         return true;
@@ -440,11 +440,11 @@ public class e {
         int i13;
         int i14;
         int i15;
-        if (!this.f52336e || g()) {
+        if (!this.f56025e || g()) {
             i12 = i4;
         } else {
-            float f2 = this.f52333b.f52341e;
-            float f3 = this.f52334c.f52341e;
+            float f2 = this.f56022b.f56030e;
+            float f3 = this.f56023c.f56030e;
             i12 = i4;
             float f4 = i12;
             if (Math.signum(f4) == Math.signum(f2)) {
@@ -453,63 +453,63 @@ public class e {
                 if (Math.signum(f5) == Math.signum(f3)) {
                     i14 = (int) (f5 + f3);
                     i15 = (int) (f4 + f2);
-                    this.f52332a = 1;
-                    this.f52333b.l(i2, i15, i6, i7, i10);
-                    this.f52334c.l(i3, i14, i8, i9, i11);
+                    this.f56021a = 1;
+                    this.f56022b.l(i2, i15, i6, i7, i10);
+                    this.f56023c.l(i3, i14, i8, i9, i11);
                 }
                 i14 = i13;
                 i15 = i12;
-                this.f52332a = 1;
-                this.f52333b.l(i2, i15, i6, i7, i10);
-                this.f52334c.l(i3, i14, i8, i9, i11);
+                this.f56021a = 1;
+                this.f56022b.l(i2, i15, i6, i7, i10);
+                this.f56023c.l(i3, i14, i8, i9, i11);
             }
         }
         i13 = i5;
         i14 = i13;
         i15 = i12;
-        this.f52332a = 1;
-        this.f52333b.l(i2, i15, i6, i7, i10);
-        this.f52334c.l(i3, i14, i8, i9, i11);
+        this.f56021a = 1;
+        this.f56022b.l(i2, i15, i6, i7, i10);
+        this.f56023c.l(i3, i14, i8, i9, i11);
     }
 
     public float e() {
-        return (float) Math.sqrt((this.f52333b.f52341e * this.f52333b.f52341e) + (this.f52334c.f52341e * this.f52334c.f52341e));
+        return (float) Math.sqrt((this.f56022b.f56030e * this.f56022b.f56030e) + (this.f56023c.f56030e * this.f56023c.f56030e));
     }
 
     public final int f() {
-        return this.f52333b.f52338b;
+        return this.f56022b.f56027b;
     }
 
     public final boolean g() {
-        return this.f52333b.k && this.f52334c.k;
+        return this.f56022b.k && this.f56023c.k;
     }
 
     public boolean h(float f2, float f3) {
-        return !g() && Math.signum(f2) == Math.signum((float) (this.f52333b.f52339c - this.f52333b.f52337a)) && Math.signum(f3) == Math.signum((float) (this.f52334c.f52339c - this.f52334c.f52337a));
+        return !g() && Math.signum(f2) == Math.signum((float) (this.f56022b.f56028c - this.f56022b.f56026a)) && Math.signum(f3) == Math.signum((float) (this.f56023c.f56028c - this.f56023c.f56026a));
     }
 
     public void i(int i2, int i3, int i4) {
-        this.f52333b.q(i2, i3, i4);
+        this.f56022b.q(i2, i3, i4);
     }
 
     public final void j(float f2) {
-        this.f52333b.s(f2);
-        this.f52334c.s(f2);
+        this.f56022b.s(f2);
+        this.f56023c.s(f2);
     }
 
     public void k(Interpolator interpolator) {
-        this.f52335d = interpolator;
+        this.f56024d = interpolator;
     }
 
     public boolean l(int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.f52332a = 1;
-        return this.f52333b.t(i2, i4, i5) || this.f52334c.t(i3, i6, i7);
+        this.f56021a = 1;
+        return this.f56022b.t(i2, i4, i5) || this.f56023c.t(i3, i6, i7);
     }
 
     public void m(int i2, int i3, int i4, int i5, int i6) {
-        this.f52332a = 0;
-        this.f52333b.w(i2, i4, i6);
-        this.f52334c.w(i3, i5, i6);
+        this.f56021a = 0;
+        this.f56022b.w(i2, i4, i6);
+        this.f56023c.w(i3, i5, i6);
     }
 
     public e(Context context, Interpolator interpolator) {
@@ -517,9 +517,9 @@ public class e {
     }
 
     public e(Context context, Interpolator interpolator, boolean z) {
-        this.f52335d = interpolator;
-        this.f52336e = z;
-        this.f52333b = new a(context);
-        this.f52334c = new a(context);
+        this.f56024d = interpolator;
+        this.f56025e = z;
+        this.f56022b = new a(context);
+        this.f56023c = new a(context);
     }
 }

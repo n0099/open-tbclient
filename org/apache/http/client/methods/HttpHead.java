@@ -2,7 +2,7 @@ package org.apache.http.client.methods;
 
 import java.net.URI;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpHead extends HttpRequestBase {
     public static final String METHOD_NAME = "HEAD";
 

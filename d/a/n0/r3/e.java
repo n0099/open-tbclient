@@ -23,31 +23,31 @@ import d.a.c.e.p.l;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f59999a;
+    public View f63690a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f60000b;
+    public Context f63691b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f60001c;
+    public View f63692c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f60002d;
+    public TextView f63693d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f60003e;
+    public ImageView f63694e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f60004f;
+    public boolean f63695f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PostWriteCallBackData f60005g;
+    public PostWriteCallBackData f63696g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f60006h;
+    public TextView f63697h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SendVideoSuccessShareModel f60007i = new SendVideoSuccessShareModel();
+    public SendVideoSuccessShareModel f63698i = new SendVideoSuccessShareModel();
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -56,12 +56,12 @@ public class e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (e.this.f60004f) {
+            if (e.this.f63695f) {
                 e.this.f();
-                if (e.this.f60005g == null || StringUtils.isNull(e.this.f60005g.buildVideoFakeOnWallUrl())) {
+                if (e.this.f63696g == null || StringUtils.isNull(e.this.f63696g.buildVideoFakeOnWallUrl())) {
                     return;
                 }
-                d.a.m0.l.a.m(e.this.f60000b, null, e.this.f60005g.buildVideoFakeOnWallUrl());
+                d.a.m0.l.a.m(e.this.f63691b, null, e.this.f63696g.buildVideoFakeOnWallUrl());
             }
         }
     }
@@ -79,7 +79,7 @@ public class e {
                 ShareItem shareItem = new ShareItem();
                 shareItem.a0 = false;
                 shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo((OriginalThreadInfo) obj);
-                d.a.n0.d0.f.b().k(new ShareDialogConfig(e.this.f60000b, shareItem, true, true));
+                d.a.n0.d0.f.b().k(new ShareDialogConfig(e.this.f63691b, shareItem, true, true));
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param(TiebaStatic.Params.OBJ_PARAM3, 1));
             }
         }
@@ -90,11 +90,11 @@ public class e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e.this.f();
-            if (e.this.f60005g == null || StringUtils.isNull(e.this.f60005g.getVideoid())) {
+            if (e.this.f63696g == null || StringUtils.isNull(e.this.f63696g.getVideoid())) {
                 return;
             }
-            e.this.f60007i.u(e.this.f60005g.getVideoid());
-            e.this.f60007i.setLoadDataCallBack(new a());
+            e.this.f63698i.y(e.this.f63696g.getVideoid());
+            e.this.f63698i.setLoadDataCallBack(new a());
         }
     }
 
@@ -110,34 +110,34 @@ public class e {
     }
 
     public e(Context context, ViewGroup viewGroup) {
-        this.f60000b = context;
-        this.f60001c = viewGroup;
-        if (this.f60000b == null || this.f60001c == null) {
+        this.f63691b = context;
+        this.f63692c = viewGroup;
+        if (this.f63691b == null || this.f63692c == null) {
             return;
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.send_video_success_tip, (ViewGroup) null);
-        this.f59999a = inflate;
-        this.f60002d = (TextView) inflate.findViewById(R.id.success_tip);
-        this.f60003e = (ImageView) this.f59999a.findViewById(R.id.video_activity_btn);
-        this.f60006h = (TextView) this.f59999a.findViewById(R.id.video_share_btn);
+        this.f63690a = inflate;
+        this.f63693d = (TextView) inflate.findViewById(R.id.success_tip);
+        this.f63694e = (ImageView) this.f63690a.findViewById(R.id.video_activity_btn);
+        this.f63697h = (TextView) this.f63690a.findViewById(R.id.video_share_btn);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, l.g(context, R.dimen.ds128));
-        if (this.f59999a.getParent() == null) {
-            viewGroup.addView(this.f59999a, layoutParams);
+        if (this.f63690a.getParent() == null) {
+            viewGroup.addView(this.f63690a, layoutParams);
         }
-        this.f59999a.setVisibility(8);
-        this.f59999a.setOnClickListener(new a());
-        this.f60006h.setOnClickListener(new b());
+        this.f63690a.setVisibility(8);
+        this.f63690a.setOnClickListener(new a());
+        this.f63697h.setOnClickListener(new b());
     }
 
     public void e() {
-        SendVideoSuccessShareModel sendVideoSuccessShareModel = this.f60007i;
+        SendVideoSuccessShareModel sendVideoSuccessShareModel = this.f63698i;
         if (sendVideoSuccessShareModel != null) {
             sendVideoSuccessShareModel.cancelLoadData();
         }
     }
 
     public void f() {
-        View view = this.f59999a;
+        View view = this.f63690a;
         if (view != null) {
             view.setVisibility(8);
         }
@@ -145,24 +145,24 @@ public class e {
 
     public void g(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.f60005g = postWriteCallBackData;
-            this.f60004f = postWriteCallBackData.mVideoTitleData != null;
-            View view = this.f59999a;
-            if (view == null || this.f60002d == null || this.f60003e == null || this.f60006h == null) {
+            this.f63696g = postWriteCallBackData;
+            this.f63695f = postWriteCallBackData.mVideoTitleData != null;
+            View view = this.f63690a;
+            if (view == null || this.f63693d == null || this.f63694e == null || this.f63697h == null) {
                 return;
             }
             SkinManager.setBackgroundColor(view, R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.f60002d, R.color.CAM_X0101);
-            SkinManager.setImageResource(this.f60003e, R.drawable.icon_arrow_more_white);
-            SkinManager.setBackgroundResource(this.f60006h, R.drawable.immediately_share_background);
-            this.f59999a.setVisibility(0);
-            this.f59999a.postDelayed(new c(), 5000L);
-            if (this.f60004f) {
-                this.f60002d.setText(R.string.video_activity_tip);
+            SkinManager.setViewTextColor(this.f63693d, R.color.CAM_X0101);
+            SkinManager.setImageResource(this.f63694e, R.drawable.icon_arrow_more_white);
+            SkinManager.setBackgroundResource(this.f63697h, R.drawable.immediately_share_background);
+            this.f63690a.setVisibility(0);
+            this.f63690a.postDelayed(new c(), 5000L);
+            if (this.f63695f) {
+                this.f63693d.setText(R.string.video_activity_tip);
             } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                this.f60002d.setText(postWriteCallBackData.getErrorString());
+                this.f63693d.setText(postWriteCallBackData.getErrorString());
             } else {
-                this.f59999a.setVisibility(8);
+                this.f63690a.setVisibility(8);
             }
         }
     }

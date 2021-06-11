@@ -62,16 +62,16 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f11469e;
+        public final /* synthetic */ PictureCropView f11531e;
 
         public b(PictureCropView pictureCropView) {
-            this.f11469e = pictureCropView;
+            this.f11531e = pictureCropView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             boolean z;
-            Bitmap croppedImage = this.f11469e.getCroppedImage();
+            Bitmap croppedImage = this.f11531e.getCroppedImage();
             if (croppedImage != null) {
                 try {
                     WallpaperManager.getInstance(PictureWallpaperActivity.this.getApplicationContext()).setBitmap(croppedImage);
@@ -90,16 +90,16 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11471e;
+        public final /* synthetic */ boolean f11533e;
 
         public c(boolean z) {
-            this.f11471e = z;
+            this.f11533e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             PictureWallpaperActivity.this.mLoadingView.setVisibility(8);
-            if (this.f11471e) {
+            if (this.f11533e) {
                 e.f(PictureWallpaperActivity.this.getApplicationContext(), d.a.l0.e.e.swan_app_picture_set_wallpaper_succeed).u();
             } else {
                 e.f(PictureWallpaperActivity.this.getApplicationContext(), d.a.l0.e.e.swan_app_picture_set_wallpaper_fail).u();

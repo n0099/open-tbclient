@@ -3,17 +3,17 @@ package com.bytedance.sdk.openadsdk.utils;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final float f30181a;
+    public final float f30284a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f30182b;
+    public final float f30285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f30183c;
+    public final long f30286c;
 
     public c(float f2, float f3, long j) {
-        this.f30181a = f2;
-        this.f30182b = f3;
-        this.f30183c = j;
+        this.f30284a = f2;
+        this.f30285b = f3;
+        this.f30286c = j;
     }
 }

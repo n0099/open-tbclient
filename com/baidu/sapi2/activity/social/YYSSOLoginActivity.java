@@ -8,9 +8,9 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.ParamsUtil;
-import d.r.c.b;
-import d.r.c.d;
-import d.r.c.e;
+import d.r.b.b;
+import d.r.b.d;
+import d.r.b.e;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class YYSSOLoginActivity extends BaseSSOLoginActivity {
@@ -24,14 +24,14 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
         public a() {
         }
 
-        @Override // d.r.c.b
+        @Override // d.r.b.b
         public void onCancel() {
             Log.d(YYSSOLoginActivity.q, "YY授权登录 已取消");
             YYSSOLoginActivity yYSSOLoginActivity = YYSSOLoginActivity.this;
-            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f9728g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
+            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f9790g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
         }
 
-        @Override // d.r.c.b
+        @Override // d.r.b.b
         public void onComplete(JSONObject jSONObject) {
             Log.d(YYSSOLoginActivity.q, "onComplete " + jSONObject.toString());
             if (jSONObject != null) {
@@ -47,14 +47,14 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                 return;
             }
             YYSSOLoginActivity yYSSOLoginActivity = YYSSOLoginActivity.this;
-            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f9728g, -1, "未知错误");
+            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f9790g, -1, "未知错误");
         }
 
-        @Override // d.r.c.b
+        @Override // d.r.b.b
         public void onError(d dVar) {
-            Log.d(YYSSOLoginActivity.q, "onError " + dVar.f68189a + " " + dVar.f68190b);
+            Log.d(YYSSOLoginActivity.q, "onError " + dVar.f71445a + " " + dVar.f71446b);
             YYSSOLoginActivity yYSSOLoginActivity = YYSSOLoginActivity.this;
-            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f9728g, dVar.f68189a, dVar.f68190b);
+            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f9790g, dVar.f71445a, dVar.f71446b);
         }
     }
 
@@ -80,7 +80,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             b2.a(this, this.p);
             return;
         }
-        a(((BaseSSOLoginActivity) this).f9728g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
+        a(((BaseSSOLoginActivity) this).f9790g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
     }
 
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity

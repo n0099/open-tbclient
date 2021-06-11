@@ -40,19 +40,19 @@ import java.util.List;
 public class RelateForumHorizonalListView extends MyHorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f16871e;
+    public LinearLayout f16947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<ItemViewHolder> f16872f;
+    public final ArrayList<ItemViewHolder> f16948f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16873g;
+    public int f16949g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext<?> f16874h;
+    public TbPageContext<?> f16950h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f16875i;
+    public View.OnClickListener f16951i;
     public View j;
     public BdUniqueId k;
     public String l;
@@ -65,24 +65,24 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     public static class ItemViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public BarImageView f16876a;
+        public BarImageView f16952a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f16877b;
+        public TextView f16953b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f16878c;
+        public TextView f16954c;
 
         public ItemViewHolder(View view) {
             super(view);
-            this.f16876a = null;
-            this.f16877b = null;
-            this.f16878c = null;
+            this.f16952a = null;
+            this.f16953b = null;
+            this.f16954c = null;
             BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-            this.f16876a = barImageView;
+            this.f16952a = barImageView;
             barImageView.setGifIconSupport(false);
-            this.f16877b = (TextView) view.findViewById(R.id.m_forum_name_textview);
-            this.f16878c = (TextView) view.findViewById(R.id.forum_add_love);
+            this.f16953b = (TextView) view.findViewById(R.id.m_forum_name_textview);
+            this.f16954c = (TextView) view.findViewById(R.id.forum_add_love);
         }
     }
 
@@ -125,26 +125,26 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
         public class a extends e {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LikeModel f16882a;
+            public final /* synthetic */ LikeModel f16958a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ TextView f16883b;
+            public final /* synthetic */ TextView f16959b;
 
             public a(LikeModel likeModel, TextView textView) {
-                this.f16882a = likeModel;
-                this.f16883b = textView;
+                this.f16958a = likeModel;
+                this.f16959b = textView;
             }
 
             @Override // d.a.c.a.e
             public void c(Object obj) {
-                if ((obj instanceof w) && this.f16882a.getErrorCode() == 0) {
+                if ((obj instanceof w) && this.f16958a.getErrorCode() == 0) {
                     w wVar = (w) obj;
                     wVar.v(1);
-                    RelateForumHorizonalListView.this.n(this.f16883b, wVar.l() == 1);
-                } else if (AntiHelper.m(this.f16882a.getErrorCode(), this.f16882a.getErrorString())) {
-                    AntiHelper.u(RelateForumHorizonalListView.this.f16874h.getPageActivity(), this.f16882a.getErrorString());
+                    RelateForumHorizonalListView.this.n(this.f16959b, wVar.l() == 1);
+                } else if (AntiHelper.m(this.f16958a.getErrorCode(), this.f16958a.getErrorString())) {
+                    AntiHelper.u(RelateForumHorizonalListView.this.f16950h.getPageActivity(), this.f16958a.getErrorString());
                 } else {
-                    RelateForumHorizonalListView.this.f16874h.showToast(this.f16882a.getErrorString());
+                    RelateForumHorizonalListView.this.f16950h.showToast(this.f16958a.getErrorString());
                 }
             }
         }
@@ -163,7 +163,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
             String valueOf = String.valueOf(view.getTag(R.id.tag_forum_id));
             TextView textView = (TextView) view;
             if (k.isForumName(str2)) {
-                Object orignalPage = RelateForumHorizonalListView.this.f16874h.getOrignalPage();
+                Object orignalPage = RelateForumHorizonalListView.this.f16950h.getOrignalPage();
                 String str3 = "";
                 if (orignalPage instanceof HotTopicActivity) {
                     HotTopicActivity hotTopicActivity = (HotTopicActivity) orignalPage;
@@ -173,9 +173,9 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                     str = "";
                 }
                 TiebaStatic.log(new StatisticItem("c10815").param("obj_locate", 2).param("obj_name", str3).param("topic_id", str));
-                LikeModel likeModel = new LikeModel(RelateForumHorizonalListView.this.f16874h);
+                LikeModel likeModel = new LikeModel(RelateForumHorizonalListView.this.f16950h);
                 likeModel.setLoadDataCallBack(new a(likeModel, textView));
-                likeModel.H(str2, valueOf);
+                likeModel.L(str2, valueOf);
             }
         }
     }
@@ -190,7 +190,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
             String str;
             String str2 = (String) view.getTag(R.id.tag_forum_name);
             if (k.isForumName(str2)) {
-                Object orignalPage = RelateForumHorizonalListView.this.f16874h.getOrignalPage();
+                Object orignalPage = RelateForumHorizonalListView.this.f16950h.getOrignalPage();
                 String str3 = "";
                 if (orignalPage instanceof HotTopicActivity) {
                     HotTopicActivity hotTopicActivity = (HotTopicActivity) orignalPage;
@@ -201,16 +201,16 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                 }
                 TiebaStatic.log(new StatisticItem("c10815").param("obj_locate", 1).param("obj_name", str3).param("topic_id", str));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(RelateForumHorizonalListView.this.f16874h.getPageActivity()).createNormalCfg(str2, RelateForumHorizonalListView.this.getFrom())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(RelateForumHorizonalListView.this.f16950h.getPageActivity()).createNormalCfg(str2, RelateForumHorizonalListView.this.getFrom())));
             }
         }
     }
 
     public RelateForumHorizonalListView(Context context) {
         super(context);
-        this.f16872f = new ArrayList<>();
-        this.f16873g = 3;
-        this.f16875i = null;
+        this.f16948f = new ArrayList<>();
+        this.f16949g = 3;
+        this.f16951i = null;
         this.k = null;
         this.m = new a(2001336);
         this.n = new b(2001335);
@@ -220,7 +220,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     }
 
     public final View f() {
-        return View.inflate(this.f16874h.getPageActivity(), R.layout.extend_forum_item, null);
+        return View.inflate(this.f16950h.getPageActivity(), R.layout.extend_forum_item, null);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -229,14 +229,14 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
             return;
         }
         this.j = itemViewHolder.a();
-        itemViewHolder.f16878c.setVisibility(8);
-        itemViewHolder.f16877b.setText(this.f16874h.getPageActivity().getResources().getString(R.string.recommend_frs_hot_thread_more));
-        itemViewHolder.f16876a.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        SkinManager.setImageResource(itemViewHolder.f16876a, R.drawable.icon_pic_more);
-        SkinManager.setViewTextColor(itemViewHolder.f16877b, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundResource(itemViewHolder.f16876a, R.drawable.selector_load_more_bg);
+        itemViewHolder.f16954c.setVisibility(8);
+        itemViewHolder.f16953b.setText(this.f16950h.getPageActivity().getResources().getString(R.string.recommend_frs_hot_thread_more));
+        itemViewHolder.f16952a.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        SkinManager.setImageResource(itemViewHolder.f16952a, R.drawable.icon_pic_more);
+        SkinManager.setViewTextColor(itemViewHolder.f16953b, R.color.CAM_X0105, 1);
+        SkinManager.setBackgroundResource(itemViewHolder.f16952a, R.drawable.selector_load_more_bg);
         this.j.setClickable(true);
-        this.j.setOnClickListener(this.f16875i);
+        this.j.setOnClickListener(this.f16951i);
     }
 
     public String getFrom() {
@@ -252,15 +252,15 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
             return;
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
-        itemViewHolder.f16876a.setTag(aVar.f49023b);
-        itemViewHolder.f16876a.V(aVar.f49023b, 10, false);
-        itemViewHolder.f16877b.setText(i(aVar.f49024c, 8));
-        itemViewHolder.f16877b.setTag(R.id.tag_forum_id, Long.valueOf(aVar.f49025d));
-        itemViewHolder.f16878c.setTag(R.id.tag_forum_id, Long.valueOf(aVar.f49025d));
-        itemViewHolder.f16878c.setTag(R.id.tag_forum_name, aVar.f49024c);
-        itemViewHolder.a().setTag(R.id.tag_forum_id, Long.valueOf(aVar.f49025d));
-        itemViewHolder.a().setTag(R.id.tag_forum_name, aVar.f49024c);
-        n(itemViewHolder.f16878c, aVar.f49026e);
+        itemViewHolder.f16952a.setTag(aVar.f52697b);
+        itemViewHolder.f16952a.U(aVar.f52697b, 10, false);
+        itemViewHolder.f16953b.setText(i(aVar.f52698c, 8));
+        itemViewHolder.f16953b.setTag(R.id.tag_forum_id, Long.valueOf(aVar.f52699d));
+        itemViewHolder.f16954c.setTag(R.id.tag_forum_id, Long.valueOf(aVar.f52699d));
+        itemViewHolder.f16954c.setTag(R.id.tag_forum_name, aVar.f52698c);
+        itemViewHolder.a().setTag(R.id.tag_forum_id, Long.valueOf(aVar.f52699d));
+        itemViewHolder.a().setTag(R.id.tag_forum_name, aVar.f52698c);
+        n(itemViewHolder.f16954c, aVar.f52700e);
         m(view, aVar);
     }
 
@@ -272,8 +272,8 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
             return str;
         }
         String substring = str.substring(0, i2 - 1);
-        if (this.f16874h != null) {
-            return substring + this.f16874h.getString(R.string.ellipsis);
+        if (this.f16950h != null) {
+            return substring + this.f16950h.getString(R.string.ellipsis);
         }
         return substring;
     }
@@ -283,10 +283,10 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
         if (itemViewHolder == null || itemViewHolder.a() == null) {
             return;
         }
-        if (itemViewHolder.f16878c.getTag(R.id.forum_follow) != null && (itemViewHolder.f16878c.getTag(R.id.forum_follow) instanceof Boolean)) {
-            n(itemViewHolder.f16878c, ((Boolean) itemViewHolder.f16878c.getTag(R.id.forum_follow)).booleanValue());
+        if (itemViewHolder.f16954c.getTag(R.id.forum_follow) != null && (itemViewHolder.f16954c.getTag(R.id.forum_follow) instanceof Boolean)) {
+            n(itemViewHolder.f16954c, ((Boolean) itemViewHolder.f16954c.getTag(R.id.forum_follow)).booleanValue());
         }
-        SkinManager.setViewTextColor(itemViewHolder.f16877b, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(itemViewHolder.f16953b, R.color.CAM_X0105, 1);
     }
 
     public final void k(Context context) {
@@ -295,16 +295,16 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollBarEnabled(false);
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f16871e = linearLayout;
+        this.f16947e = linearLayout;
         linearLayout.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        this.f16871e.setOrientation(0);
-        addView(this.f16871e);
+        this.f16947e.setOrientation(0);
+        addView(this.f16947e);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void l(int i2) {
-        if (this.f16873g != i2) {
-            Iterator<ItemViewHolder> it = this.f16872f.iterator();
+        if (this.f16949g != i2) {
+            Iterator<ItemViewHolder> it = this.f16948f.iterator();
             while (it.hasNext()) {
                 ItemViewHolder next = it.next();
                 if (next != null) {
@@ -318,7 +318,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                 SkinManager.setImageResource(barImageView, R.drawable.icon_pic_more);
                 SkinManager.setViewTextColor((TextView) this.j.findViewById(R.id.m_forum_name_textview), R.color.CAM_X0105, 1);
             }
-            this.f16873g = i2;
+            this.f16949g = i2;
         }
     }
 
@@ -327,8 +327,8 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
             return;
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
-        itemViewHolder.f16878c.setClickable(true);
-        itemViewHolder.f16878c.setOnClickListener(this.o);
+        itemViewHolder.f16954c.setClickable(true);
+        itemViewHolder.f16954c.setOnClickListener(this.o);
         view.setClickable(true);
         view.setOnClickListener(this.p);
     }
@@ -353,12 +353,12 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     }
 
     public final void o(long j, boolean z) {
-        Iterator<ItemViewHolder> it = this.f16872f.iterator();
+        Iterator<ItemViewHolder> it = this.f16948f.iterator();
         while (it.hasNext()) {
             ItemViewHolder next = it.next();
-            if (next != null && next.a() != null && next.f16877b.getTag(R.id.tag_forum_id) != null) {
-                TextView textView = next.f16878c;
-                if (((Long) next.f16877b.getTag(R.id.tag_forum_id)).longValue() == j) {
+            if (next != null && next.a() != null && next.f16953b.getTag(R.id.tag_forum_id) != null) {
+                TextView textView = next.f16954c;
+                if (((Long) next.f16953b.getTag(R.id.tag_forum_id)).longValue() == j) {
                     n(textView, z);
                     return;
                 }
@@ -370,47 +370,47 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
         if (ListUtils.getCount(list) <= 0 || tbPageContext == null) {
             return;
         }
-        this.f16874h = tbPageContext;
+        this.f16950h = tbPageContext;
         if (z) {
             list.add(new d.a.m0.b1.g.a());
         }
-        int count = ListUtils.getCount(this.f16872f);
+        int count = ListUtils.getCount(this.f16948f);
         int count2 = ListUtils.getCount(list);
         if (count > count2) {
             for (int i2 = 0; i2 < count - count2; i2++) {
-                TypeAdapter.ViewHolder viewHolder = (TypeAdapter.ViewHolder) ListUtils.getItem(this.f16872f, i2);
+                TypeAdapter.ViewHolder viewHolder = (TypeAdapter.ViewHolder) ListUtils.getItem(this.f16948f, i2);
                 if (viewHolder != null) {
-                    this.f16871e.removeView(viewHolder.a());
+                    this.f16947e.removeView(viewHolder.a());
                 }
-                this.f16872f.remove(viewHolder);
+                this.f16948f.remove(viewHolder);
             }
         }
         for (int i3 = 0; i3 < count2; i3++) {
             d.a.m0.b1.g.a aVar = (d.a.m0.b1.g.a) ListUtils.getItem(list, i3);
-            ItemViewHolder itemViewHolder = (ItemViewHolder) ListUtils.getItem(this.f16872f, i3);
+            ItemViewHolder itemViewHolder = (ItemViewHolder) ListUtils.getItem(this.f16948f, i3);
             if (itemViewHolder != null) {
                 h(itemViewHolder.a(), aVar);
             } else {
                 View f2 = f();
                 if (f2 != null) {
                     ItemViewHolder itemViewHolder2 = new ItemViewHolder(f2);
-                    this.f16872f.add(itemViewHolder2);
+                    this.f16948f.add(itemViewHolder2);
                     h(itemViewHolder2.a(), aVar);
-                    this.f16871e.addView(f2);
+                    this.f16947e.addView(f2);
                 }
             }
             int i4 = count2 - 1;
             if (i3 == i4 && z) {
-                g(this.f16872f.get(i4));
+                g(this.f16948f.get(i4));
             }
         }
-        this.f16874h.registerListener(this.m);
-        this.f16874h.registerListener(this.n);
+        this.f16950h.registerListener(this.m);
+        this.f16950h.registerListener(this.n);
         if (getTag() != null) {
             this.m.setTag(getTag());
             this.n.setTag(getTag());
         }
-        l(this.f16873g);
+        l(this.f16949g);
     }
 
     public void setFrom(String str) {
@@ -418,7 +418,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     }
 
     public void setLoadMoreClickListener(View.OnClickListener onClickListener) {
-        this.f16875i = onClickListener;
+        this.f16951i = onClickListener;
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
@@ -444,9 +444,9 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
 
     public RelateForumHorizonalListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16872f = new ArrayList<>();
-        this.f16873g = 3;
-        this.f16875i = null;
+        this.f16948f = new ArrayList<>();
+        this.f16949g = 3;
+        this.f16951i = null;
         this.k = null;
         this.m = new a(2001336);
         this.n = new b(2001335);
@@ -457,9 +457,9 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
 
     public RelateForumHorizonalListView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f16872f = new ArrayList<>();
-        this.f16873g = 3;
-        this.f16875i = null;
+        this.f16948f = new ArrayList<>();
+        this.f16949g = 3;
+        this.f16951i = null;
         this.k = null;
         this.m = new a(2001336);
         this.n = new b(2001335);

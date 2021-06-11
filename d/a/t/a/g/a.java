@@ -10,35 +10,35 @@ import java.util.concurrent.TimeUnit;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f64629c;
+    public static a f68347c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f64630d;
+    public static final int f68348d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f64631e;
+    public static final int f68349e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f64632f;
+    public static final int f68350f;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f64633a;
+    public ThreadPoolExecutor f68351a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f64634b;
+    public Context f68352b;
 
     static {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f64630d = availableProcessors;
-        f64631e = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f64632f = (f64630d * 2) + 1;
+        f68348d = availableProcessors;
+        f68349e = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f68350f = (f68348d * 2) + 1;
     }
 
     public a(Context context) {
-        this.f64633a = null;
-        this.f64634b = context;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f64631e, f64632f, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.f64633a = threadPoolExecutor;
+        this.f68351a = null;
+        this.f68352b = context;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f68349e, f68350f, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f68351a = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
         Executors.newSingleThreadExecutor();
     }
@@ -47,19 +47,19 @@ public class a {
         if (context == null) {
             return null;
         }
-        if (f64629c == null) {
+        if (f68347c == null) {
             synchronized (a.class) {
-                if (f64629c == null) {
-                    f64629c = new a(context);
+                if (f68347c == null) {
+                    f68347c = new a(context);
                 }
             }
         }
-        return f64629c;
+        return f68347c;
     }
 
     public void b(Runnable runnable) {
         try {
-            this.f64633a.submit(runnable);
+            this.f68351a.submit(runnable);
         } catch (Throwable th) {
             e.c("TaskManager", "Exception ", th);
         }

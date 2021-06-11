@@ -15,25 +15,25 @@ import org.json.JSONObject;
 public class d extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.l0.a.o.b f43863c;
+    public d.a.l0.a.o.b f47539c;
 
     /* loaded from: classes2.dex */
     public class a implements d.a.l0.a.o.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final UnitedSchemeEntity f43864a;
+        public final UnitedSchemeEntity f47540a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final CallbackHandler f43865b;
+        public final CallbackHandler f47541b;
 
         public a(d dVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            this.f43864a = unitedSchemeEntity;
-            this.f43865b = callbackHandler;
+            this.f47540a = unitedSchemeEntity;
+            this.f47541b = callbackHandler;
         }
 
         @Override // d.a.l0.a.o.a
         public void a(int i2) {
-            UnitedSchemeUtility.callCallback(this.f43865b, this.f43864a, i2);
+            UnitedSchemeUtility.callCallback(this.f47541b, this.f47540a, i2);
         }
     }
 
@@ -41,19 +41,19 @@ public class d extends a0 {
     public class b implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final CallbackHandler f43866a;
+        public final CallbackHandler f47542a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f43867b;
+        public final String f47543b;
 
         public b(d dVar, CallbackHandler callbackHandler, String str) {
-            this.f43866a = callbackHandler;
-            this.f43867b = str;
+            this.f47542a = callbackHandler;
+            this.f47543b = str;
         }
 
         @Override // d.a.l0.a.o.c
         public void a(JSONObject jSONObject) {
-            if (TextUtils.isEmpty(this.f43867b)) {
+            if (TextUtils.isEmpty(this.f47543b)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("data", jSONObject.toString());
                 d.a.l0.a.g1.f.V().v(new d.a.l0.a.o0.d.b("rewardedVideoAdClose", hashMap));
@@ -63,7 +63,7 @@ public class d extends a0 {
             try {
                 jSONObject2.put("event", IntentConfig.CLOSE);
                 jSONObject2.put("result", jSONObject);
-                this.f43866a.handleSchemeDispatchCallback(this.f43867b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
+                this.f47542a.handleSchemeDispatchCallback(this.f47543b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -71,14 +71,14 @@ public class d extends a0 {
 
         @Override // d.a.l0.a.o.c
         public void b() {
-            if (TextUtils.isEmpty(this.f43867b)) {
+            if (TextUtils.isEmpty(this.f47543b)) {
                 d.a.l0.a.g1.f.V().v(new d.a.l0.a.o0.d.b("rewardedVideoAdLoad", new HashMap()));
                 return;
             }
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("event", "load");
-                this.f43866a.handleSchemeDispatchCallback(this.f43867b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                this.f47542a.handleSchemeDispatchCallback(this.f47543b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -86,7 +86,7 @@ public class d extends a0 {
 
         @Override // d.a.l0.a.o.c
         public void c(JSONObject jSONObject) {
-            if (TextUtils.isEmpty(this.f43867b)) {
+            if (TextUtils.isEmpty(this.f47543b)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("data", jSONObject.toString());
                 d.a.l0.a.g1.f.V().v(new d.a.l0.a.o0.d.b("rewardedVideoAdError", hashMap));
@@ -96,7 +96,7 @@ public class d extends a0 {
             try {
                 jSONObject2.put("event", "error");
                 jSONObject2.put("result", jSONObject);
-                this.f43866a.handleSchemeDispatchCallback(this.f43867b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
+                this.f47542a.handleSchemeDispatchCallback(this.f47543b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -105,12 +105,12 @@ public class d extends a0 {
 
     public d(d.a.l0.a.c2.e eVar) {
         super(eVar, "/swanAPI/rewardedVideoAd");
-        this.f43863c = null;
+        this.f47539c = null;
     }
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject a2 = a0.a(unitedSchemeEntity, "params");
@@ -122,14 +122,14 @@ public class d extends a0 {
         String optString2 = a2.optString("action");
         b bVar = new b(this, callbackHandler, optString);
         a aVar = new a(this, unitedSchemeEntity, callbackHandler);
-        if (this.f43863c == null) {
-            this.f43863c = new f(a2, bVar, aVar);
+        if (this.f47539c == null) {
+            this.f47539c = new f(a2, bVar, aVar);
         }
         if (TextUtils.equals(optString2, "show")) {
-            this.f43863c.a(a2, aVar);
+            this.f47539c.a(a2, aVar);
             return true;
         } else if (TextUtils.equals(optString2, "load")) {
-            this.f43863c.b(a2, aVar, bVar);
+            this.f47539c.b(a2, aVar, bVar);
             return true;
         } else {
             return true;

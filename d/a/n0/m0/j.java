@@ -14,33 +14,33 @@ import java.util.ArrayList;
 public class j extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f57264e;
+    public Context f60953e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f57265f;
+    public ArrayList<String> f60954f;
 
     /* loaded from: classes4.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f57266a;
+        public TbImageView f60955a;
 
         public b(j jVar) {
         }
     }
 
     public j(Context context, ArrayList<String> arrayList) {
-        this.f57264e = context;
-        this.f57265f = arrayList;
+        this.f60953e = context;
+        this.f60954f = arrayList;
     }
 
     public void a(ArrayList<String> arrayList) {
-        this.f57265f = arrayList;
+        this.f60954f = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<String> arrayList = this.f57265f;
+        ArrayList<String> arrayList = this.f60954f;
         if (arrayList == null) {
             return 0;
         }
@@ -49,11 +49,11 @@ public class j extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        ArrayList<String> arrayList = this.f57265f;
-        if (arrayList == null || arrayList.size() <= 0 || i2 < 0 || i2 >= this.f57265f.size()) {
+        ArrayList<String> arrayList = this.f60954f;
+        if (arrayList == null || arrayList.size() <= 0 || i2 < 0 || i2 >= this.f60954f.size()) {
             return null;
         }
-        return this.f57265f.get(i2);
+        return this.f60954f.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -63,19 +63,19 @@ public class j extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
-        int k = (d.a.c.e.p.l.k(this.f57264e) - d.a.c.e.p.l.g(this.f57264e, R.dimen.ds22)) / 4;
+        int k = (d.a.c.e.p.l.k(this.f60953e) - d.a.c.e.p.l.g(this.f60953e, R.dimen.ds22)) / 4;
         if (view == null) {
             b bVar = new b();
-            View inflate = LayoutInflater.from(this.f57264e).inflate(R.layout.face_package_item_image, (ViewGroup) null);
-            bVar.f57266a = (TbImageView) inflate.findViewById(R.id.image);
+            View inflate = LayoutInflater.from(this.f60953e).inflate(R.layout.face_package_item_image, (ViewGroup) null);
+            bVar.f60955a = (TbImageView) inflate.findViewById(R.id.image);
             inflate.setTag(bVar);
             inflate.setLayoutParams(new AbsListView.LayoutParams(k, k));
             view = inflate;
         }
         b bVar2 = (b) view.getTag();
         String obj = getItem(i2).toString();
-        SkinManager.setBackgroundResource(bVar2.f57266a, R.drawable.btn_choose_face_selector);
-        bVar2.f57266a.R(obj, 10, k, k, false);
+        SkinManager.setBackgroundResource(bVar2.f60955a, R.drawable.btn_choose_face_selector);
+        bVar2.f60955a.R(obj, 10, k, k, false);
         if (i2 == getCount() - 1) {
             viewGroup.invalidate();
         }

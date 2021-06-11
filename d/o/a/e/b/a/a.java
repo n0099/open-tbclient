@@ -14,30 +14,30 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Application f67151a;
+    public Application f70937a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f67152b;
+    public d f70938b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<b> f67153c;
+    public final List<b> f70939c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67154d;
+    public int f70940d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Activity> f67155e;
+    public WeakReference<Activity> f70941e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f67156f;
+    public volatile int f70942f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Application.ActivityLifecycleCallbacks f67157g;
+    public final Application.ActivityLifecycleCallbacks f70943g;
 
     /* renamed from: d.o.a.e.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1887a implements Application.ActivityLifecycleCallbacks {
-        public C1887a() {
+    public class C1947a implements Application.ActivityLifecycleCallbacks {
+        public C1947a() {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -51,17 +51,17 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityPaused(Activity activity) {
             d.o.a.e.b.c.a.g("AppStatusManager", "onActivityPaused activity = [" + activity + "]");
-            if (a.this.f67154d != 0 || activity == null) {
+            if (a.this.f70940d != 0 || activity == null) {
                 return;
             }
-            a.this.f67154d = activity.hashCode();
+            a.this.f70940d = activity.hashCode();
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityResumed(Activity activity) {
             d.o.a.e.b.c.a.g("AppStatusManager", "onActivityResumed activity = [" + activity + "]");
-            int i2 = a.this.f67154d;
-            a.this.f67154d = activity != null ? activity.hashCode() : i2;
+            int i2 = a.this.f70940d;
+            a.this.f70940d = activity != null ? activity.hashCode() : i2;
             if (i2 == 0) {
                 a.this.m();
             }
@@ -73,9 +73,9 @@ public class a {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
-            a.this.f67155e = new WeakReference(activity);
-            int i2 = a.this.f67154d;
-            a.this.f67154d = activity != null ? activity.hashCode() : i2;
+            a.this.f70941e = new WeakReference(activity);
+            int i2 = a.this.f70940d;
+            a.this.f70940d = activity != null ? activity.hashCode() : i2;
             if (i2 == 0) {
                 a.this.m();
             }
@@ -84,10 +84,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStopped(Activity activity) {
             d.o.a.e.b.c.a.g("AppStatusManager", "onActivityStopped activity = [" + activity + "]");
-            if (activity == null || activity.hashCode() != a.this.f67154d) {
+            if (activity == null || activity.hashCode() != a.this.f70940d) {
                 return;
             }
-            a.this.f67154d = 0;
+            a.this.f70940d = 0;
             a.this.n();
         }
     }
@@ -105,7 +105,7 @@ public class a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f67159a = new a(null);
+        public static final a f70945a = new a(null);
     }
 
     /* loaded from: classes7.dex */
@@ -113,21 +113,21 @@ public class a {
         boolean a();
     }
 
-    public /* synthetic */ a(C1887a c1887a) {
+    public /* synthetic */ a(C1947a c1947a) {
         this();
     }
 
     public static a c() {
-        return c.f67159a;
+        return c.f70945a;
     }
 
     public void e(Context context) {
-        if (this.f67151a == null && (context instanceof Application)) {
+        if (this.f70937a == null && (context instanceof Application)) {
             synchronized (this) {
-                if (this.f67151a == null) {
+                if (this.f70937a == null) {
                     Application application = (Application) context;
-                    this.f67151a = application;
-                    application.registerActivityLifecycleCallbacks(this.f67157g);
+                    this.f70937a = application;
+                    application.registerActivityLifecycleCallbacks(this.f70943g);
                 }
             }
         }
@@ -137,34 +137,34 @@ public class a {
         if (bVar == null) {
             return;
         }
-        synchronized (this.f67153c) {
-            if (!this.f67153c.contains(bVar)) {
-                this.f67153c.add(bVar);
+        synchronized (this.f70939c) {
+            if (!this.f70939c.contains(bVar)) {
+                this.f70939c.add(bVar);
             }
         }
     }
 
     public void g(d dVar) {
-        this.f67152b = dVar;
+        this.f70938b = dVar;
     }
 
     public void h(b bVar) {
-        synchronized (this.f67153c) {
-            this.f67153c.remove(bVar);
+        synchronized (this.f70939c) {
+            this.f70939c.remove(bVar);
         }
     }
 
     /* JADX WARN: Type inference failed for: r0v3, types: [boolean, int] */
     public boolean j() {
-        d dVar = this.f67152b;
+        d dVar = this.f70938b;
         if (dVar != null) {
             return !dVar.a();
         }
-        int i2 = this.f67156f;
+        int i2 = this.f70942f;
         int i3 = i2;
         if (i2 == -1) {
             ?? o = o();
-            this.f67156f = o;
+            this.f70942f = o;
             i3 = o;
         }
         return i3 == 1;
@@ -172,14 +172,14 @@ public class a {
 
     public final Object[] l() {
         Object[] array;
-        synchronized (this.f67153c) {
-            array = this.f67153c.size() > 0 ? this.f67153c.toArray() : null;
+        synchronized (this.f70939c) {
+            array = this.f70939c.size() > 0 ? this.f70939c.toArray() : null;
         }
         return array;
     }
 
     public final void m() {
-        this.f67156f = 1;
+        this.f70942f = 1;
         Object[] l = l();
         if (l != null) {
             for (Object obj : l) {
@@ -189,7 +189,7 @@ public class a {
     }
 
     public final void n() {
-        this.f67156f = 0;
+        this.f70942f = 0;
         Object[] l = l();
         if (l != null) {
             for (Object obj : l) {
@@ -200,7 +200,7 @@ public class a {
 
     public final boolean o() {
         try {
-            Application application = this.f67151a;
+            Application application = this.f70937a;
             if (application == null) {
                 return false;
             }
@@ -222,8 +222,8 @@ public class a {
     }
 
     public a() {
-        this.f67153c = new ArrayList();
-        this.f67156f = -1;
-        this.f67157g = new C1887a();
+        this.f70939c = new ArrayList();
+        this.f70942f = -1;
+        this.f70943g = new C1947a();
     }
 }

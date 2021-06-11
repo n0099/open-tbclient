@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbSingleton;
 public class e implements d.a.l.c.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f63795a = "";
+    public static String f67513a = "";
 
     @Override // d.a.l.c.c
     public String a(String str, boolean z) {
@@ -55,6 +55,6 @@ public class e implements d.a.l.c.c {
 
     @Override // d.a.l.c.c
     public String getZid() {
-        return f63795a;
+        return f67513a;
     }
 }

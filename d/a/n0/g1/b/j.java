@@ -14,16 +14,16 @@ import com.baidu.tieba.imMessageCenter.mention.MsgReminderHttpRespMessage;
 public class j {
 
     /* renamed from: d  reason: collision with root package name */
-    public static j f55065d;
+    public static j f58754d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpMessageListener f55066a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    public final HttpMessageListener f58755a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
 
     /* renamed from: b  reason: collision with root package name */
-    public long f55067b = 0;
+    public long f58756b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f55068c = new b();
+    public final Handler f58757c = new b();
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -64,7 +64,7 @@ public class j {
         public void handleMessage(Message message) {
             if (message.what == 1) {
                 int i2 = message.arg1;
-                j.this.f55067b = System.currentTimeMillis();
+                j.this.f58756b = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().v();
                 if (i2 == 2 || (z && d.a.c.e.p.j.z())) {
                     j.this.h();
@@ -82,34 +82,34 @@ public class j {
     }
 
     public j() {
-        MessageManager.getInstance().registerListener(this.f55066a);
+        MessageManager.getInstance().registerListener(this.f58755a);
     }
 
     public static synchronized j e() {
         j jVar;
         synchronized (j.class) {
-            if (f55065d == null) {
-                f55065d = new j();
+            if (f58754d == null) {
+                f58754d = new j();
             }
-            jVar = f55065d;
+            jVar = f58754d;
         }
         return jVar;
     }
 
     public void d() {
-        this.f55068c.removeMessages(1);
+        this.f58757c.removeMessages(1);
     }
 
     public void f() {
-        this.f55067b = 0L;
+        this.f58756b = 0L;
         d();
         i();
     }
 
     public final void g(int i2, long j) {
-        Message obtainMessage = this.f55068c.obtainMessage(1);
+        Message obtainMessage = this.f58757c.obtainMessage(1);
         obtainMessage.arg1 = i2;
-        this.f55068c.sendMessageDelayed(obtainMessage, j);
+        this.f58757c.sendMessageDelayed(obtainMessage, j);
     }
 
     public final void h() {
@@ -119,7 +119,7 @@ public class j {
     public void i() {
         long j;
         int i2;
-        long currentTimeMillis = System.currentTimeMillis() - this.f55067b;
+        long currentTimeMillis = System.currentTimeMillis() - this.f58756b;
         if (currentTimeMillis <= 0) {
             currentTimeMillis = 0;
         }
@@ -131,6 +131,6 @@ public class j {
             i2 = 1;
         }
         g(i2, j);
-        this.f55067b = System.currentTimeMillis();
+        this.f58756b = System.currentTimeMillis();
     }
 }

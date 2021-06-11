@@ -3,7 +3,6 @@ package com.kwad.sdk.core.network.a;
 import android.text.TextUtils;
 import com.kwad.sdk.core.network.c;
 import com.kwad.sdk.core.network.k;
-import com.kwad.sdk.core.network.l;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,85 +16,123 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
     public static c a(String str, Map<String, String> map) {
-        return a(str, map, true);
+        StringBuilder sb = new StringBuilder();
+        c cVar = new c();
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            a(httpURLConnection, map);
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setRequestProperty("Accept", "application/json");
+            httpURLConnection.setRequestProperty("User-Agent", k.a());
+            cVar.f34494a = httpURLConnection.getResponseCode();
+            InputStream inputStream = httpURLConnection.getInputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                sb.append(new String(bArr, 0, read));
+            }
+        } catch (MalformedURLException | IOException e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+        }
+        cVar.f34495b = sb.toString();
+        return cVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0097  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x009d  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static c a(String str, Map<String, String> map, String str2, boolean z) {
         OutputStream outputStream;
+        HttpURLConnection httpURLConnection;
         c cVar = new c();
-        HttpURLConnection httpURLConnection = null;
+        HttpURLConnection httpURLConnection2 = null;
         r1 = null;
         r1 = null;
         OutputStream outputStream2 = null;
-        httpURLConnection = null;
+        httpURLConnection2 = null;
         try {
-            HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
             try {
-                l.a(httpURLConnection2);
-                httpURLConnection2.setDoInput(true);
-                httpURLConnection2.setDoOutput(true);
-                httpURLConnection2.setRequestMethod("POST");
-                httpURLConnection2.setRequestProperty("Content-Type", z ? "application/json" : "application/x-www-form-urlencoded");
-                httpURLConnection2.setRequestProperty("User-Agent", k.a());
-                a(httpURLConnection2, map);
-                httpURLConnection2.setConnectTimeout(5000);
-                httpURLConnection2.setReadTimeout(5000);
-                httpURLConnection2.setUseCaches(false);
-                httpURLConnection2.connect();
-                if (!TextUtils.isEmpty(str2)) {
-                    outputStream2 = httpURLConnection2.getOutputStream();
-                    outputStream2.write(str2.getBytes());
-                    outputStream2.flush();
-                }
-                int responseCode = httpURLConnection2.getResponseCode();
-                cVar.f32392a = responseCode;
-                if (responseCode == 200) {
-                    cVar.f32393b = a(httpURLConnection2.getInputStream());
-                }
-                if (httpURLConnection2 != null) {
-                    httpURLConnection2.disconnect();
-                }
-                com.kwad.sdk.crash.utils.b.a(outputStream2);
-            } catch (Exception e2) {
-                e = e2;
-                OutputStream outputStream3 = outputStream2;
-                httpURLConnection = httpURLConnection2;
-                outputStream = outputStream3;
-                try {
-                    com.kwad.sdk.core.d.a.a(e);
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    com.kwad.sdk.crash.utils.b.a(outputStream);
-                    return cVar;
-                } catch (Throwable th) {
-                    th = th;
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    com.kwad.sdk.crash.utils.b.a(outputStream);
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                OutputStream outputStream4 = outputStream2;
-                httpURLConnection = httpURLConnection2;
-                outputStream = outputStream4;
-                if (httpURLConnection != null) {
-                }
-                com.kwad.sdk.crash.utils.b.a(outputStream);
-                throw th;
+                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            } catch (IOException e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
         } catch (Exception e3) {
             e = e3;
             outputStream = null;
+        } catch (Throwable th) {
+            th = th;
+            outputStream = null;
+        }
+        try {
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setRequestProperty("Content-Type", z ? "application/json" : "application/x-www-form-urlencoded");
+            httpURLConnection.setRequestProperty("User-Agent", k.a());
+            a(httpURLConnection, map);
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.setReadTimeout(5000);
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.connect();
+            if (!TextUtils.isEmpty(str2)) {
+                outputStream2 = httpURLConnection.getOutputStream();
+                outputStream2.write(str2.getBytes());
+                outputStream2.flush();
+            }
+            int responseCode = httpURLConnection.getResponseCode();
+            cVar.f34494a = responseCode;
+            if (responseCode == 200) {
+                cVar.f34495b = a(httpURLConnection.getInputStream());
+            }
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+        } catch (Exception e4) {
+            e = e4;
+            OutputStream outputStream3 = outputStream2;
+            httpURLConnection2 = httpURLConnection;
+            outputStream = outputStream3;
+            try {
+                com.kwad.sdk.core.d.a.a(e);
+                if (httpURLConnection2 != null) {
+                    httpURLConnection2.disconnect();
+                }
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+                return cVar;
+            } catch (Throwable th2) {
+                th = th2;
+                if (httpURLConnection2 != null) {
+                    httpURLConnection2.disconnect();
+                }
+                if (outputStream != null) {
+                    try {
+                        outputStream.close();
+                    } catch (IOException e5) {
+                        com.kwad.sdk.core.d.a.a(e5);
+                    }
+                }
+                throw th;
+            }
         } catch (Throwable th3) {
             th = th3;
-            outputStream = null;
+            OutputStream outputStream4 = outputStream2;
+            httpURLConnection2 = httpURLConnection;
+            outputStream = outputStream4;
+            if (httpURLConnection2 != null) {
+            }
+            if (outputStream != null) {
+            }
+            throw th;
+        }
+        if (outputStream2 != null) {
+            outputStream2.close();
         }
         return cVar;
     }
@@ -116,35 +153,6 @@ public class a {
             str2 = null;
         }
         return a(str, map, str2, false);
-    }
-
-    public static c a(String str, Map<String, String> map, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        c cVar = new c();
-        try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-            l.a(httpURLConnection);
-            a(httpURLConnection, map);
-            httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setRequestProperty("Accept", "application/json");
-            httpURLConnection.setRequestProperty("User-Agent", k.a());
-            cVar.f32392a = httpURLConnection.getResponseCode();
-            if (z) {
-                InputStream inputStream = httpURLConnection.getInputStream();
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    sb.append(new String(bArr, 0, read));
-                }
-            }
-        } catch (MalformedURLException | IOException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-        }
-        cVar.f32393b = sb.toString();
-        return cVar;
     }
 
     public static String a(InputStream inputStream) {
@@ -226,9 +234,5 @@ public class a {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
         }
-    }
-
-    public static c b(String str, Map<String, String> map) {
-        return a(str, map, false);
     }
 }

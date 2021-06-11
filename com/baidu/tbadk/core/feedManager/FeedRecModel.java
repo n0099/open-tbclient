@@ -16,13 +16,13 @@ import tbclient.Personalized.DataRes;
 public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f12094e;
+    public b f12156e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12095f = 1;
+    public int f12157f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f12096g = new a(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+    public d.a.c.c.g.a f12158g = new a(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
 
     /* loaded from: classes3.dex */
     public class a extends d.a.c.c.g.a {
@@ -38,7 +38,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
-            if (responsedMessage == null || FeedRecModel.this.f12094e == null) {
+            if (responsedMessage == null || FeedRecModel.this.f12156e == null) {
                 return;
             }
             if (responsedMessage.getOrginalMessage() != null) {
@@ -49,7 +49,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                     z = feedRecRequest.getNeedForumlist() == 1;
                     r1 = z2;
                     if (responsedMessage.getError() == 0) {
-                        FeedRecModel.this.f12094e.a(responsedMessage.getError(), responsedMessage.getErrorString());
+                        FeedRecModel.this.f12156e.a(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     DataRes dataRes = null;
@@ -59,7 +59,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                         dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                     }
                     BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
-                    FeedRecModel.this.f12094e.b(dataRes, r1, z);
+                    FeedRecModel.this.f12156e.b(dataRes, r1, z);
                     return;
                 }
             }
@@ -78,16 +78,16 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
 
     public FeedRecModel() {
         setUniqueId(BdUniqueId.gen());
-        t();
-        u();
-        registerListener(this.f12096g);
+        x();
+        y();
+        registerListener(this.f12158g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         FeedRecRequest feedRecRequest = new FeedRecRequest();
-        int i2 = this.f12095f;
-        this.f12095f = i2 + 1;
+        int i2 = this.f12157f;
+        this.f12157f = i2 + 1;
         feedRecRequest.setRequestTime(i2);
         feedRecRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
         feedRecRequest.setNetType(NetMessage.NetType.HTTP);
@@ -101,7 +101,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    public final void t() {
+    public final void x() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, d.a.n0.e3.d0.a.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
@@ -109,7 +109,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public final void u() {
+    public final void y() {
         d.a.m0.v0.b bVar = new d.a.m0.v0.b(309264);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
         bVar.g(true);
@@ -117,7 +117,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    public void v(b bVar) {
-        this.f12094e = bVar;
+    public void z(b bVar) {
+        this.f12156e = bVar;
     }
 }

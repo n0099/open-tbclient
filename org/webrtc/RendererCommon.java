@@ -3,12 +3,12 @@ package org.webrtc;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RendererCommon {
     public static float BALANCED_VISIBLE_FRACTION = 0.5625f;
 
     /* renamed from: org.webrtc.RendererCommon$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$RendererCommon$ScalingType;
 
@@ -30,7 +30,7 @@ public class RendererCommon {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface GlDrawer {
         void drawOes(int i2, float[] fArr, int i3, int i4, int i5, int i6, int i7, int i8);
 
@@ -41,21 +41,21 @@ public class RendererCommon {
         void release();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface RendererEvents {
         void onFirstFrameRendered();
 
         void onFrameResolutionChanged(int i2, int i3, int i4);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum ScalingType {
         SCALE_ASPECT_FIT,
         SCALE_ASPECT_FILL,
         SCALE_ASPECT_BALANCED
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class VideoLayoutMeasure {
         public ScalingType scalingTypeMatchOrientation;
         public ScalingType scalingTypeMismatchOrientation;

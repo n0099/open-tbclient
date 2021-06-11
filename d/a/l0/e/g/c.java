@@ -16,9 +16,10 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.baidubce.AbstractBceClient;
-import d.a.l0.a.p.c.w;
+import d.a.l0.a.p.c.v;
 import d.a.l0.a.s.a.f;
 import d.a.l0.a.v2.q0;
+import d.a.l0.a.v2.w;
 import d.a.l0.k.o;
 import java.util.List;
 import okhttp3.MediaType;
@@ -29,16 +30,16 @@ import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes3.dex */
-public class c extends w {
+public class c extends v {
 
     /* loaded from: classes3.dex */
     public class a extends ResponseCallback<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ o f46528a;
+        public final /* synthetic */ o f50202a;
 
         public a(o oVar) {
-            this.f46528a = oVar;
+            this.f50202a = oVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -52,12 +53,12 @@ public class c extends w {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i2) {
-            c.this.t(response, this.f46528a);
+            c.this.t(response, this.f50202a);
             return response;
         }
     }
 
-    @Override // d.a.l0.a.p.c.w, d.a.l0.k.b
+    @Override // d.a.l0.a.p.c.v, d.a.l0.k.b
     public void c(int i2, List<o> list) {
         super.c(i2, list);
         if (i2 == 12 || i2 == 15 || i2 == 17 || i2 == 18) {
@@ -69,7 +70,7 @@ public class c extends w {
     public void g(JSONObject jSONObject) {
     }
 
-    @Override // d.a.l0.a.p.c.w, d.a.l0.k.b
+    @Override // d.a.l0.a.p.c.v, d.a.l0.k.b
     public boolean h(o oVar) {
         if (oVar.c() == 45) {
             q(oVar);
@@ -111,19 +112,19 @@ public class c extends w {
             return;
         }
         JSONObject jSONObject = new JSONObject();
-        d.a.l0.a.v2.w.f(jSONObject, "app_key", Q.getAppId());
-        d.a.l0.a.v2.w.f(jSONObject, "srcAppPage", d.a.l0.a.l1.b.c(q0.n()));
+        w.f(jSONObject, "app_key", Q.getAppId());
+        w.f(jSONObject, "srcAppPage", d.a.l0.a.l1.b.c(q0.n()));
         JSONObject jSONObject2 = new JSONObject();
-        d.a.l0.a.v2.w.f(jSONObject2, "appKey", "nGspXF4Smz6B6PIMZdqGOPxQlVmdykOK");
-        d.a.l0.a.v2.w.f(jSONObject2, "path", "pages/conversation/index");
-        d.a.l0.a.v2.w.f(jSONObject2, PrefetchEvent.EVENT_DATA_EXTRA_DATA, p(Q));
-        d.a.l0.a.v2.w.f(jSONObject, "params", jSONObject2);
+        w.f(jSONObject2, "appKey", "pjwYb22xF6hUcKpZKsiqvnhUhsoUvLfT");
+        w.f(jSONObject2, "path", "pages/conversation/index");
+        w.f(jSONObject2, PrefetchEvent.EVENT_DATA_EXTRA_DATA, p(Q));
+        w.f(jSONObject, "params", jSONObject2);
         String F = d.a.l0.a.c1.a.n().F();
         Request build = new Request.Builder().url(F).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build();
         d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(F, build.body(), new a(oVar));
-        aVar.f47974f = true;
-        aVar.f47975g = false;
-        aVar.f47976h = true;
+        aVar.f51648f = true;
+        aVar.f51649g = false;
+        aVar.f51650h = true;
         d.a.l0.m.e.a.g().e(aVar);
     }
 
@@ -136,12 +137,12 @@ public class c extends w {
     public final JSONObject p(d.a.l0.a.a2.e eVar) {
         JSONObject jSONObject = new JSONObject();
         PMSAppInfo f0 = eVar.L().f0();
-        d.a.l0.a.v2.w.f(jSONObject, "appname", f0.appName);
-        d.a.l0.a.v2.w.f(jSONObject, "iconUrl", f0.iconUrl);
-        d.a.l0.a.v2.w.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, f0.appKey);
-        d.a.l0.a.v2.w.f(jSONObject, com.alipay.sdk.cons.b.k, f0.paNumber);
-        d.a.l0.a.v2.w.f(jSONObject, "isBaiduSeries", Boolean.valueOf(f.f44582d.h()));
-        d.a.l0.a.v2.w.f(jSONObject, "isOpenCustomerService", Boolean.valueOf(q0.P()));
+        w.f(jSONObject, "appname", f0.appName);
+        w.f(jSONObject, "iconUrl", f0.iconUrl);
+        w.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, f0.appKey);
+        w.f(jSONObject, com.alipay.sdk.cons.b.k, f0.paNumber);
+        w.f(jSONObject, "isBaiduSeries", Boolean.valueOf(f.f48256d.h()));
+        w.f(jSONObject, "isOpenCustomerService", Boolean.valueOf(q0.P()));
         return jSONObject;
     }
 

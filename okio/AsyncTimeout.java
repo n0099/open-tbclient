@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AsyncTimeout extends Timeout {
     public static final long IDLE_TIMEOUT_MILLIS = TimeUnit.SECONDS.toMillis(60);
     public static final long IDLE_TIMEOUT_NANOS = TimeUnit.MILLISECONDS.toNanos(IDLE_TIMEOUT_MILLIS);
@@ -17,7 +17,7 @@ public class AsyncTimeout extends Timeout {
     public AsyncTimeout next;
     public long timeoutAt;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Watchdog extends Thread {
         public Watchdog() {
             super("Okio Watchdog");

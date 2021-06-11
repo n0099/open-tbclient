@@ -1,20 +1,20 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
 import androidx.annotation.Keep;
-import d.r.b.a.a.i.c.d;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CouponDiscountInfo;
 import java.util.List;
 @Keep
 /* loaded from: classes7.dex */
 public class CouponDiscountResult {
-    public List<d> discountList;
+    public List<CouponDiscountInfo> discountList;
     public int userCouponId;
 
-    public CouponDiscountResult(int i2, List<d> list) {
+    public CouponDiscountResult(int i2, List<CouponDiscountInfo> list) {
         this.userCouponId = i2;
         this.discountList = list;
     }
 
-    public List<d> getCouponDiscountInfoList() {
+    public List<CouponDiscountInfo> getCouponDiscountInfoList() {
         return this.discountList;
     }
 

@@ -100,7 +100,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.a.n0.e.e.b, V
             if (WriteActivityConfig.isAsyncWriting()) {
                 return false;
             }
-            WriteActivityConfig.newInstance(FrsActivity.this).setType(9).setForumWriteData(FrsActivity.this.mTabController.M().o2()).setCallFrom("2").setGoodsList(goodsEvent.getGoodsList()).send();
+            WriteActivityConfig.newInstance(FrsActivity.this).setType(9).setForumWriteData(FrsActivity.this.mTabController.M().r2()).setCallFrom("2").setGoodsList(goodsEvent.getGoodsList()).send();
             goodsEvent.setDispost(true);
             return true;
         }
@@ -328,7 +328,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.a.n0.e.e.b, V
     @Override // d.a.n0.r0.m0
     public boolean isInScoreTab() {
         FrsTabController frsTabController = this.mTabController;
-        return (frsTabController == null || frsTabController.M() == null || this.mTabController.M().y2() == null || this.mTabController.M().y2().y() == null || this.mTabController.M().y2().y().f15763d != 16) ? false : true;
+        return (frsTabController == null || frsTabController.M() == null || this.mTabController.M().B2() == null || this.mTabController.M().B2().y() == null || this.mTabController.M().B2().y().f15825d != 16) ? false : true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -387,7 +387,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.a.n0.e.e.b, V
         registerResponsedEventListener(GoodsEvent.class, this.mSwanappReturnProductDateListener);
         if (d.a.m0.b.d.m()) {
             FrsTabController frsTabController2 = this.mTabController;
-            d.a.n0.s0.a.h().q(this, d.a.n0.s0.d.c.e().d("frs_feed"), d.a.n0.s0.a.a("frs", "1"), (frsTabController2 == null || frsTabController2.M() == null) ? "" : this.mTabController.M().F());
+            d.a.n0.s0.a.h().r(this, d.a.n0.s0.d.c.e().d("frs_feed"), d.a.n0.s0.a.a("frs", "1"), (frsTabController2 == null || frsTabController2.M() == null) ? "" : this.mTabController.M().G());
         }
     }
 
@@ -408,7 +408,7 @@ public class FrsActivity extends BaseFragmentActivity implements d.a.n0.e.e.b, V
         }
         FrsNetModel frsNetModel = TbadkCoreApplication.getInst().getFrsModeArray().get(getUniqueId().getId());
         if (frsNetModel != null) {
-            frsNetModel.V(null);
+            frsNetModel.Z(null);
         }
         TbadkCoreApplication.getInst().getFrsModeArray().remove(getUniqueId().getId());
         TbPageExtraHelper.u(getCurrentPageKey());

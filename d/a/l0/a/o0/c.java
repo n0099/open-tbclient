@@ -1,27 +1,27 @@
 package d.a.l0.a.o0;
 
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class c implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f43902e = true;
+    public boolean f47578e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43903f;
+    public String f47579f;
 
     public c() {
     }
 
     public boolean a() {
-        return this.f43902e;
+        return this.f47578e;
     }
 
     public boolean b(String str) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f43903f)) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f47579f)) {
             return false;
         }
-        return this.f43903f.endsWith(str);
+        return this.f47579f.endsWith(str);
     }
 
     public abstract void c();
@@ -29,10 +29,10 @@ public abstract class c implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         c();
-        this.f43902e = false;
+        this.f47578e = false;
     }
 
     public c(String str) {
-        this.f43903f = str;
+        this.f47579f = str;
     }
 }

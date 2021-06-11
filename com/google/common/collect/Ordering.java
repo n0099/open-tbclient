@@ -37,22 +37,22 @@ public abstract class Ordering<T> implements Comparator<T> {
     public static class a extends Ordering<Object> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f31209e = new AtomicInteger(0);
+        public final AtomicInteger f31300e = new AtomicInteger(0);
 
         /* renamed from: f  reason: collision with root package name */
-        public final ConcurrentMap<Object, Integer> f31210f;
+        public final ConcurrentMap<Object, Integer> f31301f;
 
         public a() {
             MapMaker mapMaker = new MapMaker();
             n0.i(mapMaker);
-            this.f31210f = mapMaker.i();
+            this.f31301f = mapMaker.i();
         }
 
         public final Integer a(Object obj) {
-            Integer num = this.f31210f.get(obj);
+            Integer num = this.f31301f.get(obj);
             if (num == null) {
-                Integer valueOf = Integer.valueOf(this.f31209e.getAndIncrement());
-                Integer putIfAbsent = this.f31210f.putIfAbsent(obj, valueOf);
+                Integer valueOf = Integer.valueOf(this.f31300e.getAndIncrement());
+                Integer putIfAbsent = this.f31301f.putIfAbsent(obj, valueOf);
                 return putIfAbsent != null ? putIfAbsent : valueOf;
             }
             return num;
@@ -94,7 +94,7 @@ public abstract class Ordering<T> implements Comparator<T> {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Ordering<Object> f31211a = new a();
+        public static final Ordering<Object> f31302a = new a();
     }
 
     public static Ordering<Object> allEqual() {
@@ -102,7 +102,7 @@ public abstract class Ordering<T> implements Comparator<T> {
     }
 
     public static Ordering<Object> arbitrary() {
-        return b.f31211a;
+        return b.f31302a;
     }
 
     public static <T> Ordering<T> explicit(List<T> list) {

@@ -58,19 +58,19 @@ public class WheelView3d extends View {
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public DividerType f11217e;
+    public DividerType f11279e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f11218f;
+    public Context f11280f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f11219g;
+    public Handler f11281g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f11220h;
+    public GestureDetector f11282h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f11221i;
+    public b f11283i;
     public boolean j;
     public boolean k;
     public ScheduledExecutorService l;
@@ -109,7 +109,7 @@ public class WheelView3d extends View {
 
         @Override // java.lang.Runnable
         public void run() {
-            b bVar = WheelView3d.this.f11221i;
+            b bVar = WheelView3d.this.f11283i;
             WheelView3d wheelView3d = WheelView3d.this;
             bVar.a(wheelView3d, wheelView3d.getCurrentItem());
         }
@@ -165,10 +165,10 @@ public class WheelView3d extends View {
     }
 
     public final void g(Context context) {
-        this.f11218f = context;
-        this.f11219g = new d.a.l0.a.z1.a.e.d.b(this);
+        this.f11280f = context;
+        this.f11281g = new d.a.l0.a.z1.a.e.d.b(this);
         GestureDetector gestureDetector = new GestureDetector(context, new d.a.l0.a.z1.a.e.c.a(this));
-        this.f11220h = gestureDetector;
+        this.f11282h = gestureDetector;
         gestureDetector.setIsLongpressEnabled(false);
         this.C = true;
         this.G = 0.0f;
@@ -200,7 +200,7 @@ public class WheelView3d extends View {
 
     @Override // android.view.View
     public Handler getHandler() {
-        return this.f11219g;
+        return this.f11281g;
     }
 
     public int getInitPosition() {
@@ -314,7 +314,7 @@ public class WheelView3d extends View {
     }
 
     public final void n() {
-        if (this.f11221i != null) {
+        if (this.f11283i != null) {
             postDelayed(new a(), 200L);
         }
     }
@@ -382,7 +382,7 @@ public class WheelView3d extends View {
             }
             i4++;
         }
-        if (this.f11217e == DividerType.WRAP) {
+        if (this.f11279e == DividerType.WRAP) {
             if (TextUtils.isEmpty(this.r)) {
                 i2 = (this.N - this.t) / 2;
             } else {
@@ -478,7 +478,7 @@ public class WheelView3d extends View {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean onTouchEvent = this.f11220h.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.f11282h.onTouchEvent(motionEvent);
         float f2 = (-this.H) * this.w;
         float a2 = ((this.q.a() - 1) - this.H) * this.w;
         int action = motionEvent.getAction();
@@ -590,7 +590,7 @@ public class WheelView3d extends View {
     }
 
     public void setDividerType(DividerType dividerType) {
-        this.f11217e = dividerType;
+        this.f11279e = dividerType;
     }
 
     public void setGravity(int i2) {
@@ -617,7 +617,7 @@ public class WheelView3d extends View {
     }
 
     public final void setOnItemSelectedListener(b bVar) {
-        this.f11221i = bVar;
+        this.f11283i = bVar;
     }
 
     public final void setOuterTextSize(int i2) {

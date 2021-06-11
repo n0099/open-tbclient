@@ -16,15 +16,15 @@ import tbclient.HotThread.tinfo;
 public class b implements h, d.a.m0.g0.b.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<tinfo> f51140e;
+    public List<tinfo> f54817e;
 
     public List<tinfo> a() {
-        List<tinfo> list = this.f51140e;
+        List<tinfo> list = this.f54817e;
         if (list == null || list.size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (tinfo tinfoVar : this.f51140e) {
+        for (tinfo tinfoVar : this.f54817e) {
             if (b(tinfoVar)) {
                 arrayList.add(tinfoVar);
             }
@@ -68,7 +68,7 @@ public class b implements h, d.a.m0.g0.b.b {
         if (message instanceof HotThreadResIdl) {
             HotThreadResIdl hotThreadResIdl = (HotThreadResIdl) message;
             Error error = hotThreadResIdl.error;
-            this.f51140e = hotThreadResIdl.data.hot_thread;
+            this.f54817e = hotThreadResIdl.data.hot_thread;
         }
     }
 

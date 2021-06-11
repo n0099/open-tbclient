@@ -14,19 +14,19 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static j f54502a;
+    public static j f58191a;
 
     public static synchronized j f() {
         j jVar;
         synchronized (j.class) {
-            if (f54502a == null) {
+            if (f58191a == null) {
                 synchronized (j.class) {
-                    if (f54502a == null) {
-                        f54502a = new j();
+                    if (f58191a == null) {
+                        f58191a = new j();
                     }
                 }
             }
-            jVar = f54502a;
+            jVar = f58191a;
         }
         return jVar;
     }

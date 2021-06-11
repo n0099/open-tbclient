@@ -36,9 +36,9 @@ public class InitDelayThread extends Thread {
         if (!TextUtils.isEmpty(rimAllConfig)) {
             try {
                 GetFPResponse.RimConfig rimConfig = (GetFPResponse.RimConfig) JsonUtils.fromJson(rimAllConfig, GetFPResponse.RimConfig.class);
-                if (rimConfig != null && rimConfig.f5134common != null) {
+                if (rimConfig != null && rimConfig.f5177common != null) {
                     try {
-                        j = Long.parseLong(rimConfig.f5134common.init_delay);
+                        j = Long.parseLong(rimConfig.f5177common.init_delay);
                     } catch (NumberFormatException e2) {
                         e2.printStackTrace();
                     }

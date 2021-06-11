@@ -46,16 +46,16 @@ import org.json.JSONObject;
 public class g extends d.a.l0.a.u.c.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f45049d = Sets.newHashSet(HttpOptions.METHOD_NAME, "GET", "HEAD", "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+    public static final Set<String> f48723d = Sets.newHashSet(HttpOptions.METHOD_NAME, "GET", "HEAD", "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Set<String> f45050e = Sets.newHashSet("json", "string");
+    public static final Set<String> f48724e = Sets.newHashSet("json", "string");
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Set<String> f45051f = Sets.newHashSet("text", "arraybuffer");
+    public static final Set<String> f48725f = Sets.newHashSet("text", "arraybuffer");
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Set<String> f45052g = Sets.newHashSet("REFERER", "USER-AGENT");
+    public static final Set<String> f48726g = Sets.newHashSet("REFERER", "USER-AGENT");
 
     /* loaded from: classes2.dex */
     public class a implements d.b {
@@ -77,27 +77,27 @@ public class g extends d.a.l0.a.u.c.d {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f45053e;
+        public final /* synthetic */ d.a.l0.a.a2.e f48727e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f45054f;
+        public final /* synthetic */ JSONObject f48728f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45055g;
+        public final /* synthetic */ String f48729g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f45056h;
+        public final /* synthetic */ String f48730h;
 
         public b(d.a.l0.a.a2.e eVar, JSONObject jSONObject, String str, String str2) {
-            this.f45053e = eVar;
-            this.f45054f = jSONObject;
-            this.f45055g = str;
-            this.f45056h = str2;
+            this.f48727e = eVar;
+            this.f48728f = jSONObject;
+            this.f48729g = str;
+            this.f48730h = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g.this.F(this.f45053e, this.f45054f, this.f45055g, this.f45056h);
+            g.this.F(this.f48727e, this.f48728f, this.f48729g, this.f48730h);
         }
     }
 
@@ -105,33 +105,33 @@ public class g extends d.a.l0.a.u.c.d {
     public class c implements StatResponseCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45058e;
+        public final /* synthetic */ String f48732e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HttpUrl f45059f;
+        public final /* synthetic */ HttpUrl f48733f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45060g;
+        public final /* synthetic */ String f48734g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f45061h;
+        public final /* synthetic */ int f48735h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ long f45062i;
+        public final /* synthetic */ long f48736i;
         public final /* synthetic */ e j;
 
         public c(g gVar, String str, HttpUrl httpUrl, String str2, int i2, long j, e eVar) {
-            this.f45058e = str;
-            this.f45059f = httpUrl;
-            this.f45060g = str2;
-            this.f45061h = i2;
-            this.f45062i = j;
+            this.f48732e = str;
+            this.f48733f = httpUrl;
+            this.f48734g = str2;
+            this.f48735h = i2;
+            this.f48736i = j;
             this.j = eVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public void onFail(Exception exc) {
-            k.z(this.f45060g, this.f45061h, null, this.f45062i, System.currentTimeMillis());
+            k.z(this.f48734g, this.f48735h, null, this.f48736i, System.currentTimeMillis());
             if (exc instanceof IOException) {
                 this.j.onFailure(null, (IOException) exc);
             } else {
@@ -145,8 +145,8 @@ public class g extends d.a.l0.a.u.c.d {
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public Object parseResponse(Response response, int i2, NetworkStatRecord networkStatRecord) throws Exception {
-            d.a.l0.a.h0.q.b.g().u(this.f45058e, this.f45059f, networkStatRecord);
-            k.z(this.f45060g, this.f45061h, networkStatRecord, this.f45062i, System.currentTimeMillis());
+            d.a.l0.a.h0.q.b.g().u(this.f48732e, this.f48733f, networkStatRecord);
+            k.z(this.f48734g, this.f48735h, networkStatRecord, this.f48736i, System.currentTimeMillis());
             this.j.onResponse(null, response);
             return response;
         }
@@ -156,17 +156,17 @@ public class g extends d.a.l0.a.u.c.d {
     public class d implements d.a.l0.a.v2.e1.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45063e;
+        public final /* synthetic */ String f48737e;
 
         public d(String str) {
-            this.f45063e = str;
+            this.f48737e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(String str) {
-            g.this.d(this.f45063e, new d.a.l0.a.u.h.b(1001, str));
+            g.this.d(this.f48737e, new d.a.l0.a.u.h.b(1001, str));
         }
     }
 
@@ -174,56 +174,56 @@ public class g extends d.a.l0.a.u.c.d {
     public class e implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.l0.a.a2.e f45065a;
+        public d.a.l0.a.a2.e f48739a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f45066b;
+        public JSONObject f48740b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f45067c;
+        public String f48741c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f45068d;
+        public String f48742d;
 
         /* renamed from: e  reason: collision with root package name */
-        public f f45069e;
+        public f f48743e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f45070f;
+        public String f48744f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f45071g = System.currentTimeMillis();
+        public long f48745g = System.currentTimeMillis();
 
         public e(@NonNull d.a.l0.a.a2.e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, f fVar, @NonNull String str3) {
-            this.f45065a = eVar;
-            this.f45066b = jSONObject;
-            this.f45067c = str;
-            this.f45068d = str2;
-            this.f45069e = fVar;
-            this.f45070f = str3;
+            this.f48739a = eVar;
+            this.f48740b = jSONObject;
+            this.f48741c = str;
+            this.f48742d = str2;
+            this.f48743e = fVar;
+            this.f48744f = str3;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-Request", "onFailure: " + iOException.getMessage());
             }
-            int G = this.f45065a.N().G();
+            int G = this.f48739a.N().G();
             String l = k.l();
             String f2 = q0.n().f();
-            SwanAppNetworkUtils.a(d.a.l0.m.e.a.g().getOkHttpClient(), this.f45068d);
-            g.this.d(this.f45070f, new d.a.l0.a.u.h.b(1001, iOException.getMessage()));
-            k.K(0, this.f45067c, G, iOException.getMessage(), l, f2, this.f45071g, System.currentTimeMillis());
+            SwanAppNetworkUtils.a(d.a.l0.m.e.a.g().getOkHttpClient(), this.f48742d);
+            g.this.d(this.f48744f, new d.a.l0.a.u.h.b(1001, iOException.getMessage()));
+            k.K(0, this.f48741c, G, iOException.getMessage(), l, f2, this.f48745g, System.currentTimeMillis());
         }
 
         @Override // okhttp3.Callback
         public void onResponse(Call call, Response response) {
-            if (!k.n(this.f45067c)) {
-                d.a.l0.a.l2.b.l().x(this.f45067c, response.headers("Set-cookie"));
+            if (!k.n(this.f48741c)) {
+                d.a.l0.a.l2.b.l().x(this.f48741c, response.headers("Set-cookie"));
             }
-            String B = g.B(this.f45066b);
-            String D = g.D(this.f45066b);
-            int G = this.f45065a.N().G();
+            String B = g.B(this.f48740b);
+            String D = g.D(this.f48740b);
+            int G = this.f48739a.N().G();
             long currentTimeMillis = System.currentTimeMillis();
             String l = k.l();
             String f2 = q0.n().f();
@@ -234,29 +234,29 @@ public class g extends d.a.l0.a.u.c.d {
                     jSONObject.put("statusCode", response.code());
                     jSONObject.put("header", h.g(response.headers()));
                     g.J(jSONObject, response.body(), B, D);
-                    if (this.f45069e != null) {
-                        this.f45069e.a(jSONObject);
+                    if (this.f48743e != null) {
+                        this.f48743e.a(jSONObject);
                     }
-                    g.this.d(this.f45070f, new d.a.l0.a.u.h.b(0, jSONObject, true));
+                    g.this.d(this.f48744f, new d.a.l0.a.u.h.b(0, jSONObject, true));
                 } else {
-                    g.K(this.f45065a, this.f45067c, C, currentTimeMillis);
-                    g.this.d(this.f45070f, new d.a.l0.a.u.h.b(201, "response json length over limits"));
+                    g.K(this.f48739a, this.f48741c, C, currentTimeMillis);
+                    g.this.d(this.f48744f, new d.a.l0.a.u.h.b(201, "response json length over limits"));
                 }
             } catch (IOException | JSONException e2) {
-                if (d.a.l0.a.u.c.d.f44812c) {
+                if (d.a.l0.a.u.c.d.f48486c) {
                     Log.d("Api-Request", Log.getStackTraceString(e2));
                 }
-                g.this.d(this.f45070f, new d.a.l0.a.u.h.b(201, e2.getMessage()));
+                g.this.d(this.f48744f, new d.a.l0.a.u.h.b(201, e2.getMessage()));
             }
             int code = response.code();
             String message = response.message();
-            if (d.a.l0.a.u.c.d.f44812c) {
-                Log.d("Api-Request", "onResponse: respCode: " + code + ", url=" + this.f45067c + ", msg=" + message);
+            if (d.a.l0.a.u.c.d.f48486c) {
+                Log.d("Api-Request", "onResponse: respCode: " + code + ", url=" + this.f48741c + ", msg=" + message);
             }
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("TAG", response.headers().toString());
             }
-            k.K(code, this.f45067c, G, message, l, f2, this.f45071g, System.currentTimeMillis());
+            k.K(code, this.f48741c, G, message, l, f2, this.f48745g, System.currentTimeMillis());
         }
     }
 
@@ -272,7 +272,7 @@ public class g extends d.a.l0.a.u.c.d {
     @NonNull
     public static String B(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("dataType");
-        return TextUtils.isEmpty(optString) ? "json" : !f45050e.contains(optString) ? "string" : optString;
+        return TextUtils.isEmpty(optString) ? "json" : !f48724e.contains(optString) ? "string" : optString;
     }
 
     public static long C(Response response) {
@@ -285,7 +285,7 @@ public class g extends d.a.l0.a.u.c.d {
     @NonNull
     public static String D(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("responseType");
-        return !f45051f.contains(optString) ? "text" : optString;
+        return !f48725f.contains(optString) ? "text" : optString;
     }
 
     public static boolean G(String str) {
@@ -305,27 +305,27 @@ public class g extends d.a.l0.a.u.c.d {
     public static Object I(@NonNull JSONObject jSONObject, @Nullable String str) {
         Object opt = jSONObject.opt("data");
         if (TextUtils.equals(str, "base64")) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-Request", "buildRequest: request with base64Data");
             }
             if (opt instanceof String) {
                 opt = Base64.decode((String) opt, 2);
-            } else if (d.a.l0.a.u.c.d.f44812c) {
+            } else if (d.a.l0.a.u.c.d.f48486c) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("buildRequest: base64Data is illegal ");
                 sb.append(opt == null);
                 throw new RuntimeException(sb.toString());
             }
         } else if (opt instanceof JsArrayBuffer) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-Request", "buildRequest: request with arrayBuffer");
             }
             opt = ((JsArrayBuffer) opt).buffer();
-            if (d.a.l0.a.u.c.d.f44812c && opt == null) {
+            if (d.a.l0.a.u.c.d.f48486c && opt == null) {
                 throw new RuntimeException("buildRequest: request with a null buffer");
             }
         }
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             StringBuilder sb2 = new StringBuilder();
             sb2.append("parseRequestData: data: ");
             sb2.append(opt == null ? StringUtil.NULL_STRING : opt.getClass().getSimpleName());
@@ -395,7 +395,7 @@ public class g extends d.a.l0.a.u.c.d {
             jSONObject.put("exceptionResponseTime", System.currentTimeMillis());
             dVar.e(jSONObject);
         } catch (JSONException e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e2.printStackTrace();
             }
         }
@@ -408,7 +408,7 @@ public class g extends d.a.l0.a.u.c.d {
             String str2 = "";
             while (keys.hasNext()) {
                 String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !f45052g.contains(next.toUpperCase())) {
+                if (!TextUtils.isEmpty(next) && !f48726g.contains(next.toUpperCase())) {
                     String f2 = q0.f(jSONObject.optString(next));
                     if (TextUtils.isEmpty(f2)) {
                         f2 = "";
@@ -459,7 +459,7 @@ public class g extends d.a.l0.a.u.c.d {
             return;
         }
         httpRequestBuilder.setHeader("Cookie", f2);
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Request", "addCookiesToHeader cookie: " + f2);
         }
     }
@@ -468,24 +468,24 @@ public class g extends d.a.l0.a.u.c.d {
     public static HttpUrl t(@NonNull HttpUrl httpUrl, @NonNull Object obj, @Nullable String str) {
         HttpUrl.Builder newBuilder = httpUrl.newBuilder();
         if (TextUtils.equals("JSONToString", str) && (obj instanceof String)) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-Request", "appendQueryTo: hint jsonToString");
             }
             try {
                 obj = new JSONObject((String) obj);
             } catch (JSONException unused) {
-                if (d.a.l0.a.u.c.d.f44812c) {
+                if (d.a.l0.a.u.c.d.f48486c) {
                     throw new RuntimeException("appendQueryTo: illegal json str");
                 }
             }
         }
         if (!(obj instanceof JSONObject)) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.w("Api-Request", "appendQueryTo: data cannot be " + obj.getClass().getSimpleName());
             }
             return httpUrl;
         }
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Request", "appendQueryTo with JSONObject");
         }
         boolean z = false;
@@ -535,12 +535,12 @@ public class g extends d.a.l0.a.u.c.d {
                 optString2 = "GET";
             }
             String upperCase = optString2.toUpperCase();
-            if (!f45049d.contains(upperCase)) {
+            if (!f48723d.contains(upperCase)) {
                 return new Pair<>(null, 4);
             }
             HashMap hashMap = new HashMap();
             d.a.l0.m.d.a aVar = new d.a.l0.m.d.a();
-            aVar.f47970b = upperCase;
+            aVar.f51644b = upperCase;
             HttpRequestBuilder a2 = d.a.l0.m.e.b.a(aVar);
             O(httpUrl, a2, jSONObject.optJSONObject("header"), hashMap);
             a2.setHeader("Referer", h.d());
@@ -553,7 +553,7 @@ public class g extends d.a.l0.a.u.c.d {
                 int length = ((byte[]) I).length;
                 str2 = optString3;
                 if (length > Config.FULL_TRACE_LOG_LIMIT) {
-                    if (d.a.l0.a.u.c.d.f44812c) {
+                    if (d.a.l0.a.u.c.d.f48486c) {
                         Log.d("Api-Request", "buildRequest: ArrayBuffer大小超过上限 " + length);
                     }
                     return new Pair<>(null, 3);
@@ -574,11 +574,11 @@ public class g extends d.a.l0.a.u.c.d {
                     if (a2 instanceof HttpCommonRequestBuilder) {
                         ((HttpCommonRequestBuilder) a2).requestBody(y);
                     }
-                    aVar.f47969a = f2.toString();
-                    aVar.f47974f = true;
-                    aVar.f47975g = false;
-                    aVar.f47976h = true;
-                    aVar.f47977i = str;
+                    aVar.f51643a = f2.toString();
+                    aVar.f51648f = true;
+                    aVar.f51649g = false;
+                    aVar.f51650h = true;
+                    aVar.f51651i = str;
                     aVar.k = 3;
                     d.a.l0.m.e.a.g().t(a2, aVar);
                     HttpRequest build = a2.build();
@@ -594,11 +594,11 @@ public class g extends d.a.l0.a.u.c.d {
             }
             if (a2 instanceof HttpCommonRequestBuilder) {
             }
-            aVar.f47969a = f2.toString();
-            aVar.f47974f = true;
-            aVar.f47975g = false;
-            aVar.f47976h = true;
-            aVar.f47977i = str;
+            aVar.f51643a = f2.toString();
+            aVar.f51648f = true;
+            aVar.f51649g = false;
+            aVar.f51650h = true;
+            aVar.f51651i = str;
             aVar.k = 3;
             d.a.l0.m.e.a.g().t(a2, aVar);
             HttpRequest build2 = a2.build();
@@ -611,7 +611,7 @@ public class g extends d.a.l0.a.u.c.d {
     }
 
     public static RequestBody x(MediaType mediaType, @NonNull byte[] bArr) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Request", "createArrayBufferBody: " + bArr.length);
         }
         return RequestBody.create(mediaType, bArr);
@@ -623,10 +623,10 @@ public class g extends d.a.l0.a.u.c.d {
         boolean isEmpty = TextUtils.isEmpty(str2);
         String str3 = StringUtil.NULL_STRING;
         if (isEmpty) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("createBody: content-type: ");
-                sb.append(d.a.l0.a.n1.f.f43693a);
+                sb.append(d.a.l0.a.n1.f.f47369a);
                 sb.append(" data: ");
                 if (obj != null) {
                     str3 = obj.getClass().getSimpleName();
@@ -635,16 +635,16 @@ public class g extends d.a.l0.a.u.c.d {
                 Log.d("Api-Request", sb.toString());
             }
             if (obj instanceof byte[]) {
-                return x(d.a.l0.a.n1.f.f43693a, (byte[]) obj);
+                return x(d.a.l0.a.n1.f.f47369a, (byte[]) obj);
             }
-            return RequestBody.create(d.a.l0.a.n1.f.f43693a, obj != null ? obj.toString() : "");
+            return RequestBody.create(d.a.l0.a.n1.f.f47369a, obj != null ? obj.toString() : "");
         }
         MediaType parse = MediaType.parse(str2);
-        if (d.a.l0.a.n1.f.f43693a.equals(parse)) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.n1.f.f47369a.equals(parse)) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("createBody: content-type: ");
-                sb2.append(d.a.l0.a.n1.f.f43693a);
+                sb2.append(d.a.l0.a.n1.f.f47369a);
                 sb2.append(" data: ");
                 if (obj != null) {
                     str3 = obj.getClass().getSimpleName();
@@ -653,9 +653,9 @@ public class g extends d.a.l0.a.u.c.d {
                 Log.d("Api-Request", sb2.toString());
             }
             if (obj instanceof byte[]) {
-                return x(d.a.l0.a.n1.f.f43693a, (byte[]) obj);
+                return x(d.a.l0.a.n1.f.f47369a, (byte[]) obj);
             }
-            return RequestBody.create(d.a.l0.a.n1.f.f43693a, obj != null ? obj.toString() : "");
+            return RequestBody.create(d.a.l0.a.n1.f.f47369a, obj != null ? obj.toString() : "");
         }
         return z(obj, parse, str);
     }
@@ -666,25 +666,25 @@ public class g extends d.a.l0.a.u.c.d {
             return x(mediaType, (byte[]) obj);
         }
         if (TextUtils.equals("JSONToString", str) && (obj instanceof String)) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-Request", "createFormBody: hint jsonToString");
             }
             try {
                 obj = new JSONObject((String) obj);
             } catch (JSONException unused) {
-                if (d.a.l0.a.u.c.d.f44812c) {
+                if (d.a.l0.a.u.c.d.f48486c) {
                     throw new RuntimeException("createFormBody: illegal json str");
                 }
             }
         }
         if (obj != null && obj.toString().length() != 0) {
             if (obj instanceof String) {
-                if (d.a.l0.a.u.c.d.f44812c) {
+                if (d.a.l0.a.u.c.d.f48486c) {
                     Log.d("Api-Request", "createFormBody: content-type: " + mediaType + " data: String");
                 }
                 return RequestBody.create(mediaType, (String) obj);
             }
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-Request", "createFormBody: content-type: " + mediaType + " data: " + obj.getClass().getSimpleName());
             }
             if (obj instanceof JSONObject) {
@@ -699,7 +699,7 @@ public class g extends d.a.l0.a.u.c.d {
             }
             return d.a.l0.a.n1.d.a(builder.build(), mediaType);
         }
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Request", "createFormBody: with empty data");
         }
         return builder.build();
@@ -734,14 +734,14 @@ public class g extends d.a.l0.a.u.c.d {
 
     public d.a.l0.a.u.h.b L(JsObject jsObject) {
         Pair<d.a.l0.a.u.h.a, JSONObject> n = d.a.l0.a.u.c.d.n(jsObject);
-        if (!((d.a.l0.a.u.h.a) n.first).a()) {
+        if (!((d.a.l0.a.u.h.a) n.first).isSuccess()) {
             return (d.a.l0.a.u.h.b) n.first;
         }
         JSONObject jSONObject = (JSONObject) n.second;
         if (jSONObject == null) {
-            return (d.a.l0.a.u.h.b) d.a.l0.a.u.h.a.f45237a;
+            return (d.a.l0.a.u.h.b) d.a.l0.a.u.h.a.f48911a;
         }
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Request", "request with JsObject => JSONObject : " + jSONObject.toString());
         }
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
@@ -761,14 +761,14 @@ public class g extends d.a.l0.a.u.c.d {
             d.a.l0.a.e0.d.b("Api-Request", "illegal url");
             return new d.a.l0.a.u.h.b(1001, "illegal url");
         }
-        String a2 = h.a(eVar.f40749f);
+        String a2 = h.a(eVar.f44425f);
         JSONObject c2 = h.c(a2);
         d.a.l0.a.u.f.a.d().c(new d.a.l0.a.u.f.b.g.c(this, eVar, jSONObject, a2, str));
         return new d.a.l0.a.u.h.b(0, c2);
     }
 
     public d.a.l0.a.u.h.b N(@NonNull JSONObject jSONObject) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Request", "request with JSONObject: " + jSONObject);
         }
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
@@ -784,7 +784,7 @@ public class g extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b v(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Request", "start cancelRequest");
         }
         return j(str, false, new a(this));

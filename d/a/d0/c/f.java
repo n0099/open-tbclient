@@ -3,8 +3,8 @@ package d.a.d0.c;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39668a = c.b();
+    public static final String f43349a = c.b();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f39669b = d.a.d0.a.b.a.f39590a.get().s();
+    public static final boolean f43350b = d.a.d0.a.b.a.f43271a.get().s();
 }

@@ -24,27 +24,27 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f58310a;
+    public View f62001a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SearchMajorActivity f58311b;
+    public SearchMajorActivity f62002b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.n0.q1.a f58312c;
+    public d.a.n0.q1.a f62003c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58313d;
+    public String f62004d;
 
     /* renamed from: d.a.n0.q1.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnFocusChangeListenerC1483a implements View.OnFocusChangeListener {
-        public View$OnFocusChangeListenerC1483a() {
+    public class View$OnFocusChangeListenerC1539a implements View.OnFocusChangeListener {
+        public View$OnFocusChangeListenerC1539a() {
         }
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             if (!z) {
-                l.x(a.this.f58311b.getPageContext().getPageActivity(), view);
+                l.x(a.this.f62002b.getPageContext().getPageActivity(), view);
             } else {
                 a.this.k();
             }
@@ -76,9 +76,9 @@ public class a {
             if (editable == null) {
                 return;
             }
-            a.this.f58313d = editable.toString();
+            a.this.f62004d = editable.toString();
             a.this.k();
-            a.this.f58312c.k(!StringUtils.isNull(editable.toString()));
+            a.this.f62003c.k(!StringUtils.isNull(editable.toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -99,7 +99,7 @@ public class a {
         public void a(String str) {
             Intent intent = new Intent();
             intent.putExtra(IntentConfig.SEARCH_MAJOR_NAME, str);
-            a.this.f58311b.finish(intent);
+            a.this.f62002b.finish(intent);
         }
     }
 
@@ -111,7 +111,7 @@ public class a {
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
             if (i2 == 1 || i2 == 2) {
-                l.x(a.this.f58311b.getPageContext().getPageActivity(), recyclerView);
+                l.x(a.this.f62002b.getPageContext().getPageActivity(), recyclerView);
             }
         }
 
@@ -121,79 +121,79 @@ public class a {
     }
 
     public a(SearchMajorActivity searchMajorActivity) {
-        this.f58311b = searchMajorActivity;
+        this.f62002b = searchMajorActivity;
         h();
     }
 
     public void e() {
-        View$OnFocusChangeListenerC1483a view$OnFocusChangeListenerC1483a = new View$OnFocusChangeListenerC1483a();
+        View$OnFocusChangeListenerC1539a view$OnFocusChangeListenerC1539a = new View$OnFocusChangeListenerC1539a();
         b bVar = new b();
         c cVar = new c();
-        this.f58312c.q(view$OnFocusChangeListenerC1483a);
-        this.f58312c.p(bVar);
-        this.f58312c.r(cVar);
+        this.f62003c.q(view$OnFocusChangeListenerC1539a);
+        this.f62003c.p(bVar);
+        this.f62003c.r(cVar);
     }
 
     public final void f() {
         d dVar = new d();
         e eVar = new e();
-        this.f58312c.n(dVar);
-        this.f58312c.o(eVar);
+        this.f62003c.n(dVar);
+        this.f62003c.o(eVar);
     }
 
     public d.a.n0.q1.a g() {
-        return this.f58312c;
+        return this.f62003c;
     }
 
     public final void h() {
-        View inflate = LayoutInflater.from(this.f58311b).inflate(R.layout.search_major_main, (ViewGroup) null);
-        this.f58310a = inflate;
-        this.f58311b.setContentView(inflate);
-        this.f58312c = new d.a.n0.q1.a(this.f58310a, this.f58311b);
+        View inflate = LayoutInflater.from(this.f62002b).inflate(R.layout.search_major_main, (ViewGroup) null);
+        this.f62001a = inflate;
+        this.f62002b.setContentView(inflate);
+        this.f62003c = new d.a.n0.q1.a(this.f62001a, this.f62002b);
         e();
         f();
-        this.f58313d = "";
+        this.f62004d = "";
         k();
     }
 
     public void i(int i2) {
-        this.f58312c.i(i2);
+        this.f62003c.i(i2);
     }
 
     public void j() {
-        d.a.n0.q1.a aVar = this.f58312c;
+        d.a.n0.q1.a aVar = this.f62003c;
         if (aVar != null) {
             aVar.j();
         }
     }
 
     public final void k() {
-        if (this.f58311b == null) {
+        if (this.f62002b == null) {
             return;
         }
         if (j.z()) {
-            if (this.f58313d != null) {
+            if (this.f62004d != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_MAJOR);
-                httpMessage.addParam("keyword", this.f58313d.trim());
-                this.f58311b.sendMessage(httpMessage);
+                httpMessage.addParam("keyword", this.f62004d.trim());
+                this.f62002b.sendMessage(httpMessage);
             }
-        } else if (this.f58312c != null) {
+        } else if (this.f62003c != null) {
             m(new ErrorData());
-            this.f58311b.getRefreshView().h(R.drawable.new_pic_emotion_05);
-            this.f58311b.showNetRefreshViewNoClick(this.f58312c.d(), null);
-            this.f58311b.getRefreshView().n(this.f58311b.getString(R.string.im_error_default));
+            this.f62002b.getRefreshView().h(R.drawable.new_pic_emotion_05);
+            this.f62002b.showNetRefreshViewNoClick(this.f62003c.d(), null);
+            this.f62002b.getRefreshView().n(this.f62002b.getString(R.string.im_error_default));
         }
     }
 
     public void l(List<String> list) {
-        d.a.n0.q1.a aVar = this.f58312c;
+        d.a.n0.q1.a aVar = this.f62003c;
         if (aVar != null) {
-            aVar.l(list, this.f58313d);
+            aVar.l(list, this.f62004d);
         }
     }
 
     public void m(ErrorData errorData) {
-        d.a.n0.q1.a aVar = this.f58312c;
+        d.a.n0.q1.a aVar = this.f62003c;
         if (aVar != null) {
             aVar.m(errorData);
         }

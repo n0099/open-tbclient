@@ -7,48 +7,48 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile b f34056e;
+    public static volatile b f37520e;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f34057a;
+    public g f37521a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<WeakReference<g.a>> f34058b = new ArrayList();
+    public List<WeakReference<g.a>> f37522b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34059c = false;
+    public boolean f37523c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f34060d = false;
+    public boolean f37524d = false;
 
     public b() {
         a(KsAdSDKImpl.get().getContext());
     }
 
     public static b a() {
-        if (f34056e == null) {
+        if (f37520e == null) {
             synchronized (b.class) {
-                if (f34056e == null) {
-                    f34056e = new b();
+                if (f37520e == null) {
+                    f37520e = new b();
                 }
             }
         }
-        return f34056e;
+        return f37520e;
     }
 
     private void a(Context context) {
-        this.f34059c = false;
+        this.f37523c = false;
         g gVar = new g(context);
-        this.f34057a = gVar;
+        this.f37521a = gVar;
         gVar.a(new g.a() { // from class: com.kwad.sdk.utils.b.1
             @Override // com.kwad.sdk.utils.g.a
             public void a() {
                 g.a aVar;
-                Iterator it = b.this.f34058b.iterator();
+                Iterator it = b.this.f37522b.iterator();
                 while (it.hasNext()) {
                     WeakReference weakReference = (WeakReference) it.next();
                     if (weakReference == null || (aVar = (g.a) weakReference.get()) == null) {
@@ -57,13 +57,13 @@ public class b {
                         aVar.a();
                     }
                 }
-                b.this.f34060d = true;
+                b.this.f37524d = true;
             }
 
             @Override // com.kwad.sdk.utils.g.a
             public void b() {
                 g.a aVar;
-                Iterator it = b.this.f34058b.iterator();
+                Iterator it = b.this.f37522b.iterator();
                 while (it.hasNext()) {
                     WeakReference weakReference = (WeakReference) it.next();
                     if (weakReference == null || (aVar = (g.a) weakReference.get()) == null) {
@@ -77,22 +77,22 @@ public class b {
     }
 
     public void a(g.a aVar) {
-        this.f34058b.add(new WeakReference<>(aVar));
+        this.f37522b.add(new WeakReference<>(aVar));
     }
 
     public void a(boolean z) {
-        if (this.f34057a == null) {
+        if (this.f37521a == null) {
             return;
         }
-        if (z || !this.f34059c) {
-            this.f34057a.a();
-            this.f34059c = true;
-            this.f34060d = false;
+        if (z || !this.f37523c) {
+            this.f37521a.a();
+            this.f37523c = true;
+            this.f37524d = false;
         }
     }
 
     public void b(g.a aVar) {
-        Iterator<WeakReference<g.a>> it = this.f34058b.iterator();
+        Iterator<WeakReference<g.a>> it = this.f37522b.iterator();
         while (it.hasNext()) {
             WeakReference<g.a> next = it.next();
             if (next == null || next.get() == aVar) {
@@ -102,6 +102,6 @@ public class b {
     }
 
     public boolean b() {
-        return this.f34060d;
+        return this.f37524d;
     }
 }

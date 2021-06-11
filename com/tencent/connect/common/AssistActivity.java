@@ -20,16 +20,16 @@ public class AssistActivity extends Activity {
     public static final String EXTRA_INTENT = "openSDK_LOG.AssistActivity.ExtraIntent";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36248d;
+    public String f39927d;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36247c = false;
+    public boolean f39926c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f36245a = false;
+    public boolean f39924a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f36246b = new Handler() { // from class: com.tencent.connect.common.AssistActivity.1
+    public Handler f39925b = new Handler() { // from class: com.tencent.connect.common.AssistActivity.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 0 && !AssistActivity.this.isFinishing()) {
@@ -72,7 +72,7 @@ public class AssistActivity extends Activity {
             getIntent().removeExtra("shareH5");
         } else {
             str2 = Constants.VIA_SHARE_TO_QZONE;
-            str3 = Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE;
+            str3 = "11";
         }
         str = str3;
         str4 = str2;
@@ -118,13 +118,13 @@ public class AssistActivity extends Activity {
         }
         Intent intent = (Intent) getIntent().getParcelableExtra(EXTRA_INTENT);
         int intExtra = intent == null ? 0 : intent.getIntExtra(Constants.KEY_REQUEST_CODE, 0);
-        this.f36248d = intent == null ? "" : intent.getStringExtra("appid");
+        this.f39927d = intent == null ? "" : intent.getStringExtra("appid");
         Bundle bundleExtra = getIntent().getBundleExtra("h5_share_data");
         if (bundle != null) {
-            this.f36247c = bundle.getBoolean("RESTART_FLAG");
-            this.f36245a = bundle.getBoolean("RESUME_FLAG", false);
+            this.f39926c = bundle.getBoolean("RESTART_FLAG");
+            this.f39924a = bundle.getBoolean("RESUME_FLAG", false);
         }
-        if (this.f36247c) {
+        if (this.f39926c) {
             f.b("openSDK_LOG.AssistActivity", "is restart");
         } else if (bundleExtra != null) {
             f.d("openSDK_LOG.AssistActivity", "--onCreate--h5 bundle not null, will open browser");
@@ -160,7 +160,7 @@ public class AssistActivity extends Activity {
     @Override // android.app.Activity
     public void onPause() {
         f.b("openSDK_LOG.AssistActivity", "-->onPause");
-        this.f36246b.removeMessages(0);
+        this.f39925b.removeMessages(0);
         super.onPause();
     }
 
@@ -172,21 +172,21 @@ public class AssistActivity extends Activity {
         if (intent.getBooleanExtra(ImageViewerConfig.IS_LOGIN, false)) {
             return;
         }
-        if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.f36247c && !isFinishing()) {
+        if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.f39926c && !isFinishing()) {
             finish();
         }
-        if (this.f36245a) {
-            this.f36246b.sendMessage(this.f36246b.obtainMessage(0));
+        if (this.f39924a) {
+            this.f39925b.sendMessage(this.f39925b.obtainMessage(0));
             return;
         }
-        this.f36245a = true;
+        this.f39924a = true;
     }
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         f.b("openSDK_LOG.AssistActivity", "--onSaveInstanceState--");
         bundle.putBoolean("RESTART_FLAG", true);
-        bundle.putBoolean("RESUME_FLAG", this.f36245a);
+        bundle.putBoolean("RESUME_FLAG", this.f39924a);
         super.onSaveInstanceState(bundle);
     }
 
@@ -207,7 +207,7 @@ public class AssistActivity extends Activity {
             f.d("openSDK_LOG.AssistActivity", "--setResultData--intent is null, setResult ACTIVITY_CANCEL");
             setResult(0);
             if (i2 == 11101) {
-                d.a().a("", this.f36248d, "2", "1", "7", "2");
+                d.a().a("", this.f39927d, "2", "1", "7", "2");
                 return;
             }
             return;
@@ -222,11 +222,11 @@ public class AssistActivity extends Activity {
                 if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
                     f.c("openSDK_LOG.AssistActivity", "--setResultData--openid and token not empty, setResult ACTIVITY_OK");
                     setResult(-1, intent);
-                    d.a().a(optString, this.f36248d, "2", "1", "7", "0");
+                    d.a().a(optString, this.f39927d, "2", "1", "7", "0");
                 } else {
                     f.d("openSDK_LOG.AssistActivity", "--setResultData--openid or token is empty, setResult ACTIVITY_CANCEL");
                     setResult(0, intent);
-                    d.a().a("", this.f36248d, "2", "1", "7", "1");
+                    d.a().a("", this.f39927d, "2", "1", "7", "1");
                 }
             } else {
                 f.d("openSDK_LOG.AssistActivity", "--setResultData--response is empty, setResult ACTIVITY_OK");

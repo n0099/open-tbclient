@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.f0.f;
 import d.a.n0.w0.c.b;
 import java.util.List;
@@ -37,7 +37,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             GodSquareActivity.this.mView.b();
             if (ListUtils.isEmpty(list)) {
                 GodSquareActivity.this.mView.d();
-                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f62473e)) {
+                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f66188e)) {
                     GodSquareActivity.this.mView.k(str);
                     return;
                 }
@@ -50,10 +50,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             }
             GodSquareActivity.this.mView.c();
             if (z) {
-                GodSquareActivity.this.mModel.f62473e = list;
-                GodSquareActivity.this.mView.m(GodSquareActivity.this.mModel.f62473e);
+                GodSquareActivity.this.mModel.f66188e = list;
+                GodSquareActivity.this.mView.m(GodSquareActivity.this.mModel.f66188e);
             } else {
-                GodSquareActivity.this.mModel.f62473e.addAll(list);
+                GodSquareActivity.this.mModel.f66188e.addAll(list);
                 GodSquareActivity.this.mView.g();
             }
             if (z2) {
@@ -75,10 +75,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f12576c)) {
+                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f12638c)) {
                     return;
                 }
-                if (GodSquareActivity.this.mModel.g(d.a.c.e.m.b.f(updateAttentionMessage.getData().f12576c, 0L))) {
+                if (GodSquareActivity.this.mModel.g(d.a.c.e.m.b.f(updateAttentionMessage.getData().f12638c, 0L))) {
                     GodSquareActivity.this.needRefreshView = true;
                 }
             }
@@ -93,7 +93,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
             if (z) {
-                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f62473e)) {
+                if (ListUtils.isEmpty(GodSquareActivity.this.mModel.f66188e)) {
                     GodSquareActivity.this.loadFirstTime();
                 } else {
                     GodSquareActivity.this.mView.l();

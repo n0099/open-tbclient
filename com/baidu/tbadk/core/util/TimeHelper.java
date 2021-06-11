@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import d.a.c.e.m.b;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,13 +14,13 @@ public class TimeHelper {
     }
 
     public static long getHourDifference(Date date, Date date2) {
-        return (date.getTime() - date2.getTime()) / VideoCloudSetting.HOUR_MILLISECOND;
+        return (date.getTime() - date2.getTime()) / 3600000;
     }
 
     public static long getMinuteDifference(Date date, Date date2) {
         long time = date.getTime() - date2.getTime();
         long j = (time / 86400000) * 24;
-        return ((time / 60000) - (j * 60)) - (((time / VideoCloudSetting.HOUR_MILLISECOND) - j) * 60);
+        return ((time / 60000) - (j * 60)) - (((time / 3600000) - j) * 60);
     }
 
     public static Date getNow() {
@@ -31,7 +30,7 @@ public class TimeHelper {
     public static long getSecondDifference(Date date, Date date2) {
         long time = date.getTime() - date2.getTime();
         long j = (time / 86400000) * 24;
-        long j2 = (time / VideoCloudSetting.HOUR_MILLISECOND) - j;
+        long j2 = (time / 3600000) - j;
         long j3 = j * 60;
         long j4 = j2 * 60;
         return (((time / 1000) - (j3 * 60)) - (j4 * 60)) - ((((time / 60000) - j3) - j4) * 60);

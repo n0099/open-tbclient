@@ -1,35 +1,25 @@
 package com.kwad.sdk.core.c.a;
 
-import com.kwad.sdk.core.response.model.AdStyleInfo;
+import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class y implements com.kwad.sdk.core.c<AdStyleInfo.PlayDetailInfo.DetailWebCardInfo> {
+public class y implements com.kwad.sdk.core.c<AdInfo.MaterialSize> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(AdStyleInfo.PlayDetailInfo.DetailWebCardInfo detailWebCardInfo, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        detailWebCardInfo.maxTimeOut = jSONObject.optLong("maxTimeOut");
-        detailWebCardInfo.typeLandscape = jSONObject.optLong("typeLandscape");
-        detailWebCardInfo.typePortrait = jSONObject.optLong("typePortrait");
-        detailWebCardInfo.cardUrl = jSONObject.optString("cardUrl");
-        detailWebCardInfo.cardData = jSONObject.optString("cardData");
-        detailWebCardInfo.cardShowTime = jSONObject.optLong("cardShowTime");
+    public JSONObject a(AdInfo.MaterialSize materialSize) {
+        JSONObject jSONObject = new JSONObject();
+        com.kwad.sdk.utils.o.a(jSONObject, "width", materialSize.width);
+        com.kwad.sdk.utils.o.a(jSONObject, "height", materialSize.height);
+        return jSONObject;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject b(AdStyleInfo.PlayDetailInfo.DetailWebCardInfo detailWebCardInfo, JSONObject jSONObject) {
+    public void a(AdInfo.MaterialSize materialSize, JSONObject jSONObject) {
         if (jSONObject == null) {
-            jSONObject = new JSONObject();
+            return;
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "maxTimeOut", detailWebCardInfo.maxTimeOut);
-        com.kwad.sdk.utils.o.a(jSONObject, "typeLandscape", detailWebCardInfo.typeLandscape);
-        com.kwad.sdk.utils.o.a(jSONObject, "typePortrait", detailWebCardInfo.typePortrait);
-        com.kwad.sdk.utils.o.a(jSONObject, "cardUrl", detailWebCardInfo.cardUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "cardData", detailWebCardInfo.cardData);
-        com.kwad.sdk.utils.o.a(jSONObject, "cardShowTime", detailWebCardInfo.cardShowTime);
-        return jSONObject;
+        materialSize.width = jSONObject.optInt("width");
+        materialSize.height = jSONObject.optInt("height");
     }
 }

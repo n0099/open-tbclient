@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Application.ActivityLifecycleCallbacks f57666a;
+    public static Application.ActivityLifecycleCallbacks f61355a;
 
     /* loaded from: classes3.dex */
     public static class b implements Application.ActivityLifecycleCallbacks {
@@ -78,9 +78,9 @@ public class a {
     }
 
     public static void c(Application application) {
-        if (f57666a == null) {
-            f57666a = new b();
+        if (f61355a == null) {
+            f61355a = new b();
         }
-        application.registerActivityLifecycleCallbacks(f57666a);
+        application.registerActivityLifecycleCallbacks(f61355a);
     }
 }

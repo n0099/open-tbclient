@@ -14,13 +14,13 @@ import java.util.HashMap;
 public final class c extends m implements d.a.l0.a.v1.b.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f45290h = k.f43199a;
+    public static final boolean f48964h = k.f46875a;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<String, String> f45291f;
+    public final HashMap<String, String> f48965f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HashMap<String, d.a.l0.a.v1.b.b> f45292g;
+    public final HashMap<String, d.a.l0.a.v1.b.b> f48966g;
 
     /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.v2.e1.b<i.a> {
@@ -31,7 +31,7 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(i.a aVar) {
-            if (c.f45290h) {
+            if (c.f48964h) {
                 c cVar = c.this;
                 cVar.H("onEventCallback msg" + aVar);
             }
@@ -48,7 +48,7 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(i.a aVar) {
-            if (c.f45290h) {
+            if (c.f48964h) {
                 c cVar = c.this;
                 cVar.H("onEventCallback msg" + aVar);
             }
@@ -58,17 +58,17 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
 
     /* renamed from: d.a.l0.a.v1.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0877c {
+    public static class C0933c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f45295a = new c(d.a.l0.a.a2.d.g());
+        public static c f48969a = new c(d.a.l0.a.a2.d.g());
     }
 
     public c(h hVar) {
         super(hVar);
-        this.f45291f = new HashMap<>();
-        this.f45292g = new HashMap<>();
-        if (f45290h) {
+        this.f48965f = new HashMap<>();
+        this.f48966g = new HashMap<>();
+        if (f48964h) {
             H("SwanIpc");
         }
         d.a.l0.a.a2.b bVar = new d.a.l0.a.a2.b();
@@ -86,7 +86,7 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
     }
 
     public static c F() {
-        return C0877c.f45295a;
+        return C0933c.f48969a;
     }
 
     public static void G() {
@@ -126,7 +126,7 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
     }
 
     public final void H(String str) {
-        if (f45290h) {
+        if (f48964h) {
             Log.i("SwanIpc", SwanAppProcessInfo.current() + " >> " + str);
         }
     }
@@ -136,7 +136,7 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
     }
 
     public final void J(i.a aVar) {
-        if (f45290h) {
+        if (f48964h) {
             I("onCallIn", "msg=" + aVar);
         }
         if (aVar != null) {
@@ -151,7 +151,7 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
     }
 
     public final void K(i.a aVar) {
-        if (f45290h) {
+        if (f48964h) {
             I("onCallOut", "msg=" + aVar);
         }
         if (aVar != null) {
@@ -164,14 +164,14 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
     }
 
     public String M(@NonNull String str) {
-        return this.f45291f.get(str);
+        return this.f48965f.get(str);
     }
 
     public c P(d.a.l0.a.v1.b.b bVar, Exception exc) {
         if (bVar != null) {
-            synchronized (this.f45292g) {
+            synchronized (this.f48966g) {
                 bVar.O(exc);
-                this.f45292g.remove(bVar.R());
+                this.f48966g.remove(bVar.R());
             }
         }
         return this;
@@ -183,11 +183,11 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
 
     public final synchronized d.a.l0.a.v1.b.b R(String str, Bundle bundle) {
         d.a.l0.a.v1.b.b bVar;
-        bVar = TextUtils.isEmpty(str) ? null : this.f45292g.get(str);
+        bVar = TextUtils.isEmpty(str) ? null : this.f48966g.get(str);
         if (bVar == null || !bVar.Z()) {
             P(bVar, new IllegalStateException("invalid session"));
             bVar = new d.a.l0.a.v1.b.b(this, str);
-            this.f45292g.put(bVar.R(), bVar);
+            this.f48966g.put(bVar.R(), bVar);
         }
         boolean z = bundle != null && e(bVar, bundle);
         if (z) {
@@ -198,8 +198,8 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
                 bVar.K(true);
             }
         }
-        bVar.T(z ? bundle.getLong("ipc_session_timeout") : d.a.l0.a.v1.b.a.H0);
-        if (f45290h) {
+        bVar.T(z ? bundle.getLong("ipc_session_timeout") : d.a.l0.a.v1.b.a.J0);
+        if (f48964h) {
             I("session", "id=" + str + " session=" + bundle + " session=" + bVar);
         }
         return bVar;
@@ -209,7 +209,7 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
         d.a.l0.a.v1.b.b Q;
         Q = Q(null);
         h(Q, str);
-        if (f45290h) {
+        if (f48964h) {
             I("topic", str + " session=" + Q);
         }
         return Q;
@@ -227,11 +227,11 @@ public final class c extends m implements d.a.l0.a.v1.b.a {
         boolean z = false;
         if (bVar.Z()) {
             String R = bVar.R();
-            String str2 = this.f45291f.get(R);
+            String str2 = this.f48965f.get(R);
             boolean z2 = !TextUtils.isEmpty(str2);
             z = (!z2 || TextUtils.equals(str2, str)) ? true : true;
             if (z && !z2 && !TextUtils.isEmpty(str)) {
-                this.f45291f.put(R, str);
+                this.f48965f.put(R, str);
             }
             return z;
         }

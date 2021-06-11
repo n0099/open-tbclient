@@ -6,31 +6,31 @@ import tbclient.PlaceOrder.DataRes;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62276a;
+    public String f65991a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62277b;
+    public int f65992b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62278c;
+    public int f65993c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f62279d;
+    public long f65994d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62280e;
+    public String f65995e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62281f;
+    public int f65996f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62282g;
+    public String f65997g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f62283h;
+    public String f65998h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f62284i;
+    public long f65999i;
     public int j;
     public int k;
     public long l;
@@ -38,24 +38,24 @@ public class a {
 
     public PaymentConfirmRequestData a() {
         PaymentConfirmRequestData paymentConfirmRequestData = new PaymentConfirmRequestData();
-        paymentConfirmRequestData.setTdou_num(this.f62284i);
+        paymentConfirmRequestData.setTdou_num(this.f65999i);
         paymentConfirmRequestData.setOpen_id(this.l);
-        paymentConfirmRequestData.setOrder_id(this.f62282g);
-        paymentConfirmRequestData.setScene_id(this.f62277b);
-        paymentConfirmRequestData.setGoods_name(this.f62276a);
-        paymentConfirmRequestData.setGoods_pic(this.f62280e);
-        paymentConfirmRequestData.setTerminal("" + this.f62281f);
+        paymentConfirmRequestData.setOrder_id(this.f65997g);
+        paymentConfirmRequestData.setScene_id(this.f65992b);
+        paymentConfirmRequestData.setGoods_name(this.f65991a);
+        paymentConfirmRequestData.setGoods_pic(this.f65995e);
+        paymentConfirmRequestData.setTerminal("" + this.f65996f);
         paymentConfirmRequestData.setGoods_num((long) this.j);
-        paymentConfirmRequestData.setGoods_unit(this.f62283h);
-        paymentConfirmRequestData.setGoods_duration(this.f62279d);
-        paymentConfirmRequestData.setGoods_user_level(this.f62278c);
+        paymentConfirmRequestData.setGoods_unit(this.f65998h);
+        paymentConfirmRequestData.setGoods_duration(this.f65994d);
+        paymentConfirmRequestData.setGoods_user_level(this.f65993c);
         paymentConfirmRequestData.setPay_type(this.k);
         paymentConfirmRequestData.setCurrency(this.m);
         return paymentConfirmRequestData;
     }
 
     public String b() {
-        return this.f62282g;
+        return this.f65997g;
     }
 
     public void c(DataRes dataRes) {
@@ -63,15 +63,15 @@ public class a {
             return;
         }
         dataRes.timestamp.intValue();
-        this.f62276a = dataRes.goods_name;
-        this.f62277b = dataRes.scene_id.intValue();
-        this.f62278c = dataRes.goods_user_level.intValue();
-        this.f62279d = dataRes.goods_duration.intValue();
-        this.f62280e = dataRes.goods_pic;
-        this.f62281f = dataRes.terminal.intValue();
-        this.f62282g = dataRes.order_id;
-        this.f62283h = dataRes.goods_unit;
-        this.f62284i = dataRes.tdou_num.intValue();
+        this.f65991a = dataRes.goods_name;
+        this.f65992b = dataRes.scene_id.intValue();
+        this.f65993c = dataRes.goods_user_level.intValue();
+        this.f65994d = dataRes.goods_duration.intValue();
+        this.f65995e = dataRes.goods_pic;
+        this.f65996f = dataRes.terminal.intValue();
+        this.f65997g = dataRes.order_id;
+        this.f65998h = dataRes.goods_unit;
+        this.f65999i = dataRes.tdou_num.intValue();
         dataRes.goods_price.intValue();
         this.j = dataRes.goods_num.intValue();
         this.k = dataRes.pay_type.intValue();

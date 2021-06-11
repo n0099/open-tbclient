@@ -1,42 +1,35 @@
 package d.a.j0.p;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.sso.o.a;
 /* loaded from: classes2.dex */
-public final class c implements d.a.j0.m.b {
+public class c implements ServiceConnection {
 
-    /* renamed from: a  reason: collision with root package name */
-    public b f40505a;
+    /* renamed from: e  reason: collision with root package name */
+    public a f44179e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f40506b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Context f40507c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public a f40508d;
-
-    @Override // d.a.j0.m.b
-    public final String a() {
-        if (TextUtils.isEmpty(this.f40506b)) {
-            this.f40506b = this.f40505a.a();
-        }
-        return this.f40506b;
+    public c(a aVar) {
+        this.f44179e = aVar;
     }
 
-    @Override // d.a.j0.m.b
-    public final void a(Context context, d.a.j0.m.c cVar) {
-        this.f40505a = new b(context);
-        this.f40507c = context;
-        if (b()) {
-            this.f40508d = new a(this);
-            context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f40508d);
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        this.f44179e.f44172a = a.AbstractBinderC0148a.a(iBinder);
+        d.a.j0.n.b bVar = this.f44179e.f44176e;
+        if (bVar != null) {
+            bVar.a();
         }
     }
 
-    public final boolean b() {
-        return "1".equals(d.a.j0.r.a.a("persist.sys.identifierid.supported", "0"));
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        a aVar = this.f44179e;
+        aVar.f44172a = null;
+        d.a.j0.n.b bVar = aVar.f44176e;
+        if (bVar != null) {
+            bVar.a();
+        }
     }
 }

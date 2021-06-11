@@ -5,31 +5,31 @@ import tbclient.Search.DataRes;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f63139a;
+    public long f66854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f63140b;
+    public long f66855b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63141c;
+    public String f66856c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63142d;
+    public String f66857d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f63143e;
+    public long f66858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f63144f;
+    public int f66859f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f63145g;
+    public int f66860g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f63146h;
+    public int f66861h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f63147i;
+    public int f66862i;
     public String j;
     public boolean k;
     public long l;
@@ -39,19 +39,19 @@ public class a {
             return;
         }
         Long l = dataRes.uid;
-        this.f63140b = l == null ? 0L : l.longValue();
-        this.f63141c = dataRes.portrait;
-        this.f63142d = dataRes.name_show;
+        this.f66855b = l == null ? 0L : l.longValue();
+        this.f66856c = dataRes.portrait;
+        this.f66857d = dataRes.name_show;
         Long l2 = dataRes.apply_id;
-        this.f63143e = l2 == null ? 0L : l2.longValue();
+        this.f66858e = l2 == null ? 0L : l2.longValue();
         Integer num = dataRes.vote_num;
-        this.f63144f = num == null ? 0 : num.intValue();
+        this.f66859f = num == null ? 0 : num.intValue();
         Integer num2 = dataRes.agree_num;
-        this.f63145g = num2 == null ? 0 : num2.intValue();
+        this.f66860g = num2 == null ? 0 : num2.intValue();
         Integer num3 = dataRes.thread_num;
-        this.f63146h = num3 == null ? 0 : num3.intValue();
+        this.f66861h = num3 == null ? 0 : num3.intValue();
         Integer num4 = dataRes.post_num;
-        this.f63147i = num4 == null ? 0 : num4.intValue();
+        this.f66862i = num4 == null ? 0 : num4.intValue();
         Boolean bool = dataRes.is_vote;
         this.k = bool != null ? bool.booleanValue() : false;
         Long l3 = dataRes.tid;

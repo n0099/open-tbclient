@@ -40,10 +40,10 @@ import java.net.URLEncoder;
 public class f extends d.a.n0.x2.d.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f63317h;
+    public int f67032h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ShareEntity f63318i;
+    public ShareEntity f67033i;
     public d.a.n0.x2.e.b j;
     public IWXAPI k;
     public d l;
@@ -62,11 +62,11 @@ public class f extends d.a.n0.x2.d.a {
             super.onLoaded(emotionShare, str, i2);
             if (emotionShare != null && emotionShare.image != null) {
                 f fVar = f.this;
-                if (fVar.a0(fVar.f63318i, emotionShare)) {
+                if (fVar.a0(fVar.f67033i, emotionShare)) {
                     return;
                 }
             }
-            f.this.n.onLoaded((d.a.c.j.d.a) null, str, i2);
+            f.this.n.onLoaded((d.a.c.k.d.a) null, str, i2);
         }
 
         @Override // d.a.c.e.l.c
@@ -89,7 +89,7 @@ public class f extends d.a.n0.x2.d.a {
                 return null;
             }
             f fVar = f.this;
-            return fVar.r(bitmapArr[0], fVar.f63318i, false);
+            return fVar.r(bitmapArr[0], fVar.f67033i, false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -97,12 +97,12 @@ public class f extends d.a.n0.x2.d.a {
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((b) bitmap);
             f fVar = f.this;
-            fVar.g0(fVar.f63318i, bitmap);
+            fVar.g0(fVar.f67033i, bitmap);
         }
     }
 
     /* loaded from: classes5.dex */
-    public final class c extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public final class c extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public c() {
         }
 
@@ -110,10 +110,10 @@ public class f extends d.a.n0.x2.d.a {
         public void onCancelled(String str) {
             super.onCancelled(str);
             if (f.this.j != null) {
-                f.this.j.onShare(f.this.f63317h, 3);
+                f.this.j.onShare(f.this.f67032h, 3);
             }
             f fVar = f.this;
-            fVar.w(3, fVar.f63317h);
+            fVar.w(3, fVar.f67032h);
         }
 
         public /* synthetic */ c(f fVar, a aVar) {
@@ -122,38 +122,38 @@ public class f extends d.a.n0.x2.d.a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((c) aVar, str, i2);
             if (aVar == null) {
                 f.this.i0();
                 return;
             }
             Bitmap p = aVar.p();
-            if (!TextUtils.isEmpty(f.this.f63318i.g())) {
-                if (f.this.f63317h != 2) {
-                    String m = f.this.f63318i.m();
-                    int o = f.this.f63318i.o();
-                    if ((o != 2 && o != 4 && (StringUtils.isNull(m) || m.equals("0"))) || !f.this.f63318i.canShareBySmartApp) {
+            if (!TextUtils.isEmpty(f.this.f67033i.g())) {
+                if (f.this.f67032h != 2) {
+                    String m = f.this.f67033i.m();
+                    int o = f.this.f67033i.o();
+                    if ((o != 2 && o != 4 && (StringUtils.isNull(m) || m.equals("0"))) || !f.this.f67033i.canShareBySmartApp) {
                         f fVar = f.this;
-                        fVar.h0(fVar.f63318i, p);
+                        fVar.h0(fVar.f67033i, p);
                         return;
                     }
                     f fVar2 = f.this;
-                    fVar2.d0(fVar2.f63318i, p);
+                    fVar2.d0(fVar2.f67033i, p);
                     return;
                 }
                 f fVar3 = f.this;
-                fVar3.h0(fVar3.f63318i, p);
-            } else if (TextUtils.isEmpty(f.this.f63318i.p())) {
-                if (!TextUtils.isEmpty(f.this.f63318i.b())) {
+                fVar3.h0(fVar3.f67033i, p);
+            } else if (TextUtils.isEmpty(f.this.f67033i.p())) {
+                if (!TextUtils.isEmpty(f.this.f67033i.b())) {
                     f.this.i0();
                     return;
                 }
                 f fVar4 = f.this;
-                fVar4.b0(fVar4.f63318i, p);
+                fVar4.b0(fVar4.f67033i, p);
             } else {
                 f fVar5 = f.this;
-                fVar5.f0(fVar5.f63318i, p);
+                fVar5.f0(fVar5.f67033i, p);
             }
         }
     }
@@ -169,23 +169,23 @@ public class f extends d.a.n0.x2.d.a {
                 int intExtra = intent.getIntExtra("weixin_result_errCode", 0);
                 if (intExtra == 0) {
                     if (f.this.j != null) {
-                        f.this.j.onShare(f.this.f63317h, 1);
+                        f.this.j.onShare(f.this.f67032h, 1);
                     }
                     f fVar = f.this;
-                    fVar.w(1, fVar.f63317h);
+                    fVar.w(1, fVar.f67032h);
                 } else if (intExtra == -2) {
                     if (f.this.j != null) {
-                        f.this.j.onShare(f.this.f63317h, 3);
+                        f.this.j.onShare(f.this.f67032h, 3);
                     }
                     f fVar2 = f.this;
-                    fVar2.w(3, fVar2.f63317h);
+                    fVar2.w(3, fVar2.f67032h);
                 } else {
                     f.this.l0(intExtra, intent.getStringExtra("weixin_result_errMsg"));
                     if (f.this.j != null) {
-                        f.this.j.onShare(f.this.f63317h, 2);
+                        f.this.j.onShare(f.this.f67032h, 2);
                     }
                     f fVar3 = f.this;
-                    fVar3.w(2, fVar3.f63317h);
+                    fVar3.w(2, fVar3.f67032h);
                 }
                 f.this.T();
             }
@@ -200,8 +200,8 @@ public class f extends d.a.n0.x2.d.a {
         super(context);
         this.m = new a();
         this.n = new c(this, null);
-        this.f63303b = context.getApplicationContext();
-        this.f63317h = i2;
+        this.f67018b = context.getApplicationContext();
+        this.f67032h = i2;
         this.k = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
     }
 
@@ -245,7 +245,7 @@ public class f extends d.a.n0.x2.d.a {
     }
 
     public final int O() {
-        int i2 = this.f63317h;
+        int i2 = this.f67032h;
         if (i2 == 3) {
             return 0;
         }
@@ -282,7 +282,7 @@ public class f extends d.a.n0.x2.d.a {
     }
 
     public final void T() {
-        FileHelper.deleteFile(new File(d.a.n0.x2.d.a.f63299e + d.a.n0.x2.d.a.f63301g));
+        FileHelper.deleteFile(new File(d.a.n0.x2.d.a.f67014e + d.a.n0.x2.d.a.f67016g));
     }
 
     public String U(Context context, File file) {
@@ -295,10 +295,10 @@ public class f extends d.a.n0.x2.d.a {
     }
 
     public final boolean V(WXImageObject wXImageObject, Bitmap bitmap) {
-        Context context = this.f63303b;
+        Context context = this.f67018b;
         if (context != null && wXImageObject != null && bitmap != null && R(context) && Q()) {
             try {
-                X(wXImageObject, FileHelper.saveFileAsPNG(d.a.n0.x2.d.a.f63299e, d.a.n0.x2.d.a.f63301g, bitmap, 100), bitmap);
+                X(wXImageObject, FileHelper.saveFileAsPNG(d.a.n0.x2.d.a.f67014e, d.a.n0.x2.d.a.f67016g, bitmap, 100), bitmap);
                 return true;
             } catch (Exception e2) {
                 BdLog.e(e2);
@@ -308,16 +308,16 @@ public class f extends d.a.n0.x2.d.a {
     }
 
     public final void W() {
-        if (this.f63303b != null) {
+        if (this.f67018b != null) {
             this.l = new d(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(WXEntryActivityConfig.ACTION_WX_SHARE_RESULT);
-            this.f63303b.registerReceiver(this.l, intentFilter);
+            this.f67018b.registerReceiver(this.l, intentFilter);
         }
     }
 
     public final void X(@NonNull WXImageObject wXImageObject, @NonNull String str, @NonNull Bitmap bitmap) {
-        wXImageObject.setImagePath(U(this.f63303b, new File(str)));
+        wXImageObject.setImagePath(U(this.f67018b, new File(str)));
         WXMediaMessage wXMediaMessage = new WXMediaMessage();
         wXMediaMessage.mediaObject = wXImageObject;
         wXMediaMessage.thumbData = M(bitmap);
@@ -364,24 +364,24 @@ public class f extends d.a.n0.x2.d.a {
     @Override // d.a.n0.x2.e.a
     public void a(ShareEntity shareEntity, d.a.n0.x2.e.b bVar) {
         if (shareEntity != null && this.k != null) {
-            this.f63318i = shareEntity;
+            this.f67033i = shareEntity;
             this.j = bVar;
-            this.f63317h = shareEntity.j();
+            this.f67032h = shareEntity.j();
             if (!this.k.isWXAppInstalled()) {
                 d.a.n0.x2.e.b bVar2 = this.j;
                 if (bVar2 != null) {
-                    bVar2.onShare(this.f63317h, 2);
+                    bVar2.onShare(this.f67032h, 2);
                 }
                 BdToast.e(c(), c().getText(R.string.share_weixin_not_installed_yet), 0, ShareHandlerActivity.skinType).q();
                 return;
             }
-            d.a.c.j.d.a o = o(shareEntity);
+            d.a.c.k.d.a o = o(shareEntity);
             if (o != null && o.p() != null) {
-                if (this.f63318i.k() == 2) {
-                    Z(this.f63318i, o.p());
+                if (this.f67033i.k() == 2) {
+                    Z(this.f67033i, o.p());
                     return;
                 } else {
-                    b0(this.f63318i, o.p());
+                    b0(this.f67033i, o.p());
                     return;
                 }
             } else if (n(shareEntity.h())) {
@@ -390,7 +390,7 @@ public class f extends d.a.n0.x2.d.a {
             } else {
                 String e2 = shareEntity.e();
                 if (!TextUtils.isEmpty(e2) && (e2.startsWith("http://") || e2.startsWith("https://"))) {
-                    if (this.f63318i.k() != 0) {
+                    if (this.f67033i.k() != 0) {
                         d.a.c.e.l.d.h().k(e2, 34, this.m, 0, 0, h(), new Object[0]);
                         return;
                     } else {
@@ -406,14 +406,14 @@ public class f extends d.a.n0.x2.d.a {
                 }
             }
         }
-        w(2, this.f63317h);
+        w(2, this.f67032h);
         if (bVar != null) {
             bVar.onShare(0, 2);
         }
     }
 
     public final boolean a0(ShareEntity shareEntity, EmotionShareLoaderProc.EmotionShare emotionShare) {
-        if (this.f63317h != 2 && this.f63318i.k() != 1) {
+        if (this.f67032h != 2 && this.f67033i.k() != 1) {
             return Y(shareEntity, emotionShare);
         }
         return c0(shareEntity, emotionShare);
@@ -439,7 +439,7 @@ public class f extends d.a.n0.x2.d.a {
     }
 
     public final boolean c0(ShareEntity shareEntity, EmotionShareLoaderProc.EmotionShare emotionShare) {
-        d.a.c.j.d.a aVar;
+        d.a.c.k.d.a aVar;
         if (shareEntity == null || this.k == null || emotionShare == null || StringUtils.isNull(emotionShare.path) || (aVar = emotionShare.image) == null || aVar.p() == null) {
             return false;
         }
@@ -555,15 +555,15 @@ public class f extends d.a.n0.x2.d.a {
             bVar.execute(bitmap);
             return;
         }
-        g0(this.f63318i, bitmap);
+        g0(this.f67033i, bitmap);
     }
 
     public final void i0() {
         Bitmap d2 = d();
         if (d2 != null) {
-            b0(this.f63318i, d2);
+            b0(this.f67033i, d2);
         } else {
-            e0(this.f63318i);
+            e0(this.f67033i);
         }
     }
 
@@ -573,15 +573,15 @@ public class f extends d.a.n0.x2.d.a {
             g2 = d();
         }
         if (g2 != null) {
-            b0(this.f63318i, g2);
+            b0(this.f67033i, g2);
         } else {
-            e0(this.f63318i);
+            e0(this.f67033i);
         }
     }
 
     public final void k0() {
         d dVar;
-        Context context = this.f63303b;
+        Context context = this.f67018b;
         if (context == null || (dVar = this.l) == null) {
             return;
         }
@@ -589,11 +589,11 @@ public class f extends d.a.n0.x2.d.a {
     }
 
     public final void l0(int i2, String str) {
-        ShareEntity shareEntity = this.f63318i;
+        ShareEntity shareEntity = this.f67033i;
         if (shareEntity == null || StringUtils.isNull(shareEntity.e())) {
             return;
         }
-        d.a.m0.r.z.a.a("socail_share", -1L, 0, WXEntryActivityConfig.WX_SHARE_FAIL, i2, "", "share_fail_exception", str + "&" + this.f63318i.e());
+        d.a.m0.r.z.a.a("socail_share", -1L, 0, WXEntryActivityConfig.WX_SHARE_FAIL, i2, "", "share_fail_exception", str + "&" + this.f67033i.e());
     }
 
     public byte[] m0(Bitmap bitmap, boolean z) {

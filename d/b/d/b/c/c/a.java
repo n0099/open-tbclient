@@ -9,10 +9,10 @@ import java.util.HashMap;
 public abstract class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65881a;
+    public final String f69612a;
 
     public a(String str) {
-        this.f65881a = str;
+        this.f69612a = str;
     }
 
     public abstract ContentValues a(T t);
@@ -23,7 +23,7 @@ public abstract class a<T> {
         try {
             StringBuilder sb = new StringBuilder();
             sb.append("CREATE TABLE ");
-            sb.append(this.f65881a);
+            sb.append(this.f69612a);
             sb.append(" (_id INTEGER PRIMARY KEY AUTOINCREMENT, ");
             HashMap<String, String> b2 = b();
             if (b2 != null) {
@@ -47,7 +47,7 @@ public abstract class a<T> {
             return;
         }
         try {
-            sQLiteDatabase.insert(this.f65881a, null, a(t));
+            sQLiteDatabase.insert(this.f69612a, null, a(t));
         } catch (Exception e2) {
             l.k.c(e2);
         }

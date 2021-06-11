@@ -9,48 +9,48 @@ import java.util.Iterator;
 public final class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f43508c;
+    public static volatile b f47184c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<d.a.l0.a.v2.e1.b<Exception>> f43509a = new ArrayList<>();
+    public ArrayList<d.a.l0.a.v2.e1.b<Exception>> f47185a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<d.a.l0.a.v2.e1.b<Exception>> f43510b = new ArrayList<>();
+    public ArrayList<d.a.l0.a.v2.e1.b<Exception>> f47186b = new ArrayList<>();
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f43511e;
+        public final /* synthetic */ int f47187e;
 
         public a(b bVar, int i2) {
-            this.f43511e = i2;
+            this.f47187e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.h("PresetSwanCoreUpdater", "onPresetCheck start.");
-            d.a.l0.a.m2.e.a.s(this.f43511e);
+            d.a.l0.a.m2.e.a.s(this.f47187e);
             d.h("PresetSwanCoreUpdater", "onPresetCheck end.");
         }
     }
 
     /* renamed from: d.a.l0.a.m2.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0747b implements Runnable {
+    public class RunnableC0803b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f43512e;
+        public final /* synthetic */ int f47188e;
 
-        public RunnableC0747b(int i2) {
-            this.f43512e = i2;
+        public RunnableC0803b(int i2) {
+            this.f47188e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.h("PresetSwanCoreUpdater", "onPresetUpdate start.");
             b bVar = b.this;
-            int i2 = this.f43512e;
+            int i2 = this.f47188e;
             bVar.c(i2, d.a.l0.a.m2.e.a.t(i2));
             d.h("PresetSwanCoreUpdater", "onPresetUpdate end.");
         }
@@ -60,52 +60,52 @@ public final class b {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f43514e;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f47190e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Exception f43515f;
+        public final /* synthetic */ Exception f47191f;
 
         public c(b bVar, d.a.l0.a.v2.e1.b bVar2, Exception exc) {
-            this.f43514e = bVar2;
-            this.f43515f = exc;
+            this.f47190e = bVar2;
+            this.f47191f = exc;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f43514e.onCallback(this.f43515f);
+            this.f47190e.onCallback(this.f47191f);
         }
     }
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public static b b() {
-        if (f43508c == null) {
+        if (f47184c == null) {
             synchronized (b.class) {
-                if (f43508c == null) {
-                    f43508c = new b();
+                if (f47184c == null) {
+                    f47184c = new b();
                 }
             }
         }
-        return f43508c;
+        return f47184c;
     }
 
     public final void c(int i2, Exception exc) {
         synchronized (b.class) {
             try {
                 if (i2 == 0) {
-                    Iterator<d.a.l0.a.v2.e1.b<Exception>> it = this.f43509a.iterator();
+                    Iterator<d.a.l0.a.v2.e1.b<Exception>> it = this.f47185a.iterator();
                     while (it.hasNext()) {
                         d(it.next(), exc);
                     }
-                    this.f43509a.clear();
+                    this.f47185a.clear();
                 } else if (i2 == 1) {
-                    Iterator<d.a.l0.a.v2.e1.b<Exception>> it2 = this.f43510b.iterator();
+                    Iterator<d.a.l0.a.v2.e1.b<Exception>> it2 = this.f47186b.iterator();
                     while (it2.hasNext()) {
                         d(it2.next(), exc);
                     }
-                    this.f43510b.clear();
+                    this.f47186b.clear();
                 }
             } catch (Throwable th) {
                 throw th;
@@ -134,12 +134,12 @@ public final class b {
                 return;
             }
             if (i2 == 1) {
-                arrayList = this.f43510b;
+                arrayList = this.f47186b;
             } else {
-                arrayList = this.f43509a;
+                arrayList = this.f47185a;
             }
             if (arrayList.isEmpty()) {
-                new Thread(new RunnableC0747b(i2), "updateSwanCoreAsync").start();
+                new Thread(new RunnableC0803b(i2), "updateSwanCoreAsync").start();
             }
             arrayList.add(bVar);
             d.h("PresetSwanCoreUpdater", "updateSwanCoreAsync end.");

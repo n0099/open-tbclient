@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
+import com.kwad.sdk.core.imageloader.utils.L;
 import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
 public class ImageViewAware extends ViewAware {
@@ -26,7 +27,8 @@ public class ImageViewAware extends ViewAware {
                 return 0;
             }
             return intValue;
-        } catch (Exception unused) {
+        } catch (Exception e2) {
+            L.e(e2);
             return 0;
         }
     }

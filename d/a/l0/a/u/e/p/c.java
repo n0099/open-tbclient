@@ -55,18 +55,18 @@ public class c extends d.a.l0.a.u.c.d {
 
     /* renamed from: d.a.l0.a.u.e.p.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0869c implements g.a {
+    public class C0925c implements g.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45198a;
+        public final /* synthetic */ String f48872a;
 
-        public C0869c(c cVar, String str) {
-            this.f45198a = str;
+        public C0925c(c cVar, String str) {
+            this.f48872a = str;
         }
 
         @Override // d.a.l0.a.h0.i.g.a
         public void a(@NonNull d.a.l0.a.h0.i.g gVar) {
-            d.a.l0.a.h0.i.d.b(this.f45198a);
+            d.a.l0.a.h0.i.d.b(this.f48872a);
             i.q(1);
             d.a.l0.a.h0.i.f.c("skeleton", gVar);
             i.i(d.a.l0.a.h0.i.c.b("5秒内未触发骨架屏移除；", gVar));
@@ -84,13 +84,13 @@ public class c extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b s(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-HandleException", "params = " + str);
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-HandleException", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-HandleException", "parse fail");
             }
             return bVar;
@@ -100,7 +100,7 @@ public class c extends d.a.l0.a.u.c.d {
         if (TextUtils.isEmpty(optString)) {
             return new d.a.l0.a.u.h.b(202, "code is required");
         }
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-HandleException", "code: " + optString + "msg: " + jSONObject.optString("msg"));
         }
         char c2 = 65535;
@@ -180,7 +180,7 @@ public class c extends d.a.l0.a.u.c.d {
             }
             return new d.a.l0.a.u.h.b(0);
         } catch (JSONException e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e2.printStackTrace();
             }
             return new d.a.l0.a.u.h.b(202, "invalid json data: " + optString);
@@ -197,7 +197,7 @@ public class c extends d.a.l0.a.u.c.d {
         String optString3 = optJSONObject.optString("source");
         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
             d.a.l0.a.e0.d.h("Api-HandleException", String.format("发生jserror: type = %s, source = %s, content = %s", optString2, optString3, optString));
-            i.m(a.C0666a.a(optString2, optString, optString3));
+            i.m(a.C0722a.a(optString2, optString, optString3));
             return new d.a.l0.a.u.h.b(0);
         }
         return new d.a.l0.a.u.h.b(202);
@@ -205,7 +205,7 @@ public class c extends d.a.l0.a.u.c.d {
 
     public final d.a.l0.a.u.h.b v(JSONObject jSONObject) {
         if (w()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-HandleException", "has triggered fmp before remove skeleton");
             }
             return new d.a.l0.a.u.h.b(0);
@@ -220,13 +220,13 @@ public class c extends d.a.l0.a.u.c.d {
                 return new d.a.l0.a.u.h.b(202, "path is required");
             }
             if (q0.I(optString2) && q0.H()) {
-                i.s(new C0869c(this, optString2));
-            } else if (d.a.l0.a.u.c.d.f44812c) {
+                i.s(new C0925c(this, optString2));
+            } else if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-HandleException", "path is not first page: " + optString2);
             }
             return new d.a.l0.a.u.h.b(0);
         } catch (JSONException e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e2.printStackTrace();
             }
             return new d.a.l0.a.u.h.b(202, "invalid json data: " + optString);

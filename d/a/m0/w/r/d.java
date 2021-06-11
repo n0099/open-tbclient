@@ -8,12 +8,12 @@ import d.a.m0.w.m;
 public class d extends m {
     public d(Context context, int i2) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_image), 10, i2);
-        this.f50850d = R.drawable.icon_pure_post_image24;
-        this.f50851e = R.drawable.icon_pure_post_image24_selection;
-        this.f50852f = R.drawable.icon_post_image24_big;
-        this.f50853g = false;
-        this.f50854h = true;
-        this.f50855i = false;
+        this.f54527d = R.drawable.icon_pure_post_image24;
+        this.f54528e = R.drawable.icon_pure_post_image24_selection;
+        this.f54529f = R.drawable.icon_post_image24_big;
+        this.f54530g = false;
+        this.f54531h = true;
+        this.f54532i = false;
         this.n = new int[]{14};
     }
 }

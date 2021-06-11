@@ -6,21 +6,21 @@ import java.util.Map;
 public class f<K, V> {
 
     /* renamed from: h  reason: collision with root package name */
-    public static Object[] f48302h;
+    public static Object[] f51976h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f48303i;
+    public static int f51977i;
     public static Object[] j;
     public static int k;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f48304e = b.f48283a;
+    public int[] f51978e = b.f51957a;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object[] f48305f = b.f48284b;
+    public Object[] f51979f = b.f51958b;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48306g = 0;
+    public int f51980g = 0;
 
     public static void c(int[] iArr, Object[] objArr, int i2) {
         if (iArr.length == 8) {
@@ -37,14 +37,14 @@ public class f<K, V> {
             }
         } else if (iArr.length == 4) {
             synchronized (a.class) {
-                if (f48303i < 10) {
-                    objArr[0] = f48302h;
+                if (f51977i < 10) {
+                    objArr[0] = f51976h;
                     objArr[1] = iArr;
                     for (int i4 = (i2 << 1) - 1; i4 >= 2; i4--) {
                         objArr[i4] = null;
                     }
-                    f48302h = objArr;
-                    f48303i++;
+                    f51976h = objArr;
+                    f51977i++;
                 }
             }
         }
@@ -55,9 +55,9 @@ public class f<K, V> {
             synchronized (a.class) {
                 if (j != null) {
                     Object[] objArr = j;
-                    this.f48305f = objArr;
+                    this.f51979f = objArr;
                     j = (Object[]) objArr[0];
-                    this.f48304e = (int[]) objArr[1];
+                    this.f51978e = (int[]) objArr[1];
                     objArr[1] = null;
                     objArr[0] = null;
                     k--;
@@ -66,43 +66,43 @@ public class f<K, V> {
             }
         } else if (i2 == 4) {
             synchronized (a.class) {
-                if (f48302h != null) {
-                    Object[] objArr2 = f48302h;
-                    this.f48305f = objArr2;
-                    f48302h = (Object[]) objArr2[0];
-                    this.f48304e = (int[]) objArr2[1];
+                if (f51976h != null) {
+                    Object[] objArr2 = f51976h;
+                    this.f51979f = objArr2;
+                    f51976h = (Object[]) objArr2[0];
+                    this.f51978e = (int[]) objArr2[1];
                     objArr2[1] = null;
                     objArr2[0] = null;
-                    f48303i--;
+                    f51977i--;
                     return;
                 }
             }
         }
-        this.f48304e = new int[i2];
-        this.f48305f = new Object[i2 << 1];
+        this.f51978e = new int[i2];
+        this.f51979f = new Object[i2 << 1];
     }
 
     public void b(int i2) {
-        int[] iArr = this.f48304e;
+        int[] iArr = this.f51978e;
         if (iArr.length < i2) {
-            Object[] objArr = this.f48305f;
+            Object[] objArr = this.f51979f;
             a(i2);
-            int i3 = this.f48306g;
+            int i3 = this.f51980g;
             if (i3 > 0) {
-                System.arraycopy(iArr, 0, this.f48304e, 0, i3);
-                System.arraycopy(objArr, 0, this.f48305f, 0, this.f48306g << 1);
+                System.arraycopy(iArr, 0, this.f51978e, 0, i3);
+                System.arraycopy(objArr, 0, this.f51979f, 0, this.f51980g << 1);
             }
-            c(iArr, objArr, this.f48306g);
+            c(iArr, objArr, this.f51980g);
         }
     }
 
     public void clear() {
-        int i2 = this.f48306g;
+        int i2 = this.f51980g;
         if (i2 != 0) {
-            c(this.f48304e, this.f48305f, i2);
-            this.f48304e = b.f48283a;
-            this.f48305f = b.f48284b;
-            this.f48306g = 0;
+            c(this.f51978e, this.f51979f, i2);
+            this.f51978e = b.f51957a;
+            this.f51979f = b.f51958b;
+            this.f51980g = 0;
         }
     }
 
@@ -115,21 +115,21 @@ public class f<K, V> {
     }
 
     public int d(Object obj, int i2) {
-        int i3 = this.f48306g;
+        int i3 = this.f51980g;
         if (i3 == 0) {
             return -1;
         }
-        int a2 = b.a(this.f48304e, i3, i2);
-        if (a2 >= 0 && !obj.equals(this.f48305f[a2 << 1])) {
+        int a2 = b.a(this.f51978e, i3, i2);
+        if (a2 >= 0 && !obj.equals(this.f51979f[a2 << 1])) {
             int i4 = a2 + 1;
-            while (i4 < i3 && this.f48304e[i4] == i2) {
-                if (obj.equals(this.f48305f[i4 << 1])) {
+            while (i4 < i3 && this.f51978e[i4] == i2) {
+                if (obj.equals(this.f51979f[i4 << 1])) {
                     return i4;
                 }
                 i4++;
             }
-            for (int i5 = a2 - 1; i5 >= 0 && this.f48304e[i5] == i2; i5--) {
-                if (obj.equals(this.f48305f[i5 << 1])) {
+            for (int i5 = a2 - 1; i5 >= 0 && this.f51978e[i5] == i2; i5--) {
+                if (obj.equals(this.f51979f[i5 << 1])) {
                     return i5;
                 }
             }
@@ -151,7 +151,7 @@ public class f<K, V> {
             if (size() != map.size()) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.f48306g; i2++) {
+            for (int i2 = 0; i2 < this.f51980g; i2++) {
                 try {
                     K h2 = h(i2);
                     V k2 = k(i2);
@@ -172,21 +172,21 @@ public class f<K, V> {
     }
 
     public int f() {
-        int i2 = this.f48306g;
+        int i2 = this.f51980g;
         if (i2 == 0) {
             return -1;
         }
-        int a2 = b.a(this.f48304e, i2, 0);
-        if (a2 >= 0 && this.f48305f[a2 << 1] != null) {
+        int a2 = b.a(this.f51978e, i2, 0);
+        if (a2 >= 0 && this.f51979f[a2 << 1] != null) {
             int i3 = a2 + 1;
-            while (i3 < i2 && this.f48304e[i3] == 0) {
-                if (this.f48305f[i3 << 1] == null) {
+            while (i3 < i2 && this.f51978e[i3] == 0) {
+                if (this.f51979f[i3 << 1] == null) {
                     return i3;
                 }
                 i3++;
             }
-            for (int i4 = a2 - 1; i4 >= 0 && this.f48304e[i4] == 0; i4--) {
-                if (this.f48305f[i4 << 1] == null) {
+            for (int i4 = a2 - 1; i4 >= 0 && this.f51978e[i4] == 0; i4--) {
+                if (this.f51979f[i4 << 1] == null) {
                     return i4;
                 }
             }
@@ -196,8 +196,8 @@ public class f<K, V> {
     }
 
     public int g(Object obj) {
-        int i2 = this.f48306g * 2;
-        Object[] objArr = this.f48305f;
+        int i2 = this.f51980g * 2;
+        Object[] objArr = this.f51979f;
         if (obj == null) {
             for (int i3 = 1; i3 < i2; i3 += 2) {
                 if (objArr[i3] == null) {
@@ -217,19 +217,19 @@ public class f<K, V> {
     public V get(Object obj) {
         int e2 = e(obj);
         if (e2 >= 0) {
-            return (V) this.f48305f[(e2 << 1) + 1];
+            return (V) this.f51979f[(e2 << 1) + 1];
         }
         return null;
     }
 
     public K h(int i2) {
-        return (K) this.f48305f[i2 << 1];
+        return (K) this.f51979f[i2 << 1];
     }
 
     public int hashCode() {
-        int[] iArr = this.f48304e;
-        Object[] objArr = this.f48305f;
-        int i2 = this.f48306g;
+        int[] iArr = this.f51978e;
+        Object[] objArr = this.f51979f;
+        int i2 = this.f51980g;
         int i3 = 1;
         int i4 = 0;
         int i5 = 0;
@@ -243,45 +243,45 @@ public class f<K, V> {
     }
 
     public V i(int i2) {
-        Object[] objArr = this.f48305f;
+        Object[] objArr = this.f51979f;
         int i3 = i2 << 1;
         V v = (V) objArr[i3 + 1];
-        int i4 = this.f48306g;
+        int i4 = this.f51980g;
         if (i4 <= 1) {
-            c(this.f48304e, objArr, i4);
-            this.f48304e = b.f48283a;
-            this.f48305f = b.f48284b;
-            this.f48306g = 0;
+            c(this.f51978e, objArr, i4);
+            this.f51978e = b.f51957a;
+            this.f51979f = b.f51958b;
+            this.f51980g = 0;
         } else {
-            int[] iArr = this.f48304e;
+            int[] iArr = this.f51978e;
             if (iArr.length > 8 && i4 < iArr.length / 3) {
                 int i5 = i4 > 8 ? i4 + (i4 >> 1) : 8;
-                int[] iArr2 = this.f48304e;
-                Object[] objArr2 = this.f48305f;
+                int[] iArr2 = this.f51978e;
+                Object[] objArr2 = this.f51979f;
                 a(i5);
-                this.f48306g--;
+                this.f51980g--;
                 if (i2 > 0) {
-                    System.arraycopy(iArr2, 0, this.f48304e, 0, i2);
-                    System.arraycopy(objArr2, 0, this.f48305f, 0, i3);
+                    System.arraycopy(iArr2, 0, this.f51978e, 0, i2);
+                    System.arraycopy(objArr2, 0, this.f51979f, 0, i3);
                 }
-                int i6 = this.f48306g;
+                int i6 = this.f51980g;
                 if (i2 < i6) {
                     int i7 = i2 + 1;
-                    System.arraycopy(iArr2, i7, this.f48304e, i2, i6 - i2);
-                    System.arraycopy(objArr2, i7 << 1, this.f48305f, i3, (this.f48306g - i2) << 1);
+                    System.arraycopy(iArr2, i7, this.f51978e, i2, i6 - i2);
+                    System.arraycopy(objArr2, i7 << 1, this.f51979f, i3, (this.f51980g - i2) << 1);
                 }
             } else {
-                int i8 = this.f48306g - 1;
-                this.f48306g = i8;
+                int i8 = this.f51980g - 1;
+                this.f51980g = i8;
                 if (i2 < i8) {
-                    int[] iArr3 = this.f48304e;
+                    int[] iArr3 = this.f51978e;
                     int i9 = i2 + 1;
                     System.arraycopy(iArr3, i9, iArr3, i2, i8 - i2);
-                    Object[] objArr3 = this.f48305f;
-                    System.arraycopy(objArr3, i9 << 1, objArr3, i3, (this.f48306g - i2) << 1);
+                    Object[] objArr3 = this.f51979f;
+                    System.arraycopy(objArr3, i9 << 1, objArr3, i3, (this.f51980g - i2) << 1);
                 }
-                Object[] objArr4 = this.f48305f;
-                int i10 = this.f48306g;
+                Object[] objArr4 = this.f51979f;
+                int i10 = this.f51980g;
                 objArr4[i10 << 1] = null;
                 objArr4[(i10 << 1) + 1] = null;
             }
@@ -290,19 +290,19 @@ public class f<K, V> {
     }
 
     public boolean isEmpty() {
-        return this.f48306g <= 0;
+        return this.f51980g <= 0;
     }
 
     public V j(int i2, V v) {
         int i3 = (i2 << 1) + 1;
-        Object[] objArr = this.f48305f;
+        Object[] objArr = this.f51979f;
         V v2 = (V) objArr[i3];
         objArr[i3] = v;
         return v2;
     }
 
     public V k(int i2) {
-        return (V) this.f48305f[(i2 << 1) + 1];
+        return (V) this.f51979f[(i2 << 1) + 1];
     }
 
     public V put(K k2, V v) {
@@ -318,44 +318,44 @@ public class f<K, V> {
         }
         if (d2 >= 0) {
             int i3 = (d2 << 1) + 1;
-            Object[] objArr = this.f48305f;
+            Object[] objArr = this.f51979f;
             V v2 = (V) objArr[i3];
             objArr[i3] = v;
             return v2;
         }
         int i4 = ~d2;
-        int i5 = this.f48306g;
-        if (i5 >= this.f48304e.length) {
+        int i5 = this.f51980g;
+        if (i5 >= this.f51978e.length) {
             int i6 = 4;
             if (i5 >= 8) {
                 i6 = (i5 >> 1) + i5;
             } else if (i5 >= 4) {
                 i6 = 8;
             }
-            int[] iArr = this.f48304e;
-            Object[] objArr2 = this.f48305f;
+            int[] iArr = this.f51978e;
+            Object[] objArr2 = this.f51979f;
             a(i6);
-            int[] iArr2 = this.f48304e;
+            int[] iArr2 = this.f51978e;
             if (iArr2.length > 0) {
                 System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-                System.arraycopy(objArr2, 0, this.f48305f, 0, objArr2.length);
+                System.arraycopy(objArr2, 0, this.f51979f, 0, objArr2.length);
             }
-            c(iArr, objArr2, this.f48306g);
+            c(iArr, objArr2, this.f51980g);
         }
-        int i7 = this.f48306g;
+        int i7 = this.f51980g;
         if (i4 < i7) {
-            int[] iArr3 = this.f48304e;
+            int[] iArr3 = this.f51978e;
             int i8 = i4 + 1;
             System.arraycopy(iArr3, i4, iArr3, i8, i7 - i4);
-            Object[] objArr3 = this.f48305f;
-            System.arraycopy(objArr3, i4 << 1, objArr3, i8 << 1, (this.f48306g - i4) << 1);
+            Object[] objArr3 = this.f51979f;
+            System.arraycopy(objArr3, i4 << 1, objArr3, i8 << 1, (this.f51980g - i4) << 1);
         }
-        this.f48304e[i4] = i2;
-        Object[] objArr4 = this.f48305f;
+        this.f51978e[i4] = i2;
+        Object[] objArr4 = this.f51979f;
         int i9 = i4 << 1;
         objArr4[i9] = k2;
         objArr4[i9 + 1] = v;
-        this.f48306g++;
+        this.f51980g++;
         return null;
     }
 
@@ -368,16 +368,16 @@ public class f<K, V> {
     }
 
     public int size() {
-        return this.f48306g;
+        return this.f51980g;
     }
 
     public String toString() {
         if (isEmpty()) {
             return StringUtil.EMPTY_ARRAY;
         }
-        StringBuilder sb = new StringBuilder(this.f48306g * 28);
+        StringBuilder sb = new StringBuilder(this.f51980g * 28);
         sb.append('{');
-        for (int i2 = 0; i2 < this.f48306g; i2++) {
+        for (int i2 = 0; i2 < this.f51980g; i2++) {
             if (i2 > 0) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
@@ -387,7 +387,7 @@ public class f<K, V> {
             } else {
                 sb.append("(this Map)");
             }
-            sb.append(com.alipay.sdk.encrypt.a.f1873h);
+            sb.append(com.alipay.sdk.encrypt.a.f1886h);
             V k2 = k(i2);
             if (k2 != this) {
                 sb.append(k2);

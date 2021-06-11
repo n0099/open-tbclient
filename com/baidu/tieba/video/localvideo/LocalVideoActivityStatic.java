@@ -22,7 +22,7 @@ public class LocalVideoActivityStatic {
             if (customMessage == null || !(customMessage.getData() instanceof d.a.n0.r3.b)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2921466, new d.a.n0.r3.j.h.b((d.a.n0.r3.b) customMessage.getData()));
+            return new CustomResponsedMessage<>(2921466, new d.a.n0.r3.i.h.b((d.a.n0.r3.b) customMessage.getData()));
         }
     }
 

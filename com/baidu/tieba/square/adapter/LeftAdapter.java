@@ -18,30 +18,30 @@ import java.util.List;
 public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f20596a;
+    public Context f20673a;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f20598c;
+    public List<String> f20675c;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f20597b = null;
+    public b f20674b = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20599d = 0;
+    public int f20676d = 0;
 
     /* loaded from: classes5.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f20600a;
+        public TextView f20677a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f20601b;
+        public View f20678b;
 
         public ViewHolder(@NonNull LeftAdapter leftAdapter, View view) {
             super(view);
-            this.f20600a = (TextView) view.findViewById(R.id.tv_class_name);
-            this.f20601b = view.findViewById(R.id.tv_line);
+            this.f20677a = (TextView) view.findViewById(R.id.tv_class_name);
+            this.f20678b = view.findViewById(R.id.tv_line);
         }
     }
 
@@ -49,28 +49,28 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f20602e;
+        public final /* synthetic */ int f20679e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewHolder f20603f;
+        public final /* synthetic */ ViewHolder f20680f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f20604g;
+        public final /* synthetic */ String f20681g;
 
         public a(int i2, ViewHolder viewHolder, String str) {
-            this.f20602e = i2;
-            this.f20603f = viewHolder;
-            this.f20604g = str;
+            this.f20679e = i2;
+            this.f20680f = viewHolder;
+            this.f20681g = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            LeftAdapter.this.k(this.f20602e);
-            if (LeftAdapter.this.f20597b != null) {
-                LeftAdapter.this.f20597b.a(this.f20603f.itemView, this.f20602e, this.f20604g);
+            LeftAdapter.this.r(this.f20679e);
+            if (LeftAdapter.this.f20674b != null) {
+                LeftAdapter.this.f20674b.a(this.f20680f.itemView, this.f20679e, this.f20681g);
             }
             StatisticItem statisticItem = new StatisticItem("c13649");
-            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f20604g);
+            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f20681g);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -81,39 +81,48 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     public LeftAdapter(Context context) {
-        this.f20596a = context;
+        this.f20673a = context;
     }
 
-    public String d(int i2) {
-        return (String) ListUtils.getItem(this.f20598c, i2);
+    public String g(int i2) {
+        return (String) ListUtils.getItem(this.f20675c, i2);
     }
 
-    public int e(String str) {
-        return ListUtils.getPosition(this.f20598c, str);
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        List<String> list = this.f20675c;
+        if (list == null) {
+            return 0;
+        }
+        return list.size();
     }
 
-    public String f() {
-        return d(this.f20599d);
+    public int h(String str) {
+        return ListUtils.getPosition(this.f20675c, str);
+    }
+
+    public String m() {
+        return g(this.f20676d);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: g */
+    /* renamed from: n */
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i2) {
-        String str = this.f20598c.get(i2);
+        String str = this.f20675c.get(i2);
         viewHolder.itemView.setTag(Integer.valueOf(i2));
-        viewHolder.f20600a.setText(str);
-        if (this.f20599d == i2) {
-            viewHolder.f20601b.setVisibility(0);
-            SkinManager.setBackgroundColor(viewHolder.f20601b, R.color.CAM_X0302);
+        viewHolder.f20677a.setText(str);
+        if (this.f20676d == i2) {
+            viewHolder.f20678b.setVisibility(0);
+            SkinManager.setBackgroundColor(viewHolder.f20678b, R.color.CAM_X0302);
             SkinManager.setBackgroundColor(viewHolder.itemView, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(viewHolder.f20600a, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(viewHolder.f20677a, R.color.CAM_X0105);
         } else {
-            viewHolder.f20601b.setVisibility(8);
+            viewHolder.f20678b.setVisibility(8);
             SkinManager.setBackgroundColor(viewHolder.itemView, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(viewHolder.f20600a, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(viewHolder.f20677a, R.color.CAM_X0107);
         }
-        if ("推荐".equals(f())) {
+        if ("推荐".equals(m())) {
             StatisticItem statisticItem = new StatisticItem("c13641");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("obj_locate", 3);
@@ -122,35 +131,26 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         viewHolder.itemView.setOnClickListener(new a(i2, viewHolder, str));
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        List<String> list = this.f20598c;
-        if (list == null) {
-            return 0;
-        }
-        return list.size();
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: h */
+    /* renamed from: o */
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
-        return new ViewHolder(this, LayoutInflater.from(this.f20596a).inflate(R.layout.left_item_layout, viewGroup, false));
+        return new ViewHolder(this, LayoutInflater.from(this.f20673a).inflate(R.layout.left_item_layout, viewGroup, false));
     }
 
-    public void i(int i2, List<String> list) {
-        this.f20599d = i2;
-        this.f20598c = list;
+    public void p(int i2, List<String> list) {
+        this.f20676d = i2;
+        this.f20675c = list;
         notifyDataSetChanged();
     }
 
-    public void j(b bVar) {
-        this.f20597b = bVar;
+    public void q(b bVar) {
+        this.f20674b = bVar;
     }
 
-    public void k(int i2) {
-        this.f20599d = i2;
+    public void r(int i2) {
+        this.f20676d = i2;
         notifyDataSetChanged();
     }
 }

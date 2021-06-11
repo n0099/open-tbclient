@@ -43,7 +43,7 @@ import tbclient.PbContent;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f49123a;
+    public static String f52797a;
 
     /* loaded from: classes3.dex */
     public static class a extends f {
@@ -115,7 +115,7 @@ public class e {
 
     /* renamed from: d.a.m0.b1.m.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1112e extends ClickableSpan {
+    public static class C1168e extends ClickableSpan {
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -218,21 +218,21 @@ public class e {
     }
 
     public static void h(StatisticItem statisticItem, a2 a2Var) {
-        if (a2Var.C2()) {
+        if (a2Var.D2()) {
             statisticItem.param("obj_type", 2);
-        } else if (a2Var.h2()) {
+        } else if (a2Var.i2()) {
             statisticItem.param("obj_type", 4);
-        } else if (a2Var.t1) {
+        } else if (a2Var.u1) {
             statisticItem.param("obj_type", 5);
-        } else if (a2Var.Q1()) {
-            statisticItem.param("obj_type", 6);
         } else if (a2Var.R1()) {
-            statisticItem.param("obj_type", 7);
-        } else if (a2Var.T1()) {
-            statisticItem.param("obj_type", 8);
+            statisticItem.param("obj_type", 6);
         } else if (a2Var.S1()) {
+            statisticItem.param("obj_type", 7);
+        } else if (a2Var.U1()) {
+            statisticItem.param("obj_type", 8);
+        } else if (a2Var.T1()) {
             statisticItem.param("obj_type", 9);
-        } else if (a2Var.getType() == a2.J2) {
+        } else if (a2Var.getType() == a2.M2) {
             statisticItem.param("obj_type", 1);
         }
     }
@@ -244,7 +244,7 @@ public class e {
     public static SpannableString j(String str) {
         int b2;
         String str2;
-        a.C1099a c2;
+        a.C1155a c2;
         double d2;
         int a2;
         if (str == null || (b2 = TbFaceManager.e().b(str)) == 0) {
@@ -368,11 +368,11 @@ public class e {
                 eMRichTextAnyIconSpan2.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                 spannableString.setSpan(eMRichTextAnyIconSpan2, str.length() - 1, str.length() + 1, 33);
                 spannableString.setSpan(dVar, 0, str.length() - 1, 33);
-                if (f49123a != a2Var.y1()) {
-                    f49123a = a2Var.y1();
+                if (f52797a != a2Var.z1()) {
+                    f52797a = a2Var.z1();
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_EXPOSURE);
-                    statisticItem.param("tid", f49123a);
-                    statisticItem.param("obj_locate", a2Var.U1 ? 1 : 2);
+                    statisticItem.param("tid", f52797a);
+                    statisticItem.param("obj_locate", a2Var.V1 ? 1 : 2);
                     TiebaStatic.log(statisticItem);
                     return spannableString;
                 }
@@ -401,7 +401,7 @@ public class e {
         bVar.g(true);
         bVar.d(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
         if (WorkIntroSwitch.isOn()) {
-            spannableString.setSpan(new C1112e(), 0, spannableString.length(), 33);
+            spannableString.setSpan(new C1168e(), 0, spannableString.length(), 33);
         }
         spannableString.setSpan(bVar, 0, spannableString.length(), 33);
         return spannableString;
@@ -439,11 +439,11 @@ public class e {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(currentActivity, str, null)));
         if (a2Var != null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
-            if (a2Var.a2()) {
+            if (a2Var.b2()) {
                 statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
                 statisticItem.param("obj_source", 1);
                 h(statisticItem, a2Var);
-            } else if (a2Var.U1) {
+            } else if (a2Var.V1) {
                 statisticItem.param("obj_source", 2);
                 if (a2Var.V() != null) {
                     statisticItem.param("obj_type", a2Var.V().oriUgcType);
@@ -461,8 +461,8 @@ public class e {
 
     public static void t(String str, a2 a2Var) {
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ITEM_THROUGH_CLICK);
-        statisticItem.param("tid", a2Var.y1());
-        statisticItem.param("obj_locate", a2Var.U1 ? 1 : 2);
+        statisticItem.param("tid", a2Var.z1());
+        statisticItem.param("obj_locate", a2Var.V1 ? 1 : 2);
         statisticItem.param("obj_type", str);
         TiebaStatic.log(statisticItem);
         HashMap hashMap = new HashMap(1);
@@ -486,13 +486,13 @@ public class e {
         }
         TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
         d.a.m0.t.m mVar = new d.a.m0.t.m();
-        mVar.f50797a = str;
+        mVar.f54474a = str;
         if (a2Var != null) {
-            mVar.f50798b = a2Var.b1();
-            mVar.f50799c = a2Var.O0();
+            mVar.f54475b = a2Var.c1();
+            mVar.f54476c = a2Var.O0();
         }
         d.a.m0.p0.b.i(mVar);
-        UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{mVar.f50797a, mVar.f50799c});
+        UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{mVar.f54474a, mVar.f54476c});
     }
 
     public static SpannableStringBuilder w(a2 a2Var, List<PbContent> list, String str) {

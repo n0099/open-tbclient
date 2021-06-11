@@ -72,7 +72,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         }
         d.a.n0.w2.e.a aVar = new d.a.n0.w2.e.a(getPageContext(), (intExtra << 2) | intExtra2);
         this.privacyMarkView = aVar;
-        setContentView(aVar.j());
+        setContentView(aVar.i());
         registerListener(this.setPrivateHttpListener);
     }
 }

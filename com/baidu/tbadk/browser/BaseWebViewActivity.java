@@ -128,7 +128,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (!TextUtils.isEmpty(BaseWebViewActivity.this.getShareInfo())) {
                 BaseWebViewActivity baseWebViewActivity = BaseWebViewActivity.this;
                 ThreadAchievementShareDialogView threadAchievementShareDialogView = new ThreadAchievementShareDialogView(baseWebViewActivity, baseWebViewActivity.getShareInfo());
-                ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.f11959e;
+                ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.f12021e;
                 if (threadAchievementShareInfo != null && threadAchievementShareInfo.getParams() != null) {
                     d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(BaseWebViewActivity.this);
                     if (threadAchievementShareDialogView.h(BaseWebViewActivity.this.getPageContext(), aVar)) {
@@ -303,11 +303,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         a.b d2 = d.a.m0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
         String str2 = "";
         if (d2 != null) {
-            String str3 = d2.f49863a;
+            String str3 = d2.f53539a;
             if (str3 == null) {
                 str3 = "";
             }
-            str = d2.f49864b;
+            str = d2.f53540b;
             if (str == null) {
                 str = "";
             }
@@ -323,6 +323,40 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         }
         this.mCookieInfo = bVar;
         return z;
+    }
+
+    public static Intent parseIntentFromUrl(Context context, String str) {
+        Uri parse;
+        if (context == null || str == null || (parse = Uri.parse(str)) == null) {
+            return null;
+        }
+        List<String> a2 = i.a();
+        if (ListUtils.isEmpty(a2)) {
+            return null;
+        }
+        String scheme = parse.getScheme();
+        boolean z = false;
+        Iterator<String> it = a2.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            } else if (it.next().equals(scheme)) {
+                z = true;
+                break;
+            }
+        }
+        if (z) {
+            Intent intent = new Intent("android.intent.action.VIEW", parse);
+            try {
+                if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
+                    return intent;
+                }
+                return null;
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return null;
     }
 
     private String parseWebViewUrl(String str) {
@@ -457,7 +491,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             shareItem.v = Uri.parse(str4);
         }
-        shareItem.f12601g = true;
+        shareItem.f12663g = true;
         shareItem.q = this.mUrl;
         shareItem.E = 13;
         Bundle bundle = new Bundle();
@@ -645,7 +679,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mView.w(this.mUrlTitle);
         }
         if (!this.mView.m() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
-            ViewHelper.addStateBarViewSpace(this.mView.f49457b, R.color.CAM_X0303, false);
+            ViewHelper.addStateBarViewSpace(this.mView.f53131b, R.color.CAM_X0303, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -735,40 +769,6 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     public void onWebViewLogin(boolean z) {
-    }
-
-    public Intent parseIntentFromUrl(Context context, String str) {
-        Uri parse;
-        if (context == null || str == null || (parse = Uri.parse(str)) == null) {
-            return null;
-        }
-        List<String> a2 = i.a();
-        if (ListUtils.isEmpty(a2)) {
-            return null;
-        }
-        String scheme = parse.getScheme();
-        boolean z = false;
-        Iterator<String> it = a2.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            } else if (it.next().equals(scheme)) {
-                z = true;
-                break;
-            }
-        }
-        if (z) {
-            Intent intent = new Intent("android.intent.action.VIEW", parse);
-            try {
-                if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
-                    return intent;
-                }
-                return null;
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return null;
     }
 
     public boolean parseUrlParam(String str) {

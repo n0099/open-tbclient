@@ -18,6 +18,7 @@ import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import com.baidu.wallet.util.StatHelper;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
@@ -117,7 +118,7 @@ public abstract class AbstractChannelPay implements IChannelPay {
         StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_ERROR, collectData, hashMap);
         if (context != null) {
             if (TextUtils.isEmpty(str2)) {
-                str2 = "支付失败";
+                str2 = EventAlias.PayEventAlias.PAY_FAIL;
             }
             GlobalUtils.toast(context, str2);
             int channelId = getChannelId();

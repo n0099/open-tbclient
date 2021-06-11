@@ -9,16 +9,16 @@ import com.baidu.platform.comapi.pano.c;
 public final class a implements a.InterfaceC0117a<c> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f7428a;
+    public final /* synthetic */ Context f7471a;
 
     public a(Context context) {
-        this.f7428a = context;
+        this.f7471a = context;
     }
 
     @Override // com.baidu.platform.comapi.pano.a.InterfaceC0117a
     public void a(HttpClient.HttpStateError httpStateError) {
         String str;
-        int i2 = b.f7430b[httpStateError.ordinal()];
+        int i2 = b.f7473b[httpStateError.ordinal()];
         if (i2 == 1) {
             str = "current network is not available";
         } else if (i2 != 2) {
@@ -37,7 +37,7 @@ public final class a implements a.InterfaceC0117a<c> {
             Log.d("baidumapsdk", "pano info is null");
             return;
         }
-        int i2 = b.f7429a[cVar.a().ordinal()];
+        int i2 = b.f7472a[cVar.a().ordinal()];
         if (i2 == 1) {
             str = "pano uid is error, please check param poi uid";
         } else if (i2 == 2) {
@@ -49,7 +49,7 @@ public final class a implements a.InterfaceC0117a<c> {
         } else {
             if (cVar.c() == 1) {
                 try {
-                    BaiduMapPoiSearch.b(cVar.b(), this.f7428a);
+                    BaiduMapPoiSearch.b(cVar.b(), this.f7471a);
                     return;
                 } catch (Exception e2) {
                     e2.printStackTrace();

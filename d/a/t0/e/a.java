@@ -2,7 +2,6 @@ package d.a.t0.e;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.baidu.sapi2.share.ShareCallPacking;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -10,17 +9,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f64656a = new AtomicBoolean(false);
+    public static final AtomicBoolean f68374a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<Integer, Boolean> f64657b = new HashMap<>();
+    public static HashMap<Integer, Boolean> f68375b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<Integer, Long> f64658c = new HashMap<>();
+    public static HashMap<Integer, Long> f68376c = new HashMap<>();
 
     public static long a(int i2) {
-        if (f64658c.containsKey(Integer.valueOf(i2))) {
-            return f64658c.get(Integer.valueOf(i2)).longValue();
+        if (f68376c.containsKey(Integer.valueOf(i2))) {
+            return f68376c.get(Integer.valueOf(i2)).longValue();
         }
         return Long.MAX_VALUE;
     }
@@ -31,28 +30,28 @@ public class a {
 
     public static synchronized void c(Context context) {
         synchronized (a.class) {
-            if (!f64656a.get()) {
+            if (!f68374a.get()) {
                 SharedPreferences b2 = b(context);
-                Iterator<Integer> it = b.f64659a.iterator();
+                Iterator<Integer> it = b.f68377a.iterator();
                 while (it.hasNext()) {
                     int intValue = it.next().intValue();
-                    HashMap<Integer, Long> hashMap = f64658c;
+                    HashMap<Integer, Long> hashMap = f68376c;
                     Integer valueOf = Integer.valueOf(intValue);
                     hashMap.put(valueOf, Long.valueOf(b2.getLong("cache_" + intValue, 10080L)));
-                    HashMap<Integer, Boolean> hashMap2 = f64657b;
+                    HashMap<Integer, Boolean> hashMap2 = f68375b;
                     Integer valueOf2 = Integer.valueOf(intValue);
                     hashMap2.put(valueOf2, Boolean.valueOf(b2.getBoolean("close_" + intValue, false)));
                 }
-                f64658c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
-                f64657b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
-                f64656a.set(true);
+                f68376c.put(20001, Long.MAX_VALUE);
+                f68375b.put(20001, Boolean.TRUE);
+                f68374a.set(true);
             }
         }
     }
 
     public static boolean d(int i2) {
-        if (f64657b.containsKey(Integer.valueOf(i2))) {
-            return f64657b.get(Integer.valueOf(i2)).booleanValue();
+        if (f68375b.containsKey(Integer.valueOf(i2))) {
+            return f68375b.get(Integer.valueOf(i2)).booleanValue();
         }
         return true;
     }

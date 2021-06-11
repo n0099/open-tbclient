@@ -9,19 +9,19 @@ import com.xiaomi.push.ie;
 public class r implements di {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37279a;
+    public Context f40958a;
 
     public r(Context context) {
-        this.f37279a = context;
+        this.f40958a = context;
     }
 
     @Override // com.xiaomi.push.di
     public String a() {
-        return b.m98a(this.f37279a).d();
+        return b.m97a(this.f40958a).d();
     }
 
     @Override // com.xiaomi.push.di
     public void a(ie ieVar, hf hfVar, hs hsVar) {
-        an.a(this.f37279a).a((an) ieVar, hfVar, hsVar);
+        an.a(this.f40958a).a((an) ieVar, hfVar, hsVar);
     }
 }

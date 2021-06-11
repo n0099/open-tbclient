@@ -12,19 +12,19 @@ public final class FragmentState implements Parcelable {
     public static final Parcelable.Creator<FragmentState> CREATOR = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f11864e;
+    public final String f11926e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f11865f;
+    public final int f11927f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f11866g;
+    public final boolean f11928g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f11867h;
+    public final int f11929h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f11868i;
+    public final int f11930i;
     public final String j;
     public final boolean k;
     public final boolean l;
@@ -50,11 +50,11 @@ public final class FragmentState implements Parcelable {
     }
 
     public FragmentState(Fragment fragment) {
-        this.f11864e = fragment.getClass().getName();
-        this.f11865f = fragment.j;
-        this.f11866g = fragment.s;
-        this.f11867h = fragment.A;
-        this.f11868i = fragment.B;
+        this.f11926e = fragment.getClass().getName();
+        this.f11927f = fragment.j;
+        this.f11928g = fragment.s;
+        this.f11929h = fragment.A;
+        this.f11930i = fragment.B;
         this.j = fragment.C;
         this.k = fragment.F;
         this.l = fragment.E;
@@ -71,22 +71,22 @@ public final class FragmentState implements Parcelable {
         if (bundle != null) {
             bundle.setClassLoader(h2.getClassLoader());
         }
-        this.o = Fragment.g0(h2, this.f11864e, this.m);
+        this.o = Fragment.g0(h2, this.f11926e, this.m);
         Bundle bundle2 = this.n;
         if (bundle2 != null) {
             bundle2.setClassLoader(h2.getClassLoader());
-            this.o.f11852h = this.n;
+            this.o.f11914h = this.n;
         }
-        this.o.k1(this.f11865f, fragment);
+        this.o.k1(this.f11927f, fragment);
         Fragment fragment3 = this.o;
-        fragment3.s = this.f11866g;
+        fragment3.s = this.f11928g;
         fragment3.u = true;
-        fragment3.A = this.f11867h;
-        fragment3.B = this.f11868i;
+        fragment3.A = this.f11929h;
+        fragment3.B = this.f11930i;
         fragment3.C = this.j;
         fragment3.F = this.k;
         fragment3.E = this.l;
-        fragment3.w = kVar.f48227d;
+        fragment3.w = kVar.f51901d;
         if (m.x) {
             Log.v("FragmentManager", "Instantiated fragment " + this.o);
         }
@@ -100,11 +100,11 @@ public final class FragmentState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f11864e);
-        parcel.writeInt(this.f11865f);
-        parcel.writeInt(this.f11866g ? 1 : 0);
-        parcel.writeInt(this.f11867h);
-        parcel.writeInt(this.f11868i);
+        parcel.writeString(this.f11926e);
+        parcel.writeInt(this.f11927f);
+        parcel.writeInt(this.f11928g ? 1 : 0);
+        parcel.writeInt(this.f11929h);
+        parcel.writeInt(this.f11930i);
         parcel.writeString(this.j);
         parcel.writeInt(this.k ? 1 : 0);
         parcel.writeInt(this.l ? 1 : 0);
@@ -113,11 +113,11 @@ public final class FragmentState implements Parcelable {
     }
 
     public FragmentState(Parcel parcel) {
-        this.f11864e = parcel.readString();
-        this.f11865f = parcel.readInt();
-        this.f11866g = parcel.readInt() != 0;
-        this.f11867h = parcel.readInt();
-        this.f11868i = parcel.readInt();
+        this.f11926e = parcel.readString();
+        this.f11927f = parcel.readInt();
+        this.f11928g = parcel.readInt() != 0;
+        this.f11929h = parcel.readInt();
+        this.f11930i = parcel.readInt();
         this.j = parcel.readString();
         this.k = parcel.readInt() != 0;
         this.l = parcel.readInt() != 0;

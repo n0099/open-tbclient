@@ -25,34 +25,34 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27258d;
+    public String f27361d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27259e;
+    public String f27362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f27260f;
+    public final Context f27363f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.core.d.l f27261g;
+    public final com.bytedance.sdk.openadsdk.core.d.l f27364g;
     public WebView p;
     public JSONObject v;
     public p w;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27255a = 1;
+    public int f27358a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27256b = false;
+    public boolean f27359b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27257c = -1;
+    public int f27360c = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27262h = "landingpage";
+    public String f27365h = "landingpage";
 
     /* renamed from: i  reason: collision with root package name */
-    public long f27263i = 0;
+    public long f27366i = 0;
     public long j = 0;
     public long k = 0;
     public long l = 0;
@@ -122,8 +122,8 @@ public class j {
     }
 
     public j(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, WebView webView) {
-        this.f27260f = context;
-        this.f27261g = lVar;
+        this.f27363f = context;
+        this.f27364g = lVar;
         this.p = webView;
         if (Build.VERSION.SDK_INT >= 19) {
             this.p.addJavascriptInterface(new a(), "JS_LANDING_PAGE_LOG_OBJ");
@@ -136,7 +136,7 @@ public class j {
             return;
         }
         if (!com.bytedance.sdk.openadsdk.core.p.h().u() || x.c(com.bytedance.sdk.openadsdk.core.p.a()) == 4) {
-            com.bytedance.sdk.openadsdk.h.a.a().a(this.s, this.f27261g, this.v);
+            com.bytedance.sdk.openadsdk.h.a.a().a(this.s, this.f27364g, this.v);
         }
     }
 
@@ -145,18 +145,18 @@ public class j {
         if (this.m == 0) {
             this.m = System.currentTimeMillis();
         }
-        this.f27263i = System.currentTimeMillis();
+        this.f27366i = System.currentTimeMillis();
     }
 
     public void c() {
         u.b("LandingPageLog", MissionEvent.MESSAGE_STOP);
-        if (this.f27255a == 2) {
+        if (this.f27358a == 2) {
             long currentTimeMillis = System.currentTimeMillis();
             this.j = currentTimeMillis;
-            long j = currentTimeMillis - this.f27263i;
+            long j = currentTimeMillis - this.f27366i;
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("load_status", this.f27255a);
+                jSONObject.put("load_status", this.f27358a);
                 jSONObject.put("max_scroll_percent", this.o.get());
                 jSONObject.putOpt("render_type", "h5");
                 jSONObject.putOpt("render_type_2", 0);
@@ -173,20 +173,20 @@ public class j {
         if (this.x.get()) {
             return;
         }
-        d.b(this.f27260f, this.f27261g, this.f27262h, System.currentTimeMillis() - this.m);
+        d.b(this.f27363f, this.f27364g, this.f27365h, System.currentTimeMillis() - this.m);
     }
 
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f27262h = str;
+        this.f27365h = str;
     }
 
     private boolean b(String str) {
         com.bytedance.sdk.openadsdk.core.d.l lVar;
         com.bytedance.sdk.openadsdk.core.h.h h2;
-        return (TextUtils.isEmpty(str) || (lVar = this.f27261g) == null || lVar.v() == 0 || com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str) != e.a.HTML || (h2 = com.bytedance.sdk.openadsdk.core.p.h()) == null || h2.l() <= this.r.get()) ? false : true;
+        return (TextUtils.isEmpty(str) || (lVar = this.f27364g) == null || lVar.v() == 0 || com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str) != e.a.HTML || (h2 = com.bytedance.sdk.openadsdk.core.p.h()) == null || h2.l() <= this.r.get()) ? false : true;
     }
 
     public p a() {
@@ -221,10 +221,10 @@ public class j {
         if (pVar != null) {
             pVar.e();
         }
-        if (this.f27256b) {
+        if (this.f27359b) {
             return;
         }
-        this.f27256b = true;
+        this.f27359b = true;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("render_type", "h5");
@@ -252,18 +252,18 @@ public class j {
         if (this.x.get()) {
             return;
         }
-        if (this.f27255a != 3) {
-            this.f27255a = 2;
+        if (this.f27358a != 3) {
+            this.f27358a = 2;
         }
         this.x.set(true);
-        this.f27263i = System.currentTimeMillis();
-        if (this.f27255a == 2) {
+        this.f27366i = System.currentTimeMillis();
+        if (this.f27358a == 2) {
             long j = this.l - this.k;
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("error_code", this.f27257c);
-                jSONObject.put("error_msg", this.f27258d);
-                jSONObject.put("error_url", this.f27259e);
+                jSONObject.put("error_code", this.f27360c);
+                jSONObject.put("error_msg", this.f27361d);
+                jSONObject.put("error_url", this.f27362e);
                 jSONObject.putOpt("render_type", "h5");
                 jSONObject.putOpt("render_type_2", 0);
             } catch (Exception unused) {
@@ -273,9 +273,9 @@ public class j {
         }
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("error_code", this.f27257c);
-            jSONObject2.put("error_msg", this.f27258d);
-            jSONObject2.put("error_url", this.f27259e);
+            jSONObject2.put("error_code", this.f27360c);
+            jSONObject2.put("error_msg", this.f27361d);
+            jSONObject2.put("error_url", this.f27362e);
             jSONObject2.putOpt("render_type", "h5");
             jSONObject2.putOpt("render_type_2", 0);
         } catch (Exception unused2) {
@@ -290,11 +290,11 @@ public class j {
             pVar.g();
         }
         if (!(str3 != null && str3.startsWith("image"))) {
-            this.f27255a = 3;
+            this.f27358a = 3;
         }
-        this.f27257c = i2;
-        this.f27258d = str;
-        this.f27259e = str2;
+        this.f27360c = i2;
+        this.f27361d = str;
+        this.f27362e = str2;
     }
 
     @RequiresApi(api = 21)
@@ -325,15 +325,15 @@ public class j {
     }
 
     private void a(String str, JSONObject jSONObject, long j) {
-        if (!this.q || this.f27261g == null || TextUtils.isEmpty(str)) {
+        if (!this.q || this.f27364g == null || TextUtils.isEmpty(str)) {
             return;
         }
         JSONObject jSONObject2 = null;
         if (jSONObject != null) {
             try {
                 int i2 = 1;
-                jSONObject.put("is_playable", this.f27261g.C() ? 1 : 0);
-                if (!com.bytedance.sdk.openadsdk.core.g.a.a().a(this.f27261g)) {
+                jSONObject.put("is_playable", this.f27364g.C() ? 1 : 0);
+                if (!com.bytedance.sdk.openadsdk.core.g.a.a().a(this.f27364g)) {
                     i2 = 0;
                 }
                 jSONObject.put("usecache", i2);
@@ -352,7 +352,7 @@ public class j {
             } catch (JSONException unused3) {
             }
         }
-        u.b("LandingPageLog", "sendEvent: " + String.valueOf(this.f27262h) + StringUtil.ARRAY_ELEMENT_SEPARATOR + String.valueOf(str) + ", ext=" + String.valueOf(jSONObject2));
-        d.c(this.f27260f, this.f27261g, this.f27262h, str, jSONObject2);
+        u.b("LandingPageLog", "sendEvent: " + String.valueOf(this.f27365h) + StringUtil.ARRAY_ELEMENT_SEPARATOR + String.valueOf(str) + ", ext=" + String.valueOf(jSONObject2));
+        d.c(this.f27363f, this.f27364g, this.f27365h, str, jSONObject2);
     }
 }

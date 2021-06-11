@@ -3,11 +3,11 @@ package d.a.l0.a.p0.g.c;
 import androidx.annotation.NonNull;
 import d.a.l0.a.a1.e;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class b implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f44092a = e.g() + File.separator + "extension_core";
+    public static final String f47766a = e.g() + File.separator + "extension_core";
 
     @Override // d.a.l0.a.p0.g.c.a
     @NonNull
@@ -29,6 +29,6 @@ public abstract class b implements a {
     @Override // d.a.l0.a.p0.g.c.a
     @NonNull
     public File f() {
-        return new File(f44092a);
+        return new File(f47766a);
     }
 }

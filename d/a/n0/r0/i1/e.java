@@ -14,7 +14,7 @@ import d.a.n0.z.b0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
+public class e extends d.a.c.k.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
     public TbPageContext m;
     public d.a.n0.r0.i1.b n;
     public boolean o;
@@ -39,7 +39,7 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
             if ((view.getId() == R.id.video_container || view.getId() == R.id.video_agg_container || view.getId() == R.id.mobile_network_play) && view.getTag() != null && (view.getTag() instanceof d.a.n0.r0.i1.b)) {
                 d.a.n0.r0.i1.b bVar = (d.a.n0.r0.i1.b) view.getTag();
                 if (e.this.n != null && e.this.n != bVar && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
-                    e.this.n.R();
+                    e.this.n.S();
                 }
                 if (e.this.n != bVar) {
                     e.this.n = bVar;
@@ -47,14 +47,14 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
             }
             if (view.getId() == R.id.title) {
                 StatisticItem statisticItem = new StatisticItem("c12411");
-                statisticItem.param("fid", gVar.f58689e);
+                statisticItem.param("fid", gVar.f62380e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
                 TiebaStatic.log(statisticItem);
             } else if (view.getId() == R.id.agree_view_container) {
                 StatisticItem statisticItem2 = new StatisticItem("c12414");
-                statisticItem2.param("fid", gVar.f58689e);
+                statisticItem2.param("fid", gVar.f62380e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
@@ -63,7 +63,7 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
                 if (view.getId() != R.id.user_icon && view.getId() != R.id.user_name) {
                     if (view.getId() == R.id.attention) {
                         StatisticItem statisticItem3 = new StatisticItem("c12413");
-                        statisticItem3.param("fid", gVar.f58689e);
+                        statisticItem3.param("fid", gVar.f62380e);
                         if (TbadkCoreApplication.isLogin()) {
                             statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
                         }
@@ -71,7 +71,7 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
                         return;
                     } else if (view.getId() == R.id.mobile_network_play) {
                         StatisticItem statisticItem4 = new StatisticItem("c12416");
-                        statisticItem4.param("fid", gVar.f58689e);
+                        statisticItem4.param("fid", gVar.f62380e);
                         if (TbadkCoreApplication.isLogin()) {
                             statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
                         }
@@ -82,14 +82,14 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
                     }
                 }
                 StatisticItem statisticItem5 = new StatisticItem("c12412");
-                statisticItem5.param("fid", gVar.f58689e);
+                statisticItem5.param("fid", gVar.f62380e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem5.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
                 TiebaStatic.log(statisticItem5);
             } else {
                 StatisticItem statisticItem6 = new StatisticItem("c12415");
-                statisticItem6.param("fid", gVar.f58689e);
+                statisticItem6.param("fid", gVar.f62380e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem6.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
@@ -121,7 +121,7 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
         this.s = z;
     }
 
-    public boolean i0() {
+    public boolean j0() {
         d.a.n0.r0.i1.b bVar = this.n;
         if (bVar != null) {
             return bVar.isPlaying();
@@ -129,11 +129,11 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
         return false;
     }
 
-    public void j0(Configuration configuration) {
+    public void k0(Configuration configuration) {
         d.a.n0.r0.i1.b bVar = this.n;
         if (bVar != null) {
             this.o = true;
-            bVar.I(configuration);
+            bVar.J(configuration);
             if (configuration.orientation == 1) {
                 this.q.postDelayed(new b(), 500L);
             }
@@ -141,24 +141,24 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: m0 */
-    public CardViewHolder<d.a.n0.r0.i1.b> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: l0 */
+    public CardViewHolder<d.a.n0.r0.i1.b> Q(ViewGroup viewGroup) {
         d.a.n0.r0.i1.b bVar = new d.a.n0.r0.i1.b(this.m, this.s);
-        bVar.o(this.t);
+        bVar.p(this.t);
         this.p.add(bVar);
         return new CardViewHolder<>(bVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: n0 */
-    public View W(int i2, View view, ViewGroup viewGroup, g gVar, CardViewHolder<d.a.n0.r0.i1.b> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: m0 */
+    public View X(int i2, View view, ViewGroup viewGroup, g gVar, CardViewHolder<d.a.n0.r0.i1.b> cardViewHolder) {
         if (gVar == null || cardViewHolder == null) {
             return null;
         }
         if (!this.o) {
-            cardViewHolder.b().H(gVar, i2, this.r);
+            cardViewHolder.b().I(gVar, i2, this.r);
             cardViewHolder.b().J = i2;
         }
         return cardViewHolder.a();
@@ -177,7 +177,7 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
         if (bVar == null) {
             return false;
         }
-        return bVar.J(i2);
+        return bVar.K(i2);
     }
 
     public void q0() {
@@ -185,7 +185,7 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
         if (bVar == null) {
             return;
         }
-        bVar.K();
+        bVar.L();
     }
 
     public void s0() {
@@ -193,6 +193,6 @@ public class e extends d.a.c.j.e.a<g, CardViewHolder<d.a.n0.r0.i1.b>> {
         if (bVar == null) {
             return;
         }
-        bVar.R();
+        bVar.S();
     }
 }

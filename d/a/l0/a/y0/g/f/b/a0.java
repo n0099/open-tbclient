@@ -21,9 +21,9 @@ public class a0 extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
         if (obj instanceof String) {
             String str2 = (String) obj;
             if (TextUtils.equals(str2, "ear")) {
-                bVar.r(str2);
+                bVar.q(str2);
             } else if (TextUtils.equals(str2, "speaker")) {
-                bVar.r(str2);
+                bVar.q(str2);
             }
         }
     }

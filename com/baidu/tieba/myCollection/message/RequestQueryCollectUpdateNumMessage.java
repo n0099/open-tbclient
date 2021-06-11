@@ -3,7 +3,7 @@ package com.baidu.tieba.myCollection.message;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.QueryCollectUpdateNum.DataReq;
 import tbclient.QueryCollectUpdateNum.QueryCollectUpdateNumReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestQueryCollectUpdateNumMessage extends TbSocketMessage {
     public RequestQueryCollectUpdateNumMessage() {
         super(303005);

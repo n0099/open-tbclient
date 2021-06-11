@@ -22,48 +22,48 @@ public class d0 {
     public static Point j;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f51001a;
+    public Context f54678a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f51002b;
+    public b f54679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f51003c;
+    public long f54680c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f51004d;
+    public a f54681d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f51005e;
+    public a f54682e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Handler f51006f = new Handler(Looper.getMainLooper());
+    public final Handler f54683f = new Handler(Looper.getMainLooper());
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f50998g = {"_data", "datetaken"};
+    public static final String[] f54675g = {"_data", "datetaken"};
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f50999h = {"_data", "datetaken", "width", "height"};
+    public static final String[] f54676h = {"_data", "datetaken", "width", "height"};
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String[] f51000i = {"screenshot", "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
+    public static final String[] f54677i = {"screenshot", "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
     public static final List<String> k = new ArrayList();
 
     /* loaded from: classes3.dex */
     public class a extends ContentObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public Uri f51007a;
+        public Uri f54684a;
 
         public a(Uri uri, Handler handler) {
             super(handler);
-            this.f51007a = uri;
+            this.f54684a = uri;
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            d0.this.f(this.f51007a);
+            d0.this.f(this.f54684a);
         }
     }
 
@@ -73,7 +73,7 @@ public class d0 {
     }
 
     public d0(Context context) {
-        this.f51001a = context;
+        this.f54678a = context;
         if (j == null) {
             Point e2 = e();
             j = e2;
@@ -104,7 +104,7 @@ public class d0 {
     }
 
     public final boolean c(String str, long j2, int i2, int i3) {
-        if (j2 >= this.f51003c && System.currentTimeMillis() - j2 <= 10000) {
+        if (j2 >= this.f54680c && System.currentTimeMillis() - j2 <= 10000) {
             Point point = j;
             if (point != null && (i2 > point.x || i3 > point.y)) {
                 Point point2 = j;
@@ -116,7 +116,7 @@ public class d0 {
                 return false;
             }
             String lowerCase = str.toLowerCase();
-            for (String str2 : f51000i) {
+            for (String str2 : f54677i) {
                 if (lowerCase.contains(str2)) {
                     return true;
                 }
@@ -135,7 +135,7 @@ public class d0 {
     public final Point e() {
         Exception e2;
         Point point;
-        if (!h() || this.f51001a == null) {
+        if (!h() || this.f54678a == null) {
             return null;
         }
         try {
@@ -145,7 +145,7 @@ public class d0 {
             point = null;
         }
         try {
-            Display defaultDisplay = ((WindowManager) this.f51001a.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) this.f54678a.getSystemService("window")).getDefaultDisplay();
             if (Build.VERSION.SDK_INT >= 17) {
                 defaultDisplay.getRealSize(point);
             } else {
@@ -172,7 +172,7 @@ public class d0 {
         Cursor cursor = null;
         try {
             try {
-                cursor = this.f51001a.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? f50998g : f50999h, null, null, "date_added desc limit 1");
+                cursor = this.f54678a.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? f54675g : f54676h, null, null, "date_added desc limit 1");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 if (0 == 0 || cursor.isClosed()) {
@@ -227,54 +227,54 @@ public class d0 {
     public final void g(String str, long j2, int i2, int i3) {
         if (c(str, j2, i2, i3)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
-            if (this.f51002b == null || b(str)) {
+            if (this.f54679b == null || b(str)) {
                 return;
             }
-            this.f51002b.onShot(str);
+            this.f54679b.onShot(str);
             return;
         }
         BdLog.d("ScreenShotListenManager: Media content changed, but not screenshot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
     }
 
     public void i(b bVar) {
-        this.f51002b = bVar;
+        this.f54679b = bVar;
     }
 
     public void j() {
         if (h() && PermissionUtil.isAgreePrivacyPolicy()) {
-            this.f51003c = System.currentTimeMillis();
-            this.f51004d = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f51006f);
-            this.f51005e = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f51006f);
+            this.f54680c = System.currentTimeMillis();
+            this.f54681d = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f54683f);
+            this.f54682e = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f54683f);
             if (Build.VERSION.SDK_INT >= 29) {
-                this.f51001a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.f51004d);
-                this.f51001a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f51005e);
+                this.f54678a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.f54681d);
+                this.f54678a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f54682e);
                 return;
             }
-            this.f51001a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.f51004d);
-            this.f51001a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f51005e);
+            this.f54678a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.f54681d);
+            this.f54678a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f54682e);
         }
     }
 
     public void k() {
         if (h()) {
-            if (this.f51004d != null) {
+            if (this.f54681d != null) {
                 try {
-                    this.f51001a.getContentResolver().unregisterContentObserver(this.f51004d);
+                    this.f54678a.getContentResolver().unregisterContentObserver(this.f54681d);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                this.f51004d = null;
+                this.f54681d = null;
             }
-            if (this.f51005e != null) {
+            if (this.f54682e != null) {
                 try {
-                    this.f51001a.getContentResolver().unregisterContentObserver(this.f51005e);
+                    this.f54678a.getContentResolver().unregisterContentObserver(this.f54682e);
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
-                this.f51005e = null;
+                this.f54682e = null;
             }
-            this.f51003c = 0L;
-            this.f51002b = null;
+            this.f54680c = 0L;
+            this.f54679b = null;
         }
     }
 }

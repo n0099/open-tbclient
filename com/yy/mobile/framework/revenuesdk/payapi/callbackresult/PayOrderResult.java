@@ -1,7 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
 import androidx.annotation.Keep;
-import d.r.b.a.a.i.c.i;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
 @Keep
 /* loaded from: classes7.dex */
 public class PayOrderResult {
@@ -11,10 +11,10 @@ public class PayOrderResult {
     public final String payChannel;
     public final String payMethod;
     public final String payUrl;
-    public final i pollingModeInfo;
+    public final PollingModeInfo pollingModeInfo;
     public final int result;
 
-    public PayOrderResult(int i2, String str, String str2, String str3, String str4, String str5, String str6, i iVar) {
+    public PayOrderResult(int i2, String str, String str2, String str3, String str4, String str5, String str6, PollingModeInfo pollingModeInfo) {
         this.result = i2;
         this.payUrl = str;
         this.payChannel = str2;
@@ -22,7 +22,7 @@ public class PayOrderResult {
         this.payMethod = str4;
         this.closeRiskEnhance = str5;
         this.expand = str6;
-        this.pollingModeInfo = iVar;
+        this.pollingModeInfo = pollingModeInfo;
     }
 
     public String getCloseRiskEnhance() {
@@ -49,7 +49,7 @@ public class PayOrderResult {
         return this.payUrl;
     }
 
-    public i getPollingModeInfo() {
+    public PollingModeInfo getPollingModeInfo() {
         return this.pollingModeInfo;
     }
 

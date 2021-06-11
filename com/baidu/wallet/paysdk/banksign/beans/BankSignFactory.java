@@ -15,11 +15,11 @@ public final class BankSignFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BankSignFactory f25095a = new BankSignFactory();
+        public static BankSignFactory f25198a = new BankSignFactory();
     }
 
     public static BankSignFactory getInstance() {
-        return a.f25095a;
+        return a.f25198a;
     }
 
     public BankSignFactory() {
@@ -34,7 +34,7 @@ public final class BankSignFactory implements IBeanFactory {
             case 768:
                 bVar = new b(applicationContext);
                 break;
-            case BEAN_ID_POLLING /* 769 */:
+            case 769:
                 bVar = new c(applicationContext);
                 break;
             case BEAN_ID_QUERY /* 770 */:

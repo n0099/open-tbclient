@@ -32,14 +32,14 @@ public class a extends a0 {
         }
         d.a.l0.a.c0.c.g.a aVar = (d.a.l0.a.c0.c.g.a) d.a.l0.a.c0.d.a.a(bVar);
         if (aVar == null) {
-            String str = "can't find textarea component:#" + bVar.f40845f;
+            String str = "can't find textarea component:#" + bVar.f44521f;
             d.b("CloseTextAreaAction", str);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;
         }
         d.a.l0.a.c0.b.c C = aVar.C();
         if (!C.a()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f40850b);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f44526b);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

@@ -12,19 +12,19 @@ import com.baidu.tieba.R;
 public class ChooseColorView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19608e;
+    public int f19685e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19609f;
+    public int f19686f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f19610g;
+    public float f19687g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f19611h;
+    public Paint f19688h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f19612i;
+    public Paint f19689i;
     public int j;
     public boolean k;
     public Bitmap l;
@@ -35,35 +35,35 @@ public class ChooseColorView extends View {
 
     public final void a() {
         Paint paint = new Paint();
-        this.f19612i = paint;
+        this.f19689i = paint;
         paint.setAntiAlias(true);
-        this.f19612i.setColor(this.f19608e);
+        this.f19689i.setColor(this.f19685e);
         Paint paint2 = new Paint();
-        this.f19611h = paint2;
-        paint2.setColor(this.f19609f);
-        this.f19611h.setAntiAlias(true);
-        this.f19611h.setStyle(Paint.Style.STROKE);
-        this.f19611h.setStrokeWidth(this.f19610g);
+        this.f19688h = paint2;
+        paint2.setColor(this.f19686f);
+        this.f19688h.setAntiAlias(true);
+        this.f19688h.setStyle(Paint.Style.STROKE);
+        this.f19688h.setStrokeWidth(this.f19687g);
         this.l = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
     }
 
     public int getChooseColor() {
-        return this.f19608e;
+        return this.f19685e;
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f19612i);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f19611h);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f19689i);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f19688h);
         if (this.k) {
             canvas.drawBitmap(this.l, getWidth() - this.l.getWidth(), 0.0f, (Paint) null);
         }
     }
 
     public void setChooseColor(int i2) {
-        this.f19608e = i2;
-        this.f19612i.setColor(i2);
+        this.f19685e = i2;
+        this.f19689i.setColor(i2);
     }
 
     public void setIsChooseView(boolean z) {
@@ -81,9 +81,9 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f19608e = -16777216;
-        this.f19609f = -1;
-        this.f19610g = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.f19685e = -16777216;
+        this.f19686f = -1;
+        this.f19687g = getResources().getDimensionPixelSize(R.dimen.ds4);
         a();
     }
 }

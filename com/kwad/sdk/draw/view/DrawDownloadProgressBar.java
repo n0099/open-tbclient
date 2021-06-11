@@ -8,18 +8,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.page.widget.TextProgressBar;
-import com.kwad.sdk.utils.an;
-/* loaded from: classes6.dex */
+import com.kwad.sdk.utils.ao;
+/* loaded from: classes7.dex */
 public class DrawDownloadProgressBar extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f33132a;
+    public Context f35256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextProgressBar f33133b;
+    public TextProgressBar f35257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f33134c;
+    public View f35258c;
 
     public DrawDownloadProgressBar(@NonNull Context context) {
         super(context);
@@ -37,11 +37,11 @@ public class DrawDownloadProgressBar extends FrameLayout {
     }
 
     private void a(Context context) {
-        this.f33132a = context;
+        this.f35256a = context;
         FrameLayout.inflate(context, R.layout.ksad_draw_download_bar, this);
-        this.f33133b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
+        this.f35257b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
         View findViewById = findViewById(R.id.ksad_download_progress_cover);
-        this.f33134c = findViewById;
+        this.f35258c = findViewById;
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.draw.view.DrawDownloadProgressBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -54,25 +54,25 @@ public class DrawDownloadProgressBar extends FrameLayout {
         View view;
         int i3;
         if (i2 == 0 || i2 == getMax()) {
-            view = this.f33134c;
+            view = this.f35258c;
             i3 = 0;
         } else {
-            view = this.f33134c;
+            view = this.f35258c;
             i3 = 8;
         }
         view.setVisibility(i3);
-        this.f33133b.a(str, i2);
+        this.f35257b.a(str, i2);
     }
 
     public int getMax() {
-        return this.f33133b.getMax();
+        return this.f35257b.getMax();
     }
 
     public void setTextColor(int i2) {
-        this.f33133b.setTextColor(i2);
+        this.f35257b.setTextColor(i2);
     }
 
     public void setTextSize(int i2) {
-        this.f33133b.setTextDimen(an.a(getContext(), i2));
+        this.f35257b.setTextDimen(ao.a(getContext(), i2));
     }
 }

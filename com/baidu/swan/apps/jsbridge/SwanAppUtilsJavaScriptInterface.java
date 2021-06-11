@@ -39,22 +39,22 @@ public class SwanAppUtilsJavaScriptInterface {
     public boolean mIsForceLight = false;
     public String mSource = "";
     public d.a.l0.a.h0.f.a mWebView;
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final int SWAN_UBC_LOG_MAX_SIZE_BYTES = d.a.l0.a.c1.a.Z().x() * 1024;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10803e;
+        public final /* synthetic */ String f10865e;
 
         public a(String str) {
-            this.f10803e = str;
+            this.f10865e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String str = this.f10803e;
+            String str = this.f10865e;
             if (!str.startsWith("javascript:")) {
                 str = "javascript:" + str;
             }
@@ -69,24 +69,24 @@ public class SwanAppUtilsJavaScriptInterface {
     public class b implements i.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f10805a;
+        public final /* synthetic */ String f10867a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10806b;
+        public final /* synthetic */ String f10868b;
 
         public b(String str, String str2) {
-            this.f10805a = str;
-            this.f10806b = str2;
+            this.f10867a = str;
+            this.f10868b = str2;
         }
 
         @Override // d.a.l0.a.c1.d.i.a
         public void a() {
-            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f10806b, String.valueOf(false));
+            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f10868b, String.valueOf(false));
         }
 
         @Override // d.a.l0.a.c1.d.i.a
         public void b() {
-            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f10805a, String.valueOf(true));
+            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f10867a, String.valueOf(true));
         }
     }
 
@@ -94,10 +94,10 @@ public class SwanAppUtilsJavaScriptInterface {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10808e;
+        public final /* synthetic */ String f10870e;
 
         public c(String str) {
-            this.f10808e = str;
+            this.f10870e = str;
         }
 
         @Override // java.lang.Runnable
@@ -105,7 +105,7 @@ public class SwanAppUtilsJavaScriptInterface {
             if (SwanAppUtilsJavaScriptInterface.DEBUG) {
                 Log.d(SwanAppUtilsJavaScriptInterface.TAG, "ubcEvent in thread pool");
             }
-            SwanAppUtilsJavaScriptInterface.this.doUbcEvent(this.f10808e);
+            SwanAppUtilsJavaScriptInterface.this.doUbcEvent(this.f10870e);
         }
     }
 

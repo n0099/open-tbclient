@@ -27,7 +27,7 @@ public class a implements f {
         d.a.l0.a.l1.b e2 = d.a.l0.a.l1.b.e(str, str);
         e2.i(jSONObject.toString());
         g.b i2 = W.i("adLanding");
-        i2.n(g.f42076g, g.f42078i);
+        i2.n(g.f45752g, g.f45754i);
         i2.k("adLanding", e2).b();
     }
 

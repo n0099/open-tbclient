@@ -66,9 +66,9 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
@@ -224,17 +224,21 @@ public class OpenNative {
     public static void openNativeAlaVideoPlayer(Context context, Map<String, Object> map) {
         String str;
         String str2;
-        String str3 = null;
+        String str3;
+        String str4 = null;
         if (map.containsKey("sid") && map.containsKey("ssid") && map.containsKey("templateId")) {
-            str3 = (String) map.get("sid");
-            str = (String) map.get("ssid");
-            str2 = (String) map.get("templateId");
+            String str5 = (String) map.get("sid");
+            str2 = (String) map.get("ssid");
+            str3 = (String) map.get("templateId");
+            str = str5;
+            str4 = (String) map.get("source");
         } else {
             str = null;
             str2 = null;
+            str3 = null;
         }
-        if (!k.isEmpty(str3) && !k.isEmpty(str)) {
-            UrlManager.getInstance().dealOneLink(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX + "sid=" + str3 + "&ssid=" + str + "&templateId=" + str2});
+        if (!k.isEmpty(str) && !k.isEmpty(str2)) {
+            YYLiveUtil.jumpToYYLiveRoom(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), str, str2, str3, "", TextUtils.isEmpty(str4) ? YYLiveUtil.SOURCE_PERSON_AUTHOR_HEAD : str4);
             return;
         }
         long f2 = d.a.c.e.m.b.f((String) map.get("liveId"), 0L);
@@ -834,9 +838,6 @@ public class OpenNative {
             return true;
         } else if (kNativePageKeyOpenVideo.equals(str)) {
             openNativeCustomVideo(context, map);
-            return true;
-        } else if (kNativePageKeyAlaVideoPlayer.equals(str)) {
-            openNativeAlaVideoPlayer(context, map);
             return true;
         } else if (kNativePageKeyViewHistory.equals(str)) {
             openNativeViewHistory(context, map);

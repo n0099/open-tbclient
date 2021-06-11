@@ -16,7 +16,7 @@ import java.util.Set;
 public class a implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<String> f37221a = new HashSet();
+    public Set<String> f40900a = new HashSet();
 
     public static void a(Application application) {
         application.registerActivityLifecycleCallbacks(new a());
@@ -42,7 +42,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         el a2;
         String packageName;
-        String m273a;
+        String m272a;
         int i2;
         Intent intent = activity.getIntent();
         if (intent == null) {
@@ -50,24 +50,24 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         String stringExtra = intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID);
         int intExtra = intent.getIntExtra("eventMessageType", -1);
-        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f37221a.contains(stringExtra)) {
+        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f40900a.contains(stringExtra)) {
             return;
         }
-        this.f37221a.add(stringExtra);
+        this.f40900a.add(stringExtra);
         if (intExtra == 3000) {
             a2 = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m273a = ek.m273a(intExtra);
+            m272a = ek.m272a(intExtra);
             i2 = 3008;
         } else if (intExtra != 1000) {
             return;
         } else {
             a2 = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m273a = ek.m273a(intExtra);
+            m272a = ek.m272a(intExtra);
             i2 = 1008;
         }
-        a2.a(packageName, m273a, stringExtra, i2, null);
+        a2.a(packageName, m272a, stringExtra, i2, null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

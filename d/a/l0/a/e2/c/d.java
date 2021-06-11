@@ -36,25 +36,25 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41684a = k.f43199a;
+    public static final boolean f45360a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, C0619d> f41685b = new HashMap();
+    public static final Map<String, C0675d> f45361b = new HashMap();
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41686e;
+        public final /* synthetic */ String f45362e;
 
         public a(String str) {
-            this.f41686e = str;
+            this.f45362e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Context e2 = d.e();
-            Toast.makeText(e2, "aiapps-oauth :: " + this.f41686e, 0).show();
+            Toast.makeText(e2, "aiapps-oauth :: " + this.f45362e, 0).show();
         }
     }
 
@@ -62,22 +62,22 @@ public final class d {
     public static class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f41687e;
+        public final /* synthetic */ f f45363e;
 
         public b(f fVar) {
-            this.f41687e = fVar;
+            this.f45363e = fVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             if (i2 == -2) {
                 d.j("onNegBtn", Boolean.FALSE);
-                d.a.l0.a.j2.k.o(PrefetchEvent.STATE_CLICK, this.f41687e.f41695b, false);
-                d.d(this.f41687e.f41695b, false);
+                d.a.l0.a.j2.k.o(PrefetchEvent.STATE_CLICK, this.f45363e.f45371b, false);
+                d.d(this.f45363e.f45371b, false);
             } else if (i2 == -1) {
                 d.j("onPosBtn", Boolean.FALSE);
-                d.a.l0.a.j2.k.o(PrefetchEvent.STATE_CLICK, this.f41687e.f41695b, true);
-                d.d(this.f41687e.f41695b, true);
+                d.a.l0.a.j2.k.o(PrefetchEvent.STATE_CLICK, this.f45363e.f45371b, true);
+                d.d(this.f45363e.f45371b, true);
             }
             d.a.l0.a.c1.b.n().a("na_authorize_end");
         }
@@ -87,28 +87,28 @@ public final class d {
     public static class c implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f41688e;
+        public final /* synthetic */ f f45364e;
 
         public c(f fVar) {
-            this.f41688e = fVar;
+            this.f45364e = fVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             d.j("onCancel", Boolean.FALSE);
-            d.a.l0.a.j2.k.o(PrefetchEvent.STATE_CLICK, this.f41688e.f41695b, false);
-            d.d(this.f41688e.f41695b, false);
+            d.a.l0.a.j2.k.o(PrefetchEvent.STATE_CLICK, this.f45364e.f45371b, false);
+            d.d(this.f45364e.f45371b, false);
         }
     }
 
     /* renamed from: d.a.l0.a.e2.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0619d {
+    public static class C0675d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Set<d.a.l0.a.e2.c.a> f41689a = new HashSet();
+        public final Set<d.a.l0.a.e2.c.a> f45365a = new HashSet();
 
-        public C0619d(String str) {
+        public C0675d(String str) {
         }
     }
 
@@ -123,7 +123,7 @@ public final class d {
             if (TextUtils.isEmpty(value)) {
                 value = "";
             }
-            if (f41684a) {
+            if (f45360a) {
                 j("query :: " + key + " = " + value, Boolean.FALSE);
             }
             builder.add(key, value);
@@ -137,14 +137,14 @@ public final class d {
     }
 
     public static void d(String str, boolean z) {
-        C0619d remove;
-        synchronized (f41685b) {
-            remove = f41685b.remove(str);
+        C0675d remove;
+        synchronized (f45361b) {
+            remove = f45361b.remove(str);
         }
-        if (remove == null || remove.f41689a.isEmpty()) {
+        if (remove == null || remove.f45365a.isEmpty()) {
             return;
         }
-        for (d.a.l0.a.e2.c.a aVar : remove.f41689a) {
+        for (d.a.l0.a.e2.c.a aVar : remove.f45365a) {
             if (aVar != null) {
                 aVar.onResult(z);
             }
@@ -180,7 +180,7 @@ public final class d {
                 str = "Permission denied";
                 break;
         }
-        if (f41684a) {
+        if (f45360a) {
             Log.w("OAuthUtils", i2 + " " + str);
         }
         return str;
@@ -199,7 +199,7 @@ public final class d {
     }
 
     public static boolean h(i<b.e> iVar) {
-        return iVar != null && iVar.c() && iVar.f41736a.f41751b;
+        return iVar != null && iVar.c() && iVar.f45412a.f45427b;
     }
 
     public static boolean i(JSONObject jSONObject) {
@@ -211,7 +211,7 @@ public final class d {
 
     public static void j(String str, Boolean bool) {
         d.a.l0.a.e0.d.h("aiapps-oauth", str);
-        if (f41684a && bool.booleanValue()) {
+        if (f45360a && bool.booleanValue()) {
             q0.X(new a(str));
         }
     }
@@ -230,7 +230,7 @@ public final class d {
                     jSONObject2.put("code", 1);
                     jSONObject.put("data", jSONObject2);
                 } catch (JSONException e2) {
-                    if (f41684a) {
+                    if (f45360a) {
                         e2.printStackTrace();
                     }
                 }
@@ -247,7 +247,7 @@ public final class d {
         try {
             i2 = (int) aVar2.a();
         } catch (ClassCastException e2) {
-            if (f41684a) {
+            if (f45360a) {
                 Log.e("OAuthUtils", e2.toString());
             }
         }
@@ -286,7 +286,7 @@ public final class d {
     }
 
     public static void q() {
-        f41685b.clear();
+        f45361b.clear();
     }
 
     public static void r(int i2, @NonNull String str, @NonNull String str2) {
@@ -308,7 +308,7 @@ public final class d {
             bVar.m();
             d.a.l0.a.e0.d.h("OAuthUtils", "error reported: " + i2 + " ,content: " + str3);
         } catch (Exception e2) {
-            if (f41684a) {
+            if (f45360a) {
                 e2.printStackTrace();
             }
         }
@@ -321,19 +321,19 @@ public final class d {
     }
 
     public static void t(Context context, d.a.l0.a.a2.e eVar, f fVar, JSONObject jSONObject, d.a.l0.a.e2.c.a aVar) {
-        if (fVar != null && !TextUtils.isEmpty(fVar.f41695b)) {
-            synchronized (f41685b) {
-                C0619d c0619d = f41685b.get(fVar.f41695b);
-                if (c0619d != null) {
-                    c0619d.f41689a.add(aVar);
+        if (fVar != null && !TextUtils.isEmpty(fVar.f45371b)) {
+            synchronized (f45361b) {
+                C0675d c0675d = f45361b.get(fVar.f45371b);
+                if (c0675d != null) {
+                    c0675d.f45365a.add(aVar);
                     return;
                 }
-                C0619d c0619d2 = new C0619d(fVar.f41695b);
-                c0619d2.f41689a.add(aVar);
-                f41685b.put(fVar.f41695b, c0619d2);
+                C0675d c0675d2 = new C0675d(fVar.f45371b);
+                c0675d2.f45365a.add(aVar);
+                f45361b.put(fVar.f45371b, c0675d2);
                 b bVar = new b(fVar);
                 c cVar = new c(fVar);
-                d.a.l0.a.j2.k.o("show", fVar.f41695b, false);
+                d.a.l0.a.j2.k.o("show", fVar.f45371b, false);
                 d.a.l0.a.c1.b.n().a("na_authorize_start");
                 u(context, eVar, fVar, jSONObject, bVar, cVar);
                 return;
@@ -345,7 +345,7 @@ public final class d {
     public static void u(Context context, d.a.l0.a.a2.e eVar, f fVar, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener, DialogInterface.OnCancelListener onCancelListener) {
         h.a a2 = d.a.l0.a.c1.a.b0().a(context, eVar, fVar, jSONObject, onClickListener);
         if (a2 == null) {
-            if (f41684a) {
+            if (f45360a) {
                 throw new RuntimeException("auth dialog builder is null");
             }
             return;

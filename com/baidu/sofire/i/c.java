@@ -16,10 +16,10 @@ public interface c extends IInterface {
         public static class C0141a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f10278a;
+            public IBinder f10340a;
 
             public C0141a(IBinder iBinder) {
-                this.f10278a = iBinder;
+                this.f10340a = iBinder;
             }
 
             @Override // com.baidu.sofire.i.c
@@ -28,7 +28,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f10278a.transact(1, obtain, obtain2, 0);
+                    this.f10340a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -39,7 +39,7 @@ public interface c extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f10278a;
+                return this.f10340a;
             }
 
             @Override // com.baidu.sofire.i.c
@@ -48,7 +48,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f10278a.transact(2, obtain, obtain2, 0);
+                    this.f10340a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

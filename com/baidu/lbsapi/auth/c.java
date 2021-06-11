@@ -8,13 +8,13 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f6295a;
+    public Context f6338a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f6296b = null;
+    public HashMap<String, String> f6339b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f6297c = null;
+    public a<String> f6340c = null;
 
     /* loaded from: classes2.dex */
     public interface a<Result> {
@@ -22,7 +22,7 @@ public class c {
     }
 
     public c(Context context) {
-        this.f6295a = context;
+        this.f6338a = context;
     }
 
     private HashMap<String, String> a(HashMap<String, String> hashMap) {
@@ -53,15 +53,15 @@ public class c {
                 e2.printStackTrace();
             }
         }
-        a<String> aVar = this.f6297c;
+        a<String> aVar = this.f6340c;
         if (aVar != null) {
             aVar.a(jSONObject.toString());
         }
     }
 
     public void a(HashMap<String, String> hashMap, a<String> aVar) {
-        this.f6296b = a(hashMap);
-        this.f6297c = aVar;
+        this.f6339b = a(hashMap);
+        this.f6340c = aVar;
         new Thread(new d(this)).start();
     }
 }

@@ -5,31 +5,31 @@ import com.baidu.rtc.PeerConnectionClient;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64829a = "/sdcard/AR/video/arvideo.mp4";
+    public String f68547a = "/sdcard/AR/video/arvideo.mp4";
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64830b = 0;
+    public int f68548b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f64831c = 0;
+    public long f68549c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64832d = true;
+    public boolean f68550d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64833e = PeerConnectionClient.HD_VIDEO_HEIGHT;
+    public int f68551e = PeerConnectionClient.HD_VIDEO_HEIGHT;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64834f = 1280;
+    public int f68552f = 1280;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f64835g = "video/avc";
+    public String f68553g = "video/avc";
 
     /* renamed from: h  reason: collision with root package name */
-    public int f64836h = 8294400;
+    public int f68554h = 8294400;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f64837i = 30;
+    public int f68555i = 30;
     public int j = 1;
     public boolean k = false;
     public String l = "audio/mp4a-latm";
@@ -59,31 +59,31 @@ public class d {
     }
 
     public String f() {
-        return this.f64829a;
+        return this.f68547a;
     }
 
     public int g() {
-        return this.f64830b;
+        return this.f68548b;
     }
 
     public long h() {
-        return this.f64831c;
+        return this.f68549c;
     }
 
     public int i() {
-        return this.f64836h;
+        return this.f68554h;
     }
 
     public String j() {
-        return this.f64835g;
+        return this.f68553g;
     }
 
     public int k() {
-        return this.f64837i;
+        return this.f68555i;
     }
 
     public int l() {
-        return this.f64834f;
+        return this.f68552f;
     }
 
     public int m() {
@@ -91,7 +91,7 @@ public class d {
     }
 
     public int n() {
-        return this.f64833e;
+        return this.f68551e;
     }
 
     public boolean o() {
@@ -99,7 +99,7 @@ public class d {
     }
 
     public boolean p() {
-        return this.f64832d;
+        return this.f68550d;
     }
 
     public void q(int i2) {
@@ -122,18 +122,18 @@ public class d {
         if (str == null || str.isEmpty()) {
             return;
         }
-        this.f64829a = str;
+        this.f68547a = str;
     }
 
     public void v(long j) {
-        this.f64831c = j;
+        this.f68549c = j;
     }
 
     public void w(int i2) {
-        this.f64834f = i2;
+        this.f68552f = i2;
     }
 
     public void x(int i2) {
-        this.f64833e = i2;
+        this.f68551e = i2;
     }
 }

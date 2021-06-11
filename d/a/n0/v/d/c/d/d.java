@@ -7,37 +7,37 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.alasquare.live_tab.view.SdkDoubleLiveViewHolder;
 import d.a.n0.v.d.c.e.e;
 /* loaded from: classes4.dex */
-public class d extends d.a.c.j.e.a<e, SdkDoubleLiveViewHolder> {
+public class d extends d.a.c.k.e.a<e, SdkDoubleLiveViewHolder> {
     public TbPageContext m;
     public d.a.n0.v.d.c.h.e n;
     public int o;
     public boolean p;
 
     public d(TbPageContext tbPageContext, int i2, boolean z) {
-        super(tbPageContext.getPageActivity(), z ? e.f61503h : e.f61502g);
+        super(tbPageContext.getPageActivity(), z ? e.f65216h : e.f65215g);
         this.m = tbPageContext;
         this.o = i2;
         this.p = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public SdkDoubleLiveViewHolder P(ViewGroup viewGroup) {
+    public SdkDoubleLiveViewHolder Q(ViewGroup viewGroup) {
         this.n = new d.a.n0.v.d.c.h.e(this.m, viewGroup, this.o, this.p);
         return new SdkDoubleLiveViewHolder(this.n);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, e eVar, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, e eVar, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
         d.a.n0.v.d.c.h.e eVar2;
-        if (sdkDoubleLiveViewHolder == null || (eVar2 = sdkDoubleLiveViewHolder.f13769a) == null) {
+        if (sdkDoubleLiveViewHolder == null || (eVar2 = sdkDoubleLiveViewHolder.f13834a) == null) {
             return null;
         }
-        eVar2.m(eVar);
-        sdkDoubleLiveViewHolder.f13769a.n(this.m, TbadkCoreApplication.getInst().getSkinType());
+        eVar2.n(eVar);
+        sdkDoubleLiveViewHolder.f13834a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
         return sdkDoubleLiveViewHolder.a();
     }
 }

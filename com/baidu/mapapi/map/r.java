@@ -7,21 +7,21 @@ import android.view.ViewGroup;
 public class r implements ValueAnimator.AnimatorUpdateListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ViewGroup.LayoutParams f7103a;
+    public final /* synthetic */ ViewGroup.LayoutParams f7146a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f7104b;
+    public final /* synthetic */ SwipeDismissTouchListener f7147b;
 
     public r(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
-        this.f7104b = swipeDismissTouchListener;
-        this.f7103a = layoutParams;
+        this.f7147b = swipeDismissTouchListener;
+        this.f7146a = layoutParams;
     }
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
     public void onAnimationUpdate(ValueAnimator valueAnimator) {
         View view;
-        this.f7103a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-        view = this.f7104b.f6999e;
-        view.setLayoutParams(this.f7103a);
+        this.f7146a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+        view = this.f7147b.f7042e;
+        view.setLayoutParams(this.f7146a);
     }
 }

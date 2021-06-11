@@ -10,30 +10,30 @@ import d.a.l0.a.p.d.c1;
 public class a implements d.a.l0.a.i1.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public c1 f43005a;
+    public c1 f46681a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43006b;
+    public String f46682b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f43007c;
+    public c f46683c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f43008d;
+    public boolean f46684d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f43009e;
+    public Context f46685e;
 
     public a(Context context, @NonNull c cVar) {
-        this.f43009e = context;
-        this.f43007c = cVar;
-        this.f43006b = cVar.n;
+        this.f46685e = context;
+        this.f46683c = cVar;
+        this.f46682b = cVar.n;
         e();
         a();
     }
 
     public final void a() {
-        if (TextUtils.isEmpty(this.f43006b)) {
+        if (TextUtils.isEmpty(this.f46682b)) {
             return;
         }
         d.a.l0.a.i1.b.a(this);
@@ -41,48 +41,48 @@ public class a implements d.a.l0.a.i1.a {
 
     @Override // d.a.l0.a.i1.a
     public String b() {
-        return this.f43007c.f40846g;
+        return this.f46683c.f44522g;
     }
 
     @Override // d.a.l0.a.i1.a
     public String c() {
-        return this.f43006b;
+        return this.f46682b;
     }
 
     public c d() {
-        return this.f43007c;
+        return this.f46683c;
     }
 
     public c1 e() {
-        if (this.f43005a == null) {
+        if (this.f46681a == null) {
             d.g("VrVideo", "create player");
-            this.f43005a = d.a.l0.a.c1.a.s0().create();
+            this.f46681a = d.a.l0.a.c1.a.s0().create();
         }
-        return this.f43005a;
+        return this.f46681a;
     }
 
     @Override // d.a.l0.a.i1.a
     public String f() {
-        c cVar = this.f43007c;
+        c cVar = this.f46683c;
         return cVar != null ? cVar.x : "";
     }
 
     public void g(c cVar) {
         d.g("VrVideo", "Open Player " + cVar.n);
-        c1 c1Var = this.f43005a;
+        c1 c1Var = this.f46681a;
         if (c1Var != null) {
-            c1Var.e(cVar, this.f43009e);
+            c1Var.e(cVar, this.f46685e);
         }
-        this.f43007c = cVar;
+        this.f46683c = cVar;
     }
 
     public void h(c cVar) {
         d.a("VrVideo", "update 接口");
-        c1 c1Var = this.f43005a;
+        c1 c1Var = this.f46681a;
         if (c1Var != null) {
             c1Var.d(cVar, true);
         }
-        this.f43007c = cVar;
+        this.f46683c = cVar;
     }
 
     @Override // d.a.l0.a.i1.a
@@ -97,12 +97,12 @@ public class a implements d.a.l0.a.i1.a {
     @Override // d.a.l0.a.i1.a
     public void k(boolean z) {
         if (z) {
-            if (this.f43008d) {
+            if (this.f46684d) {
                 e().resume();
             }
             e().b();
-        } else if (this.f43005a != null) {
-            this.f43008d = e().isPlaying();
+        } else if (this.f46681a != null) {
+            this.f46684d = e().isPlaying();
             e().pause();
             e().c();
         }
@@ -111,17 +111,17 @@ public class a implements d.a.l0.a.i1.a {
     @Override // d.a.l0.a.i1.a
     public boolean onBackPressed() {
         d.g("VrVideo", "onBackPressed");
-        c1 c1Var = this.f43005a;
+        c1 c1Var = this.f46681a;
         return c1Var != null && c1Var.onBackPressed();
     }
 
     @Override // d.a.l0.a.i1.a
     public void onDestroy() {
         d.g("VrVideo", MissionEvent.MESSAGE_DESTROY);
-        c1 c1Var = this.f43005a;
+        c1 c1Var = this.f46681a;
         if (c1Var != null) {
             c1Var.stop();
-            this.f43005a = null;
+            this.f46681a = null;
         }
         d.a.l0.a.i1.b.j(this);
     }

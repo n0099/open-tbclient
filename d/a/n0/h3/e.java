@@ -17,10 +17,10 @@ import java.util.regex.Pattern;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f55643a;
+    public TbPageContext f59332a;
 
     public e(TbPageContext tbPageContext) {
-        this.f55643a = tbPageContext;
+        this.f59332a = tbPageContext;
         MessageManager.getInstance().registerStickyMode(2921453);
     }
 
@@ -30,18 +30,18 @@ public class e {
         }
         String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
-            String string = this.f55643a.getString(R.string.des_page_home_recommend);
+            String string = this.f59332a.getString(R.string.des_page_home_recommend);
             j1 j1Var = new j1();
             Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
             int i2 = 1;
             if (matcher.find()) {
-                j1Var.f50060c = matcher.group(1);
+                j1Var.f53736c = matcher.group(1);
             }
             if (stringExtra.equals(string)) {
-                j1Var.f50058a = 1;
+                j1Var.f53734a = 1;
             } else {
-                j1Var.f50058a = 2;
-                j1Var.f50059b = stringExtra;
+                j1Var.f53734a = 2;
+                j1Var.f53735b = stringExtra;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, j1Var));
             if (stringExtra.equals(string)) {
@@ -54,9 +54,9 @@ public class e {
                 dVar.C().setCurrentTabByType(i2);
                 FragmentTabHost.b g2 = dVar.C().g(i2);
                 if (g2 != null) {
-                    Fragment fragment = g2.f12151c;
+                    Fragment fragment = g2.f12213c;
                     if (fragment instanceof g) {
-                        ((g) fragment).u0(intent);
+                        ((g) fragment).x0(intent);
                     }
                 }
             }

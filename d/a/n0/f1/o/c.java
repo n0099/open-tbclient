@@ -12,16 +12,16 @@ import java.util.List;
 public class c {
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f54662d;
+    public static c f58351d;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f54663a = 0;
+    public long f58352a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Long> f54664b = new ArrayList();
+    public List<Long> f58353b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public final CustomMessageListener f54665c = new a(2005016);
+    public final CustomMessageListener f58354c = new a(2005016);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -40,41 +40,41 @@ public class c {
     }
 
     public c() {
-        MessageManager.getInstance().registerListener(this.f54665c);
+        MessageManager.getInstance().registerListener(this.f58354c);
     }
 
     public static c e() {
-        if (f54662d == null) {
+        if (f58351d == null) {
             synchronized (c.class) {
-                if (f54662d == null) {
-                    f54662d = new c();
+                if (f58351d == null) {
+                    f58351d = new c();
                 }
             }
         }
-        return f54662d;
+        return f58351d;
     }
 
     public synchronized void a(long j, long j2) {
-        if (this.f54663a != 0 && this.f54663a != j) {
-            this.f54664b.clear();
-            i.c("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + "-" + this.f54663a);
+        if (this.f58352a != 0 && this.f58352a != j) {
+            this.f58353b.clear();
+            i.c("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + "-" + this.f58352a);
         }
-        this.f54663a = j;
-        for (Long l : this.f54664b) {
+        this.f58352a = j;
+        for (Long l : this.f58353b) {
             if (l != null && l.longValue() == j2) {
                 return;
             }
         }
-        this.f54664b.add(Long.valueOf(j2));
+        this.f58353b.add(Long.valueOf(j2));
     }
 
     public synchronized void b() {
-        this.f54663a = 0L;
-        this.f54664b.clear();
+        this.f58352a = 0L;
+        this.f58353b.clear();
     }
 
     public synchronized boolean c(long j) {
-        for (Long l : this.f54664b) {
+        for (Long l : this.f58353b) {
             if (l != null && l.longValue() == j) {
                 return true;
             }
@@ -83,17 +83,17 @@ public class c {
     }
 
     public long d() {
-        return this.f54663a;
+        return this.f58352a;
     }
 
     public Long f() {
-        return d.a.n0.f1.k.b.o().r().get(this.f54663a);
+        return d.a.n0.f1.k.b.o().r().get(this.f58352a);
     }
 
     public synchronized List<Long> g() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.f54664b) {
+        for (Long l : this.f58353b) {
             if (l != null) {
                 arrayList.add(Long.valueOf(d.a.n0.f1.w.b.c(l.longValue())));
             }
@@ -104,7 +104,7 @@ public class c {
     public synchronized String h() {
         String str;
         str = "";
-        for (Long l : this.f54664b) {
+        for (Long l : this.f58353b) {
             if (l != null && l.longValue() != 0) {
                 str = (str + l.longValue()) + ",";
             }
@@ -114,8 +114,8 @@ public class c {
 
     public synchronized boolean i() {
         boolean z;
-        if (this.f54663a > 0) {
-            z = this.f54664b.size() > 0;
+        if (this.f58352a > 0) {
+            z = this.f58353b.size() > 0;
         }
         return z;
     }
@@ -126,13 +126,13 @@ public class c {
             return;
         }
         try {
-            this.f54663a = d.a.c.e.m.b.f(str, 0L);
+            this.f58352a = d.a.c.e.m.b.f(str, 0L);
             try {
                 String[] split = str2.split(",");
                 if (split != null && split.length > 0) {
                     for (int i2 = 0; i2 < split.length; i2++) {
                         if (!TextUtils.isEmpty(split[i2])) {
-                            this.f54664b.add(Long.valueOf(Long.parseLong(split[i2])));
+                            this.f58353b.add(Long.valueOf(Long.parseLong(split[i2])));
                         }
                     }
                 }
@@ -145,6 +145,6 @@ public class c {
     }
 
     public synchronized void k() {
-        this.f54664b.clear();
+        this.f58353b.clear();
     }
 }

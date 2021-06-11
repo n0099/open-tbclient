@@ -28,6 +28,6 @@ public class f extends c {
     @Override // d.a.l0.a.c0.b.b, d.a.l0.a.l1.a
     public boolean isValid() {
         d.a.l0.a.h1.c.h.c cVar;
-        return (TextUtils.isEmpty(this.f40846g) || TextUtils.isEmpty(this.f40845f) || TextUtils.isEmpty(this.D) || (cVar = this.E) == null || !cVar.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.f44522g) || TextUtils.isEmpty(this.f44521f) || TextUtils.isEmpty(this.D) || (cVar = this.E) == null || !cVar.isValid()) ? false : true;
     }
 }

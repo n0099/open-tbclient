@@ -8,35 +8,35 @@ public class a {
 
     /* renamed from: d.a.n0.q3.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class animation.Animation$AnimationListenerC1485a implements Animation.AnimationListener {
+    public static class animation.Animation$AnimationListenerC1541a implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation.AnimationListener f58346a;
+        public final /* synthetic */ Animation.AnimationListener f62037a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f58347b;
+        public final /* synthetic */ View f62038b;
 
-        public animation.Animation$AnimationListenerC1485a(Animation.AnimationListener animationListener, View view) {
-            this.f58346a = animationListener;
-            this.f58347b = view;
+        public animation.Animation$AnimationListenerC1541a(Animation.AnimationListener animationListener, View view) {
+            this.f62037a = animationListener;
+            this.f62038b = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            Animation.AnimationListener animationListener = this.f58346a;
+            Animation.AnimationListener animationListener = this.f62037a;
             if (animationListener != null) {
                 animationListener.onAnimationEnd(animation);
             }
-            View view = this.f58347b;
+            View view = this.f62038b;
             if (view != null) {
                 view.clearAnimation();
-                this.f58347b.setVisibility(0);
+                this.f62038b.setVisibility(0);
             }
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
-            Animation.AnimationListener animationListener = this.f58346a;
+            Animation.AnimationListener animationListener = this.f62037a;
             if (animationListener != null) {
                 animationListener.onAnimationRepeat(animation);
             }
@@ -44,7 +44,7 @@ public class a {
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
-            Animation.AnimationListener animationListener = this.f58346a;
+            Animation.AnimationListener animationListener = this.f62037a;
             if (animationListener != null) {
                 animationListener.onAnimationStart(animation);
             }
@@ -55,32 +55,32 @@ public class a {
     public static class b implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation.AnimationListener f58348a;
+        public final /* synthetic */ Animation.AnimationListener f62039a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f58349b;
+        public final /* synthetic */ View f62040b;
 
         public b(Animation.AnimationListener animationListener, View view) {
-            this.f58348a = animationListener;
-            this.f58349b = view;
+            this.f62039a = animationListener;
+            this.f62040b = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            Animation.AnimationListener animationListener = this.f58348a;
+            Animation.AnimationListener animationListener = this.f62039a;
             if (animationListener != null) {
                 animationListener.onAnimationEnd(animation);
             }
-            View view = this.f58349b;
+            View view = this.f62040b;
             if (view != null) {
                 view.clearAnimation();
-                this.f58349b.setVisibility(8);
+                this.f62040b.setVisibility(8);
             }
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
-            Animation.AnimationListener animationListener = this.f58348a;
+            Animation.AnimationListener animationListener = this.f62039a;
             if (animationListener != null) {
                 animationListener.onAnimationRepeat(animation);
             }
@@ -88,7 +88,7 @@ public class a {
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
-            Animation.AnimationListener animationListener = this.f58348a;
+            Animation.AnimationListener animationListener = this.f62039a;
             if (animationListener != null) {
                 animationListener.onAnimationStart(animation);
             }
@@ -124,7 +124,7 @@ public class a {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(i2);
         alphaAnimation.setFillAfter(true);
-        alphaAnimation.setAnimationListener(new animation.Animation$AnimationListenerC1485a(animationListener, view));
+        alphaAnimation.setAnimationListener(new animation.Animation$AnimationListenerC1541a(animationListener, view));
         view.setVisibility(0);
         view.startAnimation(alphaAnimation);
     }

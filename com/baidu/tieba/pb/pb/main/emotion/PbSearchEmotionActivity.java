@@ -66,17 +66,17 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19160e;
+        public final /* synthetic */ String f19237e;
 
         public a(String str) {
-            this.f19160e = str;
+            this.f19237e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbSearchEmotionActivity.this.mEditSearchView.setText(this.f19160e);
-            PbSearchEmotionActivity.this.mEditSearchView.setSelection(this.f19160e.length());
-            PbSearchEmotionActivity.this.searchEmotion(this.f19160e);
+            PbSearchEmotionActivity.this.mEditSearchView.setText(this.f19237e);
+            PbSearchEmotionActivity.this.mEditSearchView.setSelection(this.f19237e.length());
+            PbSearchEmotionActivity.this.searchEmotion(this.f19237e);
             TiebaStatic.log("c12178");
         }
     }
@@ -149,20 +149,20 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public class e implements d.a.n0.e2.k.e.b1.a {
 
         /* loaded from: classes5.dex */
-        public class a extends d.a.c.e.l.c<d.a.c.j.d.a> {
+        public class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ EmotionImageData f19166a;
+            public final /* synthetic */ EmotionImageData f19243a;
 
             public a(EmotionImageData emotionImageData) {
-                this.f19166a = emotionImageData;
+                this.f19243a = emotionImageData;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.c.e.l.c
-            public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+            public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
                 if (aVar != null) {
-                    PbSearchEmotionActivity.this.sendMessage(new CustomMessage(2002001, new EmotionEditActivityConfig(PbSearchEmotionActivity.this.getPageContext().getPageActivity(), 25023, this.f19166a, aVar.t(), EmotionEditActivityConfig.FROM_PB_BOTTOM)));
+                    PbSearchEmotionActivity.this.sendMessage(new CustomMessage(2002001, new EmotionEditActivityConfig(PbSearchEmotionActivity.this.getPageContext().getPageActivity(), 25023, this.f19243a, aVar.t(), EmotionEditActivityConfig.FROM_PB_BOTTOM)));
                 }
             }
         }
@@ -187,16 +187,16 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageData f19168e;
+        public final /* synthetic */ EmotionImageData f19245e;
 
         public f(EmotionImageData emotionImageData) {
-            this.f19168e = emotionImageData;
+            this.f19245e = emotionImageData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            PbSearchEmotionActivity.this.sendEmotion(this.f19168e);
+            PbSearchEmotionActivity.this.sendEmotion(this.f19245e);
         }
     }
 
@@ -272,7 +272,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             showToast(R.string.neterror);
         } else if (this.mHasMore) {
             showProgressBar();
-            this.mSearchModel.t(this.mSearchString, this.mCurrentPage + 1, 40, this.mSearchCallback);
+            this.mSearchModel.x(this.mSearchString, this.mCurrentPage + 1, 40, this.mSearchCallback);
         }
     }
 
@@ -288,7 +288,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         showProgressBar();
         this.mCurrentPage = 0;
         this.mSearchString = str;
-        this.mSearchModel.t(str, 0 + 1, 40, this.mSearchCallback);
+        this.mSearchModel.x(str, 0 + 1, 40, this.mSearchCallback);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

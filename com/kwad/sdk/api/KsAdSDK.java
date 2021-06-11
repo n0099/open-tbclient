@@ -10,8 +10,6 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.loader.c;
 import com.kwad.sdk.api.loader.q;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.util.concurrent.atomic.AtomicBoolean;
 @KsAdSdkApi
 @Keep
@@ -21,14 +19,6 @@ public class KsAdSDK {
     public static final AtomicBoolean sInited = new AtomicBoolean(false);
     @Keep
     public static IKsAdSDK sSdk;
-
-    @Keep
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
-    public @interface KsThemeModeType {
-        public static final int NIGHT = 1;
-        public static final int NORMAL = 0;
-    }
 
     @KsAdSdkApi
     @Keep
@@ -94,7 +84,7 @@ public class KsAdSDK {
     @KsAdSdkApi
     @Keep
     public static String getSDKVersion() {
-        return "3.3.8.3";
+        return "3.3.9";
     }
 
     @KsAdSdkApi
@@ -108,8 +98,8 @@ public class KsAdSDK {
                 IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
                 sSdk = ksAdSDKImpl;
                 if (ksAdSDKImpl != null) {
-                    ksAdSDKImpl.setApiVersion("3.3.8.3");
-                    sSdk.setApiVersionCode(3030803);
+                    ksAdSDKImpl.setApiVersion("3.3.9");
+                    sSdk.setApiVersionCode(3030900);
                     sSdk.setAppTag(sAppTag);
                     sSdk.init(Wrapper.wrapContextIfNeed(a2), sdkConfig);
                 }
@@ -117,7 +107,7 @@ public class KsAdSDK {
                 if (sdkConfig != null) {
                     q.a(a2, "sdkconfig", sdkConfig.toJson());
                 }
-                if (b.f31715a.booleanValue()) {
+                if (b.f32291a.booleanValue()) {
                     Loader.get().checkUpdate();
                 }
                 z = sInited.get();
@@ -138,37 +128,12 @@ public class KsAdSDK {
 
     @KsAdSdkApi
     @Keep
-    public static void pauseCurrentPlayer() {
-        IKsAdSDK iKsAdSDK = sSdk;
-        if (iKsAdSDK != null) {
-            iKsAdSDK.pauseCurrentPlayer();
-        }
-    }
-
-    @KsAdSdkApi
-    @Keep
-    public static void resumeCurrentPlayer() {
-        IKsAdSDK iKsAdSDK = sSdk;
-        if (iKsAdSDK != null) {
-            iKsAdSDK.resumeCurrentPlayer();
-        }
-    }
-
-    @KsAdSdkApi
-    @Keep
     public static void setAppTag(String str) {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
             iKsAdSDK.setAppTag(str);
         } else {
             sAppTag = str;
-        }
-    }
-
-    public static void setThemeMode(int i2) {
-        IKsAdSDK iKsAdSDK = sSdk;
-        if (iKsAdSDK != null) {
-            iKsAdSDK.setThemeMode(i2);
         }
     }
 

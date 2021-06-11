@@ -22,31 +22,31 @@ import d.a.n0.r0.f1;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f58814a;
+    public LinearLayout f62505a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f1 f58815b;
+    public f1 f62506b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MorePopupWindow f58816c;
+    public MorePopupWindow f62507c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f58817d;
+    public View f62508d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SparseArray<d.a.n0.r0.k2.a> f58818e = new SparseArray<>();
+    public SparseArray<d.a.n0.r0.k2.a> f62509e = new SparseArray<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f58819f;
+    public Context f62510f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.r0.k2.a f58820g;
+    public d.a.n0.r0.k2.a f62511g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC1504e f58821h;
+    public InterfaceC1560e f62512h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f58822i;
+    public d f62513i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -55,7 +55,7 @@ public class e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.c.e.m.g.c(e.this.f58816c);
+            d.a.c.e.m.g.c(e.this.f62507c);
         }
     }
 
@@ -70,8 +70,8 @@ public class e {
 
         @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
         public void b() {
-            if (e.this.f58816c != null) {
-                d.a.c.e.m.g.c(e.this.f58816c);
+            if (e.this.f62507c != null) {
+                d.a.c.e.m.g.c(e.this.f62507c);
             }
         }
     }
@@ -80,16 +80,16 @@ public class e {
     public class c implements PopupWindow.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TabItemView f58825e;
+        public final /* synthetic */ TabItemView f62516e;
 
         public c(TabItemView tabItemView) {
-            this.f58825e = tabItemView;
+            this.f62516e = tabItemView;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (e.this.f58822i != null) {
-                e.this.f58822i.a(this.f58825e);
+            if (e.this.f62513i != null) {
+                e.this.f62513i.a(this.f62516e);
             }
         }
     }
@@ -101,7 +101,7 @@ public class e {
 
     /* renamed from: d.a.n0.r0.k2.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1504e {
+    public interface InterfaceC1560e {
         void a(int i2);
     }
 
@@ -109,33 +109,33 @@ public class e {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f58827a;
+        public TextView f62518a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f58828b;
+        public ImageView f62519b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f58829c;
+        public View f62520c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f58830d;
+        public View f62521d;
     }
 
-    public e(Context context, InterfaceC1504e interfaceC1504e, d dVar) {
-        this.f58819f = context;
-        this.f58821h = interfaceC1504e;
-        this.f58822i = dVar;
+    public e(Context context, InterfaceC1560e interfaceC1560e, d dVar) {
+        this.f62510f = context;
+        this.f62512h = interfaceC1560e;
+        this.f62513i = dVar;
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f58814a = linearLayout;
+        this.f62505a = linearLayout;
         linearLayout.setOrientation(1);
-        this.f58814a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.f62505a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         View view = new View(context);
-        this.f58817d = view;
+        this.f62508d = view;
         view.setOnClickListener(new a());
     }
 
     public void c() {
-        MorePopupWindow morePopupWindow = this.f58816c;
+        MorePopupWindow morePopupWindow = this.f62507c;
         if (morePopupWindow != null) {
             try {
                 morePopupWindow.dismiss();
@@ -145,28 +145,28 @@ public class e {
         }
     }
 
-    public InterfaceC1504e d() {
-        return this.f58821h;
+    public InterfaceC1560e d() {
+        return this.f62512h;
     }
 
     public final void e(Activity activity, View view, TabItemView tabItemView) {
-        if (this.f58816c == null) {
-            this.f58816c = new MorePopupWindow(activity, this.f58814a, view, SkinManager.getDrawable(R.drawable.transparent_bg), new b());
+        if (this.f62507c == null) {
+            this.f62507c = new MorePopupWindow(activity, this.f62505a, view, SkinManager.getDrawable(R.drawable.transparent_bg), new b());
         }
-        this.f58816c.setOnDismissListener(new c(tabItemView));
+        this.f62507c.setOnDismissListener(new c(tabItemView));
     }
 
     public void f(Activity activity, View view, TabItemView tabItemView, f1 f1Var) {
-        this.f58815b = f1Var;
-        d.a.n0.r0.k2.a aVar = this.f58818e.get(f1Var.f58555a);
-        this.f58820g = aVar;
+        this.f62506b = f1Var;
+        d.a.n0.r0.k2.a aVar = this.f62509e.get(f1Var.f62246a);
+        this.f62511g = aVar;
         if (aVar == null) {
-            d.a.n0.r0.k2.a a2 = h.a(this.f58815b.f58555a);
-            this.f58820g = a2;
-            a2.a(this.f58819f, this);
-            this.f58818e.put(this.f58815b.f58555a, this.f58820g);
+            d.a.n0.r0.k2.a a2 = h.a(this.f62506b.f62246a);
+            this.f62511g = a2;
+            a2.a(this.f62510f, this);
+            this.f62509e.put(this.f62506b.f62246a, this.f62511g);
         }
-        this.f58820g.setData(f1Var.f58556b);
+        this.f62511g.setData(f1Var.f62247b);
         if (view instanceof HorizontalTabView) {
             HorizontalTabView horizontalTabView = (HorizontalTabView) view;
             if (horizontalTabView.getmShowMenuCallBack() != null) {
@@ -174,25 +174,25 @@ public class e {
                 horizontalTabView.getLocationInWindow(iArr);
                 l.y(horizontalTabView.getContext());
                 int i2 = l.i(horizontalTabView.getContext());
-                int b2 = this.f58820g.b();
+                int b2 = this.f62511g.b();
                 int measuredHeight = (i2 - iArr[1]) - horizontalTabView.getMeasuredHeight();
                 if (measuredHeight < b2) {
                     horizontalTabView.getmShowMenuCallBack().b(b2 - measuredHeight);
                 }
             }
         }
-        this.f58814a.removeAllViews();
-        this.f58814a.addView(this.f58820g.getView());
+        this.f62505a.removeAllViews();
+        this.f62505a.addView(this.f62511g.getView());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        SkinManager.setBackgroundResource(this.f58817d, R.color.common_color_10050);
-        this.f58814a.addView(this.f58817d, layoutParams);
+        SkinManager.setBackgroundResource(this.f62508d, R.color.common_color_10050);
+        this.f62505a.addView(this.f62508d, layoutParams);
         e(activity, view, tabItemView);
-        MorePopupWindow morePopupWindow = this.f58816c;
+        MorePopupWindow morePopupWindow = this.f62507c;
         if (morePopupWindow != null) {
             morePopupWindow.refresh();
-            this.f58816c.setWidthAsWidthOfDeviceScreen(activity);
-            this.f58816c.setHeight(-1);
-            this.f58816c.showWindowInCustomPosition(0, 0);
+            this.f62507c.setWidthAsWidthOfDeviceScreen(activity);
+            this.f62507c.setHeight(-1);
+            this.f62507c.showWindowInCustomPosition(0, 0);
         }
     }
 }

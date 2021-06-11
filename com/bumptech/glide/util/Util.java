@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Util {
     public static final int HASH_ACCUMULATOR = 17;
     public static final int HASH_MULTIPLIER = 31;
@@ -20,7 +20,7 @@ public final class Util {
     public static final char[] SHA_256_CHARS = new char[64];
 
     /* renamed from: com.bumptech.glide.util.Util$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
 

@@ -18,31 +18,31 @@ import org.json.JSONObject;
 public class c extends d.a.l0.h.z.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.a.l0.c f47776b;
+    public d.a.l0.a.l0.c f51450b;
 
     /* loaded from: classes3.dex */
     public class a extends ResponseCallback<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.z.g.c f47777a;
+        public final /* synthetic */ d.a.l0.h.z.g.c f51451a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47778b;
+        public final /* synthetic */ d.a.l0.a.y.b.a f51452b;
 
         /* renamed from: d.a.l0.h.z.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC1062a implements Runnable {
+        public class RunnableC1118a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f47780e;
+            public final /* synthetic */ JSONObject f51454e;
 
-            public RunnableC1062a(JSONObject jSONObject) {
-                this.f47780e = jSONObject;
+            public RunnableC1118a(JSONObject jSONObject) {
+                this.f51454e = jSONObject;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.l0.h.m0.c.a(a.this.f47778b, true, this.f47780e);
+                d.a.l0.h.m0.c.a(a.this.f51452b, true, this.f51454e);
             }
         }
 
@@ -54,23 +54,23 @@ public class c extends d.a.l0.h.z.a {
             @Override // java.lang.Runnable
             public void run() {
                 a aVar = a.this;
-                d.a.l0.h.m0.c.a(aVar.f47778b, false, aVar.f47777a);
+                d.a.l0.h.m0.c.a(aVar.f51452b, false, aVar.f51451a);
             }
         }
 
         public a(d.a.l0.h.z.g.c cVar, d.a.l0.a.y.b.a aVar) {
-            this.f47777a = cVar;
-            this.f47778b = aVar;
+            this.f51451a = cVar;
+            this.f51452b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "on success");
             }
-            c.this.f47776b.post(new RunnableC1062a(jSONObject));
+            c.this.f51450b.post(new RunnableC1118a(jSONObject));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,16 +82,16 @@ public class c extends d.a.l0.h.z.a {
                 return null;
             }
             String string = body.string();
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "parse response: " + string);
             }
             JSONObject jSONObject = new JSONObject(string);
             String optString = jSONObject.optString("errno");
             if (!TextUtils.equals(optString, "0")) {
-                if (d.a.l0.h.z.a.f47768a) {
+                if (d.a.l0.h.z.a.f51442a) {
                     Log.d("OpenDataApi", "errno = " + optString);
                 }
-                d.a.l0.h.z.g.c cVar = this.f47777a;
+                d.a.l0.h.z.g.c cVar = this.f51451a;
                 cVar.errNo = optString;
                 cVar.errMsg = String.format("%s: fail Error: %s", "getUserInfo", jSONObject.optString("errmsg"));
                 return null;
@@ -105,16 +105,16 @@ public class c extends d.a.l0.h.z.a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.e("OpenDataApi", "on fail");
                 exc.printStackTrace();
             }
-            if (TextUtils.isEmpty(this.f47777a.errMsg)) {
-                d.a.l0.h.z.g.c cVar = this.f47777a;
+            if (TextUtils.isEmpty(this.f51451a.errMsg)) {
+                d.a.l0.h.z.g.c cVar = this.f51451a;
                 cVar.errNo = "100";
                 cVar.errMsg = String.format("%s: fail Error: %s", "getUserInfo", exc.getMessage());
             }
-            c.this.f47776b.post(new b());
+            c.this.f51450b.post(new b());
         }
     }
 
@@ -122,53 +122,53 @@ public class c extends d.a.l0.h.z.a {
     public class b extends ResponseCallback<d.a.l0.h.z.g.c> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.z.g.c f47783a;
+        public final /* synthetic */ d.a.l0.h.z.g.c f51457a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47784b;
+        public final /* synthetic */ d.a.l0.a.y.b.a f51458b;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.a.l0.h.z.g.c f47786e;
+            public final /* synthetic */ d.a.l0.h.z.g.c f51460e;
 
             public a(d.a.l0.h.z.g.c cVar) {
-                this.f47786e = cVar;
+                this.f51460e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.l0.h.m0.c.a(b.this.f47784b, true, this.f47786e);
+                d.a.l0.h.m0.c.a(b.this.f51458b, true, this.f51460e);
             }
         }
 
         /* renamed from: d.a.l0.h.z.c$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC1063b implements Runnable {
-            public RunnableC1063b() {
+        public class RunnableC1119b implements Runnable {
+            public RunnableC1119b() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 b bVar = b.this;
-                d.a.l0.h.m0.c.a(bVar.f47784b, false, bVar.f47783a);
+                d.a.l0.h.m0.c.a(bVar.f51458b, false, bVar.f51457a);
             }
         }
 
         public b(d.a.l0.h.z.g.c cVar, d.a.l0.a.y.b.a aVar) {
-            this.f47783a = cVar;
-            this.f47784b = aVar;
+            this.f51457a = cVar;
+            this.f51458b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(d.a.l0.h.z.g.c cVar, int i2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "on success ");
             }
-            c.this.f47776b.post(new a(cVar));
+            c.this.f51450b.post(new a(cVar));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -180,65 +180,65 @@ public class c extends d.a.l0.h.z.a {
                 return null;
             }
             String string = body.string();
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "parse response: " + string);
             }
             JSONObject jSONObject = new JSONObject(string);
             String optString = jSONObject.optString("errno");
             if (!TextUtils.equals(optString, "0")) {
-                if (d.a.l0.h.z.a.f47768a) {
+                if (d.a.l0.h.z.a.f51442a) {
                     Log.d("OpenDataApi", "errno = " + optString);
                 }
-                d.a.l0.h.z.g.c cVar = this.f47783a;
+                d.a.l0.h.z.g.c cVar = this.f51457a;
                 cVar.errNo = optString;
                 cVar.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", jSONObject.optString("errmsg"));
                 return null;
             }
-            d.a.l0.h.z.g.c cVar2 = this.f47783a;
+            d.a.l0.h.z.g.c cVar2 = this.f51457a;
             cVar2.errNo = "0";
             cVar2.errMsg = d.a.l0.h.m0.c.c("removeUserCloudStorage", "ok");
-            return this.f47783a;
+            return this.f51457a;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "on fail");
                 exc.printStackTrace();
             }
-            if (TextUtils.isEmpty(this.f47783a.errMsg)) {
-                d.a.l0.h.z.g.c cVar = this.f47783a;
+            if (TextUtils.isEmpty(this.f51457a.errMsg)) {
+                d.a.l0.h.z.g.c cVar = this.f51457a;
                 cVar.errNo = "100";
                 cVar.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", exc.getMessage());
             }
-            c.this.f47776b.post(new RunnableC1063b());
+            c.this.f51450b.post(new RunnableC1119b());
         }
     }
 
     /* renamed from: d.a.l0.h.z.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1064c extends ResponseCallback<JSONObject> {
+    public class C1120c extends ResponseCallback<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.z.g.c f47789a;
+        public final /* synthetic */ d.a.l0.h.z.g.c f51463a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47790b;
+        public final /* synthetic */ d.a.l0.a.y.b.a f51464b;
 
         /* renamed from: d.a.l0.h.z.c$c$a */
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f47792e;
+            public final /* synthetic */ JSONObject f51466e;
 
             public a(JSONObject jSONObject) {
-                this.f47792e = jSONObject;
+                this.f51466e = jSONObject;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.l0.h.m0.c.a(C1064c.this.f47790b, true, this.f47792e);
+                d.a.l0.h.m0.c.a(C1120c.this.f51464b, true, this.f51466e);
             }
         }
 
@@ -250,24 +250,24 @@ public class c extends d.a.l0.h.z.a {
 
             @Override // java.lang.Runnable
             public void run() {
-                C1064c c1064c = C1064c.this;
-                d.a.l0.h.m0.c.a(c1064c.f47790b, false, c1064c.f47789a);
+                C1120c c1120c = C1120c.this;
+                d.a.l0.h.m0.c.a(c1120c.f51464b, false, c1120c.f51463a);
             }
         }
 
-        public C1064c(d.a.l0.h.z.g.c cVar, d.a.l0.a.y.b.a aVar) {
-            this.f47789a = cVar;
-            this.f47790b = aVar;
+        public C1120c(d.a.l0.h.z.g.c cVar, d.a.l0.a.y.b.a aVar) {
+            this.f51463a = cVar;
+            this.f51464b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "on success");
             }
-            c.this.f47776b.post(new a(jSONObject));
+            c.this.f51450b.post(new a(jSONObject));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -279,16 +279,16 @@ public class c extends d.a.l0.h.z.a {
                 return null;
             }
             String string = body.string();
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "parse response: " + string);
             }
             JSONObject jSONObject = new JSONObject(string);
             String optString = jSONObject.optString("errno");
             if (!TextUtils.equals(optString, "0")) {
-                if (d.a.l0.h.z.a.f47768a) {
+                if (d.a.l0.h.z.a.f51442a) {
                     Log.d("OpenDataApi", "errno = " + optString);
                 }
-                d.a.l0.h.z.g.c cVar = this.f47789a;
+                d.a.l0.h.z.g.c cVar = this.f51463a;
                 cVar.errNo = optString;
                 cVar.errMsg = String.format("%s: fail Error: %s", "getUserCloudStorage", jSONObject.optString("errmsg"));
                 return null;
@@ -302,15 +302,15 @@ public class c extends d.a.l0.h.z.a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.e("OpenDataApi", "on fail");
             }
-            if (TextUtils.isEmpty(this.f47789a.errMsg)) {
-                d.a.l0.h.z.g.c cVar = this.f47789a;
+            if (TextUtils.isEmpty(this.f51463a.errMsg)) {
+                d.a.l0.h.z.g.c cVar = this.f51463a;
                 cVar.errNo = "100";
                 cVar.errMsg = String.format("%s: fail Error: %s", "getUserCloudStorage", exc.getMessage());
             }
-            c.this.f47776b.post(new b());
+            c.this.f51450b.post(new b());
         }
     }
 
@@ -318,24 +318,24 @@ public class c extends d.a.l0.h.z.a {
     public class d extends ResponseCallback<d.a.l0.h.z.g.c> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.z.g.c f47795a;
+        public final /* synthetic */ d.a.l0.h.z.g.c f51469a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47796b;
+        public final /* synthetic */ d.a.l0.a.y.b.a f51470b;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.a.l0.h.z.g.c f47798e;
+            public final /* synthetic */ d.a.l0.h.z.g.c f51472e;
 
             public a(d.a.l0.h.z.g.c cVar) {
-                this.f47798e = cVar;
+                this.f51472e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.l0.h.m0.c.a(d.this.f47796b, true, this.f47798e);
+                d.a.l0.h.m0.c.a(d.this.f51470b, true, this.f51472e);
             }
         }
 
@@ -347,23 +347,23 @@ public class c extends d.a.l0.h.z.a {
             @Override // java.lang.Runnable
             public void run() {
                 d dVar = d.this;
-                d.a.l0.h.m0.c.a(dVar.f47796b, false, dVar.f47795a);
+                d.a.l0.h.m0.c.a(dVar.f51470b, false, dVar.f51469a);
             }
         }
 
         public d(d.a.l0.h.z.g.c cVar, d.a.l0.a.y.b.a aVar) {
-            this.f47795a = cVar;
-            this.f47796b = aVar;
+            this.f51469a = cVar;
+            this.f51470b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(d.a.l0.h.z.g.c cVar, int i2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "on success");
             }
-            c.this.f47776b.post(new a(cVar));
+            c.this.f51450b.post(new a(cVar));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -375,37 +375,37 @@ public class c extends d.a.l0.h.z.a {
                 return null;
             }
             String string = body.string();
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "parse response: " + string);
             }
             JSONObject jSONObject = new JSONObject(string);
             String optString = jSONObject.optString("errno");
             if (!TextUtils.equals(optString, "0")) {
-                if (d.a.l0.h.z.a.f47768a) {
+                if (d.a.l0.h.z.a.f51442a) {
                     Log.d("OpenDataApi", "errno = " + optString);
                 }
-                d.a.l0.h.z.g.c cVar = this.f47795a;
+                d.a.l0.h.z.g.c cVar = this.f51469a;
                 cVar.errNo = optString;
                 cVar.errMsg = String.format("%s: fail Error: %s", "setUserCloudStorage", jSONObject.optString("errmsg"));
                 return null;
             }
-            d.a.l0.h.z.g.c cVar2 = this.f47795a;
+            d.a.l0.h.z.g.c cVar2 = this.f51469a;
             cVar2.errNo = "0";
             cVar2.errMsg = d.a.l0.h.m0.c.c("setUserCloudStorage", "ok");
-            return this.f47795a;
+            return this.f51469a;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.e("OpenDataApi", "on fail");
             }
-            if (TextUtils.isEmpty(this.f47795a.errMsg)) {
-                d.a.l0.h.z.g.c cVar = this.f47795a;
+            if (TextUtils.isEmpty(this.f51469a.errMsg)) {
+                d.a.l0.h.z.g.c cVar = this.f51469a;
                 cVar.errNo = "100";
                 cVar.errMsg = String.format("%s: fail Error: %s", "setUserCloudStorage", exc.getMessage());
             }
-            c.this.f47776b.post(new b());
+            c.this.f51450b.post(new b());
         }
     }
 
@@ -413,27 +413,27 @@ public class c extends d.a.l0.h.z.a {
     public class e extends ResponseCallback<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.z.g.c f47801a;
+        public final /* synthetic */ d.a.l0.h.z.g.c f51475a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f47802b;
+        public final /* synthetic */ String f51476b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47803c;
+        public final /* synthetic */ d.a.l0.a.y.b.a f51477c;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f47805e;
+            public final /* synthetic */ JSONObject f51479e;
 
             public a(JSONObject jSONObject) {
-                this.f47805e = jSONObject;
+                this.f51479e = jSONObject;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.l0.h.m0.c.a(e.this.f47803c, true, this.f47805e);
+                d.a.l0.h.m0.c.a(e.this.f51477c, true, this.f51479e);
             }
         }
 
@@ -445,24 +445,24 @@ public class c extends d.a.l0.h.z.a {
             @Override // java.lang.Runnable
             public void run() {
                 e eVar = e.this;
-                d.a.l0.h.m0.c.a(eVar.f47803c, false, eVar.f47801a);
+                d.a.l0.h.m0.c.a(eVar.f51477c, false, eVar.f51475a);
             }
         }
 
         public e(d.a.l0.h.z.g.c cVar, String str, d.a.l0.a.y.b.a aVar) {
-            this.f47801a = cVar;
-            this.f47802b = str;
-            this.f47803c = aVar;
+            this.f51475a = cVar;
+            this.f51476b = str;
+            this.f51477c = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "on success");
             }
-            c.this.f47776b.post(new a(jSONObject));
+            c.this.f51450b.post(new a(jSONObject));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -474,44 +474,44 @@ public class c extends d.a.l0.h.z.a {
                 return null;
             }
             String string = body.string();
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.d("OpenDataApi", "parse response: " + string);
             }
             JSONObject jSONObject = new JSONObject(string);
             String optString = jSONObject.optString("errno");
             if (!TextUtils.equals(optString, "0")) {
-                if (d.a.l0.h.z.a.f47768a) {
+                if (d.a.l0.h.z.a.f51442a) {
                     Log.d("OpenDataApi", "errno = " + optString);
                 }
-                d.a.l0.h.z.g.c cVar = this.f47801a;
+                d.a.l0.h.z.g.c cVar = this.f51475a;
                 cVar.errNo = optString;
-                cVar.errMsg = String.format("%s: fail Error: %s", this.f47802b, jSONObject.optString("errmsg"));
+                cVar.errMsg = String.format("%s: fail Error: %s", this.f51476b, jSONObject.optString("errmsg"));
                 return null;
             }
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("errNo", "0");
-            jSONObject2.put("errMsg", d.a.l0.h.m0.c.c(this.f47802b, "ok"));
+            jSONObject2.put("errMsg", d.a.l0.h.m0.c.c(this.f51476b, "ok"));
             jSONObject2.put("data", jSONObject.optJSONArray("data"));
             return jSONObject2;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 Log.e("OpenDataApi", "on fail");
                 exc.printStackTrace();
             }
-            if (TextUtils.isEmpty(this.f47801a.errMsg)) {
-                d.a.l0.h.z.g.c cVar = this.f47801a;
+            if (TextUtils.isEmpty(this.f51475a.errMsg)) {
+                d.a.l0.h.z.g.c cVar = this.f51475a;
                 cVar.errNo = "100";
-                cVar.errMsg = String.format("%s: fail Error: %s", this.f47802b, exc.getMessage());
+                cVar.errMsg = String.format("%s: fail Error: %s", this.f51476b, exc.getMessage());
             }
-            c.this.f47776b.post(new b());
+            c.this.f51450b.post(new b());
         }
     }
 
     public c(@NonNull d.a.l0.a.l0.c cVar) {
-        this.f47776b = cVar;
+        this.f51450b = cVar;
     }
 
     public final d.a.l0.h.z.g.b[] c(d.a.l0.a.y.b.a aVar, JsObject[] jsObjectArr, d.a.l0.h.z.g.c cVar) {
@@ -571,7 +571,7 @@ public class c extends d.a.l0.h.z.a {
                 j(i2, h2, new e(cVar, "getFriendCloudStorage", G));
                 return;
             } catch (JSTypeMismatchException e2) {
-                if (d.a.l0.h.z.a.f47768a) {
+                if (d.a.l0.h.z.a.f51442a) {
                     e2.printStackTrace();
                 }
                 cVar.errNo = FontParser.sFontWeightDefault;
@@ -597,7 +597,7 @@ public class c extends d.a.l0.h.z.a {
             }
             jSONObject.put("data", jSONArray);
         } catch (JSONException e2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 e2.printStackTrace();
             }
         }
@@ -617,7 +617,7 @@ public class c extends d.a.l0.h.z.a {
         } else {
             o = d.a.l0.h.t.a.b().m();
         }
-        if (TextUtils.isEmpty(o) && d.a.l0.h.z.a.f47768a) {
+        if (TextUtils.isEmpty(o) && d.a.l0.h.z.a.f51442a) {
             Log.e("OpenDataApi", "getUrlByType（）meet empty url !");
         }
         return o;
@@ -653,9 +653,9 @@ public class c extends d.a.l0.h.z.a {
         try {
             String[] h2 = G.h("keyList");
             h(jsObject);
-            j(3, h2, new C1064c(cVar, G));
+            j(3, h2, new C1120c(cVar, G));
         } catch (JSTypeMismatchException e2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 e2.printStackTrace();
             }
             cVar.errNo = FontParser.sFontWeightDefault;
@@ -680,7 +680,7 @@ public class c extends d.a.l0.h.z.a {
                 }
             }
         } catch (JSTypeMismatchException e2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 e2.printStackTrace();
             }
         }
@@ -690,7 +690,7 @@ public class c extends d.a.l0.h.z.a {
             jSONObject.put("ma_id", d.a.l0.a.a2.e.V());
             jSONObject.put("swanid_list", jSONArray);
         } catch (JSONException e3) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 e3.printStackTrace();
             }
         }
@@ -723,7 +723,7 @@ public class c extends d.a.l0.h.z.a {
             jSONObject.put("ma_id", d.a.l0.a.a2.e.V());
             jSONObject.put("key_list", jSONArray);
         } catch (JSONException e2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 e2.printStackTrace();
             }
         }
@@ -749,7 +749,7 @@ public class c extends d.a.l0.h.z.a {
             h(jsObject);
             j(2, h2, new b(cVar, G));
         } catch (JSTypeMismatchException e2) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 e2.printStackTrace();
             }
             cVar.errNo = FontParser.sFontWeightDefault;
@@ -784,7 +784,7 @@ public class c extends d.a.l0.h.z.a {
             }
             a(f(4), e(c2).toString(), new d(cVar, G));
         } catch (JSTypeMismatchException e3) {
-            if (d.a.l0.h.z.a.f47768a) {
+            if (d.a.l0.h.z.a.f51442a) {
                 e3.printStackTrace();
             }
             cVar.errNo = FontParser.sFontWeightDefault;

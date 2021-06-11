@@ -4,24 +4,24 @@ import android.text.TextUtils;
 import com.baidu.util.Base64Encoder;
 import com.baidu.util.LogUtil;
 import java.net.URLEncoder;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public StringBuilder f4590a;
+    public StringBuilder f4609a;
 
     public b(String str) {
-        this.f4590a = new StringBuilder(str);
+        this.f4609a = new StringBuilder(str);
     }
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        StringBuilder sb = this.f4590a;
+        StringBuilder sb = this.f4609a;
         sb.append("&" + str + "=");
         byte[] b64Encode = Base64Encoder.b64Encode(URLEncoder.encode(str2).getBytes());
-        this.f4590a.append(new String(b64Encode));
+        this.f4609a.append(new String(b64Encode));
         LogUtil.logD("ClientUpdateUriHelper", "key: " + str + ", value: " + str2);
         LogUtil.logD("ClientUpdateUriHelper", "b64encode key: " + str + ", value: " + new String(b64Encode));
     }
@@ -30,14 +30,14 @@ public class b {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        StringBuilder sb = this.f4590a;
+        StringBuilder sb = this.f4609a;
         sb.append("&" + str + "=");
-        this.f4590a.append(URLEncoder.encode(str2));
+        this.f4609a.append(URLEncoder.encode(str2));
         LogUtil.logD("ClientUpdateUriHelper", "key: " + str + ", value: " + str2);
         LogUtil.logD("ClientUpdateUriHelper", "b64encode key: " + str + ", value: " + str2);
     }
 
     public String toString() {
-        return this.f4590a.toString();
+        return this.f4609a.toString();
     }
 }

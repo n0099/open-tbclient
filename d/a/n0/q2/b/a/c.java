@@ -8,16 +8,16 @@ import com.baidu.adp.lib.util.BdLog;
 public class c extends AsyncTask<Void, Void, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Camera f58340a;
+    public Camera f62031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f58341b;
+    public byte[] f62032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f58342c;
+    public a f62033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f58343d;
+    public int f62034d;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -25,10 +25,10 @@ public class c extends AsyncTask<Void, Void, String> {
     }
 
     public c(Camera camera, byte[] bArr, a aVar, int i2) {
-        this.f58340a = camera;
-        this.f58341b = bArr;
-        this.f58342c = aVar;
-        this.f58343d = i2;
+        this.f62031a = camera;
+        this.f62032b = bArr;
+        this.f62033c = aVar;
+        this.f62034d = i2;
     }
 
     public void a() {
@@ -42,7 +42,7 @@ public class c extends AsyncTask<Void, Void, String> {
     /* renamed from: b */
     public String doInBackground(Void... voidArr) {
         Camera.Parameters parameters;
-        Camera camera = this.f58340a;
+        Camera camera = this.f62031a;
         if (camera == null) {
             return null;
         }
@@ -58,12 +58,12 @@ public class c extends AsyncTask<Void, Void, String> {
         Camera.Size previewSize = parameters.getPreviewSize();
         int i2 = previewSize.width;
         int i3 = previewSize.height;
-        byte[] bArr = this.f58341b;
-        if (this.f58343d == 0) {
+        byte[] bArr = this.f62032b;
+        if (this.f62034d == 0) {
             bArr = new byte[bArr.length];
             for (int i4 = 0; i4 < i3; i4++) {
                 for (int i5 = 0; i5 < i2; i5++) {
-                    bArr[(((i5 * i3) + i3) - i4) - 1] = this.f58341b[(i4 * i2) + i5];
+                    bArr[(((i5 * i3) + i3) - i4) - 1] = this.f62032b[(i4 * i2) + i5];
                 }
             }
             i2 = i3;
@@ -71,12 +71,12 @@ public class c extends AsyncTask<Void, Void, String> {
         }
         try {
             try {
-                if (this.f58342c == null) {
+                if (this.f62033c == null) {
                     return null;
                 }
-                return this.f58342c.a(bArr, i2, i3, false);
+                return this.f62033c.a(bArr, i2, i3, false);
             } catch (Exception unused) {
-                return this.f58342c.a(bArr, i2, i3, true);
+                return this.f62033c.a(bArr, i2, i3, true);
             }
         } catch (Exception unused2) {
             return null;
@@ -95,6 +95,6 @@ public class c extends AsyncTask<Void, Void, String> {
     @Override // android.os.AsyncTask
     public void onCancelled() {
         super.onCancelled();
-        this.f58342c = null;
+        this.f62033c = null;
     }
 }

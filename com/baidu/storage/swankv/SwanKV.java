@@ -22,16 +22,16 @@ import kotlin.text.Charsets;
 public class SwanKV {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f10338d = new a(null);
+    public static final a f10400d = new a(null);
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10339a;
+    public String f10401a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10340b;
+    public int f10402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10341c;
+    public String f10403c;
     public long nativeHandle;
 
     /* loaded from: classes2.dex */
@@ -94,18 +94,18 @@ public class SwanKV {
     }
 
     public SwanKV(Context context, String str, int i2, String str2) {
-        this.f10339a = str;
-        this.f10340b = i2;
-        this.f10341c = str2;
+        this.f10401a = str;
+        this.f10402b = i2;
+        this.f10403c = str2;
         if (i2 != 4) {
             if (!TextUtils.isEmpty(str2)) {
-                File file = new File(this.f10341c);
+                File file = new File(this.f10403c);
                 if ((!file.exists() || !file.isDirectory()) && !file.mkdirs() && !file.exists()) {
-                    Log.e("swanKV", "mkdirs fail: " + this.f10341c);
-                    this.f10341c = "";
+                    Log.e("swanKV", "mkdirs fail: " + this.f10403c);
+                    this.f10403c = "";
                 }
             }
-            this.nativeHandle = nGetHandle(f10338d.b(this.f10339a), this.f10340b, this.f10341c);
+            this.nativeHandle = nGetHandle(f10400d.b(this.f10401a), this.f10402b, this.f10403c);
         }
     }
 
@@ -114,7 +114,7 @@ public class SwanKV {
 
     @JvmStatic
     public static final boolean n(Context context, b bVar, boolean z) {
-        return f10338d.c(context, bVar, z);
+        return f10400d.c(context, bVar, z);
     }
 
     private final native boolean nClean(long j);
@@ -227,7 +227,7 @@ public class SwanKV {
     }
 
     public int k() {
-        return this.f10340b;
+        return this.f10402b;
     }
 
     public String[] l(String str) {
@@ -328,6 +328,6 @@ public class SwanKV {
 
     public SwanKV(AshmemFileDescriptor ashmemFileDescriptor) {
         this(null, ashmemFileDescriptor.b(), 4, null);
-        this.nativeHandle = nGetAshmemHandle(f10338d.b(this.f10339a), ashmemFileDescriptor.a(), ashmemFileDescriptor.c());
+        this.nativeHandle = nGetAshmemHandle(f10400d.b(this.f10401a), ashmemFileDescriptor.a(), ashmemFileDescriptor.c());
     }
 }

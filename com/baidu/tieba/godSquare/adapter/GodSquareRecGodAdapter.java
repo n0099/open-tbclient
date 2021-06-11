@@ -13,7 +13,7 @@ import d.a.n0.w0.d.b;
 import d.a.n0.z.b0;
 import d.a.n0.z.e0.h;
 /* loaded from: classes4.dex */
-public class GodSquareRecGodAdapter extends d.a.c.j.e.a<h, ViewHolder> {
+public class GodSquareRecGodAdapter extends d.a.c.k.e.a<h, ViewHolder> {
     public TbPageContext<?> m;
     public b n;
     public b0 o;
@@ -22,11 +22,11 @@ public class GodSquareRecGodAdapter extends d.a.c.j.e.a<h, ViewHolder> {
     public class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f16090a;
+        public b f16152a;
 
         public ViewHolder(GodSquareRecGodAdapter godSquareRecGodAdapter, b bVar) {
-            super(bVar.l());
-            this.f16090a = bVar;
+            super(bVar.m());
+            this.f16152a = bVar;
         }
     }
 
@@ -39,46 +39,46 @@ public class GodSquareRecGodAdapter extends d.a.c.j.e.a<h, ViewHolder> {
         public void a(View view, BaseCardInfo baseCardInfo) {
             h hVar;
             MetaData metaData;
-            if (view == null || GodSquareRecGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f63475e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (view == null || GodSquareRecGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f67193e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
             if (view.getId() != GodSquareRecGodAdapter.this.n.m.getId()) {
-                if (view.getId() == GodSquareRecGodAdapter.this.n.l().getId() || view.getId() == GodSquareRecGodAdapter.this.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f63475e.getUserId()));
+                if (view.getId() == GodSquareRecGodAdapter.this.n.m().getId() || view.getId() == GodSquareRecGodAdapter.this.n.o.getId()) {
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f67193e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f63475e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f67193e.getUserId()));
         }
     }
 
     public GodSquareRecGodAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.f63474i);
+        super(tbPageContext.getPageActivity(), h.f67192i);
         this.o = new a();
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public ViewHolder P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public ViewHolder Q(ViewGroup viewGroup) {
         b bVar = new b(this.m);
         this.n = bVar;
-        bVar.t(this.m.getUniqueId());
-        this.n.o(this.o);
+        bVar.u(this.m.getUniqueId());
+        this.n.p(this.o);
         return new ViewHolder(this, this.n);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public View W(int i2, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public View X(int i2, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
         b bVar;
-        if (viewHolder == null || (bVar = viewHolder.f16090a) == null) {
+        if (viewHolder == null || (bVar = viewHolder.f16152a) == null) {
             return null;
         }
-        bVar.m(hVar);
+        bVar.n(hVar);
         return viewHolder.a();
     }
 }

@@ -119,13 +119,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12151c = fragment;
-        bVar.f12149a = i2;
+        bVar.f12213c = fragment;
+        bVar.f12211a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setMinimumHeight(l.g(getActivity(), R.dimen.ds88));
-        bVar.f12150b = fragmentTabIndicator;
+        bVar.f12212b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -134,13 +134,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             int i2 = this.mIsHost ? 1 : 2;
             for (int i3 = 0; i3 < i2; i3++) {
                 Fragment item = this.mAdapter.getItem(i3);
-                int c2 = this.mAdapter.c(i3);
+                int i4 = this.mAdapter.i(i3);
                 String noPersonalTabTitle = getNoPersonalTabTitle();
-                if (c2 == 1) {
+                if (i4 == 1) {
                     noPersonalTabTitle = getNoCommonTabTitle();
                 }
                 if (item != null) {
-                    createAndAddTabSpec(item, c2, noPersonalTabTitle);
+                    createAndAddTabSpec(item, i4, noPersonalTabTitle);
                 }
             }
             this.mTabHost.k(3);
@@ -172,7 +172,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         fragmentTabHost.setup(getSupportFragmentManager());
         this.mTabHost.setTabWidgetBackgroundColor(getResources().getColor(R.color.common_color_10002));
         this.mTabHost.setOnPageChangeListener(this);
-        this.mTabHost.p();
+        this.mTabHost.q();
         initTabSpec();
         if (this.mIsHost) {
             this.mTabHost.getTabWrapper().setVisibility(8);
@@ -235,7 +235,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-        this.mTabHost.o(i2);
+        this.mTabHost.p(i2);
         if (this.mAdapter != null) {
             for (int i3 = 0; i3 < this.mAdapter.getCount(); i3++) {
                 Fragment item = this.mAdapter.getItem(i3);
@@ -347,13 +347,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (this.mIsHost || this.mAdapter == null) {
             return;
         }
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12150b;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12212b;
         if (i2 <= 0) {
             fragmentTabIndicator.setText(getNoPersonalTabTitle());
         } else {
             fragmentTabIndicator.setText(String.format(getPersonalTabTitle(), Integer.valueOf(i2)));
         }
-        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12150b;
+        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12212b;
         if (i3 <= 0) {
             fragmentTabIndicator2.setText(getNoCommonTabTitle());
         } else {

@@ -25,14 +25,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.f12151c = cVar.f49334a;
-        fragmentTabIndicator.setText(cVar.f49335b);
+        bVar.f12213c = cVar.f53008a;
+        fragmentTabIndicator.setText(cVar.f53009b);
         if (!TextUtils.isEmpty(str)) {
             fragmentTabIndicator.setText(str);
         }
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.ds32));
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
-        bVar.f12150b = fragmentTabIndicator;
+        bVar.f12212b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -57,24 +57,24 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.ds80));
         SigleRecordsFragment sigleRecordsFragment = new SigleRecordsFragment();
         this.expenditureFragment = sigleRecordsFragment;
-        sigleRecordsFragment.U0(1);
+        sigleRecordsFragment.X0(1);
         c cVar = new c();
-        cVar.f49334a = this.expenditureFragment;
-        cVar.f49335b = R.string.expenditure_records;
+        cVar.f53008a = this.expenditureFragment;
+        cVar.f53009b = R.string.expenditure_records;
         createAndAddTabSpec(cVar, getTabIndicator(getPageContext().getPageActivity()), null);
         SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
         this.incomeFragment = sigleRecordsFragment2;
-        sigleRecordsFragment2.U0(2);
+        sigleRecordsFragment2.X0(2);
         c cVar2 = new c();
-        cVar2.f49334a = this.incomeFragment;
-        cVar2.f49335b = R.string.income_records;
+        cVar2.f53008a = this.incomeFragment;
+        cVar2.f53009b = R.string.income_records;
         createAndAddTabSpec(cVar2, getTabIndicator(getPageContext().getPageActivity()), null);
         SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
         this.rechargeFragment = sigleRecordsFragment3;
-        sigleRecordsFragment3.U0(3);
+        sigleRecordsFragment3.X0(3);
         c cVar3 = new c();
-        cVar3.f49334a = this.rechargeFragment;
-        cVar3.f49335b = R.string.recharge_records;
+        cVar3.f53008a = this.rechargeFragment;
+        cVar3.f53009b = R.string.recharge_records;
         createAndAddTabSpec(cVar3, getTabIndicator(getPageContext().getPageActivity()), null);
         this.mTabHost.k(3);
         this.mTabHost.setCurrentTab(getIndexByType(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
@@ -85,7 +85,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         this.mNavigationbar.onChangeSkinType(getPageContext(), i2);
         this.mTabHost.setNeedShowThemeStyle(false);
         this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
-        this.mTabHost.o(i2);
+        this.mTabHost.p(i2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity

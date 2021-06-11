@@ -9,7 +9,7 @@ import java.io.File;
 public class l0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45424a = d.a.l0.a.k.f43199a;
+    public static final boolean f49098a = d.a.l0.a.k.f46875a;
 
     public static boolean a(String str, String str2) {
         return b(str) > b(str2);
@@ -46,13 +46,13 @@ public class l0 {
                 j = (j << 16) | (i2 < g2.length ? Integer.parseInt(g2[i2]) : 0L);
                 i2++;
             } catch (NumberFormatException e2) {
-                if (f45424a) {
+                if (f49098a) {
                     throw e2;
                 }
                 return 0L;
             }
         }
-        if (f45424a) {
+        if (f49098a) {
             Log.d("SwanAppSwanCoreUtils", "getVersion version: " + str + " ,versionCode: " + j);
         }
         return j;

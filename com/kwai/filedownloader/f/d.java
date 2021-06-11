@@ -1,11 +1,11 @@
 package com.kwai.filedownloader.f;
 
 import android.util.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f34292a = false;
+    public static boolean f37776a = false;
 
     public static String a(Object obj) {
         StringBuilder sb = new StringBuilder();
@@ -19,7 +19,7 @@ public class d {
     }
 
     public static void a(int i2, Object obj, Throwable th, String str, Object... objArr) {
-        if ((i2 >= 5) || f34292a) {
+        if ((i2 >= 5) || f37776a) {
             Log.println(i2, a(obj), f.a(str, objArr));
             if (th != null) {
                 th.printStackTrace();

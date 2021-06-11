@@ -143,8 +143,8 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         if (i2 == 0 || 1 == this.mMemberPrivilegeView.e().getItemViewType(i2)) {
             return;
         }
-        String str = ((a.C1596a) this.mMemberPrivilegeView.e().getItem(i2)).f60580d;
-        String str2 = ((a.C1596a) this.mMemberPrivilegeView.e().getItem(i2)).f60578b;
+        String str = ((a.C1652a) this.mMemberPrivilegeView.e().getItem(i2)).f64271d;
+        String str2 = ((a.C1652a) this.mMemberPrivilegeView.e().getItem(i2)).f64269b;
         if (k.isEmpty(str)) {
             return;
         }

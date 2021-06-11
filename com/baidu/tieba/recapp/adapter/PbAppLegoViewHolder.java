@@ -8,14 +8,14 @@ import d.a.n0.t2.n;
 public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.k1.o.l.e<?> f20142e;
+    public d.a.n0.k1.o.l.e<?> f20219e;
 
     /* renamed from: f  reason: collision with root package name */
-    public n f20143f;
+    public n f20220f;
 
     public PbAppLegoViewHolder(d.a.n0.k1.o.l.e<?> eVar) {
         super((View) eVar);
-        this.f20142e = eVar;
+        this.f20219e = eVar;
     }
 
     @Override // d.a.n0.k2.e
@@ -24,14 +24,14 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     }
 
     public void b(int i2) {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         if (nVar != null) {
             nVar.autoPlay(i2);
         }
     }
 
     public boolean c() {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         if (nVar == null) {
             return false;
         }
@@ -39,7 +39,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     }
 
     public int d() {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         if (nVar != null) {
             return nVar.getPlayStatus();
         }
@@ -47,26 +47,19 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     }
 
     public void e() {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         if (nVar != null) {
             nVar.release();
         }
     }
 
     public void f(n nVar) {
-        this.f20143f = nVar;
-    }
-
-    public void g() {
-        d.a.n0.k1.o.l.e<?> eVar = this.f20142e;
-        if (eVar != null) {
-            eVar.e();
-        }
+        this.f20220f = nVar;
     }
 
     @Override // d.a.n0.k2.e
     public int getCurrentPosition() {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         if (nVar == null) {
             return 0;
         }
@@ -75,22 +68,29 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     @Override // d.a.n0.k2.e
     public String getPlayUrl() {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         return nVar == null ? "" : nVar.getPlayUrl();
     }
 
     @Override // d.a.n0.k2.e
     public View getVideoContainer() {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         if (nVar == null) {
             return null;
         }
         return nVar.getVideoContainer();
     }
 
+    public void h() {
+        d.a.n0.k1.o.l.e<?> eVar = this.f20219e;
+        if (eVar != null) {
+            eVar.h();
+        }
+    }
+
     @Override // d.a.n0.k2.e
     public boolean isPlayStarted() {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         if (nVar == null) {
             return false;
         }
@@ -99,7 +99,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     @Override // d.a.n0.k2.e
     public boolean isPlaying() {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         if (nVar == null) {
             return false;
         }
@@ -108,7 +108,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     @Override // d.a.n0.k2.e
     public void startPlay() {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         if (nVar != null) {
             nVar.startPlay();
         }
@@ -116,7 +116,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     @Override // d.a.n0.k2.e
     public void stopPlay() {
-        n nVar = this.f20143f;
+        n nVar = this.f20220f;
         if (nVar != null) {
             nVar.stopPlay();
         }

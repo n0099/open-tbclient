@@ -7,17 +7,17 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RoundAngleImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Path f32485a;
+    public Path f34577a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f32486b;
+    public float f34578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RectF f32487c;
+    public RectF f34579c;
 
     public RoundAngleImageView(Context context) {
         this(context, null);
@@ -29,13 +29,13 @@ public class RoundAngleImageView extends ImageView {
 
     public RoundAngleImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f32485a = new Path();
-        this.f32487c = new RectF();
+        this.f34577a = new Path();
+        this.f34579c = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.f32486b == 0.0f) {
+        if (this.f34578b == 0.0f) {
             super.onDraw(canvas);
             return;
         }
@@ -44,25 +44,25 @@ public class RoundAngleImageView extends ImageView {
         }
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
-        float f2 = this.f32486b;
+        float f2 = this.f34578b;
         float f3 = f2 * 2.0f;
         float f4 = f2 * 2.0f;
         float f5 = measuredWidth;
         if (f5 >= f3) {
             float f6 = measuredHeight;
             if (f6 > f4) {
-                this.f32487c.set(0.0f, 0.0f, f5, f6);
-                Path path = this.f32485a;
-                RectF rectF = this.f32487c;
-                float f7 = this.f32486b;
+                this.f34579c.set(0.0f, 0.0f, f5, f6);
+                Path path = this.f34577a;
+                RectF rectF = this.f34579c;
+                float f7 = this.f34578b;
                 path.addRoundRect(rectF, f7, f7, Path.Direction.CW);
-                canvas.clipPath(this.f32485a);
+                canvas.clipPath(this.f34577a);
             }
         }
         super.onDraw(canvas);
     }
 
     public void setRadius(float f2) {
-        this.f32486b = f2;
+        this.f34578b = f2;
     }
 }

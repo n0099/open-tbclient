@@ -11,41 +11,41 @@ public class a extends f {
     public u m;
 
     public a(u uVar, BdUniqueId bdUniqueId) {
-        super(uVar.o().getPageActivity(), bdUniqueId);
+        super(uVar.p().getPageActivity(), bdUniqueId);
         this.m = uVar;
     }
 
-    @Override // d.a.c.j.e.a
-    public View H(int i2, View view, ViewGroup viewGroup, Object obj) {
+    @Override // d.a.c.k.e.a
+    public View I(int i2, View view, ViewGroup viewGroup, Object obj) {
         if (obj instanceof b) {
             b bVar = (b) obj;
             d.a.n0.e.e.a injectPlugin = ((d.a.n0.e.e.b) this.m).getInjectPlugin(1);
             if (injectPlugin instanceof d) {
-                return ((d) injectPlugin).l(i2, view, viewGroup, bVar.c());
+                return ((d) injectPlugin).l(i2, view, viewGroup, bVar.b());
             }
             return null;
         }
         return null;
     }
 
-    @Override // d.a.c.j.e.a
-    public TypeAdapter.ViewHolder Q(ViewGroup viewGroup, Object obj) {
-        if (b.i(G()) != -1 && (obj instanceof b)) {
+    @Override // d.a.c.k.e.a
+    public TypeAdapter.ViewHolder R(ViewGroup viewGroup, Object obj) {
+        if (b.h(H()) != -1 && (obj instanceof b)) {
             d.a.n0.e.e.a injectPlugin = ((d.a.n0.e.e.b) this.m).getInjectPlugin(1);
             if (injectPlugin instanceof d) {
-                return ((d) injectPlugin).f(viewGroup, ((b) obj).c());
+                return ((d) injectPlugin).f(viewGroup, ((b) obj).b());
             }
             return null;
         }
         return null;
     }
 
-    @Override // d.a.c.j.e.a
-    public void X(int i2, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj) {
+    @Override // d.a.c.k.e.a
+    public void Y(int i2, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj) {
         if (obj instanceof b) {
             d.a.n0.e.e.a injectPlugin = ((d.a.n0.e.e.b) this.m).getInjectPlugin(1);
             if (injectPlugin instanceof d) {
-                ((d) injectPlugin).m(i2, viewGroup, viewHolder, ((b) obj).c());
+                ((d) injectPlugin).m(i2, viewGroup, viewHolder, ((b) obj).b());
             }
         }
     }

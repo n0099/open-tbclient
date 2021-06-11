@@ -22,23 +22,23 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.app.LoginDialogActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b implements d.a.n0.c2.c.a, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public LoginDialogActivity f52377e;
+    public LoginDialogActivity f56066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f52378f;
+    public View f56067f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f52379g;
+    public View f56068g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f52380h;
+    public View f56069h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f52381i;
+    public ImageView f56070i;
     public TextView j;
     public TextView k;
     public TextView l;
@@ -54,16 +54,16 @@ public class b implements d.a.n0.c2.c.a, View.OnClickListener {
     public String v;
     public String w;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends OneKeyLoginCallback {
         public a() {
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void onFail(OneKeyLoginResult oneKeyLoginResult) {
-            b.this.f52377e.closeLoadingDialog();
-            b.this.f52377e.showToast(String.format(b.this.f52377e.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
-            b.this.f52377e.passLoginFail();
+            b.this.f56066e.closeLoadingDialog();
+            b.this.f56066e.showToast(String.format(b.this.f56066e.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+            b.this.f56066e.passLoginFail();
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
@@ -72,8 +72,8 @@ public class b implements d.a.n0.c2.c.a, View.OnClickListener {
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
-            b.this.f52377e.passLoginSucc();
-            b.this.f52377e.addLoginSuccessLog(DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
+            b.this.f56066e.passLoginSucc();
+            b.this.f56066e.addLoginSuccessLog(DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
         }
     }
 
@@ -113,7 +113,7 @@ public class b implements d.a.n0.c2.c.a, View.OnClickListener {
         }
     }
 
-    public static String h(Activity activity, String str) {
+    public static String i(Activity activity, String str) {
         if (TextUtils.isEmpty(str) || str.length() <= 7) {
             return null;
         }
@@ -125,12 +125,12 @@ public class b implements d.a.n0.c2.c.a, View.OnClickListener {
 
     @Override // d.a.n0.c2.c.a
     public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
-        this.f52377e = loginDialogActivity;
+        this.f56066e = loginDialogActivity;
         View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.onekey_login_dialog_activity_layout, viewGroup, true);
-        this.f52378f = inflate.findViewById(R.id.dialog_background);
-        this.f52379g = inflate.findViewById(R.id.dialog_layout);
-        this.f52380h = inflate.findViewById(R.id.close_btn_layout);
-        this.f52381i = (ImageView) inflate.findViewById(R.id.close_btn_view);
+        this.f56067f = inflate.findViewById(R.id.dialog_background);
+        this.f56068g = inflate.findViewById(R.id.dialog_layout);
+        this.f56069h = inflate.findViewById(R.id.close_btn_layout);
+        this.f56070i = (ImageView) inflate.findViewById(R.id.close_btn_view);
         this.j = (TextView) inflate.findViewById(R.id.dialog_title);
         this.k = (TextView) inflate.findViewById(R.id.dialog_subtitle);
         this.l = (TextView) inflate.findViewById(R.id.user_number);
@@ -142,10 +142,10 @@ public class b implements d.a.n0.c2.c.a, View.OnClickListener {
         this.r = (TextView) inflate.findViewById(R.id.agreement_text);
         this.s = (TextView) inflate.findViewById(R.id.tip_3);
         this.t = (TextView) inflate.findViewById(R.id.privacy_text);
-        this.f52378f.setOnClickListener(this);
-        this.f52380h.setOnClickListener(this);
-        this.f52381i.setOnClickListener(this);
-        this.f52379g.setOnClickListener(this);
+        this.f56067f.setOnClickListener(this);
+        this.f56069h.setOnClickListener(this);
+        this.f56070i.setOnClickListener(this);
+        this.f56068g.setOnClickListener(this);
         this.m.setOnClickListener(this);
         this.n.setOnClickListener(this);
         this.p.setOnClickListener(this);
@@ -155,13 +155,13 @@ public class b implements d.a.n0.c2.c.a, View.OnClickListener {
     }
 
     public final void c() {
-        LoginDialogActivity loginDialogActivity = this.f52377e;
+        LoginDialogActivity loginDialogActivity = this.f56066e;
         new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.onekey_login_dialog_activity_agreement_text), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
     }
 
     public final void d() {
-        this.f52377e.passLoginCancel();
-        this.f52377e.finish();
+        this.f56066e.passLoginCancel();
+        this.f56066e.finish();
     }
 
     public final void e() {
@@ -180,42 +180,42 @@ public class b implements d.a.n0.c2.c.a, View.OnClickListener {
         }
     }
 
-    public final void g() {
-        this.f52377e.showLoading();
-        PassportSDK passportSDK = PassportSDK.getInstance();
-        LoginDialogActivity loginDialogActivity = this.f52377e;
-        passportSDK.loadOneKeyLogin(loginDialogActivity, h(loginDialogActivity, this.w), new a());
-    }
-
     @Override // d.a.n0.c2.c.a
     public Intent getResultIntent() {
         return null;
     }
 
-    public final void i() {
+    public final void h() {
+        this.f56066e.showLoading();
+        PassportSDK passportSDK = PassportSDK.getInstance();
+        LoginDialogActivity loginDialogActivity = this.f56066e;
+        passportSDK.loadOneKeyLogin(loginDialogActivity, i(loginDialogActivity, this.w), new a());
+    }
+
+    public final void j() {
         int i2 = this.u;
         if (i2 == 1) {
-            LoginDialogActivity loginDialogActivity = this.f52377e;
+            LoginDialogActivity loginDialogActivity = this.f56066e;
             new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.onekey_login_dialog_activity_operator_1), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
         } else if (i2 == 2) {
-            LoginDialogActivity loginDialogActivity2 = this.f52377e;
+            LoginDialogActivity loginDialogActivity2 = this.f56066e;
             new TbWebViewActivityConfig(loginDialogActivity2, loginDialogActivity2.getResources().getString(R.string.onekey_login_dialog_activity_operator_2), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
         } else if (i2 != 3) {
         } else {
-            LoginDialogActivity loginDialogActivity3 = this.f52377e;
+            LoginDialogActivity loginDialogActivity3 = this.f56066e;
             new TbWebViewActivityConfig(loginDialogActivity3, loginDialogActivity3.getResources().getString(R.string.onekey_login_dialog_activity_operator_3), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
         }
     }
 
-    public final void j() {
-        this.f52377e.finish();
-        LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.f52377e, true);
-        loginActivityConfig.setLoginListener(this.f52377e.getLoginListener());
+    public final void k() {
+        this.f56066e.finish();
+        LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.f56066e, true);
+        loginActivityConfig.setLoginListener(this.f56066e.getLoginListener());
         loginActivityConfig.start();
     }
 
-    public final void k() {
-        LoginDialogActivity loginDialogActivity = this.f52377e;
+    public final void l() {
+        LoginDialogActivity loginDialogActivity = this.f56066e;
         new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.onekey_login_dialog_activity_privacy_text), "http://privacy.baidu.com/mdetail?id=288", false).start();
     }
 
@@ -224,19 +224,19 @@ public class b implements d.a.n0.c2.c.a, View.OnClickListener {
         int id = view.getId();
         if (id != R.id.dialog_background && id != R.id.close_btn_layout && id != R.id.close_btn_view) {
             if (id == R.id.login_btn) {
-                g();
+                h();
                 return;
             } else if (id == R.id.operator_text) {
-                i();
+                j();
                 return;
             } else if (id == R.id.agreement_text) {
                 c();
                 return;
             } else if (id == R.id.privacy_text) {
-                k();
+                l();
                 return;
             } else if (id == R.id.other_login_btn) {
-                j();
+                k();
                 return;
             } else {
                 return;
@@ -247,8 +247,8 @@ public class b implements d.a.n0.c2.c.a, View.OnClickListener {
 
     @Override // d.a.n0.c2.c.a
     public void onViewChangeSkinType(int i2) {
-        SkinManager.setBackgroundResource(this.f52379g, R.drawable.nav_bg_corner_shape, i2);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f52381i, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SkinManager.setBackgroundResource(this.f56068g, R.drawable.nav_bg_corner_shape, i2);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56070i, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.j);
         d2.s(R.color.CAM_X0105);
         d2.w(R.dimen.T_X05);

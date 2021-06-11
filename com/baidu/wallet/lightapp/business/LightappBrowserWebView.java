@@ -11,20 +11,20 @@ import com.baidu.wallet.lightapp.base.LightappWebView;
 public class LightappBrowserWebView extends LightappWebView {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f24608a;
+    public final String f24711a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24609b;
+    public int f24712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24610c;
+    public int f24713c;
     public boolean isTop;
 
     public LightappBrowserWebView(Context context) {
         super(context);
-        this.f24608a = LightappBrowserWebView.class.getSimpleName();
-        this.f24609b = -1;
-        this.f24610c = -1;
+        this.f24711a = LightappBrowserWebView.class.getSimpleName();
+        this.f24712b = -1;
+        this.f24713c = -1;
         this.isTop = true;
     }
 
@@ -40,7 +40,7 @@ public class LightappBrowserWebView extends LightappWebView {
     }
 
     private boolean b() {
-        return this.f24609b > 0 && this.f24610c > 0 && a();
+        return this.f24712b > 0 && this.f24713c > 0 && a();
     }
 
     @Override // android.webkit.WebView, android.widget.AbsoluteLayout, android.view.View
@@ -48,18 +48,18 @@ public class LightappBrowserWebView extends LightappWebView {
         super.onMeasure(i2, i3);
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
-        if (this.f24609b < 0 && measuredWidth > 0) {
-            this.f24609b = measuredWidth;
+        if (this.f24712b < 0 && measuredWidth > 0) {
+            this.f24712b = measuredWidth;
         }
-        if (this.f24610c < 0 && measuredHeight > 10) {
-            this.f24610c = measuredHeight;
+        if (this.f24713c < 0 && measuredHeight > 10) {
+            this.f24713c = measuredHeight;
         }
-        String str = this.f24608a;
+        String str = this.f24711a;
         LogUtil.d(str, "onMeasure current:(" + measuredWidth + "," + measuredHeight + SmallTailInfo.EMOTION_SUFFIX);
         if (b()) {
-            String str2 = this.f24608a;
-            LogUtil.d(str2, "onMeasure force to:(" + this.f24609b + "," + this.f24610c + SmallTailInfo.EMOTION_SUFFIX);
-            setMeasuredDimension(this.f24609b, this.f24610c);
+            String str2 = this.f24711a;
+            LogUtil.d(str2, "onMeasure force to:(" + this.f24712b + "," + this.f24713c + SmallTailInfo.EMOTION_SUFFIX);
+            setMeasuredDimension(this.f24712b, this.f24713c);
         }
     }
 

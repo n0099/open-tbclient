@@ -140,7 +140,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
             CompatibleUtile.getInstance().loadUrl(this.s, immersiveWebViewCard.getPageUrl());
         }
-        x.p().m().d(immersiveWebViewCard.getShowExtra(), this.f17906e);
+        x.p().m().d(immersiveWebViewCard.getShowExtra(), this.f17982e);
         immersiveWebViewCard.mHasShown = true;
     }
 

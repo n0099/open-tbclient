@@ -10,17 +10,17 @@ import com.baidu.fsg.base.utils.RimGlobalUtils;
 public abstract class BeanActivity extends BaseActivity implements IBeanResponseCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5057a = "BaseActivity";
+    public static final String f5100a = "BaseActivity";
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f5058b = null;
+    public Handler f5101b = null;
     public BeanActivity mAct;
 
     private Handler a() {
-        if (this.f5058b == null) {
-            this.f5058b = new Handler(getMainLooper());
+        if (this.f5101b == null) {
+            this.f5101b = new Handler(getMainLooper());
         }
-        return this.f5058b;
+        return this.f5101b;
     }
 
     public void handleFailure(int i2, int i3, String str) {

@@ -22,10 +22,10 @@ public class c {
         @Override // d.a.c.c.f.f
         /* renamed from: a */
         public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-            if (socketMessage == null || socketMessage.getExtra() == null || !(socketMessage.getExtra() instanceof NetMessage) || d.a.m0.s.j.c.a().c(socketMessage.getCmd())) {
+            if (socketMessage == null || socketMessage.getSelf() == null || !(socketMessage.getSelf() instanceof NetMessage) || d.a.m0.s.j.c.a().c(socketMessage.getCmd())) {
                 return socketMessage;
             }
-            ((NetMessage) socketMessage.getExtra()).setSocketErrNo(d.a.m0.s.j.c.a().b());
+            ((NetMessage) socketMessage.getSelf()).setSocketErrNo(d.a.m0.s.j.c.a().b());
             return null;
         }
     }
@@ -55,8 +55,8 @@ public class c {
 
     /* renamed from: d.a.m0.r.x.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1151c extends CustomMessageListener {
-        public C1151c(int i2) {
+    public static class C1207c extends CustomMessageListener {
+        public C1207c(int i2) {
             super(i2);
         }
 
@@ -75,8 +75,8 @@ public class c {
         aVar.setPriority(Integer.MIN_VALUE);
         MessageManager.getInstance().addMessageRule(aVar);
         MessageManager.getInstance().addResponsedMessageRule(new b(0));
-        C1151c c1151c = new C1151c(2000999);
-        c1151c.setPriority(Integer.MIN_VALUE);
-        MessageManager.getInstance().registerListener(c1151c);
+        C1207c c1207c = new C1207c(2000999);
+        c1207c.setPriority(Integer.MIN_VALUE);
+        MessageManager.getInstance().registerListener(c1207c);
     }
 }

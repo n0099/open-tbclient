@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.o;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class EntryPackage extends URLPackage {
     public static final long serialVersionUID = 8251709184937662571L;
     public String entryId;
@@ -19,7 +19,7 @@ public class EntryPackage extends URLPackage {
         this.entryPageSource = "unknown";
     }
 
-    @Override // com.kwad.sdk.core.response.a.a
+    @Override // com.kwad.sdk.core.scene.URLPackage
     public void parseJson(@Nullable JSONObject jSONObject) {
         super.parseJson(jSONObject);
         if (jSONObject == null) {
@@ -29,7 +29,7 @@ public class EntryPackage extends URLPackage {
         this.entryId = jSONObject.optString("entryId");
     }
 
-    @Override // com.kwad.sdk.core.response.a.a, com.kwad.sdk.core.b
+    @Override // com.kwad.sdk.core.scene.URLPackage, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = super.toJson();
         o.a(json, "entryPageSource", this.entryPageSource);

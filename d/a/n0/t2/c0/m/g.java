@@ -7,29 +7,29 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f61011a = new h();
+    public h f64703a = new h();
 
     /* renamed from: b  reason: collision with root package name */
-    public i f61012b = new i();
+    public i f64704b = new i();
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<e> f61013c = new LinkedList<>();
+    public LinkedList<e> f64705c = new LinkedList<>();
 
     public h a() {
-        return this.f61011a;
+        return this.f64703a;
     }
 
     public i b() {
-        return this.f61012b;
+        return this.f64704b;
     }
 
     public List<e> c() {
-        return Collections.unmodifiableList(this.f61013c);
+        return Collections.unmodifiableList(this.f64705c);
     }
 
     public void d(e eVar) {
         if (eVar != null) {
-            this.f61013c.add(eVar);
+            this.f64705c.add(eVar);
         }
     }
 

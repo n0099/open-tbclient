@@ -91,34 +91,34 @@ public class r {
     public CollapsingToolbarLayout Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsFragment f59480a;
+    public FrsFragment f63171a;
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f59484e;
+    public View f63175e;
     public d.a.n0.r0.o2.h e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f59485f;
+    public ImageView f63176f;
     public FrsMultiDelBottomMenuView f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f59486g;
+    public ImageView f63177g;
     public FrsMoveAreaBottomMenuView g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public MessageRedDotView f59487h;
+    public MessageRedDotView f63178h;
     public NavigationBarCoverTip h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.d0.d f59488i;
+    public d.a.n0.d0.d f63179i;
     public TextView i0;
     public ImageView j;
     public TextView j0;
     public ImageView k;
     public TextView l;
     public ViewStub m;
-    public d.a.c.j.e.l n0;
+    public d.a.c.k.e.l n0;
     public PbListView q;
     public BdTypeRecyclerView r;
     public boolean r0;
@@ -130,13 +130,13 @@ public class r {
     public View z;
 
     /* renamed from: b  reason: collision with root package name */
-    public NoPressedRelativeLayout f59481b = null;
+    public NoPressedRelativeLayout f63172b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public CoordinatorLayout f59482c = null;
+    public CoordinatorLayout f63173c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f59483d = null;
+    public View f63174d = null;
     public FrameLayout n = null;
     public TbImageView o = null;
     public TbImageView p = null;
@@ -180,18 +180,18 @@ public class r {
         public View c(LayoutInflater layoutInflater) {
             View inflate = layoutInflater.inflate(R.layout.tips_blue_left_up, (ViewGroup) null);
             ((TextView) inflate.findViewById(R.id.tips)).setText(R.string.frs_video_activity_guide_tip);
-            r.this.f59480a.getPageContext().getLayoutMode().j(inflate);
+            r.this.f63171a.getPageContext().getLayoutMode().j(inflate);
             return inflate;
         }
 
         @Override // d.a.c.e.g.b
         public int getXOffset() {
-            return d.a.c.e.p.l.g(r.this.f59480a.getActivity(), R.dimen.ds10);
+            return d.a.c.e.p.l.g(r.this.f63171a.getActivity(), R.dimen.ds10);
         }
 
         @Override // d.a.c.e.g.b
         public int getYOffset() {
-            return -d.a.c.e.p.l.g(r.this.f59480a.getActivity(), R.dimen.ds6);
+            return -d.a.c.e.p.l.g(r.this.f63171a.getActivity(), R.dimen.ds6);
         }
     }
 
@@ -214,15 +214,15 @@ public class r {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.g.c f59490e;
+        public final /* synthetic */ d.a.c.e.g.c f63181e;
 
         public c(r rVar, d.a.c.e.g.c cVar) {
-            this.f59490e = cVar;
+            this.f63181e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.c.e.g.c cVar = this.f59490e;
+            d.a.c.e.g.c cVar = this.f63181e;
             if (cVar != null) {
                 cVar.d();
             }
@@ -258,7 +258,7 @@ public class r {
             }
             if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                 if (r.this.n0 == null) {
-                    r.this.n0 = new d.a.c.j.e.l(new d.a.c.j.e.j());
+                    r.this.n0 = new d.a.c.k.e.l(new d.a.c.k.e.j());
                 }
                 r.this.n0.q(r.this.r, 2);
             } else if (r.this.n0 != null) {
@@ -325,8 +325,8 @@ public class r {
                 r.this.c0 = i2;
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921397, Integer.valueOf(i2));
                 CustomMessage customMessage = new CustomMessage(2921397);
-                if (r.this.f59480a != null && r.this.f59480a.y2() != null && r.this.f59480a.y2().y() != null && (r.this.f59480a.y2().y().f15761b instanceof BaseFragment)) {
-                    customMessage.setTag(((BaseFragment) r.this.f59480a.y2().y().f15761b).getUniqueId());
+                if (r.this.f63171a != null && r.this.f63171a.B2() != null && r.this.f63171a.B2().y() != null && (r.this.f63171a.B2().y().f15823b instanceof BaseFragment)) {
+                    customMessage.setTag(((BaseFragment) r.this.f63171a.B2().y().f15823b).getUniqueId());
                     customResponsedMessage.setOrginalMessage(customMessage);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -360,7 +360,7 @@ public class r {
     public class h extends DefaultItemAnimator {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f59495a = 0;
+        public int f63186a = 0;
 
         public h() {
         }
@@ -368,8 +368,8 @@ public class r {
         @Override // androidx.recyclerview.widget.SimpleItemAnimator
         public void onRemoveFinished(RecyclerView.ViewHolder viewHolder) {
             super.onRemoveFinished(viewHolder);
-            int i2 = this.f59495a - 1;
-            this.f59495a = i2;
+            int i2 = this.f63186a - 1;
+            this.f63186a = i2;
             if (i2 == 0) {
                 r.this.r.getAdapter().notifyDataSetChanged();
             }
@@ -377,7 +377,7 @@ public class r {
 
         @Override // androidx.recyclerview.widget.SimpleItemAnimator
         public void onRemoveStarting(RecyclerView.ViewHolder viewHolder) {
-            this.f59495a++;
+            this.f63186a++;
             super.onRemoveStarting(viewHolder);
         }
     }
@@ -429,11 +429,11 @@ public class r {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            r.this.f59480a.E2();
-            if (r.this.f59480a == null || r.this.W == null) {
+            r.this.f63171a.H2();
+            if (r.this.f63171a == null || r.this.W == null) {
                 return;
             }
-            r.this.f59480a.c3();
+            r.this.f63171a.f3();
             r.this.W.setExpanded(true);
             if (r.this.M != null) {
                 r.this.M.n(r.this.N, r.this.O, false, true);
@@ -450,10 +450,10 @@ public class r {
         public void a(d.a.m0.r.s.b bVar, int i2, View view) {
             bVar.e();
             if (i2 == 0) {
-                r.this.f59480a.N3();
-            } else if (i2 != 1 || r.this.f59480a.getPageContext() == null) {
+                r.this.f63171a.Q3();
+            } else if (i2 != 1 || r.this.f63171a.getPageContext() == null) {
             } else {
-                SelectImageHelper.getAlbumImage(r.this.f59480a.getPageContext().getPageActivity());
+                SelectImageHelper.getAlbumImage(r.this.f63171a.getPageContext().getPageActivity());
             }
         }
     }
@@ -475,10 +475,10 @@ public class r {
     }
 
     public r(FrsFragment frsFragment, View.OnClickListener onClickListener, d.a.n0.r0.n1.e.a aVar, boolean z, d.a.n0.r0.o2.h hVar) {
-        this.f59480a = null;
+        this.f63171a = null;
         this.v = null;
         this.D = 0;
-        this.f59480a = frsFragment;
+        this.f63171a = frsFragment;
         this.v = onClickListener;
         MessageManager.getInstance().registerListener(this.o0);
         w0(aVar, z);
@@ -498,15 +498,15 @@ public class r {
 
     public void A1(k2 k2Var) {
         if (this.m == null) {
-            View x2 = this.f59480a.x2();
-            ViewStub viewStub = (ViewStub) x2.findViewById(R.id.yule_game_egg_view_stub);
+            View A2 = this.f63171a.A2();
+            ViewStub viewStub = (ViewStub) A2.findViewById(R.id.yule_game_egg_view_stub);
             this.m = viewStub;
             viewStub.setVisibility(0);
-            this.n = (FrameLayout) x2.findViewById(R.id.game_activity_egg_layout);
-            this.o = (TbImageView) x2.findViewById(R.id.game_activity_egg);
-            this.p = (TbImageView) x2.findViewById(R.id.game_activity_egg_s);
-            this.o.setPageId(this.f59480a.getUniqueId());
-            this.p.setPageId(this.f59480a.getUniqueId());
+            this.n = (FrameLayout) A2.findViewById(R.id.game_activity_egg_layout);
+            this.o = (TbImageView) A2.findViewById(R.id.game_activity_egg);
+            this.p = (TbImageView) A2.findViewById(R.id.game_activity_egg_s);
+            this.o.setPageId(this.f63171a.getUniqueId());
+            this.p.setPageId(this.f63171a.getUniqueId());
             this.o.setDefaultBgResource(R.color.common_color_10022);
             this.o.setDefaultResource(0);
             this.p.setDefaultBgResource(R.color.common_color_10022);
@@ -516,8 +516,8 @@ public class r {
         this.n.setVisibility(0);
         String a2 = k2Var.a();
         String b2 = k2Var.b();
-        this.o.V(a2, 10, false);
-        this.p.V(b2, 10, false);
+        this.o.U(a2, 10, false);
+        this.p.U(b2, 10, false);
         TbadkCoreApplication.getInst().handler.postDelayed(this.q0, 5000L);
     }
 
@@ -559,7 +559,7 @@ public class r {
     }
 
     public final void D1(int i2) {
-        d.a.n0.d0.d dVar = this.f59488i;
+        d.a.n0.d0.d dVar = this.f63179i;
         if (dVar != null) {
             dVar.g(i2);
         }
@@ -570,8 +570,8 @@ public class r {
         if (this.M == null) {
             return;
         }
-        FrsFragment frsFragment = this.f59480a;
-        boolean z2 = (frsFragment == null || frsFragment.y2() == null || this.f59480a.y2().y() == null) ? true : this.f59480a.y2().y().f15761b instanceof FrsAllThreadFragment;
+        FrsFragment frsFragment = this.f63171a;
+        boolean z2 = (frsFragment == null || frsFragment.B2() == null || this.f63171a.B2().y() == null) ? true : this.f63171a.B2().y().f15823b instanceof FrsAllThreadFragment;
         if (!z && z2) {
             this.M.q(true);
             this.M.n(this.N, this.O, this.E, true);
@@ -583,19 +583,19 @@ public class r {
 
     public void E1(String str, int i2) {
         if (this.i0 == null) {
-            TextView textView = new TextView(this.f59480a.getActivity());
+            TextView textView = new TextView(this.f63171a.getActivity());
             this.i0 = textView;
             textView.setGravity(19);
-            this.i0.setPadding(d.a.c.e.p.l.g(this.f59480a.getActivity(), R.dimen.ds34), 0, d.a.c.e.p.l.g(this.f59480a.getActivity(), R.dimen.ds34), 0);
-            this.i0.setLayoutParams(new ViewGroup.LayoutParams(-1, d.a.c.e.p.l.g(this.f59480a.getActivity(), R.dimen.tbds112)));
-            this.i0.setTextSize(0, d.a.c.e.p.l.g(this.f59480a.getActivity(), R.dimen.fontsize30));
+            this.i0.setPadding(d.a.c.e.p.l.g(this.f63171a.getActivity(), R.dimen.ds34), 0, d.a.c.e.p.l.g(this.f63171a.getActivity(), R.dimen.ds34), 0);
+            this.i0.setLayoutParams(new ViewGroup.LayoutParams(-1, d.a.c.e.p.l.g(this.f63171a.getActivity(), R.dimen.tbds112)));
+            this.i0.setTextSize(0, d.a.c.e.p.l.g(this.f63171a.getActivity(), R.dimen.fontsize30));
             this.i0.setMaxLines(2);
             this.i0.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
-            this.i0.setTextColor(ContextCompat.getColor(this.f59480a.getActivity(), R.color.CAM_X0101));
+            this.i0.setTextColor(ContextCompat.getColor(this.f63171a.getActivity(), R.color.CAM_X0101));
         }
         this.h0.setBackgroundColor(i2);
         this.i0.setText(str);
-        this.h0.m(this.f59480a.getActivity(), this.i0, 5000);
+        this.h0.m(this.f63171a.getActivity(), this.i0, 5000);
     }
 
     public void F0(int i2, int i3) {
@@ -615,15 +615,15 @@ public class r {
         }
         this.q.z(null);
         this.q.f();
-        this.q.A(this.f59480a.getResources().getString(R.string.list_has_no_more));
+        this.q.A(this.f63171a.getResources().getString(R.string.list_has_no_more));
     }
 
     public final void G0(boolean z) {
         FrsFragment frsFragment;
-        if (!z || (frsFragment = this.f59480a) == null || frsFragment.P() == null) {
+        if (!z || (frsFragment = this.f63171a) == null || frsFragment.R() == null) {
             return;
         }
-        this.f59480a.P().W();
+        this.f63171a.R().U();
     }
 
     public void G1() {
@@ -640,10 +640,10 @@ public class r {
 
     public void H0(int i2) {
         this.d0 = i2;
-        d.a.n0.e.f.b bVar = new d.a.n0.e.f.b(this.f59480a, 4);
+        d.a.n0.e.f.b bVar = new d.a.n0.e.f.b(this.f63171a, 4);
         bVar.D(i2);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar));
-        d.a.n0.e.f.a aVar = new d.a.n0.e.f.a(this.f59480a.getPageContext(), 4);
+        d.a.n0.e.f.a aVar = new d.a.n0.e.f.a(this.f63171a.getPageContext(), 4);
         aVar.l(i2);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016516, aVar));
         TbImageView tbImageView = this.K;
@@ -655,10 +655,10 @@ public class r {
             e0Var.b();
             this.s.notifyDataSetChanged();
         }
-        d.a.m0.s0.a.a(this.f59480a.getPageContext(), this.f59481b);
+        d.a.m0.s0.a.a(this.f63171a.getPageContext(), this.f63172b);
         NoNetworkView noNetworkView = this.x;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f59480a.getPageContext(), i2);
+            noNetworkView.c(this.f63171a.getPageContext(), i2);
         }
         PbListView pbListView = this.q;
         if (pbListView != null) {
@@ -686,7 +686,7 @@ public class r {
         if (frsMoveAreaBottomMenuView != null) {
             frsMoveAreaBottomMenuView.c();
         }
-        SkinManager.setBackgroundColor(this.f59483d, R.color.CAM_X0202);
+        SkinManager.setBackgroundColor(this.f63174d, R.color.CAM_X0202);
     }
 
     public void H1(PostWriteCallBackData postWriteCallBackData) {
@@ -694,17 +694,17 @@ public class r {
             return;
         }
         if (postWriteCallBackData.getIconStampData() != null) {
-            d.a.m0.s.h.b.a(this.f59480a.o(), postWriteCallBackData);
+            d.a.m0.s.h.b.a(this.f63171a.p(), postWriteCallBackData);
             return;
         }
         if (this.V == null) {
-            this.V = new d.a.n0.r3.e(this.f59480a.getActivity(), this.f59481b);
+            this.V = new d.a.n0.r3.e(this.f63171a.getActivity(), this.f63172b);
         }
         this.V.g(postWriteCallBackData);
     }
 
     public final void I(int i2) {
-        if (this.f59480a == null) {
+        if (this.f63171a == null) {
             return;
         }
         J(i2);
@@ -761,7 +761,7 @@ public class r {
 
     public void I1() {
         int headerViewsCount;
-        if (d.a.m0.r.d0.b.j().l("frs_video_activity_guide", 0L) != 0 || this.r0 || this.f59480a.getActivity() == null || this.f59480a.getPageContext() == null) {
+        if (d.a.m0.r.d0.b.j().l("frs_video_activity_guide", 0L) != 0 || this.r0 || this.f63171a.getActivity() == null || this.f63171a.getPageContext() == null) {
             return;
         }
         View view = null;
@@ -779,8 +779,8 @@ public class r {
             dVar.a(new a());
             dVar.g(new b(this));
             d.a.c.e.g.c b2 = dVar.b();
-            b2.k(false);
-            b2.m(this.f59480a.getActivity());
+            b2.l(false);
+            b2.n(this.f63171a.getActivity());
             d.a.c.e.m.e.a().postDelayed(new c(this, b2), PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
             this.r0 = true;
         }
@@ -789,14 +789,14 @@ public class r {
     public final void J(int i2) {
         NavigationBar navigationBar = this.y;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.f59480a.getPageContext(), i2);
+            navigationBar.onChangeSkinType(this.f63171a.getPageContext(), i2);
             if (this.y.getBackground() != null && this.y.getBackground().mutate() != null) {
                 this.y.getBackground().mutate().setAlpha(0);
             }
             SkinManager.setBackgroundColor(this.y.getBarBgView(), R.color.CAM_X0207);
             SkinManager.setBackgroundColor(this.y.getBottomLine(), R.color.CAM_X0204);
             SkinManager.setBackgroundColor(this.z, R.color.CAM_X0204, i2);
-            d.a.n0.d0.d dVar = this.f59488i;
+            d.a.n0.d0.d dVar = this.f63179i;
             if (dVar != null) {
                 dVar.d(i2);
             }
@@ -838,46 +838,46 @@ public class r {
 
     public final void K(AppBarLayout appBarLayout, int i2) {
         ViewGroup.MarginLayoutParams marginLayoutParams;
-        FrsFragment frsFragment = this.f59480a;
-        if (frsFragment == null || appBarLayout == null || frsFragment.y2() == null || this.f59480a.getPageContext() == null) {
+        FrsFragment frsFragment = this.f63171a;
+        if (frsFragment == null || appBarLayout == null || frsFragment.B2() == null || this.f63171a.getPageContext() == null) {
             return;
         }
         int X = X() + d0() + f0();
         int totalScrollRange = appBarLayout.getTotalScrollRange() - Math.abs(i2);
-        FrsTabViewController y2 = this.f59480a.y2();
-        ViewGroup.LayoutParams layoutParams = this.f59483d.getLayoutParams();
+        FrsTabViewController B2 = this.f63171a.B2();
+        ViewGroup.LayoutParams layoutParams = this.f63174d.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
         } else {
             marginLayoutParams = new ViewGroup.MarginLayoutParams(layoutParams);
         }
-        FrsFragment frsFragment2 = this.f59480a;
-        boolean z = frsFragment2 != null && frsFragment2.Q2();
+        FrsFragment frsFragment2 = this.f63171a;
+        boolean z = frsFragment2 != null && frsFragment2.T2();
         if (totalScrollRange <= 0) {
             if (this.l0 != 2) {
-                y2.f(2);
+                B2.f(2);
             }
             this.l0 = 2;
             marginLayoutParams.topMargin = 0;
         } else if (totalScrollRange > 0 && totalScrollRange <= X) {
             if (this.l0 != 1) {
-                y2.f(1);
+                B2.f(1);
             }
             this.l0 = 1;
             marginLayoutParams.topMargin = 0;
         } else {
             if (this.l0 != 0) {
-                y2.f(0);
+                B2.f(0);
             }
             this.l0 = 0;
             if (z) {
-                marginLayoutParams.topMargin = d.a.c.e.p.l.g(this.f59480a.getActivity(), R.dimen.tbds_30);
+                marginLayoutParams.topMargin = d.a.c.e.p.l.g(this.f63171a.getActivity(), R.dimen.tbds_30);
             } else {
                 marginLayoutParams.topMargin = 0;
             }
         }
         if (z) {
-            this.f59483d.setLayoutParams(marginLayoutParams);
+            this.f63174d.setLayoutParams(marginLayoutParams);
         }
         Log.d("FrsMainView", "changeTabState() called with: leftSpace = [" + totalScrollRange + "], verticalOffset = [" + i2 + "]");
     }
@@ -949,29 +949,29 @@ public class r {
     }
 
     public final void N() {
-        if (this.u != null || this.f59480a.getPageContext() == null) {
+        if (this.u != null || this.f63171a.getPageContext() == null) {
             return;
         }
-        String[] strArr = {this.f59480a.getPageContext().getPageActivity().getString(R.string.take_photo), this.f59480a.getPageContext().getPageActivity().getString(R.string.album)};
-        d.a.m0.r.s.b bVar = new d.a.m0.r.s.b(this.f59480a.getPageContext().getPageActivity());
+        String[] strArr = {this.f63171a.getPageContext().getPageActivity().getString(R.string.take_photo), this.f63171a.getPageContext().getPageActivity().getString(R.string.album)};
+        d.a.m0.r.s.b bVar = new d.a.m0.r.s.b(this.f63171a.getPageContext().getPageActivity());
         this.u = bVar;
-        bVar.l(this.f59480a.getPageContext().getPageActivity().getString(R.string.operation));
+        bVar.l(this.f63171a.getPageContext().getPageActivity().getString(R.string.operation));
         this.u.j(strArr, new l());
-        this.u.c(this.f59480a.getPageContext());
+        this.u.c(this.f63171a.getPageContext());
     }
 
     public void N0() {
         if (U() == null) {
             return;
         }
-        List<d.a.c.j.e.n> f2 = U().f();
+        List<d.a.c.k.e.n> f2 = U().f();
         if (ListUtils.isEmpty(f2)) {
             return;
         }
-        for (d.a.c.j.e.n nVar : f2) {
+        for (d.a.c.k.e.n nVar : f2) {
             if (nVar instanceof z1) {
                 z1 z1Var = (z1) nVar;
-                if (z1Var.x != 0 && z1Var.w != null && this.f59480a.b0() != null && this.f59480a.b0().Z() != null) {
+                if (z1Var.x != 0 && z1Var.w != null && this.f63171a.e0() != null && this.f63171a.e0().d0() != null) {
                     int[] p0 = z1Var.w.p0();
                     z1Var.x = p0[0];
                     z1Var.y = p0[1];
@@ -999,19 +999,19 @@ public class r {
             textView.setAlpha(alpha);
         }
         if (f2 >= 0.0f && f2 <= 1.0f) {
-            ImageView imageView = this.f59485f;
+            ImageView imageView = this.f63176f;
             if (imageView != null) {
                 imageView.setAlpha(f2);
             }
-            ImageView imageView2 = this.f59486g;
+            ImageView imageView2 = this.f63177g;
             if (imageView2 != null) {
                 imageView2.setAlpha(f2);
             }
-            FrsFragment frsFragment = this.f59480a;
-            if (frsFragment != null && frsFragment.y2() != null && this.k0 == 1) {
-                this.f59480a.y2().a0(f2);
+            FrsFragment frsFragment = this.f63171a;
+            if (frsFragment != null && frsFragment.B2() != null && this.k0 == 1) {
+                this.f63171a.B2().a0(f2);
             }
-            MessageRedDotView messageRedDotView = this.f59487h;
+            MessageRedDotView messageRedDotView = this.f63178h;
             if (messageRedDotView != null) {
                 messageRedDotView.setAlpha(f2);
             }
@@ -1055,7 +1055,7 @@ public class r {
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             if ((i2 == 3 || i2 == 6) && d.a.m0.r.d0.b.j().g("frs_login_tip", true)) {
                 if (this.F == null) {
-                    this.F = new CommonTipView(this.f59480a.getActivity());
+                    this.F = new CommonTipView(this.f63171a.getActivity());
                 }
                 this.F.setText(R.string.frs_login_tip);
                 this.F.j((FrameLayout) S(), TbadkCoreApplication.getInst().getSkinType());
@@ -1071,16 +1071,16 @@ public class r {
         }
         if (this.y.getBarBgView().getAlpha() < 0.5f) {
             if (z || this.k0 != 0) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f59485f, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f63176f, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                this.f59486g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
+                this.f63177g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 this.k0 = 0;
             }
         } else if (z || this.k0 != 1) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f59485f, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f63176f, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            this.f59486g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), null));
+            this.f63177g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), null));
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.k0 = 1;
         }
@@ -1143,11 +1143,11 @@ public class r {
     }
 
     public View R() {
-        return this.f59484e;
+        return this.f63175e;
     }
 
     public void R0() {
-        w0(this.T, this.f59480a.K2());
+        w0(this.T, this.f63171a.N2());
         d.a.n0.r0.n1.d.e0 e0Var = this.s;
         if (e0Var != null) {
             e0Var.e();
@@ -1159,26 +1159,26 @@ public class r {
     }
 
     public void S0(d.a.m0.r.q.f0 f0Var) {
-        d.a.n0.e.f.a aVar = new d.a.n0.e.f.a(this.f59480a.getPageContext(), 1);
+        d.a.n0.e.f.a aVar = new d.a.n0.e.f.a(this.f63171a.getPageContext(), 1);
         aVar.j(this.r);
         HashMap hashMap = new HashMap();
-        hashMap.put("forum_name", this.f59480a.g());
-        hashMap.put("forum_id", this.f59480a.h());
+        hashMap.put("forum_name", this.f63171a.h());
+        hashMap.put("forum_id", this.f63171a.i());
         aVar.k(hashMap);
         aVar.i(f0Var);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016516, aVar));
     }
 
     public Context T() {
-        FrsFragment frsFragment = this.f59480a;
+        FrsFragment frsFragment = this.f63171a;
         if (frsFragment == null) {
             return null;
         }
-        return frsFragment.o().getPageActivity();
+        return frsFragment.p().getPageActivity();
     }
 
     public void T0(int i2, boolean z) {
-        d.a.n0.d0.d dVar = this.f59488i;
+        d.a.n0.d0.d dVar = this.f63179i;
         if (dVar != null) {
             dVar.e(z, i2);
         }
@@ -1216,7 +1216,7 @@ public class r {
         if (this.B) {
             return false;
         }
-        this.q.A(this.f59480a.getResources().getString(R.string.load_more_must_after_delete));
+        this.q.A(this.f63171a.getResources().getString(R.string.load_more_must_after_delete));
         this.q.f();
         return true;
     }
@@ -1235,7 +1235,7 @@ public class r {
         }
         D1(0);
         M();
-        J1(this.f59480a.d2());
+        J1(this.f63171a.g2());
         this.r.setVisibility(0);
         this.Y.setVisibility(0);
     }
@@ -1279,7 +1279,7 @@ public class r {
     }
 
     public View b0() {
-        d.a.n0.d0.d dVar = this.f59488i;
+        d.a.n0.d0.d dVar = this.f63179i;
         if (dVar != null) {
             return dVar.c();
         }
@@ -1308,7 +1308,7 @@ public class r {
     }
 
     public void d1(int i2) {
-        View view = this.f59483d;
+        View view = this.f63174d;
         if (view != null) {
             view.setVisibility(i2);
         }
@@ -1384,7 +1384,7 @@ public class r {
     }
 
     public RelativeLayout j0() {
-        return this.f59481b;
+        return this.f63172b;
     }
 
     public void j1(boolean z) {
@@ -1413,17 +1413,17 @@ public class r {
     public void l1(boolean z) {
         this.B = z;
         if (z) {
-            this.q.A(this.f59480a.getResources().getString(R.string.load_more));
+            this.q.A(this.f63171a.getResources().getString(R.string.load_more));
             BdTypeRecyclerView bdTypeRecyclerView = this.r;
             if (bdTypeRecyclerView.getChildAt(bdTypeRecyclerView.getChildCount() - 1) == this.q.b()) {
                 this.q.O();
-                this.f59480a.loadMore();
+                this.f63171a.loadMore();
                 return;
             }
             this.q.f();
             return;
         }
-        this.q.A(this.f59480a.getResources().getString(R.string.load_more_must_after_delete));
+        this.q.A(this.f63171a.getResources().getString(R.string.load_more_must_after_delete));
         this.q.f();
     }
 
@@ -1506,7 +1506,7 @@ public class r {
         return hVar != null && hVar.A();
     }
 
-    public void s1(d.a.c.j.e.w wVar) {
+    public void s1(d.a.c.k.e.w wVar) {
         this.s.d(wVar);
     }
 
@@ -1543,36 +1543,36 @@ public class r {
         if (this.J != null) {
             return;
         }
-        View x2 = this.f59480a.x2();
-        this.J = (GifView) x2.findViewById(R.id.gif_real_time);
-        TbImageView tbImageView = (TbImageView) x2.findViewById(R.id.tbimg_real_time);
+        View A2 = this.f63171a.A2();
+        this.J = (GifView) A2.findViewById(R.id.gif_real_time);
+        TbImageView tbImageView = (TbImageView) A2.findViewById(R.id.tbimg_real_time);
         this.K = tbImageView;
-        tbImageView.setPageId(this.f59480a.getUniqueId());
+        tbImageView.setPageId(this.f63171a.getUniqueId());
         this.J.setLayerType(1, null);
         this.K.setLayerType(1, null);
     }
 
-    public void v1(ArrayList<d.a.c.j.e.n> arrayList, FrsViewData frsViewData) {
+    public void v1(ArrayList<d.a.c.k.e.n> arrayList, FrsViewData frsViewData) {
         int i2;
         if (frsViewData == null) {
             return;
         }
-        ArrayList<d.a.c.j.e.n> switchThreadDataToThreadCardInfo = frsViewData.switchThreadDataToThreadCardInfo();
+        ArrayList<d.a.c.k.e.n> switchThreadDataToThreadCardInfo = frsViewData.switchThreadDataToThreadCardInfo();
         if (ListUtils.isEmpty(switchThreadDataToThreadCardInfo) || !frsViewData.mHasThreadExceptTop) {
             t tVar = new t();
-            ArrayList<d.a.c.j.e.n> arrayList2 = new ArrayList<>();
+            ArrayList<d.a.c.k.e.n> arrayList2 = new ArrayList<>();
             arrayList2.add(tVar);
-            FrsFragment frsFragment = this.f59480a;
-            if (frsFragment != null && frsFragment.b0() != null && this.f59480a.b0().R() == 0) {
-                tVar.e(this.f59480a.b0().N());
+            FrsFragment frsFragment = this.f63171a;
+            if (frsFragment != null && frsFragment.e0() != null && this.f63171a.e0().V() == 0) {
+                tVar.c(this.f63171a.e0().R());
             }
             switchThreadDataToThreadCardInfo = arrayList2;
         }
         if (ListUtils.getCount(switchThreadDataToThreadCardInfo) > 0) {
             for (int i3 = 0; i3 < switchThreadDataToThreadCardInfo.size(); i3++) {
-                d.a.c.j.e.n nVar = switchThreadDataToThreadCardInfo.get(i3);
+                d.a.c.k.e.n nVar = switchThreadDataToThreadCardInfo.get(i3);
                 if (nVar instanceof z1) {
-                    ((z1) nVar).w.j4(i3);
+                    ((z1) nVar).w.k4(i3);
                 }
             }
         }
@@ -1581,44 +1581,44 @@ public class r {
         if (iVar != null && (i2 = this.N) != 0) {
             iVar.n(i2, this.O, this.E, true);
         }
-        FrsFragment frsFragment2 = this.f59480a;
+        FrsFragment frsFragment2 = this.f63171a;
         if (frsFragment2 != null) {
-            frsFragment2.l3();
+            frsFragment2.o3();
         }
     }
 
     public final void w0(d.a.n0.r0.n1.e.a aVar, boolean z) {
         boolean z2;
         this.T = aVar;
-        View x2 = this.f59480a.x2();
-        if (this.f59481b == null) {
-            this.f59481b = (NoPressedRelativeLayout) x2.findViewById(R.id.frs);
+        View A2 = this.f63171a.A2();
+        if (this.f63172b == null) {
+            this.f63172b = (NoPressedRelativeLayout) A2.findViewById(R.id.frs);
         }
-        if (this.f59483d == null) {
-            this.f59483d = x2.findViewById(R.id.frs_content_container);
+        if (this.f63174d == null) {
+            this.f63174d = A2.findViewById(R.id.frs_content_container);
         }
-        if (this.f59482c == null) {
-            this.f59482c = (CoordinatorLayout) x2.findViewById(R.id.frs_nested_scroll_layout);
+        if (this.f63173c == null) {
+            this.f63173c = (CoordinatorLayout) A2.findViewById(R.id.frs_nested_scroll_layout);
         }
         if (this.A == null) {
-            this.A = x2.findViewById(R.id.frs_list_content);
+            this.A = A2.findViewById(R.id.frs_list_content);
         }
         if (this.Z == null) {
-            this.Z = (CollapsingToolbarLayout) x2.findViewById(R.id.frs_collapse_layout);
+            this.Z = (CollapsingToolbarLayout) A2.findViewById(R.id.frs_collapse_layout);
         }
         if (this.Y == null) {
-            this.Y = (FrsHeaderViewContainer) x2.findViewById(R.id.header_view_container);
+            this.Y = (FrsHeaderViewContainer) A2.findViewById(R.id.header_view_container);
         }
         if (this.t == null) {
-            this.t = new d.a.n0.r0.o2.k(this.f59480a);
+            this.t = new d.a.n0.r0.o2.k(this.f63171a);
         }
         if (this.R == null) {
-            ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) x2.findViewById(R.id.navigation_bar_wrapperLayout);
+            ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) A2.findViewById(R.id.navigation_bar_wrapperLayout);
             this.R = observedChangeLinearLayout;
             observedChangeLinearLayout.setOnSizeChangeListener(new g());
         }
         if (this.y == null) {
-            NavigationBar navigationBar = (NavigationBar) x2.findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) A2.findViewById(R.id.view_navigation_bar);
             this.y = navigationBar;
             navigationBar.getBarBgView().setAlpha(1.0f);
             this.y.setContentPaddingTop(d.a.c.e.p.l.g(T(), R.dimen.tbds24));
@@ -1626,37 +1626,37 @@ public class r {
         } else {
             z2 = false;
         }
-        if (this.f59480a.K2()) {
+        if (this.f63171a.N2()) {
             this.y.setVisibility(8);
         }
         if (this.z == null) {
-            this.z = x2.findViewById(R.id.frs_navi_line);
+            this.z = A2.findViewById(R.id.frs_navi_line);
             d.a.n0.r0.n1.e.b c2 = aVar.c();
             if (c2 != null) {
                 c2.b(this.z);
             }
         }
-        if (this.f59484e == null) {
+        if (this.f63175e == null) {
             View addSystemImageButton = this.y.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f59484e = addSystemImageButton;
+            this.f63175e = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this.v);
-            this.f59485f = (ImageView) this.f59484e.findViewById(R.id.widget_navi_back_button);
+            this.f63176f = (ImageView) this.f63175e.findViewById(R.id.widget_navi_back_button);
         }
         if (this.k == null) {
             this.k = (ImageView) this.y.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.frs_topbar_search_layout, (View.OnClickListener) null);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.k.setOnClickListener(this.v);
         }
-        if (this.f59488i == null) {
-            d.a.n0.d0.d dVar = new d.a.n0.d0.d(this.f59480a.getPageContext().getPageActivity());
-            this.f59488i = dVar;
+        if (this.f63179i == null) {
+            d.a.n0.d0.d dVar = new d.a.n0.d0.d(this.f63171a.getPageContext().getPageActivity());
+            this.f63179i = dVar;
             this.y.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, dVar.c(), (View.OnClickListener) null);
-            this.f59486g = this.f59488i.b();
-            MessageRedDotView a2 = this.f59488i.a();
-            this.f59487h = a2;
+            this.f63177g = this.f63179i.b();
+            MessageRedDotView a2 = this.f63179i.a();
+            this.f63178h = a2;
             a2.setShadowEnabled(false);
-            this.f59488i.c().setOnClickListener(this.v);
-            this.f59488i.f(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, true);
+            this.f63179i.c().setOnClickListener(this.v);
+            this.f63179i.f(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, true);
         }
         if (this.j == null) {
             this.j = (ImageView) this.y.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.frs_topbar_share_layout, (View.OnClickListener) null);
@@ -1668,18 +1668,18 @@ public class r {
             this.l = textView;
             textView.setVisibility(8);
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_arrow12_white);
-            int g2 = d.a.c.e.p.l.g(this.f59480a.getActivity(), R.dimen.tbds31);
+            int g2 = d.a.c.e.p.l.g(this.f63171a.getActivity(), R.dimen.tbds31);
             drawable.setBounds(0, 0, g2, g2);
             this.l.setCompoundDrawables(null, null, drawable, null);
             SkinManager.setBackgroundResourceSelector(this.l, R.drawable.bg_frs_private_status_n, R.drawable.bg_frs_private_status_s);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0101);
         }
         if (z2) {
-            this.y.onChangeSkinType(this.f59480a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.y.onChangeSkinType(this.f63171a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             SkinManager.setBackgroundColor(this.y.getBottomLine(), R.color.CAM_X0204);
         }
         if (this.r == null) {
-            this.r = (BdTypeRecyclerView) x2.findViewById(R.id.frs_lv_thread);
+            this.r = (BdTypeRecyclerView) A2.findViewById(R.id.frs_lv_thread);
         }
         h hVar = new h();
         hVar.setSupportsChangeAnimations(false);
@@ -1687,35 +1687,35 @@ public class r {
         BdTypeRecyclerView bdTypeRecyclerView = this.r;
         bdTypeRecyclerView.setLayoutManager(new i(this, bdTypeRecyclerView.getContext()));
         if (TbSingleton.getInstance().isSlideAnimEnable()) {
-            d.a.c.j.e.l lVar = new d.a.c.j.e.l(new d.a.c.j.e.j());
+            d.a.c.k.e.l lVar = new d.a.c.k.e.l(new d.a.c.k.e.j());
             this.n0 = lVar;
             lVar.q(this.r, 2);
         }
-        this.r.setScrollable(this.f59480a);
+        this.r.setScrollable(this.f63171a);
         this.r.setFadingEdgeLength(0);
         this.r.setOverScrollMode(2);
-        this.f59481b.setBottomOrderView(this.r);
-        this.r.setOnTouchListener(this.f59480a.A1);
+        this.f63172b.setBottomOrderView(this.r);
+        this.r.setOnTouchListener(this.f63171a.A1);
         this.r.setRecyclerListener(new j());
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
         BdTypeRecyclerView bdTypeRecyclerView2 = this.r;
         bdTypeRecyclerView2.setPadding(dimenPixelSize, bdTypeRecyclerView2.getPaddingTop(), dimenPixelSize, this.r.getPaddingBottom());
         if (this.q == null) {
-            PbListView pbListView = new PbListView(this.f59480a.getPageContext().getPageActivity());
+            PbListView pbListView = new PbListView(this.f63171a.getPageContext().getPageActivity());
             this.q = pbListView;
             pbListView.b();
         }
         this.q.o(R.color.transparent);
-        this.q.r(d.a.c.e.p.l.g(this.f59480a.getActivity(), R.dimen.tbds182));
+        this.q.r(d.a.c.e.p.l.g(this.f63171a.getActivity(), R.dimen.tbds182));
         this.q.v();
         this.q.E(R.dimen.tbfontsize33);
         this.q.C(SkinManager.getColor(R.color.CAM_X0109));
         this.q.y(R.color.CAM_X0110);
-        this.r.setOnSrollToBottomListener(this.f59480a);
+        this.r.setOnSrollToBottomListener(this.f63171a);
         this.y.setOnClickListener(new k());
         boolean isShowBigImage = TbImageHelper.getInstance().isShowBigImage();
         if (this.s == null) {
-            this.s = aVar.b(this.f59480a, this.r, isShowBigImage);
+            this.s = aVar.b(this.f63171a, this.r, isShowBigImage);
         }
         d.a.n0.r0.o2.k kVar = this.t;
         if (kVar != null) {
@@ -1723,7 +1723,7 @@ public class r {
         }
         if (!z) {
             if (this.x == null) {
-                this.x = new NoNetworkView(this.f59480a.getActivity());
+                this.x = new NoNetworkView(this.f63171a.getActivity());
                 this.x.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
                 this.R.addView(this.x);
             }
@@ -1732,36 +1732,36 @@ public class r {
             } else {
                 this.x.setVisibility(0);
             }
-            this.x.c(this.f59480a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.x.c(this.f63171a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         v0();
         if (this.G == null) {
-            d.a.n0.r0.o2.d a3 = aVar.a(this.f59480a, this.f59481b);
+            d.a.n0.r0.o2.d a3 = aVar.a(this.f63171a, this.f63172b);
             this.G = a3;
-            a3.x(this.f59480a.B2());
+            a3.x(this.f63171a.E2());
         }
         if (this.H == null) {
-            this.H = aVar.d(this.f59480a, this.f59481b);
+            this.H = aVar.d(this.f63171a, this.f63172b);
             e1(true);
         }
         if (this.P == null) {
-            this.P = x2.findViewById(R.id.statebar_view);
+            this.P = A2.findViewById(R.id.statebar_view);
         }
         if (this.Q == null) {
-            this.Q = x2.findViewById(R.id.statebar_view_holder);
+            this.Q = A2.findViewById(R.id.statebar_view_holder);
         }
         if (this.M == null) {
-            this.M = new d.a.n0.k2.i(this.f59480a.getPageContext(), this.r);
+            this.M = new d.a.n0.k2.i(this.f63171a.getPageContext(), this.r);
         }
         this.M.p(1);
-        this.M.t(this.f59480a.getUniqueId());
-        NavigationBarCoverTip navigationBarCoverTip = (NavigationBarCoverTip) x2.findViewById(R.id.navigation_cover_tip);
+        this.M.t(this.f63171a.getUniqueId());
+        NavigationBarCoverTip navigationBarCoverTip = (NavigationBarCoverTip) A2.findViewById(R.id.navigation_cover_tip);
         this.h0 = navigationBarCoverTip;
         if (this.I == null) {
-            this.I = new d.a.n0.r0.o2.m(this.f59480a, navigationBarCoverTip);
+            this.I = new d.a.n0.r0.o2.m(this.f63171a, navigationBarCoverTip);
         }
         if (this.W == null) {
-            AppBarLayout appBarLayout = (AppBarLayout) x2.findViewById(R.id.frs_app_bar_layout);
+            AppBarLayout appBarLayout = (AppBarLayout) A2.findViewById(R.id.frs_app_bar_layout);
             this.W = appBarLayout;
             appBarLayout.addOnOffsetChangedListener(this.p0);
             this.a0 = true;
@@ -1771,19 +1771,19 @@ public class r {
                 this.X = (AppBarLayoutStickyBehavior) layoutParams.getBehavior();
             }
         }
-        FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = (FrsMultiDelBottomMenuView) x2.findViewById(R.id.frs_multi_delete_menu_view);
+        FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = (FrsMultiDelBottomMenuView) A2.findViewById(R.id.frs_multi_delete_menu_view);
         this.f0 = frsMultiDelBottomMenuView;
-        frsMultiDelBottomMenuView.setPageContext(this.f59480a.getPageContext());
-        FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView = (FrsMoveAreaBottomMenuView) x2.findViewById(R.id.frs_move_area_menu_view);
+        frsMultiDelBottomMenuView.setPageContext(this.f63171a.getPageContext());
+        FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView = (FrsMoveAreaBottomMenuView) A2.findViewById(R.id.frs_move_area_menu_view);
         this.g0 = frsMoveAreaBottomMenuView;
-        frsMoveAreaBottomMenuView.setPageContext(this.f59480a.getPageContext());
+        frsMoveAreaBottomMenuView.setPageContext(this.f63171a.getPageContext());
         if (this.j0 == null) {
             this.j0 = this.y.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, "", null, false);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) this.f59480a.getResources().getDimension(R.dimen.ds20);
+            int dimension = (int) this.f63171a.getResources().getDimension(R.dimen.ds20);
             layoutParams2.setMargins(0, dimension, dimension, dimension);
             this.j0.setLayoutParams(layoutParams2);
-            this.j0.setPadding(0, 0, this.f59480a.getResources().getDimensionPixelSize(R.dimen.ds20), 0);
+            this.j0.setPadding(0, 0, this.f63171a.getResources().getDimensionPixelSize(R.dimen.ds20), 0);
             this.j0.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
@@ -1851,7 +1851,7 @@ public class r {
             this.q.J(i2);
         }
         this.q.f();
-        this.q.A(this.f59480a.getResources().getString(R.string.list_click_load_more));
+        this.q.A(this.f63171a.getResources().getString(R.string.list_click_load_more));
     }
 
     public boolean z0() {

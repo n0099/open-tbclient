@@ -14,25 +14,25 @@ import org.json.JSONObject;
 public class d implements d.a.f0.a.g.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.f0.a.g.b f39640a;
+    public d.a.f0.a.g.b f43321a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f39641b;
+    public final Context f43322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.d0.b.d f39642c;
+    public final d.a.d0.b.d f43323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SplashAdFacade.b f39643d;
+    public SplashAdFacade.b f43324d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39644e;
+    public int f43325e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39645f;
+    public int f43326f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.d0.b.c f39646g = new a();
+    public final d.a.d0.b.c f43327g = new a();
 
     /* loaded from: classes2.dex */
     public class a implements d.a.d0.b.c {
@@ -41,13 +41,13 @@ public class d implements d.a.f0.a.g.d {
 
         @Override // d.a.d0.b.c
         public void a(Throwable th) {
-            if (d.a.d0.a.b.a.f39590a.get().s()) {
+            if (d.a.d0.a.b.a.f43271a.get().s()) {
                 Log.i("PrologueAd", "onAdFailed: " + th.getMessage());
             }
-            if (d.this.f39643d != null) {
-                d.this.f39643d.onFailed();
-            } else if (d.this.f39642c != null) {
-                d.this.f39642c.a(th == null ? "unKnow" : th.getMessage());
+            if (d.this.f43324d != null) {
+                d.this.f43324d.onFailed();
+            } else if (d.this.f43323c != null) {
+                d.this.f43323c.a(th == null ? "unKnow" : th.getMessage());
             }
             b.g(64, th != null ? th.getMessage() : "unKnow");
         }
@@ -58,41 +58,41 @@ public class d implements d.a.f0.a.g.d {
                 return;
             }
             int e2 = f.e(hVar);
-            if (d.a.d0.a.b.a.f39590a.get().s()) {
+            if (d.a.d0.a.b.a.f43271a.get().s()) {
                 Log.i("PrologueAd", "onAdSuccess, statusCode: " + e2);
             }
             if (e2 == 0) {
                 d.a.f0.a.b a2 = e.a(hVar);
-                d.a.f0.a.g.b a3 = new d.a.f0.a.a().a(d.this.f39641b, a2);
+                d.a.f0.a.g.b a3 = new d.a.f0.a.a().a(d.this.f43322b, a2);
                 if (a3 != null) {
-                    d.this.f39640a = a3;
-                    if (d.this.f39642c != null) {
-                        d.a.d0.b.e eVar = new d.a.d0.b.e(a3, d.this.f39642c.d(), hVar);
-                        eVar.d(d.this.f39642c);
+                    d.this.f43321a = a3;
+                    if (d.this.f43323c != null) {
+                        d.a.d0.b.e eVar = new d.a.d0.b.e(a3, d.this.f43323c.d(), hVar);
+                        eVar.d(d.this.f43323c);
                         a3.d(eVar);
                         a3.b(eVar);
                         eVar.c(d.this);
                         a3.a();
                     }
-                    if (d.this.f39643d != null) {
-                        d.this.f39643d.onSuccess();
+                    if (d.this.f43324d != null) {
+                        d.this.f43324d.onSuccess();
                         return;
                     }
                     return;
-                } else if (d.a.d0.a.b.a.f39590a.get().s()) {
+                } else if (d.a.d0.a.b.a.f43271a.get().s()) {
                     Log.e("PrologueAd", "创建 AdContainer 失败，params: " + a2.a());
                     return;
                 } else {
                     return;
                 }
             }
-            if (d.a.d0.a.b.a.f39590a.get().s()) {
+            if (d.a.d0.a.b.a.f43271a.get().s()) {
                 Log.e("PrologueAd", "query 后物料效验失败");
             }
-            if (d.this.f39643d != null) {
-                d.this.f39643d.onFailed();
-            } else if (d.this.f39642c != null) {
-                d.a.d0.b.d dVar = d.this.f39642c;
+            if (d.this.f43324d != null) {
+                d.this.f43324d.onFailed();
+            } else if (d.this.f43323c != null) {
+                d.a.d0.b.d dVar = d.this.f43323c;
                 dVar.a("query 后物料效验失败: " + e2);
             }
             b.f(e2);
@@ -100,23 +100,23 @@ public class d implements d.a.f0.a.g.d {
     }
 
     public d(Context context, String str, RequestParameters requestParameters, d.a.d0.b.d dVar) {
-        this.f39641b = context;
-        this.f39642c = dVar;
+        this.f43322b = context;
+        this.f43323c = dVar;
     }
 
     public void e() {
-        if (this.f39640a != null) {
-            this.f39640a = null;
+        if (this.f43321a != null) {
+            this.f43321a = null;
         }
     }
 
     public JSONObject f() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("place_id", d.a.d0.a.b.a.f39590a.get().l());
+            jSONObject.put("place_id", d.a.d0.a.b.a.f43271a.get().l());
             jSONObject.put("source", "gd");
-            jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f39644e);
-            jSONObject.put("full_type", this.f39645f);
+            jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f43325e);
+            jSONObject.put("full_type", this.f43326f);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -124,24 +124,24 @@ public class d implements d.a.f0.a.g.d {
     }
 
     public void g() {
-        new d.a.d0.b.a().j(d.a.d0.a.b.a.f39590a.get(), this.f39646g);
+        new d.a.d0.b.a().j(d.a.d0.a.b.a.f43271a.get(), this.f43327g);
     }
 
     public void h(int i2) {
-        this.f39644e = i2;
+        this.f43325e = i2;
     }
 
     public void i(d.a.f0.a.g.b bVar) {
-        this.f39640a = bVar;
+        this.f43321a = bVar;
     }
 
     public void j(int i2) {
-        this.f39645f = i2;
+        this.f43326f = i2;
     }
 
     public void k(ViewGroup viewGroup) {
         d.a.f0.a.g.b bVar;
-        if (viewGroup != null && (bVar = this.f39640a) != null) {
+        if (viewGroup != null && (bVar = this.f43321a) != null) {
             View adView = bVar.getAdView();
             if (adView != null && adView.getParent() == null) {
                 viewGroup.addView(adView);

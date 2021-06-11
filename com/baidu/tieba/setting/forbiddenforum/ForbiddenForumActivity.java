@@ -61,11 +61,11 @@ public class ForbiddenForumActivity extends BaseActivity {
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
         public void b(ViewGroup viewGroup, View view, Object obj, int i2, long j) {
             if (ForbiddenForumActivity.this.model != null) {
-                if (ForbiddenForumActivity.this.model.g() == null && ListUtils.isEmpty(ForbiddenForumActivity.this.model.g().f62524a)) {
+                if (ForbiddenForumActivity.this.model.g() == null && ListUtils.isEmpty(ForbiddenForumActivity.this.model.g().f66239a)) {
                     return;
                 }
-                d.a.n0.w2.a.b bVar = ForbiddenForumActivity.this.model.g().f62524a.get(i2);
-                ForbiddenForumActivity.this.showBottomDialog(bVar.f62516b, bVar.f62517c);
+                d.a.n0.w2.a.b bVar = ForbiddenForumActivity.this.model.g().f66239a.get(i2);
+                ForbiddenForumActivity.this.showBottomDialog(bVar.f66231b, bVar.f66232c);
             }
         }
     }
@@ -121,7 +121,7 @@ public class ForbiddenForumActivity extends BaseActivity {
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (ForbiddenForumActivity.this.model.g().f62525b) {
+            if (ForbiddenForumActivity.this.model.g().f66240b) {
                 ForbiddenForumActivity.this.model.j();
                 ForbiddenForumActivity.this.showLoadMoreView();
             }
@@ -135,12 +135,12 @@ public class ForbiddenForumActivity extends BaseActivity {
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            return ForbiddenForumActivity.this.model.g().f62524a.size();
+            return ForbiddenForumActivity.this.model.g().f66239a.size();
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i2) {
-            ((l) viewHolder).a(ForbiddenForumActivity.this.model.g().f62524a.get(i2));
+            ((l) viewHolder).a(ForbiddenForumActivity.this.model.g().f66239a.get(i2));
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -161,12 +161,12 @@ public class ForbiddenForumActivity extends BaseActivity {
                 ForbiddenForumActivity forbiddenForumActivity = ForbiddenForumActivity.this;
                 forbiddenForumActivity.hideLoadingView(forbiddenForumActivity.rootView);
             }
-            if (ListUtils.isEmpty(ForbiddenForumActivity.this.model.g().f62524a)) {
+            if (ListUtils.isEmpty(ForbiddenForumActivity.this.model.g().f66239a)) {
                 ForbiddenForumActivity.this.showNoDataView();
                 return;
             }
             ForbiddenForumActivity.this.adapter.notifyDataSetChanged();
-            if (dVar == null || dVar.f62525b) {
+            if (dVar == null || dVar.f66240b) {
                 return;
             }
             ForbiddenForumActivity.this.showLoadMoreViewNoMore();
@@ -197,21 +197,21 @@ public class ForbiddenForumActivity extends BaseActivity {
     public class g implements l.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f20364a;
+        public final /* synthetic */ String f20441a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f20365b;
+        public final /* synthetic */ String f20442b;
 
         public g(String str, String str2) {
-            this.f20364a = str;
-            this.f20365b = str2;
+            this.f20441a = str;
+            this.f20442b = str2;
         }
 
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
             ForbiddenForumActivity.this.hideBottomDialog();
-            ForbiddenForumActivity.this.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ForbiddenForumActivity.this.getActivity()).createNormalCfg(this.f20364a, null)));
-            TiebaStatic.log(new StatisticItem("c14058").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f20365b));
+            ForbiddenForumActivity.this.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ForbiddenForumActivity.this.getActivity()).createNormalCfg(this.f20441a, null)));
+            TiebaStatic.log(new StatisticItem("c14058").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f20442b));
         }
     }
 
@@ -219,16 +219,16 @@ public class ForbiddenForumActivity extends BaseActivity {
     public class h implements l.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f20367a;
+        public final /* synthetic */ String f20444a;
 
         public h(String str) {
-            this.f20367a = str;
+            this.f20444a = str;
         }
 
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
             ForbiddenForumActivity.this.hideBottomDialog();
-            ForbiddenForumActivity.this.showCancelForbiddenDialog(this.f20367a);
+            ForbiddenForumActivity.this.showCancelForbiddenDialog(this.f20444a);
         }
     }
 
@@ -247,15 +247,15 @@ public class ForbiddenForumActivity extends BaseActivity {
     public class j implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20370e;
+        public final /* synthetic */ String f20447e;
 
         public j(String str) {
-            this.f20370e = str;
+            this.f20447e = str;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            ForbiddenForumActivity.this.cancelModel.a(this.f20370e);
+            ForbiddenForumActivity.this.cancelModel.a(this.f20447e);
             aVar.dismiss();
         }
     }
@@ -275,43 +275,43 @@ public class ForbiddenForumActivity extends BaseActivity {
     public class l extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public BarImageView f20373a;
+        public BarImageView f20450a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f20374b;
+        public TextView f20451b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f20375c;
+        public int f20452c;
 
         public l(@NonNull View view) {
             super(view);
-            this.f20375c = 3;
+            this.f20452c = 3;
             BarImageView barImageView = (BarImageView) view.findViewById(R.id.img_bar);
-            this.f20373a = barImageView;
+            this.f20450a = barImageView;
             barImageView.setPlaceHolder(1);
-            this.f20373a.setShowOval(true);
-            this.f20373a.setAutoChangeStyle(true);
-            this.f20373a.setStrokeWith(d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            this.f20373a.setStrokeColorResId(R.color.CAM_X0401);
-            this.f20373a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f20374b = (TextView) view.findViewById(R.id.text_bar);
+            this.f20450a.setShowOval(true);
+            this.f20450a.setAutoChangeStyle(true);
+            this.f20450a.setStrokeWith(d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.f20450a.setStrokeColorResId(R.color.CAM_X0401);
+            this.f20450a.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f20451b = (TextView) view.findViewById(R.id.text_bar);
         }
 
         public void a(d.a.n0.w2.a.b bVar) {
             if (bVar == null) {
                 return;
             }
-            this.f20373a.V(bVar.f62515a, 10, false);
-            TextView textView = this.f20374b;
-            textView.setText(bVar.f62516b + TbadkCoreApplication.getInst().getString(R.string.forum));
+            this.f20450a.U(bVar.f66230a, 10, false);
+            TextView textView = this.f20451b;
+            textView.setText(bVar.f66231b + TbadkCoreApplication.getInst().getString(R.string.forum));
             b(TbadkCoreApplication.getInst().getSkinType());
         }
 
         public final void b(int i2) {
-            if (this.f20375c != i2) {
+            if (this.f20452c != i2) {
                 SkinManager.setBackgroundColor(this.itemView, R.color.CAM_X0205);
-                SkinManager.setViewTextColor(this.f20374b, R.color.CAM_X0105);
-                this.f20375c = i2;
+                SkinManager.setViewTextColor(this.f20451b, R.color.CAM_X0105);
+                this.f20452c = i2;
             }
         }
     }

@@ -4,37 +4,37 @@ import h.d;
 import java.util.ArrayList;
 import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a<T> extends d<T, T> {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Object[] f68752g = new Object[0];
+    public static final Object[] f72008g = new Object[0];
 
     /* renamed from: f  reason: collision with root package name */
-    public final SubjectSubscriptionManager<T> f68753f;
+    public final SubjectSubscriptionManager<T> f72009f;
 
     /* renamed from: h.t.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1939a implements h.n.b<SubjectSubscriptionManager.c<T>> {
+    /* loaded from: classes8.dex */
+    public static class C1988a implements h.n.b<SubjectSubscriptionManager.c<T>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SubjectSubscriptionManager f68754e;
+        public final /* synthetic */ SubjectSubscriptionManager f72010e;
 
-        public C1939a(SubjectSubscriptionManager subjectSubscriptionManager) {
-            this.f68754e = subjectSubscriptionManager;
+        public C1988a(SubjectSubscriptionManager subjectSubscriptionManager) {
+            this.f72010e = subjectSubscriptionManager;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(SubjectSubscriptionManager.c<T> cVar) {
-            cVar.b(this.f68754e.getLatest());
+            cVar.b(this.f72010e.getLatest());
         }
     }
 
     public a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.f68753f = subjectSubscriptionManager;
+        this.f72009f = subjectSubscriptionManager;
     }
 
     public static <T> a<T> K() {
@@ -46,17 +46,17 @@ public final class a<T> extends d<T, T> {
         if (z) {
             subjectSubscriptionManager.setLatest(NotificationLite.h(t));
         }
-        C1939a c1939a = new C1939a(subjectSubscriptionManager);
-        subjectSubscriptionManager.onAdded = c1939a;
-        subjectSubscriptionManager.onTerminated = c1939a;
+        C1988a c1988a = new C1988a(subjectSubscriptionManager);
+        subjectSubscriptionManager.onAdded = c1988a;
+        subjectSubscriptionManager.onTerminated = c1988a;
         return new a<>(subjectSubscriptionManager, subjectSubscriptionManager);
     }
 
     @Override // h.e
     public void onCompleted() {
-        if (this.f68753f.getLatest() == null || this.f68753f.active) {
+        if (this.f72009f.getLatest() == null || this.f72009f.active) {
             Object b2 = NotificationLite.b();
-            for (SubjectSubscriptionManager.c<T> cVar : this.f68753f.terminate(b2)) {
+            for (SubjectSubscriptionManager.c<T> cVar : this.f72009f.terminate(b2)) {
                 cVar.d(b2);
             }
         }
@@ -64,10 +64,10 @@ public final class a<T> extends d<T, T> {
 
     @Override // h.e
     public void onError(Throwable th) {
-        if (this.f68753f.getLatest() == null || this.f68753f.active) {
+        if (this.f72009f.getLatest() == null || this.f72009f.active) {
             Object c2 = NotificationLite.c(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.c<T> cVar : this.f68753f.terminate(c2)) {
+            for (SubjectSubscriptionManager.c<T> cVar : this.f72009f.terminate(c2)) {
                 try {
                     cVar.d(c2);
                 } catch (Throwable th2) {
@@ -83,9 +83,9 @@ public final class a<T> extends d<T, T> {
 
     @Override // h.e
     public void onNext(T t) {
-        if (this.f68753f.getLatest() == null || this.f68753f.active) {
+        if (this.f72009f.getLatest() == null || this.f72009f.active) {
             Object h2 = NotificationLite.h(t);
-            for (SubjectSubscriptionManager.c<T> cVar : this.f68753f.next(h2)) {
+            for (SubjectSubscriptionManager.c<T> cVar : this.f72009f.next(h2)) {
                 cVar.d(h2);
             }
         }

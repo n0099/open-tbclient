@@ -7,17 +7,17 @@ import org.json.JSONObject;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f44592a;
+    public static String f48266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f44593b = new h();
+    public static final h f48267b = new h();
 
     public final String a() {
-        String str = f44592a;
+        String str = f48266a;
         if (str == null || StringsKt__StringsJVMKt.isBlank(str)) {
-            f44592a = b();
+            f48266a = b();
         }
-        return f44592a;
+        return f48266a;
     }
 
     public final String b() {
@@ -37,7 +37,7 @@ public final class h {
 
     public final void d() {
         d.a.l0.a.k2.g.h.a().putString("alliance_login_uk", "");
-        f44592a = null;
+        f48266a = null;
     }
 
     public final void e(JSONObject jSONObject) {

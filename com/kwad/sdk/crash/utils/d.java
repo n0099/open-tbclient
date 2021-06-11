@@ -3,21 +3,21 @@ package com.kwad.sdk.crash.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f33015a;
+    public static Context f35139a;
 
     @WorkerThread
     public static long a() {
-        long b2 = b(f33015a);
-        a(f33015a, 1 + b2);
+        long b2 = b(f35139a);
+        a(f35139a, 1 + b2);
         return b2;
     }
 
     public static void a(Context context) {
-        f33015a = context;
+        f35139a = context;
     }
 
     @WorkerThread

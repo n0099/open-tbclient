@@ -6,6 +6,8 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.searchbox.afx.recode.QueuedMuxer;
+import com.kwai.video.player.KsMediaMeta;
+import com.kwai.video.player.misc.IMediaFormat;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import org.webrtc.HardwareVideoEncoder;
@@ -171,14 +173,14 @@ public class VideoTrackTranscoder {
 
     public void setup(Mp4Info mp4Info) throws IOException {
         this.mExtractor.selectTrack(this.mTrackIndex);
-        MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.mOutputFormat.getString("mime"));
+        MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.mOutputFormat.getString(IMediaFormat.KEY_MIME));
         this.mEncoder = createEncoderByType;
         try {
             createEncoderByType.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
         } catch (IllegalStateException e2) {
             e2.printStackTrace();
             this.mOutputFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 1);
-            this.mOutputFormat.setInteger("bitrate", mp4Info.getBitrate());
+            this.mOutputFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, mp4Info.getBitrate());
             this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
         }
         InputSurface inputSurface = new InputSurface(this.mEncoder.createInputSurface());
@@ -191,7 +193,7 @@ public class VideoTrackTranscoder {
         if (trackFormat.containsKey("rotation-degrees")) {
             trackFormat.setInteger("rotation-degrees", 0);
         }
-        this.mDecoder = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
+        this.mDecoder = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
         OutputSurface outputSurface = new OutputSurface();
         this.mDecoderOutputSurfaceWrapper = outputSurface;
         this.mDecoder.configure(trackFormat, outputSurface.getSurface(), (MediaCrypto) null, 0);

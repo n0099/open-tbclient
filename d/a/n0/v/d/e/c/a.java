@@ -31,45 +31,45 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaRecentHistoryActivity f61699a;
+    public AlaRecentHistoryActivity f65413a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f61700b;
+    public TbPageContext f65414b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f61701c;
+    public View f65415c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f61702d;
+    public FrameLayout f65416d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f61703e;
+    public BdListView f65417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoNetworkView f61704f;
+    public NoNetworkView f65418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PbListView f61705g;
+    public PbListView f65419g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f61706h;
+    public g f65420h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.v.d.e.a.a f61707i;
+    public d.a.n0.v.d.e.a.a f65421i;
     public int j;
     public d.a.n0.v.d.e.b.b k;
     public CustomMessageListener l;
 
     /* renamed from: d.a.n0.v.d.e.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1653a implements c.InterfaceC1652c {
-        public C1653a() {
+    public class C1710a implements c.InterfaceC1709c {
+        public C1710a() {
         }
 
-        @Override // d.a.n0.v.d.e.a.c.InterfaceC1652c
+        @Override // d.a.n0.v.d.e.a.c.InterfaceC1709c
         public void a(d.a.n0.v.d.e.b.b bVar) {
             a.this.k = bVar;
-            a.this.m(bVar.f61693a.T(), bVar.f61694b);
+            a.this.m(bVar.f65407a.T(), bVar.f65408b);
         }
     }
 
@@ -103,53 +103,53 @@ public class a {
                 return;
             }
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f12576c) || a.this.k == null) {
+            if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f12638c) || a.this.k == null) {
                 return;
             }
-            if (updateAttentionMessage.getData().f12576c.equals(String.valueOf((a.this.k.f61693a == null || a.this.k.f61693a.T() == null) ? -100L : a.this.k.f61693a.T().getUserIdLong()))) {
-                if (updateAttentionMessage.getData().f12574a) {
-                    a.this.k.f61694b = true;
-                    if (a.this.f61707i instanceof d.a.n0.v.d.e.a.c) {
-                        a.this.f61707i.notifyDataSetChanged();
+            if (updateAttentionMessage.getData().f12638c.equals(String.valueOf((a.this.k.f65407a == null || a.this.k.f65407a.T() == null) ? -100L : a.this.k.f65407a.T().getUserIdLong()))) {
+                if (updateAttentionMessage.getData().f12636a) {
+                    a.this.k.f65408b = true;
+                    if (a.this.f65421i instanceof d.a.n0.v.d.e.a.c) {
+                        a.this.f65421i.notifyDataSetChanged();
                         return;
                     }
                     return;
                 }
-                a.this.k.f61694b = false;
+                a.this.k.f65408b = false;
             }
         }
     }
 
     public a(TbPageContext tbPageContext, int i2) {
-        this.f61700b = tbPageContext;
-        this.f61699a = (AlaRecentHistoryActivity) tbPageContext.getPageActivity();
+        this.f65414b = tbPageContext;
+        this.f65413a = (AlaRecentHistoryActivity) tbPageContext.getPageActivity();
         this.j = i2;
         j();
     }
 
     public void e() {
-        this.f61703e.z();
+        this.f65417e.z();
     }
 
     public final void f() {
         int i2 = this.j;
         if (i2 == 0) {
-            this.f61707i = new d.a.n0.v.d.e.a.b(this.f61700b);
+            this.f65421i = new d.a.n0.v.d.e.a.b(this.f65414b);
         } else if (1 == i2) {
-            this.f61707i = new d.a.n0.v.d.e.a.c(this.f61700b);
+            this.f65421i = new d.a.n0.v.d.e.a.c(this.f65414b);
             n();
-            ((d.a.n0.v.d.e.a.c) this.f61707i).i(new C1653a());
+            ((d.a.n0.v.d.e.a.c) this.f65421i).i(new C1710a());
         }
-        this.f61703e.setAdapter((ListAdapter) this.f61707i);
-        this.f61703e.setOnScrollListener(new b(this));
+        this.f65417e.setAdapter((ListAdapter) this.f65421i);
+        this.f65417e.setOnScrollListener(new b(this));
     }
 
     public ViewGroup g() {
-        return this.f61702d;
+        return this.f65416d;
     }
 
     public View h() {
-        return this.f61701c;
+        return this.f65415c;
     }
 
     public final void i() {
@@ -158,33 +158,33 @@ public class a {
 
     public void j() {
         ColorDrawable colorDrawable;
-        View inflate = LayoutInflater.from(this.f61699a).inflate(R.layout.square_recent_history_view, (ViewGroup) null);
-        this.f61701c = inflate;
-        inflate.setPadding(0, (int) this.f61699a.getResources().getDimension(R.dimen.ds80), 0, 0);
-        this.f61702d = (FrameLayout) this.f61701c.findViewById(R.id.square_recent_history_container);
-        this.f61703e = (BdListView) this.f61701c.findViewById(R.id.square_recent_history_listview);
+        View inflate = LayoutInflater.from(this.f65413a).inflate(R.layout.square_recent_history_view, (ViewGroup) null);
+        this.f65415c = inflate;
+        inflate.setPadding(0, (int) this.f65413a.getResources().getDimension(R.dimen.ds80), 0, 0);
+        this.f65416d = (FrameLayout) this.f65415c.findViewById(R.id.square_recent_history_container);
+        this.f65417e = (BdListView) this.f65415c.findViewById(R.id.square_recent_history_listview);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            colorDrawable = new ColorDrawable(this.f61699a.getPageContext().getResources().getColor(R.color.CAM_X0204_1));
+            colorDrawable = new ColorDrawable(this.f65413a.getPageContext().getResources().getColor(R.color.CAM_X0204_1));
         } else {
-            colorDrawable = new ColorDrawable(this.f61699a.getPageContext().getResources().getColor(R.color.CAM_X0204));
+            colorDrawable = new ColorDrawable(this.f65413a.getPageContext().getResources().getColor(R.color.CAM_X0204));
         }
-        this.f61703e.setDivider(colorDrawable);
-        this.f61703e.setDividerHeight(this.f61699a.getActivity().getResources().getDimensionPixelSize(R.dimen.ds1));
-        this.f61704f = (NoNetworkView) this.f61701c.findViewById(R.id.square_recent_history_network);
-        g gVar = new g(this.f61700b);
-        this.f61706h = gVar;
-        gVar.Z(this.f61699a.getUniqueId());
-        this.f61703e.setPullRefresh(this.f61706h);
-        PbListView pbListView = new PbListView(this.f61699a);
-        this.f61705g = pbListView;
+        this.f65417e.setDivider(colorDrawable);
+        this.f65417e.setDividerHeight(this.f65413a.getActivity().getResources().getDimensionPixelSize(R.dimen.ds1));
+        this.f65418f = (NoNetworkView) this.f65415c.findViewById(R.id.square_recent_history_network);
+        g gVar = new g(this.f65414b);
+        this.f65420h = gVar;
+        gVar.Z(this.f65413a.getUniqueId());
+        this.f65417e.setPullRefresh(this.f65420h);
+        PbListView pbListView = new PbListView(this.f65413a);
+        this.f65419g = pbListView;
         pbListView.a();
         i();
     }
 
     public void k(int i2) {
-        NoNetworkView noNetworkView = this.f61704f;
+        NoNetworkView noNetworkView = this.f65418f;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f61700b, i2);
+            noNetworkView.c(this.f65414b, i2);
         }
     }
 
@@ -196,7 +196,7 @@ public class a {
 
     public final void m(MetaData metaData, boolean z) {
         if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(this.f61700b.getPageActivity());
+            ViewHelper.skipToLoginActivity(this.f65414b.getPageActivity());
             return;
         }
         String valueOf = String.valueOf(metaData.getUserId());
@@ -209,7 +209,7 @@ public class a {
     }
 
     public void o(List<d.a.n0.v.d.e.b.b> list, boolean z) {
-        d.a.n0.v.d.e.a.a aVar = this.f61707i;
+        d.a.n0.v.d.e.a.a aVar = this.f65421i;
         if (aVar instanceof d.a.n0.v.d.e.a.b) {
             aVar.c(list);
         } else if (aVar instanceof d.a.n0.v.d.e.a.c) {
@@ -223,36 +223,36 @@ public class a {
     }
 
     public void p(f.g gVar) {
-        this.f61706h.a(gVar);
+        this.f65420h.a(gVar);
     }
 
     public void q() {
-        this.f61703e.setNextPage(null);
+        this.f65417e.setNextPage(null);
     }
 
     public void r(BdListView.p pVar) {
-        this.f61703e.setOnSrollToBottomListener(pVar);
+        this.f65417e.setOnSrollToBottomListener(pVar);
     }
 
     public final void s() {
-        PbListView pbListView = this.f61705g;
+        PbListView pbListView = this.f65419g;
         if (pbListView != null) {
             if (pbListView.b().getParent() == null) {
-                this.f61703e.setNextPage(this.f61705g);
+                this.f65417e.setNextPage(this.f65419g);
             }
-            this.f61705g.M();
-            this.f61705g.O();
+            this.f65419g.M();
+            this.f65419g.O();
         }
     }
 
     public final void t() {
-        PbListView pbListView = this.f61705g;
+        PbListView pbListView = this.f65419g;
         if (pbListView != null) {
             if (pbListView.b().getParent() == null) {
-                this.f61703e.setNextPage(this.f61705g);
+                this.f65417e.setNextPage(this.f65419g);
             }
-            this.f61705g.A(this.f61699a.getPageContext().getResources().getString(R.string.list_no_more));
-            this.f61705g.f();
+            this.f65419g.A(this.f65413a.getPageContext().getResources().getString(R.string.list_no_more));
+            this.f65419g.f();
         }
     }
 }

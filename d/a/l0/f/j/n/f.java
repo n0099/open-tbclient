@@ -10,30 +10,30 @@ import org.json.JSONObject;
 public class f extends d.a.l0.a.v1.a.a.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f46926f;
+    public String f50600f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f46927g;
+    public JSONObject f50601g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f46928h;
+    public i f50602h;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46929e;
+        public final /* synthetic */ JSONObject f50603e;
 
         public a(JSONObject jSONObject) {
-            this.f46929e = jSONObject;
+            this.f50603e = jSONObject;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         @Override // java.lang.Runnable
         public void run() {
             char c2;
-            e.s().H(f.this.f46927g);
-            String str = f.this.f46926f;
+            e.s().H(f.this.f50601g);
+            String str = f.this.f50600f;
             switch (str.hashCode()) {
                 case -1261560102:
                     if (str.equals("queryStatus")) {
@@ -97,28 +97,28 @@ public class f extends d.a.l0.a.v1.a.a.a {
             }
             switch (c2) {
                 case 0:
-                    f.this.v(this.f46929e);
+                    f.this.v(this.f50603e);
                     return;
                 case 1:
-                    f.this.t(this.f46929e);
+                    f.this.t(this.f50603e);
                     return;
                 case 2:
-                    f.this.s(this.f46929e);
+                    f.this.s(this.f50603e);
                     return;
                 case 3:
-                    f.this.u(this.f46929e);
+                    f.this.u(this.f50603e);
                     return;
                 case 4:
-                    f.this.o(this.f46929e);
+                    f.this.o(this.f50603e);
                     return;
                 case 5:
-                    f.this.p(this.f46929e);
+                    f.this.p(this.f50603e);
                     return;
                 case 6:
-                    f.this.r(this.f46929e);
+                    f.this.r(this.f50603e);
                     return;
                 case 7:
-                    f.this.q(this.f46929e);
+                    f.this.q(this.f50603e);
                     return;
                 default:
                     return;
@@ -128,13 +128,13 @@ public class f extends d.a.l0.a.v1.a.a.a {
 
     @Override // d.a.l0.a.v1.a.a.a
     public void b(@NonNull Bundle bundle) {
-        this.f46926f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
-        this.f46927g = w.d(bundle.getString("ubc_params", ""));
+        this.f50600f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
+        this.f50601g = w.d(bundle.getString("ubc_params", ""));
         JSONObject d2 = w.d(bundle.getString("data", ""));
-        if (this.f46928h == null) {
-            this.f46928h = new i(this);
+        if (this.f50602h == null) {
+            this.f50602h = new i(this);
         }
-        e.s().G(this.f46928h);
+        e.s().G(this.f50602h);
         e.m.execute(new a(d2));
     }
 
@@ -146,7 +146,7 @@ public class f extends d.a.l0.a.v1.a.a.a {
         String optString = jSONObject.optString("key_download_url");
         String optString2 = jSONObject.optString("key_download_package_name");
         String optString3 = jSONObject.optString("download_params");
-        d.a.l0.f.j.r.b.n().h("manualInstall", new d.a.l0.f.j.r.a(this.f46927g), optString2, optString3, optString);
+        d.a.l0.f.j.r.b.n().h("manualInstall", new d.a.l0.f.j.r.a(this.f50601g), optString2, optString3, optString);
         e.s().J(optString, optString2, optString3);
     }
 

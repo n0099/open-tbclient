@@ -16,90 +16,90 @@ import d.a.m0.r.f0.f;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<FacePurchaseRecordsActivity> f57275a;
+    public final TbPageContext<FacePurchaseRecordsActivity> f60964a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f57276b;
+    public final View f60965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final NavigationBar f57277c;
+    public final NavigationBar f60966c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final NoNetworkView f57278d;
+    public final NoNetworkView f60967d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BdListView f57279e;
+    public final BdListView f60968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.m0.r.f0.g f57280f;
+    public final d.a.m0.r.f0.g f60969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f57281g;
+    public View f60970g;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f57282h;
+    public k f60971h;
 
     public l(TbPageContext<FacePurchaseRecordsActivity> tbPageContext) {
-        this.f57275a = tbPageContext;
+        this.f60964a = tbPageContext;
         tbPageContext.getPageActivity().setContentView(R.layout.face_purchase_records_layout);
         View findViewById = tbPageContext.getPageActivity().findViewById(R.id.purchase_record);
-        this.f57276b = findViewById;
+        this.f60965b = findViewById;
         NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
-        this.f57277c = navigationBar;
+        this.f60966c = navigationBar;
         navigationBar.setTitleText(tbPageContext.getResources().getString(R.string.purchase_record));
-        this.f57277c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f57278d = (NoNetworkView) this.f57276b.findViewById(R.id.view_no_network);
-        this.f57279e = (BdListView) this.f57276b.findViewById(R.id.purchase_record_list);
+        this.f60966c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f60967d = (NoNetworkView) this.f60965b.findViewById(R.id.view_no_network);
+        this.f60968e = (BdListView) this.f60965b.findViewById(R.id.purchase_record_list);
         d.a.m0.r.f0.g gVar = new d.a.m0.r.f0.g(tbPageContext);
-        this.f57280f = gVar;
-        this.f57279e.setPullRefresh(gVar);
-        this.f57281g = BdListViewHelper.d(this.f57275a.getPageActivity(), this.f57279e, BdListViewHelper.HeadType.DEFAULT);
+        this.f60969f = gVar;
+        this.f60968e.setPullRefresh(gVar);
+        this.f60970g = BdListViewHelper.d(this.f60964a.getPageActivity(), this.f60968e, BdListViewHelper.HeadType.DEFAULT);
     }
 
     public void a(NoNetworkView.b bVar) {
-        this.f57278d.a(bVar);
+        this.f60967d.a(bVar);
     }
 
     public void b(boolean z) {
-        BdListViewHelper.c(this.f57281g, BdListViewHelper.HeadType.DEFAULT, z);
+        BdListViewHelper.c(this.f60970g, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void c() {
-        this.f57279e.A(0L);
+        this.f60968e.A(0L);
     }
 
     public k d() {
-        return this.f57282h;
+        return this.f60971h;
     }
 
     public void e(int i2) {
-        d.a.m0.r.c layoutMode = this.f57275a.getLayoutMode();
+        d.a.m0.r.c layoutMode = this.f60964a.getLayoutMode();
         layoutMode.k(i2 == 1);
-        layoutMode.j(this.f57276b);
-        this.f57277c.onChangeSkinType(this.f57275a, i2);
-        this.f57278d.c(this.f57275a, i2);
-        this.f57280f.I(i2);
+        layoutMode.j(this.f60965b);
+        this.f60966c.onChangeSkinType(this.f60964a, i2);
+        this.f60967d.c(this.f60964a, i2);
+        this.f60969f.I(i2);
     }
 
     public void f(FacePurchaseRecordsData facePurchaseRecordsData) {
-        if (this.f57282h == null) {
-            k kVar = new k(this.f57275a.getOrignalPage());
-            this.f57282h = kVar;
-            this.f57279e.setAdapter((ListAdapter) kVar);
+        if (this.f60971h == null) {
+            k kVar = new k(this.f60964a.getOrignalPage());
+            this.f60971h = kVar;
+            this.f60968e.setAdapter((ListAdapter) kVar);
         }
-        this.f57282h.e(facePurchaseRecordsData);
+        this.f60971h.e(facePurchaseRecordsData);
         c();
     }
 
     public void g(NoNetworkView.b bVar) {
-        this.f57278d.d(bVar);
+        this.f60967d.d(bVar);
     }
 
     public void h(AdapterView.OnItemClickListener onItemClickListener) {
-        this.f57279e.setOnItemClickListener(onItemClickListener);
+        this.f60968e.setOnItemClickListener(onItemClickListener);
     }
 
     public void i(f.g gVar) {
-        this.f57280f.a(gVar);
+        this.f60969f.a(gVar);
     }
 }

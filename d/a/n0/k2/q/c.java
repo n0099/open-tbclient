@@ -14,7 +14,7 @@ import d.a.m0.r.q.a2;
 import d.a.n0.r0.l;
 /* loaded from: classes5.dex */
 public class c extends d {
-    public VideoItemData L0;
+    public VideoItemData G0;
     public VideoSerializeVideoThreadInfo M0;
     public a2 N0;
 
@@ -24,7 +24,7 @@ public class c extends d {
         setStageType(null);
     }
 
-    public final void A0(String str, String str2) {
+    public final void B0(String str, String str2) {
         PbActivityConfig pbActivityConfig = new PbActivityConfig(this.P);
         pbActivityConfig.createNormalCfg(str2, null, null);
         pbActivityConfig.setForumId(String.valueOf(str));
@@ -39,8 +39,8 @@ public class c extends d {
         }
     }
 
-    public void B0() {
-        s0(this.f56926i);
+    public void C0() {
+        s0(this.f60615i);
     }
 
     @Override // d.a.n0.k2.q.d, d.a.n0.k2.q.a
@@ -50,14 +50,14 @@ public class c extends d {
 
     @Override // d.a.n0.k2.q.d
     public void N() {
-        if (this.q == this.f56925h) {
-            B0();
+        if (this.q == this.f60614h) {
+            C0();
         }
     }
 
     @Override // d.a.n0.k2.q.d
     public void O() {
-        this.f56926i = 32;
+        this.f60615i = 32;
     }
 
     @Override // d.a.n0.k2.q.d
@@ -77,18 +77,18 @@ public class c extends d {
             return;
         }
         if (view.getId() == R.id.video_mute) {
-            W();
+            V();
         } else if (!j.z()) {
             d.a.c.e.p.l.L(this.P, R.string.no_network_guide);
         } else if (this.U) {
-            VideoItemData videoItemData = this.L0;
+            VideoItemData videoItemData = this.G0;
             if (videoItemData != null) {
-                A0(videoItemData.forum_id, videoItemData.thread_id);
+                B0(videoItemData.forum_id, videoItemData.thread_id);
             }
         } else {
             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.M0;
             if (videoSerializeVideoThreadInfo != null) {
-                A0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
+                B0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
             }
         }
     }
@@ -104,7 +104,7 @@ public class c extends d {
         this.N0 = a2Var;
         if (this.U) {
             VideoItemData videoItemData = new VideoItemData();
-            this.L0 = videoItemData;
+            this.G0 = videoItemData;
             videoItemData.buildWithThreadData(a2Var);
             return;
         }
@@ -112,9 +112,9 @@ public class c extends d {
         this.M0 = videoSerializeVideoThreadInfo;
         videoSerializeVideoThreadInfo.copyFromThreadInfo(a2Var);
         VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.M0;
-        videoSerializeVideoThreadInfo2.source = a2Var.S0;
-        videoSerializeVideoThreadInfo2.extra = a2Var.V0;
-        videoSerializeVideoThreadInfo2.ab_tag = a2Var.U0;
-        videoSerializeVideoThreadInfo2.weight = a2Var.T0;
+        videoSerializeVideoThreadInfo2.source = a2Var.T0;
+        videoSerializeVideoThreadInfo2.extra = a2Var.W0;
+        videoSerializeVideoThreadInfo2.ab_tag = a2Var.V0;
+        videoSerializeVideoThreadInfo2.weight = a2Var.U0;
     }
 }

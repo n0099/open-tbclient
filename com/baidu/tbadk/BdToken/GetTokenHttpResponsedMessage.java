@@ -3,18 +3,18 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.a.m0.a.a0;
+import d.a.m0.a.b0;
 import tbclient.Error;
 import tbclient.GetToken.GetTokenResIdl;
 /* loaded from: classes3.dex */
 public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
-    public a0 mData;
+    public b0 mData;
 
     public GetTokenHttpResponsedMessage() {
         super(CmdConfigHttp.CMD_GET_TOKEN);
     }
 
-    public a0 getData() {
+    public b0 getData() {
         return this.mData;
     }
 
@@ -31,9 +31,9 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
             setErrorString(getTokenResIdl.error.usermsg);
         }
         if (getTokenResIdl.data != null) {
-            a0 a0Var = new a0();
-            this.mData = a0Var;
-            a0Var.d(getTokenResIdl.data);
+            b0 b0Var = new b0();
+            this.mData = b0Var;
+            b0Var.d(getTokenResIdl.data);
         }
     }
 }

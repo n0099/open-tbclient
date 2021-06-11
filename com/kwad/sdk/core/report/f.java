@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.report;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f extends com.kwad.sdk.core.network.d {
     public f(List<ReportAction> list) {
         a("actionList", list);
@@ -9,6 +9,6 @@ public class f extends com.kwad.sdk.core.network.d {
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {
-        return com.kwad.sdk.d.c();
+        return com.kwad.sdk.d.d();
     }
 }

@@ -12,39 +12,39 @@ import d.a.m0.e0.c;
 public class a extends d.a.m0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaGameFrsLiveTabVideoFragment f61940a = new AlaGameFrsLiveTabVideoFragment();
+    public AlaGameFrsLiveTabVideoFragment f65655a = new AlaGameFrsLiveTabVideoFragment();
 
     public a() {
-        getFragmentTabStructure().f49334a = this.f61940a;
+        getFragmentTabStructure().f53008a = this.f65655a;
     }
 
     public void a(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f61940a;
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f65655a;
         if (alaGameFrsLiveTabVideoFragment != null) {
-            alaGameFrsLiveTabVideoFragment.G0(str);
+            alaGameFrsLiveTabVideoFragment.J0(str);
         }
     }
 
     public void b(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f61940a;
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f65655a;
         if (alaGameFrsLiveTabVideoFragment != null) {
-            alaGameFrsLiveTabVideoFragment.H0(str);
+            alaGameFrsLiveTabVideoFragment.K0(str);
         }
     }
 
     public void c(boolean z) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f61940a;
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment = this.f65655a;
         if (alaGameFrsLiveTabVideoFragment != null) {
-            alaGameFrsLiveTabVideoFragment.I0(z);
+            alaGameFrsLiveTabVideoFragment.L0(z);
         }
     }
 
     @Override // d.a.m0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f49338e = 3;
-        cVar.f49335b = R.string.ala_live;
-        cVar.f49342i = c.k;
+        cVar.f53012e = 3;
+        cVar.f53009b = R.string.ala_live;
+        cVar.f53016i = c.k;
         return cVar;
     }
 

@@ -7,34 +7,34 @@ import d.a.l0.a.k;
 public class d {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f43999h = k.f43199a;
+    public static final boolean f47673h = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44000a;
+    public long f47674a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f44001b;
+    public long f47675b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f44002c;
+    public volatile long f47676c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f44003d;
+    public long f47677d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f44004e;
+    public long f47678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f44005f;
+    public long f47679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f44006g = "1";
+    public String f47680g = "1";
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @NonNull
     public String a() {
         char c2;
-        String str = this.f44006g;
+        String str = this.f47680g;
         switch (str.hashCode()) {
             case 48:
                 if (str.equals("0")) {
@@ -72,11 +72,11 @@ public class d {
     }
 
     public long b() {
-        long j = this.f44005f;
+        long j = this.f47679f;
         if (j > 0) {
             return j;
         }
-        long[] jArr = {this.f44003d, this.f44004e, this.f44001b};
+        long[] jArr = {this.f47677d, this.f47678e, this.f47675b};
         long j2 = Long.MAX_VALUE;
         for (int i2 = 0; i2 < 3; i2++) {
             long j3 = jArr[i2];
@@ -85,44 +85,44 @@ public class d {
             }
         }
         if (j2 != Long.MAX_VALUE) {
-            this.f44005f = j2;
+            this.f47679f = j2;
         }
-        return this.f44005f;
+        return this.f47679f;
     }
 
     public String c(long j) {
-        return j == this.f44003d ? "2" : j == this.f44004e ? "3" : (j != this.f44001b && j == this.f44002c) ? "0" : "1";
+        return j == this.f47677d ? "2" : j == this.f47678e ? "3" : (j != this.f47675b && j == this.f47676c) ? "0" : "1";
     }
 
     public final void d() {
-        if (this.f44002c > 0 && this.f44002c != this.f44003d && this.f44002c != this.f44004e && this.f44002c != this.f44001b) {
-            if (f43999h) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.f44002c);
+        if (this.f47676c > 0 && this.f47676c != this.f47677d && this.f47676c != this.f47678e && this.f47676c != this.f47675b) {
+            if (f47673h) {
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.f47676c);
             }
-        } else if (this.f44003d > 0) {
-            if (f43999h) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with ftp=" + this.f44003d);
+        } else if (this.f47677d > 0) {
+            if (f47673h) {
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with ftp=" + this.f47677d);
             }
-            this.f44002c = this.f44003d;
-            this.f44006g = "2";
-        } else if (this.f44004e > 0) {
-            if (f43999h) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fip=" + this.f44004e);
+            this.f47676c = this.f47677d;
+            this.f47680g = "2";
+        } else if (this.f47678e > 0) {
+            if (f47673h) {
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fip=" + this.f47678e);
             }
-            this.f44002c = this.f44004e;
-            this.f44006g = "3";
-        } else if (this.f44001b > 0) {
-            if (f43999h) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fcp=" + this.f44001b);
+            this.f47676c = this.f47678e;
+            this.f47680g = "3";
+        } else if (this.f47675b > 0) {
+            if (f47673h) {
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fcp=" + this.f47675b);
             }
-            this.f44002c = this.f44001b;
-            this.f44006g = "1";
-        } else if (f43999h) {
+            this.f47676c = this.f47675b;
+            this.f47680g = "1";
+        } else if (f47673h) {
             throw new RuntimeException("ftp fcp fip 至少收到上述一个回调才能校准 fmp \n" + toString());
         }
     }
 
     public String toString() {
-        return "WebViewPaintTiming{fp=" + this.f44000a + ", fcp=" + this.f44001b + ", fmp=" + this.f44002c + ", ftp=" + this.f44003d + ", fip=" + this.f44004e + ", mMinCache=" + this.f44005f + ", fmpType='" + this.f44006g + "', fmpTypeName='" + a() + "'}";
+        return "WebViewPaintTiming{fp=" + this.f47674a + ", fcp=" + this.f47675b + ", fmp=" + this.f47676c + ", ftp=" + this.f47677d + ", fip=" + this.f47678e + ", mMinCache=" + this.f47679f + ", fmpType='" + this.f47680g + "', fmpTypeName='" + a() + "'}";
     }
 }

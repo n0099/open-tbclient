@@ -2,10 +2,10 @@ package com.baidu.swan.apps.database.cloudconfig;
 
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.common.others.lang.StringUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SwanAppConfTokenTable {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum Table {
         app_id,
         action,

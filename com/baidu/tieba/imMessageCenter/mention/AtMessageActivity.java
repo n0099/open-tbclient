@@ -43,7 +43,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
                 if (AtMessageActivity.this.atMeModelController != null) {
-                    AtMessageActivity.this.atMeModelController.u();
+                    AtMessageActivity.this.atMeModelController.y();
                 }
             }
         }
@@ -122,11 +122,11 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     public void hideNetRefreshView() {
         d dVar = this.atMeViewController;
         if (dVar != null) {
-            BdListView bdListView = dVar.f55007b;
+            BdListView bdListView = dVar.f58696b;
             if (bdListView != null) {
                 bdListView.setVisibility(0);
             }
-            hideNetRefreshView(this.atMeViewController.f55008c);
+            hideNetRefreshView(this.atMeViewController.f58697c);
         }
     }
 
@@ -136,13 +136,13 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     }
 
     public void loadMoreData() {
-        this.atMeModelController.w();
+        this.atMeModelController.A();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        this.atMeViewController.j(getPageContext(), i2);
+        this.atMeViewController.i(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -153,13 +153,13 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.atMeModelController.setUniqueId(getUniqueId());
         this.atMeViewController = new d(this);
         if (bundle != null) {
-            this.atMeModelController.v(bundle);
+            this.atMeModelController.z(bundle);
         } else {
-            this.atMeModelController.v(null);
+            this.atMeModelController.z(null);
         }
         this.atMeViewController.k();
         getEventCenter().addEventDelegate(this);
-        this.atMeModelController.u();
+        this.atMeModelController.y();
     }
 
     @Override // d.a.m0.g0.c.a
@@ -193,7 +193,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
 
     @Override // d.a.m0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
-        this.atMeModelController.y();
+        this.atMeModelController.C();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -203,7 +203,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!l.D() || (atMeModelController = this.atMeModelController) == null) {
             return;
         }
-        atMeModelController.y();
+        atMeModelController.C();
     }
 
     public void onServerError(ErrorData errorData) {
@@ -213,11 +213,11 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!StringUtils.isNull(errorData.error_msg)) {
             showToast(errorData.error_msg);
         }
-        BdListView bdListView = this.atMeViewController.f55007b;
+        BdListView bdListView = this.atMeViewController.f58696b;
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.f55008c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+        showNetRefreshView(this.atMeViewController.f58697c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
         setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 

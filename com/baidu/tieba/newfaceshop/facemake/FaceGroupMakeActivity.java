@@ -169,15 +169,15 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     public class g implements InputFilter {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18568e;
+        public int f18644e;
 
         public g(int i2) {
-            this.f18568e = i2;
+            this.f18644e = i2;
         }
 
         @Override // android.text.InputFilter
         public CharSequence filter(CharSequence charSequence, int i2, int i3, Spanned spanned, int i4, int i5) {
-            if (spanned == null || charSequence == null || (i0.b(spanned.toString()) - (i5 - i4)) + i0.b(charSequence.toString()) <= this.f18568e) {
+            if (spanned == null || charSequence == null || (i0.b(spanned.toString()) - (i5 - i4)) + i0.b(charSequence.toString()) <= this.f18644e) {
                 return charSequence;
             }
             FaceGroupMakeActivity.this.showToast(R.string.package_add_name_max);
@@ -258,7 +258,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         if (this.mModel == null) {
             this.mModel = new BarInformationModel(getPageContext());
         }
-        this.mModel.s(this);
+        this.mModel.w(this);
     }
 
     private void loadDraft() {

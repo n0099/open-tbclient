@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RequestManagerFragment extends Fragment {
     public static final String TAG = "RMFragment";
     public final Set<RequestManagerFragment> childRequestManagerFragments;
@@ -28,7 +28,7 @@ public class RequestManagerFragment extends Fragment {
     @Nullable
     public RequestManagerFragment rootRequestManagerFragment;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class FragmentRequestManagerTreeNode implements RequestManagerTreeNode {
         public FragmentRequestManagerTreeNode() {
         }

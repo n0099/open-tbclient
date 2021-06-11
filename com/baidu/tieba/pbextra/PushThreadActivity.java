@@ -90,7 +90,7 @@ public class PushThreadActivity extends BaseActivity {
             TextView textView = (TextView) inflate.findViewById(R.id.tv_item_title);
             PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(PushThreadActivity.this.mPushTypeDatas, i2);
             if (pushTypeData != null) {
-                tbImageView.V(pushTypeData.getIcon(), 10, false);
+                tbImageView.U(pushTypeData.getIcon(), 10, false);
                 textView.setText(pushTypeData.getName());
                 if (pushTypeData.getType() == PushThreadActivity.this.mCurrentPushType) {
                     SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);

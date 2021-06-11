@@ -7,7 +7,7 @@ import java.io.InputStream;
 public class ClassReader {
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f1588b;
+    public final byte[] f1601b;
     public final int header;
     public final int[] items;
     public final int maxStringLength;
@@ -29,7 +29,7 @@ public class ClassReader {
             }
         }
         inputStream.close();
-        this.f1588b = byteArrayOutputStream.toByteArray();
+        this.f1601b = byteArrayOutputStream.toByteArray();
         int[] iArr = new int[readUnsignedShort(8)];
         this.items = iArr;
         int length = iArr.length;
@@ -39,7 +39,7 @@ public class ClassReader {
         while (i4 < length) {
             int i5 = i3 + 1;
             this.items[i4] = i5;
-            byte b2 = this.f1588b[i3];
+            byte b2 = this.f1601b[i3];
             int i6 = 5;
             if (b2 == 1) {
                 i6 = readUnsignedShort(i5) + 3;
@@ -92,7 +92,7 @@ public class ClassReader {
     }
 
     private int readInt(int i2) {
-        byte[] bArr = this.f1588b;
+        byte[] bArr = this.f1601b;
         return (bArr[i2 + 3] & 255) | ((bArr[i2] & 255) << 24) | ((bArr[i2 + 1] & 255) << 16) | ((bArr[i2 + 2] & 255) << 8);
     }
 
@@ -158,7 +158,7 @@ public class ClassReader {
     private String readUTF(int i2, int i3, char[] cArr) {
         int i4;
         int i5 = i3 + i2;
-        byte[] bArr = this.f1588b;
+        byte[] bArr = this.f1601b;
         int i6 = 0;
         char c2 = 0;
         char c3 = 0;
@@ -209,7 +209,7 @@ public class ClassReader {
     }
 
     private int readUnsignedShort(int i2) {
-        byte[] bArr = this.f1588b;
+        byte[] bArr = this.f1601b;
         return (bArr[i2 + 1] & 255) | ((bArr[i2] & 255) << 8);
     }
 

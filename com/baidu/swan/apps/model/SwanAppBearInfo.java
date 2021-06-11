@@ -22,7 +22,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public String bearLogo;
     public String bearName;
     public String bearVipType;
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new a();
 
     /* loaded from: classes3.dex */

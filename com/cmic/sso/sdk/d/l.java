@@ -1,10 +1,12 @@
 package com.cmic.sso.sdk.d;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 /* loaded from: classes6.dex */
 public class l {
+    @SuppressLint({"PackageManagerGetSignatures"})
     public static byte[] a(Context context, String str) {
         PackageManager packageManager = context.getPackageManager();
         if (context.getPackageName().equalsIgnoreCase(str)) {

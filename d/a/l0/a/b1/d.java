@@ -11,7 +11,7 @@ import java.util.Map;
 public class d extends DataOutputStream {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final d.a.l0.a.b1.b<byte[], String> f40807e = new a();
+    public static final d.a.l0.a.b1.b<byte[], String> f44483e = new a();
 
     /* loaded from: classes3.dex */
     public static class a implements d.a.l0.a.b1.b<byte[], String> {
@@ -98,17 +98,17 @@ public class d extends DataOutputStream {
 
     public void n(String str) throws IOException {
         try {
-            d(f40807e.call(str));
+            d(f44483e.call(str));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
     public void o(Collection<String> collection) throws IOException {
-        l(collection, f40807e);
+        l(collection, f44483e);
     }
 
     public void p(Map<String, String> map) throws IOException {
-        m(map, f40807e);
+        m(map, f44483e);
     }
 }

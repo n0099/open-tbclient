@@ -11,31 +11,31 @@ import com.baidu.tieba.R;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f57704a;
+    public Context f61393a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57705b;
+    public View f61394b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeListView f57706c;
+    public BdTypeListView f61395c;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.m0.d0.h f57708e;
+    public d.a.m0.d0.h f61397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBarShadowView f57709f;
+    public NavigationBarShadowView f61398f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f57710g;
+    public d f61399g;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoDataView f57707d = null;
+    public NoDataView f61396d = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f57711h = new a();
+    public View.OnClickListener f61400h = new a();
 
     /* renamed from: i  reason: collision with root package name */
-    public AbsListView.OnScrollListener f57712i = new b();
+    public AbsListView.OnScrollListener f61401i = new b();
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -45,12 +45,12 @@ public class h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (d.a.c.e.p.j.A()) {
-                if (h.this.f57708e != null) {
-                    h.this.f57708e.dettachView(h.this.f57705b);
-                    h.this.f57708e = null;
+                if (h.this.f61397e != null) {
+                    h.this.f61397e.dettachView(h.this.f61394b);
+                    h.this.f61397e = null;
                 }
-                if (h.this.f57710g != null) {
-                    h.this.f57710g.onNoNetRefresh();
+                if (h.this.f61399g != null) {
+                    h.this.f61399g.onNoNetRefresh();
                 }
             }
         }
@@ -65,40 +65,40 @@ public class h {
         public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
             View childAt;
             if (i2 == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
-                h.this.f57709f.a();
+                h.this.f61398f.a();
             }
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             if (i2 == 1) {
-                h.this.f57709f.c();
+                h.this.f61398f.c();
             }
         }
     }
 
     public h(Context context, View view) {
-        this.f57704a = context;
-        this.f57705b = view;
-        this.f57706c = (BdTypeListView) view.findViewById(R.id.list);
-        this.f57709f = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_thread);
-        this.f57706c.setOnScrollListener(this.f57712i);
+        this.f61393a = context;
+        this.f61394b = view;
+        this.f61395c = (BdTypeListView) view.findViewById(R.id.list);
+        this.f61398f = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_thread);
+        this.f61395c.setOnScrollListener(this.f61401i);
     }
 
     public BdTypeListView f() {
-        return this.f57706c;
+        return this.f61395c;
     }
 
     public d g() {
-        return this.f57710g;
+        return this.f61399g;
     }
 
     public void h(d dVar) {
-        this.f57710g = dVar;
+        this.f61399g = dVar;
     }
 
     public void i(String str, boolean z) {
-        f.b(this.f57708e, this.f57711h, this.f57704a, this.f57705b, str, z);
-        this.f57706c.setVisibility(8);
+        f.b(this.f61397e, this.f61400h, this.f61393a, this.f61394b, str, z);
+        this.f61395c.setVisibility(8);
     }
 }

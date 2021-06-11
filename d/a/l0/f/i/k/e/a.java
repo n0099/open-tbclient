@@ -9,44 +9,44 @@ import com.baidu.swan.game.ad.downloader.model.DownloadState;
 public final class a implements d.a.l0.f.i.k.f.b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f46743d = {"_id", "createAt", "uri", "packagename", "path", "size", "progress", "status"};
+    public static final String[] f50417d = {"_id", "createAt", "uri", "packagename", "path", "size", "progress", "status"};
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f46744e = DownloadState.DOWNLOADED.value();
+    public static final int f50418e = DownloadState.DOWNLOADED.value();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f46745f = DownloadState.DOWNLOAD_PAUSED.value();
+    public static final int f50419f = DownloadState.DOWNLOAD_PAUSED.value();
 
     /* renamed from: a  reason: collision with root package name */
-    public b f46746a;
+    public b f50420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SQLiteDatabase f46747b;
+    public final SQLiteDatabase f50421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SQLiteDatabase f46748c;
+    public final SQLiteDatabase f50422c;
 
     public a(Context context, d.a.l0.f.i.k.c.a aVar) {
-        this.f46746a = null;
+        this.f50420a = null;
         b bVar = new b(context);
-        this.f46746a = bVar;
-        this.f46747b = bVar.getWritableDatabase();
-        this.f46748c = this.f46746a.getReadableDatabase();
+        this.f50420a = bVar;
+        this.f50421b = bVar.getWritableDatabase();
+        this.f50422c = this.f50420a.getReadableDatabase();
     }
 
     @Override // d.a.l0.f.i.k.f.b
     public void a(DownloadInfo downloadInfo) {
-        this.f46747b.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
+        this.f50421b.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
     }
 
     @Override // d.a.l0.f.i.k.f.b
     public void b() {
-        this.f46747b.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(f46745f), Integer.valueOf(f46744e)});
+        this.f50421b.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(f50419f), Integer.valueOf(f50418e)});
     }
 
     @Override // d.a.l0.f.i.k.f.b
     public DownloadInfo c(String str) {
-        Cursor query = this.f46748c.query("ad_download", f46743d, "_id=?", new String[]{str}, null, null, "createAt desc");
+        Cursor query = this.f50422c.query("ad_download", f50417d, "_id=?", new String[]{str}, null, null, "createAt desc");
         if (query.moveToNext()) {
             DownloadInfo downloadInfo = new DownloadInfo();
             e(query, downloadInfo);
@@ -59,19 +59,19 @@ public final class a implements d.a.l0.f.i.k.f.b {
 
     @Override // d.a.l0.f.i.k.f.b
     public synchronized void close() {
-        if (this.f46746a == null) {
+        if (this.f50420a == null) {
             return;
         }
         try {
-            this.f46746a.close();
-            this.f46746a = null;
+            this.f50420a.close();
+            this.f50420a = null;
         } catch (Exception unused) {
         }
     }
 
     @Override // d.a.l0.f.i.k.f.b
     public void d(DownloadInfo downloadInfo) {
-        this.f46747b.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
+        this.f50421b.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
     }
 
     public final void e(Cursor cursor, DownloadInfo downloadInfo) {

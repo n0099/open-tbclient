@@ -41,6 +41,8 @@ public interface ICyberVideoView {
 
     void seekTo(int i2);
 
+    void seekTo(int i2, int i3);
+
     void setClarityInfo(String str);
 
     void setDecodeMode(int i2);

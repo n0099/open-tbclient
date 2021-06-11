@@ -2,13 +2,13 @@ package com.kwad.sdk.core.video.videoview;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AdVideoPlayerViewCache {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, WeakReference<b>> f32674a;
+    public HashMap<String, WeakReference<b>> f34766a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum Holder {
         INSTANCE;
         
@@ -23,7 +23,7 @@ public class AdVideoPlayerViewCache {
     }
 
     public AdVideoPlayerViewCache() {
-        this.f32674a = new HashMap<>(1);
+        this.f34766a = new HashMap<>(1);
     }
 
     public static AdVideoPlayerViewCache a() {
@@ -31,21 +31,21 @@ public class AdVideoPlayerViewCache {
     }
 
     public void a(String str) {
-        this.f32674a.remove(str);
+        this.f34766a.remove(str);
     }
 
     public void a(String str, b bVar) {
-        this.f32674a.put(str, new WeakReference<>(bVar));
+        this.f34766a.put(str, new WeakReference<>(bVar));
     }
 
     public b b(String str) {
-        WeakReference<b> weakReference = this.f32674a.get(str);
+        WeakReference<b> weakReference = this.f34766a.get(str);
         if (weakReference != null) {
             b bVar = weakReference.get();
             if (bVar != null) {
                 return bVar;
             }
-            this.f32674a.remove(str);
+            this.f34766a.remove(str);
         }
         return null;
     }

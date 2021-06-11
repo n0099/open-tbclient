@@ -10,7 +10,7 @@ import org.apache.http.protocol.HttpContext;
 public class ad implements HttpRequestRetryHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1609a = "ad";
+    public static final String f1622a = "ad";
 
     @Override // org.apache.http.client.HttpRequestRetryHandler
     public boolean retryRequest(IOException iOException, int i2, HttpContext httpContext) {

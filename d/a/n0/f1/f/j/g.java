@@ -23,22 +23,22 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f54433a;
+    public TbPageContext f58122a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f54434b;
+    public d f58123b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54435c;
+    public String f58124c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f54436d = new a(0);
+    public CustomMessageListener f58125d = new a(0);
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f54437e = new b();
+    public Runnable f58126e = new b();
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f54438f = new c(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
+    public d.a.c.c.g.a f58127f = new c(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -55,8 +55,8 @@ public class g {
             if (customResponsedMessage.getCmd() == 2001147) {
                 g.this.g(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2012123) {
-                d.a.c.e.m.e.a().removeCallbacks(g.this.f54437e);
-                d.a.c.e.m.e.a().postDelayed(g.this.f54437e, 1000L);
+                d.a.c.e.m.e.a().removeCallbacks(g.this.f58126e);
+                d.a.c.e.m.e.a().postDelayed(g.this.f58126e, 1000L);
             }
         }
     }
@@ -69,7 +69,7 @@ public class g {
         @Override // java.lang.Runnable
         public void run() {
             g gVar = g.this;
-            gVar.f(gVar.f54435c);
+            gVar.f(gVar.f58124c);
         }
     }
 
@@ -102,10 +102,10 @@ public class g {
                     longSparseArray.put(bVar.b(), bVar);
                 }
             }
-            if (g.this.f54434b == null || longSparseArray == null) {
+            if (g.this.f58123b == null || longSparseArray == null) {
                 return;
             }
-            g.this.f54434b.onReadCountLoad(longSparseArray);
+            g.this.f58123b.onReadCountLoad(longSparseArray);
         }
     }
 
@@ -117,22 +117,22 @@ public class g {
     }
 
     public g(TbPageContext tbPageContext) {
-        this.f54433a = tbPageContext;
-        tbPageContext.registerListener(2001147, this.f54436d);
-        tbPageContext.registerListener(2012123, this.f54436d);
-        tbPageContext.registerListener(this.f54438f);
+        this.f58122a = tbPageContext;
+        tbPageContext.registerListener(2001147, this.f58125d);
+        tbPageContext.registerListener(2012123, this.f58125d);
+        tbPageContext.registerListener(this.f58127f);
     }
 
     public void e() {
-        d.a.c.e.m.e.a().removeCallbacks(this.f54437e);
+        d.a.c.e.m.e.a().removeCallbacks(this.f58126e);
     }
 
     public void f(String str) {
-        this.f54435c = str;
+        this.f58124c = str;
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f17278c = 150;
-        aVar.f17279d = str;
-        this.f54433a.sendMessage(new LoadOfficialHistoryMessage(aVar));
+        aVar.f17354c = 150;
+        aVar.f17355d = str;
+        this.f58122a.sendMessage(new LoadOfficialHistoryMessage(aVar));
     }
 
     public final void g(CustomResponsedMessage<?> customResponsedMessage) {
@@ -141,17 +141,17 @@ public class g {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f17281b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f17357b;
             ArrayList arrayList = new ArrayList();
             for (ChatMessage chatMessage : list) {
-                List<a.C1318a> b2 = d.a.n0.f1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                List<a.C1374a> b2 = d.a.n0.f1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
                 if (b2 != null && b2.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
                     int i2 = 0;
                     while (i2 < b2.size()) {
-                        a.C1318a c1318a = b2.get(i2);
-                        d.a.n0.f1.l.c.b a2 = d.a.n0.f1.l.c.b.a(chatMessage, c1318a);
-                        if (a2 != null && a2.e() != null && !StringUtils.isNull(a2.e().f54607a)) {
-                            a2.l(i2 == 0 && !StringUtils.isNull(c1318a.f54609c));
+                        a.C1374a c1374a = b2.get(i2);
+                        d.a.n0.f1.l.c.b a2 = d.a.n0.f1.l.c.b.a(chatMessage, c1374a);
+                        if (a2 != null && a2.d() != null && !StringUtils.isNull(a2.d().f58296a)) {
+                            a2.j(i2 == 0 && !StringUtils.isNull(c1374a.f58298c));
                             arrayList.add(a2);
                         }
                         i2++;
@@ -159,7 +159,7 @@ public class g {
                 }
             }
             h(arrayList);
-            d dVar = this.f54434b;
+            d dVar = this.f58123b;
             if (dVar != null) {
                 dVar.a(arrayList);
             }
@@ -172,17 +172,17 @@ public class g {
         }
         ArrayList arrayList = new ArrayList(list.size());
         for (d.a.n0.f1.l.c.b bVar : list) {
-            if (bVar.h()) {
-                arrayList.add(Long.valueOf(bVar.e().f54614h));
+            if (bVar.g()) {
+                arrayList.add(Long.valueOf(bVar.d().f58303h));
             }
         }
         BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();
         broadcastMajorHistoryRequestMessage.queryType = 2;
         broadcastMajorHistoryRequestMessage.bcastIds = arrayList;
-        this.f54433a.sendMessage(broadcastMajorHistoryRequestMessage);
+        this.f58122a.sendMessage(broadcastMajorHistoryRequestMessage);
     }
 
     public void i(d dVar) {
-        this.f54434b = dVar;
+        this.f58123b = dVar;
     }
 }

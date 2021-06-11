@@ -12,7 +12,7 @@ import d.a.l0.a.k;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1038a f47547a;
+    public InterfaceC1094a f51221a;
     @V8JavascriptField
     public String backgroundColor;
     @V8JavascriptField
@@ -46,7 +46,7 @@ public class a {
 
     /* renamed from: d.a.l0.h.o0.d.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1038a {
+    public interface InterfaceC1094a {
         void s();
     }
 
@@ -75,23 +75,23 @@ public class a {
         this.hidden = aVar.n("hidden", this.hidden);
         this.opacity = aVar.o("opacity", this.opacity);
         this.color = aVar.D("color", this.color);
-        if (k.f43199a) {
+        if (k.f46875a) {
             Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
         }
     }
 
-    public void b(InterfaceC1038a interfaceC1038a) {
-        this.f47547a = interfaceC1038a;
+    public void b(InterfaceC1094a interfaceC1094a) {
+        this.f51221a = interfaceC1094a;
     }
 
     @JavascriptInterface
     public void onFieldChangedCallback(String str) {
-        if (k.f43199a) {
+        if (k.f46875a) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        InterfaceC1038a interfaceC1038a = this.f47547a;
-        if (interfaceC1038a != null) {
-            interfaceC1038a.s();
+        InterfaceC1094a interfaceC1094a = this.f51221a;
+        if (interfaceC1094a != null) {
+            interfaceC1094a.s();
         }
     }
 

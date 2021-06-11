@@ -41,19 +41,19 @@ public class c implements View.OnClickListener, d.a.n0.l3.a {
     public static final int w;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f57193e;
+    public Context f60882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f57194f;
+    public LinearLayout f60883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f57195g;
+    public EMTextView f60884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.l3.b f57196h;
+    public d.a.n0.l3.b f60885h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f57197i;
+    public EMTextView f60886i;
     public View j;
     public AlertDialog k;
     public DialogInterface.OnDismissListener l;
@@ -72,9 +72,9 @@ public class c implements View.OnClickListener, d.a.n0.l3.a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                c.this.g();
+                c.this.h();
                 c cVar = c.this;
-                cVar.l(cVar.n);
+                cVar.m(cVar.n);
             }
         }
     }
@@ -90,8 +90,8 @@ public class c implements View.OnClickListener, d.a.n0.l3.a {
                 c.this.l.onDismiss(dialogInterface);
             }
             MessageManager.getInstance().unRegisterTask(2001450);
-            if (c.this.f57196h != null) {
-                c.this.f57196h.j();
+            if (c.this.f60885h != null) {
+                c.this.f60885h.k();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
         }
@@ -99,8 +99,8 @@ public class c implements View.OnClickListener, d.a.n0.l3.a {
 
     /* renamed from: d.a.n0.l3.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1430c implements CustomMessageTask.CustomRunnable<Object> {
-        public C1430c() {
+    public class C1486c implements CustomMessageTask.CustomRunnable<Object> {
+        public C1486c() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -108,7 +108,7 @@ public class c implements View.OnClickListener, d.a.n0.l3.a {
             if (c.this.k == null || !c.this.k.isShowing()) {
                 return null;
             }
-            c.this.h();
+            c.this.i();
             return null;
         }
     }
@@ -125,61 +125,61 @@ public class c implements View.OnClickListener, d.a.n0.l3.a {
     }
 
     public c(Context context) {
-        this.f57193e = context;
+        this.f60882e = context;
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f57194f = linearLayout;
+        this.f60883f = linearLayout;
         linearLayout.setOrientation(1);
         EMTextView eMTextView = new EMTextView(context);
-        this.f57195g = eMTextView;
+        this.f60884g = eMTextView;
         eMTextView.setTextSize(0, u);
-        EMTextView eMTextView2 = this.f57195g;
+        EMTextView eMTextView2 = this.f60884g;
         int i2 = q;
         eMTextView2.setPadding(i2, r, i2, s);
-        this.f57195g.setGravity(1);
-        this.f57195g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.f57194f.addView(this.f57195g);
-        this.f57196h = new d.a.n0.l3.b(context);
+        this.f60884g.setGravity(1);
+        this.f60884g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.f60883f.addView(this.f60884g);
+        this.f60885h = new d.a.n0.l3.b(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         int i3 = ShareGridLayout.j;
         layoutParams.leftMargin = i3;
         layoutParams.rightMargin = i3;
-        this.f57194f.addView(this.f57196h.d(), layoutParams);
+        this.f60883f.addView(this.f60885h.d(), layoutParams);
         EMTextView eMTextView3 = new EMTextView(context);
-        this.f57197i = eMTextView3;
+        this.f60886i = eMTextView3;
         eMTextView3.setGravity(1);
-        this.f57197i.setTextSize(0, v);
-        this.f57197i.setText(R.string.cancel);
+        this.f60886i.setTextSize(0, v);
+        this.f60886i.setText(R.string.cancel);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = w;
-        this.f57197i.setLayoutParams(layoutParams2);
-        EMTextView eMTextView4 = this.f57197i;
+        this.f60886i.setLayoutParams(layoutParams2);
+        EMTextView eMTextView4 = this.f60886i;
         int i4 = t;
         eMTextView4.setPadding(0, i4, 0, i4);
-        this.f57197i.setOnClickListener(this);
-        this.f57194f.addView(this.f57197i);
+        this.f60886i.setOnClickListener(this);
+        this.f60883f.addView(this.f60886i);
         this.j = new View(context);
         this.j.setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(TbadkCoreApplication.getInst(), R.dimen.bottom_enter_anim_place_holder_height)));
-        this.f57194f.addView(this.j);
-        this.f57196h.k(this);
+        this.f60883f.addView(this.j);
+        this.f60885h.l(this);
     }
 
     @Override // d.a.n0.l3.a
     public void a(View view) {
-        h();
+        i();
     }
 
-    public final void g() {
-        d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f57194f);
+    public final void h() {
+        d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f60883f);
         d2.m(R.string.J_X14);
         d2.f(R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.f57195g, R.color.CAM_X0109);
-        SkinManager.setViewTextColorSelector(this.f57197i, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f60884g, R.color.CAM_X0109);
+        SkinManager.setViewTextColorSelector(this.f60886i, R.color.CAM_X0107);
     }
 
-    public void h() {
+    public void i() {
         AlertDialog alertDialog = this.k;
         if (alertDialog != null) {
-            Context context = this.f57193e;
+            Context context = this.f60882e;
             if (context instanceof Activity) {
                 g.a(alertDialog, (Activity) context);
                 MessageManager.getInstance().unRegisterListener(this.p);
@@ -188,57 +188,57 @@ public class c implements View.OnClickListener, d.a.n0.l3.a {
         }
     }
 
-    public void i(ShareDialogConfig.From from) {
+    public void j(ShareDialogConfig.From from) {
         f0 sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData();
         if (sharePanelConfData != null && sharePanelConfData.d(from) && sharePanelConfData.c() && !k.isEmpty(sharePanelConfData.b())) {
-            this.f57195g.setText(sharePanelConfData.b());
+            this.f60884g.setText(sharePanelConfData.b());
         }
     }
 
-    public final void j() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001450, new C1430c());
+    public final void k() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001450, new C1486c());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public void k(DialogInterface.OnDismissListener onDismissListener) {
+    public void l(DialogInterface.OnDismissListener onDismissListener) {
         this.l = onDismissListener;
     }
 
-    public void l(ShareDialogConfig shareDialogConfig) {
+    public void m(ShareDialogConfig shareDialogConfig) {
         if (!TextUtils.isEmpty(shareDialogConfig.shareItem.D)) {
             ShareItem shareItem = shareDialogConfig.shareItem;
             shareItem.s = shareItem.D;
         }
         if (!shareDialogConfig.shareItem.a0) {
-            this.f57195g.setText(R.string.transmit_share_no_outer);
+            this.f60884g.setText(R.string.transmit_share_no_outer);
         } else {
             String sharePanelText = TbSingleton.getInstance().getSharePanelText();
             if (!TextUtils.isEmpty(sharePanelText)) {
-                this.f57195g.setText(sharePanelText);
+                this.f60884g.setText(sharePanelText);
             } else {
-                this.f57195g.setText(R.string.transmit_share_not_add_experience);
+                this.f60884g.setText(R.string.transmit_share_not_add_experience);
             }
         }
-        this.f57196h.l(shareDialogConfig, this.m);
+        this.f60885h.m(shareDialogConfig, this.m);
         this.n = shareDialogConfig;
     }
 
-    public void m(boolean z) {
+    public void n(boolean z) {
         this.m = z;
     }
 
-    public void n() {
-        g();
-        AlertDialog create = new AlertDialog.Builder(this.f57193e, R.style.DialogTheme).create();
+    public void o() {
+        h();
+        AlertDialog create = new AlertDialog.Builder(this.f60882e, R.style.DialogTheme).create();
         this.k = create;
         create.setCanceledOnTouchOutside(true);
         this.k.setOnDismissListener(new b());
-        Context context = this.f57193e;
+        Context context = this.f60882e;
         if (context instanceof Activity) {
             g.i(this.k, (Activity) context);
         }
-        d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f57194f);
+        d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f60883f);
         d2.m(R.string.J_X14);
         d2.f(R.color.CAM_X0204);
         Window window = this.k.getWindow();
@@ -252,22 +252,22 @@ public class c implements View.OnClickListener, d.a.n0.l3.a {
         window.setWindowAnimations(R.style.share_dialog_style);
         window.setGravity(80);
         window.setLayout(-1, -2);
-        window.setContentView(this.f57194f);
+        window.setContentView(this.f60883f);
         window.setDimAmount(this.o);
-        j();
-        j.a(this.f57193e).registerListener(this.p);
+        k();
+        j.a(this.f60882e).registerListener(this.p);
         MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.TRUE));
-    }
-
-    public final void o(String str, Object... objArr) {
-        TiebaStatic.eventStat(this.f57193e, str, PrefetchEvent.STATE_CLICK, 1, objArr);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f57197i) {
-            o("share_cancel", new Object[0]);
-            h();
+        if (view == this.f60886i) {
+            p("share_cancel", new Object[0]);
+            i();
         }
+    }
+
+    public final void p(String str, Object... objArr) {
+        TiebaStatic.eventStat(this.f60882e, str, PrefetchEvent.STATE_CLICK, 1, objArr);
     }
 }

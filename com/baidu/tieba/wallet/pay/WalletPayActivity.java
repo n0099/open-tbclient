@@ -46,6 +46,7 @@ import com.baidu.tieba.wallet.WalletStatisticKey;
 import com.baidu.tieba.wallet.pay.WalletPayViewController;
 import com.baidu.wallet.api.BaiduWallet;
 import com.baidu.wallet.core.beans.BeanManager;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import d.a.c.c.g.a;
 import d.a.c.e.m.e;
 import d.a.c.e.p.k;
@@ -136,7 +137,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                         return;
                     } else if (responseGetPayinfoMessage.getPayInfoResultData().getPay_status() == 1) {
                         WalletPayActivity walletPayActivity = WalletPayActivity.this;
-                        walletPayActivity.createPayDebugLog("getpayinfo", statusCode, "支付失败", error, "logid = " + responseGetPayinfoMessage.logid);
+                        walletPayActivity.createPayDebugLog("getpayinfo", statusCode, EventAlias.PayEventAlias.PAY_FAIL, error, "logid = " + responseGetPayinfoMessage.logid);
                         WalletPayActivity.this.showResult(Boolean.FALSE);
                         return;
                     } else if (responseGetPayinfoMessage.getPayInfoResultData().getPay_status() == 3) {

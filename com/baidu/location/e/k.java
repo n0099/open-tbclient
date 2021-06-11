@@ -11,7 +11,6 @@ import android.provider.Settings;
 import android.util.Base64;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
@@ -57,7 +56,7 @@ public class k {
     public static int Z = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f6719a = false;
+    public static boolean f6762a = false;
     public static String aA = "http://loc.map.baidu.com/oqur.php";
     public static String aB = "http://loc.map.baidu.com/tcu.php";
     public static String aC = "http://loc.map.baidu.com/rtbu.php";
@@ -91,28 +90,28 @@ public class k {
     public static String az = "http://loc.map.baidu.com/user_err.php";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f6720b = false;
+    public static boolean f6763b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f6721c = false;
+    public static boolean f6764c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6722d = 0;
+    public static int f6765d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f6723e = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f6766e = "http://loc.map.baidu.com/sdk_ep.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f6724f = "https://loc.map.baidu.com/sdk.php";
+    public static String f6767f = "https://loc.map.baidu.com/sdk.php";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f6725g = "no";
+    public static String f6768g = "no";
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f6726h = false;
+    public static boolean f6769h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f6727i = false;
+    public static boolean f6770i = false;
     public static boolean j = false;
     public static boolean k = false;
     public static boolean l = false;
@@ -193,7 +192,7 @@ public class k {
             }
         }
         if (location != null) {
-            String b4 = (f6722d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
+            String b4 = (f6765d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
             if (b4 != null) {
                 stringBuffer.append(b4);
             }
@@ -212,7 +211,7 @@ public class k {
         if (location != null && hVar != null) {
             try {
                 float speed = location.getSpeed();
-                int i3 = f6722d;
+                int i3 = f6765d;
                 int h2 = hVar.h();
                 int a4 = hVar.a();
                 boolean i4 = hVar.i();
@@ -320,7 +319,7 @@ public class k {
         int a2 = a(context, "android.permission.ACCESS_COARSE_LOCATION");
         int a3 = a(context, "android.permission.ACCESS_FINE_LOCATION");
         int a4 = a(context, "android.permission.READ_PHONE_STATE");
-        return "&per=" + a2 + FieldBuilder.SE + a3 + FieldBuilder.SE + a4;
+        return "&per=" + a2 + "|" + a3 + "|" + a4;
     }
 
     /* JADX DEBUG: Throwable added to exception handler: 'SocketException', keep only Throwable */

@@ -1,5 +1,5 @@
 package g.b.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class m {
     public static int a(int i2) {
         if (i2 >= 12) {

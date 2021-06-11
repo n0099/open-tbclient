@@ -8,15 +8,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.MainThread;
-import com.kwad.sdk.utils.q;
-/* loaded from: classes6.dex */
+import com.kwad.sdk.utils.s;
+/* loaded from: classes7.dex */
 public class AdBaseFrameLayout extends FrameLayout {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final q.a f32771b = new q.a();
+    public static final s.a f34863b = new s.a();
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnTouchListener f32772a;
+    public View.OnTouchListener f34864a;
 
     public AdBaseFrameLayout(Context context) {
         super(context);
@@ -31,38 +31,24 @@ public class AdBaseFrameLayout extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void dispatchRestoreInstanceState(SparseArray<Parcelable> sparseArray) {
-        try {
-            super.dispatchRestoreInstanceState(sparseArray);
-        } catch (Throwable th) {
-            com.kwad.sdk.core.d.a.a(th);
-            com.kwad.sdk.core.a.a.a(th);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchSaveInstanceState(SparseArray<Parcelable> sparseArray) {
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        View.OnTouchListener onTouchListener = this.f32772a;
+        View.OnTouchListener onTouchListener = this.f34864a;
         if (onTouchListener != null) {
             onTouchListener.onTouch(this, motionEvent);
         }
         int action = motionEvent.getAction();
         if (action == 0) {
-            f32771b.a(getWidth(), getHeight());
-            f32771b.a(motionEvent.getX(), motionEvent.getY());
+            f34863b.a(getWidth(), getHeight());
+            f34863b.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            f32771b.b(motionEvent.getX(), motionEvent.getY());
+            f34863b.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
-    public q.a getTouchCoords() {
-        return f32771b;
+    public s.a getTouchCoords() {
+        return f34863b;
     }
 
     @Override // android.view.View
@@ -70,6 +56,6 @@ public class AdBaseFrameLayout extends FrameLayout {
     }
 
     public void setDispatchTouchListener(View.OnTouchListener onTouchListener) {
-        this.f32772a = onTouchListener;
+        this.f34864a = onTouchListener;
     }
 }

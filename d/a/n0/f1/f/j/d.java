@@ -17,84 +17,84 @@ import java.util.List;
 public class d extends d.a.c.a.d<OfficialBarHistoryActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f54404a;
+    public BaseActivity f58093a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f54405b;
+    public View f58094b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f54406c;
+    public BdListView f58095c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f54407d;
+    public NavigationBar f58096d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OfficialBarHistoryAdapter f54408e;
+    public OfficialBarHistoryAdapter f58097e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54409f;
+    public View f58098f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoDataView f54410g;
+    public NoDataView f58099g;
 
     public d(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.f54404a = baseActivity;
+        this.f58093a = baseActivity;
         e();
     }
 
     public void d(List<ResponseHistoryMessage.a> list) {
         NoDataView noDataView;
-        if (list == null || list.size() <= 0 || (noDataView = this.f54410g) == null) {
+        if (list == null || list.size() <= 0 || (noDataView = this.f58099g) == null) {
             return;
         }
         noDataView.setVisibility(8);
     }
 
     public final void e() {
-        this.f54405b = View.inflate(this.f54404a.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
-        this.f54404a.getPageContext().getPageActivity().setContentView(this.f54405b);
-        NavigationBar navigationBar = (NavigationBar) this.f54405b.findViewById(R.id.view_navigation_bar);
-        this.f54407d = navigationBar;
+        this.f58094b = View.inflate(this.f58093a.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
+        this.f58093a.getPageContext().getPageActivity().setContentView(this.f58094b);
+        NavigationBar navigationBar = (NavigationBar) this.f58094b.findViewById(R.id.view_navigation_bar);
+        this.f58096d = navigationBar;
         navigationBar.setTitleText(R.string.officical_bar_info_history);
-        this.f54407d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f54406c = (BdListView) this.f54405b.findViewById(R.id.bar_history_list);
-        BaseActivity baseActivity = this.f54404a;
+        this.f58096d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f58095c = (BdListView) this.f58094b.findViewById(R.id.bar_history_list);
+        BaseActivity baseActivity = this.f58093a;
         OfficialBarHistoryAdapter officialBarHistoryAdapter = new OfficialBarHistoryAdapter(baseActivity, baseActivity.getPageContext().getContext());
-        this.f54408e = officialBarHistoryAdapter;
-        this.f54406c.setAdapter((ListAdapter) officialBarHistoryAdapter);
-        View inflate = View.inflate(this.f54404a.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
-        this.f54409f = inflate;
-        this.f54406c.addHeaderView(inflate);
-        this.f54406c.addFooterView(this.f54409f);
+        this.f58097e = officialBarHistoryAdapter;
+        this.f58095c.setAdapter((ListAdapter) officialBarHistoryAdapter);
+        View inflate = View.inflate(this.f58093a.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
+        this.f58098f = inflate;
+        this.f58095c.addHeaderView(inflate);
+        this.f58095c.addFooterView(this.f58098f);
     }
 
     public boolean f() {
-        return this.f54408e.getCount() != 0 && this.f54406c.getLastVisiblePosition() - this.f54406c.getHeaderViewsCount() < this.f54408e.getCount() - 1;
+        return this.f58097e.getCount() != 0 && this.f58095c.getLastVisiblePosition() - this.f58095c.getHeaderViewsCount() < this.f58097e.getCount() - 1;
     }
 
     public void g(List<ResponseHistoryMessage.a> list) {
-        this.f54408e.c(list);
+        this.f58097e.c(list);
         d(list);
     }
 
     public void h(BdListView.p pVar) {
-        this.f54406c.setOnSrollToBottomListener(pVar);
+        this.f58095c.setOnSrollToBottomListener(pVar);
     }
 
-    public void j(List<ResponseHistoryMessage.a> list) {
+    public void i(List<ResponseHistoryMessage.a> list) {
         if (list == null || list.size() == 0) {
-            if (this.f54410g == null) {
-                this.f54410g = NoDataViewFactory.a(this.f54404a.getPageContext().getPageActivity(), this.f54405b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.e.a(R.string.no_data_text), null);
+            if (this.f58099g == null) {
+                this.f58099g = NoDataViewFactory.a(this.f58093a.getPageContext().getPageActivity(), this.f58094b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.e.a(R.string.no_data_text), null);
             }
-            this.f54410g.f(this.f54404a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.f54410g.setVisibility(0);
+            this.f58099g.f(this.f58093a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.f58099g.setVisibility(0);
         }
     }
 
     public void onChangeSkinType(int i2) {
-        this.f54404a.getLayoutMode().k(i2 == 1);
-        this.f54404a.getLayoutMode().j(this.f54405b);
-        this.f54407d.onChangeSkinType(this.f54404a.getPageContext(), i2);
+        this.f58093a.getLayoutMode().k(i2 == 1);
+        this.f58093a.getLayoutMode().j(this.f58094b);
+        this.f58096d.onChangeSkinType(this.f58093a.getPageContext(), i2);
     }
 }

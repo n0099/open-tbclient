@@ -1,535 +1,1106 @@
 package d.a.m0.a;
 
-import android.app.Activity;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Base64;
+import android.util.Pair;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.DecryptCodeHttpRespMsg;
-import com.baidu.tbadk.BdToken.DecryptCodeReqMsg;
-import com.baidu.tbadk.BdToken.DecryptCodeSocketRespMsg;
-import com.baidu.tbadk.BdToken.TiebaUidCheckHttpResMsg;
-import com.baidu.tbadk.BdToken.TiebaUidCheckReqMsg;
-import com.baidu.tbadk.BdToken.TiebaUidCheckSocketResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.RomTypeUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.UserData;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.a.m0.a.e;
+import d.a.m0.a.e0.d;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class d {
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f48659h = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final Pattern f48660i = Pattern.compile("^@(.*)@给你分享了贴吧号#(\\d+)#\\s?整段复制后打开贴吧即可找到Ta$", 2);
-    public static final Pattern j = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
-
     /* renamed from: a  reason: collision with root package name */
-    public boolean f48661a;
+    public final ScheduledExecutorService f52308a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f48662b;
+    public final SparseArray<List<d.a.m0.a.c>> f52309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public u f48663c;
+    public final LinkedList<d.a.m0.a.c> f52310c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.m0.a.e f48664d;
+    public f f52311d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f48665e = new AtomicBoolean(false);
+    public AtomicBoolean f52312e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f48666f = new AtomicBoolean(false);
+    public boolean f52313f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e.b f48667g = new b();
+    public boolean f52314g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public BdUniqueId f52315h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public d.a.m0.a.e0.d f52316i;
+    public d.a.m0.a.c0.c j;
+    public d.a.m0.a.d0.b k;
+    public int l;
+    public long m;
+    public int n;
+    public long o;
+    public boolean p;
+    public CustomMessageListener q;
+    public CustomMessageListener r;
+    public CustomMessageListener s;
+    public d.a.m0.a.c0.a<d.a.m0.a.c0.b> t;
+    public d.a.m0.m.b u;
 
     /* loaded from: classes3.dex */
-    public class a extends BdAsyncTask<String, Integer, l> {
-        public a() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public l doInBackground(String... strArr) {
-            Matcher matcher;
-            if (strArr == null || strArr.length < 1) {
-                return null;
-            }
-            String str = strArr[0];
-            if (!d.a.c.e.p.k.isEmpty(str) && (matcher = d.f48660i.matcher(str)) != null && matcher.find() && matcher.groupCount() >= 2) {
-                String group = matcher.group(1);
-                String group2 = matcher.group(2);
-                if (TextUtils.isEmpty(group2)) {
-                    return null;
-                }
-                UserData b2 = d.a.m0.z.b.a().b();
-                String tiebaUid = b2 != null ? b2.getTiebaUid() : "";
-                if ((TextUtils.isEmpty(group) || !group.equals(TbadkCoreApplication.getCurrentAccountNameShow())) && !group2.equals(tiebaUid)) {
-                    l lVar = new l();
-                    lVar.c(group);
-                    lVar.d(group2);
-                    return lVar;
-                }
-                return null;
-            }
-            return null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(l lVar) {
-            super.onPostExecute(lVar);
-            if (lVar == null || d.this.f48666f.get()) {
-                return;
-            }
-            d.this.f48666f.compareAndSet(false, true);
-            TiebaUidCheckReqMsg tiebaUidCheckReqMsg = new TiebaUidCheckReqMsg();
-            tiebaUidCheckReqMsg.setTiebaUid(lVar);
-            MessageManager.getInstance().sendMessage(tiebaUidCheckReqMsg);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements e.b {
-        public b() {
-        }
-
-        @Override // d.a.m0.a.e.b
-        public void a(boolean z, a0 a0Var) {
-            if (!z || a0Var == null) {
-                return;
-            }
-            d.this.p();
-            d.this.q(a0Var.a(), a0Var.c());
-            d.this.s(a0Var);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements Runnable {
-        public c() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            d.y().m(d.this.w());
-        }
-    }
-
-    /* renamed from: d.a.m0.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC1097d implements Runnable {
-        public RunnableC1097d() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            d.y().m(d.this.w());
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e extends d.a.c.c.g.a {
-        public e(int i2, int i3) {
-            super(i2, i3);
-        }
-
-        @Override // d.a.c.c.g.a
-        public void onMessage(ResponsedMessage responsedMessage) {
-            d.a.m0.a.h decryptData;
-            d.this.f48665e.compareAndSet(true, false);
-            if (responsedMessage instanceof DecryptCodeHttpRespMsg) {
-                decryptData = ((DecryptCodeHttpRespMsg) responsedMessage).getDecryptData();
-            } else if (!(responsedMessage instanceof DecryptCodeSocketRespMsg)) {
-                return;
-            } else {
-                decryptData = ((DecryptCodeSocketRespMsg) responsedMessage).getDecryptData();
-            }
-            if (decryptData == null) {
-                return;
-            }
-            UtilHelper.clearClipBoard();
-            int g2 = decryptData.g();
-            if (g2 == 1 || g2 == 0) {
-                if (MessageManager.getInstance().findTask(2921361) == null || decryptData.f48730g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
-                    return;
-                }
-                TbadkCoreApplication.getInst().setCurAiAppid(null);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921377, decryptData));
-            } else if (g2 == 2) {
-                d.this.q(decryptData.e(), decryptData.f());
-            } else if (g2 == 4 || g2 != 3 || StringUtils.isNull(decryptData.f())) {
-            } else {
-                Uri parse = Uri.parse(decryptData.f());
-                String queryParameter = parse != null ? parse.getQueryParameter("obj_source") : "";
-                String queryParameter2 = parse != null ? parse.getQueryParameter("obj_type") : "";
-                String queryParameter3 = parse != null ? parse.getQueryParameter("tid") : "";
-                String queryParameter4 = parse != null ? parse.getQueryParameter("fname") : "";
-                String queryParameter5 = parse != null ? parse.getQueryParameter("eqid") : "";
-                if (TextUtils.isEmpty(queryParameter) || TextUtils.isEmpty(queryParameter2) || !queryParameter2.startsWith("tbcm")) {
-                    d.this.r(decryptData.f());
-                    TiebaStatic.log(new StatisticItem("c13390").param("obj_type", queryParameter2).param("obj_source", queryParameter).param("tid", queryParameter3).param("fname", queryParameter4).param("query", queryParameter5));
-                    return;
-                }
-                d.this.r(decryptData.f());
-                TiebaStatic.log(new StatisticItem("c13390").param("obj_type", queryParameter2).param("obj_source", queryParameter).param("tid", queryParameter3).param("fname", queryParameter4));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f extends d.a.c.c.g.a {
-        public f(int i2, int i3) {
-            super(i2, i3);
-        }
-
-        @Override // d.a.c.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            com.baidu.tbadk.core.data.UserData userData;
-            TiebaUidCheckReqMsg tiebaUidCheckReqMsg;
-            d.this.f48666f.compareAndSet(true, false);
-            if (responsedMessage instanceof TiebaUidCheckSocketResMsg) {
-                userData = ((TiebaUidCheckSocketResMsg) responsedMessage).getUserData();
-            } else if (!(responsedMessage instanceof TiebaUidCheckHttpResMsg)) {
-                return;
-            } else {
-                userData = ((TiebaUidCheckHttpResMsg) responsedMessage).getUserData();
-            }
-            l lVar = (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof TiebaUidCheckReqMsg) || (tiebaUidCheckReqMsg = (TiebaUidCheckReqMsg) responsedMessage.getOrginalMessage().getExtra()) == null) ? null : tiebaUidCheckReqMsg.mTiebaUidData;
-            if (userData == null || lVar == null) {
-                return;
-            }
-            UtilHelper.clearClipBoard();
-            y d2 = y.d();
-            d2.b();
-            d2.e(userData, lVar);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class g extends CustomMessageListener {
-        public g(int i2) {
+    public class a extends CustomMessageListener {
+        public a(int i2) {
             super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+            d.this.f52313f = true;
+            if (d.this.f52310c.isEmpty()) {
                 return;
             }
-            d.this.m(d.this.w());
+            Iterator it = d.this.f52310c.iterator();
+            while (it.hasNext()) {
+                d.this.m((d.a.m0.a.c) it.next());
+            }
+            d.this.f52310c.clear();
         }
     }
 
     /* loaded from: classes3.dex */
-    public class h extends BdAsyncTask<String, Integer, String> {
-        public h() {
+    public class b extends CustomMessageListener {
+        public b(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage instanceof BackgroundSwitchMessage) {
+                ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue();
+                d.this.q();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c extends CustomMessageListener {
+        public c(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371) {
+                return;
+            }
+            d.this.f52314g = true;
+            d.this.q();
+        }
+    }
+
+    /* renamed from: d.a.m0.a.d$d  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class C1152d implements d.a.m0.a.c0.a<d.a.m0.a.c0.b> {
+        public C1152d() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.m0.a.c0.a
+        /* renamed from: b */
+        public void a(d.a.m0.a.c0.b bVar) {
+            ActiveCenterData activeCenterData;
+            if (bVar == null || (activeCenterData = bVar.f52302g) == null || activeCenterData.mission == null) {
+                return;
+            }
+            d.a.m0.a.c cVar = new d.a.m0.a.c();
+            cVar.O(bVar.f52302g.mission);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(cVar);
+            d.this.n(arrayList);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.m0.m.a
+        /* renamed from: c */
+        public void onSuccess(d.a.m0.a.c0.b bVar) {
+            if (bVar != null) {
+                d.this.n(bVar.b());
+            }
+        }
+
+        @Override // d.a.m0.m.a
+        public void onError(int i2, String str) {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements d.a.m0.m.b<d.a.m0.a.c> {
+        public e() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.m0.m.b
+        /* renamed from: b */
+        public void a(d.a.m0.a.c cVar) {
+            if (cVar == null) {
+                return;
+            }
+            d.a.m0.a.c w = d.this.w(cVar);
+            if (w != null && w.z) {
+                w.R();
+                d.this.S(w);
+                return;
+            }
+            p.b().h(w);
+            if (w != null && w.x() == 7) {
+                w.H();
+                int F = w.F();
+                int w2 = w.w();
+                if (F <= 1 || F <= w2) {
+                    d.this.G(w);
+                } else {
+                    d.this.S(w);
+                }
+            } else if (w == null || w.x() != 8) {
+                d.this.G(cVar);
+            } else {
+                d.this.G(w);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class g extends BdAsyncTask<d.a.m0.a.c, Integer, Void> {
+        public g(d dVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            Matcher matcher;
-            if (strArr != null && strArr.length >= 1) {
-                String str = strArr[0];
-                if (d.a.c.e.p.k.isEmpty(str)) {
-                    return null;
-                }
-                String z = d.this.z();
-                if (!d.a.c.e.p.k.isEmpty(z) && (matcher = Pattern.compile(z).matcher(str)) != null && matcher.find()) {
-                    return str;
-                }
+        /* renamed from: b */
+        public Void doInBackground(d.a.m0.a.c... cVarArr) {
+            if (cVarArr == null || cVarArr.length <= 0 || cVarArr[0] == null) {
+                return null;
             }
+            d.a.m0.a.a.g().a(cVarArr[0]);
             return null;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            super.onPostExecute((h) str);
-            if (str == null) {
-                if (d.this.f48663c == null || !d.this.B()) {
-                    return;
-                }
-                d.this.f48663c.b();
-                return;
-            }
-            d.this.n(str);
+        public /* synthetic */ g(d dVar, a aVar) {
+            this(dVar);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class i extends BdAsyncTask<String, Integer, String> {
-        public i() {
+    public class h extends BdAsyncTask<List<d.a.m0.a.c>, Integer, Void> {
+        public h(d dVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            Matcher matcher;
-            if (strArr != null && strArr.length >= 1) {
-                String str = strArr[0];
-                if (!d.a.c.e.p.k.isEmpty(str) && (matcher = d.j.matcher(str)) != null && matcher.find()) {
-                    return str;
-                }
+        /* renamed from: b */
+        public Void doInBackground(List<d.a.m0.a.c>... listArr) {
+            if (listArr == null || listArr.length <= 0 || listArr[0] == null) {
+                return null;
             }
+            d.a.m0.a.a.g().b(listArr[0]);
             return null;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            super.onPostExecute((i) str);
-            if (str != null) {
-                d.this.r(str.substring(1, str.length() - 1));
-            }
+        public /* synthetic */ h(d dVar, a aVar) {
+            this(dVar);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class j extends BdAsyncTask<String, Integer, String> {
+    public class i extends BdAsyncTask<d.a.m0.a.c, Integer, Void> {
+        public i(d dVar) {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(d.a.m0.a.c... cVarArr) {
+            if (cVarArr == null || cVarArr.length <= 0 || cVarArr[0] == null) {
+                return null;
+            }
+            d.a.m0.a.a.g().e(cVarArr[0]);
+            return null;
+        }
+
+        public /* synthetic */ i(d dVar, a aVar) {
+            this(dVar);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class j extends BdAsyncTask<Pair<d.a.m0.a.c, d.a.m0.a.c>, Integer, Pair<d.a.m0.a.c, d.a.m0.a.c>> {
         public j() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            Matcher matcher;
-            if (strArr != null && strArr.length >= 1) {
-                String str = strArr[0];
-                if (!d.a.c.e.p.k.isEmpty(str) && (matcher = d.f48659h.matcher(str)) != null && matcher.find()) {
-                    return str;
-                }
+        /* renamed from: b */
+        public Pair<d.a.m0.a.c, d.a.m0.a.c> doInBackground(Pair<d.a.m0.a.c, d.a.m0.a.c>... pairArr) {
+            if (pairArr == null || pairArr.length <= 0 || pairArr[0] == null) {
+                return null;
             }
-            return null;
+            Pair<d.a.m0.a.c, d.a.m0.a.c> pair = pairArr[0];
+            d.a.m0.a.c cVar = (d.a.m0.a.c) pair.first;
+            d.a.m0.a.c cVar2 = (d.a.m0.a.c) pair.second;
+            if (cVar2 != null) {
+                d.a.m0.a.a.g().e(cVar2);
+            }
+            if (cVar != null) {
+                d.a.m0.a.a.g().a(cVar);
+                return pair;
+            }
+            return pair;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            super.onPostExecute((j) str);
-            if (str == null || d.this.f48665e.get()) {
-                return;
+        /* renamed from: c */
+        public void onPostExecute(Pair<d.a.m0.a.c, d.a.m0.a.c> pair) {
+            if (pair != null) {
+                d.a.m0.a.c cVar = (d.a.m0.a.c) pair.first;
+                d.a.m0.a.c cVar2 = (d.a.m0.a.c) pair.second;
+                if (cVar2 != null) {
+                    d.this.v(cVar2);
+                }
+                if (cVar != null) {
+                    d.this.J(cVar);
+                }
             }
-            d.this.f48665e.compareAndSet(false, true);
-            DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
-            decryptCodeReqMsg.setCode(str);
-            MessageManager.getInstance().sendMessage(decryptCodeReqMsg);
+        }
+
+        public /* synthetic */ j(d dVar, a aVar) {
+            this();
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class k {
+    public class k extends BdAsyncTask<Void, Integer, LinkedList<d.a.m0.a.c>> {
+        public k() {
+        }
 
-        /* renamed from: a  reason: collision with root package name */
-        public static final d f48678a = new d();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public LinkedList<d.a.m0.a.c> doInBackground(Void... voidArr) {
+            LinkedList<d.a.m0.a.c> linkedList = new LinkedList<>();
+            linkedList.addAll(d.a.m0.a.a.g().f());
+            Iterator<d.a.m0.a.c> it = linkedList.iterator();
+            while (it.hasNext()) {
+                d.a.m0.a.c next = it.next();
+                if (next != null && next.M()) {
+                    d.a.m0.a.a.g().e(next);
+                    it.remove();
+                } else if (next != null && next.x() == 7) {
+                    next.n0();
+                    d.a.m0.a.a.g().i(next);
+                }
+            }
+            return linkedList;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(LinkedList<d.a.m0.a.c> linkedList) {
+            super.onPostExecute(linkedList);
+            if (linkedList == null) {
+                return;
+            }
+            if (!linkedList.isEmpty()) {
+                Iterator<d.a.m0.a.c> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    d.a.m0.a.c next = it.next();
+                    if (next.h() != null) {
+                        d.this.J(next);
+                    }
+                }
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921391));
+        }
+
+        public /* synthetic */ k(d dVar, a aVar) {
+            this();
+        }
     }
 
     /* loaded from: classes3.dex */
     public static class l {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f48679a;
+        public static final d f52329a = new d(null);
+    }
 
-        /* renamed from: b  reason: collision with root package name */
-        public String f48680b;
-
-        public String a() {
-            return this.f48679a;
+    /* loaded from: classes3.dex */
+    public class m extends BdAsyncTask<d.a.m0.a.c, Integer, d.a.m0.a.c> {
+        public m() {
         }
 
-        public String b() {
-            return this.f48680b;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public d.a.m0.a.c doInBackground(d.a.m0.a.c... cVarArr) {
+            if (cVarArr == null || cVarArr.length <= 0 || cVarArr[0] == null) {
+                return null;
+            }
+            d.a.m0.a.c cVar = cVarArr[0];
+            d.a.m0.a.a.g().i(cVar);
+            return cVar;
         }
 
-        public void c(String str) {
-            this.f48679a = str;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(d.a.m0.a.c cVar) {
+            if (cVar == null || !cVar.z) {
+                return;
+            }
+            cVar.z = false;
+            d dVar = d.this;
+            dVar.P(dVar.l, d.this.m);
         }
 
-        public void d(String str) {
-            this.f48680b = str;
+        public /* synthetic */ m(d dVar, a aVar) {
+            this();
         }
+    }
+
+    public /* synthetic */ d(a aVar) {
+        this();
     }
 
     public static final d y() {
-        return k.f48678a;
+        return l.f52329a;
     }
 
-    public void A(Activity activity) {
-        if (this.f48661a) {
-            return;
-        }
-        C();
-        E();
-        D();
-        d.a.m0.a.e eVar = new d.a.m0.a.e();
-        this.f48664d = eVar;
-        eVar.g(this.f48667g);
-        this.f48663c = new u();
-        String w = w();
-        if (!d.a.c.e.p.k.isEmpty(w)) {
-            y().m(w);
-        } else if (UtilHelper.isActivityStartFromScheme(activity)) {
-            d.a.c.e.m.e.a().postDelayed(new c(), PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
-        } else if (RomTypeUtil.isEmui() || RomTypeUtil.isOnePlus() || RomTypeUtil.check("MIUI")) {
-            d.a.c.e.m.e.a().postDelayed(new RunnableC1097d(), 2000L);
-        }
-        this.f48661a = true;
+    public boolean A() {
+        return !s();
     }
 
     public final boolean B() {
-        String topActivityClassName = UtilHelper.getTopActivityClassName();
-        return !d.a.c.e.p.k.isEmpty(topActivityClassName) && topActivityClassName.equals("com.baidu.tieba.tblauncher.MainTabActivity") && TbSingleton.getInstance().isRecommendPage();
+        return TbadkCoreApplication.getInst().isMainProcess(true);
     }
 
-    public final void C() {
-        d.a.n0.e3.d0.a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, d.a.n0.e3.d0.a.a(TbConfig.DECRYPT_CODE_URL, 309626));
-        tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public final boolean C(d.a.m0.a.c cVar) {
+        if (cVar == null) {
+            return false;
+        }
+        int[] h2 = cVar.h();
+        if (h2 == null) {
+            return true;
+        }
+        for (int i2 : h2) {
+            List<d.a.m0.a.c> list = this.f52309b.get(i2);
+            if (list == null) {
+                return false;
+            }
+            for (d.a.m0.a.c cVar2 : list) {
+                if (cVar2 != null && cVar2.d() == cVar.d() && cVar2.q() == cVar.q()) {
+                    if (cVar2.M()) {
+                        H(cVar, cVar2);
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
-    public final void D() {
-        MessageManager.getInstance().registerListener(new e(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, 309626));
-        MessageManager.getInstance().registerListener(new f(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, 309702));
-        MessageManager.getInstance().registerListener(new g(2001011));
+    public boolean D() {
+        return this.p;
     }
 
-    public final void E() {
-        d.a.n0.e3.d0.a.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, d.a.n0.e3.d0.a.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
-        tbHttpMessageTask.setResponsedClass(TiebaUidCheckHttpResMsg.class);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public void E() {
+        this.f52312e.compareAndSet(true, false);
+        this.f52311d.f(0);
+        this.f52311d.h(0L);
+        this.f52311d.g(0L);
+        d.a.m0.a.e0.d dVar = this.f52316i;
+        if (dVar != null) {
+            dVar.m();
+        }
     }
 
-    public void l(String str) {
-        if (d.a.c.e.p.k.isEmpty(str)) {
+    public void F() {
+        List<d.a.m0.a.c> list = this.f52309b.get(d.a.m0.a.c.V);
+        if (ListUtils.isEmpty(list)) {
             return;
         }
-        new h().execute(str);
-    }
-
-    public void m(String str) {
-        l(str);
-        o(str);
-        t(str);
-        u(str);
-        v(str);
-    }
-
-    public final void n(String str) {
-        this.f48664d.c(str);
-    }
-
-    public void o(String str) {
-        if (d.a.c.e.p.k.isEmpty(str) || !str.contains("^sZqulxTVsT$")) {
+        boolean z = false;
+        for (d.a.m0.a.c cVar : list) {
+            Iterator<d.a.m0.a.j> it = cVar.n().iterator();
+            while (it.hasNext()) {
+                d.a.m0.a.j next = it.next();
+                if (next instanceof n) {
+                    n nVar = (n) next;
+                    if (!next.e()) {
+                        nVar.i();
+                        z = true;
+                    }
+                }
+            }
+        }
+        if (!z || this.f52312e.get()) {
             return;
         }
-        n(str);
+        this.f52311d.f(d.a.m0.a.c.V);
+        this.f52312e.compareAndSet(false, true);
+        synchronized (this.f52312e) {
+            this.f52312e.notify();
+        }
     }
 
-    public final void p() {
-        UtilHelper.clearClipBoard();
+    public final void G(d.a.m0.a.c cVar) {
+        v(cVar);
+        new i(this, null).execute(cVar);
     }
 
-    public final void q(String str, String str2) {
-        TbPageContext<?> x;
-        if (d.a.c.e.p.k.isEmpty(str2) || (x = x(TbadkCoreApplication.getInst().getCurrentActivity())) == null) {
+    public final void H(d.a.m0.a.c cVar, d.a.m0.a.c cVar2) {
+        v(cVar2);
+        new j(this, null).execute(new Pair(cVar, cVar2));
+    }
+
+    public boolean I() {
+        if (this.j != null && B()) {
+            this.j.f(A(), D(), 1);
+            return true;
+        }
+        return false;
+    }
+
+    public final void J(d.a.m0.a.c cVar) {
+        int[] h2;
+        for (int i2 : cVar.h()) {
+            List<d.a.m0.a.c> list = this.f52309b.get(i2);
+            if (list == null) {
+                LinkedList linkedList = new LinkedList();
+                linkedList.add(cVar);
+                this.f52309b.put(i2, linkedList);
+            } else {
+                list.add(cVar);
+            }
+        }
+    }
+
+    public void K(int i2, long j2) {
+        if (B()) {
+            this.n = i2;
+            long j3 = this.m;
+            if (j3 > 0 && this.l > 0 && (j2 == 0 || j2 != j3)) {
+                R(this.l, this.m);
+                this.m = 0L;
+                this.l = 0;
+            }
+            M();
+        }
+    }
+
+    public void L(boolean z) {
+        this.p = z;
+    }
+
+    public void M() {
+        int i2;
+        List<d.a.m0.a.c> list;
+        if (B() && this.f52313f && (list = this.f52309b.get((i2 = d.a.m0.a.c.V))) != null && !list.isEmpty()) {
+            boolean z = false;
+            for (d.a.m0.a.c cVar : list) {
+                if (cVar.x() == 8) {
+                    Iterator<d.a.m0.a.j> it = cVar.n().iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        d.a.m0.a.j next = it.next();
+                        d.a.m0.a.c c2 = next.c();
+                        if (c2 != null && (next instanceof n) && c2.d() == cVar.d() && c2.q() == cVar.q()) {
+                            ((n) next).i();
+                            z = true;
+                            break;
+                        }
+                    }
+                    if (!z) {
+                        n nVar = new n(cVar);
+                        nVar.g(0L);
+                        nVar.f(false);
+                        cVar.a(nVar);
+                    }
+                }
+            }
+            this.f52311d.f(i2);
+            this.f52312e.compareAndSet(false, true);
+            synchronized (this.f52312e) {
+                this.f52312e.notify();
+            }
+        }
+    }
+
+    public void N(int i2) {
+        if (B() && i2 != 0 && this.f52313f) {
+            this.l = i2;
+            List<d.a.m0.a.c> list = this.f52309b.get(i2);
+            if (list == null || list.isEmpty()) {
+                return;
+            }
+            boolean z = false;
+            for (d.a.m0.a.c cVar : list) {
+                if (cVar.x() == 4) {
+                    Iterator<d.a.m0.a.j> it = cVar.n().iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        d.a.m0.a.j next = it.next();
+                        if ((next instanceof d.a.m0.a.k) && next.c().d() == cVar.d() && next.c().q() == cVar.q()) {
+                            z = true;
+                            break;
+                        }
+                    }
+                    if (!z) {
+                        d.a.m0.a.k kVar = new d.a.m0.a.k(cVar);
+                        kVar.g(0L);
+                        kVar.f(false);
+                        cVar.a(kVar);
+                    }
+                }
+            }
+            this.f52311d.f(i2);
+            this.f52312e.compareAndSet(false, true);
+            synchronized (this.f52312e) {
+                this.f52312e.notify();
+            }
+        }
+    }
+
+    public void O(int i2, long j2) {
+        if (B() && i2 != 0 && j2 != 0 && this.f52313f) {
+            this.l = i2;
+            List<d.a.m0.a.c> list = this.f52309b.get(i2);
+            if (list == null || list.isEmpty()) {
+                return;
+            }
+            boolean z = false;
+            for (d.a.m0.a.c cVar : list) {
+                if (cVar.x() == 2) {
+                    Iterator<d.a.m0.a.j> it = cVar.n().iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        d.a.m0.a.j next = it.next();
+                        if ((next instanceof d.a.m0.a.l) && next.c().d() == cVar.d() && next.c().q() == cVar.q() && ((d.a.m0.a.l) next).i() == j2) {
+                            z = true;
+                            break;
+                        }
+                    }
+                    if (!z) {
+                        d.a.m0.a.l lVar = new d.a.m0.a.l(cVar, j2);
+                        lVar.g(0L);
+                        lVar.f(false);
+                        lVar.h(cVar.w());
+                        cVar.a(lVar);
+                    }
+                }
+            }
+            this.f52311d.f(i2);
+            this.f52311d.g(j2);
+            this.f52312e.compareAndSet(false, true);
+            synchronized (this.f52312e) {
+                this.f52312e.notify();
+            }
+        }
+    }
+
+    public void P(int i2, long j2) {
+        if (B() && i2 != 0 && j2 != 0 && this.f52313f) {
+            this.l = i2;
+            List<d.a.m0.a.c> list = this.f52309b.get(i2);
+            if (list == null || list.isEmpty()) {
+                return;
+            }
+            for (d.a.m0.a.c cVar : list) {
+                if (cVar.x() == 1) {
+                    p(cVar, j2);
+                } else if (cVar.x() == 7 && !cVar.J(j2)) {
+                    o(cVar, j2);
+                }
+            }
+            this.f52311d.f(i2);
+            this.f52311d.h(j2);
+            this.m = j2;
+            this.f52312e.compareAndSet(false, true);
+            synchronized (this.f52312e) {
+                this.f52312e.notify();
+            }
+        }
+    }
+
+    public final void Q() {
+        this.f52308a.scheduleWithFixedDelay(this.f52311d, 0L, 1L, TimeUnit.SECONDS);
+    }
+
+    public void R(int i2, long j2) {
+        d.a.m0.a.m mVar;
+        d.a.m0.a.c c2;
+        List<d.a.m0.a.c> list = this.f52309b.get(i2);
+        if (list == null || list.isEmpty()) {
             return;
         }
-        UrlManager.getInstance().dealOneLink(x, str, new String[]{str2});
+        for (d.a.m0.a.c cVar : list) {
+            if (cVar.x() == 7) {
+                Iterator<d.a.m0.a.j> it = cVar.n().iterator();
+                while (true) {
+                    if (it.hasNext()) {
+                        d.a.m0.a.j next = it.next();
+                        if ((next instanceof d.a.m0.a.m) && (c2 = (mVar = (d.a.m0.a.m) next).c()) != null && mVar.i() == j2 && c2.d() == cVar.d() && c2.q() == cVar.q()) {
+                            next.f(true);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    public final void r(String str) {
-        Activity currentActivity;
-        Uri parse;
-        if (d.a.c.e.p.k.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (parse = Uri.parse(str)) == null) {
+    public final void S(d.a.m0.a.c cVar) {
+        T(cVar);
+        new m(this, null).execute(cVar);
+    }
+
+    public final void T(d.a.m0.a.c cVar) {
+        if (cVar == null) {
             return;
         }
-        if (str.startsWith(d.a.m0.a.f.f48709a)) {
-            Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-            buildUpon.appendQueryParameter(d.a.m0.a.f.w, d.a.m0.a.f.L);
-            parse = buildUpon.build();
+        int x = cVar.x();
+        Iterator<d.a.m0.a.j> it = cVar.n().iterator();
+        while (it.hasNext()) {
+            d.a.m0.a.j next = it.next();
+            if (next != null && next.c() != null) {
+                d.a.m0.a.c c2 = next.c();
+                if (c2.d() == cVar.d() && c2.q() == cVar.q()) {
+                    if (x == 7 && (next instanceof d.a.m0.a.m)) {
+                        ((d.a.m0.a.m) next).f(true);
+                    } else if (x == 1 && (next instanceof o)) {
+                        ((o) next).f(true);
+                    }
+                }
+            }
         }
-        UtilHelper.dealOneScheme(currentActivity, parse.toString());
+        cVar.c0(false);
     }
 
-    public final void s(a0 a0Var) {
-        if (a0Var == null || a0Var.b() == null || d.a.c.e.p.k.isEmpty(a0Var.b().f48610a) || !B()) {
+    public void m(d.a.m0.a.c cVar) {
+        if (cVar == null) {
             return;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, a0Var.b().f48610a));
+        if (cVar.x() == 9) {
+            r.c().f(cVar);
+        } else if (!this.f52313f) {
+            this.f52310c.add(cVar);
+        } else if (C(cVar)) {
+        } else {
+            J(cVar);
+            new g(this, null).execute(cVar);
+        }
     }
 
-    public void t(String str) {
-        if (d.a.c.e.p.k.isEmpty(str)) {
+    public void n(List<d.a.m0.a.c> list) {
+        if (ListUtils.isEmpty(list)) {
             return;
         }
-        new j().execute(str);
-    }
-
-    public void u(String str) {
-        if (d.a.c.e.p.k.isEmpty(str)) {
+        if (!this.f52313f) {
+            this.f52310c.addAll(list);
             return;
         }
-        new i().execute(str);
+        ArrayList arrayList = new ArrayList();
+        for (d.a.m0.a.c cVar : list) {
+            if (cVar != null) {
+                if (cVar.x() == 9) {
+                    r.c().f(cVar);
+                } else if (!C(cVar)) {
+                    J(cVar);
+                    arrayList.add(cVar);
+                }
+            }
+        }
+        new h(this, null).execute(arrayList);
     }
 
-    public void v(String str) {
-        if (d.a.c.e.p.k.isEmpty(str)) {
+    public final void o(d.a.m0.a.c cVar, long j2) {
+        boolean z;
+        d.a.m0.a.m mVar;
+        d.a.m0.a.c c2;
+        Iterator<d.a.m0.a.j> it = cVar.n().iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                z = false;
+                break;
+            }
+            d.a.m0.a.j next = it.next();
+            if ((next instanceof d.a.m0.a.m) && (c2 = (mVar = (d.a.m0.a.m) next).c()) != null && mVar.i() == j2 && c2.d() == cVar.d() && c2.q() == cVar.q()) {
+                z = true;
+                break;
+            }
+        }
+        if (z) {
             return;
         }
-        new a().execute(str);
+        d.a.m0.a.m mVar2 = new d.a.m0.a.m(cVar, j2);
+        mVar2.g(0L);
+        mVar2.f(false);
+        mVar2.h(cVar.w());
+        cVar.a(mVar2);
     }
 
-    public final String w() {
-        if (System.currentTimeMillis() - this.f48662b < 2000) {
+    public final void p(d.a.m0.a.c cVar, long j2) {
+        boolean z;
+        o oVar;
+        d.a.m0.a.c c2;
+        Iterator<d.a.m0.a.j> it = cVar.n().iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                z = false;
+                break;
+            }
+            d.a.m0.a.j next = it.next();
+            if ((next instanceof o) && (c2 = (oVar = (o) next).c()) != null && oVar.i() == j2 && c2.d() == cVar.d() && c2.q() == cVar.q()) {
+                z = true;
+                break;
+            }
+        }
+        if (z) {
+            return;
+        }
+        o oVar2 = new o(cVar, j2);
+        oVar2.g(0L);
+        oVar2.f(false);
+        oVar2.h(cVar.w());
+        cVar.a(oVar2);
+    }
+
+    public void q() {
+        if (this.j != null && B() && this.f52314g && !t()) {
+            this.j.f(A(), D(), 0);
+        }
+    }
+
+    public void r() {
+        if (this.k != null && B()) {
+            this.k.d();
+        }
+    }
+
+    public boolean s() {
+        return UtilHelper.isSameDay(d.a.m0.r.d0.b.j().l("pref_key_last_active_config", 0L), System.currentTimeMillis());
+    }
+
+    public boolean t() {
+        return UtilHelper.isSameDay(z(), System.currentTimeMillis());
+    }
+
+    public boolean u() {
+        return UtilHelper.isSameDay(d.a.m0.r.d0.b.j().l("pref_key_last_popup_time", 0L), System.currentTimeMillis());
+    }
+
+    public final void v(d.a.m0.a.c cVar) {
+        if (cVar == null) {
+            return;
+        }
+        Iterator<d.a.m0.a.j> it = cVar.n().iterator();
+        while (it.hasNext()) {
+            d.a.m0.a.j next = it.next();
+            if (next != null && next.c() != null) {
+                d.a.m0.a.c c2 = next.c();
+                if (c2.d() == cVar.d() && c2.q() == cVar.q()) {
+                    it.remove();
+                }
+            }
+        }
+        for (int i2 = 0; i2 < this.f52309b.size(); i2++) {
+            List<d.a.m0.a.c> valueAt = this.f52309b.valueAt(i2);
+            if (valueAt != null && !valueAt.isEmpty()) {
+                Iterator<d.a.m0.a.c> it2 = valueAt.iterator();
+                while (it2.hasNext()) {
+                    d.a.m0.a.c next2 = it2.next();
+                    if (next2 != null && next2.d() == cVar.d() && next2.q() == cVar.q()) {
+                        it2.remove();
+                    }
+                }
+            }
+        }
+        d.a.m0.a.b.a("deleteActivityMissionInfoDataInMemory-->activityId=" + cVar.d() + ",missionId=" + cVar.q());
+    }
+
+    public final d.a.m0.a.c w(d.a.m0.a.c cVar) {
+        if (cVar == null) {
             return null;
         }
-        this.f48662b = System.currentTimeMillis();
-        return UtilHelper.getClipBoardContent();
-    }
-
-    public final TbPageContext x(Activity activity) {
-        if (activity instanceof BaseActivity) {
-            return ((BaseActivity) activity).getPageContext();
-        }
-        if (activity instanceof BaseFragmentActivity) {
-            return ((BaseFragmentActivity) activity).getPageContext();
+        for (int i2 = 0; i2 < this.f52309b.size(); i2++) {
+            List<d.a.m0.a.c> valueAt = this.f52309b.valueAt(i2);
+            if (valueAt != null && !valueAt.isEmpty()) {
+                for (d.a.m0.a.c cVar2 : valueAt) {
+                    if (cVar2 != null && cVar2.d() == cVar.d() && cVar2.q() == cVar.q()) {
+                        return cVar2;
+                    }
+                }
+                continue;
+            }
         }
         return null;
     }
 
-    public final String z() {
-        return new String(Base64.decode(d.a.m0.r.d0.b.j().p("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0));
+    public int x() {
+        return this.n;
+    }
+
+    public final long z() {
+        long l2 = d.a.m0.r.d0.b.j().l("pref_key_active_config_info", 0L);
+        this.o = l2;
+        return l2;
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public volatile int f52322e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public volatile long f52323f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public volatile long f52324g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public volatile boolean f52325h;
+
+        public f() {
+            this.f52325h = false;
+        }
+
+        public final void a(d.a.m0.a.c cVar, d.C1154d c1154d) {
+            ArrayList<d.a.m0.a.j> n;
+            if (cVar == null || c1154d == null || (n = cVar.n()) == null) {
+                return;
+            }
+            Iterator<d.a.m0.a.j> it = n.iterator();
+            int i2 = 0;
+            while (it.hasNext()) {
+                d.a.m0.a.j next = it.next();
+                if (next instanceof o) {
+                    o oVar = (o) next;
+                    if (this.f52323f != 0 && oVar.i() == this.f52323f && !next.e()) {
+                        this.f52325h = false;
+                        next.a(1);
+                        if (next.b() >= next.c().f()) {
+                            next.f(true);
+                            if (next.c().I() >= next.c().A()) {
+                                c1154d.b(next);
+                            }
+                        }
+                        c1154d.c(cVar);
+                    }
+                } else if (next instanceof d.a.m0.a.m) {
+                    d.a.m0.a.m mVar = (d.a.m0.a.m) next;
+                    if (!cVar.L() && mVar.d() == cVar.w()) {
+                        if (this.f52323f != 0 && mVar.i() == this.f52323f && !next.e()) {
+                            this.f52325h = false;
+                            next.a(1);
+                        }
+                        i2 = (int) (i2 + next.b());
+                        if (this.f52323f != 0 && mVar.i() == this.f52323f && !next.e()) {
+                            if (next.b() >= cVar.f()) {
+                                next.f(true);
+                                cVar.I();
+                            }
+                            c1154d.c(cVar);
+                        }
+                        int l = cVar.l();
+                        int A = cVar.A();
+                        long f2 = cVar.f() * cVar.A();
+                        if (this.f52323f != 0 && mVar.i() == this.f52323f) {
+                            next.e();
+                        }
+                        if (i2 >= f2 && l >= A) {
+                            c1154d.a(cVar);
+                            cVar.c0(true);
+                        }
+                    }
+                } else if (next instanceof d.a.m0.a.l) {
+                    if (this.f52324g != 0 && ((d.a.m0.a.l) next).i() == this.f52324g && !next.e()) {
+                        this.f52325h = false;
+                        next.a(1);
+                        if (next.b() >= next.c().f()) {
+                            next.f(true);
+                            if (next.c().G() >= next.c().p()) {
+                                c1154d.b(next);
+                            }
+                        }
+                    }
+                } else if ((next instanceof d.a.m0.a.k) && !next.e()) {
+                    this.f52325h = false;
+                    next.a(1);
+                    if (next.b() >= next.c().f()) {
+                        next.f(true);
+                        c1154d.b(next);
+                    }
+                }
+            }
+        }
+
+        public final void b(d.a.m0.a.c cVar, d.C1154d c1154d) {
+            ArrayList<d.a.m0.a.j> n;
+            if (cVar == null || c1154d == null || (n = cVar.n()) == null) {
+                return;
+            }
+            Iterator<d.a.m0.a.j> it = n.iterator();
+            while (it.hasNext()) {
+                d.a.m0.a.j next = it.next();
+                if ((next instanceof n) && !((n) next).j() && !next.e()) {
+                    this.f52325h = false;
+                    next.a(1);
+                    if (next.b() >= next.c().f()) {
+                        next.f(true);
+                        c1154d.a(cVar);
+                    }
+                    c1154d.c(cVar);
+                }
+            }
+        }
+
+        public final void c() {
+            this.f52325h = true;
+            List<d.a.m0.a.c> list = (List) d.this.f52309b.get(d.a.m0.a.c.V);
+            List<d.a.m0.a.c> list2 = (List) d.this.f52309b.get(this.f52322e);
+            if (ListUtils.isEmpty(list) && ListUtils.isEmpty(list2)) {
+                d.this.f52312e.compareAndSet(true, false);
+                return;
+            }
+            d.C1154d c1154d = new d.C1154d();
+            c1154d.f52375a = new LinkedList();
+            c1154d.f52376b = new LinkedList();
+            c1154d.f52377c = new LinkedList();
+            d(list, c1154d);
+            e(list2, c1154d);
+            if (this.f52325h) {
+                d.this.f52312e.compareAndSet(true, false);
+            }
+            if (!ListUtils.isEmpty(c1154d.f52377c)) {
+                d.a.m0.a.a.g().k(c1154d.f52377c);
+            }
+            if (ListUtils.isEmpty(c1154d.f52375a) && ListUtils.isEmpty(c1154d.f52376b)) {
+                return;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921379, c1154d));
+        }
+
+        public final void d(List<d.a.m0.a.c> list, d.C1154d c1154d) {
+            if (ListUtils.isEmpty(list)) {
+                return;
+            }
+            for (d.a.m0.a.c cVar : list) {
+                b(cVar, c1154d);
+            }
+        }
+
+        public final void e(List<d.a.m0.a.c> list, d.C1154d c1154d) {
+            if (ListUtils.isEmpty(list)) {
+                return;
+            }
+            for (d.a.m0.a.c cVar : list) {
+                a(cVar, c1154d);
+            }
+        }
+
+        public synchronized void f(int i2) {
+            this.f52322e = i2;
+        }
+
+        public synchronized void g(long j) {
+            this.f52324g = j;
+        }
+
+        public synchronized void h(long j) {
+            this.f52323f = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (this.f52322e == 0 || !d.this.f52312e.get()) {
+                synchronized (d.this.f52312e) {
+                    try {
+                        d.this.f52312e.wait();
+                    } catch (InterruptedException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            c();
+        }
+
+        public /* synthetic */ f(d dVar, a aVar) {
+            this();
+        }
+    }
+
+    public d() {
+        this.f52308a = Executors.newSingleThreadScheduledExecutor();
+        this.f52309b = new SparseArray<>();
+        this.f52310c = new LinkedList<>();
+        this.f52311d = new f(this, null);
+        this.f52312e = new AtomicBoolean(false);
+        this.f52313f = false;
+        this.f52314g = false;
+        this.p = false;
+        this.q = new a(2921391);
+        this.r = new b(2001011);
+        this.s = new c(2001371);
+        this.t = new C1152d();
+        this.u = new e();
+        BdUniqueId gen = BdUniqueId.gen();
+        this.f52315h = gen;
+        d.a.m0.a.e0.d dVar = new d.a.m0.a.e0.d(gen);
+        this.f52316i = dVar;
+        dVar.w(this.u);
+        d.a.m0.a.c0.c cVar = new d.a.m0.a.c0.c(this.f52315h);
+        this.j = cVar;
+        cVar.g(this.t);
+        this.k = new d.a.m0.a.d0.b(this.f52315h);
+        this.s.setTag(this.f52315h);
+        MessageManager.getInstance().registerListener(this.s);
+        this.r.setTag(this.f52315h);
+        MessageManager.getInstance().registerListener(this.r);
+        this.q.setPriority(Integer.MIN_VALUE);
+        this.q.setTag(this.f52315h);
+        MessageManager.getInstance().registerListener(this.q);
+        d.a.m0.r.c0.a.e().f();
+        r.c().d(this.f52315h);
+        Q();
+        if (B()) {
+            new k(this, null).execute(new Void[0]);
+        }
     }
 }

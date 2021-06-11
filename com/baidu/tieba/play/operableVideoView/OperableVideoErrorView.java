@@ -12,7 +12,7 @@ import d.a.m0.r.f0.m.a;
 public class OperableVideoErrorView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f19962e;
+    public TBSpecificationBtn f20039e;
 
     public OperableVideoErrorView(Context context) {
         super(context);
@@ -22,14 +22,14 @@ public class OperableVideoErrorView extends LinearLayout {
     public final void a(Context context) {
         LinearLayout.inflate(context, R.layout.operable_video_error, this);
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.retry);
-        this.f19962e = tBSpecificationBtn;
+        this.f20039e = tBSpecificationBtn;
         tBSpecificationBtn.setTextSize(R.dimen.tbds36);
-        this.f19962e.setText(getResources().getString(R.string.click_retry));
-        this.f19962e.setConfig(new a());
+        this.f20039e.setText(getResources().getString(R.string.click_retry));
+        this.f20039e.setConfig(new a());
     }
 
     public void setOutOnClickListener(View.OnClickListener onClickListener) {
-        this.f19962e.setOnClickListener(onClickListener);
+        this.f20039e.setOnClickListener(onClickListener);
     }
 
     public OperableVideoErrorView(Context context, @Nullable AttributeSet attributeSet) {

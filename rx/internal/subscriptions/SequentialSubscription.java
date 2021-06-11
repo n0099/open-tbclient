@@ -3,7 +3,7 @@ package rx.internal.subscriptions;
 import h.k;
 import h.u.e;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SequentialSubscription extends AtomicReference<k> implements k {
     public static final long serialVersionUID = 995205034283130269L;
 

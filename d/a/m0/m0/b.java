@@ -5,16 +5,16 @@ import android.os.Build;
 public class b extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public a f49524b;
+    public a f53199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f49525c;
+    public boolean f53200c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f49526d;
+    public boolean f53201d;
 
     public int b() {
-        a aVar = this.f49524b;
+        a aVar = this.f53199b;
         if (aVar != null) {
             return aVar.b();
         }
@@ -24,29 +24,29 @@ public class b extends g {
     public void c() {
         a aVar;
         m mVar;
-        if (this.f49526d || (aVar = this.f49524b) == null || aVar.b() < 0 || (mVar = (m) k.d().e(this.f49538a)) == null) {
+        if (this.f53201d || (aVar = this.f53199b) == null || aVar.b() < 0 || (mVar = (m) k.d().e(this.f53213a)) == null) {
             return;
         }
         mVar.e(this);
-        this.f49526d = true;
+        this.f53201d = true;
     }
 
     public void d() {
-        if (this.f49525c || !k.d().g()) {
+        if (this.f53200c || !k.d().g()) {
             return;
         }
-        this.f49525c = true;
+        this.f53200c = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            if (this.f49524b == null) {
-                this.f49524b = new a();
+            if (this.f53199b == null) {
+                this.f53199b = new a();
             }
-            this.f49524b.c();
+            this.f53199b.c();
         }
     }
 
     public void e() {
         a aVar;
-        if (Build.VERSION.SDK_INT < 16 || (aVar = this.f49524b) == null) {
+        if (Build.VERSION.SDK_INT < 16 || (aVar = this.f53199b) == null) {
             return;
         }
         aVar.d();

@@ -7,13 +7,13 @@ import java.util.List;
 import tbclient.PbPage.RecommendBook;
 /* loaded from: classes3.dex */
 public class d1 extends PostData {
-    public static final BdUniqueId L0 = BdUniqueId.gen();
+    public static final BdUniqueId G0 = BdUniqueId.gen();
     public String A0;
     public String B0;
     public String C0;
     public List<String> D0;
     public String E0;
-    public String K0;
+    public String F0;
     public String x0;
     public String y0;
     public String z0;
@@ -35,11 +35,11 @@ public class d1 extends PostData {
         this.C0 = recommendBook.book_title;
         this.D0 = recommendBook.book_tips;
         this.E0 = recommendBook.botton_text;
-        this.K0 = recommendBook.subscript_icon;
+        this.F0 = recommendBook.subscript_icon;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, d.a.c.j.e.n
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return L0;
+        return G0;
     }
 }

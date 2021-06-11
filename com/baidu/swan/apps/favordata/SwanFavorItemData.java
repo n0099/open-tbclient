@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.NoProGuard;
 import d.a.l0.a.f1.e.c;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {
     public static final int IS_NEW_FAVOR = 1;
     public static final int IS_NOT_NEW_FAVOR = 0;

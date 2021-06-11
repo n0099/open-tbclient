@@ -128,7 +128,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                         if (MemberPayFragmentActivity.this.mFragmentAdapter != null) {
                             int count = MemberPayFragmentActivity.this.mFragmentAdapter.getCount();
                             for (int i2 = 0; i2 < count; i2++) {
-                                MemberPayFragmentActivity.this.mFragmentAdapter.getItem(i2).F0(memberPayResult);
+                                MemberPayFragmentActivity.this.mFragmentAdapter.getItem(i2).I0(memberPayResult);
                             }
                             return;
                         }
@@ -161,7 +161,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             Boolean bool = (Boolean) customResponsedMessage.getData();
             int count = MemberPayFragmentActivity.this.mFragmentAdapter.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                MemberPayFragmentActivity.this.mFragmentAdapter.getItem(i2).E0(bool);
+                MemberPayFragmentActivity.this.mFragmentAdapter.getItem(i2).H0(bool);
             }
             MemberPayFragmentActivity.this.showToast(R.string.tips_auto_pay_succ);
         }
@@ -284,14 +284,14 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.f12151c = fragment;
-        bVar.f12149a = i2;
+        bVar.f12213c = fragment;
+        bVar.f12211a = i2;
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f12150b = fragmentTabIndicator;
+        bVar.f12212b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -328,7 +328,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         registerGetMemberPayInfoTask();
         PayConfigModel payConfigModel = new PayConfigModel(getPageContext(), new f());
         this.mPayConfigModel = payConfigModel;
-        payConfigModel.x();
+        payConfigModel.B();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -342,7 +342,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             return;
         }
         this.mHasInit = true;
-        boolean z = fVar.f60537a.f60564c.f60560a == 2 || this.mWantedMemberType == 2;
+        boolean z = fVar.f64228a.f64255c.f64251a == 2 || this.mWantedMemberType == 2;
         ArrayList arrayList = new ArrayList();
         Bundle bundle = new Bundle();
         bundle.putString("member_refer_page", this.mReferPage);
@@ -350,9 +350,9 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         bundle.putBoolean("member_is_pay_dialog", this.mIsPayDialog.booleanValue());
         bundle.putInt("member_from_type", this.mFrom);
         if (!z) {
-            f.b bVar = fVar.f60538b;
-            if (bVar.f60544a != null) {
-                if (bVar.f60545b == null) {
+            f.b bVar = fVar.f64229b;
+            if (bVar.f64235a != null) {
+                if (bVar.f64236b == null) {
                     MemberPayFragment memberPayFragment = new MemberPayFragment();
                     bundle.putInt("member_type", 1);
                     this.mCurrentShowType = 1;
@@ -407,10 +407,10 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     }
 
     private void initTabSpec(List<MemberPayFragment> list) {
-        this.mFragmentAdapter.c(list);
+        this.mFragmentAdapter.j(list);
         int count = this.mFragmentAdapter.getCount();
         for (int i2 = 0; i2 < count; i2++) {
-            createAndAddTabSpec(this.mFragmentAdapter.getItem(i2), i2, getTabNameByType(this.mFragmentAdapter.getItem(i2).D0()));
+            createAndAddTabSpec(this.mFragmentAdapter.getItem(i2), i2, getTabNameByType(this.mFragmentAdapter.getItem(i2).G0()));
         }
         this.mTabHost.l();
         this.mTabHost.d(0);
@@ -436,7 +436,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         fragmentTabHost.setup(getSupportFragmentManager());
         this.mTabHost.setOnPageChangeListener(this);
         this.mTabHost.setTabWidgetViewHeight(0);
-        this.mTabHost.p();
+        this.mTabHost.q();
         this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.ds12));
         this.mTabHost.getFragmentTabWidget().setDviderRectWidth(-2);
         this.mTabHost.getFragmentTabWidget().setDviderRectHeight(l.g(getActivity(), R.dimen.ds4));
@@ -497,7 +497,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     public d.a.m0.k0.d getPageStayDurationItem() {
         d.a.m0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
+            pageStayDurationItem.f53110a = true;
         }
         return pageStayDurationItem;
     }
@@ -577,7 +577,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         this.mCurrentIndex = i2;
         MemberPayListAdapter memberPayListAdapter = this.mFragmentAdapter;
         if (memberPayListAdapter != null) {
-            this.mCurrentShowType = memberPayListAdapter.getItem(i2).D0();
+            this.mCurrentShowType = memberPayListAdapter.getItem(i2).G0();
         }
         updateIndicatorAndTabs();
     }

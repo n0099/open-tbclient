@@ -31,37 +31,37 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<NpsPluginLoadingDialogActivity> f59873a;
+    public WeakReference<NpsPluginLoadingDialogActivity> f63564a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59874b;
+    public int f63565b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59875c;
+    public boolean f63566c;
 
     /* renamed from: d.a.n0.r1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1561a implements LiveNpsLoadingCallback {
-        public C1561a() {
+    public class C1617a implements LiveNpsLoadingCallback {
+        public C1617a() {
         }
 
         @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
         public void onLoadingEnd(int i2) {
-            a.this.f59875c = false;
+            a.this.f63566c = false;
             a.this.f();
         }
 
         @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
         public void onLoadingProgress(long j, long j2) {
             BdLog.d("[onDownloadUpdate] package:, current:" + j + ",total:" + j2);
-            a.this.f59874b = (int) (j2 <= 0 ? 0.0f : (((float) j) * 100.0f) / ((float) j2));
+            a.this.f63565b = (int) (j2 <= 0 ? 0.0f : (((float) j) * 100.0f) / ((float) j2));
             a aVar = a.this;
             aVar.I(aVar.i());
         }
 
         @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
         public void onLoadingStart() {
-            a.this.f59875c = true;
+            a.this.f63566c = true;
             a.this.p(TbadkCoreApplication.getInst());
         }
     }
@@ -70,10 +70,10 @@ public class a {
     public class b implements IMasterSwitchCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f59877a;
+        public final /* synthetic */ f f63568a;
 
         public b(a aVar, f fVar) {
-            this.f59877a = fVar;
+            this.f63568a = fVar;
         }
 
         @Override // com.baidu.searchbox.live.impl.IMasterSwitchCallback
@@ -81,13 +81,13 @@ public class a {
             if (!k.isEmpty(str)) {
                 TbSingleton.getInstance().setYyCloudSwitch(str);
             }
-            if (this.f59877a != null) {
+            if (this.f63568a != null) {
                 if (FastLoginFeature.SSOLoginType.YY.equals(str)) {
-                    this.f59877a.onSwitchGet(true);
+                    this.f63568a.onSwitchGet(true);
                 } else if (PathUtils.DIRCTORY_BAIDU.equals(str)) {
-                    this.f59877a.onSwitchGet(false);
+                    this.f63568a.onSwitchGet(false);
                 } else {
-                    this.f59877a.onFail();
+                    this.f63568a.onFail();
                 }
             }
         }
@@ -97,15 +97,15 @@ public class a {
     public class c implements ILiveFileSizeCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long[] f59878a;
+        public final /* synthetic */ long[] f63569a;
 
         public c(a aVar, long[] jArr) {
-            this.f59878a = jArr;
+            this.f63569a = jArr;
         }
 
         @Override // com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback
         public void getFileSize(long j) {
-            this.f59878a[0] = j;
+            this.f63569a[0] = j;
         }
     }
 
@@ -113,15 +113,15 @@ public class a {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f59879a = new a(null);
+        public static final a f63570a = new a(null);
     }
 
-    public /* synthetic */ a(C1561a c1561a) {
+    public /* synthetic */ a(C1617a c1617a) {
         this();
     }
 
     public static a j() {
-        return d.f59879a;
+        return d.f63570a;
     }
 
     public void A(@NonNull Context context, @NonNull String str) {
@@ -210,9 +210,12 @@ public class a {
     public void F(Context context, String str) {
         if (H()) {
             l.M(context, "安卓系统版本不支持");
-        } else {
-            LiveNPSPluginManager.getInstance().startYYLiveActivity(context, str);
+            return;
         }
+        if (BdLog.isDebugMode()) {
+            BdLog.e("YYStartLiveRoom|" + str);
+        }
+        LiveNPSPluginManager.getInstance().startYYLiveActivity(context, str);
     }
 
     public void G(Context context, String str) {
@@ -229,7 +232,7 @@ public class a {
 
     public void I(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
         if (npsPluginLoadingDialogActivity != null) {
-            npsPluginLoadingDialogActivity.setRoundProgress(this.f59874b);
+            npsPluginLoadingDialogActivity.setRoundProgress(this.f63565b);
         }
     }
 
@@ -241,7 +244,7 @@ public class a {
         NpsPluginLoadingDialogActivity i2 = i();
         if (i2 != null) {
             i2.finish();
-            this.f59873a = null;
+            this.f63564a = null;
         }
     }
 
@@ -262,7 +265,7 @@ public class a {
     }
 
     public final NpsPluginLoadingDialogActivity i() {
-        WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.f59873a;
+        WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.f63564a;
         if (weakReference != null) {
             return weakReference.get();
         }
@@ -280,16 +283,16 @@ public class a {
     }
 
     public boolean m() {
-        return this.f59875c;
+        return this.f63566c;
     }
 
     public void n() {
-        this.f59873a = null;
+        this.f63564a = null;
         LiveNPSPluginManager.getInstance().cancelLoading();
     }
 
     public void o(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
-        this.f59873a = new WeakReference<>(npsPluginLoadingDialogActivity);
+        this.f63564a = new WeakReference<>(npsPluginLoadingDialogActivity);
         I(npsPluginLoadingDialogActivity);
     }
 
@@ -386,9 +389,9 @@ public class a {
     }
 
     public a() {
-        this.f59874b = 0;
-        this.f59875c = false;
-        LiveNPSPluginManager.getInstance().setLoadingCallback(new C1561a());
+        this.f63565b = 0;
+        this.f63566c = false;
+        LiveNPSPluginManager.getInstance().setLoadingCallback(new C1617a());
         d.a.n0.n1.i.a.c(TbadkCoreApplication.getInst());
     }
 }

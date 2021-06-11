@@ -21,18 +21,18 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a implements d.a.l0.a.f1.f.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f44537d = new HashSet();
+    public static final Set<String> f48211d = new HashSet();
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, SwanAppConfigData> f44538b;
+    public ConcurrentHashMap<String, SwanAppConfigData> f48212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44539c;
+    public boolean f48213c;
 
     /* renamed from: d.a.l0.a.r1.l.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0810a implements Runnable {
-        public RunnableC0810a() {
+    public class RunnableC0866a implements Runnable {
+        public RunnableC0866a() {
         }
 
         @Override // java.lang.Runnable
@@ -40,7 +40,7 @@ public class a implements d.a.l0.a.f1.f.a {
             long currentTimeMillis = System.currentTimeMillis();
             a.this.b();
             long currentTimeMillis2 = System.currentTimeMillis();
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 Log.d("SwanPerformance", "async batch parse app.json cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
             }
         }
@@ -68,7 +68,7 @@ public class a implements d.a.l0.a.f1.f.a {
             return file.lastModified();
         }
 
-        public /* synthetic */ b(a aVar, RunnableC0810a runnableC0810a) {
+        public /* synthetic */ b(a aVar, RunnableC0866a runnableC0866a) {
             this(aVar);
         }
     }
@@ -77,15 +77,15 @@ public class a implements d.a.l0.a.f1.f.a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f44541a = new a(null);
+        public static final a f48215a = new a(null);
     }
 
-    public /* synthetic */ a(RunnableC0810a runnableC0810a) {
+    public /* synthetic */ a(RunnableC0866a runnableC0866a) {
         this();
     }
 
     public static a e() {
-        return c.f44541a;
+        return c.f48215a;
     }
 
     public final void b() {
@@ -94,7 +94,7 @@ public class a implements d.a.l0.a.f1.f.a {
         if (!g2.exists() || (listFiles = g2.listFiles()) == null || listFiles.length == 0) {
             return;
         }
-        for (String str : f44537d) {
+        for (String str : f48211d) {
             c(new File(g2, str));
         }
     }
@@ -105,7 +105,7 @@ public class a implements d.a.l0.a.f1.f.a {
         if (file == null || !file.exists() || !file.isDirectory() || (d2 = d(file)) == null || (a2 = d.a.l0.a.f1.c.a.a(d2)) == null) {
             return;
         }
-        this.f44538b.put(d2.getAbsolutePath(), a2);
+        this.f48212b.put(d2.getAbsolutePath(), a2);
     }
 
     public final File d(File file) {
@@ -121,7 +121,7 @@ public class a implements d.a.l0.a.f1.f.a {
             bVar.h(file.getAbsolutePath());
             bVar.k("async parse swanApp");
             bVar.m();
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 Log.d("SwanPerformance", file.getAbsolutePath() + " is an empty folder");
             }
         }
@@ -129,22 +129,22 @@ public class a implements d.a.l0.a.f1.f.a {
     }
 
     public void f() {
-        ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap = this.f44538b;
+        ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap = this.f48212b;
         if (concurrentHashMap != null && !concurrentHashMap.isEmpty()) {
-            this.f44538b.clear();
+            this.f48212b.clear();
         }
-        this.f44539c = false;
-        if (d.a.l0.a.f1.f.a.f41852a) {
+        this.f48213c = false;
+        if (d.a.l0.a.f1.f.a.f45528a) {
             Log.d("SwanPerformance", "release app.json batch cache");
         }
     }
 
     public void g(String str) {
         ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap;
-        if (TextUtils.isEmpty(str) || (concurrentHashMap = this.f44538b) == null || concurrentHashMap.isEmpty()) {
+        if (TextUtils.isEmpty(str) || (concurrentHashMap = this.f48212b) == null || concurrentHashMap.isEmpty()) {
             return;
         }
-        Iterator<Map.Entry<String, SwanAppConfigData>> it = this.f44538b.entrySet().iterator();
+        Iterator<Map.Entry<String, SwanAppConfigData>> it = this.f48212b.entrySet().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -153,38 +153,38 @@ public class a implements d.a.l0.a.f1.f.a {
             if (next != null) {
                 String key = next.getKey();
                 if (!TextUtils.isEmpty(key) && key.contains(str)) {
-                    this.f44538b.remove(key);
+                    this.f48212b.remove(key);
                     break;
                 }
             }
         }
-        if (d.a.l0.a.f1.f.a.f41852a) {
+        if (d.a.l0.a.f1.f.a.f45528a) {
             Log.d("SwanPerformance", "release app.json appId = " + str);
         }
     }
 
     public final void h() {
-        f44537d.add("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m");
-        f44537d.add("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD");
-        f44537d.add("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI");
-        f44537d.add("flFqXclepWs7RdugAszy9eERL7G5dS0I");
-        f44537d.add("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe");
+        f48211d.add("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m");
+        f48211d.add("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD");
+        f48211d.add("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI");
+        f48211d.add("flFqXclepWs7RdugAszy9eERL7G5dS0I");
+        f48211d.add("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe");
     }
 
     @AnyThread
     public void i() {
-        if (this.f44539c) {
-            if (d.a.l0.a.f1.f.a.f41852a) {
-                Log.d("SwanPerformance", "has batch parse app.json, size = " + this.f44538b.size());
+        if (this.f48213c) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
+                Log.d("SwanPerformance", "has batch parse app.json, size = " + this.f48212b.size());
                 return;
             }
             return;
         }
-        this.f44539c = true;
+        this.f48213c = true;
         try {
-            q.j(new RunnableC0810a(), "startAsyncBatchParseAppJson");
+            q.j(new RunnableC0866a(), "startAsyncBatchParseAppJson");
         } catch (Throwable th) {
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 Log.e("SwanPerformance", "batch parse app.json exception");
                 th.printStackTrace();
             }
@@ -199,8 +199,8 @@ public class a implements d.a.l0.a.f1.f.a {
         if (TextUtils.isEmpty(absolutePath)) {
             return null;
         }
-        SwanAppConfigData swanAppConfigData = this.f44538b.get(absolutePath);
-        if (d.a.l0.a.f1.f.a.f41852a) {
+        SwanAppConfigData swanAppConfigData = this.f48212b.get(absolutePath);
+        if (d.a.l0.a.f1.f.a.f45528a) {
             StringBuilder sb = new StringBuilder();
             sb.append("try obtain config data success = ");
             sb.append(swanAppConfigData != null);
@@ -210,8 +210,8 @@ public class a implements d.a.l0.a.f1.f.a {
     }
 
     public a() {
-        this.f44538b = new ConcurrentHashMap<>();
-        this.f44539c = false;
+        this.f48212b = new ConcurrentHashMap<>();
+        this.f48213c = false;
         h();
     }
 }

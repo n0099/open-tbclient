@@ -6,10 +6,10 @@ import d.a.n0.v.d.c.f.d.h;
 public class LiveTabConcernRecommendLineHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f13760a;
+    public h f13825a;
 
     public LiveTabConcernRecommendLineHolder(h hVar) {
-        super(hVar.l());
-        this.f13760a = hVar;
+        super(hVar.m());
+        this.f13825a = hVar;
     }
 }

@@ -18,9 +18,9 @@ public class d extends com.alipay.sdk.packet.e {
     @Override // com.alipay.sdk.packet.e
     public Map<String, String> a(boolean z, String str) {
         HashMap hashMap = new HashMap();
-        hashMap.put(com.alipay.sdk.packet.e.f1892a, String.valueOf(z));
+        hashMap.put(com.alipay.sdk.packet.e.f1905a, String.valueOf(z));
         hashMap.put("content-type", "application/octet-stream");
-        hashMap.put(com.alipay.sdk.packet.e.f1898g, "CBC");
+        hashMap.put(com.alipay.sdk.packet.e.f1911g, "CBC");
         return hashMap;
     }
 
@@ -32,7 +32,7 @@ public class d extends com.alipay.sdk.packet.e {
     @Override // com.alipay.sdk.packet.e
     public String c() throws JSONException {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put(com.alipay.sdk.packet.e.f1900i, "/sdk/log");
+        hashMap.put(com.alipay.sdk.packet.e.f1913i, "/sdk/log");
         hashMap.put(com.alipay.sdk.packet.e.j, BuildConfig.VERSION_NAME);
         HashMap<String, String> hashMap2 = new HashMap<>();
         hashMap2.put(t, "1.0");

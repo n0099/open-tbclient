@@ -25,7 +25,7 @@ public class AlaShareInfoData extends OrmObject {
         }
     }
 
-    public void s(AlaShareInfo alaShareInfo) {
+    public void w(AlaShareInfo alaShareInfo) {
         if (alaShareInfo == null) {
             return;
         }

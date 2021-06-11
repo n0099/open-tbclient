@@ -20,8 +20,8 @@ public class e {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements a.InterfaceC1311a {
-        @Override // d.a.n0.f1.f.l.a.InterfaceC1311a
+    public static class b implements a.InterfaceC1367a {
+        @Override // d.a.n0.f1.f.l.a.InterfaceC1367a
         public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
             if (chatMessage == null || chatMessage.getMsgType() != 22) {
                 return false;
@@ -48,7 +48,7 @@ public class e {
                     }
                     JSONObject jSONObject = new JSONObject(content);
                     String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                    if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != d.a.n0.f1.s.a.f54696i.longValue()) {
+                    if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != d.a.n0.f1.s.a.f58385i.longValue()) {
                         return -1L;
                     }
                 } catch (Exception unused) {

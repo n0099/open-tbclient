@@ -6,29 +6,29 @@ import android.content.Context;
 public final class RimAnimUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f5333a;
+    public static int f5376a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f5334b;
+    public static int f5377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f5335c;
+    public static int f5378c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f5336d;
+    public static int f5379d;
 
     public static void finishActivityAnim(Context context) {
         if (context == null) {
             return;
         }
-        if (f5335c == 0 || f5336d == 0) {
-            f5335c = ResUtils.anim(context, "rim_base_slide_from_left");
-            f5336d = ResUtils.anim(context, "rim_base_slide_to_right");
+        if (f5378c == 0 || f5379d == 0) {
+            f5378c = ResUtils.anim(context, "rim_base_slide_from_left");
+            f5379d = ResUtils.anim(context, "rim_base_slide_to_right");
         }
         if (context instanceof Activity) {
-            ((Activity) context).overridePendingTransition(f5335c, f5336d);
+            ((Activity) context).overridePendingTransition(f5378c, f5379d);
         }
-        LogUtil.v("xyz", "Rim-finishActivityAnim-context:" + context + ", mCloseEnter:" + f5335c + ", mCloseExit:" + f5336d);
+        LogUtil.v("xyz", "Rim-finishActivityAnim-context:" + context + ", mCloseEnter:" + f5378c + ", mCloseExit:" + f5379d);
     }
 
     public static void overridePendingTransitionNoAnim(Activity activity) {
@@ -41,12 +41,12 @@ public final class RimAnimUtils {
         if (context == null) {
             return;
         }
-        if (f5333a == 0 || f5334b == 0) {
-            f5333a = ResUtils.anim(context, "rim_base_slide_from_right");
-            f5334b = ResUtils.anim(context, "rim_base_slide_to_left");
+        if (f5376a == 0 || f5377b == 0) {
+            f5376a = ResUtils.anim(context, "rim_base_slide_from_right");
+            f5377b = ResUtils.anim(context, "rim_base_slide_to_left");
         }
         if (context instanceof Activity) {
-            ((Activity) context).overridePendingTransition(f5333a, f5334b);
+            ((Activity) context).overridePendingTransition(f5376a, f5377b);
         }
     }
 }

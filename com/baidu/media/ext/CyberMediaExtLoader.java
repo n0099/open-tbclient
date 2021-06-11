@@ -13,17 +13,17 @@ import java.io.File;
 public class CyberMediaExtLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ClassLoader f8012a;
+    public static ClassLoader f8062a;
 
     public static void a(Context context) {
         CyberLog.i("CyberMediaExtInvoker", "tryLoadExtJar isExtJarLoader = " + a.d());
         if (context == null || a.d()) {
             return;
         }
-        String str = c.i() + File.separator + "libs";
-        File file = new File(e.b().a(2048).d());
+        String str = c.k() + File.separator + "libs";
+        File file = new File(e.b().a(2048).j());
         if (file.exists()) {
-            f8012a = new CyberClassLoader(file.getAbsolutePath(), new File(str), null, context.getClassLoader());
+            f8062a = new CyberClassLoader(file.getAbsolutePath(), new File(str), null, context.getClassLoader());
         } else {
             CyberLog.e("CyberMediaExtInvoker", "dexFile = null or dexFile not exist!");
         }
@@ -33,7 +33,7 @@ public class CyberMediaExtLoader {
         boolean d2;
         synchronized (CyberMediaExtLoader.class) {
             a(context);
-            a.e(f8012a);
+            a.e(f8062a);
             d2 = a.d();
         }
         return d2;

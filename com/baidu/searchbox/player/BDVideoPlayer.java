@@ -30,7 +30,6 @@ import com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher;
 import com.baidu.searchbox.player.ubc.SimpleVideoStatisticsDispatcher;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes2.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public static final String TAG = "BDVideoPlayer";
@@ -567,7 +566,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
             return;
         }
         if (this.mAudioManager == null) {
-            this.mAudioManager = (AudioManager) getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            this.mAudioManager = (AudioManager) getAppContext().getSystemService("audio");
         }
         if (this.mAudioManager != null) {
             if (this.mAudioFocusListener == null) {

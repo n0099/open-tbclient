@@ -5,26 +5,26 @@ import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import d.a.m0.g0.b.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements e {
     public long n;
     public int o;
     public boolean p;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f63287e = "";
+    public String f67002e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63288f = "";
+    public String f67003f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f63289g = "";
+    public String f67004g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public long f63290h = System.currentTimeMillis();
+    public long f67005h = System.currentTimeMillis();
 
     /* renamed from: i  reason: collision with root package name */
-    public String f63291i = "";
+    public String f67006i = "";
     public boolean j = false;
     public boolean k = false;
     public int l = 0;
@@ -39,7 +39,7 @@ public class a implements e {
     }
 
     public void B(String str) {
-        this.f63289g = str;
+        this.f67004g = str;
     }
 
     public void C(boolean z) {
@@ -63,7 +63,7 @@ public class a implements e {
     }
 
     public void H(String str) {
-        this.f63291i = str;
+        this.f67006i = str;
     }
 
     public void I(boolean z) {
@@ -71,11 +71,11 @@ public class a implements e {
     }
 
     public void J(String str) {
-        this.f63287e = str;
+        this.f67002e = str;
     }
 
     public void K(String str) {
-        this.f63288f = str;
+        this.f67003f = str;
     }
 
     public void L(int i2) {
@@ -89,11 +89,11 @@ public class a implements e {
     public JSONObject N() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("forum_name", this.f63289g);
-            jSONObject.put("thread_id", this.f63287e);
-            jSONObject.put("thread_time", this.f63290h);
-            jSONObject.put("thread_name", this.f63288f);
-            jSONObject.put("post_id", this.f63291i);
+            jSONObject.put("forum_name", this.f67004g);
+            jSONObject.put("thread_id", this.f67002e);
+            jSONObject.put("thread_time", this.f67005h);
+            jSONObject.put("thread_name", this.f67003f);
+            jSONObject.put("post_id", this.f67006i);
             jSONObject.put("host_only", this.j);
             jSONObject.put("squence", this.k);
             jSONObject.put("thread_type", this.l);
@@ -117,12 +117,12 @@ public class a implements e {
         return this.o;
     }
 
-    public String d() {
+    public String c() {
         return this.s;
     }
 
-    public String e() {
-        return this.f63289g;
+    public String d() {
+        return this.f67004g;
     }
 
     public boolean equals(Object obj) {
@@ -136,8 +136,8 @@ public class a implements e {
                     return true;
                 }
             } else {
-                String str4 = this.f63287e;
-                if (str4 != null && (str = aVar.f63287e) != null && str4.equals(str)) {
+                String str4 = this.f67002e;
+                if (str4 != null && (str = aVar.f67002e) != null && str4.equals(str)) {
                     return true;
                 }
             }
@@ -145,13 +145,12 @@ public class a implements e {
         return false;
     }
 
-    @Override // d.a.m0.g0.b.e
     public String f() {
-        return N().toString();
+        return this.q;
     }
 
     public String g() {
-        return this.q;
+        return this.f67006i;
     }
 
     @Override // d.a.m0.g0.b.c
@@ -159,28 +158,41 @@ public class a implements e {
         if (this.l == 49) {
             return this.q + "_ala";
         }
-        return this.f63287e;
+        return this.f67002e;
     }
 
+    @Override // d.a.m0.g0.b.e
     public String h() {
-        return this.f63291i;
+        return N().toString();
     }
 
     public int hashCode() {
-        int hashCode = TextUtils.isEmpty(this.f63287e) ? 120 : 119 + this.f63287e.hashCode();
-        int hashCode2 = TextUtils.isEmpty(this.f63288f) ? (hashCode * 7) + 1 : (hashCode * 7) + this.f63288f.hashCode();
-        int hashCode3 = ((TextUtils.isEmpty(this.f63289g) ? (hashCode2 * 7) + 1 : (hashCode2 * 7) + this.f63289g.hashCode()) * 7) + ((int) this.f63290h);
-        int hashCode4 = TextUtils.isEmpty(this.f63291i) ? (hashCode3 * 7) + 1 : (hashCode3 * 7) + this.f63291i.hashCode();
+        int hashCode = TextUtils.isEmpty(this.f67002e) ? 120 : 119 + this.f67002e.hashCode();
+        int hashCode2 = TextUtils.isEmpty(this.f67003f) ? (hashCode * 7) + 1 : (hashCode * 7) + this.f67003f.hashCode();
+        int hashCode3 = ((TextUtils.isEmpty(this.f67004g) ? (hashCode2 * 7) + 1 : (hashCode2 * 7) + this.f67004g.hashCode()) * 7) + ((int) this.f67005h);
+        int hashCode4 = TextUtils.isEmpty(this.f67006i) ? (hashCode3 * 7) + 1 : (hashCode3 * 7) + this.f67006i.hashCode();
         int hashCode5 = TextUtils.isEmpty(this.q) ? (hashCode4 * 7) + 1 : (hashCode4 * 7) + this.q.hashCode();
         return ((((TextUtils.isEmpty(this.s) ? (hashCode5 * 7) + 1 : (hashCode5 * 7) + this.s.hashCode()) * 7) + (this.j ? 1 : 0)) * 7) + (this.k ? 1 : 0);
     }
 
+    public String i() {
+        return this.f67002e;
+    }
+
     public String j() {
-        return this.f63287e;
+        return this.f67003f;
+    }
+
+    public int k() {
+        return this.l;
+    }
+
+    public long m() {
+        return this.f67005h;
     }
 
     @Override // d.a.m0.g0.b.e
-    public boolean k(String str) {
+    public boolean n(String str) {
         if (str != null) {
             try {
                 return x(new JSONObject(str));
@@ -192,35 +204,23 @@ public class a implements e {
         return false;
     }
 
-    public String l() {
-        return this.f63288f;
-    }
-
-    public int m() {
-        return this.l;
-    }
-
-    public long n() {
-        return this.f63290h;
-    }
-
-    public String p() {
+    public String o() {
         return this.r;
     }
 
-    public boolean s() {
+    public boolean p() {
         return this.j;
     }
 
-    public boolean t() {
+    public boolean q() {
         return this.t;
     }
 
-    public boolean u() {
+    public boolean r() {
         return this.m;
     }
 
-    public boolean v() {
+    public boolean t() {
         return this.p;
     }
 
@@ -233,7 +233,7 @@ public class a implements e {
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
         long optLong = jSONObject.optLong("thread_time");
-        this.f63291i = jSONObject.optString("post_id");
+        this.f67006i = jSONObject.optString("post_id");
         this.j = jSONObject.optBoolean("host_only");
         this.k = jSONObject.optBoolean("squence");
         this.m = jSONObject.optBoolean("is_manga");
@@ -241,16 +241,16 @@ public class a implements e {
         this.o = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
         this.p = jSONObject.optBoolean("is_share_thread", false);
         if (!TextUtils.isEmpty(optString)) {
-            this.f63289g = optString;
+            this.f67004g = optString;
         }
         if (!TextUtils.isEmpty(optString2)) {
-            this.f63287e = optString2;
+            this.f67002e = optString2;
         }
         if (!TextUtils.isEmpty(optString3)) {
-            this.f63288f = optString3;
+            this.f67003f = optString3;
         }
         if (optLong > 2000) {
-            this.f63290h = optLong;
+            this.f67005h = optLong;
         }
         this.l = jSONObject.optInt("thread_type");
         this.q = jSONObject.optString("live_id", "");

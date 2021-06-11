@@ -15,7 +15,7 @@ import d.a.m0.r.s.h;
 import d.a.m0.r.s.j;
 import d.a.m0.r.s.l;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NewMyFansUserLikeButton extends FollowUserButton {
     public int A;
     public boolean B;
@@ -26,30 +26,30 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
     public j y;
     public String z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f18378e;
+        public final /* synthetic */ View.OnClickListener f18454e;
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.NewMyFansUserLikeButton$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0192a implements l.d {
+        /* loaded from: classes4.dex */
+        public class C0193a implements l.d {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f18380a;
+            public final /* synthetic */ View f18456a;
 
-            public C0192a(View view) {
-                this.f18380a = view;
+            public C0193a(View view) {
+                this.f18456a = view;
             }
 
             @Override // d.a.m0.r.s.l.d
             public void onClick() {
-                View.OnClickListener onClickListener = a.this.f18378e;
+                View.OnClickListener onClickListener = a.this.f18454e;
                 if (onClickListener == null) {
                     return;
                 }
-                onClickListener.onClick(this.f18380a);
+                onClickListener.onClick(this.f18456a);
                 if (NewMyFansUserLikeButton.this.A != 1) {
                     if (NewMyFansUserLikeButton.this.A == 2) {
                         TiebaStatic.log(new StatisticItem("C12603").param("obj_param1", NewMyFansUserLikeButton.this.z));
@@ -61,7 +61,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class b implements l.c {
             public b() {
             }
@@ -76,7 +76,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         }
 
         public a(View.OnClickListener onClickListener) {
-            this.f18378e = onClickListener;
+            this.f18454e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
@@ -95,7 +95,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                         lVar.q(NewMyFansUserLikeButton.this.x.getString(R.string.confirm_unlike));
                         ArrayList arrayList = new ArrayList();
                         h hVar = new h(NewMyFansUserLikeButton.this.x.getString(R.string.confirm), lVar);
-                        hVar.m(new C0192a(view));
+                        hVar.m(new C0193a(view));
                         arrayList.add(hVar);
                         lVar.m(new b());
                         lVar.k(arrayList);
@@ -105,7 +105,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                     g.j(NewMyFansUserLikeButton.this.y, NewMyFansUserLikeButton.this.x);
                 }
             } else {
-                this.f18378e.onClick(view);
+                this.f18454e.onClick(view);
             }
             if (NewMyFansUserLikeButton.this.C != null) {
                 NewMyFansUserLikeButton.this.C.callback();
@@ -113,7 +113,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void callback();
     }

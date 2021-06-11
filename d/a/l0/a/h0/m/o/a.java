@@ -10,25 +10,25 @@ public class a extends f {
 
     /* renamed from: d.a.l0.a.h0.m.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0682a implements Runnable {
+    public class RunnableC0738a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f42398e;
+        public final /* synthetic */ int f46074e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.q2.a f42399f;
+        public final /* synthetic */ d.a.l0.a.q2.a f46075f;
 
-        public RunnableC0682a(int i2, d.a.l0.a.q2.a aVar) {
-            this.f42398e = i2;
-            this.f42399f = aVar;
+        public RunnableC0738a(int i2, d.a.l0.a.q2.a aVar) {
+            this.f46074e = i2;
+            this.f46075f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.F != null) {
-                int i2 = this.f42398e;
+                int i2 = this.f46074e;
                 if (i2 == -1) {
-                    a.this.F.b(this.f42399f);
+                    a.this.F.b(this.f46075f);
                 } else if (i2 == 0) {
                     a.this.F.a();
                 } else if (i2 != 1) {
@@ -58,9 +58,9 @@ public class a extends f {
         super.B(aVar);
         d.a.l0.a.q2.a aVar2 = new d.a.l0.a.q2.a();
         aVar2.j(10L);
-        aVar2.h(aVar.f48002a);
-        aVar2.c(aVar.f48003b);
-        aVar2.p(aVar.f48004c);
+        aVar2.h(aVar.f51676a);
+        aVar2.c(aVar.f51677b);
+        aVar2.p(aVar.f51678c);
         G0(-1, aVar2);
     }
 
@@ -75,7 +75,7 @@ public class a extends f {
     }
 
     public final void G0(int i2, d.a.l0.a.q2.a aVar) {
-        q0.X(new RunnableC0682a(i2, aVar));
+        q0.X(new RunnableC0738a(i2, aVar));
     }
 
     @Override // d.a.l0.a.h0.m.j

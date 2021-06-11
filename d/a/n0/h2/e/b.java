@@ -7,17 +7,17 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f55533a = -1;
+    public int f59222a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55534b = 0;
+    public int f59223b = 0;
 
     public int a() {
-        return this.f55534b;
+        return this.f59223b;
     }
 
     public int b() {
-        return this.f55533a;
+        return this.f59222a;
     }
 
     public void c(String str) {
@@ -26,11 +26,11 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f55533a = jSONObject.optInt("error_code", -1);
+            this.f59222a = jSONObject.optInt("error_code", -1);
             jSONObject.optString("error_msg", "");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.f55534b = optJSONObject.optInt("msg_count");
+                this.f59223b = optJSONObject.optInt("msg_count");
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

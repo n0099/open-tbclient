@@ -18,8 +18,11 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
@@ -94,36 +97,38 @@ import tbclient.VideoInfo;
 import tbclient.Voice;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes3.dex */
-public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoData {
-    public VideoInfo A1;
+public class a2 extends a implements PreLoadImageProvider, d.a.c.k.e.n, IVideoData {
+    public t A0;
+    public String A1;
+    public String A2;
+    public VideoInfo B1;
+    public String B2;
     public w1 C;
-    public boolean C1;
-    public int C2;
     public String D;
-    public OriginalForumInfo D1;
-    public d.a.n0.e3.h0.n D2;
+    public boolean D1;
     public String E;
-    public boolean E1;
+    public OriginalForumInfo E1;
     public int E2;
     public boolean F1;
-    public WorksInfoData F2;
-    public SmartApp G1;
+    public d.a.n0.e3.h0.n F2;
+    public boolean G1;
     public int G2;
-    public String I1;
+    public SmartApp H1;
+    public WorksInfoData H2;
+    public int I2;
     public String J1;
     public String K1;
     public String L1;
-    public SkinInfo M0;
     public String M1;
-    public boolean N0;
-    public int N1;
+    public SkinInfo N0;
+    public String N1;
     public String O;
-    public String O0;
-    public String O1;
+    public boolean O0;
+    public int O1;
+    public String P0;
     public String P1;
-    public boolean R0;
-    public String S0;
-    public boolean S1;
+    public String Q1;
+    public boolean S0;
     public String T0;
     public boolean T1;
     public String U0;
@@ -133,67 +138,64 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     public boolean V1;
     public String W0;
     public boolean W1;
-    public long X0;
+    public String X0;
     public boolean X1;
     public int Y;
+    public long Y0;
     public boolean Y1;
     public int Z;
     public boolean Z1;
     public boolean a2;
-    public boolean b1;
-    public String b2;
+    public boolean b2;
     public String c0;
+    public boolean c1;
     public boolean c2;
     public HashMap<String, MetaData> d0;
     public String d2;
     public String e0;
+    public boolean e2;
     public String f0;
     public String f2;
     public String g0;
-    public String g1;
-    public String g2;
-    public boolean h1;
-    public int h2;
+    public String h1;
+    public String h2;
     public int i0;
-    public BaijiahaoData i2;
+    public boolean i1;
+    public String i2;
+    public int j2;
     public VideoInfo k0;
-    public long k1;
-    public String k2;
+    public BaijiahaoData k2;
     public VideoDesc l0;
-    public p0 l1;
-    public int l2;
+    public long l1;
     public h2 m0;
-    public boolean m1;
+    public p0 m1;
     public String m2;
     public AlaInfoData n0;
-    public ThreadInfo n2;
-    public g o1;
-    public MediaData p1;
+    public boolean n1;
+    public int n2;
+    public String o2;
+    public g p1;
+    public ThreadInfo p2;
     public int q;
     public long q0;
-    public int q1;
-    public boolean q2;
+    public MediaData q1;
     public long r0;
-    public Item r2;
-    public OriginalThreadInfo s1;
-    public ItemData s2;
-    public boolean t1;
-    public List<HeadItem> t2;
-    public ItemStarData u2;
-    public PollData v2;
+    public int r1;
+    public boolean s2;
+    public OriginalThreadInfo t1;
+    public Item t2;
+    public boolean u1;
+    public ItemData u2;
+    public int v0;
+    public List<HeadItem> v2;
     public SpannableStringBuilder w;
+    public ItemStarData w2;
     public SpannableStringBuilder x;
-    public TopicModule x1;
-    public String x2;
+    public PollData x2;
     public SpannableString y;
-    public String y1;
-    public String y2;
-    public t z0;
+    public TopicModule y1;
     public String z1;
     public String z2;
-    public static final BdUniqueId I2 = BdUniqueId.gen();
-    public static final BdUniqueId J2 = BdUniqueId.gen();
-    public static final BdUniqueId K2 = BdUniqueId.gen();
     public static final BdUniqueId L2 = BdUniqueId.gen();
     public static final BdUniqueId M2 = BdUniqueId.gen();
     public static final BdUniqueId N2 = BdUniqueId.gen();
@@ -230,32 +232,35 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     public static final BdUniqueId s3 = BdUniqueId.gen();
     public static final BdUniqueId t3 = BdUniqueId.gen();
     public static final BdUniqueId u3 = BdUniqueId.gen();
-    public static AtomicBoolean v3 = new AtomicBoolean(false);
-    public static AtomicBoolean w3 = new AtomicBoolean(false);
-    public static AtomicBoolean x3 = new AtomicBoolean(false);
-    public static final BdUniqueId y3 = BdUniqueId.gen();
-    public static final BdUniqueId z3 = BdUniqueId.gen();
-    public static HashMap<Point, Integer> A3 = new HashMap<>();
-    public static HashMap<Integer, Integer> B3 = new HashMap<>();
+    public static final BdUniqueId v3 = BdUniqueId.gen();
+    public static final BdUniqueId w3 = BdUniqueId.gen();
+    public static final BdUniqueId x3 = BdUniqueId.gen();
+    public static AtomicBoolean y3 = new AtomicBoolean(false);
+    public static AtomicBoolean z3 = new AtomicBoolean(false);
+    public static AtomicBoolean A3 = new AtomicBoolean(false);
+    public static final BdUniqueId B3 = BdUniqueId.gen();
     public static final BdUniqueId C3 = BdUniqueId.gen();
-    public static final BdUniqueId D3 = BdUniqueId.gen();
-    public static HashMap<Point, Integer> E3 = new HashMap<>();
-    public static SparseArray<m.a> F3 = new SparseArray<>(3);
+    public static HashMap<Point, Integer> D3 = new HashMap<>();
+    public static HashMap<Integer, Integer> E3 = new HashMap<>();
+    public static final BdUniqueId F3 = BdUniqueId.gen();
+    public static final BdUniqueId G3 = BdUniqueId.gen();
+    public static HashMap<Point, Integer> H3 = new HashMap<>();
+    public static SparseArray<m.a> I3 = new SparseArray<>(3);
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49929e = false;
+    public boolean f53605e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49930f = false;
+    public boolean f53606f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49931g = false;
+    public boolean f53607g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f49932h = false;
+    public boolean f53608h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f49933i = false;
+    public boolean f53609i = false;
     public boolean j = false;
     public boolean k = false;
     public boolean l = false;
@@ -266,23 +271,24 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     public String X = null;
     public int t0 = 0;
     public String u0 = "";
-    public boolean v0 = false;
-    public String A0 = "";
-    public boolean Y0 = true;
-    public boolean c1 = false;
-    public int d1 = -1;
-    public SparseArray<String> e1 = null;
+    public boolean w0 = false;
+    public String B0 = "";
+    public boolean Z0 = true;
+    public boolean d1 = false;
+    public int e1 = -1;
     public SparseArray<String> f1 = null;
-    public boolean n1 = false;
-    public int w1 = 0;
-    public boolean B1 = false;
-    public boolean H1 = false;
-    public boolean Q1 = false;
+    public SparseArray<String> g1 = null;
+    public boolean o1 = false;
+    public int x1 = 0;
+    public boolean C1 = false;
+    public boolean I1 = false;
     public boolean R1 = false;
-    public boolean e2 = false;
-    public boolean j2 = false;
-    public boolean A2 = false;
-    public boolean B2 = false;
+    public boolean S1 = false;
+    public boolean g2 = false;
+    public boolean l2 = false;
+    public boolean C2 = false;
+    public boolean D2 = false;
+    public String K2 = "";
     public String z = null;
     public String A = null;
     public long B = 0;
@@ -307,68 +313,70 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     public PraiseData a0 = new PraiseData();
     public AnchorInfoData b0 = new AnchorInfoData();
     public int h0 = 0;
-    public ArrayList<b> w0 = new ArrayList<>();
-    public m2 x0 = null;
-    public h y0 = null;
+    public ArrayList<b> x0 = new ArrayList<>();
+    public m2 y0 = null;
+    public h z0 = null;
     public ArrayList<d.a.m0.s.i.c> j0 = new ArrayList<>();
-    public int B0 = 0;
+    public int C0 = 0;
     public int o0 = 0;
-    public int P0 = 0;
-    public q Q0 = new q();
+    public int Q0 = 0;
+    public q R0 = new q();
     public List<PbContent> v = new ArrayList();
     public List<PbContent> t = new ArrayList();
     public List<PbContent> u = new ArrayList();
     public String F = null;
-    public y1 C0 = new y1();
-    public ArrayList<d.a.m0.t.c> D0 = new ArrayList<>();
-    public PushStatusData E0 = new PushStatusData();
-    public boolean Z0 = false;
-    public int a1 = -1;
-    public PostData j1 = new PostData();
-    public AgreeData i1 = new AgreeData();
-    public int r1 = 0;
+    public y1 D0 = new y1();
+    public ArrayList<d.a.m0.t.c> E0 = new ArrayList<>();
+    public PushStatusData F0 = new PushStatusData();
+    public boolean a1 = false;
+    public int b1 = -1;
+    public PostData k1 = new PostData();
+    public AgreeData j1 = new AgreeData();
+    public int s1 = 0;
     public String s0 = "";
+    public String w1 = "";
     public String v1 = "";
-    public String u1 = "";
-    public String K0 = "";
-    public String L0 = "";
-    public List<PbLinkData> o2 = new ArrayList();
-    public List<PbGoodsData> p2 = new ArrayList();
-    public List<ThreadRecommendInfoData> H2 = new ArrayList();
-    public int w2 = -1;
+    public String G0 = "";
+    public String M0 = "";
+    public List<PbLinkData> q2 = new ArrayList();
+    public List<PbGoodsData> r2 = new ArrayList();
+    public List<ThreadRecommendInfoData> J2 = new ArrayList();
+    public int y2 = -1;
 
     static {
-        A3.put(new Point(1, 1), Integer.valueOf(R.drawable.label_frs_lottery_ing));
-        A3.put(new Point(1, 2), Integer.valueOf(R.drawable.label_frs_lottery_over));
-        A3.put(new Point(1, 3), Integer.valueOf(R.drawable.label_frs_lottery_off));
-        A3.put(new Point(1, 4), Integer.valueOf(R.drawable.label_frs_lottery_d));
-        A3.put(new Point(2, 1), Integer.valueOf(R.drawable.label_frs_activity_shaiing));
-        A3.put(new Point(2, 2), Integer.valueOf(R.drawable.label_frs_activity_shai_over));
-        A3.put(new Point(2, 3), Integer.valueOf(R.drawable.label_frs_activity_shai_off));
-        A3.put(new Point(2, 4), Integer.valueOf(R.drawable.label_frs_activity_shai_d));
-        E3.put(new Point(1, 1), Integer.valueOf(R.string.lottery_status_ing));
-        E3.put(new Point(1, 2), Integer.valueOf(R.string.lottery_status_over));
-        E3.put(new Point(1, 3), Integer.valueOf(R.string.lottery_status_off));
-        E3.put(new Point(1, 4), Integer.valueOf(R.string.lottery_status_not_start));
-        E3.put(new Point(2, 1), Integer.valueOf(R.string.share_picture_status_ing));
-        E3.put(new Point(2, 2), Integer.valueOf(R.string.share_picture_status_over));
-        E3.put(new Point(2, 3), Integer.valueOf(R.string.share_picture_status_off));
-        E3.put(new Point(2, 4), Integer.valueOf(R.string.share_picture_status_not_start));
-        B3.put(1, Integer.valueOf(R.drawable.label_interview_no));
-        B3.put(2, Integer.valueOf(R.drawable.label_interview_live));
-        B3.put(3, Integer.valueOf(R.drawable.label_interview_off));
-        F3.put(1, new m.a(R.string.interview_live_status_not_start, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-        F3.put(2, new m.a(R.string.interview_live_status_ing, R.color.CAM_X0309, R.drawable.pic_dot_title_green));
-        F3.put(3, new m.a(R.string.interview_live_status_over, R.color.CAM_X0303, R.drawable.pic_dot_title_blue));
+        D3.put(new Point(1, 1), Integer.valueOf(R.drawable.label_frs_lottery_ing));
+        D3.put(new Point(1, 2), Integer.valueOf(R.drawable.label_frs_lottery_over));
+        D3.put(new Point(1, 3), Integer.valueOf(R.drawable.label_frs_lottery_off));
+        D3.put(new Point(1, 4), Integer.valueOf(R.drawable.label_frs_lottery_d));
+        D3.put(new Point(2, 1), Integer.valueOf(R.drawable.label_frs_activity_shaiing));
+        D3.put(new Point(2, 2), Integer.valueOf(R.drawable.label_frs_activity_shai_over));
+        D3.put(new Point(2, 3), Integer.valueOf(R.drawable.label_frs_activity_shai_off));
+        D3.put(new Point(2, 4), Integer.valueOf(R.drawable.label_frs_activity_shai_d));
+        H3.put(new Point(1, 1), Integer.valueOf(R.string.lottery_status_ing));
+        H3.put(new Point(1, 2), Integer.valueOf(R.string.lottery_status_over));
+        H3.put(new Point(1, 3), Integer.valueOf(R.string.lottery_status_off));
+        H3.put(new Point(1, 4), Integer.valueOf(R.string.lottery_status_not_start));
+        H3.put(new Point(2, 1), Integer.valueOf(R.string.share_picture_status_ing));
+        H3.put(new Point(2, 2), Integer.valueOf(R.string.share_picture_status_over));
+        H3.put(new Point(2, 3), Integer.valueOf(R.string.share_picture_status_off));
+        H3.put(new Point(2, 4), Integer.valueOf(R.string.share_picture_status_not_start));
+        E3.put(1, Integer.valueOf(R.drawable.label_interview_no));
+        E3.put(2, Integer.valueOf(R.drawable.label_interview_live));
+        E3.put(3, Integer.valueOf(R.drawable.label_interview_off));
+        I3.put(1, new m.a(R.string.interview_live_status_not_start, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+        I3.put(2, new m.a(R.string.interview_live_status_ing, R.color.CAM_X0309, R.drawable.pic_dot_title_green));
+        I3.put(3, new m.a(R.string.interview_live_status_over, R.color.CAM_X0303, R.drawable.pic_dot_title_blue));
     }
 
     public a2() {
         this.V = 0;
         this.i0 = 0;
-        this.q1 = 0;
+        this.r1 = 0;
+        this.v0 = 0;
+        this.v0 = 0;
         this.i0 = 0;
         this.V = 0;
-        this.q1 = 0;
+        this.r1 = 0;
     }
 
     public boolean A() {
@@ -376,23 +384,46 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     }
 
     public List<HeadItem> A0() {
-        return this.t2;
+        return this.v2;
     }
 
-    public SpannableStringBuilder A1() {
-        return this.x;
+    public String A1() {
+        return this.r;
     }
 
     public boolean A2() {
-        return this.D1 != null;
+        return this.x1 == 1;
     }
 
-    public void A3(boolean z) {
-        this.N0 = z;
+    public void A3(List<PbContent> list) {
+        this.v = list;
     }
 
-    public void A4(int i2) {
-        this.q = i2;
+    public final d.a.c.k.b A4(String str) {
+        if (str == null) {
+            return null;
+        }
+        if (str.length() > 4) {
+            str = str.substring(0, 4);
+        }
+        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst().getApplicationContext()).inflate(R.layout.thread_category, (ViewGroup) null);
+        if (inflate == null) {
+            return null;
+        }
+        TextView textView = (TextView) inflate.findViewById(R.id.thread_category);
+        textView.setText(str);
+        textView.setTextColor(TbadkCoreApplication.getInst().getApplicationContext().getResources().getColor(R.color.CAM_X0106_1));
+        inflate.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+        inflate.layout(0, 0, inflate.getWidth(), inflate.getHeight());
+        textView.setDrawingCacheEnabled(true);
+        textView.buildDrawingCache();
+        Bitmap drawingCache = textView.getDrawingCache();
+        if (drawingCache != null) {
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(drawingCache);
+            bitmapDrawable.setBounds(0, 0, drawingCache.getWidth(), drawingCache.getHeight());
+            return new d.a.c.k.b(bitmapDrawable, 1);
+        }
+        return null;
     }
 
     public SpannableString B(ClickableSpan clickableSpan) {
@@ -428,29 +459,23 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     }
 
     public long B0() {
-        return this.X0;
+        return this.Y0;
     }
 
-    public PostData B1() {
-        return this.j1;
+    public SpannableStringBuilder B1() {
+        return this.x;
     }
 
     public boolean B2() {
-        BaijiahaoData baijiahaoData = this.i2;
-        if (baijiahaoData == null) {
-            return false;
-        }
-        return UtilHelper.isUgcThreadType(baijiahaoData.oriUgcType);
+        return this.E1 != null;
     }
 
-    public void B3(String str) {
-        this.Q = str;
+    public void B3(boolean z) {
+        this.O0 = z;
     }
 
-    public void B4() {
-        if (this.t0 == 0) {
-            this.t0 = 1;
-        }
+    public void B4(int i2) {
+        this.q = i2;
     }
 
     public String C() {
@@ -461,17 +486,26 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return this.I;
     }
 
-    public e2 C1() {
-        return this.N;
+    public PostData C1() {
+        return this.k1;
     }
 
     public boolean C2() {
-        int i2 = this.Z;
-        return i2 == 40 || i2 == 50;
+        BaijiahaoData baijiahaoData = this.k2;
+        if (baijiahaoData == null) {
+            return false;
+        }
+        return UtilHelper.isUgcThreadType(baijiahaoData.oriUgcType);
     }
 
-    public void C3(boolean z) {
-        this.V1 = z;
+    public void C3(String str) {
+        this.Q = str;
+    }
+
+    public void C4() {
+        if (this.t0 == 0) {
+            this.t0 = 1;
+        }
     }
 
     public SpannableString D() {
@@ -482,43 +516,44 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return this.e0;
     }
 
-    public TopicModule D1() {
-        return this.x1;
+    public e2 D1() {
+        return this.N;
     }
 
     public boolean D2() {
-        return C2() && G2();
+        int i2 = this.Z;
+        return i2 == 40 || i2 == 50;
     }
 
     public void D3(boolean z) {
-        this.T1 = z;
+        this.W1 = z;
     }
 
     public ArrayList<b> E() {
-        return this.w0;
+        return this.x0;
     }
 
     public String E0() {
-        return this.K0;
+        return this.G0;
     }
 
-    public String E1() {
-        return this.z1;
+    public TopicModule E1() {
+        return this.y1;
     }
 
     public boolean E2() {
-        return this.Z == 11 || this.Y == 1;
+        return D2() && H2();
     }
 
-    public void E3(String str) {
-        this.g1 = str;
+    public void E3(boolean z) {
+        this.U1 = z;
     }
 
     public int F() {
-        if (!N1() || this.w0.size() < 1) {
+        if (!O1() || this.x0.size() < 1) {
             return -1;
         }
-        b bVar = this.w0.get(0);
+        b bVar = this.x0.get(0);
         int e2 = bVar.e();
         if (e2 == 3) {
             return e2;
@@ -533,66 +568,63 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     }
 
     public String F0() {
-        return this.O0;
+        return this.P0;
     }
 
     public String F1() {
-        return this.y1;
+        return this.A1;
     }
 
     public boolean F2() {
-        return this.Z == 36;
+        return this.Z == 11 || this.Y == 1;
     }
 
-    public void F3(int i2) {
-        this.i1.hasAgree = i2 == 1;
+    public void F3(String str) {
+        this.h1 = str;
     }
 
     public int G() {
-        if (!N1() || this.w0.size() < 1 || this.w0.get(0) == null) {
+        if (!O1() || this.x0.size() < 1 || this.x0.get(0) == null) {
             return -1;
         }
-        return this.w0.get(0).a();
+        return this.x0.get(0).a();
     }
 
     public String G0() {
-        return this.I1;
+        return this.J1;
     }
 
-    public HashMap<String, MetaData> G1() {
-        return this.d0;
+    public String G1() {
+        return this.z1;
     }
 
     public boolean G2() {
-        WorksInfoData worksInfoData = this.F2;
-        return worksInfoData != null && worksInfoData.isWorks;
+        return this.Z == 36;
     }
 
-    public void G3(VideoInfo videoInfo) {
-        this.A1 = videoInfo;
+    public void G3(int i2) {
+        this.j1.hasAgree = i2 == 1;
     }
 
     public String H() {
-        return (!N1() || this.w0.size() < 1 || this.w0.get(0) == null) ? "" : this.w0.get(0).g();
+        return (!O1() || this.x0.size() < 1 || this.x0.get(0) == null) ? "" : this.x0.get(0).g();
     }
 
     public List<PbLinkData> H0() {
-        return this.o2;
+        return this.q2;
     }
 
-    public int H1() {
-        if (S1() || R1()) {
-            return 2;
-        }
-        return (Q1() || T1()) ? 3 : 1;
+    public HashMap<String, MetaData> H1() {
+        return this.d0;
     }
 
     public boolean H2() {
-        return this.p0 != 0;
+        WorksInfoData worksInfoData = this.H2;
+        return worksInfoData != null && worksInfoData.isWorks;
     }
 
-    public void H3(String str) {
-        this.z = str;
+    public void H3(VideoInfo videoInfo) {
+        this.B1 = videoInfo;
     }
 
     public ActivityItemData I() {
@@ -604,7 +636,7 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         int size = this.t.size();
         for (int i2 = 0; i2 < size; i2++) {
             PbContent pbContent = this.t.get(i2);
-            if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && C2() && (str = pbContent.text) != null && str.length() >= 3) {
+            if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && D2() && (str = pbContent.text) != null && str.length() >= 3) {
                 ActivityItemData activityItemData = new ActivityItemData();
                 activityItemData.link_url = d.a.m0.p0.b.d(pbContent.text);
                 String str2 = pbContent.text;
@@ -616,21 +648,22 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     }
 
     public p0 I0() {
-        return this.l1;
+        return this.m1;
     }
 
     public int I1() {
-        return this.H;
+        if (T1() || S1()) {
+            return 2;
+        }
+        return (R1() || U1()) ? 3 : 1;
     }
 
-    public SpannableString I2() {
-        SpannableStringBuilder L22 = L2();
-        d.a.n0.z.m.b(this, L22, false);
-        return new SpannableString(L22);
+    public boolean I2() {
+        return this.p0 != 0;
     }
 
-    public void I3(int i2) {
-        this.a1 = i2 + 1;
+    public void I3(String str) {
+        this.z = str;
     }
 
     public String J() {
@@ -641,18 +674,18 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return this.f0;
     }
 
-    public ArrayList<VoiceData$VoiceModel> J1() {
-        return this.U;
+    public int J1() {
+        return this.H;
     }
 
     public SpannableString J2() {
-        if (ListUtils.isEmpty(this.v)) {
-            return null;
-        }
-        return new SpannableString(d.a.m0.b1.m.e.w(this, this.v, this.s));
+        SpannableStringBuilder M22 = M2();
+        d.a.n0.z.m.b(this, M22, false);
+        return new SpannableString(M22);
     }
 
     public void J3(int i2) {
+        this.b1 = i2 + 1;
     }
 
     public String K() {
@@ -663,11 +696,33 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return this.X;
     }
 
-    public m2 K1() {
-        return this.x0;
+    public ArrayList<VoiceData$VoiceModel> K1() {
+        return this.U;
     }
 
-    public void K2(WriteData writeData) {
+    public SpannableString K2() {
+        if (ListUtils.isEmpty(this.v)) {
+            return null;
+        }
+        return new SpannableString(d.a.m0.b1.m.e.w(this, this.v, this.s));
+    }
+
+    public void K3(int i2) {
+    }
+
+    public AgreeData L() {
+        return this.j1;
+    }
+
+    public ArrayList<MediaData> L0() {
+        return this.T;
+    }
+
+    public m2 L1() {
+        return this.y0;
+    }
+
+    public void L2(WriteData writeData) {
         String i2;
         if (writeData == null) {
             return;
@@ -701,11 +756,11 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             this.s = writeData.getContent();
             w1 w1Var = new w1();
             this.C = w1Var;
-            w1Var.f50157a = writeData.getForumId();
-            this.C.f50158b = writeData.getForumName();
-            this.l2 = writeData.getTabId();
-            this.m2 = writeData.getTabName();
-            a3();
+            w1Var.f53833a = writeData.getForumId();
+            this.C.f53834b = writeData.getForumName();
+            this.n2 = writeData.getTabId();
+            this.o2 = writeData.getTabName();
+            b3();
             if (StringUtils.isNull(writeData.getItem_id()) || writeData.getItemInfo() == null) {
                 return;
             }
@@ -716,57 +771,57 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             builder2.tags = writeData.getItemInfo().getTags();
             builder2.score = Double.valueOf(writeData.getItemInfo().getScore());
             builder2.star = Integer.valueOf(writeData.getItemInfo().getStar());
-            this.r2 = builder2.build(true);
+            this.t2 = builder2.build(true);
             ItemData itemData = new ItemData();
-            this.s2 = itemData;
+            this.u2 = itemData;
             itemData.parseItemInfo(writeData.getItemInfo());
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public void K3(boolean z) {
-        this.Z0 = z;
+    public void L3(boolean z) {
+        this.a1 = z;
     }
 
-    public AgreeData L() {
-        return this.i1;
+    public long M() {
+        return this.j1.agreeNum;
     }
 
-    public ArrayList<MediaData> L0() {
-        return this.T;
+    public String M0() {
+        return this.Q1;
     }
 
-    public void L1() {
-        if (ListUtils.getCount(this.t2) > 0) {
+    public void M1() {
+        if (ListUtils.getCount(this.v2) > 0) {
             SpannableStringBuilder spannableStringBuilder = this.x;
             if (spannableStringBuilder != null) {
-                spannableStringBuilder.insert(0, (CharSequence) d.a.m0.b1.m.e.f(this.t2));
+                spannableStringBuilder.insert(0, (CharSequence) d.a.m0.b1.m.e.f(this.v2));
                 return;
             }
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(this.y);
-            spannableStringBuilder2.insert(0, (CharSequence) d.a.m0.b1.m.e.f(this.t2));
+            spannableStringBuilder2.insert(0, (CharSequence) d.a.m0.b1.m.e.f(this.v2));
             this.y = new SpannableString(spannableStringBuilder2);
         }
     }
 
-    public SpannableStringBuilder L2() {
+    public SpannableStringBuilder M2() {
         return d.a.m0.b1.m.e.w(this, this.u, this.s);
     }
 
-    public void L3(int i2) {
+    public void M3(int i2) {
         this.W = i2;
     }
 
-    public long M() {
-        return this.i1.agreeNum;
+    public int N() {
+        return this.j1.agreeType;
     }
 
-    public String M0() {
-        return this.P1;
+    public int N0() {
+        return this.i0;
     }
 
-    public void M1(SpannableString spannableString) {
+    public void N1(SpannableString spannableString) {
         if (T() == null || x() || y()) {
             return;
         }
@@ -780,27 +835,27 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         this.y = new SpannableString(spannableStringBuilder2);
     }
 
-    public SpannableStringBuilder M2() {
+    public SpannableStringBuilder N2() {
         return d.a.m0.b1.m.e.w(this, this.t, this.r);
     }
 
-    public void M3(boolean z) {
-        this.S1 = z;
+    public void N3(boolean z) {
+        this.T1 = z;
     }
 
-    public int N() {
-        return this.i1.agreeType;
+    public AnchorInfoData O() {
+        return this.b0;
     }
 
-    public int N0() {
-        return this.i0;
+    public String O0() {
+        return this.o;
     }
 
-    public boolean N1() {
+    public boolean O1() {
         return this.h0 == 1;
     }
 
-    public void N2(ArrayList<u> arrayList) {
+    public void O2(ArrayList<u> arrayList) {
         if (this.q == 1 || arrayList == null || arrayList.size() <= 0) {
             return;
         }
@@ -822,33 +877,8 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         }
     }
 
-    public void N3() {
-        this.w1 = 1;
-    }
-
-    public AnchorInfoData O() {
-        return this.b0;
-    }
-
-    public String O0() {
-        return this.o;
-    }
-
-    public boolean O1() {
-        return (T() == null || T().getAlaUserData() == null || T().getAlaUserData().live_status != 1) ? false : true;
-    }
-
-    public SpannableStringBuilder O2() {
-        if (StringUtils.isNull(this.r) || this.q == 1) {
-            return null;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(M2());
-        this.w = spannableStringBuilder;
-        return spannableStringBuilder;
-    }
-
-    public void O3(int i2) {
-        this.L = i2;
+    public void O3() {
+        this.x1 = 1;
     }
 
     public int P() {
@@ -856,48 +886,73 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     }
 
     public PollData P0() {
-        return this.v2;
+        return this.x2;
     }
 
     public boolean P1() {
+        return (T() == null || T().getAlaUserData() == null || T().getAlaUserData().live_status != 1) ? false : true;
+    }
+
+    public SpannableStringBuilder P2() {
+        if (StringUtils.isNull(this.r) || this.q == 1) {
+            return null;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(N2());
+        this.w = spannableStringBuilder;
+        return spannableStringBuilder;
+    }
+
+    public void P3(int i2) {
+        this.L = i2;
+    }
+
+    public h Q() {
+        return this.z0;
+    }
+
+    public int Q0() {
+        return this.v0;
+    }
+
+    public boolean Q1() {
         String userId;
         MetaData metaData = this.P;
         return metaData == null || (userId = metaData.getUserId()) == null || userId.equals("0");
     }
 
-    public SpannableStringBuilder P2(boolean z, boolean z2) {
-        return Q2(z, z2, false);
+    public SpannableStringBuilder Q2(boolean z, boolean z2) {
+        return R2(z, z2, false);
     }
 
-    public void P3(int i2) {
+    public void Q3(int i2) {
         this.J = i2;
     }
 
-    public h Q() {
-        return this.y0;
+    public String R() {
+        return this.i2;
     }
 
-    public PraiseData Q0() {
+    public PraiseData R0() {
         return this.a0;
     }
 
-    public boolean Q1() {
-        BaijiahaoData baijiahaoData = this.i2;
+    public boolean R1() {
+        BaijiahaoData baijiahaoData = this.k2;
         return baijiahaoData != null && baijiahaoData.oriUgcType == 1;
     }
 
-    public SpannableStringBuilder Q2(boolean z, boolean z2, boolean z4) {
-        SpannableStringBuilder M22;
+    public SpannableStringBuilder R2(boolean z, boolean z2, boolean z4) {
+        SpannableStringBuilder N22;
         String spannableStringBuilder;
         SpannableStringBuilder spannableStringBuilder2;
         if (this.q == 1) {
-            M22 = L2();
-            spannableStringBuilder = M22.toString();
+            N22 = M2();
+            spannableStringBuilder = N22.toString();
         } else {
-            M22 = M2();
-            spannableStringBuilder = M22.toString();
+            N22 = N2();
+            spannableStringBuilder = N22.toString();
         }
-        SpannableStringBuilder spannableStringBuilder3 = M22;
+        SpannableStringBuilder spannableStringBuilder3 = N22;
         String str = spannableStringBuilder;
         if (z) {
             spannableStringBuilder2 = z(str, spannableStringBuilder3, z, true, z2, z4);
@@ -908,86 +963,86 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return spannableStringBuilder2;
     }
 
-    public void Q3(Item item) {
-        this.r2 = item;
-    }
-
-    public String R() {
-        return this.g2;
-    }
-
-    public ArrayList<d.a.m0.b1.m.b> R0() {
-        ArrayList<d.a.m0.b1.m.b> arrayList = new ArrayList<>();
-        if (this.j2) {
-            arrayList.add(new d.a.m0.b1.m.b(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
-        }
-        return arrayList;
-    }
-
-    public boolean R1() {
-        BaijiahaoData baijiahaoData = this.i2;
-        return baijiahaoData != null && baijiahaoData.oriUgcType == 3;
-    }
-
-    public SpannableStringBuilder R2(boolean z, boolean z2) {
-        SpannableStringBuilder L22;
-        if (!StringUtils.isNull(this.r) && this.q != 1) {
-            L22 = M2();
-        } else {
-            L22 = L2();
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(L22);
-        this.w = spannableStringBuilder;
-        return spannableStringBuilder;
-    }
-
-    public void R3(ItemData itemData) {
-        this.s2 = itemData;
+    public void R3(Item item) {
+        this.t2 = item;
     }
 
     public long S() {
         return this.r0;
     }
 
-    public final ArrayList<m.a> S0(boolean z, boolean z2, boolean z4, boolean z5) {
+    public ArrayList<d.a.m0.b1.m.b> S0() {
+        ArrayList<d.a.m0.b1.m.b> arrayList = new ArrayList<>();
+        if (this.l2) {
+            arrayList.add(new d.a.m0.b1.m.b(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
+        }
+        return arrayList;
+    }
+
+    public boolean S1() {
+        BaijiahaoData baijiahaoData = this.k2;
+        return baijiahaoData != null && baijiahaoData.oriUgcType == 3;
+    }
+
+    public SpannableStringBuilder S2(boolean z, boolean z2) {
+        SpannableStringBuilder M22;
+        if (!StringUtils.isNull(this.r) && this.q != 1) {
+            M22 = N2();
+        } else {
+            M22 = M2();
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(M22);
+        this.w = spannableStringBuilder;
+        return spannableStringBuilder;
+    }
+
+    public void S3(ItemData itemData) {
+        this.u2 = itemData;
+    }
+
+    public MetaData T() {
+        return this.P;
+    }
+
+    public final ArrayList<m.a> T0(boolean z, boolean z2, boolean z4, boolean z5) {
         ArrayList<m.a> arrayList = new ArrayList<>();
-        boolean H2 = H2();
+        boolean I2 = I2();
         if (z2) {
             if (z) {
-                if (H2 && !C2()) {
+                if (I2 && !D2()) {
                     arrayList.add(new m.a(R.string.god_title));
                 }
-                if (s0() == 1 || u1() == 33 || (C1() != null && C1().a() != 0)) {
-                    if (p1() == null || !f2()) {
-                        if (!H2) {
+                if (s0() == 1 || v1() == 33 || (D1() != null && D1().a() != 0)) {
+                    if (q1() == null || !g2()) {
+                        if (!I2) {
                             arrayList.add(new m.a(R.string.photo_live_tips));
                         }
-                    } else if (q1() == 2) {
+                    } else if (r1() == 2) {
                         arrayList.add(new m.a(R.string.interview_live));
                     }
                 }
-                if (f2()) {
-                    arrayList.add(F3.get(q1()));
+                if (g2()) {
+                    arrayList.add(I3.get(r1()));
                 }
-                if (N1()) {
-                    Integer num = E3.get(new Point(G(), F()));
+                if (O1()) {
+                    Integer num = H3.get(new Point(G(), F()));
                     if (num != null) {
                         arrayList.add(new m.a(num.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                     } else {
                         arrayList.add(new m.a(R.string.card_promotion_text));
                     }
                 }
-                if (K1() != null) {
+                if (L1() != null) {
                     arrayList.add(new m.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                 }
                 if (!d.a.c.e.p.k.isEmpty(X())) {
                     arrayList.add(new m.a(X()));
                 }
             } else {
-                if (H2 && y0() != 1 && !C2()) {
+                if (I2 && y0() != 1 && !D2()) {
                     arrayList.add(new m.a(R.string.god_title));
                 }
-                if ((s0() == 1 || u1() == 33) && !f2() && !H2) {
+                if ((s0() == 1 || v1() == 33) && !g2() && !I2) {
                     arrayList.add(new m.a(R.string.photo_live_tips));
                 }
                 if (x0() == 1) {
@@ -996,35 +1051,35 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                 if (y0() == 1) {
                     arrayList.add(new m.a(R.string.top));
                 }
-                if (f2() && p1() != null && q1() == 2) {
+                if (g2() && q1() != null && r1() == 2) {
                     arrayList.add(new m.a(R.string.interview_live));
                 }
-                if (N1()) {
-                    Integer num2 = E3.get(new Point(G(), F()));
+                if (O1()) {
+                    Integer num2 = H3.get(new Point(G(), F()));
                     if (num2 != null) {
                         arrayList.add(new m.a(num2.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                     } else {
                         arrayList.add(new m.a(R.string.card_promotion_text));
                     }
                 }
-                if (this.P0 == 1) {
+                if (this.Q0 == 1) {
                     arrayList.add(new m.a(R.string.card_tbread_text));
                 }
                 if (Q() != null) {
                     arrayList.add(new m.a(R.string.send_app_code_gift, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                 }
-                if (K1() != null) {
+                if (L1() != null) {
                     arrayList.add(new m.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                 }
                 if (!d.a.c.e.p.k.isEmpty(X())) {
                     arrayList.add(new m.a(X()));
                 }
-                if (z4 && k2()) {
+                if (z4 && l2()) {
                     arrayList.add(new m.a(R.string.ala_live));
                 }
-                if (z4 && j2()) {
+                if (z4 && k2()) {
                     arrayList.add(new m.a(R.string.live_record));
-                } else if (r2()) {
+                } else if (s2()) {
                     arrayList.add(new m.a(R.string.video_title_str));
                 }
                 if (z5) {
@@ -1035,8 +1090,8 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return arrayList;
     }
 
-    public boolean S1() {
-        BaijiahaoData baijiahaoData = this.i2;
+    public boolean T1() {
+        BaijiahaoData baijiahaoData = this.k2;
         return baijiahaoData != null && baijiahaoData.oriUgcType == 4;
     }
 
@@ -1045,13 +1100,13 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void S2(boolean z, boolean z2) {
-        d.a.c.j.b bVar;
-        SpannableStringBuilder M22;
+    public final void T2(boolean z, boolean z2) {
+        d.a.c.k.b bVar;
+        SpannableStringBuilder N22;
         SpannableString spannableString;
         ArrayList arrayList = new ArrayList();
         if (!z2) {
-            if (u1() == 42 && W1()) {
+            if (v1() == 42 && X1()) {
                 arrayList.add(Integer.valueOf(R.drawable.icon_convene));
             }
             if (y0() == 1) {
@@ -1060,42 +1115,42 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                 arrayList.add(Integer.valueOf(R.drawable.icon_notice));
             }
             if (s0() == 1 || this.N.a() != 0) {
-                if (p1() != null && u1() == 41) {
-                    if (q1() == 2) {
+                if (q1() != null && v1() == 41) {
+                    if (r1() == 2) {
                         arrayList.add(Integer.valueOf(R.drawable.label_interview));
                     }
                 } else {
                     arrayList.add(Integer.valueOf(R.drawable.icon_zhibo));
                 }
             }
-            if (z && f2()) {
-                Integer num = B3.get(Integer.valueOf(q1()));
+            if (z && g2()) {
+                Integer num = E3.get(Integer.valueOf(r1()));
                 if (num != null) {
                     arrayList.add(num);
                 }
             }
-            if (x0() == 1 && !y2() && g3 != getType() && p3 != getType()) {
+            if (x0() == 1 && !z2() && j3 != getType() && s3 != getType()) {
                 arrayList.add(Integer.valueOf(R.drawable.icon_elite));
             }
             AnchorInfoData anchorInfoData = this.b0;
             if (anchorInfoData != null && anchorInfoData.getGroup_id() != 0) {
                 arrayList.add(Integer.valueOf(R.drawable.icon_live_on));
             }
-            if (i1() == 1) {
+            if (j1() == 1) {
                 arrayList.add(Integer.valueOf(R.drawable.frs_post_ding));
             }
-            Integer num2 = A3.get(new Point(G(), F()));
+            Integer num2 = D3.get(new Point(G(), F()));
             if (num2 != null) {
                 arrayList.add(num2);
             }
-            if (K1() != null) {
+            if (L1() != null) {
                 arrayList.add(Integer.valueOf(R.drawable.tag_act));
             }
             if (Q() != null) {
                 arrayList.add(Integer.valueOf(R.drawable.icon_tag_giftsend));
             }
             if (!d.a.c.e.p.k.isEmpty(this.F)) {
-                bVar = z4(this.F);
+                bVar = A4(this.F);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 if (arrayList.size() > 0) {
                     StringBuilder sb = new StringBuilder();
@@ -1125,9 +1180,9 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                     }
                     spannableStringBuilder.append((CharSequence) spannableString);
                 }
-                M22 = M2();
-                if (M22 != null) {
-                    spannableStringBuilder.append((CharSequence) M22);
+                N22 = N2();
+                if (N22 != null) {
+                    spannableStringBuilder.append((CharSequence) N22);
                 }
                 this.w = spannableStringBuilder;
             }
@@ -1136,31 +1191,31 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
         if (arrayList.size() > 0) {
         }
-        M22 = M2();
-        if (M22 != null) {
+        N22 = N2();
+        if (N22 != null) {
         }
         this.w = spannableStringBuilder2;
     }
 
-    public void S3(List<HeadItem> list) {
-        this.t2 = list;
+    public void T3(List<HeadItem> list) {
+        this.v2 = list;
     }
 
-    public MetaData T() {
-        return this.P;
+    public int U() {
+        return this.j2;
     }
 
-    public PushStatusData T0() {
-        return this.E0;
+    public PushStatusData U0() {
+        return this.F0;
     }
 
-    public boolean T1() {
-        BaijiahaoData baijiahaoData = this.i2;
+    public boolean U1() {
+        BaijiahaoData baijiahaoData = this.k2;
         return baijiahaoData != null && baijiahaoData.oriUgcType == 2;
     }
 
     @Deprecated
-    public void T2(JSONObject jSONObject) {
+    public void U2(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject == null) {
             return;
@@ -1195,15 +1250,15 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             this.Y = jSONObject.optInt("is_voice_thread");
             this.Z = jSONObject.optInt("thread_type");
             jSONObject.optInt("thread_type");
-            this.k1 = jSONObject.optLong("share_num");
+            this.l1 = jSONObject.optLong("share_num");
             this.c0 = jSONObject.optString("first_post_id", "0");
             this.u0 = jSONObject.optString("post_id", "0");
             jSONObject.optLong("time", 0L);
             this.q = jSONObject.optInt("is_ntitle");
             this.F = jSONObject.optString(MangaCategoryActivityConfig.CATEGORY_NAME);
             this.s0 = jSONObject.optString("tieba_game_information_source", "");
-            this.i1.parseJson(jSONObject.optJSONObject("agree"));
-            this.i1.threadId = this.A;
+            this.j1.parseJson(jSONObject.optJSONObject("agree"));
+            this.j1.threadId = this.A;
             JSONArray optJSONArray = jSONObject.optJSONArray("dislike_info");
             ArrayList<DislikeInfo> arrayList = new ArrayList();
             if (optJSONArray != null) {
@@ -1222,12 +1277,12 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                         sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
                     }
                 }
-                this.e1 = sparseArray;
-                this.f1 = sparseArray2;
+                this.f1 = sparseArray;
+                this.g1 = sparseArray2;
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("top_agree_post");
             if (optJSONObject2 != null) {
-                this.C0.k(optJSONObject2);
+                this.D0.k(optJSONObject2);
             }
             if ((this.P == null || this.P.getUserId() == null) && this.d0 != null) {
                 this.P = this.d0.get(this.O);
@@ -1236,6 +1291,9 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("ala_info")) != null) {
                 this.g0 = optJSONObject.optString("location");
             }
+            jSONObject.optString("label_url");
+            this.K2 = jSONObject.optString("mode_url");
+            jSONObject.optString("location");
             AlaInfoData alaInfoData = new AlaInfoData();
             this.n0 = alaInfoData;
             alaInfoData.parserJson(jSONObject.optJSONObject("ala_info"));
@@ -1275,25 +1333,25 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                 for (int i7 = 0; i7 < optJSONArray5.length(); i7++) {
                     b bVar = new b();
                     bVar.h(optJSONArray5.getJSONObject(i7));
-                    this.w0.add(bVar);
+                    this.x0.add(bVar);
                 }
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("yule_post_activity");
             if (optJSONObject4 != null) {
                 m2 m2Var = new m2();
-                this.x0 = m2Var;
+                this.y0 = m2Var;
                 m2Var.c(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("app_code");
             if (optJSONObject5 != null) {
                 h hVar = new h();
-                this.y0 = hVar;
+                this.z0 = hVar;
                 hVar.b(optJSONObject5);
             }
             JSONObject optJSONObject6 = jSONObject.optJSONObject("cartoon_info");
             if (optJSONObject6 != null) {
                 t tVar = new t();
-                this.z0 = tVar;
+                this.A0 = tVar;
                 tVar.c(optJSONObject6);
             }
             this.a0.setUserMap(this.d0);
@@ -1306,58 +1364,58 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             }
             JSONObject optJSONObject7 = jSONObject.optJSONObject("task_info");
             if (optJSONObject7 != null) {
-                this.C0.k(optJSONObject7);
+                this.D0.k(optJSONObject7);
             }
             JSONArray optJSONArray6 = jSONObject.optJSONArray("ext_tails");
             if (optJSONArray6 != null) {
                 for (int i8 = 0; i8 < optJSONArray6.length(); i8++) {
                     d.a.m0.t.c cVar = new d.a.m0.t.c();
                     cVar.a(optJSONArray6.getJSONObject(i8));
-                    this.D0.add(cVar);
+                    this.E0.add(cVar);
                 }
             }
-            this.P0 = jSONObject.optInt("is_book_chapter", 0);
-            this.Q0.a(jSONObject.optJSONObject("book_chapter"));
-            this.S0 = jSONObject.optString("recom_source");
-            this.W0 = jSONObject.optString("recom_reason");
-            this.T0 = jSONObject.optString(TiebaStatic.Params.RECOM_WEIGHT);
-            this.V0 = jSONObject.optString(TiebaStatic.Params.RECOM_EXTRA);
+            this.Q0 = jSONObject.optInt("is_book_chapter", 0);
+            this.R0.a(jSONObject.optJSONObject("book_chapter"));
+            this.T0 = jSONObject.optString("recom_source");
+            this.X0 = jSONObject.optString("recom_reason");
+            this.U0 = jSONObject.optString(TiebaStatic.Params.RECOM_WEIGHT);
+            this.W0 = jSONObject.optString(TiebaStatic.Params.RECOM_EXTRA);
             jSONObject.optString("recom_extra_img");
             jSONObject.optString("recom_extra_img_night");
             jSONObject.optInt("recom_extra_img_width", 0);
             jSONObject.optInt("recom_extra_img_height", 0);
-            this.X0 = jSONObject.optLong("last_read_pid");
-            this.Y0 = jSONObject.optInt("cheak_repeat") == 1;
+            this.Y0 = jSONObject.optLong("last_read_pid");
+            this.Z0 = jSONObject.optInt("cheak_repeat") == 1;
             JSONObject optJSONObject8 = jSONObject.optJSONObject("video_channel_info");
             if (optJSONObject8 != null) {
                 h2 h2Var = new h2();
                 this.m0 = h2Var;
                 h2Var.a(optJSONObject8);
             }
-            this.h1 = jSONObject.optInt("is_multiforum_thread") == 1;
-            this.m1 = jSONObject.optBoolean("is_link_thread");
+            this.i1 = jSONObject.optInt("is_multiforum_thread") == 1;
+            this.n1 = jSONObject.optBoolean("is_link_thread");
             JSONObject optJSONObject9 = jSONObject.optJSONObject("link_info");
-            if (this.m1 && optJSONObject9 != null) {
+            if (this.n1 && optJSONObject9 != null) {
                 p0 p0Var = new p0();
-                this.l1 = p0Var;
+                this.m1 = p0Var;
                 p0Var.g(optJSONObject9);
             }
-            this.n1 = jSONObject.optInt("is_partial_visible") == 1;
+            this.o1 = jSONObject.optInt("is_partial_visible") == 1;
             JSONObject optJSONObject10 = jSONObject.optJSONObject("activity_info");
             if (optJSONObject10 != null) {
                 g gVar = new g();
-                this.o1 = gVar;
+                this.p1 = gVar;
                 gVar.a(optJSONObject10);
             }
             JSONObject optJSONObject11 = jSONObject.optJSONObject("pic_info");
             if (optJSONObject11 != null) {
                 MediaData mediaData2 = new MediaData();
-                this.p1 = mediaData2;
+                this.q1 = mediaData2;
                 mediaData2.parserJson(optJSONObject11);
             }
             jSONObject.optInt("is_called", 0);
-            this.q1 = jSONObject.optInt("middle_page_num", 0);
-            this.r1 = jSONObject.optInt("middle_page_pass_flag", 0);
+            this.r1 = jSONObject.optInt("middle_page_num", 0);
+            this.s1 = jSONObject.optInt("middle_page_pass_flag", 0);
             JSONObject optJSONObject12 = jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO);
             if (optJSONObject12 != null) {
                 VideoInfo.Builder builder = new VideoInfo.Builder();
@@ -1377,18 +1435,18 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                 this.k0 = builder.build(true);
             }
             boolean z = jSONObject.optInt("is_share_thread", 0) == 1;
-            this.t1 = z;
+            this.u1 = z;
             if (z) {
                 JSONObject optJSONObject13 = jSONObject.optJSONObject("origin_thread_info");
                 if (optJSONObject13 != null) {
                     OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-                    this.s1 = originalThreadInfo;
+                    this.t1 = originalThreadInfo;
                     originalThreadInfo.l(optJSONObject13);
                 } else {
-                    this.s1 = null;
+                    this.t1 = null;
                 }
             } else {
-                this.s1 = null;
+                this.t1 = null;
             }
             JSONObject optJSONObject14 = jSONObject.optJSONObject("swan_info");
             if (optJSONObject14 != null) {
@@ -1400,44 +1458,44 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                 builder2.h5_url = optJSONObject14.optString("h5_url");
                 builder2.id = optJSONObject14.optString("id");
                 builder2.link = optJSONObject14.optString("link");
-                this.G1 = builder2.build(false);
+                this.H1 = builder2.build(false);
             }
-            this.O1 = jSONObject.optString("t_share_img");
-            this.P1 = jSONObject.optString("nid");
-            this.Q1 = jSONObject.optInt("is_headlinepost", 0) == 1;
+            this.P1 = jSONObject.optString("t_share_img");
+            this.Q1 = jSONObject.optString("nid");
+            this.R1 = jSONObject.optInt("is_headlinepost", 0) == 1;
             jSONObject.optInt(ImageViewerConfig.IS_BJH);
-            this.h2 = jSONObject.optInt("bjh_content_tag");
-            this.g2 = jSONObject.optString("article_cover");
+            this.j2 = jSONObject.optInt("bjh_content_tag");
+            this.i2 = jSONObject.optString("article_cover");
             JSONObject optJSONObject15 = jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME);
             if (optJSONObject15 != null) {
                 BaijiahaoData baijiahaoData = new BaijiahaoData();
-                this.i2 = baijiahaoData;
+                this.k2 = baijiahaoData;
                 baijiahaoData.parseJson(optJSONObject15);
-                this.i1.baijiahaoData = this.i2;
+                this.j1.baijiahaoData = this.k2;
             }
-            this.j2 = jSONObject.optInt("is_s_card", 0) == 1;
-            this.k2 = jSONObject.optString("scard_packet_id");
-            this.l2 = jSONObject.optInt("tab_id");
-            this.m2 = jSONObject.optString("tab_name");
+            this.l2 = jSONObject.optInt("is_s_card", 0) == 1;
+            this.m2 = jSONObject.optString("scard_packet_id");
+            this.n2 = jSONObject.optInt("tab_id");
+            this.o2 = jSONObject.optString("tab_name");
             jSONObject.optString("wonderful_post_info");
-            this.e2 = jSONObject.optInt("if_comment", 0) == 1;
-            this.f2 = jSONObject.optString("if_comment_info");
+            this.g2 = jSONObject.optInt("if_comment", 0) == 1;
+            this.h2 = jSONObject.optString("if_comment_info");
             JSONObject optJSONObject16 = jSONObject.optJSONObject("poll_info");
             if (optJSONObject16 != null) {
-                if (this.v2 == null) {
-                    this.v2 = new PollData();
+                if (this.x2 == null) {
+                    this.x2 = new PollData();
                 }
-                this.v2.parserJson(optJSONObject16);
+                this.x2.parserJson(optJSONObject16);
             }
             JSONArray optJSONArray7 = jSONObject.optJSONArray("pb_link_info");
             if (optJSONArray7 != null) {
                 for (int i9 = 0; i9 < optJSONArray7.length(); i9++) {
                     PbLinkData pbLinkData = new PbLinkData();
                     pbLinkData.parseJson(optJSONArray7.getJSONObject(i9));
-                    if (pbLinkData.urlType == 2 && !this.q2) {
-                        this.q2 = true;
+                    if (pbLinkData.urlType == 2 && !this.s2) {
+                        this.s2 = true;
                     }
-                    this.o2.add(pbLinkData);
+                    this.q2.add(pbLinkData);
                 }
             }
             JSONArray optJSONArray8 = jSONObject.optJSONArray("pb_goods_info");
@@ -1445,54 +1503,139 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                 for (int i10 = 0; i10 < optJSONArray8.length(); i10++) {
                     PbGoodsData pbGoodsData = new PbGoodsData();
                     pbGoodsData.parseJson(optJSONArray8.getJSONObject(i10));
-                    this.p2.add(pbGoodsData);
+                    this.r2.add(pbGoodsData);
                 }
-                if (this.p2.size() > 0 && !this.q2) {
-                    this.q2 = true;
+                if (this.r2.size() > 0 && !this.s2) {
+                    this.s2 = true;
                 }
             }
-            this.w2 = jSONObject.optInt("hot_num", -1);
+            this.y2 = jSONObject.optInt("hot_num", -1);
             jSONObject.optInt("is_local");
             JSONObject optJSONObject17 = jSONObject.optJSONObject("works_info");
             if (optJSONObject17 != null) {
-                if (this.F2 == null) {
-                    this.F2 = new WorksInfoData();
+                if (this.H2 == null) {
+                    this.H2 = new WorksInfoData();
                 }
-                this.F2.parseJson(optJSONObject17);
+                this.H2.parseJson(optJSONObject17);
             }
-            a3();
-            this.G2 = jSONObject.optInt("collect_num");
+            this.I2 = jSONObject.optInt("collect_num");
             JSONArray optJSONArray9 = jSONObject.optJSONArray("thread_recommend_infos");
             if (optJSONArray9 != null) {
                 for (int i11 = 0; i11 < optJSONArray9.length(); i11++) {
                     ThreadRecommendInfoData threadRecommendInfoData = new ThreadRecommendInfoData();
                     threadRecommendInfoData.parseJson(optJSONArray9.getJSONObject(i11));
-                    this.H2.add(threadRecommendInfoData);
+                    this.J2.add(threadRecommendInfoData);
                 }
             }
+            w1 w1Var = new w1();
+            this.C = w1Var;
+            w1Var.d(jSONObject.optJSONObject("forum_info"));
+            this.G2 = jSONObject.optInt("is_author_view");
+            jSONObject.optString("scard_packet_id");
+            this.B0 = jSONObject.optString("livecover_src");
+            JSONArray optJSONArray10 = jSONObject.optJSONArray("rich_abstract");
+            if (optJSONArray10 != null) {
+                this.u = a1.a(optJSONArray10);
+            }
+            JSONArray optJSONArray11 = jSONObject.optJSONArray("rich_title");
+            if (optJSONArray11 != null) {
+                this.t = a1.a(optJSONArray11);
+            }
+            JSONArray optJSONArray12 = jSONObject.optJSONArray("first_post_content");
+            if (optJSONArray12 != null) {
+                this.v = a1.a(optJSONArray12);
+            }
+            JSONObject optJSONObject18 = jSONObject.optJSONObject("star_rank_icon");
+            if (optJSONObject18 != null) {
+                this.v1 = optJSONObject18.optString("icon_pic_url");
+                this.w1 = optJSONObject18.optString("icon_link");
+            }
+            JSONObject optJSONObject19 = jSONObject.optJSONObject("location");
+            if (optJSONObject19 != null) {
+                if (!TextUtils.isEmpty(optJSONObject19.optString(SuggestAddrField.KEY_LAT))) {
+                    this.e0 = optJSONObject19.optString(SuggestAddrField.KEY_LAT);
+                }
+                if (!TextUtils.isEmpty(optJSONObject19.optString(SuggestAddrField.KEY_LNG))) {
+                    this.e0 = optJSONObject19.optString(SuggestAddrField.KEY_LNG);
+                }
+                if (!TextUtils.isEmpty(optJSONObject19.optString("name"))) {
+                    this.e0 = optJSONObject19.optString("name");
+                }
+            }
+            JSONObject optJSONObject20 = jSONObject.optJSONObject("ori_forum_info");
+            if (optJSONObject20 != null) {
+                OriginalForumInfo originalForumInfo = new OriginalForumInfo();
+                originalForumInfo.id = optJSONObject20.optLong("ori_fid") + "";
+                originalForumInfo.ori_fname = optJSONObject20.optString("ori_fname");
+                originalForumInfo.ori_avatar = optJSONObject20.optString("ori_avatar");
+                originalForumInfo.ori_member_num = optJSONObject20.optLong("ori_member_num");
+                this.E1 = originalForumInfo;
+            }
+            JSONArray optJSONArray13 = jSONObject.optJSONArray("item_star");
+            if (optJSONArray13 != null) {
+                for (int i12 = 0; i12 < optJSONArray13.length(); i12++) {
+                    JSONObject optJSONObject21 = optJSONArray13.optJSONObject(i12);
+                    if (optJSONObject21 != null) {
+                        HeadItem.Builder builder3 = new HeadItem.Builder();
+                        builder3.content = optJSONObject21.optString("content");
+                        builder3.name = optJSONObject21.optString("name");
+                        builder3.type = Integer.valueOf(optJSONObject21.optInt("type"));
+                        if (this.v2 == null) {
+                            this.v2 = new ArrayList();
+                        }
+                        this.v2.add(builder3.build(true));
+                    }
+                }
+            }
+            JSONObject optJSONObject22 = jSONObject.optJSONObject("item");
+            if (optJSONObject22 != null && 0 != optJSONObject22.optLong(LegoListActivityConfig.ITEM_ID)) {
+                Item.Builder builder4 = new Item.Builder();
+                builder4.item_id = Long.valueOf(optJSONObject22.optLong(LegoListActivityConfig.ITEM_ID));
+                builder4.item_name = optJSONObject22.optString("item_name");
+                builder4.icon_size = Double.valueOf(optJSONObject22.optDouble("icon_size"));
+                builder4.score = Double.valueOf(optJSONObject22.optDouble("score"));
+                builder4.icon_url = optJSONObject22.optString("icon_url");
+                builder4.star = Integer.valueOf(optJSONObject22.optInt(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR));
+                JSONArray optJSONArray14 = jSONObject.optJSONArray("mTags");
+                ArrayList arrayList2 = new ArrayList();
+                if (optJSONArray14 != null) {
+                    for (int i13 = 0; i13 < optJSONArray14.length(); i13++) {
+                        arrayList2.add(optJSONArray14.optString(i13));
+                    }
+                    builder4.tags = arrayList2;
+                }
+                Item build2 = builder4.build(true);
+                if (build2 != null) {
+                    this.t2 = build2;
+                    ItemData itemData = new ItemData();
+                    this.u2 = itemData;
+                    itemData.parseProto(build2);
+                }
+            }
+            b3();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public void T3(long j) {
+    public void U3(long j) {
         this.I = j;
     }
 
-    public int U() {
-        return this.h2;
+    public BaijiahaoData V() {
+        return this.k2;
     }
 
-    public ThreadInfo U0() {
-        return this.n2;
+    public ThreadInfo V0() {
+        return this.p2;
     }
 
     @Deprecated
-    public boolean U1() {
-        return B2();
+    public boolean V1() {
+        return C2();
     }
 
-    public void U2(ThreadInfo threadInfo) {
+    public void V2(ThreadInfo threadInfo) {
         MetaData metaData;
         if (threadInfo == null) {
             return;
@@ -1544,25 +1687,25 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             this.q = threadInfo.is_ntitle.intValue();
             this.h0 = threadInfo.is_activity.intValue();
             if (threadInfo.agree != null) {
-                this.i1.threadId = threadInfo.id == null ? "" : String.valueOf(threadInfo.id);
-                this.i1.parseProtobuf(threadInfo.agree);
+                this.j1.threadId = threadInfo.id == null ? "" : String.valueOf(threadInfo.id);
+                this.j1.parseProtobuf(threadInfo.agree);
             }
             if (!StringUtils.isNull(threadInfo.tieba_game_information_source)) {
                 this.s0 = threadInfo.tieba_game_information_source;
             } else {
                 this.s0 = "";
             }
-            this.k1 = threadInfo.share_num.longValue();
+            this.l1 = threadInfo.share_num.longValue();
             this.F = threadInfo.category_name;
             this.i0 = threadInfo.operator_flag.intValue();
             if (threadInfo.is_operate_thread != null) {
-                this.R0 = threadInfo.is_operate_thread.intValue() == 1;
+                this.S0 = threadInfo.is_operate_thread.intValue() == 1;
             }
             this.t = threadInfo.rich_title;
             this.v = threadInfo.first_post_content;
             this.u = threadInfo.rich_abstract;
             threadInfo.is_godthread_recommend.intValue();
-            if ((this.P == null || this.P.getUserId() == null || this.P.getUserId().equals("0") || this.B2) && this.O != null && !this.O.equals("0") && this.d0 != null && (metaData = this.d0.get(this.O)) != null) {
+            if ((this.P == null || this.P.getUserId() == null || this.P.getUserId().equals("0") || this.D2) && this.O != null && !this.O.equals("0") && this.d0 != null && (metaData = this.d0.get(this.O)) != null) {
                 this.P = metaData;
             }
             StringBuilder sb = new StringBuilder();
@@ -1609,22 +1752,22 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                 for (int i6 = 0; i6 < size2; i6++) {
                     b bVar = new b();
                     bVar.i(list4.get(i6));
-                    this.w0.add(bVar);
+                    this.x0.add(bVar);
                 }
             }
             if (threadInfo.yule_post_activity != null) {
                 m2 m2Var = new m2();
-                this.x0 = m2Var;
+                this.y0 = m2Var;
                 m2Var.d(threadInfo.yule_post_activity);
             }
             if (threadInfo.app_code != null) {
                 h hVar = new h();
-                this.y0 = hVar;
+                this.z0 = hVar;
                 hVar.c(threadInfo.app_code);
             }
             if (threadInfo.cartoon_info != null) {
                 t tVar = new t();
-                this.z0 = tVar;
+                this.A0 = tVar;
                 tVar.d(threadInfo.cartoon_info);
             }
             this.a0.setUserMap(this.d0);
@@ -1635,9 +1778,9 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             } else {
                 this.a0.setTitle(this.s);
             }
-            this.A0 = threadInfo.livecover_src;
+            this.B0 = threadInfo.livecover_src;
             threadInfo.storecount.intValue();
-            threadInfo.post_num.intValue();
+            this.v0 = threadInfo.post_num.intValue();
             threadInfo.post_num.intValue();
             threadInfo.freq_num.longValue();
             ZhiBoInfoTW zhiBoInfoTW = threadInfo.twzhibo_info;
@@ -1658,11 +1801,11 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                 if (noticeInfo != null) {
                     String str3 = noticeInfo.notice;
                 }
-                this.B0 = zhiBoInfoTW.copythread_remind.intValue();
+                this.C0 = zhiBoInfoTW.copythread_remind.intValue();
                 zhiBoInfoTW.is_copytwzhibo.intValue();
                 zhiBoInfoTW.is_copytwzhibo.intValue();
-                if (StringUtils.isNull(this.A0)) {
-                    this.A0 = zhiBoInfoTW.livecover_src;
+                if (StringUtils.isNull(this.B0)) {
+                    this.B0 = zhiBoInfoTW.livecover_src;
                 }
                 if (zhiBoInfoTW.user != null) {
                     TwZhiBoUser twZhiBoUser = zhiBoInfoTW.user.tw_anchor_info;
@@ -1679,30 +1822,30 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             }
             threadInfo.is_copythread.intValue();
             if (threadInfo.task_info != null) {
-                this.C0.l(threadInfo.task_info);
+                this.D0.l(threadInfo.task_info);
             }
             if (threadInfo.ext_tails != null) {
                 for (int i8 = 0; i8 != threadInfo.ext_tails.size(); i8++) {
                     d.a.m0.t.c cVar2 = new d.a.m0.t.c();
                     cVar2.b(threadInfo.ext_tails.get(i8));
-                    this.D0.add(cVar2);
+                    this.E0.add(cVar2);
                 }
             }
-            this.E0.parserProtobuf(threadInfo.push_status);
-            this.O0 = threadInfo.lego_card;
-            this.M0 = threadInfo.skin_info;
-            this.P0 = threadInfo.is_book_chapter.intValue();
-            this.Q0.b(threadInfo.book_chapter);
-            this.S0 = threadInfo.recom_source;
-            this.W0 = threadInfo.recom_reason;
-            this.T0 = threadInfo.recom_weight;
-            this.U0 = threadInfo.ab_tag;
-            this.V0 = threadInfo.recom_extra;
-            this.X0 = threadInfo.last_read_pid.longValue();
-            this.Y0 = threadInfo.cheak_repeat.intValue() == 1;
+            this.F0.parserProtobuf(threadInfo.push_status);
+            this.P0 = threadInfo.lego_card;
+            this.N0 = threadInfo.skin_info;
+            this.Q0 = threadInfo.is_book_chapter.intValue();
+            this.R0.b(threadInfo.book_chapter);
+            this.T0 = threadInfo.recom_source;
+            this.X0 = threadInfo.recom_reason;
+            this.U0 = threadInfo.recom_weight;
+            this.V0 = threadInfo.ab_tag;
+            this.W0 = threadInfo.recom_extra;
+            this.Y0 = threadInfo.last_read_pid.longValue();
+            this.Z0 = threadInfo.cheak_repeat.intValue() == 1;
             List<ReportInfo> list6 = threadInfo.report_info;
             if (threadInfo.top_agree_post != null) {
-                this.j1.b0(threadInfo.top_agree_post, TbadkCoreApplication.getInst().getApplicationContext());
+                this.k1.b0(threadInfo.top_agree_post, TbadkCoreApplication.getInst().getApplicationContext());
             }
             List<DislikeInfo> list7 = threadInfo.dislike_info;
             if (ListUtils.getCount(list7) > 0) {
@@ -1714,50 +1857,50 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                         sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
                     }
                 }
-                this.e1 = sparseArray;
-                this.f1 = sparseArray2;
+                this.f1 = sparseArray;
+                this.g1 = sparseArray2;
             }
-            this.h1 = threadInfo.is_multiforum_thread.intValue() == 1;
+            this.i1 = threadInfo.is_multiforum_thread.intValue() == 1;
             boolean z = threadInfo.is_link_thread.intValue() == 1;
-            this.m1 = z;
+            this.n1 = z;
             if (z && threadInfo.link_info != null) {
                 p0 p0Var = new p0();
-                this.l1 = p0Var;
+                this.m1 = p0Var;
                 p0Var.h(threadInfo.link_info);
             }
-            this.n1 = threadInfo.is_partial_visible.intValue() == 1;
+            this.o1 = threadInfo.is_partial_visible.intValue() == 1;
             if (threadInfo.activity_info != null) {
                 g gVar = new g();
-                this.o1 = gVar;
+                this.p1 = gVar;
                 gVar.b(threadInfo.activity_info);
             }
             if (threadInfo.pic_info != null) {
                 MediaData mediaData2 = new MediaData();
-                this.p1 = mediaData2;
+                this.q1 = mediaData2;
                 mediaData2.parserProtobuf(threadInfo.pic_info);
             }
             threadInfo.is_called.intValue();
-            this.q1 = threadInfo.middle_page_num.intValue();
-            this.r1 = threadInfo.middle_page_pass_flag.intValue();
-            this.t1 = threadInfo.is_share_thread.intValue() == 1;
+            this.r1 = threadInfo.middle_page_num.intValue();
+            this.s1 = threadInfo.middle_page_pass_flag.intValue();
+            this.u1 = threadInfo.is_share_thread.intValue() == 1;
             if (threadInfo.star_rank_icon != null) {
-                this.u1 = threadInfo.star_rank_icon.icon_pic_url;
-                this.v1 = threadInfo.star_rank_icon.icon_link;
+                this.v1 = threadInfo.star_rank_icon.icon_pic_url;
+                this.w1 = threadInfo.star_rank_icon.icon_link;
             }
             if (threadInfo.origin_thread_info != null) {
                 OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-                this.s1 = originalThreadInfo;
+                this.t1 = originalThreadInfo;
                 originalThreadInfo.j(threadInfo.origin_thread_info);
             } else {
-                this.s1 = null;
-                this.t1 = false;
+                this.t1 = null;
+                this.u1 = false;
             }
-            this.w1 = threadInfo.is_topic.intValue();
-            this.y1 = threadInfo.topic_user_name;
-            this.z1 = threadInfo.topic_h5_url;
-            this.x1 = threadInfo.topic_module;
+            this.x1 = threadInfo.is_topic.intValue();
+            this.z1 = threadInfo.topic_user_name;
+            this.A1 = threadInfo.topic_h5_url;
+            this.y1 = threadInfo.topic_module;
             String str4 = threadInfo.presentation_style;
-            this.D1 = OriginalForumInfo.parser(threadInfo.ori_forum_info);
+            this.E1 = OriginalForumInfo.parser(threadInfo.ori_forum_info);
             String str5 = threadInfo.daily_paper_time;
             if (threadInfo.forum_info != null) {
                 w1 w1Var = new w1();
@@ -1765,176 +1908,145 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                 w1Var.e(threadInfo.forum_info);
             }
             if (threadInfo.swan_info != null) {
-                this.G1 = threadInfo.swan_info;
+                this.H1 = threadInfo.swan_info;
             }
-            this.O1 = threadInfo.t_share_img;
-            this.P1 = threadInfo.nid;
-            this.Q1 = threadInfo.is_headlinepost.intValue() == 1;
+            this.P1 = threadInfo.t_share_img;
+            this.Q1 = threadInfo.nid;
+            this.R1 = threadInfo.is_headlinepost.intValue() == 1;
             String str6 = threadInfo.thread_share_link;
-            this.g2 = threadInfo.article_cover;
-            this.h2 = threadInfo.bjh_content_tag.intValue();
+            this.i2 = threadInfo.article_cover;
+            this.j2 = threadInfo.bjh_content_tag.intValue();
             threadInfo.is_bjh.intValue();
             if (threadInfo.baijiahao != null) {
                 BaijiahaoData baijiahaoData = new BaijiahaoData();
-                this.i2 = baijiahaoData;
+                this.k2 = baijiahaoData;
                 baijiahaoData.parseProto(threadInfo.baijiahao);
-                this.i1.baijiahaoData = this.i2;
+                this.j1.baijiahaoData = this.k2;
             }
-            this.j2 = threadInfo.is_s_card.intValue() == 1;
-            this.k2 = threadInfo.scard_packet_id;
-            this.l2 = threadInfo.tab_id.intValue();
-            this.m2 = threadInfo.tab_name;
+            this.l2 = threadInfo.is_s_card.intValue() == 1;
+            this.m2 = threadInfo.scard_packet_id;
+            this.n2 = threadInfo.tab_id.intValue();
+            this.o2 = threadInfo.tab_name;
             String str7 = threadInfo.wonderful_post_info;
-            this.e2 = threadInfo.if_comment.intValue() == 1;
-            this.f2 = threadInfo.if_comment_info;
-            this.n2 = threadInfo;
+            this.g2 = threadInfo.if_comment.intValue() == 1;
+            this.h2 = threadInfo.if_comment_info;
+            this.p2 = threadInfo;
             if (!ListUtils.isEmpty(threadInfo.pb_link_info)) {
                 for (PbLinkInfo pbLinkInfo : threadInfo.pb_link_info) {
                     PbLinkData pbLinkData = new PbLinkData();
                     pbLinkData.parseProto(pbLinkInfo);
-                    if (pbLinkData.urlType == 2 && !this.q2) {
-                        this.q2 = true;
+                    if (pbLinkData.urlType == 2 && !this.s2) {
+                        this.s2 = true;
                     }
-                    this.o2.add(pbLinkData);
+                    this.q2.add(pbLinkData);
                 }
             }
             if (!ListUtils.isEmpty(threadInfo.pb_goods_info)) {
                 for (PbGoodsInfo pbGoodsInfo : threadInfo.pb_goods_info) {
                     PbGoodsData pbGoodsData = new PbGoodsData();
                     pbGoodsData.parseProto(pbGoodsInfo);
-                    this.p2.add(pbGoodsData);
+                    this.r2.add(pbGoodsData);
                 }
-                if (this.p2.size() > 0 && !this.q2) {
-                    this.q2 = true;
+                if (this.r2.size() > 0 && !this.s2) {
+                    this.s2 = true;
                 }
             }
             if (threadInfo.item != null && threadInfo.item.item_id.longValue() != 0) {
-                this.r2 = threadInfo.item;
+                this.t2 = threadInfo.item;
             }
-            if (this.r2 != null) {
+            if (this.t2 != null) {
                 ItemData itemData = new ItemData();
-                this.s2 = itemData;
-                itemData.parseProto(this.r2);
+                this.u2 = itemData;
+                itemData.parseProto(this.t2);
             }
             List<HeadItem> list8 = threadInfo.item_star;
-            this.t2 = list8;
+            this.v2 = list8;
             if (!ListUtils.isEmpty(list8)) {
                 ItemStarData itemStarData = new ItemStarData();
-                this.u2 = itemStarData;
-                itemStarData.parseProto(this.t2);
+                this.w2 = itemStarData;
+                itemStarData.parseProto(this.v2);
             }
             if (threadInfo.poll_info != null) {
-                if (this.v2 == null) {
-                    this.v2 = new PollData();
+                if (this.x2 == null) {
+                    this.x2 = new PollData();
                 }
-                this.v2.parserProtobuf(threadInfo.poll_info);
+                this.x2.parserProtobuf(threadInfo.poll_info);
             }
-            this.w2 = threadInfo.hot_num.intValue();
+            this.y2 = threadInfo.hot_num.intValue();
             threadInfo.is_local.intValue();
-            this.E2 = threadInfo.is_author_view.intValue();
+            this.G2 = threadInfo.is_author_view.intValue();
             if (threadInfo.works_info != null) {
-                if (this.F2 == null) {
-                    this.F2 = new WorksInfoData();
+                if (this.H2 == null) {
+                    this.H2 = new WorksInfoData();
                 }
-                this.F2.parseProto(threadInfo.works_info);
+                this.H2.parseProto(threadInfo.works_info);
             }
-            a3();
-            this.G2 = threadInfo.collect_num.intValue();
+            b3();
+            this.I2 = threadInfo.collect_num.intValue();
             if (ListUtils.isEmpty(threadInfo.thread_recommend_infos)) {
                 return;
             }
             for (ThreadRecommendInfo threadRecommendInfo : threadInfo.thread_recommend_infos) {
                 ThreadRecommendInfoData threadRecommendInfoData = new ThreadRecommendInfoData();
                 threadRecommendInfoData.parseProto(threadRecommendInfo);
-                this.H2.add(threadRecommendInfoData);
+                this.J2.add(threadRecommendInfoData);
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public void U3(List<PbLinkData> list) {
-        this.o2 = list;
+    public void V3(List<PbLinkData> list) {
+        this.q2 = list;
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        for (PbLinkData pbLinkData : this.o2) {
-            if (pbLinkData.urlType == 2 && !this.q2) {
-                this.q2 = true;
+        for (PbLinkData pbLinkData : this.q2) {
+            if (pbLinkData.urlType == 2 && !this.s2) {
+                this.s2 = true;
             }
         }
     }
 
-    public BaijiahaoData V() {
-        return this.i2;
+    public t W() {
+        return this.A0;
     }
 
-    public int V0() {
-        if (q2()) {
+    public int W0() {
+        if (r2()) {
             return 4;
         }
-        if (k2() || j2()) {
+        if (l2() || k2()) {
             return 3;
         }
-        if (Q1()) {
+        if (R1()) {
             return 5;
         }
-        if (T1()) {
+        if (U1()) {
             return 6;
         }
-        if (R1()) {
+        if (S1()) {
             return 7;
         }
-        if (S1()) {
+        if (T1()) {
             return 8;
         }
-        if (!this.t1 || this.s1 == null) {
-            return r2() ? 2 : 1;
+        if (!this.u1 || this.t1 == null) {
+            return s2() ? 2 : 1;
         }
         return 9;
     }
 
-    public boolean V1() {
-        return R1() || S1();
+    public boolean W1() {
+        return S1() || T1();
     }
 
-    public void V2(boolean z, boolean z2) {
-        W2(z, z2, true);
+    public void W2(boolean z, boolean z2) {
+        X2(z, z2, true);
     }
 
-    public void V3(String str) {
+    public void W3(String str) {
         this.X = str;
-    }
-
-    public t W() {
-        return this.z0;
-    }
-
-    public String W0() {
-        return this.W0;
-    }
-
-    public final boolean W1() {
-        return SwitchManager.getInstance().findType(ConveneThreadOpenSwitch.KEY) == 1;
-    }
-
-    public void W2(boolean z, boolean z2, boolean z4) {
-        SpannableStringBuilder spannableStringBuilder;
-        if (ListUtils.getCount(S0(z, z2, z4, false)) > 0) {
-            P2(z, z4);
-            return;
-        }
-        SpannableStringBuilder M22 = M2();
-        if (z) {
-            spannableStringBuilder = z(M22.toString(), M22, z, z2, z4, false);
-        } else {
-            spannableStringBuilder = new SpannableStringBuilder(M22);
-        }
-        this.w = spannableStringBuilder;
-    }
-
-    public void W3(boolean z) {
-        this.B1 = z;
     }
 
     public String X() {
@@ -1942,15 +2054,26 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     }
 
     public String X0() {
-        return this.S0;
+        return this.X0;
     }
 
-    public boolean X1() {
-        return G2();
+    public final boolean X1() {
+        return SwitchManager.getInstance().findType(ConveneThreadOpenSwitch.KEY) == 1;
     }
 
-    public void X2() {
-        S2(false, true);
+    public void X2(boolean z, boolean z2, boolean z4) {
+        SpannableStringBuilder spannableStringBuilder;
+        if (ListUtils.getCount(T0(z, z2, z4, false)) > 0) {
+            Q2(z, z4);
+            return;
+        }
+        SpannableStringBuilder N22 = N2();
+        if (z) {
+            spannableStringBuilder = z(N22.toString(), N22, z, z2, z4, false);
+        } else {
+            spannableStringBuilder = new SpannableStringBuilder(N22);
+        }
+        this.w = spannableStringBuilder;
     }
 
     public void X3(boolean z) {
@@ -1958,24 +2081,23 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     }
 
     public int Y() {
-        return this.B0;
+        return this.C0;
     }
 
     public String Y0() {
-        return this.L1;
+        return this.T0;
     }
 
     public boolean Y1() {
-        MetaData metaData = this.P;
-        return metaData != null && metaData.isForumBusinessAccount();
+        return H2();
     }
 
     public void Y2() {
-        S2(false, false);
+        T2(false, true);
     }
 
-    public void Y3(ArrayList<MediaData> arrayList) {
-        this.T = arrayList;
+    public void Y3(boolean z) {
+        this.D1 = z;
     }
 
     public long Z() {
@@ -1987,10 +2109,31 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     }
 
     public boolean Z1() {
-        return this.N0;
+        MetaData metaData = this.P;
+        return metaData != null && metaData.isForumBusinessAccount();
     }
 
-    public int Z2() {
+    public void Z2() {
+        T2(false, false);
+    }
+
+    public void Z3(ArrayList<MediaData> arrayList) {
+        this.T = arrayList;
+    }
+
+    public long a0() {
+        return this.j1.disAgreeNum;
+    }
+
+    public String a1() {
+        return this.N1;
+    }
+
+    public boolean a2() {
+        return this.O0;
+    }
+
+    public int a3() {
         if (!d.a.m0.r.k.c().g() || ListUtils.getCount(L0()) == 0) {
             return 0;
         }
@@ -2004,74 +2147,98 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return linkedList.size();
     }
 
-    public void Z3(String str) {
+    public void a4(String str) {
         this.o = str;
     }
 
-    public long a0() {
-        return this.i1.disAgreeNum;
-    }
-
-    public int a1() {
-        return this.G;
-    }
-
-    public boolean a2() {
-        return this.V1;
-    }
-
-    public void a3() {
-        l3();
-        d3();
-        j3();
-        k3();
-        b3();
-        h3();
-        i3();
-    }
-
-    public void a4(PollData pollData) {
-        this.v2 = pollData;
-    }
-
     public SparseArray<String> b0() {
-        return this.e1;
+        return this.f1;
     }
 
     public int b1() {
-        return this.n;
+        return this.G;
     }
 
     public boolean b2() {
-        d.a.n0.e3.h0.n nVar = this.D2;
-        if (nVar != null) {
-            return nVar.f();
+        return this.W1;
+    }
+
+    public void b3() {
+        m3();
+        e3();
+        k3();
+        l3();
+        c3();
+        i3();
+        j3();
+    }
+
+    public void b4(PollData pollData) {
+        this.x2 = pollData;
+    }
+
+    @Override // d.a.m0.r.q.a
+    public v0 c() {
+        SparseArray<String> sparseArray = this.f1;
+        if (sparseArray == null || sparseArray.size() <= 0) {
+            return null;
         }
-        return false;
-    }
-
-    public final void b3() {
-        this.y = I2();
-    }
-
-    public void b4(PraiseData praiseData) {
-        this.a0 = praiseData;
+        v0 v0Var = new v0();
+        i();
+        v0Var.n(z1());
+        i();
+        v0Var.k(c0());
+        i();
+        v0Var.m(M0());
+        v0Var.j(this.f1);
+        v0Var.f53823g = this.g1;
+        v0Var.o = this.V0;
+        v0Var.j = this.U0;
+        v0Var.l = this.W0;
+        v0Var.k = this.T0;
+        v0Var.p = this.O1;
+        v0Var.n = W0();
+        return v0Var;
     }
 
     public long c0() {
         return this.B;
     }
 
-    public List<PbContent> c1() {
-        return this.t;
+    public int c1() {
+        return this.n;
     }
 
     public boolean c2() {
+        d.a.n0.e3.h0.n nVar = this.F2;
+        if (nVar != null) {
+            return nVar.f();
+        }
+        return false;
+    }
+
+    public final void c3() {
+        this.y = J2();
+    }
+
+    public void c4(PraiseData praiseData) {
+        this.a0 = praiseData;
+    }
+
+    public String d0() {
+        return this.D;
+    }
+
+    public List<PbContent> d1() {
+        return this.t;
+    }
+
+    public boolean d2() {
         MetaData metaData = this.P;
         return (metaData == null || metaData.getGodUserData() == null || this.P.getGodUserData().getType() != 2) ? false : true;
     }
 
-    public final void c3() {
+    public final void d3() {
         AlaUserInfoData alaUserInfoData;
         AlaInfoData alaInfoData = this.n0;
         if (alaInfoData == null) {
@@ -2082,7 +2249,7 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             if (j > 0) {
                 String formatTimeForAlaCardCreate = StringHelper.getFormatTimeForAlaCardCreate(j);
                 if (!StringUtils.isNull(formatTimeForAlaCardCreate)) {
-                    this.J1 = formatTimeForAlaCardCreate;
+                    this.K1 = formatTimeForAlaCardCreate;
                 }
             }
         }
@@ -2092,42 +2259,42 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             if (alaInfoData2 != null && (alaUserInfoData = alaInfoData2.user_info) != null) {
                 i2 = alaUserInfoData.anchor_fans;
             }
-            if (TextUtils.isEmpty(this.J1) || i2 <= 0) {
+            if (TextUtils.isEmpty(this.K1) || i2 <= 0) {
                 if (i2 > 0) {
-                    this.J1 = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + StringHelper.numberUniformFormatExtraWithRoundInt(i2);
+                    this.K1 = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + StringHelper.numberUniformFormatExtraWithRoundInt(i2);
                     return;
                 }
                 return;
             }
-            this.J1 += "   " + TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + " " + StringHelper.numberUniformFormatExtraWithRoundInt(i2);
+            this.K1 += "   " + TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + " " + StringHelper.numberUniformFormatExtraWithRoundInt(i2);
         }
     }
 
-    public void c4(int i2) {
+    public void d4(int i2) {
         this.G = i2;
     }
 
-    public String d0() {
-        return this.D;
+    public List<PbContent> e0() {
+        return this.v;
     }
 
-    public String d1() {
-        return this.L0;
+    public String e1() {
+        return this.M0;
     }
 
-    public boolean d2() {
-        return this.q2;
+    public boolean e2() {
+        return this.s2;
     }
 
-    public final void d3() {
+    public final void e3() {
         MetaData metaData;
         MetaData metaData2;
         if ((this instanceof w0) && "0".equals(o0())) {
-            this.J1 = TbadkCoreApplication.getInst().getString(R.string.video_is_checking_novisible);
+            this.K1 = TbadkCoreApplication.getInst().getString(R.string.video_is_checking_novisible);
             return;
         }
-        if (!B2() && (!a2() || getType() == h3)) {
-            if (getType() != h3 && getType() != k3) {
+        if (!C2() && (!b2() || getType() == k3)) {
+            if (getType() != k3 && getType() != n3) {
                 long C0 = C0() * 1000;
                 if (C0 != 0) {
                     String formatTimeForJustNow = StringHelper.getFormatTimeForJustNow(C0);
@@ -2138,34 +2305,34 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
                     if (y()) {
                         formatTimeForJustNow = StringHelper.getFormatTimeForHomeC(C0);
                     }
-                    this.J1 = string + formatTimeForJustNow;
+                    this.K1 = string + formatTimeForJustNow;
                 } else {
                     long j = this.q0;
                     String formatTimeForJustNow2 = StringHelper.getFormatTimeForJustNow(j);
                     if (StringHelper.isThisYear(formatTimeForJustNow2)) {
                         formatTimeForJustNow2 = StringHelper.getFormatTimeShort(j);
                     }
-                    this.J1 = formatTimeForJustNow2;
+                    this.K1 = formatTimeForJustNow2;
                 }
-                if (p2()) {
+                if (q2()) {
+                    g3();
+                } else if (u2()) {
                     f3();
-                } else if (t2()) {
-                    e3();
-                } else if (!this.U1 && (metaData2 = this.P) != null && metaData2.showBazhuGrade()) {
-                    String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getBazhuGradeData().getDesc(), this.T1 ? 24 : 16, StringHelper.STRING_MORE);
-                    if (!TextUtils.isEmpty(this.J1)) {
-                        this.J1 += "   " + cutChineseAndEnglishWithSuffix;
+                } else if (!this.V1 && (metaData2 = this.P) != null && metaData2.showBazhuGrade()) {
+                    String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getBazhuGradeData().getDesc(), this.U1 ? 24 : 16, StringHelper.STRING_MORE);
+                    if (!TextUtils.isEmpty(this.K1)) {
+                        this.K1 += "   " + cutChineseAndEnglishWithSuffix;
                     } else {
-                        this.J1 = cutChineseAndEnglishWithSuffix;
+                        this.K1 = cutChineseAndEnglishWithSuffix;
                     }
                 }
-                if (TextUtils.isEmpty(this.J1) || TextUtils.isEmpty(K())) {
+                if (TextUtils.isEmpty(this.K1) || TextUtils.isEmpty(K())) {
                     return;
                 }
-                this.J1 += " • " + K();
+                this.K1 += " • " + K();
                 return;
             }
-            c3();
+            d3();
             return;
         }
         long j2 = this.q0;
@@ -2174,52 +2341,29 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
             if (StringHelper.isThisYear(formatTimeForJustNow3)) {
                 formatTimeForJustNow3 = StringHelper.getFormatTimeShort(j2);
             }
-            this.J1 = formatTimeForJustNow3;
+            this.K1 = formatTimeForJustNow3;
         }
         MetaData metaData3 = this.P;
         String str = (metaData3 == null || metaData3.getBaijiahaoInfo() == null || TextUtils.isEmpty(this.P.getBaijiahaoInfo().auth_desc)) ? "" : this.P.getBaijiahaoInfo().auth_desc;
-        if (p2()) {
-            f3();
-        } else if (!this.U1 && (metaData = this.P) != null && metaData.showBazhuGrade()) {
+        if (q2()) {
+            g3();
+        } else if (!this.V1 && (metaData = this.P) != null && metaData.showBazhuGrade()) {
             String cutChineseAndEnglishWithSuffix2 = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getBazhuGradeData().getDesc(), 24, StringHelper.STRING_MORE);
-            if (!TextUtils.isEmpty(this.J1)) {
-                this.J1 += "   " + cutChineseAndEnglishWithSuffix2;
+            if (!TextUtils.isEmpty(this.K1)) {
+                this.K1 += "   " + cutChineseAndEnglishWithSuffix2;
                 return;
             }
-            this.J1 = cutChineseAndEnglishWithSuffix2;
-        } else if (!TextUtils.isEmpty(this.J1) && !TextUtils.isEmpty(str)) {
-            this.J1 += "   " + str;
+            this.K1 = cutChineseAndEnglishWithSuffix2;
+        } else if (!TextUtils.isEmpty(this.K1) && !TextUtils.isEmpty(str)) {
+            this.K1 += "   " + str;
         } else if (TextUtils.isEmpty(str)) {
         } else {
-            this.J1 = str;
+            this.K1 = str;
         }
     }
 
-    public void d4(int i2) {
+    public void e4(int i2) {
         this.n = i2;
-    }
-
-    public List<PbContent> e0() {
-        return this.v;
-    }
-
-    public String e1() {
-        return this.E;
-    }
-
-    public boolean e2() {
-        return this.Z0;
-    }
-
-    public final void e3() {
-        if (StringUtils.isNull(this.Q)) {
-            return;
-        }
-        this.J1 = (StringHelper.cutChineseAndEnglishWithSuffix(this.Q, 12, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getContext().getString(R.string.forum)) + GlideException.IndentedAppendable.INDENT + this.J1;
-    }
-
-    public void e4(List<PbContent> list) {
-        this.u = list;
     }
 
     public String f0() {
@@ -2227,26 +2371,22 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     }
 
     public String f1() {
-        return this.O1;
+        return this.E;
     }
 
     public boolean f2() {
-        return this.Z == 41;
+        return this.a1;
     }
 
     public final void f3() {
-        if (!p2() || TextUtils.isEmpty(this.P.getNewGodData().getFieldName())) {
+        if (StringUtils.isNull(this.Q)) {
             return;
         }
-        if (!TextUtils.isEmpty(this.J1)) {
-            this.J1 += "   " + this.P.getNewGodData().getFieldName() + d.a.m0.z0.l0.d(this.P.getNewGodData().isVideoGod());
-            return;
-        }
-        this.J1 = this.P.getNewGodData().getFieldName() + d.a.m0.z0.l0.d(this.P.getNewGodData().isVideoGod());
+        this.K1 = (StringHelper.cutChineseAndEnglishWithSuffix(this.Q, 12, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getContext().getString(R.string.forum)) + GlideException.IndentedAppendable.INDENT + this.K1;
     }
 
     public void f4(List<PbContent> list) {
-        this.t = list;
+        this.u = list;
     }
 
     public String g0() {
@@ -2254,50 +2394,32 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
     }
 
     public String g1() {
-        return this.K1;
+        return this.P1;
     }
 
     public boolean g2() {
-        return p1() != null && u1() == 41 && s0() == 1 && q1() == 2;
+        return this.Z == 41;
     }
 
-    public void g3() {
-        MetaData metaData;
-        if (B2() || a2()) {
+    public final void g3() {
+        if (!q2() || TextUtils.isEmpty(this.P.getNewGodData().getFieldName())) {
             return;
         }
-        long C0 = C0() * 1000;
-        if (C0 != 0) {
-            String formatTimeForJustNow = StringHelper.getFormatTimeForJustNow(C0);
-            if (StringHelper.isThisYear(formatTimeForJustNow)) {
-                formatTimeForJustNow = StringHelper.getFormatTimeShort(C0);
-            }
-            this.J1 = formatTimeForJustNow;
-        }
-        if (p2()) {
-            f3();
-        } else if (!this.U1 && (metaData = this.P) != null && metaData.showBazhuGrade()) {
-            String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getBazhuGradeData().getDesc(), 24, StringHelper.STRING_MORE);
-            if (!TextUtils.isEmpty(this.J1)) {
-                this.J1 += "   " + cutChineseAndEnglishWithSuffix;
-            } else {
-                this.J1 = cutChineseAndEnglishWithSuffix;
-            }
-        }
-        if (TextUtils.isEmpty(this.J1) || TextUtils.isEmpty(K())) {
+        if (!TextUtils.isEmpty(this.K1)) {
+            this.K1 += "   " + this.P.getNewGodData().getFieldName() + d.a.m0.z0.l0.d(this.P.getNewGodData().isVideoGod());
             return;
         }
-        this.J1 += " • " + K();
+        this.K1 = this.P.getNewGodData().getFieldName() + d.a.m0.z0.l0.d(this.P.getNewGodData().isVideoGod());
     }
 
-    public void g4(String str) {
-        this.E = str;
+    public void g4(List<PbContent> list) {
+        this.t = list;
     }
 
     @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<MediaData> L0 = L0();
-        if (L0 == null || y2()) {
+        if (L0 == null || z2()) {
             return null;
         }
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
@@ -2341,125 +2463,125 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return arrayList;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         OriginalThreadInfo originalThreadInfo;
         int i2;
-        d.a.n0.e3.h0.n nVar = this.D2;
+        d.a.n0.e3.h0.n nVar = this.F2;
         if (nVar != null) {
-            return nVar.f() ? this.D2.g() ? AdvertAppInfo.k4 : AdvertAppInfo.l4 : this.D2.g() ? AdvertAppInfo.k4 : AdvertAppInfo.j4;
+            return nVar.f() ? this.F2.g() ? AdvertAppInfo.n4 : AdvertAppInfo.o4 : this.F2.g() ? AdvertAppInfo.n4 : AdvertAppInfo.m4;
         } else if (r0()) {
-            if (w1() != null) {
-                return g3;
+            if (x1() != null) {
+                return j3;
             }
-            return J2;
+            return M2;
         } else {
             int y0 = y0();
-            if (this.w1 == 1) {
-                if (this.x1 != null) {
-                    return X2;
+            if (this.x1 == 1) {
+                if (this.y1 != null) {
+                    return a3;
                 }
-                return this.A1 != null ? r3 : q3;
+                return this.B1 != null ? u3 : t3;
             } else if (this.n0 != null && this.Z == 60) {
-                return j3;
+                return m3;
             } else {
                 if (this.n0 != null && ((i2 = this.Z) == 49 || i2 == 69)) {
-                    return h3;
+                    return k3;
                 }
                 if (this.n0 != null && this.Z == 67) {
-                    return k3;
+                    return n3;
                 }
                 int i4 = this.Z;
                 if (i4 == 51) {
-                    return i3;
+                    return l3;
                 }
                 if (i4 == 63) {
-                    return s3;
+                    return v3;
                 }
                 if (i4 == 64) {
-                    return t3;
+                    return w3;
                 }
                 if (y0 != 2 && y0 != 1) {
-                    if (this.k0 != null && e2() && !i2()) {
-                        return y3;
+                    if (this.k0 != null && f2() && !j2()) {
+                        return B3;
                     }
-                    if (this.k0 != null && !i2()) {
-                        if (c2()) {
-                            return p3;
+                    if (this.k0 != null && !j2()) {
+                        if (d2()) {
+                            return s3;
                         }
                         if (this instanceof w0) {
-                            return z3;
+                            return C3;
                         }
-                        return g3;
-                    } else if (this.t1 && (originalThreadInfo = this.s1) != null) {
+                        return j3;
+                    } else if (this.u1 && (originalThreadInfo = this.t1) != null) {
                         if (originalThreadInfo.u) {
                             if (originalThreadInfo.r != null) {
-                                return o3;
+                                return r3;
                             }
                             if (originalThreadInfo.d()) {
-                                return n3;
+                                return q3;
                             }
-                            return m3;
+                            return p3;
                         }
-                        return l3;
-                    } else if (Q1()) {
-                        return Y2;
+                        return o3;
+                    } else if (R1()) {
+                        return b3;
                     } else {
-                        if (g2()) {
-                            return v3.get() ? C3 : J2;
-                        } else if (N1() && G() == 1) {
-                            return v3.get() ? D3 : J2;
-                        } else if (h2()) {
-                            return e3;
+                        if (h2()) {
+                            return y3.get() ? F3 : M2;
+                        } else if (O1() && G() == 1) {
+                            return y3.get() ? G3 : M2;
+                        } else if (i2()) {
+                            return h3;
                         } else {
-                            if (c2()) {
-                                return f3;
+                            if (d2()) {
+                                return i3;
                             }
-                            if (this.f49929e) {
-                                return P2;
-                            }
-                            if (this.f49930f) {
-                                return Q2;
-                            }
-                            if (this.f49931g) {
-                                return R2;
-                            }
-                            if (this.f49932h) {
+                            if (this.f53605e) {
                                 return S2;
                             }
-                            if (this.f49933i) {
+                            if (this.f53606f) {
                                 return T2;
                             }
-                            if (this.k) {
-                                return V2;
-                            }
-                            if (this.l) {
-                                return W2;
-                            }
-                            if (this.j) {
+                            if (this.f53607g) {
                                 return U2;
                             }
+                            if (this.f53608h) {
+                                return V2;
+                            }
+                            if (this.f53609i) {
+                                return W2;
+                            }
+                            if (this.k) {
+                                return Y2;
+                            }
+                            if (this.l) {
+                                return Z2;
+                            }
+                            if (this.j) {
+                                return X2;
+                            }
                             if (this.m) {
-                                return a3;
+                                return d3;
                             }
-                            if (this.v0) {
-                                int Z22 = Z2();
-                                if (Z22 == 1) {
-                                    return L2;
+                            if (this.w0) {
+                                int a32 = a3();
+                                if (a32 == 1) {
+                                    return O2;
                                 }
-                                if (Z22 == 2) {
-                                    return M2;
+                                if (a32 == 2) {
+                                    return P2;
                                 }
-                                if (Z22 > 2) {
-                                    return N2;
+                                if (a32 > 2) {
+                                    return Q2;
                                 }
-                                return J2;
+                                return M2;
                             }
-                            return J2;
+                            return M2;
                         }
                     }
                 }
-                return I2;
+                return L2;
             }
         }
     }
@@ -2473,213 +2595,214 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return null;
     }
 
-    @Override // d.a.m0.r.q.a
-    public v0 h() {
-        SparseArray<String> sparseArray = this.e1;
-        if (sparseArray == null || sparseArray.size() <= 0) {
-            return null;
-        }
-        v0 v0Var = new v0();
-        m();
-        v0Var.n(y1());
-        m();
-        v0Var.k(c0());
-        m();
-        v0Var.m(M0());
-        v0Var.j(this.e1);
-        v0Var.f50147g = this.f1;
-        v0Var.o = this.U0;
-        v0Var.j = this.T0;
-        v0Var.l = this.V0;
-        v0Var.k = this.S0;
-        v0Var.p = this.N1;
-        v0Var.n = V0();
-        return v0Var;
-    }
-
     public w1 h0() {
         return this.C;
     }
 
-    public long h1() {
-        return this.k1;
+    public String h1() {
+        return this.L1;
     }
 
     public boolean h2() {
-        return this.m1;
+        return q1() != null && v1() == 41 && s0() == 1 && r1() == 2;
     }
 
-    public final void h3() {
-        this.L1 = StringHelper.getFormatTimeShort(C0() * 1000);
+    public void h3() {
+        MetaData metaData;
+        if (C2() || b2()) {
+            return;
+        }
+        long C0 = C0() * 1000;
+        if (C0 != 0) {
+            String formatTimeForJustNow = StringHelper.getFormatTimeForJustNow(C0);
+            if (StringHelper.isThisYear(formatTimeForJustNow)) {
+                formatTimeForJustNow = StringHelper.getFormatTimeShort(C0);
+            }
+            this.K1 = formatTimeForJustNow;
+        }
+        if (q2()) {
+            g3();
+        } else if (!this.V1 && (metaData = this.P) != null && metaData.showBazhuGrade()) {
+            String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getBazhuGradeData().getDesc(), 24, StringHelper.STRING_MORE);
+            if (!TextUtils.isEmpty(this.K1)) {
+                this.K1 += "   " + cutChineseAndEnglishWithSuffix;
+            } else {
+                this.K1 = cutChineseAndEnglishWithSuffix;
+            }
+        }
+        if (TextUtils.isEmpty(this.K1) || TextUtils.isEmpty(K())) {
+            return;
+        }
+        this.K1 += " • " + K();
     }
 
-    public void h4(long j) {
-        this.k1 = j;
+    public void h4(String str) {
+        this.E = str;
+    }
+
+    @Override // d.a.m0.r.q.a
+    public a2 i() {
+        return this;
     }
 
     public String i0() {
         return this.Q;
     }
 
-    public int i1() {
-        return this.R;
+    public long i1() {
+        return this.l1;
     }
 
     public boolean i2() {
-        return this.Z == 41;
+        return this.n1;
     }
 
     public final void i3() {
-        this.M1 = StringHelper.getFormatTimeShort(C0());
+        this.M1 = StringHelper.getFormatTimeShort(C0() * 1000);
     }
 
-    public void i4(boolean z) {
-        this.H1 = z;
+    public void i4(long j) {
+        this.l1 = j;
     }
 
     public String j0() {
-        return this.g1;
+        return this.h1;
     }
 
-    public SkinInfo j1() {
-        return this.M0;
+    public int j1() {
+        return this.R;
     }
 
     public boolean j2() {
-        return u1() == 50;
+        return this.Z == 41;
     }
 
     public final void j3() {
-        if (r1() != null && r1().share_info != null && r1().share_info.share_user_count > 0 && s2() && (this.q1 <= 0 || this.r1 != 0)) {
-            int i2 = r1().share_info.share_user_count;
-            if (i2 == 1) {
-                this.K1 = TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label_simple);
-                return;
-            } else {
-                this.K1 = TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label, new Object[]{StringHelper.numberUniform(i2)});
-                return;
-            }
-        }
-        this.K1 = null;
+        this.N1 = StringHelper.getFormatTimeShort(C0());
     }
 
-    public void j4(int i2) {
-        this.d1 = i2;
+    public void j4(boolean z) {
+        this.I1 = z;
+    }
+
+    @Override // d.a.m0.r.q.a
+    public boolean k() {
+        return this.U1;
     }
 
     public String k0() {
         return this.s0;
     }
 
-    public SmartApp k1() {
-        return this.G1;
+    public SkinInfo k1() {
+        return this.N0;
     }
 
     public boolean k2() {
-        return u1() == 49 || u1() == 69;
+        return v1() == 50;
     }
 
     public final void k3() {
-        SpannableStringBuilder O22 = O2();
-        this.x = O22;
-        d.a.n0.z.m.b(this, O22, true);
+        if (s1() != null && s1().share_info != null && s1().share_info.share_user_count > 0 && t2() && (this.r1 <= 0 || this.s1 != 0)) {
+            int i2 = s1().share_info.share_user_count;
+            if (i2 == 1) {
+                this.L1 = TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label_simple);
+                return;
+            } else {
+                this.L1 = TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label, new Object[]{StringHelper.numberUniform(i2)});
+                return;
+            }
+        }
+        this.L1 = null;
     }
 
     public void k4(int i2) {
+        this.e1 = i2;
     }
 
     public List<PbGoodsData> l0() {
-        return this.p2;
+        return this.r2;
     }
 
-    public int l1() {
-        return this.d1;
+    public SmartApp l1() {
+        return this.H1;
     }
 
     public boolean l2() {
-        return this.B1;
+        return v1() == 49 || v1() == 69;
     }
 
     public final void l3() {
-        if (StringUtils.isNull(this.P.getName_show())) {
-            return;
-        }
-        this.I1 = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getName_show(), 12, StringHelper.STRING_MORE);
+        SpannableStringBuilder P22 = P2();
+        this.x = P22;
+        d.a.n0.z.m.b(this, P22, true);
     }
 
-    public void l4(String str, String str2) {
-        this.K0 = str;
-        this.L0 = str2;
-    }
-
-    @Override // d.a.m0.r.q.a
-    public a2 m() {
-        return this;
+    public void l4(int i2) {
     }
 
     public int m0() {
-        return this.i1.hasAgree ? 1 : 0;
+        return this.j1.hasAgree ? 1 : 0;
     }
 
-    public SpannableStringBuilder m1() {
-        return this.w;
+    public int m1() {
+        return this.e1;
     }
 
     public boolean m2() {
         return this.C1;
     }
 
-    public void m3(String str) {
-        this.s = str;
+    public final void m3() {
+        if (StringUtils.isNull(this.P.getName_show())) {
+            return;
+        }
+        this.J1 = StringHelper.cutChineseAndEnglishWithSuffix(this.P.getName_show(), 12, StringHelper.STRING_MORE);
     }
 
-    public void m4(AlaInfoData alaInfoData) {
-        this.n0 = alaInfoData;
+    public void m4(String str, String str2) {
+        this.G0 = str;
+        this.M0 = str2;
     }
 
     public VideoInfo n0() {
-        return this.A1;
+        return this.B1;
     }
 
-    public int n1() {
-        return this.l2;
+    public SpannableStringBuilder n1() {
+        return this.w;
     }
 
     public boolean n2() {
-        return this.h1;
+        return this.D1;
     }
 
-    public void n3(ArrayList<b> arrayList) {
-        this.w0 = arrayList;
+    public void n3(String str) {
+        this.s = str;
     }
 
-    public void n4(String str) {
-        this.J1 = str;
+    public void n4(AlaInfoData alaInfoData) {
+        this.n0 = alaInfoData;
     }
 
     public String o0() {
         return this.z;
     }
 
-    public String o1() {
-        return this.m2;
+    public int o1() {
+        return this.n2;
     }
 
     public boolean o2() {
-        return this.Y0;
+        return this.i1;
     }
 
-    public void o3(int i2) {
-        this.i1.agreeNum = i2;
+    public void o3(ArrayList<b> arrayList) {
+        this.x0 = arrayList;
     }
 
-    public void o4(int i2) {
-        this.Z = i2;
-    }
-
-    @Override // d.a.m0.r.q.a
-    public boolean p() {
-        return this.T1;
+    public void o4(String str) {
+        this.K1 = str;
     }
 
     public int[] p0() {
@@ -2774,32 +2897,52 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return iArr;
     }
 
-    public y1 p1() {
-        return this.C0;
+    public String p1() {
+        return this.o2;
     }
 
     public boolean p2() {
+        return this.Z0;
+    }
+
+    public void p3(int i2) {
+        this.j1.agreeNum = i2;
+    }
+
+    public void p4(int i2) {
+        this.Z = i2;
+    }
+
+    public int q0() {
+        return this.b1;
+    }
+
+    public y1 q1() {
+        return this.D0;
+    }
+
+    public boolean q2() {
         MetaData metaData = this.P;
         return metaData != null && metaData.isNewGod();
     }
 
-    public void p3(long j) {
-        this.i1.agreeNum = j;
+    public void q3(long j) {
+        this.j1.agreeNum = j;
     }
 
-    public void p4(String str) {
+    public void q4(String str) {
         this.A = str;
     }
 
-    public int q0() {
-        return this.a1;
+    public boolean r0() {
+        return this.G1;
     }
 
-    public int q1() {
-        y1 y1Var = this.C0;
+    public int r1() {
+        y1 y1Var = this.D0;
         if (y1Var != null) {
             long e2 = y1Var.e();
-            long a2 = this.C0.a();
+            long a2 = this.D0.a();
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             if (currentTimeMillis < e2) {
                 return 1;
@@ -2809,193 +2952,166 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         return -1;
     }
 
-    public boolean q2() {
+    public boolean r2() {
         return this.p0 == 1;
     }
 
-    public void q3(int i2) {
-        this.i1.agreeType = i2;
-    }
-
-    public void q4(String str) {
-        this.r = str;
-    }
-
-    public boolean r0() {
-        return this.F1;
-    }
-
-    public AlaInfoData r1() {
-        return this.n0;
-    }
-
-    public boolean r2() {
-        return u1() == 40;
-    }
-
     public void r3(int i2) {
-        this.o0 = i2;
+        this.j1.agreeType = i2;
     }
 
     public void r4(String str) {
-        this.z1 = str;
+        this.r = str;
     }
 
     public int s0() {
         return this.M;
     }
 
-    public String s1() {
-        return this.J1;
+    public AlaInfoData s1() {
+        return this.n0;
     }
 
     public boolean s2() {
-        return u1() == 60;
+        return v1() == 40;
     }
 
-    public void s3(String str) {
-        this.g2 = str;
+    public void s3(int i2) {
+        this.o0 = i2;
     }
 
     public void s4(String str) {
-        this.y1 = str;
+        this.A1 = str;
     }
 
     public int t0() {
         return this.W;
     }
 
-    public List<ThreadRecommendInfoData> t1() {
-        return this.H2;
+    public String t1() {
+        return this.K1;
     }
 
     public boolean t2() {
-        return G2() && !StringUtils.isNull(this.Q) && this.U1;
+        return v1() == 60;
     }
 
-    public void t3(MetaData metaData) {
-        this.P = metaData;
+    public void t3(String str) {
+        this.i2 = str;
     }
 
-    public void t4(HashMap<String, MetaData> hashMap) {
-        this.d0 = hashMap;
+    public void t4(String str) {
+        this.z1 = str;
     }
 
     public int u0() {
         return this.K;
     }
 
-    public int u1() {
-        return this.Z;
+    public List<ThreadRecommendInfoData> u1() {
+        return this.J2;
     }
 
     public boolean u2() {
-        return this.H1;
+        return H2() && !StringUtils.isNull(this.Q) && this.V1;
     }
 
-    public void u3(BaijiahaoData baijiahaoData) {
-        this.i2 = baijiahaoData;
+    public void u3(MetaData metaData) {
+        this.P = metaData;
     }
 
-    public void u4(VideoInfo videoInfo) {
-        this.k0 = videoInfo;
+    public void u4(HashMap<String, MetaData> hashMap) {
+        this.d0 = hashMap;
     }
 
     public int v0() {
         return this.q;
     }
 
-    public h2 v1() {
-        return this.m0;
+    public int v1() {
+        return this.Z;
     }
 
     public boolean v2() {
+        return this.I1;
+    }
+
+    public void v3(BaijiahaoData baijiahaoData) {
+        this.k2 = baijiahaoData;
+    }
+
+    public void v4(VideoInfo videoInfo) {
+        this.k0 = videoInfo;
+    }
+
+    public boolean w0() {
+        return this.S0;
+    }
+
+    public h2 w1() {
+        return this.m0;
+    }
+
+    public boolean w2() {
         int i2 = this.Z;
         return i2 == 63 || i2 == 64;
     }
 
-    public void v3(int i2) {
-        this.B0 = i2;
+    public void w3(int i2) {
+        this.C0 = i2;
     }
 
-    public void v4(int i2) {
+    public void w4(int i2) {
         this.H = i2;
-    }
-
-    public boolean w0() {
-        return this.R0;
-    }
-
-    public VideoInfo w1() {
-        return this.k0;
-    }
-
-    public boolean w2() {
-        return this.S1;
-    }
-
-    public void w3(long j) {
-        this.i1.diffAgreeNum = j;
-    }
-
-    public void w4(ArrayList<VoiceData$VoiceModel> arrayList) {
-        this.U = arrayList;
     }
 
     public int x0() {
         return this.L;
     }
 
-    public VideoDesc x1() {
-        return this.l0;
+    public VideoInfo x1() {
+        return this.k0;
     }
 
     public boolean x2() {
-        return this.V == 1;
+        return this.T1;
     }
 
     public void x3(long j) {
-        this.B = j;
+        this.j1.diffAgreeNum = j;
     }
 
-    public void x4(long j) {
-        this.q0 = j;
+    public void x4(ArrayList<VoiceData$VoiceModel> arrayList) {
+        this.U = arrayList;
     }
 
     public int y0() {
         return this.J;
     }
 
-    public String y1() {
-        if (!StringUtils.isNull(this.A) && !"0".equals(this.A)) {
-            return this.A;
-        }
-        return this.z;
+    public VideoDesc y1() {
+        return this.l0;
     }
 
     public boolean y2() {
-        return y0() != 0;
+        return this.V == 1;
     }
 
-    public void y3(String str) {
-        this.D = str;
+    public void y3(long j) {
+        this.B = j;
     }
 
-    public void y4(List<PbGoodsData> list) {
-        this.p2 = list;
-        if (ListUtils.isEmpty(list) || this.q2) {
-            return;
-        }
-        this.q2 = true;
+    public void y4(long j) {
+        this.q0 = j;
     }
 
     public final SpannableStringBuilder z(String str, SpannableStringBuilder spannableStringBuilder, boolean z, boolean z2, boolean z4, boolean z5) {
-        ArrayList<m.a> S0 = S0(z, z2, z4, z5);
-        if (S0 == null) {
+        ArrayList<m.a> T0 = T0(z, z2, z4, z5);
+        if (T0 == null) {
             return new SpannableStringBuilder();
         }
-        SpannableStringBuilder h2 = d.a.n0.z.m.h(TbadkCoreApplication.getInst(), str, S0, false);
-        if (S0.size() > 0) {
+        SpannableStringBuilder h2 = d.a.n0.z.m.h(TbadkCoreApplication.getInst(), str, T0, false);
+        if (T0.size() > 0) {
             if (h2 == null) {
                 h2 = new SpannableStringBuilder();
             }
@@ -3009,52 +3125,36 @@ public class a2 extends a implements PreLoadImageProvider, d.a.c.j.e.n, IVideoDa
         }
         if (spannableStringBuilder != null) {
             h2.append((CharSequence) spannableStringBuilder);
-        } else if (S0.size() > 0 || h2.length() == 0) {
+        } else if (T0.size() > 0 || h2.length() == 0) {
             h2.append((CharSequence) str);
         }
         return h2;
     }
 
     public Item z0() {
-        return this.r2;
+        return this.t2;
     }
 
     public String z1() {
-        return this.r;
+        if (!StringUtils.isNull(this.A) && !"0".equals(this.A)) {
+            return this.A;
+        }
+        return this.z;
     }
 
     public boolean z2() {
-        return this.w1 == 1;
+        return y0() != 0;
     }
 
-    public void z3(List<PbContent> list) {
-        this.v = list;
+    public void z3(String str) {
+        this.D = str;
     }
 
-    public final d.a.c.j.b z4(String str) {
-        if (str == null) {
-            return null;
+    public void z4(List<PbGoodsData> list) {
+        this.r2 = list;
+        if (ListUtils.isEmpty(list) || this.s2) {
+            return;
         }
-        if (str.length() > 4) {
-            str = str.substring(0, 4);
-        }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst().getApplicationContext()).inflate(R.layout.thread_category, (ViewGroup) null);
-        if (inflate == null) {
-            return null;
-        }
-        TextView textView = (TextView) inflate.findViewById(R.id.thread_category);
-        textView.setText(str);
-        textView.setTextColor(TbadkCoreApplication.getInst().getApplicationContext().getResources().getColor(R.color.CAM_X0106_1));
-        inflate.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-        inflate.layout(0, 0, inflate.getWidth(), inflate.getHeight());
-        textView.setDrawingCacheEnabled(true);
-        textView.buildDrawingCache();
-        Bitmap drawingCache = textView.getDrawingCache();
-        if (drawingCache != null) {
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(drawingCache);
-            bitmapDrawable.setBounds(0, 0, drawingCache.getWidth(), drawingCache.getHeight());
-            return new d.a.c.j.b(bitmapDrawable, 1);
-        }
-        return null;
+        this.s2 = true;
     }
 }

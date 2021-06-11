@@ -10,31 +10,31 @@ import java.util.List;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public m f56269a;
+    public m f59958a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f56270b;
+    public b f59959b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f56271c;
+    public i f59960c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f56272d;
+    public a f59961d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f56273e;
+    public c f59962e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f56274f;
+    public h f59963f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f56275g;
+    public e f59964g;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f56276h;
+    public k f59965h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f56277i;
+    public d f59966i;
     public d.a.n0.g2.h.d j;
     public d.a.n0.g2.h.a k;
     public p l;
@@ -47,7 +47,7 @@ public class n {
     public d.a.n0.j2.c.q.b s;
     public d.a.n0.j2.c.q.e t;
     public d.a.n0.j2.c.q.f u;
-    public List<d.a.c.j.e.a> v = new ArrayList();
+    public List<d.a.c.k.e.a> v = new ArrayList();
     public BdTypeRecyclerView w;
 
     public n(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, BdUniqueId bdUniqueId) {
@@ -57,17 +57,17 @@ public class n {
 
     public final void a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.w = bdTypeRecyclerView;
-        this.f56269a = new m(tbPageContext);
-        this.f56270b = new b(tbPageContext);
-        this.f56271c = new i(tbPageContext);
-        this.f56272d = new a(tbPageContext);
-        this.f56273e = new c(tbPageContext);
-        this.f56274f = new h(tbPageContext, tbPageContext.getUniqueId());
-        this.f56275g = new e(tbPageContext, d.a.n0.j2.e.g.l);
-        this.f56276h = new k(tbPageContext);
-        this.f56277i = new d(tbPageContext);
-        this.j = new d.a.n0.g2.h.d(tbPageContext, d.a.n0.g2.h.f.f55192f);
-        this.k = new d.a.n0.g2.h.a(tbPageContext.getPageActivity(), d.a.n0.g2.d.f55164h);
+        this.f59958a = new m(tbPageContext);
+        this.f59959b = new b(tbPageContext);
+        this.f59960c = new i(tbPageContext);
+        this.f59961d = new a(tbPageContext);
+        this.f59962e = new c(tbPageContext);
+        this.f59963f = new h(tbPageContext, tbPageContext.getUniqueId());
+        this.f59964g = new e(tbPageContext, d.a.n0.j2.e.g.l);
+        this.f59965h = new k(tbPageContext);
+        this.f59966i = new d(tbPageContext);
+        this.j = new d.a.n0.g2.h.d(tbPageContext, d.a.n0.g2.h.f.f58881f);
+        this.k = new d.a.n0.g2.h.a(tbPageContext.getPageActivity(), d.a.n0.g2.d.f58853h);
         this.l = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
         this.m = new d.a.n0.j2.c.q.g(tbPageContext, d.a.n0.z.e0.k.m0);
         this.n = new d.a.n0.j2.c.q.d(tbPageContext, d.a.n0.z.e0.k.o0);
@@ -78,15 +78,15 @@ public class n {
         this.u = new d.a.n0.j2.c.q.f(tbPageContext, d.a.n0.z.e0.k.s0);
         this.q = new d.a.n0.j2.c.q.a(tbPageContext, d.a.n0.z.e0.e.O0);
         this.r = new d.a.n0.j2.c.q.c(tbPageContext, d.a.n0.z.e0.f.O0);
-        this.v.add(this.f56269a);
-        this.v.add(this.f56270b);
-        this.v.add(this.f56271c);
-        this.v.add(this.f56272d);
-        this.v.add(this.f56273e);
-        this.v.add(this.f56274f);
-        this.v.add(this.f56275g);
-        this.v.add(this.f56276h);
-        this.v.add(this.f56277i);
+        this.v.add(this.f59958a);
+        this.v.add(this.f59959b);
+        this.v.add(this.f59960c);
+        this.v.add(this.f59961d);
+        this.v.add(this.f59962e);
+        this.v.add(this.f59963f);
+        this.v.add(this.f59964g);
+        this.v.add(this.f59965h);
+        this.v.add(this.f59966i);
         this.v.add(this.j);
         this.v.add(this.k);
         this.v.add(this.l);
@@ -110,11 +110,11 @@ public class n {
     }
 
     public final void c(String str) {
-        List<d.a.c.j.e.a> list = this.v;
+        List<d.a.c.k.e.a> list = this.v;
         if (list == null) {
             return;
         }
-        for (d.a.c.j.e.a aVar : list) {
+        for (d.a.c.k.e.a aVar : list) {
             if (aVar instanceof d.a.n0.o.f) {
                 ((d.a.n0.o.f) aVar).g(str);
             }
@@ -122,17 +122,17 @@ public class n {
     }
 
     public void d(boolean z) {
-        this.l.g0(z);
-        this.f56271c.i0(z);
-        this.m.j0(z);
-        this.n.h0(z);
-        this.o.i0(z);
-        this.p.h0(z);
-        this.q.m0(z);
-        this.r.j0(z);
-        this.s.j0(z);
-        this.t.j0(z);
-        this.u.j0(z);
+        this.l.h0(z);
+        this.f59960c.j0(z);
+        this.m.k0(z);
+        this.n.i0(z);
+        this.o.j0(z);
+        this.p.i0(z);
+        this.q.l0(z);
+        this.r.k0(z);
+        this.s.k0(z);
+        this.t.k0(z);
+        this.u.k0(z);
     }
 
     public void e(BdUniqueId bdUniqueId) {
@@ -148,34 +148,34 @@ public class n {
     }
 
     public void f(int i2) {
+        this.m.l0(i2);
+        this.n.j0(i2);
+        this.o.k0(i2);
+        this.p.j0(i2);
+        this.q.m0(i2);
+        this.r.l0(i2);
+        this.s.l0(i2);
+        this.t.l0(i2);
+        this.u.l0(i2);
+    }
+
+    public void g(int i2) {
         this.m.m0(i2);
-        this.n.i0(i2);
-        this.o.j0(i2);
-        this.p.i0(i2);
-        this.q.n0(i2);
+        this.n.k0(i2);
+        this.o.l0(i2);
+        this.p.k0(i2);
+        this.q.p0(i2);
         this.r.m0(i2);
         this.s.m0(i2);
         this.t.m0(i2);
         this.u.m0(i2);
     }
 
-    public void g(int i2) {
-        this.m.n0(i2);
-        this.n.j0(i2);
-        this.o.m0(i2);
-        this.p.j0(i2);
-        this.q.p0(i2);
-        this.r.n0(i2);
-        this.s.n0(i2);
-        this.t.n0(i2);
-        this.u.n0(i2);
-    }
-
     public void h(int i2) {
         this.m.p0(i2);
-        this.n.m0(i2);
-        this.o.n0(i2);
-        this.p.m0(i2);
+        this.n.l0(i2);
+        this.o.m0(i2);
+        this.p.l0(i2);
         this.q.q0(i2);
         this.r.p0(i2);
         this.s.p0(i2);

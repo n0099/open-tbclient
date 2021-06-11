@@ -2,6 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.os.Build;
 import android.util.Base64;
+import com.yy.hiidostatis.inner.util.cipher.Coder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -16,29 +17,29 @@ import javax.crypto.spec.SecretKeySpec;
 public class Crypto {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5281a = 16;
+    public static final int f5324a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5282b = 8;
+    public static final int f5325b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5283c = 128;
+    public static final int f5326c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5284d = 64;
+    public static final int f5327d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5285e = 8;
+    public static final int f5328e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5286f = 1000;
+    public static final int f5329f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f5287g = new SecureRandom();
+    public static SecureRandom f5330g = new SecureRandom();
 
     public static byte[] a(int i2) {
         byte[] bArr = new byte[i2];
-        f5287g.nextBytes(bArr);
+        f5330g.nextBytes(bArr);
         return bArr;
     }
 
@@ -84,7 +85,7 @@ public class Crypto {
             str = "";
         }
         try {
-            return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 64)).getEncoded(), "DES");
+            return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 64)).getEncoded(), Coder.KEY_DES);
         } catch (Exception e2) {
             e2.printStackTrace();
             return null;

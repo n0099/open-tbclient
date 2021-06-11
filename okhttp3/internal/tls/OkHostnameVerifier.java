@@ -13,7 +13,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
 import okhttp3.internal.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OkHostnameVerifier implements HostnameVerifier {
     public static final int ALT_DNS_NAME = 2;
     public static final int ALT_IPA_NAME = 7;

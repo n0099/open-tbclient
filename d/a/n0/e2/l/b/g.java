@@ -8,50 +8,50 @@ import tbclient.ExcPbPage.ExcContent;
 public class g implements c {
 
     /* renamed from: e  reason: collision with root package name */
-    public SpannableStringBuilder f53671e;
+    public SpannableStringBuilder f57360e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53672f;
+    public int f57361f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53673g;
+    public String f57362g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53674h;
+    public int f57363h;
 
     public g() {
-        this.f53672f = 0;
-        this.f53674h = -1;
-        this.f53671e = new SpannableStringBuilder();
+        this.f57361f = 0;
+        this.f57363h = -1;
+        this.f57360e = new SpannableStringBuilder();
     }
 
     @Override // d.a.n0.e2.l.b.c
     public boolean a() {
-        int i2 = this.f53672f;
-        return (i2 > 0 && i2 < 3) || !StringUtils.isNull(this.f53673g);
+        int i2 = this.f57361f;
+        return (i2 > 0 && i2 < 3) || !StringUtils.isNull(this.f57362g);
     }
 
     @Override // d.a.n0.e2.l.b.c
     public CharSequence b() {
-        return this.f53671e;
+        return this.f57360e;
     }
 
     public void c(CharSequence charSequence) {
         if (charSequence != null) {
-            this.f53671e.append(charSequence);
+            this.f57360e.append(charSequence);
         }
     }
 
     public int d() {
-        return this.f53672f;
+        return this.f57361f;
     }
 
     public String e() {
-        return this.f53673g;
+        return this.f57362g;
     }
 
     public int f() {
-        return this.f53674h;
+        return this.f57363h;
     }
 
     @Override // d.a.n0.e2.l.b.d
@@ -60,22 +60,22 @@ public class g implements c {
     }
 
     public g(Context context, ExcContent excContent) {
-        this.f53672f = 0;
-        this.f53674h = -1;
+        this.f57361f = 0;
+        this.f57363h = -1;
         if (excContent == null) {
             return;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        this.f53671e = spannableStringBuilder;
+        this.f57360e = spannableStringBuilder;
         if (excContent != null) {
             spannableStringBuilder.append((CharSequence) excContent.text);
         }
         Integer num = excContent.align;
         if (num != null) {
-            this.f53672f = num.intValue();
+            this.f57361f = num.intValue();
         }
         if (!StringUtils.isNull(excContent.color)) {
-            this.f53673g = excContent.color;
+            this.f57362g = excContent.color;
         }
         Integer num2 = excContent.size;
         if (num2 == null || num2.intValue() <= 0 || context == null || context.getResources() == null) {
@@ -85,6 +85,6 @@ public class g implements c {
         if (identifier <= 0) {
             return;
         }
-        this.f53674h = context.getResources().getDimensionPixelSize(identifier);
+        this.f57363h = context.getResources().getDimensionPixelSize(identifier);
     }
 }

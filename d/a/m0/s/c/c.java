@@ -5,16 +5,16 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50420a;
+    public int f54096a;
 
     public boolean a() {
-        return this.f50420a == 1;
+        return this.f54096a == 1;
     }
 
     public void b(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f50420a = jSONObject.optInt("agree_icon", 0);
+        this.f54096a = jSONObject.optInt("agree_icon", 0);
     }
 }

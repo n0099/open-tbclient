@@ -81,10 +81,10 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
                         PersonalCardDetailActivity.this.mSetCardModel = new SetPersonalCardModel();
                     }
                     if (PersonalCardDetailActivity.this.cardData.g() == 1) {
-                        PersonalCardDetailActivity.this.mSetCardModel.y(PersonalCardDetailActivity.this.mCardId, 2);
+                        PersonalCardDetailActivity.this.mSetCardModel.C(PersonalCardDetailActivity.this.mCardId, 2);
                         return;
                     } else {
-                        PersonalCardDetailActivity.this.mSetCardModel.y(PersonalCardDetailActivity.this.mCardId, 1);
+                        PersonalCardDetailActivity.this.mSetCardModel.C(PersonalCardDetailActivity.this.mCardId, 1);
                         return;
                     }
                 }
@@ -102,8 +102,8 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
-            pageStayDurationItem.f49444i = String.valueOf(this.mCardId);
+            pageStayDurationItem.f53110a = true;
+            pageStayDurationItem.f53118i = String.valueOf(this.mCardId);
         }
         return pageStayDurationItem;
     }
@@ -124,12 +124,12 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         this.mView = new d.a.n0.k3.g.b.a(this, this.mClickListener);
         PersonalCardDetailModel personalCardDetailModel = new PersonalCardDetailModel();
         this.mModel = personalCardDetailModel;
-        personalCardDetailModel.w(this.mCallback);
+        personalCardDetailModel.A(this.mCallback);
         SetPersonalCardModel setPersonalCardModel = new SetPersonalCardModel();
         this.mSetCardModel = setPersonalCardModel;
-        setPersonalCardModel.x(this.mSetCardCallback);
+        setPersonalCardModel.B(this.mSetCardCallback);
         showLoadingView(this.mView.c(), false);
-        this.mModel.v(this.mCardId);
+        this.mModel.z(this.mCardId);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -152,7 +152,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
             return;
         }
         showLoadingView(aVar.c(), false);
-        this.mModel.v(this.mCardId);
+        this.mModel.z(this.mCardId);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -161,7 +161,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         if (z) {
             d.a.m0.z.b.a().d();
             showLoadingView(this.mView.c(), false);
-            this.mModel.v(this.mCardId);
+            this.mModel.z(this.mCardId);
         }
     }
 
@@ -173,9 +173,9 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i2 == d.a.n0.k3.c.f56957a) {
+        if (i2 == d.a.n0.k3.c.f60646a) {
             d.a.n0.k3.b.d(getPageContext(), 6, str, i3, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-        } else if (i2 == d.a.n0.k3.c.f56958b) {
+        } else if (i2 == d.a.n0.k3.c.f60647b) {
             d.a.n0.k3.b.c(getPageContext(), 6, str, i3);
         }
     }

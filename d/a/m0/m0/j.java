@@ -5,7 +5,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49559a = null;
+    public String f53234a = null;
 
     public static d.a.c.e.n.a a() {
         return BdStatisticsManager.getInstance().getStatsItem("pfmonitor");

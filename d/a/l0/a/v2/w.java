@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public final class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45504a = d.a.l0.a.k.f43199a;
+    public static final boolean f49178a = d.a.l0.a.k.f46875a;
 
     public static <T> T a(JSONObject jSONObject, String str, Class<T> cls) {
         if (jSONObject == null) {
@@ -20,18 +20,18 @@ public final class w {
         }
         T t = (T) jSONObject.opt(str);
         if (cls.isInstance(t)) {
-            if (f45504a) {
+            if (f49178a) {
                 String obj = t.toString();
                 if (((t instanceof JSONObject) || (t instanceof JSONArray)) && obj.length() > 30) {
                     obj = obj.substring(0, 30) + StringHelper.STRING_MORE;
                 }
-                if (f45504a) {
+                if (f49178a) {
                     Log.d(JSONUtils.TAG, "json: " + str + "=" + obj);
                 }
             }
             return t;
         }
-        if (f45504a) {
+        if (f49178a) {
             if (t == null) {
                 Log.w(JSONUtils.TAG, "Json has no value by name: '" + str + "'!");
             } else {
@@ -57,7 +57,7 @@ public final class w {
         try {
             return new JSONObject(str);
         } catch (JSONException e2) {
-            if (f45504a) {
+            if (f49178a) {
                 Log.w(JSONUtils.TAG, "JSONObject parsed error!!", e2);
             }
             return new JSONObject();
@@ -71,7 +71,7 @@ public final class w {
         try {
             return new JSONArray(str);
         } catch (JSONException e2) {
-            if (f45504a) {
+            if (f49178a) {
                 Log.w(JSONUtils.TAG, "JSONArray parsed error!!", e2);
             }
             return new JSONArray();

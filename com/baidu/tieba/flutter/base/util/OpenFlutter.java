@@ -34,7 +34,7 @@ import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import d.a.c.e.m.e;
 import d.a.c.e.n.a;
 import d.a.c.h.j.g.d;
-import d.a.m0.a.f;
+import d.a.m0.a.g;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -228,12 +228,12 @@ public class OpenFlutter {
         String substring;
         if (ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
-            if (f.c(uri)) {
-                f.b().h(uri, new f.b() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
-                    @Override // d.a.m0.a.f.b
+            if (g.c(uri)) {
+                g.b().h(uri, new g.b() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
+                    @Override // d.a.m0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
-                        if (hashMap2 != null && (hashMap2.get(f.t) instanceof String)) {
-                            String str2 = (String) hashMap2.get(f.t);
+                        if (hashMap2 != null && (hashMap2.get(g.t) instanceof String)) {
+                            String str2 = (String) hashMap2.get(g.t);
                             if (StringUtils.isNull(str2)) {
                                 return;
                             }

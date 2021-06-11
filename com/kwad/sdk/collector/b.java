@@ -1,64 +1,283 @@
 package com.kwad.sdk.collector;
 
-import android.content.Context;
+import android.os.Environment;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.core.network.j;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.WorkerThread;
+import com.kwad.sdk.collector.AppStatusRules;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import com.kwad.sdk.d;
 import com.kwad.sdk.utils.AppStatusHelper;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class b {
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(int i2, String str);
+    /* renamed from: a  reason: collision with root package name */
+    public static String f32425a = "/*";
 
-        void a(AppStatusRules appStatusRules);
+    /* renamed from: b  reason: collision with root package name */
+    public static String f32426b = "*";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static long f32427c = 86400000;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static long f32428d = 60000;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static Map<String, Set<String>> f32429e = new HashMap();
+
+    /* renamed from: f  reason: collision with root package name */
+    public static Map<String, String> f32430f = new HashMap();
+
+    public static long a() {
+        return f32428d;
     }
 
-    public static void a(final Context context, final a aVar) {
-        if (context == null) {
+    public static String a(String str) {
+        if (str == null) {
+            return null;
+        }
+        return f32430f.get(str);
+    }
+
+    public static void a(long j) {
+        f32427c = j;
+    }
+
+    public static void a(AppStatusRules appStatusRules) {
+        if (appStatusRules == null) {
             return;
         }
-        new com.kwad.sdk.core.network.i<com.kwad.sdk.collector.b.a, AppStatusRules>() { // from class: com.kwad.sdk.collector.b.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.network.i
-            @NonNull
-            /* renamed from: a */
-            public AppStatusRules b(String str) {
-                return AppStatusRules.createFromJson(str);
+        ArrayList<AppStatusRules.Target> targetList = appStatusRules.getTargetList();
+        if (targetList == null) {
+            com.kwad.sdk.core.d.a.d("FAnalyser", "loadTargetSuffix target is null");
+            return;
+        }
+        for (AppStatusRules.Target target : targetList) {
+            String packageName = target.getPackageName();
+            for (String str : target.getPaths()) {
+                a(packageName, str);
             }
+        }
+    }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.network.a
-            @NonNull
-            /* renamed from: a */
-            public com.kwad.sdk.collector.b.a b() {
-                return new com.kwad.sdk.collector.b.a(AppStatusHelper.b(context));
-            }
-        }.a(new j<com.kwad.sdk.collector.b.a, AppStatusRules>() { // from class: com.kwad.sdk.collector.b.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.b.a aVar2) {
-                super.a((AnonymousClass2) aVar2);
-            }
+    private void a(AppStatusHelper.AppRunningInfo appRunningInfo, long j, @NonNull List<AppStatusHelper.AppRunningInfo> list, long j2) {
+        if (j <= 0 || f32427c + j <= j2) {
+            return;
+        }
+        AppStatusHelper.AppRunningInfo cloneNewOne = appRunningInfo.cloneNewOne();
+        cloneNewOne.setLastRunningTime(j);
+        list.add(cloneNewOne);
+    }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.b.a aVar2, int i2, String str) {
-                super.a((AnonymousClass2) aVar2, i2, str);
-                a aVar3 = a.this;
-                if (aVar3 != null) {
-                    aVar3.a(i2, str);
+    @WorkerThread
+    public static void a(File file) {
+        if (file == null || !file.exists()) {
+            return;
+        }
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine == null) {
+                    com.kwad.sdk.core.d.a.a("FAnalyser", "loadTargetSuffixFromFile load success");
+                    return;
+                }
+                String[] split = readLine.split(",");
+                if (split.length >= 2) {
+                    String trim = split[0].trim();
+                    String trim2 = split[1].trim();
+                    if (!TextUtils.isEmpty(trim) && !TextUtils.isEmpty(trim2)) {
+                        a(trim, trim2);
+                    }
                 }
             }
+        } catch (FileNotFoundException e2) {
+            e2.printStackTrace();
+        } catch (IOException e3) {
+            e3.printStackTrace();
+        }
+    }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.b.a aVar2, @NonNull AppStatusRules appStatusRules) {
-                a aVar3 = a.this;
-                if (aVar3 != null) {
-                    aVar3.a(appStatusRules);
+    public static void a(String str, String str2) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        Set<String> hashSet = f32429e.containsKey(str) ? f32429e.get(str) : new HashSet<>();
+        hashSet.add(str2);
+        f32429e.put(str, hashSet);
+    }
+
+    @WorkerThread
+    public static void b() {
+        if (f32429e.size() > 0) {
+            return;
+        }
+        try {
+            a(new File(Environment.getExternalStorageDirectory(), d.f35163b));
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+        }
+    }
+
+    public static void b(long j) {
+        f32428d = j;
+    }
+
+    public static void c() {
+        f32429e.clear();
+    }
+
+    public static boolean d() {
+        return f32429e.size() == 0;
+    }
+
+    @RequiresPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION)
+    public List<AppStatusHelper.AppRunningInfo> a(AppStatusHelper.PackageNameFilter packageNameFilter) {
+        Iterator<Map.Entry<String, Set<String>>> it;
+        Map<String, AppStatusHelper.AppRunningInfo> map;
+        String[] list;
+        int i2;
+        String str;
+        String[] strArr;
+        int i3;
+        String str2;
+        String str3;
+        File file;
+        String[] list2;
+        int i4;
+        int i5;
+        File file2;
+        String[] strArr2;
+        Set<Map.Entry<String, Set<String>>> entrySet = f32429e.entrySet();
+        File file3 = new File(Environment.getExternalStorageDirectory(), "/Android/data/");
+        Map<String, AppStatusHelper.AppRunningInfo> createByPackages = packageNameFilter.createByPackages(f32429e.keySet());
+        ArrayList arrayList = new ArrayList();
+        com.kwad.sdk.core.d.a.a("FAnalyser", "targetSuffixMap size: " + f32429e.size() + ", packageRunningInfoSet size: " + createByPackages.size());
+        long currentTimeMillis = System.currentTimeMillis();
+        Iterator<Map.Entry<String, Set<String>>> it2 = entrySet.iterator();
+        while (it2.hasNext()) {
+            Map.Entry<String, Set<String>> next = it2.next();
+            String key = next.getKey();
+            Set<String> value = next.getValue();
+            AppStatusHelper.AppRunningInfo appRunningInfo = createByPackages.get(key);
+            if (appRunningInfo != null) {
+                for (String str4 : value) {
+                    int i6 = 0;
+                    if (str4.endsWith(f32425a)) {
+                        File file4 = new File(file3, str4.replace(f32425a, ""));
+                        if (file4.exists() && file4.isDirectory() && (list2 = file4.list()) != null) {
+                            int length = list2.length;
+                            int i7 = 0;
+                            while (i7 < length) {
+                                File file5 = new File(file4, list2[i7]);
+                                if (file5.exists()) {
+                                    i4 = i7;
+                                    i5 = length;
+                                    file2 = file4;
+                                    strArr2 = list2;
+                                    a(appRunningInfo, file5.lastModified(), arrayList, currentTimeMillis);
+                                } else {
+                                    i4 = i7;
+                                    i5 = length;
+                                    file2 = file4;
+                                    strArr2 = list2;
+                                }
+                                i7 = i4 + 1;
+                                length = i5;
+                                file4 = file2;
+                                list2 = strArr2;
+                            }
+                        }
+                    } else if (str4.endsWith(f32426b)) {
+                        String str5 = "/";
+                        File file6 = new File(file3, str4.substring(0, str4.lastIndexOf("/")));
+                        String replace = str4.replace(f32426b, "");
+                        if (file6.exists() && file6.isDirectory() && (list = file6.list()) != null) {
+                            String absolutePath = file6.getAbsolutePath();
+                            int length2 = list.length;
+                            while (i6 < length2) {
+                                Iterator<Map.Entry<String, Set<String>>> it3 = it2;
+                                String str6 = list[i6];
+                                Map<String, AppStatusHelper.AppRunningInfo> map2 = createByPackages;
+                                if ((absolutePath + str5 + str6).contains(replace)) {
+                                    File file7 = new File(file6, str6);
+                                    if (file7.exists()) {
+                                        long lastModified = file7.lastModified();
+                                        i2 = length2;
+                                        str = absolutePath;
+                                        strArr = list;
+                                        i3 = i6;
+                                        str2 = replace;
+                                        str3 = str5;
+                                        file = file6;
+                                        a(appRunningInfo, lastModified, arrayList, currentTimeMillis);
+                                        i6 = i3 + 1;
+                                        length2 = i2;
+                                        absolutePath = str;
+                                        createByPackages = map2;
+                                        replace = str2;
+                                        file6 = file;
+                                        list = strArr;
+                                        str5 = str3;
+                                        it2 = it3;
+                                    }
+                                }
+                                i2 = length2;
+                                str = absolutePath;
+                                strArr = list;
+                                i3 = i6;
+                                str2 = replace;
+                                str3 = str5;
+                                file = file6;
+                                i6 = i3 + 1;
+                                length2 = i2;
+                                absolutePath = str;
+                                createByPackages = map2;
+                                replace = str2;
+                                file6 = file;
+                                list = strArr;
+                                str5 = str3;
+                                it2 = it3;
+                            }
+                        }
+                    } else {
+                        it = it2;
+                        map = createByPackages;
+                        if (str4.startsWith(key)) {
+                            File file8 = new File(file3, str4);
+                            if (file8.exists()) {
+                                a(appRunningInfo, file8.lastModified(), arrayList, currentTimeMillis);
+                            }
+                        }
+                        it2 = it;
+                        createByPackages = map;
+                    }
+                    it = it2;
+                    map = createByPackages;
+                    it2 = it;
+                    createByPackages = map;
                 }
             }
-        });
+        }
+        return arrayList;
+    }
+
+    public List<AppStatusHelper.AppRunningInfo> a(List<AppStatusHelper.AppRunningInfo> list) {
+        return (list == null || list.isEmpty()) ? list : new ArrayList(new LinkedHashSet(list));
     }
 }

@@ -30,15 +30,15 @@ public final class j {
     public static final class a extends i {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f55808e;
+        public final /* synthetic */ Context f59497e;
 
         public a(Context context) {
-            this.f55808e = context;
+            this.f59497e = context;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            d.a.m0.l.a.j(this.f55808e, "http://tieba.baidu.com/tb/cms/client/wise_secretright.html");
+            d.a.m0.l.a.j(this.f59497e, "http://tieba.baidu.com/tb/cms/client/wise_secretright.html");
         }
     }
 
@@ -46,15 +46,15 @@ public final class j {
     public static final class b extends i {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f55809e;
+        public final /* synthetic */ Context f59498e;
 
         public b(Context context) {
-            this.f55809e = context;
+            this.f59498e = context;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            d.a.m0.l.a.j(this.f55809e, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
+            d.a.m0.l.a.j(this.f59498e, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
         }
     }
 
@@ -114,7 +114,7 @@ public final class j {
         StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
         String string = tbPageContext.getString(R.string.secret_hint_format);
         Intrinsics.checkExpressionValueIsNotNull(string, "tbPageContext.getString(…tring.secret_hint_format)");
-        String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.secret_hint_title), tbPageContext.getString(R.string.secret_hint_footer), tbPageContext.getString(R.string.secret_hint_content_1), tbPageContext.getString(R.string.secret_hint_content_2), tbPageContext.getString(R.string.secret_hint_content_3), tbPageContext.getString(R.string.secret_hint_content_4)}, 6));
+        String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.secret_hint_footer), tbPageContext.getString(R.string.secret_hint_title), tbPageContext.getString(R.string.secret_hint_content_1), tbPageContext.getString(R.string.secret_hint_content_2), tbPageContext.getString(R.string.secret_hint_content_3), tbPageContext.getString(R.string.secret_hint_content_4)}, 6));
         Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
         Activity pageActivity = tbPageContext.getPageActivity();
         Intrinsics.checkExpressionValueIsNotNull(pageActivity, "tbPageContext.pageActivity");

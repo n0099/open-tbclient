@@ -14,7 +14,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class c extends Dialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f47611e;
+    public a f51285e;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -29,7 +29,7 @@ public final class c extends Dialog {
     public static final class b implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f47612e = new b();
+        public static final b f51286e = new b();
 
         @Override // android.view.View.OnTouchListener
         public final boolean onTouch(View v, MotionEvent event) {
@@ -51,13 +51,13 @@ public final class c extends Dialog {
 
     /* renamed from: d.a.l0.h.o0.g.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class View$OnClickListenerC1045c implements View.OnClickListener {
-        public View$OnClickListenerC1045c() {
+    public static final class View$OnClickListenerC1101c implements View.OnClickListener {
+        public View$OnClickListenerC1101c() {
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            a aVar = c.this.f47611e;
+            a aVar = c.this.f51285e;
             if (aVar != null) {
                 aVar.c();
             }
@@ -71,7 +71,7 @@ public final class c extends Dialog {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            a aVar = c.this.f47611e;
+            a aVar = c.this.f51285e;
             if (aVar != null) {
                 aVar.b();
             }
@@ -85,7 +85,7 @@ public final class c extends Dialog {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            a aVar = c.this.f47611e;
+            a aVar = c.this.f51285e;
             if (aVar != null) {
                 aVar.a();
             }
@@ -101,7 +101,7 @@ public final class c extends Dialog {
 
     @SuppressLint({"ClickableViewAccessibility"})
     public final View.OnTouchListener b() {
-        return b.f47612e;
+        return b.f51286e;
     }
 
     public final void c() {
@@ -113,7 +113,7 @@ public final class c extends Dialog {
     @SuppressLint({"ClickableViewAccessibility"})
     public final void d() {
         ((Button) findViewById(d.a.l0.f.e.exit_button)).setOnTouchListener(b());
-        ((Button) findViewById(d.a.l0.f.e.exit_button)).setOnClickListener(new View$OnClickListenerC1045c());
+        ((Button) findViewById(d.a.l0.f.e.exit_button)).setOnClickListener(new View$OnClickListenerC1101c());
         ((ImageView) findViewById(d.a.l0.f.e.image_close)).setOnTouchListener(b());
         ((ImageView) findViewById(d.a.l0.f.e.image_close)).setOnClickListener(new d());
         ((Button) findViewById(d.a.l0.f.e.continue_button)).setOnTouchListener(b());
@@ -122,6 +122,6 @@ public final class c extends Dialog {
 
     public final void e(a onClickListener) {
         Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
-        this.f47611e = onClickListener;
+        this.f51285e = onClickListener;
     }
 }

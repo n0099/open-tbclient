@@ -21,7 +21,7 @@ import com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.ad;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Executor;
@@ -72,7 +72,7 @@ public class DefaultConfigurationFactory {
                 L.e(e2);
             }
         }
-        return new UnlimitedDiskCache(ae.b(context), createReserveDiskCacheDir, fileNameGenerator);
+        return new UnlimitedDiskCache(ad.b(context), createReserveDiskCacheDir, fileNameGenerator);
     }
 
     public static Executor createExecutor(int i2, int i3, QueueProcessingType queueProcessingType) {
@@ -104,7 +104,7 @@ public class DefaultConfigurationFactory {
     }
 
     public static File createReserveDiskCacheDir(Context context) {
-        File b2 = ae.b(context);
+        File b2 = ad.b(context);
         File file = new File(b2, StorageUtils.INDIVIDUAL_DIR_NAME);
         return (file.exists() || file.mkdir()) ? file : b2;
     }

@@ -17,30 +17,30 @@ import d.a.m0.z0.i0;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f62929a = false;
+    public static boolean f66644a = false;
 
     /* loaded from: classes5.dex */
     public static class a implements InputFilter {
 
         /* renamed from: e  reason: collision with root package name */
-        public InterfaceC1718b f62930e;
+        public InterfaceC1775b f66645e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f62931f;
+        public int f66646f;
 
-        public a(int i2, InterfaceC1718b interfaceC1718b) {
-            this.f62931f = i2;
-            this.f62930e = interfaceC1718b;
+        public a(int i2, InterfaceC1775b interfaceC1775b) {
+            this.f66646f = i2;
+            this.f66645e = interfaceC1775b;
         }
 
         @Override // android.text.InputFilter
         public CharSequence filter(CharSequence charSequence, int i2, int i3, Spanned spanned, int i4, int i5) {
-            if (spanned == null || charSequence == null || (i0.c(spanned.toString()) - (i5 - i4)) + i0.c(charSequence.toString()) <= this.f62931f) {
+            if (spanned == null || charSequence == null || (i0.c(spanned.toString()) - (i5 - i4)) + i0.c(charSequence.toString()) <= this.f66646f) {
                 return charSequence;
             }
-            InterfaceC1718b interfaceC1718b = this.f62930e;
-            if (interfaceC1718b != null) {
-                interfaceC1718b.a();
+            InterfaceC1775b interfaceC1775b = this.f66645e;
+            if (interfaceC1775b != null) {
+                interfaceC1775b.a();
             }
             return "";
         }
@@ -48,7 +48,7 @@ public class b {
 
     /* renamed from: d.a.n0.w3.r.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1718b {
+    public interface InterfaceC1775b {
         void a();
     }
 
@@ -89,14 +89,14 @@ public class b {
     }
 
     public static void f() {
-        f62929a = true;
+        f66644a = true;
     }
 
     public static void g(TitleTipView titleTipView) {
         if (titleTipView == null) {
             return;
         }
-        if (c() && !f62929a && b() <= 0) {
+        if (c() && !f66644a && b() <= 0) {
             titleTipView.d();
             f();
             StatisticItem.make("c13996").eventStat();

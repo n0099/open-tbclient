@@ -12,13 +12,13 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 public class x {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f51081b = new byte[1];
+    public static final byte[] f54758b = new byte[1];
 
     /* renamed from: c  reason: collision with root package name */
-    public static x f51082c;
+    public static x f54759c;
 
     /* renamed from: a  reason: collision with root package name */
-    public CustomMessageListener f51083a;
+    public CustomMessageListener f54760a;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -40,14 +40,14 @@ public class x {
     }
 
     public static x b() {
-        if (f51082c == null) {
-            synchronized (f51081b) {
-                if (f51082c == null) {
-                    f51082c = new x();
+        if (f54759c == null) {
+            synchronized (f54758b) {
+                if (f54759c == null) {
+                    f54759c = new x();
                 }
             }
         }
-        return f51082c;
+        return f54759c;
     }
 
     public final CustomMessageListener c() {
@@ -74,12 +74,12 @@ public class x {
 
     public void e() {
         try {
-            if (this.f51083a == null) {
-                this.f51083a = c();
-                MessageManager.getInstance().registerListener(this.f51083a);
+            if (this.f54760a == null) {
+                this.f54760a = c();
+                MessageManager.getInstance().registerListener(this.f54760a);
             }
         } catch (Exception e2) {
-            this.f51083a = null;
+            this.f54760a = null;
             BdLog.e(e2.getMessage());
         }
     }

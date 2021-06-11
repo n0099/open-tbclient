@@ -25,39 +25,39 @@ import org.json.JSONObject;
 public class d0 extends d.a.l0.a.n1.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40952e;
+    public int f44628e;
 
     /* loaded from: classes3.dex */
     public class a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f40953a;
+        public final /* synthetic */ CallbackHandler f44629a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f40954b;
+        public final /* synthetic */ String f44630b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f40955c;
+        public final /* synthetic */ String f44631c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f40956d;
+        public final /* synthetic */ String f44632d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f40957e;
+        public final /* synthetic */ String f44633e;
 
         public a(CallbackHandler callbackHandler, String str, String str2, String str3, String str4) {
-            this.f40953a = callbackHandler;
-            this.f40954b = str;
-            this.f40955c = str2;
-            this.f40956d = str3;
-            this.f40957e = str4;
+            this.f44629a = callbackHandler;
+            this.f44630b = str;
+            this.f44631c = str2;
+            this.f44632d = str3;
+            this.f44633e = str4;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             d.a.l0.a.g1.f.V().S();
-            this.f40953a.handleSchemeDispatchCallback(this.f40955c, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
-            d0.this.q(this.f40957e);
+            this.f44629a.handleSchemeDispatchCallback(this.f44631c, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
+            d0.this.q(this.f44633e);
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -67,7 +67,7 @@ public class d0 extends d.a.l0.a.n1.a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i2) throws Exception {
-            d0.this.z(response, this.f40953a, this.f40954b, this.f40955c, this.f40956d, this.f40957e);
+            d0.this.z(response, this.f44629a, this.f44630b, this.f44631c, this.f44632d, this.f44633e);
             return response;
         }
     }
@@ -76,33 +76,33 @@ public class d0 extends d.a.l0.a.n1.a {
     public class b implements d.a.l0.a.n1.p.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f40959a;
+        public final /* synthetic */ long f44635a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f40960b;
+        public final /* synthetic */ String f44636b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f40961c;
+        public final /* synthetic */ String f44637c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f40962d;
+        public final /* synthetic */ CallbackHandler f44638d;
 
         public b(long j, String str, String str2, CallbackHandler callbackHandler) {
-            this.f40959a = j;
-            this.f40960b = str;
-            this.f40961c = str2;
-            this.f40962d = callbackHandler;
+            this.f44635a = j;
+            this.f44636b = str;
+            this.f44637c = str2;
+            this.f44638d = callbackHandler;
         }
 
         @Override // d.a.l0.a.n1.p.a
         public void a(long j) {
-            d0.this.x(this.f40959a, j, this.f40960b, this.f40961c, this.f40962d);
+            d0.this.x(this.f44635a, j, this.f44636b, this.f44637c, this.f44638d);
         }
     }
 
     public d0(d.a.l0.a.c2.e eVar) {
         super(eVar, "/swanAPI/uploadFile");
-        this.f40952e = 0;
+        this.f44628e = 0;
     }
 
     public static void A(MultipartBody.Builder builder, JSONObject jSONObject) {
@@ -155,7 +155,7 @@ public class d0 extends d.a.l0.a.n1.a {
         String valueOf = String.valueOf(System.currentTimeMillis());
         Request w = w(a2, optString, a3, valueOf, eVar, callbackHandler);
         if (w == null) {
-            unitedSchemeEntity.result = t(this.f40952e);
+            unitedSchemeEntity.result = t(this.f44628e);
             q(valueOf);
             return false;
         }
@@ -175,11 +175,11 @@ public class d0 extends d.a.l0.a.n1.a {
         bVar.a(hashMap);
         d.a.l0.a.g1.f.V().b0();
         d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(w.url().toString(), w.body(), new a(callbackHandler, optString, optString3, optString2, valueOf));
-        aVar.f47971c = hashMap;
-        aVar.f47977i = w.tag();
-        aVar.f47974f = true;
-        aVar.f47975g = false;
-        aVar.f47976h = true;
+        aVar.f51645c = hashMap;
+        aVar.f51651i = w.tag();
+        aVar.f51648f = true;
+        aVar.f51649g = false;
+        aVar.f51650h = true;
         aVar.k = 2;
         d.a.l0.m.e.a.g().e(aVar);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n(a3), 0));
@@ -204,7 +204,7 @@ public class d0 extends d.a.l0.a.n1.a {
             return null;
         }
         int c2 = d.a.l0.a.b2.a.b.c("uploadFile", httpUrl, jSONObject.optString("__plugin__"));
-        this.f40952e = c2;
+        this.f44628e = c2;
         if (c2 != 0) {
             return null;
         }
@@ -220,10 +220,10 @@ public class d0 extends d.a.l0.a.n1.a {
         if (file.exists() && file.isFile()) {
             long length = file.length();
             if (length > 524288000) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.i("UploadFileAction", "file over size: " + (length / 1048576) + " MB.");
                 }
-                this.f40952e = 5;
+                this.f44628e = 5;
                 return null;
             }
             String optString2 = jSONObject.optString("name", "");
@@ -232,7 +232,7 @@ public class d0 extends d.a.l0.a.n1.a {
             }
             if (!jSONObject.has("formData") || (jSONObject.opt("formData") instanceof JSONObject)) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("formData");
-                this.f43687c.put(str3, 0L);
+                this.f47363c.put(str3, 0L);
                 String name = file.getName();
                 if (!TextUtils.isEmpty(name)) {
                     str4 = d.a.l0.a.v2.s.d(d.a.l0.a.v2.s.b(name));
@@ -263,12 +263,12 @@ public class d0 extends d.a.l0.a.n1.a {
                     jSONObject.put("totalBytesExpectedToSend", j);
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                 } catch (Exception e2) {
-                    if (a0.f40949b) {
+                    if (a0.f44625b) {
                         e2.printStackTrace();
                     }
                 }
             }
-            this.f43687c.put(str2, Long.valueOf(System.currentTimeMillis()));
+            this.f47363c.put(str2, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
@@ -300,7 +300,7 @@ public class d0 extends d.a.l0.a.n1.a {
                     callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                 }
             } catch (Exception e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e2.printStackTrace();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());

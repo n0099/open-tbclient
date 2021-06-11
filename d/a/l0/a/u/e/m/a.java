@@ -17,8 +17,8 @@ public class a extends d {
 
     /* renamed from: d.a.l0.a.u.e.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0862a implements b {
-        public C0862a() {
+    public class C0918a implements b {
+        public C0918a() {
         }
 
         @Override // d.a.l0.a.u.e.m.a.b
@@ -50,7 +50,7 @@ public class a extends d {
                 }
                 return jSONObject;
             } catch (JSONException unused) {
-                if (d.f44812c) {
+                if (d.f48486c) {
                     Log.d("Api-Storage", "parseDataAsJsonResult:data is not json.");
                 }
             }
@@ -84,7 +84,7 @@ public class a extends d {
     }
 
     public d.a.l0.a.u.h.b D(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Storage", "start remove storage");
         }
         e i2 = e.i();
@@ -93,8 +93,8 @@ public class a extends d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Storage", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-Storage", "parse fail");
             }
             return bVar;
@@ -109,14 +109,14 @@ public class a extends d {
     }
 
     public d.a.l0.a.u.h.b E(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Storage", "start remove storage sync");
         }
         return D(str);
     }
 
     public d.a.l0.a.u.h.b F(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Storage", "start set storage");
         }
         if (str != null && str.length() > 3145728) {
@@ -128,8 +128,8 @@ public class a extends d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Storage", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-Storage", "parse fail");
             }
             return bVar;
@@ -150,7 +150,7 @@ public class a extends d {
             return new d.a.l0.a.u.h.b(1001, "exceed storage item max length");
         }
         if (z(i2, C, B)) {
-            if (d.f44812c) {
+            if (d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-Storage", "exceed storage max length");
             }
             return new d.a.l0.a.u.h.b(1003, "exceed storage max length");
@@ -161,18 +161,18 @@ public class a extends d {
     }
 
     public d.a.l0.a.u.h.b G(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Storage", "start set storage sync");
         }
         return F(str);
     }
 
     public void H() {
-        d.a.l0.a.q2.d.f44235h.b();
+        d.a.l0.a.q2.d.f47909h.b();
     }
 
     public d.a.l0.a.u.h.b r() {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Storage", "start clear storage");
         }
         e i2 = e.i();
@@ -185,17 +185,17 @@ public class a extends d {
     }
 
     public d.a.l0.a.u.h.b s() {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Storage", "start clear storage sync");
         }
         return r();
     }
 
     public d.a.l0.a.u.h.b t(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Storage", "start get storage");
         }
-        return u(str, new C0862a());
+        return u(str, new C0918a());
     }
 
     public final d.a.l0.a.u.h.b u(String str, b bVar) {
@@ -205,8 +205,8 @@ public class a extends d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Storage", str);
         d.a.l0.a.u.h.b bVar2 = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar2.a()) {
-            if (d.f44812c) {
+        if (!bVar2.isSuccess()) {
+            if (d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-Storage", "parse fail");
             }
             return bVar2;
@@ -235,7 +235,7 @@ public class a extends d {
             jSONObject.put("limitSize", U.n() / 1024);
             return new d.a.l0.a.u.h.b(0, jSONObject);
         } catch (JSONException e2) {
-            if (d.f44812c) {
+            if (d.f48486c) {
                 e2.printStackTrace();
             }
             return new d.a.l0.a.u.h.b(202, "JSONException");
@@ -243,7 +243,7 @@ public class a extends d {
     }
 
     public d.a.l0.a.u.h.b x(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Storage", "start get storage sync");
         }
         return t(str);

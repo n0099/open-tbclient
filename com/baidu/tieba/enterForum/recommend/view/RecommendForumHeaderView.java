@@ -21,19 +21,19 @@ import java.util.List;
 public class RecommendForumHeaderView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14524e;
+    public int f14581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f14525f;
+    public TbPageContext<?> f14582f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ForumTestView f14526g;
+    public ForumTestView f14583g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f14527h;
+    public e f14584h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14528i;
+    public boolean f14585i;
     public CustomMessageListener j;
     public CustomMessageListener k;
 
@@ -65,26 +65,26 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921385) {
                 return;
             }
-            if (RecommendForumHeaderView.this.f14526g == null || RecommendForumHeaderView.this.f14526g.getVisibility() == 8) {
-                RecommendForumHeaderView.this.f14528i = false;
+            if (RecommendForumHeaderView.this.f14583g == null || RecommendForumHeaderView.this.f14583g.getVisibility() == 8) {
+                RecommendForumHeaderView.this.f14585i = false;
             } else {
-                RecommendForumHeaderView.this.g();
+                RecommendForumHeaderView.this.h();
             }
         }
     }
 
     public RecommendForumHeaderView(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.f14524e = 3;
-        this.f14528i = true;
+        this.f14581e = 3;
+        this.f14585i = true;
         this.j = new a(2921386);
         this.k = new b(2921385);
-        this.f14525f = tbPageContext;
+        this.f14582f = tbPageContext;
         e();
     }
 
     public void d() {
-        e eVar = this.f14527h;
+        e eVar = this.f14584h;
         if (eVar != null) {
             eVar.I();
         }
@@ -99,44 +99,44 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.recom_forum_header_layout, (ViewGroup) this, true);
         ForumTestView forumTestView = (ForumTestView) findViewById(R.id.recommend_forum_header_test_view);
-        this.f14526g = forumTestView;
+        this.f14583g = forumTestView;
         forumTestView.setOnClickListener(this);
         f();
     }
 
     public void f() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f14524e) {
+        if (skinType == this.f14581e) {
             return;
         }
-        this.f14524e = skinType;
-        ForumTestView forumTestView = this.f14526g;
+        this.f14581e = skinType;
+        ForumTestView forumTestView = this.f14583g;
         if (forumTestView != null) {
             forumTestView.N();
         }
     }
 
-    public final void g() {
-        if (this.f14527h == null) {
-            e eVar = new e(this.f14525f, this.f14526g);
-            this.f14527h = eVar;
+    public final void h() {
+        if (this.f14584h == null) {
+            e eVar = new e(this.f14582f, this.f14583g);
+            this.f14584h = eVar;
             eVar.g0(R.drawable.bg_tip_blue_up);
-            this.f14527h.O(32);
-            this.f14527h.h0(true);
-            this.f14527h.N(3000);
-            this.f14527h.k0(0);
-            this.f14527h.M(this);
-            this.f14527h.m0(getContext().getString(R.string.recommend_tab_click_to_test), "key_recommend_tab_click_to_test_tip");
+            this.f14584h.O(32);
+            this.f14584h.h0(true);
+            this.f14584h.N(3000);
+            this.f14584h.k0(0);
+            this.f14584h.M(this);
+            this.f14584h.m0(getContext().getString(R.string.recommend_tab_click_to_test), "key_recommend_tab_click_to_test_tip");
         }
     }
 
-    public void h() {
+    public void i() {
         MessageManager.getInstance().unRegisterListener(this.j);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f14526g || this.f14527h == null) {
+        if (view == this.f14583g || this.f14584h == null) {
             return;
         }
         d();
@@ -150,27 +150,27 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
 
     public void setData(List<f> list) {
         if (ListUtils.isEmpty(list)) {
-            this.f14526g.setVisibility(8);
+            this.f14583g.setVisibility(8);
             return;
         }
-        this.f14526g.setVisibility(0);
-        this.f14526g.setData(list);
-        if (this.f14528i) {
+        this.f14583g.setVisibility(0);
+        this.f14583g.setData(list);
+        if (this.f14585i) {
             return;
         }
-        g();
-        this.f14528i = true;
+        h();
+        this.f14585i = true;
     }
 
     public void setOnSecectedListener(ForumTestView.c cVar) {
-        ForumTestView forumTestView = this.f14526g;
+        ForumTestView forumTestView = this.f14583g;
         if (forumTestView != null) {
             forumTestView.setOnSecectedListener(cVar);
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        ForumTestView forumTestView = this.f14526g;
+        ForumTestView forumTestView = this.f14583g;
         if (forumTestView != null) {
             forumTestView.setPageId(bdUniqueId);
         }

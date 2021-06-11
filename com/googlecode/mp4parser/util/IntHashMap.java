@@ -10,18 +10,18 @@ public class IntHashMap {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31497a;
+        public int f31588a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f31498b;
+        public Object f31589b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f31499c;
+        public a f31590c;
 
         public a(int i2, int i3, Object obj, a aVar) {
-            this.f31497a = i2;
-            this.f31498b = obj;
-            this.f31499c = aVar;
+            this.f31588a = i2;
+            this.f31589b = obj;
+            this.f31590c = aVar;
         }
     }
 
@@ -51,8 +51,8 @@ public class IntHashMap {
                 if (length <= 0) {
                     return false;
                 }
-                for (a aVar = aVarArr[i2]; aVar != null; aVar = aVar.f31499c) {
-                    if (aVar.f31498b.equals(obj)) {
+                for (a aVar = aVarArr[i2]; aVar != null; aVar = aVar.f31590c) {
+                    if (aVar.f31589b.equals(obj)) {
                         return true;
                     }
                 }
@@ -65,8 +65,8 @@ public class IntHashMap {
 
     public boolean containsKey(int i2) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i2) % aVarArr.length]; aVar != null; aVar = aVar.f31499c) {
-            if (aVar.f31497a == i2) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i2) % aVarArr.length]; aVar != null; aVar = aVar.f31590c) {
+            if (aVar.f31588a == i2) {
                 return true;
             }
         }
@@ -79,9 +79,9 @@ public class IntHashMap {
 
     public Object get(int i2) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i2) % aVarArr.length]; aVar != null; aVar = aVar.f31499c) {
-            if (aVar.f31497a == i2) {
-                return aVar.f31498b;
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i2) % aVarArr.length]; aVar != null; aVar = aVar.f31590c) {
+            if (aVar.f31588a == i2) {
+                return aVar.f31589b;
             }
         }
         return null;
@@ -95,10 +95,10 @@ public class IntHashMap {
         a[] aVarArr = this.table;
         int i3 = Integer.MAX_VALUE & i2;
         int length = i3 % aVarArr.length;
-        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.f31499c) {
-            if (aVar.f31497a == i2) {
-                Object obj2 = aVar.f31498b;
-                aVar.f31498b = obj;
+        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.f31590c) {
+            if (aVar.f31588a == i2) {
+                Object obj2 = aVar.f31589b;
+                aVar.f31589b = obj;
                 return obj2;
             }
         }
@@ -126,9 +126,9 @@ public class IntHashMap {
             }
             a aVar = aVarArr[i3];
             while (aVar != null) {
-                a aVar2 = aVar.f31499c;
-                int i4 = (aVar.f31497a & Integer.MAX_VALUE) % i2;
-                aVar.f31499c = aVarArr2[i4];
+                a aVar2 = aVar.f31590c;
+                int i4 = (aVar.f31588a & Integer.MAX_VALUE) % i2;
+                aVar.f31590c = aVarArr2[i4];
                 aVarArr2[i4] = aVar;
                 aVar = aVar2;
             }
@@ -140,16 +140,16 @@ public class IntHashMap {
         a[] aVarArr = this.table;
         int length = (Integer.MAX_VALUE & i2) % aVarArr.length;
         a aVar = null;
-        for (a aVar2 = aVarArr[length]; aVar2 != null; aVar2 = aVar2.f31499c) {
-            if (aVar2.f31497a == i2) {
+        for (a aVar2 = aVarArr[length]; aVar2 != null; aVar2 = aVar2.f31590c) {
+            if (aVar2.f31588a == i2) {
                 if (aVar != null) {
-                    aVar.f31499c = aVar2.f31499c;
+                    aVar.f31590c = aVar2.f31590c;
                 } else {
-                    aVarArr[length] = aVar2.f31499c;
+                    aVarArr[length] = aVar2.f31590c;
                 }
                 this.count--;
-                Object obj = aVar2.f31498b;
-                aVar2.f31498b = null;
+                Object obj = aVar2.f31589b;
+                aVar2.f31589b = null;
                 return obj;
             }
             aVar = aVar2;

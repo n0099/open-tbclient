@@ -97,7 +97,7 @@ public class BarVoteActivity extends BaseActivity {
     public void loadmore() {
         BarVoteModel barVoteModel = this.mModel;
         if (barVoteModel != null) {
-            barVoteModel.w();
+            barVoteModel.loadMore();
         }
     }
 
@@ -131,7 +131,7 @@ public class BarVoteActivity extends BaseActivity {
         this.source = getIntent().getIntExtra("source", 0);
         BarVoteModel barVoteModel = new BarVoteModel(this);
         this.mModel = barVoteModel;
-        barVoteModel.z(this.mCallBack);
+        barVoteModel.B(this.mCallBack);
         this.mView.D(new b());
         new StatisticItem(TbadkCoreStatisticKey.KEY_VOTE_PAGE).param("obj_source", this.source).eventStat();
     }
@@ -162,14 +162,14 @@ public class BarVoteActivity extends BaseActivity {
     public void refresh() {
         BarVoteModel barVoteModel = this.mModel;
         if (barVoteModel != null) {
-            barVoteModel.A();
+            barVoteModel.C();
         }
     }
 
     public void reload() {
         BarVoteModel barVoteModel = this.mModel;
         if (barVoteModel != null) {
-            barVoteModel.x();
+            barVoteModel.refresh();
         }
     }
 

@@ -1,5 +1,5 @@
 package com.kwai.filedownloader.exception;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FileDownloadNetworkPolicyException extends FileDownloadGiveUpRetryException {
     public FileDownloadNetworkPolicyException() {
         super("Only allows downloading this task on the wifi network type");

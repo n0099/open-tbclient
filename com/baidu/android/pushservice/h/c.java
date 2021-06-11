@@ -5,39 +5,39 @@ import android.text.TextUtils;
 public abstract class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3133a;
+    public String f3152a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f3134b;
+    public short f3153b;
 
     public c() {
-        this.f3134b = (short) 99;
+        this.f3153b = (short) 99;
     }
 
     public c(String str, short s) {
-        this.f3134b = (short) 99;
-        this.f3133a = str;
-        this.f3134b = s;
+        this.f3153b = (short) 99;
+        this.f3152a = str;
+        this.f3153b = s;
     }
 
     public abstract void a();
 
     public void a(short s) {
-        this.f3134b = s;
+        this.f3153b = s;
     }
 
     public void c(String str) {
-        this.f3133a = str;
+        this.f3152a = str;
     }
 
     public short d() {
-        return this.f3134b;
+        return this.f3153b;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (!TextUtils.isEmpty(this.f3133a)) {
-            Thread.currentThread().setName(this.f3133a);
+        if (!TextUtils.isEmpty(this.f3152a)) {
+            Thread.currentThread().setName(this.f3152a);
         }
         a();
     }

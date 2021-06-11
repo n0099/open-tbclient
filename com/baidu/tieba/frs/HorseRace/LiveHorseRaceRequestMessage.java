@@ -10,7 +10,7 @@ import tbclient.GetHorseRaceLampList.GetHorseRaceLampListReqIdl;
 public class LiveHorseRaceRequestMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f15167common;
+    public CommonReq f15229common;
     public Long forum_id;
 
     public LiveHorseRaceRequestMessage() {
@@ -20,7 +20,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f69362common = this.f15167common;
+        builder.f72673common = this.f15229common;
         builder.forum_id = this.forum_id;
         if (z) {
             w.a(builder, true);
@@ -31,7 +31,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f15167common = commonReq;
+        this.f15229common = commonReq;
     }
 
     public void setForum_id(Long l) {

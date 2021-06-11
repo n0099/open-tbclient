@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidubce.auth.NTLMEngineImpl;
 import com.ss.android.socialbase.downloader.b.c;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.b.g.s;
@@ -22,36 +21,36 @@ import org.json.JSONArray;
 public class e extends c.a implements s {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SQLiteDatabase f35865b;
+    public static volatile SQLiteDatabase f39544b;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.b.b f35866a;
+    public com.ss.android.socialbase.downloader.b.b f39545a;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.o.a.e.b.b.c f35867c;
+    public d.o.a.e.b.b.c f39546c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.o.a.e.b.b.c f35868d;
+    public d.o.a.e.b.b.c f39547d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.o.a.e.b.b.c f35869e;
+    public d.o.a.e.b.b.c f39548e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f35870f;
+    public volatile boolean f39549f;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f35871e;
+        public final /* synthetic */ DownloadInfo f39550e;
 
         public a(DownloadInfo downloadInfo) {
-            this.f35871e = downloadInfo;
+            this.f39550e = downloadInfo;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.d(this.f35871e);
+            e.this.d(this.f39550e);
         }
     }
 
@@ -59,17 +58,17 @@ public class e extends c.a implements s {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35873e;
+        public final /* synthetic */ int f39552e;
 
         public b(int i2) {
-            this.f35873e = i2;
+            this.f39552e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.e(this.f35873e);
-            e.this.d(this.f35873e);
-            e.this.m(this.f35873e);
+            e.this.e(this.f39552e);
+            e.this.d(this.f39552e);
+            e.this.m(this.f39552e);
         }
     }
 
@@ -77,18 +76,18 @@ public class e extends c.a implements s {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f35875e;
+        public final /* synthetic */ SparseArray f39554e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f35876f;
+        public final /* synthetic */ SparseArray f39555f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.b.b f35877g;
+        public final /* synthetic */ d.o.a.e.b.b.b f39556g;
 
         public c(SparseArray sparseArray, SparseArray sparseArray2, d.o.a.e.b.b.b bVar) {
-            this.f35875e = sparseArray;
-            this.f35876f = sparseArray2;
-            this.f35877g = bVar;
+            this.f39554e = sparseArray;
+            this.f39555f = sparseArray2;
+            this.f39556g = bVar;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, INVOKE, IGET, INVOKE, IGET, INVOKE, IF] complete} */
@@ -99,10 +98,10 @@ public class e extends c.a implements s {
          */
         /* JADX WARN: Code restructure failed: missing block: B:108:0x01cb, code lost:
             r0.a();
-            r20.f35878h.f35870f = true;
+            r20.f39557h.f39549f = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:109:0x01d3, code lost:
-            r20.f35878h.a(r8, r9);
+            r20.f39557h.a(r8, r9);
          */
         /* JADX WARN: Code restructure failed: missing block: B:145:0x0273, code lost:
             if (r0 == null) goto L72;
@@ -121,10 +120,10 @@ public class e extends c.a implements s {
          */
         /* JADX WARN: Code restructure failed: missing block: B:203:0x0347, code lost:
             r0.a();
-            r20.f35878h.f35870f = true;
+            r20.f39557h.f39549f = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:204:0x034f, code lost:
-            r20.f35878h.a(r8, r9);
+            r20.f39557h.a(r8, r9);
          */
         /* JADX WARN: Code restructure failed: missing block: B:205:0x0354, code lost:
             throw r0;
@@ -143,15 +142,15 @@ public class e extends c.a implements s {
             d.o.a.e.b.b.b bVar2;
             boolean z;
             e.this.g();
-            if (e.f35865b == null) {
+            if (e.f39544b == null) {
                 return;
             }
-            SparseArray<DownloadInfo> sparseArray = this.f35875e;
+            SparseArray<DownloadInfo> sparseArray = this.f39554e;
             if (sparseArray == null) {
                 sparseArray = new SparseArray<>();
             }
             SparseArray<DownloadInfo> sparseArray2 = sparseArray;
-            SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray3 = this.f35876f;
+            SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray3 = this.f39555f;
             if (sparseArray3 == null) {
                 sparseArray3 = new SparseArray<>();
             }
@@ -164,7 +163,7 @@ public class e extends c.a implements s {
             int i2 = -3;
             int i3 = 0;
             try {
-                cursor = e.f35865b.rawQuery("SELECT * FROM downloader", null);
+                cursor = e.f39544b.rawQuery("SELECT * FROM downloader", null);
                 while (cursor.moveToNext()) {
                     DownloadInfo downloadInfo = new DownloadInfo(cursor);
                     downloadInfo.b3(downloadInfo.z0());
@@ -187,7 +186,7 @@ public class e extends c.a implements s {
                             downloadInfo.a3(-5);
                         }
                         if (d.o.a.e.b.l.e.G(downloadInfo.H0(), downloadInfo.F0(), downloadInfo.q0())) {
-                            if (!d.o.a.e.b.l.a.a(NTLMEngineImpl.FLAG_REQUEST_VERSION)) {
+                            if (!d.o.a.e.b.l.a.a(33554432)) {
                                 downloadInfo.q();
                             }
                         }
@@ -244,12 +243,12 @@ public class e extends c.a implements s {
                     } catch (Throwable th) {
                         try {
                             th.printStackTrace();
-                            bVar2 = this.f35877g;
+                            bVar2 = this.f39556g;
                         } finally {
                         }
                     }
                 }
-                bVar2 = this.f35877g;
+                bVar2 = this.f39556g;
             } catch (Throwable th2) {
                 try {
                     th2.printStackTrace();
@@ -283,12 +282,12 @@ public class e extends c.a implements s {
                         } catch (Throwable th3) {
                             try {
                                 th3.printStackTrace();
-                                bVar2 = this.f35877g;
+                                bVar2 = this.f39556g;
                             } finally {
                             }
                         }
                     }
-                    bVar2 = this.f35877g;
+                    bVar2 = this.f39556g;
                 } catch (Throwable th4) {
                     d.o.a.e.b.l.e.C(cursor);
                     e.this.a(arrayList2);
@@ -323,18 +322,18 @@ public class e extends c.a implements s {
                         } catch (Throwable th5) {
                             try {
                                 th5.printStackTrace();
-                                bVar = this.f35877g;
+                                bVar = this.f39556g;
                             } finally {
-                                d.o.a.e.b.b.b bVar3 = this.f35877g;
+                                d.o.a.e.b.b.b bVar3 = this.f39556g;
                                 if (bVar3 != null) {
                                     bVar3.a();
-                                    e.this.f35870f = true;
+                                    e.this.f39549f = true;
                                 }
                                 e.this.a(sparseArray2, sparseArray4);
                             }
                         }
                     }
-                    bVar = this.f35877g;
+                    bVar = this.f39556g;
                 }
             }
         }
@@ -353,22 +352,22 @@ public class e extends c.a implements s {
 
     /* renamed from: com.ss.android.socialbase.downloader.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC0431e implements Runnable {
+    public class RunnableC0482e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35880e;
+        public final /* synthetic */ int f39559e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f35881f;
+        public final /* synthetic */ ContentValues f39560f;
 
-        public RunnableC0431e(int i2, ContentValues contentValues) {
-            this.f35880e = i2;
-            this.f35881f = contentValues;
+        public RunnableC0482e(int i2, ContentValues contentValues) {
+            this.f39559e = i2;
+            this.f39560f = contentValues;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.b(this.f35880e, this.f35881f);
+            e.this.b(this.f39559e, this.f39560f);
         }
     }
 
@@ -376,16 +375,16 @@ public class e extends c.a implements s {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35883e;
+        public final /* synthetic */ int f39562e;
 
         public f(int i2) {
-            this.f35883e = i2;
+            this.f39562e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                e.this.a(this.f35883e, e.this.f35868d.b());
+                e.this.a(this.f39562e, e.this.f39547d.b());
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -396,16 +395,16 @@ public class e extends c.a implements s {
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.model.b f35885e;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.model.b f39564e;
 
         public g(com.ss.android.socialbase.downloader.model.b bVar) {
-            this.f35885e = bVar;
+            this.f39564e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                e.this.a(this.f35885e, e.this.f35868d.a());
+                e.this.a(this.f39564e, e.this.f39547d.a());
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -416,24 +415,24 @@ public class e extends c.a implements s {
     public class h implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35887e;
+        public final /* synthetic */ int f39566e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f35888f;
+        public final /* synthetic */ int f39567f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f35889g;
+        public final /* synthetic */ long f39568g;
 
         public h(int i2, int i3, long j) {
-            this.f35887e = i2;
-            this.f35888f = i3;
-            this.f35889g = j;
+            this.f39566e = i2;
+            this.f39567f = i3;
+            this.f39568g = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                e.this.a(this.f35887e, this.f35888f, this.f35889g, e.this.f35868d.c());
+                e.this.a(this.f39566e, this.f39567f, this.f39568g, e.this.f39547d.c());
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -444,28 +443,28 @@ public class e extends c.a implements s {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35891e;
+        public final /* synthetic */ int f39570e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f35892f;
+        public final /* synthetic */ int f39571f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f35893g;
+        public final /* synthetic */ int f39572g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f35894h;
+        public final /* synthetic */ long f39573h;
 
         public i(int i2, int i3, int i4, long j) {
-            this.f35891e = i2;
-            this.f35892f = i3;
-            this.f35893g = i4;
-            this.f35894h = j;
+            this.f39570e = i2;
+            this.f39571f = i3;
+            this.f39572g = i4;
+            this.f39573h = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                e.this.a(this.f35891e, this.f35892f, this.f35893g, this.f35894h, e.this.f35868d.c());
+                e.this.a(this.f39570e, this.f39571f, this.f39572g, this.f39573h, e.this.f39547d.c());
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -476,28 +475,28 @@ public class e extends c.a implements s {
     public class j implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35896e;
+        public final /* synthetic */ int f39575e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f35897f;
+        public final /* synthetic */ int f39576f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f35898g;
+        public final /* synthetic */ int f39577g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f35899h;
+        public final /* synthetic */ int f39578h;
 
         public j(int i2, int i3, int i4, int i5) {
-            this.f35896e = i2;
-            this.f35897f = i3;
-            this.f35898g = i4;
-            this.f35899h = i5;
+            this.f39575e = i2;
+            this.f39576f = i3;
+            this.f39577g = i4;
+            this.f39578h = i5;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                e.this.a(this.f35896e, this.f35897f, this.f35898g, this.f35899h, e.this.f35868d.c());
+                e.this.a(this.f39575e, this.f39576f, this.f39577g, this.f39578h, e.this.f39547d.c());
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -508,16 +507,16 @@ public class e extends c.a implements s {
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f35901e;
+        public final /* synthetic */ DownloadInfo f39580e;
 
         public k(DownloadInfo downloadInfo) {
-            this.f35901e = downloadInfo;
+            this.f39580e = downloadInfo;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                e.this.a(this.f35901e, e.this.f35867c.a());
+                e.this.a(this.f39580e, e.this.f39546c.a());
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -530,28 +529,28 @@ public class e extends c.a implements s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        if (f35865b == null) {
+        if (f39544b == null) {
             synchronized (e.class) {
-                if (f35865b == null) {
-                    f35865b = d.o.a.e.b.b.a.a().getWritableDatabase();
-                    this.f35867c = new d.o.a.e.b.b.c(f35865b, "downloader", d.o.a.e.b.d.b.f67172a, d.o.a.e.b.d.b.f67173b);
-                    this.f35868d = new d.o.a.e.b.b.c(f35865b, "downloadChunk", d.o.a.e.b.d.b.f67174c, d.o.a.e.b.d.b.f67175d);
-                    this.f35869e = new d.o.a.e.b.b.c(f35865b, "segments", d.o.a.e.b.d.b.f67176e, d.o.a.e.b.d.b.f67177f);
+                if (f39544b == null) {
+                    f39544b = d.o.a.e.b.b.a.a().getWritableDatabase();
+                    this.f39546c = new d.o.a.e.b.b.c(f39544b, "downloader", d.o.a.e.b.d.b.f70958a, d.o.a.e.b.d.b.f70959b);
+                    this.f39547d = new d.o.a.e.b.b.c(f39544b, "downloadChunk", d.o.a.e.b.d.b.f70960c, d.o.a.e.b.d.b.f70961d);
+                    this.f39548e = new d.o.a.e.b.b.c(f39544b, "segments", d.o.a.e.b.d.b.f70962e, d.o.a.e.b.d.b.f70963f);
                 }
             }
         }
     }
 
     private void h() {
-        f35865b.beginTransaction();
+        f39544b.beginTransaction();
     }
 
     private void i() {
         try {
-            if (f35865b == null || !f35865b.inTransaction()) {
+            if (f39544b == null || !f39544b.inTransaction()) {
                 return;
             }
-            f35865b.endTransaction();
+            f39544b.endTransaction();
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -560,9 +559,9 @@ public class e extends c.a implements s {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void j() {
         h();
-        f35865b.delete("downloader", null, null);
-        f35865b.delete("downloadChunk", null, null);
-        f35865b.setTransactionSuccessful();
+        f39544b.delete("downloader", null, null);
+        f39544b.delete("downloadChunk", null, null);
+        f39544b.setTransactionSuccessful();
         i();
     }
 
@@ -598,7 +597,7 @@ public class e extends c.a implements s {
     public boolean e(int i2) {
         d.o.a.e.b.b.c cVar;
         g();
-        if (f35865b != null && (cVar = this.f35867c) != null) {
+        if (f39544b != null && (cVar = this.f39546c) != null) {
             try {
                 a(i2, cVar.b());
                 return true;
@@ -629,9 +628,9 @@ public class e extends c.a implements s {
     public Map<Long, d.o.a.e.b.i.i> l(int i2) {
         Cursor cursor;
         g();
-        if (f35865b != null) {
+        if (f39544b != null) {
             try {
-                cursor = f35865b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "segments", "_id"), new String[]{Integer.toString(i2)});
+                cursor = f39544b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "segments", "_id"), new String[]{Integer.toString(i2)});
                 try {
                     if (cursor.moveToNext()) {
                         int columnIndex = cursor.getColumnIndex("info");
@@ -668,20 +667,20 @@ public class e extends c.a implements s {
     @Override // d.o.a.e.b.g.j
     public void m(int i2) {
         g();
-        if (f35865b == null) {
+        if (f39544b == null) {
             return;
         }
         try {
-            a(i2, this.f35869e.b());
+            a(i2, this.f39548e.b());
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
     public e(boolean z) {
-        this.f35866a = null;
+        this.f39545a = null;
         if (z) {
-            this.f35870f = false;
+            this.f39549f = false;
             a();
         }
     }
@@ -690,9 +689,9 @@ public class e extends c.a implements s {
     public DownloadInfo b(int i2) {
         Cursor cursor;
         g();
-        if (f35865b != null) {
+        if (f39544b != null) {
             try {
-                cursor = f35865b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "_id"), new String[]{Integer.toString(i2)});
+                cursor = f39544b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "_id"), new String[]{Integer.toString(i2)});
                 try {
                     if (cursor.moveToNext()) {
                         DownloadInfo downloadInfo = new DownloadInfo(cursor);
@@ -723,10 +722,10 @@ public class e extends c.a implements s {
     public List<com.ss.android.socialbase.downloader.model.b> c(int i2) {
         ArrayList arrayList = new ArrayList();
         g();
-        if (f35865b != null) {
+        if (f39544b != null) {
             Cursor cursor = null;
             try {
-                cursor = f35865b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloadChunk", "_id"), new String[]{Integer.toString(i2)});
+                cursor = f39544b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloadChunk", "_id"), new String[]{Integer.toString(i2)});
                 while (cursor.moveToNext()) {
                     arrayList.add(new com.ss.android.socialbase.downloader.model.b(cursor));
                 }
@@ -747,7 +746,7 @@ public class e extends c.a implements s {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void d(int i2) {
         g();
-        if (f35865b == null || this.f35868d == null) {
+        if (f39544b == null || this.f39547d == null) {
             return;
         }
         d.o.a.e.b.g.d.c0(new f(i2));
@@ -784,9 +783,9 @@ public class e extends c.a implements s {
         try {
             if (!a(downloadInfo.c0())) {
                 c(downloadInfo);
-            } else if (this.f35867c == null) {
+            } else if (this.f39546c == null) {
             } else {
-                b(downloadInfo, this.f35867c.c());
+                b(downloadInfo, this.f39546c.c());
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -837,7 +836,7 @@ public class e extends c.a implements s {
 
     private void c(DownloadInfo downloadInfo) {
         g();
-        if (f35865b == null || this.f35867c == null) {
+        if (f39544b == null || this.f39546c == null) {
             return;
         }
         d.o.a.e.b.g.d.c0(new k(downloadInfo));
@@ -894,7 +893,7 @@ public class e extends c.a implements s {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void b() {
         g();
-        if (f35865b == null) {
+        if (f39544b == null) {
             return;
         }
         d.o.a.e.b.g.d.c0(new d());
@@ -903,10 +902,10 @@ public class e extends c.a implements s {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<DownloadInfo> list, List<Integer> list2, SparseArray<DownloadInfo> sparseArray, SparseArray<DownloadInfo> sparseArray2, SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray3) {
         int size = sparseArray.size();
-        if (size < 0 || f35865b == null) {
+        if (size < 0 || f39544b == null) {
             return;
         }
-        synchronized (f35865b) {
+        synchronized (f39544b) {
             try {
                 h();
                 if (!list.isEmpty()) {
@@ -916,26 +915,26 @@ public class e extends c.a implements s {
                             strArr[i2] = String.valueOf(list.get(i2));
                         }
                         String str = "CAST(_id AS TEXT) IN (" + new String(new char[list.size() - 1]).replace("\u0000", "?,") + "?)";
-                        f35865b.delete("downloader", str, strArr);
-                        f35865b.delete("downloadChunk", str, strArr);
+                        f39544b.delete("downloader", str, strArr);
+                        f39544b.delete("downloadChunk", str, strArr);
                     } else {
                         String join = TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, list2);
-                        f35865b.delete("downloader", "_id IN (?)", new String[]{join});
-                        f35865b.delete("downloadChunk", "_id IN (?)", new String[]{join});
+                        f39544b.delete("downloader", "_id IN (?)", new String[]{join});
+                        f39544b.delete("downloadChunk", "_id IN (?)", new String[]{join});
                     }
                 }
                 for (int i3 = 0; i3 < size; i3++) {
                     int keyAt = sparseArray.keyAt(i3);
                     DownloadInfo downloadInfo = sparseArray.get(keyAt);
-                    f35865b.delete("downloader", "_id = ?", new String[]{String.valueOf(keyAt)});
-                    f35865b.insert("downloader", null, downloadInfo.m3());
+                    f39544b.delete("downloader", "_id = ?", new String[]{String.valueOf(keyAt)});
+                    f39544b.insert("downloader", null, downloadInfo.m3());
                     if (downloadInfo.B() > 1) {
                         List<com.ss.android.socialbase.downloader.model.b> c2 = c(keyAt);
                         if (c2.size() > 0) {
-                            f35865b.delete("downloadChunk", "_id = ?", new String[]{String.valueOf(keyAt)});
+                            f39544b.delete("downloadChunk", "_id = ?", new String[]{String.valueOf(keyAt)});
                             for (com.ss.android.socialbase.downloader.model.b bVar : c2) {
                                 bVar.k(downloadInfo.c0());
-                                f35865b.insert("downloadChunk", null, bVar.a());
+                                f39544b.insert("downloadChunk", null, bVar.a());
                             }
                         }
                     }
@@ -952,7 +951,7 @@ public class e extends c.a implements s {
                         }
                     }
                 }
-                f35865b.setTransactionSuccessful();
+                f39544b.setTransactionSuccessful();
                 i();
             } catch (Throwable th) {
                 throw th;
@@ -974,7 +973,7 @@ public class e extends c.a implements s {
 
     @Override // com.ss.android.socialbase.downloader.b.c
     public boolean c() {
-        return this.f35870f;
+        return this.f39549f;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
@@ -1001,7 +1000,7 @@ public class e extends c.a implements s {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i2, ContentValues contentValues) {
         int i3 = 10;
-        while (f35865b.isDbLockedByCurrentThread() && i3 - 1 >= 0) {
+        while (f39544b.isDbLockedByCurrentThread() && i3 - 1 >= 0) {
             try {
                 Thread.sleep(5L);
             } catch (Throwable th) {
@@ -1009,7 +1008,7 @@ public class e extends c.a implements s {
                 return;
             }
         }
-        f35865b.update("downloader", contentValues, "_id = ? ", new String[]{String.valueOf(i2)});
+        f39544b.update("downloader", contentValues, "_id = ? ", new String[]{String.valueOf(i2)});
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
@@ -1026,10 +1025,10 @@ public class e extends c.a implements s {
     public List<DownloadInfo> a(String str) {
         g();
         ArrayList arrayList = new ArrayList();
-        if (f35865b != null) {
+        if (f39544b != null) {
             Cursor cursor = null;
             try {
-                cursor = f35865b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "url"), new String[]{str});
+                cursor = f39544b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "url"), new String[]{str});
                 if (cursor.moveToNext()) {
                     arrayList.add(new DownloadInfo(cursor));
                 }
@@ -1065,7 +1064,7 @@ public class e extends c.a implements s {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
         g();
-        if (f35865b == null || this.f35868d == null) {
+        if (f39544b == null || this.f39547d == null) {
             return;
         }
         d.o.a.e.b.g.d.c0(new g(bVar));
@@ -1104,7 +1103,7 @@ public class e extends c.a implements s {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void a(int i2, int i3, long j2) {
         g();
-        if (i2 == 0 || i3 < 0 || j2 < 0 || f35865b == null || this.f35868d == null) {
+        if (i2 == 0 || i3 < 0 || j2 < 0 || f39544b == null || this.f39547d == null) {
             return;
         }
         d.o.a.e.b.g.d.c0(new h(i2, i3, j2));
@@ -1113,7 +1112,7 @@ public class e extends c.a implements s {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void a(int i2, int i3, int i4, long j2) {
         g();
-        if (i2 == 0 || i3 < 0 || i4 < 0 || j2 < 0 || f35865b == null || this.f35868d == null) {
+        if (i2 == 0 || i3 < 0 || i4 < 0 || j2 < 0 || f39544b == null || this.f39547d == null) {
             return;
         }
         d.o.a.e.b.g.d.c0(new i(i2, i3, i4, j2));
@@ -1122,7 +1121,7 @@ public class e extends c.a implements s {
     @Override // com.ss.android.socialbase.downloader.b.c
     public void a(int i2, int i3, int i4, int i5) {
         g();
-        if (i2 == 0 || i4 < 0 || i5 == i3 || i5 < 0 || f35865b == null || this.f35868d == null) {
+        if (i2 == 0 || i4 < 0 || i5 == i3 || i5 < 0 || f39544b == null || this.f39547d == null) {
             return;
         }
         d.o.a.e.b.g.d.c0(new j(i2, i3, i4, i5));
@@ -1134,7 +1133,7 @@ public class e extends c.a implements s {
             synchronized (sQLiteStatement) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("chunkIndex", Integer.valueOf(i5));
-                f35865b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
+                f39544b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -1147,7 +1146,7 @@ public class e extends c.a implements s {
             synchronized (sQLiteStatement) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("curOffset", Long.valueOf(j2));
-                f35865b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3)});
+                f39544b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3)});
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -1160,7 +1159,7 @@ public class e extends c.a implements s {
             synchronized (sQLiteStatement) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("curOffset", Long.valueOf(j2));
-                f35865b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
+                f39544b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -1170,11 +1169,11 @@ public class e extends c.a implements s {
     @Override // com.ss.android.socialbase.downloader.b.c
     public DownloadInfo a(int i2, int i3) {
         g();
-        if (f35865b == null) {
+        if (f39544b == null) {
             return null;
         }
         int i4 = 10;
-        while (f35865b.isDbLockedByCurrentThread() && i4 - 1 >= 0) {
+        while (f39544b.isDbLockedByCurrentThread() && i4 - 1 >= 0) {
             try {
                 Thread.sleep(5L);
             } catch (Throwable th) {
@@ -1183,14 +1182,14 @@ public class e extends c.a implements s {
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("chunkCount", Integer.valueOf(i3));
-        f35865b.update("downloader", contentValues, "_id = ? ", new String[]{Integer.toString(i2)});
+        f39544b.update("downloader", contentValues, "_id = ? ", new String[]{Integer.toString(i2)});
         return null;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
     public boolean a(DownloadInfo downloadInfo) {
         g();
-        if (downloadInfo == null || f35865b == null) {
+        if (downloadInfo == null || f39544b == null) {
             return false;
         }
         d.o.a.e.b.g.d.c0(new a(downloadInfo));
@@ -1223,7 +1222,7 @@ public class e extends c.a implements s {
     public boolean a(int i2, Map<Long, d.o.a.e.b.i.i> map) {
         long currentTimeMillis = System.currentTimeMillis();
         g();
-        if (f35865b == null) {
+        if (f39544b == null) {
             return false;
         }
         JSONArray jSONArray = new JSONArray();
@@ -1235,7 +1234,7 @@ public class e extends c.a implements s {
             th.printStackTrace();
         }
         Log.d("SqlDownloadCache", "json=" + jSONArray);
-        SQLiteStatement d2 = this.f35869e.d();
+        SQLiteStatement d2 = this.f39548e.d();
         synchronized (d2) {
             d2.clearBindings();
             d2.bindLong(1, i2);
@@ -1248,23 +1247,23 @@ public class e extends c.a implements s {
 
     private void a(int i2, ContentValues contentValues) {
         g();
-        if (f35865b == null) {
+        if (f39544b == null) {
             return;
         }
-        d.o.a.e.b.g.d.c0(new RunnableC0431e(i2, contentValues));
+        d.o.a.e.b.g.d.c0(new RunnableC0482e(i2, contentValues));
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
     public void a(com.ss.android.socialbase.downloader.b.b bVar) {
-        this.f35866a = bVar;
+        this.f39545a = bVar;
     }
 
     public void a(SparseArray<DownloadInfo> sparseArray, SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray2) {
         try {
             HashMap o = d.o.a.e.b.l.e.o(sparseArray);
             HashMap o2 = d.o.a.e.b.l.e.o(sparseArray2);
-            if (this.f35866a != null) {
-                this.f35866a.a(o, o2);
+            if (this.f39545a != null) {
+                this.f39545a.a(o, o2);
             }
         } catch (Throwable unused) {
         }

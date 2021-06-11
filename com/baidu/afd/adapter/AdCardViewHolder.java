@@ -7,14 +7,14 @@ import d.a.n0.k1.o.l.e;
 public class AdCardViewHolder<T extends e> extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f2515a;
+    public T f2534a;
 
     public AdCardViewHolder(T t) {
         super((View) t);
-        this.f2515a = t;
+        this.f2534a = t;
     }
 
     public T b() {
-        return this.f2515a;
+        return this.f2534a;
     }
 }

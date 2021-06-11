@@ -12,23 +12,23 @@ import java.util.Set;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f54263a;
+    public static b f57952a;
 
     /* renamed from: d.a.n0.f0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1302b extends BdAsyncTask<String, Void, Boolean> {
+    public static class C1358b extends BdAsyncTask<String, Void, Boolean> {
 
         /* renamed from: d  reason: collision with root package name */
-        public static final BdUniqueId f54264d = BdUniqueId.gen();
+        public static final BdUniqueId f57953d = BdUniqueId.gen();
 
         /* renamed from: a  reason: collision with root package name */
-        public Process f54265a;
+        public Process f57954a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54266b;
+        public String f57955b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f54267c;
+        public long f57956c;
 
         public final String b() {
             int I = j.I();
@@ -38,7 +38,7 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            Process process = this.f54265a;
+            Process process = this.f57954a;
             if (process != null) {
                 try {
                     process.destroy();
@@ -46,13 +46,13 @@ public class b {
                     th.printStackTrace();
                 }
             }
-            d.a.n0.f0.i.d.m().n(this.f54266b, (int) this.f54267c, false);
+            d.a.n0.f0.i.d.m().n(this.f57955b, (int) this.f57956c, false);
         }
 
-        public C1302b(String str) {
-            this.f54265a = null;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, f54264d));
-            this.f54266b = str;
+        public C1358b(String str) {
+            this.f57954a = null;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, f57953d));
+            this.f57955b = str;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 0, expect 1 */
@@ -63,31 +63,31 @@ public class b {
             try {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    Process exec = runtime.exec(b() + this.f54266b);
-                    this.f54265a = exec;
+                    Process exec = runtime.exec(b() + this.f57955b);
+                    this.f57954a = exec;
                     r1 = exec.waitFor() == 0;
-                    this.f54267c = System.currentTimeMillis() - currentTimeMillis;
+                    this.f57956c = System.currentTimeMillis() - currentTimeMillis;
                 } catch (Throwable th) {
-                    this.f54265a.destroy();
+                    this.f57954a.destroy();
                     throw th;
                 }
             } catch (IOException e2) {
                 BdLog.detailException(e2);
                 d.c().a("test_speed", e2.getMessage());
-                this.f54265a.destroy();
+                this.f57954a.destroy();
                 return Boolean.valueOf(r1);
             } catch (InterruptedException e3) {
                 BdLog.detailException(e3);
                 d.c().a("test_speed", e3.getMessage());
-                this.f54265a.destroy();
+                this.f57954a.destroy();
                 return Boolean.valueOf(r1);
             } catch (Throwable th2) {
                 BdLog.detailException(th2);
                 d.c().a("test_speed", th2.getMessage());
-                this.f54265a.destroy();
+                this.f57954a.destroy();
                 return Boolean.valueOf(r1);
             }
-            this.f54265a.destroy();
+            this.f57954a.destroy();
             return Boolean.valueOf(r1);
         }
 
@@ -95,30 +95,30 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             boolean booleanValue = bool != null ? bool.booleanValue() : true;
-            d.a.n0.f0.i.d.m().n(this.f54266b, (int) this.f54267c, booleanValue);
+            d.a.n0.f0.i.d.m().n(this.f57955b, (int) this.f57956c, booleanValue);
             d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "dnsproxy_testspeed");
             statsItem.c("issuc", Boolean.valueOf(booleanValue));
-            statsItem.b("ip", this.f54266b);
-            statsItem.c("speed", Integer.valueOf((int) this.f54267c));
+            statsItem.b("ip", this.f57955b);
+            statsItem.c("speed", Integer.valueOf((int) this.f57956c));
             BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
         }
     }
 
     public static final b a() {
-        if (f54263a == null) {
+        if (f57952a == null) {
             synchronized (b.class) {
-                if (f54263a == null) {
-                    f54263a = new b();
+                if (f57952a == null) {
+                    f57952a = new b();
                 }
             }
         }
-        return f54263a;
+        return f57952a;
     }
 
     public void b(Set<String> set) {
         for (String str : set) {
-            new C1302b(str).execute(new String[0]);
+            new C1358b(str).execute(new String[0]);
         }
     }
 }

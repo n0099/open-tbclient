@@ -16,24 +16,24 @@ import java.util.Map;
 public class a extends ActivityDelegation implements d.a.l0.a.m.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.u.b.f.d.a f61265f;
+    public d.a.n0.u.b.f.d.a f64974f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Activity f61266g;
+    public Activity f64975g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, String> f61267h;
+    public Map<String, String> f64976h;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f61264e = BdUniqueId.gen();
+    public BdUniqueId f64973e = BdUniqueId.gen();
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f61268i = new C1629a(2921393);
+    public CustomMessageListener f64977i = new C1686a(2921393);
 
     /* renamed from: d.a.n0.u.b.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1629a extends CustomMessageListener {
-        public C1629a(int i2) {
+    public class C1686a extends CustomMessageListener {
+        public C1686a(int i2) {
             super(i2);
         }
 
@@ -46,11 +46,11 @@ public class a extends ActivityDelegation implements d.a.l0.a.m.a {
             Object data = customResponsedMessage.getData();
             if (data instanceof e) {
                 e eVar = (e) data;
-                if (getTag() == eVar.f49500a || eVar.f49506g) {
-                    a.this.mResult.putInt("result_code", eVar.f49501b);
-                    a.this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, eVar.f49502c);
-                    if (a.this.f61265f != null) {
-                        a.this.f61265f.a(a.this.mResult);
+                if (getTag() == eVar.f53174a || eVar.f53180g) {
+                    a.this.mResult.putInt("result_code", eVar.f53175b);
+                    a.this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, eVar.f53176c);
+                    if (a.this.f64974f != null) {
+                        a.this.f64974f.a(a.this.mResult);
                     }
                     a.this.finish();
                 }
@@ -59,44 +59,44 @@ public class a extends ActivityDelegation implements d.a.l0.a.m.a {
     }
 
     public void b(Activity activity) {
-        this.f61266g = activity;
+        this.f64975g = activity;
     }
 
     public void c(d.a.n0.u.b.f.d.a aVar) {
-        this.f61265f = aVar;
+        this.f64974f = aVar;
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void finish() {
-        this.f61265f = null;
-        MessageManager.getInstance().unRegisterListener(this.f61268i);
+        this.f64974f = null;
+        MessageManager.getInstance().unRegisterListener(this.f64977i);
         super.finish();
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public boolean onExec() {
-        this.f61268i.setTag(this.f61264e);
-        MessageManager.getInstance().registerListener(this.f61268i);
+        this.f64977i.setTag(this.f64973e);
+        MessageManager.getInstance().registerListener(this.f64977i);
         int i2 = this.mParams.getInt("type");
         String string = this.mParams.getString("orderInfo");
         e eVar = new e();
-        eVar.f49500a = this.f61264e;
-        eVar.f49501b = i2;
-        eVar.f49502c = string;
-        eVar.f49504e = (Map) this.mParams.getSerializable("params");
-        eVar.f49505f = this.f61267h;
+        eVar.f53174a = this.f64973e;
+        eVar.f53175b = i2;
+        eVar.f53176c = string;
+        eVar.f53178e = (Map) this.mParams.getSerializable("params");
+        eVar.f53179f = this.f64976h;
         if (getAgent() != null) {
-            eVar.f49503d = getAgent();
+            eVar.f53177d = getAgent();
         } else {
-            Activity activity = this.f61266g;
+            Activity activity = this.f64975g;
             if (activity != null) {
-                eVar.f49503d = activity;
+                eVar.f53177d = activity;
             } else {
-                eVar.f49503d = TbadkCoreApplication.getInst().getCurrentActivity();
+                eVar.f53177d = TbadkCoreApplication.getInst().getCurrentActivity();
             }
         }
         CustomMessage customMessage = new CustomMessage(2921393, eVar);
-        customMessage.setTag(this.f61264e);
+        customMessage.setTag(this.f64973e);
         boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
         this.mResult.putInt("result_code", sendMessage ? 0 : 1);
         Bundle bundle = this.mResult;

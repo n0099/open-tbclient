@@ -12,47 +12,47 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f48161a;
+    public final String f51835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f48162b;
+    public final int f51836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f48163c;
+    public final int f51837c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f48164d;
+    public final String f51838d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f48165e;
+    public final String f51839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f48166f;
+    public final String f51840f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Set<String> f48167g;
+    public final Set<String> f51841g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f48168h;
+    public final String f51842h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Long f48169i;
+    public final Long f51843i;
 
     public a(String str, int i2, int i3, String str2, String str3, String str4, Set<String> set, String str5, Long l) {
-        this.f48161a = str;
-        this.f48163c = i3;
-        this.f48162b = i2;
-        this.f48164d = str2;
-        this.f48165e = str3;
-        this.f48166f = str4;
-        this.f48167g = set;
-        this.f48168h = str5;
-        this.f48169i = l;
+        this.f51835a = str;
+        this.f51837c = i3;
+        this.f51836b = i2;
+        this.f51838d = str2;
+        this.f51839e = str3;
+        this.f51840f = str4;
+        this.f51841g = set;
+        this.f51842h = str5;
+        this.f51843i = l;
     }
 
     public static a a(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        if (d.a.l0.n.c.f47984a) {
+        if (d.a.l0.n.c.f51658a) {
             Log.d(Node.TAG, "host info " + jSONObject.toString());
         }
         try {

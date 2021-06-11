@@ -32,7 +32,6 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidubce.auth.NTLMEngineImpl;
 import d.a.m0.r.y.j;
 import d.a.m0.r.y.l;
 import d.a.m0.r.y.m;
@@ -93,15 +92,15 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ShareItem f13474e;
+            public final /* synthetic */ ShareItem f13539e;
 
             public a(ShareItem shareItem) {
-                this.f13474e = shareItem;
+                this.f13539e = shareItem;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                AdWebViewActivity.this.mView.E(this.f13474e);
+                AdWebViewActivity.this.mView.E(this.f13539e);
             }
         }
 
@@ -412,7 +411,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         this.mWebView.getSettings().setDatabasePath(getApplicationContext().getDir("databases", 0).getAbsolutePath());
         this.mWebView.setHorizontalScrollbarOverlay(false);
         this.mWebView.setInitialScale(100);
-        this.mWebView.setScrollBarStyle(NTLMEngineImpl.FLAG_REQUEST_VERSION);
+        this.mWebView.setScrollBarStyle(33554432);
         if (this.mWebView.getLayoutParams() == null) {
             this.mWebView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }

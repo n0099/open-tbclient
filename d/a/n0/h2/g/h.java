@@ -62,48 +62,48 @@ public class h extends d.a.n0.z.b<i> {
             hashMap.put(OpenFlutter.EXTRA_TRANSPARANT, Boolean.TRUE);
             hashMap.put("swipeback", Boolean.FALSE);
             hashMap.put("present", Boolean.TRUE);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(h.this.f63441f.getPageActivity(), "GodDialog", hashMap)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(h.this.f67159f.getPageActivity(), "GodDialog", hashMap)));
         }
     }
 
     public h(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.m = 3;
-        View l = l();
-        this.o = (PersonHeadPendantView) l.findViewById(R.id.person_header);
-        this.p = l.findViewById(R.id.person_header_shadow);
+        View m = m();
+        this.o = (PersonHeadPendantView) m.findViewById(R.id.person_header);
+        this.p = m.findViewById(R.id.person_header_shadow);
         this.o.setBorderWidth(l.g(b(), R.dimen.tbds8));
         this.o.setHasPendantStyle();
         this.o.getHeadView().setIsRound(true);
         this.o.getHeadView().setGodIconWidth(R.dimen.tbds40);
         this.o.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.o.getHeadView().setPlaceHolder(2);
-        this.n = (RelativeLayout) l.findViewById(R.id.person_header_container);
-        this.q = (TbImageView) l.findViewById(R.id.member_icon);
-        this.r = (TextView) l.findViewById(R.id.person_name);
-        this.s = (TextView) l.findViewById(R.id.person_desc);
-        this.t = (ImageView) l.findViewById(R.id.arrow_icon);
-        this.u = (PersonCenterGuideView) l.findViewById(R.id.person_center_guide_view);
-        l.setOnClickListener(this);
+        this.n = (RelativeLayout) m.findViewById(R.id.person_header_container);
+        this.q = (TbImageView) m.findViewById(R.id.member_icon);
+        this.r = (TextView) m.findViewById(R.id.person_name);
+        this.s = (TextView) m.findViewById(R.id.person_desc);
+        this.t = (ImageView) m.findViewById(R.id.arrow_icon);
+        this.u = (PersonCenterGuideView) m.findViewById(R.id.person_center_guide_view);
+        m.setOnClickListener(this);
         this.q.setOnClickListener(this);
         this.u.setOnClickListener(this);
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.person_center_header_info_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.m != i2) {
             this.u.j();
-            SkinManager.setBackgroundColor(l(), R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(m(), R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0107);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.t, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             this.o.setBorderColor(R.color.CAM_X0402);
             TBSelector.makeShadowDrawable().setShape(2).setShadowSide(ShadowDrawable.ALL).setShadowLayer(R.color.CAM_X0807, 0, 0, l.g(b(), R.dimen.tbds12)).into(this.p);
-            t();
+            u();
             this.m = i2;
         }
     }
@@ -115,8 +115,8 @@ public class h extends d.a.n0.z.b<i> {
         }
         if (view == this.q) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 2));
-            if (ViewHelper.checkUpIsLogin(this.f63441f.getPageActivity())) {
-                UrlManager.getInstance().dealOneLink(this.f63441f, new String[]{TbConfig.URL_MEMBER_BUY});
+            if (ViewHelper.checkUpIsLogin(this.f67159f.getPageActivity())) {
+                UrlManager.getInstance().dealOneLink(this.f67159f, new String[]{TbConfig.URL_MEMBER_BUY});
                 return;
             }
             return;
@@ -126,21 +126,21 @@ public class h extends d.a.n0.z.b<i> {
             personCenterGuideView.h();
         }
         TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 1));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f63441f.getPageActivity()).createNormalConfig(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f67159f.getPageActivity()).createNormalConfig(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
     }
 
-    public final void t() {
+    public final void u() {
+        y();
         x();
         w();
-        v();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: u */
-    public void m(i iVar) {
+    /* renamed from: v */
+    public void n(i iVar) {
         UserData userData;
-        if (iVar == null || (userData = iVar.f55562e) == null) {
+        if (iVar == null || (userData = iVar.f59251e) == null) {
             return;
         }
         this.v = userData;
@@ -157,11 +157,11 @@ public class h extends d.a.n0.z.b<i> {
         this.o.getBigVIconView().setOnClickListener(new a());
         this.r.setText(this.v.getName_show());
         this.s.setText(b().getString(R.string.person_center_default_introduce));
-        t();
-        n(this.f63441f, TbadkCoreApplication.getInst().getSkinType());
+        u();
+        o(this.f67159f, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final void v() {
+    public final void w() {
         int i2 = R.drawable.icon_mask_boy16_svg;
         UserData userData = this.v;
         if (userData != null && userData.getSex() == 2) {
@@ -170,7 +170,7 @@ public class h extends d.a.n0.z.b<i> {
         this.r.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getMaskDrawable(i2, null), (Drawable) null);
     }
 
-    public final void w() {
+    public final void x() {
         UserData userData = this.v;
         if (userData != null && (userData.getIsMem() > 0 || this.v.isBigV())) {
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0301, 1);
@@ -179,7 +179,7 @@ public class h extends d.a.n0.z.b<i> {
         }
     }
 
-    public final void x() {
+    public final void y() {
         UserData userData = this.v;
         if (userData == null) {
             this.q.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_crown_super_non));
@@ -187,7 +187,7 @@ public class h extends d.a.n0.z.b<i> {
         }
         UserVipInfoData userVipInfo = userData.getUserVipInfo();
         if (this.v.getIsMem() > 0 && userVipInfo != null && !TextUtils.isEmpty(userVipInfo.getVipIconUrl())) {
-            this.q.V(userVipInfo.getVipIconUrl(), 10, false);
+            this.q.U(userVipInfo.getVipIconUrl(), 10, false);
         } else {
             this.q.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_crown_super_non));
         }

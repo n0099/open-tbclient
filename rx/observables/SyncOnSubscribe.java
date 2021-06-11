@@ -8,10 +8,10 @@ import h.k;
 import h.m.a;
 import h.r.c;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class SubscriptionProducer<S, T> extends AtomicLong implements f, k, e<T> {
         public static final long serialVersionUID = -3736864024352728072L;
         public final j<? super T> actualSubscriber;

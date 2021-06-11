@@ -12,17 +12,17 @@ public class b implements LiveLocationService {
     public class a implements a.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LocationCallback f59900a;
+        public final /* synthetic */ LocationCallback f63591a;
 
         public a(LocationCallback locationCallback) {
-            this.f59900a = locationCallback;
+            this.f63591a = locationCallback;
         }
 
         @Override // d.a.c.e.i.a.c
         public void onLocationGeted(int i2, String str, Address address) {
             try {
-                if (this.f59900a != null) {
-                    this.f59900a.onReceiveLocation(b.this.b(address));
+                if (this.f63591a != null) {
+                    this.f63591a.onReceiveLocation(b.this.b(address));
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

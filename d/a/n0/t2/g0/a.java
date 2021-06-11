@@ -18,50 +18,50 @@ import tbclient.AppPosInfo;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f61116f;
+    public static a f64808f;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61117a;
+    public String f64809a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61118b;
+    public String f64810b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f61119c;
+    public long f64811c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61120d;
+    public String f64812d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61121e = b.j().p("asp_shown_info", "");
+    public String f64813e = b.j().p("asp_shown_info", "");
 
     public static a e() {
-        if (f61116f == null) {
+        if (f64808f == null) {
             synchronized (d.a.n0.e3.m0.b.class) {
-                if (f61116f == null) {
-                    f61116f = new a();
+                if (f64808f == null) {
+                    f64808f = new a();
                 }
             }
         }
-        return f61116f;
+        return f64808f;
     }
 
     public AppPosInfo a() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
         builder.ap_mac = d();
         builder.ap_connected = Boolean.valueOf(j.H());
-        builder.latitude = this.f61118b;
-        builder.longitude = this.f61117a;
-        builder.addr_timestamp = Long.valueOf(this.f61119c);
+        builder.latitude = this.f64810b;
+        builder.longitude = this.f64809a;
+        builder.addr_timestamp = Long.valueOf(this.f64811c);
         builder.coordinate_type = "bd09ll";
-        builder.asp_shown_info = this.f61121e;
+        builder.asp_shown_info = this.f64813e;
         MercatorModel.MercatorData e2 = MercatorModel.d().e();
         if (e2 != null) {
-            builder.mercator_lat = e2.t();
-            builder.mercator_lon = e2.u();
-            builder.mercator_city = Integer.valueOf(e2.s());
-            builder.mercator_radius = e2.v();
-            builder.mercator_time = Long.valueOf(e2.w());
+            builder.mercator_lat = e2.x();
+            builder.mercator_lon = e2.y();
+            builder.mercator_city = Integer.valueOf(e2.w());
+            builder.mercator_radius = e2.z();
+            builder.mercator_time = Long.valueOf(e2.A());
         }
         return builder.build(false);
     }
@@ -93,10 +93,10 @@ public class a {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
         builder.ap_mac = d();
         builder.ap_connected = Boolean.valueOf(j.H());
-        String str = this.f61118b;
+        String str = this.f64810b;
         builder.latitude = str;
-        builder.longitude = this.f61117a;
-        if (k.isEmpty(str) || k.isEmpty(this.f61117a)) {
+        builder.longitude = this.f64809a;
+        if (k.isEmpty(str) || k.isEmpty(this.f64809a)) {
             String p = b.j().p("key_last_receive_location_latitude_and_longitude", "");
             if (!k.isEmpty(p)) {
                 String[] split = p.split(",");
@@ -106,25 +106,25 @@ public class a {
                 }
             }
         }
-        builder.addr_timestamp = Long.valueOf(this.f61119c);
+        builder.addr_timestamp = Long.valueOf(this.f64811c);
         builder.coordinate_type = "BD09LL";
-        builder.asp_shown_info = this.f61121e;
+        builder.asp_shown_info = this.f64813e;
         MercatorModel.MercatorData e2 = MercatorModel.d().e();
         if (e2 != null) {
-            builder.mercator_lat = e2.t();
-            builder.mercator_lon = e2.u();
-            builder.mercator_city = Integer.valueOf(e2.s());
-            builder.mercator_radius = e2.v();
-            builder.mercator_time = Long.valueOf(e2.w());
+            builder.mercator_lat = e2.x();
+            builder.mercator_lon = e2.y();
+            builder.mercator_city = Integer.valueOf(e2.w());
+            builder.mercator_radius = e2.z();
+            builder.mercator_time = Long.valueOf(e2.A());
         }
         return builder.build(false);
     }
 
     public final String d() {
-        if (TextUtils.isEmpty(this.f61120d)) {
+        if (TextUtils.isEmpty(this.f64812d)) {
             f();
         }
-        return this.f61120d;
+        return this.f64812d;
     }
 
     public void f() {
@@ -133,9 +133,9 @@ public class a {
             try {
                 WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
                 if (connectionInfo != null) {
-                    this.f61120d = connectionInfo.getBSSID();
+                    this.f64812d = connectionInfo.getBSSID();
                 } else {
-                    this.f61120d = "";
+                    this.f64812d = "";
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -144,22 +144,22 @@ public class a {
     }
 
     public void g() {
-        b.j().x("asp_shown_info", this.f61121e);
+        b.j().x("asp_shown_info", this.f64813e);
     }
 
     public void h(String str) {
-        this.f61121e = str;
+        this.f64813e = str;
     }
 
     public void i(String str) {
-        this.f61118b = str;
+        this.f64810b = str;
     }
 
     public void j(String str) {
-        this.f61117a = str;
+        this.f64809a = str;
     }
 
     public void k(long j) {
-        this.f61119c = j;
+        this.f64811c = j;
     }
 }

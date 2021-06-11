@@ -77,7 +77,7 @@ public class BigdayActivity extends BaseActivity {
             this.bigdayId = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
         this.bigdayImg.setTag(getPageContext().getUniqueId());
-        this.bigdayImg.V(this.imgUrl, 41, false);
+        this.bigdayImg.U(this.imgUrl, 41, false);
         this.bigdayImg.setOnClickListener(this);
         this.bigdayClose.setOnClickListener(this);
         TiebaStatic.log(new StatisticItem("c13111").param("obj_id", this.bigdayId).param(TiebaStatic.Params.OBJ_TO, this.jumpUrl));

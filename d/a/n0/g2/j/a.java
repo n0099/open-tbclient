@@ -11,24 +11,24 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f55205a;
+    public d f58894a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f55206b;
+    public BdTypeListView f58895b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d.a.c.j.e.a> f55207c = new ArrayList();
+    public List<d.a.c.k.e.a> f58896c = new ArrayList();
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, b0<h> b0Var) {
-        this.f55206b = bdTypeListView;
+        this.f58895b = bdTypeListView;
         d dVar = new d(tbPageContext, h.p);
-        this.f55205a = dVar;
-        dVar.g0(b0Var);
-        this.f55207c.add(this.f55205a);
-        this.f55206b.a(this.f55207c);
+        this.f58894a = dVar;
+        dVar.h0(b0Var);
+        this.f58896c.add(this.f58894a);
+        this.f58895b.a(this.f58896c);
     }
 
     public void a() {
-        this.f55205a.K();
+        this.f58894a.L();
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.tbadk.editortools.EditorTools;
 public abstract class e {
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f50844e;
+    public EditorTools f54521e;
 
     public e(EditorTools editorTools) {
-        this.f50844e = editorTools;
+        this.f54521e = editorTools;
     }
 
     public EditorTools a() {
-        return this.f50844e;
+        return this.f54521e;
     }
 }

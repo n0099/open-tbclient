@@ -26,34 +26,34 @@ import d.a.l0.a.y0.k.g.a;
 public final class b extends d.a.l0.a.y0.b<d.a.l0.a.y0.k.g.a> {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f45878i = k.f43199a;
+    public static final boolean f49552i = k.f46875a;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a.InterfaceC0920a f45879h;
+    public final a.InterfaceC0976a f49553h;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC0920a {
+    public class a implements a.InterfaceC0976a {
         public a() {
         }
 
-        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0920a
+        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0976a
         public void a(int i2) {
-            if (b.this.f45774b != null) {
-                b.this.f45774b.onCallback(b.this, "onStateChange", Integer.valueOf(i2));
+            if (b.this.f49448b != null) {
+                b.this.f49448b.onCallback(b.this, "onStateChange", Integer.valueOf(i2));
             }
         }
 
-        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0920a
+        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0976a
         public void b(int i2) {
-            if (b.this.f45774b != null) {
-                b.this.f45774b.onCallback(b.this, "onInfo", Integer.valueOf(i2));
+            if (b.this.f49448b != null) {
+                b.this.f49448b.onCallback(b.this, "onInfo", Integer.valueOf(i2));
             }
         }
 
-        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0920a
+        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0976a
         public void c(String str) {
-            if (b.this.f45774b != null) {
-                b.this.f45774b.onCallback(b.this, "onPaused", null);
+            if (b.this.f49448b != null) {
+                b.this.f49448b.onCallback(b.this, "onPaused", null);
             }
             if (TextUtils.isEmpty(str)) {
                 return;
@@ -61,53 +61,53 @@ public final class b extends d.a.l0.a.y0.b<d.a.l0.a.y0.k.g.a> {
             d.a.l0.a.u.e.o.k.e().k(str, false);
         }
 
-        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0920a
+        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0976a
         public void d(@NonNull String str) {
-            if (b.this.f45774b != null) {
-                b.this.f45774b.onCallback(b.this, "onNetStatus", str);
+            if (b.this.f49448b != null) {
+                b.this.f49448b.onCallback(b.this, "onNetStatus", str);
             }
         }
 
-        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0920a
+        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0976a
         public void e(String str) {
-            if (b.this.f45774b != null) {
-                b.this.f45774b.onCallback(b.this, "onPlayed", null);
+            if (b.this.f49448b != null) {
+                b.this.f49448b.onCallback(b.this, "onPlayed", null);
             }
             d.a.l0.a.u.e.o.k.e().k(str, true);
             d.a.l0.a.u.e.o.k.e().j(str);
         }
 
-        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0920a
+        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0976a
         public void f() {
-            if (b.this.f45774b != null) {
-                b.this.f45774b.onCallback(b.this, "onVideoSizeChanged", null);
+            if (b.this.f49448b != null) {
+                b.this.f49448b.onCallback(b.this, "onVideoSizeChanged", null);
             }
         }
 
-        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0920a
+        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0976a
         public void onEnded() {
-            if (b.this.f45774b != null) {
-                b.this.f45774b.onCallback(b.this, "onEnded", null);
+            if (b.this.f49448b != null) {
+                b.this.f49448b.onCallback(b.this, "onEnded", null);
             }
         }
 
-        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0920a
+        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0976a
         public void onError(int i2) {
-            if (b.this.f45774b != null) {
-                b.this.f45774b.onCallback(b.this, "onError", Integer.valueOf(i2));
+            if (b.this.f49448b != null) {
+                b.this.f49448b.onCallback(b.this, "onError", Integer.valueOf(i2));
             }
         }
 
-        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0920a
+        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0976a
         public void onPrepared() {
-            if (b.this.f45774b != null) {
-                b.this.f45774b.onCallback(b.this, "onPrepared", null);
+            if (b.this.f49448b != null) {
+                b.this.f49448b.onCallback(b.this, "onPrepared", null);
             }
         }
 
-        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0920a
+        @Override // d.a.l0.a.y0.k.g.a.InterfaceC0976a
         public void onRelease(String str) {
-            if (b.f45878i) {
+            if (b.f49552i) {
                 Log.i("InlineVideoController", "onRelease: " + str);
             }
             d.a.l0.a.u.e.o.k.e().p(str);
@@ -117,29 +117,29 @@ public final class b extends d.a.l0.a.y0.b<d.a.l0.a.y0.k.g.a> {
     public b(@NonNull d.a.l0.a.y0.k.g.a aVar) {
         super(aVar);
         a aVar2 = new a();
-        this.f45879h = aVar2;
-        aVar.l0(aVar2);
-        this.f45773a.a(new d.a.l0.a.y0.k.e.a());
-        this.f45773a.a(new d.a.l0.a.y0.k.e.b());
-        this.f45773a.a(new d.a.l0.a.y0.k.e.c());
-        this.f45773a.a(new f());
-        this.f45773a.a(new e());
-        this.f45773a.a(new d.a.l0.a.y0.k.e.d());
-        this.f45773a.a(new g());
-        this.f45773a.a(new h());
-        this.f45773a.a(new i());
-        this.f45773a.a(new j());
-        this.f45773a.a(new l());
-        this.f45773a.a(new m());
-        this.f45773a.a(new n());
-        this.f45773a.a(new o());
-        this.f45773a.a(new q());
-        this.f45773a.a(new r());
-        this.f45773a.a(new s());
-        this.f45773a.a(new u());
-        this.f45773a.a(new v());
-        this.f45773a.a(new p());
-        this.f45773a.a(new d.a.l0.a.y0.k.e.k());
-        this.f45773a.a(new t());
+        this.f49553h = aVar2;
+        aVar.i0(aVar2);
+        this.f49447a.a(new d.a.l0.a.y0.k.e.a());
+        this.f49447a.a(new d.a.l0.a.y0.k.e.b());
+        this.f49447a.a(new d.a.l0.a.y0.k.e.c());
+        this.f49447a.a(new f());
+        this.f49447a.a(new e());
+        this.f49447a.a(new d.a.l0.a.y0.k.e.d());
+        this.f49447a.a(new g());
+        this.f49447a.a(new h());
+        this.f49447a.a(new i());
+        this.f49447a.a(new j());
+        this.f49447a.a(new l());
+        this.f49447a.a(new m());
+        this.f49447a.a(new n());
+        this.f49447a.a(new o());
+        this.f49447a.a(new q());
+        this.f49447a.a(new r());
+        this.f49447a.a(new s());
+        this.f49447a.a(new u());
+        this.f49447a.a(new v());
+        this.f49447a.a(new p());
+        this.f49447a.a(new d.a.l0.a.y0.k.e.k());
+        this.f49447a.a(new t());
     }
 }

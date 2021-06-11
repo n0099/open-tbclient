@@ -10,10 +10,10 @@ import android.widget.Scroller;
 public class BlankView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f19254e;
+    public Scroller f19331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f19255f;
+    public a f19332f;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -27,12 +27,12 @@ public class BlankView extends View {
     @Override // android.view.View
     public void computeScroll() {
         super.computeScroll();
-        Scroller scroller = this.f19254e;
+        Scroller scroller = this.f19331e;
         if (scroller == null) {
             return;
         }
         if (scroller.computeScrollOffset()) {
-            int currY = this.f19254e.getCurrY();
+            int currY = this.f19331e.getCurrY();
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = currY;
@@ -41,7 +41,7 @@ public class BlankView extends View {
             }
             return;
         }
-        a aVar = this.f19255f;
+        a aVar = this.f19332f;
         if (aVar != null) {
             aVar.a();
         }
@@ -53,7 +53,7 @@ public class BlankView extends View {
     }
 
     public void setScrollCallBack(a aVar) {
-        this.f19255f = aVar;
+        this.f19332f = aVar;
     }
 
     public BlankView(Context context, AttributeSet attributeSet) {

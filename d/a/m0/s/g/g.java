@@ -30,48 +30,48 @@ import java.net.URISyntaxException;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f50672a;
+    public final Context f54349a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f50673b;
+    public c f54350b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f50674c;
+    public d f54351c;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f50677f;
+    public b f54354f;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50675d = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
+    public String f54352d = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50676e = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.f50675d;
+    public String f54353e = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.f54352d;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.InterfaceC1156b f50678g = new a();
+    public b.InterfaceC1212b f54355g = new a();
 
     /* loaded from: classes3.dex */
-    public class a implements b.InterfaceC1156b {
+    public class a implements b.InterfaceC1212b {
         public a() {
         }
 
-        @Override // d.a.m0.s.g.b.InterfaceC1156b
+        @Override // d.a.m0.s.g.b.InterfaceC1212b
         public void a(ShareItem shareItem) {
-            g.this.f50674c.a(g.this.q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
+            g.this.f54351c.a(g.this.q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
         }
     }
 
     public g(Context context, c cVar) {
         e eVar;
-        this.f50673b = null;
-        this.f50674c = null;
-        this.f50672a = context;
-        this.f50673b = cVar;
+        this.f54350b = null;
+        this.f54351c = null;
+        this.f54349a = context;
+        this.f54350b = cVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, e.class);
         if (runTask.getData() == null || (eVar = (e) runTask.getData()) == null) {
             return;
         }
-        this.f50674c = eVar.a(this.f50672a, this.f50673b);
+        this.f54351c = eVar.a(this.f54349a, this.f54350b);
     }
 
     public static String d(String str, String str2) {
@@ -140,83 +140,83 @@ public class g {
     }
 
     public void h(ShareItem shareItem) {
-        if (this.f50674c == null || shareItem == null) {
+        if (this.f54351c == null || shareItem == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 80, 32, shareItem.b0 ? this.f50675d : "");
-        this.f50674c.a(q(shareItem, Share.QQFRIEND), 8, true);
+        shareItem.s = c(shareItem.s, 80, 32, shareItem.b0 ? this.f54352d : "");
+        this.f54351c.a(q(shareItem, Share.QQFRIEND), 8, true);
     }
 
     public void i(ShareItem shareItem) {
-        if (this.f50674c == null) {
+        if (this.f54351c == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 80, 32, shareItem.b0 ? this.f50675d : "");
-        this.f50674c.a(q(shareItem, "qzone"), 4, true);
+        shareItem.s = c(shareItem.s, 80, 32, shareItem.b0 ? this.f54352d : "");
+        this.f54351c.a(q(shareItem, "qzone"), 4, true);
     }
 
     public void j(ShareItem shareItem) {
-        if (this.f50674c == null) {
+        if (this.f54351c == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.b0 ? this.f50675d : "");
-        this.f50674c.a(q(shareItem, "renren"), 7, true);
+        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.b0 ? this.f54352d : "");
+        this.f54351c.a(q(shareItem, "renren"), 7, true);
     }
 
     public void k(ShareItem shareItem) {
-        if (this.f50674c == null) {
+        if (this.f54351c == null) {
             return;
         }
         if (!d.a.m0.s.g.a.b(TbadkApplication.getInst().getApplicationContext(), 6)) {
             BdToast.c(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.share_sina_weibo_not_install)).q();
             return;
         }
-        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.b0 ? this.f50676e : "");
-        this.f50674c.a(q(shareItem, "sina_weibo"), 6, true);
+        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.b0 ? this.f54353e : "");
+        this.f54351c.a(q(shareItem, "sina_weibo"), 6, true);
     }
 
     public void l(ShareItem shareItem) {
-        if (this.f50674c == null) {
+        if (this.f54351c == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.b0 ? this.f50675d : "");
-        this.f50674c.a(q(shareItem, "tencent_weibo"), 5, true);
+        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.b0 ? this.f54352d : "");
+        this.f54351c.a(q(shareItem, "tencent_weibo"), 5, true);
     }
 
     public void m(ShareItem shareItem) {
-        if (this.f50674c == null || shareItem == null) {
+        if (this.f54351c == null || shareItem == null) {
             return;
         }
         if (StringUtils.isNull(shareItem.K)) {
-            shareItem.s = c(shareItem.s, 80, 20, shareItem.b0 ? this.f50675d : "");
+            shareItem.s = c(shareItem.s, 80, 20, shareItem.b0 ? this.f54352d : "");
         }
         if (shareItem.f0 && !k.isEmpty(shareItem.e0)) {
             shareItem.v = Uri.parse(shareItem.e0);
-            this.f50674c.a(q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
+            this.f54351c.a(q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
         } else if (shareItem.f0 && k.isEmpty(shareItem.e0) && !k.isEmpty(shareItem.K) && !"0".equals(shareItem.K)) {
-            if (this.f50677f == null) {
+            if (this.f54354f == null) {
                 b bVar = new b();
-                this.f50677f = bVar;
-                bVar.c(this.f50678g);
+                this.f54354f = bVar;
+                bVar.c(this.f54355g);
             }
-            this.f50677f.b(shareItem);
+            this.f54354f.b(shareItem);
         } else {
             if (shareItem.y == 4) {
-                if (this.f50677f == null) {
-                    this.f50677f = new b();
+                if (this.f54354f == null) {
+                    this.f54354f = new b();
                 }
-                this.f50677f.b(shareItem);
+                this.f54354f.b(shareItem);
             }
-            this.f50674c.a(q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
+            this.f54351c.a(q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
         }
     }
 
     public void n(ShareItem shareItem) {
-        if (this.f50674c == null || shareItem == null) {
+        if (this.f54351c == null || shareItem == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 80, 20, shareItem.b0 ? this.f50675d : "");
-        this.f50674c.a(q(shareItem, Share.WEIXIN_TIMELINE), 2, false);
+        shareItem.s = c(shareItem.s, 80, 20, shareItem.b0 ? this.f54352d : "");
+        this.f54351c.a(q(shareItem, Share.WEIXIN_TIMELINE), 2, false);
     }
 
     public final ShareItem q(ShareItem shareItem, String str) {

@@ -9,20 +9,20 @@ import java.nio.ByteBuffer;
 public final class b extends f {
 
     /* renamed from: h  reason: collision with root package name */
-    public final d f63856h;
+    public final d f67574h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g f63857i;
+    public final g f67575i;
     public final ByteBuffer j;
-    public final UploadDataProvider k = new C1773b();
+    public final UploadDataProvider k = new C1831b();
     public boolean l = false;
     public boolean m;
     public boolean n;
 
     /* renamed from: d.a.o0.b.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1773b extends UploadDataProvider {
-        public C1773b() {
+    public class C1831b extends UploadDataProvider {
+        public C1831b() {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -37,10 +37,10 @@ public final class b extends f {
                 b.this.j.clear();
                 uploadDataSink.c(b.this.l);
                 if (!b.this.l) {
-                    b.this.f63857i.quit();
+                    b.this.f67575i.quit();
                     return;
                 } else if (b.this.m) {
-                    b.this.f63857i.quit();
+                    b.this.f67575i.quit();
                     return;
                 } else {
                     return;
@@ -67,8 +67,8 @@ public final class b extends f {
         }
         if (i2 > 0) {
             this.j = ByteBuffer.allocate(i2);
-            this.f63856h = dVar;
-            this.f63857i = gVar;
+            this.f67574h = dVar;
+            this.f67575i = gVar;
             this.m = z;
             this.n = z2;
             return;
@@ -85,7 +85,7 @@ public final class b extends f {
         this.l = true;
         this.j.flip();
         if (this.m) {
-            this.f63857i.b(this.f63856h.getReadTimeout());
+            this.f67575i.b(this.f67574h.getReadTimeout());
         }
     }
 
@@ -126,7 +126,7 @@ public final class b extends f {
     public final void z() throws IOException {
         o();
         this.j.flip();
-        this.f63857i.b(this.f63856h.getReadTimeout());
+        this.f67575i.b(this.f67574h.getReadTimeout());
         n();
     }
 

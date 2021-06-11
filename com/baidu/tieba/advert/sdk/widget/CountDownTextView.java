@@ -9,19 +9,19 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13636e;
+    public int f13701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13637f;
+    public String f13702f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f13638g;
+    public b f13703g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f13639h;
+    public d f13704h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f13640i;
+    public Handler f13705i;
     public final Runnable j;
     public boolean k;
 
@@ -34,18 +34,18 @@ public class CountDownTextView extends TextView {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f13641e;
+        public final WeakReference<CountDownTextView> f13706e;
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.f13641e.get();
+            CountDownTextView countDownTextView = this.f13706e.get();
             if (countDownTextView != null) {
                 countDownTextView.b(1);
             }
         }
 
         public c(CountDownTextView countDownTextView) {
-            this.f13641e = new WeakReference<>(countDownTextView);
+            this.f13706e = new WeakReference<>(countDownTextView);
         }
     }
 
@@ -56,50 +56,50 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.f13636e = 0;
-        this.f13637f = "";
-        this.f13638g = null;
-        this.f13639h = null;
-        this.f13640i = new Handler();
+        this.f13701e = 0;
+        this.f13702f = "";
+        this.f13703g = null;
+        this.f13704h = null;
+        this.f13705i = new Handler();
         this.k = false;
         this.j = new c();
     }
 
     public final void b(int i2) {
-        int i3 = this.f13636e - i2;
-        this.f13636e = i3;
-        b bVar = this.f13638g;
+        int i3 = this.f13701e - i2;
+        this.f13701e = i3;
+        b bVar = this.f13703g;
         if (bVar != null && i2 != 0) {
             bVar.a(i3);
         }
-        int i4 = this.f13636e;
+        int i4 = this.f13701e;
         if (i4 == 0) {
-            d dVar = this.f13639h;
+            d dVar = this.f13704h;
             if (dVar != null) {
                 dVar.a(this);
             }
-            this.f13640i.removeCallbacksAndMessages(null);
+            this.f13705i.removeCallbacksAndMessages(null);
             return;
         }
         if (i4 > 0) {
             if (this.k) {
-                setText(String.format("%s 0%s", this.f13637f, Integer.valueOf(i4)));
+                setText(String.format("%s 0%s", this.f13702f, Integer.valueOf(i4)));
             } else {
-                setText(String.format("%s %s", this.f13637f, Integer.valueOf(i4)));
+                setText(String.format("%s %s", this.f13702f, Integer.valueOf(i4)));
             }
         }
-        this.f13640i.removeCallbacks(this.j);
-        this.f13640i.postDelayed(this.j, 1000L);
+        this.f13705i.removeCallbacks(this.j);
+        this.f13705i.postDelayed(this.j, 1000L);
     }
 
     public final void c() {
-        this.f13640i.removeCallbacksAndMessages(null);
+        this.f13705i.removeCallbacksAndMessages(null);
     }
 
     public void d(String str, int i2) {
-        this.f13637f = str;
+        this.f13702f = str;
         if (i2 > 0) {
-            this.f13636e = i2;
+            this.f13701e = i2;
         }
     }
 
@@ -130,10 +130,10 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(d dVar) {
-        this.f13639h = dVar;
+        this.f13704h = dVar;
     }
 
     public void setTimerChangedListener(b bVar) {
-        this.f13638g = bVar;
+        this.f13703g = bVar;
     }
 }

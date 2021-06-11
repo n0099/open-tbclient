@@ -10,16 +10,16 @@ import java.util.HashMap;
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f38744d;
+    public static e f42397d;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f38745a = new HashMap<>();
+    public HashMap<String, b> f42398a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, c> f38746b = new HashMap<>();
+    public HashMap<String, c> f42399b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f38747c = new a(this, Looper.getMainLooper());
+    public Handler f42400c = new a(this, Looper.getMainLooper());
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -48,39 +48,39 @@ public class e {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f38753a;
+        public int f42406a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f38754b;
+        public int f42407b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f38755c;
+        public int f42408c;
 
         public c(e eVar) {
         }
 
         public int a() {
-            return this.f38753a;
+            return this.f42406a;
         }
 
         public int b() {
-            return this.f38754b;
+            return this.f42407b;
         }
 
         public int c() {
-            return this.f38755c;
+            return this.f42408c;
         }
 
         public void d(int i2) {
-            this.f38753a = i2;
+            this.f42406a = i2;
         }
 
         public void e(int i2) {
-            this.f38754b = i2;
+            this.f42407b = i2;
         }
 
         public void f(int i2) {
-            this.f38755c = i2;
+            this.f42408c = i2;
         }
 
         public /* synthetic */ c(e eVar, a aVar) {
@@ -93,51 +93,51 @@ public class e {
         cVar.d(3000);
         cVar.e(120000);
         cVar.f(500);
-        this.f38746b.put("net", cVar);
-        this.f38746b.put("op", cVar);
-        this.f38746b.put("stat", cVar);
-        this.f38746b.put("crash", cVar);
-        this.f38746b.put("pfmonitor", cVar);
+        this.f42399b.put("net", cVar);
+        this.f42399b.put("op", cVar);
+        this.f42399b.put("stat", cVar);
+        this.f42399b.put("crash", cVar);
+        this.f42399b.put("pfmonitor", cVar);
         c cVar2 = new c(this, null);
         cVar2.d(3000);
         cVar2.e(120000);
         cVar2.f(1500);
-        this.f38746b.put("file", cVar2);
-        this.f38746b.put(IMTrackDatabase.DbEnum.TABLE_NAME, cVar2);
-        this.f38746b.put("img", cVar2);
-        this.f38746b.put("voice", cVar2);
-        this.f38746b.put("error", cVar2);
+        this.f42399b.put("file", cVar2);
+        this.f42399b.put(IMTrackDatabase.DbEnum.TABLE_NAME, cVar2);
+        this.f42399b.put("img", cVar2);
+        this.f42399b.put("voice", cVar2);
+        this.f42399b.put("error", cVar2);
         c cVar3 = new c(this, null);
         cVar3.d(3000);
         cVar3.e(120000);
         cVar3.f(1500);
-        this.f38746b.put("dbg", cVar3);
+        this.f42399b.put("dbg", cVar3);
     }
 
     public static e c() {
-        if (f38744d == null) {
+        if (f42397d == null) {
             synchronized (e.class) {
-                if (f38744d == null) {
-                    f38744d = new e();
+                if (f42397d == null) {
+                    f42397d = new e();
                 }
             }
         }
-        return f38744d;
+        return f42397d;
     }
 
     public synchronized boolean a(String str) {
-        c cVar = this.f38746b.get(str);
+        c cVar = this.f42399b.get(str);
         if (cVar == null) {
             return false;
         }
-        b bVar = this.f38745a.get(str);
+        b bVar = this.f42398a.get(str);
         long currentTimeMillis = System.currentTimeMillis();
         if (bVar == null) {
             bVar = new b(this, null);
             bVar.h(false);
             bVar.i(false);
             bVar.j(currentTimeMillis);
-            this.f38745a.put(str, bVar);
+            this.f42398a.put(str, bVar);
         }
         b bVar2 = bVar;
         if (bVar2.e()) {
@@ -167,75 +167,75 @@ public class e {
     }
 
     public final void b(b bVar) {
-        Message obtainMessage = this.f38747c.obtainMessage();
+        Message obtainMessage = this.f42400c.obtainMessage();
         obtainMessage.what = 5;
         obtainMessage.obj = bVar;
-        this.f38747c.removeMessages(5);
-        this.f38747c.sendMessageDelayed(obtainMessage, 300000L);
+        this.f42400c.removeMessages(5);
+        this.f42400c.sendMessageDelayed(obtainMessage, 300000L);
     }
 
     /* loaded from: classes.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f38748a;
+        public long f42401a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f38749b;
+        public boolean f42402b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f38750c;
+        public int f42403c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f38751d;
+        public long f42404d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f38752e;
+        public boolean f42405e;
 
         public b(e eVar) {
-            this.f38749b = false;
-            this.f38750c = 0;
-            this.f38752e = false;
+            this.f42402b = false;
+            this.f42403c = 0;
+            this.f42405e = false;
         }
 
         public long a() {
-            return this.f38751d;
+            return this.f42404d;
         }
 
         public int b() {
-            return this.f38750c;
+            return this.f42403c;
         }
 
         public long c() {
-            return this.f38748a;
+            return this.f42401a;
         }
 
         public boolean d() {
-            return this.f38749b;
+            return this.f42402b;
         }
 
         public boolean e() {
-            return this.f38752e;
+            return this.f42405e;
         }
 
         public void f(long j) {
-            this.f38751d = j;
+            this.f42404d = j;
         }
 
         public void g(int i2) {
-            this.f38750c = i2;
+            this.f42403c = i2;
         }
 
         public void h(boolean z) {
-            this.f38749b = z;
+            this.f42402b = z;
         }
 
         public void i(boolean z) {
-            this.f38752e = z;
+            this.f42405e = z;
         }
 
         public void j(long j) {
-            this.f38748a = j;
+            this.f42401a = j;
         }
 
         public /* synthetic */ b(e eVar, a aVar) {

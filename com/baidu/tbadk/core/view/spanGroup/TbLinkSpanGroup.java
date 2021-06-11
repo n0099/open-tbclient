@@ -19,7 +19,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     public static final String r = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
 
     /* renamed from: i  reason: collision with root package name */
-    public v f12512i;
+    public v f12574i;
     public LINK_TYPE j;
     public int k;
     public CharSequence l;
@@ -106,12 +106,12 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
 
     @Override // d.a.m0.r.f0.p.a
     public void p(Editable editable) {
-        v vVar = this.f12512i;
-        if (vVar != null && vVar.f50137f == 2) {
+        v vVar = this.f12574i;
+        if (vVar != null && vVar.f53813f == 2) {
             if (vVar.l != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("#(commodity,commo_");
-                sb.append(this.f12512i.l);
+                sb.append(this.f12574i.l);
                 sb.append("_commo)");
                 i(sb);
                 return;
@@ -126,7 +126,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
 
     @Override // d.a.m0.r.f0.p.a
     public void q(Editable editable, int i2) {
-        if (this.f12512i == null) {
+        if (this.f12574i == null) {
             String str = k.isEmpty(this.n) ? "0" : this.n;
             String str2 = (this.j == LINK_TYPE.INTERNAL_LINK && k.isEmpty(this.o)) ? "" : this.p;
             StringBuilder sb = new StringBuilder();
@@ -147,10 +147,10 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("goods_id", this.f12512i.q);
+                    jSONObject2.put("goods_id", this.f12574i.q);
                     jSONObject2.put(QuickPersistConfigConst.KEY_SPLASH_SORT, i2);
-                    jSONObject2.put("title", this.f12512i.f50139h);
-                    jSONObject2.put("url", this.f12512i.o);
+                    jSONObject2.put("title", this.f12574i.f53815h);
+                    jSONObject2.put("url", this.f12574i.o);
                     StringBuilder sb2 = new StringBuilder();
                     jSONObject.put("goods", jSONObject2);
                     sb2.append("#(goods,");
@@ -173,15 +173,15 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         sb3.append(",");
         sb3.append(k.getUrlEncode(str3));
         sb3.append(",");
-        sb3.append(k.getUrlEncode(this.f12512i.p));
+        sb3.append(k.getUrlEncode(this.f12574i.p));
         sb3.append(",");
-        sb3.append(this.f12512i.f50140i);
+        sb3.append(this.f12574i.f53816i);
         sb3.append(",");
-        sb3.append(k.getUrlEncode(this.f12512i.j));
+        sb3.append(k.getUrlEncode(this.f12574i.j));
         sb3.append(",");
         sb3.append(i2);
         sb3.append(",");
-        sb3.append(this.f12512i.s);
+        sb3.append(this.f12574i.s);
         sb3.append(SmallTailInfo.EMOTION_SUFFIX);
         sb3.append(this.m);
         i(sb3);
@@ -205,11 +205,11 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         this.n = tbLinkSpanGroup.n;
         this.o = tbLinkSpanGroup.o;
         this.p = tbLinkSpanGroup.p;
-        this.f12512i = tbLinkSpanGroup.f12512i;
+        this.f12574i = tbLinkSpanGroup.f12574i;
     }
 
     public v t() {
-        return this.f12512i;
+        return this.f12574i;
     }
 
     public LINK_TYPE u() {
@@ -225,7 +225,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     }
 
     public void y(v vVar) {
-        this.f12512i = vVar;
+        this.f12574i = vVar;
     }
 
     public void z(String str) {

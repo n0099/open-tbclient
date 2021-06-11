@@ -43,33 +43,33 @@ public class a extends d.a.n0.z.b<d.a.n0.h2.e.d> {
         super(tbPageContext);
         this.C = 3;
         this.D = 0;
-        View l = l();
-        this.A = (LinearLayout) l.findViewById(R.id.layout_container);
-        this.y = l.findViewById(R.id.top_divider_line);
-        this.z = l.findViewById(R.id.bottom_divider_line);
-        this.m = (TextView) l.findViewById(R.id.fans_num);
-        this.n = (TextView) l.findViewById(R.id.fans_title);
-        this.o = (TextView) l.findViewById(R.id.concer_num);
-        this.p = (TextView) l.findViewById(R.id.concer_title);
-        this.q = (TextView) l.findViewById(R.id.attention_bar_num);
-        this.r = (TextView) l.findViewById(R.id.attention_bar_title);
-        this.s = (TextView) l.findViewById(R.id.thread_num);
-        this.t = (TextView) l.findViewById(R.id.thread_title);
-        this.u = (LinearLayout) l.findViewById(R.id.fans_action);
-        this.v = (LinearLayout) l.findViewById(R.id.concer_action);
-        this.w = (LinearLayout) l.findViewById(R.id.attention_action);
-        this.x = (LinearLayout) l.findViewById(R.id.thread_action);
+        View m = m();
+        this.A = (LinearLayout) m.findViewById(R.id.layout_container);
+        this.y = m.findViewById(R.id.top_divider_line);
+        this.z = m.findViewById(R.id.bottom_divider_line);
+        this.m = (TextView) m.findViewById(R.id.fans_num);
+        this.n = (TextView) m.findViewById(R.id.fans_title);
+        this.o = (TextView) m.findViewById(R.id.concer_num);
+        this.p = (TextView) m.findViewById(R.id.concer_title);
+        this.q = (TextView) m.findViewById(R.id.attention_bar_num);
+        this.r = (TextView) m.findViewById(R.id.attention_bar_title);
+        this.s = (TextView) m.findViewById(R.id.thread_num);
+        this.t = (TextView) m.findViewById(R.id.thread_title);
+        this.u = (LinearLayout) m.findViewById(R.id.fans_action);
+        this.v = (LinearLayout) m.findViewById(R.id.concer_action);
+        this.w = (LinearLayout) m.findViewById(R.id.attention_action);
+        this.x = (LinearLayout) m.findViewById(R.id.thread_action);
         this.y.setVisibility(8);
         this.z.setVisibility(8);
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.person_center_actions_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.C != i2) {
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
@@ -82,7 +82,7 @@ public class a extends d.a.n0.z.b<d.a.n0.h2.e.d> {
             SkinManager.setBackgroundColor(this.y, R.color.CAM_X0204);
             SkinManager.setBackgroundColor(this.z, R.color.CAM_X0204);
             int g2 = l.g(b(), R.dimen.tbds16);
-            TBSelector.makeShadowDrawable().setShape(1).setShadowSide(4096).setBgColor(R.color.CAM_X0205).setShapeRadius(0).setShadowLayer(R.color.cp_shadow_a, 0.2f, 0, l.g(b(), R.dimen.tbds5), g2).into(l());
+            TBSelector.makeShadowDrawable().setShape(1).setShadowSide(4096).setBgColor(R.color.CAM_X0205).setShapeRadius(0).setShadowLayer(R.color.cp_shadow_a, 0.2f, 0, l.g(b(), R.dimen.tbds5), g2).into(m());
             this.C = i2;
         }
     }
@@ -98,36 +98,36 @@ public class a extends d.a.n0.z.b<d.a.n0.h2.e.d> {
             }
             d.a.n0.u2.a.v().L(2, false, true);
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f63441f.getPageActivity(), false, this.B.getUserId(), this.B.getSex()).updateBjhUser(this.B.isBaijiahaoUser())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f67159f.getPageActivity(), false, this.B.getUserId(), this.B.getSex()).updateBjhUser(this.B.isBaijiahaoUser())));
         } else if (view.getId() == R.id.concer_action) {
             if (this.B == null) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 5));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f63441f.getPageActivity(), true, this.B.getUserId(), this.B.getSex()).updateBjhUser(this.B.isBaijiahaoUser()).updateFollowNum(this.D, this.B.getPortrait())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f67159f.getPageActivity(), true, this.B.getUserId(), this.B.getSex()).updateBjhUser(this.B.isBaijiahaoUser()).updateFollowNum(this.D, this.B.getPortrait())));
         } else if (view.getId() == R.id.attention_action) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 7));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.f63441f.getPageActivity(), this.B.getLike_bars(), this.B.getUserId(), this.B.getSex())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.f67159f.getPageActivity(), this.B.getLike_bars(), this.B.getUserId(), this.B.getSex())));
         } else if (view.getId() == R.id.thread_action) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.f63441f.getPageActivity(), this.B.getUserId(), this.B.getSex(), this.B.getPortrait())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.f67159f.getPageActivity(), this.B.getUserId(), this.B.getSex(), this.B.getPortrait())));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(d.a.n0.h2.e.d dVar) {
+    /* renamed from: t */
+    public void n(d.a.n0.h2.e.d dVar) {
         this.B = dVar.j;
-        this.D = dVar.f55536f;
-        this.m.setText(StringHelper.numFormatOverWanNa(dVar.f55535e));
-        this.o.setText(Integer.toString(dVar.f55536f));
-        this.q.setText(Integer.toString(dVar.f55537g));
-        this.s.setText(StringHelper.longNumFormatOver9999wan(dVar.f55538h));
+        this.D = dVar.f59225f;
+        this.m.setText(StringHelper.numFormatOverWanNa(dVar.f59224e));
+        this.o.setText(Integer.toString(dVar.f59225f));
+        this.q.setText(Integer.toString(dVar.f59226g));
+        this.s.setText(StringHelper.longNumFormatOver9999wan(dVar.f59227h));
         this.u.setOnClickListener(this);
         this.v.setOnClickListener(this);
         this.w.setOnClickListener(this);
         this.x.setOnClickListener(this);
-        n(k(), TbadkCoreApplication.getInst().getSkinType());
+        o(k(), TbadkCoreApplication.getInst().getSkinType());
     }
 }

@@ -2,11 +2,11 @@ package h.r;
 
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f68748a = new g();
+    public static final g f72004a = new g();
 
     public static h.g a() {
         return b(new RxThreadFactory("RxComputationScheduler-"));
@@ -42,7 +42,7 @@ public class g {
     }
 
     public static g h() {
-        return f68748a;
+        return f72004a;
     }
 
     public h.g g() {

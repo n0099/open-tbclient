@@ -10,34 +10,34 @@ import d.a.l0.a.v2.q0;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47923a;
+    public String f51597a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47924b;
+    public String f51598b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f47925c = false;
+    public boolean f51599c = false;
 
     public c(String str, String str2, String str3) {
-        this.f47923a = str2;
-        this.f47924b = str3;
+        this.f51597a = str2;
+        this.f51598b = str3;
     }
 
     public String a() {
-        return this.f47923a;
+        return this.f51597a;
     }
 
     public boolean b() {
-        return this.f47925c;
+        return this.f51599c;
     }
 
     public boolean c(Context context) {
-        return q0.t(context.getApplicationContext(), this.f47924b) != null;
+        return q0.t(context.getApplicationContext(), this.f51598b) != null;
     }
 
     public void d(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
-        if (!c(context) && this.f47925c) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + this.f47924b));
+        if (!c(context) && this.f51599c) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + this.f51598b));
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             context.startActivity(intent);
             return;

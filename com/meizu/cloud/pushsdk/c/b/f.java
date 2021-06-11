@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.c.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface f {
     void a(int i2);
 

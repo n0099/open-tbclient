@@ -57,18 +57,18 @@ public class a extends e {
 
     @Override // d.a.n0.k1.o.e
     public void c() {
-        SparseIntArray sparseIntArray = e.f56638a;
+        SparseIntArray sparseIntArray = e.f60327a;
         sparseIntArray.put(17, sparseIntArray.size() + 1);
-        SparseIntArray sparseIntArray2 = e.f56638a;
+        SparseIntArray sparseIntArray2 = e.f60327a;
         sparseIntArray2.put(27, sparseIntArray2.size() + 1);
-        SparseIntArray sparseIntArray3 = e.f56638a;
+        SparseIntArray sparseIntArray3 = e.f60327a;
         sparseIntArray3.put(33, sparseIntArray3.size() + 1);
-        SparseIntArray sparseIntArray4 = e.f56638a;
+        SparseIntArray sparseIntArray4 = e.f60327a;
         sparseIntArray4.put(34, sparseIntArray4.size() + 1);
-        e.f56639b.put(17, BdUniqueId.gen());
-        e.f56639b.put(27, BdUniqueId.gen());
-        e.f56639b.put(33, BdUniqueId.gen());
-        e.f56639b.put(34, BdUniqueId.gen());
+        e.f60328b.put(17, BdUniqueId.gen());
+        e.f60328b.put(27, BdUniqueId.gen());
+        e.f60328b.put(33, BdUniqueId.gen());
+        e.f60328b.put(34, BdUniqueId.gen());
     }
 
     @Override // d.a.n0.k1.o.e

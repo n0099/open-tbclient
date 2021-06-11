@@ -9,6 +9,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.wallet.core.beans.BeanConstants;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
 import d.a.l0.a.e2.c.j.b;
 import d.a.l0.a.v2.q0;
 import java.util.HashSet;
@@ -18,37 +19,37 @@ import org.json.JSONObject;
 public class s extends a0 {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f41266d;
+    public static final Set<String> f44942d;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41267c;
+    public String f44943c;
 
     /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41268e;
+        public final /* synthetic */ CallbackHandler f44944e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f41269f;
+        public final /* synthetic */ Context f44945f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41270g;
+        public final /* synthetic */ String f44946g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f41271h;
+        public final /* synthetic */ String f44947h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f41272i;
+        public final /* synthetic */ String f44948i;
         public final /* synthetic */ String j;
         public final /* synthetic */ String k;
 
         public a(CallbackHandler callbackHandler, Context context, String str, String str2, String str3, String str4, String str5) {
-            this.f41268e = callbackHandler;
-            this.f41269f = context;
-            this.f41270g = str;
-            this.f41271h = str2;
-            this.f41272i = str3;
+            this.f44944e = callbackHandler;
+            this.f44945f = context;
+            this.f44946g = str;
+            this.f44947h = str2;
+            this.f44948i = str3;
             this.j = str4;
             this.k = str5;
         }
@@ -58,36 +59,36 @@ public class s extends a0 {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
             if (!d.a.l0.a.e2.c.d.h(iVar)) {
-                d.a.l0.a.e2.c.d.p(iVar, this.f41268e, s.this.f41267c);
+                d.a.l0.a.e2.c.d.p(iVar, this.f44944e, s.this.f44943c);
                 return;
             }
-            d.a.l0.a.q2.a a2 = d.a.l0.a.c1.a.B().a(this.f41269f, this.f41270g, this.f41271h, this.f41272i, this.j, this.k);
+            d.a.l0.a.q2.a a2 = d.a.l0.a.c1.a.B().a(this.f44945f, this.f44946g, this.f44947h, this.f44948i, this.j, this.k);
             if (a2 != null) {
                 if (a2.g() != 0) {
                     d.a.l0.a.e0.d.b("PageTransitionAction", a2.f().toString());
-                    CallbackHandler callbackHandler = this.f41268e;
-                    String str = s.this.f41267c;
+                    CallbackHandler callbackHandler = this.f44944e;
+                    String str = s.this.f44943c;
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a2.a() + ":" + a2.f().toString()).toString());
                     return;
                 }
                 d.a.l0.a.e0.d.b("PageTransitionAction", "page transition fail");
-                this.f41268e.handleSchemeDispatchCallback(s.this.f41267c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
+                this.f44944e.handleSchemeDispatchCallback(s.this.f44943c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
                 return;
             }
             d.a.l0.a.e0.d.g("PageTransitionAction", "page transition success");
-            this.f41268e.handleSchemeDispatchCallback(s.this.f41267c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            this.f44944e.handleSchemeDispatchCallback(s.this.f44943c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
     }
 
     static {
         HashSet hashSet = new HashSet();
-        f41266d = hashSet;
+        f44942d = hashSet;
         hashSet.add("easybrowse");
-        f41266d.add("live");
-        f41266d.add("appTab");
-        f41266d.add(BeanConstants.CHANNEL_ID_BROWSER);
-        f41266d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_COMIC);
-        f41266d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL);
+        f44942d.add("live");
+        f44942d.add("appTab");
+        f44942d.add(BeanConstants.CHANNEL_ID_BROWSER);
+        f44942d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_COMIC);
+        f44942d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL);
     }
 
     public s(d.a.l0.a.c2.e eVar) {
@@ -101,7 +102,7 @@ public class s extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "null swanApp");
             return false;
         } else if (eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("PageTransitionAction", "PageTransitionAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
@@ -115,7 +116,7 @@ public class s extends a0 {
             }
             JSONObject d2 = d.a.l0.a.v2.w.d(param);
             String optString = d2.optString("cb");
-            this.f41267c = optString;
+            this.f44943c = optString;
             if (TextUtils.isEmpty(optString)) {
                 d.a.l0.a.e0.d.b("PageTransitionAction", "callback is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -134,15 +135,15 @@ public class s extends a0 {
                 if (a2 != null) {
                     if (a2.g() != 0) {
                         d.a.l0.a.e0.d.b("PageTransitionAction", a2.f().toString());
-                        String str = this.f41267c;
+                        String str = this.f44943c;
                         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a2.a() + ":" + a2.f().toString()).toString());
                     } else {
                         d.a.l0.a.e0.d.b("PageTransitionAction", "page transition fail");
-                        callbackHandler.handleSchemeDispatchCallback(this.f41267c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
+                        callbackHandler.handleSchemeDispatchCallback(this.f44943c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
                     }
                 } else {
                     d.a.l0.a.e0.d.g("PageTransitionAction", "page transition success");
-                    callbackHandler.handleSchemeDispatchCallback(this.f41267c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(this.f44943c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             }
             d.a.l0.a.e0.d.g("PageTransitionAction", "callback success");
@@ -153,18 +154,18 @@ public class s extends a0 {
 
     public final void k(@NonNull d.a.l0.a.a2.e eVar, @NonNull String str) {
         d.a.l0.a.j2.p.e eVar2 = new d.a.l0.a.j2.p.e();
-        eVar2.f43187c = eVar.L().T();
-        eVar2.f43185a = "swan";
+        eVar2.f46863c = eVar.L().T();
+        eVar2.f46861a = "swan";
         if (q0.G()) {
-            if (f41266d.contains(str)) {
-                eVar2.f43186b = str.toLowerCase();
+            if (f44942d.contains(str)) {
+                eVar2.f46862b = str.toLowerCase();
             } else {
-                eVar2.f43186b = "other";
+                eVar2.f46862b = "other";
             }
         } else {
-            eVar2.f43186b = "other";
+            eVar2.f46862b = "other";
         }
-        eVar2.a("hostid", d.a.l0.a.c1.a.m().a());
+        eVar2.a(BaseHiidoContent.HOSTID, d.a.l0.a.c1.a.m().a());
         eVar2.a("appid", eVar.getAppId());
         d.a.l0.a.j2.k.u("1895", eVar2);
     }

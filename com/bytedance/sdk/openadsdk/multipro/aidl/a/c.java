@@ -8,25 +8,25 @@ import java.util.HashMap;
 public class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f29585a = new HashMap<>();
+    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f29688a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f29586b;
+    public static volatile c f29689b;
 
     public static c a() {
-        if (f29586b == null) {
+        if (f29689b == null) {
             synchronized (c.class) {
-                if (f29586b == null) {
-                    f29586b = new c();
+                if (f29689b == null) {
+                    f29689b = new c();
                 }
             }
         }
-        return f29586b;
+        return f29689b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public void broadcastDialogListener(String str, int i2) throws RemoteException {
-        RemoteCallbackList<ICommonDialogListener> remove = f29585a.remove(str);
+        RemoteCallbackList<ICommonDialogListener> remove = f29688a.remove(str);
         if (remove == null) {
             return;
         }
@@ -56,6 +56,6 @@ public class c extends a {
         }
         RemoteCallbackList<ICommonDialogListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iCommonDialogListener);
-        f29585a.put(str, remoteCallbackList);
+        f29688a.put(str, remoteCallbackList);
     }
 }

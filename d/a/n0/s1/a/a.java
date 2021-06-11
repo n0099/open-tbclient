@@ -14,34 +14,34 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<BubbleListData.BubbleData> f60390e = new ArrayList();
+    public List<BubbleListData.BubbleData> f64081e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<BubbleChooseActivity> f60391f;
+    public TbPageContext<BubbleChooseActivity> f64082f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f60392g;
+    public int f64083g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60393h;
+    public int f64084h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f60394i;
+    public boolean f64085i;
 
     public a(TbPageContext<BubbleChooseActivity> tbPageContext) {
-        this.f60391f = tbPageContext;
-        this.f60392g = (int) tbPageContext.getResources().getDimension(R.dimen.ds30);
-        this.f60393h = (int) this.f60391f.getResources().getDimension(R.dimen.ds30);
+        this.f64082f = tbPageContext;
+        this.f64083g = (int) tbPageContext.getResources().getDimension(R.dimen.ds30);
+        this.f64084h = (int) this.f64082f.getResources().getDimension(R.dimen.ds30);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public BubbleListData.BubbleData getItem(int i2) {
-        List<BubbleListData.BubbleData> list = this.f60390e;
+        List<BubbleListData.BubbleData> list = this.f64081e;
         if (list != null) {
             if (i2 >= 0 || i2 < list.size()) {
-                return this.f60390e.get(i2);
+                return this.f64081e.get(i2);
             }
             return null;
         }
@@ -49,25 +49,25 @@ public class a extends BaseAdapter {
     }
 
     public List<BubbleListData.BubbleData> b() {
-        return this.f60390e;
+        return this.f64081e;
     }
 
     public void c(List<BubbleListData.BubbleData> list) {
-        this.f60390e.clear();
+        this.f64081e.clear();
         BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
         bubbleData.setBcode(0);
-        this.f60390e.add(bubbleData);
-        this.f60390e.addAll(list);
+        this.f64081e.add(bubbleData);
+        this.f64081e.addAll(list);
         notifyDataSetChanged();
     }
 
     public void d(boolean z) {
-        this.f60394i = z;
+        this.f64085i = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<BubbleListData.BubbleData> list = this.f60390e;
+        List<BubbleListData.BubbleData> list = this.f64081e;
         if (list == null) {
             return 0;
         }
@@ -84,28 +84,28 @@ public class a extends BaseAdapter {
         BubbleView bubbleView;
         BubbleView bubbleView2;
         if (view == null) {
-            bubbleView2 = new BubbleView(this.f60391f.getPageActivity());
+            bubbleView2 = new BubbleView(this.f64082f.getPageActivity());
             bubbleView = bubbleView2;
         } else {
             bubbleView = view;
             bubbleView2 = (BubbleView) view;
         }
         if (i2 == 0 || i2 == 1) {
-            bubbleView2.setPadding(0, this.f60393h, 0, 0);
+            bubbleView2.setPadding(0, this.f64084h, 0, 0);
         }
         if (getCount() % 2 == 0) {
             if (i2 == getCount() - 1 || i2 == getCount() - 2) {
-                bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.f60392g);
+                bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.f64083g);
             }
         } else if (i2 == getCount() - 1) {
-            bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.f60392g);
+            bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.f64083g);
         }
         BubbleListData.BubbleData item = getItem(i2);
         if (item != null) {
             bubbleView2.setShowName(true);
-            bubbleView2.setData(item, this.f60394i);
+            bubbleView2.setData(item, this.f64085i);
         }
-        bubbleView2.a(this.f60391f);
+        bubbleView2.a(this.f64082f);
         return bubbleView;
     }
 }

@@ -7,13 +7,13 @@ import org.json.JSONArray;
 public class b0 extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public DashPathEffect f40591a;
+    public DashPathEffect f44267a;
 
     @Override // d.a.l0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
-        DashPathEffect dashPathEffect = this.f40591a;
+        DashPathEffect dashPathEffect = this.f44267a;
         if (dashPathEffect != null) {
-            bVar.f40588g.setPathEffect(dashPathEffect);
+            bVar.f44264g.setPathEffect(dashPathEffect);
         }
     }
 
@@ -34,6 +34,6 @@ public class b0 extends a {
         if (fArr == null || g2 < 0) {
             return;
         }
-        this.f40591a = new DashPathEffect(fArr, g2);
+        this.f44267a = new DashPathEffect(fArr, g2);
     }
 }

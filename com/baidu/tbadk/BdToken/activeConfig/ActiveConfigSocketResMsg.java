@@ -2,7 +2,7 @@ package com.baidu.tbadk.BdToken.activeConfig;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.m0.a.b0.b;
+import d.a.m0.a.c0.b;
 import tbclient.ActiveConfig.ActiveConfigResIdl;
 import tbclient.Error;
 /* loaded from: classes3.dex */

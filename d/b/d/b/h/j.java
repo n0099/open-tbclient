@@ -8,24 +8,24 @@ import com.baidu.mobads.container.adrequest.IAdRequestParam;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f65944a = -1;
+    public static long f69675a = -1;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static long f65945a = -1;
+        public static long f69676a = -1;
 
         public static long a() {
-            if (j.f65944a == -1) {
-                long unused = j.f65944a = 1000 / d();
+            if (j.f69675a == -1) {
+                long unused = j.f69675a = 1000 / d();
             }
-            return j.f65944a;
+            return j.f69675a;
         }
 
         public static long b(long j) {
             long c2;
-            long j2 = f65945a;
+            long j2 = f69676a;
             if (j2 > 0) {
                 return j2;
             }
@@ -38,7 +38,7 @@ public class j {
             if (c2 > 0) {
                 j = c2;
             }
-            f65945a = j;
+            f69676a = j;
             return j;
         }
 

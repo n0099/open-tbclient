@@ -20,10 +20,10 @@ public class BinderHolder implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f10313a;
+    public IBinder f10375a;
 
     public BinderHolder(IBinder iBinder) {
-        this.f10313a = iBinder;
+        this.f10375a = iBinder;
     }
 
     @Override // android.os.Parcelable
@@ -33,10 +33,10 @@ public class BinderHolder implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeStrongBinder(this.f10313a);
+        parcel.writeStrongBinder(this.f10375a);
     }
 
     public BinderHolder(Parcel parcel) {
-        this.f10313a = parcel.readStrongBinder();
+        this.f10375a = parcel.readStrongBinder();
     }
 }

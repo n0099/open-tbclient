@@ -7,55 +7,55 @@ import tbclient.PbContent;
 public class TbRichTextVoiceInfo extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13301e;
+    public String f13366e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13302f;
+    public int f13367f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13303g;
+    public int f13368g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Object f13304h;
+    public Object f13369h;
 
     public TbRichTextVoiceInfo() {
     }
 
     public int getDuration() {
-        return this.f13302f;
+        return this.f13367f;
     }
 
-    public int s() {
-        return this.f13303g;
+    public int w() {
+        return this.f13368g;
     }
 
-    public String t() {
-        return this.f13301e;
+    public String x() {
+        return this.f13366e;
     }
 
-    public Object u() {
-        return this.f13304h;
+    public Object y() {
+        return this.f13369h;
     }
 
-    public void v(Object obj) {
-        this.f13304h = obj;
+    public void z(Object obj) {
+        this.f13369h = obj;
     }
 
     public TbRichTextVoiceInfo(PbContent pbContent) {
         if (pbContent == null) {
             return;
         }
-        this.f13301e = pbContent.voice_md5;
-        this.f13302f = pbContent.during_time.intValue() / 1000;
-        this.f13303g = pbContent.is_sub.intValue();
+        this.f13366e = pbContent.voice_md5;
+        this.f13367f = pbContent.during_time.intValue() / 1000;
+        this.f13368g = pbContent.is_sub.intValue();
     }
 
     public TbRichTextVoiceInfo(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f13301e = jSONObject.optString("voice_md5");
-        this.f13302f = jSONObject.optInt("during_time") / 1000;
-        this.f13303g = jSONObject.optInt("is_sub");
+        this.f13366e = jSONObject.optString("voice_md5");
+        this.f13367f = jSONObject.optInt("during_time") / 1000;
+        this.f13368g = jSONObject.optInt("is_sub");
     }
 }

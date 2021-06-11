@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
 
 import androidx.annotation.Keep;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 @Keep
 /* loaded from: classes7.dex */
 public enum PurchaseStatus {
@@ -10,8 +11,8 @@ public enum PurchaseStatus {
     ORDER_FAIL(102, "下单请求失败"),
     PAY_START(110, "开始支付，支付页面拉起"),
     PAY_CANCEL(111, "支付取消"),
-    PAY_SUCCESS(112, "支付成功"),
-    PAY_FAIL(113, "支付失败"),
+    PAY_SUCCESS(112, EventAlias.PayEventAlias.PAY_SUCCESS),
+    PAY_FAIL(113, EventAlias.PayEventAlias.PAY_FAIL),
     REPORT_START(120, "上报开始"),
     REPORT_SUCCESS(121, "上报成功"),
     REPORT_FAIL(122, "上报失败");

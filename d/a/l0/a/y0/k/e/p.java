@@ -16,7 +16,7 @@ public class p extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.a.l0.a.y0.k.g.a aVar) {
         Object obj = command.obj;
         if (obj instanceof Boolean) {
-            aVar.l(((Boolean) obj).booleanValue());
+            aVar.k(((Boolean) obj).booleanValue());
             String str = command.what;
             d(aVar, str, "setMuted:" + command.obj, false);
         }

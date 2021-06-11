@@ -24,76 +24,76 @@ import org.json.JSONObject;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42543a = k.f43199a;
+    public static final boolean f46219a = k.f46875a;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f42544e;
+        public final /* synthetic */ HybridUbcFlow f46220e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f42545f;
+        public final /* synthetic */ c f46221f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f42546g;
+        public final /* synthetic */ d f46222g;
 
         public a(HybridUbcFlow hybridUbcFlow, c cVar, d dVar) {
-            this.f42544e = hybridUbcFlow;
-            this.f42545f = cVar;
-            this.f42546g = dVar;
+            this.f46220e = hybridUbcFlow;
+            this.f46221f = cVar;
+            this.f46222g = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            HybridUbcFlow hybridUbcFlow = this.f42544e;
+            HybridUbcFlow hybridUbcFlow = this.f46220e;
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("loadPresetApp#run-start");
             ubcFlowEvent.a(true);
             hybridUbcFlow.C(ubcFlowEvent);
-            String f2 = b.this.f(this.f42545f.f48012g);
+            String f2 = b.this.f(this.f46221f.f51686g);
             if (TextUtils.isEmpty(f2)) {
-                this.f42546g.onFailed(0);
+                this.f46222g.onFailed(0);
                 return;
             }
             JSONObject d2 = w.d(f2);
-            HybridUbcFlow hybridUbcFlow2 = this.f42544e;
+            HybridUbcFlow hybridUbcFlow2 = this.f46220e;
             UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("loadPresetApp#run-appInfoJson");
             ubcFlowEvent2.a(true);
             hybridUbcFlow2.C(ubcFlowEvent2);
-            PMSAppInfo l = b.this.l(this.f42545f, d2);
+            PMSAppInfo l = b.this.l(this.f46221f, d2);
             if (l == null) {
-                this.f42546g.onFailed(1);
+                this.f46222g.onFailed(1);
                 return;
             }
-            HybridUbcFlow hybridUbcFlow3 = this.f42544e;
+            HybridUbcFlow hybridUbcFlow3 = this.f46220e;
             UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("loadPresetApp#run-PMSAppInfo");
             ubcFlowEvent3.a(true);
             hybridUbcFlow3.C(ubcFlowEvent3);
-            this.f42546g.a(l);
+            this.f46222g.a(l);
             long currentTimeMillis = System.currentTimeMillis();
-            boolean e2 = b.this.e(this.f42545f);
-            if (b.f42543a) {
+            boolean e2 = b.this.e(this.f46221f);
+            if (b.f46219a) {
                 Log.d("PresetController", "签名+解压 耗时：" + (System.currentTimeMillis() - currentTimeMillis));
             }
-            HybridUbcFlow hybridUbcFlow4 = this.f42544e;
+            HybridUbcFlow hybridUbcFlow4 = this.f46220e;
             UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("loadPresetApp#run-doUnzipBundle");
             ubcFlowEvent4.a(true);
             hybridUbcFlow4.C(ubcFlowEvent4);
             if (e2) {
                 b bVar = b.this;
-                c cVar = this.f42545f;
-                l.n(bVar.g(cVar.f48013h, cVar.f48012g, cVar.f48014i));
+                c cVar = this.f46221f;
+                l.n(bVar.g(cVar.f51687h, cVar.f51686g, cVar.f51688i));
                 l.o(3);
-                d.a.l0.n.g.a.h().a(this.f42545f, l);
-                HybridUbcFlow hybridUbcFlow5 = this.f42544e;
+                d.a.l0.n.g.a.h().a(this.f46221f, l);
+                HybridUbcFlow hybridUbcFlow5 = this.f46220e;
                 UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("loadPresetApp#run-bulkInsert");
                 ubcFlowEvent5.a(true);
                 hybridUbcFlow5.C(ubcFlowEvent5);
-                this.f42546g.b(l);
+                this.f46222g.b(l);
             } else {
-                this.f42546g.onFailed(2);
+                this.f46222g.onFailed(2);
             }
-            HybridUbcFlow hybridUbcFlow6 = this.f42544e;
+            HybridUbcFlow hybridUbcFlow6 = this.f46220e;
             UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("loadPresetApp#run-return");
             ubcFlowEvent6.a(true);
             hybridUbcFlow6.C(ubcFlowEvent6);
@@ -107,12 +107,12 @@ public abstract class b {
         try {
             long currentTimeMillis = System.currentTimeMillis();
             boolean c2 = j0.c(readableByteChannel, str);
-            if (f42543a) {
+            if (f46219a) {
                 Log.d("PresetController", "签名校验结果：" + c2 + " ,耗时：" + (System.currentTimeMillis() - currentTimeMillis));
             }
             return c2;
         } catch (IOException e2) {
-            if (f42543a) {
+            if (f46219a) {
                 e2.printStackTrace();
             }
             return false;
@@ -142,7 +142,7 @@ public abstract class b {
         for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
             c m = m(optJSONArray.optJSONObject(i3));
             if (m != null) {
-                hashMap.put(m.f48012g, m);
+                hashMap.put(m.f51686g, m);
             }
         }
         return hashMap;
@@ -152,7 +152,7 @@ public abstract class b {
 
     public File j(int i2, String str, long j) {
         if (i2 == 0) {
-            return e.C0561e.i(str, String.valueOf(j));
+            return e.C0617e.i(str, String.valueOf(j));
         }
         if (i2 == 1) {
             return d.a.l0.a.c1.b.g().a(str, String.valueOf(j));
@@ -206,13 +206,13 @@ public abstract class b {
             try {
                 if (file != null) {
                     a.b h2 = d.a.l0.a.a1.h.a.h(bufferedInputStream);
-                    if ((h2 == null || h2.f40715b == -1) ? false : true) {
-                        return d.a.l0.a.a1.h.a.c(bufferedInputStream, file, h2.f40715b).f40712a;
+                    if ((h2 == null || h2.f44391b == -1) ? false : true) {
+                        return d.a.l0.a.a1.h.a.c(bufferedInputStream, file, h2.f44391b).f44388a;
                     }
                     return g.d(bufferedInputStream, file.getPath());
                 }
             } catch (IOException e2) {
-                if (f42543a) {
+                if (f46219a) {
                     e2.printStackTrace();
                 }
                 return false;

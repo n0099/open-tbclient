@@ -1,6 +1,5 @@
 package com.baidubce.http;
 
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidubce.BceClientException;
 import com.baidubce.BceServiceException;
 import com.baidubce.ErrorCode;
@@ -14,7 +13,7 @@ public class DefaultRetryPolicy implements RetryPolicy {
     public int maxErrorRetry;
 
     public DefaultRetryPolicy() {
-        this(3, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+        this(3, 30000L);
     }
 
     @Override // com.baidubce.http.RetryPolicy

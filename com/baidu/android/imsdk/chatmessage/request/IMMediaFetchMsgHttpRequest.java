@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.yy.gslbsdk.db.ResultTB;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
@@ -112,7 +113,7 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                 jSONObject.put("begin_time", this.mBeginMsgTime);
             }
             if (this.mEndMsgTime > 0) {
-                jSONObject.put("end_time", this.mEndMsgTime);
+                jSONObject.put(ResultTB.ENDTIME, this.mEndMsgTime);
             }
             LogUtils.d(TAG, "BC> before genSign param=" + jSONObject);
             jSONObject.put("sign", generateSign(jSONObject));

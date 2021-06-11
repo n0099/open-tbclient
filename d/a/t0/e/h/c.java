@@ -8,7 +8,7 @@ import java.io.UnsupportedEncodingException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f64694a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+    public static final byte[] f68412a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
     public static byte[] a(byte[] bArr) {
         return b(bArr, bArr.length);
@@ -93,7 +93,7 @@ public final class c {
         int i3 = 0;
         for (int i4 = 0; i4 < length2; i4 += 3) {
             int i5 = i2 + 1;
-            byte[] bArr3 = f64694a;
+            byte[] bArr3 = f68412a;
             bArr2[i2] = bArr3[(bArr[i4] & 255) >> 2];
             int i6 = i5 + 1;
             int i7 = i4 + 1;
@@ -112,7 +112,7 @@ public final class c {
         int length3 = bArr.length % 3;
         if (length3 == 1) {
             int i10 = i2 + 1;
-            byte[] bArr4 = f64694a;
+            byte[] bArr4 = f68412a;
             bArr2[i2] = bArr4[(bArr[length2] & 255) >> 2];
             int i11 = i10 + 1;
             bArr2[i10] = bArr4[(bArr[length2] & 3) << 4];
@@ -122,7 +122,7 @@ public final class c {
             bArr2[i12] = 61;
         } else if (length3 == 2) {
             int i13 = i2 + 1;
-            byte[] bArr5 = f64694a;
+            byte[] bArr5 = f68412a;
             bArr2[i2] = bArr5[(bArr[length2] & 255) >> 2];
             int i14 = i13 + 1;
             int i15 = length2 + 1;

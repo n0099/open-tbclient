@@ -7,20 +7,20 @@ import androidx.annotation.Nullable;
 import com.ksad.download.DownloadTask;
 import com.kwad.sdk.core.download.DownloadParams;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
-import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.t;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class a implements AdDownloadProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f32177a;
+    public boolean f34212a;
 
     public a(boolean z) {
-        this.f32177a = z;
+        this.f34212a = z;
     }
 
     private String a(String str) {
-        return r.a(str) + ".apk";
+        return t.a(str) + ".apk";
     }
 
     @Override // com.kwad.sdk.export.proxy.AdDownloadProxy
@@ -51,7 +51,7 @@ public class a implements AdDownloadProxy {
         DownloadTask.DownloadRequest downloadRequest = new DownloadTask.DownloadRequest(downloadParams.mFileUrl);
         downloadRequest.setDestinationFileName(a(downloadParams.mFileUrl));
         downloadRequest.setTag(downloadParams);
-        downloadRequest.setNotificationVisibility(this.f32177a ? 3 : 0);
+        downloadRequest.setNotificationVisibility(this.f34212a ? 3 : 0);
         com.ksad.download.a.a.a(context, str, downloadRequest);
     }
 }

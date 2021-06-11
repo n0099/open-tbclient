@@ -9,21 +9,21 @@ import com.alipay.sdk.app.EnvUtils;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1977a = "content://com.alipay.android.app.settings.data.ServerProvider/current_server";
+    public static final String f1990a = "content://com.alipay.android.app.settings.data.ServerProvider/current_server";
 
     public static String a(Context context) {
         if (EnvUtils.isSandBox()) {
-            return com.alipay.sdk.cons.a.f1816b;
+            return com.alipay.sdk.cons.a.f1829b;
         }
         if (context == null) {
-            return com.alipay.sdk.cons.a.f1815a;
+            return com.alipay.sdk.cons.a.f1828a;
         }
-        String str = com.alipay.sdk.cons.a.f1815a;
-        return TextUtils.isEmpty(str) ? com.alipay.sdk.cons.a.f1815a : str;
+        String str = com.alipay.sdk.cons.a.f1828a;
+        return TextUtils.isEmpty(str) ? com.alipay.sdk.cons.a.f1828a : str;
     }
 
     public static String b(Context context) {
-        Cursor query = context.getContentResolver().query(Uri.parse(f1977a), null, null, null, null);
+        Cursor query = context.getContentResolver().query(Uri.parse(f1990a), null, null, null, null);
         if (query != null && query.getCount() > 0) {
             r0 = query.moveToFirst() ? query.getString(query.getColumnIndex("url")) : null;
             query.close();

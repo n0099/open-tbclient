@@ -9,14 +9,14 @@ import java.util.Set;
 public class a extends b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f43241g = k.f43199a;
+    public static final boolean f46917g = k.f46875a;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<String> f43242f;
+    public final Set<String> f46918f;
 
     public a(String str) {
         super(str);
-        this.f43242f = new HashSet();
+        this.f46918f = new HashSet();
     }
 
     @Override // d.a.l0.a.k2.g.b, d.a.l0.a.k2.g.g, android.content.SharedPreferences
@@ -45,11 +45,11 @@ public class a extends b {
     }
 
     public boolean l(String str) {
-        return this.f43242f.contains(str);
+        return this.f46918f.contains(str);
     }
 
     public final void m() {
-        if (f43241g) {
+        if (f46917g) {
             IllegalAccessException illegalAccessException = new IllegalAccessException("read only allowed");
             Log.i("IpcReadOnlySP", illegalAccessException.toString());
             illegalAccessException.printStackTrace();

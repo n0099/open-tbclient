@@ -17,30 +17,30 @@ public class v extends a0 {
     public class a implements g.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41273a;
+        public final /* synthetic */ CallbackHandler f44949a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f41274b;
+        public final /* synthetic */ UnitedSchemeEntity f44950b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f41275c;
+        public final /* synthetic */ String f44951c;
 
         public a(v vVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            this.f41273a = callbackHandler;
-            this.f41274b = unitedSchemeEntity;
-            this.f41275c = str;
+            this.f44949a = callbackHandler;
+            this.f44950b = unitedSchemeEntity;
+            this.f44951c = str;
         }
 
         @Override // d.a.l0.a.c2.f.p0.g.d
         public void a(String str) {
             d.a.l0.a.e0.d.g("PreloadSubPackage", "preload subPackage success");
-            UnitedSchemeUtility.safeCallback(this.f41273a, this.f41274b, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), this.f41275c);
+            UnitedSchemeUtility.safeCallback(this.f44949a, this.f44950b, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), this.f44951c);
         }
 
         @Override // d.a.l0.a.c2.f.p0.g.d
         public void b(int i2) {
             d.a.l0.a.e0.d.b("PreloadSubPackage", "preload subPackage failed");
-            UnitedSchemeUtility.safeCallback(this.f41273a, this.f41274b, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), this.f41275c);
+            UnitedSchemeUtility.safeCallback(this.f44949a, this.f44950b, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), this.f44951c);
         }
     }
 
@@ -64,7 +64,7 @@ public class v extends a0 {
         String optString = optParamsAsJo.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             d.a.l0.a.e0.d.b("PreloadSubPackage", "none cb");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "preload subPackage cb is empty");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -86,7 +86,7 @@ public class v extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            d.a.l0.a.c2.f.p0.g.k(eVar.f40749f, eVar.Z(), "1", optString2, G, null, new a(this, callbackHandler, unitedSchemeEntity, optString));
+            d.a.l0.a.c2.f.p0.g.k(eVar.f44425f, eVar.Z(), "1", optString2, G, null, new a(this, callbackHandler, unitedSchemeEntity, optString));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ManifestParser {
     public static final String GLIDE_MODULE_VALUE = "GlideModule";
     public static final String TAG = "ManifestParser";

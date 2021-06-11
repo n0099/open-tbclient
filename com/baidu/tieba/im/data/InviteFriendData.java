@@ -7,10 +7,10 @@ import java.util.ArrayList;
 public class InviteFriendData extends AbstractImageProvider implements TbCheckBox.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f17136e;
+    public String f17212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17137f = false;
+    public boolean f17213f = false;
 
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getImageUrl() {
@@ -20,17 +20,17 @@ public class InviteFriendData extends AbstractImageProvider implements TbCheckBo
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(this.f17136e);
+        arrayList.add(this.f17212e);
         return arrayList;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public boolean isChecked() {
-        return this.f17137f;
+        return this.f17213f;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public void setChecked(boolean z) {
-        this.f17137f = z;
+        this.f17213f = z;
     }
 }

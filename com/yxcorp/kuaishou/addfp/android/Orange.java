@@ -6,24 +6,24 @@ import d.q.a.a.c.b.b;
 public class Orange {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f38215a = true;
+    public static boolean f41894a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Orange f38216b;
+    public static volatile Orange f41895b;
 
     public Orange() {
-        h();
+        g();
     }
 
     public static Orange a() {
-        if (f38216b == null) {
+        if (f41895b == null) {
             synchronized (Orange.class) {
-                if (f38216b == null) {
-                    f38216b = new Orange();
+                if (f41895b == null) {
+                    f41895b = new Orange();
                 }
             }
         }
-        return f38216b;
+        return f41895b;
     }
 
     public static native String getClock(Context context, byte[] bArr, int i2);
@@ -33,7 +33,7 @@ public class Orange {
     public static native Object jniCommand(int i2, Object obj, Object obj2, Object obj3);
 
     public synchronized String b(Context context, byte[] bArr, int i2) {
-        if (i()) {
+        if (h()) {
             return "";
         }
         return getClock(context, bArr, i2);
@@ -41,7 +41,7 @@ public class Orange {
 
     public String c() {
         try {
-            return i() ? "" : (String) jniCommand(1114128, null, null, null);
+            return h() ? "" : (String) jniCommand(1114128, null, null, null);
         } catch (Throwable th) {
             b.c(th);
             return "";
@@ -49,7 +49,7 @@ public class Orange {
     }
 
     public synchronized byte[] d(Context context, byte[] bArr, int i2) {
-        if (i()) {
+        if (h()) {
             return null;
         }
         return getMagic(context, bArr, i2);
@@ -57,7 +57,7 @@ public class Orange {
 
     public String e() {
         try {
-            return i() ? "" : (String) jniCommand(1179649, null, null, null);
+            return h() ? "" : (String) jniCommand(1179649, null, null, null);
         } catch (Throwable th) {
             b.c(th);
             return "";
@@ -66,35 +66,26 @@ public class Orange {
 
     public String f() {
         try {
-            return i() ? "" : (String) jniCommand(1179653, null, null, null);
+            return h() ? "" : (String) jniCommand(1179653, null, null, null);
         } catch (Throwable th) {
             b.c(th);
             return "";
         }
     }
 
-    public String g() {
-        try {
-            return i() ? "" : (String) jniCommand(1114131, null, null, null);
-        } catch (Throwable th) {
-            b.c(th);
-            return "";
-        }
-    }
-
-    public final void h() {
+    public final void g() {
         try {
             System.loadLibrary("sgcore");
-            f38215a = false;
+            f41894a = false;
             b.e("so loaded");
         } catch (Throwable th) {
             b.e("so load failed");
-            f38215a = true;
+            f41894a = true;
             b.c(th);
         }
     }
 
-    public final boolean i() {
-        return f38215a;
+    public final boolean h() {
+        return f41894a;
     }
 }

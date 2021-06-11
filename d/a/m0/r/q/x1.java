@@ -3,35 +3,35 @@ package d.a.m0.r.q;
 public class x1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50173a = null;
+    public String f53849a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50174b = null;
+    public String f53850b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50175c = null;
+    public String f53851c = null;
 
     public String a() {
-        return this.f50173a;
+        return this.f53849a;
     }
 
     public String b() {
-        return this.f50174b;
+        return this.f53850b;
     }
 
     public String c() {
-        return this.f50175c;
+        return this.f53851c;
     }
 
     public void d(String str) {
-        this.f50173a = str;
+        this.f53849a = str;
     }
 
     public void e(String str) {
-        this.f50174b = str;
+        this.f53850b = str;
     }
 
     public void f(String str) {
-        this.f50175c = str;
+        this.f53851c = str;
     }
 }

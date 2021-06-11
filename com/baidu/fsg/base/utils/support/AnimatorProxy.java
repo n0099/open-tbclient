@@ -14,16 +14,16 @@ public final class AnimatorProxy extends Animation {
     public static final boolean NEEDS_PROXY;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final WeakHashMap<View, AnimatorProxy> f5350a;
+    public static final WeakHashMap<View, AnimatorProxy> f5393a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final WeakReference<View> f5351b;
+    public final WeakReference<View> f5394b;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5356g;
+    public boolean f5399g;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f5358i;
+    public float f5401i;
     public float j;
     public float k;
     public float l;
@@ -32,57 +32,57 @@ public final class AnimatorProxy extends Animation {
     public float q;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Camera f5352c = new Camera();
+    public final Camera f5395c = new Camera();
 
     /* renamed from: d  reason: collision with root package name */
-    public final RectF f5353d = new RectF();
+    public final RectF f5396d = new RectF();
 
     /* renamed from: e  reason: collision with root package name */
-    public final RectF f5354e = new RectF();
+    public final RectF f5397e = new RectF();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Matrix f5355f = new Matrix();
+    public final Matrix f5398f = new Matrix();
 
     /* renamed from: h  reason: collision with root package name */
-    public float f5357h = 1.0f;
+    public float f5400h = 1.0f;
     public float n = 1.0f;
     public float o = 1.0f;
 
     static {
         NEEDS_PROXY = Integer.valueOf(Build.VERSION.SDK).intValue() < 11;
-        f5350a = new WeakHashMap<>();
+        f5393a = new WeakHashMap<>();
     }
 
     public AnimatorProxy(View view) {
         setDuration(0L);
         setFillAfter(true);
         view.setAnimation(this);
-        this.f5351b = new WeakReference<>(view);
+        this.f5394b = new WeakReference<>(view);
     }
 
     private void a() {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view != null) {
-            a(this.f5353d, view);
+            a(this.f5396d, view);
         }
     }
 
     private void b() {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view == null || view.getParent() == null) {
             return;
         }
-        RectF rectF = this.f5354e;
+        RectF rectF = this.f5397e;
         a(rectF, view);
-        rectF.union(this.f5353d);
+        rectF.union(this.f5396d);
         ((View) view.getParent()).invalidate((int) Math.floor(rectF.left), (int) Math.floor(rectF.top), (int) Math.ceil(rectF.right), (int) Math.ceil(rectF.bottom));
     }
 
     public static AnimatorProxy wrap(View view) {
-        AnimatorProxy animatorProxy = f5350a.get(view);
+        AnimatorProxy animatorProxy = f5393a.get(view);
         if (animatorProxy == null || animatorProxy != view.getAnimation()) {
             AnimatorProxy animatorProxy2 = new AnimatorProxy(view);
-            f5350a.put(view, animatorProxy2);
+            f5393a.put(view, animatorProxy2);
             return animatorProxy2;
         }
         return animatorProxy;
@@ -90,19 +90,19 @@ public final class AnimatorProxy extends Animation {
 
     @Override // android.view.animation.Animation
     public void applyTransformation(float f2, Transformation transformation) {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view != null) {
-            transformation.setAlpha(this.f5357h);
+            transformation.setAlpha(this.f5400h);
             a(transformation.getMatrix(), view);
         }
     }
 
     public float getAlpha() {
-        return this.f5357h;
+        return this.f5400h;
     }
 
     public float getPivotX() {
-        return this.f5358i;
+        return this.f5401i;
     }
 
     public float getPivotY() {
@@ -130,7 +130,7 @@ public final class AnimatorProxy extends Animation {
     }
 
     public int getScrollX() {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view == null) {
             return 0;
         }
@@ -138,7 +138,7 @@ public final class AnimatorProxy extends Animation {
     }
 
     public int getScrollY() {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view == null) {
             return 0;
         }
@@ -154,7 +154,7 @@ public final class AnimatorProxy extends Animation {
     }
 
     public float getX() {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view == null) {
             return 0.0f;
         }
@@ -162,7 +162,7 @@ public final class AnimatorProxy extends Animation {
     }
 
     public float getY() {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view == null) {
             return 0.0f;
         }
@@ -170,9 +170,9 @@ public final class AnimatorProxy extends Animation {
     }
 
     public void setAlpha(float f2) {
-        if (this.f5357h != f2) {
-            this.f5357h = f2;
-            View view = this.f5351b.get();
+        if (this.f5400h != f2) {
+            this.f5400h = f2;
+            View view = this.f5394b.get();
             if (view != null) {
                 view.invalidate();
             }
@@ -180,21 +180,21 @@ public final class AnimatorProxy extends Animation {
     }
 
     public void setPivotX(float f2) {
-        if (this.f5356g && this.f5358i == f2) {
+        if (this.f5399g && this.f5401i == f2) {
             return;
         }
         a();
-        this.f5356g = true;
-        this.f5358i = f2;
+        this.f5399g = true;
+        this.f5401i = f2;
         b();
     }
 
     public void setPivotY(float f2) {
-        if (this.f5356g && this.j == f2) {
+        if (this.f5399g && this.j == f2) {
             return;
         }
         a();
-        this.f5356g = true;
+        this.f5399g = true;
         this.j = f2;
         b();
     }
@@ -240,14 +240,14 @@ public final class AnimatorProxy extends Animation {
     }
 
     public void setScrollX(int i2) {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view != null) {
             view.scrollTo(i2, view.getScrollY());
         }
     }
 
     public void setScrollY(int i2) {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view != null) {
             view.scrollTo(view.getScrollX(), i2);
         }
@@ -270,14 +270,14 @@ public final class AnimatorProxy extends Animation {
     }
 
     public void setX(float f2) {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view != null) {
             setTranslationX(f2 - view.getLeft());
         }
     }
 
     public void setY(float f2) {
-        View view = this.f5351b.get();
+        View view = this.f5394b.get();
         if (view != null) {
             setTranslationY(f2 - view.getTop());
         }
@@ -285,10 +285,10 @@ public final class AnimatorProxy extends Animation {
 
     private void a(RectF rectF, View view) {
         rectF.set(0.0f, 0.0f, view.getWidth(), view.getHeight());
-        Matrix matrix = this.f5355f;
+        Matrix matrix = this.f5398f;
         matrix.reset();
         a(matrix, view);
-        this.f5355f.mapRect(rectF);
+        this.f5398f.mapRect(rectF);
         rectF.offset(view.getLeft(), view.getTop());
         float f2 = rectF.right;
         float f3 = rectF.left;
@@ -307,14 +307,14 @@ public final class AnimatorProxy extends Animation {
     private void a(Matrix matrix, View view) {
         float width = view.getWidth();
         float height = view.getHeight();
-        boolean z = this.f5356g;
-        float f2 = z ? this.f5358i : width / 2.0f;
+        boolean z = this.f5399g;
+        float f2 = z ? this.f5401i : width / 2.0f;
         float f3 = z ? this.j : height / 2.0f;
         float f4 = this.k;
         float f5 = this.l;
         float f6 = this.m;
         if (f4 != 0.0f || f5 != 0.0f || f6 != 0.0f) {
-            Camera camera = this.f5352c;
+            Camera camera = this.f5395c;
             camera.save();
             camera.rotateX(f4);
             camera.rotateY(f5);

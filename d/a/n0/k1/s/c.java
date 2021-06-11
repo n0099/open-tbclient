@@ -15,13 +15,13 @@ import tbclient.Lego.DataRes;
 public class c implements d.a.n0.k1.s.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public LegoPageModel f56790a;
+    public LegoPageModel f60479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.k1.s.b f56791b;
+    public d.a.n0.k1.s.b f60480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LegoPageModel.b f56792c = new a();
+    public LegoPageModel.b f60481c = new a();
 
     /* loaded from: classes4.dex */
     public class a implements LegoPageModel.b {
@@ -30,22 +30,22 @@ public class c implements d.a.n0.k1.s.a {
 
         @Override // com.baidu.tieba.lego.model.LegoPageModel.b
         public void a(long j, String str, DataRes dataRes, boolean z) {
-            if (c.this.f56791b != null) {
-                c.this.f56791b.c(j, str, dataRes, z);
+            if (c.this.f60480b != null) {
+                c.this.f60480b.c(j, str, dataRes, z);
             }
         }
 
         @Override // com.baidu.tieba.lego.model.LegoPageModel.b
         public void b(long j, String str, int i2, String str2) {
-            if (c.this.f56791b != null) {
-                c.this.f56791b.b(j, str, str2, i2);
+            if (c.this.f60480b != null) {
+                c.this.f60480b.b(j, str, str2, i2);
             }
         }
 
         @Override // com.baidu.tieba.lego.model.LegoPageModel.b
         public void c(long j, String str, DataRes dataRes, boolean z, int i2) {
-            if (c.this.f56791b != null) {
-                c.this.f56791b.a(true, dataRes, !z, j, str, i2);
+            if (c.this.f60480b != null) {
+                c.this.f60480b.a(true, dataRes, !z, j, str, i2);
             }
         }
     }
@@ -54,29 +54,29 @@ public class c implements d.a.n0.k1.s.a {
     public class b extends f0<DataRes> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f56794a;
+        public final /* synthetic */ l f60483a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f56795b;
+        public final /* synthetic */ long f60484b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f56796c;
+        public final /* synthetic */ String f60485c;
 
         public b(c cVar, l lVar, long j, String str) {
-            this.f56794a = lVar;
-            this.f56795b = j;
-            this.f56796c = str;
+            this.f60483a = lVar;
+            this.f60484b = j;
+            this.f60485c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public DataRes doInBackground() {
-            l lVar = this.f56794a;
+            l lVar = this.f60483a;
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f56795b);
+            sb.append(this.f60484b);
             sb.append("_");
-            sb.append(TextUtils.isEmpty(this.f56796c) ? "" : this.f56796c);
+            sb.append(TextUtils.isEmpty(this.f60485c) ? "" : this.f60485c);
             byte[] bArr = (byte[]) lVar.get(sb.toString());
             if (bArr != null && bArr.length != 0) {
                 try {
@@ -90,48 +90,48 @@ public class c implements d.a.n0.k1.s.a {
 
     /* renamed from: d.a.n0.k1.s.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1415c implements n<DataRes> {
+    public class C1471c implements n<DataRes> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f56797a;
+        public final /* synthetic */ long f60486a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f56798b;
+        public final /* synthetic */ String f60487b;
 
-        public C1415c(long j, String str) {
-            this.f56797a = j;
-            this.f56798b = str;
+        public C1471c(long j, String str) {
+            this.f60486a = j;
+            this.f60487b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
-            c.this.f(this.f56797a, this.f56798b, dataRes);
+            c.this.f(this.f60486a, this.f60487b, dataRes);
         }
     }
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         LegoPageModel legoPageModel = new LegoPageModel(tbPageContext, bdUniqueId);
-        this.f56790a = legoPageModel;
-        legoPageModel.v(this.f56792c);
+        this.f60479a = legoPageModel;
+        legoPageModel.z(this.f60481c);
     }
 
     @Override // d.a.n0.k1.s.a
     public void a(long j, String str) {
-        h0.b(new b(this, d.a.m0.r.r.a.f().d("tb.lego_update"), j, str), new C1415c(j, str));
+        h0.b(new b(this, d.a.m0.r.r.a.f().d("tb.lego_update"), j, str), new C1471c(j, str));
     }
 
     @Override // d.a.n0.k1.s.a
     public void b(d.a.n0.k1.s.b bVar) {
-        this.f56791b = bVar;
+        this.f60480b = bVar;
     }
 
     @Override // d.a.n0.k1.s.a
     public void c(int i2, long j, String str, int i3, String str2) {
-        LegoPageModel legoPageModel = this.f56790a;
+        LegoPageModel legoPageModel = this.f60479a;
         if (legoPageModel != null) {
-            legoPageModel.t(i2, j, str, i3, str2);
+            legoPageModel.x(i2, j, str, i3, str2);
         }
     }
 
@@ -139,10 +139,10 @@ public class c implements d.a.n0.k1.s.a {
         if (j < 0) {
             return;
         }
-        d.a.n0.k1.s.b bVar = this.f56791b;
+        d.a.n0.k1.s.b bVar = this.f60480b;
         if (bVar != null) {
             bVar.a(false, dataRes, false, j, str, 1);
         }
-        this.f56790a.t(2, j, str, 1, "");
+        this.f60479a.x(2, j, str, 1, "");
     }
 }

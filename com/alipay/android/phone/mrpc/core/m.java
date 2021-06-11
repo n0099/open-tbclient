@@ -8,21 +8,21 @@ import java.util.concurrent.FutureTask;
 public final class m extends FutureTask<u> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q f1641a;
+    public final /* synthetic */ q f1654a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f1642b;
+    public final /* synthetic */ l f1655b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(l lVar, Callable callable, q qVar) {
         super(callable);
-        this.f1642b = lVar;
-        this.f1641a = qVar;
+        this.f1655b = lVar;
+        this.f1654a = qVar;
     }
 
     @Override // java.util.concurrent.FutureTask
     public final void done() {
-        o a2 = this.f1641a.a();
+        o a2 = this.f1654a.a();
         if (a2.f() == null) {
             super.done();
             return;

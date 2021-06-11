@@ -39,7 +39,7 @@ public class q0 extends d.a.m0.r.f0.q.c {
     @Override // d.a.m0.r.f0.q.c, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null && view.getAlpha() >= 0.4d) {
-            d.a.m0.r.f0.q.a aVar = this.f49787e;
+            d.a.m0.r.f0.q.a aVar = this.f53462e;
             String userId = aVar != null ? aVar.getUserId() : "";
             TiebaStatic.log(new StatisticItem("c12408").param("obj_source", t()).param("obj_id", userId).param("tid", this.w));
             int i2 = this.u;
@@ -79,10 +79,10 @@ public class q0 extends d.a.m0.r.f0.q.c {
                 if (this.y.V() != null && !d.a.c.e.p.k.isEmpty(this.y.V().oriUgcVid)) {
                     statisticItem2.param(TiebaStatic.Params.OBJ_PARAM6, this.y.V().oriUgcVid);
                 }
-                statisticItem2.param("recom_source", this.y.S0);
-                statisticItem2.param("ab_tag", this.y.U0);
-                statisticItem2.param("weight", this.y.T0);
-                statisticItem2.param("extra", this.y.V0);
+                statisticItem2.param("recom_source", this.y.T0);
+                statisticItem2.param("ab_tag", this.y.V0);
+                statisticItem2.param("weight", this.y.U0);
+                statisticItem2.param("extra", this.y.W0);
             }
             TbPageContext tbPageContext = this.v;
             if (tbPageContext != null) {
@@ -90,10 +90,10 @@ public class q0 extends d.a.m0.r.f0.q.c {
             }
             TiebaStatic.log(statisticItem2);
             super.onClick(view);
-            if (this.s && this.f49787e != null) {
-                TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f49787e.getUserId()));
+            if (this.s && this.f53462e != null) {
+                TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f53462e.getUserId()));
             }
-            if (!this.t || this.f49787e == null) {
+            if (!this.t || this.f53462e == null) {
                 return;
             }
             int i5 = this.u;
@@ -102,7 +102,7 @@ public class q0 extends d.a.m0.r.f0.q.c {
             } else if (i5 == 2) {
                 i4 = 2;
             }
-            TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i4).param("obj_id", this.f49787e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i4).param("obj_id", this.f53462e.getUserId()));
         }
     }
 

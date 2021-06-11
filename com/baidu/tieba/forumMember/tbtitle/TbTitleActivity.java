@@ -46,16 +46,16 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                     TbTitleActivity.this.mGetLevelInfoModel.c(d.a.c.e.m.b.d(TbTitleActivity.this.mForumId, 0));
                     return;
                 }
-                TbTitleActivity.this.mView.g();
                 TbTitleActivity.this.mView.h();
+                TbTitleActivity.this.mView.i();
                 TbTitleActivity.this.mView.e(dataRes);
                 TbTitleActivity.this.mView.f(dataRes.level_info);
             } else if (i2 != 0 || dataRes == null) {
-                TbTitleActivity.this.mView.g();
-                TbTitleActivity.this.mView.p(str);
-            } else {
-                TbTitleActivity.this.mView.g();
                 TbTitleActivity.this.mView.h();
+                TbTitleActivity.this.mView.q(str);
+            } else {
+                TbTitleActivity.this.mView.h();
+                TbTitleActivity.this.mView.i();
                 TbTitleActivity.this.mView.e(dataRes);
                 TbTitleActivity.this.mView.f(dataRes.level_info);
             }
@@ -71,7 +71,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         public void onClick(View view) {
             if (view.getId() == R.id.tbtile_like_btn && TbTitleActivity.this.checkUpIsLogin()) {
                 if (j.z()) {
-                    TbTitleActivity.this.mLikeModel.H(TbTitleActivity.this.mForumName, TbTitleActivity.this.mForumId);
+                    TbTitleActivity.this.mLikeModel.L(TbTitleActivity.this.mForumName, TbTitleActivity.this.mForumId);
                 } else {
                     TbTitleActivity.this.showToast(R.string.neterror);
                 }
@@ -83,23 +83,23 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public class c extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f15001a;
+        public final /* synthetic */ String f15058a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f15002b;
+        public final /* synthetic */ boolean f15059b;
 
         public c(String str, boolean z) {
-            this.f15001a = str;
-            this.f15002b = z;
+            this.f15058a = str;
+            this.f15059b = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.f15001a)) {
+            if (TextUtils.isEmpty(this.f15058a)) {
                 return null;
             }
-            d.a.n0.f1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f15001a), this.f15002b);
+            d.a.n0.f1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f15058a), this.f15059b);
             return null;
         }
     }
@@ -112,10 +112,10 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
             if (z) {
-                TbTitleActivity.this.mView.o();
+                TbTitleActivity.this.mView.p();
                 TbTitleActivity.this.mGetLevelInfoModel.d(d.a.c.e.m.b.d(TbTitleActivity.this.mForumId, 0));
             }
-            TbTitleActivity.this.mView.l(z);
+            TbTitleActivity.this.mView.m(z);
         }
     }
 
@@ -181,7 +181,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        this.mView.k(i2);
+        this.mView.l(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -189,7 +189,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         super.onCreate(bundle);
         d.a.n0.p0.d.b.a aVar = new d.a.n0.p0.d.b.a(this, this.mCommonListener);
         this.mView = aVar;
-        aVar.n(this.mNoNetworkChangeListener);
+        aVar.o(this.mNoNetworkChangeListener);
         initLikeModel();
         this.mGetLevelInfoModel = new d.a.n0.p0.d.a.a<>(this.mLevelInfoModelCallback, this);
         Intent intent = getIntent();
@@ -199,11 +199,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         }
         if (!TextUtils.isEmpty(this.mForumId) && !TextUtils.isEmpty(this.mForumName)) {
             registerTask();
-            this.mView.o();
+            this.mView.p();
             this.mGetLevelInfoModel.d(d.a.c.e.m.b.d(this.mForumId, 0));
             return;
         }
-        this.mView.p("");
+        this.mView.q("");
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -214,7 +214,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (j.z()) {
-            this.mView.o();
+            this.mView.p();
             this.mGetLevelInfoModel.d(d.a.c.e.m.b.d(this.mForumId, 0));
         }
     }

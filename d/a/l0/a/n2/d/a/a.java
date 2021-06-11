@@ -8,18 +8,18 @@ public class a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f43794a;
+    public static volatile a f47470a;
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     @RequiresApi(api = 21)
     public static void b() {
-        if (f43794a == null) {
+        if (f47470a == null) {
             return;
         }
-        f43794a.a();
+        f47470a.a();
     }
 
     @RequiresApi(api = 21)

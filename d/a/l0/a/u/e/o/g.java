@@ -14,7 +14,7 @@ public class g extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b r(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-PhoneCallApi", "start make phone call");
         }
         if (l()) {
@@ -24,7 +24,7 @@ public class g extends d.a.l0.a.u.c.d {
         Intent intent = new Intent("android.intent.action.DIAL");
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-PhoneCallApi", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
+        if (!bVar.isSuccess()) {
             d.a.l0.a.e0.d.b("Api-PhoneCallApi", "parse fail");
             return bVar;
         }

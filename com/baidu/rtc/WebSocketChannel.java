@@ -17,6 +17,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.services.vod.VodClient;
+import com.kwai.video.player.misc.KsMediaFormat;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -46,7 +47,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.IceCandidate;
-import org.webrtc.MediaStreamTrack;
 import org.webrtc.SessionDescription;
 /* loaded from: classes2.dex */
 public class WebSocketChannel {
@@ -97,7 +97,7 @@ public class WebSocketChannel {
     public long mUserId = (Build.SERIAL.hashCode() % 100000) + 78657895;
     public String mDisplayName = "Android-rtc";
     public String mRoomName = "";
-    public String mVideoCodec = "h264";
+    public String mVideoCodec = KsMediaFormat.CODEC_NAME_H264;
     public boolean mAsPublisher = true;
     public boolean mAsListener = true;
     public boolean mHasVideo = true;
@@ -449,7 +449,7 @@ public class WebSocketChannel {
                             JSONObject optJSONObject7 = jSONObject.optJSONObject("forwardconfigure");
                             long optLong2 = Boolean.valueOf(optJSONObject7.optBoolean("self")).booleanValue() ? this.mUserId : optJSONObject7.optLong("id");
                             Boolean valueOf = Boolean.valueOf(optJSONObject7.optBoolean("video"));
-                            Boolean valueOf2 = Boolean.valueOf(optJSONObject7.optBoolean(MediaStreamTrack.AUDIO_TRACK_KIND));
+                            Boolean valueOf2 = Boolean.valueOf(optJSONObject7.optBoolean("audio"));
                             if (valueOf.booleanValue() && valueOf2.booleanValue()) {
                                 this.delegate.onUserDisShutUp(optLong2);
                                 return;
@@ -1139,7 +1139,7 @@ public class WebSocketChannel {
         JSONObject jSONObject3 = new JSONObject();
         try {
             jSONObject.putOpt("request", "configure");
-            jSONObject.putOpt(MediaStreamTrack.AUDIO_TRACK_KIND, Boolean.valueOf(this.mHasAudio));
+            jSONObject.putOpt("audio", Boolean.valueOf(this.mHasAudio));
             jSONObject.putOpt("video", Boolean.valueOf(this.mHasVideo));
             if (this.mHasData) {
                 jSONObject.putOpt("data", Boolean.valueOf(this.mHasData));
@@ -1312,7 +1312,7 @@ public class WebSocketChannel {
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject.putOpt("request", "configure");
-            jSONObject.putOpt(MediaStreamTrack.AUDIO_TRACK_KIND, bool2);
+            jSONObject.putOpt("audio", bool2);
             jSONObject.putOpt("video", bool);
             jSONObject.putOpt("data", Boolean.TRUE);
             jSONObject2.putOpt("janus", "message");
@@ -1390,7 +1390,7 @@ public class WebSocketChannel {
             jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
             jSONObject.putOpt("target", Long.valueOf(j));
             boolean z2 = !z;
-            jSONObject.putOpt(MediaStreamTrack.AUDIO_TRACK_KIND, Boolean.valueOf(z2));
+            jSONObject.putOpt("audio", Boolean.valueOf(z2));
             jSONObject.putOpt("video", Boolean.valueOf(z2));
             jSONObject.putOpt("data", Boolean.valueOf(z2));
             Send(jSONObject);

@@ -12,7 +12,7 @@ import org.json.JSONObject;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanAppNativeSwanJsBridge {
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "_naSwan";
     public static final String TAG = "SwanAppNativeSwanJsBridge";
     public a mJSContainer;

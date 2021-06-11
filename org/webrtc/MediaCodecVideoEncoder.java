@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +30,7 @@ import org.webrtc.EglBase14;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaCodecVideoEncoder {
     public static final MediaCodecProperties AllwinnerH264HwProperties;
     public static final int BITRATE_ADJUSTMENT_FPS = 30;
@@ -118,24 +119,24 @@ public class MediaCodecVideoEncoder {
     public BitrateAdjustmentType bitrateAdjustmentType = BitrateAdjustmentType.NO_ADJUSTMENT;
 
     /* renamed from: org.webrtc.MediaCodecVideoEncoder$1CaughtException  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class C1CaughtException {
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f69048e;
+        public Exception f72357e;
 
         public C1CaughtException() {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum BitrateAdjustmentType {
         NO_ADJUSTMENT,
         FRAMERATE_ADJUSTMENT,
         DYNAMIC_ADJUSTMENT
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class EncoderProperties {
         public final BitrateAdjustmentType bitrateAdjustmentType;
         public final String codecName;
@@ -148,7 +149,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum H264Profile {
         CONSTRAINED_BASELINE(0),
         BASELINE(1),
@@ -167,7 +168,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class HwEncoderFactory implements VideoEncoderFactory {
         public final VideoCodecInfo[] supportedHardwareCodecs = getSupportedHardwareCodecs();
 
@@ -238,7 +239,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class MediaCodecProperties {
         public final BitrateAdjustmentType bitrateAdjustmentType;
         public final String codecPrefix;
@@ -251,12 +252,12 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface MediaCodecVideoEncoderErrorCallback {
         void onMediaCodecVideoEncoderCriticalError(int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class OutputBufferInfo {
         public final ByteBuffer buffer;
         public final int index;
@@ -291,7 +292,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum VideoCodecType {
         VIDEO_CODEC_UNKNOWN,
         VIDEO_CODEC_VP8,
@@ -979,7 +980,7 @@ public class MediaCodecVideoEncoder {
                     this.mediaCodecThread = Thread.currentThread();
                     try {
                         MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str2, i3, i4);
-                        createVideoFormat.setInteger("bitrate", this.targetBitrateBps);
+                        createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.targetBitrateBps);
                         createVideoFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, bitrateMode);
                         createVideoFormat.setInteger("color-format", encoderProperties.colorFormat);
                         createVideoFormat.setInteger("frame-rate", this.targetFps);
@@ -1051,7 +1052,7 @@ public class MediaCodecVideoEncoder {
                         MediaCodecVideoEncoder.this.mediaCodec.release();
                     } catch (Exception e3) {
                         Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e3);
-                        c1CaughtException.f69048e = e3;
+                        c1CaughtException.f72357e = e3;
                     }
                     Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread done");
                     countDownLatch.countDown();
@@ -1081,12 +1082,12 @@ public class MediaCodecVideoEncoder {
         }
         runningInstance = null;
         if (!z) {
-            if (c1CaughtException.f69048e == null) {
+            if (c1CaughtException.f72357e == null) {
                 Logging.d(TAG, "Java releaseEncoder done");
                 return;
             }
-            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f69048e);
-            runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f69048e.getStackTrace(), runtimeException.getStackTrace()));
+            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f72357e);
+            runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f72357e.getStackTrace(), runtimeException.getStackTrace()));
             throw runtimeException;
         }
         codecErrors++;

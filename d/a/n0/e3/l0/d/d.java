@@ -5,8 +5,8 @@ import java.util.HashSet;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashSet<String> f54126a;
+    public HashSet<String> f57815a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54127b;
+    public String f57816b;
 }

@@ -4,13 +4,13 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.GetVipInfo.VipRank;
 import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes3.dex */
-public class p implements d.a.c.j.e.n {
+public class p implements d.a.c.k.e.n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f60449f = BdUniqueId.gen();
+    public static final BdUniqueId f64140f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public d f60450e;
+    public d f64141e;
 
     public p(VipRank vipRank, VipUser vipUser) {
         if (vipRank == null) {
@@ -18,16 +18,16 @@ public class p implements d.a.c.j.e.n {
         }
         String str = vipRank.card_id;
         d dVar = new d();
-        this.f60450e = dVar;
+        this.f64141e = dVar;
         dVar.d(vipRank.class_name);
-        this.f60450e.f(vipRank.class_url_name);
-        this.f60450e.g(vipRank.class_url);
+        this.f64141e.f(vipRank.class_url_name);
+        this.f64141e.g(vipRank.class_url);
         vipRank.my_score_rank.intValue();
         String str2 = vipUser.portrait;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f60449f;
+        return f64140f;
     }
 }

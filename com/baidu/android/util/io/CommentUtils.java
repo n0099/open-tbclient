@@ -26,7 +26,7 @@ public class CommentUtils {
         try {
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(file, r.f7672a);
+                    randomAccessFile = new RandomAccessFile(file, r.f7715a);
                     try {
                         byte[] bArr = new byte[2];
                         long length = randomAccessFile.length() - 2;

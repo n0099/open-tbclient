@@ -20,25 +20,25 @@ public class c extends k<l, FrsFeedItemViewHolder> {
         this.x = z;
     }
 
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         t0(i2, view, viewGroup, (l) obj, (FrsFeedItemViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: s0 */
-    public FrsFeedItemViewHolder P(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f39228e).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
-        this.w = new a(this.o, inflate, 2, this.x, this.f39232i);
+    public FrsFeedItemViewHolder Q(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.f42909e).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
+        this.w = new a(this.o, inflate, 2, this.x, this.f42913i);
         return new FrsFeedItemViewHolder(inflate);
     }
 
     public View t0(int i2, View view, ViewGroup viewGroup, l lVar, FrsFeedItemViewHolder frsFeedItemViewHolder) {
-        super.W(i2, view, viewGroup, lVar, frsFeedItemViewHolder);
+        super.X(i2, view, viewGroup, lVar, frsFeedItemViewHolder);
         if (lVar != null) {
-            this.w.o(lVar.e(), lVar.c());
+            this.w.o(lVar.c(), lVar.b());
         }
         return view;
     }

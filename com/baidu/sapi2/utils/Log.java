@@ -1,7 +1,6 @@
 package com.baidu.sapi2.utils;
 
 import com.baidu.sapi2.NoProguard;
-import com.baidu.tbadk.core.util.FieldBuilder;
 /* loaded from: classes2.dex */
 public final class Log implements NoProguard {
     public static final String TAG = "SAPI";
@@ -19,7 +18,7 @@ public final class Log implements NoProguard {
                     Object obj = objArr[i2];
                     if (obj != null) {
                         if (i2 != 0) {
-                            stringBuffer.append(FieldBuilder.SE);
+                            stringBuffer.append("|");
                         }
                         try {
                             if (obj instanceof Throwable) {

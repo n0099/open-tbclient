@@ -11,19 +11,19 @@ import java.util.List;
 public abstract class b<T> {
     public ContentValues a(d.a.l0.n.h.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", eVar.f48012g);
-        contentValues.put("category", Integer.valueOf(eVar.f48013h));
+        contentValues.put("bundle_id", eVar.f51686g);
+        contentValues.put("category", Integer.valueOf(eVar.f51687h));
         contentValues.put("version_name", eVar.j);
-        contentValues.put("version_code", Long.valueOf(eVar.f48014i));
+        contentValues.put("version_code", Long.valueOf(eVar.f51688i));
         contentValues.put("size", Long.valueOf(eVar.k));
         contentValues.put(PackageTable.MD5, eVar.l);
         contentValues.put("sign", eVar.m);
         contentValues.put(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL, eVar.n);
-        contentValues.put(PackageTable.FILE_PATH, eVar.f48006a);
-        contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(eVar.f48007b));
-        contentValues.put("create_time", Long.valueOf(eVar.f48008c));
-        contentValues.put("update_time", Long.valueOf(eVar.f48009d));
-        contentValues.put("state", Integer.valueOf(eVar.f48010e));
+        contentValues.put(PackageTable.FILE_PATH, eVar.f51680a);
+        contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(eVar.f51681b));
+        contentValues.put("create_time", Long.valueOf(eVar.f51682c));
+        contentValues.put("update_time", Long.valueOf(eVar.f51683d));
+        contentValues.put("state", Integer.valueOf(eVar.f51684e));
         return contentValues;
     }
 
@@ -47,20 +47,20 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            eVar.f48012g = string;
-            eVar.f48013h = cursor.getInt(columnIndex2);
+            eVar.f51686g = string;
+            eVar.f51687h = cursor.getInt(columnIndex2);
             eVar.j = cursor.getString(columnIndex3);
-            eVar.f48014i = cursor.getInt(columnIndex4);
+            eVar.f51688i = cursor.getInt(columnIndex4);
             eVar.k = cursor.getLong(columnIndex5);
             eVar.l = cursor.getString(columnIndex6);
             eVar.m = cursor.getString(columnIndex7);
             eVar.n = cursor.getString(columnIndex8);
-            eVar.f48006a = cursor.getString(columnIndex10);
-            eVar.f48007b = cursor.getLong(columnIndex11);
-            eVar.f48008c = cursor.getLong(columnIndex12);
-            eVar.f48009d = cursor.getLong(columnIndex13);
-            eVar.f48011f = cursor.getLong(columnIndex9);
-            eVar.f48010e = cursor.getInt(columnIndex14);
+            eVar.f51680a = cursor.getString(columnIndex10);
+            eVar.f51681b = cursor.getLong(columnIndex11);
+            eVar.f51682c = cursor.getLong(columnIndex12);
+            eVar.f51683d = cursor.getLong(columnIndex13);
+            eVar.f51685f = cursor.getLong(columnIndex9);
+            eVar.f51684e = cursor.getInt(columnIndex14);
             return true;
         }
         return false;

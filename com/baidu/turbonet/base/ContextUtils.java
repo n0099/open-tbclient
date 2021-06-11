@@ -8,14 +8,14 @@ import d.a.o0.a.a;
 public class ContextUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f22202a;
+    public static Context f22305a;
 
     public static Context a() {
-        return f22202a;
+        return f22305a;
     }
 
     public static void b(Context context) {
-        Context context2 = f22202a;
+        Context context2 = f22305a;
         if (context2 != null && context2 != context) {
             a.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
         } else {
@@ -24,7 +24,7 @@ public class ContextUtils {
     }
 
     public static void c() {
-        Context context = f22202a;
+        Context context = f22305a;
         if (context != null) {
             nativeInitNativeSideApplicationContext(context);
             return;
@@ -34,7 +34,7 @@ public class ContextUtils {
 
     public static void d(Context context) {
         if (context != null) {
-            f22202a = context;
+            f22305a = context;
             return;
         }
         throw new RuntimeException("Global application context cannot be set to null.");

@@ -2,23 +2,23 @@ package d.a.n0.d1.c;
 
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
-public class m implements d.a.c.j.e.n {
+public class m implements d.a.c.k.e.n {
     public static final BdUniqueId p = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f52598e = false;
+    public boolean f56287e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52599f;
+    public String f56288f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f52600g;
+    public String f56289g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f52601h;
+    public String f56290h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f52602i;
+    public long f56291i;
     public String j;
     public long k;
     public String l;
@@ -26,11 +26,11 @@ public class m implements d.a.c.j.e.n {
     public long n;
     public String o;
 
-    public boolean c() {
-        return this.f52598e;
+    public boolean b() {
+        return this.f56287e;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return p;
     }

@@ -9,7 +9,7 @@ public class h0 extends SharedPrefsWrapper {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final h0 f63966a = new h0();
+        public static final h0 f67684a = new h0();
     }
 
     public h0() {
@@ -17,6 +17,6 @@ public class h0 extends SharedPrefsWrapper {
     }
 
     public static h0 e() {
-        return a.f63966a;
+        return a.f67684a;
     }
 }

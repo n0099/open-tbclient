@@ -13,43 +13,43 @@ import org.apache.http.protocol.HTTP;
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f60994d;
+    public static String f64686d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f60995e;
+    public static String f64687e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f60996f;
+    public static String f64688f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f60997g;
+    public static boolean f64689g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f60998h;
+    public static String f64690h;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f60999a;
+    public g f64691a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f61000b;
+    public c f64692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f61001c;
+    public long f64693c;
 
     public d() {
         h();
     }
 
     public static void l(String str) {
-        f60994d = str;
+        f64686d = str;
     }
 
     public static void m(String str) {
-        f60996f = str;
+        f64688f = str;
     }
 
     public static void n(String str) {
-        f60995e = str;
+        f64687e = str;
     }
 
     public final void a(g gVar) {
@@ -60,36 +60,36 @@ public class d {
         if (gVar == null) {
             return;
         }
-        if (!TextUtils.isEmpty(f60994d)) {
-            gVar.a().a("Cookie", f60994d);
+        if (!TextUtils.isEmpty(f64686d)) {
+            gVar.a().a("Cookie", f64686d);
         } else {
             gVar.a().a("Cookie", "");
         }
-        if (!TextUtils.isEmpty(f60996f)) {
-            gVar.a().a("client_user_token", f60996f);
+        if (!TextUtils.isEmpty(f64688f)) {
+            gVar.a().a("client_user_token", f64688f);
         }
-        if (!TextUtils.isEmpty(f60995e)) {
-            gVar.a().a("User-Agent", f60995e);
+        if (!TextUtils.isEmpty(f64687e)) {
+            gVar.a().a("User-Agent", f64687e);
         }
         if (z) {
             gVar.a().a("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
         } else {
             gVar.a().a("Accept-Encoding", "");
         }
-        if (f60997g) {
+        if (f64689g) {
             gVar.a().a(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         } else {
             gVar.a().a(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
         }
-        gVar.a().a("client_logid", String.valueOf(this.f61001c));
-        if (TextUtils.isEmpty(f60998h)) {
+        gVar.a().a("client_logid", String.valueOf(this.f64693c));
+        if (TextUtils.isEmpty(f64690h)) {
             return;
         }
-        gVar.a().a("cuid", f60998h);
+        gVar.a().a("cuid", f64690h);
     }
 
     public void c() {
-        c cVar = this.f61000b;
+        c cVar = this.f64692b;
         if (cVar != null) {
             cVar.a();
         }
@@ -101,36 +101,36 @@ public class d {
 
     public boolean e(String str, String str2, boolean z, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
         g gVar = new g();
-        this.f60999a = gVar;
+        this.f64691a = gVar;
         a(gVar);
-        this.f60999a.a().i(str);
-        c cVar = new c(this.f60999a);
-        this.f61000b = cVar;
+        this.f64691a.a().i(str);
+        c cVar = new c(this.f64691a);
+        this.f64692b = cVar;
         return cVar.b(str2, jVar, i2, i3, i4, i5, z2, z3);
     }
 
     public g f() {
-        return this.f60999a;
+        return this.f64691a;
     }
 
     public i g(String str, boolean z, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList) throws Exception {
         g gVar = new g();
-        this.f60999a = gVar;
+        this.f64691a = gVar;
         b(gVar, z);
-        this.f60999a.a().i(str);
-        c cVar = new c(this.f60999a);
-        this.f61000b = cVar;
+        this.f64691a.a().i(str);
+        c cVar = new c(this.f64691a);
+        this.f64692b = cVar;
         cVar.c(i2, i4, i5);
-        return this.f60999a.b();
+        return this.f64691a.b();
     }
 
     public void h() {
         System.setProperty("http.keepAlive", "false");
-        this.f61001c = BdStatisticsManager.getInstance().getClientLogId();
+        this.f64693c = BdStatisticsManager.getInstance().getClientLogId();
     }
 
     public boolean i() {
-        c cVar = this.f61000b;
+        c cVar = this.f64692b;
         if (cVar != null) {
             return cVar.d();
         }
@@ -139,29 +139,29 @@ public class d {
 
     public i j(String str, List<BasicNameValuePair> list, boolean z, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) throws Exception {
         g gVar = new g();
-        this.f60999a = gVar;
+        this.f64691a = gVar;
         b(gVar, z);
-        this.f60999a.a().i(str);
+        this.f64691a.a().i(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.f60999a.a().b(basicNameValuePair);
+                this.f64691a.a().b(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.f60999a.a().a(next.getName(), next.getValue());
+                this.f64691a.a().a(next.getName(), next.getValue());
             }
         }
-        c cVar = new c(this.f60999a);
-        this.f61000b = cVar;
+        c cVar = new c(this.f64691a);
+        this.f64692b = cVar;
         cVar.f(i2, i3, -1);
-        return this.f60999a.b();
+        return this.f64691a.b();
     }
 
     public void k() {
-        c cVar = this.f61000b;
+        c cVar = this.f64692b;
         if (cVar != null) {
             cVar.i();
         }

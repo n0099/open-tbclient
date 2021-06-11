@@ -8,41 +8,41 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.a.n0.v.j.d.n;
 /* loaded from: classes4.dex */
-public class k extends d.a.c.j.e.a<n, CardViewHolder<d.a.n0.v.j.h.c>> {
+public class k extends d.a.c.k.e.a<n, CardViewHolder<d.a.n0.v.j.h.c>> {
     public TbPageContext m;
 
     public k(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), n.f62069f);
+        super(tbPageContext.getPageActivity(), n.f65784f);
         this.m = tbPageContext;
     }
 
     public final void e0(n nVar, d.a.n0.v.j.h.c cVar) {
-        d.a.n0.v.j.d.c h2 = nVar.h();
-        if (h2 != null && h2.a() != null && !TextUtils.isEmpty(h2.a().a())) {
-            cVar.u(h2.a().a());
-            cVar.n(this.m, TbadkCoreApplication.getInst().getSkinType());
-            K();
+        d.a.n0.v.j.d.c c2 = nVar.c();
+        if (c2 != null && c2.a() != null && !TextUtils.isEmpty(c2.a().a())) {
+            cVar.v(c2.a().a());
+            cVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
+            L();
             return;
         }
-        cVar.r(8);
-        K();
+        cVar.s(8);
+        L();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public CardViewHolder<d.a.n0.v.j.h.c> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public CardViewHolder<d.a.n0.v.j.h.c> Q(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.a.n0.v.j.h.c(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public View W(int i2, View view, ViewGroup viewGroup, n nVar, CardViewHolder<d.a.n0.v.j.h.c> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public View X(int i2, View view, ViewGroup viewGroup, n nVar, CardViewHolder<d.a.n0.v.j.h.c> cardViewHolder) {
         if (cardViewHolder.b() == null) {
             return null;
         }
         e0(nVar, cardViewHolder.b());
-        return cardViewHolder.b().l();
+        return cardViewHolder.b().m();
     }
 }

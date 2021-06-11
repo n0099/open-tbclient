@@ -12,15 +12,15 @@ import java.util.Map;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f59334b;
+    public static a f63025b;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsLinkHashMap<String, Long> f59335a;
+    public FrsLinkHashMap<String, Long> f63026a;
 
     /* renamed from: d.a.n0.r0.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1532a extends BdAsyncTask<Void, Void, Void> {
-        public C1532a() {
+    public class C1588a extends BdAsyncTask<Void, Void, Void> {
+        public C1588a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class a {
             if (h2 != null) {
                 String str = h2.get("hot_topic_key");
                 if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                    a.this.f59335a = frsHotTopicListData.mSceneMap;
+                    a.this.f63026a = frsHotTopicListData.mSceneMap;
                 }
             }
             return null;
@@ -51,7 +51,7 @@ public class a {
                 return null;
             }
             FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-            frsHotTopicListData.mSceneMap = a.this.f59335a;
+            frsHotTopicListData.mSceneMap = a.this.f63026a;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
             if (!StringUtils.isNull(jsonStrWithObject)) {
                 h2.g("hot_topic_key", jsonStrWithObject);
@@ -61,26 +61,26 @@ public class a {
     }
 
     public static a d() {
-        if (f59334b == null) {
+        if (f63025b == null) {
             synchronized (a.class) {
-                if (f59334b == null) {
-                    f59334b = new a();
+                if (f63025b == null) {
+                    f63025b = new a();
                 }
             }
         }
-        return f59334b;
+        return f63025b;
     }
 
     public boolean c(String str, long j) {
         boolean z;
-        if (this.f59335a == null) {
-            this.f59335a = new FrsLinkHashMap<>();
+        if (this.f63026a == null) {
+            this.f63026a = new FrsLinkHashMap<>();
             e(str, j);
         }
-        if (StringUtils.isNull(str) || this.f59335a.isEmpty()) {
+        if (StringUtils.isNull(str) || this.f63026a.isEmpty()) {
             return false;
         }
-        Iterator<Map.Entry<String, Long>> it = this.f59335a.entrySet().iterator();
+        Iterator<Map.Entry<String, Long>> it = this.f63026a.entrySet().iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -92,18 +92,18 @@ public class a {
                 break;
             }
         }
-        if (z && this.f59335a.get(str).longValue() == j) {
+        if (z && this.f63026a.get(str).longValue() == j) {
             return false;
         }
-        this.f59335a.put(str, Long.valueOf(j));
+        this.f63026a.put(str, Long.valueOf(j));
         f();
         return true;
     }
 
     public final void e(String str, long j) {
-        C1532a c1532a = new C1532a();
-        c1532a.setPriority(3);
-        c1532a.execute(new Void[0]);
+        C1588a c1588a = new C1588a();
+        c1588a.setPriority(3);
+        c1588a.execute(new Void[0]);
     }
 
     public final void f() {

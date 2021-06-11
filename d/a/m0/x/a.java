@@ -20,44 +20,44 @@ import d.a.c.e.p.l;
 public class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f50938a;
+    public View f54615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f50939b;
+    public ImageView f54616b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f50940c;
+    public ImageView f54617c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f50941d;
+    public TextView f54618d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f50942e;
+    public LinearLayout f54619e;
 
     public a(Context context) {
         View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
-        this.f50938a = inflate;
-        this.f50939b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
-        this.f50941d = (TextView) this.f50938a.findViewById(R.id.floating_view_title);
-        this.f50940c = (ImageView) this.f50938a.findViewById(R.id.floating_view_arrow);
-        this.f50942e = (LinearLayout) this.f50938a.findViewById(R.id.floating_view_main);
-        this.f50941d.setText(R.string.frs_forum_bcast_return_info);
+        this.f54615a = inflate;
+        this.f54616b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
+        this.f54618d = (TextView) this.f54615a.findViewById(R.id.floating_view_title);
+        this.f54617c = (ImageView) this.f54615a.findViewById(R.id.floating_view_arrow);
+        this.f54619e = (LinearLayout) this.f54615a.findViewById(R.id.floating_view_main);
+        this.f54618d.setText(R.string.frs_forum_bcast_return_info);
         b();
     }
 
     @Override // d.a.m0.x.c
     public void b() {
-        if (this.f50938a != null) {
-            SkinManager.setViewTextColor(this.f50941d, R.color.CAM_X0101);
-            SkinManager.setImageResource(this.f50939b, R.drawable.pic_float_return_broadcast32);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f50940c, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.f50942e);
+        if (this.f54615a != null) {
+            SkinManager.setViewTextColor(this.f54618d, R.color.CAM_X0101);
+            SkinManager.setImageResource(this.f54616b, R.drawable.pic_float_return_broadcast32);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f54617c, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.f54619e);
         }
     }
 
     @Override // d.a.m0.x.c
     public View getView() {
-        View view = this.f50938a;
+        View view = this.f54615a;
         return view != null ? view : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
     }
 

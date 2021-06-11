@@ -16,7 +16,7 @@ public class ForumSearchActivity extends BaseActivity {
         super.onCreate(bundle);
         b bVar = new b(getPageContext());
         this.mController = bVar;
-        setContentView(bVar.o().f58265b);
+        setContentView(bVar.o().f61956b);
         Intent intent = getIntent();
         if (intent != null) {
             this.mController.w(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));

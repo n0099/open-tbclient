@@ -11,34 +11,34 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public ValidateActivity f54782e;
+    public ValidateActivity f58471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<ValidateItemData> f54783f = new ArrayList();
+    public List<ValidateItemData> f58472f = new ArrayList();
 
     public a(ValidateActivity validateActivity) {
-        this.f54782e = validateActivity;
+        this.f58471e = validateActivity;
     }
 
     public void a() {
-        this.f54782e = null;
+        this.f58471e = null;
     }
 
     public List<ValidateItemData> b() {
-        return this.f54783f;
+        return this.f58472f;
     }
 
     public void c(List<ValidateItemData> list) {
         if (list == null) {
             return;
         }
-        this.f54783f.addAll(list);
+        this.f58472f.addAll(list);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<ValidateItemData> list = this.f54783f;
+        List<ValidateItemData> list = this.f58472f;
         if (list == null) {
             return 0;
         }
@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        return this.f54783f.get(i2);
+        return this.f58472f.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -59,9 +59,9 @@ public class a extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         b bVar = view != null ? (b) view.getTag() : null;
         if (bVar == null) {
-            bVar = new b(this.f54782e);
+            bVar = new b(this.f58471e);
         }
-        bVar.m(this.f54783f.get(i2));
+        bVar.m(this.f58472f.get(i2));
         return bVar.e();
     }
 }

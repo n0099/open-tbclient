@@ -26,32 +26,32 @@ public class OfficialBarTipListAdapter extends c {
 
     @Override // d.a.n0.f1.f.i.c
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.f54379b.setVisibility(8);
-        aVar.f54381d.setVisibility(0);
-        aVar.f54381d.setShowOval(true);
-        aVar.f54381d.setAutoChangeStyle(true);
-        aVar.f54381d.setStrokeWith(l.g(this.f54375e, R.dimen.tbds1));
-        aVar.f54381d.setStrokeColorResId(R.color.CAM_X0401);
-        aVar.f54381d.setTag(null);
-        aVar.f54381d.setPlaceHolder(1);
+        aVar.f58068b.setVisibility(8);
+        aVar.f58070d.setVisibility(0);
+        aVar.f58070d.setShowOval(true);
+        aVar.f58070d.setAutoChangeStyle(true);
+        aVar.f58070d.setStrokeWith(l.g(this.f58064e, R.dimen.tbds1));
+        aVar.f58070d.setStrokeColorResId(R.color.CAM_X0401);
+        aVar.f58070d.setTag(null);
+        aVar.f58070d.setPlaceHolder(1);
         if (TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
             return;
         }
-        aVar.f54381d.setTag(imMessageCenterShowItemData.getFriendPortrait());
-        aVar.f54381d.V(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+        aVar.f58070d.setTag(imMessageCenterShowItemData.getFriendPortrait());
+        aVar.f58070d.U(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
     }
 
     @Override // d.a.n0.f1.f.i.c
     public void i(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.f54382e.setText(this.f54375e.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.f58071e.setText(this.f58064e.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
     }
 
     @Override // d.a.n0.f1.f.i.c
     public void m(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.f54385h.setVisibility(8);
-        SkinManager.setViewTextColor(aVar.f54382e, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(aVar.f54383f, R.color.CAM_X0109, 1);
-        SkinManager.setViewTextColor(aVar.f54384g, R.color.CAM_X0109, 1);
+        aVar.f58074h.setVisibility(8);
+        SkinManager.setViewTextColor(aVar.f58071e, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(aVar.f58072f, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(aVar.f58073g, R.color.CAM_X0109, 1);
     }
 
     @Override // d.a.n0.f1.f.i.c

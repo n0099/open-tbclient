@@ -6,7 +6,7 @@ public class bj {
     public static byte[] f153a;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37361a = System.getProperty("line.separator");
+    public static final String f41040a = System.getProperty("line.separator");
 
     /* renamed from: a  reason: collision with other field name */
     public static char[] f154a = new char[64];
@@ -54,7 +54,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m167a(String str) {
+    public static byte[] m166a(String str) {
         return a(str.toCharArray());
     }
 
@@ -164,8 +164,8 @@ public class bj {
             cArr[i9] = cArr2[i12];
             int i17 = i16 + 1;
             cArr[i16] = cArr2[i13];
-            char c2 = com.alipay.sdk.encrypt.a.f1873h;
-            cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f1873h;
+            char c2 = com.alipay.sdk.encrypt.a.f1886h;
+            cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f1886h;
             int i18 = i17 + 1;
             if (i18 < i7) {
                 c2 = f154a[i15];
@@ -178,6 +178,6 @@ public class bj {
     }
 
     public static String b(String str) {
-        return new String(m167a(str));
+        return new String(m166a(str));
     }
 }

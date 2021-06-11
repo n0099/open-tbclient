@@ -9,6 +9,7 @@ public class DpStatConstants {
     public static final String KEY_ABTEST_SID = "abtest_sid";
     public static final String KEY_APP_NAME = "app_name";
     public static final String KEY_APP_VERSION_NAME = "app_version";
+    public static final String KEY_CORE_VERSION = "cyber_core_ver";
     public static final String KEY_CUID = "cuid";
     public static final String KEY_CURRENT_POSITION = "current_position";
     public static final String KEY_DATA = "data";
@@ -22,6 +23,7 @@ public class DpStatConstants {
     public static final String KEY_HEIGHT = "height";
     public static final String KEY_INIT_RTC_SDK = "init_sdk";
     public static final String KEY_IS_FEED_VIDEO = "is_feed_video";
+    public static final String KEY_IS_USER_STARTED = "is_user_started";
     public static final String KEY_ITEMS = "items";
     public static final String KEY_KERNEL_SESSION_ID = "k_id";
     public static final String KEY_LOAD_SO_FAIL = "load_so";

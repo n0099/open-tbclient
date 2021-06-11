@@ -3,7 +3,7 @@ package com.kwad.sdk.core.diskcache;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.d.a;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.ad;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,16 +18,16 @@ import java.util.concurrent.Future;
 public class ApkCacheManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public Future f32044a;
+    public Future f34082a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f32045b;
+    public File f34083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ExecutorService f32046c;
+    public final ExecutorService f34084c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Callable<Void> f32047d;
+    public final Callable<Void> f34085d;
 
     /* loaded from: classes6.dex */
     public enum Holder {
@@ -44,15 +44,15 @@ public class ApkCacheManager {
     }
 
     public ApkCacheManager() {
-        this.f32046c = Executors.newSingleThreadExecutor();
-        this.f32047d = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
+        this.f34084c = Executors.newSingleThreadExecutor();
+        this.f34085d = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Void call() {
                 synchronized (ApkCacheManager.class) {
-                    if (ApkCacheManager.this.f32045b != null && ApkCacheManager.this.f32045b.exists() && !ApkCacheManager.this.c()) {
-                        for (File file : ApkCacheManager.this.d(ApkCacheManager.this.f32045b)) {
+                    if (ApkCacheManager.this.f34083b != null && ApkCacheManager.this.f34083b.exists() && !ApkCacheManager.this.c()) {
+                        for (File file : ApkCacheManager.this.d(ApkCacheManager.this.f34083b)) {
                             if (file.getName().endsWith(".apk")) {
                                 ApkCacheManager.this.c(file);
                                 if (ApkCacheManager.this.c()) {
@@ -70,7 +70,7 @@ public class ApkCacheManager {
             return;
         }
         try {
-            this.f32045b = ae.c(KsAdSDKImpl.get().getContext());
+            this.f34083b = ad.c(KsAdSDKImpl.get().getContext());
         } catch (Throwable th) {
             a.a(th);
         }
@@ -131,12 +131,12 @@ public class ApkCacheManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        File file = this.f32045b;
+        File file = this.f34083b;
         if (file == null || !file.exists()) {
             return false;
         }
-        File[] listFiles = this.f32045b.listFiles();
-        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f32045b) <= 400);
+        File[] listFiles = this.f34083b.listFiles();
+        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f34083b) <= 400);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -152,13 +152,13 @@ public class ApkCacheManager {
     }
 
     public void b() {
-        File file = this.f32045b;
+        File file = this.f34083b;
         if (file == null || !file.exists()) {
             return;
         }
-        Future future = this.f32044a;
+        Future future = this.f34082a;
         if (future == null || future.isDone()) {
-            this.f32044a = this.f32046c.submit(this.f32047d);
+            this.f34082a = this.f34084c.submit(this.f34085d);
         }
     }
 }

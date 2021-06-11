@@ -23,20 +23,20 @@ import org.json.JSONArray;
 public final class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Boolean f3035c = Boolean.FALSE;
+    public static Boolean f3054c = Boolean.FALSE;
     public static volatile e n = null;
     public static int w = 2;
     public int B;
     public String E;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f3040f;
+    public b f3059f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f3041g;
+    public a f3060g;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f3043i;
+    public long f3062i;
     public int j;
     public final Handler k;
     public final Context l;
@@ -50,19 +50,19 @@ public final class e {
     public boolean v;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f3036a = -1;
+    public volatile int f3055a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3037b = false;
+    public boolean f3056b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f3038d = false;
+    public volatile boolean f3057d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f3039e = false;
+    public boolean f3058e = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f3042h = false;
+    public boolean f3061h = false;
     public List<String> u = Collections.synchronizedList(new ArrayList());
     public Runnable x = new Runnable() { // from class: com.baidu.android.pushservice.e.4
         @Override // java.lang.Runnable
@@ -80,7 +80,7 @@ public final class e {
             e.this.a(false);
             e.this.a(10004);
             e.this.j();
-            m.a("PushConnection Send Timeout " + e.this.l.getPackageName() + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.this.f3036a + System.currentTimeMillis(), e.this.l.getApplicationContext());
+            m.a("PushConnection Send Timeout " + e.this.l.getPackageName() + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.this.f3055a + System.currentTimeMillis(), e.this.l.getApplicationContext());
         }
     };
     public long z = 0;
@@ -98,9 +98,9 @@ public final class e {
         public void run() {
             byte[] bArr;
             String str;
-            while (!e.this.f3039e) {
+            while (!e.this.f3058e) {
                 try {
-                    bArr = PushSocket.a(e.this.l, e.this.f3036a);
+                    bArr = PushSocket.a(e.this.l, e.this.f3055a);
                 } catch (Exception e2) {
                     com.baidu.android.pushservice.g.a.b("PushConnection", "Get message exception", e.this.l.getApplicationContext());
                     new b.c(e.this.l).a(Log.getStackTraceString(e2)).a();
@@ -118,7 +118,7 @@ public final class e {
                 if (bArr == null || bArr.length == 0) {
                     e.this.a(lastSocketError);
                     e.this.j();
-                    str = "PushConnection Receive err " + e.this.l.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.this.f3036a + System.currentTimeMillis();
+                    str = "PushConnection Receive err " + e.this.l.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.this.f3055a + System.currentTimeMillis();
                 } else {
                     try {
                         com.baidu.android.pushservice.message.e a2 = e.this.m.a(bArr);
@@ -127,7 +127,7 @@ public final class e {
                                 e.this.m.b(a2);
                             } catch (Exception e3) {
                                 com.baidu.android.pushservice.g.a.b("PushConnection", "Handle message exception " + m.a(e3), e.this.l.getApplicationContext());
-                                m.a("PushConnection Handle message exception " + e.this.l.getPackageName() + m.a(e3) + " lastSocketError " + lastSocketError + " socketfd " + e.this.f3036a + System.currentTimeMillis(), e.this.l.getApplicationContext());
+                                m.a("PushConnection Handle message exception " + e.this.l.getPackageName() + m.a(e3) + " lastSocketError " + lastSocketError + " socketfd " + e.this.f3055a + System.currentTimeMillis(), e.this.l.getApplicationContext());
                                 new b.c(e.this.l).a(Log.getStackTraceString(e3)).a();
                                 e.this.j();
                             }
@@ -138,7 +138,7 @@ public final class e {
                         new b.c(e.this.l).a(Log.getStackTraceString(e4)).a();
                         e.this.a(lastSocketError);
                         e.this.j();
-                        str = "PushConnection Read message exception " + e.this.l.getPackageName() + m.a(e4) + " lastSocketError " + lastSocketError + " socketfd " + e.this.f3036a + System.currentTimeMillis();
+                        str = "PushConnection Read message exception " + e.this.l.getPackageName() + m.a(e4) + " lastSocketError " + lastSocketError + " socketfd " + e.this.f3055a + System.currentTimeMillis();
                     }
                 }
                 m.a(str, e.this.l.getApplicationContext());
@@ -156,7 +156,7 @@ public final class e {
         public void run() {
             com.baidu.android.pushservice.message.e removeFirst;
             int i2;
-            while (!e.this.f3039e) {
+            while (!e.this.f3058e) {
                 synchronized (e.this.m.a()) {
                     if (e.this.m.a().size() == 0) {
                         try {
@@ -167,7 +167,7 @@ public final class e {
                     }
                     removeFirst = e.this.m.a().size() > 0 ? e.this.m.a().removeFirst() : null;
                 }
-                if (e.this.f3039e) {
+                if (e.this.f3058e) {
                     return;
                 }
                 if (removeFirst != null && removeFirst.b() != null) {
@@ -180,7 +180,7 @@ public final class e {
                         e.this.k.postDelayed(e.this.y, 60000L);
                     }
                     try {
-                        i2 = PushSocket.a(e.this.f3036a, removeFirst.b(), removeFirst.b().length);
+                        i2 = PushSocket.a(e.this.f3055a, removeFirst.b(), removeFirst.b().length);
                     } catch (Exception e3) {
                         new b.c(e.this.l).a(Log.getStackTraceString(e3)).a();
                         i2 = -1;
@@ -189,7 +189,7 @@ public final class e {
                         int lastSocketError = PushSocket.getLastSocketError();
                         e.this.a(lastSocketError);
                         e.this.j();
-                        m.a("PushConnection sendMsg err " + e.this.l.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.this.f3036a + System.currentTimeMillis(), e.this.l.getApplicationContext());
+                        m.a("PushConnection sendMsg err " + e.this.l.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.this.f3055a + System.currentTimeMillis(), e.this.l.getApplicationContext());
                     }
                 }
             }
@@ -226,32 +226,32 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
-        if (this.f3043i != 0 || i2 == 0) {
-            if (this.f3043i != 0) {
+        if (this.f3062i != 0 || i2 == 0) {
+            if (this.f3062i != 0) {
                 if (this.p) {
-                    new b.C0052b(this.l).b(System.currentTimeMillis()).a(i2 + "").d(401102L).a();
+                    new b.C0053b(this.l).b(System.currentTimeMillis()).a(i2 + "").d(401102L).a();
                     this.p = false;
                     return;
                 }
-                new b.C0052b(this.l).a(true).a(this.f3043i).b(System.currentTimeMillis()).a(i2 + "").c(this.j).d(401101L).a();
-                this.f3043i = 0L;
+                new b.C0053b(this.l).a(true).a(this.f3062i).b(System.currentTimeMillis()).a(i2 + "").c(this.j).d(401101L).a();
+                this.f3062i = 0L;
                 return;
             }
             return;
         }
-        new b.C0052b(this.l).a(System.currentTimeMillis()).a(i2 + "").b(this.q + "/" + this.r + ":" + this.s + ":" + w + ":" + com.baidu.android.pushservice.j.g.h(this.l)).d(401100L).a();
+        new b.C0053b(this.l).a(System.currentTimeMillis()).a(i2 + "").b(this.q + "/" + this.r + ":" + this.s + ":" + w + ":" + com.baidu.android.pushservice.j.g.h(this.l)).d(401100L).a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i2) {
         c a2;
         c.a aVar;
-        if (this.f3036a == -1 && i2 == 110) {
+        if (this.f3055a == -1 && i2 == 110) {
             this.s = 80;
         }
         a(i2);
         if (this.u.size() > 0) {
-            f3035c = Boolean.FALSE;
+            f3054c = Boolean.FALSE;
             j();
             return;
         }
@@ -266,7 +266,7 @@ public final class e {
                     @Override // com.baidu.android.pushservice.c.a
                     public void a(int i5, List<String> list) {
                         e.this.r = null;
-                        Boolean unused = e.f3035c = Boolean.FALSE;
+                        Boolean unused = e.f3054c = Boolean.FALSE;
                         if (list == null || list.size() <= 0) {
                             e.this.b(10005);
                             return;
@@ -284,7 +284,7 @@ public final class e {
                             @Override // com.baidu.android.pushservice.c.a
                             public void a(int i5, List<String> list) {
                                 e.this.r = null;
-                                Boolean unused = e.f3035c = Boolean.FALSE;
+                                Boolean unused = e.f3054c = Boolean.FALSE;
                                 if (list == null || list.size() <= 0) {
                                     e.this.b(10006);
                                     return;
@@ -301,7 +301,7 @@ public final class e {
             return;
         }
         this.u.add(h.d());
-        f3035c = Boolean.FALSE;
+        f3054c = Boolean.FALSE;
         j();
     }
 
@@ -389,15 +389,15 @@ public final class e {
     }
 
     private synchronized void h() {
-        if (!this.f3037b && !f3035c.booleanValue() && !this.f3038d) {
-            this.f3038d = true;
+        if (!this.f3056b && !f3054c.booleanValue() && !this.f3057d) {
+            this.f3057d = true;
             this.u.clear();
             if (w != 0) {
                 if (w == 1) {
                     c.a(this.l).a(1, new c.a() { // from class: com.baidu.android.pushservice.e.1
                         @Override // com.baidu.android.pushservice.c.a
                         public void a(int i2, List<String> list) {
-                            e.this.f3038d = false;
+                            e.this.f3057d = false;
                             if (list == null || list.size() <= 0) {
                                 e.this.b(10005);
                                 return;
@@ -412,7 +412,7 @@ public final class e {
                     c.a(this.l).a(2, new c.a() { // from class: com.baidu.android.pushservice.e.2
                         @Override // com.baidu.android.pushservice.c.a
                         public void a(int i2, List<String> list) {
-                            e.this.f3038d = false;
+                            e.this.f3057d = false;
                             if (list == null || list.size() <= 0) {
                                 e.this.b(10006);
                                 return;
@@ -428,20 +428,20 @@ public final class e {
                     if (this.u.isEmpty()) {
                         this.u.add(h.d());
                     }
-                    this.f3038d = false;
+                    this.f3057d = false;
                 }
             }
             if (this.u.isEmpty()) {
                 this.u.add(h.d());
             }
-            this.f3038d = false;
+            this.f3057d = false;
             i();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void i() {
-        if (!this.f3037b && !f3035c.booleanValue()) {
+        if (!this.f3056b && !f3054c.booleanValue()) {
             if (!k.a(this.l).e()) {
                 f.h(this.l);
                 return;
@@ -450,8 +450,8 @@ public final class e {
             if (this.u.size() > 0) {
                 this.q = this.u.remove(0);
             }
-            f3035c = Boolean.TRUE;
-            this.f3036a = -1;
+            f3054c = Boolean.TRUE;
+            this.f3055a = -1;
             Runnable runnable = new Runnable() { // from class: com.baidu.android.pushservice.e.3
                 @Override // java.lang.Runnable
                 public void run() {
@@ -460,34 +460,34 @@ public final class e {
                             @Override // com.baidu.android.pushservice.jni.PushSocket.OnCreateSocketListener
                             public void onConnect(int i2) {
                                 int i3;
-                                e.this.f3036a = i2;
+                                e.this.f3055a = i2;
                                 e.this.r = PushSocket.getLastSocketIP();
                                 try {
                                     i3 = PushSocket.getLastSocketError();
                                 } catch (Exception unused) {
                                     i3 = 0;
                                 }
-                                if (e.this.f3036a <= -1 || (i3 >= 101 && i3 != 115)) {
+                                if (e.this.f3055a <= -1 || (i3 >= 101 && i3 != 115)) {
                                     e.this.b(i3);
                                     return;
                                 }
                                 e eVar = e.this;
                                 eVar.m = new com.baidu.android.pushservice.message.f(eVar.l.getApplicationContext());
-                                e.this.f3037b = true;
-                                e.this.f3043i = System.currentTimeMillis();
-                                if (e.this.f3041g != null) {
-                                    e.this.f3041g.interrupt();
+                                e.this.f3056b = true;
+                                e.this.f3062i = System.currentTimeMillis();
+                                if (e.this.f3060g != null) {
+                                    e.this.f3060g.interrupt();
                                 }
-                                if (e.this.f3040f != null) {
-                                    e.this.f3040f.interrupt();
+                                if (e.this.f3059f != null) {
+                                    e.this.f3059f.interrupt();
                                 }
-                                e.this.f3039e = false;
-                                e.this.f3041g = new a();
-                                e.this.f3041g.start();
-                                e.this.f3040f = new b();
-                                e.this.f3040f.start();
+                                e.this.f3058e = false;
+                                e.this.f3060g = new a();
+                                e.this.f3060g.start();
+                                e.this.f3059f = new b();
+                                e.this.f3059f.start();
                                 e.this.m.b();
-                                Boolean unused2 = e.f3035c = Boolean.FALSE;
+                                Boolean unused2 = e.f3054c = Boolean.FALSE;
                                 e.this.q = h.d();
                                 e.this.u.clear();
                             }
@@ -506,15 +506,15 @@ public final class e {
             this.t.start();
             return;
         }
-        com.baidu.android.pushservice.g.a.c("PushConnection", "Connect return. mConnected:" + this.f3037b + " mConnectting:" + f3035c, this.l.getApplicationContext());
+        com.baidu.android.pushservice.g.a.c("PushConnection", "Connect return. mConnected:" + this.f3056b + " mConnectting:" + f3054c, this.l.getApplicationContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        com.baidu.android.pushservice.g.a.c("PushConnection", "disconnectedByPeer, mStoped == " + this.f3042h, this.l.getApplicationContext());
+        com.baidu.android.pushservice.g.a.c("PushConnection", "disconnectedByPeer, mStoped == " + this.f3061h, this.l.getApplicationContext());
         m.a("PushConnection destroy from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
         k();
-        if (this.f3042h) {
+        if (this.f3061h) {
             return;
         }
         this.j++;
@@ -539,8 +539,8 @@ public final class e {
         if (handler != null) {
             handler.removeCallbacks(this.y);
         }
-        this.f3039e = true;
-        this.f3037b = false;
+        this.f3058e = true;
+        this.f3056b = false;
         com.baidu.android.pushservice.message.d dVar = this.m;
         if (dVar != null) {
             try {
@@ -551,8 +551,8 @@ public final class e {
                 new b.c(this.l).a(Log.getStackTraceString(e2)).a();
             }
         }
-        PushSocket.a(this.f3036a);
-        this.f3036a = -1;
+        PushSocket.a(this.f3055a);
+        this.f3055a = -1;
         com.baidu.android.pushservice.message.d dVar2 = this.m;
         if (dVar2 != null) {
             dVar2.c();
@@ -639,20 +639,20 @@ public final class e {
     }
 
     public boolean a() {
-        return this.f3037b;
+        return this.f3056b;
     }
 
     public void b() {
         this.j = 0;
-        this.f3042h = false;
+        this.f3061h = false;
         h();
     }
 
     public void c() {
         com.baidu.android.pushservice.g.a.c("PushConnection", "---stop---", this.l.getApplicationContext());
         m.a("PushConnection stop from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
-        this.f3039e = true;
-        this.f3042h = true;
+        this.f3058e = true;
+        this.f3061h = true;
         this.k.removeCallbacks(this.x);
         k();
         n = null;

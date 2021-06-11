@@ -32,7 +32,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             BackgroundListActivity backgroundListActivity = BackgroundListActivity.this;
             backgroundListActivity.hideLoadingView(backgroundListActivity.mView.c());
             if (i2 == 0) {
-                BackgroundListActivity.this.mView.i(eVar, list, BackgroundListActivity.this.mModel.L());
+                BackgroundListActivity.this.mView.i(eVar, list, BackgroundListActivity.this.mModel.P());
                 return;
             }
             BackgroundListActivity.this.showToast(str);
@@ -48,7 +48,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             if (BackgroundListActivity.this.mModel != null) {
-                BackgroundListActivity.this.mModel.s();
+                BackgroundListActivity.this.mModel.w();
             }
         }
     }
@@ -75,7 +75,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     public d.a.m0.k0.d getPageStayDurationItem() {
         d.a.m0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
+            pageStayDurationItem.f53110a = true;
         }
         return pageStayDurationItem;
     }
@@ -100,7 +100,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         this.mPageContext = getPageContext();
         BackgroundListModel backgroundListModel = new BackgroundListModel(this);
         this.mModel = backgroundListModel;
-        backgroundListModel.N(this.mCallback);
+        backgroundListModel.R(this.mCallback);
         d dVar = new d(this.mPageContext, this.mModel.getUniqueId());
         this.mItemController = dVar;
         dVar.c(0);

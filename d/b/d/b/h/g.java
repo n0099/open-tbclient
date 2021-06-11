@@ -17,22 +17,22 @@ public class g implements Handler.Callback {
     public static final Printer o = new a();
 
     /* renamed from: g  reason: collision with root package name */
-    public long f65938g;
+    public long f69669g;
     public boolean l;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f65937f = 0;
+    public int f69668f = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<List<Runnable>> f65939h = new SparseArray<>();
+    public final SparseArray<List<Runnable>> f69670h = new SparseArray<>();
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<Printer> f65940i = new LinkedList();
+    public final List<Printer> f69671i = new LinkedList();
     public final List<Printer> j = new LinkedList();
     public boolean k = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f65936e = new Handler(i.a().getLooper(), this);
+    public Handler f69667e = new Handler(i.a().getLooper(), this);
 
     /* loaded from: classes6.dex */
     public static class a implements Printer {
@@ -91,13 +91,13 @@ public class g implements Handler.Callback {
         }
         for (int i3 = 0; i3 < i2; i3++) {
             int i4 = (int) j;
-            List<Runnable> list = this.f65939h.get(i4);
+            List<Runnable> list = this.f69670h.get(i4);
             if (list == null) {
-                synchronized (this.f65939h) {
-                    list = this.f65939h.get(i4);
+                synchronized (this.f69670h) {
+                    list = this.f69670h.get(i4);
                     if (list == null) {
                         list = new LinkedList<>();
-                        this.f65939h.put(i4, list);
+                        this.f69670h.put(i4, list);
                     }
                 }
             }
@@ -115,10 +115,10 @@ public class g implements Handler.Callback {
             h.a(32L);
             this.l = true;
         }
-        this.f65938g = SystemClock.uptimeMillis();
+        this.f69669g = SystemClock.uptimeMillis();
         try {
-            g(this.f65940i, str);
-            this.f65936e.sendEmptyMessage(0);
+            g(this.f69671i, str);
+            this.f69667e.sendEmptyMessage(0);
         } catch (Exception e2) {
             l.k.b(e2);
         }
@@ -153,49 +153,49 @@ public class g implements Handler.Callback {
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        if (this.f65936e.hasMessages(0)) {
+        if (this.f69667e.hasMessages(0)) {
             return true;
         }
         int i2 = message.what;
         if (i2 == 0) {
-            this.f65937f = 0;
-            if (this.f65939h.size() != 0 && this.f65939h.keyAt(0) == 0) {
-                f(this.f65939h.valueAt(0));
-                this.f65937f++;
+            this.f69668f = 0;
+            if (this.f69670h.size() != 0 && this.f69670h.keyAt(0) == 0) {
+                f(this.f69670h.valueAt(0));
+                this.f69668f++;
             }
         } else if (i2 == 1) {
-            this.f65936e.removeMessages(2);
-            if (this.f65939h.size() != 0) {
-                SparseArray<List<Runnable>> sparseArray = this.f65939h;
+            this.f69667e.removeMessages(2);
+            if (this.f69670h.size() != 0) {
+                SparseArray<List<Runnable>> sparseArray = this.f69670h;
                 if (sparseArray.keyAt(sparseArray.size() - 1) == 0) {
-                    f(this.f65939h.get(Integer.MAX_VALUE));
+                    f(this.f69670h.get(Integer.MAX_VALUE));
                 }
             }
             return true;
         } else if (i2 == 2) {
-            f(this.f65939h.valueAt(this.f65937f));
-            this.f65937f++;
+            f(this.f69670h.valueAt(this.f69668f));
+            this.f69668f++;
         }
-        if (this.f65937f >= this.f65939h.size()) {
+        if (this.f69668f >= this.f69670h.size()) {
             return true;
         }
-        long keyAt = this.f65939h.keyAt(this.f65937f);
+        long keyAt = this.f69670h.keyAt(this.f69668f);
         if (keyAt != 2147483647L) {
-            this.f65936e.sendEmptyMessageAtTime(2, this.f65938g + keyAt);
+            this.f69667e.sendEmptyMessageAtTime(2, this.f69669g + keyAt);
         }
         return true;
     }
 
     public synchronized void i(Printer printer) {
-        this.f65940i.add(printer);
+        this.f69671i.add(printer);
     }
 
     public void j(String str) {
         SystemClock.uptimeMillis();
         try {
-            this.f65936e.removeMessages(2);
+            this.f69667e.removeMessages(2);
             g(this.j, str);
-            this.f65936e.sendEmptyMessage(1);
+            this.f69667e.sendEmptyMessage(1);
         } catch (Exception e2) {
             l.k.c(e2);
         }

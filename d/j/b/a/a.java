@@ -1,40 +1,40 @@
 package d.j.b.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f66387a;
+    public long f70173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66388b;
+    public String f70174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66389c;
+    public String f70175c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66390d;
+    public int f70176d;
 
     public a(String str) {
-        this.f66389c = str;
+        this.f70175c = str;
     }
 
     public void a(int i2) {
-        this.f66390d = i2;
+        this.f70176d = i2;
     }
 
     public void b(long j) {
-        this.f66387a = j;
+        this.f70173a = j;
     }
 
     public void c(String str) {
-        this.f66388b = str;
+        this.f70174b = str;
     }
 
     public boolean d() {
-        return this.f66387a > System.currentTimeMillis();
+        return this.f70173a > System.currentTimeMillis();
     }
 
     public void e() {
-        this.f66387a = 0L;
+        this.f70173a = 0L;
     }
 }

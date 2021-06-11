@@ -22,17 +22,17 @@ import java.io.InputStream;
 public class a implements d.a.l0.a.h0.o.h.c.a, d.a.l0.a.h0.o.h.e.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.a.h0.o.h.f.b f42467b;
+    public d.a.l0.a.h0.o.h.f.b f46143b;
 
     /* renamed from: d.a.l0.a.h0.o.h.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0690a implements d {
+    public class C0746a implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.h0.o.h.c.b f42468a;
+        public final /* synthetic */ d.a.l0.a.h0.o.h.c.b f46144a;
 
-        public C0690a(a aVar, d.a.l0.a.h0.o.h.c.b bVar) {
-            this.f42468a = bVar;
+        public C0746a(a aVar, d.a.l0.a.h0.o.h.c.b bVar) {
+            this.f46144a = bVar;
         }
 
         @Override // d.a.l0.a.h0.o.h.f.d
@@ -41,7 +41,7 @@ public class a implements d.a.l0.a.h0.o.h.c.a, d.a.l0.a.h0.o.h.e.a {
 
         @Override // d.a.l0.a.h0.o.h.f.d
         public void b(ImageRequest imageRequest) {
-            d.a.l0.a.h0.o.h.c.b bVar = this.f42468a;
+            d.a.l0.a.h0.o.h.c.b bVar = this.f46144a;
             if (bVar != null) {
                 bVar.a();
             }
@@ -49,7 +49,7 @@ public class a implements d.a.l0.a.h0.o.h.c.a, d.a.l0.a.h0.o.h.e.a {
 
         @Override // d.a.l0.a.h0.o.h.f.d
         public void c(ImageRequest imageRequest, Throwable th) {
-            d.a.l0.a.h0.o.h.c.b bVar = this.f42468a;
+            d.a.l0.a.h0.o.h.c.b bVar = this.f46144a;
             if (bVar != null) {
                 bVar.a();
             }
@@ -57,7 +57,7 @@ public class a implements d.a.l0.a.h0.o.h.c.a, d.a.l0.a.h0.o.h.e.a {
 
         @Override // d.a.l0.a.h0.o.h.f.d
         public void onCancel(String str) {
-            d.a.l0.a.h0.o.h.c.b bVar = this.f42468a;
+            d.a.l0.a.h0.o.h.c.b bVar = this.f46144a;
             if (bVar != null) {
                 bVar.a();
             }
@@ -82,15 +82,15 @@ public class a implements d.a.l0.a.h0.o.h.c.a, d.a.l0.a.h0.o.h.e.a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f42469a = new a(null);
+        public static a f46145a = new a(null);
     }
 
-    public /* synthetic */ a(C0690a c0690a) {
+    public /* synthetic */ a(C0746a c0746a) {
         this();
     }
 
     public static a d() {
-        return c.f42469a;
+        return c.f46145a;
     }
 
     @Override // d.a.l0.a.h0.o.h.c.a
@@ -105,13 +105,13 @@ public class a implements d.a.l0.a.h0.o.h.c.a, d.a.l0.a.h0.o.h.e.a {
         if (z) {
             bVar.a();
         } else {
-            e(str, new C0690a(this, bVar));
+            e(str, new C0746a(this, bVar));
         }
     }
 
     public final boolean b(String str, File file) {
         FileInputStream fileInputStream;
-        CacheKey a2 = this.f42467b.a(str);
+        CacheKey a2 = this.f46143b.a(str);
         boolean z = false;
         FileInputStream fileInputStream2 = null;
         try {
@@ -135,7 +135,7 @@ public class a implements d.a.l0.a.h0.o.h.c.a, d.a.l0.a.h0.o.h.e.a {
         } catch (IOException e3) {
             e = e3;
             fileInputStream2 = fileInputStream;
-            if (d.a.l0.a.h0.o.h.e.a.f42466a) {
+            if (d.a.l0.a.h0.o.h.e.a.f46142a) {
                 Log.e("HybridIntercept", Log.getStackTraceString(e));
             }
             d.a.l0.t.d.d(fileInputStream2);
@@ -150,7 +150,7 @@ public class a implements d.a.l0.a.h0.o.h.c.a, d.a.l0.a.h0.o.h.e.a {
 
     public final File c(String str) {
         BinaryResource resource;
-        CacheKey a2 = this.f42467b.a(str);
+        CacheKey a2 = this.f46143b.a(str);
         if (a2 == null) {
             return null;
         }
@@ -191,7 +191,7 @@ public class a implements d.a.l0.a.h0.o.h.c.a, d.a.l0.a.h0.o.h.e.a {
         try {
             return new FileInputStream(c2);
         } catch (IOException e2) {
-            if (d.a.l0.a.h0.o.h.e.a.f42466a) {
+            if (d.a.l0.a.h0.o.h.e.a.f46142a) {
                 Log.e("HybridIntercept", Log.getStackTraceString(e2));
                 return null;
             }
@@ -205,6 +205,6 @@ public class a implements d.a.l0.a.h0.o.h.c.a, d.a.l0.a.h0.o.h.e.a {
     }
 
     public a() {
-        this.f42467b = new b(this);
+        this.f46143b = new b(this);
     }
 }

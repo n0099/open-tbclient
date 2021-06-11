@@ -8,22 +8,22 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f48022f = d.a.l0.n.c.f47984a;
+    public static final boolean f51696f = d.a.l0.n.c.f51658a;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48023a = -1;
+    public int f51697a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48024b;
+    public String f51698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f48025c;
+    public String f51699c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f48026d;
+    public long f51700d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f48027e;
+    public JSONObject f51701e;
 
     public static c a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -32,7 +32,7 @@ public class c {
         try {
             return b(new JSONObject(str));
         } catch (JSONException e2) {
-            if (f48022f) {
+            if (f51696f) {
                 e2.printStackTrace();
             }
             return null;
@@ -50,42 +50,42 @@ public class c {
     }
 
     public JSONObject c() {
-        return this.f48027e;
+        return this.f51701e;
     }
 
     public int d() {
-        return this.f48023a;
+        return this.f51697a;
     }
 
     public String e() {
-        return this.f48024b;
+        return this.f51698b;
     }
 
     public long f() {
-        return this.f48026d;
+        return this.f51700d;
     }
 
     public String g() {
-        return this.f48025c;
+        return this.f51699c;
     }
 
     public void h(JSONObject jSONObject) {
-        this.f48027e = jSONObject;
+        this.f51701e = jSONObject;
     }
 
     public void i(int i2) {
-        this.f48023a = i2;
+        this.f51697a = i2;
     }
 
     public void j(String str) {
-        this.f48024b = str;
+        this.f51698b = str;
     }
 
     public void k(long j) {
-        this.f48026d = j;
+        this.f51700d = j;
     }
 
     public void l(String str) {
-        this.f48025c = str;
+        this.f51699c = str;
     }
 }

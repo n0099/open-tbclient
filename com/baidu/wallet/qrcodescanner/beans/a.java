@@ -12,21 +12,21 @@ import java.util.List;
 public class a extends BaseBean<QRCodeShortUrlResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26433a;
+    public String f26536a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26434b;
+    public String f26537b;
 
     public a(Context context) {
         super(context);
     }
 
     public void a(String str) {
-        this.f26433a = str;
+        this.f26536a = str;
     }
 
     public void b(String str) {
-        this.f26434b = str;
+        this.f26537b = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -38,8 +38,8 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new RestNameValuePair("output", "json"));
-        if (!TextUtils.isEmpty(this.f26433a)) {
-            arrayList.add(new RestNameValuePair("qrcode", this.f26433a));
+        if (!TextUtils.isEmpty(this.f26536a)) {
+            arrayList.add(new RestNameValuePair("qrcode", this.f26536a));
         }
         return arrayList;
     }
@@ -56,8 +56,8 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
-        if (!TextUtils.isEmpty(this.f26434b)) {
-            return this.f26434b;
+        if (!TextUtils.isEmpty(this.f26537b)) {
+            return this.f26537b;
         }
         return DomainConfig.getInstance().getAppPayHost() + "/facilepaycenter/tinyurl/scancode";
     }

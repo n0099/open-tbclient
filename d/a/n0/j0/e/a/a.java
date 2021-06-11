@@ -10,11 +10,11 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f55856a = new ArrayList<>();
+    public ArrayList<b> f59545a = new ArrayList<>();
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.f55856a.add(bVar);
+            this.f59545a.add(bVar);
         }
     }
 
@@ -36,8 +36,8 @@ public class a {
     }
 
     public final boolean c(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (this.f55856a.size() > 0) {
-            Iterator<b> it = this.f55856a.iterator();
+        if (this.f59545a.size() > 0) {
+            Iterator<b> it = this.f59545a.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {

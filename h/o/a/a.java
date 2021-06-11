@@ -3,7 +3,7 @@ package h.o.a;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.util.UtilityFunctions;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static long a(long j, long j2) {
         long j3 = j + j2;

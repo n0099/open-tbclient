@@ -12,31 +12,31 @@ import com.baidu.tieba.R;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f60719a;
+    public View f64410a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f60720b;
+    public TextView f64411b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f60721c;
+    public TextView f64412c;
 
     public View a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.tail_tool_member_guide_item, (ViewGroup) null);
-        this.f60719a = inflate;
+        this.f64410a = inflate;
         inflate.setTag(this);
-        this.f60720b = (TextView) this.f60719a.findViewById(R.id.tail_tool_member_guide_button);
-        this.f60721c = (TextView) this.f60719a.findViewById(R.id.tail_tool_member_guide_text);
-        return this.f60719a;
+        this.f64411b = (TextView) this.f64410a.findViewById(R.id.tail_tool_member_guide_button);
+        this.f64412c = (TextView) this.f64410a.findViewById(R.id.tail_tool_member_guide_text);
+        return this.f64410a;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void b() {
-        SkinManager.setBackgroundResource(this.f60720b, R.drawable.member_privilege_button_new_selector);
-        SkinManager.setViewTextColor(this.f60720b, R.color.CAM_X0101, 1);
-        SkinManager.setViewTextColor(this.f60721c, R.color.CAM_X0108, 1);
+        SkinManager.setBackgroundResource(this.f64411b, R.drawable.member_privilege_button_new_selector);
+        SkinManager.setViewTextColor(this.f64411b, R.color.CAM_X0101, 1);
+        SkinManager.setViewTextColor(this.f64412c, R.color.CAM_X0108, 1);
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.f60720b.setOnClickListener(onClickListener);
+        this.f64411b.setOnClickListener(onClickListener);
     }
 }

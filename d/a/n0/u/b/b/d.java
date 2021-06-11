@@ -52,21 +52,21 @@ import java.util.List;
 public class d implements d.a.l0.b.j.c0.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.z1.b.b.c f61245a;
+    public d.a.l0.a.z1.b.b.c f64954a;
 
     /* loaded from: classes4.dex */
     public class a extends GetTplStokenCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l.a f61246e;
+        public final /* synthetic */ l.a f64955e;
 
         public a(d dVar, l.a aVar) {
-            this.f61246e = aVar;
+            this.f64955e = aVar;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
-            l.a aVar = this.f61246e;
+            l.a aVar = this.f64955e;
             if (aVar != null) {
                 aVar.onFinish();
             }
@@ -74,7 +74,7 @@ public class d implements d.a.l0.b.j.c0.a {
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onStart() {
-            l.a aVar = this.f61246e;
+            l.a aVar = this.f64955e;
             if (aVar != null) {
                 aVar.onStart();
             }
@@ -83,36 +83,36 @@ public class d implements d.a.l0.b.j.c0.a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(GetTplStokenResult getTplStokenResult) {
-            if (this.f61246e != null) {
+            if (this.f64955e != null) {
                 l lVar = new l();
                 if (getTplStokenResult != null) {
-                    lVar.f46253b = getTplStokenResult.tplStokenMap;
-                    lVar.f46252a = getTplStokenResult.getResultCode();
+                    lVar.f49927b = getTplStokenResult.tplStokenMap;
+                    lVar.f49926a = getTplStokenResult.getResultCode();
                     getTplStokenResult.getResultMsg();
                     GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
                     if (failureType != null) {
                         failureType.name();
                     }
                 }
-                this.f61246e.a(lVar);
+                this.f64955e.a(lVar);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
-            if (this.f61246e != null) {
+            if (this.f64955e != null) {
                 l lVar = new l();
                 if (getTplStokenResult != null) {
-                    lVar.f46253b = getTplStokenResult.tplStokenMap;
-                    lVar.f46252a = getTplStokenResult.getResultCode();
+                    lVar.f49927b = getTplStokenResult.tplStokenMap;
+                    lVar.f49926a = getTplStokenResult.getResultCode();
                     getTplStokenResult.getResultMsg();
                     GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
                     if (failureType != null) {
                         failureType.name();
                     }
                 }
-                this.f61246e.b(lVar);
+                this.f64955e.b(lVar);
             }
         }
     }
@@ -121,10 +121,10 @@ public class d implements d.a.l0.b.j.c0.a {
     public class b extends SmsViewLoginCallback {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppPhoneLoginDialog.g f61247e;
+        public final /* synthetic */ SwanAppPhoneLoginDialog.g f64956e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f61248f;
+        public final /* synthetic */ Context f64957f;
 
         /* loaded from: classes4.dex */
         public class a implements DialogInterface.OnClickListener {
@@ -138,7 +138,7 @@ public class d implements d.a.l0.b.j.c0.a {
 
         /* renamed from: d.a.n0.u.b.b.d$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class DialogInterface$OnClickListenerC1627b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC1684b implements DialogInterface.OnClickListener {
 
             /* renamed from: d.a.n0.u.b.b.d$b$b$a */
             /* loaded from: classes4.dex */
@@ -149,19 +149,19 @@ public class d implements d.a.l0.b.j.c0.a {
                 @Override // d.a.l0.a.m.a
                 public void onResult(int i2) {
                     if (i2 == 0) {
-                        b.this.f61247e.onSuccess();
+                        b.this.f64956e.onSuccess();
                     } else {
-                        b.this.f61247e.onFailure();
+                        b.this.f64956e.onFailure();
                     }
                 }
             }
 
-            public DialogInterface$OnClickListenerC1627b() {
+            public DialogInterface$OnClickListenerC1684b() {
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                d.a.l0.b.j.a.N((FragmentActivity) b.this.f61248f, false, null, new a());
+                d.a.l0.b.j.a.N((FragmentActivity) b.this.f64957f, false, null, new a());
             }
         }
 
@@ -172,7 +172,7 @@ public class d implements d.a.l0.b.j.c0.a {
 
             @Override // d.a.l0.a.m.a
             public void onResult(int i2) {
-                SwanAppPhoneLoginDialog.g gVar = b.this.f61247e;
+                SwanAppPhoneLoginDialog.g gVar = b.this.f64956e;
                 if (gVar != null) {
                     if (i2 == 0) {
                         gVar.onSuccess();
@@ -184,42 +184,42 @@ public class d implements d.a.l0.b.j.c0.a {
         }
 
         public b(d dVar, SwanAppPhoneLoginDialog.g gVar, Context context) {
-            this.f61247e = gVar;
-            this.f61248f = context;
+            this.f64956e = gVar;
+            this.f64957f = context;
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
         public void onCheckCodeViewHide() {
-            this.f61247e.b();
+            this.f64956e.b();
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
         public void onCheckCodeViewShow() {
-            this.f61247e.a();
+            this.f64956e.a();
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
         public void onNeedBack(WebAuthResult webAuthResult) {
-            Context context = this.f61248f;
+            Context context = this.f64957f;
             x.a(context, ((FragmentActivity) context).getWindow().getDecorView().getWindowToken());
-            String string = this.f61248f.getResources().getString(g.account_login_dialog_needback_other);
-            String string2 = this.f61248f.getResources().getString(g.account_login_dialog_needback_positive_btn_login);
+            String string = this.f64957f.getResources().getString(g.account_login_dialog_needback_other);
+            String string2 = this.f64957f.getResources().getString(g.account_login_dialog_needback_positive_btn_login);
             if (webAuthResult.getResultCode() == 12) {
-                string = this.f61248f.getResources().getString(g.account_login_dialog_needback_phone);
-                string2 = this.f61248f.getResources().getString(g.account_login_dialog_needback_positive_btn_register);
+                string = this.f64957f.getResources().getString(g.account_login_dialog_needback_phone);
+                string2 = this.f64957f.getResources().getString(g.account_login_dialog_needback_positive_btn_register);
             }
-            h.a aVar = new h.a(this.f61248f);
-            aVar.V(this.f61248f.getResources().getString(g.account_login_dialog_needback_title));
+            h.a aVar = new h.a(this.f64957f);
+            aVar.V(this.f64957f.getResources().getString(g.account_login_dialog_needback_title));
             aVar.x(string);
-            aVar.P(string2, new DialogInterface$OnClickListenerC1627b());
-            aVar.C(this.f61248f.getResources().getString(g.account_login_dialog_needback_negative_btn), new a(this));
+            aVar.P(string2, new DialogInterface$OnClickListenerC1684b());
+            aVar.C(this.f64957f.getResources().getString(g.account_login_dialog_needback_negative_btn), new a(this));
             aVar.X();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            this.f61247e.onFailure();
+            this.f64956e.onFailure();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -233,10 +233,10 @@ public class d implements d.a.l0.b.j.c0.a {
     public class c extends OneKeyLoginCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.b.n.g.e f61252a;
+        public final /* synthetic */ d.a.l0.b.n.g.e f64961a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f61253b;
+        public final /* synthetic */ Activity f64962b;
 
         /* loaded from: classes4.dex */
         public class a implements d.a.l0.a.m.a {
@@ -246,30 +246,30 @@ public class d implements d.a.l0.b.j.c0.a {
             @Override // d.a.l0.a.m.a
             public void onResult(int i2) {
                 if (i2 == 0) {
-                    c.this.f61252a.onResult(0);
+                    c.this.f64961a.onResult(0);
                 } else {
-                    c.this.f61252a.onResult(-1);
+                    c.this.f64961a.onResult(-1);
                 }
                 c cVar = c.this;
-                d.this.r(cVar.f61253b);
+                d.this.r(cVar.f64962b);
             }
         }
 
         public c(d.a.l0.b.n.g.e eVar, Activity activity) {
-            this.f61252a = eVar;
-            this.f61253b = activity;
+            this.f64961a = eVar;
+            this.f64962b = activity;
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void onFail(OneKeyLoginResult oneKeyLoginResult) {
-            this.f61252a.onResult(-1);
-            d.this.r(this.f61253b);
+            this.f64961a.onResult(-1);
+            d.this.r(this.f64962b);
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
-            this.f61252a.onResult(-1);
-            d.this.r(this.f61253b);
+            this.f64961a.onResult(-1);
+            d.this.r(this.f64962b);
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
@@ -280,29 +280,29 @@ public class d implements d.a.l0.b.j.c0.a {
 
     /* renamed from: d.a.n0.u.b.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1628d extends VerifyUserFaceIDCallback {
+    public class C1685d extends VerifyUserFaceIDCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b0 f61256a;
+        public final /* synthetic */ b0 f64965a;
 
-        public C1628d(d dVar, b0 b0Var) {
-            this.f61256a = b0Var;
+        public C1685d(d dVar, b0 b0Var) {
+            this.f64965a = b0Var;
         }
 
         @Override // com.baidu.sapi2.callback.FaceIDCallback
         public void onFailure(SapiResult sapiResult) {
-            this.f61256a.onFailure(sapiResult.getResultMsg());
+            this.f64965a.onFailure(sapiResult.getResultMsg());
         }
 
         @Override // com.baidu.sapi2.callback.FaceIDCallback
         public void onSuccess(SapiResult sapiResult) {
             z zVar = new z();
             if (sapiResult instanceof RealNameFaceIDResult) {
-                zVar.f46268a = ((RealNameFaceIDResult) sapiResult).callBackKey;
-                this.f61256a.a(zVar);
+                zVar.f49942a = ((RealNameFaceIDResult) sapiResult).callBackKey;
+                this.f64965a.a(zVar);
             } else if (sapiResult instanceof UnRealNameFaceIDResult) {
-                zVar.f46268a = ((UnRealNameFaceIDResult) sapiResult).registerResult;
-                this.f61256a.a(zVar);
+                zVar.f49942a = ((UnRealNameFaceIDResult) sapiResult).registerResult;
+                this.f64965a.a(zVar);
             }
         }
     }
@@ -311,10 +311,10 @@ public class d implements d.a.l0.b.j.c0.a {
     public class e extends AccountRealNameCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b0 f61257a;
+        public final /* synthetic */ b0 f64966a;
 
         public e(d dVar, b0 b0Var) {
-            this.f61257a = b0Var;
+            this.f64966a = b0Var;
         }
 
         @Override // com.baidu.sapi2.callback.AccountRealNameCallback
@@ -323,12 +323,12 @@ public class d implements d.a.l0.b.j.c0.a {
             if (accountRealNameResult.getResultCode() == 0) {
                 z zVar = new z();
                 if (accountRealNameResult.seniorRealNameSuc) {
-                    zVar.f46268a = accountRealNameResult.callbackkey;
-                    this.f61257a.a(zVar);
+                    zVar.f49942a = accountRealNameResult.callbackkey;
+                    this.f64966a.a(zVar);
                     return;
                 }
             }
-            this.f61257a.onFailure(accountRealNameResult.getResultMsg());
+            this.f64966a.onFailure(accountRealNameResult.getResultMsg());
         }
     }
 
@@ -364,8 +364,8 @@ public class d implements d.a.l0.b.j.c0.a {
     @Override // d.a.l0.b.j.c0.a
     public a0 d(Context context) {
         a0 a0Var = new a0();
-        a0Var.f46248a = d.a.n0.u.b.b.a.l().k();
-        a0Var.f46249b = d.a.n0.u.b.b.a.l().i();
+        a0Var.f49922a = d.a.n0.u.b.b.a.l().k();
+        a0Var.f49923b = d.a.n0.u.b.b.a.l().i();
         return a0Var;
     }
 
@@ -432,7 +432,7 @@ public class d implements d.a.l0.b.j.c0.a {
         FaceIDVerifyDTO faceIDVerifyDTO = new FaceIDVerifyDTO();
         faceIDVerifyDTO.businessSence = str;
         faceIDVerifyDTO.bduss = str2;
-        PassportSDK.getInstance().verifyUserFaceId(activity, new C1628d(this, b0Var), faceIDVerifyDTO);
+        PassportSDK.getInstance().verifyUserFaceId(activity, new C1685d(this, b0Var), faceIDVerifyDTO);
     }
 
     @Override // d.a.l0.b.j.c0.a
@@ -453,7 +453,7 @@ public class d implements d.a.l0.b.j.c0.a {
 
     public void r(Context context) {
         d.a.l0.a.z1.b.b.c cVar;
-        if (!(context instanceof Activity) || ((Activity) context).isFinishing() || (cVar = this.f61245a) == null) {
+        if (!(context instanceof Activity) || ((Activity) context).isFinishing() || (cVar = this.f64954a) == null) {
             return;
         }
         cVar.dismiss();
@@ -461,7 +461,7 @@ public class d implements d.a.l0.b.j.c0.a {
 
     public final void t(Context context) {
         d.a.l0.a.z1.b.b.c cVar = new d.a.l0.a.z1.b.b.c(context, 16973833);
-        this.f61245a = cVar;
+        this.f64954a = cVar;
         Window window = cVar.getWindow();
         if (window != null) {
             window.setBackgroundDrawableResource(17170445);
@@ -471,13 +471,13 @@ public class d implements d.a.l0.b.j.c0.a {
             attributes.width = -1;
             window.setAttributes(attributes);
         }
-        this.f61245a.setCanceledOnTouchOutside(false);
-        this.f61245a.setCancelable(false);
-        this.f61245a.a(true);
-        this.f61245a.setContentView(R.layout.loading_layout);
-        View findViewById = this.f61245a.findViewById(R.id.root_container);
-        ProgressBar progressBar = (ProgressBar) this.f61245a.findViewById(R.id.loading_bar);
-        TextView textView = (TextView) this.f61245a.findViewById(R.id.message);
+        this.f64954a.setCanceledOnTouchOutside(false);
+        this.f64954a.setCancelable(false);
+        this.f64954a.a(true);
+        this.f64954a.setContentView(R.layout.loading_layout);
+        View findViewById = this.f64954a.findViewById(R.id.root_container);
+        ProgressBar progressBar = (ProgressBar) this.f64954a.findViewById(R.id.loading_bar);
+        TextView textView = (TextView) this.f64954a.findViewById(R.id.message);
         if (findViewById != null) {
             findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.novel_loading_bg));
         }
@@ -488,6 +488,6 @@ public class d implements d.a.l0.b.j.c0.a {
             textView.setTextColor(textView.getResources().getColor(R.color.loading_text_color));
             textView.setText(R.string.account_onekey_loading);
         }
-        this.f61245a.show();
+        this.f64954a.show();
     }
 }

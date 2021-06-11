@@ -17,10 +17,10 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f64912a = new b();
+    public static b f68643a = new b();
 
     public static b i() {
-        return f64912a;
+        return f68643a;
     }
 
     public void a(Bundle bundle) {

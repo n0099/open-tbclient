@@ -27,7 +27,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.d0.h;
 import d.a.m0.r.f0.f;
 import d.a.n0.n2.g;
@@ -37,16 +37,16 @@ import java.util.List;
 public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, d.a.n0.n2.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f20012e;
+    public View f20089e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdListView f20013f;
+    public BdListView f20090f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NavigationBarShadowView f20014g;
+    public NavigationBarShadowView f20091g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f20015h;
+    public g f20092h;
     public h k;
     public d.a.m0.r.f0.g l;
     public PbListView m;
@@ -55,7 +55,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public d.a.n0.n2.d s;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f20016i = false;
+    public boolean f20093i = false;
     public NoDataView j = null;
     public boolean o = false;
     public int q = R.color.CAM_X0201;
@@ -74,7 +74,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 PersonReplyFragment personReplyFragment = PersonReplyFragment.this;
                 h hVar = personReplyFragment.k;
                 if (hVar != null) {
-                    hVar.dettachView(personReplyFragment.f20012e);
+                    hVar.dettachView(personReplyFragment.f20089e);
                     PersonReplyFragment.this.k = null;
                 }
                 if (PersonReplyFragment.this.s != null) {
@@ -91,7 +91,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
         @Override // d.a.m0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
-            PersonReplyFragment.this.f20015h.f(true);
+            PersonReplyFragment.this.f20092h.f(true);
         }
     }
 
@@ -101,28 +101,28 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-        public void L(PersonPostModel personPostModel, boolean z) {
+        public void M(PersonPostModel personPostModel, boolean z) {
             if (PersonReplyFragment.this.isAdded()) {
                 PersonReplyFragment personReplyFragment = PersonReplyFragment.this;
-                personReplyFragment.hideLoadingView(personReplyFragment.f20012e);
-                PersonReplyFragment.this.f20013f.A(0L);
-                if (personPostModel == null || (PersonReplyFragment.R0(personPostModel.postList) == 0 && PersonReplyFragment.this.r && StringUtils.isNull(personPostModel.getErrorString()))) {
-                    PersonReplyFragment.this.f20013f.setVisibility(0);
-                    PersonReplyFragment.this.P0(true);
+                personReplyFragment.hideLoadingView(personReplyFragment.f20089e);
+                PersonReplyFragment.this.f20090f.A(0L);
+                if (personPostModel == null || (PersonReplyFragment.U0(personPostModel.postList) == 0 && PersonReplyFragment.this.r && StringUtils.isNull(personPostModel.getErrorString()))) {
+                    PersonReplyFragment.this.f20090f.setVisibility(0);
+                    PersonReplyFragment.this.S0(true);
                     return;
                 }
-                if (PersonReplyFragment.this.f20015h.getCount() == 0) {
-                    PersonReplyFragment.this.f20013f.setVisibility(8);
-                    PersonReplyFragment.this.P0(true);
+                if (PersonReplyFragment.this.f20092h.getCount() == 0) {
+                    PersonReplyFragment.this.f20090f.setVisibility(8);
+                    PersonReplyFragment.this.S0(true);
                 } else {
-                    PersonReplyFragment.this.f20013f.setVisibility(0);
-                    PersonReplyFragment.this.P0(false);
+                    PersonReplyFragment.this.f20090f.setVisibility(0);
+                    PersonReplyFragment.this.S0(false);
                 }
                 if (personPostModel.getErrorCode() != 0) {
                     l.M(PersonReplyFragment.this.getActivity(), personPostModel.getErrorString());
                 }
-                int R0 = PersonReplyFragment.R0(personPostModel.postList);
-                if (R0 <= 0) {
+                int U0 = PersonReplyFragment.U0(personPostModel.postList);
+                if (U0 <= 0) {
                     if (j.z()) {
                         PersonReplyFragment.this.o = false;
                         PersonReplyFragment.this.m.A(PersonReplyFragment.this.getResources().getString(R.string.list_no_more));
@@ -133,7 +133,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 }
                 PersonReplyFragment.this.m.f();
                 if (z) {
-                    if (R0 <= 0) {
+                    if (U0 <= 0) {
                         PersonReplyFragment.this.o = false;
                     } else {
                         PersonReplyFragment.this.o = true;
@@ -153,7 +153,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             PersonPostModel.PostInfoList h2;
-            if (i2 >= 0 && PersonReplyFragment.this.f20015h != null && i2 < PersonReplyFragment.this.f20015h.getCount() && (h2 = PersonReplyFragment.this.f20015h.h(i2)) != null) {
+            if (i2 >= 0 && PersonReplyFragment.this.f20092h != null && i2 < PersonReplyFragment.this.f20092h.getCount() && (h2 = PersonReplyFragment.this.f20092h.h(i2)) != null) {
                 PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(PersonReplyFragment.this.getActivity()).createCfgForPersonCenter(String.valueOf(h2.thread_id), String.valueOf(h2.post_id), "person_page", 18005);
                 OriginalThreadInfo originalThreadInfo = h2.originalThreadInfo;
                 if (originalThreadInfo != null) {
@@ -164,7 +164,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    public static int R0(List<n> list) {
+    public static int U0(List<n> list) {
         if (list == null) {
             return 0;
         }
@@ -178,61 +178,61 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         return i2;
     }
 
-    public final void P0(boolean z) {
+    public final void S0(boolean z) {
         if (z) {
-            if (this.f20013f != null) {
+            if (this.f20090f != null) {
                 NoDataView noDataView = this.j;
                 if (noDataView != null) {
                     noDataView.setVisibility(0);
                 }
-                this.f20013f.removeHeaderView(this.j);
-                this.f20013f.addHeaderView(this.j);
+                this.f20090f.removeHeaderView(this.j);
+                this.f20090f.addHeaderView(this.j);
             }
-        } else if (this.f20013f != null) {
+        } else if (this.f20090f != null) {
             NoDataView noDataView2 = this.j;
             if (noDataView2 != null) {
                 noDataView2.setVisibility(8);
             }
-            this.f20013f.removeHeaderView(this.j);
+            this.f20090f.removeHeaderView(this.j);
         }
     }
 
-    public final void Q0() {
+    public final void T0() {
         if (j.A()) {
-            this.f20015h.f(true);
+            this.f20092h.f(true);
             return;
         }
-        hideLoadingView(this.f20012e);
-        P0(false);
-        d.a.n0.n2.f.b(this.k, this.t, getActivity(), this.f20012e, getString(R.string.neterror), true);
-        this.f20013f.setVisibility(8);
+        hideLoadingView(this.f20089e);
+        S0(false);
+        d.a.n0.n2.f.b(this.k, this.t, getActivity(), this.f20089e, getString(R.string.neterror), true);
+        this.f20090f.setVisibility(8);
     }
 
-    public final void S0() {
+    public final void V0() {
         g gVar = new g(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
-        this.f20015h = gVar;
+        this.f20092h = gVar;
         gVar.i(this.u);
-        this.f20013f.setAdapter((ListAdapter) this.f20015h);
-        this.f20013f.setOnItemClickListener(new d());
+        this.f20090f.setAdapter((ListAdapter) this.f20092h);
+        this.f20090f.setOnItemClickListener(new d());
     }
 
-    public void T0() {
-        if (this.f20016i) {
+    public void W0() {
+        if (this.f20093i) {
             return;
         }
-        S0();
-        this.f20016i = true;
-        showLoadingView(this.f20012e);
-        Q0();
+        V0();
+        this.f20093i = true;
+        showLoadingView(this.f20089e);
+        T0();
     }
 
-    public void U0(d.a.n0.n2.d dVar) {
+    public void X0(d.a.n0.n2.d dVar) {
         this.s = dVar;
     }
 
     @Override // d.a.n0.n2.c
-    public void Y() {
-        g gVar = this.f20015h;
+    public void b0() {
+        g gVar = this.f20092h;
         if (gVar != null) {
             gVar.f(true);
         }
@@ -255,8 +255,8 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 pbListView.d(i2);
             }
             this.l.I(i2);
-            SkinManager.setBackgroundColor(this.f20012e, this.q, i2);
-            g gVar = this.f20015h;
+            SkinManager.setBackgroundColor(this.f20089e, this.q, i2);
+            g gVar = this.f20092h;
             if (gVar != null) {
                 gVar.notifyDataSetChanged();
             }
@@ -271,17 +271,17 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
-        this.f20012e = inflate;
-        this.f20013f = (BdListView) inflate.findViewById(R.id.listview_reply);
-        this.f20014g = (NavigationBarShadowView) this.f20012e.findViewById(R.id.navi_shadow_view_my_reply);
+        this.f20089e = inflate;
+        this.f20090f = (BdListView) inflate.findViewById(R.id.listview_reply);
+        this.f20091g = (NavigationBarShadowView) this.f20089e.findViewById(R.id.navi_shadow_view_my_reply);
         this.j = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.ds102)), NoDataViewFactory.e.d(null, getArguments().getString(PersonPostActivity.KEY_EMPTYVIEW_TXT)), null);
-        return this.f20012e;
+        return this.f20089e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        g gVar = this.f20015h;
+        g gVar = this.f20092h;
         if (gVar != null) {
             gVar.e();
         }
@@ -290,8 +290,8 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        T0();
-        this.f20015h.notifyDataSetChanged();
+        W0();
+        this.f20092h.notifyDataSetChanged();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -300,19 +300,19 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         View childAt;
         if (this.o && i4 > 2 && this.p != i4 && i3 + i2 == i4) {
             this.p = i4;
-            this.f20015h.f(false);
+            this.f20092h.f(false);
             this.n.setVisibility(0);
             this.m.O();
         }
         if (i2 == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
-            this.f20014g.a();
+            this.f20091g.a();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i2) {
         if (i2 == 1) {
-            this.f20014g.c();
+            this.f20091g.c();
         }
     }
 
@@ -338,17 +338,17 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public void onViewCreated(View view, Bundle bundle) {
         d.a.m0.r.f0.g gVar = new d.a.m0.r.f0.g(getPageContext());
         this.l = gVar;
-        this.f20013f.setPullRefresh(gVar);
+        this.f20090f.setPullRefresh(gVar);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds176)));
-        this.f20013f.x(textView, 0);
+        this.f20090f.x(textView, 0);
         this.l.a(new b());
-        this.f20013f.setOnScrollListener(this);
+        this.f20090f.setOnScrollListener(this);
         PbListView pbListView = new PbListView(getActivity());
         this.m = pbListView;
         pbListView.o(R.color.common_color_10022);
         this.m.C(SkinManager.getColor(R.color.common_color_10039));
-        this.f20013f.setNextPage(this.m);
+        this.f20090f.setNextPage(this.m);
         View findViewById = this.m.b().findViewById(R.id.pb_more_view);
         this.n = findViewById;
         findViewById.setVisibility(8);

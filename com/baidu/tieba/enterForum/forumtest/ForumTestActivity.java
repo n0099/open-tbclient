@@ -67,15 +67,15 @@ public class ForumTestActivity extends BaseActivity implements d.a.n0.j0.e.a.b {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f14389e;
+        public final /* synthetic */ ShareItem f14446e;
 
         public b(ShareItem shareItem) {
-            this.f14389e = shareItem;
+            this.f14446e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.c.e.p.a.a(this.f14389e.t);
+            d.a.c.e.p.a.a(this.f14446e.t);
             d.a.c.e.p.l.M(ForumTestActivity.this, view.getResources().getString(R.string.copy_pb_url_success));
         }
     }

@@ -7,26 +7,26 @@ import java.net.Socket;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Boolean f64575a;
+    public Boolean f68293a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f64576b;
+    public Boolean f68294b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Socket f64577c;
+    public Socket f68295c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f64578d;
+    public InputStream f68296d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OutputStream f64579e;
+    public OutputStream f68297e;
 
     public e() {
         Boolean bool = Boolean.FALSE;
-        this.f64575a = bool;
-        this.f64576b = bool;
-        this.f64577c = null;
-        this.f64578d = null;
-        this.f64579e = null;
+        this.f68293a = bool;
+        this.f68294b = bool;
+        this.f68295c = null;
+        this.f68296d = null;
+        this.f68297e = null;
     }
 }

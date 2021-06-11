@@ -18,38 +18,38 @@ import d.a.n0.q3.c;
 public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4207e;
+    public TextView f4226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4208f;
+    public int f4227f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditorTools f4209g;
+    public EditorTools f4228g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FloatRecordView f4210h;
+    public FloatRecordView f4229h;
 
     /* renamed from: i  reason: collision with root package name */
-    public WindowManager f4211i;
+    public WindowManager f4230i;
     public WindowManager.LayoutParams j;
 
     public SendVoiceView(Context context) {
         super(context);
-        this.f4207e = null;
-        this.f4208f = 0;
+        this.f4226e = null;
+        this.f4227f = 0;
         if (context == null) {
             return;
         }
         LayoutInflater.from(context).inflate(R.layout.send_voice_view, this);
-        this.f4207e = (TextView) findViewById(R.id.tex_send_voice);
+        this.f4226e = (TextView) findViewById(R.id.tex_send_voice);
         setFocusable(true);
         setFocusableInTouchMode(true);
         a();
     }
 
     public final void a() {
-        this.f4210h = new FloatRecordView(getContext());
-        this.f4211i = (WindowManager) TbadkCoreApplication.getInst().getContext().getSystemService("window");
+        this.f4229h = new FloatRecordView(getContext());
+        this.f4230i = (WindowManager) TbadkCoreApplication.getInst().getContext().getSystemService("window");
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         this.j = layoutParams;
         layoutParams.type = c.a(2002);
@@ -70,45 +70,45 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
 
     public void c() {
         LinearLayout b2;
-        FloatRecordView floatRecordView = this.f4210h;
-        if (floatRecordView == null || this.f4211i == null || this.j == null || (b2 = floatRecordView.b()) == null || b2.getParent() != null) {
+        FloatRecordView floatRecordView = this.f4229h;
+        if (floatRecordView == null || this.f4230i == null || this.j == null || (b2 = floatRecordView.b()) == null || b2.getParent() != null) {
             return;
         }
-        this.f4211i.addView(b2, this.j);
-        this.f4210h.e();
+        this.f4230i.addView(b2, this.j);
+        this.f4229h.e();
     }
 
     @Override // d.a.n0.f1.f.b
     public void closeRecordCancel() {
-        FloatRecordView floatRecordView = this.f4210h;
-        if (floatRecordView == null || this.f4211i == null || this.j == null) {
+        FloatRecordView floatRecordView = this.f4229h;
+        if (floatRecordView == null || this.f4230i == null || this.j == null) {
             return;
         }
         floatRecordView.closeRecordCancel();
-        LinearLayout a2 = this.f4210h.a();
+        LinearLayout a2 = this.f4229h.a();
         if (a2 == null || a2.getParent() == null) {
             return;
         }
-        this.f4211i.removeView(a2);
+        this.f4230i.removeView(a2);
     }
 
     @Override // d.a.n0.f1.f.b
     public void closeRecordTooShort() {
-        FloatRecordView floatRecordView = this.f4210h;
-        if (floatRecordView == null || this.f4211i == null || this.j == null) {
+        FloatRecordView floatRecordView = this.f4229h;
+        if (floatRecordView == null || this.f4230i == null || this.j == null) {
             return;
         }
         floatRecordView.closeRecordTooShort();
-        LinearLayout b2 = this.f4210h.b();
+        LinearLayout b2 = this.f4229h.b();
         if (b2 == null || b2.getParent() == null) {
             return;
         }
-        this.f4211i.removeView(b2);
+        this.f4230i.removeView(b2);
     }
 
     @Override // d.a.m0.w.n
     public void d(a aVar) {
-        EditorTools editorTools = this.f4209g;
+        EditorTools editorTools = this.f4228g;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
@@ -116,7 +116,7 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
 
     @Override // d.a.m0.w.n
     public int getToolId() {
-        return this.f4208f;
+        return this.f4227f;
     }
 
     @Override // d.a.m0.w.n
@@ -164,8 +164,8 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
 
     @Override // d.a.c.e.q.f
     public void onShowRecording(int i2) {
-        FloatRecordView floatRecordView = this.f4210h;
-        if (floatRecordView == null || this.f4211i == null || this.j == null) {
+        FloatRecordView floatRecordView = this.f4229h;
+        if (floatRecordView == null || this.f4230i == null || this.j == null) {
             return;
         }
         floatRecordView.onShowRecording(i2);
@@ -182,57 +182,57 @@ public class SendVoiceView extends LinearLayout implements n, b, ISendVoiceView 
     @Override // com.baidu.tieba.im.chat.ISendVoiceView
     public void refreshSendVoiceText(boolean z) {
         if (z) {
-            this.f4207e.setBackgroundResource(R.drawable.but_talk_s);
-            this.f4207e.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.msglist_no_push));
+            this.f4226e.setBackgroundResource(R.drawable.but_talk_s);
+            this.f4226e.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.msglist_no_push));
             return;
         }
-        this.f4207e.setBackgroundResource(R.drawable.but_talk_n);
-        this.f4207e.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.msglist_push_talk));
+        this.f4226e.setBackgroundResource(R.drawable.but_talk_n);
+        this.f4226e.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.msglist_push_talk));
     }
 
     @Override // d.a.m0.w.n
     public void setEditorTools(EditorTools editorTools) {
-        this.f4209g = editorTools;
+        this.f4228g = editorTools;
     }
 
     @Override // d.a.m0.w.n
     public void setToolId(int i2) {
-        this.f4208f = i2;
+        this.f4227f = i2;
     }
 
     @Override // d.a.n0.f1.f.b
     public void showRecordCancel() {
         LinearLayout a2;
-        FloatRecordView floatRecordView = this.f4210h;
-        if (floatRecordView == null || this.f4211i == null || this.j == null || (a2 = floatRecordView.a()) == null || a2.getParent() != null) {
+        FloatRecordView floatRecordView = this.f4229h;
+        if (floatRecordView == null || this.f4230i == null || this.j == null || (a2 = floatRecordView.a()) == null || a2.getParent() != null) {
             return;
         }
-        this.f4211i.addView(a2, this.j);
-        this.f4210h.showRecordCancel();
+        this.f4230i.addView(a2, this.j);
+        this.f4229h.showRecordCancel();
     }
 
     @Override // d.a.n0.f1.f.b
     public void startRecordVoice() {
         LinearLayout c2;
-        FloatRecordView floatRecordView = this.f4210h;
-        if (floatRecordView == null || this.f4211i == null || this.j == null || (c2 = floatRecordView.c()) == null || c2.getParent() != null) {
+        FloatRecordView floatRecordView = this.f4229h;
+        if (floatRecordView == null || this.f4230i == null || this.j == null || (c2 = floatRecordView.c()) == null || c2.getParent() != null) {
             return;
         }
-        this.f4211i.addView(c2, this.j);
-        this.f4210h.startRecordVoice();
+        this.f4230i.addView(c2, this.j);
+        this.f4229h.startRecordVoice();
     }
 
     @Override // d.a.n0.f1.f.b
     public void stopRecordVoice() {
-        FloatRecordView floatRecordView = this.f4210h;
-        if (floatRecordView == null || this.f4211i == null || this.j == null) {
+        FloatRecordView floatRecordView = this.f4229h;
+        if (floatRecordView == null || this.f4230i == null || this.j == null) {
             return;
         }
         floatRecordView.stopRecordVoice();
-        LinearLayout c2 = this.f4210h.c();
+        LinearLayout c2 = this.f4229h.c();
         if (c2 == null || c2.getParent() == null) {
             return;
         }
-        this.f4211i.removeView(c2);
+        this.f4230i.removeView(c2);
     }
 }

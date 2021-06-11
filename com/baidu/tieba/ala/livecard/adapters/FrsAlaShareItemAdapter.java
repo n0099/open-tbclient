@@ -27,11 +27,11 @@ public class FrsAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> impleme
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f13992a;
+        public c f14049a;
 
         public FrsPageAlaShareHolder(c cVar) {
-            super(cVar.l());
-            this.f13992a = cVar;
+            super(cVar.m());
+            this.f14049a = cVar;
         }
     }
 
@@ -76,44 +76,44 @@ public class FrsAlaShareItemAdapter extends k<a2, FrsPageAlaShareHolder> impleme
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: u0 */
-    public FrsPageAlaShareHolder P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: v0 */
+    public FrsPageAlaShareHolder Q(ViewGroup viewGroup) {
         TbPageContext<?> tbPageContext = this.o;
         if (tbPageContext == null) {
             return null;
         }
-        c cVar = new c(tbPageContext, this.f39232i);
+        c cVar = new c(tbPageContext, this.f42913i);
         this.x = cVar;
-        cVar.T(this.f39232i);
+        cVar.U(this.f42913i);
         this.x.a(this.w);
-        this.x.o(this.z);
+        this.x.p(this.z);
         return new FrsPageAlaShareHolder(this.x);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: v0 */
-    public View W(int i2, View view, ViewGroup viewGroup, a2 a2Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: w0 */
+    public View X(int i2, View view, ViewGroup viewGroup, a2 a2Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         CustomMessage customMessage = new CustomMessage(2921017);
         FrsViewData frsViewData = this.n;
-        a2Var.N1 = (i2 + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
+        a2Var.O1 = (i2 + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
         customMessage.setData(a2Var);
         this.o.sendMessage(customMessage);
         if (a2Var != null) {
-            c cVar = frsPageAlaShareHolder.f13992a;
+            c cVar = frsPageAlaShareHolder.f14049a;
             if (cVar instanceof e) {
                 cVar.setPage(this.y);
             }
-            frsPageAlaShareHolder.f13992a.a(this.w);
-            j.h(frsPageAlaShareHolder.f13992a.M(), this.n);
-            j.h(frsPageAlaShareHolder.f13992a.O(), this.n);
-            frsPageAlaShareHolder.f13992a.m(a2Var);
-            a2Var.B4();
+            frsPageAlaShareHolder.f14049a.a(this.w);
+            j.h(frsPageAlaShareHolder.f14049a.N(), this.n);
+            j.h(frsPageAlaShareHolder.f14049a.P(), this.n);
+            frsPageAlaShareHolder.f14049a.n(a2Var);
+            a2Var.C4();
         }
         return frsPageAlaShareHolder.a();
     }

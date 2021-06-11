@@ -1,0 +1,23 @@
+package aegon.chrome.net;
+
+import aegon.chrome.net.ProxyChangeListener;
+import android.content.Intent;
+/* loaded from: classes.dex */
+public final /* synthetic */ class ProxyChangeListener$ProxyReceiver$$Lambda$1 implements Runnable {
+    public final ProxyChangeListener.ProxyReceiver arg$1;
+    public final Intent arg$2;
+
+    public ProxyChangeListener$ProxyReceiver$$Lambda$1(ProxyChangeListener.ProxyReceiver proxyReceiver, Intent intent) {
+        this.arg$1 = proxyReceiver;
+        this.arg$2 = intent;
+    }
+
+    public static Runnable lambdaFactory$(ProxyChangeListener.ProxyReceiver proxyReceiver, Intent intent) {
+        return new ProxyChangeListener$ProxyReceiver$$Lambda$1(proxyReceiver, intent);
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        ProxyChangeListener.ProxyReceiver.lambda$onReceive$0(this.arg$1, this.arg$2);
+    }
+}

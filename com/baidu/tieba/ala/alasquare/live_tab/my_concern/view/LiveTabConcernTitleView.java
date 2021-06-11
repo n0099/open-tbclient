@@ -19,38 +19,38 @@ public class LiveTabConcernTitleView extends b<g> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public LiveTabConcernTitleView f13761a;
+        public LiveTabConcernTitleView f13826a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f13762b;
+        public View f13827b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f13763c;
+        public TextView f13828c;
 
         public ViewHolder(LiveTabConcernTitleView liveTabConcernTitleView) {
-            super(liveTabConcernTitleView.l());
-            this.f13761a = liveTabConcernTitleView;
-            View l = liveTabConcernTitleView.l();
-            this.f13762b = l;
-            this.f13763c = (TextView) l.findViewById(R.id.tab_sub_rec_title_tv);
+            super(liveTabConcernTitleView.m());
+            this.f13826a = liveTabConcernTitleView;
+            View m = liveTabConcernTitleView.m();
+            this.f13827b = m;
+            this.f13828c = (TextView) m.findViewById(R.id.tab_sub_rec_title_tv);
         }
     }
 
     public LiveTabConcernTitleView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         this.m = new ViewHolder(this);
-        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.tab_sub_title_view;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        SkinManager.setBackgroundColor(this.m.f13762b, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.m.f13763c, R.color.CAM_X0105);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        SkinManager.setBackgroundColor(this.m.f13827b, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.m.f13828c, R.color.CAM_X0105);
     }
 
     @Override // android.view.View.OnClickListener
@@ -59,12 +59,12 @@ public class LiveTabConcernTitleView extends b<g> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(g gVar) {
+    /* renamed from: t */
+    public void n(g gVar) {
         ViewHolder viewHolder;
-        if (gVar == null || StringUtils.isNull(gVar.f61731f) || (viewHolder = this.m) == null) {
+        if (gVar == null || StringUtils.isNull(gVar.f65445f) || (viewHolder = this.m) == null) {
             return;
         }
-        viewHolder.f13763c.setText(gVar.f61731f);
+        viewHolder.f13828c.setText(gVar.f65445f);
     }
 }

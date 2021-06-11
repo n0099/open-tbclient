@@ -6,12 +6,12 @@ import d.a.l0.a.j2.k;
 /* loaded from: classes3.dex */
 public class f {
     public static void a(String str) {
-        if (a.f46449a) {
+        if (a.f50123a) {
             Log.d("BDTLS", "bdtls success");
         }
         d.a.l0.c.a.i.g m = g.l().m();
         if (m == null) {
-            if (a.f46449a) {
+            if (a.f50123a) {
                 Log.d("BDTLS", "bdtls ubc data is null");
                 return;
             }
@@ -22,21 +22,21 @@ public class f {
             int intValue2 = m.f() != null ? m.f().intValue() : -1;
             int intValue3 = m.e() != null ? m.e().intValue() : -1;
             int intValue4 = m.g() != null ? m.g().intValue() : -1;
-            if (a.f46449a) {
+            if (a.f50123a) {
                 Log.d("BDTLS", "bdtls ubc get data");
             }
             d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-            fVar.f43186b = str;
+            fVar.f46862b = str;
             fVar.a("dh_group_id", Integer.valueOf(intValue));
             fVar.a("dh_secret", Integer.valueOf(intValue2));
             fVar.a("dh_pub_c", Integer.valueOf(intValue3));
             fVar.a("dh_pub_s", Integer.valueOf(intValue4));
-            if (a.f46449a) {
+            if (a.f50123a) {
                 Log.d("BDTLS", "bdtls ubc create event");
             }
             k.d(fVar);
         } catch (Exception e2) {
-            if (a.f46449a) {
+            if (a.f50123a) {
                 Log.d("BDTLS", "bdtls ubc exception=" + e2.getMessage());
                 e2.printStackTrace();
             }
@@ -44,7 +44,7 @@ public class f {
     }
 
     public static void b(d.a.l0.c.a.i.g gVar, Bdtls$Alert bdtls$Alert) {
-        if (a.f46449a) {
+        if (a.f50123a) {
             Log.d("BDTLS", "bdtls ubc");
         }
         if (gVar != null && bdtls$Alert != null) {
@@ -55,28 +55,28 @@ public class f {
                 int intValue3 = gVar.e() != null ? gVar.e().intValue() : -1;
                 int intValue4 = gVar.g() != null ? gVar.g().intValue() : -1;
                 String str2 = bdtls$Alert.getDescription() != null ? new String(bdtls$Alert.getDescription().toByteArray()) : "";
-                if (a.f46449a) {
+                if (a.f50123a) {
                     Log.d("BDTLS", "bdtls ubc get data");
                 }
                 d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-                fVar.f43186b = "alert";
-                fVar.f43189e = str;
+                fVar.f46862b = "alert";
+                fVar.f46865e = str;
                 fVar.a("dh_group_id", Integer.valueOf(intValue));
                 fVar.a("dh_secret", Integer.valueOf(intValue2));
                 fVar.a("dh_pub_c", Integer.valueOf(intValue3));
                 fVar.a("dh_pub_s", Integer.valueOf(intValue4));
                 fVar.a("alert_msg", str2);
-                if (a.f46449a) {
+                if (a.f50123a) {
                     Log.d("BDTLS", "bdtls ubc create event");
                 }
                 k.d(fVar);
             } catch (Exception e2) {
-                if (a.f46449a) {
+                if (a.f50123a) {
                     Log.d("BDTLS", "bdtls ubc exception=" + e2.getMessage());
                     e2.printStackTrace();
                 }
             }
-        } else if (a.f46449a) {
+        } else if (a.f50123a) {
             Log.d("BDTLS", "bdtls ubc data is null");
         }
     }

@@ -15,10 +15,10 @@ import org.json.JSONObject;
 public class CooperService implements ICooperService {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CooperService f8358a;
+    public static CooperService f8420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadObject f8359b = new HeadObject();
+    public HeadObject f8421b = new HeadObject();
 
     public static String a(Context context) {
         String l = bw.l(context);
@@ -48,27 +48,27 @@ public class CooperService implements ICooperService {
 
     private String e(Context context) {
         try {
-            if (this.f8359b.l == null || this.f8359b.l.equals("")) {
+            if (this.f8421b.l == null || this.f8421b.l.equals("")) {
                 boolean g2 = bq.a().g(context);
                 if (g2) {
-                    this.f8359b.l = bq.a().f(context);
+                    this.f8421b.l = bq.a().f(context);
                 }
-                if (!g2 || this.f8359b.l == null || this.f8359b.l.equals("")) {
-                    this.f8359b.l = bw.a(context, Config.CHANNEL_META_NAME);
+                if (!g2 || this.f8421b.l == null || this.f8421b.l.equals("")) {
+                    this.f8421b.l = bw.a(context, Config.CHANNEL_META_NAME);
                 }
             }
         } catch (Exception unused) {
         }
-        return this.f8359b.l;
+        return this.f8421b.l;
     }
 
     public static synchronized CooperService instance() {
         CooperService cooperService;
         synchronized (CooperService.class) {
-            if (f8358a == null) {
-                f8358a = new CooperService();
+            if (f8420a == null) {
+                f8420a = new CooperService();
             }
-            cooperService = f8358a;
+            cooperService = f8420a;
         }
         return cooperService;
     }
@@ -99,48 +99,48 @@ public class CooperService implements ICooperService {
 
     @Override // com.baidu.mobstat.ICooperService
     public String getAppKey(Context context) {
-        HeadObject headObject = this.f8359b;
-        if (headObject.f8392e == null) {
-            headObject.f8392e = bw.a(context, Config.APPKEY_META_NAME);
+        HeadObject headObject = this.f8421b;
+        if (headObject.f8454e == null) {
+            headObject.f8454e = bw.a(context, Config.APPKEY_META_NAME);
         }
-        return this.f8359b.f8392e;
+        return this.f8421b.f8454e;
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public int getAppVersionCode(Context context) {
-        HeadObject headObject = this.f8359b;
-        if (headObject.f8394g == -1) {
-            headObject.f8394g = bw.f(context);
+        HeadObject headObject = this.f8421b;
+        if (headObject.f8456g == -1) {
+            headObject.f8456g = bw.f(context);
         }
-        return this.f8359b.f8394g;
+        return this.f8421b.f8456g;
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public String getAppVersionName(Context context) {
-        if (TextUtils.isEmpty(this.f8359b.f8395h)) {
-            this.f8359b.f8395h = bw.g(context);
+        if (TextUtils.isEmpty(this.f8421b.f8457h)) {
+            this.f8421b.f8457h = bw.g(context);
         }
-        return this.f8359b.f8395h;
+        return this.f8421b.f8457h;
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public String getCUID(Context context, boolean z) {
         bq.a().b(context, "");
-        String str = this.f8359b.f8393f;
+        String str = this.f8421b.f8455f;
         if (str == null || "".equalsIgnoreCase(str)) {
             try {
-                this.f8359b.f8393f = bx.a(context);
-                Matcher matcher = Pattern.compile("\\s*|\t|\r|\n").matcher(this.f8359b.f8393f);
-                this.f8359b.f8393f = matcher.replaceAll("");
-                this.f8359b.f8393f = getSecretValue(this.f8359b.f8393f);
+                this.f8421b.f8455f = bx.a(context);
+                Matcher matcher = Pattern.compile("\\s*|\t|\r|\n").matcher(this.f8421b.f8455f);
+                this.f8421b.f8455f = matcher.replaceAll("");
+                this.f8421b.f8455f = getSecretValue(this.f8421b.f8455f);
             } catch (Exception unused) {
             }
         }
         if (z) {
-            return this.f8359b.f8393f;
+            return this.f8421b.f8455f;
         }
         try {
-            String str2 = this.f8359b.f8393f;
+            String str2 = this.f8421b.f8455f;
             if (TextUtils.isEmpty(str2)) {
                 return null;
             }
@@ -160,19 +160,19 @@ public class CooperService implements ICooperService {
 
     @Override // com.baidu.mobstat.ICooperService
     public String getDeviceId(TelephonyManager telephonyManager, Context context) {
-        if (!TextUtils.isEmpty(this.f8359b.f8396i)) {
-            return this.f8359b.f8396i;
+        if (!TextUtils.isEmpty(this.f8421b.f8458i)) {
+            return this.f8421b.f8458i;
         }
         if (bq.a().i(context)) {
-            this.f8359b.f8396i = getMacIdForTv(context);
-            return this.f8359b.f8396i;
+            this.f8421b.f8458i = getMacIdForTv(context);
+            return this.f8421b.f8458i;
         }
         String s = bq.a().s(context);
         if (!TextUtils.isEmpty(s)) {
-            this.f8359b.f8396i = s;
+            this.f8421b.f8458i = s;
             return s;
         } else if (telephonyManager == null) {
-            return this.f8359b.f8396i;
+            return this.f8421b.f8458i;
         } else {
             Pattern compile = Pattern.compile("\\s*|\t|\r|\n");
             try {
@@ -194,15 +194,15 @@ public class CooperService implements ICooperService {
             if (TextUtils.isEmpty(s) || s.equals("000000000000000")) {
                 s = d(context);
             }
-            HeadObject headObject = this.f8359b;
-            headObject.f8396i = s;
-            headObject.f8396i = getSecretValue(s);
-            return this.f8359b.f8396i;
+            HeadObject headObject = this.f8421b;
+            headObject.f8458i = s;
+            headObject.f8458i = getSecretValue(s);
+            return this.f8421b.f8458i;
         }
     }
 
     public HeadObject getHeadObject() {
-        return this.f8359b;
+        return this.f8421b;
     }
 
     public JSONObject getHeaderExt(Context context) {
@@ -223,10 +223,10 @@ public class CooperService implements ICooperService {
 
     @Override // com.baidu.mobstat.ICooperService
     public String getLinkedWay(Context context) {
-        if (TextUtils.isEmpty(this.f8359b.r)) {
-            this.f8359b.r = bw.r(context);
+        if (TextUtils.isEmpty(this.f8421b.r)) {
+            this.f8421b.r = bw.r(context);
         }
-        return this.f8359b.r;
+        return this.f8421b.r;
     }
 
     @Override // com.baidu.mobstat.ICooperService
@@ -239,79 +239,79 @@ public class CooperService implements ICooperService {
         if (!z && Build.VERSION.SDK_INT >= 23) {
             return getSecretValue(replace);
         }
-        if (!TextUtils.isEmpty(this.f8359b.s)) {
-            return this.f8359b.s;
+        if (!TextUtils.isEmpty(this.f8421b.s)) {
+            return this.f8421b.s;
         }
         String h2 = bq.a().h(context);
         if (!TextUtils.isEmpty(h2)) {
-            this.f8359b.s = h2;
+            this.f8421b.s = h2;
             return h2;
         }
         String a2 = a(context, z);
         if (!TextUtils.isEmpty(a2) && !replace.equals(a2)) {
-            this.f8359b.s = getSecretValue(a2);
-            bq.a().e(context, this.f8359b.s);
-            return this.f8359b.s;
+            this.f8421b.s = getSecretValue(a2);
+            bq.a().e(context, this.f8421b.s);
+            return this.f8421b.s;
         }
-        this.f8359b.s = "";
+        this.f8421b.s = "";
         return "";
     }
 
     public String getMacIdForTv(Context context) {
-        if (!TextUtils.isEmpty(this.f8359b.t)) {
-            return this.f8359b.t;
+        if (!TextUtils.isEmpty(this.f8421b.t)) {
+            return this.f8421b.t;
         }
         String j = bq.a().j(context);
         if (!TextUtils.isEmpty(j)) {
-            this.f8359b.t = j;
+            this.f8421b.t = j;
             return j;
         }
         String c2 = bw.c(1, context);
         if (!TextUtils.isEmpty(c2)) {
-            this.f8359b.t = c2;
+            this.f8421b.t = c2;
             bq.a().f(context, c2);
-            return this.f8359b.t;
+            return this.f8421b.t;
         }
-        this.f8359b.t = "";
+        this.f8421b.t = "";
         return "";
     }
 
     public String getManufacturer() {
-        if (TextUtils.isEmpty(this.f8359b.o)) {
-            this.f8359b.o = android.os.Build.MANUFACTURER;
+        if (TextUtils.isEmpty(this.f8421b.o)) {
+            this.f8421b.o = android.os.Build.MANUFACTURER;
         }
-        return this.f8359b.o;
+        return this.f8421b.o;
     }
 
     public String getOSSysVersion() {
-        if (TextUtils.isEmpty(this.f8359b.f8390c)) {
-            this.f8359b.f8390c = Build.VERSION.RELEASE;
+        if (TextUtils.isEmpty(this.f8421b.f8452c)) {
+            this.f8421b.f8452c = Build.VERSION.RELEASE;
         }
-        return this.f8359b.f8390c;
+        return this.f8421b.f8452c;
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public String getOSVersion() {
-        if (TextUtils.isEmpty(this.f8359b.f8389b)) {
-            this.f8359b.f8389b = Integer.toString(Build.VERSION.SDK_INT);
+        if (TextUtils.isEmpty(this.f8421b.f8451b)) {
+            this.f8421b.f8451b = Integer.toString(Build.VERSION.SDK_INT);
         }
-        return this.f8359b.f8389b;
+        return this.f8421b.f8451b;
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public String getOperator(TelephonyManager telephonyManager) {
-        if (TextUtils.isEmpty(this.f8359b.m)) {
-            this.f8359b.m = telephonyManager.getNetworkOperator();
+        if (TextUtils.isEmpty(this.f8421b.m)) {
+            this.f8421b.m = telephonyManager.getNetworkOperator();
         }
-        return this.f8359b.m;
+        return this.f8421b.m;
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public String getPhoneModel() {
-        if (TextUtils.isEmpty(this.f8359b.n)) {
-            this.f8359b.n = android.os.Build.MODEL;
+        if (TextUtils.isEmpty(this.f8421b.n)) {
+            this.f8421b.n = android.os.Build.MODEL;
         }
-        return this.f8359b.n;
+        return this.f8421b.n;
     }
 
     public String getPlainDeviceIdForCar(Context context) {
@@ -353,7 +353,7 @@ public class CooperService implements ICooperService {
 
     @Override // com.baidu.mobstat.ICooperService
     public void installHeader(Context context, JSONObject jSONObject) {
-        this.f8359b.installHeader(context, jSONObject);
+        this.f8421b.installHeader(context, jSONObject);
     }
 
     public boolean isDeviceMacEnabled(Context context) {
@@ -361,14 +361,14 @@ public class CooperService implements ICooperService {
     }
 
     public void resetHeadSign() {
-        this.f8359b.z = instance().getUUID();
+        this.f8421b.z = instance().getUUID();
     }
 
     public void setAppVersionName(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f8359b.f8395h = str;
+        this.f8421b.f8457h = str;
     }
 
     public void setHeaderExt(Context context, ExtraInfo extraInfo) {
@@ -377,7 +377,7 @@ public class CooperService implements ICooperService {
         if (extraInfo != null) {
             jSONObject = extraInfo.dumpToJson();
         }
-        this.f8359b.setHeaderExt(jSONObject);
+        this.f8421b.setHeaderExt(jSONObject);
         bq.a().g(context, jSONObject.toString());
         if (extraInfo != null) {
             str = "Set global ExtraInfo: " + jSONObject;
@@ -401,7 +401,7 @@ public class CooperService implements ICooperService {
             }
         } catch (Exception unused) {
         }
-        this.f8359b.setPushInfo(pushId);
+        this.f8421b.setPushInfo(pushId);
         bq.a().h(context, pushId.toString());
         if (str3 != null) {
             str4 = "Set platform:" + str2 + " pushId: " + str3;
@@ -412,7 +412,7 @@ public class CooperService implements ICooperService {
     }
 
     public void setStartType(boolean z) {
-        this.f8359b.setStartType(z);
+        this.f8421b.setStartType(z);
     }
 
     public void setUserId(Context context, String str) {
@@ -423,7 +423,7 @@ public class CooperService implements ICooperService {
             str = str.substring(0, 256);
         }
         bq.a().i(context, str);
-        this.f8359b.setUserId(str);
+        this.f8421b.setUserId(str);
         bc.c().a("Set user id " + str);
     }
 

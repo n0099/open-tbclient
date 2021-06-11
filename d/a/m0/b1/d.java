@@ -10,43 +10,43 @@ import java.lang.ref.WeakReference;
 public class d extends ImageSpan {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48967e;
+    public int f52641e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48968f;
+    public int f52642f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48969g;
+    public int f52643g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WeakReference<Drawable> f48970h;
+    public WeakReference<Drawable> f52644h;
 
     public d(Drawable drawable) {
         super(drawable);
-        this.f48967e = 0;
+        this.f52641e = 0;
     }
 
     public final Drawable a() {
-        WeakReference<Drawable> weakReference = this.f48970h;
+        WeakReference<Drawable> weakReference = this.f52644h;
         Drawable drawable = weakReference != null ? weakReference.get() : null;
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.f48970h = new WeakReference<>(drawable2);
+            this.f52644h = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;
     }
 
     public void b(int i2) {
-        this.f48968f = i2;
+        this.f52642f = i2;
     }
 
     public void c(int i2) {
-        this.f48969g = i2;
+        this.f52643g = i2;
     }
 
     public void d(int i2) {
-        this.f48967e = i2;
+        this.f52641e = i2;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -56,7 +56,7 @@ public class d extends ImageSpan {
             return;
         }
         canvas.save();
-        canvas.translate(f2 + this.f48968f, ((((i6 - i4) - a2.getBounds().bottom) / 2) + i4) - this.f48967e);
+        canvas.translate(f2 + this.f52642f, ((((i6 - i4) - a2.getBounds().bottom) / 2) + i4) - this.f52641e);
         a2.draw(canvas);
         canvas.restore();
     }
@@ -80,6 +80,6 @@ public class d extends ImageSpan {
             fontMetricsInt.bottom = i7;
             fontMetricsInt.descent = i7;
         }
-        return bounds.right + this.f48968f + this.f48969g;
+        return bounds.right + this.f52642f + this.f52643g;
     }
 }

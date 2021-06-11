@@ -13,7 +13,7 @@ import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioRecord {
     public static final long AUDIO_RECORD_THREAD_JOIN_TIMEOUT_MS = 2000;
     public static final int BITS_PER_SAMPLE = 16;
@@ -45,7 +45,7 @@ public class WebRtcAudioRecord {
     public volatile boolean microphoneMute;
     public long nativeAudioRecord;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AudioRecordThread extends Thread {
         public volatile boolean keepAlive;
 

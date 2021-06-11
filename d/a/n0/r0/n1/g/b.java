@@ -44,8 +44,8 @@ public class b extends d.a.n0.r0.n1.g.a {
 
     /* renamed from: d.a.n0.r0.n1.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1521b implements View.OnClickListener {
-        public View$OnClickListenerC1521b() {
+    public class View$OnClickListenerC1577b implements View.OnClickListener {
+        public View$OnClickListenerC1577b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -61,7 +61,7 @@ public class b extends d.a.n0.r0.n1.g.a {
         super(tbPageContext, bdUniqueId);
         this.x0 = 3;
         this.z0 = new a();
-        this.A0 = new View$OnClickListenerC1521b();
+        this.A0 = new View$OnClickListenerC1577b();
         this.t0 = tbPageContext;
         TextView textView = new TextView(tbPageContext.getPageActivity());
         this.u0 = textView;
@@ -81,7 +81,7 @@ public class b extends d.a.n0.r0.n1.g.a {
         layoutParams2.rightMargin = l.g(this.t0.getPageActivity(), R.dimen.ds32);
         layoutParams2.topMargin = l.g(this.t0.getPageActivity(), R.dimen.ds24);
         this.v0.setLayoutParams(layoutParams2);
-        ((ViewGroup) l()).addView(this.v0);
+        ((ViewGroup) m()).addView(this.v0);
         d.a.m0.r.f0.q.c cVar = new d.a.m0.r.f0.q.c(tbPageContext, this.v0);
         this.w0 = cVar;
         cVar.m("1");
@@ -90,9 +90,9 @@ public class b extends d.a.n0.r0.n1.g.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.r0.n1.g.a, d.a.n0.z.b
-    /* renamed from: X */
-    public void m(a2 a2Var) {
-        super.m(a2Var);
+    /* renamed from: Y */
+    public void n(a2 a2Var) {
+        super.n(a2Var);
         if (a2Var == null) {
             return;
         }
@@ -100,7 +100,7 @@ public class b extends d.a.n0.r0.n1.g.a {
         if (a2Var.T() != null) {
             this.w0.n(a2Var.T());
             q0(a2Var.T().getFansNum());
-            if (!this.y0.c2()) {
+            if (!this.y0.d2()) {
                 this.v0.setVisibility(8);
             } else if (this.y0.T().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.y0.T().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.v0.setVisibility(8);
@@ -118,7 +118,7 @@ public class b extends d.a.n0.r0.n1.g.a {
         }
         int i2 = ((RelativeLayout.LayoutParams) this.v.getLayoutParams()).height;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.v0.getLayoutParams();
-        if (a2Var.j1() != null) {
+        if (a2Var.k1() != null) {
             layoutParams.topMargin = l.g(this.t0.getPageActivity(), R.dimen.ds4) + i2;
         } else {
             layoutParams.topMargin = l.g(this.t0.getPageActivity(), R.dimen.ds24);
@@ -126,13 +126,13 @@ public class b extends d.a.n0.r0.n1.g.a {
     }
 
     @Override // d.a.n0.r0.n1.g.a
-    public void Z(BdUniqueId bdUniqueId) {
-        super.Z(bdUniqueId);
+    public void a0(BdUniqueId bdUniqueId) {
+        super.a0(bdUniqueId);
     }
 
     @Override // d.a.n0.r0.n1.g.a, d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        super.n(tbPageContext, i2);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        super.o(tbPageContext, i2);
         if (this.x0 != i2) {
             SkinManager.setViewTextColor(this.u0, R.color.CAM_X0109);
             this.v0.g(i2);
@@ -147,7 +147,7 @@ public class b extends d.a.n0.r0.n1.g.a {
         String string = this.t0.getResources().getString(R.string.fans_default_name_god_user);
         a2 a2Var = this.y0;
         if (a2Var != null && !StringUtils.isNull(a2Var.i0()) && this.y0.i0().equals(this.i0)) {
-            if (this.y0.c2()) {
+            if (this.y0.d2()) {
                 String format = String.format(string, StringHelper.numberUniformFormat(i2));
                 this.u0.setVisibility(0);
                 this.u0.setText(format);

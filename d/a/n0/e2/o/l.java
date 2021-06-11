@@ -19,31 +19,31 @@ import com.baidu.tieba.pb.videopb.VideoZoomBehavior;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public FragmentActivity f53771a;
+    public FragmentActivity f57460a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f53772b;
+    public ViewGroup f57461b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwipeBackLayout f53773c;
+    public SwipeBackLayout f57462c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f53774d;
+    public ViewGroup f57463d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f53775e;
+    public View f57464e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f53776f;
+    public View f57465f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup.LayoutParams f53777g;
+    public ViewGroup.LayoutParams f57466g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup.LayoutParams f53778h;
+    public ViewGroup.LayoutParams f57467h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f53779i;
+    public View f57468i;
     public Rect j;
     public Rect k;
     public ValueAnimator m;
@@ -130,8 +130,8 @@ public class l {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             View[] viewArr;
-            l.this.f53772b.removeView(l.this.f53775e);
-            SkinManager.setBackgroundColor(l.this.f53774d, R.color.CAM_X0201);
+            l.this.f57461b.removeView(l.this.f57464e);
+            SkinManager.setBackgroundColor(l.this.f57463d, R.color.CAM_X0201);
             for (View view : l.this.p) {
                 view.setVisibility(0);
                 view.setAlpha(0.0f);
@@ -140,35 +140,35 @@ public class l {
     }
 
     public l(FragmentActivity fragmentActivity, View view) {
-        this.f53771a = fragmentActivity;
-        this.f53776f = view;
+        this.f57460a = fragmentActivity;
+        this.f57465f = view;
         ViewGroup viewGroup = (ViewGroup) fragmentActivity.getWindow().getDecorView();
-        this.f53772b = viewGroup;
-        this.f53779i = viewGroup.findViewById(R.id.appbar_layout);
-        this.f53774d = (ViewGroup) this.f53772b.findViewById(R.id.video_pb_root);
+        this.f57461b = viewGroup;
+        this.f57468i = viewGroup.findViewById(R.id.appbar_layout);
+        this.f57463d = (ViewGroup) this.f57461b.findViewById(R.id.video_pb_root);
     }
 
     public final void j() {
         View[] viewArr = new View[3];
         this.p = viewArr;
-        viewArr[0] = this.f53772b.findViewById(R.id.pb_video_view_pager);
-        this.p[1] = this.f53772b.findViewById(R.id.pb_video_tab_strip);
-        this.p[2] = this.f53772b.findViewById(R.id.video_pb_comment_container);
-        this.f53772b.findViewById(16908290).setBackgroundResource(R.color.transparent);
-        this.f53772b.findViewById(R.id.container).setBackgroundResource(R.color.transparent);
-        this.f53772b.findViewById(R.id.video_pb_root).setBackgroundResource(R.color.transparent);
-        this.f53772b.findViewById(R.id.pb_video_nested_scroll_layout).setBackgroundResource(R.color.transparent);
-        this.f53772b.findViewById(R.id.appbar_layout).setBackgroundResource(R.color.transparent);
-        this.f53772b.findViewById(R.id.scroll_container).setBackgroundResource(R.color.transparent);
-        if (this.f53772b.getChildAt(0) instanceof SwipeBackLayout) {
-            SwipeBackLayout swipeBackLayout = (SwipeBackLayout) this.f53772b.getChildAt(0);
-            this.f53773c = swipeBackLayout;
+        viewArr[0] = this.f57461b.findViewById(R.id.pb_video_view_pager);
+        this.p[1] = this.f57461b.findViewById(R.id.pb_video_tab_strip);
+        this.p[2] = this.f57461b.findViewById(R.id.video_pb_comment_container);
+        this.f57461b.findViewById(16908290).setBackgroundResource(R.color.transparent);
+        this.f57461b.findViewById(R.id.container).setBackgroundResource(R.color.transparent);
+        this.f57461b.findViewById(R.id.video_pb_root).setBackgroundResource(R.color.transparent);
+        this.f57461b.findViewById(R.id.pb_video_nested_scroll_layout).setBackgroundResource(R.color.transparent);
+        this.f57461b.findViewById(R.id.appbar_layout).setBackgroundResource(R.color.transparent);
+        this.f57461b.findViewById(R.id.scroll_container).setBackgroundResource(R.color.transparent);
+        if (this.f57461b.getChildAt(0) instanceof SwipeBackLayout) {
+            SwipeBackLayout swipeBackLayout = (SwipeBackLayout) this.f57461b.getChildAt(0);
+            this.f57462c = swipeBackLayout;
             swipeBackLayout.setBgTransparent();
         }
-        View view = new View(this.f53771a);
-        this.f53775e = view;
+        View view = new View(this.f57460a);
+        this.f57464e = view;
         SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
-        this.f53772b.addView(this.f53775e, 0, new ViewGroup.LayoutParams(-1, -1));
+        this.f57461b.addView(this.f57464e, 0, new ViewGroup.LayoutParams(-1, -1));
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.m = ofFloat;
         ofFloat.setInterpolator(new DecelerateInterpolator());
@@ -206,23 +206,23 @@ public class l {
     }
 
     public final void o() {
-        View view = this.f53775e;
+        View view = this.f57464e;
         if (view != null) {
             view.setAlpha(1.0f);
         }
-        this.f53776f.setTranslationX(0.0f);
-        this.f53776f.setTranslationY(0.0f);
-        this.f53779i.setLayoutParams(this.f53777g);
-        if (this.f53779i.getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
-            CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) this.f53779i.getLayoutParams()).getBehavior();
+        this.f57465f.setTranslationX(0.0f);
+        this.f57465f.setTranslationY(0.0f);
+        this.f57468i.setLayoutParams(this.f57466g);
+        if (this.f57468i.getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
+            CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) this.f57468i.getLayoutParams()).getBehavior();
             if (behavior instanceof VideoZoomBehavior) {
-                View view2 = this.f53776f;
+                View view2 = this.f57465f;
                 if (view2 instanceof VideoContainerLayout) {
-                    ((VideoZoomBehavior) behavior).setTopAndBottomOffset(((VideoContainerLayout) view2).getOriginHeight() - ((VideoContainerLayout) this.f53776f).getMaxHeight());
+                    ((VideoZoomBehavior) behavior).setTopAndBottomOffset(((VideoContainerLayout) view2).getOriginHeight() - ((VideoContainerLayout) this.f57465f).getMaxHeight());
                 }
             }
         }
-        this.f53776f.setLayoutParams(this.f53778h);
+        this.f57465f.setLayoutParams(this.f57467h);
         this.n.start();
     }
 
@@ -239,17 +239,17 @@ public class l {
         float f4 = i4 + ((i5 - i4) * f2);
         int i6 = (int) (f3 - i3);
         int i7 = (int) (f4 - i5);
-        View view = this.f53775e;
+        View view = this.f57464e;
         if (view != null) {
             view.setAlpha(f2);
         }
-        this.f53776f.setTranslationX(i6);
-        this.f53776f.setTranslationY(i7);
-        ViewGroup.LayoutParams layoutParams = this.f53776f.getLayoutParams();
+        this.f57465f.setTranslationX(i6);
+        this.f57465f.setTranslationY(i7);
+        ViewGroup.LayoutParams layoutParams = this.f57465f.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = (int) width;
             layoutParams.height = (int) height;
-            this.f53776f.setLayoutParams(layoutParams);
+            this.f57465f.setLayoutParams(layoutParams);
         }
     }
 
@@ -271,13 +271,13 @@ public class l {
         for (View view : this.p) {
             view.setVisibility(8);
         }
-        this.f53777g = this.f53779i.getLayoutParams();
-        this.f53779i.setLayoutParams(new CoordinatorLayout.LayoutParams(d.a.c.e.p.l.k(TbadkCoreApplication.getInst()), d.a.c.e.p.l.i(TbadkCoreApplication.getInst())));
-        this.f53778h = this.f53776f.getLayoutParams();
-        View view2 = this.f53776f;
-        ViewGroup.LayoutParams layoutParams = this.f53778h;
+        this.f57466g = this.f57468i.getLayoutParams();
+        this.f57468i.setLayoutParams(new CoordinatorLayout.LayoutParams(d.a.c.e.p.l.k(TbadkCoreApplication.getInst()), d.a.c.e.p.l.i(TbadkCoreApplication.getInst())));
+        this.f57467h = this.f57465f.getLayoutParams();
+        View view2 = this.f57465f;
+        ViewGroup.LayoutParams layoutParams = this.f57467h;
         view2.setLayoutParams(new RelativeLayout.LayoutParams(layoutParams.width, layoutParams.height));
-        View view3 = this.f53775e;
+        View view3 = this.f57464e;
         if (view3 != null) {
             view3.setAlpha(0.0f);
         }

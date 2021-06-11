@@ -9,27 +9,27 @@ import tbclient.ThemeBgProp;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f57061a;
+    public String f60750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<DressItemData> f57062b;
+    public List<DressItemData> f60751b;
 
     public List<DressItemData> a() {
-        return this.f57062b;
+        return this.f60751b;
     }
 
     public String b() {
-        return this.f57061a;
+        return this.f60750a;
     }
 
     public void c(ThemeBubbleInMain themeBubbleInMain) {
         if (themeBubbleInMain == null) {
             return;
         }
-        this.f57061a = themeBubbleInMain.bubble_category;
-        this.f57062b = new ArrayList();
+        this.f60750a = themeBubbleInMain.bubble_category;
+        this.f60751b = new ArrayList();
         for (ThemeBgProp themeBgProp : themeBubbleInMain.props) {
-            this.f57062b.add(new DressItemData(themeBgProp));
+            this.f60751b.add(new DressItemData(themeBgProp));
         }
     }
 }

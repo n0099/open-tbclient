@@ -3,19 +3,19 @@ package d.a.l0.a.l1.e.a;
 public class a implements Cloneable {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43374e;
+    public int f47050e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43375f;
+    public int f47051f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43376g;
+    public int f47052g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43377h;
+    public int f47053h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f43378i = false;
+    public boolean f47054i = false;
     public boolean j = false;
     public boolean k = false;
     public boolean l;
@@ -41,11 +41,11 @@ public class a implements Cloneable {
     }
 
     public int d() {
-        return this.f43377h;
+        return this.f47053h;
     }
 
     public int e() {
-        return this.f43374e;
+        return this.f47050e;
     }
 
     public boolean equals(Object obj) {
@@ -54,17 +54,17 @@ public class a implements Cloneable {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return this.f43374e == aVar.f43374e && this.f43375f == aVar.f43375f && this.f43377h == aVar.f43377h && this.f43376g == aVar.f43376g && this.l == aVar.l;
+            return this.f47050e == aVar.f47050e && this.f47051f == aVar.f47051f && this.f47053h == aVar.f47053h && this.f47052g == aVar.f47052g && this.l == aVar.l;
         }
         return false;
     }
 
     public int f() {
-        return this.f43375f;
+        return this.f47051f;
     }
 
     public int g() {
-        return this.f43376g;
+        return this.f47052g;
     }
 
     public boolean h() {
@@ -73,7 +73,7 @@ public class a implements Cloneable {
 
     public boolean i() {
         boolean z = false;
-        return (this.f43378i || this.f43376g >= 0) & ((this.j || this.f43377h >= 0) ? true : true);
+        return (this.f47054i || this.f47052g >= 0) & ((this.j || this.f47053h >= 0) ? true : true);
     }
 
     public void j(boolean z) {
@@ -81,7 +81,7 @@ public class a implements Cloneable {
     }
 
     public void k(int i2) {
-        this.f43377h = i2;
+        this.f47053h = i2;
     }
 
     public void l(boolean z) {
@@ -89,29 +89,29 @@ public class a implements Cloneable {
     }
 
     public void m(int i2) {
-        this.f43374e = i2;
+        this.f47050e = i2;
     }
 
     public void n(int i2) {
-        this.f43375f = i2;
+        this.f47051f = i2;
     }
 
     public void o(int i2) {
-        this.f43376g = i2;
+        this.f47052g = i2;
     }
 
     public void p(boolean z) {
-        this.f43378i = z;
+        this.f47054i = z;
     }
 
     public String toString() {
-        return "Position{l=" + this.f43374e + ", t=" + this.f43375f + ", w=" + this.f43376g + ", h=" + this.f43377h + ", WAuto=" + this.f43378i + ", HAuto=" + this.j + ", fixed=" + this.l + '}';
+        return "Position{l=" + this.f47050e + ", t=" + this.f47051f + ", w=" + this.f47052g + ", h=" + this.f47053h + ", WAuto=" + this.f47054i + ", HAuto=" + this.j + ", fixed=" + this.l + '}';
     }
 
     public a(int i2, int i3, int i4, int i5) {
-        this.f43374e = i2;
-        this.f43375f = i3;
-        this.f43376g = i4;
-        this.f43377h = i5;
+        this.f47050e = i2;
+        this.f47051f = i3;
+        this.f47052g = i4;
+        this.f47053h = i5;
     }
 }

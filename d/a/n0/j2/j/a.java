@@ -41,21 +41,21 @@ public class a extends d.a.n0.z.b<d.a.n0.j2.e.c> {
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            if (a.this.o == null || ListUtils.isEmpty(a.this.o.f56394e)) {
+            if (a.this.o == null || ListUtils.isEmpty(a.this.o.f60083e)) {
                 return 0;
             }
-            return a.this.o.f56394e.size() % 4 == 0 ? a.this.o.f56394e.size() / 4 : (a.this.o.f56394e.size() / 4) + 1;
+            return a.this.o.f60083e.size() % 4 == 0 ? a.this.o.f60083e.size() / 4 : (a.this.o.f60083e.size() / 4) + 1;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i2) {
-            List<d.a.n0.j2.e.f> w = a.this.w(i2);
-            if (ListUtils.isEmpty(w)) {
+            List<d.a.n0.j2.e.f> x = a.this.x(i2);
+            if (ListUtils.isEmpty(x)) {
                 return null;
             }
             PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(a.this.m.getPageActivity());
             personCommonForumCardView.setForumItemViewBdObjectPool(a.this.q);
-            personCommonForumCardView.setData(w);
+            personCommonForumCardView.setData(x);
             personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
             viewGroup.addView(personCommonForumCardView);
             return personCommonForumCardView;
@@ -72,27 +72,31 @@ public class a extends d.a.n0.z.b<d.a.n0.j2.e.c> {
         this.n = 3;
         this.p = new b();
         this.m = tbPageContext;
-        View l = l();
-        this.r = (TextView) l.findViewById(R.id.common_forum_title);
-        this.s = (ListViewPager) l.findViewById(R.id.common_forum_viewpager);
+        View m = m();
+        this.r = (TextView) m.findViewById(R.id.common_forum_title);
+        this.s = (ListViewPager) m.findViewById(R.id.common_forum_viewpager);
         if ("NX40X".equals(Build.MODEL)) {
-            l.setLayerType(2, null);
-            if (l instanceof ViewGroup) {
-                ((ViewGroup) l).setClipChildren(true);
+            m.setLayerType(2, null);
+            if (m instanceof ViewGroup) {
+                ((ViewGroup) m).setClipChildren(true);
             }
         }
         this.s.setOffscreenPageLimit(1);
     }
 
+    public void A(d.a.c.e.k.b<PersonCommonForumItemView> bVar) {
+        this.q = bVar;
+    }
+
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.person_info_common_forum_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.n != i2) {
-            SkinManager.setBackgroundResource(l(), R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(m(), R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
             int childCount = this.s.getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
@@ -109,15 +113,15 @@ public class a extends d.a.n0.z.b<d.a.n0.j2.e.c> {
     public void onClick(View view) {
     }
 
-    public final List<d.a.n0.j2.e.f> w(int i2) {
+    public final List<d.a.n0.j2.e.f> x(int i2) {
         d.a.n0.j2.e.c cVar = this.o;
-        if (cVar == null || ListUtils.isEmpty(cVar.f56394e)) {
+        if (cVar == null || ListUtils.isEmpty(cVar.f60083e)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         int i3 = i2 * 4;
         for (int i4 = i3; i4 < i3 + 4; i4++) {
-            d.a.n0.j2.e.f fVar = (d.a.n0.j2.e.f) ListUtils.getItem(this.o.f56394e, i4);
+            d.a.n0.j2.e.f fVar = (d.a.n0.j2.e.f) ListUtils.getItem(this.o.f60083e, i4);
             if (fVar != null) {
                 arrayList.add(fVar);
             }
@@ -125,20 +129,20 @@ public class a extends d.a.n0.z.b<d.a.n0.j2.e.c> {
         return arrayList;
     }
 
-    public final boolean x(d.a.n0.j2.e.c cVar) {
+    public final boolean y(d.a.n0.j2.e.c cVar) {
         d.a.n0.j2.e.c cVar2;
-        if (cVar == null || ListUtils.isEmpty(cVar.f56394e) || cVar == (cVar2 = this.o)) {
+        if (cVar == null || ListUtils.isEmpty(cVar.f60083e) || cVar == (cVar2 = this.o)) {
             return false;
         }
-        if (cVar2 == null || ListUtils.isEmpty(cVar2.f56394e)) {
+        if (cVar2 == null || ListUtils.isEmpty(cVar2.f60083e)) {
             return true;
         }
-        if (!ListUtils.isEmpty(cVar.f56394e)) {
-            if (cVar.f56394e.size() != this.o.f56394e.size()) {
+        if (!ListUtils.isEmpty(cVar.f60083e)) {
+            if (cVar.f60083e.size() != this.o.f60083e.size()) {
                 return true;
             }
-            for (int i2 = 0; i2 < cVar.f56394e.size(); i2++) {
-                if (this.o.f56394e.get(i2) == null || cVar.f56394e.get(i2).f56404e != this.o.f56394e.get(i2).f56404e) {
+            for (int i2 = 0; i2 < cVar.f60083e.size(); i2++) {
+                if (this.o.f60083e.get(i2) == null || cVar.f60083e.get(i2).f60093e != this.o.f60083e.get(i2).f60093e) {
                     return true;
                 }
             }
@@ -148,19 +152,15 @@ public class a extends d.a.n0.z.b<d.a.n0.j2.e.c> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: y */
-    public void m(d.a.n0.j2.e.c cVar) {
-        if (x(cVar)) {
+    /* renamed from: z */
+    public void n(d.a.n0.j2.e.c cVar) {
+        if (y(cVar)) {
             this.o = cVar;
-            if (ListUtils.getCount(cVar.f56394e) <= 2) {
+            if (ListUtils.getCount(cVar.f60083e) <= 2) {
                 this.s.getLayoutParams().height = d.a.c.e.p.l.g(this.m.getPageActivity(), R.dimen.ds140);
             }
             this.s.setAdapter(this.p);
         }
-        n(this.m, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public void z(d.a.c.e.k.b<PersonCommonForumItemView> bVar) {
-        this.q = bVar;
+        o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 }

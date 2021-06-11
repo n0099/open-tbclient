@@ -6,45 +6,45 @@ import tbclient.ActHot;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f53986a;
+    public String f57675a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f53987b;
+    public int f57676b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f53988c;
+    public int f57677c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53989d;
+    public String f57678d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53990e;
+    public String f57679e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53991f;
+    public String f57680f;
 
     public String a() {
-        return this.f53991f;
+        return this.f57680f;
     }
 
     public int b() {
-        return this.f53988c;
+        return this.f57677c;
     }
 
     public String c() {
-        return this.f53986a;
+        return this.f57675a;
     }
 
     public int d() {
-        return this.f53987b;
+        return this.f57676b;
     }
 
     public String e() {
-        return this.f53989d;
+        return this.f57678d;
     }
 
     public String f() {
-        return this.f53990e;
+        return this.f57679e;
     }
 
     public void g(ActHot actHot) {
@@ -55,22 +55,22 @@ public class a {
         if (str != null) {
             try {
                 String[] split = str.split(",");
-                this.f53987b = d.a.c.e.m.b.d(split[0], 1);
-                this.f53988c = d.a.c.e.m.b.d(split[1], 1);
+                this.f57676b = d.a.c.e.m.b.d(split[0], 1);
+                this.f57677c = d.a.c.e.m.b.d(split[1], 1);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f53987b <= 0) {
-            this.f53987b = 1;
+        if (this.f57676b <= 0) {
+            this.f57676b = 1;
         }
-        if (this.f53988c <= 0) {
-            this.f53988c = 1;
+        if (this.f57677c <= 0) {
+            this.f57677c = 1;
         }
-        this.f53986a = actHot.img_src;
-        this.f53989d = actHot.link;
-        this.f53990e = actHot.author_name;
-        this.f53991f = actHot.img_des;
+        this.f57675a = actHot.img_src;
+        this.f57678d = actHot.link;
+        this.f57679e = actHot.author_name;
+        this.f57680f = actHot.img_des;
         actHot.img_type.intValue();
     }
 }

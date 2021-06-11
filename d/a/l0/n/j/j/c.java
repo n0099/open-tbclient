@@ -12,7 +12,7 @@ public class c extends d.a.l0.n.j.b {
             jSONObject2.put("version", b.c().a());
             jSONObject.put("base_info", jSONObject2);
         } catch (JSONException e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
         }

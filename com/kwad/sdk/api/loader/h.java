@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.kwad.sdk.api.core.RequestParamsUtils;
 import com.kwad.sdk.api.core.SpeedLimitApiHolder;
-import com.kwad.sdk.api.core.TLSConnectionUtils;
 import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -30,7 +29,7 @@ import org.apache.http.protocol.HTTP;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f31765a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
+    public static final String f32341a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -43,10 +42,10 @@ public class h {
     public static class b implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f31769a;
+        public final OutputStream f32345a;
 
         public b(File file, boolean z) {
-            this.f31769a = new FileOutputStream(file, z);
+            this.f32345a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
@@ -59,12 +58,12 @@ public class h {
 
         @Override // com.kwad.sdk.api.loader.h.d
         public void a(byte[] bArr, int i2, int i3) {
-            this.f31769a.write(bArr, i2, i3);
+            this.f32345a.write(bArr, i2, i3);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f31769a.close();
+            this.f32345a.close();
         }
     }
 
@@ -110,7 +109,6 @@ public class h {
     public static URLConnection a(String str, int i2, int i3, boolean z, boolean z2) {
         try {
             URLConnection openConnection = new URL(str).openConnection();
-            TLSConnectionUtils.wrapHttpURLConnection(openConnection);
             openConnection.setRequestProperty("Accept-Language", "zh-CN");
             if (i2 > 0) {
                 openConnection.setConnectTimeout(i2);
@@ -313,7 +311,7 @@ public class h {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file2 = new File(f31765a, random.nextInt() + ".tmp");
+                    file2 = new File(f32341a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream = new FileOutputStream(file2);
                     } catch (Throwable th5) {

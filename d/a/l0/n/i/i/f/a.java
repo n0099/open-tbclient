@@ -8,16 +8,16 @@ import okhttp3.ResponseBody;
 public class a implements e {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Response f48044e;
+    public final Response f51718e;
 
     public a(@NonNull Response response) {
-        this.f48044e = response;
+        this.f51718e = response;
     }
 
     @Override // d.a.l0.n.i.i.f.e
     @Nullable
     public d body() {
-        ResponseBody body = this.f48044e.body();
+        ResponseBody body = this.f51718e.body();
         if (body == null) {
             return null;
         }
@@ -26,11 +26,11 @@ public class a implements e {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f48044e.close();
+        this.f51718e.close();
     }
 
     @Override // d.a.l0.n.i.i.f.e
     public int code() {
-        return this.f48044e.code();
+        return this.f51718e.code();
     }
 }

@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class RFC1522Codec {
     public RFC1522Codec() {
         throw new RuntimeException("Stub!");

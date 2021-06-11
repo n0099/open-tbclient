@@ -9,10 +9,10 @@ import android.view.View;
 public class d extends StateListDrawable {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f47616e;
+    public a f51290e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47617f = null;
+    public View f51291f = null;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -27,20 +27,20 @@ public class d extends StateListDrawable {
     }
 
     public void a(a aVar) {
-        this.f47616e = aVar;
+        this.f51290e = aVar;
     }
 
     public void b(View view) {
-        this.f47617f = view;
+        this.f51291f = view;
     }
 
     @Override // android.graphics.drawable.StateListDrawable, android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
     public boolean onStateChange(int[] iArr) {
-        if (this.f47617f != null && this.f47616e != null) {
+        if (this.f51291f != null && this.f51290e != null) {
             if (StateSet.stateSetMatches(new int[]{16842919}, iArr)) {
-                this.f47616e.b(this.f47617f);
+                this.f51290e.b(this.f51291f);
             } else {
-                this.f47616e.a(this.f47617f);
+                this.f51290e.a(this.f51291f);
             }
         }
         return super.onStateChange(iArr);

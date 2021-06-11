@@ -16,6 +16,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
@@ -228,9 +229,9 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                 writeData.setVcodeExtra(i0Var.a());
                 WriteShareActivity.this.mIsGotoVcode = true;
                 if (d.a.m0.a1.a.b(i0Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), 12006, writeData, false, i0Var.d())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, false, i0Var.d())));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), writeData, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
                 }
             }
         }
@@ -263,11 +264,11 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class j implements b.InterfaceC1750b {
+    public class j implements b.InterfaceC1807b {
         public j() {
         }
 
-        @Override // d.a.n0.y2.b.InterfaceC1750b
+        @Override // d.a.n0.y2.b.InterfaceC1807b
         public void a(boolean z, PostPrefixData postPrefixData) {
             if (z) {
                 WriteShareActivity.this.mPrefixData = postPrefixData;
@@ -285,7 +286,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             WriteShareActivity.this.mView.F(null);
         }
 
-        @Override // d.a.n0.y2.b.InterfaceC1750b
+        @Override // d.a.n0.y2.b.InterfaceC1807b
         public void onFailure() {
             WriteShareActivity.this.mPrefixData = null;
             WriteShareActivity.this.mView.F(null);
@@ -324,19 +325,19 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public class m implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public Activity f20543e;
+        public Activity f20620e;
 
         public m(Activity activity) {
-            this.f20543e = null;
-            this.f20543e = activity;
+            this.f20620e = null;
+            this.f20620e = activity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f20543e != null) {
+            if (this.f20620e != null) {
                 WriteShareActivity.this.setResult(0);
-                d.a.m0.r.a0.b.g(this.f20543e, 200, false);
-                this.f20543e.finish();
+                d.a.m0.r.a0.b.g(this.f20620e, 200, false);
+                this.f20620e.finish();
             }
         }
     }
@@ -352,11 +353,11 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             this.mData.setTitle(this.mView.q().getText().toString());
         }
         this.mData.setContent(this.mView.p().getText().toString());
-        this.mWriteModel.f0(this.mData);
+        this.mWriteModel.j0(this.mData);
         this.mData.setVcode(null);
-        this.mWriteModel.T().setVoice(null);
-        this.mWriteModel.T().setVoiceDuringTime(-1);
-        if (this.mWriteModel.i0()) {
+        this.mWriteModel.X().setVoice(null);
+        this.mWriteModel.X().setVoiceDuringTime(-1);
+        if (this.mWriteModel.m0()) {
             showLoadingDialog(getPageContext().getString(R.string.sending), this.mDialogCancelListener);
         }
     }
@@ -437,8 +438,8 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     private void initData(Bundle bundle) {
         NewWriteModel newWriteModel = new NewWriteModel(this);
         this.mWriteModel = newWriteModel;
-        newWriteModel.c0(this.mOnPostWriteCallback);
-        this.mWriteModel.a0(this.mOnImageUploadCallback);
+        newWriteModel.g0(this.mOnPostWriteCallback);
+        this.mWriteModel.e0(this.mOnImageUploadCallback);
         this.mGetForumPrefixModel = new d.a.n0.y2.b(this, new j());
         this.mDialogCancelListener = new k();
         WriteData writeData = new WriteData();
@@ -465,10 +466,10 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             boolean isLocalImagePath = FileHelper.isLocalImagePath(this.mShareImageUrl);
             byte[] bArr = this.mShareLocalImageData;
             if ((bArr != null && bArr.length > 0) || isLocalImagePath) {
-                this.mWriteModel.b0(this.mShareLocalImageData, this.mShareImageUrl);
+                this.mWriteModel.f0(this.mShareLocalImageData, this.mShareImageUrl);
                 this.mData.setShareLocalImageUri(this.mShareImageUrl);
                 this.mData.setShareLocalImageData(this.mShareLocalImageData);
-                this.mWriteModel.h0();
+                this.mWriteModel.l0();
                 this.mData.setShareImageType(WriteData.SHARE_SDK_LOCAL_IMAGE);
             } else {
                 this.mData.setShareSummaryImg(this.mShareImageUrl);
@@ -719,7 +720,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public void stopLoadImageTask() {
         NewWriteModel newWriteModel = this.mWriteModel;
         if (newWriteModel != null) {
-            newWriteModel.P();
+            newWriteModel.T();
         }
     }
 

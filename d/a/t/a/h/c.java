@@ -5,7 +5,7 @@ import android.content.Context;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f64637a = false;
+    public static boolean f68355a = false;
 
     public static int a(Context context) {
         return f.g(context);

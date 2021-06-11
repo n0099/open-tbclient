@@ -24,7 +24,7 @@ public class a {
 
     /* renamed from: d.a.l0.a.m2.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0744a implements Comparator<c> {
+    public static class C0800a implements Comparator<c> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -35,7 +35,7 @@ public class a {
             if (cVar2 == null) {
                 return 1;
             }
-            return String.valueOf(cVar.f43494a).compareTo(String.valueOf(cVar2.f43494a));
+            return String.valueOf(cVar.f47170a).compareTo(String.valueOf(cVar2.f47170a));
         }
     }
 
@@ -43,31 +43,31 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f43493a = new a(null);
+        public static final a f47169a = new a(null);
     }
 
     /* loaded from: classes3.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f43494a;
+        public long f47170a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f43495b;
+        public long f47171b;
 
         public c(long j, long j2) {
-            this.f43494a = j;
-            this.f43495b = j2;
+            this.f47170a = j;
+            this.f47171b = j2;
         }
 
         public String a() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("time", this.f43494a);
-                jSONObject.put("version", this.f43495b);
+                jSONObject.put("time", this.f47170a);
+                jSONObject.put("version", this.f47171b);
                 return jSONObject.toString();
             } catch (JSONException e2) {
-                if (k.f43199a) {
+                if (k.f46875a) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -78,18 +78,18 @@ public class a {
         public String toString() {
             String str;
             try {
-                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.f43494a));
+                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.f47170a));
             } catch (Exception e2) {
-                if (k.f43199a) {
+                if (k.f46875a) {
                     e2.printStackTrace();
                 }
                 str = null;
             }
-            return str + " ---> " + this.f43495b;
+            return str + " ---> " + this.f47171b;
         }
     }
 
-    public /* synthetic */ a(C0744a c0744a) {
+    public /* synthetic */ a(C0800a c0800a) {
         this();
     }
 
@@ -98,7 +98,7 @@ public class a {
     }
 
     public static a c() {
-        return b.f43493a;
+        return b.f47169a;
     }
 
     public static String d(int i2) {
@@ -106,7 +106,7 @@ public class a {
     }
 
     public static void h(List<c> list) {
-        Collections.sort(list, new C0744a());
+        Collections.sort(list, new C0800a());
     }
 
     public void a(long j, int i2) {
@@ -121,7 +121,7 @@ public class a {
                 break;
             }
             c next = it.next();
-            if (next != null && next.f43495b == j) {
+            if (next != null && next.f47171b == j) {
                 z = true;
                 break;
             }
@@ -166,7 +166,7 @@ public class a {
         } else {
             SwanCoreVersion N = f.V().N();
             c cVar2 = f2.get(size - 1);
-            if (cVar2 != null && N != null && N.swanCoreVersionCode > cVar2.f43495b) {
+            if (cVar2 != null && N != null && N.swanCoreVersionCode > cVar2.f47171b) {
                 sb.append("\n");
                 sb.append(new c(System.currentTimeMillis(), N.swanCoreVersionCode).toString());
             }
@@ -197,7 +197,7 @@ public class a {
             JSONObject jSONObject = new JSONObject(str);
             return new c(jSONObject.optLong("time"), jSONObject.optLong("version"));
         } catch (JSONException e2) {
-            if (k.f43199a) {
+            if (k.f46875a) {
                 e2.printStackTrace();
                 return null;
             }

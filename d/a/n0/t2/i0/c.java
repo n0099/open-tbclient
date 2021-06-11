@@ -8,19 +8,19 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f61143a;
+    public JSONObject f64835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61144b;
+    public String f64836b;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61148f;
+    public String f64840f;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61150h;
+    public String f64842h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f61151i;
+    public int f64843i;
     public String j;
     public int k;
     public String l;
@@ -37,23 +37,23 @@ public class c {
     public String w;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61145c = -1;
+    public int f64837c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61146d = -1;
+    public int f64838d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61147e = -1;
+    public int f64839e = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f61149g = System.currentTimeMillis() / 1000;
+    public long f64841g = System.currentTimeMillis() / 1000;
 
     public void a(String str, String str2) {
-        if (this.f61143a == null) {
-            this.f61143a = new JSONObject();
+        if (this.f64835a == null) {
+            this.f64835a = new JSONObject();
         }
         try {
-            this.f61143a.put(str, str2);
+            this.f64835a.put(str, str2);
         } catch (Exception unused) {
         }
     }
@@ -61,20 +61,20 @@ public class c {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.f61146d != -1) {
-                jSONObject.put("da_locate", this.f61146d);
+            if (this.f64838d != -1) {
+                jSONObject.put("da_locate", this.f64838d);
             }
-            if (this.f61145c != -1) {
-                jSONObject.put("da_type", this.f61145c);
+            if (this.f64837c != -1) {
+                jSONObject.put("da_type", this.f64837c);
             }
-            jSONObject.put("extra_param", this.f61144b);
-            jSONObject.put("origin_time", this.f61149g);
-            if (this.f61147e != -1) {
-                jSONObject.put("da_page_num", this.f61147e);
+            jSONObject.put("extra_param", this.f64836b);
+            jSONObject.put("origin_time", this.f64841g);
+            if (this.f64839e != -1) {
+                jSONObject.put("da_page_num", this.f64839e);
             }
-            jSONObject.put("da_price", this.f61150h);
+            jSONObject.put("da_price", this.f64842h);
             jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put("ext1", this.f61151i);
+            jSONObject.put("ext1", this.f64843i);
             jSONObject.put("ext3", this.k);
             jSONObject.put("ext2", this.j);
             jSONObject.put("da_ext1", this.l);
@@ -86,7 +86,7 @@ public class c {
             jSONObject.put("da_menu2", this.t);
             jSONObject.put("da_menu3", this.u);
             jSONObject.put("da_page", this.v);
-            jSONObject.put("place_id", this.f61148f);
+            jSONObject.put("place_id", this.f64840f);
             jSONObject.put("lego_extra", this.r);
             if (this.q != null) {
                 jSONObject.put("da_range", this.q.getDa_range());
@@ -98,7 +98,7 @@ public class c {
             jSONObject.put("da_area", this.w);
         } catch (JSONException unused) {
         }
-        JSONObject jSONObject2 = this.f61143a;
+        JSONObject jSONObject2 = this.f64835a;
         if (jSONObject2 != null) {
             try {
                 jSONObject.put("ext", jSONObject2);
@@ -113,7 +113,7 @@ public class c {
     }
 
     public void d(int i2) {
-        this.f61146d = i2;
+        this.f64838d = i2;
     }
 
     public void e(String str) {
@@ -133,7 +133,7 @@ public class c {
     }
 
     public void i(int i2) {
-        this.f61145c = i2;
+        this.f64837c = i2;
     }
 
     public void j(int i2) {
@@ -171,8 +171,8 @@ public class c {
     public void r(DownloadStaticsData downloadStaticsData) {
         this.q = downloadStaticsData;
         if (downloadStaticsData != null) {
-            this.f61146d = d.a.c.e.m.b.d(downloadStaticsData.getAdPosition(), 0);
-            this.f61144b = downloadStaticsData.getExtensionInfo();
+            this.f64838d = d.a.c.e.m.b.d(downloadStaticsData.getAdPosition(), 0);
+            this.f64836b = downloadStaticsData.getExtensionInfo();
         }
     }
 
@@ -180,7 +180,7 @@ public class c {
     }
 
     public void t(String str) {
-        this.f61144b = str;
+        this.f64836b = str;
     }
 
     public void u(String str) {
@@ -188,10 +188,10 @@ public class c {
     }
 
     public void v(int i2) {
-        this.f61147e = i2;
+        this.f64839e = i2;
     }
 
     public void w(String str) {
-        this.f61148f = str;
+        this.f64840f = str;
     }
 }

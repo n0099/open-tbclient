@@ -20,10 +20,10 @@ import java.net.URLEncoder;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41309a = a.b();
+    public static final String f44985a = a.b();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f41310b = {a.c(), a.d(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
+    public static final String[] f44986b = {a.c(), a.d(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
 
     public static String a(String str, String str2, String str3) {
         StringBuilder sb;
@@ -228,7 +228,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : f41310b) {
+        for (String str2 : f44986b) {
             if (str.startsWith(str2)) {
                 return true;
             }
@@ -241,7 +241,7 @@ public class c {
     }
 
     public static String w(String str, boolean z) {
-        String a2 = a(a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), "osbranch", e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r()), "mnpunion", String.valueOf(f.f44582d.f() ? 2 : 0));
+        String a2 = a(a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), "osbranch", e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r()), "mnpunion", String.valueOf(f.f48256d.f() ? 2 : 0));
         return z ? b(a2) : a2;
     }
 }

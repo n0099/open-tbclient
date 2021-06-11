@@ -5,21 +5,21 @@ import com.win.opensdk.core.Info;
 public class I0 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Info f36833a;
+    public final /* synthetic */ Info f40512a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ K0 f36834b;
+    public final /* synthetic */ K0 f40513b;
 
     public I0(K0 k0, Info info) {
-        this.f36834b = k0;
-        this.f36833a = info;
+        this.f40513b = k0;
+        this.f40512a = info;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        L0 l0 = this.f36834b.f36860g;
+        L0 l0 = this.f40513b.f40539g;
         if (l0 != null) {
-            l0.a(this.f36833a);
+            l0.a(this.f40512a);
         }
     }
 }

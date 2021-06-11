@@ -52,7 +52,7 @@ import d.a.c.a.i;
 import d.a.c.h.d;
 import d.a.c.h.f.b;
 import d.a.c.h.k.d;
-import d.a.c.j.e.q;
+import d.a.c.k.e.q;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
@@ -1602,13 +1602,13 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
     public boolean proxyStopService(Intent intent) {
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a c2 = stringExtra != null ? d.a.c.h.d.a().c(stringExtra) : null;
-        if (c2 != null && c2.f39073a != null) {
+        if (c2 != null && c2.f42726a != null) {
             if (d.a.c.h.d.a().b() == 1) {
                 d.a.c.h.d.a().e(stringExtra);
-                c2.f39073a.stopSelf();
+                c2.f42726a.stopSelf();
                 return true;
             }
-            c2.f39073a.onDestroy();
+            c2.f42726a.onDestroy();
             d.a.c.h.d.a().e(stringExtra);
             return true;
         }

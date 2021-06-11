@@ -7,23 +7,23 @@ import java.util.Queue;
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<a> f45394a = new ArrayDeque();
+    public final Queue<a> f49068a = new ArrayDeque();
 
     /* renamed from: b  reason: collision with root package name */
-    public a f45395b;
+    public a f49069b;
 
     @Override // d.a.l0.a.v2.d1.b
     public void a(a aVar) {
-        synchronized (this.f45394a) {
-            if (aVar == this.f45395b) {
+        synchronized (this.f49068a) {
+            if (aVar == this.f49069b) {
                 e();
             }
         }
     }
 
     public final void b() {
-        synchronized (this.f45394a) {
-            if (this.f45395b != null) {
+        synchronized (this.f49068a) {
+            if (this.f49069b != null) {
                 return;
             }
             e();
@@ -31,17 +31,17 @@ public class c implements b {
     }
 
     public synchronized void c() {
-        if (this.f45395b != null) {
-            this.f45395b.a();
-            this.f45395b = null;
+        if (this.f49069b != null) {
+            this.f49069b.a();
+            this.f49069b = null;
         }
-        this.f45394a.clear();
+        this.f49068a.clear();
     }
 
     public void d(a aVar) {
         if (aVar != null) {
-            synchronized (this.f45394a) {
-                Queue<a> queue = this.f45394a;
+            synchronized (this.f49068a) {
+                Queue<a> queue = this.f49068a;
                 aVar.b(this);
                 queue.offer(aVar);
             }
@@ -50,13 +50,13 @@ public class c implements b {
     }
 
     public final void e() {
-        synchronized (this.f45394a) {
-            this.f45395b = null;
-            if (this.f45394a.isEmpty()) {
+        synchronized (this.f49068a) {
+            this.f49069b = null;
+            if (this.f49068a.isEmpty()) {
                 return;
             }
-            a poll = this.f45394a.poll();
-            this.f45395b = poll;
+            a poll = this.f49068a.poll();
+            this.f49069b = poll;
             if (poll == null) {
                 e();
             } else {

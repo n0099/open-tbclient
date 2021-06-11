@@ -18,7 +18,7 @@ public class SwanApi$$ModulesProvider {
     public static Map<String, Object> getV8ApiModules(final b bVar) {
         HashMap hashMap = new HashMap();
         hashMap.put("_naPrivateAccount", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateAccountV8Module
-            public static final boolean DEBUG = d.f44812c;
+            public static final boolean DEBUG = d.f48486c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
@@ -27,15 +27,15 @@ public class SwanApi$$ModulesProvider {
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f10520e;
+                public final /* synthetic */ Throwable f10582e;
 
                 public a(SwanApi$$PrivateAccountV8Module swanApi$$PrivateAccountV8Module, Throwable th) {
-                    this.f10520e = th;
+                    this.f10582e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f10520e;
+                    throw this.f10582e;
                 }
             }
 
@@ -59,17 +59,17 @@ public class SwanApi$$ModulesProvider {
                     }
                     Pair<Boolean, d.a.l0.a.u.h.a> a2 = d.a.l0.a.u.i.a.a(aVar, "swanAPI/getBDUSS");
                     if (((Boolean) a2.first).booleanValue()) {
-                        return ((d.a.l0.a.u.h.a) a2.second).b();
+                        return ((d.a.l0.a.u.h.a) a2.second).a();
                     }
                     if (f.a(this.mSwanApiContext.g(), "PrivateAccount.getBDUSS")) {
-                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").b();
+                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     }
                     d.a.l0.a.u.h.b s = aVar.s(str);
-                    String b2 = s == null ? "" : s.b();
+                    String a3 = s == null ? "" : s.a();
                     if (DEBUG) {
-                        Log.d("Api-Base", "====================[[PrivateAccount.getBDUSS[type:V8, v8 binding:false] result]]" + b2);
+                        Log.d("Api-Base", "====================[[PrivateAccount.getBDUSS[type:V8, v8 binding:false] result]]" + a3);
                     }
-                    return b2;
+                    return a3;
                 } catch (Throwable th) {
                     if (DEBUG) {
                         Log.e("Api-Base", "====================[[PrivateAccount.getBDUSS[type:V8, v8 binding:false] with exception]]", th);
@@ -81,7 +81,7 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naPrivateBusiness", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateBusinessV8Module
-            public static final boolean DEBUG = d.f44812c;
+            public static final boolean DEBUG = d.f48486c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.a.l0.a.u.c.b mSwanApiContext;
@@ -90,15 +90,15 @@ public class SwanApi$$ModulesProvider {
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f10522e;
+                public final /* synthetic */ Throwable f10584e;
 
                 public a(SwanApi$$PrivateBusinessV8Module swanApi$$PrivateBusinessV8Module, Throwable th) {
-                    this.f10522e = th;
+                    this.f10584e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f10522e;
+                    throw this.f10584e;
                 }
             }
 
@@ -106,15 +106,15 @@ public class SwanApi$$ModulesProvider {
             public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f10523e;
+                public final /* synthetic */ Throwable f10585e;
 
                 public b(SwanApi$$PrivateBusinessV8Module swanApi$$PrivateBusinessV8Module, Throwable th) {
-                    this.f10523e = th;
+                    this.f10585e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f10523e;
+                    throw this.f10585e;
                 }
             }
 
@@ -122,15 +122,15 @@ public class SwanApi$$ModulesProvider {
             public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f10524e;
+                public final /* synthetic */ Throwable f10586e;
 
                 public c(SwanApi$$PrivateBusinessV8Module swanApi$$PrivateBusinessV8Module, Throwable th) {
-                    this.f10524e = th;
+                    this.f10586e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f10524e;
+                    throw this.f10586e;
                 }
             }
 
@@ -154,17 +154,17 @@ public class SwanApi$$ModulesProvider {
                     }
                     Pair<Boolean, d.a.l0.a.u.h.a> a2 = d.a.l0.a.u.i.a.a(bVar2, "swanAPI/getOpenBDUSS");
                     if (((Boolean) a2.first).booleanValue()) {
-                        return ((d.a.l0.a.u.h.a) a2.second).b();
+                        return ((d.a.l0.a.u.h.a) a2.second).a();
                     }
                     if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.getOpenBDUSS")) {
-                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").b();
+                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     }
                     d.a.l0.a.u.h.b s = bVar2.s(str);
-                    String b2 = s == null ? "" : s.b();
+                    String a3 = s == null ? "" : s.a();
                     if (DEBUG) {
-                        Log.d("Api-Base", "====================[[PrivateBusiness.getOpenBDUSS[type:V8, v8 binding:false] result]]" + b2);
+                        Log.d("Api-Base", "====================[[PrivateBusiness.getOpenBDUSS[type:V8, v8 binding:false] result]]" + a3);
                     }
-                    return b2;
+                    return a3;
                 } catch (Throwable th) {
                     if (DEBUG) {
                         Log.e("Api-Base", "====================[[PrivateBusiness.getOpenBDUSS[type:V8, v8 binding:false] with exception]]", th);
@@ -191,17 +191,17 @@ public class SwanApi$$ModulesProvider {
                     }
                     Pair<Boolean, d.a.l0.a.u.h.a> a2 = d.a.l0.a.u.i.a.a(cVar, "swanAPI/queryQuickLoginInfo");
                     if (((Boolean) a2.first).booleanValue()) {
-                        return ((d.a.l0.a.u.h.a) a2.second).b();
+                        return ((d.a.l0.a.u.h.a) a2.second).a();
                     }
                     if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.queryQuickLoginInfo")) {
-                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").b();
+                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     }
                     d.a.l0.a.u.h.b z = cVar.z(str);
-                    String b2 = z == null ? "" : z.b();
+                    String a3 = z == null ? "" : z.a();
                     if (DEBUG) {
-                        Log.d("Api-Base", "====================[[PrivateBusiness.queryQuickLoginInfo[type:V8, v8 binding:false] result]]" + b2);
+                        Log.d("Api-Base", "====================[[PrivateBusiness.queryQuickLoginInfo[type:V8, v8 binding:false] result]]" + a3);
                     }
-                    return b2;
+                    return a3;
                 } catch (Throwable th) {
                     if (DEBUG) {
                         Log.e("Api-Base", "====================[[PrivateBusiness.queryQuickLoginInfo[type:V8, v8 binding:false] with exception]]", th);
@@ -228,17 +228,17 @@ public class SwanApi$$ModulesProvider {
                     }
                     Pair<Boolean, d.a.l0.a.u.h.a> a2 = d.a.l0.a.u.i.a.a(cVar, "swanAPI/quickLogin");
                     if (((Boolean) a2.first).booleanValue()) {
-                        return ((d.a.l0.a.u.h.a) a2.second).b();
+                        return ((d.a.l0.a.u.h.a) a2.second).a();
                     }
                     if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.quickLogin")) {
-                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").b();
+                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     }
                     d.a.l0.a.u.h.b A = cVar.A(str);
-                    String b2 = A == null ? "" : A.b();
+                    String a3 = A == null ? "" : A.a();
                     if (DEBUG) {
-                        Log.d("Api-Base", "====================[[PrivateBusiness.quickLogin[type:V8, v8 binding:false] result]]" + b2);
+                        Log.d("Api-Base", "====================[[PrivateBusiness.quickLogin[type:V8, v8 binding:false] result]]" + a3);
                     }
-                    return b2;
+                    return a3;
                 } catch (Throwable th) {
                     if (DEBUG) {
                         Log.e("Api-Base", "====================[[PrivateBusiness.quickLogin[type:V8, v8 binding:false] with exception]]", th);
@@ -250,7 +250,7 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naPrivateUtils", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateUtilsV8Module
-            public static final boolean DEBUG = d.f44812c;
+            public static final boolean DEBUG = d.f48486c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
@@ -259,15 +259,15 @@ public class SwanApi$$ModulesProvider {
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f10530e;
+                public final /* synthetic */ Throwable f10592e;
 
                 public a(SwanApi$$PrivateUtilsV8Module swanApi$$PrivateUtilsV8Module, Throwable th) {
-                    this.f10530e = th;
+                    this.f10592e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f10530e;
+                    throw this.f10592e;
                 }
             }
 
@@ -291,17 +291,17 @@ public class SwanApi$$ModulesProvider {
                     }
                     Pair<Boolean, d.a.l0.a.u.h.a> a2 = d.a.l0.a.u.i.a.a(aVar, "swanAPI/getCommonSysInfo");
                     if (((Boolean) a2.first).booleanValue()) {
-                        return ((d.a.l0.a.u.h.a) a2.second).b();
+                        return ((d.a.l0.a.u.h.a) a2.second).a();
                     }
                     if (f.a(this.mSwanApiContext.g(), "PrivateUtils.getCommonSysInfo")) {
-                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").b();
+                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     }
                     d.a.l0.a.u.h.b s = aVar.s(str);
-                    String b2 = s == null ? "" : s.b();
+                    String a3 = s == null ? "" : s.a();
                     if (DEBUG) {
-                        Log.d("Api-Base", "====================[[PrivateUtils.getCommonSysInfo[type:V8, v8 binding:false] result]]" + b2);
+                        Log.d("Api-Base", "====================[[PrivateUtils.getCommonSysInfo[type:V8, v8 binding:false] result]]" + a3);
                     }
-                    return b2;
+                    return a3;
                 } catch (Throwable th) {
                     if (DEBUG) {
                         Log.e("Api-Base", "====================[[PrivateUtils.getCommonSysInfo[type:V8, v8 binding:false] with exception]]", th);
@@ -318,7 +318,7 @@ public class SwanApi$$ModulesProvider {
     public static Map<String, Object> getWebviewApiModules(final b bVar) {
         HashMap hashMap = new HashMap();
         hashMap.put("_naPrivateAccount", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateAccountWebviewModule
-            public static final boolean DEBUG = d.f44812c;
+            public static final boolean DEBUG = d.f48486c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
@@ -327,15 +327,15 @@ public class SwanApi$$ModulesProvider {
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f10521e;
+                public final /* synthetic */ Throwable f10583e;
 
                 public a(SwanApi$$PrivateAccountWebviewModule swanApi$$PrivateAccountWebviewModule, Throwable th) {
-                    this.f10521e = th;
+                    this.f10583e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f10521e;
+                    throw this.f10583e;
                 }
             }
 
@@ -359,17 +359,17 @@ public class SwanApi$$ModulesProvider {
                     }
                     Pair<Boolean, d.a.l0.a.u.h.a> a2 = d.a.l0.a.u.i.a.a(aVar, "swanAPI/getBDUSS");
                     if (((Boolean) a2.first).booleanValue()) {
-                        return ((d.a.l0.a.u.h.a) a2.second).b();
+                        return ((d.a.l0.a.u.h.a) a2.second).a();
                     }
                     if (f.a(this.mSwanApiContext.g(), "PrivateAccount.getBDUSS")) {
-                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").b();
+                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     }
                     d.a.l0.a.u.h.b s = aVar.s(str);
-                    String b2 = s == null ? "" : s.b();
+                    String a3 = s == null ? "" : s.a();
                     if (DEBUG) {
-                        Log.d("Api-Base", "====================[[PrivateAccount.getBDUSS[type:Webview, v8 binding:false] result]]" + b2);
+                        Log.d("Api-Base", "====================[[PrivateAccount.getBDUSS[type:Webview, v8 binding:false] result]]" + a3);
                     }
-                    return b2;
+                    return a3;
                 } catch (Throwable th) {
                     if (DEBUG) {
                         Log.e("Api-Base", "====================[[PrivateAccount.getBDUSS[type:Webview, v8 binding:false] with exception]]", th);
@@ -381,7 +381,7 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naPrivateBusiness", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateBusinessWebviewModule
-            public static final boolean DEBUG = d.f44812c;
+            public static final boolean DEBUG = d.f48486c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public d.a.l0.a.u.c.b mSwanApiContext;
@@ -390,15 +390,15 @@ public class SwanApi$$ModulesProvider {
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f10525e;
+                public final /* synthetic */ Throwable f10587e;
 
                 public a(SwanApi$$PrivateBusinessWebviewModule swanApi$$PrivateBusinessWebviewModule, Throwable th) {
-                    this.f10525e = th;
+                    this.f10587e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f10525e;
+                    throw this.f10587e;
                 }
             }
 
@@ -406,15 +406,15 @@ public class SwanApi$$ModulesProvider {
             public class b implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f10526e;
+                public final /* synthetic */ Throwable f10588e;
 
                 public b(SwanApi$$PrivateBusinessWebviewModule swanApi$$PrivateBusinessWebviewModule, Throwable th) {
-                    this.f10526e = th;
+                    this.f10588e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f10526e;
+                    throw this.f10588e;
                 }
             }
 
@@ -422,15 +422,15 @@ public class SwanApi$$ModulesProvider {
             public class c implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f10527e;
+                public final /* synthetic */ Throwable f10589e;
 
                 public c(SwanApi$$PrivateBusinessWebviewModule swanApi$$PrivateBusinessWebviewModule, Throwable th) {
-                    this.f10527e = th;
+                    this.f10589e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f10527e;
+                    throw this.f10589e;
                 }
             }
 
@@ -454,17 +454,17 @@ public class SwanApi$$ModulesProvider {
                     }
                     Pair<Boolean, d.a.l0.a.u.h.a> a2 = d.a.l0.a.u.i.a.a(bVar2, "swanAPI/getOpenBDUSS");
                     if (((Boolean) a2.first).booleanValue()) {
-                        return ((d.a.l0.a.u.h.a) a2.second).b();
+                        return ((d.a.l0.a.u.h.a) a2.second).a();
                     }
                     if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.getOpenBDUSS")) {
-                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").b();
+                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     }
                     d.a.l0.a.u.h.b s = bVar2.s(str);
-                    String b2 = s == null ? "" : s.b();
+                    String a3 = s == null ? "" : s.a();
                     if (DEBUG) {
-                        Log.d("Api-Base", "====================[[PrivateBusiness.getOpenBDUSS[type:Webview, v8 binding:false] result]]" + b2);
+                        Log.d("Api-Base", "====================[[PrivateBusiness.getOpenBDUSS[type:Webview, v8 binding:false] result]]" + a3);
                     }
-                    return b2;
+                    return a3;
                 } catch (Throwable th) {
                     if (DEBUG) {
                         Log.e("Api-Base", "====================[[PrivateBusiness.getOpenBDUSS[type:Webview, v8 binding:false] with exception]]", th);
@@ -491,17 +491,17 @@ public class SwanApi$$ModulesProvider {
                     }
                     Pair<Boolean, d.a.l0.a.u.h.a> a2 = d.a.l0.a.u.i.a.a(cVar, "swanAPI/queryQuickLoginInfo");
                     if (((Boolean) a2.first).booleanValue()) {
-                        return ((d.a.l0.a.u.h.a) a2.second).b();
+                        return ((d.a.l0.a.u.h.a) a2.second).a();
                     }
                     if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.queryQuickLoginInfo")) {
-                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").b();
+                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     }
                     d.a.l0.a.u.h.b z = cVar.z(str);
-                    String b2 = z == null ? "" : z.b();
+                    String a3 = z == null ? "" : z.a();
                     if (DEBUG) {
-                        Log.d("Api-Base", "====================[[PrivateBusiness.queryQuickLoginInfo[type:Webview, v8 binding:false] result]]" + b2);
+                        Log.d("Api-Base", "====================[[PrivateBusiness.queryQuickLoginInfo[type:Webview, v8 binding:false] result]]" + a3);
                     }
-                    return b2;
+                    return a3;
                 } catch (Throwable th) {
                     if (DEBUG) {
                         Log.e("Api-Base", "====================[[PrivateBusiness.queryQuickLoginInfo[type:Webview, v8 binding:false] with exception]]", th);
@@ -528,17 +528,17 @@ public class SwanApi$$ModulesProvider {
                     }
                     Pair<Boolean, d.a.l0.a.u.h.a> a2 = d.a.l0.a.u.i.a.a(cVar, "swanAPI/quickLogin");
                     if (((Boolean) a2.first).booleanValue()) {
-                        return ((d.a.l0.a.u.h.a) a2.second).b();
+                        return ((d.a.l0.a.u.h.a) a2.second).a();
                     }
                     if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.quickLogin")) {
-                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").b();
+                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     }
                     d.a.l0.a.u.h.b A = cVar.A(str);
-                    String b2 = A == null ? "" : A.b();
+                    String a3 = A == null ? "" : A.a();
                     if (DEBUG) {
-                        Log.d("Api-Base", "====================[[PrivateBusiness.quickLogin[type:Webview, v8 binding:false] result]]" + b2);
+                        Log.d("Api-Base", "====================[[PrivateBusiness.quickLogin[type:Webview, v8 binding:false] result]]" + a3);
                     }
-                    return b2;
+                    return a3;
                 } catch (Throwable th) {
                     if (DEBUG) {
                         Log.e("Api-Base", "====================[[PrivateBusiness.quickLogin[type:Webview, v8 binding:false] with exception]]", th);
@@ -550,7 +550,7 @@ public class SwanApi$$ModulesProvider {
             }
         });
         hashMap.put("_naPrivateUtils", new Object(bVar) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateUtilsWebviewModule
-            public static final boolean DEBUG = d.f44812c;
+            public static final boolean DEBUG = d.f48486c;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
             public b mSwanApiContext;
@@ -559,15 +559,15 @@ public class SwanApi$$ModulesProvider {
             public class a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f10531e;
+                public final /* synthetic */ Throwable f10593e;
 
                 public a(SwanApi$$PrivateUtilsWebviewModule swanApi$$PrivateUtilsWebviewModule, Throwable th) {
-                    this.f10531e = th;
+                    this.f10593e = th;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    throw this.f10531e;
+                    throw this.f10593e;
                 }
             }
 
@@ -591,17 +591,17 @@ public class SwanApi$$ModulesProvider {
                     }
                     Pair<Boolean, d.a.l0.a.u.h.a> a2 = d.a.l0.a.u.i.a.a(aVar, "swanAPI/getCommonSysInfo");
                     if (((Boolean) a2.first).booleanValue()) {
-                        return ((d.a.l0.a.u.h.a) a2.second).b();
+                        return ((d.a.l0.a.u.h.a) a2.second).a();
                     }
                     if (f.a(this.mSwanApiContext.g(), "PrivateUtils.getCommonSysInfo")) {
-                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").b();
+                        return new d.a.l0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     }
                     d.a.l0.a.u.h.b s = aVar.s(str);
-                    String b2 = s == null ? "" : s.b();
+                    String a3 = s == null ? "" : s.a();
                     if (DEBUG) {
-                        Log.d("Api-Base", "====================[[PrivateUtils.getCommonSysInfo[type:Webview, v8 binding:false] result]]" + b2);
+                        Log.d("Api-Base", "====================[[PrivateUtils.getCommonSysInfo[type:Webview, v8 binding:false] result]]" + a3);
                     }
-                    return b2;
+                    return a3;
                 } catch (Throwable th) {
                     if (DEBUG) {
                         Log.e("Api-Base", "====================[[PrivateUtils.getCommonSysInfo[type:Webview, v8 binding:false] with exception]]", th);

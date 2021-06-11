@@ -11,7 +11,7 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f69006d;
+        public Disposable f72315d;
 
         public IgnoreObservable(Observer<? super T> observer) {
             this.actual = observer;
@@ -19,12 +19,12 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f69006d.dispose();
+            this.f72315d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f69006d.isDisposed();
+            return this.f72315d.isDisposed();
         }
 
         @Override // io.reactivex.Observer
@@ -43,7 +43,7 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            this.f69006d = disposable;
+            this.f72315d = disposable;
             this.actual.onSubscribe(this);
         }
     }

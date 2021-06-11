@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.data.UserData;
@@ -26,7 +25,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f54781a = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    public static Pattern f58470a = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -154,14 +153,14 @@ public class c {
             return null;
         }
         try {
-            return new JSONArray(str).getJSONObject(0).optString(z ? "big_src" : UserAccountActionItem.KEY_SRC);
+            return new JSONArray(str).getJSONObject(0).optString(z ? "big_src" : "src");
         } catch (Exception unused) {
             return null;
         }
     }
 
     public static String g(JSONObject jSONObject, boolean z) {
-        return jSONObject.optString(z ? "big_src" : UserAccountActionItem.KEY_SRC);
+        return jSONObject.optString(z ? "big_src" : "src");
     }
 
     public static MsgCacheData h(ChatMessage chatMessage) {
@@ -187,8 +186,8 @@ public class c {
             return null;
         }
         d dVar = new d();
-        dVar.f54466a = split[0];
-        dVar.f54467b = split[1];
+        dVar.f58155a = split[0];
+        dVar.f58156b = split[1];
         return dVar;
     }
 
@@ -378,7 +377,7 @@ public class c {
             if (str == null) {
                 return null;
             }
-            Matcher matcher = f54781a.matcher(str);
+            Matcher matcher = f58470a.matcher(str);
             while (matcher.find()) {
                 String group = matcher.group();
                 str = str.replace(group, group.replace(SmallTailInfo.EMOTION_PREFIX, "[").replace(SmallTailInfo.EMOTION_SUFFIX, "]"));

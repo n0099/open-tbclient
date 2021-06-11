@@ -12,30 +12,42 @@ import tbclient.ReplyMe.ReplyMeReqIdl;
 public class l implements d.a.m0.g0.b.g, d.a.m0.g0.b.d {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55073e;
+    public int f58762e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55074f = 1;
+    public int f58763f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f55075g;
+    public String f58764g;
 
     public int a() {
-        return this.f55073e;
+        return this.f58762e;
     }
 
     public void b() {
-        this.f55074f = 1;
-        this.f55073e = 1;
-        this.f55075g = null;
+        this.f58763f = 1;
+        this.f58762e = 1;
+        this.f58764g = null;
+    }
+
+    public void c(FeedData feedData) {
+        if (feedData == null) {
+            return;
+        }
+        this.f58764g = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
+    }
+
+    public void d() {
+        this.f58763f++;
+        this.f58762e = 4;
     }
 
     @Override // d.a.m0.g0.b.i
-    public Object c(boolean z) {
+    public Object e(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.f55074f);
-            builder.ids = this.f55075g;
+            builder.pn = Integer.valueOf(this.f58763f);
+            builder.ids = this.f58764g;
             builder.q_type = Integer.valueOf(d.a.m0.r.k.c().e());
             builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
             builder.scr_h = Integer.valueOf(d.a.c.e.p.l.i(TbadkCoreApplication.getInst().getApp()));
@@ -51,24 +63,8 @@ public class l implements d.a.m0.g0.b.g, d.a.m0.g0.b.d {
         }
     }
 
-    public void d(FeedData feedData) {
-        if (feedData == null) {
-            return;
-        }
-        this.f55075g = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
-    }
-
-    public void e() {
-        this.f55074f++;
-        this.f55073e = 4;
-    }
-
     public String getCacheKey() {
         return "replyme_cache";
-    }
-
-    public boolean i() {
-        return true;
     }
 
     @Override // d.a.m0.g0.b.d
@@ -76,27 +72,31 @@ public class l implements d.a.m0.g0.b.g, d.a.m0.g0.b.d {
         return true;
     }
 
+    public boolean l() {
+        return true;
+    }
+
     @Override // d.a.m0.g0.b.f
-    public HashMap<String, Object> o() {
+    public HashMap<String, Object> s() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-        hashMap.put(Config.PACKAGE_NAME, String.valueOf(this.f55074f));
+        hashMap.put(Config.PACKAGE_NAME, String.valueOf(this.f58763f));
         hashMap.put("q_type", Integer.valueOf(d.a.m0.r.k.c().e()));
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(d.a.c.e.p.l.i(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(d.a.c.e.p.l.k(TbadkCoreApplication.getInst().getApp())));
-        if (this.f55073e == 4 && !TextUtils.isEmpty(this.f55075g)) {
-            hashMap.put("ids", this.f55075g);
+        if (this.f58762e == 4 && !TextUtils.isEmpty(this.f58764g)) {
+            hashMap.put("ids", this.f58764g);
         }
         return hashMap;
     }
 
     @Override // d.a.m0.g0.b.f
-    public HashMap<String, String> q() {
+    public HashMap<String, String> u() {
         return null;
     }
 
-    public String r() {
+    public String v() {
         return "tb_user_replyme";
     }
 }

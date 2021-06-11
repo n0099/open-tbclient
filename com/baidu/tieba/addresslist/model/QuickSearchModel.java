@@ -11,15 +11,15 @@ import java.util.List;
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f13617e;
+    public a f13682e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f13618f;
+    public byte[] f13683f;
 
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.f13618f = new byte[0];
-        this.f13617e = a.d();
+        this.f13683f = new byte[0];
+        this.f13682e = a.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -33,13 +33,13 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<d.a.m0.s.f.a> s(String str) {
-        synchronized (this.f13618f) {
+    public List<d.a.m0.s.f.a> w(String str) {
+        synchronized (this.f13683f) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<d.a.m0.s.f.a> c2 = this.f13617e.c();
+            List<d.a.m0.s.f.a> c2 = this.f13682e.c();
             if (c2 == null) {
                 return arrayList;
             }

@@ -166,7 +166,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public Map<Integer, String> gpd() {
         try {
-            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f10079d;
+            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f10141d;
             if (aVar != null) {
                 return aVar.b();
             }
@@ -202,7 +202,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
         try {
-            ApkInfo apkInfo = f.a().f10162a.get(str);
+            ApkInfo apkInfo = f.a().f10224a.get(str);
             if (apkInfo == null) {
                 return null;
             }
@@ -330,12 +330,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void s(int i2, boolean z) {
         try {
-            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f10079d;
+            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f10141d;
             if (aVar != null) {
                 int i3 = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("s", Integer.valueOf(i3));
-                SQLiteDatabase sQLiteDatabase = aVar.f10082c;
+                SQLiteDatabase sQLiteDatabase = aVar.f10144c;
                 sQLiteDatabase.update("pgn", contentValues, "k=" + i2 + " and n=1", null);
             }
         } catch (Throwable unused) {
@@ -346,12 +346,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void sp(String str, boolean z) {
         try {
-            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f10079d;
+            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f10141d;
             if (aVar != null) {
                 int i2 = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("s", Integer.valueOf(i2));
-                aVar.f10082c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                aVar.f10144c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
             }
         } catch (Throwable unused) {
             d.a();

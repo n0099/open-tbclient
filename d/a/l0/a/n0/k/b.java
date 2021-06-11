@@ -7,27 +7,27 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f43637a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+    public static final Set<String> f47313a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f43638b = new HashSet(f43637a);
+    public static final Set<String> f47314b = new HashSet(f47313a);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f43639c = new HashSet(f43638b);
+    public static final Set<String> f47315c = new HashSet(f47314b);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<String, a> f43640d = new HashMap();
+    public static final Map<String, a> f47316d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f43641e = false;
+    public static boolean f47317e = false;
 
     public static a a(String str) {
         c();
-        return f43640d.get(str);
+        return f47316d.get(str);
     }
 
     public static a b() {
@@ -39,13 +39,13 @@ public class b {
     }
 
     public static void c() {
-        if (!f43641e) {
-            for (String str : f43639c) {
+        if (!f47317e) {
+            for (String str : f47315c) {
                 if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
-                    f43640d.put(str, b());
+                    f47316d.put(str, b());
                 }
             }
         }
-        f43641e = true;
+        f47317e = true;
     }
 }

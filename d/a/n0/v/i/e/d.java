@@ -56,22 +56,22 @@ public class d extends d.a.n0.z.b<h> implements z {
 
         @Override // com.baidu.adp.widget.SwipeBackLayout.c
         public void disableSwipeBack() {
-            if (d.this.u == null || ListUtils.isEmpty(d.this.u.f53985e) || d.this.u.f53985e.size() <= 1) {
+            if (d.this.u == null || ListUtils.isEmpty(d.this.u.f57674e) || d.this.u.f57674e.size() <= 1) {
                 return;
             }
-            if (d.this.f63441f.getOrignalPage() instanceof BaseActivity) {
-                ((BaseActivity) d.this.f63441f.getOrignalPage()).setSwipeBackEnabled(false);
-            } else if (d.this.f63441f.getOrignalPage() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) d.this.f63441f.getOrignalPage()).setSwipeBackEnabled(false);
+            if (d.this.f67159f.getOrignalPage() instanceof BaseActivity) {
+                ((BaseActivity) d.this.f67159f.getOrignalPage()).setSwipeBackEnabled(false);
+            } else if (d.this.f67159f.getOrignalPage() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) d.this.f67159f.getOrignalPage()).setSwipeBackEnabled(false);
             }
         }
 
         @Override // com.baidu.adp.widget.SwipeBackLayout.c
         public void enableSwipeBack() {
-            if (d.this.f63441f.getOrignalPage() instanceof BaseActivity) {
-                ((BaseActivity) d.this.f63441f.getOrignalPage()).setSwipeBackEnabled(d.this.A);
-            } else if (d.this.f63441f.getOrignalPage() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) d.this.f63441f.getOrignalPage()).setSwipeBackEnabled(d.this.A);
+            if (d.this.f67159f.getOrignalPage() instanceof BaseActivity) {
+                ((BaseActivity) d.this.f67159f.getOrignalPage()).setSwipeBackEnabled(d.this.A);
+            } else if (d.this.f67159f.getOrignalPage() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) d.this.f67159f.getOrignalPage()).setSwipeBackEnabled(d.this.A);
             }
         }
     }
@@ -120,15 +120,15 @@ public class d extends d.a.n0.z.b<h> implements z {
 
         @Override // d.a.n0.v.i.d.c
         public void a(View view, a2 a2Var) {
-            d.this.G(view, a2Var);
-            d.this.B(a2Var);
+            d.this.H(view, a2Var);
+            d.this.F(a2Var);
             d dVar = d.this;
-            dVar.H(dVar.f63441f, a2Var);
+            dVar.I(dVar.f67159f, a2Var);
         }
 
         @Override // d.a.n0.v.i.d.c
         public void b(View view, a2 a2Var) {
-            d.this.G(view, a2Var);
+            d.this.H(view, a2Var);
         }
     }
 
@@ -140,54 +140,54 @@ public class d extends d.a.n0.z.b<h> implements z {
         this.A = true;
         this.C = new b();
         this.D = new c();
-        this.m = (ForbidParentSwipeBackRelativeLayout) l().findViewById(R.id.layout_root);
-        this.r = l().findViewById(R.id.divider_line);
-        this.s = l().findViewById(R.id.divider_pager_and_indicator);
-        this.n = (FrsAlaStageLiveViewPager) l().findViewById(R.id.frs_stage_live_listview);
-        this.p = (LinearLayout) l().findViewById(R.id.frs_stage_indicator_parent);
-        this.q = (IndicatorView) l().findViewById(R.id.frs_stage_indicator);
+        this.m = (ForbidParentSwipeBackRelativeLayout) m().findViewById(R.id.layout_root);
+        this.r = m().findViewById(R.id.divider_line);
+        this.s = m().findViewById(R.id.divider_pager_and_indicator);
+        this.n = (FrsAlaStageLiveViewPager) m().findViewById(R.id.frs_stage_live_listview);
+        this.p = (LinearLayout) m().findViewById(R.id.frs_stage_indicator_parent);
+        this.q = (IndicatorView) m().findViewById(R.id.frs_stage_indicator);
         d.a.n0.v.i.d.a aVar = new d.a.n0.v.i.d.a(tbPageContext, this.m);
         this.w = aVar;
-        aVar.d(i());
+        aVar.d(j());
         this.n.setBackgroundResource(R.drawable.transparent_bg);
         this.n.setOnPageChangeListener(this.C);
-        FrsAlaStageLiveViewItemAdapter frsAlaStageLiveViewItemAdapter = new FrsAlaStageLiveViewItemAdapter(this.f63441f, i());
+        FrsAlaStageLiveViewItemAdapter frsAlaStageLiveViewItemAdapter = new FrsAlaStageLiveViewItemAdapter(this.f67159f, j());
         this.o = frsAlaStageLiveViewItemAdapter;
         this.n.setAdapter(frsAlaStageLiveViewItemAdapter);
-        if (this.f63441f.getOrignalPage() instanceof BaseActivity) {
-            this.A = ((BaseActivity) this.f63441f.getOrignalPage()).isSwipeBackEnabled();
-        } else if (this.f63441f.getOrignalPage() instanceof BaseFragmentActivity) {
-            this.A = ((BaseFragmentActivity) this.f63441f.getOrignalPage()).isSwipeBackEnabled();
+        if (this.f67159f.getOrignalPage() instanceof BaseActivity) {
+            this.A = ((BaseActivity) this.f67159f.getOrignalPage()).isSwipeBackEnabled();
+        } else if (this.f67159f.getOrignalPage() instanceof BaseFragmentActivity) {
+            this.A = ((BaseFragmentActivity) this.f67159f.getOrignalPage()).isSwipeBackEnabled();
         }
         this.m.setSwipeControlInterface(new a());
     }
 
-    public final void B(a2 a2Var) {
-        if (a2Var.r1() == null || a2Var.r1().user_info == null || a2Var.r1().user_info.is_official != 2) {
+    public final void F(a2 a2Var) {
+        if (a2Var.s1() == null || a2Var.s1().user_info == null || a2Var.s1().user_info.is_official != 2) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12805").param("tid", a2Var.o0()));
     }
 
-    public final void F() {
+    public final void G() {
         int c2;
         h hVar = this.u;
-        if (hVar == null || !ListUtils.isEmpty(hVar.f53985e) || (c2 = this.x.c(this.v)) >= this.u.f53985e.size() || c2 < 0) {
+        if (hVar == null || !ListUtils.isEmpty(hVar.f57674e) || (c2 = this.x.c(this.v)) >= this.u.f57674e.size() || c2 < 0) {
             return;
         }
         CustomMessage customMessage = new CustomMessage(2921017);
-        List<a2> list = this.u.f53985e;
+        List<a2> list = this.u.f57674e;
         if (list != null && list.get(c2) != null) {
-            this.u.f53985e.get(c2).N1 = this.B;
+            this.u.f57674e.get(c2).O1 = this.B;
         }
-        customMessage.setData(this.u.f53985e.get(c2));
+        customMessage.setData(this.u.f57674e.get(c2));
         MessageManager.getInstance().sendMessage(customMessage);
-        if (this.u.f53985e.get(c2) != null) {
-            TiebaStatic.log(new StatisticItem("c12804").param("tid", this.u.f53985e.get(c2).o0()));
+        if (this.u.f57674e.get(c2) != null) {
+            TiebaStatic.log(new StatisticItem("c12804").param("tid", this.u.f57674e.get(c2).o0()));
         }
     }
 
-    public final void G(View view, a2 a2Var) {
+    public final void H(View view, a2 a2Var) {
         CustomMessage customMessage;
         if (view.getId() == R.id.layout_root) {
             customMessage = new CustomMessage(2921018);
@@ -196,17 +196,17 @@ public class d extends d.a.n0.z.b<h> implements z {
         } else {
             customMessage = new CustomMessage(2921016);
         }
-        if (customMessage == null || this.f63441f == null) {
+        if (customMessage == null || this.f67159f == null) {
             return;
         }
         customMessage.setData(a2Var);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
-    public void H(TbPageContext<?> tbPageContext, a2 a2Var) {
+    public void I(TbPageContext<?> tbPageContext, a2 a2Var) {
         String str;
         boolean z;
-        if (tbPageContext == null || a2Var == null || a2Var.T() == null || a2Var.r1() == null) {
+        if (tbPageContext == null || a2Var == null || a2Var.T() == null || a2Var.s1() == null) {
             return;
         }
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -219,16 +219,16 @@ public class d extends d.a.n0.z.b<h> implements z {
             z = false;
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(a2Var.r1());
-        if (a2Var.r1() != null && a2Var.r1().user_info != null) {
-            alaLiveInfoCoreData.userName = a2Var.r1().user_info.user_name;
+        alaLiveInfoCoreData.fillWithInfoData(a2Var.s1());
+        if (a2Var.s1() != null && a2Var.s1().user_info != null) {
+            alaLiveInfoCoreData.userName = a2Var.s1().user_info.user_name;
         }
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
         h hVar = this.u;
-        if (hVar != null && !ListUtils.isEmpty(hVar.f53985e)) {
-            for (a2 a2Var2 : this.u.f53985e) {
-                alaLiveInfoListCoreData.mLiveInfoList.add(J(a2Var2));
+        if (hVar != null && !ListUtils.isEmpty(hVar.f57674e)) {
+            for (a2 a2Var2 : this.u.f57674e) {
+                alaLiveInfoListCoreData.mLiveInfoList.add(K(a2Var2));
             }
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_INSERT_LIVE, str, z, null, null, this.t)));
@@ -236,25 +236,25 @@ public class d extends d.a.n0.z.b<h> implements z {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: I */
-    public void m(h hVar) {
-        if (hVar == null || hVar.f53985e == null) {
+    /* renamed from: J */
+    public void n(h hVar) {
+        if (hVar == null || hVar.f57674e == null) {
             return;
         }
         this.u = hVar;
-        r(0);
+        s(0);
         if (this.x == null) {
-            d.a.n0.v.i.d.b bVar = new d.a.n0.v.i.d.b(hVar.f53985e, this.y, this.z);
+            d.a.n0.v.i.d.b bVar = new d.a.n0.v.i.d.b(hVar.f57674e, this.y, this.z);
             this.x = bVar;
             bVar.i(2);
             this.x.h(6);
             this.x.g(1);
         }
-        this.x.j(hVar.f53985e);
-        this.o.d(this.t);
-        this.o.c(this.x.e(), this.D);
+        this.x.j(hVar.f57674e);
+        this.o.g(this.t);
+        this.o.f(this.x.e(), this.D);
         this.n.setCurrentItem(this.x.d(), false);
-        if (hVar.f53985e.size() >= 2) {
+        if (hVar.f57674e.size() >= 2) {
             this.p.setVisibility(0);
             if (this.q.getCount() != this.x.b()) {
                 this.q.setCount(this.x.b());
@@ -264,16 +264,16 @@ public class d extends d.a.n0.z.b<h> implements z {
         } else {
             this.p.setVisibility(8);
         }
-        if (hVar.f53985e.size() > 0) {
-            this.w.b(hVar.f53985e.get(0), "ala_frs_stage_live_feed_back_type");
+        if (hVar.f57674e.size() > 0) {
+            this.w.b(hVar.f57674e.get(0), "ala_frs_stage_live_feed_back_type");
         }
-        F();
-        n(k(), TbadkCoreApplication.getInst().getSkinType());
+        G();
+        o(k(), TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final AlaLiveInfoCoreData J(a2 a2Var) {
+    public final AlaLiveInfoCoreData K(a2 a2Var) {
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(a2Var.r1());
+        alaLiveInfoCoreData.fillWithInfoData(a2Var.s1());
         alaLiveInfoCoreData.userName = a2Var.T().getUserName();
         return alaLiveInfoCoreData;
     }
@@ -284,17 +284,17 @@ public class d extends d.a.n0.z.b<h> implements z {
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.frs_ala_stage_live_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setBackgroundColor(this.r, R.color.CAM_X0204);
             SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
-            this.f63440e = i2;
+            this.f67158e = i2;
         }
         this.w.c();
     }
@@ -304,6 +304,6 @@ public class d extends d.a.n0.z.b<h> implements z {
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 }

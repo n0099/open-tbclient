@@ -6,17 +6,17 @@ import com.baidu.tieba.frs.AbsDelegateAdapterList;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public AbsDelegateAdapterList f53994a;
+    public AbsDelegateAdapterList f57683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f53995b;
+    public Context f57684b;
 
     public d(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
-        this.f53995b = context;
-        this.f53994a = absDelegateAdapterList;
+        this.f57684b = context;
+        this.f57683a = absDelegateAdapterList;
     }
 
     public AbsDelegateAdapterList a() {
-        return this.f53994a;
+        return this.f57683a;
     }
 }

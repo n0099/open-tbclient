@@ -1,230 +1,141 @@
 package com.cmic.sso.sdk.b.b;
 
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.searchbox.pms.constants.PmsConstant;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.util.TbEnum;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
-public class a extends g {
+public abstract class a extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30478a;
+    public String f30589a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30479b;
+    public String f30590b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30480c;
+    public String f30591c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30481d;
+    public String f30592d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30482e;
+    public String f30593e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30483f;
+    public String f30594f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30484g;
+    public String f30595g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30485h;
+    public String f30596h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30486i;
-    public String j;
-    public String k;
-    public long l;
-    public String m;
-    public JSONObject n;
-
-    /* renamed from: com.cmic.sso.sdk.b.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0328a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f30487a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f30488b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f30489c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f30490d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f30491e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f30492f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public String f30493g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public String f30494h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public String f30495i;
-        public String j;
-        public String k;
-
-        public void a(String str) {
-            this.f30487a = str;
-        }
-
-        public void b(String str) {
-            this.f30488b = str;
-        }
-
-        public void c(String str) {
-            this.f30489c = str;
-        }
-
-        public void d(String str) {
-            this.f30490d = str;
-        }
-
-        public void e(String str) {
-            this.f30491e = str;
-        }
-
-        public void f(String str) {
-            this.f30492f = str;
-        }
-
-        public void g(String str) {
-            this.f30493g = str;
-        }
-
-        public void h(String str) {
-            this.f30494h = str;
-        }
-
-        public void i(String str) {
-            this.f30495i = str;
-        }
-
-        public void j(String str) {
-            this.j = str;
-        }
-
-        public void k(String str) {
-            this.k = str;
-        }
-
-        public JSONObject a() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("phone_id", this.f30487a);
-                jSONObject.put(IAdRequestParam.OS, this.f30488b);
-                jSONObject.put("dev_model", this.f30489c);
-                jSONObject.put("dev_brand", this.f30490d);
-                jSONObject.put("mnc", this.f30491e);
-                jSONObject.put("client_type", this.f30492f);
-                jSONObject.put(PmsConstant.Statistic.STATISTIC_NETWORK, this.f30493g);
-                jSONObject.put("ipv4_list", this.f30494h);
-                jSONObject.put("ipv6_list", this.f30495i);
-                jSONObject.put("is_cert", this.j);
-                jSONObject.put("is_root", this.k);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            return jSONObject;
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        this.n = jSONObject;
-    }
-
-    public void b(String str) {
-        this.f30486i = str;
-    }
-
-    public void c(String str) {
-        this.m = str;
-    }
-
-    public void d(String str) {
-        this.f30483f = str;
-    }
-
-    public void e(String str) {
-        this.f30484g = str;
-    }
-
-    public void f(String str) {
-        this.f30478a = str;
-    }
-
-    public void g(String str) {
-        this.f30479b = str;
-    }
-
-    public void h(String str) {
-        this.f30480c = str;
-    }
-
-    public void i(String str) {
-        this.f30481d = str;
-    }
-
-    public void j(String str) {
-        this.f30482e = str;
-    }
-
-    public void k(String str) {
-        this.j = str;
-    }
-
-    public void l(String str) {
-        this.k = str;
-    }
-
-    public String m(String str) {
-        return n(this.f30478a + this.f30480c + str + this.f30481d);
-    }
-
-    public String toString() {
-        return b().toString();
-    }
-
-    public void a(long j) {
-        this.l = j;
-    }
-
-    @Override // com.cmic.sso.sdk.b.b.g
-    public JSONObject b() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("version", this.f30478a);
-            jSONObject.put("msgid", this.f30479b);
-            jSONObject.put("appid", this.f30480c);
-            jSONObject.put("scrip", this.f30481d);
-            jSONObject.put("sign", this.f30482e);
-            jSONObject.put("interfacever", this.f30483f);
-            jSONObject.put("userCapaid", this.f30484g);
-            jSONObject.put("clienttype", this.f30485h);
-            jSONObject.put("sourceid", this.f30486i);
-            jSONObject.put("authenticated_appid", this.j);
-            jSONObject.put("genTokenByAppid", this.k);
-            jSONObject.put("rcData", this.n);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        return jSONObject;
-    }
-
-    public void a(String str) {
-        this.f30485h = str;
-    }
+    public String f30597i = "";
+    public String j = "0";
+    public String k = "1.0";
+    public String l = "";
+    public String m = "";
+    public String n = "";
+    public String o = "";
+    public String p = "";
+    public String q = "";
+    public String r = "";
+    public String s = "";
+    public String t = "";
+    public String u = TbEnum.SystemMessage.EVENT_ID_APPLY_SUC;
+    public String v = "";
+    public String w = "";
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
-        return this.f30480c;
+        return this.f30591c;
+    }
+
+    public void a_(String str) {
+        this.v = str;
+    }
+
+    public void b(String str) {
+        this.f30589a = v(str);
+    }
+
+    public void c(String str) {
+        this.f30590b = v(str);
+    }
+
+    public void d(String str) {
+        this.f30591c = v(str);
+    }
+
+    public void e(String str) {
+        this.f30592d = v(str);
+    }
+
+    public void f(String str) {
+        this.f30593e = v(str);
+    }
+
+    public void g(String str) {
+        this.f30594f = v(str);
+    }
+
+    public void h(String str) {
+        this.f30595g = URLEncoder.encode(v(str));
+    }
+
+    public void i(String str) {
+        this.f30596h = URLEncoder.encode(v(str));
+    }
+
+    public void j(String str) {
+        this.f30597i = URLEncoder.encode(v(str));
+    }
+
+    public void k(String str) {
+        this.j = v(str);
+    }
+
+    public void l(String str) {
+        this.k = v(str);
+    }
+
+    public void m(String str) {
+        this.m = v(str);
+    }
+
+    public void n(String str) {
+        this.n = v(str);
+    }
+
+    public void o(String str) {
+        this.o = v(str);
+    }
+
+    public void p(String str) {
+        this.p = v(str);
+    }
+
+    public void q(String str) {
+        this.q = v(str);
+    }
+
+    public void r(String str) {
+        this.r = v(str);
+    }
+
+    public void s(String str) {
+        this.s = v(str);
+    }
+
+    public void t(String str) {
+        this.t = v(str);
+    }
+
+    public void u(String str) {
+        this.w = str;
+    }
+
+    public final String v(String str) {
+        return str == null ? "" : str;
     }
 }

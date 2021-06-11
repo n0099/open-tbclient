@@ -20,10 +20,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f49593a = false;
+    public static boolean f53268a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f49594b = "";
+    public static String f53269b = "";
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00db */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x0043 */
@@ -38,8 +38,8 @@ public class a {
     /* JADX WARN: Type inference failed for: r8v4, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r8v9 */
     public static String a(File file) {
-        if (f49593a) {
-            return "hasSend_" + f49594b;
+        if (f53268a) {
+            return "hasSend_" + f53269b;
         }
         String str = TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD;
         if (file.length() > 3145728 || !TbadkCoreApplication.isLogin()) {
@@ -61,8 +61,8 @@ public class a {
                         String postMultiNetData = netWork.postMultiNetData();
                         if (postMultiNetData != null && !postMultiNetData.isEmpty()) {
                             String string = new JSONObject(postMultiNetData).getString("url");
-                            f49594b = string;
-                            f49593a = true;
+                            f53269b = string;
+                            f53268a = true;
                             try {
                                 fileInputStream2.close();
                             } catch (IOException e2) {

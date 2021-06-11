@@ -3,11 +3,11 @@ package d.a.l0.a.l0;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import d.a.l0.a.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43308a = k.f43199a;
+    public static final boolean f46984a = k.f46875a;
 
     public static a a(g gVar, d.a.l0.a.l0.n.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         h b2 = b(gVar);
@@ -22,7 +22,7 @@ public final class f {
         if (b2 != 1) {
             if (b2 != 2) {
                 if (b2 != 3) {
-                    if (!f43308a) {
+                    if (!f46984a) {
                         return new d.a.l0.a.m0.a();
                     }
                     throw new IllegalArgumentException("invalid model object:" + gVar);

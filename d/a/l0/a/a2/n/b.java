@@ -11,10 +11,10 @@ import java.util.TreeMap;
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f40780b = k.f43199a;
+    public static final boolean f44456b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, g> f40781a = null;
+    public Map<String, g> f44457a = null;
 
     public static String c(String str, String str2) {
         String str3;
@@ -24,7 +24,7 @@ public final class b {
             str3 = str + File.separator + str2 + ".json";
         }
         File file = new File(str3);
-        if (f40780b) {
+        if (f44456b) {
             Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + file.exists());
         }
         if (file.exists()) {
@@ -38,7 +38,7 @@ public final class b {
             return gVar;
         }
         g d2 = d(str, str2, gVar);
-        this.f40781a.put(str2, d2);
+        this.f44457a.put(str2, d2);
         return d2;
     }
 
@@ -46,15 +46,15 @@ public final class b {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return gVar;
         }
-        if (this.f40781a == null) {
-            this.f40781a = new TreeMap();
+        if (this.f44457a == null) {
+            this.f44457a = new TreeMap();
         }
-        g gVar2 = this.f40781a.get(str2);
+        g gVar2 = this.f44457a.get(str2);
         if (gVar2 != null) {
             return gVar2;
         }
         g d2 = d(str, str2, gVar);
-        this.f40781a.put(str2, d2);
+        this.f44457a.put(str2, d2);
         return d2;
     }
 

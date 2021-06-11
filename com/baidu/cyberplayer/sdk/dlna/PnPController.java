@@ -7,17 +7,17 @@ import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 public class PnPController {
 
     /* renamed from: a  reason: collision with root package name */
-    public CtrlPointProvider f4831a;
+    public CtrlPointProvider f4819a;
 
     public PnPController(String str, DlnaProvider dlnaProvider) {
-        this.f4831a = null;
+        this.f4819a = null;
         if (dlnaProvider != null) {
-            this.f4831a = dlnaProvider.ctrlPoint(str);
+            this.f4819a = dlnaProvider.ctrlPoint(str);
         }
     }
 
     public long getCurrentTime() {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             return ctrlPointProvider.getCurrentTime();
         }
@@ -25,7 +25,7 @@ public class PnPController {
     }
 
     public long getDuration() {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             return ctrlPointProvider.getDuration();
         }
@@ -33,71 +33,87 @@ public class PnPController {
     }
 
     public int getPlaybackVolume() {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             return ctrlPointProvider.getPlaybackVolume();
         }
         return 0;
     }
 
+    public int getUrlPlayStatus(String str) {
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
+        if (ctrlPointProvider == null || str == null) {
+            return -1;
+        }
+        return ctrlPointProvider.getUrlPlayStatus(str);
+    }
+
     public void pause() {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             ctrlPointProvider.pause();
         }
     }
 
     public void play() {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             ctrlPointProvider.play();
         }
     }
 
     public void seek(long j) {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             ctrlPointProvider.seek(j);
         }
     }
 
     public void setAVTransportUrl(String str) {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             ctrlPointProvider.setAVTransportUrl(str);
         }
     }
 
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             ctrlPointProvider.setListener(ctrlPointListener);
         }
     }
 
     public void setMute(boolean z) {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             ctrlPointProvider.setMute(z ? 1 : 0);
         }
     }
 
     public void setPlaybackVolume(int i2) {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             ctrlPointProvider.setPlaybackVolume(i2);
         }
     }
 
+    @Deprecated
     public void shutdown() {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             ctrlPointProvider.shutdown();
         }
     }
 
+    public void shutdown(boolean z) {
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
+        if (ctrlPointProvider != null) {
+            ctrlPointProvider.shutdown(z);
+        }
+    }
+
     public void stop() {
-        CtrlPointProvider ctrlPointProvider = this.f4831a;
+        CtrlPointProvider ctrlPointProvider = this.f4819a;
         if (ctrlPointProvider != null) {
             ctrlPointProvider.stop();
         }

@@ -2,7 +2,6 @@ package d.a.l0.a.i1.h;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import d.a.l0.a.a2.e;
 import d.a.l0.a.k;
 import org.json.JSONObject;
@@ -30,7 +29,7 @@ public class c extends d.a.l0.a.c0.b.b {
     public boolean z;
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public c() {
@@ -69,8 +68,8 @@ public class c extends d.a.l0.a.c0.b.b {
             cVar2.u = jSONObject.optBoolean("fullScreen", cVar.u);
             cVar2.s = jSONObject.optBoolean("loop", cVar.s);
             cVar2.v = jSONObject.optBoolean("controls", cVar.v);
-            cVar2.w = i(jSONObject.optString(UserAccountActionItem.KEY_SRC, cVar.w));
-            cVar2.E = !d.a.l0.a.k2.b.E(jSONObject.optString(UserAccountActionItem.KEY_SRC, cVar.w));
+            cVar2.w = i(jSONObject.optString("src", cVar.w));
+            cVar2.E = !d.a.l0.a.k2.b.E(jSONObject.optString("src", cVar.w));
             cVar2.y = jSONObject.optBoolean("showPlayBtn", cVar.y);
             cVar2.z = jSONObject.optBoolean("showMuteBtn", cVar.z);
             cVar2.A = jSONObject.optBoolean("showCenterPlayBtn", cVar.A);

@@ -18,10 +18,10 @@ public class c implements d.a.m0.c.e {
             return;
         }
         UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-        aVar.f12574a = fVar.f49214a;
-        aVar.f12575b = fVar.f49216c;
-        aVar.f12577d = true;
-        aVar.f12576c = hashMap.get("touid") == null ? "" : hashMap.get("touid");
+        aVar.f12636a = fVar.f52888a;
+        aVar.f12637b = fVar.f52890c;
+        aVar.f12639d = true;
+        aVar.f12638c = hashMap.get("touid") == null ? "" : hashMap.get("touid");
         MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
     }
 }

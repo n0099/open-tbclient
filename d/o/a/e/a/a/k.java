@@ -12,7 +12,7 @@ public class k extends a {
     @Override // d.o.a.e.a.a.e
     public Intent b() {
         Intent intent = new Intent("com.android.filemanager.OPEN_FOLDER");
-        intent.putExtra("com.android.filemanager.OPEN_FOLDER", this.f67011c);
+        intent.putExtra("com.android.filemanager.OPEN_FOLDER", this.f70797c);
         intent.putExtra("com.iqoo.secure", true);
         intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.addFlags(32768);

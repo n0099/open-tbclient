@@ -9,7 +9,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.data.DataFetcher;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class LocalUriFetcher<T> implements DataFetcher<T> {
     public static final String TAG = "LocalUriFetcher";
     public final ContentResolver contentResolver;

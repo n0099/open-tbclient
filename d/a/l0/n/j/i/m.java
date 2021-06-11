@@ -3,7 +3,7 @@ package d.a.l0.n.j.i;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f48157a;
+    public static int f51831a;
 
     public static String a() {
         d.a.l0.n.a b2 = d.a.l0.n.c.b();
@@ -11,6 +11,6 @@ public class m {
     }
 
     public static boolean b() {
-        return f48157a == 1;
+        return f51831a == 1;
     }
 }

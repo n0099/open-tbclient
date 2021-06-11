@@ -17,32 +17,32 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class EmptyView extends View implements am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f27713a;
+    public boolean f27816a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27714b;
+    public boolean f27817b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f27715c;
+    public a f27818c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f27716d;
+    public View f27819d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Activity> f27717e;
+    public WeakReference<Activity> f27820e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<View> f27718f;
+    public List<View> f27821f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public List<View> f27719g;
+    public List<View> f27822g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27720h;
+    public boolean f27823h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27721i;
+    public int f27824i;
     public final Handler j;
     public final AtomicBoolean k;
 
@@ -62,15 +62,15 @@ public class EmptyView extends View implements am.a {
         this.j = new am(Looper.getMainLooper(), this);
         this.k = new AtomicBoolean(true);
         if (context instanceof Activity) {
-            this.f27717e = new WeakReference<>((Activity) context);
+            this.f27820e = new WeakReference<>((Activity) context);
         }
-        this.f27716d = view;
+        this.f27819d = view;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
     }
 
     private void b() {
         a aVar;
-        if (!this.k.getAndSet(false) || (aVar = this.f27715c) == null) {
+        if (!this.k.getAndSet(false) || (aVar = this.f27818c) == null) {
             return;
         }
         aVar.a();
@@ -78,33 +78,33 @@ public class EmptyView extends View implements am.a {
 
     private void c() {
         a aVar;
-        if (this.k.getAndSet(true) || (aVar = this.f27715c) == null) {
+        if (this.k.getAndSet(true) || (aVar = this.f27818c) == null) {
             return;
         }
         aVar.b();
     }
 
     private void d() {
-        if (!this.f27714b || this.f27713a) {
+        if (!this.f27817b || this.f27816a) {
             return;
         }
-        this.f27713a = true;
+        this.f27816a = true;
         this.j.sendEmptyMessage(1);
     }
 
     private void e() {
-        if (this.f27713a) {
+        if (this.f27816a) {
             this.j.removeCallbacksAndMessages(null);
-            this.f27713a = false;
+            this.f27816a = false;
         }
     }
 
     private boolean f() {
         Activity activity;
         boolean a2 = ak.a();
-        WeakReference<Activity> weakReference = this.f27717e;
+        WeakReference<Activity> weakReference = this.f27820e;
         boolean z = (weakReference == null || (activity = weakReference.get()) == null || activity.isFinishing()) ? false : true;
-        boolean a3 = y.a(this.f27716d, 20, this.f27721i);
+        boolean a3 = y.a(this.f27819d, 20, this.f27824i);
         if (!a2) {
             a3 = true;
         }
@@ -115,15 +115,15 @@ public class EmptyView extends View implements am.a {
     }
 
     public void a() {
-        a(this.f27718f, null);
-        a(this.f27719g, null);
+        a(this.f27821f, null);
+        a(this.f27822g, null);
     }
 
     @Override // android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         d();
-        this.f27720h = false;
+        this.f27823h = false;
         b();
     }
 
@@ -131,7 +131,7 @@ public class EmptyView extends View implements am.a {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         e();
-        this.f27720h = true;
+        this.f27823h = true;
         c();
     }
 
@@ -150,36 +150,36 @@ public class EmptyView extends View implements am.a {
     @Override // android.view.View
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        a aVar = this.f27715c;
+        a aVar = this.f27818c;
         if (aVar != null) {
             aVar.a(z);
         }
     }
 
     public void setAdType(int i2) {
-        this.f27721i = i2;
+        this.f27824i = i2;
     }
 
     public void setCallback(a aVar) {
-        this.f27715c = aVar;
+        this.f27818c = aVar;
     }
 
     public void setNeedCheckingShow(boolean z) {
-        this.f27714b = z;
-        if (!z && this.f27713a) {
+        this.f27817b = z;
+        if (!z && this.f27816a) {
             e();
-        } else if (!z || this.f27713a) {
+        } else if (!z || this.f27816a) {
         } else {
             d();
         }
     }
 
     public void setRefClickViews(List<View> list) {
-        this.f27718f = list;
+        this.f27821f = list;
     }
 
     public void setRefCreativeViews(@Nullable List<View> list) {
-        this.f27719g = list;
+        this.f27822g = list;
     }
 
     public void a(List<View> list, com.bytedance.sdk.openadsdk.core.a.c cVar) {
@@ -200,17 +200,17 @@ public class EmptyView extends View implements am.a {
             }
             if (f()) {
                 this.j.sendEmptyMessageDelayed(2, 1000L);
-            } else if (this.f27720h) {
+            } else if (this.f27823h) {
             } else {
                 setNeedCheckingShow(true);
             }
-        } else if (this.f27713a) {
-            if (y.a(this.f27716d, 20, this.f27721i)) {
+        } else if (this.f27816a) {
+            if (y.a(this.f27819d, 20, this.f27824i)) {
                 e();
                 this.j.sendEmptyMessageDelayed(2, 1000L);
-                a aVar = this.f27715c;
+                a aVar = this.f27818c;
                 if (aVar != null) {
-                    aVar.a(this.f27716d);
+                    aVar.a(this.f27819d);
                     return;
                 }
                 return;

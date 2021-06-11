@@ -5,24 +5,24 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50456a = 20;
+    public int f54132a = 20;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50457b = 1;
+    public int f54133b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50458c;
+    public String f54134c;
 
     public int a() {
-        return this.f50456a;
+        return this.f54132a;
     }
 
     public int b() {
-        return this.f50457b;
+        return this.f54133b;
     }
 
     public String c() {
-        return this.f50458c;
+        return this.f54134c;
     }
 
     public void d(JSONObject jSONObject) {
@@ -39,14 +39,14 @@ public class g {
     }
 
     public void e(int i2) {
-        this.f50456a = i2;
+        this.f54132a = i2;
     }
 
     public void f(int i2) {
-        this.f50457b = i2;
+        this.f54133b = i2;
     }
 
     public void g(String str) {
-        this.f50458c = str;
+        this.f54134c = str;
     }
 }

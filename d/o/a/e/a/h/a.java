@@ -29,41 +29,41 @@ public class a {
 
     /* renamed from: d.o.a.e.a.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class RunnableC1885a implements Runnable {
+    public static class RunnableC1945a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f67090e;
+        public final /* synthetic */ Context f70876e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f67091f;
+        public final /* synthetic */ DownloadInfo f70877f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f67092g;
+        public final /* synthetic */ int f70878g;
 
-        public RunnableC1885a(Context context, DownloadInfo downloadInfo, int i2) {
-            this.f67090e = context;
-            this.f67091f = downloadInfo;
-            this.f67092g = i2;
+        public RunnableC1945a(Context context, DownloadInfo downloadInfo, int i2) {
+            this.f70876e = context;
+            this.f70877f = downloadInfo;
+            this.f70878g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.f t = d.o.a.e.a.e.F().t();
-            d.o.a.e.b.f.d i2 = d.o.a.e.b.g.a.l(this.f67090e).i(this.f67091f.c0());
+            d.o.a.e.b.f.d i2 = d.o.a.e.b.g.a.l(this.f70876e).i(this.f70877f.c0());
             if (t == null && i2 == null) {
                 return;
             }
-            File file = new File(this.f67091f.F0(), this.f67091f.q0());
+            File file = new File(this.f70877f.F0(), this.f70877f.q0());
             if (file.exists()) {
                 try {
-                    PackageInfo i3 = d.o.a.e.a.d.i(this.f67091f, file);
+                    PackageInfo i3 = d.o.a.e.a.d.i(this.f70877f, file);
                     if (i3 != null) {
-                        String v0 = (this.f67092g == 1 || TextUtils.isEmpty(this.f67091f.v0())) ? i3.packageName : this.f67091f.v0();
+                        String v0 = (this.f70878g == 1 || TextUtils.isEmpty(this.f70877f.v0())) ? i3.packageName : this.f70877f.v0();
                         if (t != null) {
-                            t.b(this.f67091f.c0(), 1, v0, -3, this.f67091f.M());
+                            t.b(this.f70877f.c0(), 1, v0, -3, this.f70877f.M());
                         }
                         if (i2 != null) {
-                            i2.a(1, this.f67091f, v0, "");
+                            i2.a(1, this.f70877f, v0, "");
                         }
                     }
                 } catch (Exception e2) {
@@ -88,13 +88,13 @@ public class a {
     public class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public InputStream f67105a;
+        public InputStream f70891a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f67106b;
+        public boolean f70892b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f67107c;
+        public int f70893c;
 
         public d(InputStream inputStream, boolean z) {
             c(inputStream, z);
@@ -103,13 +103,13 @@ public class a {
         public final int a(int i2) throws IOException {
             if (i2 >= 0 && i2 <= 4) {
                 int i3 = 0;
-                if (this.f67106b) {
+                if (this.f70892b) {
                     for (int i4 = (i2 - 1) * 8; i4 >= 0; i4 -= 8) {
-                        int read = this.f67105a.read();
+                        int read = this.f70891a.read();
                         if (read == -1) {
                             throw new EOFException();
                         }
-                        this.f67107c++;
+                        this.f70893c++;
                         i3 |= read << i4;
                     }
                     return i3;
@@ -117,11 +117,11 @@ public class a {
                 int i5 = i2 * 8;
                 int i6 = 0;
                 while (i3 != i5) {
-                    int read2 = this.f67105a.read();
+                    int read2 = this.f70891a.read();
                     if (read2 == -1) {
                         throw new EOFException();
                     }
-                    this.f67107c++;
+                    this.f70893c++;
                     i6 |= read2 << i3;
                     i3 += 8;
                 }
@@ -131,7 +131,7 @@ public class a {
         }
 
         public final void b() {
-            InputStream inputStream = this.f67105a;
+            InputStream inputStream = this.f70891a;
             if (inputStream != null) {
                 try {
                     inputStream.close();
@@ -142,9 +142,9 @@ public class a {
         }
 
         public final void c(InputStream inputStream, boolean z) {
-            this.f67105a = inputStream;
-            this.f67106b = z;
-            this.f67107c = 0;
+            this.f70891a = inputStream;
+            this.f70892b = z;
+            this.f70893c = 0;
         }
 
         public final void d(int[] iArr, int i2, int i3) throws IOException {
@@ -172,8 +172,8 @@ public class a {
         public final void h(int i2) throws IOException {
             if (i2 > 0) {
                 long j = i2;
-                long skip = this.f67105a.skip(j);
-                this.f67107c = (int) (this.f67107c + skip);
+                long skip = this.f70891a.skip(j);
+                this.f70893c = (int) (this.f70893c + skip);
                 if (skip != j) {
                     throw new EOFException();
                 }
@@ -476,10 +476,10 @@ public class a {
     public class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public int[] f67108a;
+        public int[] f70894a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int[] f67109b;
+        public int[] f70895b;
 
         public static final int a(int[] iArr, int i2) {
             int i3 = iArr[i2 / 4];
@@ -495,13 +495,13 @@ public class a {
             int e5 = dVar.e();
             int e6 = dVar.e();
             f fVar = new f();
-            fVar.f67108a = dVar.f(e3);
+            fVar.f70894a = dVar.f(e3);
             if (e4 != 0) {
                 dVar.f(e4);
             }
             int i2 = (e6 == 0 ? e2 : e6) - e5;
             if (i2 % 4 == 0) {
-                fVar.f67109b = dVar.f(i2 / 4);
+                fVar.f70895b = dVar.f(i2 / 4);
                 if (e6 != 0) {
                     int i3 = e2 - e6;
                     if (i3 % 4 == 0) {
@@ -517,15 +517,15 @@ public class a {
 
         public String c(int i2) {
             int[] iArr;
-            if (i2 < 0 || (iArr = this.f67108a) == null || i2 >= iArr.length) {
+            if (i2 < 0 || (iArr = this.f70894a) == null || i2 >= iArr.length) {
                 return null;
             }
             int i3 = iArr[i2];
-            int a2 = a(this.f67109b, i3);
+            int a2 = a(this.f70895b, i3);
             StringBuilder sb = new StringBuilder(a2);
             while (a2 != 0) {
                 i3 += 2;
-                sb.append((char) a(this.f67109b, i3));
+                sb.append((char) a(this.f70895b, i3));
                 a2--;
             }
             return sb.toString();
@@ -551,132 +551,132 @@ public class a {
         if (((downloadInfo.d1() && !downloadInfo.R1()) || d.o.a.e.a.d.K(downloadInfo.R()) || TextUtils.isEmpty(downloadInfo.m0()) || !downloadInfo.m0().equals("application/vnd.android.package-archive")) && d.o.a.e.b.j.a.d(downloadInfo.c0()).b("auto_install_when_resume", 0) != 1) {
             z = false;
         }
-        d.o.a.e.b.g.d.w0().execute(new RunnableC1885a(l, downloadInfo, z ? d.o.a.e.a.d.d(l, downloadInfo.c0(), false) : 2));
+        d.o.a.e.b.g.d.w0().execute(new RunnableC1945a(l, downloadInfo, z ? d.o.a.e.a.d.d(l, downloadInfo.c0(), false) : 2));
     }
 
     /* loaded from: classes7.dex */
     public class b implements g {
 
         /* renamed from: a  reason: collision with root package name */
-        public d f67093a;
+        public d f70879a;
 
         /* renamed from: c  reason: collision with root package name */
-        public f f67095c;
+        public f f70881c;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f67097e;
+        public boolean f70883e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f67098f;
+        public int f70884f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f67099g;
+        public int f70885g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int[] f67100h;
+        public int[] f70886h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f67101i;
+        public int f70887i;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f67094b = false;
+        public boolean f70880b = false;
 
         /* renamed from: d  reason: collision with root package name */
-        public C1886a f67096d = new C1886a();
+        public C1946a f70882d = new C1946a();
 
         /* renamed from: d.o.a.e.a.h.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static final class C1886a {
+        public static final class C1946a {
 
             /* renamed from: a  reason: collision with root package name */
-            public int[] f67102a = new int[32];
+            public int[] f70888a = new int[32];
 
             /* renamed from: b  reason: collision with root package name */
-            public int f67103b;
+            public int f70889b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f67104c;
+            public int f70890c;
 
             public final void a() {
-                this.f67103b = 0;
-                this.f67104c = 0;
+                this.f70889b = 0;
+                this.f70890c = 0;
             }
 
             public final void b(int i2) {
-                int[] iArr = this.f67102a;
+                int[] iArr = this.f70888a;
                 int length = iArr.length;
-                int i3 = this.f67103b;
+                int i3 = this.f70889b;
                 int i4 = length - i3;
                 if (i4 <= i2) {
                     int[] iArr2 = new int[(iArr.length + i4) * 2];
                     System.arraycopy(iArr, 0, iArr2, 0, i3);
-                    this.f67102a = iArr2;
+                    this.f70888a = iArr2;
                 }
             }
 
             public final void c(int i2, int i3) {
-                if (this.f67104c == 0) {
+                if (this.f70890c == 0) {
                     g();
                 }
                 b(2);
-                int i4 = this.f67103b;
+                int i4 = this.f70889b;
                 int i5 = i4 - 1;
-                int[] iArr = this.f67102a;
+                int[] iArr = this.f70888a;
                 int i6 = iArr[i5];
                 int i7 = i6 + 1;
                 iArr[(i5 - 1) - (i6 * 2)] = i7;
                 iArr[i5] = i2;
                 iArr[i5 + 1] = i3;
                 iArr[i5 + 2] = i7;
-                this.f67103b = i4 + 2;
+                this.f70889b = i4 + 2;
             }
 
             public final int d() {
-                int i2 = this.f67103b;
+                int i2 = this.f70889b;
                 if (i2 == 0) {
                     return 0;
                 }
-                return this.f67102a[i2 - 1];
+                return this.f70888a[i2 - 1];
             }
 
             public final boolean e() {
                 int i2;
                 int[] iArr;
                 int i3;
-                int i4 = this.f67103b;
-                if (i4 == 0 || (i3 = (iArr = this.f67102a)[i4 - 1]) == 0) {
+                int i4 = this.f70889b;
+                if (i4 == 0 || (i3 = (iArr = this.f70888a)[i4 - 1]) == 0) {
                     return false;
                 }
                 int i5 = i3 - 1;
                 int i6 = i2 - 2;
                 iArr[i6] = i5;
                 iArr[i6 - ((i5 * 2) + 1)] = i5;
-                this.f67103b = i4 - 2;
+                this.f70889b = i4 - 2;
                 return true;
             }
 
             public final int f() {
-                return this.f67104c;
+                return this.f70890c;
             }
 
             public final void g() {
                 b(2);
-                int i2 = this.f67103b;
-                int[] iArr = this.f67102a;
+                int i2 = this.f70889b;
+                int[] iArr = this.f70888a;
                 iArr[i2] = 0;
                 iArr[i2 + 1] = 0;
-                this.f67103b = i2 + 2;
-                this.f67104c++;
+                this.f70889b = i2 + 2;
+                this.f70890c++;
             }
 
             public final void h() {
-                int i2 = this.f67103b;
+                int i2 = this.f70889b;
                 if (i2 != 0) {
                     int i3 = i2 - 1;
-                    int i4 = this.f67102a[i3] * 2;
+                    int i4 = this.f70888a[i3] * 2;
                     if ((i3 - 1) - i4 != 0) {
-                        this.f67103b = i2 - (i4 + 2);
-                        this.f67104c--;
+                        this.f70889b = i2 - (i4 + 2);
+                        this.f70890c--;
                     }
                 }
             }
@@ -687,17 +687,17 @@ public class a {
         }
 
         public String a(int i2) {
-            int i3 = this.f67100h[j(i2) + 1];
-            return i3 == -1 ? "" : this.f67095c.c(i3);
+            int i3 = this.f70886h[j(i2) + 1];
+            return i3 == -1 ? "" : this.f70881c.c(i3);
         }
 
         public void b() {
-            if (this.f67094b) {
-                this.f67094b = false;
-                this.f67093a.b();
-                this.f67093a = null;
-                this.f67095c = null;
-                this.f67096d.a();
+            if (this.f70880b) {
+                this.f70880b = false;
+                this.f70879a.b();
+                this.f70879a = null;
+                this.f70881c = null;
+                this.f70882d.a();
                 k();
             }
         }
@@ -705,7 +705,7 @@ public class a {
         public void c(InputStream inputStream) {
             b();
             if (inputStream != null) {
-                this.f67093a = new d(inputStream, false);
+                this.f70879a = new d(inputStream, false);
             }
         }
 
@@ -715,10 +715,10 @@ public class a {
         }
 
         public int e() throws h, IOException {
-            if (this.f67093a != null) {
+            if (this.f70879a != null) {
                 try {
                     l();
-                    return this.f67098f;
+                    return this.f70884f;
                 } catch (IOException e2) {
                     b();
                     throw e2;
@@ -733,34 +733,34 @@ public class a {
         }
 
         public int f(int i2) {
-            return this.f67100h[j(i2) + 3];
+            return this.f70886h[j(i2) + 3];
         }
 
         public int g(int i2) {
-            return this.f67100h[j(i2) + 4];
+            return this.f70886h[j(i2) + 4];
         }
 
         public String h(int i2) {
             int j = j(i2);
-            int[] iArr = this.f67100h;
+            int[] iArr = this.f70886h;
             if (iArr[j + 3] == 3) {
-                return this.f67095c.c(iArr[j + 2]);
+                return this.f70881c.c(iArr[j + 2]);
             }
             int i3 = iArr[j + 4];
             return "";
         }
 
         public int i() {
-            if (this.f67098f != 2) {
+            if (this.f70884f != 2) {
                 return -1;
             }
-            return this.f67100h.length / 5;
+            return this.f70886h.length / 5;
         }
 
         public final int j(int i2) {
-            if (this.f67098f == 2) {
+            if (this.f70884f == 2) {
                 int i3 = i2 * 5;
-                if (i3 < this.f67100h.length) {
+                if (i3 < this.f70886h.length) {
                     return i3;
                 }
                 throw new IndexOutOfBoundsException("Invalid attribute index (" + i2 + ").");
@@ -769,10 +769,10 @@ public class a {
         }
 
         public final void k() {
-            this.f67098f = -1;
-            this.f67099g = -1;
-            this.f67100h = null;
-            this.f67101i = -1;
+            this.f70884f = -1;
+            this.f70885g = -1;
+            this.f70886h = null;
+            this.f70887i = -1;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:62:0x0172, code lost:
@@ -783,82 +783,82 @@ public class a {
         */
         public final void l() throws IOException {
             int e2;
-            if (this.f67095c == null) {
-                c.a(this.f67093a, 524291);
-                this.f67093a.g();
-                this.f67095c = f.b(this.f67093a);
-                this.f67096d.g();
-                this.f67094b = true;
+            if (this.f70881c == null) {
+                c.a(this.f70879a, 524291);
+                this.f70879a.g();
+                this.f70881c = f.b(this.f70879a);
+                this.f70882d.g();
+                this.f70880b = true;
             }
-            int i2 = this.f67098f;
+            int i2 = this.f70884f;
             if (i2 != 1) {
                 k();
                 while (true) {
-                    if (this.f67097e) {
-                        this.f67097e = false;
-                        this.f67096d.h();
+                    if (this.f70883e) {
+                        this.f70883e = false;
+                        this.f70882d.h();
                     }
                     int i3 = 3;
-                    if (i2 == 3 && this.f67096d.f() == 1 && this.f67096d.d() == 0) {
-                        this.f67098f = 1;
+                    if (i2 == 3 && this.f70882d.f() == 1 && this.f70882d.d() == 0) {
+                        this.f70884f = 1;
                         return;
                     }
-                    int e3 = i2 == 0 ? 1048834 : this.f67093a.e();
+                    int e3 = i2 == 0 ? 1048834 : this.f70879a.e();
                     if (e3 == 524672) {
-                        e2 = this.f67093a.e();
+                        e2 = this.f70879a.e();
                         if (e2 < 8 || e2 % 4 != 0) {
                             break;
                         }
-                        this.f67093a.f((e2 / 4) - 2);
+                        this.f70879a.f((e2 / 4) - 2);
                     } else if (e3 < 1048832 || e3 > 1048836) {
                         break;
                     } else if (e3 == 1048834 && i2 == -1) {
-                        this.f67098f = 0;
+                        this.f70884f = 0;
                         return;
                     } else {
-                        this.f67093a.g();
-                        int e4 = this.f67093a.e();
-                        this.f67093a.g();
+                        this.f70879a.g();
+                        int e4 = this.f70879a.e();
+                        this.f70879a.g();
                         if (e3 != 1048832 && e3 != 1048833) {
-                            this.f67099g = e4;
+                            this.f70885g = e4;
                             if (e3 == 1048834) {
-                                this.f67093a.e();
-                                this.f67093a.e();
-                                this.f67093a.g();
-                                int e5 = this.f67093a.e();
-                                this.f67101i = e5;
-                                this.f67101i = (65535 & e5) - 1;
-                                this.f67100h = this.f67093a.f((this.f67093a.e() & 65535) * 5);
+                                this.f70879a.e();
+                                this.f70879a.e();
+                                this.f70879a.g();
+                                int e5 = this.f70879a.e();
+                                this.f70887i = e5;
+                                this.f70887i = (65535 & e5) - 1;
+                                this.f70886h = this.f70879a.f((this.f70879a.e() & 65535) * 5);
                                 while (true) {
-                                    int[] iArr = this.f67100h;
+                                    int[] iArr = this.f70886h;
                                     if (i3 < iArr.length) {
                                         iArr[i3] = iArr[i3] >>> 24;
                                         i3 += 5;
                                     } else {
-                                        this.f67096d.g();
-                                        this.f67098f = 2;
+                                        this.f70882d.g();
+                                        this.f70884f = 2;
                                         return;
                                     }
                                 }
                             } else if (e3 == 1048835) {
-                                this.f67093a.e();
-                                this.f67093a.e();
-                                this.f67098f = 3;
-                                this.f67097e = true;
+                                this.f70879a.e();
+                                this.f70879a.e();
+                                this.f70884f = 3;
+                                this.f70883e = true;
                                 return;
                             } else if (e3 == 1048836) {
-                                this.f67093a.e();
-                                this.f67093a.g();
-                                this.f67093a.g();
-                                this.f67098f = 4;
+                                this.f70879a.e();
+                                this.f70879a.g();
+                                this.f70879a.g();
+                                this.f70884f = 4;
                                 return;
                             }
                         } else if (e3 == 1048832) {
-                            this.f67096d.c(this.f67093a.e(), this.f67093a.e());
+                            this.f70882d.c(this.f70879a.e(), this.f70879a.e());
                         } else {
-                            this.f67093a.g();
-                            this.f67093a.g();
-                            this.f67096d.e();
+                            this.f70879a.g();
+                            this.f70879a.g();
+                            this.f70882d.e();
                         }
                     }
                 }
@@ -868,7 +868,7 @@ public class a {
 
         @Override // d.o.a.e.a.h.a.g
         public int c() {
-            return this.f67099g;
+            return this.f70885g;
         }
     }
 }

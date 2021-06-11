@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Registry {
     public static final String BUCKET_APPEND_ALL = "legacy_append";
     public static final String BUCKET_BITMAP = "Bitmap";
@@ -46,21 +46,21 @@ public class Registry {
     public final ModelToResourceClassCache modelToResourceClassCache = new ModelToResourceClassCache();
     public final LoadPathCache loadPathCache = new LoadPathCache();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class MissingComponentException extends RuntimeException {
         public MissingComponentException(@NonNull String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class NoImageHeaderParserException extends MissingComponentException {
         public NoImageHeaderParserException() {
             super("Failed to find image header parser.");
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class NoModelLoaderAvailableException extends MissingComponentException {
         public NoModelLoaderAvailableException(@NonNull Object obj) {
             super("Failed to find any ModelLoaders for model: " + obj);
@@ -71,14 +71,14 @@ public class Registry {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class NoResultEncoderAvailableException extends MissingComponentException {
         public NoResultEncoderAvailableException(@NonNull Class<?> cls) {
             super("Failed to find result encoder for resource class: " + cls + ", you may need to consider registering a new Encoder for the requested type or DiskCacheStrategy.DATA/DiskCacheStrategy.NONE if caching your transformed resource is unnecessary.");
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class NoSourceEncoderAvailableException extends MissingComponentException {
         public NoSourceEncoderAvailableException(@NonNull Class<?> cls) {
             super("Failed to find source encoder for data class: " + cls);

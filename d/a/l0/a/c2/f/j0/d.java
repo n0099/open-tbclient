@@ -25,11 +25,11 @@ public class d extends a0 {
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
         LoadingView loadingView;
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         if (eVar != null && eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
@@ -60,12 +60,12 @@ public class d extends a0 {
                 return false;
             }
             d.a.l0.a.h0.g.d m = swanAppFragmentManager.m();
-            if (!(m instanceof a.InterfaceC0935a)) {
+            if (!(m instanceof a.InterfaceC0991a)) {
                 d.a.l0.a.e0.d.b("showLoading", "fragment not support");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
                 return false;
             }
-            d.a.l0.a.z1.b.c.a floatLayer = ((a.InterfaceC0935a) m).getFloatLayer();
+            d.a.l0.a.z1.b.c.a floatLayer = ((a.InterfaceC0991a) m).getFloatLayer();
             if (floatLayer == null) {
                 d.a.l0.a.e0.d.b("showLoading", "can't get floatLayer");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");

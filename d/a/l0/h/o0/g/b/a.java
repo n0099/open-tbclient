@@ -21,19 +21,19 @@ import d.a.l0.h.m0.g;
 public class a implements d.a.l0.h.o0.g.b.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47588e;
+    public Context f51262e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.l0.h.o0.g.e.a f47589f;
+    public d.a.l0.h.o0.g.e.a f51263f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f47590g;
+    public b f51264g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f47591h;
+    public Handler f51265h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f47592i;
+    public ViewGroup f51266i;
     public int j;
     public boolean k;
     public ObjectAnimator l;
@@ -41,8 +41,8 @@ public class a implements d.a.l0.h.o0.g.b.b {
 
     /* renamed from: d.a.l0.h.o0.g.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class HandlerC1042a extends Handler {
-        public HandlerC1042a(Looper looper) {
+    public class HandlerC1098a extends Handler {
+        public HandlerC1098a(Looper looper) {
             super(looper);
         }
 
@@ -53,7 +53,7 @@ public class a implements d.a.l0.h.o0.g.b.b {
             }
             int f2 = a.this.f();
             if (f2 > 0 && a.this.k) {
-                a.this.f47591h.sendEmptyMessageDelayed(1, f2);
+                a.this.f51265h.sendEmptyMessageDelayed(1, f2);
             }
             a.this.k();
         }
@@ -69,7 +69,7 @@ public class a implements d.a.l0.h.o0.g.b.b {
     }
 
     public a(@NonNull Context context, @NonNull d dVar) {
-        this.f47588e = context;
+        this.f51262e = context;
         this.m = dVar;
         j(i());
         h();
@@ -88,24 +88,24 @@ public class a implements d.a.l0.h.o0.g.b.b {
     }
 
     public final void b() {
-        this.f47592i.setVisibility(8);
-        d.a.l0.h.o0.b.a(this.f47592i, g());
+        this.f51266i.setVisibility(8);
+        d.a.l0.h.o0.b.a(this.f51266i, g());
     }
 
     @Override // d.a.l0.h.o0.g.b.b
     public void d(d.a.l0.h.o0.g.e.a aVar) {
-        this.f47589f = aVar;
+        this.f51263f = aVar;
     }
 
     @Override // d.a.l0.h.o0.g.a
     public void destroy() {
         this.k = false;
-        this.f47591h.removeCallbacksAndMessages(null);
-        d.a.l0.h.o0.b.d(this.f47592i);
+        this.f51265h.removeCallbacksAndMessages(null);
+        d.a.l0.h.o0.b.d(this.f51266i);
     }
 
     public final ObjectAnimator e() {
-        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f47592i, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.2f, 6.0f), Keyframe.ofFloat(0.4f, -6.0f), Keyframe.ofFloat(0.6f, 6.0f), Keyframe.ofFloat(0.8f, -6.0f), Keyframe.ofFloat(1.0f, 0.0f)));
+        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f51266i, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.2f, 6.0f), Keyframe.ofFloat(0.4f, -6.0f), Keyframe.ofFloat(0.6f, 6.0f), Keyframe.ofFloat(0.8f, -6.0f), Keyframe.ofFloat(1.0f, 0.0f)));
         ofPropertyValuesHolder.setDuration(600L);
         return ofPropertyValuesHolder;
     }
@@ -125,29 +125,29 @@ public class a implements d.a.l0.h.o0.g.b.b {
 
     public final void h() {
         this.l = e();
-        this.f47591h = new HandlerC1042a(Looper.getMainLooper());
+        this.f51265h = new HandlerC1098a(Looper.getMainLooper());
     }
 
     @Override // d.a.l0.h.o0.g.a
     public void hide() {
         this.k = false;
-        this.f47591h.removeMessages(1);
-        this.f47592i.setVisibility(8);
+        this.f51265h.removeMessages(1);
+        this.f51266i.setVisibility(8);
     }
 
     @SuppressLint({"InflateParams"})
     public View i() {
-        return LayoutInflater.from(this.f47588e).inflate(f.swangame_recommend_button, (ViewGroup) null);
+        return LayoutInflater.from(this.f51262e).inflate(f.swangame_recommend_button, (ViewGroup) null);
     }
 
     public final void j(View view) {
-        this.j = (int) this.f47588e.getResources().getDimension(d.a.l0.f.c.swangame_recommend_button_root_padding);
-        this.f47592i = new FrameLayout(this.f47588e);
+        this.j = (int) this.f51262e.getResources().getDimension(d.a.l0.f.c.swangame_recommend_button_root_padding);
+        this.f51266i = new FrameLayout(this.f51262e);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g.a(this.m.width), g.a(this.m.height));
         int i2 = this.j;
         layoutParams.setMargins(i2, i2, i2, i2);
-        this.f47592i.setBackgroundColor(0);
-        this.f47592i.addView(view, layoutParams);
+        this.f51266i.setBackgroundColor(0);
+        this.f51266i.addView(view, layoutParams);
     }
 
     public void k() {
@@ -157,9 +157,9 @@ public class a implements d.a.l0.h.o0.g.b.b {
     @Override // d.a.l0.h.o0.g.b.b
     public void m(boolean z) {
         if (this.k) {
-            this.f47591h.removeMessages(1);
+            this.f51265h.removeMessages(1);
             if (z) {
-                this.f47591h.sendEmptyMessage(1);
+                this.f51265h.sendEmptyMessage(1);
             }
         }
     }
@@ -167,13 +167,13 @@ public class a implements d.a.l0.h.o0.g.b.b {
     @Override // d.a.l0.h.o0.g.a
     public void show() {
         this.k = true;
-        this.f47592i.setVisibility(0);
-        this.f47591h.removeMessages(1);
-        this.f47591h.sendEmptyMessage(1);
+        this.f51266i.setVisibility(0);
+        this.f51265h.removeMessages(1);
+        this.f51265h.sendEmptyMessage(1);
     }
 
     @Override // d.a.l0.h.o0.g.b.b
     public void u(b bVar) {
-        this.f47590g = bVar;
+        this.f51264g = bVar;
     }
 }

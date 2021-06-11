@@ -6,11 +6,11 @@ import org.json.JSONArray;
 public class z extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f40681a = -1.0f;
+    public float f44357a = -1.0f;
 
     @Override // d.a.l0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
-        float f2 = this.f40681a;
+        float f2 = this.f44357a;
         if (f2 < 0.0f || f2 > 1.0f) {
             return;
         }
@@ -20,7 +20,7 @@ public class z extends a {
     @Override // d.a.l0.a.a0.a.j.a
     public void b(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
-            this.f40681a = (float) jSONArray.optDouble(0);
+            this.f44357a = (float) jSONArray.optDouble(0);
         }
     }
 }

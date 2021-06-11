@@ -7,7 +7,7 @@ import android.os.Build;
 import android.util.Log;
 import com.bumptech.glide.load.DecodeFormat;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class HardwareConfigState {
     public static final File FD_SIZE_LIST = new File("/proc/self/fd");
     public static final int MAXIMUM_FDS_FOR_HARDWARE_CONFIGS = 700;

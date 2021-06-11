@@ -21,45 +21,45 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f39475a;
+    public b f43156a;
 
     /* loaded from: classes2.dex */
     public class a extends d.a.c0.k.a.a<Map<String, String>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f39476a;
+        public final /* synthetic */ String f43157a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ m f39477b;
+        public final /* synthetic */ m f43158b;
 
         /* renamed from: d.a.c0.k.i.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0510a implements Runnable {
+        public class RunnableC0566a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.a.c0.p.c f39479e;
+            public final /* synthetic */ d.a.c0.p.c f43160e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f39480f;
+            public final /* synthetic */ String f43161f;
 
-            public RunnableC0510a(d.a.c0.p.c cVar, String str) {
-                this.f39479e = cVar;
-                this.f39480f = str;
+            public RunnableC0566a(d.a.c0.p.c cVar, String str) {
+                this.f43160e = cVar;
+                this.f43161f = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.c0.p.c cVar = this.f39479e;
+                d.a.c0.p.c cVar = this.f43160e;
                 if (cVar != null && cVar.u()) {
-                    this.f39479e.q();
+                    this.f43160e.q();
                 }
-                a.this.f39477b.g(0, this.f39480f);
+                a.this.f43158b.g(0, this.f43161f);
             }
         }
 
         public a(String str, m mVar) {
-            this.f39476a = str;
-            this.f39477b = mVar;
+            this.f43157a = str;
+            this.f43158b = mVar;
         }
 
         @Override // d.a.c0.k.a.a
@@ -70,7 +70,7 @@ public class c {
             } else {
                 message = th != null ? th.getMessage() : null;
             }
-            m mVar = this.f39477b;
+            m mVar = this.f43158b;
             mVar.m("launchpayment error msg is " + message, str);
             d.a.c0.k.h.b bVar = new d.a.c0.k.h.b("1");
             bVar.c(new com.baidu.poly.a.i.a("launchpayment error --> " + str, th).U());
@@ -81,24 +81,24 @@ public class c {
         @Override // d.a.c0.k.a.a
         /* renamed from: c */
         public void a(Map<String, String> map) {
-            d.f39441c = map.get("orderId");
+            d.f43122c = map.get("orderId");
             if (!map.containsKey("parentType")) {
-                c.this.d(map, this.f39476a, this.f39477b);
+                c.this.d(map, this.f43157a, this.f43158b);
                 return;
             }
             String str = map.get("parentType");
             if (TextUtils.isEmpty(str)) {
-                c.this.d(map, this.f39476a, this.f39477b);
+                c.this.d(map, this.f43157a, this.f43158b);
             } else if (4 != Integer.parseInt(str)) {
-                c.this.d(map, this.f39476a, this.f39477b);
+                c.this.d(map, this.f43157a, this.f43158b);
             } else {
                 String a2 = d.a.c0.n.b.a(0, map.get("orderId"), "Successful payment");
-                d.a.c0.p.c cVar = new d.a.c0.p.c(View.inflate(this.f39477b.getContext(), g.pay_success, null), -1, -1, true);
+                d.a.c0.p.c cVar = new d.a.c0.p.c(View.inflate(this.f43158b.getContext(), g.pay_success, null), -1, -1, true);
                 cVar.y(false);
                 cVar.A(false);
                 cVar.C(false);
-                cVar.E(this.f39477b, 0, 0, 0);
-                new Handler().postDelayed(new RunnableC0510a(cVar, a2), 2000L);
+                cVar.E(this.f43158b, 0, 0, 0);
+                new Handler().postDelayed(new RunnableC0566a(cVar, a2), 2000L);
                 d.a.c0.k.h.a.g("8");
                 d.a.c0.n.d.e("WalletList->pay() 命中0单元");
             }
@@ -106,7 +106,7 @@ public class c {
     }
 
     public c(b bVar) {
-        this.f39475a = bVar;
+        this.f43156a = bVar;
     }
 
     public final void a(Activity activity, String str, Map<String, String> map) {
@@ -155,7 +155,7 @@ public class c {
                 return;
             }
         }
-        this.f39475a.b(map, str, mVar);
+        this.f43156a.b(map, str, mVar);
     }
 
     public final boolean e(Context context) {

@@ -22,19 +22,19 @@ import java.util.List;
 public class d implements Object<List<EmotionPackageData>> {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f63774e;
+    public TbPageContext f67492e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDragSortListView f63775f;
+    public SimpleDragSortListView f67493f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f63776g;
+    public View f67494g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.z1.h.d.a f63777h;
+    public d.a.n0.z1.h.d.a f67495h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.z1.h.f.b f63778i;
+    public d.a.n0.z1.h.f.b f67496i;
     public g j;
     public FrameLayout k;
     public boolean l = false;
@@ -49,7 +49,7 @@ public class d implements Object<List<EmotionPackageData>> {
 
         @Override // d.a.m0.b1.e.a.i
         public void drop(int i2, int i3) {
-            d.this.f63777h.a(i2, i3);
+            d.this.f67495h.a(i2, i3);
         }
     }
 
@@ -57,19 +57,19 @@ public class d implements Object<List<EmotionPackageData>> {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f63780e;
+        public final /* synthetic */ List f67498e;
 
         public b(List list) {
-            this.f63780e = list;
+            this.f67498e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.this.j();
-            if (d.this.f63777h == null || this.f63780e == null) {
+            if (d.this.f67495h == null || this.f67498e == null) {
                 return;
             }
-            d.this.f63777h.c(this.f63780e);
+            d.this.f67495h.c(this.f67498e);
         }
     }
 
@@ -80,26 +80,26 @@ public class d implements Object<List<EmotionPackageData>> {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63777h != null) {
-                d.this.f63777h.b();
+            if (d.this.f67495h != null) {
+                d.this.f67495h.b();
             }
         }
     }
 
     public d(TbPageContext tbPageContext) {
-        this.f63774e = tbPageContext;
+        this.f67492e = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_my_emotions, (ViewGroup) null, false);
-        this.f63776g = inflate;
+        this.f67494g = inflate;
         this.k = (FrameLayout) inflate.findViewById(R.id.my_emotion_loading);
-        this.o = (NoNetworkView) this.f63776g.findViewById(R.id.view_no_network);
-        this.f63778i = new d.a.n0.z1.h.f.b(this.f63776g.findViewById(R.id.emotion_my_emotion_empty), tbPageContext.getString(R.string.emotion_empty_mine));
-        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.f63776g.findViewById(R.id.my_emotion_list);
-        this.f63775f = simpleDragSortListView;
+        this.o = (NoNetworkView) this.f67494g.findViewById(R.id.view_no_network);
+        this.f67496i = new d.a.n0.z1.h.f.b(this.f67494g.findViewById(R.id.emotion_my_emotion_empty), tbPageContext.getString(R.string.emotion_empty_mine));
+        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.f67494g.findViewById(R.id.my_emotion_list);
+        this.f67493f = simpleDragSortListView;
         simpleDragSortListView.setDivider(null);
-        this.f63775f.setOverScrollMode(2);
-        this.f63775f.setVerticalScrollBarEnabled(false);
+        this.f67493f.setOverScrollMode(2);
+        this.f67493f.setVerticalScrollBarEnabled(false);
         k();
-        this.f63777h = new d.a.n0.z1.h.d.a(tbPageContext, this.f63775f, this.m);
+        this.f67495h = new d.a.n0.z1.h.d.a(tbPageContext, this.f67493f, this.m);
         l();
         this.o.a(this);
     }
@@ -112,7 +112,7 @@ public class d implements Object<List<EmotionPackageData>> {
     }
 
     public View d() {
-        return this.f63776g;
+        return this.f67494g;
     }
 
     public void e() {
@@ -136,7 +136,7 @@ public class d implements Object<List<EmotionPackageData>> {
     }
 
     public void g(int i2) {
-        d.a.n0.z1.h.f.b bVar = this.f63778i;
+        d.a.n0.z1.h.f.b bVar = this.f67496i;
         if (bVar != null) {
             bVar.b(i2);
         }
@@ -144,17 +144,17 @@ public class d implements Object<List<EmotionPackageData>> {
         if (frameLayout != null) {
             SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0201, i2);
         }
-        d.a.n0.z1.h.f.b bVar2 = this.f63778i;
+        d.a.n0.z1.h.f.b bVar2 = this.f67496i;
         if (bVar2 != null) {
             SkinManager.setBackgroundColor(bVar2.a(), R.color.CAM_X0201, i2);
         }
-        SimpleDragSortListView simpleDragSortListView = this.f63775f;
+        SimpleDragSortListView simpleDragSortListView = this.f67493f;
         if (simpleDragSortListView != null) {
             SkinManager.setBackgroundColor(simpleDragSortListView, R.color.CAM_X0201, i2);
         }
         NoNetworkView noNetworkView = this.o;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f63774e, i2);
+            noNetworkView.c(this.f67492e, i2);
         }
     }
 
@@ -169,8 +169,8 @@ public class d implements Object<List<EmotionPackageData>> {
 
     public final void j() {
         d.a.n0.z1.h.f.b bVar;
-        SimpleDragSortListView simpleDragSortListView = this.f63775f;
-        if (simpleDragSortListView == null || this.l || (bVar = this.f63778i) == null) {
+        SimpleDragSortListView simpleDragSortListView = this.f67493f;
+        if (simpleDragSortListView == null || this.l || (bVar = this.f67496i) == null) {
             return;
         }
         this.l = true;
@@ -178,33 +178,33 @@ public class d implements Object<List<EmotionPackageData>> {
     }
 
     public final void k() {
-        d.a.n0.z1.h.b.a aVar = new d.a.n0.z1.h.b.a(this.f63775f);
+        d.a.n0.z1.h.b.a aVar = new d.a.n0.z1.h.b.a(this.f67493f);
         this.m = aVar;
         aVar.c(new a());
     }
 
     public final void l() {
-        if (this.f63774e == null || this.k == null) {
+        if (this.f67492e == null || this.k == null) {
             return;
         }
         i();
         this.k.setVisibility(0);
-        g gVar = new g(this.f63774e.getPageActivity());
+        g gVar = new g(this.f67492e.getPageActivity());
         this.j = gVar;
         gVar.attachView(this.k, true);
         this.j.onChangeSkinType();
     }
 
     public void m() {
-        if (this.f63774e == null || this.k == null) {
+        if (this.f67492e == null || this.k == null) {
             return;
         }
         i();
         this.k.setVisibility(0);
-        NoDataView b2 = NoDataViewFactory.b(this.f63774e.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f63774e.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f63774e.getString(R.string.emotion_error_net_tip)), null, true);
+        NoDataView b2 = NoDataViewFactory.b(this.f67492e.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f67492e.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f67492e.getString(R.string.emotion_error_net_tip)), null, true);
         this.n = b2;
         b2.setVisibility(0);
-        this.n.d(this.f63774e);
+        this.n.d(this.f67492e);
     }
 
     public void n(List<EmotionPackageData> list) {

@@ -6,22 +6,22 @@ import com.bun.miitmdid.utils.d;
 import com.bun.miitmdid.utils.sysParamters;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f26756a = new HashMap();
+    public Map<String, String> f26859a = new HashMap();
 
     private Map<String, String> a() {
-        if (this.f26756a.isEmpty()) {
-            this.f26756a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
-            this.f26756a.put("sv", sysParamters.a().c());
-            this.f26756a.put("md", sysParamters.a().d());
-            this.f26756a.put("mf", sysParamters.a().e());
-            this.f26756a.put(Config.PACKAGE_NAME, sysParamters.g());
+        if (this.f26859a.isEmpty()) {
+            this.f26859a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
+            this.f26859a.put("sv", sysParamters.a().c());
+            this.f26859a.put("md", sysParamters.a().d());
+            this.f26859a.put("mf", sysParamters.a().e());
+            this.f26859a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
-        this.f26756a.put("tm", String.valueOf(System.currentTimeMillis()));
-        return this.f26756a;
+        this.f26859a.put("tm", String.valueOf(System.currentTimeMillis()));
+        return this.f26859a;
     }
 
     public boolean a(boolean z, String str, String str2, String str3, String str4) {

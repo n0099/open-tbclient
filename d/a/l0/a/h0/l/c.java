@@ -8,7 +8,7 @@ import d.a.l0.a.h0.u.g;
 import d.a.l0.a.k;
 /* loaded from: classes2.dex */
 public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
-    public static final boolean B = k.f43199a;
+    public static final boolean B = k.f46875a;
     public final String A;
 
     public c(Context context) {
@@ -22,9 +22,9 @@ public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
             return;
         }
         if (B) {
-            Log.d("SwanAppMasterManager", "pathList item: " + aVar.f42602b);
+            Log.d("SwanAppMasterManager", "pathList item: " + aVar.f46278b);
         }
-        this.f10704f.getSettings().setCodeCacheSetting(d.a.l0.a.h0.d.b.a("appjs", aVar.f42602b));
+        this.f10766f.getSettings().setCodeCacheSetting(d.a.l0.a.h0.d.b.a("appjs", aVar.f46278b));
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager

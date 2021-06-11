@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class a extends d.a.l0.g.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47092c = k.f43199a;
+    public static final boolean f50766c = k.f46875a;
 
     public a() {
         super("StartAppUsagePage");
@@ -24,15 +24,15 @@ public class a extends d.a.l0.g.f.a {
             try {
                 Q.x().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
             } catch (Exception e2) {
-                if (f47092c) {
+                if (f50766c) {
                     e2.printStackTrace();
                 }
                 a0.f(Q.x());
             }
-            bVar.b(null);
+            bVar.a(null);
         } else {
             bVar.onFail(100, "swan or activity is null");
-            if (f47092c) {
+            if (f50766c) {
                 Log.d("StartAppUsagePage", "swan or activity is null");
             }
         }

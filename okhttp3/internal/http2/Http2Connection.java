@@ -28,7 +28,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Http2Connection implements Closeable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final int OKHTTP_CLIENT_WINDOW_SIZE = 16777216;
@@ -54,7 +54,7 @@ public final class Http2Connection implements Closeable {
     public boolean receivedInitialPeerSettings = false;
     public final Set<Integer> currentPushRequests = new LinkedHashSet();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Listener {
         public static final Listener REFUSE_INCOMING_STREAMS = new Listener() { // from class: okhttp3.internal.http2.Http2Connection.Listener.1
             @Override // okhttp3.internal.http2.Http2Connection.Listener
@@ -69,7 +69,7 @@ public final class Http2Connection implements Closeable {
         public abstract void onStream(Http2Stream http2Stream) throws IOException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class PingRunnable extends NamedRunnable {
         public final int payload1;
         public final int payload2;
@@ -88,7 +88,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ReaderRunnable extends NamedRunnable implements Http2Reader.Handler {
         public final Http2Reader reader;
 
@@ -766,7 +766,7 @@ public final class Http2Connection implements Closeable {
         new Thread(this.readerRunnable).start();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public boolean client;
         public String hostname;

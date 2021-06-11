@@ -3,7 +3,7 @@ package org.apache.http.impl.cookie;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BasicMaxAgeHandler extends AbstractCookieAttributeHandler {
     public BasicMaxAgeHandler() {
         throw new RuntimeException("Stub!");

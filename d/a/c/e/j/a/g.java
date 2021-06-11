@@ -7,43 +7,43 @@ import java.util.Map;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f38641a = false;
+    public volatile boolean f42294a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38642b = -1;
+    public int f42295b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38643c = -1;
+    public int f42296c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38644d = "";
+    public String f42297d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38645e = "";
+    public String f42298e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38646f = "";
+    public String f42299f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, List<String>> f38647g;
+    public Map<String, List<String>> f42300g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f38648h;
+    public byte[] f42301h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38649i;
+    public int f42302i;
 
     public void a(HttpURLConnection httpURLConnection) throws Exception {
         if (httpURLConnection != null) {
-            this.f38642b = httpURLConnection.getResponseCode();
-            this.f38644d = httpURLConnection.getContentEncoding();
-            this.f38645e = httpURLConnection.getContentType();
-            this.f38646f = httpURLConnection.getContentLength() + "";
-            this.f38647g = httpURLConnection.getHeaderFields();
+            this.f42295b = httpURLConnection.getResponseCode();
+            this.f42297d = httpURLConnection.getContentEncoding();
+            this.f42298e = httpURLConnection.getContentType();
+            this.f42299f = httpURLConnection.getContentLength() + "";
+            this.f42300g = httpURLConnection.getHeaderFields();
         }
     }
 
     public boolean b() {
-        return this.f38642b == 200;
+        return this.f42295b == 200;
     }
 }

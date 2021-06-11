@@ -1,16 +1,21 @@
 package d.a.m0.a;
 /* loaded from: classes3.dex */
-public class n extends i {
+public class n extends j {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f48740e;
+    public volatile long f52415e;
 
-    public n(b bVar, long j) {
-        super(bVar);
-        this.f48740e = j;
+    public n(c cVar) {
+        super(cVar);
+        this.f52415e = System.currentTimeMillis();
     }
 
-    public long i() {
-        return this.f48740e;
+    public synchronized long i() {
+        this.f52415e = System.currentTimeMillis() + 60000;
+        return this.f52415e;
+    }
+
+    public boolean j() {
+        return System.currentTimeMillis() - this.f52415e >= 60000;
     }
 }

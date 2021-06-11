@@ -28,14 +28,14 @@ public class j implements d.a.l0.m.a {
         c.a aVar;
         d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
         if (Q == null) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 Log.e("SwanNetworkImpl", "swanapp is null");
             }
             return null;
         }
         SwanAppConfigData F = Q.F();
-        if (F == null || (aVar = F.f11252h) == null) {
-            if (d.a.l0.a.k.f43199a) {
+        if (F == null || (aVar = F.f11314h) == null) {
+            if (d.a.l0.a.k.f46875a) {
                 Log.e("SwanNetworkImpl", "config or mNetworkConfig is null");
             }
             return null;
@@ -71,7 +71,7 @@ public class j implements d.a.l0.m.a {
 
     @Override // d.a.l0.m.a
     public boolean isDebug() {
-        return d.a.l0.a.k.f43199a;
+        return d.a.l0.a.k.f46875a;
     }
 
     @Override // d.a.l0.m.a

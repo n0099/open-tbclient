@@ -21,19 +21,19 @@ public class ReplyEditorParams implements Parcelable {
     public static final String MODULE_PICTURE = "image";
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f10997e;
+    public final String f11059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f10998f;
+    public final String f11060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f10999g;
+    public final int f11061g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f11000h;
+    public final int f11062h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f11001i;
+    public final String f11063i;
     public final String j;
     public List<String> showList;
     public static final List<String> DEFAULT_LIST = Collections.emptyList();
@@ -57,12 +57,12 @@ public class ReplyEditorParams implements Parcelable {
     }
 
     public ReplyEditorParams(String str, String str2, String str3, String str4, int i2, int i3, List<String> list) {
-        this.f10997e = str;
-        this.f11001i = str2;
+        this.f11059e = str;
+        this.f11063i = str2;
         this.j = str3;
-        this.f10998f = str4;
-        this.f10999g = i2;
-        this.f11000h = i3;
+        this.f11060f = str4;
+        this.f11061g = i2;
+        this.f11062h = i3;
         this.showList = list;
     }
 
@@ -91,7 +91,7 @@ public class ReplyEditorParams implements Parcelable {
         try {
             i2 = SwanAppConfigData.s(b.c(jSONObject, "sendTextColor", "#FFFFFF"));
         } catch (Exception e2) {
-            if (k.f43199a) {
+            if (k.f46875a) {
                 e2.printStackTrace();
             }
             i2 = -1;
@@ -102,7 +102,7 @@ public class ReplyEditorParams implements Parcelable {
         try {
             i3 = SwanAppConfigData.s(c3);
         } catch (Exception e3) {
-            if (k.f43199a) {
+            if (k.f46875a) {
                 e3.printStackTrace();
             }
             i3 = color;
@@ -137,21 +137,21 @@ public class ReplyEditorParams implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f10997e);
-        parcel.writeString(this.f10998f);
-        parcel.writeInt(this.f10999g);
-        parcel.writeInt(this.f11000h);
-        parcel.writeString(this.f11001i);
+        parcel.writeString(this.f11059e);
+        parcel.writeString(this.f11060f);
+        parcel.writeInt(this.f11061g);
+        parcel.writeInt(this.f11062h);
+        parcel.writeString(this.f11063i);
         parcel.writeString(this.j);
         parcel.writeStringList(this.showList);
     }
 
     public ReplyEditorParams(Parcel parcel) {
-        this.f10997e = parcel.readString();
-        this.f10998f = parcel.readString();
-        this.f10999g = parcel.readInt();
-        this.f11000h = parcel.readInt();
-        this.f11001i = parcel.readString();
+        this.f11059e = parcel.readString();
+        this.f11060f = parcel.readString();
+        this.f11061g = parcel.readInt();
+        this.f11062h = parcel.readInt();
+        this.f11063i = parcel.readString();
         this.j = parcel.readString();
         this.showList = parcel.createStringArrayList();
     }

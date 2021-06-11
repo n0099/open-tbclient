@@ -16,19 +16,19 @@ import java.util.concurrent.TimeUnit;
 public class b extends d.a.n0.e3.o0.d.f.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile d f54187g;
+    public volatile d f57876g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f54188h;
+    public volatile boolean f57877h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f54189i;
+    public int f57878i;
 
     /* loaded from: classes5.dex */
     public class a implements ThreadFactory {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f54190e = 0;
+        public int f57879e = 0;
 
         public a(b bVar) {
         }
@@ -36,57 +36,57 @@ public class b extends d.a.n0.e3.o0.d.f.a {
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
             Thread thread = new Thread(runnable);
-            thread.setName("VideoUploadThread@" + this.f54190e);
-            this.f54190e = this.f54190e + 1;
+            thread.setName("VideoUploadThread@" + this.f57879e);
+            this.f57879e = this.f57879e + 1;
             return thread;
         }
     }
 
     /* renamed from: d.a.n0.e3.o0.d.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC1299b implements Runnable {
+    public class RunnableC1355b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RandomAccessFile f54191e;
+        public final /* synthetic */ RandomAccessFile f57880e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f54192f;
+        public final /* synthetic */ ArrayList f57881f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f54193g;
+        public final /* synthetic */ int f57882g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f54194h;
+        public final /* synthetic */ int f57883h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f54195i;
+        public final /* synthetic */ String f57884i;
         public final /* synthetic */ int j;
         public final /* synthetic */ CountDownLatch k;
 
-        public RunnableC1299b(RandomAccessFile randomAccessFile, ArrayList arrayList, int i2, int i3, String str, int i4, CountDownLatch countDownLatch) {
-            this.f54191e = randomAccessFile;
-            this.f54192f = arrayList;
-            this.f54193g = i2;
-            this.f54194h = i3;
-            this.f54195i = str;
+        public RunnableC1355b(RandomAccessFile randomAccessFile, ArrayList arrayList, int i2, int i3, String str, int i4, CountDownLatch countDownLatch) {
+            this.f57880e = randomAccessFile;
+            this.f57881f = arrayList;
+            this.f57882g = i2;
+            this.f57883h = i3;
+            this.f57884i = str;
             this.j = i4;
             this.k = countDownLatch;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d h2 = b.this.h(this.f54191e, ((Integer) this.f54192f.get(this.f54193g)).intValue(), this.f54194h, this.f54195i);
+            d h2 = b.this.h(this.f57880e, ((Integer) this.f57881f.get(this.f57882g)).intValue(), this.f57883h, this.f57884i);
             if (h2 != null) {
-                if (h2.f54198b != 0) {
-                    b.this.f54187g.f54198b = h2.f54198b;
-                    b.this.f54187g.f54199c = h2.f54199c;
+                if (h2.f57887b != 0) {
+                    b.this.f57876g.f57887b = h2.f57887b;
+                    b.this.f57876g.f57888c = h2.f57888c;
                 }
-                if (!StringUtils.isNull(h2.f54197a)) {
-                    b.this.f54187g.f54197a = h2.f54197a;
+                if (!StringUtils.isNull(h2.f57886a)) {
+                    b.this.f57876g.f57886a = h2.f57886a;
                 }
                 synchronized (b.this) {
                     b.k(b.this);
-                    b.this.d((int) (((b.this.f54189i * 50.0f) / this.j) + 30.0f));
+                    b.this.d((int) (((b.this.f57878i * 50.0f) / this.j) + 30.0f));
                 }
             }
             this.k.countDown();
@@ -95,23 +95,23 @@ public class b extends d.a.n0.e3.o0.d.f.a {
 
     public b(String str, int i2, int i3, long j, String str2) {
         super(str, i2, i3, j, str2);
-        this.f54187g = new d();
+        this.f57876g = new d();
     }
 
     public static /* synthetic */ int k(b bVar) {
-        int i2 = bVar.f54189i;
-        bVar.f54189i = i2 + 1;
+        int i2 = bVar.f57878i;
+        bVar.f57878i = i2 + 1;
         return i2;
     }
 
     @Override // d.a.n0.e3.o0.d.f.a
     public void a() {
-        this.f54188h = true;
+        this.f57877h = true;
     }
 
     @Override // d.a.n0.e3.o0.d.f.a
     public boolean c() {
-        return (!this.f54188h && this.f54187g.f54198b == 0 && StringUtils.isNull(this.f54187g.f54197a)) ? false : true;
+        return (!this.f57877h && this.f57876g.f57887b == 0 && StringUtils.isNull(this.f57876g.f57886a)) ? false : true;
     }
 
     @Override // d.a.n0.e3.o0.d.f.a
@@ -120,9 +120,9 @@ public class b extends d.a.n0.e3.o0.d.f.a {
         CountDownLatch countDownLatch = new CountDownLatch(size);
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.f54182b), r.f7672a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.f57871b), r.f7715a);
             for (int i3 = 0; i3 < size; i3++) {
-                threadPoolExecutor.execute(new RunnableC1299b(randomAccessFile, arrayList, i3, i2, str, size, countDownLatch));
+                threadPoolExecutor.execute(new RunnableC1355b(randomAccessFile, arrayList, i3, i2, str, size, countDownLatch));
             }
             try {
                 countDownLatch.await();
@@ -135,9 +135,9 @@ public class b extends d.a.n0.e3.o0.d.f.a {
             } catch (IOException e3) {
                 e3.printStackTrace();
             }
-            return this.f54187g;
+            return this.f57876g;
         } catch (FileNotFoundException unused) {
-            return this.f54187g;
+            return this.f57876g;
         }
     }
 }

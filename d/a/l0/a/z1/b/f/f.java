@@ -31,44 +31,44 @@ import java.lang.ref.WeakReference;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static WeakReference<View> f46212a = null;
+    public static WeakReference<View> f49886a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Runnable f46213b = null;
+    public static Runnable f49887b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e.b f46214c = null;
+    public static e.b f49888c = null;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: d  reason: collision with root package name */
-    public static View f46215d = null;
+    public static View f49889d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f46216e = false;
+    public static boolean f49890e = false;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f46217e;
+        public final /* synthetic */ View f49891e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f46218f;
+        public final /* synthetic */ View f49892f;
 
         /* renamed from: d.a.l0.a.z1.b.f.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class animation.Animation$AnimationListenerC0939a implements Animation.AnimationListener {
+        public class animation.Animation$AnimationListenerC0995a implements Animation.AnimationListener {
 
             /* renamed from: d.a.l0.a.z1.b.f.f$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class RunnableC0940a implements Runnable {
-                public RunnableC0940a() {
+            public class RunnableC0996a implements Runnable {
+                public RunnableC0996a() {
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.f46217e.getParent() != null) {
-                        ((ViewGroup) a.this.f46217e.getParent()).removeView(a.this.f46217e);
+                    if (a.this.f49891e.getParent() != null) {
+                        ((ViewGroup) a.this.f49891e.getParent()).removeView(a.this.f49891e);
                     }
                 }
             }
@@ -81,23 +81,23 @@ public class f {
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    View view = a.this.f46218f;
-                    if (view == null || view.getParent() == null || !(a.this.f46218f.getParent() instanceof ViewGroup)) {
+                    View view = a.this.f49892f;
+                    if (view == null || view.getParent() == null || !(a.this.f49892f.getParent() instanceof ViewGroup)) {
                         return;
                     }
-                    ((ViewGroup) a.this.f46218f.getParent()).removeView(a.this.f46218f);
+                    ((ViewGroup) a.this.f49892f.getParent()).removeView(a.this.f49892f);
                 }
             }
 
-            public animation.Animation$AnimationListenerC0939a() {
+            public animation.Animation$AnimationListenerC0995a() {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (a.this.f46217e.getParent() instanceof ViewGroup) {
-                    a.this.f46217e.post(new RunnableC0940a());
+                if (a.this.f49891e.getParent() instanceof ViewGroup) {
+                    a.this.f49891e.post(new RunnableC0996a());
                 }
-                View view = a.this.f46218f;
+                View view = a.this.f49892f;
                 if (view != null) {
                     view.post(new b());
                 }
@@ -113,19 +113,19 @@ public class f {
         }
 
         public a(View view, View view2) {
-            this.f46217e = view;
-            this.f46218f = view2;
+            this.f49891e = view;
+            this.f49892f = view2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            WeakReference weakReference = new WeakReference(this.f46217e.getContext());
+            WeakReference weakReference = new WeakReference(this.f49891e.getContext());
             if (weakReference.get() == null) {
                 return;
             }
             Animation loadAnimation = AnimationUtils.loadAnimation((Context) weakReference.get(), d.a.l0.a.a.aiapps_toast_exit);
-            loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0939a());
-            this.f46217e.startAnimation(loadAnimation);
+            loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0995a());
+            this.f49891e.startAnimation(loadAnimation);
         }
     }
 
@@ -133,15 +133,15 @@ public class f {
     public static class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f46222e;
+        public final /* synthetic */ e.c f49896e;
 
         public b(e.c cVar) {
-            this.f46222e = cVar;
+            this.f49896e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e.c cVar = this.f46222e;
+            e.c cVar = this.f49896e;
             if (cVar != null) {
                 cVar.a();
             }
@@ -153,15 +153,15 @@ public class f {
     public static class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f46223e;
+        public final /* synthetic */ e.c f49897e;
 
         public c(e.c cVar) {
-            this.f46223e = cVar;
+            this.f49897e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e.c cVar = this.f46223e;
+            e.c cVar = this.f49897e;
             if (cVar != null) {
                 cVar.a();
             }
@@ -173,59 +173,59 @@ public class f {
     public static class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f46224e;
+        public final /* synthetic */ View f49898e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f46225f;
+        public final /* synthetic */ Context f49899f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f46226g;
+        public final /* synthetic */ View f49900g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ FrameLayout.LayoutParams f46227h;
+        public final /* synthetic */ FrameLayout.LayoutParams f49901h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Animation f46228i;
+        public final /* synthetic */ Animation f49902i;
 
         public d(View view, Context context, View view2, FrameLayout.LayoutParams layoutParams, Animation animation) {
-            this.f46224e = view;
-            this.f46225f = context;
-            this.f46226g = view2;
-            this.f46227h = layoutParams;
-            this.f46228i = animation;
+            this.f49898e = view;
+            this.f49899f = context;
+            this.f49900g = view2;
+            this.f49901h = layoutParams;
+            this.f49902i = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             View view;
-            if (f.f46216e && this.f46224e != null) {
-                if (f.f46215d != null && (f.f46215d.getParent() instanceof ViewGroup)) {
-                    ((ViewGroup) f.f46215d.getParent()).removeView(f.f46215d);
+            if (f.f49890e && this.f49898e != null) {
+                if (f.f49889d != null && (f.f49889d.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) f.f49889d.getParent()).removeView(f.f49889d);
                 }
-                Context context = this.f46225f;
+                Context context = this.f49899f;
                 if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
                     return;
                 }
-                FrameLayout frameLayout = new FrameLayout(this.f46225f);
+                FrameLayout frameLayout = new FrameLayout(this.f49899f);
                 frameLayout.setClickable(true);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                layoutParams.topMargin = d.a.l0.a.z1.b.f.e.c(this.f46225f);
-                View view2 = this.f46224e;
+                layoutParams.topMargin = d.a.l0.a.z1.b.f.e.c(this.f49899f);
+                View view2 = this.f49898e;
                 if (view2 instanceof ViewGroup) {
                     ((ViewGroup) view2).addView(frameLayout, layoutParams);
-                    View unused = f.f46215d = frameLayout;
+                    View unused = f.f49889d = frameLayout;
                 }
             }
-            if (f.f46212a != null && (view = (View) f.f46212a.get()) != null && (view.getParent() instanceof ViewGroup)) {
+            if (f.f49886a != null && (view = (View) f.f49886a.get()) != null && (view.getParent() instanceof ViewGroup)) {
                 ((ViewGroup) view.getParent()).removeView(view);
             }
-            Context context2 = this.f46225f;
+            Context context2 = this.f49899f;
             if ((context2 instanceof Activity) && ((Activity) context2).isFinishing()) {
                 return;
             }
-            ((ViewGroup) this.f46224e).addView(this.f46226g, this.f46227h);
-            this.f46226g.startAnimation(this.f46228i);
-            WeakReference unused2 = f.f46212a = new WeakReference(this.f46226g);
+            ((ViewGroup) this.f49898e).addView(this.f49900g, this.f49901h);
+            this.f49900g.startAnimation(this.f49902i);
+            WeakReference unused2 = f.f49886a = new WeakReference(this.f49900g);
         }
     }
 
@@ -255,32 +255,32 @@ public class f {
         view2.setClickable(true);
         if (view instanceof ViewGroup) {
             view.post(new d(view, context, view2, layoutParams, animation));
-            if (f46213b == null) {
-                f46213b = new e();
+            if (f49887b == null) {
+                f49887b = new e();
             }
-            d.a.l0.a.a2.d.i().postDelayed(f46213b, i2 * 1000);
+            d.a.l0.a.a2.d.i().postDelayed(f49887b, i2 * 1000);
         }
     }
 
     public static synchronized void h() {
         synchronized (f.class) {
-            if (f46212a != null) {
-                View view = f46212a.get();
+            if (f49886a != null) {
+                View view = f49886a.get();
                 if (view != null) {
-                    view.post(new a(view, f46215d));
-                    if (f46213b != null) {
-                        view.removeCallbacks(f46213b);
+                    view.post(new a(view, f49889d));
+                    if (f49887b != null) {
+                        view.removeCallbacks(f49887b);
                     }
                 }
-                if (f46213b != null) {
-                    d.a.l0.a.a2.d.i().removeCallbacks(f46213b);
+                if (f49887b != null) {
+                    d.a.l0.a.a2.d.i().removeCallbacks(f49887b);
                 }
-                f46213b = null;
-                f46212a = null;
-                f46215d = null;
-                if (f46214c != null) {
-                    f46214c.onDismiss();
-                    f46214c = null;
+                f49887b = null;
+                f49886a = null;
+                f49889d = null;
+                if (f49888c != null) {
+                    f49888c.onDismiss();
+                    f49888c = null;
                 }
             }
         }
@@ -302,17 +302,17 @@ public class f {
 
     public static boolean k() {
         View view;
-        WeakReference<View> weakReference = f46212a;
+        WeakReference<View> weakReference = f49886a;
         return (weakReference == null || (view = weakReference.get()) == null || view.getParent() == null) ? false : true;
     }
 
     public static void l(e.b bVar) {
-        f46214c = bVar;
+        f49888c = bVar;
     }
 
     public static void m(Activity activity, CharSequence charSequence, int i2, boolean z) {
         Resources resources = d.a.l0.a.c1.a.b().getResources();
-        f46216e = z;
+        f49890e = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_toast_template_square_d20, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(d.a.l0.a.e.aiapps_toast_bg_d20));
         linearLayout.findViewById(d.a.l0.a.f.highlight_toast_imageView_d20).setVisibility(8);
@@ -331,7 +331,7 @@ public class f {
 
     public static void n(@NonNull Activity activity, @NonNull CharSequence charSequence, @Nullable Drawable drawable, @Nullable View view, int i2, boolean z) {
         Resources resources = activity.getResources();
-        f46216e = z;
+        f49890e = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_toast_template_square_d20, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(d.a.l0.a.e.aiapps_toast_bg_d20));
         TextView textView = (TextView) linearLayout.findViewById(d.a.l0.a.f.highlight_toast_text_d20);
@@ -375,7 +375,7 @@ public class f {
         if (i3 == null) {
             return;
         }
-        f46216e = z;
+        f49890e = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_toast_template_a_d20, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(d.a.l0.a.e.aiapps_toast_bg_d20));
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(d.a.l0.a.f.left_icon_fresco);
@@ -384,7 +384,7 @@ public class f {
         TextView textView2 = (TextView) linearLayout.findViewById(d.a.l0.a.f.right_toast_jump_text);
         View findViewById = linearLayout.findViewById(d.a.l0.a.f.right_toast_vertical_line);
         if (!TextUtils.isEmpty(charSequence)) {
-            textView.setTextColor(d.a.l0.a.z1.b.f.b.f46186a);
+            textView.setTextColor(d.a.l0.a.z1.b.f.b.f49860a);
             if (uri == null && drawable == null && view == null && TextUtils.isEmpty(charSequence2)) {
                 simpleDraweeView.setVisibility(8);
                 linearLayout2.setVisibility(8);
@@ -410,7 +410,7 @@ public class f {
                         toastLocation2 = ToastLocation.BOTTOM;
                         linearLayout2.setVisibility(0);
                         textView2.setText(charSequence2);
-                        textView2.setTextColor(d.a.l0.a.z1.b.f.b.f46186a);
+                        textView2.setTextColor(d.a.l0.a.z1.b.f.b.f49860a);
                         findViewById.setBackground(resources.getDrawable(d.a.l0.a.c.GC36));
                         if (linearLayout2 != null) {
                             linearLayout2.setOnClickListener(new b(cVar));
@@ -501,7 +501,7 @@ public class f {
                     textView2.setText(charSequence2);
                     textView.setVisibility(0);
                     textView2.setVisibility(0);
-                    textView.setTextColor(d.a.l0.a.z1.b.f.b.f46186a);
+                    textView.setTextColor(d.a.l0.a.z1.b.f.b.f49860a);
                     textView2.setTextColor(resources.getColor(d.a.l0.a.c.GC4));
                     textView3.setVisibility(8);
                 } else {
@@ -512,7 +512,7 @@ public class f {
                     textView.setVisibility(8);
                     textView2.setVisibility(8);
                     textView3.setVisibility(0);
-                    textView3.setTextColor(d.a.l0.a.z1.b.f.b.f46186a);
+                    textView3.setTextColor(d.a.l0.a.z1.b.f.b.f49860a);
                 }
                 FrameLayout frameLayout = (FrameLayout) linearLayout.findViewById(d.a.l0.a.f.btn_area);
                 LinearLayout linearLayout3 = (LinearLayout) linearLayout.findViewById(d.a.l0.a.f.jump_area);
@@ -531,7 +531,7 @@ public class f {
                         linearLayout3.setVisibility(0);
                         frameLayout.setVisibility(8);
                         textView5.setText(charSequence3);
-                        textView5.setTextColor(d.a.l0.a.z1.b.f.b.f46186a);
+                        textView5.setTextColor(d.a.l0.a.z1.b.f.b.f49860a);
                         imageView.setImageDrawable(resources.getDrawable(d.a.l0.a.e.aiapps_toast_right_jump_d20));
                         findViewById.setBackground(resources.getDrawable(d.a.l0.a.c.GC36));
                         frameLayout = linearLayout3;

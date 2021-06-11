@@ -7,14 +7,14 @@ import java.io.IOException;
 public class Base64Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f4015a;
+    public static final Boolean f4034a;
 
     static {
-        f4015a = Boolean.valueOf(Build.VERSION.SDK_INT >= 8);
+        f4034a = Boolean.valueOf(Build.VERSION.SDK_INT >= 8);
     }
 
     public static byte[] decode(byte[] bArr) {
-        if (f4015a.booleanValue()) {
+        if (f4034a.booleanValue()) {
             return Base64.decode(bArr, 2);
         }
         try {
@@ -25,21 +25,21 @@ public class Base64Utils {
     }
 
     public static byte[] encode(byte[] bArr) {
-        if (f4015a.booleanValue()) {
+        if (f4034a.booleanValue()) {
             return Base64.encode(bArr, 2);
         }
         return com.baidu.apollon.utils.support.Base64.encodeBytesToBytes(bArr);
     }
 
     public static String encodeToString(byte[] bArr) {
-        if (f4015a.booleanValue()) {
+        if (f4034a.booleanValue()) {
             return Base64.encodeToString(bArr, 2);
         }
         return com.baidu.apollon.utils.support.Base64.encodeBytes(bArr);
     }
 
     public static byte[] decode(String str) {
-        if (f4015a.booleanValue()) {
+        if (f4034a.booleanValue()) {
             return Base64.decode(str, 2);
         }
         try {

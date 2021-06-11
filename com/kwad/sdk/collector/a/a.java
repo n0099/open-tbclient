@@ -1,50 +1,44 @@
 package com.kwad.sdk.collector.a;
 
-import android.content.Context;
+import com.heytap.mcssdk.mode.CommandMessage;
+import com.kwad.sdk.core.network.d;
+import com.kwad.sdk.utils.o;
 import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class a implements b {
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f31854a;
+public class a extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f31855b;
+    public C0360a f32423b;
 
-    public a() {
-        this.f31854a = true;
-    }
+    /* renamed from: com.kwad.sdk.collector.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public static class C0360a {
 
-    public a(boolean z) {
-        this.f31854a = z;
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public List<String> f32424a;
 
-    public List<b> a() {
-        return this.f31855b;
-    }
-
-    @Override // com.kwad.sdk.collector.a.b
-    public boolean a(Context context) {
-        if (this.f31854a) {
-            List<b> a2 = a();
-            if (a2 == null || a2.size() <= 0) {
-                try {
-                    return b(context);
-                } catch (Throwable unused) {
-                    return false;
-                }
-            }
-            for (b bVar : a2) {
-                if (bVar.a(context)) {
-                    return true;
-                }
-            }
-            return false;
+        public C0360a(List<String> list) {
+            this.f32424a = list;
         }
-        return false;
+
+        public JSONObject a() {
+            JSONObject jSONObject = new JSONObject();
+            o.a(jSONObject, "packageName", this.f32424a);
+            return jSONObject;
+        }
     }
 
-    public boolean b(Context context) {
-        return false;
+    public a(List<String> list) {
+        C0360a c0360a = new C0360a(list);
+        this.f32423b = c0360a;
+        a("targetAppInfo", c0360a.a());
+        b(CommandMessage.SDK_VERSION, "3.3.9");
+        a("sdkVersionCode", 3030900);
+    }
+
+    @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
+    public String a() {
+        return com.kwad.sdk.d.t();
     }
 }

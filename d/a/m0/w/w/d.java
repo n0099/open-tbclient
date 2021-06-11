@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
+import com.kwai.video.player.PlayerPostEvent;
 import d.a.c.e.p.l;
 import d.a.m0.w.m;
 import java.util.ArrayList;
@@ -22,58 +23,58 @@ public class d extends g {
     public class a implements d.a.m0.w.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f50893e;
+        public final /* synthetic */ e f54570e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f50894f;
+        public final /* synthetic */ EditorTools f54571f;
 
         public a(e eVar, EditorTools editorTools) {
-            this.f50893e = eVar;
-            this.f50894f = editorTools;
+            this.f54570e = eVar;
+            this.f54571f = editorTools;
         }
 
         @Override // d.a.m0.w.b
         public void onAction(d.a.m0.w.a aVar) {
             int size;
-            e eVar = this.f50893e;
+            e eVar = this.f54570e;
             if (eVar == null || eVar.a() == null || aVar == null) {
                 return;
             }
-            int i2 = aVar.f50841a;
+            int i2 = aVar.f54518a;
             if (i2 == 4) {
-                this.f50893e.m0(aVar.f50843c.toString());
+                this.f54570e.m0(aVar.f54520c.toString());
             } else if (i2 == 5) {
-                if (this.f50894f.u()) {
+                if (this.f54571f.u()) {
                     return;
                 }
-                TiebaStatic.eventStat(this.f50894f.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                TiebaStatic.eventStat(this.f54571f.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
             } else if (i2 == 7) {
-                this.f50893e.r().showToast(R.string.over_limit_tip);
+                this.f54570e.r().showToast(R.string.over_limit_tip);
             } else if (i2 == 8) {
-                if (d.this.j(this.f50893e.r(), 11001)) {
-                    this.f50893e.L(null, null);
+                if (d.this.j(this.f54570e.r(), 11001)) {
+                    this.f54570e.L(null, null);
                 }
             } else if (i2 != 14) {
                 if (i2 != 15) {
                     return;
                 }
-                int intValue = ((Integer) aVar.f50843c).intValue();
-                if (this.f50893e.y() != null && this.f50893e.y().getChosedFiles() != null && (size = this.f50893e.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f50893e.r().getPageActivity(), 12012, this.f50893e.y(), intValue)));
+                int intValue = ((Integer) aVar.f54520c).intValue();
+                if (this.f54570e.y() != null && this.f54570e.y().getChosedFiles() != null && (size = this.f54570e.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f54570e.r().getPageActivity(), 12012, this.f54570e.y(), intValue)));
                 }
             } else {
-                if (this.f50893e.y() != null) {
-                    this.f50893e.y().setMaxImagesAllowed(1);
+                if (this.f54570e.y() != null) {
+                    this.f54570e.y().setMaxImagesAllowed(1);
                 }
-                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f50893e.r().getPageActivity(), this.f50893e.y().toJsonString(), true, true);
+                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f54570e.r().getPageActivity(), this.f54570e.y().toJsonString(), true, true);
                 if (!StringUtils.isNull(d.this.l(), true)) {
                     albumActivityConfig.getIntent().putExtra("from", d.this.l());
                 }
                 if (d.this.k() != null && !StringUtils.isNull(d.this.k().getId(), true)) {
                     albumActivityConfig.getIntent().putExtra("forum_id", d.this.k().getId());
                 }
-                albumActivityConfig.setRequestCode(12002);
-                l.x(this.f50893e.r().getPageActivity(), this.f50893e.r().getPageActivity().getCurrentFocus());
+                albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
+                l.x(this.f54570e.r().getPageActivity(), this.f54570e.r().getPageActivity().getCurrentFocus());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
             }
         }

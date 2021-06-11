@@ -32,7 +32,7 @@ public final class SwanAppMessengerService extends Service {
     public static final String ACTION_DEFAULT = "com.baidu.searchbox.action.SWAN_APP_MSG_SERVICE_DEFAULT";
     public static final String ACTION_PREFIX = "com.baidu.searchbox.action.SWAN_APP_MSG_SERVICE_";
     public static final String ACTION_PRELOAD_NEXT = "com.baidu.searchbox.action.SWAN_APP_MSG_SERVICE_PRELOAD_NEXT";
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final String SEND_BROADCAST_INNER_ACTION = "innerAction";
     public static final String TAG = "SwanAppMessengerService";
     @Nullable
@@ -77,8 +77,8 @@ public final class SwanAppMessengerService extends Service {
                     Bundle bundle = (Bundle) obj;
                     bundle.setClassLoader(a.class.getClassLoader());
                     String string = bundle.getString("page_info");
-                    if (d.a.l0.a.p1.a.a().f44112a != null) {
-                        d.a.l0.a.p1.a.a().f44112a.onCallback(new SwanAppPageInfo(string));
+                    if (d.a.l0.a.p1.a.a().f47786a != null) {
+                        d.a.l0.a.p1.a.a().f47786a.onCallback(new SwanAppPageInfo(string));
                     }
                 }
             }
@@ -245,9 +245,9 @@ public final class SwanAppMessengerService extends Service {
                         }
                         Bundle bundle = (Bundle) message.obj;
                         if (bundle != null) {
-                            d.a.l0.a.q1.a.b().f44168a = bundle.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                            d.a.l0.a.q1.a.b().f44169b = bundle.getString("frameType");
-                            d.a.l0.a.q1.a.b().f44170c = bundle.getString("params");
+                            d.a.l0.a.q1.a.b().f47842a = bundle.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                            d.a.l0.a.q1.a.b().f47843b = bundle.getString("frameType");
+                            d.a.l0.a.q1.a.b().f47844c = bundle.getString("params");
                             return;
                         }
                         return;
@@ -411,7 +411,7 @@ public final class SwanAppMessengerService extends Service {
         if (DEBUG) {
             Log.d(TAG, "onBind() " + this + " pid: " + Process.myPid());
         }
-        return e.k().f45343e.asBinder();
+        return e.k().f49017e.asBinder();
     }
 
     @Override // android.app.Service
@@ -458,7 +458,7 @@ public final class SwanAppMessengerService extends Service {
             Log.d(TAG, "sendMessageToClient: delegation: " + cls.getName());
         }
         Message obtain = Message.obtain((Handler) null, 125);
-        obtain.replyTo = e.k().f45342d;
+        obtain.replyTo = e.k().f49016d;
         Bundle bundle2 = new Bundle();
         bundle2.putString("ai_apps_delegation_name", cls.getName());
         if (cVar != null) {
@@ -494,7 +494,7 @@ public final class SwanAppMessengerService extends Service {
     public boolean sendMessageToClient(d.a.l0.a.v1.c.f.c cVar, int i2, Bundle bundle) {
         d.a.l0.a.v1.c.a e2 = d.a.l0.a.v1.c.a.e();
         c cVar2 = new c(i2, bundle);
-        cVar2.b(cVar.f45331f);
+        cVar2.b(cVar.f49005f);
         e2.h(cVar2);
         return true;
     }

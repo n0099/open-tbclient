@@ -9,13 +9,13 @@ import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
 import d.a.m0.m.f;
 import d.a.n0.y1.c;
 /* loaded from: classes4.dex */
-public class a extends d.a.c.j.e.a<d.a.n0.y1.e.b, b> {
+public class a extends d.a.c.k.e.a<d.a.n0.y1.e.b, b> {
     public f<d.a.n0.y1.e.b> m;
 
     /* renamed from: d.a.n0.y1.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1746a implements f<d.a.n0.y1.e.b> {
-        public C1746a(a aVar) {
+    public class C1803a implements f<d.a.n0.y1.e.b> {
+        public C1803a(a aVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,37 +39,37 @@ public class a extends d.a.c.j.e.a<d.a.n0.y1.e.b, b> {
     public static class b extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public HotTopicDetailSpecialItem f63356a;
+        public HotTopicDetailSpecialItem f67071a;
 
         public b(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
             super(hotTopicDetailSpecialItem);
-            this.f63356a = hotTopicDetailSpecialItem;
+            this.f67071a = hotTopicDetailSpecialItem;
         }
 
         public void b(d.a.n0.y1.e.b bVar) {
             if (bVar != null) {
-                this.f63356a.a(bVar);
+                this.f67071a.a(bVar);
             }
         }
 
         public void c(int i2) {
-            this.f63356a.c(i2);
+            this.f67071a.c(i2);
         }
 
         public void d(f<d.a.n0.y1.e.b> fVar) {
-            this.f63356a.setOnItemCoverListener(fVar);
+            this.f67071a.setOnItemCoverListener(fVar);
         }
     }
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.a.n0.y1.e.a.f63399a);
-        this.m = new C1746a(this);
+        super(tbPageContext.getPageActivity(), d.a.n0.y1.e.a.f67114a);
+        this.m = new C1803a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public b P(ViewGroup viewGroup) {
+    public b Q(ViewGroup viewGroup) {
         b bVar = new b(new HotTopicDetailSpecialItem(viewGroup.getContext()));
         bVar.d(this.m);
         bVar.c(TbadkCoreApplication.getInst().getSkinType());
@@ -77,9 +77,9 @@ public class a extends d.a.c.j.e.a<d.a.n0.y1.e.b, b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.y1.e.b bVar, b bVar2) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.y1.e.b bVar, b bVar2) {
         if (bVar == null || bVar2 == null) {
             return null;
         }

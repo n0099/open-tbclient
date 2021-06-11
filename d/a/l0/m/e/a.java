@@ -30,18 +30,18 @@ import org.apache.http.client.methods.HttpPut;
 public class a extends HttpManager {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f47981b = d.a.l0.m.b.c();
+    public static final boolean f51655b = d.a.l0.m.b.c();
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f47982c;
+    public static volatile a f51656c;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f47983a;
+    public boolean f51657a;
 
     /* renamed from: d.a.l0.m.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1074a extends ResponseCallback {
-        public C1074a(a aVar) {
+    public class C1130a extends ResponseCallback {
+        public C1130a(a aVar) {
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -60,20 +60,20 @@ public class a extends HttpManager {
 
     public a() {
         super(d.a.l0.m.b.b().getAppContext());
-        this.f47983a = true;
-        this.f47983a = d.a.l0.m.b.a();
+        this.f51657a = true;
+        this.f51657a = d.a.l0.m.b.a();
     }
 
     public static a g() {
-        if (f47982c == null) {
+        if (f51656c == null) {
             synchronized (a.class) {
-                if (f47982c == null) {
-                    f47982c = new a();
-                    f47982c.setNetworkStat(HttpRuntime.getHttpContext().getNewNetworkStat());
+                if (f51656c == null) {
+                    f51656c = new a();
+                    f51656c.setNetworkStat(HttpRuntime.getHttpContext().getNewNetworkStat());
                 }
             }
         }
-        return f47982c;
+        return f51656c;
     }
 
     public static a h(Context context) {
@@ -92,21 +92,21 @@ public class a extends HttpManager {
     }
 
     public boolean c() {
-        return this.f47983a;
+        return this.f51657a;
     }
 
     public void d(d.a.l0.m.d.a aVar) {
-        aVar.f47970b = "GET";
+        aVar.f51644b = "GET";
         s(aVar);
     }
 
     public void e(d.a.l0.m.d.a aVar) {
-        aVar.f47970b = "POST";
+        aVar.f51644b = "POST";
         s(aVar);
     }
 
     public void f(d.a.l0.m.d.a aVar) {
-        aVar.f47970b = HttpPut.METHOD_NAME;
+        aVar.f51644b = HttpPut.METHOD_NAME;
         s(aVar);
     }
 
@@ -136,7 +136,7 @@ public class a extends HttpManager {
     }
 
     public final ResponseCallback k() {
-        return new C1074a(this);
+        return new C1130a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -148,7 +148,7 @@ public class a extends HttpManager {
 
     public final boolean m(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (f47981b) {
+            if (f51655b) {
                 Log.e("SwanHttpManager", "url is empty");
                 return true;
             }
@@ -190,40 +190,40 @@ public class a extends HttpManager {
     }
 
     public void s(@NonNull d.a.l0.m.d.a aVar) {
-        if (aVar.f47973e == null) {
-            aVar.f47973e = k();
+        if (aVar.f51647e == null) {
+            aVar.f51647e = k();
         }
-        if (m(aVar.f47969a)) {
-            aVar.f47973e.onFail(new Exception("url is invalid"));
+        if (m(aVar.f51643a)) {
+            aVar.f51647e.onFail(new Exception("url is invalid"));
             return;
         }
         HttpRequestBuilder a2 = b.a(aVar);
         t(a2, aVar);
-        a2.build().executeAsync(aVar.f47973e);
+        a2.build().executeAsync(aVar.f51647e);
     }
 
     public void t(HttpRequestBuilder httpRequestBuilder, d.a.l0.m.d.a aVar) {
         if (httpRequestBuilder != null && aVar != null) {
-            httpRequestBuilder.url(aVar.f47969a);
-            Map<String, String> map = aVar.f47971c;
+            httpRequestBuilder.url(aVar.f51643a);
+            Map<String, String> map = aVar.f51645c;
             if (map != null && map.size() > 0) {
-                httpRequestBuilder.headers(aVar.f47971c);
+                httpRequestBuilder.headers(aVar.f51645c);
             }
-            if (aVar.f47974f) {
+            if (aVar.f51648f) {
                 httpRequestBuilder.userAgent(d.a.l0.m.b.b().a());
             }
-            if (aVar.f47975g) {
+            if (aVar.f51649g) {
                 httpRequestBuilder.cookieManager(d.a.l0.m.b.b().g());
             }
-            if (aVar.f47976h) {
-                a.C1073a b2 = aVar.b();
+            if (aVar.f51650h) {
+                a.C1129a b2 = aVar.b();
                 if (b2 == null) {
                     u(httpRequestBuilder);
                 } else {
                     w(httpRequestBuilder, b2);
                 }
             }
-            Object obj = aVar.f47977i;
+            Object obj = aVar.f51651i;
             if (obj != null) {
                 httpRequestBuilder.tag(obj);
             }
@@ -232,7 +232,7 @@ public class a extends HttpManager {
                 httpRequestBuilder.requestFrom(aVar.j);
                 httpRequestBuilder.requestSubFrom(aVar.k);
             }
-        } else if (f47981b) {
+        } else if (f51655b) {
             Log.e("SwanHttpManager", "setNetworkConfig fail");
         }
     }
@@ -267,22 +267,22 @@ public class a extends HttpManager {
         }
     }
 
-    public final void w(HttpRequestBuilder httpRequestBuilder, @NonNull a.C1073a c1073a) {
-        int i2 = c1073a.f47978a;
+    public final void w(HttpRequestBuilder httpRequestBuilder, @NonNull a.C1129a c1129a) {
+        int i2 = c1129a.f51652a;
         if (i2 <= 0) {
             i2 = d.a.l0.m.b.b().l();
         }
         if (i2 > 0) {
             httpRequestBuilder.connectionTimeout(i2);
         }
-        int i3 = c1073a.f47979b;
+        int i3 = c1129a.f51653b;
         if (i3 <= 0) {
             i3 = d.a.l0.m.b.b().getReadTimeout();
         }
         if (i3 > 0) {
             httpRequestBuilder.readTimeout(i3);
         }
-        int i4 = c1073a.f47980c;
+        int i4 = c1129a.f51654c;
         if (i4 <= 0) {
             i4 = d.a.l0.m.b.b().h();
         }

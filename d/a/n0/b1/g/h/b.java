@@ -1,54 +1,111 @@
 package d.a.n0.b1.g.h;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
+import android.graphics.drawable.Drawable;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import d.a.i.l0;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
-public class b extends d.a.c.j.e.a<d.a.n0.b1.g.j.f, ThreadCardViewHolder<d.a.n0.b1.g.j.f>> {
-    public BdUniqueId m;
-    public TbPageContext<?> n;
-    public d.a.c.j.e.s o;
-
-    public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.n = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: e0 */
-    public ThreadCardViewHolder<d.a.n0.b1.g.j.f> P(ViewGroup viewGroup) {
-        l0.b bVar = new l0.b(this.n.getPageActivity(), false);
-        bVar.n(new d.a.n0.b1.g.n.a(this.n, this.m));
-        bVar.l().a(0);
-        bVar.l().c(0);
-        bVar.l().b(0);
-        bVar.l().d(0);
-        ThreadCardViewHolder<d.a.n0.b1.g.j.f> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.o));
-        threadCardViewHolder.j(this.m);
-        return threadCardViewHolder;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.b1.g.j.f fVar, ThreadCardViewHolder<d.a.n0.b1.g.j.f> threadCardViewHolder) {
-        if (fVar == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
+public class b {
+    public static Drawable[] a(String str) {
+        if (StringUtils.isNull(str)) {
             return null;
         }
-        threadCardViewHolder.f(fVar);
-        threadCardViewHolder.b().onChangeSkinType(this.n, TbadkCoreApplication.getInst().getSkinType());
-        d.a.n0.z.t.b().a(fVar.A());
-        d.a.n0.o.d.c().a(fVar.A());
-        return threadCardViewHolder.a();
+        Drawable[] drawableArr = new Drawable[2];
+        char c2 = 65535;
+        switch (str.hashCode()) {
+            case -1581702362:
+                if (str.equals("share_num")) {
+                    c2 = 1;
+                    break;
+                }
+                break;
+            case -6986408:
+                if (str.equals("care_num")) {
+                    c2 = 3;
+                    break;
+                }
+                break;
+            case 975378291:
+                if (str.equals("agree_num")) {
+                    c2 = 0;
+                    break;
+                }
+                break;
+            case 2103869862:
+                if (str.equals("comment_num")) {
+                    c2 = 2;
+                    break;
+                }
+                break;
+        }
+        if (c2 == 0) {
+            drawableArr[0] = WebPManager.getMaskDrawable(R.drawable.pic_banner_tiebatreasure_like, WebPManager.ResourceStateType.NORMAL);
+            drawableArr[1] = WebPManager.getMaskDrawable(R.drawable.pic_giadienta_tiebatreasure_like, WebPManager.ResourceStateType.NORMAL);
+        } else if (c2 == 1) {
+            drawableArr[0] = WebPManager.getMaskDrawable(R.drawable.pic_banner_tiebatreasure_spread, WebPManager.ResourceStateType.NORMAL);
+            drawableArr[1] = WebPManager.getMaskDrawable(R.drawable.pic_giadienta_tiebatreasure_spread, WebPManager.ResourceStateType.NORMAL);
+        } else if (c2 == 2) {
+            drawableArr[0] = WebPManager.getMaskDrawable(R.drawable.pic_banner_tiebatreasure_discuss, WebPManager.ResourceStateType.NORMAL);
+            drawableArr[1] = WebPManager.getMaskDrawable(R.drawable.pic_giadienta_tiebatreasure_discuss, WebPManager.ResourceStateType.NORMAL);
+        } else if (c2 != 3) {
+            drawableArr[0] = WebPManager.getMaskDrawable(R.drawable.pic_banner_tiebatreasure_custom, WebPManager.ResourceStateType.NORMAL);
+            drawableArr[1] = WebPManager.getMaskDrawable(R.drawable.pic_giadienta_tiebatreasure_custom, WebPManager.ResourceStateType.NORMAL);
+        } else {
+            drawableArr[0] = WebPManager.getMaskDrawable(R.drawable.pic_banner_tiebatreasure_care, WebPManager.ResourceStateType.NORMAL);
+            drawableArr[1] = WebPManager.getMaskDrawable(R.drawable.pic_giadienta_tiebatreasure_care, WebPManager.ResourceStateType.NORMAL);
+        }
+        return drawableArr;
     }
 
-    public void g0(BdUniqueId bdUniqueId) {
-        this.m = bdUniqueId;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String b(String str) {
+        char c2;
+        switch (str.hashCode()) {
+            case -1581702362:
+                if (str.equals("share_num")) {
+                    c2 = 1;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            case -6986408:
+                if (str.equals("care_num")) {
+                    c2 = 3;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            case 975378291:
+                if (str.equals("agree_num")) {
+                    c2 = 0;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            case 2103869862:
+                if (str.equals("comment_num")) {
+                    c2 = 2;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            default:
+                c2 = 65535;
+                break;
+        }
+        if (c2 != 0) {
+            if (c2 != 1) {
+                if (c2 != 2) {
+                    if (c2 != 3) {
+                        return TbadkCoreApplication.getInst().getResources().getString(R.string.lf_banner_treasure_custom);
+                    }
+                    return TbadkCoreApplication.getInst().getResources().getString(R.string.lf_banner_treasure_care);
+                }
+                return TbadkCoreApplication.getInst().getResources().getString(R.string.lf_banner_treasure_discuss);
+            }
+            return TbadkCoreApplication.getInst().getResources().getString(R.string.lf_banner_treasure_spread);
+        }
+        return TbadkCoreApplication.getInst().getResources().getString(R.string.lf_banner_treasure_like);
     }
 }

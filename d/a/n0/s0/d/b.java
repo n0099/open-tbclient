@@ -12,27 +12,27 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f60386b;
+    public static volatile b f64077b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, FunAdSidConfigData> f60387a;
+    public Map<String, FunAdSidConfigData> f64078a;
 
     public b() {
         HashMap hashMap = new HashMap();
-        this.f60387a = hashMap;
+        this.f64078a = hashMap;
         hashMap.clear();
-        this.f60387a.putAll(c());
+        this.f64078a.putAll(c());
     }
 
     public static b e() {
-        if (f60386b == null) {
+        if (f64077b == null) {
             synchronized (b.class) {
-                if (f60386b == null) {
-                    f60386b = new b();
+                if (f64077b == null) {
+                    f64077b = new b();
                 }
             }
         }
-        return f60386b;
+        return f64077b;
     }
 
     public final FunAdSidConfigData a(JSONObject jSONObject) {
@@ -45,10 +45,10 @@ public class b {
     }
 
     public FunAdSidConfigData b(String str) {
-        if (this.f60387a == null || TextUtils.isEmpty(str) || !this.f60387a.containsKey(str)) {
+        if (this.f64078a == null || TextUtils.isEmpty(str) || !this.f64078a.containsKey(str)) {
             return null;
         }
-        return this.f60387a.get(str);
+        return this.f64078a.get(str);
     }
 
     public final Map<String, FunAdSidConfigData> c() {
@@ -80,17 +80,17 @@ public class b {
     }
 
     public void f(String str, FunAdSidConfigData funAdSidConfigData) {
-        if (this.f60387a == null || TextUtils.isEmpty(str)) {
+        if (this.f64078a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f60387a.put(str, funAdSidConfigData);
+        this.f64078a.put(str, funAdSidConfigData);
         g(str);
     }
 
     public final void g(String str) {
         FunAdSidConfigData funAdSidConfigData;
         JSONObject json;
-        if (this.f60387a == null || TextUtils.isEmpty(str) || !this.f60387a.containsKey(str) || (funAdSidConfigData = this.f60387a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
+        if (this.f64078a == null || TextUtils.isEmpty(str) || !this.f64078a.containsKey(str) || (funAdSidConfigData = this.f64078a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
             return;
         }
         EditorHelper.putString(c.g(), str, json.toString());

@@ -17,34 +17,34 @@ public class a {
 
     /* renamed from: d.a.l0.a.j2.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0725a implements Runnable {
+    public static class RunnableC0781a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f43194e;
+        public final /* synthetic */ int f46870e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43195f;
+        public final /* synthetic */ String f46871f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f43196g;
+        public final /* synthetic */ String f46872g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f43197h;
+        public final /* synthetic */ String f46873h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ SwanInterfaceType f43198i;
+        public final /* synthetic */ SwanInterfaceType f46874i;
 
-        public RunnableC0725a(int i2, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
-            this.f43194e = i2;
-            this.f43195f = str;
-            this.f43196g = str2;
-            this.f43197h = str3;
-            this.f43198i = swanInterfaceType;
+        public RunnableC0781a(int i2, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
+            this.f46870e = i2;
+            this.f46871f = str;
+            this.f46872g = str2;
+            this.f46873h = str3;
+            this.f46874i = swanInterfaceType;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int i2 = this.f43194e;
+            int i2 = this.f46870e;
             boolean z = (i2 == 2000 || i2 == 0) ? false : true;
             String m = k.m(d.g().l());
             JSONObject jSONObject = new JSONObject();
@@ -53,11 +53,11 @@ public class a {
             w.f(jSONObject, "network", d.a.l0.t.a.e());
             w.f(jSONObject, "launchid", d.g().r().L().V());
             if (z) {
-                w.f(jSONObject, "response", this.f43195f);
-                w.f(jSONObject, "statusCode", this.f43196g);
-                w.f(jSONObject, "request_url", this.f43197h);
+                w.f(jSONObject, "response", this.f46871f);
+                w.f(jSONObject, "statusCode", this.f46872g);
+                w.f(jSONObject, "request_url", this.f46873h);
             }
-            a.d(m, this.f43198i.getClassify(), this.f43198i.getInterfaceName(), this.f43194e, jSONObject, z);
+            a.d(m, this.f46874i.getClassify(), this.f46874i.getInterfaceName(), this.f46870e, jSONObject, z);
         }
     }
 
@@ -66,7 +66,7 @@ public class a {
     }
 
     public static void b(SwanInterfaceType swanInterfaceType, int i2, String str, String str2, String str3) {
-        q.i(new RunnableC0725a(i2, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
+        q.i(new RunnableC0781a(i2, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
     }
 
     public static void c(SwanInterfaceType swanInterfaceType, int i2, String str, Response response) {

@@ -20,17 +20,17 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f17740a;
+        public static final /* synthetic */ int[] f17816a;
 
         static {
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f17740a = iArr;
+            f17816a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f17740a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f17816a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -38,7 +38,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
 
     @Override // d.a.n0.i1.c.a
     public void callback(LabelRequestEnum labelRequestEnum, b bVar, int i2) {
-        int i3 = a.f17740a[labelRequestEnum.ordinal()];
+        int i3 = a.f17816a[labelRequestEnum.ordinal()];
         if (i3 != 1) {
             if (i3 == 2 && i2 == 0) {
                 d.a.m0.r.d0.b.j().t("set_recommend_label", true);
@@ -47,31 +47,31 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
             }
             return;
         }
-        this.mLabelSettingView.g();
+        this.mLabelSettingView.h();
         if (bVar != null && !ListUtils.isEmpty(bVar.b())) {
-            this.mLabelSettingView.h();
+            this.mLabelSettingView.i();
             this.mLabelSettingView.setData(bVar);
             return;
         }
-        this.mLabelSettingView.o(true);
+        this.mLabelSettingView.p(true);
     }
 
     @Override // d.a.n0.i1.c.a
     public void getLabel() {
         if (!j.A()) {
-            this.mLabelSettingView.g();
-            this.mLabelSettingView.o(true);
+            this.mLabelSettingView.h();
+            this.mLabelSettingView.p(true);
             return;
         }
-        this.mLabelSettingView.h();
-        this.mLabelSettingView.n(true);
-        this.mLabelSettingModel.x();
+        this.mLabelSettingView.i();
+        this.mLabelSettingView.o(true);
+        this.mLabelSettingModel.B();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        this.mLabelSettingView.l();
+        this.mLabelSettingView.m();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -80,7 +80,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         this.mLabelSettingView = new LabelSettingView(getPageContext(), this);
         this.mLabelSettingModel = new LabelSettingModel(getPageContext());
         setContentView(this.mLabelSettingView);
-        this.mLabelSettingModel.z(this);
+        this.mLabelSettingModel.D(this);
         getLabel();
     }
 
@@ -88,7 +88,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         LabelSettingView labelSettingView;
         if (i2 == 4 && (labelSettingView = this.mLabelSettingView) != null && labelSettingView.f()) {
-            this.mLabelSettingView.m();
+            this.mLabelSettingView.n();
             return true;
         }
         return super.onKeyDown(i2, keyEvent);
@@ -99,7 +99,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         if (!j.A()) {
             showToast(R.string.neterror);
         } else {
-            this.mLabelSettingModel.y(list);
+            this.mLabelSettingModel.C(list);
         }
     }
 }

@@ -32,17 +32,17 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     public class a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupData f16968a;
+        public final /* synthetic */ GroupData f17044a;
 
         public a(GroupData groupData) {
-            this.f16968a = groupData;
+            this.f17044a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.a.m0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.a.n0.f1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f16968a.getGroupId())));
+            return Boolean.valueOf(d.a.n0.f1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17044a.getGroupId())));
         }
     }
 
@@ -50,10 +50,10 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     public class b implements n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupData f16970a;
+        public final /* synthetic */ GroupData f17046a;
 
         public b(GroupData groupData) {
-            this.f16970a = groupData;
+            this.f17046a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             } else {
                 GroupChatActivity.this.mListView.showNotNotfiy();
             }
-            if (GroupChatActivity.this.mListModel == null || (groupData = this.f16970a) == null) {
+            if (GroupChatActivity.this.mListModel == null || (groupData = this.f17046a) == null) {
                 return;
             }
             String name = groupData.getName();

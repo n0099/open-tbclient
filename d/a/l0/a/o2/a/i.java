@@ -15,7 +15,7 @@ public class i extends a {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("SetTabBarStyleAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         if (a.k()) {

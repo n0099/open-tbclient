@@ -7,7 +7,7 @@ import com.xiaomi.push.service.XMPushService;
 public class cc extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f38128a;
+    public final /* synthetic */ XMPushService f41807a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f944a;
@@ -16,13 +16,13 @@ public class cc extends XMPushService.i {
     public final /* synthetic */ byte[] f945a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f38129b;
+    public final /* synthetic */ int f41808b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cc(XMPushService xMPushService, int i2, int i3, byte[] bArr, String str) {
         super(i2);
-        this.f38128a = xMPushService;
-        this.f38129b = i3;
+        this.f41807a = xMPushService;
+        this.f41808b = i3;
         this.f945a = bArr;
         this.f944a = str;
     }
@@ -35,11 +35,11 @@ public class cc extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         fm fmVar;
-        m.m618a((Context) this.f38128a);
-        av.a().m591a("5");
-        com.xiaomi.push.ab.a(this.f38129b);
-        fmVar = this.f38128a.f841a;
+        m.m617a((Context) this.f41807a);
+        av.a().m590a("5");
+        com.xiaomi.push.ab.a(this.f41808b);
+        fmVar = this.f41807a.f841a;
         fmVar.c(fm.a());
-        this.f38128a.a(this.f945a, this.f944a);
+        this.f41807a.a(this.f945a, this.f944a);
     }
 }

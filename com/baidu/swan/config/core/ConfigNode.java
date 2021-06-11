@@ -2,11 +2,12 @@ package com.baidu.swan.config.core;
 
 import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
+import com.kwai.player.qos.KwaiQosInfo;
 import d.a.l0.d.g.a;
 import d.a.l0.d.g.b;
 /* loaded from: classes3.dex */
 public enum ConfigNode {
-    HOST_INFO("host_info", a.class, b.class),
+    HOST_INFO(KwaiQosInfo.HOST_INFO, a.class, b.class),
     FRAMEWORK("framework", d.a.l0.d.f.a.class, d.a.l0.d.f.b.class),
     EXTENSION(ETAG.KEY_EXTENSION, d.a.l0.d.e.a.class, d.a.l0.d.e.b.class),
     TIP_MSG("tipmsgs", d.a.l0.d.h.a.class, d.a.l0.d.h.b.class);

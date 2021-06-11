@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.card.view.CardUserInfoLayout;
@@ -23,11 +22,10 @@ import com.baidu.sapi2.activity.IdCardOcrCameraActivity;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -105,8 +103,8 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (e.this.h() != null) {
-                e.this.h().a(view, e.this.o);
+            if (e.this.i() != null) {
+                e.this.i().a(view, e.this.o);
             }
         }
     }
@@ -116,26 +114,26 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         this.Q = false;
         this.U = 0;
         this.W = new b();
-        p(bdUniqueId);
+        q(bdUniqueId);
         this.m = tbPageContext;
-        View l = l();
-        RelativeLayout relativeLayout = (RelativeLayout) l.findViewById(R.id.layout_root);
+        View m = m();
+        RelativeLayout relativeLayout = (RelativeLayout) m.findViewById(R.id.layout_root);
         this.B = relativeLayout;
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) relativeLayout.getLayoutParams();
         layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
         layoutParams.bottomMargin = 0;
-        this.z = (LinearLayout) l.findViewById(R.id.video_card_content_layout);
+        this.z = (LinearLayout) m.findViewById(R.id.video_card_content_layout);
         this.B.setOnClickListener(this);
-        TbImageView tbImageView = (TbImageView) l.findViewById(R.id.video_card_stage_view);
+        TbImageView tbImageView = (TbImageView) m.findViewById(R.id.video_card_stage_view);
         this.D = tbImageView;
         tbImageView.setDefaultResource(R.drawable.pic_frs_studio_photo);
         this.D.setDefaultBgResource(R.color.transparent);
-        CardUserInfoLayout cardUserInfoLayout = (CardUserInfoLayout) l.findViewById(R.id.card_ala_video_user_info_layout);
+        CardUserInfoLayout cardUserInfoLayout = (CardUserInfoLayout) m.findViewById(R.id.card_ala_video_user_info_layout);
         this.w = cardUserInfoLayout;
         cardUserInfoLayout.setUserAfterClickListener(this.W);
-        this.C = (TextView) l.findViewById(R.id.text_title);
-        this.E = (RelativeLayout) l.findViewById(R.id.frame_video);
-        TbImageView tbImageView2 = (TbImageView) l.findViewById(R.id.image_video);
+        this.C = (TextView) m.findViewById(R.id.text_title);
+        this.E = (RelativeLayout) m.findViewById(R.id.frame_video);
+        TbImageView tbImageView2 = (TbImageView) m.findViewById(R.id.image_video);
         this.F = tbImageView2;
         tbImageView2.setDrawCorner(true);
         this.F.setPlaceHolder(3);
@@ -146,18 +144,18 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         this.F.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.F.setBorderSurroundContent(true);
         this.F.setDrawBorder(true);
-        this.J = (LinearLayout) l.findViewById(R.id.ala_live_lottie_bg);
-        TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) l.findViewById(R.id.ala_live_lottie);
+        this.J = (LinearLayout) m.findViewById(R.id.ala_live_lottie_bg);
+        TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) m.findViewById(R.id.ala_live_lottie);
         this.G = tBLottieAnimationView;
         tBLottieAnimationView.loop(true);
         SkinManager.setLottieAnimation(this.G, R.raw.ala_live2);
         this.G.addOnAttachStateChangeListener(new a());
-        this.H = (TextView) l.findViewById(R.id.play_count);
-        this.I = (TextView) l.findViewById(R.id.ala_live_recom_reason);
-        this.K = l.findViewById(R.id.play_count_line);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) l.findViewById(R.id.text_bottom);
+        this.H = (TextView) m.findViewById(R.id.play_count);
+        this.I = (TextView) m.findViewById(R.id.ala_live_recom_reason);
+        this.K = m.findViewById(R.id.play_count_line);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) m.findViewById(R.id.text_bottom);
         this.p = threadCommentAndPraiseInfoLayout;
-        u(threadCommentAndPraiseInfoLayout);
+        v(threadCommentAndPraiseInfoLayout);
         this.p.setSelectVisible(false);
         this.p.setIsBarViewVisible(false);
         this.p.setCommentNumEnable(true);
@@ -166,40 +164,40 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         this.p.getCommentContainer().setOnClickListener(this);
         this.p.hideDisagree();
         d.a.m0.r.q.e eVar = new d.a.m0.r.q.e();
-        eVar.f49994b = 2;
-        eVar.f50000h = 2;
+        eVar.f53670b = 2;
+        eVar.f53676h = 2;
         this.p.setAgreeStatisticData(eVar);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) l.findViewById(R.id.card_bottom_op_weight_layout);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) m.findViewById(R.id.card_bottom_op_weight_layout);
         this.q = threadCommentAndPraiseInfoLayout2;
-        u(threadCommentAndPraiseInfoLayout2);
+        v(threadCommentAndPraiseInfoLayout2);
         this.q.setFrom(2);
         this.q.setShareReportFrom(1);
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) l.findViewById(R.id.text_bottom_2);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m.findViewById(R.id.text_bottom_2);
         this.x = threadSourceShareAndPraiseLayout;
-        threadSourceShareAndPraiseLayout.f12401f.setOnClickListener(this);
-        this.x.f12401f.getCommentContainer().setOnClickListener(this);
+        threadSourceShareAndPraiseLayout.f12463f.setOnClickListener(this);
+        this.x.f12463f.getCommentContainer().setOnClickListener(this);
         this.x.setFrom(2);
         this.x.setShareReportFrom(1);
         this.x.setSourceFromForPb(3);
         this.x.setStType("frs_page");
         this.x.setHideBarName(true);
-        this.y = l.findViewById(R.id.divider_below_reply_number_layout);
-        this.A = (ThreadSkinView) l.findViewById(R.id.frs_thread_skin);
-        View findViewById = l.findViewById(R.id.thread_multi_del_mask_view);
+        this.y = m.findViewById(R.id.divider_below_reply_number_layout);
+        this.A = (ThreadSkinView) m.findViewById(R.id.frs_thread_skin);
+        View findViewById = m.findViewById(R.id.thread_multi_del_mask_view);
         this.S = findViewById;
         findViewById.setClickable(true);
         d.a.n0.v.i.d.a aVar = new d.a.n0.v.i.d.a(tbPageContext, this.w.getSuffixContainer());
         this.V = aVar;
-        aVar.d(i());
-        this.L = (FrameLayout) l.findViewById(R.id.text_bottom_layout);
-        this.M = (LinearLayout) l.findViewById(R.id.forum_friends_now_looking);
-        this.N = (TextView) l.findViewById(R.id.tv_forum_friends_now_looking);
-        this.O = (ImageView) l.findViewById(R.id.image_forum_friends_now_looking);
+        aVar.d(j());
+        this.L = (FrameLayout) m.findViewById(R.id.text_bottom_layout);
+        this.M = (LinearLayout) m.findViewById(R.id.forum_friends_now_looking);
+        this.N = (TextView) m.findViewById(R.id.tv_forum_friends_now_looking);
+        this.O = (ImageView) m.findViewById(R.id.image_forum_friends_now_looking);
     }
 
-    public final void M(a2 a2Var, String str) {
-        TiebaStatic.log(new StatisticItem("c12126").param("tid", a2Var.o0()).param("obj_locate", this.Q ? 2 : 1).param("obj_id", a2Var.r1().live_id).param("obj_type", 2));
-        if (a2Var.r1() != null && a2Var.r1().user_info != null && a2Var.r1().user_info.is_official == 2) {
+    public final void N(a2 a2Var, String str) {
+        TiebaStatic.log(new StatisticItem("c12126").param("tid", a2Var.o0()).param("obj_locate", this.Q ? 2 : 1).param("obj_id", a2Var.s1().live_id).param("obj_type", 2));
+        if (a2Var.s1() != null && a2Var.s1().user_info != null && a2Var.s1().user_info.is_official == 2) {
             TiebaStatic.log(new StatisticItem("c12801").param("tid", a2Var.o0()));
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -212,35 +210,35 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         }
     }
 
-    public final void N(a2 a2Var) {
+    public final void O(a2 a2Var) {
         if (a2Var == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c12125").param("tid", a2Var.o0()).param("obj_locate", this.Q ? 2 : 1).param("obj_id", a2Var.r1().live_id).param("obj_type", 2));
-        if (a2Var.r1() == null || a2Var.r1().user_info == null || a2Var.r1().user_info.is_official != 2) {
+        TiebaStatic.log(new StatisticItem("c12125").param("tid", a2Var.o0()).param("obj_locate", this.Q ? 2 : 1).param("obj_id", a2Var.s1().live_id).param("obj_type", 2));
+        if (a2Var.s1() == null || a2Var.s1().user_info == null || a2Var.s1().user_info.is_official != 2) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12800").param("tid", a2Var.o0()));
     }
 
-    public int O(int i2) {
+    public int P(int i2) {
         return d.a.n0.o.d.c().b(this.R, i2);
     }
 
-    public void P() {
+    public void Q() {
         T t;
         if (k.c().g() && (t = this.o) != 0) {
             a2 a2Var = (a2) t;
-            a2Var.m();
+            a2Var.i();
             if (a2Var != null) {
                 a2 a2Var2 = (a2) this.o;
-                a2Var2.m();
-                if (a2Var2.r1() != null) {
+                a2Var2.i();
+                if (a2Var2.s1() != null) {
                     this.F.setPlaceHolder(3);
                     TbImageView tbImageView = this.F;
                     a2 a2Var3 = (a2) this.o;
-                    a2Var3.m();
-                    tbImageView.V(a2Var3.r1().cover, 10, false);
+                    a2Var3.i();
+                    tbImageView.U(a2Var3.s1().cover, 10, false);
                     this.E.setVisibility(0);
                     return;
                 }
@@ -249,8 +247,8 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         this.E.setVisibility(8);
     }
 
-    public void Q(Context context, a2 a2Var) {
-        if (context == null || a2Var == null || a2Var.r1() == null) {
+    public void R(Context context, a2 a2Var) {
+        if (context == null || a2Var == null || a2Var.s1() == null) {
             return;
         }
         if (!j.z()) {
@@ -267,36 +265,28 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         } else if (frsCurTabType == 13) {
             str = AlaLiveRoomActivityConfig.FRS_LIVE_FROM_PREFIX_HOT + a2Var.c0();
         }
-        String str2 = str;
-        M(a2Var, str2);
-        AlaInfoData r1 = a2Var.r1();
-        if (r1.isLegalYYLiveData()) {
-            YYLiveUtil.jumpYYLiveRoom(this.m, r1);
-            S(((a2) this.o).y1(), String.valueOf(((a2) this.o).c0()), String.valueOf(r1.roomId), String.valueOf(r1.live_id), r1.mYyExtData.mSid);
-            return;
-        }
-        boolean equals = (TbadkCoreApplication.getCurrentAccountInfo() == null || a2Var.T() == null) ? false : TextUtils.equals(a2Var.T().getUserId(), TbadkCoreApplication.getCurrentAccount());
-        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(r1);
-        AlaUserInfoData alaUserInfoData = r1.user_info;
-        if (alaUserInfoData != null) {
-            alaLiveInfoCoreData.userName = alaUserInfoData.user_name;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, str2, "", equals, this.P)));
-        if (r1 != null) {
-            S(((a2) this.o).y1(), String.valueOf(((a2) this.o).c0()), String.valueOf(r1.roomId), String.valueOf(r1.live_id), null);
+        N(a2Var, str);
+        AlaInfoData s1 = a2Var.s1();
+        if (s1.isLegalYYLiveData()) {
+            TbPageContext<?> tbPageContext = this.m;
+            YyExtData yyExtData = s1.mYyExtData;
+            String str2 = yyExtData.mSid;
+            String str3 = yyExtData.mSsid;
+            String str4 = yyExtData.mTemplateId;
+            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str2, str3, str4, "" + s1.roomId, YYLiveUtil.SOURCE_FRS_LIVE_CARD_ + frsCurTabType);
+            T(((a2) this.o).z1(), String.valueOf(((a2) this.o).c0()), String.valueOf(s1.roomId), String.valueOf(s1.live_id), s1.mYyExtData.mSid);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: R */
-    public void m(a2 a2Var) {
+    /* renamed from: S */
+    public void n(a2 a2Var) {
         this.o = a2Var;
-        T();
+        U();
     }
 
-    public final void S(String str, String str2, String str3, String str4, String str5) {
+    public final void T(String str, String str2, String str3, String str4, String str5) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tid", str);
@@ -317,7 +307,7 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
     }
 
-    public final void T() {
+    public final void U() {
         T t = this.o;
         int i2 = 8;
         if (t != 0 && ((a2) t).T() != null) {
@@ -332,17 +322,17 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
                 this.U = k;
             }
             SparseArray<String> sparseArray = null;
-            if (((a2) this.o).r1() != null && ((a2) this.o).r1().user_info != null && ((a2) this.o).r1().user_info.is_official == 2) {
+            if (((a2) this.o).s1() != null && ((a2) this.o).s1().user_info != null && ((a2) this.o).s1().user_info.is_official == 2) {
                 this.T = true;
-                sparseArray = ((a2) this.o).r1().dislikeInfo;
+                sparseArray = ((a2) this.o).s1().dislikeInfo;
                 this.D.setVisibility(0);
                 int[] p = l.p(b());
                 ViewGroup.LayoutParams layoutParams2 = this.D.getLayoutParams();
                 layoutParams2.width = p[0];
                 layoutParams2.height = (p[0] * 156) / IdCardOcrCameraActivity.G;
                 this.D.setLayoutParams(layoutParams2);
-                if (!TextUtils.isEmpty(((a2) this.o).r1().liveStagePicUrl)) {
-                    this.D.V(((a2) this.o).r1().liveStagePicUrl, 10, false);
+                if (!TextUtils.isEmpty(((a2) this.o).s1().liveStagePicUrl)) {
+                    this.D.U(((a2) this.o).s1().liveStagePicUrl, 10, false);
                 }
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.w.getLayoutParams();
                 marginLayoutParams.topMargin = this.m.getResources().getDimensionPixelSize(R.dimen.tbds24);
@@ -359,26 +349,26 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
             } else if (this.V.a() != null) {
                 this.V.a().setVisibility(8);
             }
-            ((a2) this.o).V2(false, true);
+            ((a2) this.o).W2(false, true);
             this.w.setData((a2) this.o);
-            SpannableStringBuilder m1 = ((a2) this.o).m1();
-            if (m1 != null && !StringUtils.isNull(m1.toString())) {
-                this.C.setText(((a2) this.o).m1());
+            SpannableStringBuilder n1 = ((a2) this.o).n1();
+            if (n1 != null && !StringUtils.isNull(n1.toString())) {
+                this.C.setText(((a2) this.o).n1());
                 this.C.setVisibility(0);
             } else {
                 this.C.setVisibility(8);
             }
-            if (((a2) this.o).r1().audience_count > 0) {
+            if (((a2) this.o).s1().audience_count > 0) {
                 this.K.setVisibility(0);
                 this.H.setVisibility(0);
-                this.H.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((a2) this.o).r1().audience_count)));
+                this.H.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((a2) this.o).s1().audience_count)));
             } else {
                 this.K.setVisibility(8);
                 this.H.setVisibility(8);
             }
             this.I.setVisibility(8);
-            if (((a2) this.o).r1().openRecomReason == 1) {
-                String str = ((a2) this.o).r1().recomReason;
+            if (((a2) this.o).s1().openRecomReason == 1) {
+                String str = ((a2) this.o).s1().recomReason;
                 if (!StringUtils.isNull(str)) {
                     this.I.setVisibility(0);
                     this.I.setText(str);
@@ -397,9 +387,9 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
                 }
             }
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.L.getLayoutParams();
-            if (((a2) this.o).r1() != null && !StringUtils.isNull(((a2) this.o).r1().forumUserLiveMsg)) {
+            if (((a2) this.o).s1() != null && !StringUtils.isNull(((a2) this.o).s1().forumUserLiveMsg)) {
                 this.M.setVisibility(0);
-                String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(((a2) this.o).r1().forumUserLiveMsg, 10, StringHelper.STRING_MORE);
+                String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(((a2) this.o).s1().forumUserLiveMsg, 10, StringHelper.STRING_MORE);
                 this.N.setText(cutChineseAndEnglishWithSuffix + TbadkCoreApplication.getInst().getResources().getString(R.string.ala_forum_live_suffix));
                 layoutParams3.addRule(3, R.id.forum_friends_now_looking);
             } else {
@@ -407,13 +397,13 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
                 layoutParams3.addRule(3, R.id.video_card_content_layout);
             }
             this.L.setLayoutParams(layoutParams3);
-            X(O(1));
-            N((a2) this.o);
+            Y(P(1));
+            O((a2) this.o);
             this.S.setVisibility((d.a.n0.r0.b.e().g() || d.a.n0.r0.a.h().j()) ? 0 : 0);
-            n(this.m, TbadkCoreApplication.getInst().getSkinType());
-            P();
+            o(this.m, TbadkCoreApplication.getInst().getSkinType());
+            Q();
             this.G.playAnimation();
-            B(this.B);
+            F(this.B);
             return;
         }
         this.B.setVisibility(8);
@@ -427,15 +417,15 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         if (cardUserInfoLayout != null) {
             cardUserInfoLayout.setPageUniqueId(bdUniqueId);
         }
-        p(bdUniqueId);
-        x(bdUniqueId);
+        q(bdUniqueId);
+        y(bdUniqueId);
     }
 
-    public void W(boolean z) {
+    public void X(boolean z) {
         this.Q = z;
     }
 
-    public void X(int i2) {
+    public void Y(int i2) {
         T t = this.o;
         if (t == 0) {
             return;
@@ -455,15 +445,15 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.frs_ala_video_layout_new;
     }
 
     @Override // d.a.n0.z.b
     @SuppressLint({"ResourceAsColor"})
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
-            w(tbPageContext, i2);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
+            x(tbPageContext, i2);
             d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.B);
             d2.m(R.string.J_X06);
             d2.h(R.color.CAM_X0205, R.color.CAM_X0206);
@@ -483,7 +473,7 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
             this.w.onChangeSkinType(k(), TbadkCoreApplication.getInst().getSkinType());
             this.F.setPlaceHolder(3);
             this.p.onChangeSkinType();
-            this.f63440e = i2;
+            this.f67158e = i2;
             ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = this.x;
             if (threadSourceShareAndPraiseLayout != null && threadSourceShareAndPraiseLayout.getVisibility() == 0) {
                 this.x.f();
@@ -504,12 +494,12 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         if (d.a.n0.r0.b.e().g() || d.a.n0.r0.a.h().j()) {
             return;
         }
-        if (view != this.B && view != this.p.getCommentContainer() && view != this.z && view != this.x.f12401f.getCommentContainer() && view != this.q.getCommentContainer() && view != this.M) {
+        if (view != this.B && view != this.p.getCommentContainer() && view != this.z && view != this.x.f12463f.getCommentContainer() && view != this.q.getCommentContainer() && view != this.M) {
             if (view.getId() == R.id.video_container) {
-                if (h() != null) {
-                    h().a(view, this.o);
+                if (i() != null) {
+                    i().a(view, this.o);
                 }
-                Q(b(), (a2) this.o);
+                R(b(), (a2) this.o);
                 return;
             }
             return;
@@ -518,16 +508,16 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         if (t != 0) {
             m.a(((a2) t).o0());
         }
-        if (h() != null) {
-            h().a(this.B, this.o);
+        if (i() != null) {
+            i().a(this.B, this.o);
         }
-        Q(b(), (a2) this.o);
+        R(b(), (a2) this.o);
         if (this.o != 0) {
-            if (view == this.p.getCommentContainer() || view == this.x.f12401f.getCommentContainer()) {
+            if (view == this.p.getCommentContainer() || view == this.x.f12463f.getCommentContainer()) {
                 StatisticItem statisticItem = new StatisticItem("c12942");
                 statisticItem.param("obj_locate", 2);
                 statisticItem.param("obj_type", 5);
-                statisticItem.param("tid", ((a2) this.o).y1());
+                statisticItem.param("tid", ((a2) this.o).z1());
                 statisticItem.param("nid", ((a2) this.o).M0());
                 d.a.m0.i0.c f2 = TbPageExtraHelper.f(view);
                 if (f2 != null) {
@@ -542,7 +532,7 @@ public class e extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 
     @Override // d.a.n0.o.e

@@ -17,45 +17,45 @@ import d.a.c.e.p.l;
 public class a implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f56197e;
+    public View f59886e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f56198f;
+    public FrameLayout f59887f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f56199g;
+    public ImageView f59888g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f56200h;
+    public TextView f59889h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f56201i;
+    public int f59890i;
     public View.OnClickListener j;
 
     public a(TbPageContext<?> tbPageContext) {
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.enter_forum_list_bar_creator_item, (ViewGroup) null);
-        this.f56197e = inflate;
-        this.f56198f = (FrameLayout) inflate.findViewById(R.id.create_bar_container);
-        this.f56199g = (ImageView) this.f56197e.findViewById(R.id.iv_create_icon);
-        this.f56200h = (TextView) this.f56197e.findViewById(R.id.create_text);
-        this.f56201i = l.g(tbPageContext.getPageActivity(), R.dimen.tbds52);
-        this.f56198f.setOnClickListener(this);
-        this.f56199g.setOnClickListener(this);
-        this.f56200h.setOnClickListener(this);
-        if (this.f56198f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.f56198f.getLayoutParams()).bottomMargin = l.g(tbPageContext.getPageActivity(), R.dimen.tbds47) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
-            this.f56198f.requestLayout();
+        this.f59886e = inflate;
+        this.f59887f = (FrameLayout) inflate.findViewById(R.id.create_bar_container);
+        this.f59888g = (ImageView) this.f59886e.findViewById(R.id.iv_create_icon);
+        this.f59889h = (TextView) this.f59886e.findViewById(R.id.create_text);
+        this.f59890i = l.g(tbPageContext.getPageActivity(), R.dimen.tbds52);
+        this.f59887f.setOnClickListener(this);
+        this.f59888g.setOnClickListener(this);
+        this.f59889h.setOnClickListener(this);
+        if (this.f59887f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.f59887f.getLayoutParams()).bottomMargin = l.g(tbPageContext.getPageActivity(), R.dimen.tbds47) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.f59887f.requestLayout();
         }
     }
 
     public void a() {
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0205).defaultStrokeColor(R.color.cp_cont_b_alpha42).strokeWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).radius(this.f56201i).into(this.f56198f);
-        SkinManager.setViewTextColor(this.f56200h, R.color.CAM_X0105);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56199g, R.drawable.ic_icon_pure_createba16, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0205).defaultStrokeColor(R.color.cp_cont_b_alpha42).strokeWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).radius(this.f59890i).into(this.f59887f);
+        SkinManager.setViewTextColor(this.f59889h, R.color.CAM_X0105);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f59888g, R.drawable.ic_icon_pure_createba16, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public View b() {
-        return this.f56197e;
+        return this.f59886e;
     }
 
     public void c(View.OnClickListener onClickListener) {
@@ -65,7 +65,7 @@ public class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         View.OnClickListener onClickListener;
-        if ((view == this.f56198f || view == this.f56199g || view == this.f56200h) && (onClickListener = this.j) != null) {
+        if ((view == this.f59887f || view == this.f59888g || view == this.f59889h) && (onClickListener = this.j) != null) {
             onClickListener.onClick(view);
         }
     }

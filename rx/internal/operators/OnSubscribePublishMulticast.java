@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements d.a<T>, e<T>, k {
     public static final PublishProducer<?>[] EMPTY = new PublishProducer[0];
     public static final PublishProducer<?>[] TERMINATED = new PublishProducer[0];
@@ -27,7 +27,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     public final Queue<T> queue;
     public volatile PublishProducer<T>[] subscribers;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class PublishProducer<T> extends AtomicLong implements f, k {
         public static final long serialVersionUID = 960704844171597367L;
         public final j<? super T> actual;
@@ -63,34 +63,34 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a<T> extends j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final OnSubscribePublishMulticast<T> f69101e;
+        public final OnSubscribePublishMulticast<T> f72410e;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.f69101e = onSubscribePublishMulticast;
+            this.f72410e = onSubscribePublishMulticast;
         }
 
         @Override // h.e
         public void onCompleted() {
-            this.f69101e.onCompleted();
+            this.f72410e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            this.f69101e.onError(th);
+            this.f72410e.onError(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
-            this.f69101e.onNext(t);
+            this.f72410e.onNext(t);
         }
 
         @Override // h.j
         public void setProducer(f fVar) {
-            this.f69101e.setProducer(fVar);
+            this.f72410e.setProducer(fVar);
         }
     }
 

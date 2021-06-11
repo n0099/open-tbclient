@@ -32,7 +32,7 @@ public class MsgrightView extends e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MsgrightView msgrightView = MsgrightView.this;
-            msgrightView.f54338b.onItemViewClick(view, 6, msgrightView.f54342f, 0L);
+            msgrightView.f58027b.onItemViewClick(view, 6, msgrightView.f58031f, 0L);
         }
     }
 
@@ -44,13 +44,13 @@ public class MsgrightView extends e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MsgrightView msgrightView = MsgrightView.this;
-            msgrightView.f54338b.onItemViewClick(view, 1, msgrightView.f54342f, 0L);
+            msgrightView.f58027b.onItemViewClick(view, 1, msgrightView.f58031f, 0L);
         }
     }
 
     public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_msgright_view);
-        g();
+        h();
         ChatImageWithTailView chatImageWithTailView = this.p;
         if (chatImageWithTailView != null && chatImageWithTailView.getImage() != null && (this.p.getImage() instanceof ChatClipImageItemView)) {
             this.p.getImage().setLeft(false);
@@ -72,17 +72,17 @@ public class MsgrightView extends e {
     }
 
     @Override // d.a.n0.f1.f.e
-    public void k(View view, ChatMessage chatMessage) {
-        super.k(view, chatMessage);
+    public void l(View view, ChatMessage chatMessage) {
+        super.l(view, chatMessage);
         if (chatMessage == null) {
-            this.f54344h.setVisibility(8);
+            this.f58033h.setVisibility(8);
             this.t.setVisibility(8);
             this.u.setVisibility(8);
             this.x.setVisibility(8);
             this.y.setVisibility(8);
-            this.f54345i.setVisibility(0);
-            this.f54345i.setText(null);
-            l(8);
+            this.f58034i.setVisibility(0);
+            this.f58034i.setText(null);
+            m(8);
             this.p.getImage().setTag(null);
             this.j.setVisibility(8);
             this.j.setTag(null);
@@ -92,13 +92,13 @@ public class MsgrightView extends e {
             return;
         }
         try {
-            w(chatMessage);
+            x(chatMessage);
             this.w.setDefaultResource(R.drawable.photo);
             if (chatMessage.getUserInfo() != null) {
                 this.w.setUserId(chatMessage.getUserInfo().getUserId());
                 String currentAvatar = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAvatar() : null;
                 if (currentAvatar != null && currentAvatar.length() > 0) {
-                    this.w.V(currentAvatar, 12, false);
+                    this.w.U(currentAvatar, 12, false);
                 }
             }
             this.w.setContentDescription(chatMessage.getUserInfo().getName_show());
@@ -128,8 +128,8 @@ public class MsgrightView extends e {
             if (this.u.getVisibility() == 0) {
                 this.u.setOnClickListener(new b());
             }
-            this.f54345i.setVisibility(8);
-            l(8);
+            this.f58034i.setVisibility(8);
+            m(8);
             this.j.setVisibility(8);
             this.k.setVisibility(8);
             this.n.setVisibility(8);
@@ -137,24 +137,24 @@ public class MsgrightView extends e {
             this.o.setVisibility(8);
             int msgType = chatMessage.getMsgType();
             if (msgType == 1) {
-                z(chatMessage, z);
-            } else if (msgType == 2) {
-                y(view, chatMessage, z);
-            } else if (msgType == 3) {
                 A(chatMessage, z);
+            } else if (msgType == 2) {
+                z(view, chatMessage, z);
+            } else if (msgType == 3) {
+                B(chatMessage, z);
                 this.j.setVisibility(0);
             } else if (msgType == 4) {
-                u(chatMessage, true);
+                v(chatMessage, true);
             } else if (msgType != 9) {
             } else {
-                v(view, chatMessage, z);
+                w(view, chatMessage, z);
             }
         } catch (Exception unused) {
         }
     }
 
     @Override // d.a.n0.f1.f.e
-    public void s(View view, ChatMessage chatMessage) {
+    public void t(View view, ChatMessage chatMessage) {
         if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null && (chatMessage.getLocalData().getStatus().shortValue() == 3 || chatMessage.getLocalData().getStatus().shortValue() == 2)) {
             if (this.v.getVisibility() != 8) {
                 this.v.setVisibility(8);

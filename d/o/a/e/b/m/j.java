@@ -1,6 +1,5 @@
 package d.o.a.e.b.m;
 
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import d.o.a.e.b.g.r;
 /* loaded from: classes7.dex */
 public class j implements r {
@@ -12,6 +11,9 @@ public class j implements r {
         if (i2 == 2) {
             return 15000L;
         }
-        return i2 == 3 ? StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD : i2 > 3 ? 300000L : 0L;
+        if (i2 == 3) {
+            return 30000L;
+        }
+        return i2 > 3 ? 300000L : 0L;
     }
 }

@@ -33,16 +33,16 @@ public class FrsRequestData extends OrmObject implements g, d {
     public String F;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20754e;
+    public int f20831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20755f;
+    public boolean f20832f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20756g;
+    public String f20833g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20757h;
+    public int f20834h;
     public int k;
     public int l;
     public int m;
@@ -60,7 +60,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     public long z;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20758i = 90;
+    public int f20835i = 90;
     public int j = 30;
     public String u = "";
     public int A = -1;
@@ -74,108 +74,124 @@ public class FrsRequestData extends OrmObject implements g, d {
     public int M = -1;
     public String N = "";
 
-    public void A(int i2) {
-        this.m = i2;
+    public int A() {
+        return this.B;
     }
 
-    public void B(int i2) {
-        this.w = i2;
+    public int B() {
+        return this.A;
     }
 
-    public void C(int i2) {
-        this.x = i2;
+    public void C(String str) {
+        this.N = str;
     }
 
     public void D(int i2) {
-        this.M = i2;
+        this.t = i2;
     }
 
-    public void E(long j) {
-        this.J = j;
+    public void E(int i2) {
+        this.m = i2;
     }
 
     public void F(int i2) {
-        this.K = i2;
+        this.w = i2;
     }
 
     public void G(int i2) {
-        this.l = i2;
+        this.x = i2;
     }
 
     public void H(int i2) {
-        this.G = i2;
+        this.M = i2;
     }
 
-    public void I(String str) {
-        this.f20756g = str;
+    public void I(long j) {
+        this.J = j;
     }
 
-    public void J(long j) {
-        this.z = j;
+    public void J(int i2) {
+        this.K = i2;
     }
 
-    public void K(String str) {
-        this.s = str;
+    public void K(int i2) {
+        this.l = i2;
     }
 
     public void L(int i2) {
-        this.C = i2;
+        this.G = i2;
     }
 
-    public void M(int i2) {
-        this.B = i2;
+    public void M(String str) {
+        this.f20833g = str;
     }
 
-    public void N(int i2) {
-        this.y = i2;
+    public void N(long j) {
+        this.z = j;
     }
 
     public void O(String str) {
-        this.E = str;
+        this.s = str;
     }
 
-    public void P(String str) {
-        this.F = str;
+    public void P(int i2) {
+        this.C = i2;
     }
 
     public void Q(int i2) {
-        this.D = i2;
+        this.B = i2;
     }
 
-    public void R(String str) {
-        this.L = str;
+    public void R(int i2) {
+        this.y = i2;
     }
 
-    public void S(double d2) {
-        this.p = d2;
+    public void S(String str) {
+        this.E = str;
     }
 
-    public void T(int i2) {
-        this.o = i2;
+    public void T(String str) {
+        this.F = str;
     }
 
     public void U(int i2) {
-        this.n = i2;
+        this.D = i2;
     }
 
-    public void V(int i2) {
-        this.k = i2;
+    public void V(String str) {
+        this.L = str;
     }
 
-    public void W(String str) {
-        this.u = str;
+    public void W(double d2) {
+        this.p = d2;
     }
 
     public void X(int i2) {
+        this.o = i2;
+    }
+
+    public void Y(int i2) {
+        this.n = i2;
+    }
+
+    public void Z(int i2) {
+        this.k = i2;
+    }
+
+    public void a0(String str) {
+        this.u = str;
+    }
+
+    public void b0(int i2) {
         this.q = i2;
     }
 
     @Override // d.a.m0.g0.b.i
-    public Object c(boolean z) {
+    public Object e(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.kw = this.f20756g;
-        builder.pn = Integer.valueOf(this.f20757h);
-        builder.rn = Integer.valueOf(this.f20758i);
+        builder.kw = this.f20833g;
+        builder.pn = Integer.valueOf(this.f20834h);
+        builder.rn = Integer.valueOf(this.f20835i);
         builder.rn_need = Integer.valueOf(this.j);
         builder.with_group = Integer.valueOf(this.k);
         builder.is_good = Integer.valueOf(this.l);
@@ -229,20 +245,15 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public int getPn() {
-        return this.f20757h;
+        return this.f20834h;
     }
 
     public int getUpdateType() {
-        return this.f20754e;
-    }
-
-    @Override // d.a.m0.g0.b.d
-    public boolean i() {
-        return false;
+        return this.f20831e;
     }
 
     public boolean isNeedCache() {
-        return this.f20755f;
+        return this.f20832f;
     }
 
     @Override // d.a.m0.g0.b.d
@@ -250,29 +261,14 @@ public class FrsRequestData extends OrmObject implements g, d {
         return false;
     }
 
-    @Override // d.a.m0.g0.b.f
-    public HashMap<String, Object> o() {
-        return null;
-    }
-
-    @Override // d.a.m0.g0.b.f
-    public HashMap<String, String> q() {
-        return this.I;
-    }
-
     @Override // d.a.m0.g0.b.d
-    public String r() {
-        return null;
+    public boolean l() {
+        return false;
     }
 
-    public void s(String str, String str2) {
-        if (this.I == null) {
-            this.I = new HashMap<>();
-        }
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        this.I.put(str, str2);
+    @Override // d.a.m0.g0.b.f
+    public HashMap<String, Object> s() {
+        return null;
     }
 
     public void setCallFrom(int i2) {
@@ -280,11 +276,11 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void setNeedCache(boolean z) {
-        this.f20755f = z;
+        this.f20832f = z;
     }
 
     public void setPn(int i2) {
-        this.f20757h = i2;
+        this.f20834h = i2;
     }
 
     public void setSortType(int i2) {
@@ -296,34 +292,38 @@ public class FrsRequestData extends OrmObject implements g, d {
     }
 
     public void setUpdateType(int i2) {
-        this.f20754e = i2;
+        this.f20831e = i2;
     }
 
-    public int t() {
-        return this.t;
+    @Override // d.a.m0.g0.b.f
+    public HashMap<String, String> u() {
+        return this.I;
     }
 
-    public int u() {
-        return this.l;
-    }
-
+    @Override // d.a.m0.g0.b.d
     public String v() {
-        return this.f20756g;
+        return null;
     }
 
-    public int w() {
-        return this.B;
+    public void w(String str, String str2) {
+        if (this.I == null) {
+            this.I = new HashMap<>();
+        }
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        this.I.put(str, str2);
     }
 
     public int x() {
-        return this.A;
+        return this.t;
     }
 
-    public void y(String str) {
-        this.N = str;
+    public int y() {
+        return this.l;
     }
 
-    public void z(int i2) {
-        this.t = i2;
+    public String z() {
+        return this.f20833g;
     }
 }

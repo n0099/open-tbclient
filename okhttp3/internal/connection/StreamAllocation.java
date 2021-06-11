@@ -19,7 +19,7 @@ import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import okhttp3.internal.http2.ErrorCode;
 import okhttp3.internal.http2.StreamResetException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class StreamAllocation {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public final Address address;
@@ -37,7 +37,7 @@ public final class StreamAllocation {
     public RouteSelector.Selection routeSelection;
     public final RouteSelector routeSelector;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
         public final Object callStackTrace;
 

@@ -17,19 +17,19 @@ import java.util.ArrayList;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f62986e;
+    public final Context f66701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtListActivity f62987f;
+    public AtListActivity f66702f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<MetaData> f62988g;
+    public ArrayList<MetaData> f66703g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbCheckBox.b f62989h;
+    public TbCheckBox.b f66704h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f62990i = null;
+    public c f66705i = null;
     public ViewGroup j = null;
     public boolean k;
 
@@ -37,16 +37,16 @@ public class a extends BaseAdapter {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f62991a;
+        public View f66706a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f62992b;
+        public HeadImageView f66707b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f62993c;
+        public TextView f66708c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TbCheckBox f62994d;
+        public TbCheckBox f66709d;
 
         public b(a aVar) {
         }
@@ -59,8 +59,8 @@ public class a extends BaseAdapter {
 
     public a(AtListActivity atListActivity, boolean z) {
         this.k = true;
-        this.f62987f = atListActivity;
-        this.f62986e = atListActivity.getPageContext().getContext();
+        this.f66702f = atListActivity;
+        this.f66701e = atListActivity.getPageContext().getContext();
         this.k = z;
     }
 
@@ -72,42 +72,42 @@ public class a extends BaseAdapter {
         } else {
             bVar = (b) obj;
         }
-        c cVar = this.f62990i;
+        c cVar = this.f66705i;
         if (cVar != null) {
-            cVar.handlerItem(bVar.f62991a, metaData);
+            cVar.handlerItem(bVar.f66706a, metaData);
         }
         String avater = metaData.getAvater();
-        bVar.f62993c.setText(metaData.getName_show());
-        bVar.f62994d.setTagData(metaData);
-        bVar.f62992b.setTag(avater);
+        bVar.f66708c.setText(metaData.getName_show());
+        bVar.f66709d.setTagData(metaData);
+        bVar.f66707b.setTag(avater);
         if (this.k) {
-            bVar.f62994d.setVisibility(0);
+            bVar.f66709d.setVisibility(0);
         } else {
-            bVar.f62994d.setVisibility(8);
+            bVar.f66709d.setVisibility(8);
         }
-        bVar.f62992b.V(avater, 12, false);
-        this.f62987f.getPageContext().getLayoutMode().k(skinType == 1);
-        this.f62987f.getPageContext().getLayoutMode().j(bVar.f62991a);
+        bVar.f66707b.U(avater, 12, false);
+        this.f66702f.getPageContext().getLayoutMode().k(skinType == 1);
+        this.f66702f.getPageContext().getLayoutMode().j(bVar.f66706a);
         return bVar;
     }
 
     public final b b() {
         b bVar = new b();
-        View inflate = LayoutInflater.from(this.f62986e).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-        bVar.f62991a = inflate;
+        View inflate = LayoutInflater.from(this.f66701e).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+        bVar.f66706a = inflate;
         HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.photo);
-        bVar.f62992b = headImageView;
+        bVar.f66707b = headImageView;
         headImageView.setIsRound(false);
-        bVar.f62993c = (TextView) bVar.f62991a.findViewById(R.id.txt_user_name);
-        TbCheckBox tbCheckBox = (TbCheckBox) bVar.f62991a.findViewById(R.id.ckb_select);
-        bVar.f62994d = tbCheckBox;
+        bVar.f66708c = (TextView) bVar.f66706a.findViewById(R.id.txt_user_name);
+        TbCheckBox tbCheckBox = (TbCheckBox) bVar.f66706a.findViewById(R.id.ckb_select);
+        bVar.f66709d = tbCheckBox;
         tbCheckBox.setBackgroundDrawableIdIsWebP(true);
-        bVar.f62994d.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
-        TbCheckBox.b bVar2 = this.f62989h;
+        bVar.f66709d.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
+        TbCheckBox.b bVar2 = this.f66704h;
         if (bVar2 != null) {
-            bVar.f62994d.setStatedChangedListener(bVar2);
+            bVar.f66709d.setStatedChangedListener(bVar2);
         }
-        bVar.f62991a.setTag(bVar);
+        bVar.f66706a.setTag(bVar);
         return bVar;
     }
 
@@ -115,28 +115,28 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: c */
     public MetaData getItem(int i2) {
-        ArrayList<MetaData> arrayList = this.f62988g;
+        ArrayList<MetaData> arrayList = this.f66703g;
         if (arrayList != null && i2 < arrayList.size()) {
-            return this.f62988g.get(i2);
+            return this.f66703g.get(i2);
         }
         return null;
     }
 
     public void d(TbCheckBox.b bVar) {
-        this.f62989h = bVar;
+        this.f66704h = bVar;
     }
 
     public void e(ArrayList<MetaData> arrayList) {
-        this.f62988g = arrayList;
+        this.f66703g = arrayList;
     }
 
     public void f(c cVar) {
-        this.f62990i = cVar;
+        this.f66705i = cVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<MetaData> arrayList = this.f62988g;
+        ArrayList<MetaData> arrayList = this.f66703g;
         if (arrayList == null) {
             return 0;
         }
@@ -161,7 +161,7 @@ public class a extends BaseAdapter {
             bVar = null;
         }
         if (bVar != null) {
-            return bVar.f62991a;
+            return bVar.f66706a;
         }
         return null;
     }

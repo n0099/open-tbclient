@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.gamesubpb.view.GameSubCommentView;
 import d.a.n0.r0.w1.d.d;
 /* loaded from: classes4.dex */
-public class a extends d.a.c.j.e.a<d, GameSubCommentView.GameSubCommentViewHolder> {
+public class a extends d.a.c.k.e.a<d, GameSubCommentView.GameSubCommentViewHolder> {
     public TbPageContext m;
-    public InterfaceC1556a n;
+    public InterfaceC1612a n;
 
     /* renamed from: d.a.n0.r0.w1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1556a {
+    public interface InterfaceC1612a {
         void a(d dVar);
 
         void b(d dVar);
@@ -27,25 +27,25 @@ public class a extends d.a.c.j.e.a<d, GameSubCommentView.GameSubCommentViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public GameSubCommentView.GameSubCommentViewHolder P(ViewGroup viewGroup) {
+    public GameSubCommentView.GameSubCommentViewHolder Q(ViewGroup viewGroup) {
         GameSubCommentView gameSubCommentView = new GameSubCommentView(this.m);
         gameSubCommentView.d(this.n);
         return new GameSubCommentView.GameSubCommentViewHolder(gameSubCommentView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d dVar, GameSubCommentView.GameSubCommentViewHolder gameSubCommentViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d dVar, GameSubCommentView.GameSubCommentViewHolder gameSubCommentViewHolder) {
         if (dVar != null) {
             gameSubCommentViewHolder.b(dVar);
         }
         return gameSubCommentViewHolder.a();
     }
 
-    public void g0(InterfaceC1556a interfaceC1556a) {
-        this.n = interfaceC1556a;
+    public void h0(InterfaceC1612a interfaceC1612a) {
+        this.n = interfaceC1612a;
     }
 }

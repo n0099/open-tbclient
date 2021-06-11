@@ -135,6 +135,10 @@ public final class PassportSDK {
         CoreViewRouter.getInstance().startRegister(webAuthListener, webRegDTO);
     }
 
+    public void startSchemeLoginForQA(Context context, String str) {
+        CoreViewRouter.getInstance().startSchemeLoginForQA(context, str);
+    }
+
     public void startSmsViewLogin(SmsViewLoginCallback smsViewLoginCallback, String str) {
         CoreViewRouter.getInstance().startSmsViewLogin(smsViewLoginCallback, str);
     }
@@ -166,6 +170,10 @@ public final class PassportSDK {
 
     public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
         CoreViewRouter.getInstance().startLogin(context, webAuthListener, webLoginDTO);
+    }
+
+    public void startSchemeLoginForQA(Context context, String str, WebAuthListener webAuthListener) {
+        CoreViewRouter.getInstance().startSchemeLoginForQA(context, str, webAuthListener);
     }
 
     public void loadOneKeyLogin(Context context, String str, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {

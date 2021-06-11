@@ -7,22 +7,22 @@ import android.os.Message;
 public class m extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f37079a;
+    public final /* synthetic */ PBSplash f40758a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(PBSplash pBSplash, Looper looper) {
         super(looper);
-        this.f37079a = pBSplash;
+        this.f40758a = pBSplash;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         PBSplash pBSplash;
         PBSplashListener pBSplashListener;
-        if (message.what != 0 || (pBSplashListener = (pBSplash = this.f37079a).f36907e) == null || pBSplash.f36911i) {
+        if (message.what != 0 || (pBSplashListener = (pBSplash = this.f40758a).f40586e) == null || pBSplash.f40590i) {
             return;
         }
         pBSplashListener.onFail(PBError.LOAD_TIME_OUT);
-        this.f37079a.j = true;
+        this.f40758a.j = true;
     }
 }

@@ -35,7 +35,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
                 if (aVar.g() == 1 || PersonalCardCategoryActivity.this.mSetCardModel == null) {
                     return;
                 }
-                PersonalCardCategoryActivity.this.mSetCardModel.y(aVar.a(), 1);
+                PersonalCardCategoryActivity.this.mSetCardModel.C(aVar.a(), 1);
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(PersonalCardCategoryActivity.this.getPageContext().getPageActivity(), aVar.a())));
@@ -66,7 +66,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         @Override // com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel.b
         public void a(boolean z, long j, int i2, String str, int i3) {
             if (z && PersonalCardCategoryActivity.this.mModel != null) {
-                PersonalCardCategoryActivity.this.mModel.B(j, i2);
+                PersonalCardCategoryActivity.this.mModel.F(j, i2);
             }
         }
     }
@@ -79,7 +79,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             if (PersonalCardCategoryActivity.this.mModel != null) {
-                PersonalCardCategoryActivity.this.mModel.A();
+                PersonalCardCategoryActivity.this.mModel.E();
             }
         }
     }
@@ -93,7 +93,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
     public d.a.m0.k0.d getPageStayDurationItem() {
         d.a.m0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
+            pageStayDurationItem.f53110a = true;
         }
         return pageStayDurationItem;
     }
@@ -116,10 +116,10 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         this.mView.g(this.mCardViewController);
         PersonalCardCategoryModel personalCardCategoryModel = new PersonalCardCategoryModel(this);
         this.mModel = personalCardCategoryModel;
-        personalCardCategoryModel.D(this.mDataCallback);
+        personalCardCategoryModel.H(this.mDataCallback);
         SetPersonalCardModel setPersonalCardModel = new SetPersonalCardModel();
         this.mSetCardModel = setPersonalCardModel;
-        setPersonalCardModel.x(this.mSetCardCallback);
+        setPersonalCardModel.B(this.mSetCardCallback);
         showLoadingView(this.mView.c());
         this.mModel.LoadData();
     }

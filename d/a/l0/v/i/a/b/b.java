@@ -10,43 +10,47 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b implements d.a.l0.a.y0.g.h.b {
     @Override // d.a.l0.a.y0.d
-    public void B(@NonNull d.a aVar) {
+    public void A(@NonNull d.a aVar) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void E(int i2) {
+    public void D(int i2) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void F() {
+    public void E() {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void H(long j) {
+    public void F(long j) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void L(int i2) {
+    public void I(int i2) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void M(int i2) {
+    public void J(int i2) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void N(int i2) {
+    public void K(int i2) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void P(boolean z) {
+    public void M(boolean z) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void V() {
+    public void S() {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void W() {
+    public void T() {
+    }
+
+    @Override // d.a.l0.a.y0.g.h.b
+    public void W(int i2) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
@@ -58,6 +62,10 @@ public class b implements d.a.l0.a.y0.g.h.b {
         return RtcStatus.UNKNOWN;
     }
 
+    @Override // d.a.l0.a.y0.g.h.b
+    public void a0(@NonNull b.a aVar) {
+    }
+
     @Override // d.a.l0.a.y0.d
     @Nullable
     public String b() {
@@ -65,7 +73,7 @@ public class b implements d.a.l0.a.y0.g.h.b {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void c0(int i2) {
+    public void b0() {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
@@ -73,15 +81,11 @@ public class b implements d.a.l0.a.y0.g.h.b {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void d0(@NonNull b.a aVar) {
-    }
-
-    @Override // d.a.l0.a.y0.g.h.b
     public void e() {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void e0() {
+    public void e0(boolean z) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
@@ -93,87 +97,83 @@ public class b implements d.a.l0.a.y0.g.h.b {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public ArrayList<c> h() {
+    public void f0(long j, boolean z) {
+    }
+
+    @Override // d.a.l0.a.y0.g.h.b
+    public ArrayList<c> g() {
         return new ArrayList<>();
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void h0(boolean z) {
+    public void h(boolean z) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void i(boolean z) {
+    public void i(long j) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void i0(long j, boolean z) {
-    }
-
-    @Override // d.a.l0.a.y0.g.h.b
-    public void j(long j) {
-    }
-
-    @Override // d.a.l0.a.y0.g.h.b
-    public void m0(String str) {
-    }
-
-    @Override // d.a.l0.a.y0.g.h.b
-    public void n() {
+    public void j0(String str) {
     }
 
     @Override // d.a.l0.a.y0.d
     @Nullable
-    public String n0() {
+    public String k0() {
         return "";
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void o0(long j) {
+    public void l0(long j) {
+    }
+
+    @Override // d.a.l0.a.y0.g.h.b
+    public void m() {
+    }
+
+    @Override // d.a.l0.a.y0.g.h.b
+    public void m0(boolean z) {
+    }
+
+    @Override // d.a.l0.a.y0.g.h.b
+    public void o(long j, boolean z) {
     }
 
     @Override // d.a.l0.a.y0.g.h.c
     public void onRelease() {
     }
 
-    @Override // d.a.l0.a.y0.g.h.b
-    public void p(long j, boolean z) {
-    }
-
-    @Override // d.a.l0.a.y0.g.h.b
-    public void p0(boolean z) {
-    }
-
     @Override // d.a.l0.a.y0.g.h.c
-    public boolean q() {
+    public boolean p() {
         return true;
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void r(String str) {
+    public void q(String str) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void s(boolean z) {
+    public void r(boolean z) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void u(boolean z) {
+    public void t(boolean z) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void v(d.a.l0.a.y0.g.i.b bVar) {
+    public void u(d.a.l0.a.y0.g.i.b bVar) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public ArrayList<d.a.l0.a.y0.g.i.a> w() {
+    public ArrayList<d.a.l0.a.y0.g.i.a> v() {
         return new ArrayList<>();
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void y(boolean z) {
+    public void x(boolean z) {
     }
 
     @Override // d.a.l0.a.y0.g.h.b
-    public void z(boolean z) {
+    public void y(boolean z) {
     }
 }

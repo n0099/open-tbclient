@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.image.ImageInfo;
 public final class b extends d.a.l0.a.c0.a.b.a<SimpleDraweeView, c> {
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.l0.a.c0.c.e.b.a f40861i;
+    public d.a.l0.a.c0.c.e.b.a f44537i;
     public SwanAppComponentContainerView j;
     public SimpleDraweeView k;
 
@@ -20,33 +20,33 @@ public final class b extends d.a.l0.a.c0.a.b.a<SimpleDraweeView, c> {
     public class a extends BaseControllerListener<ImageInfo> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f40862a;
+        public final /* synthetic */ boolean f44538a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SimpleDraweeView f40863b;
+        public final /* synthetic */ SimpleDraweeView f44539b;
 
         public a(boolean z, SimpleDraweeView simpleDraweeView) {
-            this.f40862a = z;
-            this.f40863b = simpleDraweeView;
+            this.f44538a = z;
+            this.f44539b = simpleDraweeView;
         }
 
         @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
         public void onFailure(String str, Throwable th) {
             super.onFailure(str, th);
-            if (!this.f40862a || b.this.f40861i == null) {
+            if (!this.f44538a || b.this.f44537i == null) {
                 return;
             }
-            b.this.f40861i.a(0, this.f40863b, null);
+            b.this.f44537i.a(0, this.f44539b, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
         public void onFinalImageSet(String str, ImageInfo imageInfo, Animatable animatable) {
             super.onFinalImageSet(str, (String) imageInfo, animatable);
-            if (!this.f40862a || b.this.f40861i == null) {
+            if (!this.f44538a || b.this.f44537i == null) {
                 return;
             }
-            b.this.f40861i.a(1, this.f40863b, null);
+            b.this.f44537i.a(1, this.f44539b, null);
         }
     }
 
@@ -104,7 +104,7 @@ public final class b extends d.a.l0.a.c0.a.b.a<SimpleDraweeView, c> {
     }
 
     public void g0(d.a.l0.a.c0.c.e.b.a aVar) {
-        this.f40861i = aVar;
+        this.f44537i = aVar;
     }
 
     @Override // d.a.l0.a.c0.b.a

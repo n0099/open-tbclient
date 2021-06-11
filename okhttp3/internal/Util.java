@@ -38,7 +38,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Util {
     public static final byte[] EMPTY_BYTE_ARRAY;
     public static final RequestBody EMPTY_REQUEST;

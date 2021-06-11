@@ -9,31 +9,31 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f66483a = 504;
+    public static int f70269a = 504;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f66484b = false;
+    public static boolean f70270b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f66485c = "";
+    public static String f70271c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f66486d = "";
+    public static String f70272d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static Context f66487e;
+    public static Context f70273e;
 
     public static String a() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(IAdRequestParam.OS, "Android");
             jSONObject.put("version", "1.0.5");
-            if (f66486d == null || f66486d.length() <= 0) {
-                jSONObject.put("token_id", a.meta(303, f66487e, null));
+            if (f70272d == null || f70272d.length() <= 0) {
+                jSONObject.put("token_id", a.meta(303, f70273e, null));
             } else {
-                jSONObject.put("token_id", f66486d);
+                jSONObject.put("token_id", f70272d);
             }
-            jSONObject.put("code", f66483a);
+            jSONObject.put("code", f70269a);
             return Base64.encodeToString(jSONObject.toString().getBytes(), 2);
         } catch (Throwable unused) {
             d.m.a.b.d.a("Call onEvent Error");
@@ -42,16 +42,16 @@ public class b {
     }
 
     public static void b(Context context, String str, d.m.b.a.a.a aVar) {
-        if (f66487e == null) {
-            f66487e = context;
+        if (f70273e == null) {
+            f70273e = context;
         }
-        int i2 = f66483a;
+        int i2 = f70269a;
         if (i2 == 102 || i2 == 202 || i2 == 200) {
             return;
         }
         System.currentTimeMillis();
-        f66485c = str;
-        f66483a = 102;
+        f70271c = str;
+        f70269a = 102;
         Thread thread = new Thread(new d(context, aVar));
         thread.setName("CZL-3");
         thread.start();

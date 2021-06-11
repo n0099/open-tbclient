@@ -3,46 +3,46 @@ package d.a.m0.s.c;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public q f50511a;
+    public q f54187a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f50512b;
+    public boolean f54188b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50513c;
+    public int f54189c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50514d;
+    public String f54190d;
 
     public q a() {
-        return this.f50511a;
+        return this.f54187a;
     }
 
     public int b() {
-        return this.f50513c;
+        return this.f54189c;
     }
 
     public String c() {
-        return this.f50514d;
+        return this.f54190d;
     }
 
     public boolean d() {
-        return this.f50512b;
+        return this.f54188b;
     }
 
     public void e(q qVar) {
-        this.f50511a = qVar;
+        this.f54187a = qVar;
     }
 
     public void f(int i2) {
-        this.f50513c = i2;
+        this.f54189c = i2;
     }
 
     public void g(String str) {
-        this.f50514d = str;
+        this.f54190d = str;
     }
 
     public void h(boolean z) {
-        this.f50512b = z;
+        this.f54188b = z;
     }
 }

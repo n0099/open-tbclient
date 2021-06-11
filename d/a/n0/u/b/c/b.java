@@ -22,16 +22,16 @@ public class b implements h {
     public class a implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.w.a f61258a;
+        public final /* synthetic */ d.a.l0.a.w.a f64967a;
 
         public a(b bVar, d.a.l0.a.w.a aVar) {
-            this.f61258a = aVar;
+            this.f64967a = aVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             if (delegateResult.isOk()) {
-                this.f61258a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
+                this.f64967a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
             }
         }
     }

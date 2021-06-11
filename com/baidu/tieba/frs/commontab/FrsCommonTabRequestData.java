@@ -23,7 +23,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
     public int sortType = 0;
 
     @Override // d.a.m0.g0.b.i
-    public Object c(boolean z) {
+    public Object e(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.tab_id = Integer.valueOf(this.tabId);
         builder.tab_type = Integer.valueOf(this.tabType);
@@ -49,12 +49,12 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
     }
 
     @Override // d.a.m0.g0.b.f
-    public HashMap<String, Object> o() {
+    public HashMap<String, Object> s() {
         return null;
     }
 
     @Override // d.a.m0.g0.b.f
-    public HashMap<String, String> q() {
+    public HashMap<String, String> u() {
         return null;
     }
 }

@@ -32,71 +32,71 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f48326a;
+    public long f52000a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.a.l0.r.o f48327b;
+    public final d.a.l0.r.o f52001b;
 
     /* renamed from: d.a.l0.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1086a extends q {
+    public class C1142a extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public long f48328c;
+        public long f52002c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ SparseIntArray f48329d;
+        public final /* synthetic */ SparseIntArray f52003d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48330e;
+        public final /* synthetic */ String f52004e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f48331f;
+        public final /* synthetic */ ArrayList f52005f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f48332g;
+        public final /* synthetic */ boolean f52006g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1086a(SparseIntArray sparseIntArray, String str, ArrayList arrayList, boolean z) {
+        public C1142a(SparseIntArray sparseIntArray, String str, ArrayList arrayList, boolean z) {
             super(a.this, null);
-            this.f48329d = sparseIntArray;
-            this.f48330e = str;
-            this.f48331f = arrayList;
-            this.f48332g = z;
-            this.f48328c = System.currentTimeMillis();
+            this.f52003d = sparseIntArray;
+            this.f52004e = str;
+            this.f52005f = arrayList;
+            this.f52006g = z;
+            this.f52002c = System.currentTimeMillis();
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             ArrayList arrayList;
-            SparseIntArray sparseIntArray = this.f48329d;
+            SparseIntArray sparseIntArray = this.f52003d;
             if (sparseIntArray != null && sparseIntArray.size() > 0) {
-                int size = this.f48329d.size();
+                int size = this.f52003d.size();
                 ArrayList arrayList2 = new ArrayList(size);
                 for (int i2 = 0; i2 < size; i2++) {
-                    arrayList2.add(Integer.valueOf(this.f48329d.keyAt(i2)));
+                    arrayList2.add(Integer.valueOf(this.f52003d.keyAt(i2)));
                 }
                 String str = "flowhandle in (" + a.this.t(arrayList2) + SmallTailInfo.EMOTION_SUFFIX;
                 s.a("delete flow table flow count:" + sQLiteDatabase.delete("flow", str, null));
                 s.a("delete flow table event count:" + sQLiteDatabase.delete("event", str, null));
             }
-            ArrayList arrayList3 = this.f48331f;
+            ArrayList arrayList3 = this.f52005f;
             if (arrayList3 != null && arrayList3.size() > 0) {
-                int delete = sQLiteDatabase.delete("event", "eventid in (" + a.this.t(this.f48331f) + ") AND flowhandle = -1", null);
+                int delete = sQLiteDatabase.delete("event", "eventid in (" + a.this.t(this.f52005f) + ") AND flowhandle = -1", null);
                 StringBuilder sb = new StringBuilder();
                 sb.append("delete event table event count:");
                 sb.append(delete);
                 s.a(sb.toString());
             }
-            SparseIntArray sparseIntArray2 = this.f48329d;
-            if ((sparseIntArray2 != null && sparseIntArray2.size() > 0) || ((arrayList = this.f48331f) != null && arrayList.size() > 0)) {
+            SparseIntArray sparseIntArray2 = this.f52003d;
+            if ((sparseIntArray2 != null && sparseIntArray2.size() > 0) || ((arrayList = this.f52005f) != null && arrayList.size() > 0)) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("filename", this.f48330e);
+                contentValues.put("filename", this.f52004e);
                 contentValues.put("state", "0");
-                contentValues.put("reserve1", this.f48332g ? "1" : "0");
+                contentValues.put("reserve1", this.f52006g ? "1" : "0");
                 sQLiteDatabase.replace("file", null, contentValues);
             }
-            s.a("delete total time:" + (System.currentTimeMillis() - this.f48328c));
+            s.a("delete total time:" + (System.currentTimeMillis() - this.f52002c));
             return true;
         }
     }
@@ -105,24 +105,24 @@ public class a {
     public class b extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f48334c;
+        public final /* synthetic */ String f52008c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f48335d;
+        public final /* synthetic */ boolean f52009d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, String str, boolean z) {
             super(aVar, null);
-            this.f48334c = str;
-            this.f48335d = z;
+            this.f52008c = str;
+            this.f52009d = z;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("state", "1");
-            contentValues.put("filename", this.f48334c);
-            contentValues.put("reserve1", this.f48335d ? "1" : "0");
+            contentValues.put("filename", this.f52008c);
+            contentValues.put("reserve1", this.f52009d ? "1" : "0");
             sQLiteDatabase.replace("file", null, contentValues);
             return true;
         }
@@ -132,17 +132,17 @@ public class a {
     public class c extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f48336c;
+        public final /* synthetic */ String f52010c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, String str) {
             super(aVar, null);
-            this.f48336c = str;
+            this.f52010c = str;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.delete("file", "filename=\"" + this.f48336c + "\"", null);
+            sQLiteDatabase.delete("file", "filename=\"" + this.f52010c + "\"", null);
             return true;
         }
     }
@@ -164,19 +164,19 @@ public class a {
     public class e extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f48337c;
+        public final /* synthetic */ String f52011c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(a aVar, String str) {
             super(aVar, null);
-            this.f48337c = str;
+            this.f52011c = str;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("state", "1");
-            sQLiteDatabase.update("file", contentValues, "filename=\"" + this.f48337c + "\"", null);
+            sQLiteDatabase.update("file", contentValues, "filename=\"" + this.f52011c + "\"", null);
             return true;
         }
     }
@@ -185,23 +185,23 @@ public class a {
     public class f extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f48338c;
+        public final /* synthetic */ String f52012c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f48339d;
+        public final /* synthetic */ String f52013d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(a aVar, String str, String str2) {
             super(aVar, null);
-            this.f48338c = str;
-            this.f48339d = str2;
+            this.f52012c = str;
+            this.f52013d = str2;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("state", this.f48339d);
-            sQLiteDatabase.update("file", contentValues, "filename=\"" + this.f48338c + "\"", null);
+            contentValues.put("state", this.f52013d);
+            sQLiteDatabase.update("file", contentValues, "filename=\"" + this.f52012c + "\"", null);
             return true;
         }
     }
@@ -225,29 +225,29 @@ public class a {
     public class h extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f48340c;
+        public final /* synthetic */ String f52014c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f48341d;
+        public final /* synthetic */ String f52015d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f48342e;
+        public final /* synthetic */ int f52016e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f48343f;
+        public final /* synthetic */ ContentValues f52017f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(String str, String str2, int i2, ContentValues contentValues) {
             super(a.this, null);
-            this.f48340c = str;
-            this.f48341d = str2;
-            this.f48342e = i2;
-            this.f48343f = contentValues;
+            this.f52014c = str;
+            this.f52015d = str2;
+            this.f52016e = i2;
+            this.f52017f = contentValues;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            return a.this.e(this.f48340c, this.f48341d, this.f48342e, sQLiteDatabase) && sQLiteDatabase.insert("event", null, this.f48343f) != -1;
+            return a.this.e(this.f52014c, this.f52015d, this.f52016e, sQLiteDatabase) && sQLiteDatabase.insert("event", null, this.f52017f) != -1;
         }
     }
 
@@ -255,34 +255,34 @@ public class a {
     public class i extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f48345c;
+        public final /* synthetic */ List f52019c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(List list) {
             super(a.this, null);
-            this.f48345c = list;
+            this.f52019c = list;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             boolean z = true;
-            for (d.a.l0.r.i iVar : this.f48345c) {
-                if (!TextUtils.isEmpty(iVar.f48398a) && a.this.e(iVar.f48399b, iVar.f48398a, iVar.f48400c, sQLiteDatabase)) {
+            for (d.a.l0.r.i iVar : this.f52019c) {
+                if (!TextUtils.isEmpty(iVar.f52072a) && a.this.e(iVar.f52073b, iVar.f52072a, iVar.f52074c, sQLiteDatabase)) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("flowhandle", Integer.valueOf(iVar.f48400c));
-                    contentValues.put("eventid", iVar.f48398a);
-                    contentValues.put("begintime", Long.valueOf(iVar.f48403f));
-                    if (!TextUtils.isEmpty(iVar.f48401d)) {
-                        contentValues.put("content", iVar.f48401d);
+                    contentValues.put("flowhandle", Integer.valueOf(iVar.f52074c));
+                    contentValues.put("eventid", iVar.f52072a);
+                    contentValues.put("begintime", Long.valueOf(iVar.f52077f));
+                    if (!TextUtils.isEmpty(iVar.f52075d)) {
+                        contentValues.put("content", iVar.f52075d);
                     } else {
-                        JSONObject jSONObject = iVar.f48402e;
+                        JSONObject jSONObject = iVar.f52076e;
                         if (jSONObject != null && !TextUtils.isEmpty(jSONObject.toString())) {
-                            contentValues.put("content", iVar.f48402e.toString());
+                            contentValues.put("content", iVar.f52076e.toString());
                         }
                     }
-                    contentValues.put("reserve1", iVar.f48405h);
-                    if (!TextUtils.isEmpty(iVar.f48406i)) {
-                        contentValues.put("reserve2", iVar.f48406i);
+                    contentValues.put("reserve1", iVar.f52079h);
+                    if (!TextUtils.isEmpty(iVar.f52080i)) {
+                        contentValues.put("reserve2", iVar.f52080i);
                     }
                     if (iVar.j) {
                         JSONObject jSONObject2 = new JSONObject();
@@ -306,17 +306,17 @@ public class a {
     public class j extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f48347c;
+        public final /* synthetic */ ContentValues f52021c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(a aVar, ContentValues contentValues) {
             super(aVar, null);
-            this.f48347c = contentValues;
+            this.f52021c = contentValues;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            return sQLiteDatabase.insert("flow", null, this.f48347c) != -1;
+            return sQLiteDatabase.insert("flow", null, this.f52021c) != -1;
         }
     }
 
@@ -324,21 +324,21 @@ public class a {
     public class k extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f48348c;
+        public final /* synthetic */ ContentValues f52022c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f48349d;
+        public final /* synthetic */ String f52023d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(a aVar, ContentValues contentValues, String str) {
             super(aVar, null);
-            this.f48348c = contentValues;
-            this.f48349d = str;
+            this.f52022c = contentValues;
+            this.f52023d = str;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            return sQLiteDatabase.update("flow", this.f48348c, this.f48349d, null) == 1;
+            return sQLiteDatabase.update("flow", this.f52022c, this.f52023d, null) == 1;
         }
     }
 
@@ -346,21 +346,21 @@ public class a {
     public class l extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f48350c;
+        public final /* synthetic */ ContentValues f52024c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f48351d;
+        public final /* synthetic */ String f52025d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l(a aVar, ContentValues contentValues, String str) {
             super(aVar, null);
-            this.f48350c = contentValues;
-            this.f48351d = str;
+            this.f52024c = contentValues;
+            this.f52025d = str;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            return sQLiteDatabase.update("flow", this.f48350c, this.f48351d, null) == 1;
+            return sQLiteDatabase.update("flow", this.f52024c, this.f52025d, null) == 1;
         }
     }
 
@@ -368,22 +368,22 @@ public class a {
     public class m extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f48352c;
+        public final /* synthetic */ String f52026c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f48353d;
+        public final /* synthetic */ int f52027d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public m(a aVar, String str, int i2) {
             super(aVar, null);
-            this.f48352c = str;
-            this.f48353d = i2;
+            this.f52026c = str;
+            this.f52027d = i2;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.delete("flow", this.f48352c, null);
-            sQLiteDatabase.delete("event", "flowhandle = " + this.f48353d, null);
+            sQLiteDatabase.delete("flow", this.f52026c, null);
+            sQLiteDatabase.delete("event", "flowhandle = " + this.f52027d, null);
             return true;
         }
     }
@@ -479,22 +479,22 @@ public class a {
     public class o extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f48355c;
+        public final /* synthetic */ String f52029c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f48356d;
+        public final /* synthetic */ int f52030d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public o(a aVar, String str, int i2) {
             super(aVar, null);
-            this.f48355c = str;
-            this.f48356d = i2;
+            this.f52029c = str;
+            this.f52030d = i2;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            String str = this.f48355c;
-            int delete = sQLiteDatabase.delete(str, "_id < " + this.f48356d, null);
+            String str = this.f52029c;
+            int delete = sQLiteDatabase.delete(str, "_id < " + this.f52030d, null);
             d.a.l0.r.e.i(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "delLimit");
             return delete > 0;
         }
@@ -504,28 +504,28 @@ public class a {
     public class p extends q {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f48357c;
+        public final /* synthetic */ List f52031c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public p(a aVar, List list) {
             super(aVar, null);
-            this.f48357c = list;
+            this.f52031c = list;
         }
 
         @Override // d.a.l0.r.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
-            for (d.a.l0.r.g gVar : this.f48357c) {
+            for (d.a.l0.r.g gVar : this.f52031c) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("eventid", gVar.f48384a);
-                contentValues.put("type", gVar.f48388e);
-                contentValues.put("cycle", Integer.valueOf("1".equals(gVar.f48386c) ? 0 : gVar.f48387d));
-                contentValues.put(SetImageWatermarkTypeReqMsg.SWITCH, gVar.f48385b);
-                contentValues.put("reserve1", gVar.f48389f);
-                if (!TextUtils.isEmpty(gVar.f48391h)) {
-                    contentValues.put("reserve2", gVar.f48391h);
+                contentValues.put("eventid", gVar.f52058a);
+                contentValues.put("type", gVar.f52062e);
+                contentValues.put("cycle", Integer.valueOf("1".equals(gVar.f52060c) ? 0 : gVar.f52061d));
+                contentValues.put(SetImageWatermarkTypeReqMsg.SWITCH, gVar.f52059b);
+                contentValues.put("reserve1", gVar.f52063f);
+                if (!TextUtils.isEmpty(gVar.f52065h)) {
+                    contentValues.put("reserve2", gVar.f52065h);
                 }
-                contentValues.put("sample", Integer.valueOf(gVar.f48390g));
-                int i2 = gVar.f48392i;
+                contentValues.put("sample", Integer.valueOf(gVar.f52064g));
+                int i2 = gVar.f52066i;
                 if (i2 != 0 && gVar.j != 0) {
                     contentValues.put("recordrule", Integer.valueOf(i2));
                     contentValues.put("uploadrule", Integer.valueOf(gVar.j));
@@ -546,7 +546,7 @@ public class a {
     }
 
     public a(Context context) {
-        this.f48327b = new d.a.l0.r.o(context);
+        this.f52001b = new d.a.l0.r.o(context);
     }
 
     public static void x(long j2, int i2, String str) {
@@ -565,26 +565,26 @@ public class a {
     }
 
     public void A(String str, boolean z) {
-        new b(this, str, z).c(this.f48327b.getWritableDatabase());
+        new b(this, str, z).c(this.f52001b.getWritableDatabase());
     }
 
     public void B(d.a.l0.r.k kVar) {
-        if (kVar == null || TextUtils.isEmpty(kVar.f48408a)) {
+        if (kVar == null || TextUtils.isEmpty(kVar.f52082a)) {
             return;
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put("flowid", kVar.f48408a);
-        contentValues.put("flowhandle", Integer.valueOf(kVar.f48409b));
-        contentValues.put("state", kVar.f48415h);
-        contentValues.put("begintime", Long.valueOf(kVar.f48412e));
-        JSONObject jSONObject = kVar.f48411d;
+        contentValues.put("flowid", kVar.f52082a);
+        contentValues.put("flowhandle", Integer.valueOf(kVar.f52083b));
+        contentValues.put("state", kVar.f52089h);
+        contentValues.put("begintime", Long.valueOf(kVar.f52086e));
+        JSONObject jSONObject = kVar.f52085d;
         if (jSONObject != null) {
             contentValues.put("content", jSONObject.toString());
         } else {
-            contentValues.put("content", kVar.f48410c);
+            contentValues.put("content", kVar.f52084c);
         }
-        contentValues.put("option", Integer.valueOf(kVar.f48414g));
-        contentValues.put("reserve1", kVar.f48416i);
+        contentValues.put("option", Integer.valueOf(kVar.f52088g));
+        contentValues.put("reserve1", kVar.f52090i);
         if (!TextUtils.isEmpty(kVar.j)) {
             contentValues.put("reserve2", kVar.j);
         }
@@ -597,18 +597,18 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        new j(this, contentValues).c(this.f48327b.getWritableDatabase());
+        new j(this, contentValues).c(this.f52001b.getWritableDatabase());
     }
 
     public void C() {
-        new g(this).c(this.f48327b.getWritableDatabase());
+        new g(this).c(this.f52001b.getWritableDatabase());
     }
 
     public void D(List<d.a.l0.r.g> list) {
         if (list == null || list.size() == 0) {
             return;
         }
-        new p(this, list).c(this.f48327b.getWritableDatabase());
+        new p(this, list).c(this.f52001b.getWritableDatabase());
     }
 
     public void E(String str, int i2, String str2) {
@@ -617,22 +617,22 @@ public class a {
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("content", str2);
-        new k(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f48327b.getWritableDatabase());
+        new k(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f52001b.getWritableDatabase());
     }
 
     public void F(String str) {
-        new e(this, str).c(this.f48327b.getWritableDatabase());
+        new e(this, str).c(this.f52001b.getWritableDatabase());
     }
 
     public void G(String str, String str2) {
-        new f(this, str, str2).c(this.f48327b.getWritableDatabase());
+        new f(this, str, str2).c(this.f52001b.getWritableDatabase());
     }
 
     public void d(String str, int i2) {
         if (i2 < 0 || TextUtils.isEmpty(str)) {
             return;
         }
-        new m(this, "flowid=\"" + str + "\" AND flowhandle = " + i2, i2).c(this.f48327b.getWritableDatabase());
+        new m(this, "flowid=\"" + str + "\" AND flowhandle = " + i2, i2).c(this.f52001b.getWritableDatabase());
     }
 
     public final boolean e(String str, String str2, int i2, SQLiteDatabase sQLiteDatabase) {
@@ -665,23 +665,23 @@ public class a {
     }
 
     public void f() {
-        new n().c(this.f48327b.getWritableDatabase());
+        new n().c(this.f52001b.getWritableDatabase());
         k("flow");
         k("event");
     }
 
     public boolean g(SparseIntArray sparseIntArray, ArrayList<String> arrayList, boolean z, String str) {
-        C1086a c1086a = new C1086a(sparseIntArray, str, arrayList, z);
-        c1086a.c(this.f48327b.getWritableDatabase());
-        return c1086a.a();
+        C1142a c1142a = new C1142a(sparseIntArray, str, arrayList, z);
+        c1142a.c(this.f52001b.getWritableDatabase());
+        return c1142a.a();
     }
 
     public void h() {
-        new d(this).c(this.f48327b.getWritableDatabase());
+        new d(this).c(this.f52001b.getWritableDatabase());
     }
 
     public void i(String str) {
-        new c(this, str).c(this.f48327b.getWritableDatabase());
+        new c(this, str).c(this.f52001b.getWritableDatabase());
     }
 
     public void j(String str, int i2, long j2, JSONArray jSONArray) {
@@ -694,11 +694,11 @@ public class a {
         if (jSONArray != null && jSONArray.length() > 0) {
             contentValues.put("slot", jSONArray.toString());
         }
-        new l(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f48327b.getWritableDatabase());
+        new l(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f52001b.getWritableDatabase());
     }
 
     public final void k(String str) {
-        SQLiteDatabase writableDatabase = this.f48327b.getWritableDatabase();
+        SQLiteDatabase writableDatabase = this.f52001b.getWritableDatabase();
         int i2 = 0;
         Cursor cursor = null;
         try {
@@ -723,9 +723,9 @@ public class a {
     }
 
     public int l(u uVar) {
-        this.f48326a = 0L;
+        this.f52000a = 0L;
         int q2 = q(" SELECT * FROM flow", uVar);
-        if (this.f48326a >= 2097152) {
+        if (this.f52000a >= 2097152) {
             return 1;
         }
         return p("SELECT * FROM event WHERE flowhandle = -1", uVar) | q2;
@@ -733,7 +733,7 @@ public class a {
 
     public int m(ArrayList<d.a.l0.r.f> arrayList, u uVar) {
         int i2;
-        this.f48326a = 0L;
+        this.f52000a = 0L;
         String s = s(arrayList, true);
         if (TextUtils.isEmpty(s)) {
             i2 = 0;
@@ -748,11 +748,11 @@ public class a {
     }
 
     public final long n() {
-        return this.f48327b.e();
+        return this.f52001b.e();
     }
 
     public final long o() {
-        return this.f48327b.f();
+        return this.f52001b.f();
     }
 
     public final int p(String str, u uVar) {
@@ -772,7 +772,7 @@ public class a {
         long j5 = Long.MAX_VALUE;
         try {
             try {
-                cursor = this.f48327b.getReadableDatabase().rawQuery(str, null);
+                cursor = this.f52001b.getReadableDatabase().rawQuery(str, null);
                 if (cursor == null || cursor.getCount() <= 0) {
                     uVar2 = uVar3;
                     j2 = 0;
@@ -812,7 +812,7 @@ public class a {
                                         jSONObject.put(str3, jSONObject2);
                                     }
                                     str2 = str3;
-                                    this.f48326a += string2.getBytes("UTF-8").length;
+                                    this.f52000a += string2.getBytes("UTF-8").length;
                                 } catch (SQLiteFullException | UnsupportedEncodingException | JSONException unused) {
                                     uVar2 = uVar;
                                     d.a.l0.t.d.d(cursor);
@@ -855,11 +855,11 @@ public class a {
                                         jSONObject.put("abtest", string4);
                                         uVar2 = uVar;
                                         try {
-                                            uVar2.f48486f = "1";
+                                            uVar2.f52160f = "1";
                                             j4 = j5;
                                             try {
                                                 i4 = columnIndex2;
-                                                this.f48326a += string4.getBytes("UTF-8").length;
+                                                this.f52000a += string4.getBytes("UTF-8").length;
                                             } catch (SQLiteFullException | UnsupportedEncodingException | JSONException unused2) {
                                                 j5 = j4;
                                                 d.a.l0.t.d.d(cursor);
@@ -904,13 +904,13 @@ public class a {
                                             jSONObject.put("of", "1");
                                         }
                                         i5 = i7;
-                                        this.f48326a += string.getBytes("UTF-8").length;
+                                        this.f52000a += string.getBytes("UTF-8").length;
                                     }
                                     jSONObject.put(Constant.ID_TYPE, d.a.l0.r.d.g().j(string3));
                                     r.a(jSONObject);
                                     uVar2.a(jSONObject);
                                     uVar2.e(cursor.getString(columnIndex));
-                                    if (this.f48326a >= 2097152 || !cursor.moveToNext()) {
+                                    if (this.f52000a >= 2097152 || !cursor.moveToNext()) {
                                         break;
                                     }
                                     columnIndex3 = i6;
@@ -971,7 +971,7 @@ public class a {
             r2 = r31
             java.util.ArrayList r3 = new java.util.ArrayList
             r3.<init>()
-            d.a.l0.r.o r0 = r1.f48327b
+            d.a.l0.r.o r0 = r1.f52001b
             android.database.sqlite.SQLiteDatabase r0 = r0.getReadableDatabase()
             r4 = 0
             r10 = r30
@@ -1035,15 +1035,15 @@ public class a {
             d.a.l0.r.k r2 = new d.a.l0.r.k     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             r2.<init>()     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             java.lang.String r0 = r4.getString(r11)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
-            r2.f48408a = r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            r2.f52082a = r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             int r0 = r4.getInt(r12)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
-            r2.f48409b = r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            r2.f52083b = r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             r22 = r11
             r23 = r12
             long r11 = r4.getLong(r14)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
-            r2.f48412e = r11     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            r2.f52086e = r11     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             long r11 = r4.getLong(r15)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
-            r2.f48413f = r11     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            r2.f52087f = r11     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             r18 = 0
             int r0 = (r11 > r18 ? 1 : (r11 == r18 ? 0 : -1))
             if (r0 <= 0) goto Ld3
@@ -1051,27 +1051,27 @@ public class a {
             if (r0 <= 0) goto Ld3
             r20 = r11
         Ld3:
-            long r11 = r2.f48412e     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            long r11 = r2.f52086e     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             r18 = 0
             int r0 = (r11 > r18 ? 1 : (r11 == r18 ? 0 : -1))
             if (r0 <= 0) goto Le5
-            long r11 = r2.f48412e     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            long r11 = r2.f52086e     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             int r0 = (r11 > r16 ? 1 : (r11 == r16 ? 0 : -1))
             if (r0 >= 0) goto Le5
-            long r11 = r2.f48412e     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            long r11 = r2.f52086e     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             r16 = r11
         Le5:
             java.lang.String r0 = r4.getString(r7)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             boolean r11 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             java.lang.String r12 = "UTF-8"
             if (r11 != 0) goto Lff
-            r2.f48410c = r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            r2.f52084c = r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             byte[] r0 = r0.getBytes(r12)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             int r0 = r0.length     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             r11 = r7
             r24 = r8
             long r7 = (long) r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
-            r1.f48326a = r7     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            r1.f52000a = r7     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             goto L102
         Lff:
             r11 = r7
@@ -1080,15 +1080,15 @@ public class a {
             java.lang.String r0 = r4.getString(r9)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             boolean r7 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             if (r7 != 0) goto L11e
-            r2.f48416i = r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
-            long r7 = r1.f48326a     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            r2.f52090i = r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            long r7 = r1.f52000a     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             byte[] r0 = r0.getBytes(r12)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             int r0 = r0.length     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             r25 = r13
             r26 = r14
             long r13 = (long) r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             long r7 = r7 + r13
-            r1.f48326a = r7     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            r1.f52000a = r7     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             goto L122
         L11e:
             r25 = r13
@@ -1105,22 +1105,22 @@ public class a {
             boolean r7 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             if (r7 != 0) goto L14c
             r2.b(r0)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
-            long r7 = r1.f48326a     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            long r7 = r1.f52000a     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             byte[] r0 = r0.getBytes(r12)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             int r0 = r0.length     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             long r13 = (long) r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             long r7 = r7 + r13
-            r1.f48326a = r7     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            r1.f52000a = r7     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
         L14c:
             java.lang.String r0 = r4.getString(r6)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             boolean r7 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             if (r7 != 0) goto L17e
-            long r7 = r1.f48326a     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            long r7 = r1.f52000a     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             byte[] r0 = r0.getBytes(r12)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             int r0 = r0.length     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             long r12 = (long) r0     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             long r7 = r7 + r12
-            r1.f48326a = r7     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            r1.f52000a = r7     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             org.json.JSONObject r0 = new org.json.JSONObject     // Catch: org.json.JSONException -> L178 java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             java.lang.String r7 = r4.getString(r6)     // Catch: org.json.JSONException -> L178 java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             r0.<init>(r7)     // Catch: org.json.JSONException -> L178 java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
@@ -1143,12 +1143,12 @@ public class a {
             r7 = 1
         L17f:
             r3.add(r2)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
-            int r0 = r2.f48409b     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
-            java.lang.String r2 = r2.f48408a     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            int r0 = r2.f52083b     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
+            java.lang.String r2 = r2.f52082a     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             int r2 = java.lang.Integer.parseInt(r2)     // Catch: java.lang.RuntimeException -> L1b2 java.lang.Throwable -> L1b6 java.lang.Throwable -> L1d3
             r8 = r31
             r8.f(r0, r2)     // Catch: java.lang.RuntimeException -> L1b0 java.lang.Throwable -> L1bf java.lang.Throwable -> L1d3
-            long r12 = r1.f48326a     // Catch: java.lang.RuntimeException -> L1b0 java.lang.Throwable -> L1bf java.lang.Throwable -> L1d3
+            long r12 = r1.f52000a     // Catch: java.lang.RuntimeException -> L1b0 java.lang.Throwable -> L1bf java.lang.Throwable -> L1d3
             r27 = 2097152(0x200000, double:1.036131E-317)
             int r0 = (r12 > r27 ? 1 : (r12 == r27 ? 0 : -1))
             if (r0 < 0) goto L199
@@ -1236,25 +1236,25 @@ public class a {
 
     public final void r(ArrayList<d.a.l0.r.k> arrayList, u uVar) {
         JSONObject jSONObject = new JSONObject();
-        SQLiteDatabase readableDatabase = this.f48327b.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.f52001b.getReadableDatabase();
         try {
             Iterator<d.a.l0.r.k> it = arrayList.iterator();
             String[] strArr = null;
             Cursor cursor = null;
             while (it.hasNext()) {
                 d.a.l0.r.k next = it.next();
-                if (next.f48409b >= 0) {
+                if (next.f52083b >= 0) {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("bizId", next.f48408a);
-                    jSONObject2.put("starttime", Long.toString(next.f48412e));
-                    jSONObject2.put("endtime", Long.toString(next.f48413f));
+                    jSONObject2.put("bizId", next.f52082a);
+                    jSONObject2.put("starttime", Long.toString(next.f52086e));
+                    jSONObject2.put("endtime", Long.toString(next.f52087f));
                     jSONObject2.put("eventType", "1");
-                    if (!TextUtils.isEmpty(next.f48410c)) {
-                        jSONObject = new JSONObject(next.f48410c);
+                    if (!TextUtils.isEmpty(next.f52084c)) {
+                        jSONObject = new JSONObject(next.f52084c);
                     }
-                    if (!TextUtils.isEmpty(next.f48416i)) {
-                        jSONObject2.put("abtest", next.f48416i);
-                        uVar.f48486f = "1";
+                    if (!TextUtils.isEmpty(next.f52090i)) {
+                        jSONObject2.put("abtest", next.f52090i);
+                        uVar.f52160f = "1";
                     }
                     if (!TextUtils.isEmpty(next.j)) {
                         jSONObject2.put("c", next.j);
@@ -1265,10 +1265,10 @@ public class a {
                     if (next.l) {
                         jSONObject2.put("of", "1");
                     }
-                    jSONObject2.put(Constant.ID_TYPE, d.a.l0.r.d.g().j(next.f48408a));
+                    jSONObject2.put(Constant.ID_TYPE, d.a.l0.r.d.g().j(next.f52082a));
                     JSONArray jSONArray = new JSONArray();
                     try {
-                        cursor = readableDatabase.rawQuery("SELECT eventid , begintime , content FROM event WHERE flowhandle = " + next.f48409b, strArr);
+                        cursor = readableDatabase.rawQuery("SELECT eventid , begintime , content FROM event WHERE flowhandle = " + next.f52083b, strArr);
                         if (cursor != null && cursor.getCount() > 0) {
                             cursor.moveToFirst();
                             int columnIndex = cursor.getColumnIndex("eventid");
@@ -1310,9 +1310,9 @@ public class a {
         String str = "";
         while (it.hasNext()) {
             d.a.l0.r.f next = it.next();
-            if ((z && !"0".equals(next.f48383b)) || (!z && "0".equals(next.f48383b))) {
+            if ((z && !"0".equals(next.f52057b)) || (!z && "0".equals(next.f52057b))) {
                 sb.append(str);
-                sb.append(next.f48382a);
+                sb.append(next.f52056a);
                 str = ",";
             }
         }
@@ -1348,7 +1348,7 @@ public class a {
         d.a.l0.r.j jVar = null;
         try {
             try {
-                str2 = this.f48327b.getReadableDatabase().rawQuery(str2, null);
+                str2 = this.f52001b.getReadableDatabase().rawQuery(str2, null);
                 closeable = str2;
                 if (str2 != 0) {
                     try {
@@ -1396,7 +1396,7 @@ public class a {
         Cursor cursor = null;
         try {
             try {
-                cursor = this.f48327b.getReadableDatabase().rawQuery("SELECT eventid , type , cycle FROM config WHERE switch=\"1\"", null);
+                cursor = this.f52001b.getReadableDatabase().rawQuery("SELECT eventid , type , cycle FROM config WHERE switch=\"1\"", null);
                 if (cursor != null && cursor.getCount() > 0) {
                     cursor.moveToFirst();
                     int columnIndex = cursor.getColumnIndex("eventid");
@@ -1444,7 +1444,7 @@ public class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void w(HashSet<String> hashSet, HashSet<String> hashSet2, HashSet<String> hashSet3, HashSet<String> hashSet4, HashMap<String, String> hashMap, HashMap<String, String> hashMap2, HashMap<String, d.a.l0.r.h> hashMap3, HashSet<String> hashSet5) {
-        SQLiteDatabase readableDatabase = this.f48327b.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.f52001b.getReadableDatabase();
         if (readableDatabase == null) {
             return;
         }
@@ -1524,22 +1524,22 @@ public class a {
     }
 
     public void y(d.a.l0.r.i iVar) {
-        if (iVar == null || TextUtils.isEmpty(iVar.f48398a)) {
+        if (iVar == null || TextUtils.isEmpty(iVar.f52072a)) {
             return;
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put("flowhandle", Integer.valueOf(iVar.f48400c));
-        contentValues.put("eventid", iVar.f48398a);
-        contentValues.put("begintime", Long.valueOf(iVar.f48403f));
-        JSONObject jSONObject = iVar.f48402e;
+        contentValues.put("flowhandle", Integer.valueOf(iVar.f52074c));
+        contentValues.put("eventid", iVar.f52072a);
+        contentValues.put("begintime", Long.valueOf(iVar.f52077f));
+        JSONObject jSONObject = iVar.f52076e;
         if (jSONObject != null) {
             contentValues.put("content", jSONObject.toString());
         } else {
-            contentValues.put("content", iVar.f48401d);
+            contentValues.put("content", iVar.f52075d);
         }
-        contentValues.put("reserve1", iVar.f48405h);
-        if (!TextUtils.isEmpty(iVar.f48406i)) {
-            contentValues.put("reserve2", iVar.f48406i);
+        contentValues.put("reserve1", iVar.f52079h);
+        if (!TextUtils.isEmpty(iVar.f52080i)) {
+            contentValues.put("reserve2", iVar.f52080i);
         }
         if (iVar.j) {
             JSONObject jSONObject2 = new JSONObject();
@@ -1550,28 +1550,28 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        new h(iVar.f48399b, iVar.f48398a, iVar.f48400c, contentValues).c(this.f48327b.getWritableDatabase());
+        new h(iVar.f52073b, iVar.f52072a, iVar.f52074c, contentValues).c(this.f52001b.getWritableDatabase());
     }
 
     public void z(List<d.a.l0.r.i> list) {
         if (list == null || list.size() == 0) {
             return;
         }
-        new i(list).c(this.f48327b.getWritableDatabase());
+        new i(list).c(this.f52001b.getWritableDatabase());
     }
 
     /* loaded from: classes3.dex */
     public abstract class q {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f48358a;
+        public boolean f52032a;
 
         public q() {
-            this.f48358a = false;
+            this.f52032a = false;
         }
 
         public boolean a() {
-            return this.f48358a;
+            return this.f52032a;
         }
 
         public abstract boolean b(SQLiteDatabase sQLiteDatabase);
@@ -1580,13 +1580,13 @@ public class a {
             if (sQLiteDatabase == null) {
                 return;
             }
-            this.f48358a = false;
+            this.f52032a = false;
             try {
                 try {
                     sQLiteDatabase.beginTransaction();
                     if (b(sQLiteDatabase)) {
                         sQLiteDatabase.setTransactionSuccessful();
-                        this.f48358a = true;
+                        this.f52032a = true;
                     }
                 } catch (Throwable th) {
                     try {

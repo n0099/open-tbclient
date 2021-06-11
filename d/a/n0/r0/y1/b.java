@@ -14,22 +14,22 @@ import d.a.c.e.m.g;
 public class b extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f59841a;
+    public f f63532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.e3.l0.c f59842b;
+    public d.a.n0.e3.l0.c f63533b;
 
     public b(f fVar) {
-        this.f59841a = fVar;
+        this.f63532a = fVar;
     }
 
     public void a(d.a.n0.e3.l0.c cVar) {
-        this.f59842b = cVar;
+        this.f63533b = cVar;
     }
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        FrameLayout frameLayout = new FrameLayout(this.f59841a.getPageActivity());
+        FrameLayout frameLayout = new FrameLayout(this.f63532a.getPageActivity());
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         return frameLayout;
     }
@@ -42,7 +42,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        f fVar = this.f59841a;
+        f fVar = this.f63532a;
         if (fVar == null || !g.f(fVar)) {
             return true;
         }
@@ -51,7 +51,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        f fVar = this.f59841a;
+        f fVar = this.f63532a;
         if (fVar == null || !g.f(fVar)) {
             return true;
         }
@@ -60,7 +60,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        f fVar = this.f59841a;
+        f fVar = this.f63532a;
         if (fVar == null || !g.f(fVar)) {
             return true;
         }
@@ -70,8 +70,8 @@ public class b extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         f fVar;
-        d.a.n0.e3.l0.c cVar = this.f59842b;
-        if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (fVar = this.f59841a) != null && g.f(fVar)) {
+        d.a.n0.e3.l0.c cVar = this.f63533b;
+        if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (fVar = this.f63532a) != null && g.f(fVar)) {
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
         return true;

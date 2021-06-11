@@ -2,17 +2,17 @@ package d.a.n0.e2.h;
 
 import com.baidu.adp.BdUniqueId;
 import d.a.m0.r.q.a2;
-/* loaded from: classes4.dex */
-public class v implements d.a.c.j.e.n {
+/* loaded from: classes5.dex */
+public class v implements d.a.c.k.e.n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f52982f = BdUniqueId.gen();
+    public static BdUniqueId f56671f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public a2 f52983e;
+    public a2 f56672e;
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f52982f;
+        return f56671f;
     }
 }

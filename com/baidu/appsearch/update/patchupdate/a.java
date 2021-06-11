@@ -6,13 +6,13 @@ import java.nio.ByteBuffer;
 public class a implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public ByteBuffer f4178a;
+    public ByteBuffer f4197a;
 
     public a(ByteBuffer byteBuffer) {
         if (byteBuffer == null) {
             throw new NullPointerException("input parameter bb is null");
         }
-        this.f4178a = byteBuffer;
+        this.f4197a = byteBuffer;
         byteBuffer.rewind();
         try {
             a(0L);
@@ -27,10 +27,10 @@ public class a implements d {
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public int a(ByteBuffer byteBuffer) {
-        if (this.f4178a.hasRemaining()) {
+        if (this.f4197a.hasRemaining()) {
             int i2 = 0;
-            while (this.f4178a.hasRemaining() && byteBuffer.hasRemaining()) {
-                byteBuffer.put(this.f4178a.get());
+            while (this.f4197a.hasRemaining() && byteBuffer.hasRemaining()) {
+                byteBuffer.put(this.f4197a.get());
                 i2++;
             }
             return i2;
@@ -40,19 +40,19 @@ public class a implements d {
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public void a(long j) {
-        if (j <= this.f4178a.limit()) {
-            this.f4178a.position((int) j);
+        if (j <= this.f4197a.limit()) {
+            this.f4197a.position((int) j);
             return;
         }
-        throw new IOException("pos " + j + " cannot seek " + this.f4178a.limit());
+        throw new IOException("pos " + j + " cannot seek " + this.f4197a.limit());
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f4178a = null;
+        this.f4197a = null;
     }
 
     public String toString() {
-        return "BBSeekable bb=" + this.f4178a.position() + "-" + this.f4178a.limit();
+        return "BBSeekable bb=" + this.f4197a.position() + "-" + this.f4197a.limit();
     }
 }

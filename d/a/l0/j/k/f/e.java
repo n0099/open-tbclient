@@ -3,5 +3,5 @@ package d.a.l0.j.k.f;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f47856a = new Object();
+    public static final Object f51530a = new Object();
 }

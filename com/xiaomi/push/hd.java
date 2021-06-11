@@ -8,7 +8,7 @@ import java.util.Map;
 public class hd {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile hd f37710a;
+    public static volatile hd f41389a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Context f466a;
@@ -25,14 +25,14 @@ public class hd {
             com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
             return null;
         }
-        if (f37710a == null) {
+        if (f41389a == null) {
             synchronized (hd.class) {
-                if (f37710a == null) {
-                    f37710a = new hd(context);
+                if (f41389a == null) {
+                    f41389a = new hd(context);
                 }
             }
         }
-        return f37710a;
+        return f41389a;
     }
 
     private boolean a(String str, String str2, String str3, String str4, long j, String str5) {
@@ -60,7 +60,7 @@ public class hd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, he> m358a() {
+    public Map<String, he> m357a() {
         return this.f467a;
     }
 
@@ -70,13 +70,13 @@ public class hd {
         } else if (TextUtils.isEmpty(str)) {
             com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
         } else {
-            m358a().put(str, heVar);
+            m357a().put(str, heVar);
         }
     }
 
     public boolean a(hj hjVar, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m56a("pkgName is null or empty, upload ClientUploadDataItem failed.");
             return false;
         } else if (com.xiaomi.push.service.bm.a(hjVar, false)) {
             return false;

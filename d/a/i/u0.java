@@ -17,15 +17,15 @@ public class u0 extends h {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.q.a f40080e;
+        public final /* synthetic */ d.a.m0.r.q.a f43761e;
 
         public a(d.a.m0.r.q.a aVar) {
-            this.f40080e = aVar;
+            this.f43761e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ThreadCardUtils.jumpToPB(this.f40080e, (Context) u0.this.l.getPageActivity(), u0.this.m, false);
+            ThreadCardUtils.jumpToPB(this.f43761e, (Context) u0.this.l.getPageActivity(), u0.this.m, false);
         }
     }
 
@@ -46,7 +46,7 @@ public class u0 extends h {
     }
 
     public final boolean u(d.a.m0.r.q.a aVar) {
-        return (aVar == null || aVar.m() == null || aVar.m().P0() == null || aVar.m().P0().getOptions() == null || aVar.m().P0().getOptions().size() <= 0 || aVar.m().C2()) ? false : true;
+        return (aVar == null || aVar.i() == null || aVar.i().P0() == null || aVar.i().P0().getOptions() == null || aVar.i().P0().getOptions().size() <= 0 || aVar.i().D2()) ? false : true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class u0 extends h {
     public void a(d.a.m0.r.q.a aVar) {
         if (u(aVar)) {
             this.n.setVisibility(0);
-            this.n.setData(aVar.m().P0(), aVar.m().y1(), aVar.m().c0());
+            this.n.setData(aVar.i().P0(), aVar.i().z1(), aVar.i().c0());
             this.n.setOnItemClickListener(new a(aVar));
             return;
         }

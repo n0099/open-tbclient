@@ -2,7 +2,6 @@ package d.a.l0.a.q1;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -15,22 +14,22 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44166e = k.f43199a;
+    public static final boolean f47840e = k.f46875a;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f44167f;
+    public static volatile a f47841f;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44168a;
+    public String f47842a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44169b;
+    public String f47843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44170c;
+    public String f47844c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.b0.e.a f44171d;
+    public d.a.b0.e.a f47845d;
 
     public static int a(int i2) {
         if (i2 != -2) {
@@ -40,14 +39,14 @@ public class a {
     }
 
     public static a b() {
-        if (f44167f == null) {
+        if (f47841f == null) {
             synchronized (a.class) {
-                if (f44167f == null) {
-                    f44167f = new a();
+                if (f47841f == null) {
+                    f47841f = new a();
                 }
             }
         }
-        return f44167f;
+        return f47841f;
     }
 
     public static String c(String str, String str2) {
@@ -56,7 +55,7 @@ public class a {
             jSONObject.put("url", str);
             jSONObject.put(PmsConstant.Statistic.STATISTIC_ERRMSG, str2);
         } catch (JSONException e2) {
-            if (f44166e) {
+            if (f47840e) {
                 e2.printStackTrace();
             }
         }
@@ -69,9 +68,9 @@ public class a {
             return null;
         }
         try {
-            return new JSONObject(str2).optString(UserAccountActionItem.KEY_SRC);
+            return new JSONObject(str2).optString("src");
         } catch (JSONException e2) {
-            if (f44166e) {
+            if (f47840e) {
                 e2.printStackTrace();
             }
             return null;
@@ -83,7 +82,7 @@ public class a {
         try {
             jSONObject.put("finalUrl", str);
         } catch (JSONException e2) {
-            if (f44166e) {
+            if (f47840e) {
                 e2.printStackTrace();
             }
         }

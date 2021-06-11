@@ -22,7 +22,7 @@ public class a extends a0 {
             eVar.B().e(eVar.getAppId());
         }
         if (eVar != null && eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");

@@ -33,7 +33,7 @@ public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
         if (forumRuleDetailResIdl.data != null) {
             b bVar = new b();
             this.mForumRuleDetailData = bVar;
-            bVar.r(forumRuleDetailResIdl.data);
+            bVar.q(forumRuleDetailResIdl.data);
         }
     }
 }

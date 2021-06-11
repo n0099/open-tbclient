@@ -15,19 +15,19 @@ import d.a.m0.r.q.a2;
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12414e;
+    public TextView f12476e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12415f;
+    public TextView f12477f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f12416g;
+    public Context f12478g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12417h;
+    public boolean f12479h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12418i;
+    public boolean f12480i;
     public boolean j;
     public boolean k;
     public boolean l;
@@ -35,8 +35,8 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.f12417h = false;
-        this.f12418i = false;
+        this.f12479h = false;
+        this.f12480i = false;
         this.j = false;
         this.k = false;
         this.l = false;
@@ -45,62 +45,62 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     public final void a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.f12414e = (TextView) inflate.findViewById(R.id.thread_view_num);
-        this.f12415f = (TextView) inflate.findViewById(R.id.thread_comment_num);
-        this.f12416g = context;
+        this.f12476e = (TextView) inflate.findViewById(R.id.thread_view_num);
+        this.f12477f = (TextView) inflate.findViewById(R.id.thread_comment_num);
+        this.f12478g = context;
     }
 
     public void b() {
-        SkinManager.setViewTextColor(this.f12414e, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f12415f, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f12476e, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f12477f, R.color.CAM_X0109);
     }
 
     public final void c(a2 a2Var) {
-        if (this.f12415f == null || a2Var == null || !this.f12418i) {
+        if (this.f12477f == null || a2Var == null || !this.f12480i) {
             return;
         }
-        if (a2Var.a1() >= 0) {
-            this.f12415f.setVisibility(0);
-            this.f12415f.setText(String.format(this.f12416g.getString(R.string.comment_num_tip), StringHelper.numberUniformFormat(a2Var.a1())));
+        if (a2Var.b1() >= 0) {
+            this.f12477f.setVisibility(0);
+            this.f12477f.setText(String.format(this.f12478g.getString(R.string.comment_num_tip), StringHelper.numberUniformFormat(a2Var.b1())));
             return;
         }
-        this.f12415f.setVisibility(8);
+        this.f12477f.setVisibility(8);
     }
 
     public final void d(a2 a2Var) {
-        if (this.f12415f == null || a2Var == null || !this.l || !a2Var.s2()) {
+        if (this.f12477f == null || a2Var == null || !this.l || !a2Var.t2()) {
             return;
         }
-        this.f12415f.setVisibility(0);
-        this.f12415f.setText(String.format(this.f12416g.getString(R.string.person_view_item_live_share_num), StringHelper.numberUniformFormat((a2Var.r1() == null || a2Var.r1().share_info == null) ? 0 : a2Var.r1().share_info.share_count)));
+        this.f12477f.setVisibility(0);
+        this.f12477f.setText(String.format(this.f12478g.getString(R.string.person_view_item_live_share_num), StringHelper.numberUniformFormat((a2Var.s1() == null || a2Var.s1().share_info == null) ? 0 : a2Var.s1().share_info.share_count)));
     }
 
     public final void e(a2 a2Var) {
-        if (this.f12414e == null || a2Var == null || !this.f12417h) {
+        if (this.f12476e == null || a2Var == null || !this.f12479h) {
             return;
         }
-        if (a2Var.I1() >= 0) {
-            this.f12414e.setVisibility(0);
-            this.f12414e.setText(String.format(this.f12416g.getString(R.string.person_view_num), StringHelper.numberUniformFormat(a2Var.I1())));
+        if (a2Var.J1() >= 0) {
+            this.f12476e.setVisibility(0);
+            this.f12476e.setText(String.format(this.f12478g.getString(R.string.person_view_num), StringHelper.numberUniformFormat(a2Var.J1())));
             return;
         }
-        this.f12414e.setVisibility(8);
+        this.f12476e.setVisibility(8);
     }
 
     public final void f(a2 a2Var) {
-        if (this.f12414e == null || a2Var == null || !this.j || a2Var.r1() == null || !a2Var.s2()) {
+        if (this.f12476e == null || a2Var == null || !this.j || a2Var.s1() == null || !a2Var.t2()) {
             return;
         }
-        this.f12414e.setVisibility(0);
-        this.f12414e.setText(String.format(this.f12416g.getString(R.string.person_view_item_live_watch_num), StringHelper.numberUniformFormat(a2Var.r1().audience_count)));
+        this.f12476e.setVisibility(0);
+        this.f12476e.setText(String.format(this.f12478g.getString(R.string.person_view_item_live_watch_num), StringHelper.numberUniformFormat(a2Var.s1().audience_count)));
     }
 
     public final void g(a2 a2Var) {
-        if (this.f12415f == null || a2Var == null || !this.k || !a2Var.s2()) {
+        if (this.f12477f == null || a2Var == null || !this.k || !a2Var.t2()) {
             return;
         }
-        this.f12415f.setVisibility(0);
-        this.f12415f.setText(String.format(this.f12416g.getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormat(a2Var.M())));
+        this.f12477f.setVisibility(0);
+        this.f12477f.setText(String.format(this.f12478g.getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormat(a2Var.M())));
     }
 
     public void setData(a2 a2Var) {
@@ -121,11 +121,11 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.f12417h = z;
+        this.f12479h = z;
     }
 
     public void setIsShowReplayNum(boolean z) {
-        this.f12418i = z;
+        this.f12480i = z;
     }
 
     public void setIsShowShareNum(boolean z) {
@@ -138,8 +138,8 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12417h = false;
-        this.f12418i = false;
+        this.f12479h = false;
+        this.f12480i = false;
         this.j = false;
         this.k = false;
         this.l = false;

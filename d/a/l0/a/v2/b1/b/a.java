@@ -20,15 +20,15 @@ import org.json.JSONObject;
 public class a extends j.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f45360c = k.f43199a;
+    public static final boolean f49034c = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f45361b;
+    public final String f49035b;
 
     public a(boolean z) {
         super(z);
         String str = z ? "swan_js_native_v8_ab.txt" : "swan_js_native_webview_ab.txt";
-        this.f45361b = e.g().getPath() + File.separator + "js_native" + File.separator + str;
+        this.f49035b = e.g().getPath() + File.separator + "js_native" + File.separator + str;
     }
 
     public boolean a(int i2) {
@@ -67,28 +67,28 @@ public class a extends j.a {
     }
 
     public boolean c(@NonNull JSONArray jSONArray) {
-        if (jSONArray.length() <= 0 || !d.u(this.f45361b)) {
+        if (jSONArray.length() <= 0 || !d.u(this.f49035b)) {
             return false;
         }
-        return b.a(jSONArray, new File(this.f45361b), SchemeCollecter.getSchemesDesListSize(this.f45417a ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW));
+        return b.a(jSONArray, new File(this.f49035b), SchemeCollecter.getSchemesDesListSize(this.f49091a ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW));
     }
 
     public List<String> d() {
-        if (f45360c) {
+        if (f49034c) {
             Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
         }
         if (!m.b() && !TextUtils.equals(m.a(), "0")) {
-            File file = new File(this.f45361b);
+            File file = new File(this.f49035b);
             if (file.exists()) {
                 d.K(file);
             }
         }
-        if (d.u(this.f45361b)) {
-            if (f45360c) {
+        if (d.u(this.f49035b)) {
+            if (f49034c) {
                 Log.d("SwanAppCompat", "start create cache");
             }
-            return d.E(new File(this.f45361b));
+            return d.E(new File(this.f49035b));
         }
-        return b(this.f45417a, this.f45361b);
+        return b(this.f49091a, this.f49035b);
     }
 }

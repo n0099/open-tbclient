@@ -11,7 +11,7 @@ import d.a.l0.a.k;
 import d.a.l0.o.a.d.f;
 /* loaded from: classes2.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
-    public static final boolean C = k.f43199a;
+    public static final boolean C = k.f46875a;
     public a A;
     public boolean B;
 

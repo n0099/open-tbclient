@@ -48,7 +48,6 @@ import androidx.core.view.ViewCompat;
 import androidx.cursoradapter.widget.CursorAdapter;
 import androidx.customview.view.AbsSavedState;
 import com.alibaba.fastjson.asm.Label;
-import com.baidubce.auth.NTLMEngineImpl;
 import java.lang.reflect.Method;
 import java.util.WeakHashMap;
 /* loaded from: classes.dex */
@@ -864,7 +863,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         this.mExpandedInActionView = true;
         int imeOptions = this.mSearchSrcTextView.getImeOptions();
         this.mCollapsedImeOptions = imeOptions;
-        this.mSearchSrcTextView.setImeOptions(imeOptions | NTLMEngineImpl.FLAG_REQUEST_VERSION);
+        this.mSearchSrcTextView.setImeOptions(imeOptions | 33554432);
         this.mSearchSrcTextView.setText("");
         setIconified(false);
     }

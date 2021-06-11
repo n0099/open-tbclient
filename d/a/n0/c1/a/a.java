@@ -5,9 +5,9 @@ import java.util.Random;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Random f52311a = new Random();
+    public static final Random f56000a = new Random();
 
     public static int a(int i2, int i3) {
-        return i2 >= i3 ? i2 : (int) ((f52311a.nextFloat() * (i3 - i2)) + i2);
+        return i2 >= i3 ? i2 : (int) ((f56000a.nextFloat() * (i3 - i2)) + i2);
     }
 }

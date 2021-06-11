@@ -7,18 +7,18 @@ public class a {
 
     /* renamed from: d.a.f0.a.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class RunnableC0536a implements Runnable {
+    public static class RunnableC0592a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f39846e;
+        public final /* synthetic */ Runnable f43527e;
 
-        public RunnableC0536a(Runnable runnable) {
-            this.f39846e = runnable;
+        public RunnableC0592a(Runnable runnable) {
+            this.f43527e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f39846e.run();
+            this.f43527e.run();
         }
     }
 
@@ -30,7 +30,7 @@ public class a {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 runnable.run();
             } else {
-                new Handler(Looper.getMainLooper()).post(new RunnableC0536a(runnable));
+                new Handler(Looper.getMainLooper()).post(new RunnableC0592a(runnable));
             }
         } catch (Exception e2) {
             b.i().d(e2);

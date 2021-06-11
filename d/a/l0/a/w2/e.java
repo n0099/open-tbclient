@@ -40,7 +40,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 /* loaded from: classes3.dex */
 public class e {
-    public static final boolean C = d.a.l0.a.k.f43199a;
+    public static final boolean C = d.a.l0.a.k.f46875a;
     @SuppressLint({"StaticFieldLeak"})
     public static View D;
     @SuppressLint({"StaticFieldLeak"})
@@ -49,31 +49,31 @@ public class e {
     public int B;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f45667a;
+    public View f49341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f45668b;
+    public TextView f49342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppRoundedImageView f45669c;
+    public SwanAppRoundedImageView f49343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f45670d;
+    public ImageView f49344d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f45671e;
+    public ImageView f49345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f45672f;
+    public ImageView f49346f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f45673g;
+    public ImageView f49347g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f45674h;
+    public RelativeLayout f49348h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdBaseImageView f45675i;
+    public BdBaseImageView f49349i;
     public TextView j;
     public View k;
     public d.a.l0.a.t.a l;
@@ -138,17 +138,17 @@ public class e {
     public class c implements t.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45677a;
+        public final /* synthetic */ String f49351a;
 
         public c(e eVar, String str) {
-            this.f45677a = str;
+            this.f49351a = str;
         }
 
         @Override // d.a.l0.a.v2.t.b
         public void a(String str, Bitmap bitmap) {
             SwanAppActivity x;
             e loadingView;
-            if (bitmap == null || (x = d.a.l0.a.a2.d.g().x()) == null || x.isDestroyed() || (loadingView = x.getLoadingView()) == null || !TextUtils.equals(this.f45677a, d.a.l0.a.a2.d.g().getAppId())) {
+            if (bitmap == null || (x = d.a.l0.a.a2.d.g().x()) == null || x.isDestroyed() || (loadingView = x.getLoadingView()) == null || !TextUtils.equals(this.f49351a, d.a.l0.a.a2.d.g().getAppId())) {
                 return;
             }
             loadingView.L(bitmap);
@@ -159,22 +159,22 @@ public class e {
     public static class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f45678e;
+        public final /* synthetic */ Context f49352e;
 
         public d(Context context) {
-            this.f45678e = context;
+            this.f49352e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.z(this.f45678e);
+            e.z(this.f49352e);
         }
     }
 
     /* renamed from: d.a.l0.a.w2.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0897e implements Runnable {
-        public RunnableC0897e() {
+    public class RunnableC0953e implements Runnable {
+        public RunnableC0953e() {
         }
 
         @Override // java.lang.Runnable
@@ -289,10 +289,10 @@ public class e {
     public class l implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f45686e;
+        public final /* synthetic */ int f49360e;
 
         public l(int i2) {
-            this.f45686e = i2;
+            this.f49360e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -301,7 +301,7 @@ public class e {
                 d.a.l0.a.r1.h.o().C(new UbcFlowEvent("first_anim_end"));
                 d.a.l0.a.i2.a.d().i("first_anim_end");
                 if (e.this.l != null) {
-                    e.this.l.n(e.this.m, this.f45686e);
+                    e.this.l.n(e.this.m, this.f49360e);
                 }
                 e.this.s = false;
             }
@@ -312,21 +312,21 @@ public class e {
     public class m implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f45688e;
+        public final boolean f49362e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f45689f;
+        public final String f49363f;
 
         /* renamed from: i  reason: collision with root package name */
-        public final d.a.l0.a.a2.b f45692i;
+        public final d.a.l0.a.a2.b f49366i;
         public int k;
         public boolean l;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f45690g = false;
+        public boolean f49364g = false;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f45691h = false;
+        public boolean f49365h = false;
         public int j = -1;
 
         /* loaded from: classes3.dex */
@@ -395,8 +395,8 @@ public class e {
 
         /* renamed from: d.a.l0.a.w2.e$m$e  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0898e implements d.a.l0.a.v2.e1.b<i.a> {
-            public C0898e(m mVar, e eVar) {
+        public class C0954e implements d.a.l0.a.v2.e1.b<i.a> {
+            public C0954e(m mVar, e eVar) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -444,18 +444,18 @@ public class e {
         }
 
         public m(String str, boolean z) {
-            this.f45689f = str;
-            this.f45688e = z;
+            this.f49363f = str;
+            this.f49362e = z;
             d.a.l0.a.a2.b bVar = new d.a.l0.a.a2.b();
             bVar.e(new g(e.this), "event_pms_check_start");
             bVar.e(new f(e.this), "event_pms_check_finish");
-            bVar.e(new C0898e(this, e.this), "event_pkg_download_start");
+            bVar.e(new C0954e(this, e.this), "event_pkg_download_start");
             bVar.e(new d(e.this), "event_pkg_download_finish");
             bVar.e(new c(this, e.this), "event_preload_start");
             bVar.e(new b(this, e.this), "event_preload_error");
             bVar.e(new a(e.this), "event_preload_finish");
-            this.f45692i = bVar;
-            d.a.l0.a.a2.d.g().v(this.f45692i);
+            this.f49366i = bVar;
+            d.a.l0.a.a2.d.g().v(this.f49366i);
         }
 
         public void e() {
@@ -481,25 +481,25 @@ public class e {
                 sb.append(z ? "post" : Log.getStackTraceString(new Exception()));
                 Log.i("SwanAppLoadingView", sb.toString());
             }
-            this.f45691h = true;
-            boolean z2 = this.f45688e;
+            this.f49365h = true;
+            boolean z2 = this.f49362e;
             if (z2) {
-                e.this.y(z2, this.f45690g);
+                e.this.y(z2, this.f49364g);
                 return;
             }
             int d2 = d.a.l0.a.r1.l.b.d();
             if (d2 == 0) {
-                e.this.y(this.f45688e, this.f45690g);
+                e.this.y(this.f49362e, this.f49364g);
             } else if (d2 == 1) {
-                e.this.x(this.f45688e, this.f45690g, true);
+                e.this.x(this.f49362e, this.f49364g, true);
             } else if (d2 == 2) {
-                e.this.x(this.f45688e, this.f45690g, false);
+                e.this.x(this.f49362e, this.f49364g, false);
             } else if (d2 != 3) {
                 if (e.C) {
                     Log.i("SwanAppLoadingView", "ViewStarter exec : invalid animationType = " + d.a.l0.a.r1.l.b.d());
                 }
             } else {
-                e.this.x(this.f45688e, this.f45690g, true);
+                e.this.x(this.f49362e, this.f49364g, true);
             }
         }
 
@@ -549,11 +549,11 @@ public class e {
             if (e.C) {
                 Log.i("SwanAppLoadingView", "onDestroy: ");
             }
-            d.a.l0.a.a2.d.g().p(this.f45692i);
+            d.a.l0.a.a2.d.g().p(this.f49366i);
         }
 
         public m l() {
-            this.f45690g = true;
+            this.f49364g = true;
             return this;
         }
 
@@ -610,7 +610,7 @@ public class e {
     }
 
     public final void C() {
-        this.f45673g.setOnClickListener(new k());
+        this.f49347g.setOnClickListener(new k());
     }
 
     public final void D(float f2) {
@@ -631,7 +631,7 @@ public class e {
         }
         sb.append(str);
         m mVar = this.x;
-        if (mVar != null && !mVar.f45688e) {
+        if (mVar != null && !mVar.f49362e) {
             if (mVar.j()) {
                 if (C) {
                     Log.i("SwanAppLoadingView", "setProgressText: Framework loading");
@@ -714,14 +714,14 @@ public class e {
         String V = d.a.l0.a.a2.d.g().r().L().V();
         this.B = d.a.l0.a.r1.l.b.d();
         m mVar = this.x;
-        boolean z4 = mVar == null || (mVar.f45688e ^ z) || TextUtils.isEmpty(V) || !TextUtils.equals(V, this.x.f45689f);
+        boolean z4 = mVar == null || (mVar.f49362e ^ z) || TextUtils.isEmpty(V) || !TextUtils.equals(V, this.x.f49363f);
         if (C) {
             Log.i("SwanAppLoadingView", "showSwanAppStartView: newLaunchId = " + V + " newIsGameLoading = " + z + " reCreateStarter = " + z4 + " mViewStarter = " + this.x);
         }
         Handler i2 = d.a.l0.a.a2.d.i();
         if (this.x != null) {
             if (C) {
-                Log.i("SwanAppLoadingView", "showSwanAppStartView: oldLaunchId = " + this.x.f45689f + " oldIsGameLoading = " + this.x.f45688e);
+                Log.i("SwanAppLoadingView", "showSwanAppStartView: oldLaunchId = " + this.x.f49363f + " oldIsGameLoading = " + this.x.f49362e);
             }
             i2.removeCallbacks(this.x);
         }
@@ -733,7 +733,7 @@ public class e {
         }
         z3 = (aVar == null || !aVar.e(" event_params_pkg_update", false)) ? false : false;
         m mVar2 = this.x;
-        if (mVar2.f45691h) {
+        if (mVar2.f49365h) {
             if (C) {
                 Log.i("SwanAppLoadingView", "showSwanAppStartView: return by executing pkgUpdating = " + z3 + " trace = " + Log.getStackTraceString(new Exception()));
             }
@@ -840,7 +840,7 @@ public class e {
             Log.i("SwanAppLoadingView", "updateIcon: icon=" + str);
         }
         String appId = d.a.l0.a.a2.d.g().getAppId();
-        if (!this.s || (swanAppRoundedImageView = this.f45669c) == null) {
+        if (!this.s || (swanAppRoundedImageView = this.f49343c) == null) {
             return;
         }
         swanAppRoundedImageView.setImageBitmap(q0.k(str, "SwanAppLoadingView", true, new c(this, appId)));
@@ -848,7 +848,7 @@ public class e {
 
     public final void L(Bitmap bitmap) {
         SwanAppRoundedImageView swanAppRoundedImageView;
-        if (bitmap == null || (swanAppRoundedImageView = this.f45669c) == null || swanAppRoundedImageView == null) {
+        if (bitmap == null || (swanAppRoundedImageView = this.f49343c) == null || swanAppRoundedImageView == null) {
             return;
         }
         swanAppRoundedImageView.setImageBitmap(bitmap);
@@ -856,7 +856,7 @@ public class e {
 
     public void M(String str) {
         TextView textView;
-        if (!this.s || TextUtils.isEmpty(str) || (textView = this.f45668b) == null) {
+        if (!this.s || TextUtils.isEmpty(str) || (textView = this.f49342b) == null) {
             return;
         }
         textView.setText(str);
@@ -865,7 +865,7 @@ public class e {
     public void N(int i2) {
         View view;
         RelativeLayout relativeLayout;
-        if (i2 != PMSConstants.PayProtected.PAY_PROTECTED.type || (view = this.f45667a) == null || (relativeLayout = (RelativeLayout) view.findViewById(d.a.l0.a.f.guarantee_plan_rl)) == null) {
+        if (i2 != PMSConstants.PayProtected.PAY_PROTECTED.type || (view = this.f49341a) == null || (relativeLayout = (RelativeLayout) view.findViewById(d.a.l0.a.f.guarantee_plan_rl)) == null) {
             return;
         }
         relativeLayout.setVisibility(0);
@@ -920,8 +920,8 @@ public class e {
         }
         String valueOf = String.valueOf(System.currentTimeMillis() - launchInfo.l("launch_time", 0L));
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43186b = "launch";
-        fVar.f43189e = "realcancel";
+        fVar.f46862b = "launch";
+        fVar.f46865e = "realcancel";
         fVar.q = valueOf;
         fVar.a("reason", IntentConfig.CLOSE);
         if (launchInfo.G() == 1) {
@@ -932,15 +932,15 @@ public class e {
     }
 
     public final void s() {
-        SwanLoadingTipsView swanLoadingTipsView = (SwanLoadingTipsView) this.f45667a.findViewById(d.a.l0.a.f.aigames_loading_game_tips);
+        SwanLoadingTipsView swanLoadingTipsView = (SwanLoadingTipsView) this.f49341a.findViewById(d.a.l0.a.f.aigames_loading_game_tips);
         this.o = swanLoadingTipsView;
         swanLoadingTipsView.setTipsAnimationFinishCallback(new i());
         this.p = new SwanLoadingTips();
-        this.f45667a.addOnAttachStateChangeListener(new j());
+        this.f49341a.addOnAttachStateChangeListener(new j());
     }
 
     public final void t(int i2) {
-        n0.I(this.f45675i, this.j, String.valueOf(i2));
+        n0.I(this.f49349i, this.j, String.valueOf(i2));
     }
 
     public final View u(Context context, boolean z) {
@@ -1008,51 +1008,51 @@ public class e {
                 this.l = new d.a.l0.a.t.a();
             }
             View u = u(this.m, z);
-            this.f45667a = u;
+            this.f49341a = u;
             if (!z) {
-                u.setPadding(0, d.a.l0.a.z1.b.a.f46040b ? n0.u() : 0, 0, 0);
+                u.setPadding(0, d.a.l0.a.z1.b.a.f49714b ? n0.u() : 0, 0, 0);
             } else {
                 s();
             }
             Handler i2 = d.a.l0.a.a2.d.i();
             b.a L = d.a.l0.a.a2.d.g().r().L();
-            this.m.getFloatLayer().k(this.f45667a);
+            this.m.getFloatLayer().k(this.f49341a);
             this.s = true;
-            this.f45672f = (ImageView) this.f45667a.findViewById(d.a.l0.a.f.titlebar_right_menu_img);
-            this.f45673g = (ImageView) this.f45667a.findViewById(d.a.l0.a.f.titlebar_right_menu_exit);
-            this.k = this.f45667a.findViewById(d.a.l0.a.f.titlebar_right_menu);
+            this.f49346f = (ImageView) this.f49341a.findViewById(d.a.l0.a.f.titlebar_right_menu_img);
+            this.f49347g = (ImageView) this.f49341a.findViewById(d.a.l0.a.f.titlebar_right_menu_exit);
+            this.k = this.f49341a.findViewById(d.a.l0.a.f.titlebar_right_menu);
             if (z) {
-                this.f45672f.setClickable(true);
-                this.f45672f.setImageResource(d.a.l0.a.e.aiapps_action_bar_single_menu_white_selector);
-                this.f45673g.setImageResource(d.a.l0.a.e.aiapps_action_bar_exit_white_selector);
+                this.f49346f.setClickable(true);
+                this.f49346f.setImageResource(d.a.l0.a.e.aiapps_action_bar_single_menu_white_selector);
+                this.f49347g.setImageResource(d.a.l0.a.e.aiapps_action_bar_exit_white_selector);
                 this.k.setBackgroundResource(d.a.l0.a.e.aiapps_action_bar_right_menu_bg_solid);
-                View findViewById = this.f45667a.findViewById(d.a.l0.a.f.titlebar_right_menu_line);
+                View findViewById = this.f49341a.findViewById(d.a.l0.a.f.titlebar_right_menu_line);
                 this.n = findViewById;
                 findViewById.setBackgroundResource(d.a.l0.a.c.aiapps_action_bar_menu_line_white);
-                this.k.post(new RunnableC0897e());
+                this.k.post(new RunnableC0953e());
             } else {
-                this.f45672f.setImageResource(d.a.l0.a.e.aiapps_action_bar_menu_black_selector);
-                this.f45673g.setImageResource(d.a.l0.a.e.aiapps_action_bar_exit_black_selector);
+                this.f49346f.setImageResource(d.a.l0.a.e.aiapps_action_bar_menu_black_selector);
+                this.f49347g.setImageResource(d.a.l0.a.e.aiapps_action_bar_exit_black_selector);
                 this.k.setBackgroundResource(d.a.l0.a.e.aiapps_action_bar_right_menu_bg);
                 N(L.n1());
             }
             if (z3) {
-                this.q = (TextView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_loading_progress);
+                this.q = (TextView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_loading_progress);
                 i2.postDelayed(new f(), 2000L);
                 I(z, z2);
-                TextView textView = (TextView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_title);
-                this.f45668b = textView;
+                TextView textView = (TextView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_title);
+                this.f49342b = textView;
                 textView.getPaint().setFakeBoldText(true);
-                this.f45669c = (SwanAppRoundedImageView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_icon);
-                this.f45675i = (BdBaseImageView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_label_bg);
-                this.j = (TextView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_label_tv);
-                this.f45674h = (RelativeLayout) this.f45667a.findViewById(d.a.l0.a.f.aiapps_icon_rl);
+                this.f49343c = (SwanAppRoundedImageView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_icon);
+                this.f49349i = (BdBaseImageView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_label_bg);
+                this.j = (TextView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_label_tv);
+                this.f49348h = (RelativeLayout) this.f49341a.findViewById(d.a.l0.a.f.aiapps_icon_rl);
                 M(L.K());
                 K(L.Q());
                 t(L.t1());
                 this.l.l(this.m);
             } else {
-                this.A = (TextView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_loading_shimmer_poor_network_notice);
+                this.A = (TextView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_loading_shimmer_poor_network_notice);
                 i2.postDelayed(new g(), d.a.l0.a.r1.l.b.c());
                 this.l.p(this.m);
             }
@@ -1066,47 +1066,47 @@ public class e {
                 this.l = new d.a.l0.a.t.a();
             }
             View u = u(this.m, z);
-            this.f45667a = u;
+            this.f49341a = u;
             if (!z) {
-                u.setPadding(0, d.a.l0.a.z1.b.a.f46040b ? n0.u() : 0, 0, 0);
+                u.setPadding(0, d.a.l0.a.z1.b.a.f49714b ? n0.u() : 0, 0, 0);
             } else {
                 s();
             }
-            this.q = (TextView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_loading_progress);
+            this.q = (TextView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_loading_progress);
             b.a L = d.a.l0.a.a2.d.g().r().L();
             L.f0();
             I(z, z2);
-            this.m.getFloatLayer().k(this.f45667a);
+            this.m.getFloatLayer().k(this.f49341a);
             this.s = true;
-            this.f45668b = (TextView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_title);
-            this.f45669c = (SwanAppRoundedImageView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_icon);
-            this.f45675i = (BdBaseImageView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_label_bg);
-            this.j = (TextView) this.f45667a.findViewById(d.a.l0.a.f.aiapps_label_tv);
-            this.f45674h = (RelativeLayout) this.f45667a.findViewById(d.a.l0.a.f.aiapps_icon_rl);
+            this.f49342b = (TextView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_title);
+            this.f49343c = (SwanAppRoundedImageView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_icon);
+            this.f49349i = (BdBaseImageView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_label_bg);
+            this.j = (TextView) this.f49341a.findViewById(d.a.l0.a.f.aiapps_label_tv);
+            this.f49348h = (RelativeLayout) this.f49341a.findViewById(d.a.l0.a.f.aiapps_icon_rl);
             M(L.K());
             K(L.Q());
             t(L.t1());
-            this.f45670d = (ImageView) this.f45667a.findViewById(d.a.l0.a.f.light_print);
-            this.f45671e = (ImageView) this.f45667a.findViewById(d.a.l0.a.f.dark_print);
-            this.f45672f = (ImageView) this.f45667a.findViewById(d.a.l0.a.f.titlebar_right_menu_img);
-            this.f45673g = (ImageView) this.f45667a.findViewById(d.a.l0.a.f.titlebar_right_menu_exit);
-            this.k = this.f45667a.findViewById(d.a.l0.a.f.titlebar_right_menu);
+            this.f49344d = (ImageView) this.f49341a.findViewById(d.a.l0.a.f.light_print);
+            this.f49345e = (ImageView) this.f49341a.findViewById(d.a.l0.a.f.dark_print);
+            this.f49346f = (ImageView) this.f49341a.findViewById(d.a.l0.a.f.titlebar_right_menu_img);
+            this.f49347g = (ImageView) this.f49341a.findViewById(d.a.l0.a.f.titlebar_right_menu_exit);
+            this.k = this.f49341a.findViewById(d.a.l0.a.f.titlebar_right_menu);
             if (z) {
-                this.f45672f.setClickable(true);
-                this.f45672f.setImageResource(d.a.l0.a.e.aiapps_action_bar_single_menu_white_selector);
-                this.f45673g.setImageResource(d.a.l0.a.e.aiapps_action_bar_exit_white_selector);
+                this.f49346f.setClickable(true);
+                this.f49346f.setImageResource(d.a.l0.a.e.aiapps_action_bar_single_menu_white_selector);
+                this.f49347g.setImageResource(d.a.l0.a.e.aiapps_action_bar_exit_white_selector);
                 this.k.setBackgroundResource(d.a.l0.a.e.aiapps_action_bar_right_menu_bg_solid);
-                View findViewById = this.f45667a.findViewById(d.a.l0.a.f.titlebar_right_menu_line);
+                View findViewById = this.f49341a.findViewById(d.a.l0.a.f.titlebar_right_menu_line);
                 this.n = findViewById;
                 findViewById.setBackgroundResource(d.a.l0.a.c.aiapps_action_bar_menu_line_white);
                 this.k.post(new h());
             } else {
-                this.f45672f.setImageResource(d.a.l0.a.e.aiapps_action_bar_menu_black_selector);
-                this.f45673g.setImageResource(d.a.l0.a.e.aiapps_action_bar_exit_black_selector);
+                this.f49346f.setImageResource(d.a.l0.a.e.aiapps_action_bar_menu_black_selector);
+                this.f49347g.setImageResource(d.a.l0.a.e.aiapps_action_bar_exit_black_selector);
                 this.k.setBackgroundResource(d.a.l0.a.e.aiapps_action_bar_right_menu_bg);
                 N(L.n1());
             }
-            this.f45671e.setAlpha(0.0f);
+            this.f49345e.setAlpha(0.0f);
             this.l.o(this.m);
             C();
         }

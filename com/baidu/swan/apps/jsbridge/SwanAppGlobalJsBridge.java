@@ -37,18 +37,18 @@ public class SwanAppGlobalJsBridge extends d.a.l0.a.d1.a {
     public class b extends d.a.l0.a.o0.c {
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10797g;
+        public final /* synthetic */ String f10859g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, String str2) {
             super(str);
-            this.f10797g = str2;
+            this.f10859g = str2;
         }
 
         @Override // d.a.l0.a.o0.c
         public void c() {
             SwanAppGlobalJsBridge swanAppGlobalJsBridge = SwanAppGlobalJsBridge.this;
-            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f10797g);
+            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f10859g);
         }
     }
 
@@ -56,16 +56,16 @@ public class SwanAppGlobalJsBridge extends d.a.l0.a.d1.a {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10799e;
+        public final /* synthetic */ String f10861e;
 
         public c(String str) {
-            this.f10799e = str;
+            this.f10861e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             SwanAppGlobalJsBridge swanAppGlobalJsBridge = SwanAppGlobalJsBridge.this;
-            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f10799e);
+            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f10861e);
         }
     }
 
@@ -84,7 +84,7 @@ public class SwanAppGlobalJsBridge extends d.a.l0.a.d1.a {
                     SwanAppGlobalJsBridge swanAppGlobalJsBridge = SwanAppGlobalJsBridge.this;
                     swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), (String) it.next());
                 }
-                if (d.a.l0.a.f1.f.a.f41852a) {
+                if (d.a.l0.a.f1.f.a.f45528a) {
                     Log.d("SwanPerformance", "pending api count = " + SwanAppGlobalJsBridge.this.mPendingSchemeList.size());
                 }
                 SwanAppGlobalJsBridge.this.mPendingSchemeList.clear();
@@ -146,7 +146,7 @@ public class SwanAppGlobalJsBridge extends d.a.l0.a.d1.a {
         }
         if (d.a.l0.a.r1.k.h.b.c().b(str)) {
             this.mPendingSchemeList.add(str);
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 Log.d("SwanPerformance", "pending api size = " + this.mPendingSchemeList.size());
                 return true;
             }

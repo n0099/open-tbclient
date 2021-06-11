@@ -7,28 +7,28 @@ import java.util.List;
 public final class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f36626a;
+    public final /* synthetic */ List f40305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f36627b;
+    public final /* synthetic */ LocalAliasTagsManager f40306b;
 
     public e(LocalAliasTagsManager localAliasTagsManager, List list) {
-        this.f36627b = localAliasTagsManager;
-        this.f36626a = list;
+        this.f40306b = localAliasTagsManager;
+        this.f40305a = list;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         ISubscribeAppTagManager iSubscribeAppTagManager;
-        List list = this.f36626a;
+        List list = this.f40305a;
         if (list == null || list.size() <= 0) {
             return;
         }
         HashSet hashSet = new HashSet();
-        for (String str : this.f36626a) {
+        for (String str : this.f40305a) {
             hashSet.add(str);
         }
-        iSubscribeAppTagManager = this.f36627b.mSubscribeAppTagManager;
+        iSubscribeAppTagManager = this.f40306b.mSubscribeAppTagManager;
         iSubscribeAppTagManager.setTagsSuccess(hashSet);
     }
 }

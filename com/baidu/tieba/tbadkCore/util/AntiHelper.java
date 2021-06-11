@@ -45,28 +45,28 @@ public class AntiHelper {
     public static class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f20849e;
+        public final /* synthetic */ k f20926e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f20850f;
+        public final /* synthetic */ Context f20927f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f20851g;
+        public final /* synthetic */ BlockPopInfoData f20928g;
 
         public b(k kVar, Context context, BlockPopInfoData blockPopInfoData) {
-            this.f20849e = kVar;
-            this.f20850f = context;
-            this.f20851g = blockPopInfoData;
+            this.f20926e = kVar;
+            this.f20927f = context;
+            this.f20928g = blockPopInfoData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            k kVar = this.f20849e;
+            k kVar = this.f20926e;
             if (kVar != null) {
                 kVar.onPositiveButtonClick(aVar);
             }
             aVar.dismiss();
-            d.a.m0.l.a.l(this.f20850f, this.f20851g.ahead_url);
+            d.a.m0.l.a.l(this.f20927f, this.f20928g.ahead_url);
         }
     }
 
@@ -74,15 +74,15 @@ public class AntiHelper {
     public static class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f20852e;
+        public final /* synthetic */ k f20929e;
 
         public c(k kVar) {
-            this.f20852e = kVar;
+            this.f20929e = kVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            k kVar = this.f20852e;
+            k kVar = this.f20929e;
             if (kVar != null) {
                 kVar.onNavigationButtonClick(aVar);
             }
@@ -94,16 +94,16 @@ public class AntiHelper {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f20853e;
+        public final /* synthetic */ Context f20930e;
 
         public d(Context context) {
-            this.f20853e = context;
+            this.f20930e = context;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            d.a.m0.l.a.l(this.f20853e, "http://tieba.baidu.com/mo/q/userappeal");
+            d.a.m0.l.a.l(this.f20930e, "http://tieba.baidu.com/mo/q/userappeal");
         }
     }
 
@@ -119,16 +119,16 @@ public class AntiHelper {
     public static class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f20854e;
+        public final /* synthetic */ Context f20931e;
 
         public f(Context context) {
-            this.f20854e = context;
+            this.f20931e = context;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            d.a.m0.l.a.l(this.f20854e, "http://tieba.baidu.com/mo/q/userappeal");
+            d.a.m0.l.a.l(this.f20931e, "http://tieba.baidu.com/mo/q/userappeal");
         }
     }
 
@@ -152,20 +152,20 @@ public class AntiHelper {
     public static class i implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f20855e;
+        public final /* synthetic */ Context f20932e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PageType f20856f;
+        public final /* synthetic */ PageType f20933f;
 
         public i(Context context, PageType pageType) {
-            this.f20855e = context;
-            this.f20856f = pageType;
+            this.f20932e = context;
+            this.f20933f = pageType;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f20855e, this.f20856f)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f20932e, this.f20933f)));
         }
     }
 
@@ -223,7 +223,7 @@ public class AntiHelper {
         if (tbPageContext == null || !j(a2Var)) {
             return false;
         }
-        l.M(tbPageContext.getPageActivity(), StringUtils.isNull(a2Var.f2) ? tbPageContext.getString(R.string.forbiden_comment_text) : a2Var.f2);
+        l.M(tbPageContext.getPageActivity(), StringUtils.isNull(a2Var.h2) ? tbPageContext.getString(R.string.forbiden_comment_text) : a2Var.h2);
         return true;
     }
 
@@ -264,7 +264,7 @@ public class AntiHelper {
     }
 
     public static boolean j(a2 a2Var) {
-        return a2Var != null && a2Var.B2() && a2Var.e2;
+        return a2Var != null && a2Var.C2() && a2Var.g2;
     }
 
     public static boolean k(VideoItemData videoItemData) {
@@ -291,7 +291,7 @@ public class AntiHelper {
     }
 
     public static boolean o(a2 a2Var) {
-        return a2Var != null && a2Var.n1 && a2Var.B2();
+        return a2Var != null && a2Var.o1 && a2Var.C2();
     }
 
     public static void p(Context context, String str) {

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ad.download.AdDownloadData;
@@ -20,21 +19,21 @@ import java.util.Set;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<DownloadCacheKey, d.a.n0.q.d.h.a> f58206a;
+    public final Map<DownloadCacheKey, d.a.n0.q.d.h.a> f61897a;
 
     /* loaded from: classes4.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f58207a = new e();
+        public static final e f61898a = new e();
     }
 
     public static e c() {
-        return b.f58207a;
+        return b.f61898a;
     }
 
     public d.a.n0.q.d.h.a a(DownloadCacheKey downloadCacheKey) {
-        return this.f58206a.get(downloadCacheKey);
+        return this.f61897a.get(downloadCacheKey);
     }
 
     @NonNull
@@ -71,14 +70,14 @@ public class e {
     }
 
     public void e(String str) {
-        d.a.n0.q.d.i.a.f58232a.get().a(str);
-        f(d.a.n0.q.d.b.c().a(g(str)), CyberPlayerManager.MEDIA_INFO_BUFFERING_END);
+        d.a.n0.q.d.i.a.f61923a.get().a(str);
+        f(d.a.n0.q.d.b.c().a(g(str)), 702);
     }
 
     public void f(@NonNull AdDownloadData adDownloadData, int i2) {
         d.a.n0.q.d.h.a aVar;
         DownloadCacheKey g2 = g(adDownloadData.adId());
-        if (g2 == null || (aVar = this.f58206a.get(g2)) == null) {
+        if (g2 == null || (aVar = this.f61897a.get(g2)) == null) {
             return;
         }
         aVar.j(i2, adDownloadData.getPkgName(), adDownloadData.getExtInfo(), adDownloadData);
@@ -89,7 +88,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (Map.Entry<DownloadCacheKey, d.a.n0.q.d.h.a> entry : this.f58206a.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, d.a.n0.q.d.h.a> entry : this.f61897a.entrySet()) {
             if (entry.getKey() != null && entry.getKey().sameAd(str)) {
                 return entry.getKey();
             }
@@ -102,7 +101,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (Map.Entry<DownloadCacheKey, d.a.n0.q.d.h.a> entry : this.f58206a.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, d.a.n0.q.d.h.a> entry : this.f61897a.entrySet()) {
             if (entry.getKey() != null && entry.getKey().sameUrl(str)) {
                 return entry.getKey();
             }
@@ -111,10 +110,10 @@ public class e {
     }
 
     public void i(@NonNull DownloadCacheKey downloadCacheKey, d.a.n0.q.d.h.d dVar) {
-        d.a.n0.q.d.h.a aVar = this.f58206a.get(downloadCacheKey);
+        d.a.n0.q.d.h.a aVar = this.f61897a.get(downloadCacheKey);
         if (aVar == null) {
             aVar = new d.a.n0.q.d.h.a(downloadCacheKey);
-            this.f58206a.put(downloadCacheKey, aVar);
+            this.f61897a.put(downloadCacheKey, aVar);
         }
         if (dVar != null) {
             aVar.e(dVar);
@@ -122,16 +121,16 @@ public class e {
     }
 
     public void j(String str) {
-        d.a.n0.q.d.i.a.f58232a.get().d(str);
-        f(d.a.n0.q.d.b.c().a(g(str)), SDKLogTypeConstants.TYPE_LP_LIFE_CIRCLE);
+        d.a.n0.q.d.i.a.f61923a.get().d(str);
+        f(d.a.n0.q.d.b.c().a(g(str)), 703);
     }
 
     public final Set<d.a.n0.q.d.h.a> k(String str) {
-        HashSet hashSet = new HashSet(this.f58206a.size());
+        HashSet hashSet = new HashSet(this.f61897a.size());
         if (TextUtils.isEmpty(str)) {
             return hashSet;
         }
-        for (Map.Entry<DownloadCacheKey, d.a.n0.q.d.h.a> entry : this.f58206a.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, d.a.n0.q.d.h.a> entry : this.f61897a.entrySet()) {
             if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                 hashSet.add(entry.getValue());
             }
@@ -144,7 +143,7 @@ public class e {
             i(downloadCacheKey, dVar);
         }
         AdDownloadData a2 = d.a.n0.q.d.b.c().a(downloadCacheKey);
-        d.a.n0.q.d.i.a.f58232a.get().b(downloadCacheKey, a2);
+        d.a.n0.q.d.i.a.f61923a.get().b(downloadCacheKey, a2);
         f(a2, 701);
         return downloadCacheKey.mAdId;
     }
@@ -163,9 +162,9 @@ public class e {
             if (TextUtils.isEmpty(downloadCacheKey.mPackageName)) {
                 downloadCacheKey.mPackageName = a2.pkgName();
             }
-            d.a.n0.q.d.h.a aVar = this.f58206a.get(downloadCacheKey);
-            if (aVar != null && (downloadCacheKey2 = aVar.f58228c) != null && TextUtils.isEmpty(downloadCacheKey2.mPackageName)) {
-                aVar.f58228c.mPackageName = a2.pkgName();
+            d.a.n0.q.d.h.a aVar = this.f61897a.get(downloadCacheKey);
+            if (aVar != null && (downloadCacheKey2 = aVar.f61919c) != null && TextUtils.isEmpty(downloadCacheKey2.mPackageName)) {
+                aVar.f61919c.mPackageName = a2.pkgName();
             }
             a2.extra().setPercentAndStatus(100, DownloadStatus.STATUS_SUCCESS);
             a2.extra().setDownloadPath(str);
@@ -208,7 +207,7 @@ public class e {
     }
 
     public void q(DownloadCacheKey downloadCacheKey, d.a.n0.q.d.h.d dVar) {
-        d.a.n0.q.d.h.a aVar = this.f58206a.get(downloadCacheKey);
+        d.a.n0.q.d.h.a aVar = this.f61897a.get(downloadCacheKey);
         if (aVar == null) {
             return;
         }
@@ -216,7 +215,7 @@ public class e {
     }
 
     public e() {
-        this.f58206a = new HashMap();
+        this.f61897a = new HashMap();
         f.g().k();
     }
 }

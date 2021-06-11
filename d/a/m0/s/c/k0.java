@@ -35,39 +35,39 @@ public class k0 {
     public String Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50475a;
+    public String f54151a;
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50476b;
+    public String f54152b;
     public String b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50477c;
+    public String f54153c;
     public String c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50478d;
+    public String f54154d;
     public String d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50479e;
+    public String f54155e;
     public String e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50480f;
+    public String f54156f;
     public String f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50481g;
+    public String f54157g;
     public String g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50482h;
+    public String f54158h;
     public String h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f50483i;
+    public long f54159i;
     public String i0;
     public int j;
     public int j0;
@@ -161,7 +161,7 @@ public class k0 {
     }
 
     public String Q() {
-        return this.f50481g;
+        return this.f54157g;
     }
 
     public String R() {
@@ -173,7 +173,7 @@ public class k0 {
     }
 
     public long T() {
-        return this.f50483i;
+        return this.f54159i;
     }
 
     public String U() {
@@ -193,18 +193,18 @@ public class k0 {
             return;
         }
         try {
-            this.f50475a = jSONObject.optString("drop_pic");
-            this.f50476b = jSONObject.optString("drop_pic_md5");
-            this.f50477c = jSONObject.optString("drop_pic_num");
-            this.f50478d = jSONObject.optString("drop_bg_color_day");
-            this.f50479e = jSONObject.optString("drop_bg_color_night");
-            this.f50480f = jSONObject.optString("apply_vip_live_room_pid");
+            this.f54151a = jSONObject.optString("drop_pic");
+            this.f54152b = jSONObject.optString("drop_pic_md5");
+            this.f54153c = jSONObject.optString("drop_pic_num");
+            this.f54154d = jSONObject.optString("drop_bg_color_day");
+            this.f54155e = jSONObject.optString("drop_bg_color_night");
+            this.f54156f = jSONObject.optString("apply_vip_live_room_pid");
             this.s = jSONObject.optString("max_cache");
             this.t = jSONObject.optString("frs_max_cache");
             this.u = jSONObject.optString("frs_pn");
-            this.f50481g = jSONObject.optString("tail_link");
-            this.f50482h = jSONObject.optString("bubble_link");
-            this.f50483i = jSONObject.optLong("use_duration");
+            this.f54157g = jSONObject.optString("tail_link");
+            this.f54158h = jSONObject.optString("bubble_link");
+            this.f54159i = jSONObject.optLong("use_duration");
             this.j = jSONObject.optInt("xiaoying_time");
             this.k = jSONObject.optLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, 0L);
             this.A = jSONObject.optString("url_analyze_text");
@@ -337,7 +337,7 @@ public class k0 {
             d.a.m0.r.d0.b.j().v("key_is_show_shoubai_dynamic_guide", jSONObject.optInt("is_show_shoubai_dynamic_guide"));
             d.a.m0.r.d0.b.j().v("key_show_ala_friend_tab", jSONObject.optInt("live_dating_tab_switch"));
             d.a.m0.r.d0.b.j().t("key_show_vivo_badge", jSONObject.optInt("is_vivo_test_uid") == 1);
-            new e().f(jSONObject);
+            new e().h(jSONObject);
             f0 f0Var = new f0();
             f0Var.e(jSONObject.optJSONObject("share_panel_conf"));
             TbSingleton.getInstance().setSharePanelConfData(f0Var);
@@ -397,7 +397,7 @@ public class k0 {
     }
 
     public String f() {
-        return this.f50480f;
+        return this.f54156f;
     }
 
     public long g() {
@@ -405,7 +405,7 @@ public class k0 {
     }
 
     public String h() {
-        return this.f50482h;
+        return this.f54158h;
     }
 
     public String i() {
@@ -421,23 +421,23 @@ public class k0 {
     }
 
     public String l() {
-        return this.f50478d;
+        return this.f54154d;
     }
 
     public String m() {
-        return this.f50479e;
+        return this.f54155e;
     }
 
     public String n() {
-        return this.f50475a;
+        return this.f54151a;
     }
 
     public String o() {
-        return this.f50476b;
+        return this.f54152b;
     }
 
     public String p() {
-        return this.f50477c;
+        return this.f54153c;
     }
 
     public int q() {

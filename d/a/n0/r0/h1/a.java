@@ -3,8 +3,8 @@ package d.a.n0.r0.h1;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.ad.FrsADFragment;
-import d.a.c.j.e.n;
-import d.a.c.j.e.w;
+import d.a.c.k.e.n;
+import d.a.c.k.e.w;
 import d.a.n0.r0.k;
 import d.a.n0.r0.s;
 import d.a.n0.r0.t;
@@ -14,70 +14,70 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsADFragment f58627a;
+    public FrsADFragment f62318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f58628b;
+    public BdTypeRecyclerView f62319b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f58629c;
+    public d f62320c;
 
     /* renamed from: d  reason: collision with root package name */
-    public s f58630d;
+    public s f62321d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.a.c.j.e.a> f58631e = new ArrayList();
+    public List<d.a.c.k.e.a> f62322e = new ArrayList();
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.f58627a = frsADFragment;
-        this.f58628b = bdTypeRecyclerView;
+        this.f62318a = frsADFragment;
+        this.f62319b = bdTypeRecyclerView;
         a();
     }
 
     public final void a() {
-        this.f58629c = new d(this.f58627a.getPageContext(), c.l, this.f58627a.getUniqueId());
-        this.f58630d = new s(this.f58627a.getPageContext(), t.f59658f);
-        this.f58631e.add(this.f58629c);
-        this.f58631e.add(this.f58630d);
+        this.f62320c = new d(this.f62318a.getPageContext(), c.l, this.f62318a.getUniqueId());
+        this.f62321d = new s(this.f62318a.getPageContext(), t.f63349f);
+        this.f62322e.add(this.f62320c);
+        this.f62322e.add(this.f62321d);
         e();
-        this.f58628b.a(this.f58631e);
+        this.f62319b.a(this.f62322e);
     }
 
     public void b() {
-        this.f58628b.getAdapter().notifyDataSetChanged();
+        this.f62319b.getAdapter().notifyDataSetChanged();
     }
 
     public void c() {
-        for (d.a.c.j.e.a aVar : this.f58631e) {
+        for (d.a.c.k.e.a aVar : this.f62322e) {
             if (aVar instanceof k) {
-                ((k) aVar).h0();
+                ((k) aVar).i0();
             }
         }
     }
 
     public void d(ArrayList<n> arrayList) {
-        this.f58628b.setData(arrayList);
+        this.f62319b.setData(arrayList);
     }
 
     public final void e() {
-        if (ListUtils.isEmpty(this.f58631e) || this.f58627a == null) {
+        if (ListUtils.isEmpty(this.f62322e) || this.f62318a == null) {
             return;
         }
-        for (d.a.c.j.e.a aVar : this.f58631e) {
+        for (d.a.c.k.e.a aVar : this.f62322e) {
             if (aVar instanceof k) {
-                ((k) aVar).p0(this.f58627a.getTbPageTag());
+                ((k) aVar).p0(this.f62318a.getTbPageTag());
             }
         }
     }
 
     public void f(w wVar) {
-        List<d.a.c.j.e.a> list = this.f58631e;
+        List<d.a.c.k.e.a> list = this.f62322e;
         if (list == null || list.size() == 0) {
             return;
         }
-        for (d.a.c.j.e.a aVar : this.f58631e) {
+        for (d.a.c.k.e.a aVar : this.f62322e) {
             if (aVar != null && (aVar instanceof k)) {
-                aVar.Z(wVar);
+                aVar.a0(wVar);
             }
         }
     }

@@ -42,7 +42,7 @@ import d.a.c.e.p.l;
 import d.a.m0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public List<Long> closeLives;
     public List<d.a.n0.x1.h.a> datas;
@@ -58,7 +58,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public final HttpMessageListener listener = new b(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED);
     public AbsListView.OnScrollListener mOnScrollListener = new c();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements CacheModel.c<d.a.n0.x1.h.a> {
         public a() {
         }
@@ -71,8 +71,8 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             PbHistoryActivity.this.datas = readCacheRespMsg.getData();
             ArrayList arrayList = new ArrayList();
             for (d.a.n0.x1.h.a aVar : readCacheRespMsg.getData()) {
-                if (!StringUtils.isNull(aVar.g()) && Long.valueOf(aVar.g()).longValue() != 0) {
-                    arrayList.add(Long.valueOf(aVar.g()));
+                if (!StringUtils.isNull(aVar.f()) && Long.valueOf(aVar.f()).longValue() != 0) {
+                    arrayList.add(Long.valueOf(aVar.f()));
                 }
             }
             if (PbHistoryActivity.this.hasLoadStatus) {
@@ -98,7 +98,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
         public b(int i2) {
             super(i2);
@@ -119,7 +119,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements AbsListView.OnScrollListener {
         public c() {
         }
@@ -140,22 +140,22 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements a.e {
             public a() {
             }
 
             @Override // d.a.m0.r.s.a.e
             public void onClick(d.a.m0.r.s.a aVar) {
-                PbHistoryActivity.this.model.B();
+                PbHistoryActivity.this.model.F();
                 aVar.dismiss();
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class b implements a.e {
             public b(d dVar) {
             }
@@ -179,7 +179,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements AdapterView.OnItemClickListener {
         public e() {
         }
@@ -188,11 +188,11 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             d.a.n0.x1.h.a aVar = (d.a.n0.x1.h.a) PbHistoryActivity.this.mAdapter.getItem(i2);
             if (aVar != null) {
-                if (aVar.m() == 49) {
+                if (aVar.k() == 49) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                    alaLiveInfoCoreData.liveID = d.a.c.e.m.b.f(aVar.g(), 0L);
+                    alaLiveInfoCoreData.liveID = d.a.c.e.m.b.f(aVar.f(), 0L);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SCAN_HISTORY, !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.getCurrentAccount() : "", false, "")));
-                } else if (aVar.u()) {
+                } else if (aVar.r()) {
                     if (TbadkCoreApplication.getInst().appResponseToIntentClass(MangaBrowserActivityConfig.class)) {
                         if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                             ViewHelper.skipToLoginActivity(PbHistoryActivity.this.getActivity());
@@ -204,9 +204,9 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                     }
                     l.L(PbHistoryActivity.this.getPageContext().getPageActivity(), R.string.manga_plugin_not_install_tip);
                 } else {
-                    PbActivityConfig createHistoryCfg = new PbActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity()).createHistoryCfg(aVar.j(), aVar.h(), aVar.s(), aVar.w(), null);
+                    PbActivityConfig createHistoryCfg = new PbActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity()).createHistoryCfg(aVar.i(), aVar.g(), aVar.p(), aVar.w(), null);
                     createHistoryCfg.setStartFrom(11);
-                    createHistoryCfg.setIsShareThread(aVar.v());
+                    createHistoryCfg.setIsShareThread(aVar.t());
                     PbHistoryActivity.this.sendMessage(new CustomMessage(2004001, createHistoryCfg));
                 }
             }
@@ -219,8 +219,8 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             return;
         }
         for (d.a.n0.x1.h.a aVar : this.datas) {
-            if (!StringUtils.isNull(aVar.g()) && Long.valueOf(aVar.g()).longValue() != 0) {
-                if (this.closeLives.contains(Long.valueOf(aVar.g()))) {
+            if (!StringUtils.isNull(aVar.f()) && Long.valueOf(aVar.f()).longValue() != 0) {
+                if (this.closeLives.contains(Long.valueOf(aVar.f()))) {
                     aVar.E(false);
                 }
             }
@@ -229,7 +229,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
-        this.model.H();
+        this.model.L();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -272,7 +272,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         super.onCreate(bundle);
         PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(getPageContext());
         this.model = pbHistoryCacheModel;
-        pbHistoryCacheModel.K(this.callback);
+        pbHistoryCacheModel.O(this.callback);
         registerListener(this.listener);
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.pb_history_activity, (ViewGroup) null);
         this.mRootLayout = relativeLayout;

@@ -9,29 +9,29 @@ import java.io.IOException;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f46504a = false;
+    public boolean f50178a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f46505b = 0;
+    public int f50179b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46506c;
+    public String f50180c;
 
     public final void a(String str) {
-        this.f46505b = 0;
+        this.f50179b = 0;
         d.a.l0.c.a.d.b().a(str, this);
     }
 
     public String b() {
-        return this.f46506c;
+        return this.f50180c;
     }
 
     public boolean c() {
-        return this.f46504a;
+        return this.f50178a;
     }
 
     public void d(String str) {
-        this.f46506c = str;
+        this.f50180c = str;
     }
 
     public abstract void e(IOException iOException);
@@ -40,21 +40,21 @@ public abstract class c {
 
     public final String g(byte[] bArr) {
         String str = new String(bArr);
-        if (d.a.l0.c.a.a.f46449a) {
+        if (d.a.l0.c.a.a.f50123a) {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
-        if (this.f46504a) {
+        if (this.f50178a) {
             f c2 = d.a.l0.c.a.e.f().c(g.l().m(), bArr);
             if (c2 != null) {
                 if (!TextUtils.isEmpty(c2.a())) {
                     str = c2.a();
                 }
-                this.f46505b = c2.b().intValue();
+                this.f50179b = c2.b().intValue();
             } else {
-                this.f46505b = -1;
+                this.f50179b = -1;
             }
-            g.l().m().s(this.f46505b);
-            if (this.f46505b == -1) {
+            g.l().m().s(this.f50179b);
+            if (this.f50179b == -1) {
                 d.a.l0.c.a.d.b().f(false);
             }
         }
@@ -64,6 +64,6 @@ public abstract class c {
     public abstract void h(byte[] bArr);
 
     public void i(boolean z) {
-        this.f46504a = z;
+        this.f50178a = z;
     }
 }

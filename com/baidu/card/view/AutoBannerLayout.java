@@ -24,19 +24,19 @@ import java.util.List;
 public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
 
     /* renamed from: e  reason: collision with root package name */
-    public CoverFlowView<l> f4344e;
+    public CoverFlowView<l> f4363e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<l> f4345f;
+    public List<l> f4364f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f4346g;
+    public c f4365g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d<l> f4347h;
+    public d<l> f4366h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d<l> f4348i;
+    public d<l> f4367i;
 
     /* loaded from: classes.dex */
     public class a extends d.a.m0.r.w.b.b {
@@ -82,22 +82,22 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
         @Override // d.a.m0.r.w.b.d
         public void b(int i2, String str) {
             AutoBannerLayout.this.e(str);
-            int count = ListUtils.getCount(AutoBannerLayout.this.f4345f);
-            if (i2 < 0 || i2 > count || AutoBannerLayout.this.f4347h == null) {
+            int count = ListUtils.getCount(AutoBannerLayout.this.f4364f);
+            if (i2 < 0 || i2 > count || AutoBannerLayout.this.f4366h == null) {
                 return;
             }
-            AutoBannerLayout.this.f4347h.b(i2, str);
+            AutoBannerLayout.this.f4366h.b(i2, str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.r.w.b.d
         /* renamed from: c */
         public void a(int i2, l lVar) {
-            int count = ListUtils.getCount(AutoBannerLayout.this.f4345f);
-            if (i2 < 0 || i2 > count || AutoBannerLayout.this.f4347h == null) {
+            int count = ListUtils.getCount(AutoBannerLayout.this.f4364f);
+            if (i2 < 0 || i2 > count || AutoBannerLayout.this.f4366h == null) {
                 return;
             }
-            AutoBannerLayout.this.f4347h.a(i2, lVar);
+            AutoBannerLayout.this.f4366h.a(i2, lVar);
         }
     }
 
@@ -106,7 +106,7 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
     }
 
     public void d() {
-        CoverFlowView<l> coverFlowView = this.f4344e;
+        CoverFlowView<l> coverFlowView = this.f4363e;
         if (coverFlowView != null) {
             coverFlowView.l();
         }
@@ -124,38 +124,38 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
     }
 
     public final void f() {
-        this.f4344e = new CoverFlowView<>(getContext());
+        this.f4363e = new CoverFlowView<>(getContext());
         a aVar = new a();
-        this.f4344e.setPageMargin(d.a.c.e.p.l.g(getContext(), R.dimen.tbds42));
-        this.f4344e.setIndicatorNoOffet(false);
-        this.f4344e.setDisableParentEvent(false);
-        this.f4344e.setCoverFlowFactory(aVar);
-        this.f4344e.setIndicatorVisible(0);
-        this.f4344e.setIsAutoPlayDragging(false);
-        this.f4344e.setCallback(this.f4348i);
-        addView(this.f4344e);
+        this.f4363e.setPageMargin(d.a.c.e.p.l.g(getContext(), R.dimen.tbds42));
+        this.f4363e.setIndicatorNoOffet(false);
+        this.f4363e.setDisableParentEvent(false);
+        this.f4363e.setCoverFlowFactory(aVar);
+        this.f4363e.setIndicatorVisible(0);
+        this.f4363e.setIsAutoPlayDragging(false);
+        this.f4363e.setCallback(this.f4367i);
+        addView(this.f4363e);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: g */
     public void a(m mVar) {
-        if (mVar != null && !ListUtils.isEmpty(mVar.f50081e)) {
-            h(mVar.f50081e);
+        if (mVar != null && !ListUtils.isEmpty(mVar.f53757e)) {
+            h(mVar.f53757e);
         } else {
             setVisibility(8);
         }
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.f4344e;
+        return this.f4363e;
     }
 
     public void h(List<l> list) {
         if (list != null && !ListUtils.isEmpty(list)) {
             setVisibility(0);
-            this.f4345f = list;
-            this.f4344e.setData(list);
+            this.f4364f = list;
+            this.f4363e.setData(list);
             return;
         }
         setVisibility(8);
@@ -163,7 +163,7 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        CoverFlowView<l> coverFlowView = this.f4344e;
+        CoverFlowView<l> coverFlowView = this.f4363e;
         if (coverFlowView != null) {
             coverFlowView.s();
         }
@@ -172,43 +172,43 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i2) {
         super.onWindowVisibilityChanged(i2);
-        if (this.f4346g != null) {
-            this.f4346g.a(this, i2 == 0, null);
+        if (this.f4365g != null) {
+            this.f4365g.a(this, i2 == 0, null);
         }
     }
 
     public void setBannerHeight(int i2) {
-        if (this.f4344e != null) {
+        if (this.f4363e != null) {
             e eVar = new e();
             eVar.a(i2);
-            this.f4344e.x(eVar);
+            this.f4363e.x(eVar);
         }
     }
 
     public void setIWindowChangedListener(c cVar) {
-        this.f4346g = cVar;
+        this.f4365g = cVar;
     }
 
     public void setIndicatorVisible(int i2) {
-        CoverFlowView<l> coverFlowView = this.f4344e;
+        CoverFlowView<l> coverFlowView = this.f4363e;
         if (coverFlowView != null) {
             coverFlowView.setIndicatorVisible(i2);
         }
     }
 
     public void setMarqueenTime(long j) {
-        CoverFlowView<l> coverFlowView = this.f4344e;
+        CoverFlowView<l> coverFlowView = this.f4363e;
         if (coverFlowView != null) {
             coverFlowView.setMarqueenTime(j);
         }
     }
 
     public void setOnCoverViewCallback(d<l> dVar) {
-        this.f4347h = dVar;
+        this.f4366h = dVar;
     }
 
     public void setPageMargin(int i2) {
-        CoverFlowView<l> coverFlowView = this.f4344e;
+        CoverFlowView<l> coverFlowView = this.f4363e;
         if (coverFlowView != null) {
             coverFlowView.setPageMargin(i2);
         }
@@ -220,9 +220,9 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
 
     public AutoBannerLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f4344e = null;
-        this.f4345f = null;
-        this.f4348i = new b();
+        this.f4363e = null;
+        this.f4364f = null;
+        this.f4367i = new b();
         f();
     }
 }

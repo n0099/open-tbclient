@@ -40,19 +40,19 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public z.e B;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15864e;
+    public Context f15926e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f15865f;
+    public LinearLayout f15927f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearGradientView f15866g;
+    public LinearGradientView f15928g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f15867h;
+    public TbImageView f15929h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f15868i;
+    public TextView f15930i;
     public TextView j;
     public BarImageView k;
     public HeadImageView l;
@@ -99,7 +99,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public FrsPrivateShareDialogView(Context context) {
         super(context);
         this.B = new b();
-        this.f15864e = context;
+        this.f15926e = context;
     }
 
     public final void c(FrsViewData frsViewData) {
@@ -108,19 +108,19 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             return;
         }
         if (frsViewData.getForum() != null) {
-            this.f15868i.setVisibility(0);
-            this.f15868i.setText(frsViewData.getForum().getName() + this.f15864e.getResources().getString(R.string.core_bar));
+            this.f15930i.setVisibility(0);
+            this.f15930i.setText(frsViewData.getForum().getName() + this.f15926e.getResources().getString(R.string.core_bar));
             this.z = frsViewData.getForum().getName();
         } else {
-            this.f15868i.setVisibility(8);
+            this.f15930i.setVisibility(8);
         }
         if (frsViewData.getForum() != null && frsViewData.getForum().getImage_url() != null) {
-            this.k.V(frsViewData.getForum().getImage_url(), 10, false);
+            this.k.U(frsViewData.getForum().getImage_url(), 10, false);
         }
         if (frsViewData.getUserData() != null && frsViewData.getUserData().getPortrait() != null) {
-            this.l.V(frsViewData.getUserData().getPortrait(), 12, false);
+            this.l.U(frsViewData.getUserData().getPortrait(), 12, false);
         } else {
-            this.l.V(String.valueOf(R.drawable.icon_default_avatar100), 12, false);
+            this.l.U(String.valueOf(R.drawable.icon_default_avatar100), 12, false);
         }
         if (frsViewData.getUserData() != null && !StringUtils.isNull(frsViewData.getUserData().getName_show()) && !"0".equals(frsViewData.getUserData().getName_show())) {
             this.t.setText(frsViewData.getUserData().getName_show());
@@ -170,9 +170,9 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.r.setVisibility(8);
             this.s.setVisibility(0);
             if (frsViewData.getUserData() != null && !StringUtils.isNull(frsViewData.getUserData().getPortrait())) {
-                this.s.V(frsViewData.getUserData().getPortrait(), 12, false);
+                this.s.U(frsViewData.getUserData().getPortrait(), 12, false);
             } else {
-                this.s.V(String.valueOf(R.drawable.icon_default_avatar100), 12, false);
+                this.s.U(String.valueOf(R.drawable.icon_default_avatar100), 12, false);
             }
         }
         if (this.A == null || (forumActiveInfo = this.y) == null) {
@@ -187,7 +187,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         this.w = tbPageContext;
         this.x = aVar;
         this.y = frsViewData.getForumActiveInfo();
-        f(this.f15864e);
+        f(this.f15926e);
         c(frsViewData);
         return true;
     }
@@ -203,67 +203,67 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public final void f(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_private_share, this);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_private_share);
-        this.f15865f = linearLayout;
+        this.f15927f = linearLayout;
         SkinManager.setBackgroundResource(linearLayout, R.drawable.bg_frs_private_dialog);
-        RelativeLayout relativeLayout = (RelativeLayout) this.f15865f.findViewById(R.id.frs_private_share_view);
+        RelativeLayout relativeLayout = (RelativeLayout) this.f15927f.findViewById(R.id.frs_private_share_view);
         this.q = relativeLayout;
         SkinManager.setBackgroundResource(relativeLayout, R.drawable.bg_frs_private_dialog);
-        LinearGradientView linearGradientView = (LinearGradientView) this.f15865f.findViewById(R.id.frs_private_top_gradient_bg);
-        this.f15866g = linearGradientView;
+        LinearGradientView linearGradientView = (LinearGradientView) this.f15927f.findViewById(R.id.frs_private_top_gradient_bg);
+        this.f15928g = linearGradientView;
         linearGradientView.setCornerRadius(l.g(context, R.dimen.tbds30));
-        this.f15866g.setRoundMode(3);
-        TbImageView tbImageView = (TbImageView) this.f15865f.findViewById(R.id.frs_private_top_bg_mask);
-        this.f15867h = tbImageView;
+        this.f15928g.setRoundMode(3);
+        TbImageView tbImageView = (TbImageView) this.f15927f.findViewById(R.id.frs_private_top_bg_mask);
+        this.f15929h = tbImageView;
         tbImageView.setDefaultBgResource(R.color.transparent);
-        this.f15867h.setDefaultResource(R.drawable.pic_frs_head_default);
-        this.f15867h.setRadius(l.g(this.w.getPageActivity(), R.dimen.tbds30));
-        this.f15867h.setConrers(3);
+        this.f15929h.setDefaultResource(R.drawable.pic_frs_head_default);
+        this.f15929h.setRadius(l.g(this.w.getPageActivity(), R.dimen.tbds30));
+        this.f15929h.setConrers(3);
         h();
-        TextView textView = (TextView) this.f15865f.findViewById(R.id.frs_private_share_name);
-        this.f15868i = textView;
+        TextView textView = (TextView) this.f15927f.findViewById(R.id.frs_private_share_name);
+        this.f15930i = textView;
         SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
-        TextView textView2 = (TextView) this.f15865f.findViewById(R.id.frs_private_share_brief);
+        TextView textView2 = (TextView) this.f15927f.findViewById(R.id.frs_private_share_brief);
         this.j = textView2;
         SkinManager.setViewTextColor(textView2, R.color.CAM_X0106);
-        ImageView imageView = (ImageView) this.f15865f.findViewById(R.id.close_button);
+        ImageView imageView = (ImageView) this.f15927f.findViewById(R.id.close_button);
         this.n = imageView;
         imageView.setOnClickListener(new a());
         SkinManager.setImageResource(this.n, R.drawable.icon_popup_shut_n);
-        this.p = (ImageView) this.f15865f.findViewById(R.id.frs_private_share_qrcode);
-        BarImageView barImageView = (BarImageView) this.f15865f.findViewById(R.id.frs_private_share_portrait);
+        this.p = (ImageView) this.f15927f.findViewById(R.id.frs_private_share_qrcode);
+        BarImageView barImageView = (BarImageView) this.f15927f.findViewById(R.id.frs_private_share_portrait);
         this.k = barImageView;
         barImageView.setShowOval(true);
         this.k.setStrokeWith(l.g(this.w.getPageActivity(), R.dimen.tbds3));
         this.k.setStrokeColorResId(R.color.CAM_X0201);
-        this.l = (HeadImageView) this.f15865f.findViewById(R.id.photo);
-        this.m = (TextView) this.f15865f.findViewById(R.id.frs_user_name_identify);
+        this.l = (HeadImageView) this.f15927f.findViewById(R.id.photo);
+        this.m = (TextView) this.f15927f.findViewById(R.id.frs_user_name_identify);
         this.l.setDefaultBgResource(R.color.CAM_X0205);
         this.l.setIsRound(true);
         this.l.setTag(null);
         SkinManager.setBackgroundResource(this.m, R.drawable.username_text_bg);
-        TextView textView3 = (TextView) this.f15865f.findViewById(R.id.frs_private_share_time);
+        TextView textView3 = (TextView) this.f15927f.findViewById(R.id.frs_private_share_time);
         this.o = textView3;
         SkinManager.setViewTextColor(textView3, R.color.CAM_X0106);
         if (this.A == null) {
             z zVar = new z(this.w);
             this.A = zVar;
-            zVar.o(this.f15865f, this.q, null);
+            zVar.o(this.f15927f, this.q, null);
             this.A.s(this.B);
         }
-        this.r = (ImageOverlayView) this.f15865f.findViewById(R.id.frs_private_overlayview);
+        this.r = (ImageOverlayView) this.f15927f.findViewById(R.id.frs_private_overlayview);
         int g2 = l.g(getContext(), R.dimen.tbds68);
         this.r.a(5, g2, g2, 0, 0, l.g(getContext(), R.dimen.tbds16));
         this.r.setOrientation(true);
         this.r.setLoadImageType(12);
         this.r.d();
-        HeadImageView headImageView = (HeadImageView) this.f15865f.findViewById(R.id.bar_friend_icon);
+        HeadImageView headImageView = (HeadImageView) this.f15927f.findViewById(R.id.bar_friend_icon);
         this.s = headImageView;
         headImageView.setDefaultBgResource(R.color.CAM_X0205);
         this.s.setIsRound(true);
-        TextView textView4 = (TextView) this.f15865f.findViewById(R.id.frs_user_name);
+        TextView textView4 = (TextView) this.f15927f.findViewById(R.id.frs_user_name);
         this.t = textView4;
         SkinManager.setViewTextColor(textView4, R.color.CAM_X0105);
-        TextView textView5 = (TextView) this.f15865f.findViewById(R.id.frs_user_name_identify);
+        TextView textView5 = (TextView) this.f15927f.findViewById(R.id.frs_user_name_identify);
         this.u = textView5;
         SkinManager.setViewTextColor(textView5, R.color.CAM_X0101);
     }
@@ -285,7 +285,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         }
         ThemeColorInfo themeColorInfo = forum.getThemeColorInfo();
         if (themeColorInfo != null && (themeElement = themeColorInfo.day) != null && (themeElement2 = themeColorInfo.night) != null && (themeElement3 = themeColorInfo.dark) != null) {
-            this.f15866g.setGradientColor(themeElement.light_color, themeElement.dark_color, themeElement2.light_color, themeElement2.dark_color, themeElement3.light_color, themeElement3.dark_color);
+            this.f15928g.setGradientColor(themeElement.light_color, themeElement.dark_color, themeElement2.light_color, themeElement2.dark_color, themeElement3.light_color, themeElement3.dark_color);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType == 4) {
                 themeElement4 = themeColorInfo.dark;
@@ -299,11 +299,11 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             } else {
                 str = themeElement4.pattern_image;
             }
-            this.f15867h.setVisibility(0);
-            this.f15867h.V(str, 10, false);
+            this.f15929h.setVisibility(0);
+            this.f15929h.U(str, 10, false);
             return;
         }
-        this.f15867h.setVisibility(8);
-        this.f15866g.setDefaultGradientColor();
+        this.f15929h.setVisibility(8);
+        this.f15928g.setDefaultGradientColor();
     }
 }

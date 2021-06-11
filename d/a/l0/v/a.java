@@ -8,7 +8,7 @@ public interface a {
 
     /* renamed from: d.a.l0.v.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1087a {
+    public interface InterfaceC1143a {
         void a(b bVar);
 
         void b(b bVar, int i2, int i3);
@@ -23,9 +23,9 @@ public interface a {
         a b();
     }
 
-    void a(InterfaceC1087a interfaceC1087a);
+    void a(InterfaceC1143a interfaceC1143a);
 
-    void b(InterfaceC1087a interfaceC1087a);
+    void b(InterfaceC1143a interfaceC1143a);
 
     Bitmap getBitmap();
 

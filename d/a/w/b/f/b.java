@@ -5,27 +5,27 @@ import java.nio.FloatBuffer;
 public class b extends a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final float[] f64747g;
+    public static final float[] f68465g;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final FloatBuffer f64749i;
+    public static final FloatBuffer f68467i;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final float[] f64748h = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-    public static final FloatBuffer j = d.a.w.b.h.a.b(f64748h);
+    public static final float[] f68466h = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
+    public static final FloatBuffer j = d.a.w.b.h.a.b(f68466h);
 
     static {
         float[] fArr = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-        f64747g = fArr;
-        f64749i = d.a.w.b.h.a.b(fArr);
+        f68465g = fArr;
+        f68467i = d.a.w.b.h.a.b(fArr);
     }
 
     public b() {
-        this.f64741a = f64749i;
-        this.f64742b = j;
-        this.f64744d = 2;
-        this.f64745e = 2 * 4;
-        this.f64743c = f64747g.length / 2;
-        this.f64746f = 8;
+        this.f68459a = f68467i;
+        this.f68460b = j;
+        this.f68462d = 2;
+        this.f68463e = 2 * 4;
+        this.f68461c = f68465g.length / 2;
+        this.f68464f = 8;
     }
 }

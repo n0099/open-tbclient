@@ -19,6 +19,7 @@ import android.view.animation.Animation;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Wrapper;
 /* loaded from: classes6.dex */
 public class ResFragment extends DelegateFragment {
@@ -45,9 +46,6 @@ public class ResFragment extends DelegateFragment {
     @Override // androidx.fragment.app.Fragment
     @Nullable
     public Context getContext() {
-        if (super.getContext() == null) {
-            return null;
-        }
         return Wrapper.wrapContextIfNeed(super.getContext());
     }
 
@@ -127,6 +125,7 @@ public class ResFragment extends DelegateFragment {
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
+        ComponentDestroyer.destroyFragment(this);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment

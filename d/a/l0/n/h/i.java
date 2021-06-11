@@ -10,7 +10,7 @@ public class i extends e {
 
     @Override // d.a.l0.n.h.e
     public boolean a() {
-        return (TextUtils.isEmpty(this.f48012g) || this.f48014i <= 0 || this.k <= 0 || TextUtils.isEmpty(this.p) || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.n) || this.q == null) ? false : true;
+        return (TextUtils.isEmpty(this.f51686g) || this.f51688i <= 0 || this.k <= 0 || TextUtils.isEmpty(this.p) || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.n) || this.q == null) ? false : true;
     }
 
     @Override // d.a.l0.n.h.e

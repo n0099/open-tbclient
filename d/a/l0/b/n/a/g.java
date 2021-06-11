@@ -22,35 +22,35 @@ import org.json.JSONObject;
 public class g extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f46344c;
+    public int f50018c;
 
     /* loaded from: classes3.dex */
     public class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46345a;
+        public final /* synthetic */ CallbackHandler f50019a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46346b;
+        public final /* synthetic */ String f50020b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46347c;
+        public final /* synthetic */ JSONObject f50021c;
 
         public a(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-            this.f46345a = callbackHandler;
-            this.f46346b = str;
-            this.f46347c = jSONObject;
+            this.f50019a = callbackHandler;
+            this.f50020b = str;
+            this.f50021c = jSONObject;
         }
 
         @Override // d.a.l0.b.n.a.g.c
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
-                g.this.p(this.f46345a, this.f46346b, this.f46347c);
+                g.this.p(this.f50019a, this.f50020b, this.f50021c);
                 return;
             }
             g gVar = g.this;
-            gVar.f46344c = gVar.m(jSONObject);
-            g.this.p(this.f46345a, this.f46346b, this.f46347c);
+            gVar.f50018c = gVar.m(jSONObject);
+            g.this.p(this.f50019a, this.f50020b, this.f50021c);
         }
     }
 
@@ -58,10 +58,10 @@ public class g extends a0 {
     public class b extends StringResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f46349a;
+        public final /* synthetic */ c f50023a;
 
         public b(g gVar, c cVar) {
-            this.f46349a = cVar;
+            this.f50023a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,16 +69,16 @@ public class g extends a0 {
         /* renamed from: a */
         public void onSuccess(String str, int i2) {
             try {
-                this.f46349a.a(new JSONObject(str));
+                this.f50023a.a(new JSONObject(str));
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                this.f46349a.a(null);
+                this.f50023a.a(null);
             }
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f46349a.a(null);
+            this.f50023a.a(null);
         }
     }
 
@@ -89,7 +89,7 @@ public class g extends a0 {
 
     public g(d.a.l0.a.c2.e eVar) {
         super(eVar, "/swanAPI/privateGetUserInfo");
-        this.f46344c = -1;
+        this.f50018c = -1;
     }
 
     @Override // d.a.l0.a.c2.f.a0
@@ -128,7 +128,7 @@ public class g extends a0 {
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     optJSONObject = optJSONArray.getJSONObject(0);
                 } else {
-                    if (a0.f40949b) {
+                    if (a0.f44625b) {
                         Log.d(BaseJsonData.TAG, "Invalid data field!");
                     }
                     optJSONObject = null;
@@ -161,9 +161,9 @@ public class g extends a0 {
         if (!TextUtils.isEmpty(d.a.l0.b.j.a.i(context)) && !TextUtils.isEmpty(y)) {
             JSONObject jSONObject = new JSONObject();
             d.a.l0.b.j.a0 g2 = d.a.l0.b.j.a.g(context);
-            jSONObject.put("displayname", g2.f46248a);
-            jSONObject.put("portrait", g2.f46249b);
-            if (this.f46344c != -1) {
+            jSONObject.put("displayname", g2.f49922a);
+            jSONObject.put("portrait", g2.f49923b);
+            if (this.f50018c != -1) {
                 p(callbackHandler, str, jSONObject);
                 return;
             } else {
@@ -175,7 +175,7 @@ public class g extends a0 {
     }
 
     public final void p(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        int i2 = this.f46344c;
+        int i2 = this.f50018c;
         if (i2 != -1) {
             try {
                 jSONObject.put("gender", String.valueOf(i2));

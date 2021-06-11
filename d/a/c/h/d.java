@@ -8,55 +8,55 @@ import java.util.Map;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f39071b;
+    public static volatile d f42724b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, a> f39072a;
+    public Map<String, a> f42725a;
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ServiceProxy f39073a;
+        public ServiceProxy f42726a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Intent f39074b;
+        public Intent f42727b;
 
         public a(ServiceProxy serviceProxy, Intent intent) {
-            this.f39073a = serviceProxy;
-            this.f39074b = intent;
+            this.f42726a = serviceProxy;
+            this.f42727b = intent;
         }
     }
 
     public d() {
-        this.f39072a = null;
-        this.f39072a = new HashMap();
+        this.f42725a = null;
+        this.f42725a = new HashMap();
     }
 
     public static d a() {
-        if (f39071b == null) {
+        if (f42724b == null) {
             synchronized (d.class) {
-                if (f39071b == null) {
-                    f39071b = new d();
+                if (f42724b == null) {
+                    f42724b = new d();
                 }
             }
         }
-        return f39071b;
+        return f42724b;
     }
 
     public int b() {
-        return this.f39072a.size();
+        return this.f42725a.size();
     }
 
     public synchronized a c(String str) {
-        return this.f39072a.get(str);
+        return this.f42725a.get(str);
     }
 
     public synchronized void d(String str, a aVar) {
-        this.f39072a.put(str, aVar);
+        this.f42725a.put(str, aVar);
     }
 
     public synchronized void e(String str) {
-        this.f39072a.remove(str);
+        this.f42725a.remove(str);
     }
 }

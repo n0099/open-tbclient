@@ -12,49 +12,49 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f54119a;
+    public String f57808a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54121c;
+    public String f57810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54122d;
+    public String f57811d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f54123e;
+    public boolean f57812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f54124f;
+    public boolean f57813f;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54120b = -1;
+    public int f57809b = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54125g = true;
+    public boolean f57814g = true;
 
     public String a() {
-        return this.f54122d;
+        return this.f57811d;
     }
 
     public String b() {
-        return this.f54121c;
+        return this.f57810c;
     }
 
     public String c() {
-        return this.f54119a;
+        return this.f57808a;
     }
 
     public String d() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("status", this.f54120b);
-            jSONObject.put("message", this.f54121c);
-            if (StringHelper.isJSONObject(this.f54122d)) {
-                jSONObject.put("data", new JSONObject(this.f54122d));
-            } else if (StringHelper.isJSONArray(this.f54122d)) {
-                jSONObject.put("data", new JSONArray(this.f54122d));
+            jSONObject.put("status", this.f57809b);
+            jSONObject.put("message", this.f57810c);
+            if (StringHelper.isJSONObject(this.f57811d)) {
+                jSONObject.put("data", new JSONObject(this.f57811d));
+            } else if (StringHelper.isJSONArray(this.f57811d)) {
+                jSONObject.put("data", new JSONArray(this.f57811d));
             } else {
-                jSONObject.put("data", this.f54122d);
+                jSONObject.put("data", this.f57811d);
             }
         } catch (JSONException e2) {
             BdLog.e(e2);
@@ -63,35 +63,35 @@ public class c {
     }
 
     public int e() {
-        return this.f54120b;
+        return this.f57809b;
     }
 
     public boolean f() {
-        return this.f54125g;
+        return this.f57814g;
     }
 
     public boolean g() {
-        return this.f54120b > 0;
+        return this.f57809b > 0;
     }
 
     public boolean h() {
-        return this.f54123e;
+        return this.f57812e;
     }
 
     public boolean i() {
-        return this.f54124f;
+        return this.f57813f;
     }
 
     public boolean j() {
-        return this.f54120b != -1;
+        return this.f57809b != -1;
     }
 
     public void k(boolean z) {
-        this.f54125g = z;
+        this.f57814g = z;
     }
 
     public void l(String str) {
-        this.f54122d = str;
+        this.f57811d = str;
     }
 
     public void m() {
@@ -105,29 +105,29 @@ public class c {
     }
 
     public void o(boolean z) {
-        this.f54123e = z;
+        this.f57812e = z;
     }
 
     public void p(boolean z) {
-        this.f54124f = z;
+        this.f57813f = z;
     }
 
     public void q(String str) {
-        this.f54121c = str;
+        this.f57810c = str;
     }
 
     public void r(String str) {
-        if (k.isEmpty(this.f54121c)) {
-            this.f54121c = str;
+        if (k.isEmpty(this.f57810c)) {
+            this.f57810c = str;
         }
     }
 
     public void s(String str) {
-        this.f54119a = str;
+        this.f57808a = str;
     }
 
     public void t(int i2) {
-        this.f54120b = i2;
+        this.f57809b = i2;
         if (i2 == 0) {
             r(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
         } else if (i2 == 101) {
@@ -143,7 +143,7 @@ public class c {
     }
 
     public void u(int i2) {
-        if (this.f54120b == -1) {
+        if (this.f57809b == -1) {
             t(i2);
         }
     }

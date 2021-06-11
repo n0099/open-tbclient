@@ -26,48 +26,48 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f58482a;
+    public l f62173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a2 f58483b;
+    public a2 f62174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f58484c = new c(2921547);
+    public CustomMessageListener f62175c = new c(2921547);
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f58485d = new d(2921324);
+    public CustomMessageListener f62176d = new d(2921324);
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f58486e = new C1494e(2016488);
+    public CustomMessageListener f62177e = new C1550e(2016488);
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f58487f = new f(2016553);
+    public CustomMessageListener f62178f = new f(2016553);
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f58488g = new h(2016331);
+    public CustomMessageListener f62179g = new h(2016331);
 
     /* loaded from: classes4.dex */
     public class a implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ View f58489a;
+        public final /* synthetic */ View f62180a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f58490b;
+        public final /* synthetic */ String f62181b;
 
         public a(View view, String str) {
-            this.f58489a = view;
-            this.f58490b = str;
+            this.f62180a = view;
+            this.f62181b = str;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            if (e.this.f58482a == null || e.this.f58482a.y0() == null || e.this.f58482a.y0().Z() == null || e.this.f58482a.y0().U() == null) {
+            if (e.this.f62173a == null || e.this.f62173a.B0() == null || e.this.f62173a.B0().Z() == null || e.this.f62173a.B0().U() == null) {
                 return;
             }
-            e.this.f58482a.y0().Z().removeView(this.f58489a);
-            e.this.j(this.f58490b);
-            e.this.f58482a.y0().U().notifyDataSetChanged();
+            e.this.f62173a.B0().Z().removeView(this.f62180a);
+            e.this.j(this.f62181b);
+            e.this.f62173a.B0().U().notifyDataSetChanged();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -83,28 +83,28 @@ public class e {
     public class b implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f58492a;
+        public final /* synthetic */ String f62183a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f58493b;
+        public final /* synthetic */ String f62184b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ View f58494c;
+        public final /* synthetic */ View f62185c;
 
         public b(String str, String str2, View view) {
-            this.f58492a = str;
-            this.f58493b = str2;
-            this.f58494c = view;
+            this.f62183a = str;
+            this.f62184b = str2;
+            this.f62185c = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            e.this.k(this.f58492a, this.f58493b);
-            this.f58494c.setVisibility(8);
-            if (e.this.f58482a.y0() == null || e.this.f58482a.y0().U() == null) {
+            e.this.k(this.f62183a, this.f62184b);
+            this.f62185c.setVisibility(8);
+            if (e.this.f62173a.B0() == null || e.this.f62173a.B0().U() == null) {
                 return;
             }
-            e.this.f58482a.y0().U().notifyDataSetChanged();
+            e.this.f62173a.B0().U().notifyDataSetChanged();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -120,27 +120,27 @@ public class e {
     public class c extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f58496a;
+        public String f62187a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58497b;
+        public String f62188b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f58498c;
+        public String f62189c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f58499d;
+        public String f62190d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f58500e;
+        public String f62191e;
 
         public c(int i2) {
             super(i2);
-            this.f58496a = "";
-            this.f58497b = "";
-            this.f58498c = "";
-            this.f58499d = "";
-            this.f58500e = "";
+            this.f62187a = "";
+            this.f62188b = "";
+            this.f62189c = "";
+            this.f62190d = "";
+            this.f62191e = "";
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -151,16 +151,16 @@ public class e {
             }
             JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
             if (TextUtils.equals(jSONObject.optString("roomInfo"), "roomInfo")) {
-                this.f58496a = jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID, "");
-                this.f58497b = jSONObject.optString("tid", "");
-                this.f58498c = jSONObject.optString("fid", "");
-                this.f58499d = jSONObject.optString("liveId", "");
-                this.f58500e = jSONObject.optString("sid", "");
-            } else if ((this.f58496a == null || !TextUtils.equals(jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID), this.f58496a)) && ((this.f58499d == null || !TextUtils.equals(jSONObject.optString("liveId"), this.f58499d)) && (this.f58500e == null || !TextUtils.equals(jSONObject.optString("sid"), this.f58500e)))) {
+                this.f62187a = jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID, "");
+                this.f62188b = jSONObject.optString("tid", "");
+                this.f62189c = jSONObject.optString("fid", "");
+                this.f62190d = jSONObject.optString("liveId", "");
+                this.f62191e = jSONObject.optString("sid", "");
+            } else if ((this.f62187a == null || !TextUtils.equals(jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID), this.f62187a)) && ((this.f62190d == null || !TextUtils.equals(jSONObject.optString("liveId"), this.f62190d)) && (this.f62191e == null || !TextUtils.equals(jSONObject.optString("sid"), this.f62191e)))) {
             } else {
                 try {
-                    jSONObject.put("tid", this.f58497b);
-                    jSONObject.put("fid", this.f58498c);
+                    jSONObject.put("tid", this.f62188b);
+                    jSONObject.put("fid", this.f62189c);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -184,8 +184,8 @@ public class e {
 
     /* renamed from: d.a.n0.r0.e2.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1494e extends CustomMessageListener {
-        public C1494e(int i2) {
+    public class C1550e extends CustomMessageListener {
+        public C1550e(int i2) {
             super(i2);
         }
 
@@ -206,7 +206,7 @@ public class e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.j(e.this.u(customResponsedMessage));
-            e.this.f58482a.y0().U().notifyDataSetChanged();
+            e.this.f62173a.B0().U().notifyDataSetChanged();
         }
     }
 
@@ -214,21 +214,21 @@ public class e {
     public class g extends Animation {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f58505e;
+        public final /* synthetic */ int f62196e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f58506f;
+        public final /* synthetic */ View f62197f;
 
         public g(e eVar, int i2, View view) {
-            this.f58505e = i2;
-            this.f58506f = view;
+            this.f62196e = i2;
+            this.f62197f = view;
         }
 
         @Override // android.view.animation.Animation
         public void applyTransformation(float f2, Transformation transformation) {
-            int i2 = this.f58505e;
-            this.f58506f.getLayoutParams().height = i2 - ((int) (i2 * f2));
-            this.f58506f.requestLayout();
+            int i2 = this.f62196e;
+            this.f62197f.getLayoutParams().height = i2 - ((int) (i2 * f2));
+            this.f62197f.requestLayout();
         }
 
         @Override // android.view.animation.Animation
@@ -246,90 +246,90 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || e.this.f58482a == null || e.this.f58482a.b0() == null || e.this.f58482a.b0().Z() == null) {
+            if (customResponsedMessage == null || e.this.f62173a == null || e.this.f62173a.e0() == null || e.this.f62173a.e0().d0() == null) {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
-            e.this.m(str, e.this.f58482a.b0().Z().getForum().getBannerListData().getAllAdvertList());
+            e.this.m(str, e.this.f62173a.e0().d0().getForum().getBannerListData().getAllAdvertList());
             e eVar = e.this;
-            eVar.l(str, eVar.f58482a.y0().Z().getData());
+            eVar.l(str, eVar.f62173a.B0().Z().getData());
             e eVar2 = e.this;
-            eVar2.l(str, eVar2.f58482a.n0().f().v());
-            e.this.f58482a.b0().E(str);
-            if (e.this.f58482a.y0() == null || e.this.f58482a.y0().U() == null) {
+            eVar2.l(str, eVar2.f62173a.q0().f().z());
+            e.this.f62173a.e0().I(str);
+            if (e.this.f62173a.B0() == null || e.this.f62173a.B0().U() == null) {
                 return;
             }
-            e.this.f58482a.y0().U().notifyDataSetChanged();
+            e.this.f62173a.B0().U().notifyDataSetChanged();
         }
     }
 
     public e(l lVar, BdUniqueId bdUniqueId) {
-        this.f58482a = lVar;
-        this.f58486e.setTag(bdUniqueId);
-        this.f58488g.setTag(bdUniqueId);
-        this.f58485d.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f58485d);
-        MessageManager.getInstance().registerListener(this.f58486e);
-        MessageManager.getInstance().registerListener(this.f58488g);
-        this.f58487f.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f58487f);
-        this.f58484c.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f58484c);
+        this.f62173a = lVar;
+        this.f62177e.setTag(bdUniqueId);
+        this.f62179g.setTag(bdUniqueId);
+        this.f62176d.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f62176d);
+        MessageManager.getInstance().registerListener(this.f62177e);
+        MessageManager.getInstance().registerListener(this.f62179g);
+        this.f62178f.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f62178f);
+        this.f62175c.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f62175c);
     }
 
     public final void i() {
-        a2 a2Var = this.f58483b;
-        if (a2Var == null || !a2Var.Q1) {
+        a2 a2Var = this.f62174b;
+        if (a2Var == null || !a2Var.R1) {
             return;
         }
         TbPageTag tbPageTag = null;
-        l lVar = this.f58482a;
-        if (lVar != null && lVar.y0() != null) {
-            tbPageTag = d.a.m0.j0.c.k(this.f58482a.y0().T());
+        l lVar = this.f62173a;
+        if (lVar != null && lVar.B0() != null) {
+            tbPageTag = d.a.m0.j0.c.k(this.f62173a.B0().T());
         }
-        d.a.n0.r0.j2.a.i(this.f58483b, tbPageTag);
+        d.a.n0.r0.j2.a.i(this.f62174b, tbPageTag);
     }
 
     public final void j(String str) {
         if (StringUtils.isNull(str)) {
             return;
         }
-        ArrayList<d.a.c.j.e.n> threadList = this.f58482a.b0().Z().getThreadList();
+        ArrayList<d.a.c.k.e.n> threadList = this.f62173a.e0().d0().getThreadList();
         p(str, threadList);
-        p(str, this.f58482a.y0().Z().getData());
-        p(str, this.f58482a.n0().e());
-        this.f58482a.b0().G(str);
+        p(str, this.f62173a.B0().Z().getData());
+        p(str, this.f62173a.q0().e());
+        this.f62173a.e0().K(str);
         if (threadList == null || threadList.size() >= 5) {
             return;
         }
-        this.f58482a.loadMore();
+        this.f62173a.loadMore();
     }
 
     public final void k(String str, String str2) {
-        ArrayList<d.a.c.j.e.n> threadList = this.f58482a.b0().Z().getThreadList();
+        ArrayList<d.a.c.k.e.n> threadList = this.f62173a.e0().d0().getThreadList();
         q(str, str2, threadList);
-        q(str, str2, this.f58482a.y0().Z().getData());
+        q(str, str2, this.f62173a.B0().Z().getData());
         if (str.equals("ala_frs_stage_live_feed_back_type")) {
-            this.f58482a.b0().F(str2);
+            this.f62173a.e0().J(str2);
         } else if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
-            this.f58482a.b0().G(str2);
+            this.f62173a.e0().K(str2);
         }
         if (threadList == null || threadList.size() >= 5) {
             return;
         }
-        this.f58482a.loadMore();
+        this.f62173a.loadMore();
     }
 
-    public final void l(String str, List<d.a.c.j.e.n> list) {
+    public final void l(String str, List<d.a.c.k.e.n> list) {
         if (list == null || list.size() <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
-        Iterator<d.a.c.j.e.n> it = list.iterator();
+        Iterator<d.a.c.k.e.n> it = list.iterator();
         while (it.hasNext()) {
-            d.a.c.j.e.n next = it.next();
+            d.a.c.k.e.n next = it.next();
             if (next instanceof d.a.n0.e.c) {
-                Object c2 = ((d.a.n0.e.c) next).c();
-                if ((c2 instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) c2).G3)) {
+                Object b2 = ((d.a.n0.e.c) next).b();
+                if ((b2 instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) b2).J3)) {
                     it.remove();
                 }
             }
@@ -343,7 +343,7 @@ public class e {
         Iterator<AdvertAppInfo> it = list.iterator();
         while (it.hasNext()) {
             AdvertAppInfo next = it.next();
-            if (next != null && str.equals(next.G3)) {
+            if (next != null && str.equals(next.J3)) {
                 it.remove();
             }
         }
@@ -351,7 +351,7 @@ public class e {
 
     public final void n(CustomResponsedMessage<?> customResponsedMessage) {
         l lVar;
-        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (lVar = this.f58482a) == null || lVar.b0() == null || this.f58482a.b0().Z() == null) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (lVar = this.f62173a) == null || lVar.e0() == null || this.f62173a.e0().d0() == null) {
             return;
         }
         JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
@@ -360,16 +360,16 @@ public class e {
             return;
         }
         String optString2 = jSONObject.optString("tid");
-        if (this.f58482a.y0() == null || this.f58482a.y0().U() == null) {
+        if (this.f62173a.B0() == null || this.f62173a.B0().U() == null) {
             return;
         }
-        View childAt = this.f58482a.y0().Z().getChildAt(s(optString, optString2, this.f58482a.y0().Z()));
+        View childAt = this.f62173a.B0().Z().getChildAt(s(optString, optString2, this.f62173a.B0().Z()));
         if (childAt != null) {
             o(childAt, new b(optString, optString2, childAt));
             return;
         }
         k(optString, optString2);
-        this.f58482a.y0().U().notifyDataSetChanged();
+        this.f62173a.B0().U().notifyDataSetChanged();
     }
 
     public final void o(View view, Animation.AnimationListener animationListener) {
@@ -379,45 +379,45 @@ public class e {
         view.startAnimation(gVar);
     }
 
-    public final void p(String str, List<d.a.c.j.e.n> list) {
+    public final void p(String str, List<d.a.c.k.e.n> list) {
         if (ListUtils.getCount(list) == 0) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (d.a.c.j.e.n nVar : list) {
+        for (d.a.c.k.e.n nVar : list) {
             if (nVar instanceof z1) {
                 a2 a2Var = ((z1) nVar).w;
-                if (a2Var.y1() != null && a2Var.y1().equals(str)) {
+                if (a2Var.z1() != null && a2Var.z1().equals(str)) {
                     arrayList.add(nVar);
                 }
             }
         }
         list.removeAll(arrayList);
-        d.a.c.j.e.n nVar2 = (d.a.c.j.e.n) ListUtils.getItem(list, 0);
+        d.a.c.k.e.n nVar2 = (d.a.c.k.e.n) ListUtils.getItem(list, 0);
         if (nVar2 instanceof v) {
             list.remove(nVar2);
         }
     }
 
-    public final void q(String str, String str2, List<d.a.c.j.e.n> list) {
+    public final void q(String str, String str2, List<d.a.c.k.e.n> list) {
         if (ListUtils.getCount(list) == 0) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (d.a.c.j.e.n nVar : list) {
+        for (d.a.c.k.e.n nVar : list) {
             if (str.equals("ala_frs_stage_live_feed_back_type")) {
                 if (nVar instanceof d.a.n0.e3.h) {
                     arrayList.add((d.a.n0.e3.h) nVar);
                 }
             } else if (str.equals("ala_frs_demo_hell_live_feed_back_type") && (nVar instanceof z1)) {
                 a2 a2Var = ((z1) nVar).w;
-                if (a2Var.y1() != null && a2Var.y1().equals(str2)) {
+                if (a2Var.z1() != null && a2Var.z1().equals(str2)) {
                     arrayList.add(a2Var);
                 }
             }
         }
         list.removeAll(arrayList);
-        d.a.c.j.e.n nVar2 = (d.a.c.j.e.n) ListUtils.getItem(list, 0);
+        d.a.c.k.e.n nVar2 = (d.a.c.k.e.n) ListUtils.getItem(list, 0);
         if (nVar2 instanceof v) {
             list.remove(nVar2);
         }
@@ -428,11 +428,11 @@ public class e {
         int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
         int i2 = 0;
         for (int i3 = 0; i3 < bdTypeRecyclerView.getAdapter().getItemCount(); i3++) {
-            d.a.c.j.e.n B = bdTypeRecyclerView.B(i3);
+            d.a.c.k.e.n B = bdTypeRecyclerView.B(i3);
             if (B instanceof z1) {
                 a2 a2Var = ((z1) B).w;
-                if (a2Var.y1() != null && a2Var.y1().equals(str)) {
-                    this.f58483b = a2Var;
+                if (a2Var.z1() != null && a2Var.z1().equals(str)) {
+                    this.f62174b = a2Var;
                     i2 = i3;
                 }
             }
@@ -457,10 +457,10 @@ public class e {
             if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
                 i2 = 0;
                 while (i3 < bdTypeRecyclerView.getAdapter().getItemCount()) {
-                    d.a.c.j.e.n B = bdTypeRecyclerView.B(i3);
+                    d.a.c.k.e.n B = bdTypeRecyclerView.B(i3);
                     if (B instanceof z1) {
                         a2 a2Var = ((z1) B).w;
-                        if (a2Var.y1() != null && a2Var.y1().equals(str2)) {
+                        if (a2Var.z1() != null && a2Var.z1().equals(str2)) {
                             i2 = i3;
                         }
                     }
@@ -474,20 +474,20 @@ public class e {
     }
 
     public final void t(CustomResponsedMessage<?> customResponsedMessage, boolean z) {
-        l lVar = this.f58482a;
-        if (lVar == null || lVar.b0() == null || this.f58482a.b0().Z() == null) {
+        l lVar = this.f62173a;
+        if (lVar == null || lVar.e0() == null || this.f62173a.e0().d0() == null) {
             return;
         }
         String u = u(customResponsedMessage);
-        if (StringUtils.isNull(u) || this.f58482a.y0() == null || this.f58482a.y0().U() == null) {
+        if (StringUtils.isNull(u) || this.f62173a.B0() == null || this.f62173a.B0().U() == null) {
             return;
         }
-        View childAt = this.f58482a.y0().Z().getChildAt(r(u, this.f58482a.y0().Z()));
+        View childAt = this.f62173a.B0().Z().getChildAt(r(u, this.f62173a.B0().Z()));
         if (childAt != null) {
             o(childAt, new a(childAt, u));
         } else {
             j(u);
-            this.f58482a.y0().U().notifyDataSetChanged();
+            this.f62173a.B0().U().notifyDataSetChanged();
         }
         if (z) {
             i();

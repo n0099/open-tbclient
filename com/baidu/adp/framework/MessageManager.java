@@ -25,7 +25,6 @@ import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import d.a.c.c.e.c.h;
 import d.a.c.c.f.e;
 import d.a.c.c.f.f;
@@ -707,7 +706,7 @@ public class MessageManager {
         } else if (e2 == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
             this.mCustomManager.m(i2, (CustomMessageListener) messageListener);
         } else {
-            BdLog.e("listener invalid" + d.a.c.c.a.a().b(i2) + FieldBuilder.SE + d.a.c.c.a.a().b(messageListener.getCmd()));
+            BdLog.e("listener invalid" + d.a.c.c.a.a().b(i2) + "|" + d.a.c.c.a.a().b(messageListener.getCmd()));
         }
     }
 

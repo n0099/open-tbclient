@@ -10,35 +10,35 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile Executor f39488a;
+    public static volatile Executor f43169a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39489b;
+    public static final int f43170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39490c;
+    public static final int f43171c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ThreadFactory f39491d;
+    public static final ThreadFactory f43172d;
 
     /* renamed from: d.a.c0.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class ThreadFactoryC0513a implements ThreadFactory {
+    public static class ThreadFactoryC0569a implements ThreadFactory {
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f39492e = new AtomicInteger(1);
+        public final AtomicInteger f43173e = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "cashier #" + this.f39492e.getAndIncrement());
+            return new Thread(runnable, "cashier #" + this.f43173e.getAndIncrement());
         }
     }
 
     static {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f39489b = availableProcessors;
-        f39490c = (availableProcessors * 2) + 1;
-        f39491d = new ThreadFactoryC0513a();
+        f43170b = availableProcessors;
+        f43171c = (availableProcessors * 2) + 1;
+        f43172d = new ThreadFactoryC0569a();
     }
 
     public static void a(Runnable runnable) {
@@ -48,16 +48,16 @@ public class a {
     public static synchronized Executor b() {
         Executor executor;
         synchronized (a.class) {
-            if (f39488a == null) {
+            if (f43169a == null) {
                 synchronized (a.class) {
-                    if (f39488a == null) {
-                        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, f39490c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f39491d);
+                    if (f43169a == null) {
+                        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, f43171c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f43172d);
                         threadPoolExecutor.allowCoreThreadTimeOut(true);
-                        f39488a = threadPoolExecutor;
+                        f43169a = threadPoolExecutor;
                     }
                 }
             }
-            executor = f39488a;
+            executor = f43169a;
         }
         return executor;
     }

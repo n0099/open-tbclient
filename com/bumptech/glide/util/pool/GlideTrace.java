@@ -1,5 +1,5 @@
 package com.bumptech.glide.util.pool;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class GlideTrace {
     public static final int MAX_LENGTH = 127;
     public static final boolean TRACING_ENABLED = false;

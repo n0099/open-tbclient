@@ -6,7 +6,7 @@ import d.a.c.e.d.l;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public l<byte[]> f62468a;
+    public l<byte[]> f66183a;
 
     public a() {
         b();
@@ -17,19 +17,19 @@ public class a {
         byte[] bArr;
         if (str != null) {
             b();
-            bVar = this.f62468a.h(str);
+            bVar = this.f66183a.h(str);
         } else {
             bVar = null;
         }
-        if (bVar == null || (bArr = bVar.f38542b) == null) {
+        if (bVar == null || (bArr = bVar.f42195b) == null) {
             return null;
         }
         return bArr;
     }
 
     public final void b() {
-        if (this.f62468a == null) {
-            this.f62468a = d.a.m0.r.r.a.f().d("tb.god_square");
+        if (this.f66183a == null) {
+            this.f66183a = d.a.m0.r.r.a.f().d("tb.god_square");
         }
     }
 
@@ -38,6 +38,6 @@ public class a {
             return;
         }
         b();
-        this.f62468a.e(str, bArr, 604800000L);
+        this.f66183a.e(str, bArr, 604800000L);
     }
 }

@@ -3,11 +3,11 @@ package d.a.l0.c.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f46450a = d.a.l0.a.d0.a.c();
+    public static final String f50124a = d.a.l0.a.d0.a.c();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f46451b = f46450a + "/bdtls";
+    public static final String f50125b = f50124a + "/bdtls";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f46452c = {0, -98};
+    public static final byte[] f50126c = {0, -98};
 }

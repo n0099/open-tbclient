@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class t extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45885b = 1;
+    public int f49559b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45886c = 3;
+    public int f49560c = 3;
 
     @Override // d.a.l0.a.y0.a
     @NonNull
@@ -27,7 +27,7 @@ public class t extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.a.l0.a.y0.k.g.a aVar) {
         Object obj = command.obj;
         if (!(obj instanceof String)) {
-            if (d.a.l0.a.y0.a.f45771a) {
+            if (d.a.l0.a.y0.a.f49445a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("setZeusVideoExt with a illegal obj ");
                 sb.append(obj == null);
@@ -42,27 +42,27 @@ public class t extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
             if (jSONObject.has("instance-error")) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("instance-error", jSONObject.optString("instance-error"));
-                aVar.X(hashMap);
+                aVar.U(hashMap);
             }
             String optString = jSONObject.optString("firstPlayStatus");
             if (!TextUtils.isEmpty(optString)) {
-                aVar.f0(optString);
+                aVar.c0(optString);
             }
-            this.f45885b = jSONObject.optInt("min-cache", this.f45885b);
-            int optInt = jSONObject.optInt("max-cache", this.f45886c);
-            this.f45886c = optInt;
-            if (this.f45885b <= optInt) {
+            this.f49559b = jSONObject.optInt("min-cache", this.f49559b);
+            int optInt = jSONObject.optInt("max-cache", this.f49560c);
+            this.f49560c = optInt;
+            if (this.f49559b <= optInt) {
                 if (jSONObject.has("min-cache")) {
-                    aVar.J(this.f45885b);
+                    aVar.G(this.f49559b);
                 }
                 if (jSONObject.has("max-cache")) {
-                    aVar.k0(this.f45886c);
+                    aVar.h0(this.f49560c);
                 }
-            } else if (d.a.l0.a.y0.a.f45771a) {
-                Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.f45885b + " > maxCache " + this.f45886c);
+            } else if (d.a.l0.a.y0.a.f49445a) {
+                Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.f49559b + " > maxCache " + this.f49560c);
             }
         } catch (Exception e2) {
-            if (d.a.l0.a.y0.a.f45771a) {
+            if (d.a.l0.a.y0.a.f49445a) {
                 throw new RuntimeException("setZeusVideoExt with a illegal str", e2);
             }
         }

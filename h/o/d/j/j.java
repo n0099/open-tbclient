@@ -1,5 +1,5 @@
 package h.o.d.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j<E> extends n<E> {
     public j(int i2) {
         super(i2);
@@ -13,8 +13,8 @@ public final class j<E> extends n<E> {
     @Override // java.util.Queue
     public boolean offer(E e2) {
         if (e2 != null) {
-            E[] eArr = this.f68714f;
-            long j = this.f68713e;
+            E[] eArr = this.f71970f;
+            long j = this.f71969e;
             long h2 = h();
             long a2 = a(h2);
             if (e(eArr, a2) != null) {
@@ -67,7 +67,7 @@ public final class j<E> extends n<E> {
             }
         } while (!j(k, 1 + k));
         long a2 = a(k);
-        E[] eArr = this.f68714f;
+        E[] eArr = this.f71970f;
         E c2 = c(eArr, a2);
         f(eArr, a2, null);
         return c2;

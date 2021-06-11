@@ -8,10 +8,10 @@ import java.util.ArrayDeque;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f47649a;
+    public static volatile b f51323a;
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public b() {
@@ -19,14 +19,14 @@ public class b {
     }
 
     public static b b() {
-        if (f47649a == null) {
+        if (f51323a == null) {
             synchronized (b.class) {
-                if (f47649a == null) {
-                    f47649a = new b();
+                if (f51323a == null) {
+                    f51323a = new b();
                 }
             }
         }
-        return f47649a;
+        return f51323a;
     }
 
     public DuMixGameSurfaceView a(Context context) {

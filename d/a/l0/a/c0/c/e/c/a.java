@@ -13,13 +13,13 @@ import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerVie
 public final class a extends d.a.l0.a.c0.a.c.b<TextView, b> {
 
     /* renamed from: i  reason: collision with root package name */
-    public SwanAppComponentContainerView f40865i;
+    public SwanAppComponentContainerView f44541i;
     public TextView j;
 
     public a(@NonNull Context context, @NonNull b bVar) {
         super(context, bVar);
         g(4);
-        this.f40865i = new SwanAppComponentContainerView(context);
+        this.f44541i = new SwanAppComponentContainerView(context);
         this.j = new TextView(context);
     }
 
@@ -50,7 +50,7 @@ public final class a extends d.a.l0.a.c0.a.c.b<TextView, b> {
     @Override // d.a.l0.a.c0.a.d.a
     /* renamed from: d0 */
     public void R(@NonNull View view, @NonNull b bVar) {
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-CoverView", "renderAlpha");
         }
         if (bVar.n == null) {
@@ -66,7 +66,7 @@ public final class a extends d.a.l0.a.c0.a.c.b<TextView, b> {
     @Override // d.a.l0.a.c0.a.d.a
     /* renamed from: e0 */
     public void S(@NonNull TextView textView, @NonNull b bVar) {
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-CoverView", "renderBackground");
         }
         if (bVar.n == null) {
@@ -89,6 +89,6 @@ public final class a extends d.a.l0.a.c0.a.c.b<TextView, b> {
     @Override // d.a.l0.a.c0.b.a
     @NonNull
     public SwanAppComponentContainerView u(@NonNull Context context) {
-        return this.f40865i;
+        return this.f44541i;
     }
 }

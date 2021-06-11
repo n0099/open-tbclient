@@ -6,35 +6,35 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f57180a;
+    public int f60869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57181b;
+    public int f60870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<EmotionImageData> f57182c;
+    public List<EmotionImageData> f60871c;
 
     public List<EmotionImageData> a() {
-        return this.f57182c;
+        return this.f60871c;
     }
 
     public int b() {
-        return this.f57181b;
+        return this.f60870b;
     }
 
     public int c() {
-        return this.f57180a;
+        return this.f60869a;
     }
 
     public void d(List<EmotionImageData> list) {
-        this.f57182c = list;
+        this.f60871c = list;
     }
 
     public void e(int i2) {
-        this.f57181b = i2;
+        this.f60870b = i2;
     }
 
     public void f(int i2) {
-        this.f57180a = i2;
+        this.f60869a = i2;
     }
 }

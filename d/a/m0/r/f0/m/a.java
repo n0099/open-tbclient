@@ -10,8 +10,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class a extends TBSpecificationButtonConfig {
     public a() {
-        this.f12480b = R.color.CAM_X0101;
-        this.f12482d = R.color.CAM_X0302;
+        this.f12542b = R.color.CAM_X0101;
+        this.f12544d = R.color.CAM_X0302;
     }
 
     @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
@@ -20,8 +20,8 @@ public class a extends TBSpecificationButtonConfig {
     }
 
     public void o(@ColorRes int i2) {
-        this.f12482d = i2;
-        this.f12480b = R.color.CAM_X0101;
+        this.f12544d = i2;
+        this.f12542b = R.color.CAM_X0101;
         this.p = true;
         TBSpecificationButtonConfig.a aVar = this.s;
         if (aVar != null) {
@@ -32,9 +32,9 @@ public class a extends TBSpecificationButtonConfig {
     public final Drawable p(float f2) {
         GradientDrawable gradientDrawable;
         if (!this.p) {
-            this.f12480b = SkinManager.getColor(this.q, R.color.CAM_X0101);
+            this.f12542b = SkinManager.getColor(this.q, R.color.CAM_X0101);
         }
-        int color = this.p ? SkinManager.getColor(this.q, this.f12482d) : this.f12482d;
+        int color = this.p ? SkinManager.getColor(this.q, this.f12544d) : this.f12544d;
         int[] iArr = {color, color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();

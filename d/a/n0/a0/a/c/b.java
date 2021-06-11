@@ -27,15 +27,15 @@ public class b extends d.a.m0.g0.f.a<tinfo, d.a.m0.g0.d.b> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f51129e;
+        public final /* synthetic */ tinfo f54806e;
 
         public a(tinfo tinfoVar) {
-            this.f51129e = tinfoVar;
+            this.f54806e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            String str = this.f51129e.forum_name;
+            String str = this.f54806e.forum_name;
             if (k.isForumName(str)) {
                 TiebaStatic.eventStat(b.this.a(), "kantie_6", null, 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(b.this.a()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));

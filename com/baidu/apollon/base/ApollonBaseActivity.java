@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class ApollonBaseActivity extends Activity implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3589a = "ApollonBaseActivity";
+    public static final String f3608a = "ApollonBaseActivity";
     public static LinkedList<ApollonBaseActivity> mActivityStack = new LinkedList<>();
     public static int mLiveActivityNum = 0;
     public int mFlag = -1;
@@ -49,7 +49,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
 
     public static synchronized void clearTasksTopOf(ApollonBaseActivity apollonBaseActivity) {
         synchronized (ApollonBaseActivity.class) {
-            LogUtil.d(f3589a, "clearTasksTopOf. stack size = " + mActivityStack.size());
+            LogUtil.d(f3608a, "clearTasksTopOf. stack size = " + mActivityStack.size());
             for (int size = mActivityStack.size() + (-1); size > 0; size--) {
                 ApollonBaseActivity apollonBaseActivity2 = mActivityStack.get(size);
                 if (apollonBaseActivity2 == apollonBaseActivity) {
@@ -62,7 +62,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
 
     public static synchronized void clearTasksWithFlag(int i2) {
         synchronized (ApollonBaseActivity.class) {
-            LogUtil.d(f3589a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
+            LogUtil.d(f3608a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
             Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
             while (it.hasNext()) {
                 ApollonBaseActivity next = it.next();

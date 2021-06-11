@@ -6,22 +6,22 @@ import android.text.TextUtils;
 public class PushSettings {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2710a = -1;
+    public static int f2729a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f2711b = -1;
+    public static int f2730b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f2712c = -1;
+    public static int f2731c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f2713d = -1;
+    public static int f2732d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f2714e = -1;
+    public static int f2733e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f2715f = -1;
+    public static int f2734f = -1;
 
     public static String a(Context context) {
         String a2 = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_id");
@@ -72,11 +72,11 @@ public class PushSettings {
     }
 
     public static boolean e(Context context) {
-        return context != null && f2710a == 1;
+        return context != null && f2729a == 1;
     }
 
     public static void enableDebugMode(boolean z) {
-        f2710a = z ? 1 : 0;
+        f2729a = z ? 1 : 0;
     }
 
     public static boolean f(Context context) {
@@ -91,50 +91,50 @@ public class PushSettings {
         if (context == null) {
             return false;
         }
-        if (f2711b == -1) {
-            f2711b = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
+        if (f2730b == -1) {
+            f2730b = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
         }
-        return f2711b == 1;
+        return f2730b == 1;
     }
 
     public static boolean h(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2713d == -1) {
-            f2713d = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
+        if (f2732d == -1) {
+            f2732d = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
         }
-        return f2713d == 1;
+        return f2732d == 1;
     }
 
     public static boolean i(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2714e == -1) {
-            f2714e = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
+        if (f2733e == -1) {
+            f2733e = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
         }
-        return f2714e == 1;
+        return f2733e == 1;
     }
 
     public static boolean j(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2715f == -1) {
-            f2715f = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
+        if (f2734f == -1) {
+            f2734f = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
         }
-        return f2715f == 1;
+        return f2734f == 1;
     }
 
     public static boolean k(Context context) {
         if (context == null) {
             return false;
         }
-        if (f2712c == -1) {
-            f2712c = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
+        if (f2731c == -1) {
+            f2731c = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
         }
-        return f2712c == 1;
+        return f2731c == 1;
     }
 
     public static void l(Context context) {

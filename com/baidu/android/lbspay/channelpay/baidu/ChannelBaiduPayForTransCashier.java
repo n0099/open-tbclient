@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import com.baidu.android.lbspay.CashierDataNew;
 import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.pay.PayCallBack;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.wallet.api.BaiduPayDelegate;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
@@ -19,11 +18,11 @@ public class ChannelBaiduPayForTransCashier {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelBaiduPayForTransCashier f2647a = new ChannelBaiduPayForTransCashier();
+        public static ChannelBaiduPayForTransCashier f2666a = new ChannelBaiduPayForTransCashier();
     }
 
     public static ChannelBaiduPayForTransCashier getInstance() {
-        return a.f2647a;
+        return a.f2666a;
     }
 
     private String getNotify(String str) {
@@ -70,7 +69,7 @@ public class ChannelBaiduPayForTransCashier {
             return;
         }
         String str2 = StatServiceEvent.LBS_TRANSPARENT_POLYMERPAY;
-        StatisticManager.onEventWithValue(str2, cashierDataNew.getCustomId() + FieldBuilder.SE + cashierDataNew.getOrderNo());
+        StatisticManager.onEventWithValue(str2, cashierDataNew.getCustomId() + "|" + cashierDataNew.getOrderNo());
         StringBuilder sb = new StringBuilder();
         sb.append(WalletLoginHelper.getInstance().getLoginType());
         sb.append("");

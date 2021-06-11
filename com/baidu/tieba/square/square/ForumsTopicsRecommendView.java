@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import d.a.m0.a0.b;
 import java.util.ArrayList;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
@@ -18,19 +18,19 @@ import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 public class ForumsTopicsRecommendView extends ViewGroup implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20684e;
+    public Context f20761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f20685f;
+    public final int f20762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f20686g;
+    public final int f20763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f20687h;
+    public final int f20764h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f20688i;
+    public final int f20765i;
     public ArrayList<TbImageView> j;
     public int k;
     public float l;
@@ -69,9 +69,9 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
                     paddingLeft = getPaddingLeft();
                 }
                 childAt.layout(paddingLeft, paddingTop, childAt.getMeasuredWidth() + paddingLeft, childAt.getMeasuredHeight() + paddingTop);
-                paddingLeft += childAt.getMeasuredWidth() + this.f20686g;
+                paddingLeft += childAt.getMeasuredWidth() + this.f20763g;
                 if (i7 != 0) {
-                    paddingTop += childAt.getMeasuredHeight() + this.f20686g;
+                    paddingTop += childAt.getMeasuredHeight() + this.f20763g;
                 }
             }
         }
@@ -81,13 +81,13 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
     public void onMeasure(int i2, int i3) {
         int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
         int childCount = getChildCount();
-        int i5 = i4 - (this.f20685f * 2);
-        int i6 = (int) ((((i5 - this.f20686g) / 2.0f) * this.l) + 0.5f);
+        int i5 = i4 - (this.f20762f * 2);
+        int i6 = (int) ((((i5 - this.f20763g) / 2.0f) * this.l) + 0.5f);
         for (int i7 = 0; i7 < childCount; i7++) {
-            getChildAt(i7).measure(((i5 - this.f20686g) / 2) + 1073741824, 1073741824 + i6);
+            getChildAt(i7).measure(((i5 - this.f20763g) / 2) + 1073741824, 1073741824 + i6);
         }
         int i8 = this.m / 2;
-        setMeasuredDimension(i4, (i6 * i8) + ((i8 - 1) * this.f20686g) + this.f20688i);
+        setMeasuredDimension(i4, (i6 * i8) + ((i8 - 1) * this.f20763g) + this.f20765i);
     }
 
     public ForumsTopicsRecommendView(Context context, AttributeSet attributeSet) {
@@ -97,19 +97,19 @@ public class ForumsTopicsRecommendView extends ViewGroup implements b {
         this.l = 0.62222224f;
         this.m = 0;
         this.n = null;
-        this.f20684e = context;
-        this.f20687h = l.k(context);
-        this.f20685f = context.getResources().getDimensionPixelSize(R.dimen.ds20);
-        this.f20686g = context.getResources().getDimensionPixelSize(R.dimen.ds14);
-        this.f20688i = context.getResources().getDimensionPixelSize(R.dimen.ds22);
+        this.f20761e = context;
+        this.f20764h = l.k(context);
+        this.f20762f = context.getResources().getDimensionPixelSize(R.dimen.ds20);
+        this.f20763g = context.getResources().getDimensionPixelSize(R.dimen.ds14);
+        this.f20765i = context.getResources().getDimensionPixelSize(R.dimen.ds22);
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.forums_topics_recommend, (ViewGroup) this, true);
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic1));
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic2));
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic3));
         this.j.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic4));
-        int i2 = this.f20687h;
-        int i3 = this.f20685f;
-        this.k = ((i2 - (i3 * 2)) - this.f20686g) / 2;
+        int i2 = this.f20764h;
+        int i3 = this.f20762f;
+        this.k = ((i2 - (i3 * 2)) - this.f20763g) / 2;
         setPadding(i3, 0, i3, 0);
     }
 }

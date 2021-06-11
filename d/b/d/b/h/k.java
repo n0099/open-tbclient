@@ -9,18 +9,18 @@ import d.b.d.b.m;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f65946a;
+    public SharedPreferences f69677a;
 
     public k(Context context) {
-        this.f65946a = context.getSharedPreferences("npth", 0);
+        this.f69677a = context.getSharedPreferences("npth", 0);
     }
 
     public String a() {
         String f2 = m.a().f();
-        return (TextUtils.isEmpty(f2) || "0".equals(f2)) ? this.f65946a.getString(Constants.KEY_DEVICE_ID, "0") : f2;
+        return (TextUtils.isEmpty(f2) || "0".equals(f2)) ? this.f69677a.getString(Constants.KEY_DEVICE_ID, "0") : f2;
     }
 
     public void b(String str) {
-        this.f65946a.edit().putString(Constants.KEY_DEVICE_ID, str).apply();
+        this.f69677a.edit().putString(Constants.KEY_DEVICE_ID, str).apply();
     }
 }

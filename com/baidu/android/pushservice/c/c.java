@@ -29,10 +29,10 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f2883a;
+    public static volatile d f2902a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f2884b = new Object();
+    public static final Object f2903b = new Object();
 
     /* loaded from: classes.dex */
     public enum a {
@@ -53,8 +53,8 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0032c implements DatabaseErrorHandler {
-        public C0032c() {
+    public static class C0033c implements DatabaseErrorHandler {
+        public C0033c() {
         }
 
         @TargetApi(16)
@@ -103,31 +103,31 @@ public class c {
     public static class d extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f2896a = "CREATE TABLE PushShareInfo (" + g.PushInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + g.PushPriority.name() + " LONG NOT NULL DEFAULT ((0)), " + g.PushVersion.name() + " INTEGER DEFAULT ((0)), " + g.PushChannelID.name() + " TEXT, " + g.PushNewChannelID.name() + " TEXT, " + g.PushChannelToken.name() + " TEXT, " + g.PushCurPkgName.name() + " TEXT, " + g.PushWebAppBindInfo.name() + " TEXT, " + g.PushLightAppBindInfo.name() + " TEXT, " + g.PushSDKClientBindInfo.name() + " TEXT, " + g.PushClientsBindInfo.name() + " TEXT, " + g.PushSelfBindInfo.name() + " TEXT);";
+        public static final String f2915a = "CREATE TABLE PushShareInfo (" + g.PushInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + g.PushPriority.name() + " LONG NOT NULL DEFAULT ((0)), " + g.PushVersion.name() + " INTEGER DEFAULT ((0)), " + g.PushChannelID.name() + " TEXT, " + g.PushNewChannelID.name() + " TEXT, " + g.PushChannelToken.name() + " TEXT, " + g.PushCurPkgName.name() + " TEXT, " + g.PushWebAppBindInfo.name() + " TEXT, " + g.PushLightAppBindInfo.name() + " TEXT, " + g.PushSDKClientBindInfo.name() + " TEXT, " + g.PushClientsBindInfo.name() + " TEXT, " + g.PushSelfBindInfo.name() + " TEXT);";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f2897b;
+        public static final String f2916b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f2898c;
+        public static final String f2917c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f2899d;
+        public static final String f2918d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f2900e;
+        public static final String f2919e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f2901f;
+        public static final String f2920f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f2902g;
+        public static final String f2921g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final String f2903h;
+        public static final String f2922h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final String f2904i;
+        public static final String f2923i;
 
         static {
             StringBuilder sb = new StringBuilder();
@@ -142,8 +142,8 @@ public class c {
             sb.append(" TEXT, ");
             sb.append(h.time.name());
             sb.append(" TEXT);");
-            f2897b = sb.toString();
-            f2898c = "CREATE TABLE PushMsgInfos (" + e.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.appId.name() + "  TEXT, " + e.msgType.name() + "  INTEGER NOT NULL, " + e.msgId.name() + " LONG NOT NULL, " + e.secureInfo.name() + " TEXT, " + e.msgBody.name() + "  TEXT, " + e.expireTime.name() + "  LONG, " + e.ackRet.name() + "  INTEGER, " + e.arriveTime.name() + " LONG NOT NULL, " + e.notifyId.name() + "  INTEGER);";
+            f2916b = sb.toString();
+            f2917c = "CREATE TABLE PushMsgInfos (" + e.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.appId.name() + "  TEXT, " + e.msgType.name() + "  INTEGER NOT NULL, " + e.msgId.name() + " LONG NOT NULL, " + e.secureInfo.name() + " TEXT, " + e.msgBody.name() + "  TEXT, " + e.expireTime.name() + "  LONG, " + e.ackRet.name() + "  INTEGER, " + e.arriveTime.name() + " LONG NOT NULL, " + e.notifyId.name() + "  INTEGER);";
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE PushDataInfo (");
             sb2.append(f.dataKey.name());
@@ -160,24 +160,24 @@ public class c {
             sb2.append(" LONG,");
             sb2.append(f.bindCanUpload.name());
             sb2.append(" INTEGER DEFAULT ((0)));");
-            f2899d = sb2.toString();
-            f2900e = "CREATE TABLE ClickMsgUploadInfo (" + b.timeStamps.name() + " LONG NOT NULL," + b.clickData.name() + " TEXT NOT NULL);";
-            f2901f = "CREATE TABLE PushAppStatus (" + a.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + a.actionName.name() + " TEXT NOT NULL, " + a.timeStamp.name() + " LONG NOT NULL, " + a.pkgName.name() + " TEXT, " + a.versionCode.name() + " INTEGER, " + a.versionName.name() + " TEXT, " + a.status.name() + " INTEGER);";
+            f2918d = sb2.toString();
+            f2919e = "CREATE TABLE ClickMsgUploadInfo (" + b.timeStamps.name() + " LONG NOT NULL," + b.clickData.name() + " TEXT NOT NULL);";
+            f2920f = "CREATE TABLE PushAppStatus (" + a.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + a.actionName.name() + " TEXT NOT NULL, " + a.timeStamp.name() + " LONG NOT NULL, " + a.pkgName.name() + " TEXT, " + a.versionCode.name() + " INTEGER, " + a.versionName.name() + " TEXT, " + a.status.name() + " INTEGER);";
             StringBuilder sb3 = new StringBuilder();
             sb3.append("ALTER TABLE PushShareInfo ADD COLUMN ");
             sb3.append(g.PushNewChannelID.name());
             sb3.append(" TEXT");
-            f2902g = sb3.toString();
+            f2921g = sb3.toString();
             StringBuilder sb4 = new StringBuilder();
             sb4.append("ALTER TABLE PushShareInfo ADD COLUMN ");
             sb4.append(g.PushChannelToken.name());
             sb4.append(" TEXT");
-            f2903h = sb4.toString();
+            f2922h = sb4.toString();
             StringBuilder sb5 = new StringBuilder();
             sb5.append("ALTER TABLE PushMsgInfos ADD COLUMN ");
             sb5.append(e.notifyId.name());
             sb5.append(" INTEGER");
-            f2904i = sb5.toString();
+            f2923i = sb5.toString();
         }
 
         public d(Context context, String str, int i2, DatabaseErrorHandler databaseErrorHandler) {
@@ -200,12 +200,12 @@ public class c {
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(f2896a);
-                sQLiteDatabase.execSQL(f2897b);
-                sQLiteDatabase.execSQL(f2898c);
-                sQLiteDatabase.execSQL(f2901f);
-                sQLiteDatabase.execSQL(f2899d);
-                sQLiteDatabase.execSQL(f2900e);
+                sQLiteDatabase.execSQL(f2915a);
+                sQLiteDatabase.execSQL(f2916b);
+                sQLiteDatabase.execSQL(f2917c);
+                sQLiteDatabase.execSQL(f2920f);
+                sQLiteDatabase.execSQL(f2918d);
+                sQLiteDatabase.execSQL(f2919e);
             } catch (Exception unused) {
             }
         }
@@ -221,48 +221,48 @@ public class c {
                 return;
             }
             if (i2 == 2) {
-                sQLiteDatabase.execSQL(f2898c);
+                sQLiteDatabase.execSQL(f2917c);
             } else if (i2 != 3) {
                 if (i2 != 4) {
                     if (i2 == 5) {
-                        sQLiteDatabase.execSQL(f2899d);
-                        str3 = f2900e;
+                        sQLiteDatabase.execSQL(f2918d);
+                        str3 = f2919e;
                         sQLiteDatabase.execSQL(str3);
-                        str2 = f2903h;
+                        str2 = f2922h;
                         sQLiteDatabase.execSQL(str2);
-                        str = f2904i;
+                        str = f2923i;
                         sQLiteDatabase.execSQL(str);
                     } else if (i2 == 6) {
-                        sQLiteDatabase.execSQL(f2899d);
-                        str2 = f2900e;
+                        sQLiteDatabase.execSQL(f2918d);
+                        str2 = f2919e;
                         sQLiteDatabase.execSQL(str2);
-                        str = f2904i;
+                        str = f2923i;
                         sQLiteDatabase.execSQL(str);
                     } else if (i2 == 7) {
-                        sQLiteDatabase.execSQL(f2899d);
-                        str = f2900e;
+                        sQLiteDatabase.execSQL(f2918d);
+                        str = f2919e;
                         sQLiteDatabase.execSQL(str);
                     } else {
                         return;
                     }
                 }
-                sQLiteDatabase.execSQL(f2899d);
-                sQLiteDatabase.execSQL(f2900e);
-                str3 = f2902g;
+                sQLiteDatabase.execSQL(f2918d);
+                sQLiteDatabase.execSQL(f2919e);
+                str3 = f2921g;
                 sQLiteDatabase.execSQL(str3);
-                str2 = f2903h;
+                str2 = f2922h;
                 sQLiteDatabase.execSQL(str2);
-                str = f2904i;
+                str = f2923i;
                 sQLiteDatabase.execSQL(str);
             }
-            sQLiteDatabase.execSQL(f2901f);
-            sQLiteDatabase.execSQL(f2899d);
-            sQLiteDatabase.execSQL(f2900e);
-            str3 = f2902g;
+            sQLiteDatabase.execSQL(f2920f);
+            sQLiteDatabase.execSQL(f2918d);
+            sQLiteDatabase.execSQL(f2919e);
+            str3 = f2921g;
             sQLiteDatabase.execSQL(str3);
-            str2 = f2903h;
+            str2 = f2922h;
             sQLiteDatabase.execSQL(str2);
-            str = f2904i;
+            str = f2923i;
             sQLiteDatabase.execSQL(str);
         }
     }
@@ -329,7 +329,7 @@ public class c {
             r1 = r18
             java.lang.Class<com.baidu.android.pushservice.c.c> r2 = com.baidu.android.pushservice.c.c.class
             monitor-enter(r2)
-            java.lang.Object r3 = com.baidu.android.pushservice.c.c.f2884b     // Catch: java.lang.Throwable -> L12f
+            java.lang.Object r3 = com.baidu.android.pushservice.c.c.f2903b     // Catch: java.lang.Throwable -> L12f
             monitor-enter(r3)     // Catch: java.lang.Throwable -> L12f
             android.database.sqlite.SQLiteDatabase r12 = a(r17)     // Catch: java.lang.Throwable -> L12c
             r13 = -1
@@ -342,41 +342,41 @@ public class c {
             r15.<init>()     // Catch: java.lang.Throwable -> L12c
             com.baidu.android.pushservice.c.c$g r4 = com.baidu.android.pushservice.c.c.g.PushPriority     // Catch: java.lang.Throwable -> L12c
             java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> L12c
-            long r5 = r1.f2874a     // Catch: java.lang.Throwable -> L12c
+            long r5 = r1.f2893a     // Catch: java.lang.Throwable -> L12c
             java.lang.Long r5 = java.lang.Long.valueOf(r5)     // Catch: java.lang.Throwable -> L12c
             r15.put(r4, r5)     // Catch: java.lang.Throwable -> L12c
             com.baidu.android.pushservice.c.c$g r4 = com.baidu.android.pushservice.c.c.g.PushVersion     // Catch: java.lang.Throwable -> L12c
             java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> L12c
-            long r5 = r1.f2875b     // Catch: java.lang.Throwable -> L12c
+            long r5 = r1.f2894b     // Catch: java.lang.Throwable -> L12c
             java.lang.Long r5 = java.lang.Long.valueOf(r5)     // Catch: java.lang.Throwable -> L12c
             r15.put(r4, r5)     // Catch: java.lang.Throwable -> L12c
             com.baidu.android.pushservice.c.c$g r4 = com.baidu.android.pushservice.c.c.g.PushChannelID     // Catch: java.lang.Throwable -> L12c
             java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> L12c
-            java.lang.String r5 = r1.f2876c     // Catch: java.lang.Throwable -> L12c
+            java.lang.String r5 = r1.f2895c     // Catch: java.lang.Throwable -> L12c
             r15.put(r4, r5)     // Catch: java.lang.Throwable -> L12c
             com.baidu.android.pushservice.c.c$g r4 = com.baidu.android.pushservice.c.c.g.PushNewChannelID     // Catch: java.lang.Throwable -> L12c
             java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> L12c
-            java.lang.String r5 = r1.f2877d     // Catch: java.lang.Throwable -> L12c
+            java.lang.String r5 = r1.f2896d     // Catch: java.lang.Throwable -> L12c
             r15.put(r4, r5)     // Catch: java.lang.Throwable -> L12c
             com.baidu.android.pushservice.c.c$g r4 = com.baidu.android.pushservice.c.c.g.PushCurPkgName     // Catch: java.lang.Throwable -> L12c
             java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> L12c
-            java.lang.String r5 = r1.f2878e     // Catch: java.lang.Throwable -> L12c
+            java.lang.String r5 = r1.f2897e     // Catch: java.lang.Throwable -> L12c
             r15.put(r4, r5)     // Catch: java.lang.Throwable -> L12c
             com.baidu.android.pushservice.c.c$g r4 = com.baidu.android.pushservice.c.c.g.PushLightAppBindInfo     // Catch: java.lang.Throwable -> L12c
             java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> L12c
-            java.lang.String r5 = r1.f2880g     // Catch: java.lang.Throwable -> L12c
+            java.lang.String r5 = r1.f2899g     // Catch: java.lang.Throwable -> L12c
             r15.put(r4, r5)     // Catch: java.lang.Throwable -> L12c
             com.baidu.android.pushservice.c.c$g r4 = com.baidu.android.pushservice.c.c.g.PushWebAppBindInfo     // Catch: java.lang.Throwable -> L12c
             java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> L12c
-            java.lang.String r5 = r1.f2879f     // Catch: java.lang.Throwable -> L12c
+            java.lang.String r5 = r1.f2898f     // Catch: java.lang.Throwable -> L12c
             r15.put(r4, r5)     // Catch: java.lang.Throwable -> L12c
             com.baidu.android.pushservice.c.c$g r4 = com.baidu.android.pushservice.c.c.g.PushSDKClientBindInfo     // Catch: java.lang.Throwable -> L12c
             java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> L12c
-            java.lang.String r5 = r1.f2881h     // Catch: java.lang.Throwable -> L12c
+            java.lang.String r5 = r1.f2900h     // Catch: java.lang.Throwable -> L12c
             r15.put(r4, r5)     // Catch: java.lang.Throwable -> L12c
             com.baidu.android.pushservice.c.c$g r4 = com.baidu.android.pushservice.c.c.g.PushClientsBindInfo     // Catch: java.lang.Throwable -> L12c
             java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> L12c
-            java.lang.String r5 = r1.f2882i     // Catch: java.lang.Throwable -> L12c
+            java.lang.String r5 = r1.f2901i     // Catch: java.lang.Throwable -> L12c
             r15.put(r4, r5)     // Catch: java.lang.Throwable -> L12c
             com.baidu.android.pushservice.c.c$g r4 = com.baidu.android.pushservice.c.c.g.PushSelfBindInfo     // Catch: java.lang.Throwable -> L12c
             java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> L12c
@@ -494,12 +494,12 @@ public class c {
     }
 
     public static Object a() {
-        return f2884b;
+        return f2903b;
     }
 
     public static String a(Context context, boolean z) {
         Cursor cursor;
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             Cursor cursor2 = null;
             r9 = null;
@@ -546,7 +546,7 @@ public class c {
     public static synchronized void a(Context context, long j) {
         Cursor query;
         synchronized (c.class) {
-            synchronized (f2884b) {
+            synchronized (f2903b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return;
@@ -586,15 +586,15 @@ public class c {
                     }
                 }
                 com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                bVar.f2874a = j;
-                bVar.f2875b = 0L;
-                bVar.f2876c = null;
-                bVar.f2877d = null;
-                bVar.f2878e = null;
-                bVar.f2880g = null;
-                bVar.f2879f = null;
-                bVar.f2881h = null;
-                bVar.f2882i = null;
+                bVar.f2893a = j;
+                bVar.f2894b = 0L;
+                bVar.f2895c = null;
+                bVar.f2896d = null;
+                bVar.f2897e = null;
+                bVar.f2899g = null;
+                bVar.f2898f = null;
+                bVar.f2900h = null;
+                bVar.f2901i = null;
                 bVar.j = null;
                 a(context, bVar);
                 if (query != null) {
@@ -608,7 +608,7 @@ public class c {
     public static synchronized void a(Context context, String str) {
         Cursor query;
         synchronized (c.class) {
-            synchronized (f2884b) {
+            synchronized (f2903b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return;
@@ -648,15 +648,15 @@ public class c {
                     }
                 }
                 com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                bVar.f2874a = 0L;
-                bVar.f2875b = 0L;
-                bVar.f2876c = null;
-                bVar.f2877d = null;
-                bVar.f2878e = null;
-                bVar.f2880g = null;
-                bVar.f2879f = null;
-                bVar.f2881h = null;
-                bVar.f2882i = null;
+                bVar.f2893a = 0L;
+                bVar.f2894b = 0L;
+                bVar.f2895c = null;
+                bVar.f2896d = null;
+                bVar.f2897e = null;
+                bVar.f2899g = null;
+                bVar.f2898f = null;
+                bVar.f2900h = null;
+                bVar.f2901i = null;
                 bVar.j = null;
                 a(context, bVar);
                 if (query != null) {
@@ -668,7 +668,7 @@ public class c {
     }
 
     public static void a(Context context, String str, int i2, long j) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return;
@@ -692,7 +692,7 @@ public class c {
     }
 
     public static void a(Context context, String str, int i2, long j, byte[] bArr, byte[] bArr2, long j2, int i3, int i4) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return;
@@ -723,7 +723,7 @@ public class c {
     public static synchronized void a(Context context, String str, String str2) {
         Cursor query;
         synchronized (c.class) {
-            synchronized (f2884b) {
+            synchronized (f2903b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return;
@@ -766,15 +766,15 @@ public class c {
                     }
                 }
                 com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                bVar.f2874a = 0L;
-                bVar.f2875b = 0L;
-                bVar.f2876c = str;
-                bVar.f2877d = str2;
-                bVar.f2878e = null;
-                bVar.f2880g = null;
-                bVar.f2879f = null;
-                bVar.f2881h = null;
-                bVar.f2882i = null;
+                bVar.f2893a = 0L;
+                bVar.f2894b = 0L;
+                bVar.f2895c = str;
+                bVar.f2896d = str2;
+                bVar.f2897e = null;
+                bVar.f2899g = null;
+                bVar.f2898f = null;
+                bVar.f2900h = null;
+                bVar.f2901i = null;
                 bVar.j = null;
                 a(context, bVar);
                 if (query != null) {
@@ -786,7 +786,7 @@ public class c {
     }
 
     public static void a(Context context, String str, String str2, Long l) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return;
@@ -805,7 +805,7 @@ public class c {
     }
 
     public static void a(Context context, ArrayList<String> arrayList) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             StringBuilder sb = new StringBuilder();
             sb.append("(");
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
@@ -833,7 +833,7 @@ public class c {
     }
 
     public static void a(Context context, JSONArray jSONArray) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return;
@@ -859,7 +859,7 @@ public class c {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE, IF, INVOKE, INVOKE] complete} */
     public static boolean a(Context context, int i2) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             Cursor cursor = null;
             if (a2 == null) {
@@ -904,15 +904,15 @@ public class c {
     public static synchronized boolean a(Context context, com.baidu.android.pushservice.c.f fVar) {
         long j;
         synchronized (c.class) {
-            synchronized (f2884b) {
+            synchronized (f2903b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return false;
                 }
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(h.msgId.name(), fVar.f2988a);
-                contentValues.put(h.md5Infos.name(), fVar.f2989b);
-                contentValues.put(h.appId.name(), fVar.f2990c);
+                contentValues.put(h.msgId.name(), fVar.f3007a);
+                contentValues.put(h.md5Infos.name(), fVar.f3008b);
+                contentValues.put(h.appId.name(), fVar.f3009c);
                 contentValues.put(h.time.name(), System.currentTimeMillis() + "");
                 Cursor cursor = null;
                 try {
@@ -920,7 +920,7 @@ public class c {
                     try {
                         cursor = a2.rawQuery("SELECT COUNT(*) FROM PushVerifInfo;", null);
                         if (cursor.moveToFirst() && cursor.getInt(0) > 200) {
-                            a2.delete("PushVerifInfo", " msgId IS NOT ?", new String[]{fVar.f2988a});
+                            a2.delete("PushVerifInfo", " msgId IS NOT ?", new String[]{fVar.f3007a});
                         }
                         if (cursor != null && !cursor.isClosed()) {
                             cursor.close();
@@ -945,7 +945,7 @@ public class c {
     }
 
     public static int b(Context context) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return 0;
@@ -1018,7 +1018,7 @@ public class c {
     public static synchronized void b(Context context, long j) {
         Cursor query;
         synchronized (c.class) {
-            synchronized (f2884b) {
+            synchronized (f2903b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return;
@@ -1058,15 +1058,15 @@ public class c {
                     }
                 }
                 com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                bVar.f2874a = 0L;
-                bVar.f2875b = j;
-                bVar.f2876c = null;
-                bVar.f2877d = null;
-                bVar.f2878e = null;
-                bVar.f2880g = null;
-                bVar.f2879f = null;
-                bVar.f2881h = null;
-                bVar.f2882i = null;
+                bVar.f2893a = 0L;
+                bVar.f2894b = j;
+                bVar.f2895c = null;
+                bVar.f2896d = null;
+                bVar.f2897e = null;
+                bVar.f2899g = null;
+                bVar.f2898f = null;
+                bVar.f2900h = null;
+                bVar.f2901i = null;
                 bVar.j = null;
                 a(context, bVar);
                 if (query != null) {
@@ -1080,7 +1080,7 @@ public class c {
     public static synchronized void b(Context context, String str) {
         Cursor query;
         synchronized (c.class) {
-            synchronized (f2884b) {
+            synchronized (f2903b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null || str == null) {
                     return;
@@ -1120,15 +1120,15 @@ public class c {
                     }
                 }
                 com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                bVar.f2874a = 0L;
-                bVar.f2875b = 0L;
-                bVar.f2876c = null;
-                bVar.f2877d = null;
-                bVar.f2878e = null;
-                bVar.f2880g = null;
-                bVar.f2879f = null;
-                bVar.f2881h = null;
-                bVar.f2882i = str;
+                bVar.f2893a = 0L;
+                bVar.f2894b = 0L;
+                bVar.f2895c = null;
+                bVar.f2896d = null;
+                bVar.f2897e = null;
+                bVar.f2899g = null;
+                bVar.f2898f = null;
+                bVar.f2900h = null;
+                bVar.f2901i = str;
                 bVar.j = null;
                 a(context, bVar);
                 if (query != null) {
@@ -1141,7 +1141,7 @@ public class c {
 
     public static void b(Context context, JSONArray jSONArray) {
         String obj;
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return;
@@ -1177,7 +1177,7 @@ public class c {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE, IF, INVOKE, INVOKE] complete} */
     public static boolean b(Context context, int i2) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             Cursor cursor = null;
             if (a2 == null) {
@@ -1221,7 +1221,7 @@ public class c {
 
     public static String c(Context context) {
         Cursor cursor;
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             Cursor cursor2 = null;
             r9 = null;
@@ -1313,7 +1313,7 @@ public class c {
     public static synchronized void c(Context context, String str) {
         Cursor query;
         synchronized (c.class) {
-            synchronized (f2884b) {
+            synchronized (f2903b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null || str == null) {
                     return;
@@ -1353,15 +1353,15 @@ public class c {
                     }
                 }
                 com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                bVar.f2874a = 0L;
-                bVar.f2875b = 0L;
-                bVar.f2876c = null;
-                bVar.f2877d = null;
-                bVar.f2878e = null;
-                bVar.f2880g = null;
-                bVar.f2879f = null;
-                bVar.f2881h = null;
-                bVar.f2882i = null;
+                bVar.f2893a = 0L;
+                bVar.f2894b = 0L;
+                bVar.f2895c = null;
+                bVar.f2896d = null;
+                bVar.f2897e = null;
+                bVar.f2899g = null;
+                bVar.f2898f = null;
+                bVar.f2900h = null;
+                bVar.f2901i = null;
                 bVar.j = str;
                 a(context, bVar);
                 if (query != null) {
@@ -1374,7 +1374,7 @@ public class c {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE, IF, INVOKE, INVOKE] complete} */
     public static boolean c(Context context, long j) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             Cursor cursor = null;
             if (a2 == null) {
@@ -1416,7 +1416,7 @@ public class c {
     public static String d(Context context) {
         Cursor cursor;
         Cursor cursor2;
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             Cursor cursor3 = null;
             r10 = null;
@@ -1464,7 +1464,7 @@ public class c {
 
     public static String d(Context context, String str) {
         Cursor cursor;
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             Cursor cursor2 = null;
             r9 = null;
@@ -1522,7 +1522,7 @@ public class c {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean d(Context context, String str, String str2) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return false;
@@ -1577,7 +1577,7 @@ public class c {
 
     public static String e(Context context) {
         Cursor cursor;
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             Cursor cursor2 = null;
             r9 = null;
@@ -1620,7 +1620,7 @@ public class c {
 
     public static String e(Context context, String str) {
         Cursor cursor;
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             Cursor cursor2 = null;
             r9 = null;
@@ -1671,7 +1671,7 @@ public class c {
         int b2;
         long j;
         JSONArray jSONArray = new JSONArray();
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return jSONArray;
@@ -1726,7 +1726,7 @@ public class c {
     }
 
     public static void g(Context context) {
-        synchronized (f2884b) {
+        synchronized (f2903b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return;
@@ -1743,9 +1743,9 @@ public class c {
     }
 
     public static d h(Context context) {
-        if (f2883a == null) {
-            synchronized (f2884b) {
-                if (f2883a == null) {
+        if (f2902a == null) {
+            synchronized (f2903b) {
+                if (f2902a == null) {
                     File file = new File(Environment.getDataDirectory().getAbsolutePath() + "/data" + File.separator + context.getPackageName() + "/database");
                     if (!file.exists()) {
                         file.mkdirs();
@@ -1753,12 +1753,12 @@ public class c {
                     String str = file.getAbsolutePath() + File.separator + "pushinfo.db";
                     SQLiteDatabase sQLiteDatabase = null;
                     if (Build.VERSION.SDK_INT >= 11) {
-                        f2883a = new d(context, str, 8, new C0032c());
+                        f2902a = new d(context, str, 8, new C0033c());
                     } else {
-                        f2883a = new d(context, str, (SQLiteDatabase.CursorFactory) null, 8);
+                        f2902a = new d(context, str, (SQLiteDatabase.CursorFactory) null, 8);
                     }
                     try {
-                        SQLiteDatabase writableDatabase = f2883a.getWritableDatabase();
+                        SQLiteDatabase writableDatabase = f2902a.getWritableDatabase();
                         try {
                             writableDatabase.delete("PushMsgInfos", e.arriveTime.name() + " < " + (System.currentTimeMillis() - 259200000), null);
                             if (writableDatabase != null) {
@@ -1769,13 +1769,13 @@ public class c {
                             if (sQLiteDatabase != null) {
                                 sQLiteDatabase.close();
                             }
-                            return f2883a;
+                            return f2902a;
                         }
                     } catch (Throwable unused2) {
                     }
                 }
             }
         }
-        return f2883a;
+        return f2902a;
     }
 }

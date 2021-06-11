@@ -8,7 +8,7 @@ import android.os.Parcel;
 public class b extends Binder implements IInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.g.a.a.b f30752a;
+    public static d.g.a.a.b f30843a;
 
     public b(String str) {
         attachInterface(this, str);

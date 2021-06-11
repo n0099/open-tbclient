@@ -12,12 +12,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HttpUriLoader implements ModelLoader<Uri, InputStream> {
     public static final Set<String> SCHEMES = Collections.unmodifiableSet(new HashSet(Arrays.asList("http", "https")));
     public final ModelLoader<GlideUrl, InputStream> urlLoader;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Factory implements ModelLoaderFactory<Uri, InputStream> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         @NonNull

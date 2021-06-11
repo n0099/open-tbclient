@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.recapp.adapter.CardAdvertAppEmptyHolder;
 import d.a.n0.t2.t;
 /* loaded from: classes5.dex */
-public class a extends d.a.c.j.e.a<d.a.n0.z.e0.d, CardAdvertAppEmptyHolder> implements t {
+public class a extends d.a.c.k.e.a<d.a.n0.z.e0.d, CardAdvertAppEmptyHolder> implements t {
     public TbPageContext<?> m;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
@@ -17,26 +17,26 @@ public class a extends d.a.c.j.e.a<d.a.n0.z.e0.d, CardAdvertAppEmptyHolder> impl
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public CardAdvertAppEmptyHolder P(ViewGroup viewGroup) {
+    public CardAdvertAppEmptyHolder Q(ViewGroup viewGroup) {
         View view = new View(this.m.getPageActivity());
         view.setVisibility(8);
         return new CardAdvertAppEmptyHolder(view);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.z.e0.d dVar, CardAdvertAppEmptyHolder cardAdvertAppEmptyHolder) {
-        AdvertAppInfo h2 = dVar.h();
-        if (h2 != null) {
-            d.a.m0.r.q.d.e(h2.P3, dVar.position, h2.I3 == -1001);
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.z.e0.d dVar, CardAdvertAppEmptyHolder cardAdvertAppEmptyHolder) {
+        AdvertAppInfo c2 = dVar.c();
+        if (c2 != null) {
+            d.a.m0.r.q.d.e(c2.S3, dVar.position, c2.L3 == -1001);
         }
         return cardAdvertAppEmptyHolder.a();
     }
 
     @Override // d.a.n0.t2.t
-    public void j(boolean z) {
+    public void k(boolean z) {
     }
 }

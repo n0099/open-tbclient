@@ -1,15 +1,15 @@
 package com.kwad.sdk.reward;
 
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f33768a;
+    public a f37201a;
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f33768a = (a) k();
+        this.f37201a = (a) n();
     }
 }

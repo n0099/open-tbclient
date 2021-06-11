@@ -13,31 +13,31 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class BioAlertDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewSwitcher f5979a;
+    public ViewSwitcher f6022a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f5980b;
+    public TextView f6023b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f5981c;
+    public TextView f6024c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f5982d;
+    public TextView f6025d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f5983e;
+    public Button f6026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f5984f;
+    public Button f6027f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f5985g;
+    public TextView f6028g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f5986h;
+    public LinearLayout f6029h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f5987i;
+    public TextView f6030i;
     public LinearLayout j;
 
     public BioAlertDialog(Context context) {
@@ -48,15 +48,15 @@ public class BioAlertDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_alert_dialog);
         setCanceledOnTouchOutside(false);
-        this.f5979a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.f5980b = (TextView) findViewById(R.id.dialog_title);
-        this.f5981c = (TextView) findViewById(R.id.dialog_msg);
-        this.f5982d = (TextView) findViewById(R.id.msg_text);
-        this.f5983e = (Button) findViewById(R.id.positive_btn);
-        this.f5984f = (Button) findViewById(R.id.negative_btn);
-        this.f5985g = (TextView) findViewById(R.id.neutral_btn);
-        this.f5986h = (LinearLayout) findViewById(R.id.unrecognized_dialog);
-        this.f5987i = (TextView) findViewById(R.id.tv_recog_msg1);
+        this.f6022a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f6023b = (TextView) findViewById(R.id.dialog_title);
+        this.f6024c = (TextView) findViewById(R.id.dialog_msg);
+        this.f6025d = (TextView) findViewById(R.id.msg_text);
+        this.f6026e = (Button) findViewById(R.id.positive_btn);
+        this.f6027f = (Button) findViewById(R.id.negative_btn);
+        this.f6028g = (TextView) findViewById(R.id.neutral_btn);
+        this.f6029h = (LinearLayout) findViewById(R.id.unrecognized_dialog);
+        this.f6030i = (TextView) findViewById(R.id.tv_recog_msg1);
         this.j = (LinearLayout) findViewById(R.id.time_out_dialog_msg);
     }
 
@@ -67,51 +67,51 @@ public class BioAlertDialog extends Dialog {
             i2 = 2;
         }
         if (i2 == 2) {
-            this.f5979a.setDisplayedChild(0);
+            this.f6022a.setDisplayedChild(0);
         } else {
-            this.f5979a.setDisplayedChild(1);
+            this.f6022a.setDisplayedChild(1);
         }
     }
 
     public void setDialogMsg(String str) {
-        this.f5981c.setVisibility(0);
-        this.f5981c.setText(str);
+        this.f6024c.setVisibility(0);
+        this.f6024c.setText(str);
     }
 
     public void setDialogMsgColor(int i2) {
-        this.f5981c.setTextColor(i2);
+        this.f6024c.setTextColor(i2);
     }
 
     public void setMessageIcon(int i2) {
-        this.f5982d.setText(i2);
+        this.f6025d.setText(i2);
     }
 
     public void setMessageText(String str) {
-        this.f5982d.setVisibility(0);
-        this.f5982d.setText(str);
+        this.f6025d.setVisibility(0);
+        this.f6025d.setText(str);
     }
 
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
-        this.f5984f.setText(str);
-        this.f5984f.setOnClickListener(onClickListener);
+        this.f6027f.setText(str);
+        this.f6027f.setOnClickListener(onClickListener);
     }
 
     public void setNeutralBtn(String str, View.OnClickListener onClickListener) {
-        this.f5985g.setText(str);
-        this.f5985g.setOnClickListener(onClickListener);
+        this.f6028g.setText(str);
+        this.f6028g.setOnClickListener(onClickListener);
     }
 
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
-        this.f5983e.setText(str);
-        this.f5983e.setOnClickListener(onClickListener);
+        this.f6026e.setText(str);
+        this.f6026e.setOnClickListener(onClickListener);
     }
 
     public void setRecognizedFailMsg1(String str) {
-        this.f5987i.setText(str);
+        this.f6030i.setText(str);
     }
 
     public void setRecognizedFailVisible(int i2) {
-        this.f5986h.setVisibility(i2);
+        this.f6029h.setVisibility(i2);
     }
 
     public void setTimeOutVisible(int i2) {
@@ -119,14 +119,14 @@ public class BioAlertDialog extends Dialog {
     }
 
     public void setTitleMsg(String str) {
-        this.f5980b.setText(str);
+        this.f6023b.setText(str);
     }
 
     public void setTitleVisible(boolean z) {
         if (z) {
-            this.f5980b.setVisibility(0);
+            this.f6023b.setVisibility(0);
         } else {
-            this.f5980b.setVisibility(8);
+            this.f6023b.setVisibility(8);
         }
     }
 
@@ -136,9 +136,9 @@ public class BioAlertDialog extends Dialog {
     }
 
     public void setNegativeBtn(String str, int i2, View.OnClickListener onClickListener) {
-        this.f5984f.setText(str);
-        this.f5984f.setTextColor(i2);
-        this.f5984f.setOnClickListener(onClickListener);
+        this.f6027f.setText(str);
+        this.f6027f.setTextColor(i2);
+        this.f6027f.setOnClickListener(onClickListener);
     }
 
     public BioAlertDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {

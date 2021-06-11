@@ -16,31 +16,31 @@ import org.json.JSONObject;
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1892a = "msp-gzip";
+    public static final String f1905a = "msp-gzip";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1893b = "Msp-Param";
+    public static final String f1906b = "Msp-Param";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1894c = "Operation-Type";
+    public static final String f1907c = "Operation-Type";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1895d = "content-type";
+    public static final String f1908d = "content-type";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1896e = "Version";
+    public static final String f1909e = "Version";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1897f = "AppId";
+    public static final String f1910f = "AppId";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1898g = "des-mode";
+    public static final String f1911g = "des-mode";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1899h = "namespace";
+    public static final String f1912h = "namespace";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f1900i = "api_name";
+    public static final String f1913i = "api_name";
     public static final String j = "api_version";
     public static final String k = "data";
     public static final String l = "params";
@@ -54,13 +54,13 @@ public abstract class e {
 
     public Map<String, String> a(boolean z, String str) {
         HashMap hashMap = new HashMap();
-        hashMap.put(f1892a, String.valueOf(z));
-        hashMap.put(f1894c, "alipay.msp.cashier.dispatch.bytes");
+        hashMap.put(f1905a, String.valueOf(z));
+        hashMap.put(f1907c, "alipay.msp.cashier.dispatch.bytes");
         hashMap.put("content-type", "application/octet-stream");
-        hashMap.put(f1896e, "2.0");
-        hashMap.put(f1897f, "TAOBAO");
-        hashMap.put(f1893b, a.a(str));
-        hashMap.put(f1898g, "CBC");
+        hashMap.put(f1909e, "2.0");
+        hashMap.put(f1910f, "TAOBAO");
+        hashMap.put(f1906b, a.a(str));
+        hashMap.put(f1911g, "CBC");
         return hashMap;
     }
 
@@ -74,7 +74,7 @@ public abstract class e {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("device", Build.MODEL);
         hashMap.put("namespace", "com.alipay.mobilecashier");
-        hashMap.put(f1900i, "com.alipay.mcpay");
+        hashMap.put(f1913i, "com.alipay.mcpay");
         hashMap.put(j, b());
         return a(hashMap, new HashMap<>());
     }
@@ -94,12 +94,12 @@ public abstract class e {
         JSONObject a4 = com.alipay.sdk.util.b.a(new JSONObject(), jSONObject);
         try {
             a4.put("tid", a3.a());
-            a4.put(com.alipay.sdk.cons.b.f1825b, a2.c().a(a3));
-            a4.put(com.alipay.sdk.cons.b.f1828e, n.b(a2.b(), i.f1787a));
-            a4.put(com.alipay.sdk.cons.b.f1829f, n.a(a2.b()));
-            a4.put(com.alipay.sdk.cons.b.f1827d, str);
-            a4.put("app_key", com.alipay.sdk.cons.a.f1818d);
-            a4.put(com.alipay.sdk.cons.b.f1830g, a2.e());
+            a4.put(com.alipay.sdk.cons.b.f1838b, a2.c().a(a3));
+            a4.put(com.alipay.sdk.cons.b.f1841e, n.b(a2.b(), i.f1800a));
+            a4.put(com.alipay.sdk.cons.b.f1842f, n.a(a2.b()));
+            a4.put(com.alipay.sdk.cons.b.f1840d, str);
+            a4.put("app_key", com.alipay.sdk.cons.a.f1831d);
+            a4.put(com.alipay.sdk.cons.b.f1843g, a2.e());
             a4.put(com.alipay.sdk.cons.b.j, a3.b());
             a4.put(com.alipay.sdk.cons.b.k, a2.c().a(a2.b()));
         } catch (Throwable th) {
@@ -109,13 +109,13 @@ public abstract class e {
     }
 
     public static boolean a(a.b bVar) {
-        return Boolean.valueOf(a(bVar, f1892a)).booleanValue();
+        return Boolean.valueOf(a(bVar, f1905a)).booleanValue();
     }
 
     public static String a(a.b bVar, String str) {
         Map<String, List<String>> map;
         List<String> list;
-        if (bVar == null || str == null || (map = bVar.f1883a) == null || (list = map.get(str)) == null) {
+        if (bVar == null || str == null || (map = bVar.f1896a) == null || (list = map.get(str)) == null) {
             return null;
         }
         return TextUtils.join(",", list);
@@ -177,9 +177,9 @@ public abstract class e {
         com.alipay.sdk.util.c.b("", "PacketTask::request url >" + str2);
         c cVar = new c(this.s);
         d a2 = cVar.a(new b(c(), a(str, a())), this.r);
-        a.b a3 = com.alipay.sdk.net.a.a(context, new a.C0016a(str2, a(a2.a(), str), a2.b()));
+        a.b a3 = com.alipay.sdk.net.a.a(context, new a.C0017a(str2, a(a2.a(), str), a2.b()));
         if (a3 != null) {
-            b a4 = cVar.a(new d(a(a3), a3.f1885c));
+            b a4 = cVar.a(new d(a(a3), a3.f1898c));
             return (a4 != null && a(a4.a()) && z) ? a(context, str, str2, false) : a4;
         }
         throw new RuntimeException("Response is null.");

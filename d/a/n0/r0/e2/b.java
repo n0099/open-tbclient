@@ -11,10 +11,10 @@ import d.a.n0.e3.w;
 public class b extends j {
 
     /* renamed from: h  reason: collision with root package name */
-    public final CustomMessageListener f58461h;
+    public final CustomMessageListener f62152h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d.a.c.a.e f58462i;
+    public final d.a.c.a.e f62153i;
     public final d.a.c.a.e j;
 
     /* loaded from: classes4.dex */
@@ -35,8 +35,8 @@ public class b extends j {
 
     /* renamed from: d.a.n0.r0.e2.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1492b extends d.a.c.a.e {
-        public C1492b(b bVar) {
+    public class C1548b extends d.a.c.a.e {
+        public C1548b(b bVar) {
         }
 
         @Override // d.a.c.a.e
@@ -57,54 +57,54 @@ public class b extends j {
             if (obj instanceof Boolean ? ((Boolean) obj).booleanValue() : false) {
                 return;
             }
-            b.this.f58538b.refresh();
+            b.this.f62229b.refresh();
         }
     }
 
     public b(FrsFragment frsFragment) {
         super(frsFragment);
-        this.f58461h = new a(2001266);
-        this.f58462i = new C1492b(this);
+        this.f62152h = new a(2001266);
+        this.f62153i = new C1548b(this);
         this.j = new c();
-        frsFragment.registerListener(this.f58461h);
+        frsFragment.registerListener(this.f62152h);
     }
 
     public final void b(w wVar) {
         if (wVar == null) {
             return;
         }
-        FrsViewData g0 = this.f58538b.g0();
-        if (this.f58541e == null || this.f58540d == null || this.f58537a == null || g0 == null || g0.getForum() == null || wVar.g() == null) {
+        FrsViewData j0 = this.f62229b.j0();
+        if (this.f62232e == null || this.f62231d == null || this.f62228a == null || j0 == null || j0.getForum() == null || wVar.g() == null) {
             return;
         }
         boolean z = wVar.l() == 1;
-        if (wVar.g().equals(g0.getForum().getId())) {
-            g0.getForum().setLike(wVar.l());
+        if (wVar.g().equals(j0.getForum().getId())) {
+            j0.getForum().setLike(wVar.l());
             if (!StringUtils.isNULL(wVar.h())) {
-                g0.getForum().setLevelName(wVar.h());
+                j0.getForum().setLevelName(wVar.h());
             }
             if (wVar.k() >= 0) {
-                g0.getForum().setUser_level(wVar.k());
+                j0.getForum().setUser_level(wVar.k());
             }
             if (z) {
-                this.f58540d.h0(g0, false);
-                TbadkCoreApplication.getInst().addLikeForum(this.f58538b.g());
+                this.f62231d.h0(j0, false);
+                TbadkCoreApplication.getInst().addLikeForum(this.f62229b.h());
                 return;
             }
-            d.a.n0.e3.e.i().n(this.f58538b.g(), false);
-            g0.getForum().setLike(0);
-            this.f58540d.m0();
-            TbadkCoreApplication.getInst().delLikeForum(this.f58538b.g());
+            d.a.n0.e3.e.i().n(this.f62229b.h(), false);
+            j0.getForum().setLike(0);
+            this.f62231d.k0();
+            TbadkCoreApplication.getInst().delLikeForum(this.f62229b.h());
             return;
         }
         if (wVar.l() == 1) {
-            g0.deleteLikeFeedForum(wVar.g());
-            this.f58540d.R(g0);
-            this.f58539c.d(g0, this.f58541e.N());
+            j0.deleteLikeFeedForum(wVar.g());
+            this.f62231d.R(j0);
+            this.f62230c.d(j0, this.f62232e.R());
         }
-        if (g0.getForum().getBannerListData() != null) {
-            g0.getForum().getBannerListData().setFeedForumLiked(wVar.g(), wVar.l());
+        if (j0.getForum().getBannerListData() != null) {
+            j0.getForum().getBannerListData().setFeedForumLiked(wVar.g(), wVar.l());
         }
-        this.f58537a.D0();
+        this.f62228a.D0();
     }
 }

@@ -1,13 +1,14 @@
 package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.cyberplayer.sdk.Keep;
+import com.kwai.video.player.misc.KsMediaFormat;
 @Keep
 /* loaded from: classes2.dex */
 public class CyberRTCSetting {
     public boolean HasVideo = true;
     public boolean HasAudio = true;
     public boolean HasData = false;
-    public String VideoCodec = "h264";
+    public String VideoCodec = KsMediaFormat.CODEC_NAME_H264;
     public String AudioCodec = "opus";
     public int AudioFrequency = 48000;
     public int AudioChannel = 1;

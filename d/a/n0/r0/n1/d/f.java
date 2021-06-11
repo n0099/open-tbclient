@@ -119,11 +119,11 @@ public class f extends d.a.n0.r0.k<a2, c> {
     public static class c extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.n0.r0.n1.g.d f59030a;
+        public d.a.n0.r0.n1.g.d f62721a;
 
         public c(d.a.n0.r0.n1.g.d dVar) {
-            super(dVar.l());
-            this.f59030a = dVar;
+            super(dVar.m());
+            this.f62721a = dVar;
         }
     }
 
@@ -134,26 +134,26 @@ public class f extends d.a.n0.r0.k<a2, c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: u0 */
-    public c P(ViewGroup viewGroup) {
-        d.a.n0.r0.n1.g.d dVar = new d.a.n0.r0.n1.g.d(this.o, this.f39232i);
-        dVar.B(this.o.getUniqueId());
-        dVar.H(this.w);
-        dVar.G(this.x);
-        dVar.K(0.5625d);
+    @Override // d.a.c.k.e.a
+    /* renamed from: v0 */
+    public c Q(ViewGroup viewGroup) {
+        d.a.n0.r0.n1.g.d dVar = new d.a.n0.r0.n1.g.d(this.o, this.f42913i);
+        dVar.F(this.o.getUniqueId());
+        dVar.I(this.w);
+        dVar.H(this.x);
+        dVar.L(0.5625d);
         return new c(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: v0 */
-    public View W(int i2, View view, ViewGroup viewGroup, a2 a2Var, c cVar) {
-        super.W(i2, view, viewGroup, a2Var, cVar);
-        cVar.f59030a.n(this.o, this.r);
-        cVar.f59030a.m(a2Var);
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: w0 */
+    public View X(int i2, View view, ViewGroup viewGroup, a2 a2Var, c cVar) {
+        super.X(i2, view, viewGroup, a2Var, cVar);
+        cVar.f62721a.o(this.o, this.r);
+        cVar.f62721a.n(a2Var);
         if (a2Var != null) {
-            a2Var.B4();
+            a2Var.C4();
         }
         return cVar.a();
     }

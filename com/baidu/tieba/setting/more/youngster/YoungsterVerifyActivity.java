@@ -64,7 +64,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         @Override // com.baidu.tbadk.browser.TbWebViewActivity.t, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             if (!StringUtils.isNull(str) && str.contains(TbConfig.URL_YOUNGSTER_VERIFY_AUTHID)) {
-                YoungsterVerifyActivity.this.youngsterVerifyModel.x(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
+                YoungsterVerifyActivity.this.youngsterVerifyModel.B(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
                 return true;
             }
             return super.shouldOverrideUrlLoading(webView, str);

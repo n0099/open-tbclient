@@ -10,15 +10,15 @@ import androidx.viewpager.widget.ViewPager;
 public class RecommendViewPager extends ViewPager {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f16215e;
+    public float f16283e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f16216f;
+    public float f16284f;
 
     public RecommendViewPager(@NonNull Context context) {
         super(context);
-        this.f16215e = 0.0f;
-        this.f16216f = 0.0f;
+        this.f16283e = 0.0f;
+        this.f16284f = 0.0f;
     }
 
     public void a(boolean z) {
@@ -41,10 +41,10 @@ public class RecommendViewPager extends ViewPager {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    float abs = Math.abs(motionEvent.getX() - this.f16215e);
-                    float abs2 = Math.abs(motionEvent.getY() - this.f16216f);
-                    this.f16215e = motionEvent.getX();
-                    this.f16216f = motionEvent.getY();
+                    float abs = Math.abs(motionEvent.getX() - this.f16283e);
+                    float abs2 = Math.abs(motionEvent.getY() - this.f16284f);
+                    this.f16283e = motionEvent.getX();
+                    this.f16284f = motionEvent.getY();
                     if (abs2 / abs < 1.0f && z) {
                         a(true);
                     } else {
@@ -54,15 +54,15 @@ public class RecommendViewPager extends ViewPager {
             }
             a(false);
         } else {
-            this.f16215e = motionEvent.getX();
-            this.f16216f = motionEvent.getY();
+            this.f16283e = motionEvent.getX();
+            this.f16284f = motionEvent.getY();
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public RecommendViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16215e = 0.0f;
-        this.f16216f = 0.0f;
+        this.f16283e = 0.0f;
+        this.f16284f = 0.0f;
     }
 }

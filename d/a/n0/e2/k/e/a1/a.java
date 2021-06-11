@@ -14,36 +14,36 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public PbFragment f53081a;
+    public PbFragment f56770a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.e2.i.c f53082b;
+    public d.a.n0.e2.i.c f56771b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f53083c = null;
+    public View f56772c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f53084d = null;
+    public View f56773d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f53085e = null;
+    public TextView f56774e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f53086f = null;
+    public View f56775f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f53087g = null;
+    public View f56776g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f53088h = null;
+    public View f56777h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public Button f53089i = null;
+    public Button f56778i = null;
 
     /* renamed from: d.a.n0.e2.k.e.a1.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnLongClickListenerC1258a implements View.OnLongClickListener {
-        public View$OnLongClickListenerC1258a(a aVar) {
+    public class View$OnLongClickListenerC1314a implements View.OnLongClickListener {
+        public View$OnLongClickListenerC1314a(a aVar) {
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -53,87 +53,87 @@ public class a {
     }
 
     public a(PbFragment pbFragment, d.a.n0.e2.i.c cVar) {
-        this.f53081a = pbFragment;
-        this.f53082b = cVar;
+        this.f56770a = pbFragment;
+        this.f56771b = cVar;
         d();
     }
 
     public void a(BdTypeListView bdTypeListView) {
-        bdTypeListView.addHeaderView(this.f53083c);
+        bdTypeListView.addHeaderView(this.f56772c);
     }
 
     public boolean b(boolean z) {
         boolean z2;
-        Button button = this.f53089i;
+        Button button = this.f56778i;
         if (button != null && button.getVisibility() == 0) {
-            View view = this.f53086f;
+            View view = this.f56775f;
             if (view != null) {
                 view.setVisibility(0);
             }
             z2 = true;
         } else {
-            View view2 = this.f53086f;
+            View view2 = this.f56775f;
             if (view2 != null) {
                 view2.setVisibility(8);
             }
             z2 = false;
         }
-        View view3 = this.f53088h;
+        View view3 = this.f56777h;
         if ((view3 == null || view3.getVisibility() == 8) && z2 && z) {
-            this.f53087g.setVisibility(0);
+            this.f56776g.setVisibility(0);
         } else {
-            this.f53087g.setVisibility(8);
+            this.f56776g.setVisibility(8);
         }
         return z2;
     }
 
     public View c() {
-        return this.f53083c;
+        return this.f56772c;
     }
 
     public final void d() {
-        View inflate = LayoutInflater.from(this.f53081a.getPageContext().getPageActivity()).inflate(R.layout.new_pb_header_item, (ViewGroup) null);
-        this.f53083c = inflate;
-        inflate.setOnTouchListener(this.f53082b);
-        View findViewById = this.f53083c.findViewById(R.id.pb_head_activity_join_number_container);
-        this.f53084d = findViewById;
+        View inflate = LayoutInflater.from(this.f56770a.getPageContext().getPageActivity()).inflate(R.layout.new_pb_header_item, (ViewGroup) null);
+        this.f56772c = inflate;
+        inflate.setOnTouchListener(this.f56771b);
+        View findViewById = this.f56772c.findViewById(R.id.pb_head_activity_join_number_container);
+        this.f56773d = findViewById;
         findViewById.setVisibility(8);
-        this.f53085e = (TextView) this.f53083c.findViewById(R.id.pb_head_activity_join_number);
-        this.f53086f = this.f53083c.findViewById(R.id.new_pb_header_item_line_above_livepost);
-        this.f53087g = this.f53083c.findViewById(R.id.new_pb_header_item_line_below_livepost);
-        this.f53083c.setOnLongClickListener(new View$OnLongClickListenerC1258a(this));
+        this.f56774e = (TextView) this.f56772c.findViewById(R.id.pb_head_activity_join_number);
+        this.f56775f = this.f56772c.findViewById(R.id.new_pb_header_item_line_above_livepost);
+        this.f56776g = this.f56772c.findViewById(R.id.new_pb_header_item_line_below_livepost);
+        this.f56772c.setOnLongClickListener(new View$OnLongClickListenerC1314a(this));
     }
 
     public void e(int i2) {
-        this.f53081a.getBaseFragmentActivity().getLayoutMode().j(this.f53083c);
+        this.f56770a.getBaseFragmentActivity().getLayoutMode().j(this.f56772c);
     }
 
     public void f(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            bdTypeListView.removeHeaderView(this.f53083c);
+            bdTypeListView.removeHeaderView(this.f56772c);
         }
     }
 
     public void g(d.a.n0.e2.h.e eVar) {
         ArrayList<d.a.m0.r.q.b> E = eVar.L().E();
         if (E != null && E.size() > 0) {
-            this.f53085e.setText(String.valueOf(E.get(0).f()));
-            this.f53084d.setVisibility(0);
+            this.f56774e.setText(String.valueOf(E.get(0).f()));
+            this.f56773d.setVisibility(0);
         } else {
-            this.f53084d.setVisibility(8);
+            this.f56773d.setVisibility(8);
         }
-        SkinManager.setBackgroundResource(this.f53084d, R.drawable.activity_join_num_bg);
-        SkinManager.setViewTextColor(this.f53085e, R.color.CAM_X0305, 1);
+        SkinManager.setBackgroundResource(this.f56773d, R.drawable.activity_join_num_bg);
+        SkinManager.setViewTextColor(this.f56774e, R.color.CAM_X0305, 1);
     }
 
     public void h(d.a.n0.e2.h.e eVar, boolean z) {
         boolean b2 = b(z);
         if (eVar == null || eVar.w() == null || eVar.w().c() != 0 || !z) {
-            this.f53087g.setVisibility(8);
+            this.f56776g.setVisibility(8);
         } else if (b2) {
-            this.f53087g.setVisibility(0);
+            this.f56776g.setVisibility(0);
         } else {
-            this.f53087g.setVisibility(8);
+            this.f56776g.setVisibility(8);
         }
     }
 }

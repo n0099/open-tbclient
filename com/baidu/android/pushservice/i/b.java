@@ -30,13 +30,13 @@ import org.apache.http.protocol.HTTP;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f3402b;
+    public static b f3421b;
 
     /* renamed from: a  reason: collision with root package name */
-    public OkHttpClient f3403a = a();
+    public OkHttpClient f3422a = a();
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f3404c;
+    public Context f3423c;
 
     /* loaded from: classes.dex */
     public class a implements Interceptor {
@@ -82,14 +82,14 @@ public class b {
     }
 
     public b(Context context) {
-        this.f3404c = context;
+        this.f3423c = context;
     }
 
     public static b a(Context context) {
-        if (f3402b == null) {
-            f3402b = new b(context);
+        if (f3421b == null) {
+            f3421b = new b(context);
         }
-        return f3402b;
+        return f3421b;
     }
 
     private OkHttpClient a() {
@@ -108,9 +108,9 @@ public class b {
     public String[] a(byte[] bArr) {
         try {
             a.c a2 = a.c.a(bArr);
-            if (this.f3403a.pingIntervalMillis() != a2.i()) {
-                this.f3403a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
-                this.f3403a = this.f3403a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
+            if (this.f3422a.pingIntervalMillis() != a2.i()) {
+                this.f3422a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
+                this.f3422a = this.f3422a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(a2.d()), a2.f()};
         } catch (InvalidProtocolBufferException unused) {
@@ -119,21 +119,21 @@ public class b {
     }
 
     private byte[] b(byte[] bArr, String str) {
-        a.C0053a.C0054a.C0055a e2 = a.C0053a.C0054a.e();
+        a.C0054a.C0055a.C0056a e2 = a.C0054a.C0055a.e();
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        a.C0053a.C0054a build = e2.a(str).build();
+        a.C0054a.C0055a build = e2.a(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return a.C0053a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.i.a.a(this.f3404c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+        return a.C0054a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.i.a.a(this.f3423c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     public void a(Map<String, String> map, byte[] bArr, String str, final c cVar) {
         Request a2 = a(bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 1000.0d)));
-        if (this.f3403a == null) {
-            this.f3403a = a();
+        if (this.f3422a == null) {
+            this.f3422a = a();
         }
-        this.f3403a.newCall(a2).enqueue(new Callback() { // from class: com.baidu.android.pushservice.i.b.1
+        this.f3422a.newCall(a2).enqueue(new Callback() { // from class: com.baidu.android.pushservice.i.b.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 String str2 = "Request error :" + iOException.toString();

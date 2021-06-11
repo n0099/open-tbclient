@@ -29,35 +29,35 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    public static final boolean j = k.f43199a;
+    public static final boolean j = k.f46875a;
     public static volatile c k;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanCoreVersion f47510c;
+    public SwanCoreVersion f51184c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExtensionCore f47511d;
+    public ExtensionCore f51185d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.h.o.e f47512e;
+    public d.a.l0.h.o.e f51186e;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47514g;
+    public boolean f51188g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f47515h;
+    public boolean f51189h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f47516i;
+    public String f51190i;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f47508a = -1;
+    public int f51182a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f47509b = new Object();
+    public final Object f51183b = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<f> f47513f = new CopyOnWriteArrayList();
+    public List<f> f51187f = new CopyOnWriteArrayList();
 
     /* loaded from: classes3.dex */
     public class a implements f {
@@ -91,10 +91,10 @@ public class c {
 
     /* renamed from: d.a.l0.h.o.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1036c implements f {
+    public class C1092c implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.c f47517a;
+        public final /* synthetic */ a.c f51191a;
 
         /* renamed from: d.a.l0.h.o.c$c$a */
         /* loaded from: classes3.dex */
@@ -105,22 +105,22 @@ public class c {
             @Override // java.lang.Runnable
             public void run() {
                 SwanAppActivity activity;
-                if (c.this.f47515h || c.this.f47512e == null || (activity = d.a.l0.a.g1.f.V().getActivity()) == null || activity.isFinishing() || activity.getSwanAppFragmentManager() == null) {
+                if (c.this.f51189h || c.this.f51186e == null || (activity = d.a.l0.a.g1.f.V().getActivity()) == null || activity.isFinishing() || activity.getSwanAppFragmentManager() == null) {
                     return;
                 }
                 if (c.j) {
-                    Log.d("SwanGameCoreRuntime", "loadAppJs start: " + c.this.f47516i);
+                    Log.d("SwanGameCoreRuntime", "loadAppJs start: " + c.this.f51190i);
                 }
-                c.this.f47512e.k(activity);
-                c.this.f47512e.t(C1036c.this.f47517a);
+                c.this.f51186e.k(activity);
+                c.this.f51186e.t(C1092c.this.f51191a);
                 if (c.this.v()) {
                     c.this.F(activity);
                 }
             }
         }
 
-        public C1036c(a.c cVar) {
-            this.f47517a = cVar;
+        public C1092c(a.c cVar) {
+            this.f51191a = cVar;
         }
 
         @Override // d.a.l0.h.o.c.f
@@ -131,17 +131,17 @@ public class c {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements e.InterfaceC1037e {
+    public class d implements e.InterfaceC1093e {
         public d() {
         }
 
-        @Override // d.a.l0.h.o.e.InterfaceC1037e
+        @Override // d.a.l0.h.o.e.InterfaceC1093e
         public void a(d.a.l0.a.l0.a aVar) {
             if (c.j) {
                 Log.d("SwanGameCoreRuntime", "prepareMaster end.");
             }
-            synchronized (c.this.f47509b) {
-                c.this.f47514g = true;
+            synchronized (c.this.f51183b) {
+                c.this.f51188g = true;
                 c.this.w();
             }
         }
@@ -171,9 +171,9 @@ public class c {
             if (k == null) {
                 return;
             }
-            k.f47515h = true;
-            if (k.f47512e != null) {
-                k.f47512e.m();
+            k.f51189h = true;
+            if (k.f51186e != null) {
+                k.f51186e.m();
             }
             k = null;
             m().y();
@@ -192,19 +192,19 @@ public class c {
     }
 
     public final void A() {
-        synchronized (this.f47509b) {
-            if (!this.f47514g && this.f47512e == null) {
+        synchronized (this.f51183b) {
+            if (!this.f51188g && this.f51186e == null) {
                 K();
                 J();
                 String l = l();
-                if (TextUtils.isEmpty(l) || this.f47515h) {
+                if (TextUtils.isEmpty(l) || this.f51189h) {
                     return;
                 }
                 if (j) {
                     Log.d("SwanGameCoreRuntime", "prepareMaster start: " + l);
                 }
                 d.a.l0.h.o.e eVar = new d.a.l0.h.o.e(l, "swan-game.js");
-                this.f47512e = eVar;
+                this.f51186e = eVar;
                 eVar.v(new d());
             }
         }
@@ -214,8 +214,8 @@ public class c {
         if (j) {
             Log.d("SwanGameCoreRuntime", "prepareRuntime");
         }
-        if (fVar != null && !this.f47513f.contains(fVar)) {
-            this.f47513f.add(fVar);
+        if (fVar != null && !this.f51187f.contains(fVar)) {
+            this.f51187f.add(fVar);
         }
         if (u()) {
             w();
@@ -227,9 +227,9 @@ public class c {
     public void D(ExtensionCore extensionCore) {
         if (extensionCore != null && extensionCore.a()) {
             if (j) {
-                Log.d("SwanGameCoreRuntime", "setExtensionCore: " + this.f47511d);
+                Log.d("SwanGameCoreRuntime", "setExtensionCore: " + this.f51185d);
             }
-            this.f47511d = extensionCore;
+            this.f51185d = extensionCore;
         } else if (j) {
             StringBuilder sb = new StringBuilder();
             sb.append("setExtensionCore invalid: ");
@@ -246,9 +246,9 @@ public class c {
         if (swanCoreVersion == null || !swanCoreVersion.a()) {
             return;
         }
-        this.f47510c = swanCoreVersion;
+        this.f51184c = swanCoreVersion;
         if (j) {
-            Log.d("SwanGameCoreRuntime", "setSwanCoreVersion: " + this.f47510c);
+            Log.d("SwanGameCoreRuntime", "setSwanCoreVersion: " + this.f51184c);
         }
     }
 
@@ -265,16 +265,16 @@ public class c {
     }
 
     public void G(d.a.l0.a.f1.e.b bVar) {
-        ExtensionCore extensionCore = this.f47511d;
+        ExtensionCore extensionCore = this.f51185d;
         if (extensionCore != null) {
             bVar.B0(extensionCore);
         } else {
-            this.f47511d = bVar.O();
+            this.f51185d = bVar.O();
         }
     }
 
     public void H() {
-        d.a.l0.h.o.e eVar = this.f47512e;
+        d.a.l0.h.o.e eVar = this.f51186e;
         if (eVar != null) {
             eVar.o().E0();
         }
@@ -282,17 +282,17 @@ public class c {
 
     public void I(d.a.l0.a.f1.e.b bVar) {
         K();
-        SwanCoreVersion swanCoreVersion = this.f47510c;
+        SwanCoreVersion swanCoreVersion = this.f51184c;
         if (swanCoreVersion != null) {
             bVar.X0(swanCoreVersion);
         }
         if (j) {
-            Log.d("SwanGameCoreRuntime", "syncSwanCore mSwanCoreVersion: " + this.f47510c);
+            Log.d("SwanGameCoreRuntime", "syncSwanCore mSwanCoreVersion: " + this.f51184c);
         }
     }
 
     public final void J() {
-        ExtensionCore extensionCore = this.f47511d;
+        ExtensionCore extensionCore = this.f51185d;
         if (extensionCore == null || !extensionCore.a()) {
             if (j) {
                 Log.w("SwanGameCoreRuntime", "updateExtensionCoreIfNeeded: ExtensionCore is invalid");
@@ -302,28 +302,28 @@ public class c {
     }
 
     public final void K() {
-        SwanCoreVersion swanCoreVersion = this.f47510c;
+        SwanCoreVersion swanCoreVersion = this.f51184c;
         if (swanCoreVersion == null || !swanCoreVersion.a()) {
             E(o());
         }
     }
 
     public void h(Activity activity) {
-        d.a.l0.h.o.e eVar = this.f47512e;
+        d.a.l0.h.o.e eVar = this.f51186e;
         if (eVar != null) {
             eVar.k(activity);
         }
     }
 
     public void i(JSEvent jSEvent) {
-        d.a.l0.h.o.e eVar = this.f47512e;
+        d.a.l0.h.o.e eVar = this.f51186e;
         if (eVar != null) {
             eVar.o().F(jSEvent);
         }
     }
 
     public int j() {
-        d.a.l0.h.o.e eVar = this.f47512e;
+        d.a.l0.h.o.e eVar = this.f51186e;
         if (eVar != null) {
             return eVar.n();
         }
@@ -332,16 +332,16 @@ public class c {
 
     @Nullable
     public ExtensionCore k() {
-        return this.f47511d;
+        return this.f51185d;
     }
 
     public final String l() {
-        SwanCoreVersion swanCoreVersion = this.f47510c;
-        return (swanCoreVersion == null || !swanCoreVersion.a()) ? "" : this.f47510c.swanCorePath;
+        SwanCoreVersion swanCoreVersion = this.f51184c;
+        return (swanCoreVersion == null || !swanCoreVersion.a()) ? "" : this.f51184c.swanCorePath;
     }
 
     public d.a.l0.a.l0.a n() {
-        d.a.l0.h.o.e eVar = this.f47512e;
+        d.a.l0.h.o.e eVar = this.f51186e;
         if (eVar != null) {
             return eVar.o();
         }
@@ -350,15 +350,15 @@ public class c {
 
     public final SwanCoreVersion o() {
         if (d.a.l0.h.p.a.c.a(AsInstallService.SCHEME_PACKAGE_ADDED)) {
-            if (TextUtils.isEmpty(this.f47516i)) {
+            if (TextUtils.isEmpty(this.f51190i)) {
                 return null;
             }
-            if (!new File(this.f47516i, "swan-game.js").exists()) {
+            if (!new File(this.f51190i, "swan-game.js").exists()) {
                 q0.b0(new e(this));
                 return d.a.l0.a.m2.b.g(1);
             }
             SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-            swanCoreVersion.swanCorePath = this.f47516i;
+            swanCoreVersion.swanCorePath = this.f51190i;
             swanCoreVersion.swanCoreType = 2;
             return swanCoreVersion;
         } else if (!d.a.l0.h.p.a.c.a("normal") && !d.a.l0.a.u1.a.a.h()) {
@@ -375,14 +375,14 @@ public class c {
     }
 
     public final int p() {
-        if (this.f47508a < 0) {
+        if (this.f51182a < 0) {
             d.a.l0.a.c1.a.Z().getSwitch("swan_game_preload", 0);
-            this.f47508a = 0;
+            this.f51182a = 0;
         }
         if (j) {
-            Log.d("SwanGameCoreRuntime", "getPreLoadABSwitch:" + this.f47508a);
+            Log.d("SwanGameCoreRuntime", "getPreLoadABSwitch:" + this.f51182a);
         }
-        return this.f47508a;
+        return this.f51182a;
     }
 
     public boolean q() {
@@ -394,7 +394,7 @@ public class c {
     }
 
     public DuMixGameSurfaceView r() {
-        d.a.l0.h.o.e eVar = this.f47512e;
+        d.a.l0.h.o.e eVar = this.f51186e;
         if (eVar != null) {
             return eVar.p();
         }
@@ -402,7 +402,7 @@ public class c {
     }
 
     public SwanCoreVersion s() {
-        return this.f47510c;
+        return this.f51184c;
     }
 
     public final boolean t(Intent intent) {
@@ -415,45 +415,45 @@ public class c {
 
     public boolean u() {
         boolean z;
-        synchronized (this.f47509b) {
-            z = this.f47514g && this.f47512e != null;
+        synchronized (this.f51183b) {
+            z = this.f51188g && this.f51186e != null;
         }
         return z;
     }
 
     public boolean v() {
         DuMixGameSurfaceView r;
-        return (this.f47515h || (r = r()) == null || r.getParent() != null) ? false : true;
+        return (this.f51189h || (r = r()) == null || r.getParent() != null) ? false : true;
     }
 
     public final void w() {
-        if (this.f47515h || this.f47513f.isEmpty() || !u()) {
+        if (this.f51189h || this.f51187f.isEmpty() || !u()) {
             return;
         }
-        for (f fVar : this.f47513f) {
+        for (f fVar : this.f51187f) {
             if (fVar != null) {
                 fVar.onReady();
             }
         }
-        this.f47513f.clear();
+        this.f51187f.clear();
     }
 
     public void x(a.c cVar) {
         if (j) {
             Log.d("SwanGameCoreRuntime", "onAppReady");
         }
-        if (cVar == null || TextUtils.isEmpty(cVar.f47674a)) {
+        if (cVar == null || TextUtils.isEmpty(cVar.f51348a)) {
             return;
         }
-        this.f47516i = cVar.f47674a;
+        this.f51190i = cVar.f51348a;
         h.p("startup").A("preload", u() ? "1" : "0");
         h.p("startup").C(new UbcFlowEvent("na_prepare_runtime_start"));
         boolean b2 = d.a.l0.a.h2.d.c().b();
         boolean b3 = d.a.l0.a.h2.d.b();
         if (b2 && b3) {
-            B(new C1036c(cVar));
-            if (this.f47512e != null) {
-                d.a.l0.h.y.e.b.b().f(this.f47512e.o(), cVar);
+            B(new C1092c(cVar));
+            if (this.f51186e != null) {
+                d.a.l0.h.y.e.b.b().f(this.f51186e.o(), cVar);
                 return;
             }
             return;

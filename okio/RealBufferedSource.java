@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import javax.annotation.Nullable;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class RealBufferedSource implements BufferedSource {
     public final Buffer buffer = new Buffer();
     public boolean closed;

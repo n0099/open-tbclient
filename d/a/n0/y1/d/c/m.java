@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.a.c.j.e.s;
+import d.a.c.k.e.s;
 import d.a.i.e0;
 import d.a.i.l0;
 import d.a.m0.r.q.n1;
@@ -90,9 +90,9 @@ public class m extends d.a.n0.y1.d.c.a<o1, ThreadCardViewHolder<o1>> implements 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: i0 */
-    public ThreadCardViewHolder P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: j0 */
+    public ThreadCardViewHolder Q(ViewGroup viewGroup) {
         l0.b bVar = new l0.b(this.o.getPageActivity(), false);
         e0 e0Var = new e0(this.o, this.n);
         e0Var.u(false);
@@ -107,14 +107,14 @@ public class m extends d.a.n0.y1.d.c.a<o1, ThreadCardViewHolder<o1>> implements 
         bVar.l().b(0);
         bVar.l().d(0);
         ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.p));
-        threadCardViewHolder.j(this.n);
+        threadCardViewHolder.k(this.n);
         return threadCardViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: j0 */
-    public View W(int i2, View view, ViewGroup viewGroup, o1 o1Var, ThreadCardViewHolder<o1> threadCardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: k0 */
+    public View X(int i2, View view, ViewGroup viewGroup, o1 o1Var, ThreadCardViewHolder<o1> threadCardViewHolder) {
         if (o1Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
             return null;
         }
@@ -127,7 +127,7 @@ public class m extends d.a.n0.y1.d.c.a<o1, ThreadCardViewHolder<o1>> implements 
         return threadCardViewHolder.a();
     }
 
-    public void m0(s sVar) {
+    public void l0(s sVar) {
         this.p = sVar;
     }
 }

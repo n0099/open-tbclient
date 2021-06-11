@@ -90,12 +90,12 @@ public class m extends d.o.a.e.b.g.c implements ServiceConnection {
         sb.append("onServiceConnected aidlService!=null");
         sb.append(this.m != null);
         sb.append(" pendingTasks.size:");
-        sb.append(this.f67199f.size());
+        sb.append(this.f70985f.size());
         d.o.a.e.b.c.a.g(str, sb.toString());
         if (this.m != null) {
             d.o.a.e.b.g.e.c().p();
-            this.f67200g = true;
-            this.f67202i = false;
+            this.f70986g = true;
+            this.f70988i = false;
             int i2 = this.o;
             if (i2 != -1) {
                 try {
@@ -104,10 +104,10 @@ public class m extends d.o.a.e.b.g.c implements ServiceConnection {
                     e2.printStackTrace();
                 }
             }
-            synchronized (this.f67199f) {
+            synchronized (this.f70985f) {
                 if (this.m != null) {
-                    SparseArray<d.o.a.e.b.n.a> clone = this.f67199f.clone();
-                    this.f67199f.clear();
+                    SparseArray<d.o.a.e.b.n.a> clone = this.f70985f.clone();
+                    this.f70985f.clear();
                     for (int i3 = 0; i3 < clone.size(); i3++) {
                         d.o.a.e.b.n.a aVar = clone.get(clone.keyAt(i3));
                         if (aVar != null) {
@@ -127,7 +127,7 @@ public class m extends d.o.a.e.b.g.c implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         d.o.a.e.b.c.a.g(p, "onServiceDisconnected ");
         this.m = null;
-        this.f67200g = false;
+        this.f70986g = false;
         d.o.a.e.b.g.n nVar = this.n;
         if (nVar != null) {
             nVar.h();
@@ -149,10 +149,10 @@ public class m extends d.o.a.e.b.g.c implements ServiceConnection {
             e(d.o.a.e.b.g.d.l(), this);
             return;
         }
-        if (this.f67199f.get(aVar.G()) != null) {
-            synchronized (this.f67199f) {
-                if (this.f67199f.get(aVar.G()) != null) {
-                    this.f67199f.remove(aVar.G());
+        if (this.f70985f.get(aVar.G()) != null) {
+            synchronized (this.f70985f) {
+                if (this.f70985f.get(aVar.G()) != null) {
+                    this.f70985f.remove(aVar.G());
                 }
             }
         }
@@ -161,9 +161,9 @@ public class m extends d.o.a.e.b.g.c implements ServiceConnection {
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
-        synchronized (this.f67199f) {
-            SparseArray<d.o.a.e.b.n.a> clone = this.f67199f.clone();
-            this.f67199f.clear();
+        synchronized (this.f70985f) {
+            SparseArray<d.o.a.e.b.n.a> clone = this.f70985f.clone();
+            this.f70985f.clear();
             if (d.o.a.e.b.g.d.c() != null) {
                 for (int i2 = 0; i2 < clone.size(); i2++) {
                     if (clone.get(clone.keyAt(i2)) != null) {

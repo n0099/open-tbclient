@@ -35,17 +35,17 @@ public class i extends d.a.i.a<d.a.m0.r.q.a> {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f40025e;
+        public final /* synthetic */ ViewGroup.LayoutParams f43706e;
 
         public a(ViewGroup.LayoutParams layoutParams) {
-            this.f40025e = layoutParams;
+            this.f43706e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f40025e.width = i.this.j.getWidth();
-            this.f40025e.height = (i.this.j.getWidth() / 16) * 9;
-            i.this.m.setLayoutParams(this.f40025e);
+            this.f43706e.width = i.this.j.getWidth();
+            this.f43706e.height = (i.this.j.getWidth() / 16) * 9;
+            i.this.m.setLayoutParams(this.f43706e);
         }
     }
 
@@ -55,12 +55,12 @@ public class i extends d.a.i.a<d.a.m0.r.q.a> {
         }
 
         @Override // d.a.i.v0.a.b
-        public boolean a(a.C0544a c0544a) {
+        public boolean a(a.C0600a c0600a) {
             RoundCornerFrameLayout roundCornerFrameLayout;
-            if (c0544a.b() != 7 || (roundCornerFrameLayout = i.this.m) == null) {
+            if (c0600a.b() != 7 || (roundCornerFrameLayout = i.this.m) == null) {
                 return false;
             }
-            roundCornerFrameLayout.d(((Boolean) c0544a.c()).booleanValue());
+            roundCornerFrameLayout.d(((Boolean) c0600a.c()).booleanValue());
             return false;
         }
     }
@@ -84,11 +84,11 @@ public class i extends d.a.i.a<d.a.m0.r.q.a> {
     @Override // d.a.i.a
     public View g() {
         if (this.j == null) {
-            View inflate = LayoutInflater.from(this.f40008f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+            View inflate = LayoutInflater.from(this.f43689f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
             this.j = inflate;
             this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
             this.m = (RoundCornerFrameLayout) this.j.findViewById(R.id.frame_video);
-            FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f40008f);
+            FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f43689f);
             this.n = fakeVideoContainer;
             fakeVideoContainer.setBackgroundResource(R.color.transparent);
             this.m.addView(this.n);
@@ -132,19 +132,19 @@ public class i extends d.a.i.a<d.a.m0.r.q.a> {
             this.o = k;
         }
         this.l = aVar;
-        if (aVar == null || aVar.m() == null || this.l.m().w1() == null) {
+        if (aVar == null || aVar.i() == null || this.l.i().x1() == null) {
             return;
         }
-        this.n.setData(aVar.m());
+        this.n.setData(aVar.i());
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
         int i3 = layoutParams.width;
         int i4 = layoutParams.height;
         boolean z2 = false;
-        if (this.l.m().w1().is_vertical.intValue() == 1) {
+        if (this.l.i().x1().is_vertical.intValue() == 1) {
             int i5 = (u / 9) * 16;
             int i6 = v;
-            int intValue = this.l.m().w1().video_width.intValue();
-            int intValue2 = this.l.m().w1().video_height.intValue();
+            int intValue = this.l.i().x1().video_width.intValue();
+            int intValue2 = this.l.i().x1().video_height.intValue();
             int i7 = u;
             layoutParams.width = i7;
             boolean z3 = i3 != i7;
@@ -167,18 +167,18 @@ public class i extends d.a.i.a<d.a.m0.r.q.a> {
             z = (i4 == i10 && i3 == i9) ? false : true;
         }
         if (z) {
-            if (this.l.m().w1().is_vertical.intValue() == 1) {
+            if (this.l.i().x1().is_vertical.intValue() == 1) {
                 this.m.setLayoutParams(layoutParams);
             } else {
                 this.m.post(new a(layoutParams));
             }
         }
-        if (this.l.m().S1()) {
+        if (this.l.i().T1()) {
             this.k.setMaxLines(5);
-            ThreadCardUtils.setTitle(this.k, this.l.m(), t, this.p);
+            ThreadCardUtils.setTitle(this.k, this.l.i(), t, this.p);
         } else {
             this.k.setMaxLines(2);
-            ThreadCardUtils.setTitle(this.k, this.l.m(), 0, this.p);
+            ThreadCardUtils.setTitle(this.k, this.l.i(), 0, this.p);
         }
         TextView textView = this.k;
         ThreadCardUtils.dealMainViewTopMargin(this.m, (textView == null || textView.getVisibility() != 0) ? true : true, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
@@ -187,10 +187,10 @@ public class i extends d.a.i.a<d.a.m0.r.q.a> {
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         d.a.m0.r.q.a aVar = this.l;
-        if (aVar == null || aVar.m() == null) {
+        if (aVar == null || aVar.i() == null) {
             return;
         }
-        d.a.n0.z.m.l(this.k, this.l.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        d.a.n0.z.m.l(this.k, this.l.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.m.c(i2);
         this.m.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }

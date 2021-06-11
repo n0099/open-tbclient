@@ -8,16 +8,16 @@ import org.json.JSONObject;
 public class h extends e<String> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final g.a f48031e;
+    public final g.a f51705e;
 
     public h(g.a aVar) {
-        this.f48031e = aVar;
+        this.f51705e = aVar;
     }
 
     @Override // d.a.l0.n.i.g.a
     public void a(String str, String str2, JSONObject jSONObject) {
         if (c()) {
-            this.f48031e.a(str, str2, jSONObject);
+            this.f51705e.a(str, str2, jSONObject);
         }
     }
 
@@ -26,12 +26,12 @@ public class h extends e<String> {
     /* renamed from: b */
     public void onSuccess(String str, int i2) {
         if (c()) {
-            this.f48031e.b(str, i2);
+            this.f51705e.b(str, i2);
         }
     }
 
     public final boolean c() {
-        return this.f48031e != null;
+        return this.f51705e != null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,14 +53,14 @@ public class h extends e<String> {
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onFail(Exception exc) {
         if (c()) {
-            this.f48031e.onFail(exc);
+            this.f51705e.onFail(exc);
         }
     }
 
     @Override // d.a.l0.n.i.g.a
     public void onStart() {
         if (c()) {
-            this.f48031e.onStart();
+            this.f51705e.onStart();
         }
     }
 }

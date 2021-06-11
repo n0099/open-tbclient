@@ -20,29 +20,29 @@ public class e extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46326e;
+        public final /* synthetic */ Context f50000e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46327f;
+        public final /* synthetic */ CallbackHandler f50001f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46328g;
+        public final /* synthetic */ String f50002g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46329h;
+        public final /* synthetic */ String f50003h;
 
         public a(Context context, CallbackHandler callbackHandler, String str, String str2) {
-            this.f46326e = context;
-            this.f46327f = callbackHandler;
-            this.f46328g = str;
-            this.f46329h = str2;
+            this.f50000e = context;
+            this.f50001f = callbackHandler;
+            this.f50002g = str;
+            this.f50003h = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
-            e.this.l(iVar, this.f46326e, this.f46327f, this.f46328g, this.f46329h);
+            e.this.l(iVar, this.f50000e, this.f50001f, this.f50002g, this.f50003h);
         }
     }
 
@@ -50,18 +50,18 @@ public class e extends a0 {
     public class b implements d.a.l0.a.v2.e1.b<Bundle> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46331e;
+        public final /* synthetic */ String f50005e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46332f;
+        public final /* synthetic */ CallbackHandler f50006f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46333g;
+        public final /* synthetic */ String f50007g;
 
         public b(e eVar, String str, CallbackHandler callbackHandler, String str2) {
-            this.f46331e = str;
-            this.f46332f = callbackHandler;
-            this.f46333g = str2;
+            this.f50005e = str;
+            this.f50006f = callbackHandler;
+            this.f50007g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,23 +69,23 @@ public class e extends a0 {
         /* renamed from: a */
         public void onCallback(Bundle bundle) {
             JSONObject wrapCallbackParams;
-            if (bundle != null && !TextUtils.isEmpty(bundle.getString(this.f46331e))) {
-                String string = bundle.getString(this.f46331e);
+            if (bundle != null && !TextUtils.isEmpty(bundle.getString(this.f50005e))) {
+                String string = bundle.getString(this.f50005e);
                 d.a.l0.a.e0.d.g("GetStokenAction", "stoken=" + string);
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("stoken", string);
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
                 } catch (JSONException e2) {
-                    if (a0.f40949b) {
+                    if (a0.f44625b) {
                         Log.d("SwanAppAction", e2.getMessage());
                     }
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
                 }
-                this.f46332f.handleSchemeDispatchCallback(this.f46333g, wrapCallbackParams.toString());
+                this.f50006f.handleSchemeDispatchCallback(this.f50007g, wrapCallbackParams.toString());
                 return;
             }
-            this.f46332f.handleSchemeDispatchCallback(this.f46333g, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is invalid").toString());
+            this.f50006f.handleSchemeDispatchCallback(this.f50007g, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is invalid").toString());
         }
     }
 

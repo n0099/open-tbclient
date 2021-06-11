@@ -3,5 +3,5 @@ package d.a.j0.b;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f40267a = "2s3neoRGrtMfJHEASAvJDkdImW3sImg0pRReW5cWEQQB2HfrzauSCia/ssvfdE6q";
+    public static final String f43948a = "2s3neoRGrtMfJHEASAvJDkdImW3sImg0pRReW5cWEQQB2HfrzauSCia/ssvfdE6q";
 }

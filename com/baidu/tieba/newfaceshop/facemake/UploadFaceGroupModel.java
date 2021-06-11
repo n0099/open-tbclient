@@ -23,7 +23,7 @@ import java.util.List;
 public class UploadFaceGroupModel extends FaceBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f18595e = new a(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+    public final HttpMessageListener f18671e = new a(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -59,20 +59,20 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 if (obj3 != null && (obj3 instanceof Boolean)) {
                     z = ((Boolean) obj3).booleanValue();
                     if (arrayList != null) {
-                        UploadFaceGroupModel.this.t(lVar, null);
+                        UploadFaceGroupModel.this.x(lVar, null);
                         BdLog.e("msg extra empty");
                         return;
                     } else if (httpResponsedMessage.getError() != 0) {
-                        UploadFaceGroupModel.this.t(lVar, httpResponsedMessage.getErrorString());
+                        UploadFaceGroupModel.this.x(lVar, httpResponsedMessage.getErrorString());
                         return;
                     } else {
                         String groupId = ((UploadFaceGroupResponseMessage) httpResponsedMessage).getGroupId();
                         if (TextUtils.isEmpty(groupId)) {
-                            UploadFaceGroupModel.this.t(lVar, httpResponsedMessage.getErrorString());
+                            UploadFaceGroupModel.this.x(lVar, httpResponsedMessage.getErrorString());
                             return;
                         }
                         if (lVar != null) {
-                            lVar.b(groupId, arrayList);
+                            lVar.a(groupId, arrayList);
                         }
                         e.l().u(true, httpResponsedMessage.getErrorString());
                         if (z) {
@@ -95,9 +95,9 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public UploadFaceGroupModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f18595e.setTag(getUniqueId());
-        this.f18595e.setSelfListener(true);
-        registerListener(this.f18595e);
+        this.f18671e.setTag(getUniqueId());
+        this.f18671e.setSelfListener(true);
+        registerListener(this.f18671e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,7 +107,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f18595e);
+        MessageManager.getInstance().unRegisterListener(this.f18671e);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         return true;
     }
@@ -118,14 +118,14 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public final void t(e.l lVar, String str) {
+    public final void x(e.l lVar, String str) {
         if (lVar != null) {
-            lVar.a(str);
+            lVar.onFail(str);
         }
         e.l().u(false, str);
     }
 
-    public void u(String str, List<FaceData> list, e.l lVar, int i2) {
+    public void y(String str, List<FaceData> list, e.l lVar, int i2) {
         if (list != null && !list.isEmpty()) {
             StringBuilder sb = new StringBuilder();
             for (int i3 = 0; i3 < list.size(); i3++) {
@@ -153,6 +153,6 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             sendMessage(httpMessage);
             return;
         }
-        t(lVar, "empty list");
+        x(lVar, "empty list");
     }
 }

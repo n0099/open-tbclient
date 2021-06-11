@@ -20,7 +20,7 @@ public class d0 extends c implements p<a2>, q {
     public static final int s = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f40020i;
+    public RelativeLayout f43701i;
     public ImageView j;
     public FrameLayout k;
     public a2 l;
@@ -51,7 +51,7 @@ public class d0 extends c implements p<a2>, q {
     public d0(Context context, int i2) {
         this.n = 0;
         this.n = i2;
-        this.f40020i = new RelativeLayout(context);
+        this.f43701i = new RelativeLayout(context);
         this.j = new ImageView(context);
         FrameLayout frameLayout = new FrameLayout(context);
         this.k = frameLayout;
@@ -60,8 +60,8 @@ public class d0 extends c implements p<a2>, q {
         frameLayout.addView(imageView, new FrameLayout.LayoutParams(i3, i3));
         this.k.setOnClickListener(this.r);
         m(Align.ALIGN_RIGHT_BOTTOM);
-        this.f40020i.addView(this.k);
-        g(this.f40020i);
+        this.f43701i.addView(this.k);
+        g(this.f43701i);
         h(-1);
         i(new RelativeLayout.LayoutParams(-1, -1));
     }

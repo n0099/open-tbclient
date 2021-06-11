@@ -20,7 +20,7 @@ public class a extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.a> {
         Object obj = command.obj;
         if (obj instanceof JSONObject) {
             JSONObject jSONObject = (JSONObject) obj;
-            aVar.t(jSONObject.optInt("focusWidth"), jSONObject.optInt("focusHeight"), jSONObject.optInt("focusX"), jSONObject.optInt("focusY"));
+            aVar.s(jSONObject.optInt("focusWidth"), jSONObject.optInt("focusHeight"), jSONObject.optInt("focusX"), jSONObject.optInt("focusY"));
         }
     }
 }

@@ -8,17 +8,17 @@ import java.io.PrintStream;
 import java.util.Queue;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f implements k {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f68673g;
+    public static final int f71929g;
 
     /* renamed from: e  reason: collision with root package name */
-    public Queue<Object> f68674e;
+    public Queue<Object> f71930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile Object f68675f;
+    public volatile Object f71931f;
 
     static {
         int i2 = e.c() ? 16 : 128;
@@ -31,23 +31,23 @@ public class f implements k {
                 printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e2.getMessage());
             }
         }
-        f68673g = i2;
+        f71929g = i2;
     }
 
     public f(Queue<Object> queue, int i2) {
-        this.f68674e = queue;
+        this.f71930e = queue;
     }
 
     public static f a() {
         if (f0.b()) {
-            return new f(true, f68673g);
+            return new f(true, f71929g);
         }
         return new f();
     }
 
     public static f b() {
         if (f0.b()) {
-            return new f(false, f68673g);
+            return new f(false, f71929g);
         }
         return new f();
     }
@@ -61,13 +61,13 @@ public class f implements k {
     }
 
     public boolean e() {
-        Queue<Object> queue = this.f68674e;
+        Queue<Object> queue = this.f71930e;
         return queue == null || queue.isEmpty();
     }
 
     public void f() {
-        if (this.f68675f == null) {
-            this.f68675f = NotificationLite.b();
+        if (this.f71931f == null) {
+            this.f71931f = NotificationLite.b();
         }
     }
 
@@ -75,7 +75,7 @@ public class f implements k {
         boolean z;
         boolean z2;
         synchronized (this) {
-            Queue<Object> queue = this.f68674e;
+            Queue<Object> queue = this.f71930e;
             z = true;
             z2 = false;
             if (queue != null) {
@@ -93,12 +93,12 @@ public class f implements k {
 
     public Object h() {
         synchronized (this) {
-            Queue<Object> queue = this.f68674e;
+            Queue<Object> queue = this.f71930e;
             if (queue == null) {
                 return null;
             }
             Object peek = queue.peek();
-            Object obj = this.f68675f;
+            Object obj = this.f71931f;
             if (peek == null && obj != null && queue.peek() == null) {
                 peek = obj;
             }
@@ -108,14 +108,14 @@ public class f implements k {
 
     public Object i() {
         synchronized (this) {
-            Queue<Object> queue = this.f68674e;
+            Queue<Object> queue = this.f71930e;
             if (queue == null) {
                 return null;
             }
             Object poll = queue.poll();
-            Object obj = this.f68675f;
+            Object obj = this.f71931f;
             if (poll == null && obj != null && queue.peek() == null) {
-                this.f68675f = null;
+                this.f71931f = null;
                 poll = obj;
             }
             return poll;
@@ -124,7 +124,7 @@ public class f implements k {
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f68674e == null;
+        return this.f71930e == null;
     }
 
     public synchronized void j() {
@@ -136,10 +136,10 @@ public class f implements k {
     }
 
     public f(boolean z, int i2) {
-        this.f68674e = z ? new j<>(i2) : new r<>(i2);
+        this.f71930e = z ? new j<>(i2) : new r<>(i2);
     }
 
     public f() {
-        this(new h.o.d.i.c(f68673g), f68673g);
+        this(new h.o.d.i.c(f71929g), f71929g);
     }
 }

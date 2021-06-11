@@ -12,19 +12,19 @@ import d.a.n0.f1.f.b;
 public class FloatRecordView implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f4187e = null;
+    public ImageView f4206e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f4188f = null;
+    public LinearLayout f4207f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f4189g = null;
+    public LinearLayout f4208g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f4190h = null;
+    public LinearLayout f4209h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f4191i = 0;
+    public int f4210i = 0;
     public long j = 0;
     public int k = 0;
 
@@ -33,37 +33,37 @@ public class FloatRecordView implements b {
     }
 
     public LinearLayout a() {
-        return this.f4190h;
+        return this.f4209h;
     }
 
     public LinearLayout b() {
-        return this.f4189g;
+        return this.f4208g;
     }
 
     public LinearLayout c() {
-        return this.f4188f;
+        return this.f4207f;
     }
 
     @Override // d.a.n0.f1.f.b
     public void closeRecordCancel() {
-        this.f4190h.setVisibility(8);
+        this.f4209h.setVisibility(8);
     }
 
     @Override // d.a.n0.f1.f.b
     public void closeRecordTooShort() {
-        this.f4189g.setVisibility(8);
+        this.f4208g.setVisibility(8);
     }
 
     public final void d(Context context, ViewGroup viewGroup) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.float_chat_recording_view, (ViewGroup) null);
-        this.f4188f = linearLayout;
-        this.f4187e = (ImageView) linearLayout.findViewById(R.id.img_msgsend_recording);
-        this.f4189g = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_too_short_view, (ViewGroup) null);
-        this.f4190h = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_cancel_view, (ViewGroup) null);
+        this.f4207f = linearLayout;
+        this.f4206e = (ImageView) linearLayout.findViewById(R.id.img_msgsend_recording);
+        this.f4208g = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_too_short_view, (ViewGroup) null);
+        this.f4209h = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_cancel_view, (ViewGroup) null);
     }
 
     public void e() {
-        this.f4189g.setVisibility(0);
+        this.f4208g.setVisibility(0);
     }
 
     @Override // d.a.c.e.q.f
@@ -84,31 +84,31 @@ public class FloatRecordView implements b {
 
     @Override // d.a.c.e.q.f
     public void onShowRecording(int i2) {
-        this.f4191i = Math.max(i2, this.f4191i);
+        this.f4210i = Math.max(i2, this.f4210i);
         long uptimeMillis = SystemClock.uptimeMillis();
         if (uptimeMillis - this.j > 150) {
-            this.f4191i = 0;
+            this.f4210i = 0;
             this.j = uptimeMillis;
         }
         int i3 = this.k + 1;
         this.k = i3;
         if (i3 % 5 == 0) {
             this.k = 0;
-            int i4 = this.f4191i;
+            int i4 = this.f4210i;
             if (i4 < 2) {
-                this.f4187e.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
+                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
             } else if (i4 < 10) {
-                this.f4187e.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
+                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
             } else if (i4 < 20) {
-                this.f4187e.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
+                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
             } else if (i4 < 30) {
-                this.f4187e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
             } else if (i4 < 40) {
-                this.f4187e.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
+                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
             } else if (i4 < 50) {
-                this.f4187e.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
+                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
             } else {
-                this.f4187e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+                this.f4206e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
             }
         }
     }
@@ -123,16 +123,16 @@ public class FloatRecordView implements b {
 
     @Override // d.a.n0.f1.f.b
     public void showRecordCancel() {
-        this.f4190h.setVisibility(0);
+        this.f4209h.setVisibility(0);
     }
 
     @Override // d.a.n0.f1.f.b
     public void startRecordVoice() {
-        this.f4188f.setVisibility(0);
+        this.f4207f.setVisibility(0);
     }
 
     @Override // d.a.n0.f1.f.b
     public void stopRecordVoice() {
-        this.f4188f.setVisibility(8);
+        this.f4207f.setVisibility(8);
     }
 }

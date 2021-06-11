@@ -17,22 +17,22 @@ public class WalkingRouteLine extends RouteLine<WalkingStep> implements Parcelab
         public static final Parcelable.Creator<WalkingStep> CREATOR = new s();
 
         /* renamed from: d  reason: collision with root package name */
-        public int f7338d;
+        public int f7381d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RouteNode f7339e;
+        public RouteNode f7382e;
 
         /* renamed from: f  reason: collision with root package name */
-        public RouteNode f7340f;
+        public RouteNode f7383f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f7341g;
+        public String f7384g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f7342h;
+        public String f7385h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f7343i;
+        public String f7386i;
         public String j;
 
         public WalkingStep() {
@@ -40,12 +40,12 @@ public class WalkingRouteLine extends RouteLine<WalkingStep> implements Parcelab
 
         public WalkingStep(Parcel parcel) {
             super(parcel);
-            this.f7338d = parcel.readInt();
-            this.f7339e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f7340f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f7341g = parcel.readString();
-            this.f7342h = parcel.readString();
-            this.f7343i = parcel.readString();
+            this.f7381d = parcel.readInt();
+            this.f7382e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7383f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7384g = parcel.readString();
+            this.f7385h = parcel.readString();
+            this.f7386i = parcel.readString();
             this.j = parcel.readString();
         }
 
@@ -55,23 +55,23 @@ public class WalkingRouteLine extends RouteLine<WalkingStep> implements Parcelab
         }
 
         public int getDirection() {
-            return this.f7338d;
+            return this.f7381d;
         }
 
         public RouteNode getEntrance() {
-            return this.f7339e;
+            return this.f7382e;
         }
 
         public String getEntranceInstructions() {
-            return this.f7342h;
+            return this.f7385h;
         }
 
         public RouteNode getExit() {
-            return this.f7340f;
+            return this.f7383f;
         }
 
         public String getExitInstructions() {
-            return this.f7343i;
+            return this.f7386i;
         }
 
         public String getInstructions() {
@@ -81,29 +81,29 @@ public class WalkingRouteLine extends RouteLine<WalkingStep> implements Parcelab
         @Override // com.baidu.mapapi.search.core.RouteStep
         public List<LatLng> getWayPoints() {
             if (this.mWayPoints == null) {
-                this.mWayPoints = CoordUtil.decodeLocationList(this.f7341g);
+                this.mWayPoints = CoordUtil.decodeLocationList(this.f7384g);
             }
             return this.mWayPoints;
         }
 
         public void setDirection(int i2) {
-            this.f7338d = i2;
+            this.f7381d = i2;
         }
 
         public void setEntrance(RouteNode routeNode) {
-            this.f7339e = routeNode;
+            this.f7382e = routeNode;
         }
 
         public void setEntranceInstructions(String str) {
-            this.f7342h = str;
+            this.f7385h = str;
         }
 
         public void setExit(RouteNode routeNode) {
-            this.f7340f = routeNode;
+            this.f7383f = routeNode;
         }
 
         public void setExitInstructions(String str) {
-            this.f7343i = str;
+            this.f7386i = str;
         }
 
         public void setInstructions(String str) {
@@ -111,18 +111,18 @@ public class WalkingRouteLine extends RouteLine<WalkingStep> implements Parcelab
         }
 
         public void setPathString(String str) {
-            this.f7341g = str;
+            this.f7384g = str;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, 1);
-            parcel.writeInt(this.f7338d);
-            parcel.writeParcelable(this.f7339e, 1);
-            parcel.writeParcelable(this.f7340f, 1);
-            parcel.writeString(this.f7341g);
-            parcel.writeString(this.f7342h);
-            parcel.writeString(this.f7343i);
+            parcel.writeInt(this.f7381d);
+            parcel.writeParcelable(this.f7382e, 1);
+            parcel.writeParcelable(this.f7383f, 1);
+            parcel.writeString(this.f7384g);
+            parcel.writeString(this.f7385h);
+            parcel.writeString(this.f7386i);
             parcel.writeString(this.j);
         }
     }

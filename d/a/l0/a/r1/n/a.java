@@ -14,17 +14,17 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class a implements d.a.l0.a.f1.f.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> f44545b;
+    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> f48219b;
 
     /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f44546a = new a();
+        public static final a f48220a = new a();
     }
 
     public static a a() {
-        return b.f44546a;
+        return b.f48220a;
     }
 
     @Nullable
@@ -46,7 +46,7 @@ public class a implements d.a.l0.a.f1.f.a {
             long currentTimeMillis = System.currentTimeMillis();
             View inflate = LayoutInflater.from(d.a.l0.a.c1.a.b()).inflate(i2, viewGroup, z);
             long currentTimeMillis2 = System.currentTimeMillis();
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 Log.d("SwanPerformance", "getView resId = " + i2 + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
             }
             return inflate;
@@ -65,19 +65,19 @@ public class a implements d.a.l0.a.f1.f.a {
             LayoutInflater from = LayoutInflater.from(d.a.l0.a.c1.a.b());
             for (int i2 : iArr) {
                 View inflate = from.inflate(i2, (ViewGroup) null);
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f44545b.get(Integer.valueOf(i2));
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f48219b.get(Integer.valueOf(i2));
                 if (copyOnWriteArrayList == null) {
                     copyOnWriteArrayList = new CopyOnWriteArrayList<>();
                 }
                 copyOnWriteArrayList.add(inflate);
-                this.f44545b.put(Integer.valueOf(i2), copyOnWriteArrayList);
+                this.f48219b.put(Integer.valueOf(i2), copyOnWriteArrayList);
             }
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
             }
         } catch (Exception e2) {
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 Log.d("SwanPerformance", Log.getStackTraceString(e2));
             }
         }
@@ -88,16 +88,16 @@ public class a implements d.a.l0.a.f1.f.a {
     public View d(@LayoutRes int i2) {
         View view = null;
         try {
-            CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f44545b.get(Integer.valueOf(i2));
+            CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f48219b.get(Integer.valueOf(i2));
             if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
                 view = copyOnWriteArrayList.remove(0);
             }
         } catch (Exception e2) {
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 Log.d("SwanPerformance", Log.getStackTraceString(e2));
             }
         }
-        if (d.a.l0.a.f1.f.a.f41852a) {
+        if (d.a.l0.a.f1.f.a.f45528a) {
             StringBuilder sb = new StringBuilder();
             sb.append("tryObtainLayoutByResId resId = ");
             sb.append(i2);
@@ -108,6 +108,6 @@ public class a implements d.a.l0.a.f1.f.a {
     }
 
     public a() {
-        this.f44545b = new ConcurrentHashMap<>();
+        this.f48219b = new ConcurrentHashMap<>();
     }
 }

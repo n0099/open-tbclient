@@ -9,7 +9,7 @@ import d.a.l0.a.v2.q;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f44527a = -1;
+    public static int f48201a = -1;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
@@ -32,18 +32,18 @@ public class c {
     }
 
     public static int a() {
-        int i2 = f44527a;
+        int i2 = f48201a;
         if (i2 != -1) {
             return i2;
         }
         d.a.l0.a.c1.a.Z().getSwitch("swan_backstage_policy", 0);
-        f44527a = 300;
+        f48201a = 300;
         if (300 < 60) {
-            f44527a = 60;
+            f48201a = 60;
         } else if (300 > 3600) {
-            f44527a = 3600;
+            f48201a = 3600;
         }
-        return f44527a;
+        return f48201a;
     }
 
     @AnyThread

@@ -5,48 +5,48 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public long f66134b;
+    public long f69865b;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f66133a = new AtomicBoolean(false);
+    public AtomicBoolean f69864a = new AtomicBoolean(false);
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f66135c = new RunnableC1847a();
+    public Runnable f69866c = new RunnableC1906a();
 
     /* renamed from: d.f.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC1847a implements Runnable {
-        public RunnableC1847a() {
+    public class RunnableC1906a implements Runnable {
+        public RunnableC1906a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
             a.this.b();
-            if (a.this.f66133a.get()) {
-                e.a().postDelayed(a.this.f66135c, a.this.f66134b);
+            if (a.this.f69864a.get()) {
+                e.a().postDelayed(a.this.f69866c, a.this.f69865b);
             }
         }
     }
 
     public a(long j) {
-        this.f66134b = 0 == j ? 300L : j;
+        this.f69865b = 0 == j ? 300L : j;
     }
 
     public abstract void b();
 
     public void c() {
-        if (this.f66133a.get()) {
+        if (this.f69864a.get()) {
             return;
         }
-        this.f66133a.set(true);
-        e.a().removeCallbacks(this.f66135c);
-        e.a().postDelayed(this.f66135c, c.f().j());
+        this.f69864a.set(true);
+        e.a().removeCallbacks(this.f69866c);
+        e.a().postDelayed(this.f69866c, c.f().j());
     }
 
     public void d() {
-        if (this.f66133a.get()) {
-            this.f66133a.set(false);
-            e.a().removeCallbacks(this.f66135c);
+        if (this.f69864a.get()) {
+            this.f69864a.set(false);
+            e.a().removeCallbacks(this.f69866c);
         }
     }
 }

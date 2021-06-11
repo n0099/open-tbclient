@@ -3,7 +3,7 @@ package com.kwai.filedownloader.exception;
 import android.annotation.TargetApi;
 import com.kwai.filedownloader.f.f;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FileDownloadOutOfSpaceException extends IOException {
     public long breakpointBytes;
     public long freeSpaceBytes;

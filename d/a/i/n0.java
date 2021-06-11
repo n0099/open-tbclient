@@ -36,9 +36,9 @@ public class n0 extends d.a.i.a<d.a.m0.r.q.a> {
         }
 
         @Override // d.a.i.v0.a.b
-        public boolean a(a.C0544a c0544a) {
-            if (c0544a.c() instanceof Boolean) {
-                if (!((Boolean) c0544a.c()).booleanValue()) {
+        public boolean a(a.C0600a c0600a) {
+            if (c0600a.c() instanceof Boolean) {
+                if (!((Boolean) c0600a.c()).booleanValue()) {
                     if ((n0.this.j & 128) <= 0) {
                         n0.this.j &= -5;
                         n0.this.j |= 64;
@@ -103,7 +103,7 @@ public class n0 extends d.a.i.a<d.a.m0.r.q.a> {
 
     @Override // d.a.i.a
     public void h() {
-        this.f40007e.m(4, new b());
+        this.f43688e.m(4, new b());
     }
 
     @Override // d.a.i.q
@@ -114,7 +114,7 @@ public class n0 extends d.a.i.a<d.a.m0.r.q.a> {
     public final void t() {
         boolean z = false;
         k(this.l, 0);
-        d.a.i.a f2 = this.f40007e.f();
+        d.a.i.a f2 = this.f43688e.f();
         if (f2 == null) {
             return;
         }
@@ -132,7 +132,7 @@ public class n0 extends d.a.i.a<d.a.m0.r.q.a> {
             }
         }
         if (z) {
-            List<h> h2 = this.f40007e.h();
+            List<h> h2 = this.f43688e.h();
             if (ListUtils.isEmpty(h2)) {
                 return;
             }
@@ -149,7 +149,7 @@ public class n0 extends d.a.i.a<d.a.m0.r.q.a> {
     /* renamed from: u */
     public void a(d.a.m0.r.q.a aVar) {
         this.m = aVar;
-        this.l.setData(aVar.m());
+        this.l.setData(aVar.i());
         t();
     }
 

@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 public class g implements j {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f39541a;
+    public d f43222a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39542b;
+    public boolean f43223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f39543c;
+    public final HttpMessageListener f43224c;
 
     /* loaded from: classes.dex */
     public class a extends HttpMessageListener {
@@ -29,32 +29,32 @@ public class g implements j {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003397 && (httpResponsedMessage instanceof AfdSyncResponseMessage)) {
                 e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
-                g.this.f39541a.u(eVar);
-                if (!eVar.f39537a || eVar.f39540d == null) {
+                g.this.f43222a.q(eVar);
+                if (!eVar.f43218a || eVar.f43221d == null) {
                     return;
                 }
-                d.a.n0.t2.i0.e.b().d(d.a.n0.t2.i0.g.o(g.this.f39541a, eVar.f39540d));
+                d.a.n0.t2.i0.e.b().d(d.a.n0.t2.i0.g.o(g.this.f43222a, eVar.f43221d));
             }
         }
     }
 
     public g(d dVar) {
         a aVar = new a(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC);
-        this.f39543c = aVar;
-        this.f39541a = dVar;
+        this.f43224c = aVar;
+        this.f43222a = dVar;
         aVar.setSelfListener(true);
-        this.f39543c.setTag(dVar.s());
-        MessageManager.getInstance().registerListener(this.f39543c);
+        this.f43224c.setTag(dVar.o());
+        MessageManager.getInstance().registerListener(this.f43224c);
     }
 
     @Override // d.a.d.j
     public void a() {
-        if (this.f39542b) {
+        if (this.f43223b) {
             return;
         }
-        this.f39542b = true;
-        AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.f39541a.f39534g);
-        afdSyncRequestMessage.setTag(this.f39541a.s());
+        this.f43223b = true;
+        AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.f43222a.f43215g);
+        afdSyncRequestMessage.setTag(this.f43222a.o());
         MessageManager.getInstance().sendMessage(afdSyncRequestMessage);
     }
 }

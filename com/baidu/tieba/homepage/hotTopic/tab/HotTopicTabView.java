@@ -22,29 +22,29 @@ import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.google.android.material.tabs.TabLayout;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.f0.f;
 import d.a.m0.r.f0.g;
-import d.a.n0.b1.e.a.d.h;
+import d.a.n0.b1.f.a.d.h;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
 public class HotTopicTabView extends FrameLayout implements f.g {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16337e;
+    public int f16405e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f16338f;
+    public TbPageContext<?> f16406f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.b1.e.a.b f16339g;
+    public d.a.n0.b1.f.a.b f16407g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdSwipeRefreshLayout f16340h;
+    public BdSwipeRefreshLayout f16408h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdTypeRecyclerView f16341i;
+    public BdTypeRecyclerView f16409i;
     public h j;
     public g k;
     public d.a.m0.d0.g l;
@@ -90,7 +90,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
             if (HotTopicTabView.this.n != null) {
                 HotTopicTabView.this.o = -1;
                 HotTopicTabView hotTopicTabView = HotTopicTabView.this;
-                if (hotTopicTabView.r(hotTopicTabView.f16341i)) {
+                if (hotTopicTabView.r(hotTopicTabView.f16409i)) {
                     HotTopicTabView.this.n.x();
                 } else {
                     HotTopicTabView.this.n.U();
@@ -106,21 +106,21 @@ public class HotTopicTabView extends FrameLayout implements f.g {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!j.A() || HotTopicTabView.this.f16339g == null) {
+            if (!j.A() || HotTopicTabView.this.f16407g == null) {
                 return;
             }
             HotTopicTabView.this.u(false);
-            HotTopicTabView.this.f16339g.loadData();
+            HotTopicTabView.this.f16407g.loadData();
         }
     }
 
     public HotTopicTabView(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.f16337e = 3;
+        this.f16405e = 3;
         this.o = -1;
         this.u = new a();
         this.v = new b();
-        this.f16338f = tbPageContext;
+        this.f16406f = tbPageContext;
         l(tbPageContext.getPageActivity());
         m();
         q();
@@ -133,7 +133,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
         }
         y();
         h();
-        j();
+        i();
         this.t = true;
     }
 
@@ -145,7 +145,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
         }
     }
 
-    public void j() {
+    public void i() {
         d.a.m0.d0.h hVar = this.m;
         if (hVar != null) {
             hVar.dettachView(this);
@@ -154,24 +154,24 @@ public class HotTopicTabView extends FrameLayout implements f.g {
     }
 
     public void k() {
-        this.f16341i.setNextPage(null);
+        this.f16409i.setNextPage(null);
     }
 
     public final void l(Context context) {
         LayoutInflater.from(context).inflate(R.layout.fragment_hot_topic_tab_layout, (ViewGroup) this, true);
-        this.f16340h = (BdSwipeRefreshLayout) findViewById(R.id.hotTopicRefreshLayout);
-        g gVar = new g(this.f16338f);
+        this.f16408h = (BdSwipeRefreshLayout) findViewById(R.id.hotTopicRefreshLayout);
+        g gVar = new g(this.f16406f);
         this.k = gVar;
-        this.f16340h.setProgressView(gVar);
+        this.f16408h.setProgressView(gVar);
         BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.hotTopicListView);
-        this.f16341i = bdTypeRecyclerView;
+        this.f16409i = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-        this.f16341i.setFadingEdgeLength(0);
-        this.f16341i.setOverScrollMode(2);
+        this.f16409i.setFadingEdgeLength(0);
+        this.f16409i.setOverScrollMode(2);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-        this.f16341i.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-        this.j = new h(this.f16338f, this.f16341i);
-        PbListView pbListView = new PbListView(this.f16338f.getPageActivity());
+        this.f16409i.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
+        this.j = new h(this.f16406f, this.f16409i);
+        PbListView pbListView = new PbListView(this.f16406f.getPageActivity());
         this.p = pbListView;
         pbListView.a();
         this.p.o(R.color.CAM_X0205);
@@ -179,7 +179,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
     }
 
     public final void m() {
-        this.f16341i.addOnScrollListener(this.u);
+        this.f16409i.addOnScrollListener(this.u);
         this.k.a(this);
     }
 
@@ -207,7 +207,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
 
     @Override // d.a.m0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
-        this.f16339g.loadData();
+        this.f16407g.loadData();
     }
 
     public boolean p() {
@@ -217,10 +217,10 @@ public class HotTopicTabView extends FrameLayout implements f.g {
 
     public void q() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f16337e) {
+        if (skinType == this.f16405e) {
             return;
         }
-        this.f16337e = skinType;
+        this.f16405e = skinType;
         g gVar = this.k;
         if (gVar != null) {
             gVar.I(skinType);
@@ -246,7 +246,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
         if (hotTopicHeaderView != null) {
             hotTopicHeaderView.c(skinType);
         }
-        BdTypeRecyclerView bdTypeRecyclerView = this.f16341i;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f16409i;
         if (bdTypeRecyclerView != null) {
             d.a.m0.r.u.c.d(bdTypeRecyclerView).f(R.color.CAM_X0202);
         }
@@ -260,7 +260,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
     }
 
     public void s() {
-        this.f16341i.setSelection(0);
+        this.f16409i.setSelection(0);
         x();
         ScrollFragmentTabHost.s sVar = this.v;
         if (sVar != null) {
@@ -268,7 +268,7 @@ public class HotTopicTabView extends FrameLayout implements f.g {
         }
     }
 
-    public void setData(@NonNull d.a.n0.b1.e.a.f.a aVar) {
+    public void setData(@NonNull d.a.n0.b1.f.a.f.a aVar) {
         t(aVar);
         setListData(aVar.getDataList());
     }
@@ -293,8 +293,8 @@ public class HotTopicTabView extends FrameLayout implements f.g {
         this.r = onTabSelectedListener;
     }
 
-    public void setPresenter(d.a.n0.b1.e.a.b bVar) {
-        this.f16339g = bVar;
+    public void setPresenter(d.a.n0.b1.f.a.b bVar) {
+        this.f16407g = bVar;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
@@ -326,16 +326,16 @@ public class HotTopicTabView extends FrameLayout implements f.g {
         if (this.t) {
             this.t = false;
             if (ListUtils.isEmpty(this.j.a())) {
-                this.f16339g.loadData();
+                this.f16407g.loadData();
             }
         }
     }
 
-    public void t(@NonNull d.a.n0.b1.e.a.f.a aVar) {
+    public void t(@NonNull d.a.n0.b1.f.a.f.a aVar) {
         if (this.q == null) {
             this.q = new HotTopicHeaderView(getContext());
         }
-        this.f16341i.setHeaderView(this.q);
+        this.f16409i.setHeaderView(this.q);
         this.q.setOnItemCoverListener(this.s);
         this.q.setOnTabSelectedListener(this.r);
         this.q.setData(aVar.getResData());
@@ -367,17 +367,17 @@ public class HotTopicTabView extends FrameLayout implements f.g {
     }
 
     public void w() {
-        this.f16341i.setNextPage(this.p);
+        this.f16409i.setNextPage(this.p);
         this.p.f();
         this.p.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.p.B(getResources().getString(R.string.really_great), l.g(getContext(), R.dimen.tbds158));
     }
 
     public void x() {
-        this.f16340h.setRefreshing(true);
+        this.f16408h.setRefreshing(true);
     }
 
     public void y() {
-        this.f16340h.setRefreshing(false);
+        this.f16408h.setRefreshing(false);
     }
 }

@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.Base64;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.kwai.video.player.KsMediaMeta;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -36,7 +37,7 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("url", str);
-            jSONObject.put("format", i2);
+            jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, i2);
             jSONObject.put("duration", i3);
             jSONObject.put("thumbnail", Base64.encode(bArr));
             return jSONObject.toString();
@@ -70,7 +71,7 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             try {
                 JSONObject jSONObject = new JSONObject(getJsonContent());
                 this.mRemoteUrl = jSONObject.optString("url");
-                this.mFormat = jSONObject.optInt("format");
+                this.mFormat = jSONObject.optInt(KsMediaMeta.KSM_KEY_FORMAT);
                 this.mDuration = jSONObject.optInt("duration");
                 return true;
             } catch (JSONException e2) {

@@ -5,9 +5,9 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 public abstract class b<T> implements CustomMessageTask.CustomRunnable<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49405e;
+    public int f53079e;
 
     public b(int i2) {
-        this.f49405e = i2;
+        this.f53079e = i2;
     }
 }

@@ -62,6 +62,7 @@ import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import com.kwai.video.player.PlayerPostEvent;
 import d.a.m0.b0.a;
 import d.a.m0.b1.m.f;
 import d.a.m0.r.s.a;
@@ -154,19 +155,19 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public class d implements n<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f16992a;
+        public final /* synthetic */ String f17068a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f16993b;
+        public final /* synthetic */ String f17069b;
 
         public d(String str, String str2) {
-            this.f16992a = str;
-            this.f16993b = str2;
+            this.f17068a = str;
+            this.f17069b = str2;
         }
 
         @Override // d.a.m0.z0.n
         public void onReturnDataInUI(Object obj) {
-            TalkableActivity.this.mLocalPicModel = new LocalPicModel(this.f16992a, this.f16993b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
+            TalkableActivity.this.mLocalPicModel = new LocalPicModel(this.f17068a, this.f17069b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
             TalkableActivity talkableActivity = TalkableActivity.this;
             talkableActivity.mLocalPicModel.setLoadDataCallBack(talkableActivity.mLocalPicModelCallback);
             TalkableActivity.this.mLocalPicModel.getData();
@@ -188,7 +189,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                 return;
             }
             f.a aVar = (f.a) customResponsedMessage.getData();
-            d.a.m0.b1.m.f.b(TalkableActivity.this.getPageContext(), aVar.f49129a, aVar.f49130b, aVar.f49131c);
+            d.a.m0.b1.m.f.b(TalkableActivity.this.getPageContext(), aVar.f52803a, aVar.f52804b, aVar.f52805c);
         }
     }
 
@@ -196,15 +197,15 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f16996e;
+        public final /* synthetic */ String f17072e;
 
         public f(String str) {
-            this.f16996e = str;
+            this.f17072e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            TalkableActivity.this.mListModel.sendTextMessage(this.f16996e);
+            TalkableActivity.this.mListModel.sendTextMessage(this.f17072e);
         }
     }
 
@@ -305,16 +306,16 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f16999e;
+        public final /* synthetic */ int f17075e;
 
         public h(int i2) {
-            this.f16999e = i2;
+            this.f17075e = i2;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            TalkableActivity.this.reSendMsg(this.f16999e);
+            TalkableActivity.this.reSendMsg(this.f17075e);
         }
     }
 
@@ -322,16 +323,16 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public class i implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f17001e;
+        public final /* synthetic */ int f17077e;
 
         public i(int i2) {
-            this.f17001e = i2;
+            this.f17077e = i2;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            TalkableActivity.this.deleteMsg(this.f17001e);
+            TalkableActivity.this.deleteMsg(this.f17077e);
         }
     }
 
@@ -340,7 +341,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     }
 
     private void dealAlbumFromCamera(int i2, String str, String str2) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteImageActivityConfig(getPageContext().getContext(), 12001, 12010, null, null, null, null, i2, str, str2, "")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteImageActivityConfig(getPageContext().getContext(), PlayerPostEvent.MEDIA_REP_CHANGE_START, 12010, null, null, null, null, i2, str, str2, "")));
     }
 
     private void dealAlbumFromImage(Intent intent, int i2, String str, String str2) {
@@ -1047,7 +1048,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         if (isExStorageOk()) {
             this.writeImagesInfo.mIsFromIm = true;
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) getPageContext().getPageActivity(), this.writeImagesInfo.toJsonString(), true, false);
-            albumActivityConfig.setRequestCode(12002);
+            albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
             albumActivityConfig.setResourceType(1);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
         }

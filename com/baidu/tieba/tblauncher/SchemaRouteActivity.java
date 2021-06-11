@@ -15,6 +15,7 @@ import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
@@ -33,27 +34,27 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import d.a.c.a.b;
-import d.a.m0.a.c;
-import d.a.m0.a.f;
-import d.a.m0.a.w;
+import d.a.m0.a.d;
+import d.a.m0.a.g;
+import d.a.m0.a.x;
 import d.a.n0.e3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class SchemaRouteActivity extends BaseActivity {
-    public final f.b mOnSchemeParsedCallback = new a();
+    public final g.b mOnSchemeParsedCallback = new a();
 
     /* loaded from: classes5.dex */
-    public class a implements f.b {
+    public class a implements g.b {
         public a() {
         }
 
-        @Override // d.a.m0.a.f.b
+        @Override // d.a.m0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
-            if (hashMap != null && (hashMap.get(f.v) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(SchemaRouteActivity.this.getActivity(), null, (String) hashMap.get(f.v), true);
+            if (hashMap != null && (hashMap.get(g.v) instanceof String)) {
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(SchemaRouteActivity.this.getActivity(), null, (String) hashMap.get(g.v), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
-                tbWebViewActivityConfig.setUri((Uri) hashMap.get(f.I));
+                tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.I));
                 SchemaRouteActivity.this.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
         }
@@ -73,13 +74,13 @@ public class SchemaRouteActivity extends BaseActivity {
         clearClipBoardIfNeed(intent.getData());
         String dataString = intent.getDataString();
         UtilHelper.clearClipBoardBySchemaParam(dataString);
-        w.e(intent.getData());
-        w.c(intent.getData());
+        x.e(intent.getData());
+        x.c(intent.getData());
         if (!TextUtils.isEmpty(dataString) && (dataString.contains("invoke_frs") || dataString.contains("tbfrs") || dataString.contains("unidispatch/frs"))) {
             FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getActivity());
             frsActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2003000, frsActivityConfig));
-            c.y().L(true);
+            d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbpb") || dataString.contains("unidispatch/pb"))) {
             if ("tbpb://tieba.baidu.com".equals(dataString)) {
                 if (b.f().h("MainTabActivity")) {
@@ -94,52 +95,52 @@ public class SchemaRouteActivity extends BaseActivity {
                 pbActivityConfig.setJumpToCommentArea(true);
             }
             sendMessage(new CustomMessage(2004001, pbActivityConfig));
-            c.y().L(true);
+            d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
             Uri data = intent.getData();
-            if (f.c(data)) {
-                f.b().j(dataString, data, this.mOnSchemeParsedCallback);
+            if (g.c(data)) {
+                g.b().j(dataString, data, this.mOnSchemeParsedCallback);
             } else {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(getActivity());
                 tbWebViewActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
-            c.y().L(true);
+            d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbtopicdetail") || dataString.contains("unidispatch/topicdetail"))) {
             TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(getActivity());
             topicDetailActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, topicDetailActivityConfig));
-            c.y().L(true);
+            d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbusercenter") || dataString.contains("unidispatch/usercenter") || dataString.contains("usercenter"))) {
             PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(getActivity());
             personPolymericActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, personPolymericActivityConfig));
-            c.y().L(true);
+            d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains(UrlSchemaHelper.FROM_FORUM_SQUARE)) {
             ForumSquareActivityConfig forumSquareActivityConfig = new ForumSquareActivityConfig(getActivity());
             forumSquareActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
-            c.y().L(true);
+            d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/hotuserrank")) {
             HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(getActivity());
             hotUserRankActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
-            c.y().L(true);
+            d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("unidispatch/openapp") || dataString.contains("donothing"))) {
             if (!b.f().h("MainTabActivity")) {
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
             }
-            c.y().L(true);
+            d.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(f.f48710b + f.k)) {
+                if (dataString.contains(g.f52386b + g.k)) {
                     Uri parse = Uri.parse(dataString);
-                    String queryParameter = parse.getQueryParameter(f.E);
-                    String queryParameter2 = parse.getQueryParameter(f.F);
+                    String queryParameter = parse.getQueryParameter(g.E);
+                    String queryParameter2 = parse.getQueryParameter(g.F);
                     UrlManager urlManager = UrlManager.getInstance();
                     TbPageContext<?> pageContext = getPageContext();
                     urlManager.dealOneLink(pageContext, new String[]{"tiebachushou://liveroom?roomid=" + queryParameter2 + "&livetype=" + queryParameter});
-                    c.y().L(true);
+                    d.y().L(true);
                     return;
                 }
             }
@@ -151,17 +152,40 @@ public class SchemaRouteActivity extends BaseActivity {
                 } else {
                     sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this).createNormalCfg(1)));
                 }
-                c.y().L(true);
+                d.y().L(true);
                 return;
             }
             if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/forumRuleDetail")) {
-                sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this, Uri.parse(dataString).getQueryParameter(f.J), ForumRulesShowActivityConfig.FORUM_RULE_H5_FROM_SHOW)));
+                sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this, Uri.parse(dataString).getQueryParameter(g.J), ForumRulesShowActivityConfig.FORUM_RULE_H5_FROM_SHOW)));
             }
-            if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/item")) {
-                String queryParameter3 = Uri.parse(dataString).getQueryParameter(f.K);
+            if (!TextUtils.isEmpty(dataString) && dataString.contains("/categorylist")) {
+                Uri parse2 = Uri.parse(dataString);
+                String queryParameter3 = parse2.getQueryParameter(g.L);
+                String queryParameter4 = parse2.getQueryParameter(g.Q);
+                String queryParameter5 = parse2.getQueryParameter(g.M);
+                String queryParameter6 = parse2.getQueryParameter(g.N);
+                String queryParameter7 = parse2.getQueryParameter(g.O);
+                String queryParameter8 = parse2.getQueryParameter(g.P);
                 HashMap hashMap = new HashMap();
-                hashMap.put("itemID", String.valueOf(queryParameter3));
-                sendMessage(new CustomMessage(2002015, new m(this, "GameItemDetailsPage", hashMap)));
+                hashMap.put(LegoListActivityConfig.ITEM_ID, queryParameter3);
+                hashMap.put("tab_id", queryParameter4);
+                hashMap.put("sort_type", queryParameter5);
+                hashMap.put("rank_type", queryParameter6);
+                hashMap.put("rank_code", queryParameter7);
+                hashMap.put("home_tab_name", queryParameter8);
+                sendMessage(new CustomMessage(2002015, new m(this, "ItemRecommendList", hashMap)));
+            }
+            if (!TextUtils.isEmpty(dataString) && dataString.contains("/itemDetailsPage")) {
+                String queryParameter9 = Uri.parse(dataString).getQueryParameter(g.L);
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("itemID", String.valueOf(queryParameter9));
+                sendMessage(new CustomMessage(2002015, new m(this, "GameItemDetailsPage", hashMap2)));
+            }
+            if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/item") && !dataString.contains("/itemDetailsPage")) {
+                String queryParameter10 = Uri.parse(dataString).getQueryParameter(g.K);
+                HashMap hashMap3 = new HashMap();
+                hashMap3.put("itemID", String.valueOf(queryParameter10));
+                sendMessage(new CustomMessage(2002015, new m(this, "GameItemDetailsPage", hashMap3)));
             }
             if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/login_page_test") && !TbadkCoreApplication.isLogin()) {
                 sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this)));
@@ -172,41 +196,41 @@ public class SchemaRouteActivity extends BaseActivity {
                 str3 = "author_portrait";
                 str4 = "author_name";
             } else {
-                Uri parse2 = Uri.parse(dataString);
-                String queryParameter4 = parse2.getQueryParameter(f.o);
-                String queryParameter5 = parse2.getQueryParameter(f.J);
-                String queryParameter6 = parse2.getQueryParameter("title");
-                String queryParameter7 = parse2.getQueryParameter("author_name");
+                Uri parse3 = Uri.parse(dataString);
+                String queryParameter11 = parse3.getQueryParameter(g.o);
+                String queryParameter12 = parse3.getQueryParameter(g.J);
+                String queryParameter13 = parse3.getQueryParameter("title");
+                String queryParameter14 = parse3.getQueryParameter("author_name");
                 str4 = "author_name";
-                String queryParameter8 = parse2.getQueryParameter("author_nick_name");
-                String queryParameter9 = parse2.getQueryParameter("author_is_god");
-                String queryParameter10 = parse2.getQueryParameter("author_is_bigv");
+                String queryParameter15 = parse3.getQueryParameter("author_nick_name");
+                String queryParameter16 = parse3.getQueryParameter("author_is_god");
+                String queryParameter17 = parse3.getQueryParameter("author_is_bigv");
                 str = "author_is_bigv";
-                String queryParameter11 = parse2.getQueryParameter("author_portrait");
+                String queryParameter18 = parse3.getQueryParameter("author_portrait");
                 str3 = "author_portrait";
-                String queryParameter12 = parse2.getQueryParameter("video_thumbnail_url");
-                String queryParameter13 = parse2.getQueryParameter("video_url");
+                String queryParameter19 = parse3.getQueryParameter("video_thumbnail_url");
+                String queryParameter20 = parse3.getQueryParameter("video_url");
                 str2 = "video_url";
                 VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-                videoSerializeVideoThreadInfo.threadId = queryParameter4;
-                videoSerializeVideoThreadInfo.forumId = queryParameter5;
-                videoSerializeVideoThreadInfo.title = queryParameter6;
+                videoSerializeVideoThreadInfo.threadId = queryParameter11;
+                videoSerializeVideoThreadInfo.forumId = queryParameter12;
+                videoSerializeVideoThreadInfo.title = queryParameter13;
                 VideoSerializeVideoThreadInfo.VideoAggregationAuthorData videoAggregationAuthorData = new VideoSerializeVideoThreadInfo.VideoAggregationAuthorData();
                 videoSerializeVideoThreadInfo.author = videoAggregationAuthorData;
-                videoAggregationAuthorData.userName = queryParameter7;
-                videoAggregationAuthorData.userNickname = queryParameter8;
-                if (!StringUtils.isNull(queryParameter9)) {
-                    videoSerializeVideoThreadInfo.author.isGod = Boolean.parseBoolean(queryParameter9);
+                videoAggregationAuthorData.userName = queryParameter14;
+                videoAggregationAuthorData.userNickname = queryParameter15;
+                if (!StringUtils.isNull(queryParameter16)) {
+                    videoSerializeVideoThreadInfo.author.isGod = Boolean.parseBoolean(queryParameter16);
                 }
-                if (!StringUtils.isNull(queryParameter10)) {
-                    videoSerializeVideoThreadInfo.author.isBigV = Boolean.parseBoolean(queryParameter10);
+                if (!StringUtils.isNull(queryParameter17)) {
+                    videoSerializeVideoThreadInfo.author.isBigV = Boolean.parseBoolean(queryParameter17);
                 }
-                videoSerializeVideoThreadInfo.author.portrait = queryParameter11;
+                videoSerializeVideoThreadInfo.author.portrait = queryParameter18;
                 VideoSerializeVideoThreadInfo.VideoAggregationVideoData videoAggregationVideoData = new VideoSerializeVideoThreadInfo.VideoAggregationVideoData();
                 videoSerializeVideoThreadInfo.video = videoAggregationVideoData;
-                videoAggregationVideoData.thumbnailUrl = queryParameter12;
-                videoAggregationVideoData.videoUrl = queryParameter13;
-                VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter4, videoSerializeVideoThreadInfo);
+                videoAggregationVideoData.thumbnailUrl = queryParameter19;
+                videoAggregationVideoData.videoUrl = queryParameter20;
+                VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter11, videoSerializeVideoThreadInfo);
                 videoMiddlePageActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage(2002001, videoMiddlePageActivityConfig));
             }
@@ -215,79 +239,85 @@ public class SchemaRouteActivity extends BaseActivity {
                 str6 = str4;
                 str7 = "author_nick_name";
             } else {
-                Uri parse3 = Uri.parse(dataString);
-                String queryParameter14 = parse3.getQueryParameter(f.o);
-                String queryParameter15 = parse3.getQueryParameter(f.J);
-                String queryParameter16 = parse3.getQueryParameter("title");
+                Uri parse4 = Uri.parse(dataString);
+                String queryParameter21 = parse4.getQueryParameter(g.o);
+                String queryParameter22 = parse4.getQueryParameter(g.J);
+                String queryParameter23 = parse4.getQueryParameter("title");
                 str6 = str4;
-                String queryParameter17 = parse3.getQueryParameter(str6);
-                String queryParameter18 = parse3.getQueryParameter("author_nick_name");
-                String queryParameter19 = parse3.getQueryParameter("author_is_god");
-                String queryParameter20 = parse3.getQueryParameter(str);
+                String queryParameter24 = parse4.getQueryParameter(str6);
+                String queryParameter25 = parse4.getQueryParameter("author_nick_name");
+                String queryParameter26 = parse4.getQueryParameter("author_is_god");
+                String queryParameter27 = parse4.getQueryParameter(str);
                 str7 = "author_nick_name";
-                String queryParameter21 = parse3.getQueryParameter(str3);
-                String queryParameter22 = parse3.getQueryParameter("video_thumbnail_url");
+                String queryParameter28 = parse4.getQueryParameter(str3);
+                String queryParameter29 = parse4.getQueryParameter("video_thumbnail_url");
                 str5 = "video_thumbnail_url";
-                String queryParameter23 = parse3.getQueryParameter(str2);
+                String queryParameter30 = parse4.getQueryParameter(str2);
                 VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = new VideoSerializeVideoThreadInfo();
-                videoSerializeVideoThreadInfo2.threadId = queryParameter14;
-                videoSerializeVideoThreadInfo2.forumId = queryParameter15;
-                videoSerializeVideoThreadInfo2.title = queryParameter16;
+                videoSerializeVideoThreadInfo2.threadId = queryParameter21;
+                videoSerializeVideoThreadInfo2.forumId = queryParameter22;
+                videoSerializeVideoThreadInfo2.title = queryParameter23;
                 VideoSerializeVideoThreadInfo.VideoAggregationAuthorData videoAggregationAuthorData2 = new VideoSerializeVideoThreadInfo.VideoAggregationAuthorData();
                 videoSerializeVideoThreadInfo2.author = videoAggregationAuthorData2;
-                videoAggregationAuthorData2.userName = queryParameter17;
-                videoAggregationAuthorData2.userNickname = queryParameter18;
-                if (!StringUtils.isNull(queryParameter19)) {
-                    videoSerializeVideoThreadInfo2.author.isGod = Boolean.parseBoolean(queryParameter19);
+                videoAggregationAuthorData2.userName = queryParameter24;
+                videoAggregationAuthorData2.userNickname = queryParameter25;
+                if (!StringUtils.isNull(queryParameter26)) {
+                    videoSerializeVideoThreadInfo2.author.isGod = Boolean.parseBoolean(queryParameter26);
                 }
-                if (!StringUtils.isNull(queryParameter20)) {
-                    videoSerializeVideoThreadInfo2.author.isBigV = Boolean.parseBoolean(queryParameter20);
+                if (!StringUtils.isNull(queryParameter27)) {
+                    videoSerializeVideoThreadInfo2.author.isBigV = Boolean.parseBoolean(queryParameter27);
                 }
-                videoSerializeVideoThreadInfo2.author.portrait = queryParameter21;
+                videoSerializeVideoThreadInfo2.author.portrait = queryParameter28;
                 VideoSerializeVideoThreadInfo.VideoAggregationVideoData videoAggregationVideoData2 = new VideoSerializeVideoThreadInfo.VideoAggregationVideoData();
                 videoSerializeVideoThreadInfo2.video = videoAggregationVideoData2;
-                videoAggregationVideoData2.thumbnailUrl = queryParameter22;
-                videoAggregationVideoData2.videoUrl = queryParameter23;
-                VideoMiddlePageLightActivityConfig videoMiddlePageLightActivityConfig = new VideoMiddlePageLightActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter14, videoSerializeVideoThreadInfo2);
+                videoAggregationVideoData2.thumbnailUrl = queryParameter29;
+                videoAggregationVideoData2.videoUrl = queryParameter30;
+                VideoMiddlePageLightActivityConfig videoMiddlePageLightActivityConfig = new VideoMiddlePageLightActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter21, videoSerializeVideoThreadInfo2);
                 videoMiddlePageLightActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage(2002001, videoMiddlePageLightActivityConfig));
             }
-            if (TextUtils.isEmpty(dataString) || !dataString.contains("unidispatch/video_middle_vertical_page_qa")) {
+            if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/video_middle_vertical_page_qa")) {
+                Uri parse5 = Uri.parse(dataString);
+                String queryParameter31 = parse5.getQueryParameter(g.o);
+                String queryParameter32 = parse5.getQueryParameter(g.J);
+                String queryParameter33 = parse5.getQueryParameter("title");
+                String queryParameter34 = parse5.getQueryParameter("author_uid");
+                String queryParameter35 = parse5.getQueryParameter(str6);
+                String queryParameter36 = parse5.getQueryParameter(str7);
+                String queryParameter37 = parse5.getQueryParameter(str3);
+                String queryParameter38 = parse5.getQueryParameter(str5);
+                String queryParameter39 = parse5.getQueryParameter(str2);
+                ArrayList arrayList = new ArrayList();
+                VideoItemData videoItemData = new VideoItemData();
+                videoItemData.thread_id = queryParameter31;
+                videoItemData.forum_id = queryParameter32;
+                videoItemData.title = queryParameter33;
+                UserItemData userItemData = new UserItemData();
+                userItemData.user_id = queryParameter34;
+                userItemData.user_name = queryParameter35;
+                userItemData.name_show = queryParameter36;
+                userItemData.portrait = queryParameter37;
+                videoItemData.author_info = userItemData;
+                videoItemData.thumbnail_url = queryParameter38;
+                videoItemData.video_url = queryParameter39;
+                arrayList.add(videoItemData);
+                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this, arrayList, VideoPlayActivityConfig.FROM_NANI_VIDEO, VideoMiddlePageActivityConfig.FROM_SCHEME_QA);
+                videoPlayActivityConfig.setParamIsVertail(true);
+                videoPlayActivityConfig.setUri(intent.getData());
+                sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
+            }
+            if (TextUtils.isEmpty(dataString) || !dataString.startsWith("tiebaclient://passlogin")) {
                 return;
             }
-            Uri parse4 = Uri.parse(dataString);
-            String queryParameter24 = parse4.getQueryParameter(f.o);
-            String queryParameter25 = parse4.getQueryParameter(f.J);
-            String queryParameter26 = parse4.getQueryParameter("title");
-            String queryParameter27 = parse4.getQueryParameter("author_uid");
-            String queryParameter28 = parse4.getQueryParameter(str6);
-            String queryParameter29 = parse4.getQueryParameter(str7);
-            String queryParameter30 = parse4.getQueryParameter(str3);
-            String queryParameter31 = parse4.getQueryParameter(str5);
-            String queryParameter32 = parse4.getQueryParameter(str2);
-            ArrayList arrayList = new ArrayList();
-            VideoItemData videoItemData = new VideoItemData();
-            videoItemData.thread_id = queryParameter24;
-            videoItemData.forum_id = queryParameter25;
-            videoItemData.title = queryParameter26;
-            UserItemData userItemData = new UserItemData();
-            userItemData.user_id = queryParameter27;
-            userItemData.user_name = queryParameter28;
-            userItemData.name_show = queryParameter29;
-            userItemData.portrait = queryParameter30;
-            videoItemData.author_info = userItemData;
-            videoItemData.thumbnail_url = queryParameter31;
-            videoItemData.video_url = queryParameter32;
-            arrayList.add(videoItemData);
-            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this, arrayList, VideoPlayActivityConfig.FROM_NANI_VIDEO, VideoMiddlePageActivityConfig.FROM_SCHEME_QA);
-            videoPlayActivityConfig.setParamIsVertail(true);
-            videoPlayActivityConfig.setUri(intent.getData());
-            sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this);
+            loginActivityConfig.setAutoLogin(dataString);
+            sendMessage(new CustomMessage(2002001, loginActivityConfig));
+            d.y().L(true);
         }
     }
 
     private void clearClipBoardIfNeed(Uri uri) {
-        if (uri != null && f.c(uri)) {
+        if (uri != null && g.c(uri)) {
             String queryParameter = uri.getQueryParameter("obj_locate");
             if (TextUtils.isEmpty(queryParameter) || !queryParameter.startsWith("mdp")) {
                 return;

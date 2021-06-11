@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.f0.f;
 import d.a.m0.r.f0.g;
 import java.util.List;
@@ -17,125 +17,125 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public PbListView f62455a;
+    public PbListView f66170a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f62456b;
+    public BaseActivity f66171b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f62457c;
+    public View f66172c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f62458d;
+    public NavigationBar f66173d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdTypeListView f62459e;
+    public BdTypeListView f66174e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f62460f;
+    public g f66175f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.w0.b.a f62461g;
+    public d.a.n0.w0.b.a f66176g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoNetworkView f62462h;
+    public NoNetworkView f66177h;
 
     public a(BaseActivity baseActivity) {
-        this.f62456b = baseActivity;
+        this.f66171b = baseActivity;
         baseActivity.setContentView(R.layout.god_square_activity);
-        this.f62457c = this.f62456b.findViewById(R.id.activity_root_view);
-        NavigationBar navigationBar = (NavigationBar) this.f62456b.findViewById(R.id.view_navigation_bar);
-        this.f62458d = navigationBar;
+        this.f66172c = this.f66171b.findViewById(R.id.activity_root_view);
+        NavigationBar navigationBar = (NavigationBar) this.f66171b.findViewById(R.id.view_navigation_bar);
+        this.f66173d = navigationBar;
         navigationBar.setTitleText(R.string.god_square);
-        this.f62458d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f62462h = (NoNetworkView) this.f62456b.findViewById(R.id.view_no_network);
-        PbListView pbListView = new PbListView(this.f62456b.getPageContext().getPageActivity());
-        this.f62455a = pbListView;
+        this.f66173d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f66177h = (NoNetworkView) this.f66171b.findViewById(R.id.view_no_network);
+        PbListView pbListView = new PbListView(this.f66171b.getPageContext().getPageActivity());
+        this.f66170a = pbListView;
         pbListView.a();
-        this.f62455a.O();
-        this.f62459e = (BdTypeListView) this.f62456b.findViewById(R.id.god_square_list_view);
-        g gVar = new g(this.f62456b.getPageContext());
-        this.f62460f = gVar;
-        BaseActivity baseActivity2 = this.f62456b;
+        this.f66170a.O();
+        this.f66174e = (BdTypeListView) this.f66171b.findViewById(R.id.god_square_list_view);
+        g gVar = new g(this.f66171b.getPageContext());
+        this.f66175f = gVar;
+        BaseActivity baseActivity2 = this.f66171b;
         if (baseActivity2 instanceof f.g) {
             gVar.a((f.g) baseActivity2);
         }
-        BaseActivity baseActivity3 = this.f62456b;
+        BaseActivity baseActivity3 = this.f66171b;
         if (baseActivity3 instanceof BdListView.p) {
-            this.f62459e.setOnSrollToBottomListener((BdListView.p) baseActivity3);
+            this.f66174e.setOnSrollToBottomListener((BdListView.p) baseActivity3);
         }
-        this.f62459e.setPullRefresh(this.f62460f);
-        d.a.n0.w0.b.a aVar = new d.a.n0.w0.b.a(this.f62456b.getPageContext(), this.f62459e);
-        this.f62461g = aVar;
-        this.f62459e.a(aVar.a());
-        this.f62459e.setNextPage(this.f62455a);
+        this.f66174e.setPullRefresh(this.f66175f);
+        d.a.n0.w0.b.a aVar = new d.a.n0.w0.b.a(this.f66171b.getPageContext(), this.f66174e);
+        this.f66176g = aVar;
+        this.f66174e.a(aVar.a());
+        this.f66174e.setNextPage(this.f66170a);
     }
 
     public BdTypeListView a() {
-        return this.f62459e;
+        return this.f66174e;
     }
 
     public void b() {
-        this.f62459e.setVisibility(0);
-        this.f62456b.hideLoadingView(this.f62457c);
+        this.f66174e.setVisibility(0);
+        this.f66171b.hideLoadingView(this.f66172c);
     }
 
     public void c() {
-        this.f62459e.setVisibility(0);
-        this.f62456b.hideNetRefreshView(this.f62457c);
+        this.f66174e.setVisibility(0);
+        this.f66171b.hideNetRefreshView(this.f66172c);
     }
 
     public void d() {
-        this.f62455a.A(this.f62456b.getResources().getString(R.string.network_ungeilivable));
-        this.f62455a.f();
+        this.f66170a.A(this.f66171b.getResources().getString(R.string.network_ungeilivable));
+        this.f66170a.f();
     }
 
     public void e() {
-        this.f62455a.A(this.f62456b.getResources().getString(R.string.list_no_more));
-        this.f62455a.f();
+        this.f66170a.A(this.f66171b.getResources().getString(R.string.list_no_more));
+        this.f66170a.f();
     }
 
     public void f() {
-        this.f62455a.O();
+        this.f66170a.O();
     }
 
     public void g() {
-        this.f62461g.b();
+        this.f66176g.b();
     }
 
     public void h(int i2) {
-        this.f62458d.onChangeSkinType(this.f62456b.getPageContext(), i2);
-        this.f62455a.o(R.color.CAM_X0204);
-        this.f62455a.C(SkinManager.getColor(R.color.CAM_X0109));
-        this.f62455a.d(i2);
-        this.f62462h.c(this.f62456b.getPageContext(), i2);
+        this.f66173d.onChangeSkinType(this.f66171b.getPageContext(), i2);
+        this.f66170a.o(R.color.CAM_X0204);
+        this.f66170a.C(SkinManager.getColor(R.color.CAM_X0109));
+        this.f66170a.d(i2);
+        this.f66177h.c(this.f66171b.getPageContext(), i2);
     }
 
     public void i(NoNetworkView.b bVar) {
         if (bVar == null) {
             return;
         }
-        this.f62462h.a(bVar);
+        this.f66177h.a(bVar);
     }
 
     public void j() {
-        this.f62459e.setVisibility(8);
-        this.f62456b.showLoadingView(this.f62457c, true);
+        this.f66174e.setVisibility(8);
+        this.f66171b.showLoadingView(this.f66172c, true);
     }
 
     public void k(String str) {
-        this.f62459e.setVisibility(8);
-        this.f62456b.showNetRefreshView(this.f62457c, str, true);
+        this.f66174e.setVisibility(8);
+        this.f66171b.showNetRefreshView(this.f66172c, str, true);
     }
 
     public void l() {
-        this.f62459e.F();
+        this.f66174e.F();
     }
 
     public void m(List<n> list) {
         if (list == null) {
             return;
         }
-        this.f62459e.setData(list);
+        this.f66174e.setData(list);
     }
 }

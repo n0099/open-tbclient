@@ -6,17 +6,17 @@ import tbclient.Lbs;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50781a = null;
+    public String f54458a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50782b;
+    public String f54459b;
 
     public String a() {
-        return this.f50782b;
+        return this.f54459b;
     }
 
     public String b() {
-        return this.f50781a;
+        return this.f54458a;
     }
 
     public void c(Lbs lbs) {
@@ -24,10 +24,10 @@ public class g {
             return;
         }
         try {
-            this.f50781a = lbs.name;
+            this.f54458a = lbs.name;
             String str = lbs.lat;
             String str2 = lbs.lng;
-            this.f50782b = lbs.distance;
+            this.f54459b = lbs.distance;
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

@@ -9,30 +9,30 @@ import org.json.JSONObject;
 public class a implements LBSAuthManagerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f6425a = new Object();
+    public static Object f6468a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f6426b;
+    public static a f6469b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6427c = 0;
+    public int f6470c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f6428d = null;
+    public Context f6471d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f6429e = 0;
+    public long f6472e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6430f = null;
+    public String f6473f = null;
 
     public static a a() {
         a aVar;
-        synchronized (f6425a) {
-            if (f6426b == null) {
-                f6426b = new a();
+        synchronized (f6468a) {
+            if (f6469b == null) {
+                f6469b = new a();
             }
-            aVar = f6426b;
+            aVar = f6469b;
         }
         return aVar;
     }
@@ -56,19 +56,19 @@ public class a implements LBSAuthManagerListener {
     }
 
     public void a(Context context) {
-        this.f6428d = context;
+        this.f6471d = context;
         LBSAuthManager.getInstance(context).authenticate(false, "lbs_locsdk", null, this);
-        this.f6429e = System.currentTimeMillis();
+        this.f6472e = System.currentTimeMillis();
     }
 
     public boolean b() {
-        int i2 = this.f6427c;
+        int i2 = this.f6470c;
         boolean z = i2 == 0 || i2 == 602 || i2 == 601 || i2 == -10 || i2 == -11;
-        if (this.f6428d != null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f6429e;
+        if (this.f6471d != null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.f6472e;
             if (!z ? currentTimeMillis < 0 || currentTimeMillis > 10000 : currentTimeMillis > 86400000) {
-                LBSAuthManager.getInstance(this.f6428d).authenticate(false, "lbs_locsdk", null, this);
-                this.f6429e = System.currentTimeMillis();
+                LBSAuthManager.getInstance(this.f6471d).authenticate(false, "lbs_locsdk", null, this);
+                this.f6472e = System.currentTimeMillis();
             }
         }
         return z;
@@ -76,18 +76,18 @@ public class a implements LBSAuthManagerListener {
 
     @Override // com.baidu.lbsapi.auth.LBSAuthManagerListener
     public void onAuthResult(int i2, String str) {
-        this.f6427c = i2;
+        this.f6470c = i2;
         if (i2 == 0) {
-            Log.i(com.baidu.location.e.a.f6667a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
+            Log.i(com.baidu.location.e.a.f6710a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
         } else {
-            String str2 = com.baidu.location.e.a.f6667a;
+            String str2 = com.baidu.location.e.a.f6710a;
             Log.i(str2, "LocationAuthManager Authentication Error errorcode = " + i2 + " , msg = " + str);
         }
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.getString("token") != null) {
-                    this.f6430f = jSONObject.getString("token");
+                    this.f6473f = jSONObject.getString("token");
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

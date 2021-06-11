@@ -17,19 +17,19 @@ public class a extends d.a.l0.h.o0.g.b.a {
 
     /* renamed from: d.a.l0.h.o0.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1043a implements View.OnClickListener {
-        public View$OnClickListenerC1043a() {
+    public class View$OnClickListenerC1099a implements View.OnClickListener {
+        public View$OnClickListenerC1099a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f47590g == null || a.this.n < -1) {
+            if (a.this.f51264g == null || a.this.n < -1) {
                 return;
             }
             if (a.this.n == -1) {
-                a.this.f47590g.p();
+                a.this.f51264g.p();
             } else {
-                a.this.f47590g.v(a.this.n);
+                a.this.f51264g.v(a.this.n);
             }
         }
     }
@@ -43,14 +43,14 @@ public class a extends d.a.l0.h.o0.g.b.a {
         public void onAnimationEnd(Animator animator) {
             a aVar = a.this;
             RecommendItemModel y = aVar.y(aVar.n);
-            a.this.o.f47599b.setImageURI(y.iconUrl);
-            a.this.o.f47600c.setText(y.appName);
-            a.this.o.f47598a.setAlpha(1.0f);
+            a.this.o.f51273b.setImageURI(y.iconUrl);
+            a.this.o.f51274c.setText(y.appName);
+            a.this.o.f51272a.setAlpha(1.0f);
             a aVar2 = a.this;
             RecommendItemModel y2 = a.this.y(aVar2.x(aVar2.n));
-            a.this.p.f47599b.setImageURI(y2.iconUrl);
-            a.this.p.f47600c.setText(y2.appName);
-            a.this.p.f47598a.setAlpha(0.0f);
+            a.this.p.f51273b.setImageURI(y2.iconUrl);
+            a.this.p.f51274c.setText(y2.appName);
+            a.this.p.f51272a.setAlpha(0.0f);
             a.super.k();
         }
     }
@@ -67,54 +67,54 @@ public class a extends d.a.l0.h.o0.g.b.a {
             return;
         }
         this.n = -2;
-        this.p.f47599b.setImageURI(aVar.f47606a.iconUrl);
-        this.p.f47600c.setText(aVar.f47606a.appName);
+        this.p.f51273b.setImageURI(aVar.f51280a.iconUrl);
+        this.p.f51274c.setText(aVar.f51280a.appName);
     }
 
     @Override // d.a.l0.h.o0.g.b.a
     public View i() {
-        FrameLayout frameLayout = new FrameLayout(this.f47588e);
-        d.a.l0.h.o0.g.c.b bVar = new d.a.l0.h.o0.g.c.b(this.f47588e);
+        FrameLayout frameLayout = new FrameLayout(this.f51262e);
+        d.a.l0.h.o0.g.c.b bVar = new d.a.l0.h.o0.g.c.b(this.f51262e);
         this.p = bVar;
-        bVar.f47598a.setAlpha(0.0f);
-        frameLayout.addView(this.p.f47598a);
-        d.a.l0.h.o0.g.c.b bVar2 = new d.a.l0.h.o0.g.c.b(this.f47588e);
+        bVar.f51272a.setAlpha(0.0f);
+        frameLayout.addView(this.p.f51272a);
+        d.a.l0.h.o0.g.c.b bVar2 = new d.a.l0.h.o0.g.c.b(this.f51262e);
         this.o = bVar2;
-        bVar2.f47598a.setAlpha(0.0f);
-        this.o.f47599b.setActualImageResource(17170445);
-        this.o.f47600c.setText((CharSequence) null);
-        frameLayout.addView(this.o.f47598a);
-        this.o.f47598a.setOnClickListener(new View$OnClickListenerC1043a());
+        bVar2.f51272a.setAlpha(0.0f);
+        this.o.f51273b.setActualImageResource(17170445);
+        this.o.f51274c.setText((CharSequence) null);
+        frameLayout.addView(this.o.f51272a);
+        this.o.f51272a.setOnClickListener(new View$OnClickListenerC1099a());
         return frameLayout;
     }
 
     @Override // d.a.l0.h.o0.g.b.a
     public void k() {
-        if (z(this.f47589f)) {
-            this.o.f47598a.setAlpha(1.0f);
-            this.o.f47599b.setActualImageResource(d.a.l0.f.d.swangame_recommend_gamecenter);
-            this.o.f47600c.setText(g.swangame_recommend_button_goto_game_center);
+        if (z(this.f51263f)) {
+            this.o.f51272a.setAlpha(1.0f);
+            this.o.f51273b.setActualImageResource(d.a.l0.f.d.swangame_recommend_gamecenter);
+            this.o.f51274c.setText(g.swangame_recommend_button_goto_game_center);
             super.k();
             return;
         }
         this.n = x(this.n);
-        this.p.f47598a.animate().setDuration(160L).alpha(1.0f);
-        this.o.f47598a.animate().setDuration(160L).alpha(0.0f).setListener(new b());
+        this.p.f51272a.animate().setDuration(160L).alpha(1.0f);
+        this.o.f51272a.animate().setDuration(160L).alpha(0.0f).setListener(new b());
     }
 
     public final int x(int i2) {
         int i3 = i2 + 1;
-        if (i3 == this.f47589f.f47607b.size()) {
+        if (i3 == this.f51263f.f51281b.size()) {
             return -1;
         }
         return i3;
     }
 
     public final RecommendItemModel y(int i2) {
-        return i2 == -1 ? this.f47589f.f47606a : this.f47589f.f47607b.get(i2);
+        return i2 == -1 ? this.f51263f.f51280a : this.f51263f.f51281b.get(i2);
     }
 
     public final boolean z(d.a.l0.h.o0.g.e.a aVar) {
-        return aVar == null || aVar.f47607b == null || aVar.f47606a == null;
+        return aVar == null || aVar.f51281b == null || aVar.f51280a == null;
     }
 }

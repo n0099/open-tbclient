@@ -22,20 +22,20 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
 
         /* renamed from: com.baidu.adp.plugin.proxy.activity.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0021a implements c {
+        public class C0022a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Plugin f2246a;
+            public final /* synthetic */ Plugin f2259a;
 
-            public C0021a(Plugin plugin2) {
-                this.f2246a = plugin2;
+            public C0022a(Plugin plugin2) {
+                this.f2259a = plugin2;
             }
 
             @Override // d.a.c.h.k.c
             public void a(Plugin.c cVar, String str) {
                 Intent intent = new Intent(LoadingActivity.this.getIntent());
                 intent.setComponent(new ComponentName(str, LoadingActivity.this.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
-                this.f2246a.launchIntent(LoadingActivity.this.getPageContext().getContext(), intent);
+                this.f2259a.launchIntent(LoadingActivity.this.getPageContext().getContext(), intent);
                 LoadingActivity.this.finish();
             }
         }
@@ -47,7 +47,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
         public void a(String str) {
             Plugin plugin2 = PluginCenter.getInstance().getPlugin(str);
             if (plugin2 != null) {
-                plugin2.asyncInit(str, new C0021a(plugin2));
+                plugin2.asyncInit(str, new C0022a(plugin2));
             }
         }
 

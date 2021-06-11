@@ -1,31 +1,29 @@
 package d.a.n0.b1.c.f;
 
-import d.a.n0.b1.c.e;
+import com.baidu.adp.BdUniqueId;
+import d.a.c.k.e.n;
 /* loaded from: classes4.dex */
-public class b {
+public class b implements n {
+    public static final BdUniqueId j = BdUniqueId.gen();
+    public static final BdUniqueId k = BdUniqueId.gen();
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f51427a = -1;
+    /* renamed from: e  reason: collision with root package name */
+    public int f55069e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f51428b = false;
+    /* renamed from: f  reason: collision with root package name */
+    public String f55070f;
 
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f51429c = false;
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f55071g;
 
-    public void a(e eVar) {
-        this.f51428b = true;
-        int i2 = this.f51427a;
-        if (i2 == -1 || !this.f51429c) {
-            return;
-        }
-        eVar.a(i2);
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f55072h;
 
-    public void b(int i2, e eVar) {
-        this.f51427a = i2;
-        if (this.f51428b && this.f51429c) {
-            eVar.a(i2);
-        }
+    /* renamed from: i  reason: collision with root package name */
+    public BdUniqueId f55073i = k;
+
+    @Override // d.a.c.k.e.n
+    public BdUniqueId getType() {
+        return this.f55073i;
     }
 }

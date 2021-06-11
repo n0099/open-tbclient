@@ -11,19 +11,19 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    public static Rect a(d.a.c.j.e.s sVar, View view, int i2) {
+    public static Rect a(d.a.c.k.e.s sVar, View view, int i2) {
         BdTypeRecyclerView bdTypeRecyclerView;
         RecyclerView.LayoutManager layoutManager;
         View findViewByPosition;
         if (view.getTag() instanceof AutoVideoCardViewHolder) {
-            return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view.getTag()).t().getVideoContainer());
+            return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view.getTag()).u().getVideoContainer());
         }
         if (!(sVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) sVar).getLayoutManager()) == null) {
             return null;
         }
         int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
         int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
-        List<d.a.c.j.e.n> data = sVar.getData();
+        List<d.a.c.k.e.n> data = sVar.getData();
         Object item = ListUtils.getItem(data, i2);
         if (item instanceof BaseCardInfo) {
             BaseCardInfo baseCardInfo = (BaseCardInfo) item;
@@ -31,7 +31,7 @@ public class e {
             for (int i3 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i3 <= lastVisiblePosition; i3++) {
                 Object item2 = ListUtils.getItem(data, i3 - headerViewsCount);
                 if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i3)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
-                    return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).t().getVideoContainer());
+                    return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).u().getVideoContainer());
                 }
             }
             return null;

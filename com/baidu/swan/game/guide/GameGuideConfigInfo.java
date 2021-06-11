@@ -194,7 +194,7 @@ public class GameGuideConfigInfo implements Serializable {
 
     public static GameGuideConfigInfo parseData(JSONObject jSONObject) {
         if (jSONObject == null) {
-            if (k.f43199a) {
+            if (k.f46875a) {
                 Log.d(TAG, "data 为空");
             }
             return null;
@@ -216,7 +216,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
         gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
         if (optInt == 0) {
-            if (k.f43199a) {
+            if (k.f46875a) {
                 Log.d(TAG, "配置数据标明不展示");
             }
             return gameGuideConfigInfo;

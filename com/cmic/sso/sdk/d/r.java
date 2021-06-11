@@ -1,10 +1,14 @@
 package com.cmic.sso.sdk.d;
 
 import android.text.TextUtils;
+import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.NetworkInterface;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Enumeration;
 /* loaded from: classes6.dex */
 public class r {
@@ -82,5 +86,21 @@ public class r {
             e2.printStackTrace();
             return "";
         }
+    }
+
+    public static String a(String str, int i2) {
+        InetAddress[] allByName = InetAddress.getAllByName(str);
+        for (int i3 = 0; i3 < allByName.length; i3++) {
+            try {
+                Socket socket = new Socket();
+                socket.connect(new InetSocketAddress(allByName[i3], i2));
+                return socket.getLocalAddress().getHostAddress();
+            } catch (IOException e2) {
+                if (i3 == allByName.length - 1) {
+                    throw e2;
+                }
+            }
+        }
+        throw new UnknownHostException(str);
     }
 }

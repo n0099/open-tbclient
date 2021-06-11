@@ -14,7 +14,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Cookie {
     public final String domain;
     public final long expiresAt;
@@ -30,7 +30,7 @@ public final class Cookie {
     public static final Pattern DAY_OF_MONTH_PATTERN = Pattern.compile("(\\d{1,2})[^\\d]*");
     public static final Pattern TIME_PATTERN = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public String domain;
         public boolean hostOnly;
@@ -357,8 +357,8 @@ public final class Cookie {
         int length = str.length();
         char c2 = ';';
         int delimiterOffset = Util.delimiterOffset(str, 0, length, ';');
-        char c3 = a.f1873h;
-        int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f1873h);
+        char c3 = a.f1886h;
+        int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f1886h);
         if (delimiterOffset2 == delimiterOffset) {
             return null;
         }
@@ -404,12 +404,12 @@ public final class Cookie {
                 }
                 i2 = delimiterOffset3 + 1;
                 c2 = ';';
-                c3 = a.f1873h;
+                c3 = a.f1886h;
             }
             z4 = true;
             i2 = delimiterOffset3 + 1;
             c2 = ';';
-            c3 = a.f1873h;
+            c3 = a.f1886h;
         }
         long j5 = Long.MIN_VALUE;
         if (j3 != Long.MIN_VALUE) {
@@ -460,7 +460,7 @@ public final class Cookie {
     public String toString(boolean z) {
         StringBuilder sb = new StringBuilder();
         sb.append(this.name);
-        sb.append(a.f1873h);
+        sb.append(a.f1886h);
         sb.append(this.value);
         if (this.persistent) {
             if (this.expiresAt == Long.MIN_VALUE) {

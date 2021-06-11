@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import h.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeFromEmitter$NoneEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static final long serialVersionUID = 3776720187248809713L;
 

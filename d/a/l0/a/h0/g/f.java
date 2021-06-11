@@ -43,20 +43,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes2.dex */
-public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
+public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0991a {
     public static d.a.l0.a.l1.b U0;
     public static String W0;
     public FrameLayout B0;
     public d.a.l0.a.p.e.b C0;
     public d.a.l0.a.o2.b.a D0;
     public d.a.l0.a.z1.b.c.a E0;
-    public View K0;
-    public d.a.l0.a.a2.n.g L0;
+    public View F0;
+    public d.a.l0.a.a2.n.g G0;
     public d.a.l0.a.h0.j.c N0;
     public q0 O0;
     public d.a.l0.a.j2.a x0;
     public d.a.l0.a.l1.b z0;
-    public static final boolean R0 = d.a.l0.a.k.f43199a;
+    public static final boolean R0 = d.a.l0.a.k.f46875a;
     public static final int S0 = n0.g(149.0f);
     public static String T0 = "-1";
     public static String V0 = "-1";
@@ -90,7 +90,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         public void a(View view) {
             String b2 = f.this.C0.b();
             d.a.l0.a.o0.d.g gVar = new d.a.l0.a.o0.d.g();
-            gVar.f43924c = d.a.l0.a.w2.g.c.a.a(b2, "scrollViewBackToTop");
+            gVar.f47600c = d.a.l0.a.w2.g.c.a.a(b2, "scrollViewBackToTop");
             d.a.l0.a.g1.f.V().m(b2, gVar);
         }
     }
@@ -110,26 +110,26 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
     public class d implements a.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.d f42062a;
+        public final /* synthetic */ a.d f45738a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f42063b;
+        public final /* synthetic */ String f45739b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f42064c;
+        public final /* synthetic */ String f45740c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f42065d;
+        public final /* synthetic */ String f45741d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f42066e;
+        public final /* synthetic */ String f45742e;
 
         public d(a.d dVar, String str, String str2, String str3, String str4) {
-            this.f42062a = dVar;
-            this.f42063b = str;
-            this.f42064c = str2;
-            this.f42065d = str3;
-            this.f42066e = str4;
+            this.f45738a = dVar;
+            this.f45739b = str;
+            this.f45740c = str2;
+            this.f45741d = str3;
+            this.f45742e = str4;
         }
 
         /* JADX WARN: Type inference failed for: r1v19, types: [d.a.l0.a.p.e.c] */
@@ -137,44 +137,44 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         public void onReady() {
             String str;
             d.a.l0.a.h0.u.d dVar = new d.a.l0.a.h0.u.d();
-            dVar.f42620i = this.f42062a.f42580a.L();
-            if (!TextUtils.isEmpty(this.f42063b)) {
-                d.a.l0.a.r1.i.e(this.f42062a, this.f42063b);
+            dVar.f46296i = this.f45738a.f46256a.L();
+            if (!TextUtils.isEmpty(this.f45739b)) {
+                d.a.l0.a.r1.i.e(this.f45738a, this.f45739b);
             }
-            String b2 = d.a.l0.a.c2.f.p0.j.b(this.f42064c);
-            dVar.f42612a = this.f42065d;
-            if (TextUtils.isEmpty(this.f42066e)) {
-                str = this.f42064c;
+            String b2 = d.a.l0.a.c2.f.p0.j.b(this.f45740c);
+            dVar.f46288a = this.f45741d;
+            if (TextUtils.isEmpty(this.f45742e)) {
+                str = this.f45740c;
             } else {
-                str = this.f42064c + "?" + this.f42066e;
+                str = this.f45740c + "?" + this.f45742e;
             }
-            dVar.f42613b = str;
+            dVar.f46289b = str;
             if (d.a.l0.a.a2.e.Q() != null) {
-                dVar.f42614c = d.a.l0.a.a2.e.Q().S(b2);
-                dVar.f42617f = d.a.l0.a.a2.e.Q().M(b2);
+                dVar.f46290c = d.a.l0.a.a2.e.Q().S(b2);
+                dVar.f46293f = d.a.l0.a.a2.e.Q().M(b2);
             }
-            dVar.k = d.a.l0.a.h0.u.a.c(d.a.l0.a.a2.e.i(), dVar.f42613b);
-            dVar.f42615d = d.a.l0.a.g1.f.V().e(b2).f40798g;
-            dVar.f42616e = String.valueOf(d.a.l0.a.e0.a.a());
-            dVar.f42618g = f.R0 || d.a.l0.a.g1.f.V().O();
+            dVar.k = d.a.l0.a.h0.u.a.c(d.a.l0.a.a2.e.i(), dVar.f46289b);
+            dVar.f46291d = d.a.l0.a.g1.f.V().e(b2).f44474g;
+            dVar.f46292e = String.valueOf(d.a.l0.a.e0.a.a());
+            dVar.f46294g = f.R0 || d.a.l0.a.g1.f.V().O();
             if (d.a.l0.a.u1.a.a.G()) {
                 dVar.j = d.a.l0.a.e0.f.b.d();
             }
-            if (!TextUtils.isEmpty(this.f42063b)) {
-                String str2 = this.f42063b;
-                dVar.f42619h = str2;
+            if (!TextUtils.isEmpty(this.f45739b)) {
+                String str2 = this.f45739b;
+                dVar.f46295h = str2;
                 d.a.l0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str2).C(new UbcFlowEvent("slave_dispatch_start"));
             }
             d0.d();
-            this.f42062a.f42580a.u().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, this.f42064c);
-            this.f42062a.f42580a.S(dVar.f42613b);
-            d.a.l0.a.g1.f.V().m(this.f42062a.f42580a.b(), d.a.l0.a.h0.u.d.a(dVar));
+            this.f45738a.f46256a.u().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, this.f45740c);
+            this.f45738a.f46256a.S(dVar.f46289b);
+            d.a.l0.a.g1.f.V().m(this.f45738a.f46256a.b(), d.a.l0.a.h0.u.d.a(dVar));
             if (d.a.l0.a.h0.u.e.b()) {
                 d.a.l0.a.h0.u.e eVar = new d.a.l0.a.h0.u.e();
-                eVar.f42623a = this.f42062a.f42580a.b();
+                eVar.f46299a = this.f45738a.f46256a.b();
                 d.a.l0.a.g1.f.V().v(d.a.l0.a.h0.u.e.a(eVar));
             }
-            d.a.l0.a.j2.e.F(this.f42062a.f42580a.b(), dVar.f42613b);
+            d.a.l0.a.j2.e.F(this.f45738a.f46256a.b(), dVar.f46289b);
             if (f.R0) {
                 Log.d("SwanAppFragment", "createSlaveAndLoad onReady. pageEvent: " + dVar.toString());
             }
@@ -203,7 +203,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.f fVar) {
-            if (fVar == null || fVar.f41697d || fVar.j != 1) {
+            if (fVar == null || fVar.f45373d || fVar.j != 1) {
                 return;
             }
             d.a.l0.a.v2.q0.b0(new a());
@@ -212,8 +212,8 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
 
     /* renamed from: d.a.l0.a.h0.g.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0661f implements d.a.l0.a.h0.j.c {
-        public C0661f() {
+    public class C0717f implements d.a.l0.a.h0.j.c {
+        public C0717f() {
         }
 
         @Override // d.a.l0.a.h0.j.c
@@ -239,7 +239,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         @Override // d.a.l0.a.h0.j.e
         public void b(d.a.l0.a.p.e.e eVar) {
             if (eVar != null) {
-                eVar.U(f.this.N0);
+                eVar.V(f.this.N0);
                 d.a.l0.a.m1.g.f().b(eVar);
             }
         }
@@ -260,17 +260,17 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
     public static class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f42073a = -1;
+        public static int f45749a = -1;
 
         public static int a() {
-            if (f42073a < 0) {
+            if (f45749a < 0) {
                 d.a.l0.a.c1.a.Z().getSwitch("swan_app_fragment_destroy_switch", 1);
-                f42073a = 1;
+                f45749a = 1;
             }
             if (f.R0) {
-                Log.d("SwanAppFragment", "getFragmentDestroySwitch:" + f42073a);
+                Log.d("SwanAppFragment", "getFragmentDestroySwitch:" + f45749a);
             }
-            return f42073a;
+            return f45749a;
         }
 
         public static boolean b() {
@@ -300,7 +300,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
     }
 
     private void a1() {
-        if (W()) {
+        if (V()) {
             A3();
         }
         if (R0) {
@@ -309,7 +309,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
     }
 
     private void d1() {
-        if (W()) {
+        if (V()) {
             D3();
         }
         n nVar = this.j0;
@@ -369,10 +369,10 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         if (P1()) {
             b2 = S1(b2);
         }
-        this.K0 = A1(b2, this);
+        this.F0 = A1(b2, this);
         this.p0.setRegionFactor(this.C0.F());
         d.a.l0.a.m1.g.f().o();
-        return this.K0;
+        return this.F0;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: T */
@@ -405,14 +405,14 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
                 }
                 if (cVar != null) {
                     i2 = cVar.getWebViewScrollY();
-                    gVar = this.L0;
-                    if (gVar != null && gVar.f40800i) {
+                    gVar = this.G0;
+                    if (gVar != null && gVar.f44476i) {
                         i3 = 0;
                     }
                 }
             }
             i2 = 0;
-            gVar = this.L0;
+            gVar = this.G0;
             if (gVar != null) {
                 i3 = 0;
             }
@@ -463,16 +463,16 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         }
         d.a.l0.a.l1.c e2 = d.a.l0.a.l1.c.e(n.getString("ai_apps_param"));
         this.g0 = e2;
-        this.y0.f43357e = e2 != null ? e2.g() : "";
+        this.y0.f47033e = e2 != null ? e2.g() : "";
         d.a.l0.a.l1.b bVar = this.y0;
         d.a.l0.a.l1.c cVar = this.g0;
-        bVar.f43358f = cVar != null ? cVar.h() : "";
+        bVar.f47034f = cVar != null ? cVar.h() : "";
         d.a.l0.a.l1.b bVar2 = this.y0;
-        bVar2.f43360h = d.a.l0.a.c2.f.p0.j.b(bVar2.f());
+        bVar2.f47036h = d.a.l0.a.c2.f.p0.j.b(bVar2.f());
         d.a.l0.a.a2.n.g e3 = d.a.l0.a.g1.f.V().e(this.y0.h());
-        this.L0 = e3;
+        this.G0 = e3;
         if (e3.p) {
-            this.L0 = d.a.l0.a.g1.f.V().i(this.y0.f());
+            this.G0 = d.a.l0.a.g1.f.V().i(this.y0.f());
         }
         this.M0 = G1().getDimensionPixelSize(d.a.l0.a.d.aiapps_normal_base_action_bar_height);
     }
@@ -498,7 +498,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
 
     @Override // d.a.l0.a.h0.g.d
     public d.a.l0.a.a2.n.g D1() {
-        return this.L0;
+        return this.G0;
     }
 
     public void D3() {
@@ -543,14 +543,14 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         if (!TextUtils.equals(V0, this.C0.b()) || TextUtils.equals(W0, "switchTab")) {
             int o = this.D0.o(Z2().h());
             d.a.l0.a.o0.d.e eVar = new d.a.l0.a.o0.d.e();
-            eVar.f43917c = V0;
-            eVar.f43918d = this.C0.b();
-            eVar.f43919e = W0;
-            eVar.f43920f = this.y0.f43357e;
-            eVar.f43921g = String.valueOf(o);
+            eVar.f47593c = V0;
+            eVar.f47594d = this.C0.b();
+            eVar.f47595e = W0;
+            eVar.f47596f = this.y0.f47033e;
+            eVar.f47597g = String.valueOf(o);
             W0 = "";
             if (R0) {
-                Log.d("SwanAppFragment", "sendRouteMessage fromId: " + eVar.f43917c + " ,toId: " + eVar.f43918d + " ,RouteType: " + eVar.f43919e + " page:" + eVar.f43920f + ",TabIndex: " + eVar.f43921g);
+                Log.d("SwanAppFragment", "sendRouteMessage fromId: " + eVar.f47593c + " ,toId: " + eVar.f47594d + " ,RouteType: " + eVar.f47595e + " page:" + eVar.f47596f + ",TabIndex: " + eVar.f47597g);
             }
             d.a.l0.a.g1.f.V().v(eVar);
             V0 = this.C0.b();
@@ -608,9 +608,9 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         if (cVar == null || bVar == null) {
             return;
         }
-        bVar.U(cVar);
+        bVar.V(cVar);
         if (bVar.m() != null) {
-            bVar.U(this.N0);
+            bVar.V(this.N0);
         }
     }
 
@@ -642,8 +642,8 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         if (background2 != null) {
             background2.setAlpha(i4);
         }
-        d.a.l0.a.a2.n.g gVar = this.L0;
-        if (gVar != null && gVar.f40800i && (centerTitleView = this.i0.getCenterTitleView()) != null) {
+        d.a.l0.a.a2.n.g gVar = this.G0;
+        if (gVar != null && gVar.f44476i && (centerTitleView = this.i0.getCenterTitleView()) != null) {
             centerTitleView.setAlpha(f2);
         }
         Drawable background3 = this.l0.getBackground();
@@ -735,7 +735,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         if (!TextUtils.isEmpty(str4)) {
             HybridUbcFlow q = d.a.l0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str4);
             q.C(new UbcFlowEvent("na_pre_load_slave_check"));
-            q.A("preload", f2.f42581b ? "1" : "0");
+            q.A("preload", f2.f46257b ? "1" : "0");
         }
         if (R0) {
             Log.d("SwanAppFragment", "createSlaveAndLoad preloadManager: " + f2);
@@ -744,7 +744,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         if (R0) {
             Log.d("SwanAppFragment", "createSlaveAndLoad end.");
         }
-        return f2.f42580a;
+        return f2.f46256a;
     }
 
     public final void U2(View view) {
@@ -784,22 +784,22 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
     }
 
     public final void V2(d.a.l0.a.l1.b bVar, String str) {
-        if (this.A0.get(bVar.f43360h) == null) {
-            String a2 = d.a.l0.a.v2.q0.a(bVar.f43359g, bVar.f43357e, bVar.f43358f);
+        if (this.A0.get(bVar.f47036h) == null) {
+            String a2 = d.a.l0.a.v2.q0.a(bVar.f47035g, bVar.f47033e, bVar.f47034f);
             d.a.l0.a.p.e.b h2 = d.a.l0.a.h0.t.a.h(a2);
             if (h2 != null) {
                 if (R0) {
                     Log.d("SwanAppFragment", "createTabSlaveWebView loaded manager pageUrl: " + a2);
                 }
-                this.A0.put(bVar.f43357e, h2);
+                this.A0.put(bVar.f47033e, h2);
             } else {
                 if (R0) {
                     Log.d("SwanAppFragment", "createTabSlaveWebView createNew.");
                 }
-                h2 = T2(bVar.f43359g, bVar.f43357e, bVar.f43358f, str);
-                this.A0.put(bVar.f43357e, h2);
+                h2 = T2(bVar.f47035g, bVar.f47033e, bVar.f47034f, str);
+                this.A0.put(bVar.f47033e, h2);
             }
-            o3(bVar.f43357e);
+            o3(bVar.f47033e);
             Q2(h2);
         }
     }
@@ -837,7 +837,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
     }
 
     public void X2() {
-        this.L0.j = "default";
+        this.G0.j = "default";
         t1();
         B3();
     }
@@ -848,14 +848,14 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         if (R0) {
             Log.d("SwanAppFragment", "doSwitchTab mPrePageParams=" + this.z0);
         }
-        String str2 = bVar.f43357e;
-        String str3 = bVar.f43360h;
+        String str2 = bVar.f47033e;
+        String str3 = bVar.f47036h;
         d.a.l0.a.a2.n.g e2 = d.a.l0.a.g1.f.V().e(TextUtils.isEmpty(str3) ? "" : str3);
         d.a.l0.a.l1.b bVar2 = this.y0;
-        bVar2.f43357e = str2;
-        bVar2.f43358f = bVar != null ? bVar.g() : "";
-        this.y0.f43360h = str3;
-        this.L0 = e2;
+        bVar2.f47033e = str2;
+        bVar2.f47034f = bVar != null ? bVar.g() : "";
+        this.y0.f47036h = str3;
+        this.G0 = e2;
         boolean z = !x3(str3);
         if (!TextUtils.isEmpty(str)) {
             if (z) {
@@ -874,12 +874,12 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
             d.a.l0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str).C(new UbcFlowEvent("na_push_page_end"));
             d.a.l0.a.r1.i.a(str, bVar);
         }
-        n2(e2.f40793b);
-        t2(SwanAppConfigData.s(e2.f40794c));
-        l2(e2.f40792a);
+        n2(e2.f44469b);
+        t2(SwanAppConfigData.s(e2.f44470c));
+        l2(e2.f44468a);
         B3();
         M3();
-        d.a.l0.a.e0.d.g("SwanAppFragment", "switch tab title: " + e2.f40793b + " page:" + str2);
+        d.a.l0.a.e0.d.g("SwanAppFragment", "switch tab title: " + e2.f44469b + " page:" + str2);
     }
 
     @Override // d.a.l0.a.h0.g.d
@@ -921,8 +921,8 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
     public void d2() {
         L1();
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43189e = "gohome";
-        fVar.f43187c = "bar";
+        fVar.f46865e = "gohome";
+        fVar.f46863c = "bar";
         f J = d.a.l0.a.g1.f.V().J();
         d.a.l0.a.l1.c K1 = J == null ? null : J.K1();
         if (K1 != null && !TextUtils.isEmpty(K1.g())) {
@@ -939,7 +939,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
 
     @Override // d.a.l0.a.h0.g.d
     public void e2() {
-        this.C0.V();
+        this.C0.U();
         p3();
         d3(true);
         SwanAppMenuHeaderView swanAppMenuHeaderView = this.k0;
@@ -968,13 +968,13 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         return bVar != null ? bVar.b() : "";
     }
 
-    @Override // d.a.l0.a.z1.b.c.a.InterfaceC0935a
+    @Override // d.a.l0.a.z1.b.c.a.InterfaceC0991a
     public d.a.l0.a.z1.b.c.a getFloatLayer() {
         if (this.E0 == null) {
-            if (this.K0 == null) {
+            if (this.F0 == null) {
                 return null;
             }
-            this.E0 = new d.a.l0.a.z1.b.c.a(this, (LinearLayout) this.K0.findViewById(d.a.l0.a.f.ai_apps_fragment_base_view), G1().getDimensionPixelOffset(d.a.l0.a.d.aiapps_normal_base_action_bar_height));
+            this.E0 = new d.a.l0.a.z1.b.c.a(this, (LinearLayout) this.F0.findViewById(d.a.l0.a.f.ai_apps_fragment_base_view), G1().getDimensionPixelOffset(d.a.l0.a.d.aiapps_normal_base_action_bar_height));
         }
         return this.E0;
     }
@@ -1047,7 +1047,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
 
     @Override // d.a.l0.a.h0.g.d, com.baidu.swan.support.v4.app.Fragment
     public void m1(boolean z) {
-        if (n0()) {
+        if (l0()) {
             super.m1(z);
             if (R0) {
                 Log.d("SwanAppFragment", "setUserVisibleHint isVisibleToUser: " + z);
@@ -1082,8 +1082,8 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        if (V.e(str).f40799h && this.N0 == null) {
-            this.N0 = new C0661f();
+        if (V.e(str).f44475h && this.N0 == null) {
+            this.N0 = new C0717f();
         }
     }
 
@@ -1151,16 +1151,16 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         if (s == null) {
             return false;
         }
-        return !((TextUtils.equals(s.e(), this.y0.f43357e) || s.q(this.y0.f43357e)) ? true : true);
+        return !((TextUtils.equals(s.e(), this.y0.f47033e) || s.q(this.y0.f47033e)) ? true : true);
     }
 
     public final boolean s3() {
-        d.a.l0.a.a2.n.g gVar = this.L0;
-        return gVar != null && gVar.f40799h;
+        d.a.l0.a.a2.n.g gVar = this.G0;
+        return gVar != null && gVar.f44475h;
     }
 
     public boolean t3() {
-        d.a.l0.a.a2.n.g gVar = this.L0;
+        d.a.l0.a.a2.n.g gVar = this.G0;
         if (gVar != null) {
             return TextUtils.equals(gVar.j, SchedulerSupport.CUSTOM);
         }
@@ -1169,7 +1169,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
 
     @Override // d.a.l0.a.h0.g.d
     public void u1(int i2) {
-        if (!d.a.l0.a.a2.n.g.f(this.L0)) {
+        if (!d.a.l0.a.a2.n.g.f(this.G0)) {
             super.u1(i2);
             return;
         }
@@ -1192,7 +1192,7 @@ public class f extends d.a.l0.a.h0.g.d implements a.InterfaceC0935a {
         if (J1 == null) {
             return false;
         }
-        d.a.l0.a.a2.n.g gVar = this.L0;
+        d.a.l0.a.a2.n.g gVar = this.G0;
         if ((gVar != null && gVar.k) || (s = d.a.l0.a.g1.f.V().s()) == null) {
             return false;
         }

@@ -17,7 +17,6 @@ import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -96,7 +95,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                 if (list != null && list.size() > 0) {
                     String str = getOpenBdussDTO.targetTplList.get(0);
                     for (int i2 = 1; i2 < getOpenBdussDTO.targetTplList.size(); i2++) {
-                        str = str + FieldBuilder.SE + getOpenBdussDTO.targetTplList.get(i2);
+                        str = str + "|" + getOpenBdussDTO.targetTplList.get(i2);
                     }
                     httpHashMapWrap.put("tpl_list", str);
                 }

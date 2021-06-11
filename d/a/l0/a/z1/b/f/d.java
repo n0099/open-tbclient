@@ -24,13 +24,13 @@ import java.util.regex.Pattern;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f46199a = k.f43199a;
+    public static boolean f49873a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f46200b = null;
+    public static String f49874b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f46201c = null;
+    public static String f49875c = null;
 
     /* loaded from: classes3.dex */
     public static class a implements View.OnTouchListener {
@@ -54,24 +54,24 @@ public class d {
     }
 
     public static boolean b() {
-        if (f46200b == null) {
-            f46200b = f("ro.miui.ui.version.name");
+        if (f49874b == null) {
+            f49874b = f("ro.miui.ui.version.name");
         }
-        if (f46199a) {
-            Log.d("ToastUtils", "OsName = " + f46200b);
+        if (f49873a) {
+            Log.d("ToastUtils", "OsName = " + f49874b);
         }
-        return !TextUtils.isEmpty(f46200b);
+        return !TextUtils.isEmpty(f49874b);
     }
 
     public static boolean c() {
         String[] split;
-        if (f46201c == null) {
-            f46201c = f(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
+        if (f49875c == null) {
+            f49875c = f(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
         }
-        if (f46199a) {
-            Log.d("ToastUtils", "sMiuiVersion = " + f46201c);
+        if (f49873a) {
+            Log.d("ToastUtils", "sMiuiVersion = " + f49875c);
         }
-        if (!TextUtils.isEmpty(f46201c) && (split = f46201c.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
+        if (!TextUtils.isEmpty(f49875c) && (split = f49875c.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
             String substring = split[0].substring(1);
             if (!TextUtils.isEmpty(substring)) {
                 try {
@@ -144,7 +144,7 @@ public class d {
     }
 
     public static void h(String str) {
-        if (f46199a) {
+        if (f49873a) {
             Log.d("ToastUtils", Log.getStackTraceString(new Throwable(str)));
         }
     }

@@ -1,5 +1,5 @@
 package h.o.d.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class t<E> extends v<E> {
     public static final long l = f0.a(t.class, "consumerIndex");
     public long consumerIndex;

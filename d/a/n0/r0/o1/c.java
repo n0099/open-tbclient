@@ -22,31 +22,31 @@ import d.a.m0.s.c.i0;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ForumWriteData f59180a;
+    public final ForumWriteData f62871a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SerializableItemInfo f59181b;
+    public final SerializableItemInfo f62872b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InputMethodManager f59182c;
+    public InputMethodManager f62873c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BaseFragmentActivity f59183d;
+    public final BaseFragmentActivity f62874d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NewWriteModel f59184e;
+    public NewWriteModel f62875e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WriteData f59185f;
+    public WriteData f62876f;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f59187h;
+    public b f62878h;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.m0.r.f0.a f59186g = null;
+    public d.a.m0.r.f0.a f62877g = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public final NewWriteModel.g f59188i = new a();
+    public final NewWriteModel.g f62879i = new a();
 
     /* loaded from: classes4.dex */
     public class a implements NewWriteModel.g {
@@ -60,16 +60,16 @@ public class c {
                 return;
             }
             if (!z) {
-                c.this.f59183d.showToast(postWriteCallBackData.getErrorString());
+                c.this.f62874d.showToast(postWriteCallBackData.getErrorString());
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c13723").param("tid", postWriteCallBackData.getThreadId()).param("fid", c.this.f59180a.forumId).param("fname", c.this.f59180a.forumName).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13723").param("tid", postWriteCallBackData.getThreadId()).param("fid", c.this.f62871a.forumId).param("fname", c.this.f62871a.forumName).param("uid", TbadkCoreApplication.getCurrentAccount()));
             Intent intent = new Intent();
             Bundle bundle = new Bundle();
             bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
             intent.putExtras(bundle);
-            c.this.f59183d.setResult(-1, intent);
-            c.this.f59183d.finish();
+            c.this.f62874d.setResult(-1, intent);
+            c.this.f62874d.finish();
         }
     }
 
@@ -79,63 +79,63 @@ public class c {
     }
 
     public c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
-        this.f59182c = null;
-        this.f59183d = baseFragmentActivity;
-        this.f59180a = forumWriteData;
-        this.f59181b = serializableItemInfo;
-        this.f59182c = (InputMethodManager) baseFragmentActivity.getSystemService("input_method");
+        this.f62873c = null;
+        this.f62874d = baseFragmentActivity;
+        this.f62871a = forumWriteData;
+        this.f62872b = serializableItemInfo;
+        this.f62873c = (InputMethodManager) baseFragmentActivity.getSystemService("input_method");
         e();
         d();
     }
 
     public void c() {
-        this.f59186g.h(false);
+        this.f62877g.h(false);
     }
 
     public final void d() {
-        this.f59184e = new NewWriteModel();
-        this.f59185f = new WriteData();
-        this.f59184e.d0(this.f59188i);
+        this.f62875e = new NewWriteModel();
+        this.f62876f = new WriteData();
+        this.f62875e.h0(this.f62879i);
     }
 
     public final void e() {
-        this.f59186g = new d.a.m0.r.f0.a(this.f59183d);
+        this.f62877g = new d.a.m0.r.f0.a(this.f62874d);
     }
 
     public final void f() {
-        this.f59184e.f0(this.f59185f);
-        this.f59184e.i0();
+        this.f62875e.j0(this.f62876f);
+        this.f62875e.m0();
         i();
     }
 
     public void g(String str, String str2, ForumWriteData forumWriteData) {
         if (!j.z()) {
-            l.L(this.f59183d, R.string.neterror);
+            l.L(this.f62874d, R.string.neterror);
         }
-        SerializableItemInfo serializableItemInfo = this.f59181b;
+        SerializableItemInfo serializableItemInfo = this.f62872b;
         if (serializableItemInfo != null) {
-            this.f59185f.setItem_id(String.valueOf(serializableItemInfo.id));
+            this.f62876f.setItem_id(String.valueOf(serializableItemInfo.id));
         }
-        this.f59185f.setForumName(forumWriteData.forumName);
-        this.f59185f.setContent(str);
-        this.f59185f.setComment_head(str2);
-        this.f59185f.setForumId(forumWriteData.forumId);
-        this.f59185f.setTitle("");
-        this.f59185f.setIsNoTitle(true);
-        b bVar = this.f59187h;
+        this.f62876f.setForumName(forumWriteData.forumName);
+        this.f62876f.setContent(str);
+        this.f62876f.setComment_head(str2);
+        this.f62876f.setForumId(forumWriteData.forumId);
+        this.f62876f.setTitle("");
+        this.f62876f.setIsNoTitle(true);
+        b bVar = this.f62878h;
         if (bVar != null) {
-            bVar.a(this.f59182c);
+            bVar.a(this.f62873c);
         }
         f();
     }
 
     public void h(b bVar) {
-        this.f59187h = bVar;
+        this.f62878h = bVar;
     }
 
     public void i() {
-        this.f59186g.e(null);
-        this.f59186g.i(R.string.sending);
-        this.f59186g.h(true);
+        this.f62877g.e(null);
+        this.f62877g.i(R.string.sending);
+        this.f62877g.h(true);
     }
 }

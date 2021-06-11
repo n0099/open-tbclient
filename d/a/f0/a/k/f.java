@@ -7,16 +7,16 @@ import android.text.TextUtils;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f39851a = false;
+    public static boolean f43532a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f39852b = false;
+    public static boolean f43533b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f39853c = false;
+    public static boolean f43534c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f39854d = true;
+    public static boolean f43535d = true;
 
     public static boolean a(Context context, String str) {
         try {
@@ -31,16 +31,16 @@ public class f {
             return false;
         }
         if ("permission_location".equalsIgnoreCase(str)) {
-            return f39852b;
+            return f43533b;
         }
         if ("permission_storage".equalsIgnoreCase(str)) {
-            return f39853c;
+            return f43534c;
         }
         if ("permission_app_list".equalsIgnoreCase(str)) {
-            return f39854d;
+            return f43535d;
         }
         if ("permission_read_phone_state".equalsIgnoreCase(str)) {
-            return f39851a;
+            return f43532a;
         }
         return false;
     }

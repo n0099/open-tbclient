@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class db {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile db f37423a;
+    public static volatile db f41102a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f214a;
@@ -38,7 +38,7 @@ public class db {
     public class b extends al.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f37425a = System.currentTimeMillis();
+        public long f41104a = System.currentTimeMillis();
 
         public b() {
         }
@@ -54,7 +54,7 @@ public class db {
 
         @Override // com.xiaomi.push.al.b
         public final boolean b() {
-            return System.currentTimeMillis() - this.f37425a > 172800000;
+            return System.currentTimeMillis() - this.f41104a > 172800000;
         }
     }
 
@@ -62,7 +62,7 @@ public class db {
     public class c extends b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f37427a;
+        public int f41106a;
 
         /* renamed from: a  reason: collision with other field name */
         public File f217a;
@@ -74,7 +74,7 @@ public class db {
         public boolean f219a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37428b;
+        public String f41107b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f220b;
@@ -82,7 +82,7 @@ public class db {
         public c(String str, String str2, File file, boolean z) {
             super();
             this.f218a = str;
-            this.f37428b = str2;
+            this.f41107b = str2;
             this.f217a = file;
             this.f220b = z;
         }
@@ -128,9 +128,9 @@ public class db {
             try {
                 if (c()) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("uid", com.xiaomi.push.service.bi.m599a());
-                    hashMap.put("token", this.f37428b);
-                    hashMap.put("net", bg.m159a(db.this.f214a));
+                    hashMap.put("uid", com.xiaomi.push.service.bi.m598a());
+                    hashMap.put("token", this.f41107b);
+                    hashMap.put("net", bg.m158a(db.this.f214a));
                     bg.a(this.f218a, hashMap, this.f217a, "file");
                 }
                 this.f219a = true;
@@ -140,18 +140,18 @@ public class db {
 
         @Override // com.xiaomi.push.al.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo229c() {
+        public void mo228c() {
             if (!this.f219a) {
-                int i2 = this.f37427a + 1;
-                this.f37427a = i2;
+                int i2 = this.f41106a + 1;
+                this.f41106a = i2;
                 if (i2 < 3) {
                     db.this.f215a.add(this);
                 }
             }
-            if (this.f219a || this.f37427a >= 3) {
+            if (this.f219a || this.f41106a >= 3) {
                 this.f217a.delete();
             }
-            db.this.a((1 << this.f37427a) * 1000);
+            db.this.a((1 << this.f41106a) * 1000);
         }
     }
 
@@ -164,15 +164,15 @@ public class db {
     }
 
     public static db a(Context context) {
-        if (f37423a == null) {
+        if (f41102a == null) {
             synchronized (db.class) {
-                if (f37423a == null) {
-                    f37423a = new db(context);
+                if (f41102a == null) {
+                    f41102a = new db(context);
                 }
             }
         }
-        f37423a.f214a = context;
-        return f37423a;
+        f41102a.f214a = context;
+        return f41102a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -186,7 +186,7 @@ public class db {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (aa.b() || aa.m125a()) {
+        if (aa.b() || aa.m124a()) {
             return;
         }
         try {

@@ -5,12 +5,12 @@ import com.baidu.tbadk.TbConfig;
 public class e extends TbConfig {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Long f50775a = 86400000L;
+    public static final Long f54452a = 86400000L;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f50776b = 300;
+    public static int f54453b = 300;
 
     public static int a() {
-        return f50776b;
+        return f54453b;
     }
 }

@@ -3,27 +3,27 @@ package d.a.n0.f1.t;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile f f54763b;
+    public static volatile f f58452b;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f54764a;
+    public boolean f58453a;
 
     public static f a() {
-        if (f54763b == null) {
+        if (f58452b == null) {
             synchronized (f.class) {
-                if (f54763b == null) {
-                    f54763b = new f();
+                if (f58452b == null) {
+                    f58452b = new f();
                 }
             }
         }
-        return f54763b;
+        return f58452b;
     }
 
     public boolean b() {
-        return this.f54764a;
+        return this.f58453a;
     }
 
     public void c(boolean z) {
-        this.f54764a = z;
+        this.f58453a = z;
     }
 }

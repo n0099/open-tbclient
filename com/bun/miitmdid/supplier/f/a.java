@@ -5,17 +5,17 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Uri f26794a = Uri.parse("content://cn.nubia.identity/identity");
+    public static Uri f26897a = Uri.parse("content://cn.nubia.identity/identity");
 
     public static String a(Context context, String str) {
         Bundle call;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f26794a);
+                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f26897a);
                 call = acquireUnstableContentProviderClient.call("getAAID", str, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -25,7 +25,7 @@ public class a {
                     }
                 }
             } else {
-                call = context.getContentResolver().call(f26794a, "getAAID", str, (Bundle) null);
+                call = context.getContentResolver().call(f26897a, "getAAID", str, (Bundle) null);
             }
             if (call.getInt("code", -1) == 0) {
                 String string = call.getString("id");
@@ -45,7 +45,7 @@ public class a {
         Bundle call;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f26794a);
+                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f26897a);
                 call = acquireUnstableContentProviderClient.call("isSupport", null, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -55,7 +55,7 @@ public class a {
                     }
                 }
             } else {
-                call = context.getContentResolver().call(f26794a, "isSupport", (String) null, (Bundle) null);
+                call = context.getContentResolver().call(f26897a, "isSupport", (String) null, (Bundle) null);
             }
             if (call.getInt("code", -1) == 0) {
                 com.bun.miitmdid.utils.a.a("NubiaLog", "succeed");
@@ -74,7 +74,7 @@ public class a {
         Bundle call;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f26794a);
+                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f26897a);
                 call = acquireUnstableContentProviderClient.call("getOAID", null, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -84,7 +84,7 @@ public class a {
                     }
                 }
             } else {
-                call = context.getContentResolver().call(f26794a, "getOAID", (String) null, (Bundle) null);
+                call = context.getContentResolver().call(f26897a, "getOAID", (String) null, (Bundle) null);
             }
             if (call.getInt("code", -1) == 0) {
                 String string = call.getString("id");
@@ -104,7 +104,7 @@ public class a {
         Bundle bundle;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f26794a);
+                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f26897a);
                 bundle = acquireUnstableContentProviderClient.call("getVAID", str, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -114,7 +114,7 @@ public class a {
                     }
                 }
             } else {
-                context.getContentResolver().call(f26794a, "getVAID", str, (Bundle) null);
+                context.getContentResolver().call(f26897a, "getVAID", str, (Bundle) null);
                 bundle = null;
             }
             if (bundle.getInt("code", -1) == 0) {

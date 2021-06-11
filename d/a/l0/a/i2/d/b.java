@@ -10,11 +10,11 @@ import org.json.JSONObject;
 public class b implements a<JSONObject> {
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f43027b = new JSONArray();
+    public JSONArray f46703b = new JSONArray();
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
-            if (a.f43026a) {
+            if (a.f46702a) {
                 Log.d("LaunchTraceCollector", "event is empty");
                 return;
             }
@@ -27,7 +27,7 @@ public class b implements a<JSONObject> {
             jSONObject.put("info", str2);
             b(jSONObject);
         } catch (JSONException e2) {
-            if (a.f43026a) {
+            if (a.f46702a) {
                 Log.w("LaunchTraceCollector", Log.getStackTraceString(e2));
             }
         }
@@ -35,20 +35,20 @@ public class b implements a<JSONObject> {
 
     public void b(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f43027b.put(jSONObject);
+            this.f46703b.put(jSONObject);
         }
     }
 
     public void c() {
-        this.f43027b = new JSONArray();
+        this.f46703b = new JSONArray();
     }
 
     public JSONObject d() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.f43027b);
+            jSONObject.put("launchLog", this.f46703b);
         } catch (JSONException e2) {
-            if (a.f43026a) {
+            if (a.f46702a) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e2));
             }
         }

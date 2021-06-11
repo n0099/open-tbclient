@@ -26,19 +26,19 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public static final int GET_DATA_FROM_NET = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public UserData f20389e;
+    public UserData f20466e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NicknameInfo f20390f;
+    public NicknameInfo f20467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Context f20391g;
+    public final Context f20468g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f20392h;
+    public Handler f20469h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.e3.j0.b f20393i;
+    public d.a.n0.e3.j0.b f20470i;
     public boolean j;
     public d.a.c.c.g.a k;
 
@@ -55,19 +55,19 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                 if (responsedMessage.getOrginalMessage() == null || MoreDiscoveryModel.this.getUniqueId() == null || MoreDiscoveryModel.this.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
                     if (z) {
                         ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                        if (MoreDiscoveryModel.this.f20393i != null) {
-                            MoreDiscoveryModel.this.f20393i.b(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.getDownSize(), 0L, profileSocketResponseMessage.getCostTime());
-                            MoreDiscoveryModel.this.f20393i = null;
+                        if (MoreDiscoveryModel.this.f20470i != null) {
+                            MoreDiscoveryModel.this.f20470i.b(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.getDownSize(), 0L, profileSocketResponseMessage.getCostTime());
+                            MoreDiscoveryModel.this.f20470i = null;
                         }
-                        MoreDiscoveryModel.this.D(profileSocketResponseMessage);
+                        MoreDiscoveryModel.this.H(profileSocketResponseMessage);
                     }
                     if (responsedMessage instanceof ProfileHttpResponseMessage) {
                         ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                        if (MoreDiscoveryModel.this.f20393i != null) {
-                            MoreDiscoveryModel.this.f20393i.b(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.getDownSize(), profileHttpResponseMessage.getCostTime(), 0L);
-                            MoreDiscoveryModel.this.f20393i = null;
+                        if (MoreDiscoveryModel.this.f20470i != null) {
+                            MoreDiscoveryModel.this.f20470i.b(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.getDownSize(), profileHttpResponseMessage.getCostTime(), 0L);
+                            MoreDiscoveryModel.this.f20470i = null;
                         }
-                        MoreDiscoveryModel.this.C(profileHttpResponseMessage);
+                        MoreDiscoveryModel.this.G(profileHttpResponseMessage);
                     }
                 }
             }
@@ -100,12 +100,12 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (bArr != null) {
                 boolean z = true;
                 try {
-                    MoreDiscoveryModel.this.F(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
+                    MoreDiscoveryModel.this.J(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
                 } catch (Exception unused) {
                     z = false;
                 }
                 if (z) {
-                    MoreDiscoveryModel.this.f20392h.post(new a());
+                    MoreDiscoveryModel.this.f20469h.post(new a());
                 }
             }
             MoreDiscoveryModel.this.j = false;
@@ -114,22 +114,35 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
 
     public MoreDiscoveryModel(MoreActivity moreActivity) {
         super(moreActivity.getPageContext());
-        this.f20392h = null;
-        this.f20393i = null;
+        this.f20469h = null;
+        this.f20470i = null;
         this.j = false;
         this.k = new a(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
-        this.f20389e = null;
-        this.f20391g = moreActivity.getPageContext().getContext();
-        this.f20392h = new Handler(Looper.getMainLooper());
-        this.f20393i = new d.a.n0.e3.j0.b("profileStat");
+        this.f20466e = null;
+        this.f20468g = moreActivity.getPageContext().getContext();
+        this.f20469h = new Handler(Looper.getMainLooper());
+        this.f20470i = new d.a.n0.e3.j0.b("profileStat");
         registerListener(this.k);
     }
 
-    public void A() {
-        x().f("profile_cache_key", new b());
+    public final l<byte[]> B() {
+        return d.a.m0.r.r.a.f().e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
     }
 
-    public void B(boolean z, boolean z2) {
+    public void C(boolean z, boolean z2) {
+        cancelMessage();
+        F(z, z2);
+    }
+
+    public NicknameInfo D() {
+        return this.f20467f;
+    }
+
+    public void E() {
+        B().f("profile_cache_key", new b());
+    }
+
+    public void F(boolean z, boolean z2) {
         if (this.j) {
             return;
         }
@@ -139,7 +152,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             profileRequestMessage.set_uid(Long.valueOf(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L)));
         }
         if (z) {
-            A();
+            E();
             return;
         }
         profileRequestMessage.set_need_post_count(1);
@@ -151,27 +164,27 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         profileRequestMessage.setSelf(true);
         profileRequestMessage.setIs_from_usercenter(1);
         profileRequestMessage.setPage(2);
-        I();
+        M();
         sendMessage(profileRequestMessage);
     }
 
-    public void C(ProfileHttpResponseMessage profileHttpResponseMessage) {
+    public void G(ProfileHttpResponseMessage profileHttpResponseMessage) {
         this.j = false;
         if (profileHttpResponseMessage != null) {
-            G(profileHttpResponseMessage);
-            E(profileHttpResponseMessage.hasError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.isFrom_db(), profileHttpResponseMessage.isError_hint());
+            K(profileHttpResponseMessage);
+            I(profileHttpResponseMessage.hasError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.isFrom_db(), profileHttpResponseMessage.isError_hint());
         }
     }
 
-    public void D(ProfileSocketResponseMessage profileSocketResponseMessage) {
+    public void H(ProfileSocketResponseMessage profileSocketResponseMessage) {
         this.j = false;
         if (profileSocketResponseMessage != null) {
-            H(profileSocketResponseMessage);
-            E(profileSocketResponseMessage.hasError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.isFrom_db(), profileSocketResponseMessage.isError_hint());
+            L(profileSocketResponseMessage);
+            I(profileSocketResponseMessage.hasError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.isFrom_db(), profileSocketResponseMessage.isError_hint());
         }
     }
 
-    public void E(boolean z, String str, boolean z2, boolean z3) {
+    public void I(boolean z, String str, boolean z2, boolean z3) {
         if (!z) {
             UserData user = getUser();
             if (user != null) {
@@ -185,70 +198,70 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         if (z3) {
             setErrorString(str);
         } else {
-            setErrorString(this.f20391g.getString(R.string.neterror));
+            setErrorString(this.f20468g.getString(R.string.neterror));
         }
         this.mLoadDataMode = 1;
         this.mLoadDataCallBack.c(Boolean.FALSE);
     }
 
-    public void F(DataRes dataRes) {
+    public void J(DataRes dataRes) {
         if (dataRes == null) {
             return;
         }
         try {
             UserData userData = new UserData();
-            this.f20389e = userData;
+            this.f20466e = userData;
             userData.parserProtobuf(dataRes.user);
-            this.f20390f = dataRes.nickname_info;
+            this.f20467f = dataRes.nickname_info;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public void G(ProfileHttpResponseMessage profileHttpResponseMessage) {
+    public void K(ProfileHttpResponseMessage profileHttpResponseMessage) {
         if (profileHttpResponseMessage == null) {
             return;
         }
         try {
             UserData userData = new UserData();
-            this.f20389e = userData;
+            this.f20466e = userData;
             userData.parserProtobuf(profileHttpResponseMessage.GetUser());
-            this.f20390f = profileHttpResponseMessage.getNicknameInfo();
+            this.f20467f = profileHttpResponseMessage.getNicknameInfo();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
         new PersonPostListData().parserData(profileHttpResponseMessage);
     }
 
-    public void H(ProfileSocketResponseMessage profileSocketResponseMessage) {
+    public void L(ProfileSocketResponseMessage profileSocketResponseMessage) {
         if (profileSocketResponseMessage == null) {
             return;
         }
         try {
             UserData userData = new UserData();
-            this.f20389e = userData;
+            this.f20466e = userData;
             userData.parserProtobuf(profileSocketResponseMessage.GetUser());
-            this.f20390f = profileSocketResponseMessage.getNicknameInfo();
+            this.f20467f = profileSocketResponseMessage.getNicknameInfo();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
         new PersonPostListData().parserData(profileSocketResponseMessage);
     }
 
-    public final void I() {
-        if (this.f20393i == null) {
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return false;
+    }
+
+    public final void M() {
+        if (this.f20470i == null) {
             d.a.n0.e3.j0.b bVar = new d.a.n0.e3.j0.b("profileStat");
-            this.f20393i = bVar;
+            this.f20470i = bVar;
             bVar.f();
         }
     }
 
-    public void J(String str) {
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        return false;
+    public void N(String str) {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -257,23 +270,10 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     }
 
     public UserData getUser() {
-        return this.f20389e;
+        return this.f20466e;
     }
 
     public void setUser(UserData userData) {
-        this.f20389e = userData;
-    }
-
-    public final l<byte[]> x() {
-        return d.a.m0.r.r.a.f().e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
-    }
-
-    public void y(boolean z, boolean z2) {
-        cancelMessage();
-        B(z, z2);
-    }
-
-    public NicknameInfo z() {
-        return this.f20390f;
+        this.f20466e = userData;
     }
 }

@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EncryptUtils {
     public static final boolean DEBUG = false;
     public static final String ENCRYPT_MD5 = "MD5";

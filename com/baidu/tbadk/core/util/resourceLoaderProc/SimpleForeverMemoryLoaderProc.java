@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import d.a.m0.a0.c;
 /* loaded from: classes3.dex */
 public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {

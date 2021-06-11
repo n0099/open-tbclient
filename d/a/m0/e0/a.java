@@ -3,13 +3,13 @@ package d.a.m0.e0;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49333a;
+    public boolean f53007a;
 
     public a(boolean z) {
-        this.f49333a = z;
+        this.f53007a = z;
     }
 
     public a(boolean z, int i2) {
-        this.f49333a = z;
+        this.f53007a = z;
     }
 }

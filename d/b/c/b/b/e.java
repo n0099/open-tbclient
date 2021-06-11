@@ -36,7 +36,7 @@ public class e extends Request<Bitmap> {
                 try {
                     b2 = b(kVar);
                 } catch (OutOfMemoryError e2) {
-                    q.d("Caught OOM for %d byte image, url=%s", Integer.valueOf(kVar.f65793b.length), getUrl());
+                    q.d("Caught OOM for %d byte image, url=%s", Integer.valueOf(kVar.f69524b.length), getUrl());
                     return o.b(new com.bytedance.sdk.adnet.err.e(e2, VAdError.IMAGE_OOM_FAIL_CODE));
                 }
             } catch (Throwable th) {
@@ -47,7 +47,7 @@ public class e extends Request<Bitmap> {
     }
 
     public final o<Bitmap> b(k kVar) {
-        Bitmap f2 = f(kVar.f65793b);
+        Bitmap f2 = f(kVar.f69524b);
         if (f2 == null) {
             return o.b(new com.bytedance.sdk.adnet.err.e(kVar));
         }

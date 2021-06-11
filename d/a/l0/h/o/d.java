@@ -22,7 +22,7 @@ import d.a.l0.a.v2.q0;
 import d.a.l0.h.s.a;
 /* loaded from: classes3.dex */
 public class d extends d.a.l0.a.t0.c {
-    public static final boolean w = k.f43199a;
+    public static final boolean w = k.f46875a;
     public long v;
 
     /* loaded from: classes3.dex */
@@ -33,7 +33,7 @@ public class d extends d.a.l0.a.t0.c {
         @Override // d.a.l0.a.a1.b
         public void a(int i2, d.a.l0.a.a1.a aVar) {
             a.c cVar = (a.c) aVar;
-            if (cVar == null || TextUtils.isEmpty(cVar.f47674a)) {
+            if (cVar == null || TextUtils.isEmpty(cVar.f51348a)) {
                 return;
             }
             d.a.l0.h.o.c.m().I(d.this.O());
@@ -61,8 +61,8 @@ public class d extends d.a.l0.a.t0.c {
             } else if (i2 == 102) {
                 boolean a2 = d.a.l0.a.c1.a.H().a();
                 d.a.l0.a.c1.a.H().d(a2);
-                if (d.this.f44717f != null) {
-                    d.this.f44717f.onNightModeCoverChanged(a2, false);
+                if (d.this.f48391f != null) {
+                    d.this.f48391f.onNightModeCoverChanged(a2, false);
                 }
                 return true;
             } else if (i2 == 103) {
@@ -113,7 +113,7 @@ public class d extends d.a.l0.a.t0.c {
             }
             d.this.v = System.currentTimeMillis();
             d.a.l0.h.f0.h.f(d.this.O());
-            d.this.f44717f.finishLoadingAnimator();
+            d.this.f48391f.finishLoadingAnimator();
             d.a.l0.a.r1.h.h("preload", "startup");
             int j = d.a.l0.h.o.c.m().j();
             HybridUbcFlow p = d.a.l0.a.r1.h.p("startup");
@@ -151,7 +151,7 @@ public class d extends d.a.l0.a.t0.c {
         if (d.a.l0.a.a2.d.g().C()) {
             f.V().G(O(), new a());
             if (d.a.l0.h.o.c.m().v() && d.a.l0.h.o.c.m().q()) {
-                d.a.l0.h.o.c.m().F(this.f44717f);
+                d.a.l0.h.o.c.m().F(this.f48391f);
             }
         }
     }
@@ -170,11 +170,11 @@ public class d extends d.a.l0.a.t0.c {
 
     @Override // d.a.l0.a.t0.c
     public void Z() {
-        d.a.l0.a.e0.d.g("SwanApp", "onBackPressed back stack count:" + this.f44718g.k());
+        d.a.l0.a.e0.d.g("SwanApp", "onBackPressed back stack count:" + this.f48392g.k());
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43189e = j.j;
+        fVar.f46865e = j.j;
         F(fVar);
-        d.a.l0.a.h0.g.d m = this.f44718g.m();
+        d.a.l0.a.h0.g.d m = this.f48392g.m();
         if (m == null || !m.K()) {
             if (T()) {
                 d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
@@ -184,8 +184,8 @@ public class d extends d.a.l0.a.t0.c {
                 d.a.l0.h.f0.h.e(j.j, O());
                 return;
             }
-            g.b i3 = this.f44718g.i("navigateBack");
-            i3.n(g.f42078i, g.f42077h);
+            g.b i3 = this.f48392g.i("navigateBack");
+            i3.n(g.f45754i, g.f45753h);
             i3.g();
             i3.a();
         }
@@ -224,7 +224,7 @@ public class d extends d.a.l0.a.t0.c {
         d.a.l0.h.b.d.w();
         i.i();
         d.a.l0.h.f0.h.e("exit", O());
-        f.V().k(this.f44717f);
+        f.V().k(this.f48391f);
         f.c0();
         d.a.l0.h.l0.a.a().b();
         SwanInspectorEndpoint.v().q();
@@ -254,7 +254,7 @@ public class d extends d.a.l0.a.t0.c {
     @Override // d.a.l0.a.t0.c
     public void h0() {
         super.h0();
-        d.a.l0.h.o.c.m().h(this.f44717f);
+        d.a.l0.h.o.c.m().h(this.f48391f);
     }
 
     @Override // d.a.l0.a.t0.c
@@ -268,7 +268,7 @@ public class d extends d.a.l0.a.t0.c {
 
     @Override // d.a.l0.a.t0.c
     public void l0() {
-        f.V().E(this.f44717f);
+        f.V().E(this.f48391f);
     }
 
     @Override // d.a.l0.a.t0.c

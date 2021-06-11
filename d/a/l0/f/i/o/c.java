@@ -5,125 +5,125 @@ import d.a.l0.f.i.r.h;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46777a;
+    public String f50451a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f46778b;
+    public String f50452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46779c;
+    public String f50453c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f46780d;
+    public int f50454d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46781e;
+    public int f50455e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f46782f;
+    public String f50456f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46783g;
+    public String f50457g;
 
     /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f46784a;
+        public String f50458a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f46785b;
+        public String f50459b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f46786c;
+        public String f50460c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f46787d;
+        public int f50461d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f46788e;
+        public int f50462e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f46789f;
+        public String f50463f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f46790g;
+        public String f50464g;
 
         public c h() {
             return new c(this);
         }
 
         public b i(int i2) {
-            this.f46788e = h.a(i2);
+            this.f50462e = h.a(i2);
             return this;
         }
 
         public b j(String str) {
-            this.f46784a = str;
+            this.f50458a = str;
             return this;
         }
 
         public b k(String str) {
-            this.f46789f = str;
+            this.f50463f = str;
             return this;
         }
 
         public b l(int i2) {
-            this.f46787d = h.a(i2);
+            this.f50461d = h.a(i2);
             return this;
         }
 
         public b m(String str) {
-            this.f46785b = str;
+            this.f50459b = str;
             return this;
         }
 
         public b n(String str) {
-            this.f46790g = str;
+            this.f50464g = str;
             return this;
         }
 
         public b o(String str) {
-            this.f46786c = str;
+            this.f50460c = str;
             return this;
         }
     }
 
     public int a() {
-        return this.f46781e;
+        return this.f50455e;
     }
 
     public String b() {
-        return this.f46777a;
+        return this.f50451a;
     }
 
     public String c() {
-        return this.f46782f;
+        return this.f50456f;
     }
 
     public int d() {
-        return this.f46780d;
+        return this.f50454d;
     }
 
     public String e() {
-        return this.f46778b;
+        return this.f50452b;
     }
 
     public String f() {
-        return this.f46783g;
+        return this.f50457g;
     }
 
     public String g() {
-        return this.f46779c;
+        return this.f50453c;
     }
 
     public c(b bVar) {
-        this.f46778b = bVar.f46785b;
-        this.f46777a = bVar.f46784a;
-        this.f46780d = bVar.f46787d;
-        this.f46781e = bVar.f46788e;
-        this.f46779c = bVar.f46786c;
-        this.f46782f = bVar.f46789f;
-        this.f46783g = bVar.f46790g;
+        this.f50452b = bVar.f50459b;
+        this.f50451a = bVar.f50458a;
+        this.f50454d = bVar.f50461d;
+        this.f50455e = bVar.f50462e;
+        this.f50453c = bVar.f50460c;
+        this.f50456f = bVar.f50463f;
+        this.f50457g = bVar.f50464g;
     }
 }

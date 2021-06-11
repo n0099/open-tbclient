@@ -9,7 +9,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.person.holder.PersonInfoUserPicViewHolder;
 import d.a.m0.t.o;
 /* loaded from: classes5.dex */
-public class c extends d.a.c.j.e.a<o, PersonInfoUserPicViewHolder> {
+public class c extends d.a.c.k.e.a<o, PersonInfoUserPicViewHolder> {
     public TbPageContext m;
     public View.OnClickListener n;
 
@@ -19,16 +19,16 @@ public class c extends d.a.c.j.e.a<o, PersonInfoUserPicViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public PersonInfoUserPicViewHolder P(ViewGroup viewGroup) {
+    public PersonInfoUserPicViewHolder Q(ViewGroup viewGroup) {
         return new PersonInfoUserPicViewHolder(LayoutInflater.from(this.m.getPageActivity()).inflate(R.layout.user_pic_nomal_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, o oVar, PersonInfoUserPicViewHolder personInfoUserPicViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, o oVar, PersonInfoUserPicViewHolder personInfoUserPicViewHolder) {
         if (personInfoUserPicViewHolder == null || oVar == null) {
             return null;
         }
@@ -37,7 +37,7 @@ public class c extends d.a.c.j.e.a<o, PersonInfoUserPicViewHolder> {
         return personInfoUserPicViewHolder.a();
     }
 
-    public void g0(View.OnClickListener onClickListener) {
+    public void h0(View.OnClickListener onClickListener) {
         this.n = onClickListener;
     }
 }

@@ -3,14 +3,14 @@ package d.a.n0.j0.d;
 public class c implements d.a.m0.g0.d.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f55835a;
+    public boolean f59524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f55836b;
+    public boolean f59525b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f55837c;
+    public int f59526c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f55838d;
+    public int f59527d;
 }

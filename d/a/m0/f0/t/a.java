@@ -1,23 +1,25 @@
 package d.a.m0.f0.t;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.showreplyinpb.ShowReplyInPbEvent;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.share.ShareEvent;
 import d.a.m0.f0.b;
 /* loaded from: classes3.dex */
-public class a implements b<ShowReplyInPbEvent> {
+public class a implements b<ShareEvent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.m0.f0.b
     /* renamed from: a */
-    public boolean onEvent(ShowReplyInPbEvent showReplyInPbEvent) {
-        if (showReplyInPbEvent == null) {
-            return false;
+    public boolean onEvent(ShareEvent shareEvent) {
+        if (TbadkCoreApplication.getInst().isMainProcess(true) && shareEvent.status == 1) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921406, shareEvent));
+            String str = shareEvent.tid;
+            if (!TextUtils.isEmpty(str)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921417, str));
+                return true;
+            }
         }
-        if (showReplyInPbEvent.isSubPbReply) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921481, showReplyInPbEvent.writeData));
-            return true;
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921480, showReplyInPbEvent.writeData));
-        return true;
+        return false;
     }
 }

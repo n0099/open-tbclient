@@ -31,7 +31,7 @@ import org.webrtc.EglBase10;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45482a = d.a.l0.a.k.f43199a;
+    public static final boolean f49156a = d.a.l0.a.k.f46875a;
 
     public static Bitmap a(Bitmap bitmap, long j, boolean z) {
         byte[] byteArray;
@@ -79,18 +79,18 @@ public final class u {
 
     public static boolean b(File file, File file2, int i2) {
         FileOutputStream fileOutputStream;
-        if (f45482a) {
+        if (f49156a) {
             Log.d(ImageUtils.TAG, "压缩图片");
         }
         if (file2 == null) {
-            if (f45482a) {
+            if (f49156a) {
                 Log.e(ImageUtils.TAG, "dest file is null");
             }
             return false;
         } else if (i2 >= 0 && i2 <= 100) {
             Bitmap decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath());
             if (decodeFile == null) {
-                if (f45482a) {
+                if (f49156a) {
                     Log.e(ImageUtils.TAG, "compress image，but decode bitmap is null");
                 }
                 return false;
@@ -112,7 +112,7 @@ public final class u {
             } catch (FileNotFoundException e3) {
                 e = e3;
                 fileOutputStream2 = fileOutputStream;
-                if (f45482a) {
+                if (f49156a) {
                     Log.e(ImageUtils.TAG, "压缩图片失败", e);
                 }
                 d.a.l0.t.d.d(fileOutputStream2);
@@ -124,7 +124,7 @@ public final class u {
                 throw th;
             }
         } else {
-            if (f45482a) {
+            if (f49156a) {
                 Log.e(ImageUtils.TAG, "quality must be 0..100");
             }
             return false;
@@ -133,7 +133,7 @@ public final class u {
 
     public static boolean c(String str, String str2, int i2) {
         try {
-            if (f45482a) {
+            if (f49156a) {
                 Log.d(ImageUtils.TAG, "copyJpegExif oldFilePath:" + str + "，newFilePath：" + str2 + ",quality:" + i2);
             }
             ExifInterface i3 = i(str);
@@ -145,7 +145,7 @@ public final class u {
                     if (!TextUtils.isEmpty(name) && name.startsWith("TAG")) {
                         String obj = fields[i5].get(ExifInterface.class).toString();
                         String attribute = i3.getAttribute(obj);
-                        if (f45482a) {
+                        if (f49156a) {
                             Log.d(ImageUtils.TAG, "fields name:" + obj + "，value：" + attribute);
                         }
                         if (!TextUtils.isEmpty(obj) && !TextUtils.equals("Orientation", obj)) {
@@ -216,7 +216,7 @@ public final class u {
         try {
             return MediaStore.Images.Media.getBitmap(d.a.l0.a.a2.d.g().getContentResolver(), uri);
         } catch (Exception e2) {
-            if (f45482a) {
+            if (f49156a) {
                 e2.printStackTrace();
             }
             return null;
@@ -302,7 +302,7 @@ public final class u {
     }
 
     public static File l(String str, String str2) {
-        if (f45482a) {
+        if (f49156a) {
             Log.d(ImageUtils.TAG, "获取temp路径");
         }
         String str3 = "swan_tmp_" + System.currentTimeMillis() + "_" + str2;
@@ -318,13 +318,13 @@ public final class u {
                 try {
                     file.createNewFile();
                 } catch (IOException e2) {
-                    if (f45482a) {
+                    if (f49156a) {
                         e2.printStackTrace();
                     }
                 }
             }
         }
-        if (f45482a && file != null) {
+        if (f49156a && file != null) {
             Log.e(ImageUtils.TAG, "temp路径:" + file.getAbsolutePath());
         }
         return file;
@@ -344,11 +344,11 @@ public final class u {
     }
 
     public static boolean n(File file, File file2, int i2) {
-        if (f45482a) {
+        if (f49156a) {
             Log.d(ImageUtils.TAG, "rotateAndCompressImage");
         }
         if (file2 == null || file == null || !file.exists() || !file2.exists()) {
-            if (f45482a) {
+            if (f49156a) {
                 Log.e(ImageUtils.TAG, "dest file or sourceFile is null");
             }
             return false;
@@ -373,7 +373,7 @@ public final class u {
                         } catch (Exception e2) {
                             e = e2;
                             fileOutputStream = fileOutputStream2;
-                            if (f45482a) {
+                            if (f49156a) {
                                 Log.e(ImageUtils.TAG, "rotateAndCompressImage fail:", e);
                             }
                             d.a.l0.t.d.d(fileOutputStream);
@@ -381,7 +381,7 @@ public final class u {
                         } catch (OutOfMemoryError e3) {
                             e = e3;
                             fileOutputStream = fileOutputStream2;
-                            if (f45482a) {
+                            if (f49156a) {
                                 Log.e(ImageUtils.TAG, "rotateAndCompressImage fail:", e);
                             }
                             d.a.l0.t.d.d(fileOutputStream);
@@ -393,7 +393,7 @@ public final class u {
                             throw th;
                         }
                     }
-                    if (f45482a) {
+                    if (f49156a) {
                         Log.e(ImageUtils.TAG, "compress image，but decode bitmap is null");
                     }
                     d.a.l0.t.d.d(null);
@@ -407,7 +407,7 @@ public final class u {
                 e = e5;
             }
         } else {
-            if (f45482a) {
+            if (f49156a) {
                 Log.e(ImageUtils.TAG, "quality must be 0..100");
             }
             return false;
@@ -439,7 +439,7 @@ public final class u {
                         } catch (FileNotFoundException e2) {
                             e = e2;
                             fileOutputStream = fileOutputStream2;
-                            if (f45482a) {
+                            if (f49156a) {
                                 Log.e(ImageUtils.TAG, "保存图片失败", e);
                             }
                             d.a.l0.t.d.d(fileOutputStream);

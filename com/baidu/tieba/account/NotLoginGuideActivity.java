@@ -51,7 +51,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public boolean firstRegist = false;
     public int currAction = -1;
     public CustomMessageListener mAccountChangeListener = new a(2001385);
-    public final a.InterfaceC1141a mReLoginCallback = new b();
+    public final a.InterfaceC1197a mReLoginCallback = new b();
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -70,7 +70,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements a.InterfaceC1141a {
+    public class b implements a.InterfaceC1197a {
 
         /* loaded from: classes4.dex */
         public class a implements DialogInterface.OnCancelListener {
@@ -86,7 +86,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         public b() {
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void a(String str, int i2, String str2) {
             d.a.m0.r.z.a.a("account", -1L, 0, "login_silent_fail", i2, str2, new Object[0]);
             NotLoginGuideActivity.this.closeLoadingDialog();
@@ -97,7 +97,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             }
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void b(String str) {
             if (NotLoginGuideActivity.this.getLoadingDialog() == null || !NotLoginGuideActivity.this.getLoadingDialog().c()) {
                 NotLoginGuideActivity notLoginGuideActivity = NotLoginGuideActivity.this;
@@ -105,7 +105,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             }
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void c(AccountData accountData) {
             d.a.m0.r.z.a.a("account", -1L, 0, "login_silent_success", 0, "", new Object[0]);
             NotLoginGuideActivity.this.closeLoadingDialog();
@@ -132,15 +132,15 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f13461e;
+        public final /* synthetic */ AccountData f13526e;
 
         public d(AccountData accountData) {
-            this.f13461e = accountData;
+            this.f13526e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.m0.r.l.c.g(this.f13461e);
+            d.a.m0.r.l.c.g(this.f13526e);
         }
     }
 

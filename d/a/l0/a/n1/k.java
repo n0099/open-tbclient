@@ -9,20 +9,20 @@ import kotlin.jvm.internal.Intrinsics;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Set<String> f43723a;
+    public volatile Set<String> f47399a;
 
     public final synchronized boolean a() {
         Set<String> set;
-        set = this.f43723a;
+        set = this.f47399a;
         return (set != null ? set.size() : 0) < 5;
     }
 
     public final synchronized void b(WebSocketTask task) {
         Intrinsics.checkNotNullParameter(task, "task");
-        if (this.f43723a == null) {
-            this.f43723a = new LinkedHashSet();
+        if (this.f47399a == null) {
+            this.f47399a = new LinkedHashSet();
         }
-        Set<String> set = this.f43723a;
+        Set<String> set = this.f47399a;
         if (set != null) {
             set.add(task.getTaskId());
         }
@@ -30,14 +30,14 @@ public final class k {
 
     public final synchronized void c(String taskId) {
         Intrinsics.checkNotNullParameter(taskId, "taskId");
-        Set<String> set = this.f43723a;
+        Set<String> set = this.f47399a;
         if (set != null) {
             set.remove(taskId);
         }
     }
 
     public final synchronized void d() {
-        Set<String> set = this.f43723a;
+        Set<String> set = this.f47399a;
         if (set != null) {
             for (String str : set) {
                 try {
@@ -47,7 +47,7 @@ public final class k {
                 }
             }
         }
-        Set<String> set2 = this.f43723a;
+        Set<String> set2 = this.f47399a;
         if (set2 != null) {
             set2.clear();
         }

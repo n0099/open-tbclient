@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f61152a;
+    public static String f64844a;
 
     public static void a(c cVar, int i2) {
         cVar.i(SDKLogTypeConstants.CLOSE_GAME_TYPE);
@@ -64,12 +64,12 @@ public class d {
     }
 
     public static void g(AdvertAppInfo advertAppInfo, int i2, int i3) {
-        h(advertAppInfo, i2, i3, BannerFocusImageViewGroup.f23593f, BannerFocusImageViewGroup.f23593f);
+        h(advertAppInfo, i2, i3, BannerFocusImageViewGroup.f23696f, BannerFocusImageViewGroup.f23696f);
     }
 
     public static void h(AdvertAppInfo advertAppInfo, int i2, int i3, int i4, int i5) {
         int i6;
-        if (advertAppInfo == null || (i6 = advertAppInfo.I3) == 1001 || i6 == -1001) {
+        if (advertAppInfo == null || (i6 = advertAppInfo.L3) == 1001 || i6 == -1001) {
             return;
         }
         c h2 = g.h(advertAppInfo, 5, i2, i3);
@@ -80,20 +80,20 @@ public class d {
             h2.m(i5);
         }
         if (i3 == 31) {
-            if (TextUtils.isEmpty(f61152a)) {
-                f61152a = c();
+            if (TextUtils.isEmpty(f64844a)) {
+                f64844a = c();
             }
-            h2.q(f61152a);
+            h2.q(f64844a);
         }
         e.b().d(h2);
     }
 
     public static void i(o oVar, int i2) {
-        j(oVar, i2, BannerFocusImageViewGroup.f23593f, BannerFocusImageViewGroup.f23593f);
+        j(oVar, i2, BannerFocusImageViewGroup.f23696f, BannerFocusImageViewGroup.f23696f);
     }
 
     public static void j(o oVar, int i2, int i3, int i4) {
-        if (oVar == null || oVar.getAdvertAppInfo() == null || oVar.getAdvertAppInfo().I3 == 1001 || oVar.getAdvertAppInfo().I3 == -1001) {
+        if (oVar == null || oVar.getAdvertAppInfo() == null || oVar.getAdvertAppInfo().L3 == 1001 || oVar.getAdvertAppInfo().L3 == -1001) {
             return;
         }
         c e2 = g.e(oVar, 5);

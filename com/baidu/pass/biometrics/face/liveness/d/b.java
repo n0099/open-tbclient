@@ -1,115 +1,117 @@
 package com.baidu.pass.biometrics.face.liveness.d;
 
-import android.annotation.TargetApi;
+import android.app.Dialog;
 import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import com.baidu.pass.biometrics.base.debug.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.ViewSwitcher;
+import com.baidu.pass.biometrics.R;
 /* loaded from: classes2.dex */
-public class b {
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f9091g = "b";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static long f9092h = 1000;
+public class b extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f9093a;
+    public ViewSwitcher f9171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SensorManager f9094b;
+    public LinearLayout f9172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Sensor f9095c;
+    public TextView f9173c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SensorEventListener f9096d;
+    public TextView f9174d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f9097e = 0;
+    public TextView f9175e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f9098f = 2.1474836E9f;
+    public TextView f9176f;
 
-    /* loaded from: classes2.dex */
-    public class a implements SensorEventListener {
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f9177g;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0115b f9099a;
-
-        public a(InterfaceC0115b interfaceC0115b) {
-            this.f9099a = interfaceC0115b;
-        }
-
-        @Override // android.hardware.SensorEventListener
-        public void onAccuracyChanged(Sensor sensor, int i2) {
-            String str = b.f9091g;
-            Log.w(str, "onAccuracyChanged" + i2);
-        }
-
-        @Override // android.hardware.SensorEventListener
-        public void onSensorChanged(SensorEvent sensorEvent) {
-            String str = b.f9091g;
-            Log.w(str, "onSensorChanged() time:" + System.currentTimeMillis());
-            float[] fArr = sensorEvent.values;
-            if (fArr != null && fArr.length > 0) {
-                b.this.f9098f = fArr[0];
-                String str2 = b.f9091g;
-                Log.w(str2, "onSensorChanged() event.values[0]:" + b.this.f9098f);
-            }
-            b.this.f9097e = System.currentTimeMillis();
-            InterfaceC0115b interfaceC0115b = this.f9099a;
-            if (interfaceC0115b != null) {
-                interfaceC0115b.a(b.this.a());
-            }
-        }
-    }
-
-    /* renamed from: com.baidu.pass.biometrics.face.liveness.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0115b {
-        void a(float f2);
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public Context f9178h;
 
     public b(Context context) {
-        this.f9093a = context;
+        super(context, R.style.PassBioBeautyDialog);
+        this.f9178h = context;
+        a();
     }
 
-    @TargetApi(3)
-    public void b() {
-        Log.w(f9091g, "unRegisterSensorListener()");
-        SensorManager sensorManager = this.f9094b;
-        if (sensorManager == null || this.f9095c == null) {
-            return;
-        }
-        sensorManager.unregisterListener(this.f9096d);
+    private void a() {
+        setContentView(R.layout.layout_pass_liveness_dialog_alert);
+        setCanceledOnTouchOutside(false);
+        this.f9172b = (LinearLayout) findViewById(R.id.pass_bio_dialog_alert_ll_content);
+        this.f9171a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f9173c = (TextView) findViewById(R.id.title_text);
+        this.f9174d = (TextView) findViewById(R.id.msg_text);
+        this.f9175e = (TextView) findViewById(R.id.positive_btn);
+        this.f9176f = (TextView) findViewById(R.id.negative_btn);
+        this.f9177g = (TextView) findViewById(R.id.neutral_btn);
     }
 
-    @TargetApi(3)
-    public void a(InterfaceC0115b interfaceC0115b) {
-        SensorManager sensorManager = (SensorManager) this.f9093a.getSystemService("sensor");
-        this.f9094b = sensorManager;
-        if (sensorManager == null) {
-            Log.w(f9091g, "sensorManager|senserManager == null");
-            return;
-        }
-        Sensor defaultSensor = sensorManager.getDefaultSensor(5);
-        this.f9095c = defaultSensor;
-        if (defaultSensor == null) {
-            return;
-        }
-        a aVar = new a(interfaceC0115b);
-        this.f9096d = aVar;
-        this.f9094b.registerListener(aVar, this.f9095c, 3);
+    public void b(String str) {
+        this.f9173c.setText(str);
     }
 
-    public float a() {
-        if (this.f9097e != 0 && System.currentTimeMillis() - this.f9097e > f9092h) {
-            this.f9098f = 0.0f;
+    public void c(int i2) {
+        this.f9173c.setVisibility(i2);
+    }
+
+    public void b(int i2) {
+        this.f9174d.setVisibility(i2);
+    }
+
+    public void c(String str, View.OnClickListener onClickListener) {
+        this.f9175e.setText(str);
+        this.f9175e.setOnClickListener(onClickListener);
+    }
+
+    public void b(String str, View.OnClickListener onClickListener) {
+        this.f9177g.setText(str);
+        this.f9177g.setOnClickListener(onClickListener);
+    }
+
+    public void a(int i2) {
+        if ((i2 < 1 ? 1 : Math.min(i2, 2)) == 2) {
+            this.f9171a.setDisplayedChild(0);
+        } else {
+            this.f9171a.setDisplayedChild(1);
         }
-        return this.f9098f;
+    }
+
+    public void a(String str) {
+        this.f9174d.setText(str);
+    }
+
+    public void a(String str, View.OnClickListener onClickListener) {
+        this.f9176f.setText(str);
+        this.f9176f.setOnClickListener(onClickListener);
+    }
+
+    public void a(boolean z) {
+        if (z) {
+            this.f9172b.setBackgroundDrawable(this.f9178h.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg_night));
+            this.f9173c.setTextColor(this.f9178h.getResources().getColor(R.color.pass_bio_dialog_title_text_color_night));
+            this.f9174d.setTextColor(this.f9178h.getResources().getColor(R.color.pass_bio_dialog_content_text_color_night));
+            this.f9176f.setTextColor(this.f9178h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
+            this.f9175e.setTextColor(this.f9178h.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color_night));
+            this.f9177g.setTextColor(this.f9178h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
+            this.f9176f.setBackgroundDrawable(this.f9178h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
+            this.f9175e.setBackgroundDrawable(this.f9178h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg_night));
+            this.f9177g.setBackgroundDrawable(this.f9178h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
+            return;
+        }
+        this.f9172b.setBackgroundDrawable(this.f9178h.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg));
+        this.f9173c.setTextColor(this.f9178h.getResources().getColor(R.color.pass_bio_dialog_title_text_color));
+        this.f9174d.setTextColor(this.f9178h.getResources().getColor(R.color.pass_bio_dialog_content_text_color));
+        this.f9176f.setTextColor(this.f9178h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
+        this.f9177g.setTextColor(this.f9178h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
+        this.f9175e.setTextColor(this.f9178h.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color));
+        this.f9176f.setBackgroundDrawable(this.f9178h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
+        this.f9175e.setBackgroundDrawable(this.f9178h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
+        this.f9177g.setBackgroundDrawable(this.f9178h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
     }
 }

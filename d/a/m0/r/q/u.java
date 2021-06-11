@@ -8,34 +8,34 @@ import tbclient.FrsPage.ColorEgg;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f50130a = new ArrayList<>();
+    public ArrayList<String> f53806a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50131b;
+    public int f53807b;
 
     public ArrayList<String> a() {
-        return this.f50130a;
+        return this.f53806a;
     }
 
     public int b() {
-        return this.f50131b;
+        return this.f53807b;
     }
 
     public boolean c(ColorEgg colorEgg) {
         List<String> list;
-        this.f50131b = 0;
+        this.f53807b = 0;
         if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
             return false;
         }
         for (String str : colorEgg.holiday_words) {
             if (!StringUtils.isNull(str)) {
-                this.f50130a.add(str);
+                this.f53806a.add(str);
             }
         }
-        if (this.f50130a.size() <= 0) {
+        if (this.f53806a.size() <= 0) {
             return false;
         }
-        this.f50131b = colorEgg.style_flag.intValue();
+        this.f53807b = colorEgg.style_flag.intValue();
         return true;
     }
 }

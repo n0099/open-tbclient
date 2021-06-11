@@ -25,7 +25,7 @@ public class t {
             } else {
                 videoSerializeVideoThreadInfo.copyFromThreadInfo(a2Var);
             }
-            VideoMiddlePageLightActivityConfig videoMiddlePageLightActivityConfig = new VideoMiddlePageLightActivityConfig(context, str, videoSerializeVideoThreadInfo.threadId, d.a.n0.z.m.g(), a2Var.l(), videoSerializeVideoThreadInfo);
+            VideoMiddlePageLightActivityConfig videoMiddlePageLightActivityConfig = new VideoMiddlePageLightActivityConfig(context, str, videoSerializeVideoThreadInfo.threadId, d.a.n0.z.m.g(), a2Var.g(), videoSerializeVideoThreadInfo);
             BaijiahaoData baijiahaoData = videoSerializeVideoThreadInfo.mBaijiahaoData;
             if (baijiahaoData != null && !TextUtils.isEmpty(baijiahaoData.oriUgcNid)) {
                 videoMiddlePageLightActivityConfig.setNid(videoSerializeVideoThreadInfo.mBaijiahaoData.oriUgcNid);
@@ -38,7 +38,7 @@ public class t {
         if (a2Var != null) {
             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
             videoSerializeVideoThreadInfo.copyFromTransmitThreadData(a2Var);
-            c(context, a2Var, str, videoSerializeVideoThreadInfo.threadId, d.a.n0.z.m.g(), a2Var.l(), videoSerializeVideoThreadInfo);
+            c(context, a2Var, str, videoSerializeVideoThreadInfo.threadId, d.a.n0.z.m.g(), a2Var.g(), videoSerializeVideoThreadInfo);
         }
     }
 
@@ -58,12 +58,12 @@ public class t {
         if (d.a.m0.b.d.L()) {
             a(true, context, a2Var, str4);
         } else if (d.a.m0.b.d.N()) {
-            a2Var.m();
+            a2Var.i();
             f(true, context, a2Var, i3, rect, str, str2, str3, str4, str5);
         } else if (d.a.m0.b.d.Q()) {
-            ThreadCardUtils.jumpToPB(a2Var.s1, context, i2);
+            ThreadCardUtils.jumpToPB(a2Var.t1, context, i2);
         } else if (z) {
-            a2Var.m();
+            a2Var.i();
             f(true, context, a2Var, i3, rect, str, str2, str3, str4, str5);
         } else {
             b(context, a2Var, str4);
@@ -77,10 +77,10 @@ public class t {
         if (d.a.m0.b.d.K()) {
             a(true, context, a2Var, str4);
         } else if (d.a.m0.b.d.M()) {
-            a2Var.m();
+            a2Var.i();
             f(true, context, a2Var, i3, rect, str, str2, str3, str4, str5);
         } else {
-            ThreadCardUtils.jumpToPB(a2Var.s1, context, i2);
+            ThreadCardUtils.jumpToPB(a2Var.t1, context, i2);
         }
     }
 
@@ -91,21 +91,21 @@ public class t {
             ArrayList arrayList = new ArrayList();
             VideoItemData videoItemData = new VideoItemData();
             if (z) {
-                videoItemData.buildWithOriginThreadData(a2Var.s1);
+                videoItemData.buildWithOriginThreadData(a2Var.t1);
             } else {
                 videoItemData.buildWithThreadData(a2Var);
             }
             arrayList.add(videoItemData);
-            OriginalThreadInfo originalThreadInfo = a2Var.s1;
+            OriginalThreadInfo originalThreadInfo = a2Var.t1;
             if (originalThreadInfo == null || originalThreadInfo.r == null) {
                 z2 = true;
             } else {
-                a2Var.m();
-                z2 = a2Var.s1.r.is_vertical.intValue() == 1;
+                a2Var.i();
+                z2 = a2Var.t1.r.is_vertical.intValue() == 1;
             }
             VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, arrayList, i2, rect, str, str2, str3, str4, str5);
             videoPlayActivityConfig.setParamIsVertail(z2);
-            OriginalThreadInfo originalThreadInfo2 = a2Var.s1;
+            OriginalThreadInfo originalThreadInfo2 = a2Var.t1;
             if (originalThreadInfo2 != null && (baijiahaoData = originalThreadInfo2.p) != null) {
                 videoPlayActivityConfig.setNid(baijiahaoData.oriUgcNid);
             }

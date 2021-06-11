@@ -16,21 +16,21 @@ import okhttp3.Request;
 public class b extends HttpManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f47731a;
+    public static volatile b f51405a;
 
     public b() {
         super(d.a.l0.a.c1.a.b());
     }
 
     public static b c() {
-        if (f47731a == null) {
+        if (f51405a == null) {
             synchronized (b.class) {
-                if (f47731a == null) {
-                    f47731a = new b();
+                if (f51405a == null) {
+                    f51405a = new b();
                 }
             }
         }
-        return f47731a;
+        return f51405a;
     }
 
     public static b d() {
@@ -69,9 +69,9 @@ public class b extends HttpManager {
         d.a.l0.h.c0.a.a aVar2 = (d.a.l0.h.c0.a.a) e.i().I();
         OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
         int i2 = 60000;
-        if (aVar2 != null && (aVar = aVar2.f40779a) != null) {
-            i2 = aVar.f40785a;
-            newBuilder.connectTimeout(aVar.f40786b, TimeUnit.MILLISECONDS);
+        if (aVar2 != null && (aVar = aVar2.f44455a) != null) {
+            i2 = aVar.f44461a;
+            newBuilder.connectTimeout(aVar.f44462b, TimeUnit.MILLISECONDS);
             newBuilder.addNetworkInterceptor(new d());
         }
         long j = i2;

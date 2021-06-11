@@ -5,23 +5,23 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.Hottopic.TopicInfo;
 import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
-public class f implements d.a.c.j.e.n {
+public class f implements d.a.c.k.e.n {
     public static final BdUniqueId s = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52573e;
+    public String f56262e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52574f;
+    public String f56263f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f52575g;
+    public String f56264g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f52576h;
+    public long f56265h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f52577i;
+    public String f56266i;
     public String j;
     public String k;
     public long l;
@@ -32,15 +32,15 @@ public class f implements d.a.c.j.e.n {
     public h q;
     public String r;
 
-    public void c(TopicInfo topicInfo) {
+    public void b(TopicInfo topicInfo) {
         if (topicInfo == null) {
             return;
         }
-        this.f52573e = String.valueOf(topicInfo.topic_id);
-        this.f52574f = topicInfo.topic_name;
-        this.f52575g = topicInfo.desc;
-        this.f52576h = topicInfo.total_post_num.longValue();
-        this.f52577i = topicInfo.head_photo_url;
+        this.f56262e = String.valueOf(topicInfo.topic_id);
+        this.f56263f = topicInfo.topic_name;
+        this.f56264g = topicInfo.desc;
+        this.f56265h = topicInfo.total_post_num.longValue();
+        this.f56266i = topicInfo.head_photo_url;
         this.j = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
         this.k = topicInfo.share_pic;
         this.l = topicInfo.idx_num.longValue();
@@ -70,7 +70,7 @@ public class f implements d.a.c.j.e.n {
         }
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return s;
     }

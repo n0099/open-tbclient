@@ -22,26 +22,26 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40815a = k.f43199a;
+    public static final boolean f44491a = k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f40816e;
+        public final /* synthetic */ d f44492e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f40817f;
+        public final /* synthetic */ String f44493f;
 
         public a(d dVar, String str) {
-            this.f40816e = dVar;
-            this.f40817f = str;
+            this.f44492e = dVar;
+            this.f44493f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.a.l0.a.e0.d.h("WebSafeWhiteListMgr", "async read webDomains");
-            c.o(this.f40816e, this.f40817f);
+            c.o(this.f44492e, this.f44493f);
         }
     }
 
@@ -49,46 +49,46 @@ public class c {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f40818e;
+        public final /* synthetic */ d f44494e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f40819f;
+        public final /* synthetic */ String f44495f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f40820g;
+        public final /* synthetic */ String f44496g;
 
         public b(d dVar, String str, String str2) {
-            this.f40818e = dVar;
-            this.f40819f = str;
-            this.f40820g = str2;
+            this.f44494e = dVar;
+            this.f44495f = str;
+            this.f44496g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.a.l0.a.e0.d.h("WebSafeWhiteListMgr", "async read serverDomains");
-            c.p(this.f40818e, this.f40819f, this.f40820g);
+            c.p(this.f44494e, this.f44495f, this.f44496g);
         }
     }
 
     /* renamed from: d.a.l0.a.b2.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0568c implements Runnable {
+    public static class RunnableC0624c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f40821e;
+        public final /* synthetic */ d f44497e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f40822f;
+        public final /* synthetic */ String f44498f;
 
-        public RunnableC0568c(d dVar, String str) {
-            this.f40821e = dVar;
-            this.f40822f = str;
+        public RunnableC0624c(d dVar, String str) {
+            this.f44497e = dVar;
+            this.f44498f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.a.l0.a.e0.d.h("WebSafeWhiteListMgr", "async read webActions");
-            c.o(this.f40821e, this.f40822f);
+            c.o(this.f44497e, this.f44498f);
         }
     }
 
@@ -96,13 +96,13 @@ public class c {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40823a;
+        public String f44499a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f40824b = new CopyOnWriteArrayList();
+        public List<String> f44500b = new CopyOnWriteArrayList();
 
         /* renamed from: c  reason: collision with root package name */
-        public long f40825c;
+        public long f44501c;
 
         @NonNull
         public static List<String> d(JSONArray jSONArray) {
@@ -120,8 +120,8 @@ public class c {
             if (jSONObject == null) {
                 return;
             }
-            this.f40823a = jSONObject.optString("token");
-            this.f40824b.addAll(d(jSONObject.optJSONArray("data")));
+            this.f44499a = jSONObject.optString("token");
+            this.f44500b.addAll(d(jSONObject.optJSONArray("data")));
         }
 
         public void b(JSONObject jSONObject, String str) {
@@ -129,15 +129,15 @@ public class c {
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;
             }
-            this.f40824b.addAll(d(optJSONObject.optJSONArray(str)));
+            this.f44500b.addAll(d(optJSONObject.optJSONArray(str)));
         }
 
         public void c() {
-            this.f40824b.clear();
+            this.f44500b.clear();
         }
 
         public String toString() {
-            return "WebSafeData{token='" + this.f40823a + "', data=" + this.f40824b + ", lastModifiedTime=" + this.f40825c + '}';
+            return "WebSafeData{token='" + this.f44499a + "', data=" + this.f44500b + ", lastModifiedTime=" + this.f44501c + '}';
         }
     }
 
@@ -174,11 +174,11 @@ public class c {
 
     public static void h(boolean z, String str, String str2, @NonNull d dVar) {
         if (TextUtils.isEmpty(str)) {
-            if (f40815a) {
+            if (f44491a) {
                 Log.w("WebSafeWhiteListMgr", "get serverDomains: appId is empty");
             }
         } else if (dVar == null) {
-            if (f40815a) {
+            if (f44491a) {
                 throw new RuntimeException("Please init webSafeData first!");
             }
         } else {
@@ -203,14 +203,14 @@ public class c {
 
     public static void k(boolean z, @NonNull d dVar) {
         if (dVar == null) {
-            if (f40815a) {
+            if (f44491a) {
                 throw new RuntimeException("Please init webSafeData first!");
             }
             return;
         }
         String j = j();
         if (z) {
-            ExecutorUtilsExt.postOnElastic(new RunnableC0568c(dVar, j), "load-WebActions", 2);
+            ExecutorUtilsExt.postOnElastic(new RunnableC0624c(dVar, j), "load-WebActions", 2);
         } else {
             o(dVar, j);
         }
@@ -218,11 +218,11 @@ public class c {
 
     public static void l(boolean z, String str, @NonNull d dVar) {
         if (TextUtils.isEmpty(str)) {
-            if (f40815a) {
+            if (f44491a) {
                 Log.w("WebSafeWhiteListMgr", "getWebDomains: appId is empty");
             }
         } else if (dVar == null) {
-            if (f40815a) {
+            if (f44491a) {
                 throw new RuntimeException("Please init webSafeData first!");
             }
         } else {
@@ -291,7 +291,7 @@ public class c {
             }
             w(str, arraySet);
         }
-        if (f40815a) {
+        if (f44491a) {
             Log.d("WebSafeWhiteListMgr", "saveDomainConfig appId=" + str + ", domainConfig=" + str2);
         }
     }
@@ -306,13 +306,13 @@ public class c {
                 d.a.l0.a.e0.d.h("WebSafeWhiteListMgr", "save serverDomains: result=" + b2 + " filePath=" + i2 + " appId= " + str + " data=" + jSONObject);
                 return b2;
             } catch (JSONException e2) {
-                if (f40815a) {
+                if (f44491a) {
                     Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e2));
                 }
                 return false;
             }
         }
-        if (f40815a) {
+        if (f44491a) {
             Log.d("WebSafeWhiteListMgr", "save serverDomains: appId or data is empty");
         }
         return false;
@@ -320,7 +320,7 @@ public class c {
 
     public static boolean t(String str, JSONArray jSONArray) {
         if (jSONArray == null) {
-            if (f40815a) {
+            if (f44491a) {
                 Log.w("WebSafeWhiteListMgr", "saveWebActions: data is empty");
             }
             return false;
@@ -336,7 +336,7 @@ public class c {
             d.a.l0.a.e0.d.h("WebSafeWhiteListMgr", "save webActions: result=" + b2 + " filePath=" + j + " token=" + str + " data=" + jSONArray);
             return b2;
         } catch (JSONException e2) {
-            if (f40815a) {
+            if (f44491a) {
                 Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e2));
             }
             return false;
@@ -356,13 +356,13 @@ public class c {
                 d.a.l0.a.e0.d.h("WebSafeWhiteListMgr", "save WebDomains: result=" + b2 + " filePath=" + m + " appId= " + str + " token=" + str2 + " data=" + jSONArray);
                 return b2;
             } catch (JSONException e2) {
-                if (f40815a) {
+                if (f44491a) {
                     Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e2));
                 }
                 return false;
             }
         }
-        if (f40815a) {
+        if (f44491a) {
             Log.w("WebSafeWhiteListMgr", "saveWebDomains: appId or data is empty");
         }
         return false;
@@ -371,7 +371,7 @@ public class c {
     public static void v(@NonNull d dVar, String str) {
         File file = new File(str);
         if (file.exists()) {
-            dVar.f40825c = file.lastModified();
+            dVar.f44501c = file.lastModified();
         }
     }
 

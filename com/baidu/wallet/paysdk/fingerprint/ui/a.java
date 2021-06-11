@@ -35,134 +35,134 @@ import java.security.KeyStoreException;
 public class a extends DialogFragment implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f25294a = a.class.getSimpleName();
+    public static final String f25397a = a.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f25295b;
+    public LayoutInflater f25398b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f25296c;
+    public Activity f25399c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f25297d;
+    public ViewGroup f25400d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f25298e;
+    public TextView f25401e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f25299f;
+    public Button f25402f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f25300g;
+    public Button f25403g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.fingerprint.a.a f25301h;
+    public com.baidu.wallet.paysdk.fingerprint.a.a f25404h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FingerprintCallback f25302i;
+    public FingerprintCallback f25405i;
     public int j;
     public IFingerprintPay.Action k;
     public String l;
 
     @Override // android.app.Fragment
     public void onAttach(Activity activity) {
-        this.f25296c = activity;
+        this.f25399c = activity;
         super.onAttach(activity);
     }
 
     @Override // android.app.DialogFragment, android.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setStyle(0, ResUtils.style(this.f25296c, "EbpayPromptDialog"));
+        setStyle(0, ResUtils.style(this.f25399c, "EbpayPromptDialog"));
     }
 
     @Override // android.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         String string;
         getDialog().requestWindowFeature(1);
-        LayoutInflater from = LayoutInflater.from(this.f25296c);
-        this.f25295b = from;
-        ViewGroup viewGroup2 = (ViewGroup) from.inflate(ResUtils.layout(this.f25296c, "wallet_cashdesk_fingerprint_dialog"), (ViewGroup) null);
-        this.f25297d = viewGroup2;
-        this.f25299f = (Button) viewGroup2.findViewById(ResUtils.id(this.f25296c, "negative_btn"));
-        this.f25300g = (Button) this.f25297d.findViewById(ResUtils.id(this.f25296c, "positive_btn"));
-        this.f25298e = (TextView) this.f25297d.findViewById(ResUtils.id(this.f25296c, "fingerprint_title"));
+        LayoutInflater from = LayoutInflater.from(this.f25399c);
+        this.f25398b = from;
+        ViewGroup viewGroup2 = (ViewGroup) from.inflate(ResUtils.layout(this.f25399c, "wallet_cashdesk_fingerprint_dialog"), (ViewGroup) null);
+        this.f25400d = viewGroup2;
+        this.f25402f = (Button) viewGroup2.findViewById(ResUtils.id(this.f25399c, "negative_btn"));
+        this.f25403g = (Button) this.f25400d.findViewById(ResUtils.id(this.f25399c, "positive_btn"));
+        this.f25401e = (TextView) this.f25400d.findViewById(ResUtils.id(this.f25399c, "fingerprint_title"));
         getDialog().setCanceledOnTouchOutside(false);
         setCancelable(false);
-        this.f25299f.setVisibility(8);
-        this.f25300g.setVisibility(0);
-        a(this.f25300g);
-        this.f25300g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.1
+        this.f25402f.setVisibility(8);
+        this.f25403g.setVisibility(0);
+        a(this.f25403g);
+        this.f25403g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 StatHelper.cachePayWay(1);
                 a.this.b();
-                a.this.f25301h.a();
-                if (a.this.f25302i != null) {
-                    a.this.f25302i.onAuthorizeResult(a.this.k, 1, "cancle");
+                a.this.f25404h.a();
+                if (a.this.f25405i != null) {
+                    a.this.f25405i.onAuthorizeResult(a.this.k, 1, "cancle");
                 }
                 a.this.dismissAllowingStateLoss();
             }
         });
         PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-        Activity activity = this.f25296c;
+        Activity activity = this.f25399c;
         if (activity instanceof NonePayingProcess) {
             string = ResUtils.getString(activity, "wallet_fp_open_content");
         } else if (payRequest != null && payRequest.FP_Guide_Strategy == 3) {
             string = ResUtils.getString(activity, "wallet_fp_upgrade_content");
         } else if (payRequest != null && payRequest.FP_Guide_Strategy == 2) {
-            string = ResUtils.getString(this.f25296c, "wallet_fp_reopen_content");
+            string = ResUtils.getString(this.f25399c, "wallet_fp_reopen_content");
         } else if (payRequest != null && payRequest.FP_Guide_Strategy == 1) {
-            string = ResUtils.getString(this.f25296c, "wallet_fp_open_content");
+            string = ResUtils.getString(this.f25399c, "wallet_fp_open_content");
         } else {
-            string = ResUtils.getString(this.f25296c, "wallet_fp_bdwallet_fingerprintpay");
+            string = ResUtils.getString(this.f25399c, "wallet_fp_bdwallet_fingerprintpay");
         }
-        this.f25298e.setText(string);
-        return this.f25297d;
+        this.f25401e.setText(string);
+        return this.f25400d;
     }
 
     @Override // android.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.f25296c = null;
-        com.baidu.wallet.paysdk.fingerprint.a.a aVar = this.f25301h;
+        this.f25399c = null;
+        com.baidu.wallet.paysdk.fingerprint.a.a aVar = this.f25404h;
         if (aVar != null) {
             aVar.d();
-            this.f25301h = null;
+            this.f25404h = null;
         }
-        this.f25297d = null;
-        this.f25302i = null;
-        this.f25295b = null;
+        this.f25400d = null;
+        this.f25405i = null;
+        this.f25398b = null;
     }
 
     @Override // android.app.Fragment
     public void onPause() {
         super.onPause();
-        this.f25301h.a();
+        this.f25404h.a();
     }
 
     @Override // android.app.Fragment
     public void onResume() {
         super.onResume();
-        this.f25301h.a(this.j);
+        this.f25404h.a(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.j == 1) {
-            final com.baidu.wallet.paysdk.fingerprint.bean.a aVar = (com.baidu.wallet.paysdk.fingerprint.bean.a) FingerprintBeanFactory.getInstance().getBean((Context) this.f25296c, FingerprintBeanFactory.BEAN_ID_SYS_FINGERPRINT_CLOSE, f25294a);
+            final com.baidu.wallet.paysdk.fingerprint.bean.a aVar = (com.baidu.wallet.paysdk.fingerprint.bean.a) FingerprintBeanFactory.getInstance().getBean((Context) this.f25399c, FingerprintBeanFactory.BEAN_ID_SYS_FINGERPRINT_CLOSE, f25397a);
             aVar.a(this.l);
             aVar.setResponseCallback(new IBeanResponseCallback() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.4
                 @Override // com.baidu.apollon.beans.IBeanResponseCallback
                 public void onBeanExecFailure(int i2, int i3, String str) {
-                    LogUtil.d(a.f25294a, "close system fingerprint failed!");
+                    LogUtil.d(a.f25397a, "close system fingerprint failed!");
                     aVar.destroyBean();
                     StatisticManager.onEvent(StatServiceEvent.EVENT_FP_CLOSE_SYSTEM_FAILED_AFTER_GET_OTPTOKEN);
                 }
 
                 @Override // com.baidu.apollon.beans.IBeanResponseCallback
                 public void onBeanExecSuccess(int i2, Object obj, String str) {
-                    LogUtil.d(a.f25294a, "close system fingerprint success!");
+                    LogUtil.d(a.f25397a, "close system fingerprint success!");
                     aVar.destroyBean();
                 }
             });
@@ -182,17 +182,17 @@ public class a extends DialogFragment implements b {
             aVar.k = IFingerprintPay.Action.VERIFY;
         }
         com.baidu.wallet.paysdk.fingerprint.a.a aVar2 = new com.baidu.wallet.paysdk.fingerprint.a.a(activity.getApplicationContext());
-        aVar.f25301h = aVar2;
+        aVar.f25404h = aVar2;
         aVar2.a(aVar);
-        aVar.f25301h.a(str);
+        aVar.f25404h.a(str);
         aVar.j = i2;
-        aVar.f25302i = fingerprintCallback;
-        aVar.f25296c = activity;
+        aVar.f25405i = fingerprintCallback;
+        aVar.f25399c = activity;
         return aVar;
     }
 
     private void a(Button button) {
-        View findViewById = this.f25297d.findViewById(ResUtils.id(button.getContext(), "btn_line"));
+        View findViewById = this.f25400d.findViewById(ResUtils.id(button.getContext(), "btn_line"));
         if (findViewById != null) {
             findViewById.setVisibility(8);
         }
@@ -207,7 +207,7 @@ public class a extends DialogFragment implements b {
     @Override // com.baidu.wallet.paysdk.fingerprint.b
     public void a(int i2, String str) {
         if (i2 == 0) {
-            FingerprintCallback fingerprintCallback = this.f25302i;
+            FingerprintCallback fingerprintCallback = this.f25405i;
             if (fingerprintCallback != null) {
                 fingerprintCallback.onAuthorizeResult(this.k, 0, str);
             }
@@ -215,8 +215,8 @@ public class a extends DialogFragment implements b {
         } else if (i2 == -3) {
             StatisticManager.onEvent(StatServiceEvent.EVENT_FP_FINGERPRINT_CHANGED);
             b();
-            this.f25301h.a();
-            FingerprintCallback fingerprintCallback2 = this.f25302i;
+            this.f25404h.a();
+            FingerprintCallback fingerprintCallback2 = this.f25405i;
             if (fingerprintCallback2 != null) {
                 fingerprintCallback2.onAuthorizeResult(this.k, 2, str);
             }
@@ -228,60 +228,60 @@ public class a extends DialogFragment implements b {
                 StatisticManager.onEvent(StatServiceEvent.EVENT_FP_VERIFY_ERROR_SETDISABLE_SERVAL_SECONDS);
             }
             b();
-            this.f25301h.a();
-            FingerprintCallback fingerprintCallback3 = this.f25302i;
+            this.f25404h.a();
+            FingerprintCallback fingerprintCallback3 = this.f25405i;
             if (fingerprintCallback3 != null) {
                 fingerprintCallback3.onAuthorizeResult(this.k, 2, str);
             }
             dismissAllowingStateLoss();
         } else if (i2 == -1) {
-            if (this.f25302i != null) {
+            if (this.f25405i != null) {
                 b();
-                this.f25302i.onAuthorizeResult(this.k, 2, "");
+                this.f25405i.onAuthorizeResult(this.k, 2, "");
             }
-            this.f25301h.a();
+            this.f25404h.a();
             dismissAllowingStateLoss();
         } else if (i2 == -5) {
             if (this.j == 1) {
-                this.f25300g.setVisibility(8);
+                this.f25403g.setVisibility(8);
             } else {
-                this.f25300g.setVisibility(0);
-                this.f25300g.setText(ResUtils.getString(this.f25296c, "wallet_cashdesk_pwd_pay"));
+                this.f25403g.setVisibility(0);
+                this.f25403g.setText(ResUtils.getString(this.f25399c, "wallet_cashdesk_pwd_pay"));
             }
-            this.f25299f.setVisibility(0);
-            a(this.f25299f);
-            this.f25298e.setVisibility(0);
-            this.f25298e.setText(str);
-            AnimUtils.startSharkAnim(this.f25298e);
-            this.f25300g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.2
+            this.f25402f.setVisibility(0);
+            a(this.f25402f);
+            this.f25401e.setVisibility(0);
+            this.f25401e.setText(str);
+            AnimUtils.startSharkAnim(this.f25401e);
+            this.f25403g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_FP_ERROR_FP_CLICK_PWDPAY);
-                    a.this.f25301h.a();
-                    if (a.this.f25302i != null) {
-                        a.this.f25302i.onAuthorizeResult(a.this.k, 3, "");
+                    a.this.f25404h.a();
+                    if (a.this.f25405i != null) {
+                        a.this.f25405i.onAuthorizeResult(a.this.k, 3, "");
                     }
                     a.this.dismissAllowingStateLoss();
                 }
             });
-            this.f25299f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.3
+            this.f25402f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.b();
-                    a.this.f25301h.a();
-                    if (a.this.f25302i != null) {
-                        a.this.f25302i.onAuthorizeResult(a.this.k, 1, "");
+                    a.this.f25404h.a();
+                    if (a.this.f25405i != null) {
+                        a.this.f25405i.onAuthorizeResult(a.this.k, 1, "");
                     }
                     a.this.dismissAllowingStateLoss();
                 }
             });
         } else {
             b();
-            FingerprintCallback fingerprintCallback4 = this.f25302i;
+            FingerprintCallback fingerprintCallback4 = this.f25405i;
             if (fingerprintCallback4 != null) {
                 fingerprintCallback4.onAuthorizeResult(this.k, 2, "");
             }
-            this.f25301h.a();
+            this.f25404h.a();
             dismissAllowingStateLoss();
         }
     }

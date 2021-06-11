@@ -19,13 +19,13 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f30412a;
+    public static b f30515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f30413b;
+    public static long f30516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C0326b f30414c = null;
+    public C0328b f30517c = null;
 
     /* loaded from: classes6.dex */
     public static class a extends Exception {
@@ -36,48 +36,52 @@ public class b {
 
     /* renamed from: com.cmic.sso.sdk.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0326b {
+    public static class C0328b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30415a = "";
+        public String f30518a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30416b = "";
+        public String f30519b = "";
 
         /* renamed from: c  reason: collision with root package name */
-        public String f30417c = "";
+        public String f30520c = "";
 
         /* renamed from: d  reason: collision with root package name */
-        public String f30418d = "";
+        public String f30521d = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public int f30419e = -1;
+        public int f30522e = -1;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f30420f = -1;
+        public int f30523f = -1;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f30421g = "";
+        public String f30524g = "";
 
         /* renamed from: h  reason: collision with root package name */
-        public String f30422h = "";
+        public String f30525h = "";
 
         /* renamed from: i  reason: collision with root package name */
-        public int f30423i = -1;
+        public int f30526i = -1;
         public int j = -1;
 
         public int e() {
-            return this.f30419e;
+            return this.j;
         }
 
         public int f() {
-            return this.f30420f;
+            return this.f30522e;
         }
 
         public int g() {
-            if (TextUtils.isEmpty(this.f30418d) || TextUtils.isEmpty(this.f30417c)) {
-                if (TextUtils.isEmpty(this.f30421g) || TextUtils.isEmpty(this.f30422h)) {
-                    return (TextUtils.isEmpty(this.f30417c) && TextUtils.isEmpty(this.f30418d) && TextUtils.isEmpty(this.f30421g) && TextUtils.isEmpty(this.f30422h)) ? 0 : 1;
+            return this.f30523f;
+        }
+
+        public int h() {
+            if (TextUtils.isEmpty(this.f30521d) || TextUtils.isEmpty(this.f30520c)) {
+                if (TextUtils.isEmpty(this.f30524g) || TextUtils.isEmpty(this.f30525h)) {
+                    return (TextUtils.isEmpty(this.f30520c) && TextUtils.isEmpty(this.f30521d) && TextUtils.isEmpty(this.f30524g) && TextUtils.isEmpty(this.f30525h)) ? 0 : 1;
                 }
                 return 2;
             }
@@ -85,82 +89,82 @@ public class b {
         }
 
         public String e(int i2) {
-            if (this.f30419e == i2) {
-                return this.f30417c;
+            if (this.f30522e == i2) {
+                return this.f30520c;
             }
-            return this.f30420f == i2 ? this.f30418d : "";
+            return this.f30523f == i2 ? this.f30521d : "";
         }
 
         public String f(int i2) {
-            if (this.f30419e == i2) {
-                return this.f30421g;
+            if (this.f30522e == i2) {
+                return this.f30524g;
             }
-            return this.f30420f == i2 ? this.f30422h : "";
+            return this.f30523f == i2 ? this.f30525h : "";
         }
 
         public String a() {
-            return this.f30417c;
+            return this.f30520c;
         }
 
         public String b() {
-            return this.f30418d;
+            return this.f30521d;
         }
 
         public void c(String str) {
             if (str != null) {
-                this.f30421g = str;
+                this.f30524g = str;
             }
         }
 
         public void d(String str) {
-            this.f30422h = str;
+            this.f30525h = str;
         }
 
         public void a(String str) {
             if (str != null) {
-                this.f30417c = str;
+                this.f30520c = str;
             }
         }
 
         public void b(String str) {
             if (str != null) {
-                this.f30418d = str;
+                this.f30521d = str;
             }
         }
 
         public String c() {
-            return this.f30422h;
+            return this.f30525h;
         }
 
         public int d() {
-            return this.f30423i;
+            return this.f30526i;
         }
 
         public String a(int i2) {
-            if (this.f30419e == i2) {
-                return this.f30415a;
+            if (this.f30522e == i2) {
+                return this.f30518a;
             }
-            return this.f30420f == i2 ? this.f30416b : "";
+            return this.f30523f == i2 ? this.f30519b : "";
         }
 
         public void b(int i2) {
-            this.f30423i = i2;
+            this.f30526i = i2;
         }
 
         public void c(int i2) {
-            this.f30419e = i2;
+            this.f30522e = i2;
         }
 
         public void d(int i2) {
-            this.f30420f = i2;
+            this.f30523f = i2;
         }
     }
 
     public static b a() {
-        if (f30412a == null) {
-            f30412a = new b();
+        if (f30515a == null) {
+            f30515a = new b();
         }
-        return f30412a;
+        return f30515a;
     }
 
     @SuppressLint({"NewApi"})
@@ -177,55 +181,55 @@ public class b {
     @SuppressLint({"MissingPermission"})
     private void d(Context context) {
         TelephonyManager telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone");
-        this.f30414c.c(0);
-        this.f30414c.d(1);
-        this.f30414c.b(-1);
+        this.f30517c.c(0);
+        this.f30517c.d(1);
+        this.f30517c.b(-1);
         try {
             try {
                 try {
-                    this.f30414c.a(a(telephonyManager, "getSubscriberId", 0));
-                    this.f30414c.b(a(telephonyManager, "getSubscriberId", 1));
+                    this.f30517c.a(a(telephonyManager, "getSubscriberId", 0));
+                    this.f30517c.b(a(telephonyManager, "getSubscriberId", 1));
                 } catch (a unused) {
-                    this.f30414c.a(telephonyManager.getSubscriberId());
+                    this.f30517c.a(telephonyManager.getSubscriberId());
                 }
             } catch (a unused2) {
-                this.f30414c.a(a(telephonyManager, "getSubscriberIdGemini", 0));
-                this.f30414c.b(a(telephonyManager, "getSubscriberIdGemini", 1));
+                this.f30517c.a(a(telephonyManager, "getSubscriberIdGemini", 0));
+                this.f30517c.b(a(telephonyManager, "getSubscriberIdGemini", 1));
             }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         try {
             try {
-                this.f30414c.c(a(telephonyManager, "getSimOperator", 0));
-                this.f30414c.d(a(telephonyManager, "getSimOperator", 1));
+                this.f30517c.c(a(telephonyManager, "getSimOperator", 0));
+                this.f30517c.d(a(telephonyManager, "getSimOperator", 1));
             } catch (a unused3) {
-                this.f30414c.c(a(telephonyManager, "getSimOperatorGemini", 0));
-                this.f30414c.d(a(telephonyManager, "getSimOperatorGemini", 1));
+                this.f30517c.c(a(telephonyManager, "getSimOperatorGemini", 0));
+                this.f30517c.d(a(telephonyManager, "getSimOperatorGemini", 1));
             }
         } catch (a unused4) {
-            this.f30414c.c(telephonyManager.getSimOperator());
+            this.f30517c.c(telephonyManager.getSimOperator());
         }
-        if (TextUtils.isEmpty(this.f30414c.a()) && !TextUtils.isEmpty(this.f30414c.b())) {
-            C0326b c0326b = this.f30414c;
-            c0326b.a(c0326b.b());
-            this.f30414c.b("");
-            C0326b c0326b2 = this.f30414c;
-            c0326b2.c(c0326b2.f());
-            this.f30414c.d(-1);
-            C0326b c0326b3 = this.f30414c;
-            c0326b3.c(c0326b3.c());
-            this.f30414c.d("");
-            C0326b c0326b4 = this.f30414c;
-            c0326b4.b(c0326b4.e());
-        } else if (!TextUtils.isEmpty(this.f30414c.a()) && TextUtils.isEmpty(this.f30414c.b())) {
-            this.f30414c.d(-1);
-            C0326b c0326b5 = this.f30414c;
-            c0326b5.b(c0326b5.e());
-        } else if (TextUtils.isEmpty(this.f30414c.a()) && TextUtils.isEmpty(this.f30414c.b())) {
-            this.f30414c.c(-1);
-            this.f30414c.d(-1);
-            this.f30414c.b(-1);
+        if (TextUtils.isEmpty(this.f30517c.a()) && !TextUtils.isEmpty(this.f30517c.b())) {
+            C0328b c0328b = this.f30517c;
+            c0328b.a(c0328b.b());
+            this.f30517c.b("");
+            C0328b c0328b2 = this.f30517c;
+            c0328b2.c(c0328b2.g());
+            this.f30517c.d(-1);
+            C0328b c0328b3 = this.f30517c;
+            c0328b3.c(c0328b3.c());
+            this.f30517c.d("");
+            C0328b c0328b4 = this.f30517c;
+            c0328b4.b(c0328b4.f());
+        } else if (!TextUtils.isEmpty(this.f30517c.a()) && TextUtils.isEmpty(this.f30517c.b())) {
+            this.f30517c.d(-1);
+            C0328b c0328b5 = this.f30517c;
+            c0328b5.b(c0328b5.f());
+        } else if (TextUtils.isEmpty(this.f30517c.a()) && TextUtils.isEmpty(this.f30517c.b())) {
+            this.f30517c.c(-1);
+            this.f30517c.d(-1);
+            this.f30517c.b(-1);
         }
     }
 
@@ -249,9 +253,9 @@ public class b {
                 Method method = telephonyManager.getClass().getMethod("getDataNetworkType", Integer.TYPE);
                 StringBuilder sb = new StringBuilder();
                 sb.append("data dataNetworkType defaultDataSubId = ");
-                sb.append(this.f30414c.j);
+                sb.append(this.f30517c.j);
                 c.b("UMCTelephonyManagement", sb.toString());
-                int intValue = ((Integer) method.invoke(telephonyManager, Integer.valueOf(this.f30414c.j))).intValue();
+                int intValue = ((Integer) method.invoke(telephonyManager, Integer.valueOf(this.f30517c.j))).intValue();
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("data dataNetworkType ---------");
                 sb2.append(intValue);
@@ -273,14 +277,14 @@ public class b {
         return telephonyManager.getDataNetworkType();
     }
 
-    public C0326b b() {
-        C0326b c0326b = this.f30414c;
-        return c0326b == null ? new C0326b() : c0326b;
+    public C0328b b() {
+        C0328b c0328b = this.f30517c;
+        return c0328b == null ? new C0328b() : c0328b;
     }
 
     private void b(Context context, boolean z) {
         if (Build.VERSION.SDK_INT < 22) {
-            this.f30414c.f30423i = -1;
+            this.f30517c.f30526i = -1;
             return;
         }
         SubscriptionManager from = SubscriptionManager.from(context.getApplicationContext());
@@ -289,15 +293,15 @@ public class b {
                 try {
                     SubscriptionInfo a2 = a(from, "getDefaultDataSubscriptionInfo", (Object[]) null);
                     if (a2 != null) {
-                        this.f30414c.f30423i = a2.getSimSlotIndex();
-                        this.f30414c.j = a2.getSubscriptionId();
+                        this.f30517c.f30526i = a2.getSimSlotIndex();
+                        this.f30517c.j = a2.getSubscriptionId();
                         StringBuilder sb = new StringBuilder();
                         sb.append("getDefaultDataSubscriptionInfo适配成功: dataSlotId即sim_id = ");
-                        sb.append(this.f30414c.f30423i);
+                        sb.append(this.f30517c.f30526i);
                         c.b("UMCTelephonyManagement", sb.toString());
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("getDefaultDataSubscriptionInfo适配成功: dataSubId = ");
-                        sb2.append(this.f30414c.j);
+                        sb2.append(this.f30517c.j);
                         c.b("UMCTelephonyManagement", sb2.toString());
                         return;
                     }
@@ -306,11 +310,11 @@ public class b {
                 }
             }
             try {
-                if (this.f30414c.f30423i == -1 && Build.VERSION.SDK_INT >= 24) {
-                    this.f30414c.j = SubscriptionManager.getDefaultDataSubscriptionId();
+                if (this.f30517c.f30526i == -1 && Build.VERSION.SDK_INT >= 24) {
+                    this.f30517c.j = SubscriptionManager.getDefaultDataSubscriptionId();
                     StringBuilder sb3 = new StringBuilder();
                     sb3.append("android 7.0及以上手机getDefaultDataSubscriptionId适配成功: dataSubId = ");
-                    sb3.append(this.f30414c.j);
+                    sb3.append(this.f30517c.j);
                     c.b("UMCTelephonyManagement", sb3.toString());
                     return;
                 }
@@ -320,10 +324,10 @@ public class b {
             try {
                 Method method = from.getClass().getMethod("getDefaultDataSubId", new Class[0]);
                 if (method != null) {
-                    this.f30414c.j = ((Integer) method.invoke(from, new Object[0])).intValue();
+                    this.f30517c.j = ((Integer) method.invoke(from, new Object[0])).intValue();
                     StringBuilder sb4 = new StringBuilder();
                     sb4.append("android 7.0以下手机getDefaultDataSubId适配成功: dataSubId = ");
-                    sb4.append(this.f30414c.j);
+                    sb4.append(this.f30517c.j);
                     c.b("UMCTelephonyManagement", sb4.toString());
                     return;
                 }
@@ -333,10 +337,10 @@ public class b {
             try {
                 Method method2 = from.getClass().getMethod("getDefaultDataSubscriptionId", new Class[0]);
                 if (method2 != null) {
-                    this.f30414c.j = ((Integer) method2.invoke(from, new Object[0])).intValue();
+                    this.f30517c.j = ((Integer) method2.invoke(from, new Object[0])).intValue();
                     StringBuilder sb5 = new StringBuilder();
                     sb5.append("反射getDefaultDataSubscriptionId适配成功: dataSubId = ");
-                    sb5.append(this.f30414c.j);
+                    sb5.append(this.f30517c.j);
                     c.b("UMCTelephonyManagement", sb5.toString());
                 }
             } catch (Exception unused4) {
@@ -346,17 +350,20 @@ public class b {
     }
 
     public void a(Context context, boolean z) {
-        if (System.currentTimeMillis() - f30413b < 5000) {
+        if (System.currentTimeMillis() - f30516b < 5000) {
             return;
         }
-        this.f30414c = new C0326b();
+        this.f30517c = new C0328b();
         if (n.a(context)) {
             b(context, z);
             if (n.e() && n.d()) {
                 c.b("UMCTelephonyManagement", "华为手机兼容性处理");
-                if (this.f30414c.j == 0 || this.f30414c.j == 1) {
-                    C0326b c0326b = this.f30414c;
-                    c0326b.f30423i = c0326b.j;
+                if (this.f30517c.j == 0 || this.f30517c.j == 1) {
+                    if (this.f30517c.f30526i == -1) {
+                        C0328b c0328b = this.f30517c;
+                        c0328b.f30526i = c0328b.j;
+                    }
+                    this.f30517c.j = -1;
                 }
             }
             if (z) {
@@ -373,7 +380,7 @@ public class b {
             if (Build.VERSION.SDK_INT >= 21) {
                 b(context);
             }
-            f30413b = System.currentTimeMillis();
+            f30516b = System.currentTimeMillis();
         }
     }
 
@@ -383,53 +390,6 @@ public class b {
         }
         c.b("UMCTelephonyManagement", "operatorChina = " + str);
         return str.contains("中国移动") ? "46000" : str.contains("中国联通") ? "46001" : str.contains("中国电信") ? "46003" : "";
-    }
-
-    @SuppressLint({"NewApi", "MissingPermission"})
-    private void a(List<SubscriptionInfo> list, TelephonyManager telephonyManager) {
-        SubscriptionInfo a2;
-        int size = list != null ? list.size() : 0;
-        if (size == 1) {
-            a2 = list.get(0);
-        } else if (size <= 1) {
-            return;
-        } else {
-            a2 = a(list, 0);
-        }
-        this.f30414c.f30415a = a2.getIccId();
-        this.f30414c.c(a2.getSimSlotIndex());
-        C0326b c0326b = this.f30414c;
-        c0326b.f30421g = b(c0326b.f30415a);
-        c.b("UMCTelephonyManagement", "readSim1Info1 iccid1 = " + this.f30414c.f30415a);
-        if (this.f30414c.f30423i == -1 && this.f30414c.j == a2.getSubscriptionId()) {
-            this.f30414c.f30423i = a2.getSimSlotIndex();
-            c.b("UMCTelephonyManagement", "readSim1Info1 dataSlotId = " + this.f30414c.f30423i);
-        }
-        if (n.d()) {
-            int simSlotIndex = com.cmic.sso.sdk.a.a.a() == 0 ? a2.getSimSlotIndex() : a2.getSubscriptionId();
-            try {
-                try {
-                    try {
-                        this.f30414c.a(a(telephonyManager, "getSubscriberId", a2.getSubscriptionId()));
-                    } catch (a unused) {
-                        this.f30414c.a(telephonyManager.getSubscriberId());
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            } catch (a unused2) {
-                this.f30414c.a(a(telephonyManager, "getSubscriberIdGemini", simSlotIndex));
-            }
-            try {
-                try {
-                    this.f30414c.c(a(telephonyManager, "getSimOperator", a2.getSubscriptionId()));
-                } catch (a unused3) {
-                    this.f30414c.c(a(telephonyManager, "getSimOperatorGemini", simSlotIndex));
-                }
-            } catch (a unused4) {
-                this.f30414c.c(telephonyManager.getSimOperator());
-            }
-        }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -467,61 +427,61 @@ public class b {
                         String string2 = cursor.getString(cursor.getColumnIndex("mcc"));
                         String string3 = cursor.getString(cursor.getColumnIndex("mnc"));
                         String string4 = cursor.getString(cursor.getColumnIndex("carrier_name"));
-                        if (this.f30414c.f30423i == -1 && this.f30414c.j != -1 && this.f30414c.j == i3) {
-                            this.f30414c.f30423i = i2;
+                        if (this.f30517c.f30526i == -1 && this.f30517c.j != -1 && this.f30517c.j == i3) {
+                            this.f30517c.f30526i = i2;
                             StringBuilder sb = new StringBuilder();
                             sb.append("通过读取sim db获取数据流量卡的卡槽值：");
                             sb.append(i2);
                             c.b("UMCTelephonyManagement", sb.toString());
                         }
-                        if (this.f30414c.f30423i == i2 && !n.e()) {
-                            this.f30414c.j = i3;
+                        if (this.f30517c.f30526i == i2 && !n.e()) {
+                            this.f30517c.j = i3;
                         }
                         if (i2 == 0) {
-                            this.f30414c.f30415a = string;
-                            if (this.f30414c.f30419e == -1) {
-                                this.f30414c.f30419e = i2;
+                            this.f30517c.f30518a = string;
+                            if (this.f30517c.f30522e == -1) {
+                                this.f30517c.f30522e = i2;
                             }
-                            if (TextUtils.isEmpty(this.f30414c.f30421g) && !TextUtils.isEmpty(string4)) {
+                            if (TextUtils.isEmpty(this.f30517c.f30524g) && !TextUtils.isEmpty(string4)) {
                                 String a2 = a(string4);
                                 if (!TextUtils.isEmpty(a2)) {
-                                    this.f30414c.f30421g = a2;
+                                    this.f30517c.f30524g = a2;
                                 }
                             }
-                            if (TextUtils.isEmpty(this.f30414c.f30421g)) {
+                            if (TextUtils.isEmpty(this.f30517c.f30524g)) {
                                 String b2 = b(string);
                                 if (!TextUtils.isEmpty(b2)) {
-                                    this.f30414c.f30421g = b2;
+                                    this.f30517c.f30524g = b2;
                                 }
                             }
-                            if (TextUtils.isEmpty(this.f30414c.f30421g) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
+                            if (TextUtils.isEmpty(this.f30517c.f30524g) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
                                 if (string3.length() == 1) {
                                     string3 = "0" + string3;
                                 }
-                                this.f30414c.f30421g = string2 + string3;
+                                this.f30517c.f30524g = string2 + string3;
                             }
                         } else if (i2 == 1) {
-                            this.f30414c.f30416b = string;
-                            if (this.f30414c.f30420f == -1) {
-                                this.f30414c.f30420f = i2;
+                            this.f30517c.f30519b = string;
+                            if (this.f30517c.f30523f == -1) {
+                                this.f30517c.f30523f = i2;
                             }
-                            if (TextUtils.isEmpty(this.f30414c.f30422h) && !TextUtils.isEmpty(string4)) {
+                            if (TextUtils.isEmpty(this.f30517c.f30525h) && !TextUtils.isEmpty(string4)) {
                                 String a3 = a(string4);
                                 if (!TextUtils.isEmpty(a3)) {
-                                    this.f30414c.f30422h = a3;
+                                    this.f30517c.f30525h = a3;
                                 }
                             }
-                            if (TextUtils.isEmpty(this.f30414c.f30422h)) {
+                            if (TextUtils.isEmpty(this.f30517c.f30525h)) {
                                 String b3 = b(string);
                                 if (!TextUtils.isEmpty(b3)) {
-                                    this.f30414c.f30422h = b3;
+                                    this.f30517c.f30525h = b3;
                                 }
                             }
-                            if (TextUtils.isEmpty(this.f30414c.f30422h) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
+                            if (TextUtils.isEmpty(this.f30517c.f30525h) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
                                 if (string3.length() == 1) {
                                     string3 = "0" + string3;
                                 }
-                                this.f30414c.f30422h = string2 + string3;
+                                this.f30517c.f30525h = string2 + string3;
                             }
                         }
                         StringBuilder sb2 = new StringBuilder();
@@ -559,6 +519,53 @@ public class b {
                 cursor.close();
             }
             throw th;
+        }
+    }
+
+    @SuppressLint({"NewApi", "MissingPermission"})
+    private void a(List<SubscriptionInfo> list, TelephonyManager telephonyManager) {
+        SubscriptionInfo a2;
+        int size = list != null ? list.size() : 0;
+        if (size == 1) {
+            a2 = list.get(0);
+        } else if (size <= 1) {
+            return;
+        } else {
+            a2 = a(list, 0);
+        }
+        this.f30517c.f30518a = a2.getIccId();
+        this.f30517c.c(a2.getSimSlotIndex());
+        C0328b c0328b = this.f30517c;
+        c0328b.f30524g = b(c0328b.f30518a);
+        c.b("UMCTelephonyManagement", "readSim1Info1 iccid1 = " + this.f30517c.f30518a);
+        if (this.f30517c.f30526i == -1 && this.f30517c.j == a2.getSubscriptionId()) {
+            this.f30517c.f30526i = a2.getSimSlotIndex();
+            c.b("UMCTelephonyManagement", "readSim1Info1 dataSlotId = " + this.f30517c.f30526i);
+        }
+        if (n.d()) {
+            int simSlotIndex = com.cmic.sso.sdk.a.a.a() == 0 ? a2.getSimSlotIndex() : a2.getSubscriptionId();
+            try {
+                try {
+                    try {
+                        this.f30517c.a(a(telephonyManager, "getSubscriberId", a2.getSubscriptionId()));
+                    } catch (a unused) {
+                        this.f30517c.a(telephonyManager.getSubscriberId());
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            } catch (a unused2) {
+                this.f30517c.a(a(telephonyManager, "getSubscriberIdGemini", simSlotIndex));
+            }
+            try {
+                try {
+                    this.f30517c.c(a(telephonyManager, "getSimOperator", a2.getSubscriptionId()));
+                } catch (a unused3) {
+                    this.f30517c.c(a(telephonyManager, "getSimOperatorGemini", simSlotIndex));
+                }
+            } catch (a unused4) {
+                this.f30517c.c(telephonyManager.getSimOperator());
+            }
         }
     }
 
@@ -631,8 +638,8 @@ public class b {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x008b, code lost:
-        if (r7.equals("898609") != false) goto L19;
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0094, code lost:
+        if (r7.equals("898606") != false) goto L14;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -643,77 +650,92 @@ public class b {
             String substring = str.substring(0, 6);
             c.b("UMCTelephonyManagement", "operatorFlag = " + substring);
             int hashCode = substring.hashCode();
-            if (hashCode == 1657594885) {
-                if (substring.equals("898606")) {
-                    c2 = 5;
+            if (hashCode != 1657594911) {
+                switch (hashCode) {
+                    case 1657594879:
+                        if (substring.equals("898600")) {
+                            c2 = 0;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 1657594880:
+                        if (substring.equals("898601")) {
+                            c2 = 5;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 1657594881:
+                        if (substring.equals("898602")) {
+                            c2 = 1;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 1657594882:
+                        if (substring.equals("898603")) {
+                            c2 = '\b';
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 1657594883:
+                        if (substring.equals("898604")) {
+                            c2 = 2;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    default:
+                        switch (hashCode) {
+                            case 1657594885:
+                                break;
+                            case 1657594886:
+                                if (substring.equals("898607")) {
+                                    c2 = 3;
+                                    break;
+                                }
+                                c2 = 65535;
+                                break;
+                            case 1657594887:
+                                if (substring.equals("898608")) {
+                                    c2 = 4;
+                                    break;
+                                }
+                                c2 = 65535;
+                                break;
+                            case 1657594888:
+                                if (substring.equals("898609")) {
+                                    c2 = 7;
+                                    break;
+                                }
+                                c2 = 65535;
+                                break;
+                            default:
+                                c2 = 65535;
+                                break;
+                        }
+                }
+            } else {
+                if (substring.equals("898611")) {
+                    c2 = '\t';
                 }
                 c2 = 65535;
-            } else if (hashCode == 1657594886) {
-                if (substring.equals("898607")) {
-                    c2 = 3;
-                }
-                c2 = 65535;
-            } else if (hashCode != 1657594888) {
-                if (hashCode != 1657594911) {
-                    switch (hashCode) {
-                        case 1657594879:
-                            if (substring.equals("898600")) {
-                                c2 = 0;
-                                break;
-                            }
-                            c2 = 65535;
-                            break;
-                        case 1657594880:
-                            if (substring.equals("898601")) {
-                                c2 = 4;
-                                break;
-                            }
-                            c2 = 65535;
-                            break;
-                        case 1657594881:
-                            if (substring.equals("898602")) {
-                                c2 = 1;
-                                break;
-                            }
-                            c2 = 65535;
-                            break;
-                        case 1657594882:
-                            if (substring.equals("898603")) {
-                                c2 = 7;
-                                break;
-                            }
-                            c2 = 65535;
-                            break;
-                        case 1657594883:
-                            if (substring.equals("898604")) {
-                                c2 = 2;
-                                break;
-                            }
-                            c2 = 65535;
-                            break;
-                        default:
-                            c2 = 65535;
-                            break;
-                    }
-                } else {
-                    if (substring.equals("898611")) {
-                        c2 = '\b';
-                    }
-                    c2 = 65535;
-                }
             }
             switch (c2) {
                 case 0:
                 case 1:
                 case 2:
                 case 3:
-                    return "46000";
                 case 4:
+                    return "46000";
                 case 5:
                 case 6:
-                    return "46001";
                 case 7:
+                    return "46001";
                 case '\b':
+                case '\t':
                     return "46003";
                 default:
                     return "";
@@ -726,34 +748,34 @@ public class b {
     private void b(List<SubscriptionInfo> list, TelephonyManager telephonyManager) {
         if ((list != null ? list.size() : 0) > 1) {
             SubscriptionInfo a2 = a(list, 1);
-            this.f30414c.d(a2.getSimSlotIndex());
-            this.f30414c.f30416b = a2.getIccId();
-            C0326b c0326b = this.f30414c;
-            c0326b.f30422h = b(c0326b.f30416b);
-            c.b("UMCTelephonyManagement", "readSim1Info2 iccid2 = " + this.f30414c.f30416b);
-            if (this.f30414c.f30423i == -1 && this.f30414c.j == a2.getSubscriptionId()) {
-                this.f30414c.f30423i = a2.getSimSlotIndex();
-                c.b("UMCTelephonyManagement", "readSim1Info2 dataSlotId = " + this.f30414c.f30423i);
+            this.f30517c.d(a2.getSimSlotIndex());
+            this.f30517c.f30519b = a2.getIccId();
+            C0328b c0328b = this.f30517c;
+            c0328b.f30525h = b(c0328b.f30519b);
+            c.b("UMCTelephonyManagement", "readSim1Info2 iccid2 = " + this.f30517c.f30519b);
+            if (this.f30517c.f30526i == -1 && this.f30517c.j == a2.getSubscriptionId()) {
+                this.f30517c.f30526i = a2.getSimSlotIndex();
+                c.b("UMCTelephonyManagement", "readSim1Info2 dataSlotId = " + this.f30517c.f30526i);
             }
             if (n.d()) {
                 int subscriptionId = com.cmic.sso.sdk.a.a.a() != 0 ? a2.getSubscriptionId() : 1;
                 try {
                     try {
-                        this.f30414c.b(a(telephonyManager, "getSubscriberId", a2.getSubscriptionId()));
+                        this.f30517c.b(a(telephonyManager, "getSubscriberId", a2.getSubscriptionId()));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } catch (a unused) {
-                    this.f30414c.b(a(telephonyManager, "getSubscriberIdGemini", subscriptionId));
+                    this.f30517c.b(a(telephonyManager, "getSubscriberIdGemini", subscriptionId));
                 }
                 try {
                     try {
-                        this.f30414c.d(a(telephonyManager, "getSimOperator", a2.getSubscriptionId()));
+                        this.f30517c.d(a(telephonyManager, "getSimOperator", a2.getSubscriptionId()));
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
                 } catch (a unused2) {
-                    this.f30414c.d(a(telephonyManager, "getSimOperatorGemini", subscriptionId));
+                    this.f30517c.d(a(telephonyManager, "getSimOperatorGemini", subscriptionId));
                 }
             }
         }

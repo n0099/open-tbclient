@@ -25,22 +25,22 @@ import java.util.Map;
 public class h implements d.b.c.b.f.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f65766a;
+    public final Map<String, a> f69497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f65767b;
+    public long f69498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final File f65768c;
+    public final File f69499c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f65769d;
+    public final int f69500d;
 
     public h(File file, int i2) {
-        this.f65766a = new LinkedHashMap(16, 0.75f, true);
-        this.f65767b = 0L;
-        this.f65768c = file;
-        this.f65769d = i2;
+        this.f69497a = new LinkedHashMap(16, 0.75f, true);
+        this.f69498b = 0L;
+        this.f69499c = file;
+        this.f69500d = i2;
     }
 
     public static int b(InputStream inputStream) throws Throwable {
@@ -131,7 +131,7 @@ public class h implements d.b.c.b.f.b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        a aVar = this.f65766a.get(str);
+        a aVar = this.f69497a.get(str);
         if (aVar == null) {
             return null;
         }
@@ -144,8 +144,8 @@ public class h implements d.b.c.b.f.b {
         }
         try {
             a a2 = a.a(bVar);
-            if (!TextUtils.equals(str, a2.f65771b)) {
-                q.c("%s: key=%s, found=%s", q.getAbsolutePath(), str, a2.f65771b);
+            if (!TextUtils.equals(str, a2.f69502b)) {
+                q.c("%s: key=%s, found=%s", q.getAbsolutePath(), str, a2.f69502b);
                 s(str);
                 bVar.close();
                 try {
@@ -181,12 +181,12 @@ public class h implements d.b.c.b.f.b {
     }
 
     public final void h(String str, a aVar) {
-        if (!this.f65766a.containsKey(str)) {
-            this.f65767b += aVar.f65770a;
+        if (!this.f69497a.containsKey(str)) {
+            this.f69498b += aVar.f69501a;
         } else {
-            this.f65767b += aVar.f65770a - this.f65766a.get(str).f65770a;
+            this.f69498b += aVar.f69501a - this.f69497a.get(str).f69501a;
         }
-        this.f65766a.put(str, aVar);
+        this.f69497a.put(str, aVar);
     }
 
     @VisibleForTesting
@@ -195,32 +195,32 @@ public class h implements d.b.c.b.f.b {
     }
 
     public final void n() {
-        if (this.f65767b < this.f65769d) {
+        if (this.f69498b < this.f69500d) {
             return;
         }
-        if (q.f65818b) {
+        if (q.f69549b) {
             q.a("Pruning old cache entries.", new Object[0]);
         }
-        long j = this.f65767b;
+        long j = this.f69498b;
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        Iterator<Map.Entry<String, a>> it = this.f65766a.entrySet().iterator();
+        Iterator<Map.Entry<String, a>> it = this.f69497a.entrySet().iterator();
         int i2 = 0;
         while (it.hasNext()) {
             a value = it.next().getValue();
-            if (q(value.f65771b).delete()) {
-                this.f65767b -= value.f65770a;
+            if (q(value.f69502b).delete()) {
+                this.f69498b -= value.f69501a;
             } else {
-                String str = value.f65771b;
+                String str = value.f69502b;
                 q.c("Could not delete cache entry for key=%s, filename=%s", str, r(str));
             }
             it.remove();
             i2++;
-            if (((float) this.f65767b) < this.f65769d * 0.9f) {
+            if (((float) this.f69498b) < this.f69500d * 0.9f) {
                 break;
             }
         }
-        if (q.f65818b) {
-            q.a("pruned %d files, %d bytes, %d ms", Integer.valueOf(i2), Long.valueOf(this.f65767b - j), Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
+        if (q.f69549b) {
+            q.a("pruned %d files, %d bytes, %d ms", Integer.valueOf(i2), Long.valueOf(this.f69498b - j), Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
         }
     }
 
@@ -233,7 +233,7 @@ public class h implements d.b.c.b.f.b {
     }
 
     public File q(String str) {
-        return new File(this.f65768c, r(str));
+        return new File(this.f69499c, r(str));
     }
 
     public final String r(String str) {
@@ -243,9 +243,9 @@ public class h implements d.b.c.b.f.b {
     }
 
     public final void s(String str) {
-        a remove = this.f65766a.remove(str);
+        a remove = this.f69497a.remove(str);
         if (remove != null) {
-            this.f65767b -= remove.f65770a;
+            this.f69498b -= remove.f69501a;
         }
     }
 
@@ -254,25 +254,25 @@ public class h implements d.b.c.b.f.b {
     public static class b extends FilterInputStream {
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f65778e;
+        public final long f69509e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f65779f;
+        public long f69510f;
 
         public b(InputStream inputStream, long j) {
             super(inputStream);
-            this.f65778e = j;
+            this.f69509e = j;
         }
 
         public long n() {
-            return this.f65778e - this.f65779f;
+            return this.f69509e - this.f69510f;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
         public int read() throws IOException {
             int read = super.read();
             if (read != -1) {
-                this.f65779f++;
+                this.f69510f++;
             }
             return read;
         }
@@ -281,7 +281,7 @@ public class h implements d.b.c.b.f.b {
         public int read(byte[] bArr, int i2, int i3) throws IOException {
             int read = super.read(bArr, i2, i3);
             if (read != -1) {
-                this.f65779f += read;
+                this.f69510f += read;
             }
             return read;
         }
@@ -296,37 +296,37 @@ public class h implements d.b.c.b.f.b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f65770a;
+        public long f69501a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f65771b;
+        public final String f69502b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f65772c;
+        public final String f69503c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f65773d;
+        public final long f69504d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f65774e;
+        public final long f69505e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f65775f;
+        public final long f69506f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final long f65776g;
+        public final long f69507g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final List<d.b.c.b.d.a> f65777h;
+        public final List<d.b.c.b.d.a> f69508h;
 
         public a(String str, String str2, long j, long j2, long j3, long j4, List<d.b.c.b.d.a> list) {
-            this.f65771b = str;
-            this.f65772c = "".equals(str2) ? null : str2;
-            this.f65773d = j;
-            this.f65774e = j2;
-            this.f65775f = j3;
-            this.f65776g = j4;
-            this.f65777h = list;
+            this.f69502b = str;
+            this.f69503c = "".equals(str2) ? null : str2;
+            this.f69504d = j;
+            this.f69505e = j2;
+            this.f69506f = j3;
+            this.f69507g = j4;
+            this.f69508h = list;
         }
 
         public static a a(b bVar) throws Throwable {
@@ -337,33 +337,33 @@ public class h implements d.b.c.b.f.b {
         }
 
         public static List<d.b.c.b.d.a> c(b.a aVar) {
-            List<d.b.c.b.d.a> list = aVar.f65841i;
-            return list != null ? list : d.b.c.b.e.c.h(aVar.f65840h);
+            List<d.b.c.b.d.a> list = aVar.f69572i;
+            return list != null ? list : d.b.c.b.e.c.h(aVar.f69571h);
         }
 
         public b.a b(byte[] bArr) {
             b.a aVar = new b.a();
-            aVar.f65834b = bArr;
-            aVar.f65835c = this.f65772c;
-            aVar.f65836d = this.f65773d;
-            aVar.f65837e = this.f65774e;
-            aVar.f65838f = this.f65775f;
-            aVar.f65839g = this.f65776g;
-            aVar.f65840h = d.b.c.b.e.c.g(this.f65777h);
-            aVar.f65841i = Collections.unmodifiableList(this.f65777h);
+            aVar.f69565b = bArr;
+            aVar.f69566c = this.f69503c;
+            aVar.f69567d = this.f69504d;
+            aVar.f69568e = this.f69505e;
+            aVar.f69569f = this.f69506f;
+            aVar.f69570g = this.f69507g;
+            aVar.f69571h = d.b.c.b.e.c.g(this.f69508h);
+            aVar.f69572i = Collections.unmodifiableList(this.f69508h);
             return aVar;
         }
 
         public boolean d(OutputStream outputStream) {
             try {
                 h.e(outputStream, 538247942);
-                h.g(outputStream, this.f65771b);
-                h.g(outputStream, this.f65772c == null ? "" : this.f65772c);
-                h.f(outputStream, this.f65773d);
-                h.f(outputStream, this.f65774e);
-                h.f(outputStream, this.f65775f);
-                h.f(outputStream, this.f65776g);
-                h.i(this.f65777h, outputStream);
+                h.g(outputStream, this.f69502b);
+                h.g(outputStream, this.f69503c == null ? "" : this.f69503c);
+                h.f(outputStream, this.f69504d);
+                h.f(outputStream, this.f69505e);
+                h.f(outputStream, this.f69506f);
+                h.f(outputStream, this.f69507g);
+                h.i(this.f69508h, outputStream);
                 outputStream.flush();
                 return true;
             } catch (Throwable th) {
@@ -373,19 +373,19 @@ public class h implements d.b.c.b.f.b {
         }
 
         public a(String str, b.a aVar) {
-            this(str, aVar.f65835c, aVar.f65836d, aVar.f65837e, aVar.f65838f, aVar.f65839g, c(aVar));
+            this(str, aVar.f69566c, aVar.f69567d, aVar.f69568e, aVar.f69569f, aVar.f69570g, c(aVar));
         }
     }
 
     @Override // d.b.c.b.f.b
     public synchronized void a() {
-        if (!this.f65768c.exists()) {
-            if (!this.f65768c.mkdirs()) {
-                q.d("Unable to create cache dir %s", this.f65768c.getAbsolutePath());
+        if (!this.f69499c.exists()) {
+            if (!this.f69499c.mkdirs()) {
+                q.d("Unable to create cache dir %s", this.f69499c.getAbsolutePath());
             }
             return;
         }
-        File[] listFiles = this.f65768c.listFiles();
+        File[] listFiles = this.f69499c.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -394,8 +394,8 @@ public class h implements d.b.c.b.f.b {
             b bVar = new b(new BufferedInputStream(c(file)), length);
             try {
                 a a2 = a.a(bVar);
-                a2.f65770a = length;
-                h(a2.f65771b, a2);
+                a2.f69501a = length;
+                h(a2.f69502b, a2);
             } catch (Throwable unused) {
             }
             bVar.close();
@@ -404,7 +404,7 @@ public class h implements d.b.c.b.f.b {
 
     @Override // d.b.c.b.f.b
     public synchronized void a(String str, b.a aVar) {
-        if (this.f65767b + aVar.f65834b.length > this.f65769d && aVar.f65834b.length > this.f65769d * 0.9f) {
+        if (this.f69498b + aVar.f69565b.length > this.f69500d && aVar.f69565b.length > this.f69500d * 0.9f) {
             return;
         }
         File q = q(str);
@@ -414,8 +414,8 @@ public class h implements d.b.c.b.f.b {
             try {
                 a aVar2 = new a(str, aVar);
                 if (aVar2.d(bufferedOutputStream2)) {
-                    bufferedOutputStream2.write(aVar.f65834b);
-                    aVar2.f65770a = q.length();
+                    bufferedOutputStream2.write(aVar.f69565b);
+                    aVar2.f69501a = q.length();
                     h(str, aVar2);
                     n();
                     try {

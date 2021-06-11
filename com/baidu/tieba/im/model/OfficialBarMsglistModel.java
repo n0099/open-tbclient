@@ -104,7 +104,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f17281b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f17357b;
             if (list == null) {
                 list = new LinkedList();
             }
@@ -245,7 +245,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             return false;
         }
         LoadDraftMessage.a aVar = new LoadDraftMessage.a();
-        aVar.f17274a = this.mUser.getUserId();
+        aVar.f17350a = this.mUser.getUserId();
         super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
         return true;
     }
@@ -256,10 +256,10 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             return false;
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f17278c = 10;
-        aVar.f17276a = null;
-        aVar.f17277b = null;
-        aVar.f17279d = this.mUser.getUserIdLong() + "";
+        aVar.f17354c = 10;
+        aVar.f17352a = null;
+        aVar.f17353b = null;
+        aVar.f17355d = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialHistoryMessage(aVar));
         return true;
     }
@@ -271,7 +271,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             return false;
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f17278c = 10;
+        aVar.f17354c = 10;
         MsgPageData msgPageData = this.mDatas;
         long j2 = 0;
         if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
@@ -280,9 +280,9 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             j2 = this.mDatas.getChatMessages().get(0).getMsgId();
             j = this.mDatas.getChatMessages().get(0).getRecordId();
         }
-        aVar.f17276a = String.valueOf(j2);
-        aVar.f17277b = String.valueOf(j);
-        aVar.f17279d = this.mUser.getUserIdLong() + "";
+        aVar.f17352a = String.valueOf(j2);
+        aVar.f17353b = String.valueOf(j);
+        aVar.f17355d = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialHistoryMessage(aVar));
         return true;
     }
@@ -315,8 +315,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         if (userData == null) {
             return false;
         }
-        aVar.f17302b = String.valueOf(String.valueOf(userData.getUserId()));
-        aVar.f17301a = str;
+        aVar.f17378b = String.valueOf(String.valueOf(userData.getUserId()));
+        aVar.f17377a = str;
         super.sendMessage(new OfficialBarSaveDraftMessage(aVar));
         return true;
     }

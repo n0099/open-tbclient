@@ -54,7 +54,7 @@ import tbclient.SimpleForum;
 import tbclient.SimpleUser;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e {
     public List<a2> B;
     public AlaLiveInfoCoreData C;
@@ -74,38 +74,38 @@ public class e {
     public boolean Y;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52920b;
+    public String f56609b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CardHListViewData f52921c;
+    public CardHListViewData f56610c;
     public a0 c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52922d;
+    public int f56611d;
     public String d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52923e;
+    public int f56612e;
     public String e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PbSortType> f52924f;
+    public List<PbSortType> f56613f;
     public List<ThreadInfo> f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52925g;
+    public int f56614g;
     public ForumRuleStatus g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f52926h;
+    public k f56615h;
     public d.a.m0.t.d h0;
     public boolean i0;
-    public List<d.a.c.j.e.n> k0;
+    public List<d.a.c.k.e.n> k0;
     public a l;
     public int w;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f52927i = false;
+    public boolean f56616i = false;
     public boolean j = false;
     public boolean k = false;
     public boolean m = false;
@@ -128,7 +128,7 @@ public class e {
     public int v = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public final UserData f52919a = new UserData();
+    public final UserData f56608a = new UserData();
     public List<MuteUser> z = new ArrayList();
     public c1 x = new c1();
     public d1 A = new d1();
@@ -232,11 +232,11 @@ public class e {
                     str = "[" + context.getString(R.string.photo_live_tips) + "] " + str;
                 }
                 a2 a2Var2 = this.p;
-                if (a2Var2 != null && a2Var2.w1() != null && !d.a.c.e.p.k.isEmpty(this.p.w1().thumbnail_url)) {
-                    r2 = this.p.w1().thumbnail_url;
+                if (a2Var2 != null && a2Var2.x1() != null && !d.a.c.e.p.k.isEmpty(this.p.x1().thumbnail_url)) {
+                    r2 = this.p.x1().thumbnail_url;
                 }
                 a2 a2Var3 = this.p;
-                if (a2Var3 != null && !a2Var3.t1 && r2 == null && (originalThreadInfo = a2Var3.s1) != null && (arrayList = originalThreadInfo.f12040h) != null) {
+                if (a2Var3 != null && !a2Var3.u1 && r2 == null && (originalThreadInfo = a2Var3.t1) != null && (arrayList = originalThreadInfo.f12102h) != null) {
                     int size2 = arrayList.size();
                     int i4 = 0;
                     while (true) {
@@ -276,7 +276,7 @@ public class e {
         return a2Var != null ? a2Var.o0() : "";
     }
 
-    public List<d.a.c.j.e.n> O() {
+    public List<d.a.c.k.e.n> O() {
         return this.k0;
     }
 
@@ -289,7 +289,7 @@ public class e {
     }
 
     public UserData R() {
-        return this.f52919a;
+        return this.f56608a;
     }
 
     public int S() {
@@ -301,7 +301,7 @@ public class e {
     }
 
     public String U() {
-        return this.f52920b;
+        return this.f56609b;
     }
 
     public List<d.a.n0.e3.h0.o> V() {
@@ -322,8 +322,8 @@ public class e {
             alaLiveInfoCoreData.parserProtoBuf(alaLiveInfo);
         }
         this.N = dataRes.fold_tip;
-        this.f52922d = dataRes.exp_news_today.intValue();
-        this.f52923e = dataRes.exp_guide_today.intValue();
+        this.f56611d = dataRes.exp_news_today.intValue();
+        this.f56612e = dataRes.exp_guide_today.intValue();
         if (!ListUtils.isEmpty(dataRes.thread_topic)) {
             for (int i2 = 0; i2 < dataRes.thread_topic.size(); i2++) {
                 RecommendTopicData.RecommendTopicListData recommendTopicListData = new RecommendTopicData.RecommendTopicListData();
@@ -331,11 +331,11 @@ public class e {
                 this.P.add(recommendTopicListData);
             }
         }
-        this.f52924f = dataRes.pb_sort_info;
-        this.f52925g = dataRes.sort_type.intValue();
+        this.f56613f = dataRes.pb_sort_info;
+        this.f56614g = dataRes.sort_type.intValue();
         ManagerElection managerElection = dataRes.manager_election;
         if (managerElection != null) {
-            this.f52926h = k.i(managerElection);
+            this.f56615h = k.i(managerElection);
         }
     }
 
@@ -352,24 +352,24 @@ public class e {
                 postData.y0(this.r);
                 postData.j0(this.n.isBrandForum);
                 postData.b0(post, context);
-                postData.s0(L().Q0());
-                if (postData.r() != null && postData.r().baijiahaoData == null && L() != null && L().V() != null) {
-                    postData.r().baijiahaoData = L().V();
+                postData.s0(L().R0());
+                if (postData.q() != null && postData.q().baijiahaoData == null && L() != null && L().V() != null) {
+                    postData.q().baijiahaoData = L().V();
                 }
                 this.Q.add(postData.E());
-                if (postData.A() == 1 && this.p.N1()) {
+                if (postData.A() == 1 && this.p.O1()) {
                     if (c0()) {
                         postData.r0(0);
                     } else {
                         postData.r0(this.p.G());
                     }
-                } else if (postData.A() == 1 && this.p.f2()) {
+                } else if (postData.A() == 1 && this.p.g2()) {
                     postData.r0(41);
-                } else if (postData.A() == 1 && (a2Var = this.p) != null && a2Var.C2()) {
+                } else if (postData.A() == 1 && (a2Var = this.p) != null && a2Var.D2()) {
                     postData.r0(0);
                     postData.U();
-                    if (this.p.c1() != null && this.p.c1().size() != 0) {
-                        postData.t0(new TbRichText(TbadkCoreApplication.getInst(), this.p.c1(), this.p.y1(), true));
+                    if (this.p.d1() != null && this.p.d1().size() != 0) {
+                        postData.t0(new TbRichText(TbadkCoreApplication.getInst(), this.p.d1(), this.p.z1(), true));
                     } else {
                         JSONArray jSONArray = new JSONArray();
                         JSONObject jSONObject = new JSONObject();
@@ -384,8 +384,8 @@ public class e {
                     }
                     this.J = postData;
                 }
-                if (postData.A() == 1 && (a2Var2 = this.p) != null && a2Var2.t1) {
-                    postData.q0(a2Var2.s1);
+                if (postData.A() == 1 && (a2Var2 = this.p) != null && a2Var2.u1) {
+                    postData.q0(a2Var2.t1);
                 }
                 if (postData.A() == 1) {
                     this.W = postData;
@@ -412,7 +412,7 @@ public class e {
         for (ThreadInfo threadInfo : list2) {
             if (threadInfo != null) {
                 a2 a2Var = new a2();
-                a2Var.U2(threadInfo);
+                a2Var.V2(threadInfo);
                 this.B.add(a2Var);
             }
         }
@@ -438,12 +438,12 @@ public class e {
     }
 
     public boolean a0() {
-        return L() != null && L().B2();
+        return L() != null && L().C2();
     }
 
     public void b() {
         if (this.E.getAdvertAppInfo() != null) {
-            this.E.getAdvertAppInfo().O3 = null;
+            this.E.getAdvertAppInfo().R3 = null;
         }
         this.E = null;
     }
@@ -453,13 +453,13 @@ public class e {
     }
 
     public String c() {
-        List<PbSortType> list = this.f52924f;
-        if (list == null || list.size() <= this.f52925g) {
+        List<PbSortType> list = this.f56613f;
+        if (list == null || list.size() <= this.f56614g) {
             return "";
         }
-        for (int i2 = 0; i2 < this.f52924f.size(); i2++) {
-            if (this.f52924f.get(i2).sort_type.intValue() == this.f52925g) {
-                return this.f52924f.get(i2).sort_name;
+        for (int i2 = 0; i2 < this.f56613f.size(); i2++) {
+            if (this.f56613f.get(i2).sort_type.intValue() == this.f56614g) {
+                return this.f56613f.get(i2).sort_name;
             }
         }
         return "";
@@ -495,7 +495,7 @@ public class e {
     }
 
     public boolean f0() {
-        return (L() == null || !L().C2() || L().w1() == null) ? false : true;
+        return (L() == null || !L().D2() || L().x1() == null) ? false : true;
     }
 
     public int g() {
@@ -503,7 +503,7 @@ public class e {
     }
 
     public boolean g0() {
-        return (L() == null || L().F2 == null || !L().F2.isWorks) ? false : true;
+        return (L() == null || L().H2 == null || !L().H2.isWorks) ? false : true;
     }
 
     public w1 h() {
@@ -516,7 +516,7 @@ public class e {
         App app = dataRes.banner_list.pb_banner_ad;
         App c2 = x.p().c(app, Cmatch.PB_BANNER);
         if (c2 != null && !this.j0 && !d.a.n0.t2.a.i(c2, dataRes.banner_list)) {
-            oVar.L0 = true;
+            oVar.G0 = true;
             this.j0 = true;
             app = c2;
         }
@@ -571,13 +571,13 @@ public class e {
             p0(dataRes.is_new_url.intValue());
             this.n.parserProtobuf(dataRes.forum);
             this.o.e(dataRes.display_forum);
-            this.p.t4(this.r);
-            this.p.U2(dataRes.thread);
+            this.p.u4(this.r);
+            this.p.V2(dataRes.thread);
             if (this.p.T() != null && this.p.T().getBusinessAccountData() == null) {
                 this.p.T().setBusinessAccountData(this.h0);
             }
             this.x.a(dataRes.news_info);
-            int i3 = this.x.f49967c;
+            int i3 = this.x.f53643c;
             if (i3 == 1) {
                 this.y.x0 = this.x;
             } else if (i3 == 2) {
@@ -598,8 +598,8 @@ public class e {
             if (dataRes.first_floor_post != null) {
                 this.U.b0(dataRes.first_floor_post, context);
             }
-            if (this.p != null && this.p.t1) {
-                this.U.q0(this.p.s1);
+            if (this.p != null && this.p.u1) {
+                this.U.q0(this.p.t1);
             }
             if (this.W == null) {
                 this.W = this.U;
@@ -611,7 +611,7 @@ public class e {
             if (dataRes.user != null) {
                 this.v = dataRes.user.is_manager.intValue();
             }
-            this.f52919a.parserProtobuf(dataRes.user);
+            this.f56608a.parserProtobuf(dataRes.user);
             if (dataRes.user != null && dataRes.user.mute_user != null) {
                 for (SimpleUser simpleUser : dataRes.user.mute_user) {
                     if (simpleUser != null) {
@@ -621,7 +621,7 @@ public class e {
                     }
                 }
             }
-            this.p.c4(this.p.a1() > 0 ? this.p.a1() - 1 : 0);
+            this.p.d4(this.p.b1() > 0 ? this.p.b1() - 1 : 0);
             List<AdvertAppInfo> j = x.p().j();
             if (j != null) {
                 j.clear();
@@ -637,7 +637,7 @@ public class e {
                     oVar.E0 = f0();
                     App c2 = x.p().c(app, f0() ? Cmatch.VIDEO_PB_COMMENT : Cmatch.PB_COMMENT);
                     if (c2 != null && !this.j0 && !d.a.n0.t2.a.i(c2, dataRes.banner_list)) {
-                        oVar.L0 = true;
+                        oVar.G0 = true;
                         this.j0 = true;
                         app = c2;
                     }
@@ -654,7 +654,7 @@ public class e {
             x.p().i();
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                currentAccountObj.setIsSelectTail(this.f52919a.getIsSelectTail());
+                currentAccountObj.setIsSelectTail(this.f56608a.getIsSelectTail());
             }
             this.F.parserProtobuf(dataRes.twzhibo_anti);
             AppealInfo appealInfo = dataRes.appeal_info;
@@ -665,7 +665,7 @@ public class e {
             }
             if (dataRes.guess_like != null) {
                 CardHListViewData cardHListViewData = new CardHListViewData();
-                this.f52921c = cardHListViewData;
+                this.f56610c = cardHListViewData;
                 cardHListViewData.parseProtobuf(dataRes.guess_like);
             }
             Y(dataRes);
@@ -705,14 +705,14 @@ public class e {
                 for (ThreadInfo threadInfo : dataRes.bjh_recommend) {
                     if (threadInfo != null && !d0(threadInfo) && !Z(threadInfo)) {
                         d.a.m0.r.q.p pVar = new d.a.m0.r.q.p();
-                        pVar.G4(i4);
-                        pVar.U2(threadInfo);
+                        pVar.H4(i4);
+                        pVar.V2(threadInfo);
                         this.R.add(pVar);
                         i4++;
                     }
                 }
             }
-            if (this.T != null && this.T.v()) {
+            if (this.T != null && this.T.t()) {
                 this.T = null;
             }
             if (dataRes.recom_ala_info != null && dataRes.recom_ala_info.live_status.intValue() == 1 && dataRes.recom_ala_info.pb_display_type.intValue() == 2) {
@@ -727,7 +727,7 @@ public class e {
                 aVar2.x(dataRes.promotion);
             }
             if (dataRes.business_promot_info != null) {
-                this.f52927i = dataRes.business_promot_info.is_promot.longValue() == 1;
+                this.f56616i = dataRes.business_promot_info.is_promot.longValue() == 1;
                 this.j = dataRes.business_promot_info.is_headlinepost.intValue() == 1;
                 this.k = dataRes.business_promot_info.is_s_card.intValue() == 1;
                 if (dataRes.business_promot_info.send_card_info != null) {
@@ -736,19 +736,19 @@ public class e {
                     if (this.l == null) {
                         this.l = new a();
                     }
-                    this.l.c(bVar);
+                    this.l.b(bVar);
                 }
             }
-            this.b0.e();
-            this.b0.f(this.r);
-            this.b0.c(dataRes.recom_ala_info);
+            this.b0.c();
+            this.b0.e(this.r);
+            this.b0.b(dataRes.recom_ala_info);
             if (this.b0.s != null) {
                 this.b0.s.n(N());
             }
             a0 a0Var = new a0();
             this.c0 = a0Var;
-            a0Var.e(this.r);
-            this.c0.c(dataRes.recom_ala_info);
+            a0Var.c(this.r);
+            this.c0.b(dataRes.recom_ala_info);
             if (this.c0.r != null) {
                 this.c0.r.n(N());
             }
@@ -815,9 +815,9 @@ public class e {
             return;
         }
         if (z) {
-            a2Var.L3(1);
+            a2Var.M3(1);
         } else {
-            a2Var.L3(0);
+            a2Var.M3(0);
         }
     }
 
@@ -830,13 +830,13 @@ public class e {
     }
 
     public CardHListViewData q() {
-        return this.f52921c;
+        return this.f56610c;
     }
 
     public void q0(String str) {
         a2 a2Var = this.p;
         if (a2Var != null) {
-            a2Var.V3(str);
+            a2Var.W3(str);
         }
     }
 
@@ -912,7 +912,7 @@ public class e {
     }
 
     public void x0(String str) {
-        this.f52920b = str;
+        this.f56609b = str;
     }
 
     public i y() {

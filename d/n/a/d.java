@@ -10,10 +10,10 @@ import okio.ByteString;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BufferedSink f66523a;
+    public final BufferedSink f70309a;
 
     public d(BufferedSink bufferedSink) {
-        this.f66523a = bufferedSink;
+        this.f70309a = bufferedSink;
     }
 
     public static int a(int i2) {
@@ -72,7 +72,7 @@ public final class d {
     }
 
     public static int i(int i2) {
-        if ((i2 & com.alipay.sdk.encrypt.a.f1872g) == 0) {
+        if ((i2 & com.alipay.sdk.encrypt.a.f1885g) == 0) {
             return 1;
         }
         if ((i2 & (-16384)) == 0) {
@@ -113,15 +113,15 @@ public final class d {
     }
 
     public void k(ByteString byteString) throws IOException {
-        this.f66523a.write(byteString);
+        this.f70309a.write(byteString);
     }
 
     public void l(int i2) throws IOException {
-        this.f66523a.writeIntLe(i2);
+        this.f70309a.writeIntLe(i2);
     }
 
     public void m(long j) throws IOException {
-        this.f66523a.writeLongLe(j);
+        this.f70309a.writeLongLe(j);
     }
 
     public void n(int i2) throws IOException {
@@ -133,7 +133,7 @@ public final class d {
     }
 
     public void o(String str) throws IOException {
-        this.f66523a.writeUtf8(str);
+        this.f70309a.writeUtf8(str);
     }
 
     public void p(int i2, FieldEncoding fieldEncoding) throws IOException {
@@ -141,18 +141,18 @@ public final class d {
     }
 
     public void q(int i2) throws IOException {
-        while ((i2 & com.alipay.sdk.encrypt.a.f1872g) != 0) {
-            this.f66523a.writeByte((i2 & 127) | 128);
+        while ((i2 & com.alipay.sdk.encrypt.a.f1885g) != 0) {
+            this.f70309a.writeByte((i2 & 127) | 128);
             i2 >>>= 7;
         }
-        this.f66523a.writeByte(i2);
+        this.f70309a.writeByte(i2);
     }
 
     public void r(long j) throws IOException {
         while (((-128) & j) != 0) {
-            this.f66523a.writeByte((((int) j) & 127) | 128);
+            this.f70309a.writeByte((((int) j) & 127) | 128);
             j >>>= 7;
         }
-        this.f66523a.writeByte((int) j);
+        this.f70309a.writeByte((int) j);
     }
 }

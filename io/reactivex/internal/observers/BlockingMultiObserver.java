@@ -14,7 +14,7 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f68956d;
+    public Disposable f72265d;
     public Throwable error;
     public T value;
 
@@ -74,7 +74,7 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
 
     public void dispose() {
         this.cancelled = true;
-        Disposable disposable = this.f68956d;
+        Disposable disposable = this.f72265d;
         if (disposable != null) {
             disposable.dispose();
         }
@@ -93,7 +93,7 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
 
     @Override // io.reactivex.SingleObserver
     public void onSubscribe(Disposable disposable) {
-        this.f68956d = disposable;
+        this.f72265d = disposable;
         if (this.cancelled) {
             disposable.dispose();
         }

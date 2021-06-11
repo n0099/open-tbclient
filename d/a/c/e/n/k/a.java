@@ -20,36 +20,36 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile a f38783i;
-    public static final Handler j = new HandlerC0487a();
+    public static volatile a f42436i;
+    public static final Handler j = new HandlerC0543a();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f38784a;
+    public boolean f42437a;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f38787d;
+    public Context f42440d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f38788e;
+    public c f42441e;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38785b = false;
+    public boolean f42438b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38786c = null;
+    public String f42439c = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdStatSwitchData f38789f = new BdStatSwitchData();
+    public BdStatSwitchData f42442f = new BdStatSwitchData();
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.e.n.k.b f38790g = new d.a.c.e.n.k.b();
+    public d.a.c.e.n.k.b f42443g = new d.a.c.e.n.k.b();
 
     /* renamed from: h  reason: collision with root package name */
-    public b f38791h = null;
+    public b f42444h = null;
 
     /* renamed from: d.a.c.e.n.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class HandlerC0487a extends Handler {
+    public static class HandlerC0543a extends Handler {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what != 1) {
@@ -81,16 +81,16 @@ public class a {
             String action = intent.getAction();
             if ("com.baidu.adp.stats.background".equals(action)) {
                 BdStatisticsManager.getInstance().save();
-                if (a.this.f38784a) {
+                if (a.this.f42437a) {
                     g.h().f();
                 }
             } else if ("com.baidu.adp.stats.switch".equals(action)) {
-                if (a.this.f38784a) {
+                if (a.this.f42437a) {
                     return;
                 }
                 a.this.p();
                 g.h().r();
-            } else if (!"com.baidu.adp.stats.updatecmd".equals(action) || a.this.f38784a || (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) == null || !(serializableExtra instanceof BdUploadStatMsgData)) {
+            } else if (!"com.baidu.adp.stats.updatecmd".equals(action) || a.this.f42437a || (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) == null || !(serializableExtra instanceof BdUploadStatMsgData)) {
             } else {
                 BdUploadStatMsgData bdUploadStatMsgData = (BdUploadStatMsgData) serializableExtra;
                 if (bdUploadStatMsgData.parentType == null && bdUploadStatMsgData.childType == null) {
@@ -100,12 +100,12 @@ public class a {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                a.this.f38789f.putTmpSwitchConfData(str, bdUploadStatMsgData);
+                a.this.f42442f.putTmpSwitchConfData(str, bdUploadStatMsgData);
                 a.this.l(bdUploadStatMsgData);
             }
         }
 
-        public /* synthetic */ c(a aVar, HandlerC0487a handlerC0487a) {
+        public /* synthetic */ c(a aVar, HandlerC0543a handlerC0543a) {
             this();
         }
     }
@@ -120,18 +120,18 @@ public class a {
         /* renamed from: b */
         public BdStatSwitchData doInBackground(Object... objArr) {
             BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
-            if (a.this.f38790g.a()) {
-                bdStatSwitchData.parserJson(a.this.f38790g.f38794b);
+            if (a.this.f42443g.a()) {
+                bdStatSwitchData.parserJson(a.this.f42443g.f42447b);
             }
-            a.this.f38785b = false;
-            if (a.this.f38784a) {
+            a.this.f42438b = false;
+            if (a.this.f42437a) {
                 a aVar = a.this;
-                if (aVar.t(aVar.f38790g.f38794b)) {
+                if (aVar.t(aVar.f42443g.f42447b)) {
                     String w = a.this.w();
-                    if (!TextUtils.isEmpty(w) && !w.equals(a.this.f38790g.f38794b)) {
-                        a.this.f38785b = true;
+                    if (!TextUtils.isEmpty(w) && !w.equals(a.this.f42443g.f42447b)) {
+                        a.this.f42438b = true;
                         bdStatSwitchData.parserJson(w);
-                        a.this.f38790g.b(w);
+                        a.this.f42443g.b(w);
                     }
                 }
             }
@@ -146,38 +146,38 @@ public class a {
             if (bdStatSwitchData == null) {
                 return;
             }
-            a.this.f38789f = bdStatSwitchData;
-            if (a.this.f38784a && a.this.f38785b && !BdBaseApplication.getInst().checkInterrupt()) {
+            a.this.f42442f = bdStatSwitchData;
+            if (a.this.f42437a && a.this.f42438b && !BdBaseApplication.getInst().checkInterrupt()) {
                 a.this.z();
                 g.h().r();
             }
-            b bVar = a.this.f38791h;
+            b bVar = a.this.f42444h;
             if (bVar != null) {
                 bVar.a();
             }
         }
 
-        public /* synthetic */ d(a aVar, HandlerC0487a handlerC0487a) {
+        public /* synthetic */ d(a aVar, HandlerC0543a handlerC0543a) {
             this();
         }
     }
 
     public static a o() {
-        if (f38783i == null) {
+        if (f42436i == null) {
             synchronized (a.class) {
-                if (f38783i == null) {
-                    f38783i = new a();
+                if (f42436i == null) {
+                    f42436i = new a();
                 }
             }
         }
-        return f38783i;
+        return f42436i;
     }
 
     public boolean A(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return true;
         }
-        return this.f38789f.smallFlowUpload(d.a.c.e.n.h.a.g(str), str2);
+        return this.f42442f.smallFlowUpload(d.a.c.e.n.h.a.g(str), str2);
     }
 
     public boolean k(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
@@ -187,18 +187,18 @@ public class a {
         if (!TextUtils.isEmpty(str2)) {
             str = str2;
         }
-        if (this.f38789f.getTmpSwitchConfData(str) == null) {
-            this.f38789f.putTmpSwitchConfData(str, bdUploadStatMsgData);
+        if (this.f42442f.getTmpSwitchConfData(str) == null) {
+            this.f42442f.putTmpSwitchConfData(str, bdUploadStatMsgData);
             y(bdUploadStatMsgData);
             l(bdUploadStatMsgData);
             return true;
         }
         long j2 = bdUploadStatMsgData.deadLineTime;
         if (0 == j2) {
-            this.f38789f.rmTmpSwitchConfData(str);
+            this.f42442f.rmTmpSwitchConfData(str);
             return false;
         } else if (0 < j2) {
-            this.f38789f.putTmpSwitchConfData(str, bdUploadStatMsgData);
+            this.f42442f.putTmpSwitchConfData(str, bdUploadStatMsgData);
             y(bdUploadStatMsgData);
             l(bdUploadStatMsgData);
             return true;
@@ -224,11 +224,11 @@ public class a {
     }
 
     public int m(String str, int i2) {
-        return TextUtils.isEmpty(str) ? i2 : this.f38789f.geUploadCycle(str, i2);
+        return TextUtils.isEmpty(str) ? i2 : this.f42442f.geUploadCycle(str, i2);
     }
 
     public ArrayList<String> n(String str) {
-        return this.f38789f.getChiledTypes(str);
+        return this.f42442f.getChiledTypes(str);
     }
 
     public void p() {
@@ -238,27 +238,27 @@ public class a {
     }
 
     public int q(String str, int i2) {
-        return TextUtils.isEmpty(str) ? i2 : this.f38789f.getMaxAlertCount(str, i2);
+        return TextUtils.isEmpty(str) ? i2 : this.f42442f.getMaxAlertCount(str, i2);
     }
 
     public void r(boolean z, String str, Context context, b bVar) {
-        this.f38784a = z;
-        this.f38786c = str;
-        this.f38787d = context;
+        this.f42437a = z;
+        this.f42439c = str;
+        this.f42440d = context;
         try {
-            if (this.f38788e == null && context != null && !BdBaseApplication.getInst().checkInterrupt()) {
-                this.f38788e = new c(this, null);
+            if (this.f42441e == null && context != null && !BdBaseApplication.getInst().checkInterrupt()) {
+                this.f42441e = new c(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("com.baidu.adp.stats.background");
                 intentFilter.addAction("com.baidu.adp.stats.switch");
                 intentFilter.addAction("com.baidu.adp.stats.updatecmd");
                 intentFilter.addAction("com.baidu.adp.stats.uploadallfile");
-                this.f38787d.registerReceiver(this.f38788e, intentFilter);
+                this.f42440d.registerReceiver(this.f42441e, intentFilter);
             }
         } catch (Exception e2) {
             BdLog.e(e2);
         }
-        this.f38791h = bVar;
+        this.f42444h = bVar;
         p();
     }
 
@@ -266,35 +266,35 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.f38789f.isExactWriteFile(d.a.c.e.n.h.a.g(str));
+        return this.f42442f.isExactWriteFile(d.a.c.e.n.h.a.g(str));
     }
 
     public final boolean t(String str) {
-        return TextUtils.isEmpty(str) || System.currentTimeMillis() - this.f38790g.f38793a >= 86400000;
+        return TextUtils.isEmpty(str) || System.currentTimeMillis() - this.f42443g.f42446a >= 86400000;
     }
 
     public boolean u(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.f38789f.isUpload(d.a.c.e.n.h.a.g(str), str2);
+        return this.f42442f.isUpload(d.a.c.e.n.h.a.g(str), str2);
     }
 
     public boolean v(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.f38789f.isWrite(d.a.c.e.n.h.a.g(str), str2);
+        return this.f42442f.isWrite(d.a.c.e.n.h.a.g(str), str2);
     }
 
     public final String w() {
-        if (TextUtils.isEmpty(this.f38786c)) {
+        if (TextUtils.isEmpty(this.f42439c)) {
             return null;
         }
         try {
-            d.a.c.e.j.a.g g2 = new d.a.c.e.j.b.a().g(this.f38786c, 3, -1, 30000, -1, null);
+            d.a.c.e.j.a.g g2 = new d.a.c.e.j.b.a().g(this.f42439c, 3, -1, 30000, -1, null);
             if (g2 != null) {
-                return new String(g2.f38648h, "utf-8");
+                return new String(g2.f42301h, "utf-8");
             }
         } catch (Exception e2) {
             BdLog.e(e2);
@@ -306,22 +306,22 @@ public class a {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.f38789f.onlyWifiUpload(d.a.c.e.n.h.a.g(str), str2);
+        return this.f42442f.onlyWifiUpload(d.a.c.e.n.h.a.g(str), str2);
     }
 
     public final void y(BdUploadStatMsgData bdUploadStatMsgData) {
-        if (this.f38784a) {
+        if (this.f42437a) {
             Intent intent = new Intent("com.baidu.adp.stats.updatecmd");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.f38787d.sendBroadcast(intent);
+            this.f42440d.sendBroadcast(intent);
         }
     }
 
     public final void z() {
-        if (this.f38784a) {
+        if (this.f42437a) {
             Intent intent = new Intent("com.baidu.adp.stats.switch");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.f38787d.sendBroadcast(intent);
+            this.f42440d.sendBroadcast(intent);
         }
     }
 }

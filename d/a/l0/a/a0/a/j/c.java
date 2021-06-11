@@ -8,36 +8,36 @@ import org.json.JSONArray;
 public class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public RectF f40592a;
+    public RectF f44268a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f40593b;
+    public float f44269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f40594c;
+    public float f44270c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f40595d;
+    public boolean f44271d;
 
     @Override // d.a.l0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
-        if (this.f40592a != null) {
-            if (!this.f40595d && Math.abs(this.f40594c) >= 360.0f) {
+        if (this.f44268a != null) {
+            if (!this.f44271d && Math.abs(this.f44270c) >= 360.0f) {
                 Path path = bVar.j;
-                RectF rectF = this.f40592a;
+                RectF rectF = this.f44268a;
                 float f2 = rectF.bottom;
                 float f3 = rectF.top;
                 path.addCircle((rectF.right + rectF.left) / 2.0f, (f2 + f3) / 2.0f, (f2 - f3) / 2.0f, Path.Direction.CW);
-                bVar.j.arcTo(this.f40592a, 0.0f, this.f40593b);
+                bVar.j.arcTo(this.f44268a, 0.0f, this.f44269b);
                 return;
             }
-            float f4 = this.f40594c % 360.0f;
-            if (f4 < 0.0f && !this.f40595d) {
+            float f4 = this.f44270c % 360.0f;
+            if (f4 < 0.0f && !this.f44271d) {
                 f4 += 360.0f;
-            } else if (f4 > 0.0f && this.f40595d) {
+            } else if (f4 > 0.0f && this.f44271d) {
                 f4 -= 360.0f;
             }
-            bVar.j.arcTo(this.f40592a, this.f40593b, f4);
+            bVar.j.arcTo(this.f44268a, this.f44269b, f4);
         }
     }
 
@@ -49,12 +49,12 @@ public class c extends a {
             int g4 = d.a.l0.a.v2.n0.g((float) jSONArray.optDouble(2));
             float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
             float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
-            this.f40592a = new RectF(g2 - g4, g3 - g4, g2 + g4, g3 + g4);
-            this.f40593b = degrees;
-            this.f40594c = degrees2 - degrees;
+            this.f44268a = new RectF(g2 - g4, g3 - g4, g2 + g4, g3 + g4);
+            this.f44269b = degrees;
+            this.f44270c = degrees2 - degrees;
         }
         if (jSONArray.length() > 5) {
-            this.f40595d = jSONArray.optBoolean(5);
+            this.f44271d = jSONArray.optBoolean(5);
         }
     }
 }

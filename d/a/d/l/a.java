@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
+public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
     public ICardInfo m;
     public d n;
     public TbPageContext o;
@@ -30,14 +30,14 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
 
     /* renamed from: d.a.d.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0516a implements d.a.n0.k1.o.a {
-        public C0516a() {
+    public class C0572a implements d.a.n0.k1.o.a {
+        public C0572a() {
         }
 
         @Override // d.a.n0.k1.o.a
         public void a(int i2, HashMap<String, Object> hashMap) {
             a aVar = a.this;
-            aVar.i0(aVar.n, a.this.n.m());
+            aVar.j0(aVar.n, a.this.n.i());
         }
     }
 
@@ -50,15 +50,6 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
         this.t = fVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public View H(int i2, View view, ViewGroup viewGroup, d dVar) {
-        this.n = dVar;
-        this.m = dVar.p();
-        return super.H(i2, view, viewGroup, dVar);
-    }
-
     @Override // d.a.n0.k1.o.l.f
     public void h(k kVar) {
         this.r = kVar;
@@ -68,7 +59,16 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
         }
     }
 
-    public boolean h0() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public View I(int i2, View view, ViewGroup viewGroup, d dVar) {
+        this.n = dVar;
+        this.m = dVar.k();
+        return super.I(i2, view, viewGroup, dVar);
+    }
+
+    public boolean i0() {
         k kVar = this.r;
         if (kVar != null) {
             return kVar.isPlaying();
@@ -76,24 +76,24 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
         return false;
     }
 
-    public final void i0(d dVar, int i2) {
+    public final void j0(d dVar, int i2) {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
         if (dVar == null) {
             return;
         }
-        AdvertAppInfo v = dVar.v();
+        AdvertAppInfo t = dVar.t();
         int i3 = 2;
-        if (v != null && (iLegoAdvert = v.O3) != null && iLegoAdvert.forFree()) {
+        if (t != null && (iLegoAdvert = t.R3) != null && iLegoAdvert.forFree()) {
             i3 = 102;
         }
-        e.b().d(g.b(v, i3, i2));
+        e.b().d(g.b(t, i3, i2));
         d.a.n0.k1.o.h.c.h(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: j0 */
-    public AdCardViewHolder P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: k0 */
+    public AdCardViewHolder Q(ViewGroup viewGroup) {
         d.a.n0.k1.o.l.e a2;
         if (this.m == null || (a2 = d.a.n0.k1.o.b.h().a(this.o, this.m, 2)) == null) {
             return null;
@@ -101,23 +101,23 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
         if (a2 instanceof k) {
             this.s.add((k) a2);
         }
-        a2.setAfterClickSchemeListener(new C0516a());
+        a2.setAfterClickSchemeListener(new C0572a());
         return new AdCardViewHolder(a2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: m0 */
-    public AdCardViewHolder Q(ViewGroup viewGroup, d dVar) {
-        if (dVar == null || dVar.p() == null) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: l0 */
+    public AdCardViewHolder R(ViewGroup viewGroup, d dVar) {
+        if (dVar == null || dVar.k() == null) {
             return null;
         }
         this.n = dVar;
-        this.m = dVar.p();
-        return P(viewGroup);
+        this.m = dVar.k();
+        return Q(viewGroup);
     }
 
-    public void n0() {
+    public void m0() {
         for (k kVar : this.s) {
             if (kVar != null) {
                 kVar.onDestroy();
@@ -126,9 +126,9 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: p0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d dVar, AdCardViewHolder adCardViewHolder) {
+    public View X(int i2, View view, ViewGroup viewGroup, d dVar, AdCardViewHolder adCardViewHolder) {
         if (dVar == null || adCardViewHolder == null) {
             return null;
         }
@@ -138,10 +138,10 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
             hVar.setOnVideoContainerForegroundClickListener(this.q);
             hVar.setCurrentPlayCallBack(this);
         }
-        dVar.t();
+        dVar.p();
         if (adCardViewHolder.b() != null) {
             adCardViewHolder.b().setPosition(i2);
-            adCardViewHolder.b().g(dVar.p());
+            adCardViewHolder.b().i(dVar.k());
         }
         return adCardViewHolder.a();
     }
@@ -149,7 +149,7 @@ public class a extends d.a.c.j.e.a<d, AdCardViewHolder> implements f {
     public void q0() {
         k kVar = this.r;
         if (kVar != null) {
-            kVar.j();
+            kVar.l();
         }
     }
 

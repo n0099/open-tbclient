@@ -14,13 +14,13 @@ import d.a.c.e.p.l;
 public class a extends AlertDialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f63208e;
+    public View f66923e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f63209f;
+    public TextView f66924f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f63210g;
+    public String f66925g;
 
     public a(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class a extends AlertDialog {
 
     public void a(int i2) {
         int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        View view = this.f63208e;
+        View view = this.f66923e;
         int i3 = R.color.cp_cont_b_alpha80;
         SkinManager.setBackgroundShapeDrawable(view, g2, i3, i3, i2);
     }
@@ -40,10 +40,10 @@ public class a extends AlertDialog {
         if (window != null) {
             window.setDimAmount(0.0f);
             window.setContentView(R.layout.id_card_dialog);
-            this.f63208e = window.findViewById(R.id.toast_container);
-            this.f63209f = (TextView) window.findViewById(R.id.toast_tv);
-            if (!StringUtils.isNull(this.f63210g)) {
-                this.f63209f.setText(this.f63210g);
+            this.f66923e = window.findViewById(R.id.toast_container);
+            this.f66924f = (TextView) window.findViewById(R.id.toast_tv);
+            if (!StringUtils.isNull(this.f66925g)) {
+                this.f66924f.setText(this.f66925g);
             }
             a(TbadkCoreApplication.getInst().getSkinType());
         }

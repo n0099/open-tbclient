@@ -25,7 +25,7 @@ public class PMSDBProviderProxy extends ContentProvider {
         SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
         try {
             try {
-                if (c.f47984a) {
+                if (c.f51658a) {
                     Log.e(TAG, "applyBatch beginTransaction");
                 }
                 writableDatabase.beginTransaction();
@@ -33,7 +33,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 for (ContentProviderResult contentProviderResult : applyBatch) {
                     if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
                         writableDatabase.endTransaction();
-                        if (c.f47984a) {
+                        if (c.f51658a) {
                             Log.e(TAG, "applyBatch endTransaction");
                         }
                         return applyBatch;
@@ -41,23 +41,23 @@ public class PMSDBProviderProxy extends ContentProvider {
                 }
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                if (c.f47984a) {
+                if (c.f51658a) {
                     Log.e(TAG, "applyBatch endTransaction");
                 }
                 return applyBatch;
             } catch (Exception e2) {
-                if (c.f47984a) {
+                if (c.f51658a) {
                     Log.e(TAG, "applyBatch Exception:" + e2.getMessage());
                 }
                 writableDatabase.endTransaction();
-                if (c.f47984a) {
+                if (c.f51658a) {
                     Log.e(TAG, "applyBatch endTransaction");
                 }
                 return new ContentProviderResult[0];
             }
         } catch (Throwable th) {
             writableDatabase.endTransaction();
-            if (c.f47984a) {
+            if (c.f51658a) {
                 Log.e(TAG, "applyBatch endTransaction");
             }
             throw th;

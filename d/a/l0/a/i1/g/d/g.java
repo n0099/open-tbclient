@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public abstract class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43004a = d.a.l0.a.k.f43199a;
+    public static final boolean f46680a = d.a.l0.a.k.f46875a;
 
     public g(@NonNull String str) {
     }
@@ -30,7 +30,7 @@ public abstract class g {
     }
 
     public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (f43004a) {
+        if (f46680a) {
             Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);

@@ -15,59 +15,59 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public AvatarPendantActivity f56962e;
+    public AvatarPendantActivity f60651e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<DressItemData> f56963f;
+    public List<DressItemData> f60652f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a f56964g;
+    public c.a f60653g;
 
     /* renamed from: d.a.n0.k3.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1422b {
+    public class C1478b {
 
         /* renamed from: a  reason: collision with root package name */
-        public AvatarPendantPerItemView f56965a;
+        public AvatarPendantPerItemView f60654a;
 
-        public C1422b(b bVar) {
+        public C1478b(b bVar) {
         }
     }
 
     public b(AvatarPendantActivity avatarPendantActivity) {
-        this.f56962e = avatarPendantActivity;
+        this.f60651e = avatarPendantActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public DressItemData getItem(int i2) {
-        List<DressItemData> list = this.f56963f;
-        if (list == null || list.size() <= 0 || this.f56963f.size() <= i2) {
+        List<DressItemData> list = this.f60652f;
+        if (list == null || list.size() <= 0 || this.f60652f.size() <= i2) {
             return null;
         }
-        return this.f56963f.get(i2);
+        return this.f60652f.get(i2);
     }
 
     public final void b(View view) {
         int skinType = TbadkApplication.getInst().getSkinType();
         if (view != null) {
-            this.f56962e.getLayoutMode().k(skinType == 1);
-            this.f56962e.getLayoutMode().j(view);
+            this.f60651e.getLayoutMode().k(skinType == 1);
+            this.f60651e.getLayoutMode().j(view);
         }
     }
 
     public void c(c.a aVar) {
-        this.f56964g = aVar;
+        this.f60653g = aVar;
     }
 
     public void d(List<DressItemData> list) {
-        this.f56963f = list;
+        this.f60652f = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<DressItemData> list = this.f56963f;
+        List<DressItemData> list = this.f60652f;
         if (list != null) {
             return list.size();
         }
@@ -81,20 +81,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
-        C1422b c1422b;
-        if (view != null && (view.getTag() instanceof C1422b)) {
-            c1422b = (C1422b) view.getTag();
+        C1478b c1478b;
+        if (view != null && (view.getTag() instanceof C1478b)) {
+            c1478b = (C1478b) view.getTag();
         } else {
-            view = LayoutInflater.from(this.f56962e.getActivity()).inflate(R.layout.avatar_pendant_gridview_item, viewGroup, false);
-            c1422b = new C1422b();
+            view = LayoutInflater.from(this.f60651e.getActivity()).inflate(R.layout.avatar_pendant_gridview_item, viewGroup, false);
+            c1478b = new C1478b();
             AvatarPendantPerItemView avatarPendantPerItemView = (AvatarPendantPerItemView) view.findViewById(R.id.avatar_pendant_per_item);
-            c1422b.f56965a = avatarPendantPerItemView;
-            avatarPendantPerItemView.setAvatarPendantItemClickListener(this.f56964g);
-            view.setTag(c1422b);
+            c1478b.f60654a = avatarPendantPerItemView;
+            avatarPendantPerItemView.setAvatarPendantItemClickListener(this.f60653g);
+            view.setTag(c1478b);
         }
         DressItemData item = getItem(i2);
         if (item != null) {
-            c1422b.f56965a.c(item);
+            c1478b.f60654a.c(item);
         }
         b(view);
         return view;

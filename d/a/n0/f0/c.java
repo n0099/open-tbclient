@@ -16,10 +16,10 @@ import java.util.Map;
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f54268a;
+    public boolean f57957a;
 
     public c(boolean z) {
-        this.f54268a = z;
+        this.f57957a = z;
         setPriority(4);
     }
 
@@ -37,7 +37,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String str;
         StringBuilder sb;
         l<String> c2 = BdCacheService.l().c("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.f54268a) {
+        if (this.f57957a) {
             String str2 = c2.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) OrmObject.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -79,7 +79,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         d.a.c.e.j.a.c cVar = new d.a.c.e.j.a.c(eVar);
         eVar.b().s(str4);
         cVar.e(-1, -1, -1);
-        byte[] bArr = eVar.c().f38648h;
+        byte[] bArr = eVar.c().f42301h;
         if (bArr != null) {
             try {
                 str = new String(bArr, "UTF-8");
@@ -145,17 +145,17 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 message = dnsProxyResponseData2.getErrno() + " " + dnsProxyResponseData2.getErrmsg();
             }
         } else if (eVar.a() != null) {
-            message = eVar.a().f38628h;
+            message = eVar.a().f42281h;
         } else {
             StringBuilder sb4 = new StringBuilder();
             List<d.a.c.e.j.a.d> d2 = eVar.d();
             if (d2 != null) {
                 for (d.a.c.e.j.a.d dVar : d2) {
-                    if (dVar != null && !TextUtils.isEmpty(dVar.f38628h)) {
+                    if (dVar != null && !TextUtils.isEmpty(dVar.f42281h)) {
                         if (sb4.length() > 0) {
                             sb4.append(",");
                         }
-                        sb4.append(dVar.f38628h);
+                        sb4.append(dVar.f42281h);
                     }
                 }
             }

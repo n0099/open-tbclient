@@ -6,7 +6,7 @@ import android.util.Log;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42256a = d.a.l0.a.k.f43199a;
+    public static final boolean f45932a = d.a.l0.a.k.f46875a;
 
     public static boolean a(d.a.l0.a.h0.f.a aVar, String str) {
         d.a.l0.a.a2.e Q;
@@ -26,8 +26,8 @@ public class f {
             if (!e.a(containerId) || (Q = d.a.l0.a.a2.e.Q()) == null || !b(aVar) || (a2 = h.b().a()) == null) {
                 return false;
             }
-            z = (TextUtils.equals(a2.i().b(), aVar.getContainerId()) && TextUtils.equals(a2.h(), Q.f40749f)) ? true : true;
-            if (f42256a && z) {
+            z = (TextUtils.equals(a2.i().b(), aVar.getContainerId()) && TextUtils.equals(a2.h(), Q.f44425f)) ? true : true;
+            if (f45932a && z) {
                 Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
             }
         }

@@ -5,7 +5,7 @@ import d.j.a.a.a;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class BasicPushStatus implements Serializable {
     public static final String SUCCESS_CODE = "200";
     public static final String TAG = "BasicPushStatus";
@@ -17,7 +17,7 @@ public abstract class BasicPushStatus implements Serializable {
 
     public BasicPushStatus(String str) {
         JSONObject parse = parse(str);
-        if (parse == null || !SUCCESS_CODE.equals(this.code) || parse.isNull("value")) {
+        if (parse == null || !"200".equals(this.code) || parse.isNull("value")) {
             return;
         }
         try {

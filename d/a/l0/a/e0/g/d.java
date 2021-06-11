@@ -11,36 +11,36 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityManager f41502b = (ActivityManager) d.a.l0.a.c1.a.b().getSystemService("activity");
+    public static ActivityManager f45178b = (ActivityManager) d.a.l0.a.c1.a.b().getSystemService("activity");
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f41503c;
+    public static int f45179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f41504d;
+    public static int f45180d;
 
     /* renamed from: a  reason: collision with root package name */
-    public DecimalFormat f41505a;
+    public DecimalFormat f45181a;
 
     /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f41506a = new d();
+        public static final d f45182a = new d();
     }
 
     static {
         d.a.l0.a.c1.a.Z().getSwitch("swan_memory_sample", 0);
-        f41503c = 0;
-        f41504d = new Random().nextInt(100);
+        f45179c = 0;
+        f45180d = new Random().nextInt(100);
     }
 
     public static d b() {
-        return b.f41506a;
+        return b.f45182a;
     }
 
     public final String a(float f2) {
-        return this.f41505a.format(f2);
+        return this.f45181a.format(f2);
     }
 
     public String c(int i2) {
@@ -48,7 +48,7 @@ public class d {
             JSONObject jSONObject = new JSONObject();
             try {
                 d.a.l0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo mainPid: " + i2);
-                Debug.MemoryInfo[] processMemoryInfo = f41502b.getProcessMemoryInfo(new int[]{Process.myPid(), i2});
+                Debug.MemoryInfo[] processMemoryInfo = f45178b.getProcessMemoryInfo(new int[]{Process.myPid(), i2});
                 if (processMemoryInfo != null && processMemoryInfo.length == 2) {
                     Debug.MemoryInfo memoryInfo = processMemoryInfo[0];
                     if (memoryInfo != null) {
@@ -65,7 +65,7 @@ public class d {
                     }
                 }
                 ActivityManager.MemoryInfo memoryInfo3 = new ActivityManager.MemoryInfo();
-                f41502b.getMemoryInfo(memoryInfo3);
+                f45178b.getMemoryInfo(memoryInfo3);
                 jSONObject.put("sys_free_mem", a(((float) memoryInfo3.availMem) / 1048576.0f));
                 jSONObject.put("sys_low_mem", memoryInfo3.lowMemory ? "1" : "0");
                 jSONObject.put("native_heap", a(((float) Debug.getNativeHeapSize()) / 1048576.0f));
@@ -86,7 +86,7 @@ public class d {
     public String d() {
         if (e()) {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            f41502b.getMemoryInfo(memoryInfo);
+            f45178b.getMemoryInfo(memoryInfo);
             String a2 = a(((float) memoryInfo.totalMem) / 1048576.0f);
             d.a.l0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo sysTotalMemory=" + a2);
             return a2;
@@ -95,15 +95,15 @@ public class d {
     }
 
     public final boolean e() {
-        d.a.l0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo mMemSample =" + f41503c + "; mRandomNum =" + f41504d);
-        int i2 = f41503c;
+        d.a.l0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo mMemSample =" + f45179c + "; mRandomNum =" + f45180d);
+        int i2 = f45179c;
         if (i2 <= 0) {
             return false;
         }
-        return i2 >= 100 || f41504d <= i2;
+        return i2 >= 100 || f45180d <= i2;
     }
 
     public d() {
-        this.f41505a = new DecimalFormat("#.###");
+        this.f45181a = new DecimalFormat("#.###");
     }
 }

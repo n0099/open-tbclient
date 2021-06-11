@@ -13,6 +13,7 @@ import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.BundleInfoGroup;
 import com.baidu.nps.pm.manager.NPSPackageManager;
+import com.baidu.pass.biometrics.face.liveness.b.b;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
@@ -283,7 +284,7 @@ public class YYLiveNPSPluginManager {
                 if (z) {
                     jSONObject.put("value", "suc");
                 } else {
-                    jSONObject.put("value", "fail");
+                    jSONObject.put("value", b.g0);
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("pkg", str);
